@@ -7,9 +7,9 @@ import (
 	"log"
 	"os"
 
-	"msgraph.go/adal"
+	"github.com/yaegashi/msgraph.go/adal"
 
-	msgraph "msgraph.go/v1.0"
+	msgraph "github.com/yaegashi/msgraph.go/v1.0"
 )
 
 const (
