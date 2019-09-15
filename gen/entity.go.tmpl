@@ -1,0 +1,23 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymType := call $.SymExported $x.Name }}
+// {{$xSymType}} {{$x.Description}}
+type {{$xSymType}} struct {
+{{- if ne $x.Base "" }}
+{{call $.TypeConverted $x.Base}}
+{{- end }}
+{{- range $y := .X.Members }}
+{{- $ySymName := call $.SymExported $y.Name }}
+{{- $ySymType := call $.PtrTypeConverted $y.Type }}
+    // {{$ySymName}} {{$y.Description}}
+    {{$ySymName}} {{$ySymType}} `json:"{{$y.Name}},omitempty"`
+{{- end }}
+}
+
+// I{{$xSymType}} interface type for {{$x.Name}}
+type I{{$xSymType}} interface {
+    P{{$xSymType}}() *{{$xSymType}}
+}
+
+// P{{$xSymType}} pointer method for {{$x.Name}}
+func (p *{{$xSymType}}) P{{$xSymType}}() *{{$xSymType}} { return p }

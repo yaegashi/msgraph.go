@@ -1,0 +1,13 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymName := call $.SymExported $x.Name }}
+// {{$xSymName}} {{$x.Description}}
+type {{$xSymName}} int
+
+const (
+{{- range $y := .X.Members }}
+{{- $ySymName := call $.SymExported $y.Name }}
+    // {{$xSymName}}_{{$ySymName}} {{$y.Description}}
+    {{$xSymName}}_{{$ySymName}} {{$xSymName}} = {{$y.Value}}
+{{- end }}
+)

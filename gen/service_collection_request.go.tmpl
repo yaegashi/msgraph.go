@@ -1,0 +1,133 @@
+{{- $xSymType := call .SymExported .X.Name }}
+
+// NewRequestWithPath returns a new HTTP Request for {{$xSymType}} collection with addtional path
+func (s *ServiceCollection{{$xSymType}}) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL + path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for {{$xSymType}}
+func (s *ServiceCollection{{$xSymType}}) DoRequestWithPath(method, path string, obj interface{}) (*{{$xSymType}}, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *{{$xSymType}}
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) DoRequest(method string, obj interface{}) (*{{$xSymType}}, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoPagingNext handles paging for {{$xSymType}} collection
+func (s *ServiceCollection{{$xSymType}}) DoPagingNext(res *http.Response) ([]{{$xSymType}}, error) {
+	if res.StatusCode != http.StatusOK {
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+	var (
+		obj              Paging
+		value, nextValue []{{$xSymType}}
+	)
+	err := json.NewDecoder(res.Body).Decode(&obj)
+	if err != nil {
+		return nil, err
+	}
+	err = json.Unmarshal(obj.Value, &value)
+	if err != nil {
+		return nil, err
+	}
+	if len(obj.NextLink) > 0 {
+		res, err := s.client.Get(obj.NextLink)
+		if err != nil {
+			return nil, err
+		}
+		nextValue, err = s.DoPagingNext(res)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return append(value, nextValue...), nil
+}
+
+// DoPagingWithPath issues an HTTP request for {{$xSymType}} collection
+func (s *ServiceCollection{{$xSymType}}) DoPagingWithPath(method, path string, obj interface{}) ([]{{$xSymType}}, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	return s.DoPagingNext(res)
+}
+
+// DoPaging wraps DoPagingWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) DoPaging(method string, obj interface{}) ([]{{$xSymType}}, error) {
+	return s.DoPagingWithPath(method, "", obj)
+}
+
+// GetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollection{{$xSymType}}) GetWithPath(path string) ([]{{$xSymType}}, error) {
+	return s.DoPagingWithPath("GET", path, nil)
+}
+
+// Get wraps GetWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) Get() ([]{{$xSymType}}, error) {
+	return s.GetWithPath("")
+}
+
+// PostWithPath warps DoRequestWithPath with POST method
+func (s *ServiceCollection{{$xSymType}}) PostWithPath(path string, obj interface{}) (*{{$xSymType}}, error) {
+	return s.DoRequestWithPath("POST", path, obj)
+}
+
+// Post wraps PostWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) Post(obj interface{}) (*{{$xSymType}}, error) {
+	return s.PostWithPath("", obj)
+}

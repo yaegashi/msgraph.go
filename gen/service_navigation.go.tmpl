@@ -1,0 +1,13 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymType := call $.SymExported $x.Name }}
+{{- range $y := $x.Navigations }}
+{{- $ySymName := call $.SymExported $y.Name }}
+{{- $ySymType := call $.SymTypeConverted $y.Type }}
+// {{$ySymName}} returns service endpoint for {{$ySymType}}
+func (s *Service{{$xSymType}}) {{$ySymName}}() *Service{{$ySymType}} {
+	ss := &Service{{$ySymType}}{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/{{$y.Name}}"
+	return ss
+}
+{{- end }}

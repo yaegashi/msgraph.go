@@ -1,0 +1,10 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymName := call $.SymExported $x.Name }}
+{{- $xSymType := call $.SymTypeConverted $x.Type }}
+// {{$xSymName}} returns service singleton endpoint for {{$xSymType}}
+func (s *Service) {{$xSymName}}() *Service{{$xSymType}} {
+	ss := &Service{{$xSymType}}{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/{{$x.Name}}"
+	return ss
+}
