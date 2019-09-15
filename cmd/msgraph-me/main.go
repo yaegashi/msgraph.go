@@ -4,20 +4,18 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"log"
 	"os"
 
-	"github.com/yaegashi/msgraph.go/adal"
-
+	"github.com/yaegashi/msgraph.go/auth"
 	msgraph "github.com/yaegashi/msgraph.go/v1.0"
 )
 
 const (
-	defaultAuthority = "https://login.microsoftonline.com/"
-	defaultTenantID  = "common"
-	defaultClientID  = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
-	defaultResource  = "https://graph.microsoft.com"
-	defaultStore     = "token_cache.json"
+	defaultTenantID = "common"
+	defaultClientID = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
+	defaultScope    = "openid profile user.readwrite files.readwrite.all"
 )
 
 func dump(o interface{}) {
@@ -27,21 +25,25 @@ func dump(o interface{}) {
 }
 
 func main() {
-	adalClient := &adal.Client{}
-	flag.StringVar(&adalClient.Authority, "authority", defaultAuthority, "Authority")
-	flag.StringVar(&adalClient.TenantID, "tenant_id", defaultTenantID, "Tenant ID")
-	flag.StringVar(&adalClient.ClientID, "client_id", defaultClientID, "Client ID")
-	flag.StringVar(&adalClient.Resource, "resource", defaultResource, "Resource")
-	flag.StringVar(&adalClient.Store, "store", defaultStore, "Token cache store path")
+	var tenantID, clientID string
+	flag.StringVar(&tenantID, "tenant_id", defaultTenantID, "Tenant ID")
+	flag.StringVar(&clientID, "client_id", defaultClientID, "Client ID")
 	flag.Parse()
 
-	err := adalClient.LoadToken()
+	da, err := auth.NewDeviceAuth(tenantID, clientID, defaultScope)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(da.Message())
+
+	dt, err := da.Poll()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	ctx := context.Background()
-	cli := adalClient.NewHTTPClient(ctx)
+	cli := dt.Client(ctx)
 	serv := msgraph.NewService(cli)
 
 	{
@@ -57,8 +59,9 @@ func main() {
 
 	{
 		s := serv.Me().Drive().Root().Children()
-		log.Printf("GET %s", s.URL())
-		r, err := s.Get()
+		q := "?$select=name,file,folder,size"
+		log.Printf("GET %s%s", s.URL(), q)
+		r, err := s.GetWithPath(q)
 		if err == nil {
 			dump(r)
 		} else {
