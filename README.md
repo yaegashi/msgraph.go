@@ -1,5 +1,9 @@
 # msgraph.go
 
+|v1.0|beta|
+|---|---|
+|[![GoDoc](https://godoc.org/github.com/yaegashi/msgraph.go/v1.0?status.svg)](https://godoc.org/github.com/yaegashi/msgraph.go/v1.0)|[![GoDoc](https://godoc.org/github.com/yaegashi/msgraph.go/beta?status.svg)](https://godoc.org/github.com/yaegashi/msgraph.go/beta)|
+
 ## Introduction 
 
 [Microsoft Graph] API library for Go.  It's still in PoC or pre-alpha stage.
