@@ -18,14 +18,35 @@ heavily relying on C# and non-portable .NET Framework.
 
 ## Usage
 
+Use `go generate` to download the metadata and generate library code from it:
+
+```console
+$ rm gen/*.xml
+$ go generate ./gen
+2019/09/16 14:14:02 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata-v1.0.xml
+2019/09/16 14:14:03 Downloading https://graph.microsoft.com/beta/$metadata to metadata-beta.xml
+2019/09/16 14:14:04 Generating ../v1.0/msgraph.go from metadata-v1.0.xml
+2019/09/16 14:14:05 Generating ../beta/msgraph.go from metadata-beta.xml
+```
+
+You can choose API version when importing `msgraph` package:
+
+```go
+import msgraph "github.com/yaegashi/msgraph.go/v1.0"
+```
+
+```go
+import msgraph "github.com/yaegashi/msgraph.go/beta"
+```
+
+## Example
+
 [cmd/msgraph-me/main.go](cmd/msgraph-me/main.go) shows simple usage example.
 It contains [Azure AD v2 device code flow](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/v2-oauth2-device-code)
 for the user authentication.
 You can authenticate yourself with both pernsonal (Microsoft) account and organizational account.
 
 ```console
-$ git clone https://github.com/yaegashi/msgraph.go
-$ cd msgraph.go
 $ go get ./cmd/msgraph-me
 $ msgraph-me
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code HN9KG98HS to authenticate.
@@ -59,6 +80,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 - [ ] Process Action elements in metadata
 - [ ] Split output into multiple files
 - [ ] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
+- [ ] Save indented metadata.xml
 - [ ] Improve API documentation in godoc.org
 - [ ] Support more OAuth2 flows
 - [ ] Persist OAuth2 tokens in file
