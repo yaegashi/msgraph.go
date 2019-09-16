@@ -1068,6 +1068,22 @@ const (
 	EventType_SeriesMaster EventType = 3
 )
 
+// ExchangeIdFormat undocumented
+type ExchangeIdFormat int
+
+const (
+	// ExchangeIdFormat_EntryId undocumented
+	ExchangeIdFormat_EntryId ExchangeIdFormat = 0
+	// ExchangeIdFormat_EwsId undocumented
+	ExchangeIdFormat_EwsId ExchangeIdFormat = 1
+	// ExchangeIdFormat_ImmutableEntryId undocumented
+	ExchangeIdFormat_ImmutableEntryId ExchangeIdFormat = 2
+	// ExchangeIdFormat_RestId undocumented
+	ExchangeIdFormat_RestId ExchangeIdFormat = 3
+	// ExchangeIdFormat_RestImmutableEntryId undocumented
+	ExchangeIdFormat_RestImmutableEntryId ExchangeIdFormat = 4
+)
+
 // ExternalAudienceScope undocumented
 type ExternalAudienceScope int
 
@@ -4886,6 +4902,24 @@ type IConversationThread interface {
 // PConversationThread pointer method for conversationThread
 func (p *ConversationThread) PConversationThread() *ConversationThread { return p }
 
+// ConvertIdResult undocumented
+type ConvertIdResult struct {
+	// SourceId undocumented
+	SourceId *string `json:"sourceId,omitempty"`
+	// TargetId undocumented
+	TargetId *string `json:"targetId,omitempty"`
+	// ErrorDetails undocumented
+	ErrorDetails *GenericError `json:"errorDetails,omitempty"`
+}
+
+// IConvertIdResult interface type for convertIdResult
+type IConvertIdResult interface {
+	PConvertIdResult() *ConvertIdResult
+}
+
+// PConvertIdResult pointer method for convertIdResult
+func (p *ConvertIdResult) PConvertIdResult() *ConvertIdResult { return p }
+
 // CurrencyColumn undocumented
 type CurrencyColumn struct {
 	// Locale undocumented
@@ -5231,7 +5265,7 @@ func (p *DeviceAndAppManagementRoleDefinition) PDeviceAndAppManagementRoleDefini
 	return p
 }
 
-// DeviceAppManagement Singleton entity that acts as a container for all device app management functionality.
+// DeviceAppManagement Device app management singleton entity.
 type DeviceAppManagement struct {
 	Entity
 	// MicrosoftStoreForBusinessLastSuccessfulSyncDateTime The last time the apps from the Microsoft Store for Business were synced successfully for the account.
@@ -6193,12 +6227,12 @@ func (p *DeviceInstallState) PDeviceInstallState() *DeviceInstallState { return 
 // DeviceManagement Singleton entity that acts as a container for all device management functionality.
 type DeviceManagement struct {
 	Entity
-	// SubscriptionState Tenant mobile device management subscription state.
-	SubscriptionState *DeviceManagementSubscriptionState `json:"subscriptionState,omitempty"`
 	// Settings Account level settings.
 	Settings *DeviceManagementSettings `json:"settings,omitempty"`
 	// IntuneBrand intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
 	IntuneBrand *IntuneBrand `json:"intuneBrand,omitempty"`
+	// SubscriptionState Tenant mobile device management subscription state.
+	SubscriptionState *DeviceManagementSubscriptionState `json:"subscriptionState,omitempty"`
 }
 
 // IDeviceManagement interface type for deviceManagement
@@ -7510,6 +7544,22 @@ type IFreeBusyError interface {
 
 // PFreeBusyError pointer method for freeBusyError
 func (p *FreeBusyError) PFreeBusyError() *FreeBusyError { return p }
+
+// GenericError undocumented
+type GenericError struct {
+	// Message undocumented
+	Message *string `json:"message,omitempty"`
+	// Code undocumented
+	Code *string `json:"code,omitempty"`
+}
+
+// IGenericError interface type for genericError
+type IGenericError interface {
+	PGenericError() *GenericError
+}
+
+// PGenericError pointer method for genericError
+func (p *GenericError) PGenericError() *GenericError { return p }
 
 // GeoCoordinates undocumented
 type GeoCoordinates struct {
@@ -9243,10 +9293,10 @@ type Location struct {
 	LocationEmailAddress *string `json:"locationEmailAddress,omitempty"`
 	// Address undocumented
 	Address *PhysicalAddress `json:"address,omitempty"`
-	// Coordinates undocumented
-	Coordinates *OutlookGeoCoordinates `json:"coordinates,omitempty"`
 	// LocationUri undocumented
 	LocationUri *string `json:"locationUri,omitempty"`
+	// Coordinates undocumented
+	Coordinates *OutlookGeoCoordinates `json:"coordinates,omitempty"`
 	// LocationType undocumented
 	LocationType *LocationType `json:"locationType,omitempty"`
 	// UniqueId undocumented
@@ -9559,6 +9609,10 @@ type MailboxSettings struct {
 	Language *LocaleInfo `json:"language,omitempty"`
 	// WorkingHours undocumented
 	WorkingHours *WorkingHours `json:"workingHours,omitempty"`
+	// DateFormat undocumented
+	DateFormat *string `json:"dateFormat,omitempty"`
+	// TimeFormat undocumented
+	TimeFormat *string `json:"timeFormat,omitempty"`
 }
 
 // IMailboxSettings interface type for mailboxSettings
@@ -11724,14 +11778,14 @@ func (p *OutlookCategory) POutlookCategory() *OutlookCategory { return p }
 
 // OutlookGeoCoordinates undocumented
 type OutlookGeoCoordinates struct {
-	// Altitude undocumented
-	Altitude *float64 `json:"altitude,omitempty"`
 	// Latitude undocumented
 	Latitude *float64 `json:"latitude,omitempty"`
 	// Longitude undocumented
 	Longitude *float64 `json:"longitude,omitempty"`
 	// Accuracy undocumented
 	Accuracy *float64 `json:"accuracy,omitempty"`
+	// Altitude undocumented
+	Altitude *float64 `json:"altitude,omitempty"`
 	// AltitudeAccuracy undocumented
 	AltitudeAccuracy *float64 `json:"altitudeAccuracy,omitempty"`
 }
@@ -13146,7 +13200,7 @@ type ScoredEmailAddress struct {
 	// SelectionLikelihood undocumented
 	SelectionLikelihood *SelectionLikelihoodInfo `json:"selectionLikelihood,omitempty"`
 	// ItemId undocumented
-	ItemId *string `json:"ItemId,omitempty"`
+	ItemId *string `json:"itemId,omitempty"`
 }
 
 // IScoredEmailAddress interface type for scoredEmailAddress
@@ -14696,6 +14750,8 @@ type User struct {
 	UserType *string `json:"userType,omitempty"`
 	// MailboxSettings undocumented
 	MailboxSettings *MailboxSettings `json:"mailboxSettings,omitempty"`
+	// DeviceEnrollmentLimit The limit on the maximum number of devices that the user is permitted to enroll. Allowed values are 5 or 1000.
+	DeviceEnrollmentLimit *int `json:"deviceEnrollmentLimit,omitempty"`
 	// AboutMe undocumented
 	AboutMe *string `json:"aboutMe,omitempty"`
 	// Birthday undocumented
@@ -14716,8 +14772,6 @@ type User struct {
 	Schools []string `json:"schools,omitempty"`
 	// Skills undocumented
 	Skills []string `json:"skills,omitempty"`
-	// DeviceEnrollmentLimit The limit on the maximum number of devices that the user is permitted to enroll. Allowed values are 5 or 1000.
-	DeviceEnrollmentLimit *int `json:"deviceEnrollmentLimit,omitempty"`
 }
 
 // IUser interface type for user
