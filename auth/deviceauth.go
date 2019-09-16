@@ -13,15 +13,19 @@ import (
 )
 
 const (
-	DeviceCodeGrantType = "urn:ietf:params:oauth:grant-type:device_code"
+	endpointURLFormat         = "https://login.microsoftonline.com/%s/oauth2/v2.0/%s"
+	deviceCodeGrantType       = "urn:ietf:params:oauth:grant-type:device_code"
+	authorizationPendingError = "authorization_pending"
 )
 
+// DeviceAuth carries device auth flow information
 type DeviceAuth struct {
 	Code     *DeviceCode
 	TenantID string
 	ClientID string
 }
 
+// DeviceCode is returned on device auth inintiation
 type DeviceCode struct {
 	DeviceCode      string `json:"device_code"`
 	UserCode        string `json:"user_code"`
@@ -31,6 +35,7 @@ type DeviceCode struct {
 	Message         string `json:"message"`
 }
 
+// DeviceToken is returned on device auth success
 type DeviceToken struct {
 	TokenType    string `json:"token_type"`
 	Scope        string `json:"scope"`
@@ -40,13 +45,15 @@ type DeviceToken struct {
 	RefreshToken string `json:"refresh_token"`
 }
 
+// DeviceError is returned on errors
 type DeviceError struct {
 	Error            string `json:"error"`
 	ErrorDescription string `json:"error_description"`
 }
 
+// NewDeviceAuth initiates a new device auth flow
 func NewDeviceAuth(tenantID, clientID, scope string) (*DeviceAuth, error) {
-	devicecodeURL := fmt.Sprintf("https://login.microsoftonline.com/%s/oauth2/v2.0/devicecode", tenantID)
+	devicecodeURL := fmt.Sprintf(endpointURLFormat, tenantID, "devicecode")
 	res, err := http.PostForm(devicecodeURL, url.Values{"client_id": {clientID}, "scope": {scope}})
 	if err != nil {
 		return nil, err
@@ -65,15 +72,17 @@ func NewDeviceAuth(tenantID, clientID, scope string) (*DeviceAuth, error) {
 	return da, nil
 }
 
+// Message returns a string to prompt to user
 func (da *DeviceAuth) Message() string {
 	return da.Code.Message
 }
 
+// Poll waits for the completion of device auth by user
 func (da *DeviceAuth) Poll() (*DeviceToken, error) {
-	tokenURL := fmt.Sprintf("https://login.microsoftonline.com/%s/oauth2/v2.0/token", da.TenantID)
+	tokenURL := fmt.Sprintf(endpointURLFormat, da.TenantID, "token")
 	values := url.Values{
 		"client_id":   {da.ClientID},
-		"grant_type":  {DeviceCodeGrantType},
+		"grant_type":  {deviceCodeGrantType},
 		"device_code": {da.Code.DeviceCode},
 	}
 	interval := da.Code.Interval
@@ -102,12 +111,13 @@ func (da *DeviceAuth) Poll() (*DeviceToken, error) {
 		if err != nil {
 			return nil, err
 		}
-		if de.Error != "authorization_pending" {
+		if de.Error != authorizationPendingError {
 			return nil, fmt.Errorf("%s: %s", de.Error, de.ErrorDescription)
 		}
 	}
 }
 
+// Token implements oauth2.TokenSource interface
 func (dt *DeviceToken) Token() (*oauth2.Token, error) {
 	return &oauth2.Token{
 		TokenType:    dt.TokenType,
@@ -116,6 +126,7 @@ func (dt *DeviceToken) Token() (*oauth2.Token, error) {
 	}, nil
 }
 
+// Client returns *http.Client
 func (dt *DeviceToken) Client(ctx context.Context) *http.Client {
 	return oauth2.NewClient(ctx, dt)
 }
