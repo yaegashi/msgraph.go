@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 
 	"github.com/yaegashi/msgraph.go/auth"
@@ -59,7 +60,7 @@ func main() {
 
 	{
 		s := serv.Me().Drive().Root().Children()
-		q := "?$select=name,file,folder,size"
+		q := "?" + url.Values{"$filter": {"file ne null"}, "$select": {"name,file,size,webUrl"}}.Encode()
 		log.Printf("GET %s%s", s.URL(), q)
 		r, err := s.GetWithPath(q)
 		if err == nil {
