@@ -81,6 +81,20 @@ type EntityTypeNavigation struct {
 	Description string
 }
 
+type ActionType struct {
+	Name                 string
+	BindingParameterType string
+	Parameters           []*ActionTypeParameter
+	ReturnType           string
+	Description          string
+}
+
+type ActionTypeParameter struct {
+	Name        string
+	Type        string
+	Description string
+}
+
 type EntitySet struct {
 	Name string
 	Type string
@@ -89,6 +103,14 @@ type EntitySet struct {
 type Singleton struct {
 	Name string
 	Type string
+}
+
+func ptrType(t string) string {
+	switch t {
+	case "json.RawMessage":
+		return t
+	}
+	return "*" + t
 }
 
 func stripNSPrefix(t string) (string, bool) {
@@ -103,37 +125,54 @@ func symExported(n string) string {
 	return strings.Title(n)
 }
 
-func typeConverted(t string) string {
+func typeFromName(n string) string {
+	return ptrType(symExported(n))
+}
+
+func typeFromType(t string) string {
 	if val, ok := reservedTypeTable[t]; ok {
-		return val
+		return ptrType(val)
 	}
 	if t, ok := stripNSPrefix(t); ok {
-		return symExported(t)
+		return ptrType(symExported(t))
 	}
 	if strings.HasPrefix(t, colPrefix) {
-		return "[]" + typeConverted(t[len(colPrefix):len(t)-1])
+		return "[]" + typeFromType(t[len(colPrefix) : len(t)-1])[1:]
 	}
 	panic(fmt.Errorf("Unknown type %s", t))
 }
 
-func ptrTypeConverted(t string) string {
-	t = typeConverted(t)
-	switch t {
-	case "json.RawMessage":
-		return t
-	}
-	if strings.HasPrefix(t, "[]") {
-		return t
-	}
-	return "*" + t
+func symFromName(n string) string {
+	return symExported(n)
 }
 
-func symTypeConverted(t string) string {
-	t = typeConverted(t)
-	if strings.HasPrefix(t, "[]") {
+func symFromType(t string) string {
+	t = typeFromType(t)
+	if t[:2] == "[]" {
 		return "Collection" + t[2:]
 	}
+	if t[:1] == "*" {
+		return t[1:]
+	}
 	return t
+}
+
+func isCollectionType(t string) bool {
+	return t[:2] == "[]"
+}
+
+func symBaseType(t string) string {
+	if t[:2] == "[]" {
+		t = t[2:]
+	}
+	if t[:1] == "*" {
+		t = t[1:]
+	}
+	return t
+}
+
+func symCollectionType(t string) string {
+	return "Collection" + symBaseType(t)
 }
 
 func attrMap(a []xml.Attr) map[string]string {
@@ -145,15 +184,15 @@ func attrMap(a []xml.Attr) map[string]string {
 }
 
 var tmplX = struct {
-	SymExported, TypeConverted, PtrTypeConverted, SymTypeConverted func(string) string
-	Environ                                                        map[string]string
-	Data, X                                                        interface{}
+	TypeFromName, TypeFromType, SymFromName, SymFromType func(string) string
+	Environ                                              map[string]string
+	Data, X, Y                                           interface{}
 }{
-	SymExported:      symExported,
-	TypeConverted:    typeConverted,
-	PtrTypeConverted: ptrTypeConverted,
-	SymTypeConverted: symTypeConverted,
-	Environ:          map[string]string{},
+	TypeFromName: typeFromName,
+	TypeFromType: typeFromType,
+	SymFromName:  symFromName,
+	SymFromType:  symFromType,
+	Environ:      map[string]string{},
 }
 
 func main() {
@@ -192,9 +231,11 @@ func main() {
 	schema := o.Elems[0].Elems[0]
 	enumTypeMap := map[string]*EnumType{}
 	entityTypeMap := map[string]*EntityType{}
+	actionTypeMap := map[string]*ActionType{}
 	entitySetMap := map[string]*EntitySet{}
 	singletonMap := map[string]*Singleton{}
-	baseTypeMap := map[string]bool{}
+	serviceStructMap := map[string]bool{}
+	serviceActionsMap := map[string][]*ActionType{}
 
 	for _, x := range schema.Elems {
 		switch x.XMLName.Local {
@@ -217,12 +258,7 @@ func main() {
 			if _, ok := reservedTypeTable[n]; ok {
 				continue
 			}
-			b, ok := m["BaseType"]
-			if ok {
-				if bt, ok := stripNSPrefix(b); ok {
-					baseTypeMap[bt] = true
-				}
-			}
+			b, _ := m["BaseType"]
 			et := &EntityType{
 				Name:        n,
 				Base:        b,
@@ -242,6 +278,29 @@ func main() {
 				}
 			}
 			entityTypeMap[et.Name] = et
+		case "Action":
+			m := attrMap(x.Attrs)
+			n := m["Name"]
+			at := &ActionType{
+				Name:        n,
+				Description: "undocumented",
+			}
+			for _, y := range x.Elems {
+				ma := attrMap(y.Attrs)
+				switch y.XMLName.Local {
+				case "Parameter":
+					n := ma["Name"]
+					t := ma["Type"]
+					at.Parameters = append(at.Parameters, &ActionTypeParameter{Name: n, Type: t, Description: "undocumented"})
+				case "ReturnType":
+					at.ReturnType = ma["Type"]
+				}
+			}
+			at.BindingParameterType = at.Parameters[0].Type
+			at.Parameters = at.Parameters[1:]
+			bType := symFromType(at.BindingParameterType)
+			actionTypeMap[bType+symExported(at.Name)] = at
+			serviceActionsMap[bType] = append(serviceActionsMap[bType], at)
 		case "EntityContainer":
 			for _, y := range x.Elems {
 				ma := attrMap(y.Attrs)
@@ -346,26 +405,45 @@ func main() {
 		}
 	}
 
-	serviceStructMap := map[string]bool{}
+	keys = nil
+	for x, y := range actionTypeMap {
+		keys = append(keys, x)
+		yType := typeFromType(y.BindingParameterType)
+		serviceStructMap[symBaseType(yType)] = true
+		if isCollectionType(yType) {
+			serviceStructMap[symCollectionType(yType)] = true
+		}
+	}
+	sort.Strings(keys)
+	for _, key := range keys {
+		tmplX.X = actionTypeMap[key]
+		err := tmpl.ExecuteTemplate(out, "action_parameters.go.tmpl", tmplX)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
 	for _, x := range entityTypeMap {
 		if len(x.Navigations) == 0 {
 			continue
 		}
-		xName := symExported(x.Name)
-		serviceStructMap[xName] = true
+		serviceStructMap[symFromName(x.Name)] = true
 		for _, y := range x.Navigations {
-			yType := symTypeConverted(y.Type)
-			serviceStructMap[yType] = true
+			yType := typeFromType(y.Type)
+			serviceStructMap[symBaseType(yType)] = true
+			if isCollectionType(yType) {
+				serviceStructMap[symCollectionType(yType)] = true
+			}
 		}
 	}
 	for _, x := range entitySetMap {
-		xType := typeConverted(x.Type)
-		serviceStructMap[xType] = true
-		serviceStructMap["Collection"+xType] = true
+		xType := typeFromType(x.Type)
+		serviceStructMap[symBaseType(xType)] = true
+		serviceStructMap[symCollectionType(xType)] = true
 	}
 	for _, x := range singletonMap {
-		xType := typeConverted(x.Type)
-		serviceStructMap[xType] = true
+		xType := typeFromType(x.Type)
+		serviceStructMap[symBaseType(xType)] = true
 	}
 
 	keys = nil
@@ -415,23 +493,46 @@ func main() {
 	for _, key := range keys {
 		x := entityTypeMap[key]
 		tmplX.X = x
-		xSymType := symExported(x.Name)
+		xType := typeFromName(x.Name)
 		sort.Slice(x.Navigations, func(i, j int) bool { return x.Navigations[i].Name < x.Navigations[j].Name })
 		err := tmpl.ExecuteTemplate(out, "service_navigation.go.tmpl", tmplX)
 		if err != nil {
 			log.Fatal(err)
 		}
-		if _, ok := serviceStructMap[xSymType]; ok {
+		if _, ok := serviceStructMap[symBaseType(xType)]; ok {
 			err = tmpl.ExecuteTemplate(out, "service_request.go.tmpl", tmplX)
 			if err != nil {
 				log.Fatal(err)
 			}
 		}
-		if _, ok := serviceStructMap["Collection"+xSymType]; ok {
+		if _, ok := serviceStructMap[symCollectionType(xType)]; ok {
 			err = tmpl.ExecuteTemplate(out, "service_collection_request.go.tmpl", tmplX)
 			if err != nil {
 				log.Fatal(err)
 			}
+		}
+	}
+
+	keys = nil
+	for x, _ := range actionTypeMap {
+		keys = append(keys, x)
+	}
+	sort.Strings(keys)
+	for _, key := range keys {
+		x := actionTypeMap[key]
+		tmplX.X = x
+		if x.ReturnType == "" {
+			err = tmpl.ExecuteTemplate(out, "action_void.go.tmpl", tmplX)
+		} else {
+			aType := typeFromType(x.ReturnType)
+			if strings.HasPrefix(aType, "[]") {
+				err = tmpl.ExecuteTemplate(out, "action_collection.go.tmpl", tmplX)
+			} else {
+				err = tmpl.ExecuteTemplate(out, "action_single.go.tmpl", tmplX)
+			}
+		}
+		if err != nil {
+			log.Fatal(err)
 		}
 	}
 

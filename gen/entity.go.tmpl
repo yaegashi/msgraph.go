@@ -1,16 +1,16 @@
 {{- $ := . }}
 {{- $x := .X }}
-{{- $xSymType := call $.SymExported $x.Name }}
+{{- $xSymType := call $.SymFromName $x.Name }}
 // {{$xSymType}} {{$x.Description}}
 type {{$xSymType}} struct {
 {{- if ne $x.Base "" }}
-{{call $.TypeConverted $x.Base}}
+{{call $.SymFromType $x.Base}}
 {{- end }}
 {{- range $y := .X.Members }}
-{{- $ySymName := call $.SymExported $y.Name }}
-{{- $ySymType := call $.PtrTypeConverted $y.Type }}
+{{- $ySymName := call $.SymFromName $y.Name }}
+{{- $yTypeType := call $.TypeFromType $y.Type }}
     // {{$ySymName}} {{$y.Description}}
-    {{$ySymName}} {{$ySymType}} `json:"{{$y.Name}},omitempty"`
+    {{$ySymName}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
 {{- end }}
 }
 

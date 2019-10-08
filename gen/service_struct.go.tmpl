@@ -1,3 +1,3 @@
-{{- $xSymType := call .SymExported .X }}
-// Service{{$xSymType}} is service endpoint type for {{$xSymType}}
-type Service{{$xSymType}} struct{ ServiceBase }
+{{- $xSymName := call .SymFromName .X }}
+// Service{{$xSymName}} is service endpoint type for {{$xSymName}}
+type Service{{$xSymName}} struct{ ServiceBase }

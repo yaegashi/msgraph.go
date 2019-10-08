@@ -1,0 +1,44 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymBindingType := call $.SymFromType $x.BindingParameterType }}
+{{- $xSymName := call $.SymFromName $x.Name }}
+{{- $xTypeType := call $.TypeFromType $x.ReturnType }}
+// {{$xSymName}} {{$x.Description}}
+func (s *Service{{$xSymBindingType}}) {{$xSymName}}(obj *{{$xSymBindingType}}{{$xSymName}}Parameters) ({{$xTypeType}}, error) {
+	req, err := s.NewJSONRequestWithPath("POST", "/{{$x.Name}}", obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values {{$xTypeType}}
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value {{$xTypeType}}
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = s.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}

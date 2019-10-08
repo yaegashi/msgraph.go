@@ -1,133 +1,84 @@
-{{- $xSymType := call .SymExported .X.Name }}
+{{- $xSymName := call .SymFromName .X.Name }}
 
-// NewRequestWithPath returns a new HTTP Request for {{$xSymType}} collection with addtional path
-func (s *ServiceCollection{{$xSymType}}) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
-	return http.NewRequest(method, s.baseURL + path, body)
+// ID returns service entrypoint for {{$xSymName}}
+func (s *ServiceCollection{{$xSymName}}) ID(id string) *Service{{$xSymName}} {
+	ss := &Service{{$xSymName}}{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/" + id
+	return ss
 }
 
-// NewRequest wraps NewRequestWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) NewRequest(method string, body io.Reader) (*http.Request, error) {
-	return s.NewRequestWithPath(method, "", body)
-}
-
-// DoRequestWithPath issues an HTTP request for {{$xSymType}}
-func (s *ServiceCollection{{$xSymType}}) DoRequestWithPath(method, path string, obj interface{}) (*{{$xSymType}}, error) {
-	buf := &bytes.Buffer{}
-	if obj != nil {
-		err := json.NewEncoder(buf).Encode(obj)
-		if err != nil {
-			return nil, err
-		}
-	}
-	req, err := s.NewRequestWithPath(method, path, buf)
-	if err != nil {
-		return nil, err
-	}
-	if obj != nil {
-		req.Header.Add("Content-Type", "application/json")
-	}
-	res, err := s.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	defer res.Body.Close()
-	switch res.StatusCode {
-	case http.StatusOK:
-		var obj *{{$xSymType}}
-		err := json.NewDecoder(res.Body).Decode(&obj)
-		if err != nil {
-			return nil, err
-		}
-		return obj, nil
-	case http.StatusNoContent:
-		return nil, nil
-	default:
-		b, _ := ioutil.ReadAll(res.Body)
-		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-	}
+// DoRequestWithPath issues an HTTP request with path
+func (s *ServiceCollection{{$xSymName}}) DoRequestWithPath(method, path string, reqObj interface{}) (resObj *{{$xSymName}}, err error) {
+	err = s.DoJSONRequestWithPath(method, path, reqObj, &resObj)
+	return
 }
 
 // DoRequest wraps DoRequestWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) DoRequest(method string, obj interface{}) (*{{$xSymType}}, error) {
+func (s *ServiceCollection{{$xSymName}}) DoRequest(method string, obj interface{}) (*{{$xSymName}}, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// DoPagingNext handles paging for {{$xSymType}} collection
-func (s *ServiceCollection{{$xSymType}}) DoPagingNext(res *http.Response) ([]{{$xSymType}}, error) {
-	if res.StatusCode != http.StatusOK {
-		b, _ := ioutil.ReadAll(res.Body)
-		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-	}
-	var (
-		obj              Paging
-		value, nextValue []{{$xSymType}}
-	)
-	err := json.NewDecoder(res.Body).Decode(&obj)
+// DoPagingWithPath issues an HTTP request for {{$xSymName}} collection
+func (s *ServiceCollection{{$xSymName}}) DoPagingWithPath(method, path string, obj interface{}) ([]{{$xSymName}}, error) {
+	req, err := s.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
-	}
-	err = json.Unmarshal(obj.Value, &value)
-	if err != nil {
-		return nil, err
-	}
-	if len(obj.NextLink) > 0 {
-		res, err := s.client.Get(obj.NextLink)
-		if err != nil {
-			return nil, err
-		}
-		nextValue, err = s.DoPagingNext(res)
-		if err != nil {
-			return nil, err
-		}
-	}
-	return append(value, nextValue...), nil
-}
-
-// DoPagingWithPath issues an HTTP request for {{$xSymType}} collection
-func (s *ServiceCollection{{$xSymType}}) DoPagingWithPath(method, path string, obj interface{}) ([]{{$xSymType}}, error) {
-	buf := &bytes.Buffer{}
-	if obj != nil {
-		err := json.NewEncoder(buf).Encode(obj)
-		if err != nil {
-			return nil, err
-		}
-	}
-	req, err := s.NewRequestWithPath(method, path, buf)
-	if err != nil {
-		return nil, err
-	}
-	if obj != nil {
-		req.Header.Add("Content-Type", "application/json")
 	}
 	res, err := s.client.Do(req)
 	if err != nil {
 		return nil, err
 	}
-	defer res.Body.Close()
-	return s.DoPagingNext(res)
+	var values []{{$xSymName}}
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  []{{$xSymName}}
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = s.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
 }
 
 // DoPaging wraps DoPagingWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) DoPaging(method string, obj interface{}) ([]{{$xSymType}}, error) {
+func (s *ServiceCollection{{$xSymName}}) DoPaging(method string, obj interface{}) ([]{{$xSymName}}, error) {
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// DoGetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollection{{$xSymType}}) DoGetWithPath(path string) ([]{{$xSymType}}, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method
+func (s *ServiceCollection{{$xSymName}}) DoGetWithPath(path string) ([]{{$xSymName}}, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// DoGet wraps GetWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) DoGet() ([]{{$xSymType}}, error) {
-	return s.DoGetWithPath("")
+// DoGet wraps DoPagingWithPath with GET method and empty path
+func (s *ServiceCollection{{$xSymName}}) DoGet() ([]{{$xSymName}}, error) {
+	return s.DoPagingWithPath("GET", "", nil)
 }
 
-// PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollection{{$xSymType}}) DoPostWithPath(path string, obj interface{}) (*{{$xSymType}}, error) {
+// DoPostWithPath warps DoRequestWithPath with POST method
+func (s *ServiceCollection{{$xSymName}}) DoPostWithPath(path string, obj interface{}) (*{{$xSymName}}, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// DoPost wraps PostWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) DoPost(obj interface{}) (*{{$xSymType}}, error) {
-	return s.DoPostWithPath("", obj)
+// DoPost wraps DoRequestWithPath with POST method and empty path
+func (s *ServiceCollection{{$xSymName}}) DoPost(obj interface{}) (*{{$xSymName}}, error) {
+	return s.DoRequestWithPath("POST", "", obj)
 }

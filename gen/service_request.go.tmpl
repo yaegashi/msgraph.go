@@ -1,73 +1,32 @@
-{{- $xSymType := call .SymExported .X.Name }}
+{{- $xSymName := call .SymFromName .X.Name }}
 
-// NewRequestWithPath returns a new HTTP Request for {{$xSymType}}
-func (s *Service{{$xSymType}}) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
-	return http.NewRequest(method, s.baseURL + path, body)
-}
-
-// NewRequest wraps NewRequestWithPath with empty path
-func (s *Service{{$xSymType}}) NewRequest(method string, body io.Reader) (*http.Request, error) {
-	return s.NewRequestWithPath(method, "", body)
-}
-
-// DoRequestWithPath issues an HTTP request for {{$xSymType}}
-func (s *Service{{$xSymType}}) DoRequestWithPath(method, path string, obj interface{}) (*{{$xSymType}}, error) {
-	buf := &bytes.Buffer{}
-	if obj != nil {
-		err := json.NewEncoder(buf).Encode(obj)
-		if err != nil {
-			return nil, err
-		}
-	}
-	req, err := s.NewRequestWithPath(method, path, buf)
-	if err != nil {
-		return nil, err
-	}
-	if obj != nil {
-		req.Header.Add("Content-Type", "application/json")
-	}
-	res, err := s.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	defer res.Body.Close()
-	switch res.StatusCode {
-	case http.StatusOK:
-		var obj *{{$xSymType}}
-		err := json.NewDecoder(res.Body).Decode(&obj)
-		if err != nil {
-			return nil, err
-		}
-		return obj, nil
-	case http.StatusNoContent:
-		return nil, nil
-	default:
-		b, _ := ioutil.ReadAll(res.Body)
-		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-	}
+// DoRequestWithPath issues an HTTP request with path
+func (s *Service{{$xSymName}}) DoRequestWithPath(method, path string, reqObj interface{}) (resObj *{{$xSymName}}, err error) {
+	err = s.DoJSONRequestWithPath(method, path, reqObj, &resObj)
+	return
 }
 
 // DoRequest wraps DoRequestWithPath with empty path
-func (s *Service{{$xSymType}}) DoRequest(method string, obj interface{}) (*{{$xSymType}}, error) {
+func (s *Service{{$xSymName}}) DoRequest(method string, obj interface{}) (*{{$xSymName}}, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
 // DoGetWithPath wraps DoRequestWithPath with GET method
-func (s *Service{{$xSymType}}) DoGetWithPath(path string) (*{{$xSymType}}, error) {
+func (s *Service{{$xSymName}}) DoGetWithPath(path string) (*{{$xSymName}}, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// DoGet wraps GetWithPath with empty path
-func (s *Service{{$xSymType}}) DoGet() (*{{$xSymType}}, error) {
-	return s.DoGetWithPath("")
+// DoGet wraps DoRequestWithPath with GET method and empty path
+func (s *Service{{$xSymName}}) DoGet() (*{{$xSymName}}, error) {
+	return s.DoRequestWithPath("GET", "", nil)
 }
 
 // DoPostWithPath wraps DoRequestWithPath with POST method
-func (s *Service{{$xSymType}}) DoPostWithPath(path string) (*{{$xSymType}}, error) {
-	return s.DoRequestWithPath("POST", path, nil)
+func (s *Service{{$xSymName}}) DoPostWithPath(path string, obj interface{}) (*{{$xSymName}}, error) {
+	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// DoPost wraps PostWithPath with empty path
-func (s *Service{{$xSymType}}) DoPost() (*{{$xSymType}}, error) {
-	return s.DoPostWithPath("")
+// DoPost wraps DoRequestWithPath with POST method and empty path
+func (s *Service{{$xSymName}}) DoPost(obj interface{}) (*{{$xSymName}}, error) {
+	return s.DoRequestWithPath("POST", "", obj)
 }

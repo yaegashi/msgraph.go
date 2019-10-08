@@ -1,17 +1,10 @@
 {{- $ := . }}
 {{- $x := .X }}
-{{- $xSymName := call $.SymExported $x.Name }}
-{{- $xSymType := call $.SymTypeConverted $x.Type }}
+{{- $xSymName := call $.SymFromName $x.Name }}
+{{- $xSymType := call $.SymFromType $x.Type }}
 // {{$xSymName}} returns service entity set endpoint for {{$xSymType}}
 func (s *Service) {{$xSymName}}() *ServiceCollection{{$xSymType}} {
 	ss := &ServiceCollection{{$xSymType}}{ServiceBase: s.ServiceBase}
 	ss.baseURL += "/{{$x.Name}}"
-	return ss
-}
-
-// ID returns service service endpoint for {{$xSymType}}
-func (s *ServiceCollection{{$xSymType}}) ID(id string) *Service{{$xSymType}} {
-	ss := &Service{{$xSymType}}{ServiceBase: s.ServiceBase}
-	ss.baseURL += "/" + id
 	return ss
 }

@@ -1,0 +1,8 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymBindingType := call $.SymFromType $x.BindingParameterType }}
+{{- $xSymName := call $.SymFromName $x.Name }}
+// {{$xSymName}} {{$x.Description}}
+func (s *Service{{$xSymBindingType}}) {{$xSymName}}(reqObj *{{$xSymBindingType}}{{$xSymName}}Parameters) error {
+	return s.DoJSONRequestWithPath("POST", "/{{$x.Name}}", reqObj, nil)
+}

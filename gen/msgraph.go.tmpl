@@ -3,8 +3,10 @@
 package msgraph
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -43,6 +45,68 @@ func (s *ServiceBase) URL() string {
 // Client undocumented
 func (s *ServiceBase) Client() *http.Client {
 	return s.client
+}
+
+// NewRequest returns a new http.Request
+func (s *ServiceBase) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL, body)
+}
+
+// NewRequestWithPath returns a new http.Request with path
+func (s *ServiceBase) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL + path, body)
+}
+
+// NewJSONRequestWithPath returns a new http.Request with path and JSON payload
+func (s *ServiceBase) NewJSONRequestWithPath(method, path string, obj interface{}) (*http.Request, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := http.NewRequest(method, s.baseURL + path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	return req, nil
+}
+
+// DecodeJSONResponse decodes a http.Response with JSON payload
+func (s *ServiceBase) DecodeJSONResponse(res *http.Response, obj interface{}) error {
+	switch res.StatusCode {
+	case http.StatusOK:
+		if obj != nil {
+			err := json.NewDecoder(res.Body).Decode(obj)
+			if err != nil {
+				return err
+			}
+		}
+		return nil
+	case http.StatusNoContent:
+		return nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoJSONRequestWithPath issues a JSON HTTP Request
+func (s *ServiceBase) DoJSONRequestWithPath(method, path string, reqObj, resObj interface{}) error {
+	req, err := s.NewJSONRequestWithPath(method, path, reqObj)
+	if err != nil {
+		return err
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return err
+	}
+	defer res.Body.Close()
+	return s.DecodeJSONResponse(res, resObj)
 }
 
 // Service undocumented
