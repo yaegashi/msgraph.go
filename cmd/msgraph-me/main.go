@@ -50,7 +50,7 @@ func main() {
 	{
 		s := serv.Me()
 		log.Printf("GET %s", s.URL())
-		r, err := s.Get()
+		r, err := s.DoGet()
 		if err == nil {
 			dump(r)
 		} else {
@@ -62,7 +62,7 @@ func main() {
 		s := serv.Me().Drive().Root().Children()
 		q := "?" + url.Values{"$filter": {"file ne null"}, "$select": {"name,file,size,webUrl"}}.Encode()
 		log.Printf("GET %s%s", s.URL(), q)
-		r, err := s.GetWithPath(q)
+		r, err := s.DoGetWithPath(q)
 		if err == nil {
 			dump(r)
 		} else {

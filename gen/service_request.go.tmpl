@@ -52,22 +52,22 @@ func (s *Service{{$xSymType}}) DoRequest(method string, obj interface{}) (*{{$xS
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *Service{{$xSymType}}) GetWithPath(path string) (*{{$xSymType}}, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *Service{{$xSymType}}) DoGetWithPath(path string) (*{{$xSymType}}, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *Service{{$xSymType}}) Get() (*{{$xSymType}}, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *Service{{$xSymType}}) DoGet() (*{{$xSymType}}, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *Service{{$xSymType}}) PostWithPath(path string) (*{{$xSymType}}, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *Service{{$xSymType}}) DoPostWithPath(path string) (*{{$xSymType}}, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *Service{{$xSymType}}) Post() (*{{$xSymType}}, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *Service{{$xSymType}}) DoPost() (*{{$xSymType}}, error) {
+	return s.DoPostWithPath("")
 }

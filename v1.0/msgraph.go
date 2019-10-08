@@ -402,6 +402,42 @@ const (
 	CalendarColor_Auto CalendarColor = -1
 )
 
+// CallDirection undocumented
+type CallDirection int
+
+const (
+	// CallDirection_Incoming undocumented
+	CallDirection_Incoming CallDirection = 0
+	// CallDirection_Outgoing undocumented
+	CallDirection_Outgoing CallDirection = 1
+)
+
+// CallState undocumented
+type CallState int
+
+const (
+	// CallState_Incoming undocumented
+	CallState_Incoming CallState = 0
+	// CallState_Establishing undocumented
+	CallState_Establishing CallState = 1
+	// CallState_Established undocumented
+	CallState_Established CallState = 3
+	// CallState_Hold undocumented
+	CallState_Hold CallState = 4
+	// CallState_Transferring undocumented
+	CallState_Transferring CallState = 5
+	// CallState_TransferAccepted undocumented
+	CallState_TransferAccepted CallState = 6
+	// CallState_Redirecting undocumented
+	CallState_Redirecting CallState = 7
+	// CallState_Terminating undocumented
+	CallState_Terminating CallState = 8
+	// CallState_Terminated undocumented
+	CallState_Terminated CallState = 9
+	// CallState_UnknownFutureValue undocumented
+	CallState_UnknownFutureValue CallState = 10
+)
+
 // CategoryColor undocumented
 type CategoryColor int
 
@@ -458,6 +494,18 @@ const (
 	CategoryColor_Preset24 CategoryColor = 24
 	// CategoryColor_None undocumented
 	CategoryColor_None CategoryColor = -1
+)
+
+// ChangeType undocumented
+type ChangeType int
+
+const (
+	// ChangeType_Created undocumented
+	ChangeType_Created ChangeType = 0
+	// ChangeType_Updated undocumented
+	ChangeType_Updated ChangeType = 1
+	// ChangeType_Deleted undocumented
+	ChangeType_Deleted ChangeType = 2
 )
 
 // ClonableTeamParts undocumented
@@ -1602,6 +1650,32 @@ const (
 	MdmAuthority_Office365 MdmAuthority = 3
 )
 
+// MediaDirection undocumented
+type MediaDirection int
+
+const (
+	// MediaDirection_Inactive undocumented
+	MediaDirection_Inactive MediaDirection = 0
+	// MediaDirection_SendOnly undocumented
+	MediaDirection_SendOnly MediaDirection = 1
+	// MediaDirection_ReceiveOnly undocumented
+	MediaDirection_ReceiveOnly MediaDirection = 2
+	// MediaDirection_SendReceive undocumented
+	MediaDirection_SendReceive MediaDirection = 3
+)
+
+// MediaState undocumented
+type MediaState int
+
+const (
+	// MediaState_Active undocumented
+	MediaState_Active MediaState = 0
+	// MediaState_Inactive undocumented
+	MediaState_Inactive MediaState = 1
+	// MediaState_UnknownFutureValue undocumented
+	MediaState_UnknownFutureValue MediaState = 2
+)
+
 // MeetingMessageType undocumented
 type MeetingMessageType int
 
@@ -1768,6 +1842,22 @@ const (
 	MobileThreatPartnerTenantState_Enabled MobileThreatPartnerTenantState = 2
 	// MobileThreatPartnerTenantState_Unresponsive undocumented
 	MobileThreatPartnerTenantState_Unresponsive MobileThreatPartnerTenantState = 3
+)
+
+// Modality undocumented
+type Modality int
+
+const (
+	// Modality_Audio undocumented
+	Modality_Audio Modality = 1
+	// Modality_Video undocumented
+	Modality_Video Modality = 2
+	// Modality_VideoBasedScreenSharing undocumented
+	Modality_VideoBasedScreenSharing Modality = 3
+	// Modality_Data undocumented
+	Modality_Data Modality = 4
+	// Modality_UnknownFutureValue undocumented
+	Modality_UnknownFutureValue Modality = 5
 )
 
 // NotificationTemplateBrandingOptions undocumented
@@ -2470,6 +2560,20 @@ const (
 	RegistryValueType_UnknownFutureValue RegistryValueType = 127
 )
 
+// RejectReason undocumented
+type RejectReason int
+
+const (
+	// RejectReason_None undocumented
+	RejectReason_None RejectReason = 0
+	// RejectReason_Busy undocumented
+	RejectReason_Busy RejectReason = 1
+	// RejectReason_Forbidden undocumented
+	RejectReason_Forbidden RejectReason = 2
+	// RejectReason_UnknownFutureValue undocumented
+	RejectReason_UnknownFutureValue RejectReason = 3
+)
+
 // RemoteAssistanceOnboardingStatus undocumented
 type RemoteAssistanceOnboardingStatus int
 
@@ -2626,6 +2730,16 @@ const (
 	SafeSearchFilterType_Strict SafeSearchFilterType = 1
 	// SafeSearchFilterType_Moderate undocumented
 	SafeSearchFilterType_Moderate SafeSearchFilterType = 2
+)
+
+// ScreenSharingRole undocumented
+type ScreenSharingRole int
+
+const (
+	// ScreenSharingRole_Viewer undocumented
+	ScreenSharingRole_Viewer ScreenSharingRole = 0
+	// ScreenSharingRole_Sharer undocumented
+	ScreenSharingRole_Sharer ScreenSharingRole = 1
 )
 
 // SecurityNetworkProtocol undocumented
@@ -2846,6 +2960,46 @@ const (
 	TimeZoneStandard_Windows TimeZoneStandard = 0
 	// TimeZoneStandard_Iana undocumented
 	TimeZoneStandard_Iana TimeZoneStandard = 1
+)
+
+// Tone undocumented
+type Tone int
+
+const (
+	// Tone_Tone0 undocumented
+	Tone_Tone0 Tone = 0
+	// Tone_Tone1 undocumented
+	Tone_Tone1 Tone = 1
+	// Tone_Tone2 undocumented
+	Tone_Tone2 Tone = 2
+	// Tone_Tone3 undocumented
+	Tone_Tone3 Tone = 3
+	// Tone_Tone4 undocumented
+	Tone_Tone4 Tone = 4
+	// Tone_Tone5 undocumented
+	Tone_Tone5 Tone = 5
+	// Tone_Tone6 undocumented
+	Tone_Tone6 Tone = 6
+	// Tone_Tone7 undocumented
+	Tone_Tone7 Tone = 7
+	// Tone_Tone8 undocumented
+	Tone_Tone8 Tone = 8
+	// Tone_Tone9 undocumented
+	Tone_Tone9 Tone = 9
+	// Tone_Star undocumented
+	Tone_Star Tone = 10
+	// Tone_Pound undocumented
+	Tone_Pound Tone = 11
+	// Tone_A undocumented
+	Tone_A Tone = 12
+	// Tone_B undocumented
+	Tone_B Tone = 13
+	// Tone_C undocumented
+	Tone_C Tone = 14
+	// Tone_D undocumented
+	Tone_D Tone = 15
+	// Tone_Flash undocumented
+	Tone_Flash Tone = 16
 )
 
 // UserAccountSecurityType undocumented
@@ -3983,6 +4137,21 @@ func (p *AppConfigurationSettingItem) PAppConfigurationSettingItem() *AppConfigu
 	return p
 }
 
+// AppHostedMediaConfig undocumented
+type AppHostedMediaConfig struct {
+	MediaConfig
+	// Blob undocumented
+	Blob *string `json:"blob,omitempty"`
+}
+
+// IAppHostedMediaConfig interface type for appHostedMediaConfig
+type IAppHostedMediaConfig interface {
+	PAppHostedMediaConfig() *AppHostedMediaConfig
+}
+
+// PAppHostedMediaConfig pointer method for appHostedMediaConfig
+func (p *AppHostedMediaConfig) PAppHostedMediaConfig() *AppHostedMediaConfig { return p }
+
 // AppIdentity undocumented
 type AppIdentity struct {
 	// AppId undocumented
@@ -4236,6 +4405,26 @@ type IAudio interface {
 // PAudio pointer method for audio
 func (p *Audio) PAudio() *Audio { return p }
 
+// AudioConferencing undocumented
+type AudioConferencing struct {
+	// ConferenceId undocumented
+	ConferenceId *string `json:"conferenceId,omitempty"`
+	// TollNumber undocumented
+	TollNumber *string `json:"tollNumber,omitempty"`
+	// TollFreeNumber undocumented
+	TollFreeNumber *string `json:"tollFreeNumber,omitempty"`
+	// DialinUrl undocumented
+	DialinUrl *string `json:"dialinUrl,omitempty"`
+}
+
+// IAudioConferencing interface type for audioConferencing
+type IAudioConferencing interface {
+	PAudioConferencing() *AudioConferencing
+}
+
+// PAudioConferencing pointer method for audioConferencing
+func (p *AudioConferencing) PAudioConferencing() *AudioConferencing { return p }
+
 // AuditActivityInitiator undocumented
 type AuditActivityInitiator struct {
 	// User undocumented
@@ -4471,6 +4660,63 @@ type ICalendarGroup interface {
 // PCalendarGroup pointer method for calendarGroup
 func (p *CalendarGroup) PCalendarGroup() *CalendarGroup { return p }
 
+// Call undocumented
+type Call struct {
+	Entity
+	// State undocumented
+	State *CallState `json:"state,omitempty"`
+	// MediaState undocumented
+	MediaState *CallMediaState `json:"mediaState,omitempty"`
+	// ResultInfo undocumented
+	ResultInfo *ResultInfo `json:"resultInfo,omitempty"`
+	// Direction undocumented
+	Direction *CallDirection `json:"direction,omitempty"`
+	// Subject undocumented
+	Subject *string `json:"subject,omitempty"`
+	// CallbackUri undocumented
+	CallbackUri *string `json:"callbackUri,omitempty"`
+	// Source undocumented
+	Source *ParticipantInfo `json:"source,omitempty"`
+	// Targets undocumented
+	Targets []ParticipantInfo `json:"targets,omitempty"`
+	// RequestedModalities undocumented
+	RequestedModalities []Modality `json:"requestedModalities,omitempty"`
+	// MediaConfig undocumented
+	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
+	// ChatInfo undocumented
+	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
+	// MeetingInfo undocumented
+	MeetingInfo *MeetingInfo `json:"meetingInfo,omitempty"`
+	// TenantId undocumented
+	TenantId *string `json:"tenantId,omitempty"`
+	// MyParticipantId undocumented
+	MyParticipantId *string `json:"myParticipantId,omitempty"`
+	// ToneInfo undocumented
+	ToneInfo *ToneInfo `json:"toneInfo,omitempty"`
+}
+
+// ICall interface type for call
+type ICall interface {
+	PCall() *Call
+}
+
+// PCall pointer method for call
+func (p *Call) PCall() *Call { return p }
+
+// CallMediaState undocumented
+type CallMediaState struct {
+	// Audio undocumented
+	Audio *MediaState `json:"audio,omitempty"`
+}
+
+// ICallMediaState interface type for callMediaState
+type ICallMediaState interface {
+	PCallMediaState() *CallMediaState
+}
+
+// PCallMediaState pointer method for callMediaState
+func (p *CallMediaState) PCallMediaState() *CallMediaState { return p }
+
 // CertificationControl undocumented
 type CertificationControl struct {
 	// Name undocumented
@@ -4508,6 +4754,24 @@ type IChannel interface {
 // PChannel pointer method for channel
 func (p *Channel) PChannel() *Channel { return p }
 
+// ChatInfo undocumented
+type ChatInfo struct {
+	// ThreadId undocumented
+	ThreadId *string `json:"threadId,omitempty"`
+	// MessageId undocumented
+	MessageId *string `json:"messageId,omitempty"`
+	// ReplyChainMessageId undocumented
+	ReplyChainMessageId *string `json:"replyChainMessageId,omitempty"`
+}
+
+// IChatInfo interface type for chatInfo
+type IChatInfo interface {
+	PChatInfo() *ChatInfo
+}
+
+// PChatInfo pointer method for chatInfo
+func (p *ChatInfo) PChatInfo() *ChatInfo { return p }
+
 // ChoiceColumn undocumented
 type ChoiceColumn struct {
 	// AllowTextEntry undocumented
@@ -4543,6 +4807,19 @@ type ICloudAppSecurityState interface {
 
 // PCloudAppSecurityState pointer method for cloudAppSecurityState
 func (p *CloudAppSecurityState) PCloudAppSecurityState() *CloudAppSecurityState { return p }
+
+// CloudCommunications undocumented
+type CloudCommunications struct {
+	Entity
+}
+
+// ICloudCommunications interface type for cloudCommunications
+type ICloudCommunications interface {
+	PCloudCommunications() *CloudCommunications
+}
+
+// PCloudCommunications pointer method for cloudCommunications
+func (p *CloudCommunications) PCloudCommunications() *CloudCommunications { return p }
 
 // ColumnDefinition undocumented
 type ColumnDefinition struct {
@@ -4609,6 +4886,55 @@ type IColumnLink interface {
 
 // PColumnLink pointer method for columnLink
 func (p *ColumnLink) PColumnLink() *ColumnLink { return p }
+
+// CommsNotification undocumented
+type CommsNotification struct {
+	// ChangeType undocumented
+	ChangeType *ChangeType `json:"changeType,omitempty"`
+	// ResourceUrl undocumented
+	ResourceUrl *string `json:"resourceUrl,omitempty"`
+}
+
+// ICommsNotification interface type for commsNotification
+type ICommsNotification interface {
+	PCommsNotification() *CommsNotification
+}
+
+// PCommsNotification pointer method for commsNotification
+func (p *CommsNotification) PCommsNotification() *CommsNotification { return p }
+
+// CommsNotifications undocumented
+type CommsNotifications struct {
+	// Value undocumented
+	Value []CommsNotification `json:"value,omitempty"`
+}
+
+// ICommsNotifications interface type for commsNotifications
+type ICommsNotifications interface {
+	PCommsNotifications() *CommsNotifications
+}
+
+// PCommsNotifications pointer method for commsNotifications
+func (p *CommsNotifications) PCommsNotifications() *CommsNotifications { return p }
+
+// CommsOperation undocumented
+type CommsOperation struct {
+	Entity
+	// Status undocumented
+	Status *OperationStatus `json:"status,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+	// ResultInfo undocumented
+	ResultInfo *ResultInfo `json:"resultInfo,omitempty"`
+}
+
+// ICommsOperation interface type for commsOperation
+type ICommsOperation interface {
+	PCommsOperation() *CommsOperation
+}
+
+// PCommsOperation pointer method for commsOperation
+func (p *CommsOperation) PCommsOperation() *CommsOperation { return p }
 
 // ComplianceInformation undocumented
 type ComplianceInformation struct {
@@ -8038,6 +8364,38 @@ type IInvitation interface {
 // PInvitation pointer method for invitation
 func (p *Invitation) PInvitation() *Invitation { return p }
 
+// InvitationParticipantInfo undocumented
+type InvitationParticipantInfo struct {
+	ParticipantInfo
+	// ReplacesCallId undocumented
+	ReplacesCallId *string `json:"replacesCallId,omitempty"`
+}
+
+// IInvitationParticipantInfo interface type for invitationParticipantInfo
+type IInvitationParticipantInfo interface {
+	PInvitationParticipantInfo() *InvitationParticipantInfo
+}
+
+// PInvitationParticipantInfo pointer method for invitationParticipantInfo
+func (p *InvitationParticipantInfo) PInvitationParticipantInfo() *InvitationParticipantInfo { return p }
+
+// InviteParticipantsOperation undocumented
+type InviteParticipantsOperation struct {
+	CommsOperation
+	// Participants undocumented
+	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
+}
+
+// IInviteParticipantsOperation interface type for inviteParticipantsOperation
+type IInviteParticipantsOperation interface {
+	PInviteParticipantsOperation() *InviteParticipantsOperation
+}
+
+// PInviteParticipantsOperation pointer method for inviteParticipantsOperation
+func (p *InviteParticipantsOperation) PInviteParticipantsOperation() *InviteParticipantsOperation {
+	return p
+}
+
 // InvitedUserMessageInfo undocumented
 type InvitedUserMessageInfo struct {
 	// CcRecipients undocumented
@@ -8611,6 +8969,8 @@ type IosMinimumOperatingSystem struct {
 	V11_0 *bool `json:"v11_0,omitempty"`
 	// V12_0 Version 12.0 or later.
 	V12_0 *bool `json:"v12_0,omitempty"`
+	// V13_0 Version 13.0 or later.
+	V13_0 *bool `json:"v13_0,omitempty"`
 }
 
 // IIosMinimumOperatingSystem interface type for iosMinimumOperatingSystem
@@ -10387,6 +10747,18 @@ func (p *MdmWindowsInformationProtectionPolicy) PMdmWindowsInformationProtection
 	return p
 }
 
+// MediaConfig undocumented
+type MediaConfig struct {
+}
+
+// IMediaConfig interface type for mediaConfig
+type IMediaConfig interface {
+	PMediaConfig() *MediaConfig
+}
+
+// PMediaConfig pointer method for mediaConfig
+func (p *MediaConfig) PMediaConfig() *MediaConfig { return p }
+
 // MediaContentRatingAustralia undocumented
 type MediaContentRatingAustralia struct {
 	// MovieRating Movies rating selected for Australia
@@ -10538,6 +10910,103 @@ type IMediaContentRatingUnitedStates interface {
 func (p *MediaContentRatingUnitedStates) PMediaContentRatingUnitedStates() *MediaContentRatingUnitedStates {
 	return p
 }
+
+// MediaInfo undocumented
+type MediaInfo struct {
+	// Uri undocumented
+	Uri *string `json:"uri,omitempty"`
+	// ResourceId undocumented
+	ResourceId *string `json:"resourceId,omitempty"`
+}
+
+// IMediaInfo interface type for mediaInfo
+type IMediaInfo interface {
+	PMediaInfo() *MediaInfo
+}
+
+// PMediaInfo pointer method for mediaInfo
+func (p *MediaInfo) PMediaInfo() *MediaInfo { return p }
+
+// MediaPrompt undocumented
+type MediaPrompt struct {
+	Prompt
+	// MediaInfo undocumented
+	MediaInfo *MediaInfo `json:"mediaInfo,omitempty"`
+}
+
+// IMediaPrompt interface type for mediaPrompt
+type IMediaPrompt interface {
+	PMediaPrompt() *MediaPrompt
+}
+
+// PMediaPrompt pointer method for mediaPrompt
+func (p *MediaPrompt) PMediaPrompt() *MediaPrompt { return p }
+
+// MediaStream undocumented
+type MediaStream struct {
+	// MediaType undocumented
+	MediaType *Modality `json:"mediaType,omitempty"`
+	// Label undocumented
+	Label *string `json:"label,omitempty"`
+	// SourceId undocumented
+	SourceId *string `json:"sourceId,omitempty"`
+	// Direction undocumented
+	Direction *MediaDirection `json:"direction,omitempty"`
+	// ServerMuted undocumented
+	ServerMuted *bool `json:"serverMuted,omitempty"`
+}
+
+// IMediaStream interface type for mediaStream
+type IMediaStream interface {
+	PMediaStream() *MediaStream
+}
+
+// PMediaStream pointer method for mediaStream
+func (p *MediaStream) PMediaStream() *MediaStream { return p }
+
+// MeetingInfo undocumented
+type MeetingInfo struct {
+}
+
+// IMeetingInfo interface type for meetingInfo
+type IMeetingInfo interface {
+	PMeetingInfo() *MeetingInfo
+}
+
+// PMeetingInfo pointer method for meetingInfo
+func (p *MeetingInfo) PMeetingInfo() *MeetingInfo { return p }
+
+// MeetingParticipantInfo undocumented
+type MeetingParticipantInfo struct {
+	// Identity undocumented
+	Identity *IdentitySet `json:"identity,omitempty"`
+	// Upn undocumented
+	Upn *string `json:"upn,omitempty"`
+}
+
+// IMeetingParticipantInfo interface type for meetingParticipantInfo
+type IMeetingParticipantInfo interface {
+	PMeetingParticipantInfo() *MeetingParticipantInfo
+}
+
+// PMeetingParticipantInfo pointer method for meetingParticipantInfo
+func (p *MeetingParticipantInfo) PMeetingParticipantInfo() *MeetingParticipantInfo { return p }
+
+// MeetingParticipants undocumented
+type MeetingParticipants struct {
+	// Organizer undocumented
+	Organizer *MeetingParticipantInfo `json:"organizer,omitempty"`
+	// Attendees undocumented
+	Attendees []MeetingParticipantInfo `json:"attendees,omitempty"`
+}
+
+// IMeetingParticipants interface type for meetingParticipants
+type IMeetingParticipants interface {
+	PMeetingParticipants() *MeetingParticipants
+}
+
+// PMeetingParticipants pointer method for meetingParticipants
+func (p *MeetingParticipants) PMeetingParticipants() *MeetingParticipants { return p }
 
 // MeetingTimeSuggestion undocumented
 type MeetingTimeSuggestion struct {
@@ -11068,6 +11537,19 @@ type IMultiValueLegacyExtendedProperty interface {
 func (p *MultiValueLegacyExtendedProperty) PMultiValueLegacyExtendedProperty() *MultiValueLegacyExtendedProperty {
 	return p
 }
+
+// MuteParticipantOperation undocumented
+type MuteParticipantOperation struct {
+	CommsOperation
+}
+
+// IMuteParticipantOperation interface type for muteParticipantOperation
+type IMuteParticipantOperation interface {
+	PMuteParticipantOperation() *MuteParticipantOperation
+}
+
+// PMuteParticipantOperation pointer method for muteParticipantOperation
+func (p *MuteParticipantOperation) PMuteParticipantOperation() *MuteParticipantOperation { return p }
 
 // NetworkConnection undocumented
 type NetworkConnection struct {
@@ -11654,6 +12136,37 @@ type IOnenoteSection interface {
 // POnenoteSection pointer method for onenoteSection
 func (p *OnenoteSection) POnenoteSection() *OnenoteSection { return p }
 
+// OnlineMeeting undocumented
+type OnlineMeeting struct {
+	Entity
+	// CreationDateTime undocumented
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// JoinUrl undocumented
+	JoinUrl *string `json:"joinUrl,omitempty"`
+	// Subject undocumented
+	Subject *string `json:"subject,omitempty"`
+	// Participants undocumented
+	Participants *MeetingParticipants `json:"participants,omitempty"`
+	// AudioConferencing undocumented
+	AudioConferencing *AudioConferencing `json:"audioConferencing,omitempty"`
+	// ChatInfo undocumented
+	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
+	// VideoTeleconferenceId undocumented
+	VideoTeleconferenceId *string `json:"videoTeleconferenceId,omitempty"`
+}
+
+// IOnlineMeeting interface type for onlineMeeting
+type IOnlineMeeting interface {
+	POnlineMeeting() *OnlineMeeting
+}
+
+// POnlineMeeting pointer method for onlineMeeting
+func (p *OnlineMeeting) POnlineMeeting() *OnlineMeeting { return p }
+
 // OpenTypeExtension undocumented
 type OpenTypeExtension struct {
 	Extension
@@ -11759,6 +12272,21 @@ type IOrganization interface {
 // POrganization pointer method for organization
 func (p *Organization) POrganization() *Organization { return p }
 
+// OrganizerMeetingInfo undocumented
+type OrganizerMeetingInfo struct {
+	MeetingInfo
+	// Organizer undocumented
+	Organizer *IdentitySet `json:"organizer,omitempty"`
+}
+
+// IOrganizerMeetingInfo interface type for organizerMeetingInfo
+type IOrganizerMeetingInfo interface {
+	POrganizerMeetingInfo() *OrganizerMeetingInfo
+}
+
+// POrganizerMeetingInfo pointer method for organizerMeetingInfo
+func (p *OrganizerMeetingInfo) POrganizerMeetingInfo() *OrganizerMeetingInfo { return p }
+
 // OutlookCategory undocumented
 type OutlookCategory struct {
 	Entity
@@ -11861,6 +12389,45 @@ type IPageLinks interface {
 
 // PPageLinks pointer method for pageLinks
 func (p *PageLinks) PPageLinks() *PageLinks { return p }
+
+// Participant undocumented
+type Participant struct {
+	Entity
+	// Info undocumented
+	Info *ParticipantInfo `json:"info,omitempty"`
+	// MediaStreams undocumented
+	MediaStreams []MediaStream `json:"mediaStreams,omitempty"`
+	// IsMuted undocumented
+	IsMuted *bool `json:"isMuted,omitempty"`
+	// IsInLobby undocumented
+	IsInLobby *bool `json:"isInLobby,omitempty"`
+}
+
+// IParticipant interface type for participant
+type IParticipant interface {
+	PParticipant() *Participant
+}
+
+// PParticipant pointer method for participant
+func (p *Participant) PParticipant() *Participant { return p }
+
+// ParticipantInfo undocumented
+type ParticipantInfo struct {
+	// Identity undocumented
+	Identity *IdentitySet `json:"identity,omitempty"`
+	// Region undocumented
+	Region *string `json:"region,omitempty"`
+	// LanguageId undocumented
+	LanguageId *string `json:"languageId,omitempty"`
+}
+
+// IParticipantInfo interface type for participantInfo
+type IParticipantInfo interface {
+	PParticipantInfo() *ParticipantInfo
+}
+
+// PParticipantInfo pointer method for participantInfo
+func (p *ParticipantInfo) PParticipantInfo() *ParticipantInfo { return p }
 
 // PasswordProfile undocumented
 type PasswordProfile struct {
@@ -12461,6 +13028,19 @@ type IPlannerUserIds interface {
 // PPlannerUserIds pointer method for plannerUserIds
 func (p *PlannerUserIds) PPlannerUserIds() *PlannerUserIds { return p }
 
+// PlayPromptOperation undocumented
+type PlayPromptOperation struct {
+	CommsOperation
+}
+
+// IPlayPromptOperation interface type for playPromptOperation
+type IPlayPromptOperation interface {
+	PPlayPromptOperation() *PlayPromptOperation
+}
+
+// PPlayPromptOperation pointer method for playPromptOperation
+func (p *PlayPromptOperation) PPlayPromptOperation() *PlayPromptOperation { return p }
+
 // Post undocumented
 type Post struct {
 	OutlookItem
@@ -12558,6 +13138,18 @@ type IProfilePhoto interface {
 
 // PProfilePhoto pointer method for profilePhoto
 func (p *ProfilePhoto) PProfilePhoto() *ProfilePhoto { return p }
+
+// Prompt undocumented
+type Prompt struct {
+}
+
+// IPrompt interface type for prompt
+type IPrompt interface {
+	PPrompt() *Prompt
+}
+
+// PPrompt pointer method for prompt
+func (p *Prompt) PPrompt() *Prompt { return p }
 
 // ProvisionedPlan undocumented
 type ProvisionedPlan struct {
@@ -12680,6 +13272,23 @@ type IRecipient interface {
 
 // PRecipient pointer method for recipient
 func (p *Recipient) PRecipient() *Recipient { return p }
+
+// RecordOperation undocumented
+type RecordOperation struct {
+	CommsOperation
+	// RecordingLocation undocumented
+	RecordingLocation *string `json:"recordingLocation,omitempty"`
+	// RecordingAccessToken undocumented
+	RecordingAccessToken *string `json:"recordingAccessToken,omitempty"`
+}
+
+// IRecordOperation interface type for recordOperation
+type IRecordOperation interface {
+	PRecordOperation() *RecordOperation
+}
+
+// PRecordOperation pointer method for recordOperation
+func (p *RecordOperation) PRecordOperation() *RecordOperation { return p }
 
 // RecurrencePattern undocumented
 type RecurrencePattern struct {
@@ -13037,6 +13646,24 @@ type IRestrictedSignIn interface {
 
 // PRestrictedSignIn pointer method for restrictedSignIn
 func (p *RestrictedSignIn) PRestrictedSignIn() *RestrictedSignIn { return p }
+
+// ResultInfo undocumented
+type ResultInfo struct {
+	// Code undocumented
+	Code *int `json:"code,omitempty"`
+	// Subcode undocumented
+	Subcode *int `json:"subcode,omitempty"`
+	// Message undocumented
+	Message *string `json:"message,omitempty"`
+}
+
+// IResultInfo interface type for resultInfo
+type IResultInfo interface {
+	PResultInfo() *ResultInfo
+}
+
+// PResultInfo pointer method for resultInfo
+func (p *ResultInfo) PResultInfo() *ResultInfo { return p }
 
 // RgbColor undocumented
 type RgbColor struct {
@@ -13398,6 +14025,21 @@ type ISecurityVendorInformation interface {
 
 // PSecurityVendorInformation pointer method for securityVendorInformation
 func (p *SecurityVendorInformation) PSecurityVendorInformation() *SecurityVendorInformation { return p }
+
+// ServiceHostedMediaConfig undocumented
+type ServiceHostedMediaConfig struct {
+	MediaConfig
+	// PreFetchMedia undocumented
+	PreFetchMedia []MediaInfo `json:"preFetchMedia,omitempty"`
+}
+
+// IServiceHostedMediaConfig interface type for serviceHostedMediaConfig
+type IServiceHostedMediaConfig interface {
+	PServiceHostedMediaConfig() *ServiceHostedMediaConfig
+}
+
+// PServiceHostedMediaConfig pointer method for serviceHostedMediaConfig
+func (p *ServiceHostedMediaConfig) PServiceHostedMediaConfig() *ServiceHostedMediaConfig { return p }
 
 // ServicePlanInfo undocumented
 type ServicePlanInfo struct {
@@ -13948,6 +14590,19 @@ type IStandardTimeZoneOffset interface {
 
 // PStandardTimeZoneOffset pointer method for standardTimeZoneOffset
 func (p *StandardTimeZoneOffset) PStandardTimeZoneOffset() *StandardTimeZoneOffset { return p }
+
+// SubscribeToToneOperation undocumented
+type SubscribeToToneOperation struct {
+	CommsOperation
+}
+
+// ISubscribeToToneOperation interface type for subscribeToToneOperation
+type ISubscribeToToneOperation interface {
+	PSubscribeToToneOperation() *SubscribeToToneOperation
+}
+
+// PSubscribeToToneOperation pointer method for subscribeToToneOperation
+func (p *SubscribeToToneOperation) PSubscribeToToneOperation() *SubscribeToToneOperation { return p }
 
 // SubscribedSku undocumented
 type SubscribedSku struct {
@@ -14549,6 +15204,22 @@ type ITimeZoneInformation interface {
 // PTimeZoneInformation pointer method for timeZoneInformation
 func (p *TimeZoneInformation) PTimeZoneInformation() *TimeZoneInformation { return p }
 
+// ToneInfo undocumented
+type ToneInfo struct {
+	// SequenceId undocumented
+	SequenceId *int `json:"sequenceId,omitempty"`
+	// Tone undocumented
+	Tone *Tone `json:"tone,omitempty"`
+}
+
+// IToneInfo interface type for toneInfo
+type IToneInfo interface {
+	PToneInfo() *ToneInfo
+}
+
+// PToneInfo pointer method for toneInfo
+func (p *ToneInfo) PToneInfo() *ToneInfo { return p }
+
 // Trending undocumented
 type Trending struct {
 	Entity
@@ -14569,6 +15240,21 @@ type ITrending interface {
 
 // PTrending pointer method for trending
 func (p *Trending) PTrending() *Trending { return p }
+
+// UnmuteParticipantOperation undocumented
+type UnmuteParticipantOperation struct {
+	CommsOperation
+}
+
+// IUnmuteParticipantOperation interface type for unmuteParticipantOperation
+type IUnmuteParticipantOperation interface {
+	PUnmuteParticipantOperation() *UnmuteParticipantOperation
+}
+
+// PUnmuteParticipantOperation pointer method for unmuteParticipantOperation
+func (p *UnmuteParticipantOperation) PUnmuteParticipantOperation() *UnmuteParticipantOperation {
+	return p
+}
 
 // UpdateWindowsDeviceAccountActionParameter undocumented
 type UpdateWindowsDeviceAccountActionParameter struct {
@@ -17685,8 +18371,14 @@ type ServiceCalendar struct{ ServiceBase }
 // ServiceCalendarGroup is service endpoint type for CalendarGroup
 type ServiceCalendarGroup struct{ ServiceBase }
 
+// ServiceCall is service endpoint type for Call
+type ServiceCall struct{ ServiceBase }
+
 // ServiceChannel is service endpoint type for Channel
 type ServiceChannel struct{ ServiceBase }
+
+// ServiceCloudCommunications is service endpoint type for CloudCommunications
+type ServiceCloudCommunications struct{ ServiceBase }
 
 // ServiceCollectionActivityHistoryItem is service endpoint type for CollectionActivityHistoryItem
 type ServiceCollectionActivityHistoryItem struct{ ServiceBase }
@@ -17709,6 +18401,9 @@ type ServiceCollectionCalendar struct{ ServiceBase }
 // ServiceCollectionCalendarGroup is service endpoint type for CollectionCalendarGroup
 type ServiceCollectionCalendarGroup struct{ ServiceBase }
 
+// ServiceCollectionCall is service endpoint type for CollectionCall
+type ServiceCollectionCall struct{ ServiceBase }
+
 // ServiceCollectionChannel is service endpoint type for CollectionChannel
 type ServiceCollectionChannel struct{ ServiceBase }
 
@@ -17717,6 +18412,9 @@ type ServiceCollectionColumnDefinition struct{ ServiceBase }
 
 // ServiceCollectionColumnLink is service endpoint type for CollectionColumnLink
 type ServiceCollectionColumnLink struct{ ServiceBase }
+
+// ServiceCollectionCommsOperation is service endpoint type for CollectionCommsOperation
+type ServiceCollectionCommsOperation struct{ ServiceBase }
 
 // ServiceCollectionContact is service endpoint type for CollectionContact
 type ServiceCollectionContact struct{ ServiceBase }
@@ -17991,11 +18689,17 @@ type ServiceCollectionOnenoteResource struct{ ServiceBase }
 // ServiceCollectionOnenoteSection is service endpoint type for CollectionOnenoteSection
 type ServiceCollectionOnenoteSection struct{ ServiceBase }
 
+// ServiceCollectionOnlineMeeting is service endpoint type for CollectionOnlineMeeting
+type ServiceCollectionOnlineMeeting struct{ ServiceBase }
+
 // ServiceCollectionOrganization is service endpoint type for CollectionOrganization
 type ServiceCollectionOrganization struct{ ServiceBase }
 
 // ServiceCollectionOutlookCategory is service endpoint type for CollectionOutlookCategory
 type ServiceCollectionOutlookCategory struct{ ServiceBase }
+
+// ServiceCollectionParticipant is service endpoint type for CollectionParticipant
+type ServiceCollectionParticipant struct{ ServiceBase }
 
 // ServiceCollectionPermission is service endpoint type for CollectionPermission
 type ServiceCollectionPermission struct{ ServiceBase }
@@ -19020,6 +19724,13 @@ func (s *Service) AuditLogs() *ServiceAuditLogRoot {
 	return ss
 }
 
+// Communications returns service singleton endpoint for CloudCommunications
+func (s *Service) Communications() *ServiceCloudCommunications {
+	ss := &ServiceCloudCommunications{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/communications"
+	return ss
+}
+
 // DeviceAppManagement returns service singleton endpoint for DeviceAppManagement
 func (s *Service) DeviceAppManagement() *ServiceDeviceAppManagement {
 	ss := &ServiceDeviceAppManagement{ServiceBase: s.ServiceBase}
@@ -19135,24 +19846,24 @@ func (s *ServiceActivityHistoryItem) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceActivityHistoryItem) GetWithPath(path string) (*ActivityHistoryItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceActivityHistoryItem) DoGetWithPath(path string) (*ActivityHistoryItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceActivityHistoryItem) Get() (*ActivityHistoryItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceActivityHistoryItem) DoGet() (*ActivityHistoryItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceActivityHistoryItem) PostWithPath(path string) (*ActivityHistoryItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceActivityHistoryItem) DoPostWithPath(path string) (*ActivityHistoryItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceActivityHistoryItem) Post() (*ActivityHistoryItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceActivityHistoryItem) DoPost() (*ActivityHistoryItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ActivityHistoryItem collection with addtional path
@@ -19267,24 +19978,24 @@ func (s *ServiceCollectionActivityHistoryItem) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionActivityHistoryItem) GetWithPath(path string) ([]ActivityHistoryItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionActivityHistoryItem) DoGetWithPath(path string) ([]ActivityHistoryItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionActivityHistoryItem) Get() ([]ActivityHistoryItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionActivityHistoryItem) DoGet() ([]ActivityHistoryItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionActivityHistoryItem) PostWithPath(path string, obj interface{}) (*ActivityHistoryItem, error) {
+func (s *ServiceCollectionActivityHistoryItem) DoPostWithPath(path string, obj interface{}) (*ActivityHistoryItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionActivityHistoryItem) Post(obj interface{}) (*ActivityHistoryItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionActivityHistoryItem) DoPost(obj interface{}) (*ActivityHistoryItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for Alert collection with addtional path
@@ -19399,24 +20110,24 @@ func (s *ServiceCollectionAlert) DoPaging(method string, obj interface{}) ([]Ale
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionAlert) GetWithPath(path string) ([]Alert, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionAlert) DoGetWithPath(path string) ([]Alert, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionAlert) Get() ([]Alert, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionAlert) DoGet() ([]Alert, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionAlert) PostWithPath(path string, obj interface{}) (*Alert, error) {
+func (s *ServiceCollectionAlert) DoPostWithPath(path string, obj interface{}) (*Alert, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionAlert) Post(obj interface{}) (*Alert, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionAlert) DoPost(obj interface{}) (*Alert, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Apps returns service endpoint for CollectionManagedMobileApp
@@ -19485,24 +20196,24 @@ func (s *ServiceAndroidManagedAppProtection) DoRequest(method string, obj interf
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceAndroidManagedAppProtection) GetWithPath(path string) (*AndroidManagedAppProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceAndroidManagedAppProtection) DoGetWithPath(path string) (*AndroidManagedAppProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceAndroidManagedAppProtection) Get() (*AndroidManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceAndroidManagedAppProtection) DoGet() (*AndroidManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceAndroidManagedAppProtection) PostWithPath(path string) (*AndroidManagedAppProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceAndroidManagedAppProtection) DoPostWithPath(path string) (*AndroidManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceAndroidManagedAppProtection) Post() (*AndroidManagedAppProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceAndroidManagedAppProtection) DoPost() (*AndroidManagedAppProtection, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for AndroidManagedAppProtection collection with addtional path
@@ -19617,24 +20328,24 @@ func (s *ServiceCollectionAndroidManagedAppProtection) DoPaging(method string, o
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionAndroidManagedAppProtection) GetWithPath(path string) ([]AndroidManagedAppProtection, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionAndroidManagedAppProtection) DoGetWithPath(path string) ([]AndroidManagedAppProtection, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionAndroidManagedAppProtection) Get() ([]AndroidManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionAndroidManagedAppProtection) DoGet() ([]AndroidManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionAndroidManagedAppProtection) PostWithPath(path string, obj interface{}) (*AndroidManagedAppProtection, error) {
+func (s *ServiceCollectionAndroidManagedAppProtection) DoPostWithPath(path string, obj interface{}) (*AndroidManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionAndroidManagedAppProtection) Post(obj interface{}) (*AndroidManagedAppProtection, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionAndroidManagedAppProtection) DoPost(obj interface{}) (*AndroidManagedAppProtection, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // TeamsApps returns service endpoint for CollectionTeamsApp
@@ -19696,24 +20407,24 @@ func (s *ServiceAppCatalogs) DoRequest(method string, obj interface{}) (*AppCata
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceAppCatalogs) GetWithPath(path string) (*AppCatalogs, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceAppCatalogs) DoGetWithPath(path string) (*AppCatalogs, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceAppCatalogs) Get() (*AppCatalogs, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceAppCatalogs) DoGet() (*AppCatalogs, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceAppCatalogs) PostWithPath(path string) (*AppCatalogs, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceAppCatalogs) DoPostWithPath(path string) (*AppCatalogs, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceAppCatalogs) Post() (*AppCatalogs, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceAppCatalogs) DoPost() (*AppCatalogs, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ApplePushNotificationCertificate
@@ -19768,24 +20479,24 @@ func (s *ServiceApplePushNotificationCertificate) DoRequest(method string, obj i
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceApplePushNotificationCertificate) GetWithPath(path string) (*ApplePushNotificationCertificate, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceApplePushNotificationCertificate) DoGetWithPath(path string) (*ApplePushNotificationCertificate, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceApplePushNotificationCertificate) Get() (*ApplePushNotificationCertificate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceApplePushNotificationCertificate) DoGet() (*ApplePushNotificationCertificate, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceApplePushNotificationCertificate) PostWithPath(path string) (*ApplePushNotificationCertificate, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceApplePushNotificationCertificate) DoPostWithPath(path string) (*ApplePushNotificationCertificate, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceApplePushNotificationCertificate) Post() (*ApplePushNotificationCertificate, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceApplePushNotificationCertificate) DoPost() (*ApplePushNotificationCertificate, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Attachment collection with addtional path
@@ -19900,24 +20611,24 @@ func (s *ServiceCollectionAttachment) DoPaging(method string, obj interface{}) (
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionAttachment) GetWithPath(path string) ([]Attachment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionAttachment) DoGetWithPath(path string) ([]Attachment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionAttachment) Get() ([]Attachment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionAttachment) DoGet() ([]Attachment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionAttachment) PostWithPath(path string, obj interface{}) (*Attachment, error) {
+func (s *ServiceCollectionAttachment) DoPostWithPath(path string, obj interface{}) (*Attachment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionAttachment) Post(obj interface{}) (*Attachment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionAttachment) DoPost(obj interface{}) (*Attachment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DirectoryAudits returns service endpoint for CollectionDirectoryAudit
@@ -19993,24 +20704,24 @@ func (s *ServiceAuditLogRoot) DoRequest(method string, obj interface{}) (*AuditL
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceAuditLogRoot) GetWithPath(path string) (*AuditLogRoot, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceAuditLogRoot) DoGetWithPath(path string) (*AuditLogRoot, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceAuditLogRoot) Get() (*AuditLogRoot, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceAuditLogRoot) DoGet() (*AuditLogRoot, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceAuditLogRoot) PostWithPath(path string) (*AuditLogRoot, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceAuditLogRoot) DoPostWithPath(path string) (*AuditLogRoot, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceAuditLogRoot) Post() (*AuditLogRoot, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceAuditLogRoot) DoPost() (*AuditLogRoot, error) {
+	return s.DoPostWithPath("")
 }
 
 // CreatedByUser returns service endpoint for User
@@ -20079,24 +20790,24 @@ func (s *ServiceBaseItem) DoRequest(method string, obj interface{}) (*BaseItem, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceBaseItem) GetWithPath(path string) (*BaseItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceBaseItem) DoGetWithPath(path string) (*BaseItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceBaseItem) Get() (*BaseItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceBaseItem) DoGet() (*BaseItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceBaseItem) PostWithPath(path string) (*BaseItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceBaseItem) DoPostWithPath(path string) (*BaseItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceBaseItem) Post() (*BaseItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceBaseItem) DoPost() (*BaseItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for BaseItem collection with addtional path
@@ -20211,24 +20922,24 @@ func (s *ServiceCollectionBaseItem) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionBaseItem) GetWithPath(path string) ([]BaseItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionBaseItem) DoGetWithPath(path string) ([]BaseItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionBaseItem) Get() ([]BaseItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionBaseItem) DoGet() ([]BaseItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionBaseItem) PostWithPath(path string, obj interface{}) (*BaseItem, error) {
+func (s *ServiceCollectionBaseItem) DoPostWithPath(path string, obj interface{}) (*BaseItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionBaseItem) Post(obj interface{}) (*BaseItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionBaseItem) DoPost(obj interface{}) (*BaseItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // CalendarView returns service endpoint for CollectionEvent
@@ -20311,24 +21022,24 @@ func (s *ServiceCalendar) DoRequest(method string, obj interface{}) (*Calendar, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceCalendar) GetWithPath(path string) (*Calendar, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceCalendar) DoGetWithPath(path string) (*Calendar, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCalendar) Get() (*Calendar, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCalendar) DoGet() (*Calendar, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceCalendar) PostWithPath(path string) (*Calendar, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceCalendar) DoPostWithPath(path string) (*Calendar, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCalendar) Post() (*Calendar, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCalendar) DoPost() (*Calendar, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Calendar collection with addtional path
@@ -20443,24 +21154,24 @@ func (s *ServiceCollectionCalendar) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionCalendar) GetWithPath(path string) ([]Calendar, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionCalendar) DoGetWithPath(path string) ([]Calendar, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionCalendar) Get() ([]Calendar, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionCalendar) DoGet() ([]Calendar, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionCalendar) PostWithPath(path string, obj interface{}) (*Calendar, error) {
+func (s *ServiceCollectionCalendar) DoPostWithPath(path string, obj interface{}) (*Calendar, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionCalendar) Post(obj interface{}) (*Calendar, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionCalendar) DoPost(obj interface{}) (*Calendar, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Calendars returns service endpoint for CollectionCalendar
@@ -20522,24 +21233,24 @@ func (s *ServiceCalendarGroup) DoRequest(method string, obj interface{}) (*Calen
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceCalendarGroup) GetWithPath(path string) (*CalendarGroup, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceCalendarGroup) DoGetWithPath(path string) (*CalendarGroup, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCalendarGroup) Get() (*CalendarGroup, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCalendarGroup) DoGet() (*CalendarGroup, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceCalendarGroup) PostWithPath(path string) (*CalendarGroup, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceCalendarGroup) DoPostWithPath(path string) (*CalendarGroup, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCalendarGroup) Post() (*CalendarGroup, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCalendarGroup) DoPost() (*CalendarGroup, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for CalendarGroup collection with addtional path
@@ -20654,24 +21365,242 @@ func (s *ServiceCollectionCalendarGroup) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionCalendarGroup) GetWithPath(path string) ([]CalendarGroup, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionCalendarGroup) DoGetWithPath(path string) ([]CalendarGroup, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionCalendarGroup) Get() ([]CalendarGroup, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionCalendarGroup) DoGet() ([]CalendarGroup, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionCalendarGroup) PostWithPath(path string, obj interface{}) (*CalendarGroup, error) {
+func (s *ServiceCollectionCalendarGroup) DoPostWithPath(path string, obj interface{}) (*CalendarGroup, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionCalendarGroup) Post(obj interface{}) (*CalendarGroup, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionCalendarGroup) DoPost(obj interface{}) (*CalendarGroup, error) {
+	return s.DoPostWithPath("", obj)
+}
+
+// Operations returns service endpoint for CollectionCommsOperation
+func (s *ServiceCall) Operations() *ServiceCollectionCommsOperation {
+	ss := &ServiceCollectionCommsOperation{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/operations"
+	return ss
+}
+
+// Participants returns service endpoint for CollectionParticipant
+func (s *ServiceCall) Participants() *ServiceCollectionParticipant {
+	ss := &ServiceCollectionParticipant{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/participants"
+	return ss
+}
+
+// NewRequestWithPath returns a new HTTP Request for Call
+func (s *ServiceCall) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL+path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCall) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for Call
+func (s *ServiceCall) DoRequestWithPath(method, path string, obj interface{}) (*Call, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *Call
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCall) DoRequest(method string, obj interface{}) (*Call, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceCall) DoGetWithPath(path string) (*Call, error) {
+	return s.DoRequestWithPath("GET", path, nil)
+}
+
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCall) DoGet() (*Call, error) {
+	return s.DoGetWithPath("")
+}
+
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceCall) DoPostWithPath(path string) (*Call, error) {
+	return s.DoRequestWithPath("POST", path, nil)
+}
+
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCall) DoPost() (*Call, error) {
+	return s.DoPostWithPath("")
+}
+
+// NewRequestWithPath returns a new HTTP Request for Call collection with addtional path
+func (s *ServiceCollectionCall) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL+path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCollectionCall) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for Call
+func (s *ServiceCollectionCall) DoRequestWithPath(method, path string, obj interface{}) (*Call, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *Call
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCollectionCall) DoRequest(method string, obj interface{}) (*Call, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoPagingNext handles paging for Call collection
+func (s *ServiceCollectionCall) DoPagingNext(res *http.Response) ([]Call, error) {
+	if res.StatusCode != http.StatusOK {
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+	var (
+		obj              Paging
+		value, nextValue []Call
+	)
+	err := json.NewDecoder(res.Body).Decode(&obj)
+	if err != nil {
+		return nil, err
+	}
+	err = json.Unmarshal(obj.Value, &value)
+	if err != nil {
+		return nil, err
+	}
+	if len(obj.NextLink) > 0 {
+		res, err := s.client.Get(obj.NextLink)
+		if err != nil {
+			return nil, err
+		}
+		nextValue, err = s.DoPagingNext(res)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return append(value, nextValue...), nil
+}
+
+// DoPagingWithPath issues an HTTP request for Call collection
+func (s *ServiceCollectionCall) DoPagingWithPath(method, path string, obj interface{}) ([]Call, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	return s.DoPagingNext(res)
+}
+
+// DoPaging wraps DoPagingWithPath with empty path
+func (s *ServiceCollectionCall) DoPaging(method string, obj interface{}) ([]Call, error) {
+	return s.DoPagingWithPath(method, "", obj)
+}
+
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionCall) DoGetWithPath(path string) ([]Call, error) {
+	return s.DoPagingWithPath("GET", path, nil)
+}
+
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionCall) DoGet() ([]Call, error) {
+	return s.DoGetWithPath("")
+}
+
+// PostWithPath warps DoRequestWithPath with POST method
+func (s *ServiceCollectionCall) DoPostWithPath(path string, obj interface{}) (*Call, error) {
+	return s.DoRequestWithPath("POST", path, obj)
+}
+
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionCall) DoPost(obj interface{}) (*Call, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Tabs returns service endpoint for CollectionTeamsTab
@@ -20733,24 +21662,24 @@ func (s *ServiceChannel) DoRequest(method string, obj interface{}) (*Channel, er
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceChannel) GetWithPath(path string) (*Channel, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceChannel) DoGetWithPath(path string) (*Channel, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceChannel) Get() (*Channel, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceChannel) DoGet() (*Channel, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceChannel) PostWithPath(path string) (*Channel, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceChannel) DoPostWithPath(path string) (*Channel, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceChannel) Post() (*Channel, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceChannel) DoPost() (*Channel, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Channel collection with addtional path
@@ -20865,24 +21794,110 @@ func (s *ServiceCollectionChannel) DoPaging(method string, obj interface{}) ([]C
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionChannel) GetWithPath(path string) ([]Channel, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionChannel) DoGetWithPath(path string) ([]Channel, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionChannel) Get() ([]Channel, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionChannel) DoGet() ([]Channel, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionChannel) PostWithPath(path string, obj interface{}) (*Channel, error) {
+func (s *ServiceCollectionChannel) DoPostWithPath(path string, obj interface{}) (*Channel, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionChannel) Post(obj interface{}) (*Channel, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionChannel) DoPost(obj interface{}) (*Channel, error) {
+	return s.DoPostWithPath("", obj)
+}
+
+// Calls returns service endpoint for CollectionCall
+func (s *ServiceCloudCommunications) Calls() *ServiceCollectionCall {
+	ss := &ServiceCollectionCall{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/calls"
+	return ss
+}
+
+// OnlineMeetings returns service endpoint for CollectionOnlineMeeting
+func (s *ServiceCloudCommunications) OnlineMeetings() *ServiceCollectionOnlineMeeting {
+	ss := &ServiceCollectionOnlineMeeting{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/onlineMeetings"
+	return ss
+}
+
+// NewRequestWithPath returns a new HTTP Request for CloudCommunications
+func (s *ServiceCloudCommunications) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL+path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCloudCommunications) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for CloudCommunications
+func (s *ServiceCloudCommunications) DoRequestWithPath(method, path string, obj interface{}) (*CloudCommunications, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *CloudCommunications
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCloudCommunications) DoRequest(method string, obj interface{}) (*CloudCommunications, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceCloudCommunications) DoGetWithPath(path string) (*CloudCommunications, error) {
+	return s.DoRequestWithPath("GET", path, nil)
+}
+
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCloudCommunications) DoGet() (*CloudCommunications, error) {
+	return s.DoGetWithPath("")
+}
+
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceCloudCommunications) DoPostWithPath(path string) (*CloudCommunications, error) {
+	return s.DoRequestWithPath("POST", path, nil)
+}
+
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCloudCommunications) DoPost() (*CloudCommunications, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ColumnDefinition collection with addtional path
@@ -20997,24 +22012,24 @@ func (s *ServiceCollectionColumnDefinition) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionColumnDefinition) GetWithPath(path string) ([]ColumnDefinition, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionColumnDefinition) DoGetWithPath(path string) ([]ColumnDefinition, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionColumnDefinition) Get() ([]ColumnDefinition, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionColumnDefinition) DoGet() ([]ColumnDefinition, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionColumnDefinition) PostWithPath(path string, obj interface{}) (*ColumnDefinition, error) {
+func (s *ServiceCollectionColumnDefinition) DoPostWithPath(path string, obj interface{}) (*ColumnDefinition, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionColumnDefinition) Post(obj interface{}) (*ColumnDefinition, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionColumnDefinition) DoPost(obj interface{}) (*ColumnDefinition, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ColumnLink collection with addtional path
@@ -21129,24 +22144,156 @@ func (s *ServiceCollectionColumnLink) DoPaging(method string, obj interface{}) (
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionColumnLink) GetWithPath(path string) ([]ColumnLink, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionColumnLink) DoGetWithPath(path string) ([]ColumnLink, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionColumnLink) Get() ([]ColumnLink, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionColumnLink) DoGet() ([]ColumnLink, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionColumnLink) PostWithPath(path string, obj interface{}) (*ColumnLink, error) {
+func (s *ServiceCollectionColumnLink) DoPostWithPath(path string, obj interface{}) (*ColumnLink, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionColumnLink) Post(obj interface{}) (*ColumnLink, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionColumnLink) DoPost(obj interface{}) (*ColumnLink, error) {
+	return s.DoPostWithPath("", obj)
+}
+
+// NewRequestWithPath returns a new HTTP Request for CommsOperation collection with addtional path
+func (s *ServiceCollectionCommsOperation) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL+path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCollectionCommsOperation) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for CommsOperation
+func (s *ServiceCollectionCommsOperation) DoRequestWithPath(method, path string, obj interface{}) (*CommsOperation, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *CommsOperation
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCollectionCommsOperation) DoRequest(method string, obj interface{}) (*CommsOperation, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoPagingNext handles paging for CommsOperation collection
+func (s *ServiceCollectionCommsOperation) DoPagingNext(res *http.Response) ([]CommsOperation, error) {
+	if res.StatusCode != http.StatusOK {
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+	var (
+		obj              Paging
+		value, nextValue []CommsOperation
+	)
+	err := json.NewDecoder(res.Body).Decode(&obj)
+	if err != nil {
+		return nil, err
+	}
+	err = json.Unmarshal(obj.Value, &value)
+	if err != nil {
+		return nil, err
+	}
+	if len(obj.NextLink) > 0 {
+		res, err := s.client.Get(obj.NextLink)
+		if err != nil {
+			return nil, err
+		}
+		nextValue, err = s.DoPagingNext(res)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return append(value, nextValue...), nil
+}
+
+// DoPagingWithPath issues an HTTP request for CommsOperation collection
+func (s *ServiceCollectionCommsOperation) DoPagingWithPath(method, path string, obj interface{}) ([]CommsOperation, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	return s.DoPagingNext(res)
+}
+
+// DoPaging wraps DoPagingWithPath with empty path
+func (s *ServiceCollectionCommsOperation) DoPaging(method string, obj interface{}) ([]CommsOperation, error) {
+	return s.DoPagingWithPath(method, "", obj)
+}
+
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionCommsOperation) DoGetWithPath(path string) ([]CommsOperation, error) {
+	return s.DoPagingWithPath("GET", path, nil)
+}
+
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionCommsOperation) DoGet() ([]CommsOperation, error) {
+	return s.DoGetWithPath("")
+}
+
+// PostWithPath warps DoRequestWithPath with POST method
+func (s *ServiceCollectionCommsOperation) DoPostWithPath(path string, obj interface{}) (*CommsOperation, error) {
+	return s.DoRequestWithPath("POST", path, obj)
+}
+
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionCommsOperation) DoPost(obj interface{}) (*CommsOperation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Extensions returns service endpoint for CollectionExtension
@@ -21229,24 +22376,24 @@ func (s *ServiceContact) DoRequest(method string, obj interface{}) (*Contact, er
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceContact) GetWithPath(path string) (*Contact, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceContact) DoGetWithPath(path string) (*Contact, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceContact) Get() (*Contact, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceContact) DoGet() (*Contact, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceContact) PostWithPath(path string) (*Contact, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceContact) DoPostWithPath(path string) (*Contact, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceContact) Post() (*Contact, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceContact) DoPost() (*Contact, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Contact collection with addtional path
@@ -21361,24 +22508,24 @@ func (s *ServiceCollectionContact) DoPaging(method string, obj interface{}) ([]C
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionContact) GetWithPath(path string) ([]Contact, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionContact) DoGetWithPath(path string) ([]Contact, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionContact) Get() ([]Contact, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionContact) DoGet() ([]Contact, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionContact) PostWithPath(path string, obj interface{}) (*Contact, error) {
+func (s *ServiceCollectionContact) DoPostWithPath(path string, obj interface{}) (*Contact, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionContact) Post(obj interface{}) (*Contact, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionContact) DoPost(obj interface{}) (*Contact, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ChildFolders returns service endpoint for CollectionContactFolder
@@ -21461,24 +22608,24 @@ func (s *ServiceContactFolder) DoRequest(method string, obj interface{}) (*Conta
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceContactFolder) GetWithPath(path string) (*ContactFolder, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceContactFolder) DoGetWithPath(path string) (*ContactFolder, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceContactFolder) Get() (*ContactFolder, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceContactFolder) DoGet() (*ContactFolder, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceContactFolder) PostWithPath(path string) (*ContactFolder, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceContactFolder) DoPostWithPath(path string) (*ContactFolder, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceContactFolder) Post() (*ContactFolder, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceContactFolder) DoPost() (*ContactFolder, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ContactFolder collection with addtional path
@@ -21593,24 +22740,24 @@ func (s *ServiceCollectionContactFolder) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionContactFolder) GetWithPath(path string) ([]ContactFolder, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionContactFolder) DoGetWithPath(path string) ([]ContactFolder, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionContactFolder) Get() ([]ContactFolder, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionContactFolder) DoGet() ([]ContactFolder, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionContactFolder) PostWithPath(path string, obj interface{}) (*ContactFolder, error) {
+func (s *ServiceCollectionContactFolder) DoPostWithPath(path string, obj interface{}) (*ContactFolder, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionContactFolder) Post(obj interface{}) (*ContactFolder, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionContactFolder) DoPost(obj interface{}) (*ContactFolder, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ColumnLinks returns service endpoint for CollectionColumnLink
@@ -21672,24 +22819,24 @@ func (s *ServiceContentType) DoRequest(method string, obj interface{}) (*Content
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceContentType) GetWithPath(path string) (*ContentType, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceContentType) DoGetWithPath(path string) (*ContentType, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceContentType) Get() (*ContentType, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceContentType) DoGet() (*ContentType, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceContentType) PostWithPath(path string) (*ContentType, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceContentType) DoPostWithPath(path string) (*ContentType, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceContentType) Post() (*ContentType, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceContentType) DoPost() (*ContentType, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ContentType collection with addtional path
@@ -21804,24 +22951,24 @@ func (s *ServiceCollectionContentType) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionContentType) GetWithPath(path string) ([]ContentType, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionContentType) DoGetWithPath(path string) ([]ContentType, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionContentType) Get() ([]ContentType, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionContentType) DoGet() ([]ContentType, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionContentType) PostWithPath(path string, obj interface{}) (*ContentType, error) {
+func (s *ServiceCollectionContentType) DoPostWithPath(path string, obj interface{}) (*ContentType, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionContentType) Post(obj interface{}) (*ContentType, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionContentType) DoPost(obj interface{}) (*ContentType, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for Contract
@@ -21876,24 +23023,24 @@ func (s *ServiceContract) DoRequest(method string, obj interface{}) (*Contract, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceContract) GetWithPath(path string) (*Contract, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceContract) DoGetWithPath(path string) (*Contract, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceContract) Get() (*Contract, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceContract) DoGet() (*Contract, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceContract) PostWithPath(path string) (*Contract, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceContract) DoPostWithPath(path string) (*Contract, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceContract) Post() (*Contract, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceContract) DoPost() (*Contract, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Contract collection with addtional path
@@ -22008,24 +23155,24 @@ func (s *ServiceCollectionContract) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionContract) GetWithPath(path string) ([]Contract, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionContract) DoGetWithPath(path string) ([]Contract, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionContract) Get() ([]Contract, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionContract) DoGet() ([]Contract, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionContract) PostWithPath(path string, obj interface{}) (*Contract, error) {
+func (s *ServiceCollectionContract) DoPostWithPath(path string, obj interface{}) (*Contract, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionContract) Post(obj interface{}) (*Contract, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionContract) DoPost(obj interface{}) (*Contract, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Threads returns service endpoint for CollectionConversationThread
@@ -22087,24 +23234,24 @@ func (s *ServiceConversation) DoRequest(method string, obj interface{}) (*Conver
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceConversation) GetWithPath(path string) (*Conversation, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceConversation) DoGetWithPath(path string) (*Conversation, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceConversation) Get() (*Conversation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceConversation) DoGet() (*Conversation, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceConversation) PostWithPath(path string) (*Conversation, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceConversation) DoPostWithPath(path string) (*Conversation, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceConversation) Post() (*Conversation, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceConversation) DoPost() (*Conversation, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Conversation collection with addtional path
@@ -22219,24 +23366,24 @@ func (s *ServiceCollectionConversation) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionConversation) GetWithPath(path string) ([]Conversation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionConversation) DoGetWithPath(path string) ([]Conversation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionConversation) Get() ([]Conversation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionConversation) DoGet() ([]Conversation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionConversation) PostWithPath(path string, obj interface{}) (*Conversation, error) {
+func (s *ServiceCollectionConversation) DoPostWithPath(path string, obj interface{}) (*Conversation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionConversation) Post(obj interface{}) (*Conversation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionConversation) DoPost(obj interface{}) (*Conversation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Posts returns service endpoint for CollectionPost
@@ -22298,24 +23445,24 @@ func (s *ServiceConversationThread) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceConversationThread) GetWithPath(path string) (*ConversationThread, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceConversationThread) DoGetWithPath(path string) (*ConversationThread, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceConversationThread) Get() (*ConversationThread, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceConversationThread) DoGet() (*ConversationThread, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceConversationThread) PostWithPath(path string) (*ConversationThread, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceConversationThread) DoPostWithPath(path string) (*ConversationThread, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceConversationThread) Post() (*ConversationThread, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceConversationThread) DoPost() (*ConversationThread, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ConversationThread collection with addtional path
@@ -22430,24 +23577,24 @@ func (s *ServiceCollectionConversationThread) DoPaging(method string, obj interf
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionConversationThread) GetWithPath(path string) ([]ConversationThread, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionConversationThread) DoGetWithPath(path string) ([]ConversationThread, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionConversationThread) Get() ([]ConversationThread, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionConversationThread) DoGet() ([]ConversationThread, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionConversationThread) PostWithPath(path string, obj interface{}) (*ConversationThread, error) {
+func (s *ServiceCollectionConversationThread) DoPostWithPath(path string, obj interface{}) (*ConversationThread, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionConversationThread) Post(obj interface{}) (*ConversationThread, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionConversationThread) DoPost(obj interface{}) (*ConversationThread, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DataPolicyOperation
@@ -22502,24 +23649,24 @@ func (s *ServiceDataPolicyOperation) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDataPolicyOperation) GetWithPath(path string) (*DataPolicyOperation, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDataPolicyOperation) DoGetWithPath(path string) (*DataPolicyOperation, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDataPolicyOperation) Get() (*DataPolicyOperation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDataPolicyOperation) DoGet() (*DataPolicyOperation, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDataPolicyOperation) PostWithPath(path string) (*DataPolicyOperation, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDataPolicyOperation) DoPostWithPath(path string) (*DataPolicyOperation, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDataPolicyOperation) Post() (*DataPolicyOperation, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDataPolicyOperation) DoPost() (*DataPolicyOperation, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DataPolicyOperation collection with addtional path
@@ -22634,24 +23781,24 @@ func (s *ServiceCollectionDataPolicyOperation) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDataPolicyOperation) GetWithPath(path string) ([]DataPolicyOperation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDataPolicyOperation) DoGetWithPath(path string) ([]DataPolicyOperation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDataPolicyOperation) Get() ([]DataPolicyOperation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDataPolicyOperation) DoGet() ([]DataPolicyOperation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDataPolicyOperation) PostWithPath(path string, obj interface{}) (*DataPolicyOperation, error) {
+func (s *ServiceCollectionDataPolicyOperation) DoPostWithPath(path string, obj interface{}) (*DataPolicyOperation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDataPolicyOperation) Post(obj interface{}) (*DataPolicyOperation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDataPolicyOperation) DoPost(obj interface{}) (*DataPolicyOperation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Apps returns service endpoint for CollectionManagedMobileApp
@@ -22720,24 +23867,24 @@ func (s *ServiceDefaultManagedAppProtection) DoRequest(method string, obj interf
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDefaultManagedAppProtection) GetWithPath(path string) (*DefaultManagedAppProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDefaultManagedAppProtection) DoGetWithPath(path string) (*DefaultManagedAppProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDefaultManagedAppProtection) Get() (*DefaultManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDefaultManagedAppProtection) DoGet() (*DefaultManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDefaultManagedAppProtection) PostWithPath(path string) (*DefaultManagedAppProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDefaultManagedAppProtection) DoPostWithPath(path string) (*DefaultManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDefaultManagedAppProtection) Post() (*DefaultManagedAppProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDefaultManagedAppProtection) DoPost() (*DefaultManagedAppProtection, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DefaultManagedAppProtection collection with addtional path
@@ -22852,24 +23999,24 @@ func (s *ServiceCollectionDefaultManagedAppProtection) DoPaging(method string, o
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDefaultManagedAppProtection) GetWithPath(path string) ([]DefaultManagedAppProtection, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDefaultManagedAppProtection) DoGetWithPath(path string) ([]DefaultManagedAppProtection, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDefaultManagedAppProtection) Get() ([]DefaultManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDefaultManagedAppProtection) DoGet() ([]DefaultManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDefaultManagedAppProtection) PostWithPath(path string, obj interface{}) (*DefaultManagedAppProtection, error) {
+func (s *ServiceCollectionDefaultManagedAppProtection) DoPostWithPath(path string, obj interface{}) (*DefaultManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDefaultManagedAppProtection) Post(obj interface{}) (*DefaultManagedAppProtection, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDefaultManagedAppProtection) DoPost(obj interface{}) (*DefaultManagedAppProtection, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ManagedDevices returns service endpoint for CollectionManagedDevice
@@ -22931,24 +24078,24 @@ func (s *ServiceDetectedApp) DoRequest(method string, obj interface{}) (*Detecte
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDetectedApp) GetWithPath(path string) (*DetectedApp, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDetectedApp) DoGetWithPath(path string) (*DetectedApp, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDetectedApp) Get() (*DetectedApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDetectedApp) DoGet() (*DetectedApp, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDetectedApp) PostWithPath(path string) (*DetectedApp, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDetectedApp) DoPostWithPath(path string) (*DetectedApp, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDetectedApp) Post() (*DetectedApp, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDetectedApp) DoPost() (*DetectedApp, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DetectedApp collection with addtional path
@@ -23063,24 +24210,24 @@ func (s *ServiceCollectionDetectedApp) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDetectedApp) GetWithPath(path string) ([]DetectedApp, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDetectedApp) DoGetWithPath(path string) ([]DetectedApp, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDetectedApp) Get() ([]DetectedApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDetectedApp) DoGet() ([]DetectedApp, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDetectedApp) PostWithPath(path string, obj interface{}) (*DetectedApp, error) {
+func (s *ServiceCollectionDetectedApp) DoPostWithPath(path string, obj interface{}) (*DetectedApp, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDetectedApp) Post(obj interface{}) (*DetectedApp, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDetectedApp) DoPost(obj interface{}) (*DetectedApp, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Extensions returns service endpoint for CollectionExtension
@@ -23170,24 +24317,24 @@ func (s *ServiceDevice) DoRequest(method string, obj interface{}) (*Device, erro
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDevice) GetWithPath(path string) (*Device, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDevice) DoGetWithPath(path string) (*Device, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDevice) Get() (*Device, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDevice) DoGet() (*Device, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDevice) PostWithPath(path string) (*Device, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDevice) DoPostWithPath(path string) (*Device, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDevice) Post() (*Device, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDevice) DoPost() (*Device, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Device collection with addtional path
@@ -23302,24 +24449,24 @@ func (s *ServiceCollectionDevice) DoPaging(method string, obj interface{}) ([]De
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDevice) GetWithPath(path string) ([]Device, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDevice) DoGetWithPath(path string) ([]Device, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDevice) Get() ([]Device, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDevice) DoGet() ([]Device, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDevice) PostWithPath(path string, obj interface{}) (*Device, error) {
+func (s *ServiceCollectionDevice) DoPostWithPath(path string, obj interface{}) (*Device, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDevice) Post(obj interface{}) (*Device, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDevice) DoPost(obj interface{}) (*Device, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceAndAppManagementRoleAssignment collection with addtional path
@@ -23434,24 +24581,24 @@ func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) DoPaging(method 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) GetWithPath(path string) ([]DeviceAndAppManagementRoleAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) DoGetWithPath(path string) ([]DeviceAndAppManagementRoleAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) Get() ([]DeviceAndAppManagementRoleAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) DoGet() ([]DeviceAndAppManagementRoleAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) PostWithPath(path string, obj interface{}) (*DeviceAndAppManagementRoleAssignment, error) {
+func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) DoPostWithPath(path string, obj interface{}) (*DeviceAndAppManagementRoleAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) Post(obj interface{}) (*DeviceAndAppManagementRoleAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceAndAppManagementRoleAssignment) DoPost(obj interface{}) (*DeviceAndAppManagementRoleAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // AndroidManagedAppProtections returns service endpoint for CollectionAndroidManagedAppProtection
@@ -23604,24 +24751,24 @@ func (s *ServiceDeviceAppManagement) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceAppManagement) GetWithPath(path string) (*DeviceAppManagement, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceAppManagement) DoGetWithPath(path string) (*DeviceAppManagement, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceAppManagement) Get() (*DeviceAppManagement, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceAppManagement) DoGet() (*DeviceAppManagement, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceAppManagement) PostWithPath(path string) (*DeviceAppManagement, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceAppManagement) DoPostWithPath(path string) (*DeviceAppManagement, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceAppManagement) Post() (*DeviceAppManagement, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceAppManagement) DoPost() (*DeviceAppManagement, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCategory
@@ -23676,24 +24823,24 @@ func (s *ServiceDeviceCategory) DoRequest(method string, obj interface{}) (*Devi
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceCategory) GetWithPath(path string) (*DeviceCategory, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceCategory) DoGetWithPath(path string) (*DeviceCategory, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceCategory) Get() (*DeviceCategory, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceCategory) DoGet() (*DeviceCategory, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceCategory) PostWithPath(path string) (*DeviceCategory, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceCategory) DoPostWithPath(path string) (*DeviceCategory, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceCategory) Post() (*DeviceCategory, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceCategory) DoPost() (*DeviceCategory, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCategory collection with addtional path
@@ -23808,24 +24955,24 @@ func (s *ServiceCollectionDeviceCategory) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceCategory) GetWithPath(path string) ([]DeviceCategory, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceCategory) DoGetWithPath(path string) ([]DeviceCategory, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceCategory) Get() ([]DeviceCategory, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceCategory) DoGet() ([]DeviceCategory, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceCategory) PostWithPath(path string, obj interface{}) (*DeviceCategory, error) {
+func (s *ServiceCollectionDeviceCategory) DoPostWithPath(path string, obj interface{}) (*DeviceCategory, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceCategory) Post(obj interface{}) (*DeviceCategory, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceCategory) DoPost(obj interface{}) (*DeviceCategory, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceActionItem collection with addtional path
@@ -23940,24 +25087,24 @@ func (s *ServiceCollectionDeviceComplianceActionItem) DoPaging(method string, ob
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceComplianceActionItem) GetWithPath(path string) ([]DeviceComplianceActionItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceComplianceActionItem) DoGetWithPath(path string) ([]DeviceComplianceActionItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceActionItem) Get() ([]DeviceComplianceActionItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceActionItem) DoGet() ([]DeviceComplianceActionItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceComplianceActionItem) PostWithPath(path string, obj interface{}) (*DeviceComplianceActionItem, error) {
+func (s *ServiceCollectionDeviceComplianceActionItem) DoPostWithPath(path string, obj interface{}) (*DeviceComplianceActionItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceActionItem) Post(obj interface{}) (*DeviceComplianceActionItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceActionItem) DoPost(obj interface{}) (*DeviceComplianceActionItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceDeviceOverview
@@ -24012,24 +25159,24 @@ func (s *ServiceDeviceComplianceDeviceOverview) DoRequest(method string, obj int
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceComplianceDeviceOverview) GetWithPath(path string) (*DeviceComplianceDeviceOverview, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceComplianceDeviceOverview) DoGetWithPath(path string) (*DeviceComplianceDeviceOverview, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceComplianceDeviceOverview) Get() (*DeviceComplianceDeviceOverview, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceComplianceDeviceOverview) DoGet() (*DeviceComplianceDeviceOverview, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceComplianceDeviceOverview) PostWithPath(path string) (*DeviceComplianceDeviceOverview, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceComplianceDeviceOverview) DoPostWithPath(path string) (*DeviceComplianceDeviceOverview, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceComplianceDeviceOverview) Post() (*DeviceComplianceDeviceOverview, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceComplianceDeviceOverview) DoPost() (*DeviceComplianceDeviceOverview, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceDeviceStatus collection with addtional path
@@ -24144,24 +25291,24 @@ func (s *ServiceCollectionDeviceComplianceDeviceStatus) DoPaging(method string, 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceComplianceDeviceStatus) GetWithPath(path string) ([]DeviceComplianceDeviceStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceComplianceDeviceStatus) DoGetWithPath(path string) ([]DeviceComplianceDeviceStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceDeviceStatus) Get() ([]DeviceComplianceDeviceStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceDeviceStatus) DoGet() ([]DeviceComplianceDeviceStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceComplianceDeviceStatus) PostWithPath(path string, obj interface{}) (*DeviceComplianceDeviceStatus, error) {
+func (s *ServiceCollectionDeviceComplianceDeviceStatus) DoPostWithPath(path string, obj interface{}) (*DeviceComplianceDeviceStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceDeviceStatus) Post(obj interface{}) (*DeviceComplianceDeviceStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceDeviceStatus) DoPost(obj interface{}) (*DeviceComplianceDeviceStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionDeviceCompliancePolicyAssignment
@@ -24265,24 +25412,24 @@ func (s *ServiceDeviceCompliancePolicy) DoRequest(method string, obj interface{}
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceCompliancePolicy) GetWithPath(path string) (*DeviceCompliancePolicy, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceCompliancePolicy) DoGetWithPath(path string) (*DeviceCompliancePolicy, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceCompliancePolicy) Get() (*DeviceCompliancePolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceCompliancePolicy) DoGet() (*DeviceCompliancePolicy, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceCompliancePolicy) PostWithPath(path string) (*DeviceCompliancePolicy, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceCompliancePolicy) DoPostWithPath(path string) (*DeviceCompliancePolicy, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceCompliancePolicy) Post() (*DeviceCompliancePolicy, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceCompliancePolicy) DoPost() (*DeviceCompliancePolicy, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCompliancePolicy collection with addtional path
@@ -24397,24 +25544,24 @@ func (s *ServiceCollectionDeviceCompliancePolicy) DoPaging(method string, obj in
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceCompliancePolicy) GetWithPath(path string) ([]DeviceCompliancePolicy, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceCompliancePolicy) DoGetWithPath(path string) ([]DeviceCompliancePolicy, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicy) Get() ([]DeviceCompliancePolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicy) DoGet() ([]DeviceCompliancePolicy, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceCompliancePolicy) PostWithPath(path string, obj interface{}) (*DeviceCompliancePolicy, error) {
+func (s *ServiceCollectionDeviceCompliancePolicy) DoPostWithPath(path string, obj interface{}) (*DeviceCompliancePolicy, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicy) Post(obj interface{}) (*DeviceCompliancePolicy, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicy) DoPost(obj interface{}) (*DeviceCompliancePolicy, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCompliancePolicyAssignment collection with addtional path
@@ -24529,24 +25676,24 @@ func (s *ServiceCollectionDeviceCompliancePolicyAssignment) DoPaging(method stri
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceCompliancePolicyAssignment) GetWithPath(path string) ([]DeviceCompliancePolicyAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceCompliancePolicyAssignment) DoGetWithPath(path string) ([]DeviceCompliancePolicyAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicyAssignment) Get() ([]DeviceCompliancePolicyAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicyAssignment) DoGet() ([]DeviceCompliancePolicyAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceCompliancePolicyAssignment) PostWithPath(path string, obj interface{}) (*DeviceCompliancePolicyAssignment, error) {
+func (s *ServiceCollectionDeviceCompliancePolicyAssignment) DoPostWithPath(path string, obj interface{}) (*DeviceCompliancePolicyAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicyAssignment) Post(obj interface{}) (*DeviceCompliancePolicyAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicyAssignment) DoPost(obj interface{}) (*DeviceCompliancePolicyAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCompliancePolicyDeviceStateSummary
@@ -24601,24 +25748,24 @@ func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) DoRequest(method strin
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) GetWithPath(path string) (*DeviceCompliancePolicyDeviceStateSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) DoGetWithPath(path string) (*DeviceCompliancePolicyDeviceStateSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) Get() (*DeviceCompliancePolicyDeviceStateSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) DoGet() (*DeviceCompliancePolicyDeviceStateSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) PostWithPath(path string) (*DeviceCompliancePolicyDeviceStateSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) DoPostWithPath(path string) (*DeviceCompliancePolicyDeviceStateSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) Post() (*DeviceCompliancePolicyDeviceStateSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceCompliancePolicyDeviceStateSummary) DoPost() (*DeviceCompliancePolicyDeviceStateSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // DeviceComplianceSettingStates returns service endpoint for CollectionDeviceComplianceSettingState
@@ -24680,24 +25827,24 @@ func (s *ServiceDeviceCompliancePolicySettingStateSummary) DoRequest(method stri
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceCompliancePolicySettingStateSummary) GetWithPath(path string) (*DeviceCompliancePolicySettingStateSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceCompliancePolicySettingStateSummary) DoGetWithPath(path string) (*DeviceCompliancePolicySettingStateSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceCompliancePolicySettingStateSummary) Get() (*DeviceCompliancePolicySettingStateSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceCompliancePolicySettingStateSummary) DoGet() (*DeviceCompliancePolicySettingStateSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceCompliancePolicySettingStateSummary) PostWithPath(path string) (*DeviceCompliancePolicySettingStateSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceCompliancePolicySettingStateSummary) DoPostWithPath(path string) (*DeviceCompliancePolicySettingStateSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceCompliancePolicySettingStateSummary) Post() (*DeviceCompliancePolicySettingStateSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceCompliancePolicySettingStateSummary) DoPost() (*DeviceCompliancePolicySettingStateSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCompliancePolicySettingStateSummary collection with addtional path
@@ -24812,24 +25959,24 @@ func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) DoPaging(me
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) GetWithPath(path string) ([]DeviceCompliancePolicySettingStateSummary, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) DoGetWithPath(path string) ([]DeviceCompliancePolicySettingStateSummary, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) Get() ([]DeviceCompliancePolicySettingStateSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) DoGet() ([]DeviceCompliancePolicySettingStateSummary, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) PostWithPath(path string, obj interface{}) (*DeviceCompliancePolicySettingStateSummary, error) {
+func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) DoPostWithPath(path string, obj interface{}) (*DeviceCompliancePolicySettingStateSummary, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) Post(obj interface{}) (*DeviceCompliancePolicySettingStateSummary, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicySettingStateSummary) DoPost(obj interface{}) (*DeviceCompliancePolicySettingStateSummary, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceCompliancePolicyState collection with addtional path
@@ -24944,24 +26091,24 @@ func (s *ServiceCollectionDeviceCompliancePolicyState) DoPaging(method string, o
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceCompliancePolicyState) GetWithPath(path string) ([]DeviceCompliancePolicyState, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceCompliancePolicyState) DoGetWithPath(path string) ([]DeviceCompliancePolicyState, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicyState) Get() ([]DeviceCompliancePolicyState, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicyState) DoGet() ([]DeviceCompliancePolicyState, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceCompliancePolicyState) PostWithPath(path string, obj interface{}) (*DeviceCompliancePolicyState, error) {
+func (s *ServiceCollectionDeviceCompliancePolicyState) DoPostWithPath(path string, obj interface{}) (*DeviceCompliancePolicyState, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceCompliancePolicyState) Post(obj interface{}) (*DeviceCompliancePolicyState, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceCompliancePolicyState) DoPost(obj interface{}) (*DeviceCompliancePolicyState, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ScheduledActionConfigurations returns service endpoint for CollectionDeviceComplianceActionItem
@@ -25023,24 +26170,24 @@ func (s *ServiceDeviceComplianceScheduledActionForRule) DoRequest(method string,
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceComplianceScheduledActionForRule) GetWithPath(path string) (*DeviceComplianceScheduledActionForRule, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceComplianceScheduledActionForRule) DoGetWithPath(path string) (*DeviceComplianceScheduledActionForRule, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceComplianceScheduledActionForRule) Get() (*DeviceComplianceScheduledActionForRule, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceComplianceScheduledActionForRule) DoGet() (*DeviceComplianceScheduledActionForRule, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceComplianceScheduledActionForRule) PostWithPath(path string) (*DeviceComplianceScheduledActionForRule, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceComplianceScheduledActionForRule) DoPostWithPath(path string) (*DeviceComplianceScheduledActionForRule, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceComplianceScheduledActionForRule) Post() (*DeviceComplianceScheduledActionForRule, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceComplianceScheduledActionForRule) DoPost() (*DeviceComplianceScheduledActionForRule, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceScheduledActionForRule collection with addtional path
@@ -25155,24 +26302,24 @@ func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) DoPaging(metho
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) GetWithPath(path string) ([]DeviceComplianceScheduledActionForRule, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) DoGetWithPath(path string) ([]DeviceComplianceScheduledActionForRule, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) Get() ([]DeviceComplianceScheduledActionForRule, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) DoGet() ([]DeviceComplianceScheduledActionForRule, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) PostWithPath(path string, obj interface{}) (*DeviceComplianceScheduledActionForRule, error) {
+func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) DoPostWithPath(path string, obj interface{}) (*DeviceComplianceScheduledActionForRule, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) Post(obj interface{}) (*DeviceComplianceScheduledActionForRule, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceScheduledActionForRule) DoPost(obj interface{}) (*DeviceComplianceScheduledActionForRule, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceSettingState collection with addtional path
@@ -25287,24 +26434,24 @@ func (s *ServiceCollectionDeviceComplianceSettingState) DoPaging(method string, 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceComplianceSettingState) GetWithPath(path string) ([]DeviceComplianceSettingState, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceComplianceSettingState) DoGetWithPath(path string) ([]DeviceComplianceSettingState, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceSettingState) Get() ([]DeviceComplianceSettingState, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceSettingState) DoGet() ([]DeviceComplianceSettingState, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceComplianceSettingState) PostWithPath(path string, obj interface{}) (*DeviceComplianceSettingState, error) {
+func (s *ServiceCollectionDeviceComplianceSettingState) DoPostWithPath(path string, obj interface{}) (*DeviceComplianceSettingState, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceSettingState) Post(obj interface{}) (*DeviceComplianceSettingState, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceSettingState) DoPost(obj interface{}) (*DeviceComplianceSettingState, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceUserOverview
@@ -25359,24 +26506,24 @@ func (s *ServiceDeviceComplianceUserOverview) DoRequest(method string, obj inter
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceComplianceUserOverview) GetWithPath(path string) (*DeviceComplianceUserOverview, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceComplianceUserOverview) DoGetWithPath(path string) (*DeviceComplianceUserOverview, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceComplianceUserOverview) Get() (*DeviceComplianceUserOverview, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceComplianceUserOverview) DoGet() (*DeviceComplianceUserOverview, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceComplianceUserOverview) PostWithPath(path string) (*DeviceComplianceUserOverview, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceComplianceUserOverview) DoPostWithPath(path string) (*DeviceComplianceUserOverview, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceComplianceUserOverview) Post() (*DeviceComplianceUserOverview, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceComplianceUserOverview) DoPost() (*DeviceComplianceUserOverview, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceComplianceUserStatus collection with addtional path
@@ -25491,24 +26638,24 @@ func (s *ServiceCollectionDeviceComplianceUserStatus) DoPaging(method string, ob
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceComplianceUserStatus) GetWithPath(path string) ([]DeviceComplianceUserStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceComplianceUserStatus) DoGetWithPath(path string) ([]DeviceComplianceUserStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceUserStatus) Get() ([]DeviceComplianceUserStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceUserStatus) DoGet() ([]DeviceComplianceUserStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceComplianceUserStatus) PostWithPath(path string, obj interface{}) (*DeviceComplianceUserStatus, error) {
+func (s *ServiceCollectionDeviceComplianceUserStatus) DoPostWithPath(path string, obj interface{}) (*DeviceComplianceUserStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceComplianceUserStatus) Post(obj interface{}) (*DeviceComplianceUserStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceComplianceUserStatus) DoPost(obj interface{}) (*DeviceComplianceUserStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionDeviceConfigurationAssignment
@@ -25605,24 +26752,24 @@ func (s *ServiceDeviceConfiguration) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceConfiguration) GetWithPath(path string) (*DeviceConfiguration, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceConfiguration) DoGetWithPath(path string) (*DeviceConfiguration, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceConfiguration) Get() (*DeviceConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceConfiguration) DoGet() (*DeviceConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceConfiguration) PostWithPath(path string) (*DeviceConfiguration, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceConfiguration) DoPostWithPath(path string) (*DeviceConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceConfiguration) Post() (*DeviceConfiguration, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceConfiguration) DoPost() (*DeviceConfiguration, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfiguration collection with addtional path
@@ -25737,24 +26884,24 @@ func (s *ServiceCollectionDeviceConfiguration) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceConfiguration) GetWithPath(path string) ([]DeviceConfiguration, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceConfiguration) DoGetWithPath(path string) ([]DeviceConfiguration, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceConfiguration) Get() ([]DeviceConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceConfiguration) DoGet() ([]DeviceConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceConfiguration) PostWithPath(path string, obj interface{}) (*DeviceConfiguration, error) {
+func (s *ServiceCollectionDeviceConfiguration) DoPostWithPath(path string, obj interface{}) (*DeviceConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceConfiguration) Post(obj interface{}) (*DeviceConfiguration, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceConfiguration) DoPost(obj interface{}) (*DeviceConfiguration, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationAssignment collection with addtional path
@@ -25869,24 +27016,24 @@ func (s *ServiceCollectionDeviceConfigurationAssignment) DoPaging(method string,
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceConfigurationAssignment) GetWithPath(path string) ([]DeviceConfigurationAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceConfigurationAssignment) DoGetWithPath(path string) ([]DeviceConfigurationAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationAssignment) Get() ([]DeviceConfigurationAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationAssignment) DoGet() ([]DeviceConfigurationAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceConfigurationAssignment) PostWithPath(path string, obj interface{}) (*DeviceConfigurationAssignment, error) {
+func (s *ServiceCollectionDeviceConfigurationAssignment) DoPostWithPath(path string, obj interface{}) (*DeviceConfigurationAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationAssignment) Post(obj interface{}) (*DeviceConfigurationAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationAssignment) DoPost(obj interface{}) (*DeviceConfigurationAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationDeviceOverview
@@ -25941,24 +27088,24 @@ func (s *ServiceDeviceConfigurationDeviceOverview) DoRequest(method string, obj 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceConfigurationDeviceOverview) GetWithPath(path string) (*DeviceConfigurationDeviceOverview, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceConfigurationDeviceOverview) DoGetWithPath(path string) (*DeviceConfigurationDeviceOverview, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceConfigurationDeviceOverview) Get() (*DeviceConfigurationDeviceOverview, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceConfigurationDeviceOverview) DoGet() (*DeviceConfigurationDeviceOverview, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceConfigurationDeviceOverview) PostWithPath(path string) (*DeviceConfigurationDeviceOverview, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceConfigurationDeviceOverview) DoPostWithPath(path string) (*DeviceConfigurationDeviceOverview, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceConfigurationDeviceOverview) Post() (*DeviceConfigurationDeviceOverview, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceConfigurationDeviceOverview) DoPost() (*DeviceConfigurationDeviceOverview, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationDeviceStateSummary
@@ -26013,24 +27160,24 @@ func (s *ServiceDeviceConfigurationDeviceStateSummary) DoRequest(method string, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceConfigurationDeviceStateSummary) GetWithPath(path string) (*DeviceConfigurationDeviceStateSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceConfigurationDeviceStateSummary) DoGetWithPath(path string) (*DeviceConfigurationDeviceStateSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceConfigurationDeviceStateSummary) Get() (*DeviceConfigurationDeviceStateSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceConfigurationDeviceStateSummary) DoGet() (*DeviceConfigurationDeviceStateSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceConfigurationDeviceStateSummary) PostWithPath(path string) (*DeviceConfigurationDeviceStateSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceConfigurationDeviceStateSummary) DoPostWithPath(path string) (*DeviceConfigurationDeviceStateSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceConfigurationDeviceStateSummary) Post() (*DeviceConfigurationDeviceStateSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceConfigurationDeviceStateSummary) DoPost() (*DeviceConfigurationDeviceStateSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationDeviceStatus collection with addtional path
@@ -26145,24 +27292,24 @@ func (s *ServiceCollectionDeviceConfigurationDeviceStatus) DoPaging(method strin
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceConfigurationDeviceStatus) GetWithPath(path string) ([]DeviceConfigurationDeviceStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceConfigurationDeviceStatus) DoGetWithPath(path string) ([]DeviceConfigurationDeviceStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationDeviceStatus) Get() ([]DeviceConfigurationDeviceStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationDeviceStatus) DoGet() ([]DeviceConfigurationDeviceStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceConfigurationDeviceStatus) PostWithPath(path string, obj interface{}) (*DeviceConfigurationDeviceStatus, error) {
+func (s *ServiceCollectionDeviceConfigurationDeviceStatus) DoPostWithPath(path string, obj interface{}) (*DeviceConfigurationDeviceStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationDeviceStatus) Post(obj interface{}) (*DeviceConfigurationDeviceStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationDeviceStatus) DoPost(obj interface{}) (*DeviceConfigurationDeviceStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationState collection with addtional path
@@ -26277,24 +27424,24 @@ func (s *ServiceCollectionDeviceConfigurationState) DoPaging(method string, obj 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceConfigurationState) GetWithPath(path string) ([]DeviceConfigurationState, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceConfigurationState) DoGetWithPath(path string) ([]DeviceConfigurationState, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationState) Get() ([]DeviceConfigurationState, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationState) DoGet() ([]DeviceConfigurationState, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceConfigurationState) PostWithPath(path string, obj interface{}) (*DeviceConfigurationState, error) {
+func (s *ServiceCollectionDeviceConfigurationState) DoPostWithPath(path string, obj interface{}) (*DeviceConfigurationState, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationState) Post(obj interface{}) (*DeviceConfigurationState, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationState) DoPost(obj interface{}) (*DeviceConfigurationState, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationUserOverview
@@ -26349,24 +27496,24 @@ func (s *ServiceDeviceConfigurationUserOverview) DoRequest(method string, obj in
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceConfigurationUserOverview) GetWithPath(path string) (*DeviceConfigurationUserOverview, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceConfigurationUserOverview) DoGetWithPath(path string) (*DeviceConfigurationUserOverview, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceConfigurationUserOverview) Get() (*DeviceConfigurationUserOverview, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceConfigurationUserOverview) DoGet() (*DeviceConfigurationUserOverview, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceConfigurationUserOverview) PostWithPath(path string) (*DeviceConfigurationUserOverview, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceConfigurationUserOverview) DoPostWithPath(path string) (*DeviceConfigurationUserOverview, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceConfigurationUserOverview) Post() (*DeviceConfigurationUserOverview, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceConfigurationUserOverview) DoPost() (*DeviceConfigurationUserOverview, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceConfigurationUserStatus collection with addtional path
@@ -26481,24 +27628,24 @@ func (s *ServiceCollectionDeviceConfigurationUserStatus) DoPaging(method string,
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceConfigurationUserStatus) GetWithPath(path string) ([]DeviceConfigurationUserStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceConfigurationUserStatus) DoGetWithPath(path string) ([]DeviceConfigurationUserStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationUserStatus) Get() ([]DeviceConfigurationUserStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationUserStatus) DoGet() ([]DeviceConfigurationUserStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceConfigurationUserStatus) PostWithPath(path string, obj interface{}) (*DeviceConfigurationUserStatus, error) {
+func (s *ServiceCollectionDeviceConfigurationUserStatus) DoPostWithPath(path string, obj interface{}) (*DeviceConfigurationUserStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceConfigurationUserStatus) Post(obj interface{}) (*DeviceConfigurationUserStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceConfigurationUserStatus) DoPost(obj interface{}) (*DeviceConfigurationUserStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionEnrollmentConfigurationAssignment
@@ -26560,24 +27707,24 @@ func (s *ServiceDeviceEnrollmentConfiguration) DoRequest(method string, obj inte
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceEnrollmentConfiguration) GetWithPath(path string) (*DeviceEnrollmentConfiguration, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceEnrollmentConfiguration) DoGetWithPath(path string) (*DeviceEnrollmentConfiguration, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceEnrollmentConfiguration) Get() (*DeviceEnrollmentConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceEnrollmentConfiguration) DoGet() (*DeviceEnrollmentConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceEnrollmentConfiguration) PostWithPath(path string) (*DeviceEnrollmentConfiguration, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceEnrollmentConfiguration) DoPostWithPath(path string) (*DeviceEnrollmentConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceEnrollmentConfiguration) Post() (*DeviceEnrollmentConfiguration, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceEnrollmentConfiguration) DoPost() (*DeviceEnrollmentConfiguration, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceEnrollmentConfiguration collection with addtional path
@@ -26692,24 +27839,24 @@ func (s *ServiceCollectionDeviceEnrollmentConfiguration) DoPaging(method string,
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceEnrollmentConfiguration) GetWithPath(path string) ([]DeviceEnrollmentConfiguration, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceEnrollmentConfiguration) DoGetWithPath(path string) ([]DeviceEnrollmentConfiguration, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceEnrollmentConfiguration) Get() ([]DeviceEnrollmentConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceEnrollmentConfiguration) DoGet() ([]DeviceEnrollmentConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceEnrollmentConfiguration) PostWithPath(path string, obj interface{}) (*DeviceEnrollmentConfiguration, error) {
+func (s *ServiceCollectionDeviceEnrollmentConfiguration) DoPostWithPath(path string, obj interface{}) (*DeviceEnrollmentConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceEnrollmentConfiguration) Post(obj interface{}) (*DeviceEnrollmentConfiguration, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceEnrollmentConfiguration) DoPost(obj interface{}) (*DeviceEnrollmentConfiguration, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceInstallState collection with addtional path
@@ -26824,24 +27971,24 @@ func (s *ServiceCollectionDeviceInstallState) DoPaging(method string, obj interf
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceInstallState) GetWithPath(path string) ([]DeviceInstallState, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceInstallState) DoGetWithPath(path string) ([]DeviceInstallState, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceInstallState) Get() ([]DeviceInstallState, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceInstallState) DoGet() ([]DeviceInstallState, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceInstallState) PostWithPath(path string, obj interface{}) (*DeviceInstallState, error) {
+func (s *ServiceCollectionDeviceInstallState) DoPostWithPath(path string, obj interface{}) (*DeviceInstallState, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceInstallState) Post(obj interface{}) (*DeviceInstallState, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceInstallState) DoPost(obj interface{}) (*DeviceInstallState, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ApplePushNotificationCertificate returns service endpoint for ApplePushNotificationCertificate
@@ -27085,24 +28232,24 @@ func (s *ServiceDeviceManagement) DoRequest(method string, obj interface{}) (*De
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDeviceManagement) GetWithPath(path string) (*DeviceManagement, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDeviceManagement) DoGetWithPath(path string) (*DeviceManagement, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDeviceManagement) Get() (*DeviceManagement, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDeviceManagement) DoGet() (*DeviceManagement, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDeviceManagement) PostWithPath(path string) (*DeviceManagement, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDeviceManagement) DoPostWithPath(path string) (*DeviceManagement, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDeviceManagement) Post() (*DeviceManagement, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDeviceManagement) DoPost() (*DeviceManagement, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceManagementExchangeConnector collection with addtional path
@@ -27217,24 +28364,24 @@ func (s *ServiceCollectionDeviceManagementExchangeConnector) DoPaging(method str
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceManagementExchangeConnector) GetWithPath(path string) ([]DeviceManagementExchangeConnector, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceManagementExchangeConnector) DoGetWithPath(path string) ([]DeviceManagementExchangeConnector, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceManagementExchangeConnector) Get() ([]DeviceManagementExchangeConnector, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceManagementExchangeConnector) DoGet() ([]DeviceManagementExchangeConnector, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceManagementExchangeConnector) PostWithPath(path string, obj interface{}) (*DeviceManagementExchangeConnector, error) {
+func (s *ServiceCollectionDeviceManagementExchangeConnector) DoPostWithPath(path string, obj interface{}) (*DeviceManagementExchangeConnector, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceManagementExchangeConnector) Post(obj interface{}) (*DeviceManagementExchangeConnector, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceManagementExchangeConnector) DoPost(obj interface{}) (*DeviceManagementExchangeConnector, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceManagementPartner collection with addtional path
@@ -27349,24 +28496,24 @@ func (s *ServiceCollectionDeviceManagementPartner) DoPaging(method string, obj i
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceManagementPartner) GetWithPath(path string) ([]DeviceManagementPartner, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceManagementPartner) DoGetWithPath(path string) ([]DeviceManagementPartner, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceManagementPartner) Get() ([]DeviceManagementPartner, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceManagementPartner) DoGet() ([]DeviceManagementPartner, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceManagementPartner) PostWithPath(path string, obj interface{}) (*DeviceManagementPartner, error) {
+func (s *ServiceCollectionDeviceManagementPartner) DoPostWithPath(path string, obj interface{}) (*DeviceManagementPartner, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceManagementPartner) Post(obj interface{}) (*DeviceManagementPartner, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceManagementPartner) DoPost(obj interface{}) (*DeviceManagementPartner, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DeviceManagementTroubleshootingEvent collection with addtional path
@@ -27481,24 +28628,24 @@ func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) DoPaging(method 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) GetWithPath(path string) ([]DeviceManagementTroubleshootingEvent, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) DoGetWithPath(path string) ([]DeviceManagementTroubleshootingEvent, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) Get() ([]DeviceManagementTroubleshootingEvent, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) DoGet() ([]DeviceManagementTroubleshootingEvent, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) PostWithPath(path string, obj interface{}) (*DeviceManagementTroubleshootingEvent, error) {
+func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) DoPostWithPath(path string, obj interface{}) (*DeviceManagementTroubleshootingEvent, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) Post(obj interface{}) (*DeviceManagementTroubleshootingEvent, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDeviceManagementTroubleshootingEvent) DoPost(obj interface{}) (*DeviceManagementTroubleshootingEvent, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DeletedItems returns service endpoint for CollectionDirectoryObject
@@ -27560,24 +28707,24 @@ func (s *ServiceDirectory) DoRequest(method string, obj interface{}) (*Directory
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDirectory) GetWithPath(path string) (*Directory, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDirectory) DoGetWithPath(path string) (*Directory, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDirectory) Get() (*Directory, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDirectory) DoGet() (*Directory, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDirectory) PostWithPath(path string) (*Directory, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDirectory) DoPostWithPath(path string) (*Directory, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDirectory) Post() (*Directory, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDirectory) DoPost() (*Directory, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DirectoryAudit collection with addtional path
@@ -27692,24 +28839,24 @@ func (s *ServiceCollectionDirectoryAudit) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDirectoryAudit) GetWithPath(path string) ([]DirectoryAudit, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDirectoryAudit) DoGetWithPath(path string) ([]DirectoryAudit, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDirectoryAudit) Get() ([]DirectoryAudit, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDirectoryAudit) DoGet() ([]DirectoryAudit, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDirectoryAudit) PostWithPath(path string, obj interface{}) (*DirectoryAudit, error) {
+func (s *ServiceCollectionDirectoryAudit) DoPostWithPath(path string, obj interface{}) (*DirectoryAudit, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDirectoryAudit) Post(obj interface{}) (*DirectoryAudit, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDirectoryAudit) DoPost(obj interface{}) (*DirectoryAudit, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DirectoryObject
@@ -27764,24 +28911,24 @@ func (s *ServiceDirectoryObject) DoRequest(method string, obj interface{}) (*Dir
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDirectoryObject) GetWithPath(path string) (*DirectoryObject, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDirectoryObject) DoGetWithPath(path string) (*DirectoryObject, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDirectoryObject) Get() (*DirectoryObject, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDirectoryObject) DoGet() (*DirectoryObject, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDirectoryObject) PostWithPath(path string) (*DirectoryObject, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDirectoryObject) DoPostWithPath(path string) (*DirectoryObject, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDirectoryObject) Post() (*DirectoryObject, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDirectoryObject) DoPost() (*DirectoryObject, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DirectoryObject collection with addtional path
@@ -27896,24 +29043,24 @@ func (s *ServiceCollectionDirectoryObject) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDirectoryObject) GetWithPath(path string) ([]DirectoryObject, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDirectoryObject) DoGetWithPath(path string) ([]DirectoryObject, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDirectoryObject) Get() ([]DirectoryObject, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDirectoryObject) DoGet() ([]DirectoryObject, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDirectoryObject) PostWithPath(path string, obj interface{}) (*DirectoryObject, error) {
+func (s *ServiceCollectionDirectoryObject) DoPostWithPath(path string, obj interface{}) (*DirectoryObject, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDirectoryObject) Post(obj interface{}) (*DirectoryObject, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDirectoryObject) DoPost(obj interface{}) (*DirectoryObject, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Members returns service endpoint for CollectionDirectoryObject
@@ -27975,24 +29122,24 @@ func (s *ServiceDirectoryRole) DoRequest(method string, obj interface{}) (*Direc
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDirectoryRole) GetWithPath(path string) (*DirectoryRole, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDirectoryRole) DoGetWithPath(path string) (*DirectoryRole, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDirectoryRole) Get() (*DirectoryRole, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDirectoryRole) DoGet() (*DirectoryRole, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDirectoryRole) PostWithPath(path string) (*DirectoryRole, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDirectoryRole) DoPostWithPath(path string) (*DirectoryRole, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDirectoryRole) Post() (*DirectoryRole, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDirectoryRole) DoPost() (*DirectoryRole, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DirectoryRole collection with addtional path
@@ -28107,24 +29254,24 @@ func (s *ServiceCollectionDirectoryRole) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDirectoryRole) GetWithPath(path string) ([]DirectoryRole, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDirectoryRole) DoGetWithPath(path string) ([]DirectoryRole, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDirectoryRole) Get() ([]DirectoryRole, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDirectoryRole) DoGet() ([]DirectoryRole, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDirectoryRole) PostWithPath(path string, obj interface{}) (*DirectoryRole, error) {
+func (s *ServiceCollectionDirectoryRole) DoPostWithPath(path string, obj interface{}) (*DirectoryRole, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDirectoryRole) Post(obj interface{}) (*DirectoryRole, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDirectoryRole) DoPost(obj interface{}) (*DirectoryRole, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DirectoryRoleTemplate
@@ -28179,24 +29326,24 @@ func (s *ServiceDirectoryRoleTemplate) DoRequest(method string, obj interface{})
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDirectoryRoleTemplate) GetWithPath(path string) (*DirectoryRoleTemplate, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDirectoryRoleTemplate) DoGetWithPath(path string) (*DirectoryRoleTemplate, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDirectoryRoleTemplate) Get() (*DirectoryRoleTemplate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDirectoryRoleTemplate) DoGet() (*DirectoryRoleTemplate, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDirectoryRoleTemplate) PostWithPath(path string) (*DirectoryRoleTemplate, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDirectoryRoleTemplate) DoPostWithPath(path string) (*DirectoryRoleTemplate, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDirectoryRoleTemplate) Post() (*DirectoryRoleTemplate, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDirectoryRoleTemplate) DoPost() (*DirectoryRoleTemplate, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DirectoryRoleTemplate collection with addtional path
@@ -28311,24 +29458,24 @@ func (s *ServiceCollectionDirectoryRoleTemplate) DoPaging(method string, obj int
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDirectoryRoleTemplate) GetWithPath(path string) ([]DirectoryRoleTemplate, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDirectoryRoleTemplate) DoGetWithPath(path string) ([]DirectoryRoleTemplate, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDirectoryRoleTemplate) Get() ([]DirectoryRoleTemplate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDirectoryRoleTemplate) DoGet() ([]DirectoryRoleTemplate, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDirectoryRoleTemplate) PostWithPath(path string, obj interface{}) (*DirectoryRoleTemplate, error) {
+func (s *ServiceCollectionDirectoryRoleTemplate) DoPostWithPath(path string, obj interface{}) (*DirectoryRoleTemplate, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDirectoryRoleTemplate) Post(obj interface{}) (*DirectoryRoleTemplate, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDirectoryRoleTemplate) DoPost(obj interface{}) (*DirectoryRoleTemplate, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DomainNameReferences returns service endpoint for CollectionDirectoryObject
@@ -28404,24 +29551,24 @@ func (s *ServiceDomain) DoRequest(method string, obj interface{}) (*Domain, erro
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDomain) GetWithPath(path string) (*Domain, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDomain) DoGetWithPath(path string) (*Domain, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDomain) Get() (*Domain, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDomain) DoGet() (*Domain, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDomain) PostWithPath(path string) (*Domain, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDomain) DoPostWithPath(path string) (*Domain, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDomain) Post() (*Domain, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDomain) DoPost() (*Domain, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Domain collection with addtional path
@@ -28536,24 +29683,24 @@ func (s *ServiceCollectionDomain) DoPaging(method string, obj interface{}) ([]Do
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDomain) GetWithPath(path string) ([]Domain, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDomain) DoGetWithPath(path string) ([]Domain, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDomain) Get() ([]Domain, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDomain) DoGet() ([]Domain, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDomain) PostWithPath(path string, obj interface{}) (*Domain, error) {
+func (s *ServiceCollectionDomain) DoPostWithPath(path string, obj interface{}) (*Domain, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDomain) Post(obj interface{}) (*Domain, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDomain) DoPost(obj interface{}) (*Domain, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DomainDnsRecord
@@ -28608,24 +29755,24 @@ func (s *ServiceDomainDnsRecord) DoRequest(method string, obj interface{}) (*Dom
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDomainDnsRecord) GetWithPath(path string) (*DomainDnsRecord, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDomainDnsRecord) DoGetWithPath(path string) (*DomainDnsRecord, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDomainDnsRecord) Get() (*DomainDnsRecord, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDomainDnsRecord) DoGet() (*DomainDnsRecord, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDomainDnsRecord) PostWithPath(path string) (*DomainDnsRecord, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDomainDnsRecord) DoPostWithPath(path string) (*DomainDnsRecord, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDomainDnsRecord) Post() (*DomainDnsRecord, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDomainDnsRecord) DoPost() (*DomainDnsRecord, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DomainDnsRecord collection with addtional path
@@ -28740,24 +29887,24 @@ func (s *ServiceCollectionDomainDnsRecord) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDomainDnsRecord) GetWithPath(path string) ([]DomainDnsRecord, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDomainDnsRecord) DoGetWithPath(path string) ([]DomainDnsRecord, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDomainDnsRecord) Get() ([]DomainDnsRecord, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDomainDnsRecord) DoGet() ([]DomainDnsRecord, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDomainDnsRecord) PostWithPath(path string, obj interface{}) (*DomainDnsRecord, error) {
+func (s *ServiceCollectionDomainDnsRecord) DoPostWithPath(path string, obj interface{}) (*DomainDnsRecord, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDomainDnsRecord) Post(obj interface{}) (*DomainDnsRecord, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDomainDnsRecord) DoPost(obj interface{}) (*DomainDnsRecord, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Items returns service endpoint for CollectionDriveItem
@@ -28840,24 +29987,24 @@ func (s *ServiceDrive) DoRequest(method string, obj interface{}) (*Drive, error)
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDrive) GetWithPath(path string) (*Drive, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDrive) DoGetWithPath(path string) (*Drive, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDrive) Get() (*Drive, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDrive) DoGet() (*Drive, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDrive) PostWithPath(path string) (*Drive, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDrive) DoPostWithPath(path string) (*Drive, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDrive) Post() (*Drive, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDrive) DoPost() (*Drive, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Drive collection with addtional path
@@ -28972,24 +30119,24 @@ func (s *ServiceCollectionDrive) DoPaging(method string, obj interface{}) ([]Dri
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDrive) GetWithPath(path string) ([]Drive, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDrive) DoGetWithPath(path string) ([]Drive, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDrive) Get() ([]Drive, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDrive) DoGet() ([]Drive, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDrive) PostWithPath(path string, obj interface{}) (*Drive, error) {
+func (s *ServiceCollectionDrive) DoPostWithPath(path string, obj interface{}) (*Drive, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDrive) Post(obj interface{}) (*Drive, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDrive) DoPost(obj interface{}) (*Drive, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Analytics returns service endpoint for ItemAnalytics
@@ -29100,24 +30247,24 @@ func (s *ServiceDriveItem) DoRequest(method string, obj interface{}) (*DriveItem
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceDriveItem) GetWithPath(path string) (*DriveItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceDriveItem) DoGetWithPath(path string) (*DriveItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceDriveItem) Get() (*DriveItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceDriveItem) DoGet() (*DriveItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceDriveItem) PostWithPath(path string) (*DriveItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceDriveItem) DoPostWithPath(path string) (*DriveItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceDriveItem) Post() (*DriveItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceDriveItem) DoPost() (*DriveItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for DriveItem collection with addtional path
@@ -29232,24 +30379,24 @@ func (s *ServiceCollectionDriveItem) DoPaging(method string, obj interface{}) ([
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDriveItem) GetWithPath(path string) ([]DriveItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDriveItem) DoGetWithPath(path string) ([]DriveItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDriveItem) Get() ([]DriveItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDriveItem) DoGet() ([]DriveItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDriveItem) PostWithPath(path string, obj interface{}) (*DriveItem, error) {
+func (s *ServiceCollectionDriveItem) DoPostWithPath(path string, obj interface{}) (*DriveItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDriveItem) Post(obj interface{}) (*DriveItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDriveItem) DoPost(obj interface{}) (*DriveItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for DriveItemVersion collection with addtional path
@@ -29364,24 +30511,24 @@ func (s *ServiceCollectionDriveItemVersion) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionDriveItemVersion) GetWithPath(path string) ([]DriveItemVersion, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionDriveItemVersion) DoGetWithPath(path string) ([]DriveItemVersion, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionDriveItemVersion) Get() ([]DriveItemVersion, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionDriveItemVersion) DoGet() ([]DriveItemVersion, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionDriveItemVersion) PostWithPath(path string, obj interface{}) (*DriveItemVersion, error) {
+func (s *ServiceCollectionDriveItemVersion) DoPostWithPath(path string, obj interface{}) (*DriveItemVersion, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionDriveItemVersion) Post(obj interface{}) (*DriveItemVersion, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionDriveItemVersion) DoPost(obj interface{}) (*DriveItemVersion, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for EBookInstallSummary
@@ -29436,24 +30583,24 @@ func (s *ServiceEBookInstallSummary) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEBookInstallSummary) GetWithPath(path string) (*EBookInstallSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEBookInstallSummary) DoGetWithPath(path string) (*EBookInstallSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEBookInstallSummary) Get() (*EBookInstallSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEBookInstallSummary) DoGet() (*EBookInstallSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEBookInstallSummary) PostWithPath(path string) (*EBookInstallSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEBookInstallSummary) DoPostWithPath(path string) (*EBookInstallSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEBookInstallSummary) Post() (*EBookInstallSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEBookInstallSummary) DoPost() (*EBookInstallSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // Group returns service endpoint for Group
@@ -29536,24 +30683,24 @@ func (s *ServiceEducationClass) DoRequest(method string, obj interface{}) (*Educ
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEducationClass) GetWithPath(path string) (*EducationClass, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEducationClass) DoGetWithPath(path string) (*EducationClass, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEducationClass) Get() (*EducationClass, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEducationClass) DoGet() (*EducationClass, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEducationClass) PostWithPath(path string) (*EducationClass, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEducationClass) DoPostWithPath(path string) (*EducationClass, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEducationClass) Post() (*EducationClass, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEducationClass) DoPost() (*EducationClass, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for EducationClass collection with addtional path
@@ -29668,24 +30815,24 @@ func (s *ServiceCollectionEducationClass) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionEducationClass) GetWithPath(path string) ([]EducationClass, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionEducationClass) DoGetWithPath(path string) ([]EducationClass, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionEducationClass) Get() ([]EducationClass, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionEducationClass) DoGet() ([]EducationClass, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionEducationClass) PostWithPath(path string, obj interface{}) (*EducationClass, error) {
+func (s *ServiceCollectionEducationClass) DoPostWithPath(path string, obj interface{}) (*EducationClass, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionEducationClass) Post(obj interface{}) (*EducationClass, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionEducationClass) DoPost(obj interface{}) (*EducationClass, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Classes returns service endpoint for CollectionEducationClass
@@ -29768,24 +30915,24 @@ func (s *ServiceEducationRoot) DoRequest(method string, obj interface{}) (*Educa
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEducationRoot) GetWithPath(path string) (*EducationRoot, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEducationRoot) DoGetWithPath(path string) (*EducationRoot, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEducationRoot) Get() (*EducationRoot, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEducationRoot) DoGet() (*EducationRoot, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEducationRoot) PostWithPath(path string) (*EducationRoot, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEducationRoot) DoPostWithPath(path string) (*EducationRoot, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEducationRoot) Post() (*EducationRoot, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEducationRoot) DoPost() (*EducationRoot, error) {
+	return s.DoPostWithPath("")
 }
 
 // Classes returns service endpoint for CollectionEducationClass
@@ -29854,24 +31001,24 @@ func (s *ServiceEducationSchool) DoRequest(method string, obj interface{}) (*Edu
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEducationSchool) GetWithPath(path string) (*EducationSchool, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEducationSchool) DoGetWithPath(path string) (*EducationSchool, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEducationSchool) Get() (*EducationSchool, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEducationSchool) DoGet() (*EducationSchool, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEducationSchool) PostWithPath(path string) (*EducationSchool, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEducationSchool) DoPostWithPath(path string) (*EducationSchool, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEducationSchool) Post() (*EducationSchool, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEducationSchool) DoPost() (*EducationSchool, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for EducationSchool collection with addtional path
@@ -29986,24 +31133,24 @@ func (s *ServiceCollectionEducationSchool) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionEducationSchool) GetWithPath(path string) ([]EducationSchool, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionEducationSchool) DoGetWithPath(path string) ([]EducationSchool, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionEducationSchool) Get() ([]EducationSchool, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionEducationSchool) DoGet() ([]EducationSchool, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionEducationSchool) PostWithPath(path string, obj interface{}) (*EducationSchool, error) {
+func (s *ServiceCollectionEducationSchool) DoPostWithPath(path string, obj interface{}) (*EducationSchool, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionEducationSchool) Post(obj interface{}) (*EducationSchool, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionEducationSchool) DoPost(obj interface{}) (*EducationSchool, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Classes returns service endpoint for CollectionEducationClass
@@ -30079,24 +31226,24 @@ func (s *ServiceEducationUser) DoRequest(method string, obj interface{}) (*Educa
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEducationUser) GetWithPath(path string) (*EducationUser, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEducationUser) DoGetWithPath(path string) (*EducationUser, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEducationUser) Get() (*EducationUser, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEducationUser) DoGet() (*EducationUser, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEducationUser) PostWithPath(path string) (*EducationUser, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEducationUser) DoPostWithPath(path string) (*EducationUser, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEducationUser) Post() (*EducationUser, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEducationUser) DoPost() (*EducationUser, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for EducationUser collection with addtional path
@@ -30211,24 +31358,24 @@ func (s *ServiceCollectionEducationUser) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionEducationUser) GetWithPath(path string) ([]EducationUser, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionEducationUser) DoGetWithPath(path string) ([]EducationUser, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionEducationUser) Get() ([]EducationUser, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionEducationUser) DoGet() ([]EducationUser, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionEducationUser) PostWithPath(path string, obj interface{}) (*EducationUser, error) {
+func (s *ServiceCollectionEducationUser) DoPostWithPath(path string, obj interface{}) (*EducationUser, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionEducationUser) Post(obj interface{}) (*EducationUser, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionEducationUser) DoPost(obj interface{}) (*EducationUser, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for EnrollmentConfigurationAssignment collection with addtional path
@@ -30343,24 +31490,24 @@ func (s *ServiceCollectionEnrollmentConfigurationAssignment) DoPaging(method str
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionEnrollmentConfigurationAssignment) GetWithPath(path string) ([]EnrollmentConfigurationAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionEnrollmentConfigurationAssignment) DoGetWithPath(path string) ([]EnrollmentConfigurationAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionEnrollmentConfigurationAssignment) Get() ([]EnrollmentConfigurationAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionEnrollmentConfigurationAssignment) DoGet() ([]EnrollmentConfigurationAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionEnrollmentConfigurationAssignment) PostWithPath(path string, obj interface{}) (*EnrollmentConfigurationAssignment, error) {
+func (s *ServiceCollectionEnrollmentConfigurationAssignment) DoPostWithPath(path string, obj interface{}) (*EnrollmentConfigurationAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionEnrollmentConfigurationAssignment) Post(obj interface{}) (*EnrollmentConfigurationAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionEnrollmentConfigurationAssignment) DoPost(obj interface{}) (*EnrollmentConfigurationAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for Entity
@@ -30415,24 +31562,24 @@ func (s *ServiceEntity) DoRequest(method string, obj interface{}) (*Entity, erro
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEntity) GetWithPath(path string) (*Entity, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEntity) DoGetWithPath(path string) (*Entity, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEntity) Get() (*Entity, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEntity) DoGet() (*Entity, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEntity) PostWithPath(path string) (*Entity, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEntity) DoPostWithPath(path string) (*Entity, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEntity) Post() (*Entity, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEntity) DoPost() (*Entity, error) {
+	return s.DoPostWithPath("")
 }
 
 // Attachments returns service endpoint for CollectionAttachment
@@ -30529,24 +31676,24 @@ func (s *ServiceEvent) DoRequest(method string, obj interface{}) (*Event, error)
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEvent) GetWithPath(path string) (*Event, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEvent) DoGetWithPath(path string) (*Event, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEvent) Get() (*Event, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEvent) DoGet() (*Event, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEvent) PostWithPath(path string) (*Event, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEvent) DoPostWithPath(path string) (*Event, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEvent) Post() (*Event, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEvent) DoPost() (*Event, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Event collection with addtional path
@@ -30661,24 +31808,24 @@ func (s *ServiceCollectionEvent) DoPaging(method string, obj interface{}) ([]Eve
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionEvent) GetWithPath(path string) ([]Event, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionEvent) DoGetWithPath(path string) ([]Event, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionEvent) Get() ([]Event, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionEvent) DoGet() ([]Event, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionEvent) PostWithPath(path string, obj interface{}) (*Event, error) {
+func (s *ServiceCollectionEvent) DoPostWithPath(path string, obj interface{}) (*Event, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionEvent) Post(obj interface{}) (*Event, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionEvent) DoPost(obj interface{}) (*Event, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Event returns service endpoint for Event
@@ -30740,24 +31887,24 @@ func (s *ServiceEventMessage) DoRequest(method string, obj interface{}) (*EventM
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceEventMessage) GetWithPath(path string) (*EventMessage, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceEventMessage) DoGetWithPath(path string) (*EventMessage, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceEventMessage) Get() (*EventMessage, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceEventMessage) DoGet() (*EventMessage, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceEventMessage) PostWithPath(path string) (*EventMessage, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceEventMessage) DoPostWithPath(path string) (*EventMessage, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceEventMessage) Post() (*EventMessage, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceEventMessage) DoPost() (*EventMessage, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Extension collection with addtional path
@@ -30872,24 +32019,24 @@ func (s *ServiceCollectionExtension) DoPaging(method string, obj interface{}) ([
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionExtension) GetWithPath(path string) ([]Extension, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionExtension) DoGetWithPath(path string) ([]Extension, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionExtension) Get() ([]Extension, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionExtension) DoGet() ([]Extension, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionExtension) PostWithPath(path string, obj interface{}) (*Extension, error) {
+func (s *ServiceCollectionExtension) DoPostWithPath(path string, obj interface{}) (*Extension, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionExtension) Post(obj interface{}) (*Extension, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionExtension) DoPost(obj interface{}) (*Extension, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for FieldValueSet
@@ -30944,24 +32091,24 @@ func (s *ServiceFieldValueSet) DoRequest(method string, obj interface{}) (*Field
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceFieldValueSet) GetWithPath(path string) (*FieldValueSet, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceFieldValueSet) DoGetWithPath(path string) (*FieldValueSet, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceFieldValueSet) Get() (*FieldValueSet, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceFieldValueSet) DoGet() (*FieldValueSet, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceFieldValueSet) PostWithPath(path string) (*FieldValueSet, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceFieldValueSet) DoPostWithPath(path string) (*FieldValueSet, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceFieldValueSet) Post() (*FieldValueSet, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceFieldValueSet) DoPost() (*FieldValueSet, error) {
+	return s.DoPostWithPath("")
 }
 
 // AcceptedSenders returns service endpoint for CollectionDirectoryObject
@@ -31191,24 +32338,24 @@ func (s *ServiceGroup) DoRequest(method string, obj interface{}) (*Group, error)
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceGroup) GetWithPath(path string) (*Group, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceGroup) DoGetWithPath(path string) (*Group, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceGroup) Get() (*Group, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceGroup) DoGet() (*Group, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceGroup) PostWithPath(path string) (*Group, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceGroup) DoPostWithPath(path string) (*Group, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceGroup) Post() (*Group, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceGroup) DoPost() (*Group, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Group collection with addtional path
@@ -31323,24 +32470,24 @@ func (s *ServiceCollectionGroup) DoPaging(method string, obj interface{}) ([]Gro
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionGroup) GetWithPath(path string) ([]Group, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionGroup) DoGetWithPath(path string) ([]Group, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionGroup) Get() ([]Group, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionGroup) DoGet() ([]Group, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionGroup) PostWithPath(path string, obj interface{}) (*Group, error) {
+func (s *ServiceCollectionGroup) DoPostWithPath(path string, obj interface{}) (*Group, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionGroup) Post(obj interface{}) (*Group, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionGroup) DoPost(obj interface{}) (*Group, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for GroupLifecyclePolicy
@@ -31395,24 +32542,24 @@ func (s *ServiceGroupLifecyclePolicy) DoRequest(method string, obj interface{}) 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceGroupLifecyclePolicy) GetWithPath(path string) (*GroupLifecyclePolicy, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceGroupLifecyclePolicy) DoGetWithPath(path string) (*GroupLifecyclePolicy, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceGroupLifecyclePolicy) Get() (*GroupLifecyclePolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceGroupLifecyclePolicy) DoGet() (*GroupLifecyclePolicy, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceGroupLifecyclePolicy) PostWithPath(path string) (*GroupLifecyclePolicy, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceGroupLifecyclePolicy) DoPostWithPath(path string) (*GroupLifecyclePolicy, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceGroupLifecyclePolicy) Post() (*GroupLifecyclePolicy, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceGroupLifecyclePolicy) DoPost() (*GroupLifecyclePolicy, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for GroupLifecyclePolicy collection with addtional path
@@ -31527,24 +32674,24 @@ func (s *ServiceCollectionGroupLifecyclePolicy) DoPaging(method string, obj inte
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionGroupLifecyclePolicy) GetWithPath(path string) ([]GroupLifecyclePolicy, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionGroupLifecyclePolicy) DoGetWithPath(path string) ([]GroupLifecyclePolicy, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionGroupLifecyclePolicy) Get() ([]GroupLifecyclePolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionGroupLifecyclePolicy) DoGet() ([]GroupLifecyclePolicy, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionGroupLifecyclePolicy) PostWithPath(path string, obj interface{}) (*GroupLifecyclePolicy, error) {
+func (s *ServiceCollectionGroupLifecyclePolicy) DoPostWithPath(path string, obj interface{}) (*GroupLifecyclePolicy, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionGroupLifecyclePolicy) Post(obj interface{}) (*GroupLifecyclePolicy, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionGroupLifecyclePolicy) DoPost(obj interface{}) (*GroupLifecyclePolicy, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for GroupSetting
@@ -31599,24 +32746,24 @@ func (s *ServiceGroupSetting) DoRequest(method string, obj interface{}) (*GroupS
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceGroupSetting) GetWithPath(path string) (*GroupSetting, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceGroupSetting) DoGetWithPath(path string) (*GroupSetting, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceGroupSetting) Get() (*GroupSetting, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceGroupSetting) DoGet() (*GroupSetting, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceGroupSetting) PostWithPath(path string) (*GroupSetting, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceGroupSetting) DoPostWithPath(path string) (*GroupSetting, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceGroupSetting) Post() (*GroupSetting, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceGroupSetting) DoPost() (*GroupSetting, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for GroupSetting collection with addtional path
@@ -31731,24 +32878,24 @@ func (s *ServiceCollectionGroupSetting) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionGroupSetting) GetWithPath(path string) ([]GroupSetting, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionGroupSetting) DoGetWithPath(path string) ([]GroupSetting, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionGroupSetting) Get() ([]GroupSetting, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionGroupSetting) DoGet() ([]GroupSetting, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionGroupSetting) PostWithPath(path string, obj interface{}) (*GroupSetting, error) {
+func (s *ServiceCollectionGroupSetting) DoPostWithPath(path string, obj interface{}) (*GroupSetting, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionGroupSetting) Post(obj interface{}) (*GroupSetting, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionGroupSetting) DoPost(obj interface{}) (*GroupSetting, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for GroupSettingTemplate
@@ -31803,24 +32950,24 @@ func (s *ServiceGroupSettingTemplate) DoRequest(method string, obj interface{}) 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceGroupSettingTemplate) GetWithPath(path string) (*GroupSettingTemplate, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceGroupSettingTemplate) DoGetWithPath(path string) (*GroupSettingTemplate, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceGroupSettingTemplate) Get() (*GroupSettingTemplate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceGroupSettingTemplate) DoGet() (*GroupSettingTemplate, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceGroupSettingTemplate) PostWithPath(path string) (*GroupSettingTemplate, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceGroupSettingTemplate) DoPostWithPath(path string) (*GroupSettingTemplate, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceGroupSettingTemplate) Post() (*GroupSettingTemplate, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceGroupSettingTemplate) DoPost() (*GroupSettingTemplate, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for GroupSettingTemplate collection with addtional path
@@ -31935,24 +33082,24 @@ func (s *ServiceCollectionGroupSettingTemplate) DoPaging(method string, obj inte
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionGroupSettingTemplate) GetWithPath(path string) ([]GroupSettingTemplate, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionGroupSettingTemplate) DoGetWithPath(path string) ([]GroupSettingTemplate, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionGroupSettingTemplate) Get() ([]GroupSettingTemplate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionGroupSettingTemplate) DoGet() ([]GroupSettingTemplate, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionGroupSettingTemplate) PostWithPath(path string, obj interface{}) (*GroupSettingTemplate, error) {
+func (s *ServiceCollectionGroupSettingTemplate) DoPostWithPath(path string, obj interface{}) (*GroupSettingTemplate, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionGroupSettingTemplate) Post(obj interface{}) (*GroupSettingTemplate, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionGroupSettingTemplate) DoPost(obj interface{}) (*GroupSettingTemplate, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for IdentityProvider
@@ -32007,24 +33154,24 @@ func (s *ServiceIdentityProvider) DoRequest(method string, obj interface{}) (*Id
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceIdentityProvider) GetWithPath(path string) (*IdentityProvider, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceIdentityProvider) DoGetWithPath(path string) (*IdentityProvider, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceIdentityProvider) Get() (*IdentityProvider, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceIdentityProvider) DoGet() (*IdentityProvider, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceIdentityProvider) PostWithPath(path string) (*IdentityProvider, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceIdentityProvider) DoPostWithPath(path string) (*IdentityProvider, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceIdentityProvider) Post() (*IdentityProvider, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceIdentityProvider) DoPost() (*IdentityProvider, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for IdentityProvider collection with addtional path
@@ -32139,24 +33286,24 @@ func (s *ServiceCollectionIdentityProvider) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionIdentityProvider) GetWithPath(path string) ([]IdentityProvider, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionIdentityProvider) DoGetWithPath(path string) ([]IdentityProvider, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionIdentityProvider) Get() ([]IdentityProvider, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionIdentityProvider) DoGet() ([]IdentityProvider, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionIdentityProvider) PostWithPath(path string, obj interface{}) (*IdentityProvider, error) {
+func (s *ServiceCollectionIdentityProvider) DoPostWithPath(path string, obj interface{}) (*IdentityProvider, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionIdentityProvider) Post(obj interface{}) (*IdentityProvider, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionIdentityProvider) DoPost(obj interface{}) (*IdentityProvider, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Overrides returns service endpoint for CollectionInferenceClassificationOverride
@@ -32218,24 +33365,24 @@ func (s *ServiceInferenceClassification) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceInferenceClassification) GetWithPath(path string) (*InferenceClassification, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceInferenceClassification) DoGetWithPath(path string) (*InferenceClassification, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceInferenceClassification) Get() (*InferenceClassification, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceInferenceClassification) DoGet() (*InferenceClassification, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceInferenceClassification) PostWithPath(path string) (*InferenceClassification, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceInferenceClassification) DoPostWithPath(path string) (*InferenceClassification, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceInferenceClassification) Post() (*InferenceClassification, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceInferenceClassification) DoPost() (*InferenceClassification, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for InferenceClassificationOverride collection with addtional path
@@ -32350,24 +33497,24 @@ func (s *ServiceCollectionInferenceClassificationOverride) DoPaging(method strin
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionInferenceClassificationOverride) GetWithPath(path string) ([]InferenceClassificationOverride, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionInferenceClassificationOverride) DoGetWithPath(path string) ([]InferenceClassificationOverride, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionInferenceClassificationOverride) Get() ([]InferenceClassificationOverride, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionInferenceClassificationOverride) DoGet() ([]InferenceClassificationOverride, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionInferenceClassificationOverride) PostWithPath(path string, obj interface{}) (*InferenceClassificationOverride, error) {
+func (s *ServiceCollectionInferenceClassificationOverride) DoPostWithPath(path string, obj interface{}) (*InferenceClassificationOverride, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionInferenceClassificationOverride) Post(obj interface{}) (*InferenceClassificationOverride, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionInferenceClassificationOverride) DoPost(obj interface{}) (*InferenceClassificationOverride, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // InvitedUser returns service endpoint for User
@@ -32429,24 +33576,24 @@ func (s *ServiceInvitation) DoRequest(method string, obj interface{}) (*Invitati
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceInvitation) GetWithPath(path string) (*Invitation, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceInvitation) DoGetWithPath(path string) (*Invitation, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceInvitation) Get() (*Invitation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceInvitation) DoGet() (*Invitation, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceInvitation) PostWithPath(path string) (*Invitation, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceInvitation) DoPostWithPath(path string) (*Invitation, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceInvitation) Post() (*Invitation, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceInvitation) DoPost() (*Invitation, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Invitation collection with addtional path
@@ -32561,24 +33708,24 @@ func (s *ServiceCollectionInvitation) DoPaging(method string, obj interface{}) (
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionInvitation) GetWithPath(path string) ([]Invitation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionInvitation) DoGetWithPath(path string) ([]Invitation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionInvitation) Get() ([]Invitation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionInvitation) DoGet() ([]Invitation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionInvitation) PostWithPath(path string, obj interface{}) (*Invitation, error) {
+func (s *ServiceCollectionInvitation) DoPostWithPath(path string, obj interface{}) (*Invitation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionInvitation) Post(obj interface{}) (*Invitation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionInvitation) DoPost(obj interface{}) (*Invitation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Apps returns service endpoint for CollectionManagedMobileApp
@@ -32647,24 +33794,24 @@ func (s *ServiceIosManagedAppProtection) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceIosManagedAppProtection) GetWithPath(path string) (*IosManagedAppProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceIosManagedAppProtection) DoGetWithPath(path string) (*IosManagedAppProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceIosManagedAppProtection) Get() (*IosManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceIosManagedAppProtection) DoGet() (*IosManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceIosManagedAppProtection) PostWithPath(path string) (*IosManagedAppProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceIosManagedAppProtection) DoPostWithPath(path string) (*IosManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceIosManagedAppProtection) Post() (*IosManagedAppProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceIosManagedAppProtection) DoPost() (*IosManagedAppProtection, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for IosManagedAppProtection collection with addtional path
@@ -32779,24 +33926,24 @@ func (s *ServiceCollectionIosManagedAppProtection) DoPaging(method string, obj i
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionIosManagedAppProtection) GetWithPath(path string) ([]IosManagedAppProtection, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionIosManagedAppProtection) DoGetWithPath(path string) ([]IosManagedAppProtection, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionIosManagedAppProtection) Get() ([]IosManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionIosManagedAppProtection) DoGet() ([]IosManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionIosManagedAppProtection) PostWithPath(path string, obj interface{}) (*IosManagedAppProtection, error) {
+func (s *ServiceCollectionIosManagedAppProtection) DoPostWithPath(path string, obj interface{}) (*IosManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionIosManagedAppProtection) Post(obj interface{}) (*IosManagedAppProtection, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionIosManagedAppProtection) DoPost(obj interface{}) (*IosManagedAppProtection, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for IosUpdateDeviceStatus collection with addtional path
@@ -32911,24 +34058,24 @@ func (s *ServiceCollectionIosUpdateDeviceStatus) DoPaging(method string, obj int
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionIosUpdateDeviceStatus) GetWithPath(path string) ([]IosUpdateDeviceStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionIosUpdateDeviceStatus) DoGetWithPath(path string) ([]IosUpdateDeviceStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionIosUpdateDeviceStatus) Get() ([]IosUpdateDeviceStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionIosUpdateDeviceStatus) DoGet() ([]IosUpdateDeviceStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionIosUpdateDeviceStatus) PostWithPath(path string, obj interface{}) (*IosUpdateDeviceStatus, error) {
+func (s *ServiceCollectionIosUpdateDeviceStatus) DoPostWithPath(path string, obj interface{}) (*IosUpdateDeviceStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionIosUpdateDeviceStatus) Post(obj interface{}) (*IosUpdateDeviceStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionIosUpdateDeviceStatus) DoPost(obj interface{}) (*IosUpdateDeviceStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DriveItem returns service endpoint for DriveItem
@@ -32990,24 +34137,24 @@ func (s *ServiceItemActivity) DoRequest(method string, obj interface{}) (*ItemAc
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceItemActivity) GetWithPath(path string) (*ItemActivity, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceItemActivity) DoGetWithPath(path string) (*ItemActivity, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceItemActivity) Get() (*ItemActivity, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceItemActivity) DoGet() (*ItemActivity, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceItemActivity) PostWithPath(path string) (*ItemActivity, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceItemActivity) DoPostWithPath(path string) (*ItemActivity, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceItemActivity) Post() (*ItemActivity, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceItemActivity) DoPost() (*ItemActivity, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ItemActivity collection with addtional path
@@ -33122,24 +34269,24 @@ func (s *ServiceCollectionItemActivity) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionItemActivity) GetWithPath(path string) ([]ItemActivity, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionItemActivity) DoGetWithPath(path string) ([]ItemActivity, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionItemActivity) Get() ([]ItemActivity, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionItemActivity) DoGet() ([]ItemActivity, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionItemActivity) PostWithPath(path string, obj interface{}) (*ItemActivity, error) {
+func (s *ServiceCollectionItemActivity) DoPostWithPath(path string, obj interface{}) (*ItemActivity, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionItemActivity) Post(obj interface{}) (*ItemActivity, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionItemActivity) DoPost(obj interface{}) (*ItemActivity, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Activities returns service endpoint for CollectionItemActivity
@@ -33201,24 +34348,24 @@ func (s *ServiceItemActivityStat) DoRequest(method string, obj interface{}) (*It
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceItemActivityStat) GetWithPath(path string) (*ItemActivityStat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceItemActivityStat) DoGetWithPath(path string) (*ItemActivityStat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceItemActivityStat) Get() (*ItemActivityStat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceItemActivityStat) DoGet() (*ItemActivityStat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceItemActivityStat) PostWithPath(path string) (*ItemActivityStat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceItemActivityStat) DoPostWithPath(path string) (*ItemActivityStat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceItemActivityStat) Post() (*ItemActivityStat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceItemActivityStat) DoPost() (*ItemActivityStat, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ItemActivityStat collection with addtional path
@@ -33333,24 +34480,24 @@ func (s *ServiceCollectionItemActivityStat) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionItemActivityStat) GetWithPath(path string) ([]ItemActivityStat, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionItemActivityStat) DoGetWithPath(path string) ([]ItemActivityStat, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionItemActivityStat) Get() ([]ItemActivityStat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionItemActivityStat) DoGet() ([]ItemActivityStat, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionItemActivityStat) PostWithPath(path string, obj interface{}) (*ItemActivityStat, error) {
+func (s *ServiceCollectionItemActivityStat) DoPostWithPath(path string, obj interface{}) (*ItemActivityStat, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionItemActivityStat) Post(obj interface{}) (*ItemActivityStat, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionItemActivityStat) DoPost(obj interface{}) (*ItemActivityStat, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // AllTime returns service endpoint for ItemActivityStat
@@ -33426,24 +34573,24 @@ func (s *ServiceItemAnalytics) DoRequest(method string, obj interface{}) (*ItemA
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceItemAnalytics) GetWithPath(path string) (*ItemAnalytics, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceItemAnalytics) DoGetWithPath(path string) (*ItemAnalytics, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceItemAnalytics) Get() (*ItemAnalytics, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceItemAnalytics) DoGet() (*ItemAnalytics, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceItemAnalytics) PostWithPath(path string) (*ItemAnalytics, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceItemAnalytics) DoPostWithPath(path string) (*ItemAnalytics, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceItemAnalytics) Post() (*ItemAnalytics, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceItemAnalytics) DoPost() (*ItemAnalytics, error) {
+	return s.DoPostWithPath("")
 }
 
 // Item returns service endpoint for OutlookItem
@@ -33505,24 +34652,24 @@ func (s *ServiceItemAttachment) DoRequest(method string, obj interface{}) (*Item
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceItemAttachment) GetWithPath(path string) (*ItemAttachment, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceItemAttachment) DoGetWithPath(path string) (*ItemAttachment, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceItemAttachment) Get() (*ItemAttachment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceItemAttachment) DoGet() (*ItemAttachment, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceItemAttachment) PostWithPath(path string) (*ItemAttachment, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceItemAttachment) DoPostWithPath(path string) (*ItemAttachment, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceItemAttachment) Post() (*ItemAttachment, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceItemAttachment) DoPost() (*ItemAttachment, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for LicenseDetails collection with addtional path
@@ -33637,24 +34784,24 @@ func (s *ServiceCollectionLicenseDetails) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionLicenseDetails) GetWithPath(path string) ([]LicenseDetails, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionLicenseDetails) DoGetWithPath(path string) ([]LicenseDetails, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionLicenseDetails) Get() ([]LicenseDetails, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionLicenseDetails) DoGet() ([]LicenseDetails, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionLicenseDetails) PostWithPath(path string, obj interface{}) (*LicenseDetails, error) {
+func (s *ServiceCollectionLicenseDetails) DoPostWithPath(path string, obj interface{}) (*LicenseDetails, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionLicenseDetails) Post(obj interface{}) (*LicenseDetails, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionLicenseDetails) DoPost(obj interface{}) (*LicenseDetails, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Columns returns service endpoint for CollectionColumnDefinition
@@ -33737,24 +34884,24 @@ func (s *ServiceList) DoRequest(method string, obj interface{}) (*List, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceList) GetWithPath(path string) (*List, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceList) DoGetWithPath(path string) (*List, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceList) Get() (*List, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceList) DoGet() (*List, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceList) PostWithPath(path string) (*List, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceList) DoPostWithPath(path string) (*List, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceList) Post() (*List, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceList) DoPost() (*List, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for List collection with addtional path
@@ -33869,24 +35016,24 @@ func (s *ServiceCollectionList) DoPaging(method string, obj interface{}) ([]List
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionList) GetWithPath(path string) ([]List, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionList) DoGetWithPath(path string) ([]List, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionList) Get() ([]List, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionList) DoGet() ([]List, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionList) PostWithPath(path string, obj interface{}) (*List, error) {
+func (s *ServiceCollectionList) DoPostWithPath(path string, obj interface{}) (*List, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionList) Post(obj interface{}) (*List, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionList) DoPost(obj interface{}) (*List, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Analytics returns service endpoint for ItemAnalytics
@@ -33969,24 +35116,24 @@ func (s *ServiceListItem) DoRequest(method string, obj interface{}) (*ListItem, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceListItem) GetWithPath(path string) (*ListItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceListItem) DoGetWithPath(path string) (*ListItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceListItem) Get() (*ListItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceListItem) DoGet() (*ListItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceListItem) PostWithPath(path string) (*ListItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceListItem) DoPostWithPath(path string) (*ListItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceListItem) Post() (*ListItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceListItem) DoPost() (*ListItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ListItem collection with addtional path
@@ -34101,24 +35248,24 @@ func (s *ServiceCollectionListItem) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionListItem) GetWithPath(path string) ([]ListItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionListItem) DoGetWithPath(path string) ([]ListItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionListItem) Get() ([]ListItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionListItem) DoGet() ([]ListItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionListItem) PostWithPath(path string, obj interface{}) (*ListItem, error) {
+func (s *ServiceCollectionListItem) DoPostWithPath(path string, obj interface{}) (*ListItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionListItem) Post(obj interface{}) (*ListItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionListItem) DoPost(obj interface{}) (*ListItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Fields returns service endpoint for FieldValueSet
@@ -34180,24 +35327,24 @@ func (s *ServiceListItemVersion) DoRequest(method string, obj interface{}) (*Lis
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceListItemVersion) GetWithPath(path string) (*ListItemVersion, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceListItemVersion) DoGetWithPath(path string) (*ListItemVersion, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceListItemVersion) Get() (*ListItemVersion, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceListItemVersion) DoGet() (*ListItemVersion, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceListItemVersion) PostWithPath(path string) (*ListItemVersion, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceListItemVersion) DoPostWithPath(path string) (*ListItemVersion, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceListItemVersion) Post() (*ListItemVersion, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceListItemVersion) DoPost() (*ListItemVersion, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ListItemVersion collection with addtional path
@@ -34312,24 +35459,24 @@ func (s *ServiceCollectionListItemVersion) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionListItemVersion) GetWithPath(path string) ([]ListItemVersion, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionListItemVersion) DoGetWithPath(path string) ([]ListItemVersion, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionListItemVersion) Get() ([]ListItemVersion, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionListItemVersion) DoGet() ([]ListItemVersion, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionListItemVersion) PostWithPath(path string, obj interface{}) (*ListItemVersion, error) {
+func (s *ServiceCollectionListItemVersion) DoPostWithPath(path string, obj interface{}) (*ListItemVersion, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionListItemVersion) Post(obj interface{}) (*ListItemVersion, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionListItemVersion) DoPost(obj interface{}) (*ListItemVersion, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for LocalizedNotificationMessage collection with addtional path
@@ -34444,24 +35591,24 @@ func (s *ServiceCollectionLocalizedNotificationMessage) DoPaging(method string, 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionLocalizedNotificationMessage) GetWithPath(path string) ([]LocalizedNotificationMessage, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionLocalizedNotificationMessage) DoGetWithPath(path string) ([]LocalizedNotificationMessage, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionLocalizedNotificationMessage) Get() ([]LocalizedNotificationMessage, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionLocalizedNotificationMessage) DoGet() ([]LocalizedNotificationMessage, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionLocalizedNotificationMessage) PostWithPath(path string, obj interface{}) (*LocalizedNotificationMessage, error) {
+func (s *ServiceCollectionLocalizedNotificationMessage) DoPostWithPath(path string, obj interface{}) (*LocalizedNotificationMessage, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionLocalizedNotificationMessage) Post(obj interface{}) (*LocalizedNotificationMessage, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionLocalizedNotificationMessage) DoPost(obj interface{}) (*LocalizedNotificationMessage, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ChildFolders returns service endpoint for CollectionMailFolder
@@ -34551,24 +35698,24 @@ func (s *ServiceMailFolder) DoRequest(method string, obj interface{}) (*MailFold
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceMailFolder) GetWithPath(path string) (*MailFolder, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceMailFolder) DoGetWithPath(path string) (*MailFolder, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceMailFolder) Get() (*MailFolder, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceMailFolder) DoGet() (*MailFolder, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceMailFolder) PostWithPath(path string) (*MailFolder, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceMailFolder) DoPostWithPath(path string) (*MailFolder, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceMailFolder) Post() (*MailFolder, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceMailFolder) DoPost() (*MailFolder, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for MailFolder collection with addtional path
@@ -34683,24 +35830,24 @@ func (s *ServiceCollectionMailFolder) DoPaging(method string, obj interface{}) (
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMailFolder) GetWithPath(path string) ([]MailFolder, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMailFolder) DoGetWithPath(path string) ([]MailFolder, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMailFolder) Get() ([]MailFolder, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMailFolder) DoGet() ([]MailFolder, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMailFolder) PostWithPath(path string, obj interface{}) (*MailFolder, error) {
+func (s *ServiceCollectionMailFolder) DoPostWithPath(path string, obj interface{}) (*MailFolder, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMailFolder) Post(obj interface{}) (*MailFolder, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMailFolder) DoPost(obj interface{}) (*MailFolder, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedAppOperation collection with addtional path
@@ -34815,24 +35962,24 @@ func (s *ServiceCollectionManagedAppOperation) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedAppOperation) GetWithPath(path string) ([]ManagedAppOperation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedAppOperation) DoGetWithPath(path string) ([]ManagedAppOperation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedAppOperation) Get() ([]ManagedAppOperation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedAppOperation) DoGet() ([]ManagedAppOperation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedAppOperation) PostWithPath(path string, obj interface{}) (*ManagedAppOperation, error) {
+func (s *ServiceCollectionManagedAppOperation) DoPostWithPath(path string, obj interface{}) (*ManagedAppOperation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedAppOperation) Post(obj interface{}) (*ManagedAppOperation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedAppOperation) DoPost(obj interface{}) (*ManagedAppOperation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedAppPolicy collection with addtional path
@@ -34947,24 +36094,24 @@ func (s *ServiceCollectionManagedAppPolicy) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedAppPolicy) GetWithPath(path string) ([]ManagedAppPolicy, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedAppPolicy) DoGetWithPath(path string) ([]ManagedAppPolicy, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedAppPolicy) Get() ([]ManagedAppPolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedAppPolicy) DoGet() ([]ManagedAppPolicy, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedAppPolicy) PostWithPath(path string, obj interface{}) (*ManagedAppPolicy, error) {
+func (s *ServiceCollectionManagedAppPolicy) DoPostWithPath(path string, obj interface{}) (*ManagedAppPolicy, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedAppPolicy) Post(obj interface{}) (*ManagedAppPolicy, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedAppPolicy) DoPost(obj interface{}) (*ManagedAppPolicy, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedAppPolicyDeploymentSummary
@@ -35019,24 +36166,24 @@ func (s *ServiceManagedAppPolicyDeploymentSummary) DoRequest(method string, obj 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedAppPolicyDeploymentSummary) GetWithPath(path string) (*ManagedAppPolicyDeploymentSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedAppPolicyDeploymentSummary) DoGetWithPath(path string) (*ManagedAppPolicyDeploymentSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedAppPolicyDeploymentSummary) Get() (*ManagedAppPolicyDeploymentSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedAppPolicyDeploymentSummary) DoGet() (*ManagedAppPolicyDeploymentSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedAppPolicyDeploymentSummary) PostWithPath(path string) (*ManagedAppPolicyDeploymentSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedAppPolicyDeploymentSummary) DoPostWithPath(path string) (*ManagedAppPolicyDeploymentSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedAppPolicyDeploymentSummary) Post() (*ManagedAppPolicyDeploymentSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedAppPolicyDeploymentSummary) DoPost() (*ManagedAppPolicyDeploymentSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // AppliedPolicies returns service endpoint for CollectionManagedAppPolicy
@@ -35112,24 +36259,24 @@ func (s *ServiceManagedAppRegistration) DoRequest(method string, obj interface{}
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedAppRegistration) GetWithPath(path string) (*ManagedAppRegistration, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedAppRegistration) DoGetWithPath(path string) (*ManagedAppRegistration, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedAppRegistration) Get() (*ManagedAppRegistration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedAppRegistration) DoGet() (*ManagedAppRegistration, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedAppRegistration) PostWithPath(path string) (*ManagedAppRegistration, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedAppRegistration) DoPostWithPath(path string) (*ManagedAppRegistration, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedAppRegistration) Post() (*ManagedAppRegistration, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedAppRegistration) DoPost() (*ManagedAppRegistration, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedAppRegistration collection with addtional path
@@ -35244,24 +36391,24 @@ func (s *ServiceCollectionManagedAppRegistration) DoPaging(method string, obj in
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedAppRegistration) GetWithPath(path string) ([]ManagedAppRegistration, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedAppRegistration) DoGetWithPath(path string) ([]ManagedAppRegistration, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedAppRegistration) Get() ([]ManagedAppRegistration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedAppRegistration) DoGet() ([]ManagedAppRegistration, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedAppRegistration) PostWithPath(path string, obj interface{}) (*ManagedAppRegistration, error) {
+func (s *ServiceCollectionManagedAppRegistration) DoPostWithPath(path string, obj interface{}) (*ManagedAppRegistration, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedAppRegistration) Post(obj interface{}) (*ManagedAppRegistration, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedAppRegistration) DoPost(obj interface{}) (*ManagedAppRegistration, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedAppStatus collection with addtional path
@@ -35376,24 +36523,24 @@ func (s *ServiceCollectionManagedAppStatus) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedAppStatus) GetWithPath(path string) ([]ManagedAppStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedAppStatus) DoGetWithPath(path string) ([]ManagedAppStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedAppStatus) Get() ([]ManagedAppStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedAppStatus) DoGet() ([]ManagedAppStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedAppStatus) PostWithPath(path string, obj interface{}) (*ManagedAppStatus, error) {
+func (s *ServiceCollectionManagedAppStatus) DoPostWithPath(path string, obj interface{}) (*ManagedAppStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedAppStatus) Post(obj interface{}) (*ManagedAppStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedAppStatus) DoPost(obj interface{}) (*ManagedAppStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DeviceCategory returns service endpoint for DeviceCategory
@@ -35469,24 +36616,24 @@ func (s *ServiceManagedDevice) DoRequest(method string, obj interface{}) (*Manag
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedDevice) GetWithPath(path string) (*ManagedDevice, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedDevice) DoGetWithPath(path string) (*ManagedDevice, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedDevice) Get() (*ManagedDevice, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedDevice) DoGet() (*ManagedDevice, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedDevice) PostWithPath(path string) (*ManagedDevice, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedDevice) DoPostWithPath(path string) (*ManagedDevice, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedDevice) Post() (*ManagedDevice, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedDevice) DoPost() (*ManagedDevice, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDevice collection with addtional path
@@ -35601,24 +36748,24 @@ func (s *ServiceCollectionManagedDevice) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedDevice) GetWithPath(path string) ([]ManagedDevice, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedDevice) DoGetWithPath(path string) ([]ManagedDevice, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedDevice) Get() ([]ManagedDevice, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedDevice) DoGet() ([]ManagedDevice, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedDevice) PostWithPath(path string, obj interface{}) (*ManagedDevice, error) {
+func (s *ServiceCollectionManagedDevice) DoPostWithPath(path string, obj interface{}) (*ManagedDevice, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedDevice) Post(obj interface{}) (*ManagedDevice, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedDevice) DoPost(obj interface{}) (*ManagedDevice, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionManagedDeviceMobileAppConfigurationAssignment
@@ -35708,24 +36855,24 @@ func (s *ServiceManagedDeviceMobileAppConfiguration) DoRequest(method string, ob
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedDeviceMobileAppConfiguration) GetWithPath(path string) (*ManagedDeviceMobileAppConfiguration, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedDeviceMobileAppConfiguration) DoGetWithPath(path string) (*ManagedDeviceMobileAppConfiguration, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedDeviceMobileAppConfiguration) Get() (*ManagedDeviceMobileAppConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedDeviceMobileAppConfiguration) DoGet() (*ManagedDeviceMobileAppConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedDeviceMobileAppConfiguration) PostWithPath(path string) (*ManagedDeviceMobileAppConfiguration, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedDeviceMobileAppConfiguration) DoPostWithPath(path string) (*ManagedDeviceMobileAppConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedDeviceMobileAppConfiguration) Post() (*ManagedDeviceMobileAppConfiguration, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedDeviceMobileAppConfiguration) DoPost() (*ManagedDeviceMobileAppConfiguration, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceMobileAppConfiguration collection with addtional path
@@ -35840,24 +36987,24 @@ func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) DoPaging(method s
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) GetWithPath(path string) ([]ManagedDeviceMobileAppConfiguration, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) DoGetWithPath(path string) ([]ManagedDeviceMobileAppConfiguration, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) Get() ([]ManagedDeviceMobileAppConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) DoGet() ([]ManagedDeviceMobileAppConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) PostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfiguration, error) {
+func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) DoPostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) Post(obj interface{}) (*ManagedDeviceMobileAppConfiguration, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfiguration) DoPost(obj interface{}) (*ManagedDeviceMobileAppConfiguration, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceMobileAppConfigurationAssignment collection with addtional path
@@ -35972,24 +37119,24 @@ func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) DoPagin
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) GetWithPath(path string) ([]ManagedDeviceMobileAppConfigurationAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) DoGetWithPath(path string) ([]ManagedDeviceMobileAppConfigurationAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) Get() ([]ManagedDeviceMobileAppConfigurationAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) DoGet() ([]ManagedDeviceMobileAppConfigurationAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) PostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfigurationAssignment, error) {
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) DoPostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfigurationAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) Post(obj interface{}) (*ManagedDeviceMobileAppConfigurationAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationAssignment) DoPost(obj interface{}) (*ManagedDeviceMobileAppConfigurationAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceMobileAppConfigurationDeviceStatus collection with addtional path
@@ -36104,24 +37251,24 @@ func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) DoPag
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) GetWithPath(path string) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) DoGetWithPath(path string) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) Get() ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) DoGet() ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) PostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) DoPostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) Post(obj interface{}) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationDeviceStatus) DoPost(obj interface{}) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceMobileAppConfigurationDeviceSummary
@@ -36176,24 +37323,24 @@ func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) DoRequest(meth
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) GetWithPath(path string) (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) DoGetWithPath(path string) (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) Get() (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) DoGet() (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) PostWithPath(path string) (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) DoPostWithPath(path string) (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) Post() (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedDeviceMobileAppConfigurationDeviceSummary) DoPost() (*ManagedDeviceMobileAppConfigurationDeviceSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceMobileAppConfigurationUserStatus collection with addtional path
@@ -36308,24 +37455,24 @@ func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) DoPagin
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) GetWithPath(path string) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) DoGetWithPath(path string) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) Get() ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) DoGet() ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) PostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfigurationUserStatus, error) {
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) DoPostWithPath(path string, obj interface{}) (*ManagedDeviceMobileAppConfigurationUserStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) Post(obj interface{}) (*ManagedDeviceMobileAppConfigurationUserStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedDeviceMobileAppConfigurationUserStatus) DoPost(obj interface{}) (*ManagedDeviceMobileAppConfigurationUserStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceMobileAppConfigurationUserSummary
@@ -36380,24 +37527,24 @@ func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) DoRequest(method
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) GetWithPath(path string) (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) DoGetWithPath(path string) (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) Get() (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) DoGet() (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) PostWithPath(path string) (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) DoPostWithPath(path string) (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) Post() (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedDeviceMobileAppConfigurationUserSummary) DoPost() (*ManagedDeviceMobileAppConfigurationUserSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedDeviceOverview
@@ -36452,24 +37599,24 @@ func (s *ServiceManagedDeviceOverview) DoRequest(method string, obj interface{})
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedDeviceOverview) GetWithPath(path string) (*ManagedDeviceOverview, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedDeviceOverview) DoGetWithPath(path string) (*ManagedDeviceOverview, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedDeviceOverview) Get() (*ManagedDeviceOverview, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedDeviceOverview) DoGet() (*ManagedDeviceOverview, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedDeviceOverview) PostWithPath(path string) (*ManagedDeviceOverview, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedDeviceOverview) DoPostWithPath(path string) (*ManagedDeviceOverview, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedDeviceOverview) Post() (*ManagedDeviceOverview, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedDeviceOverview) DoPost() (*ManagedDeviceOverview, error) {
+	return s.DoPostWithPath("")
 }
 
 // Assignments returns service endpoint for CollectionManagedEBookAssignment
@@ -36552,24 +37699,24 @@ func (s *ServiceManagedEBook) DoRequest(method string, obj interface{}) (*Manage
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedEBook) GetWithPath(path string) (*ManagedEBook, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedEBook) DoGetWithPath(path string) (*ManagedEBook, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedEBook) Get() (*ManagedEBook, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedEBook) DoGet() (*ManagedEBook, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedEBook) PostWithPath(path string) (*ManagedEBook, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedEBook) DoPostWithPath(path string) (*ManagedEBook, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedEBook) Post() (*ManagedEBook, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedEBook) DoPost() (*ManagedEBook, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedEBook collection with addtional path
@@ -36684,24 +37831,24 @@ func (s *ServiceCollectionManagedEBook) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedEBook) GetWithPath(path string) ([]ManagedEBook, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedEBook) DoGetWithPath(path string) ([]ManagedEBook, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedEBook) Get() ([]ManagedEBook, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedEBook) DoGet() ([]ManagedEBook, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedEBook) PostWithPath(path string, obj interface{}) (*ManagedEBook, error) {
+func (s *ServiceCollectionManagedEBook) DoPostWithPath(path string, obj interface{}) (*ManagedEBook, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedEBook) Post(obj interface{}) (*ManagedEBook, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedEBook) DoPost(obj interface{}) (*ManagedEBook, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedEBookAssignment collection with addtional path
@@ -36816,24 +37963,24 @@ func (s *ServiceCollectionManagedEBookAssignment) DoPaging(method string, obj in
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedEBookAssignment) GetWithPath(path string) ([]ManagedEBookAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedEBookAssignment) DoGetWithPath(path string) ([]ManagedEBookAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedEBookAssignment) Get() ([]ManagedEBookAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedEBookAssignment) DoGet() ([]ManagedEBookAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedEBookAssignment) PostWithPath(path string, obj interface{}) (*ManagedEBookAssignment, error) {
+func (s *ServiceCollectionManagedEBookAssignment) DoPostWithPath(path string, obj interface{}) (*ManagedEBookAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedEBookAssignment) Post(obj interface{}) (*ManagedEBookAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedEBookAssignment) DoPost(obj interface{}) (*ManagedEBookAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ManagedMobileApp collection with addtional path
@@ -36948,24 +38095,24 @@ func (s *ServiceCollectionManagedMobileApp) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionManagedMobileApp) GetWithPath(path string) ([]ManagedMobileApp, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionManagedMobileApp) DoGetWithPath(path string) ([]ManagedMobileApp, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionManagedMobileApp) Get() ([]ManagedMobileApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionManagedMobileApp) DoGet() ([]ManagedMobileApp, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionManagedMobileApp) PostWithPath(path string, obj interface{}) (*ManagedMobileApp, error) {
+func (s *ServiceCollectionManagedMobileApp) DoPostWithPath(path string, obj interface{}) (*ManagedMobileApp, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionManagedMobileApp) Post(obj interface{}) (*ManagedMobileApp, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionManagedMobileApp) DoPost(obj interface{}) (*ManagedMobileApp, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ContentVersions returns service endpoint for CollectionMobileAppContent
@@ -37027,24 +38174,24 @@ func (s *ServiceManagedMobileLobApp) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceManagedMobileLobApp) GetWithPath(path string) (*ManagedMobileLobApp, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceManagedMobileLobApp) DoGetWithPath(path string) (*ManagedMobileLobApp, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceManagedMobileLobApp) Get() (*ManagedMobileLobApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceManagedMobileLobApp) DoGet() (*ManagedMobileLobApp, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceManagedMobileLobApp) PostWithPath(path string) (*ManagedMobileLobApp, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceManagedMobileLobApp) DoPostWithPath(path string) (*ManagedMobileLobApp, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceManagedMobileLobApp) Post() (*ManagedMobileLobApp, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceManagedMobileLobApp) DoPost() (*ManagedMobileLobApp, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for MdmWindowsInformationProtectionPolicy collection with addtional path
@@ -37159,24 +38306,24 @@ func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) DoPaging(method
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) GetWithPath(path string) ([]MdmWindowsInformationProtectionPolicy, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) DoGetWithPath(path string) ([]MdmWindowsInformationProtectionPolicy, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) Get() ([]MdmWindowsInformationProtectionPolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) DoGet() ([]MdmWindowsInformationProtectionPolicy, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) PostWithPath(path string, obj interface{}) (*MdmWindowsInformationProtectionPolicy, error) {
+func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) DoPostWithPath(path string, obj interface{}) (*MdmWindowsInformationProtectionPolicy, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) Post(obj interface{}) (*MdmWindowsInformationProtectionPolicy, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMdmWindowsInformationProtectionPolicy) DoPost(obj interface{}) (*MdmWindowsInformationProtectionPolicy, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Attachments returns service endpoint for CollectionAttachment
@@ -37259,24 +38406,24 @@ func (s *ServiceMessage) DoRequest(method string, obj interface{}) (*Message, er
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceMessage) GetWithPath(path string) (*Message, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceMessage) DoGetWithPath(path string) (*Message, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceMessage) Get() (*Message, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceMessage) DoGet() (*Message, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceMessage) PostWithPath(path string) (*Message, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceMessage) DoPostWithPath(path string) (*Message, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceMessage) Post() (*Message, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceMessage) DoPost() (*Message, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Message collection with addtional path
@@ -37391,24 +38538,24 @@ func (s *ServiceCollectionMessage) DoPaging(method string, obj interface{}) ([]M
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMessage) GetWithPath(path string) ([]Message, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMessage) DoGetWithPath(path string) ([]Message, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMessage) Get() ([]Message, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMessage) DoGet() ([]Message, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMessage) PostWithPath(path string, obj interface{}) (*Message, error) {
+func (s *ServiceCollectionMessage) DoPostWithPath(path string, obj interface{}) (*Message, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMessage) Post(obj interface{}) (*Message, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMessage) DoPost(obj interface{}) (*Message, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for MessageRule collection with addtional path
@@ -37523,24 +38670,24 @@ func (s *ServiceCollectionMessageRule) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMessageRule) GetWithPath(path string) ([]MessageRule, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMessageRule) DoGetWithPath(path string) ([]MessageRule, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMessageRule) Get() ([]MessageRule, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMessageRule) DoGet() ([]MessageRule, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMessageRule) PostWithPath(path string, obj interface{}) (*MessageRule, error) {
+func (s *ServiceCollectionMessageRule) DoPostWithPath(path string, obj interface{}) (*MessageRule, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMessageRule) Post(obj interface{}) (*MessageRule, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMessageRule) DoPost(obj interface{}) (*MessageRule, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionMobileAppAssignment
@@ -37609,24 +38756,24 @@ func (s *ServiceMobileApp) DoRequest(method string, obj interface{}) (*MobileApp
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceMobileApp) GetWithPath(path string) (*MobileApp, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceMobileApp) DoGetWithPath(path string) (*MobileApp, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceMobileApp) Get() (*MobileApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceMobileApp) DoGet() (*MobileApp, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceMobileApp) PostWithPath(path string) (*MobileApp, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceMobileApp) DoPostWithPath(path string) (*MobileApp, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceMobileApp) Post() (*MobileApp, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceMobileApp) DoPost() (*MobileApp, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for MobileApp collection with addtional path
@@ -37741,24 +38888,24 @@ func (s *ServiceCollectionMobileApp) DoPaging(method string, obj interface{}) ([
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMobileApp) GetWithPath(path string) ([]MobileApp, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMobileApp) DoGetWithPath(path string) ([]MobileApp, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMobileApp) Get() ([]MobileApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMobileApp) DoGet() ([]MobileApp, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMobileApp) PostWithPath(path string, obj interface{}) (*MobileApp, error) {
+func (s *ServiceCollectionMobileApp) DoPostWithPath(path string, obj interface{}) (*MobileApp, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMobileApp) Post(obj interface{}) (*MobileApp, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMobileApp) DoPost(obj interface{}) (*MobileApp, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for MobileAppAssignment collection with addtional path
@@ -37873,24 +39020,24 @@ func (s *ServiceCollectionMobileAppAssignment) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMobileAppAssignment) GetWithPath(path string) ([]MobileAppAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMobileAppAssignment) DoGetWithPath(path string) ([]MobileAppAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMobileAppAssignment) Get() ([]MobileAppAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMobileAppAssignment) DoGet() ([]MobileAppAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMobileAppAssignment) PostWithPath(path string, obj interface{}) (*MobileAppAssignment, error) {
+func (s *ServiceCollectionMobileAppAssignment) DoPostWithPath(path string, obj interface{}) (*MobileAppAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMobileAppAssignment) Post(obj interface{}) (*MobileAppAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMobileAppAssignment) DoPost(obj interface{}) (*MobileAppAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for MobileAppCategory collection with addtional path
@@ -38005,24 +39152,24 @@ func (s *ServiceCollectionMobileAppCategory) DoPaging(method string, obj interfa
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMobileAppCategory) GetWithPath(path string) ([]MobileAppCategory, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMobileAppCategory) DoGetWithPath(path string) ([]MobileAppCategory, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMobileAppCategory) Get() ([]MobileAppCategory, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMobileAppCategory) DoGet() ([]MobileAppCategory, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMobileAppCategory) PostWithPath(path string, obj interface{}) (*MobileAppCategory, error) {
+func (s *ServiceCollectionMobileAppCategory) DoPostWithPath(path string, obj interface{}) (*MobileAppCategory, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMobileAppCategory) Post(obj interface{}) (*MobileAppCategory, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMobileAppCategory) DoPost(obj interface{}) (*MobileAppCategory, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Files returns service endpoint for CollectionMobileAppContentFile
@@ -38084,24 +39231,24 @@ func (s *ServiceMobileAppContent) DoRequest(method string, obj interface{}) (*Mo
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceMobileAppContent) GetWithPath(path string) (*MobileAppContent, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceMobileAppContent) DoGetWithPath(path string) (*MobileAppContent, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceMobileAppContent) Get() (*MobileAppContent, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceMobileAppContent) DoGet() (*MobileAppContent, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceMobileAppContent) PostWithPath(path string) (*MobileAppContent, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceMobileAppContent) DoPostWithPath(path string) (*MobileAppContent, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceMobileAppContent) Post() (*MobileAppContent, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceMobileAppContent) DoPost() (*MobileAppContent, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for MobileAppContent collection with addtional path
@@ -38216,24 +39363,24 @@ func (s *ServiceCollectionMobileAppContent) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMobileAppContent) GetWithPath(path string) ([]MobileAppContent, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMobileAppContent) DoGetWithPath(path string) ([]MobileAppContent, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMobileAppContent) Get() ([]MobileAppContent, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMobileAppContent) DoGet() ([]MobileAppContent, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMobileAppContent) PostWithPath(path string, obj interface{}) (*MobileAppContent, error) {
+func (s *ServiceCollectionMobileAppContent) DoPostWithPath(path string, obj interface{}) (*MobileAppContent, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMobileAppContent) Post(obj interface{}) (*MobileAppContent, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMobileAppContent) DoPost(obj interface{}) (*MobileAppContent, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for MobileAppContentFile collection with addtional path
@@ -38348,24 +39495,24 @@ func (s *ServiceCollectionMobileAppContentFile) DoPaging(method string, obj inte
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMobileAppContentFile) GetWithPath(path string) ([]MobileAppContentFile, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMobileAppContentFile) DoGetWithPath(path string) ([]MobileAppContentFile, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMobileAppContentFile) Get() ([]MobileAppContentFile, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMobileAppContentFile) DoGet() ([]MobileAppContentFile, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMobileAppContentFile) PostWithPath(path string, obj interface{}) (*MobileAppContentFile, error) {
+func (s *ServiceCollectionMobileAppContentFile) DoPostWithPath(path string, obj interface{}) (*MobileAppContentFile, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMobileAppContentFile) Post(obj interface{}) (*MobileAppContentFile, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMobileAppContentFile) DoPost(obj interface{}) (*MobileAppContentFile, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ContentVersions returns service endpoint for CollectionMobileAppContent
@@ -38427,24 +39574,24 @@ func (s *ServiceMobileLobApp) DoRequest(method string, obj interface{}) (*Mobile
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceMobileLobApp) GetWithPath(path string) (*MobileLobApp, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceMobileLobApp) DoGetWithPath(path string) (*MobileLobApp, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceMobileLobApp) Get() (*MobileLobApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceMobileLobApp) DoGet() (*MobileLobApp, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceMobileLobApp) PostWithPath(path string) (*MobileLobApp, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceMobileLobApp) DoPostWithPath(path string) (*MobileLobApp, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceMobileLobApp) Post() (*MobileLobApp, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceMobileLobApp) DoPost() (*MobileLobApp, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for MobileThreatDefenseConnector collection with addtional path
@@ -38559,24 +39706,24 @@ func (s *ServiceCollectionMobileThreatDefenseConnector) DoPaging(method string, 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMobileThreatDefenseConnector) GetWithPath(path string) ([]MobileThreatDefenseConnector, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMobileThreatDefenseConnector) DoGetWithPath(path string) ([]MobileThreatDefenseConnector, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMobileThreatDefenseConnector) Get() ([]MobileThreatDefenseConnector, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMobileThreatDefenseConnector) DoGet() ([]MobileThreatDefenseConnector, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMobileThreatDefenseConnector) PostWithPath(path string, obj interface{}) (*MobileThreatDefenseConnector, error) {
+func (s *ServiceCollectionMobileThreatDefenseConnector) DoPostWithPath(path string, obj interface{}) (*MobileThreatDefenseConnector, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMobileThreatDefenseConnector) Post(obj interface{}) (*MobileThreatDefenseConnector, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMobileThreatDefenseConnector) DoPost(obj interface{}) (*MobileThreatDefenseConnector, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for MultiValueLegacyExtendedProperty collection with addtional path
@@ -38691,24 +39838,24 @@ func (s *ServiceCollectionMultiValueLegacyExtendedProperty) DoPaging(method stri
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionMultiValueLegacyExtendedProperty) GetWithPath(path string) ([]MultiValueLegacyExtendedProperty, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionMultiValueLegacyExtendedProperty) DoGetWithPath(path string) ([]MultiValueLegacyExtendedProperty, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionMultiValueLegacyExtendedProperty) Get() ([]MultiValueLegacyExtendedProperty, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionMultiValueLegacyExtendedProperty) DoGet() ([]MultiValueLegacyExtendedProperty, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionMultiValueLegacyExtendedProperty) PostWithPath(path string, obj interface{}) (*MultiValueLegacyExtendedProperty, error) {
+func (s *ServiceCollectionMultiValueLegacyExtendedProperty) DoPostWithPath(path string, obj interface{}) (*MultiValueLegacyExtendedProperty, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionMultiValueLegacyExtendedProperty) Post(obj interface{}) (*MultiValueLegacyExtendedProperty, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionMultiValueLegacyExtendedProperty) DoPost(obj interface{}) (*MultiValueLegacyExtendedProperty, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // SectionGroups returns service endpoint for CollectionSectionGroup
@@ -38777,24 +39924,24 @@ func (s *ServiceNotebook) DoRequest(method string, obj interface{}) (*Notebook, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceNotebook) GetWithPath(path string) (*Notebook, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceNotebook) DoGetWithPath(path string) (*Notebook, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceNotebook) Get() (*Notebook, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceNotebook) DoGet() (*Notebook, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceNotebook) PostWithPath(path string) (*Notebook, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceNotebook) DoPostWithPath(path string) (*Notebook, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceNotebook) Post() (*Notebook, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceNotebook) DoPost() (*Notebook, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Notebook collection with addtional path
@@ -38909,24 +40056,24 @@ func (s *ServiceCollectionNotebook) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionNotebook) GetWithPath(path string) ([]Notebook, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionNotebook) DoGetWithPath(path string) ([]Notebook, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionNotebook) Get() ([]Notebook, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionNotebook) DoGet() ([]Notebook, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionNotebook) PostWithPath(path string, obj interface{}) (*Notebook, error) {
+func (s *ServiceCollectionNotebook) DoPostWithPath(path string, obj interface{}) (*Notebook, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionNotebook) Post(obj interface{}) (*Notebook, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionNotebook) DoPost(obj interface{}) (*Notebook, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // LocalizedNotificationMessages returns service endpoint for CollectionLocalizedNotificationMessage
@@ -38988,24 +40135,24 @@ func (s *ServiceNotificationMessageTemplate) DoRequest(method string, obj interf
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceNotificationMessageTemplate) GetWithPath(path string) (*NotificationMessageTemplate, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceNotificationMessageTemplate) DoGetWithPath(path string) (*NotificationMessageTemplate, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceNotificationMessageTemplate) Get() (*NotificationMessageTemplate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceNotificationMessageTemplate) DoGet() (*NotificationMessageTemplate, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceNotificationMessageTemplate) PostWithPath(path string) (*NotificationMessageTemplate, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceNotificationMessageTemplate) DoPostWithPath(path string) (*NotificationMessageTemplate, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceNotificationMessageTemplate) Post() (*NotificationMessageTemplate, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceNotificationMessageTemplate) DoPost() (*NotificationMessageTemplate, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for NotificationMessageTemplate collection with addtional path
@@ -39120,24 +40267,24 @@ func (s *ServiceCollectionNotificationMessageTemplate) DoPaging(method string, o
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionNotificationMessageTemplate) GetWithPath(path string) ([]NotificationMessageTemplate, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionNotificationMessageTemplate) DoGetWithPath(path string) ([]NotificationMessageTemplate, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionNotificationMessageTemplate) Get() ([]NotificationMessageTemplate, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionNotificationMessageTemplate) DoGet() ([]NotificationMessageTemplate, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionNotificationMessageTemplate) PostWithPath(path string, obj interface{}) (*NotificationMessageTemplate, error) {
+func (s *ServiceCollectionNotificationMessageTemplate) DoPostWithPath(path string, obj interface{}) (*NotificationMessageTemplate, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionNotificationMessageTemplate) Post(obj interface{}) (*NotificationMessageTemplate, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionNotificationMessageTemplate) DoPost(obj interface{}) (*NotificationMessageTemplate, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Shared returns service endpoint for CollectionSharedInsight
@@ -39213,24 +40360,24 @@ func (s *ServiceOfficeGraphInsights) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOfficeGraphInsights) GetWithPath(path string) (*OfficeGraphInsights, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOfficeGraphInsights) DoGetWithPath(path string) (*OfficeGraphInsights, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOfficeGraphInsights) Get() (*OfficeGraphInsights, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOfficeGraphInsights) DoGet() (*OfficeGraphInsights, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOfficeGraphInsights) PostWithPath(path string) (*OfficeGraphInsights, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOfficeGraphInsights) DoPostWithPath(path string) (*OfficeGraphInsights, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOfficeGraphInsights) Post() (*OfficeGraphInsights, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOfficeGraphInsights) DoPost() (*OfficeGraphInsights, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for OnPremisesConditionalAccessSettings
@@ -39285,24 +40432,24 @@ func (s *ServiceOnPremisesConditionalAccessSettings) DoRequest(method string, ob
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOnPremisesConditionalAccessSettings) GetWithPath(path string) (*OnPremisesConditionalAccessSettings, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOnPremisesConditionalAccessSettings) DoGetWithPath(path string) (*OnPremisesConditionalAccessSettings, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOnPremisesConditionalAccessSettings) Get() (*OnPremisesConditionalAccessSettings, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOnPremisesConditionalAccessSettings) DoGet() (*OnPremisesConditionalAccessSettings, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOnPremisesConditionalAccessSettings) PostWithPath(path string) (*OnPremisesConditionalAccessSettings, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOnPremisesConditionalAccessSettings) DoPostWithPath(path string) (*OnPremisesConditionalAccessSettings, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOnPremisesConditionalAccessSettings) Post() (*OnPremisesConditionalAccessSettings, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOnPremisesConditionalAccessSettings) DoPost() (*OnPremisesConditionalAccessSettings, error) {
+	return s.DoPostWithPath("")
 }
 
 // Notebooks returns service endpoint for CollectionNotebook
@@ -39399,24 +40546,24 @@ func (s *ServiceOnenote) DoRequest(method string, obj interface{}) (*Onenote, er
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOnenote) GetWithPath(path string) (*Onenote, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOnenote) DoGetWithPath(path string) (*Onenote, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOnenote) Get() (*Onenote, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOnenote) DoGet() (*Onenote, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOnenote) PostWithPath(path string) (*Onenote, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOnenote) DoPostWithPath(path string) (*Onenote, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOnenote) Post() (*Onenote, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOnenote) DoPost() (*Onenote, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for OnenoteOperation collection with addtional path
@@ -39531,24 +40678,24 @@ func (s *ServiceCollectionOnenoteOperation) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionOnenoteOperation) GetWithPath(path string) ([]OnenoteOperation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOnenoteOperation) DoGetWithPath(path string) ([]OnenoteOperation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionOnenoteOperation) Get() ([]OnenoteOperation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOnenoteOperation) DoGet() ([]OnenoteOperation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionOnenoteOperation) PostWithPath(path string, obj interface{}) (*OnenoteOperation, error) {
+func (s *ServiceCollectionOnenoteOperation) DoPostWithPath(path string, obj interface{}) (*OnenoteOperation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionOnenoteOperation) Post(obj interface{}) (*OnenoteOperation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOnenoteOperation) DoPost(obj interface{}) (*OnenoteOperation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ParentNotebook returns service endpoint for Notebook
@@ -39617,24 +40764,24 @@ func (s *ServiceOnenotePage) DoRequest(method string, obj interface{}) (*Onenote
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOnenotePage) GetWithPath(path string) (*OnenotePage, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOnenotePage) DoGetWithPath(path string) (*OnenotePage, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOnenotePage) Get() (*OnenotePage, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOnenotePage) DoGet() (*OnenotePage, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOnenotePage) PostWithPath(path string) (*OnenotePage, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOnenotePage) DoPostWithPath(path string) (*OnenotePage, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOnenotePage) Post() (*OnenotePage, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOnenotePage) DoPost() (*OnenotePage, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for OnenotePage collection with addtional path
@@ -39749,24 +40896,24 @@ func (s *ServiceCollectionOnenotePage) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionOnenotePage) GetWithPath(path string) ([]OnenotePage, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOnenotePage) DoGetWithPath(path string) ([]OnenotePage, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionOnenotePage) Get() ([]OnenotePage, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOnenotePage) DoGet() ([]OnenotePage, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionOnenotePage) PostWithPath(path string, obj interface{}) (*OnenotePage, error) {
+func (s *ServiceCollectionOnenotePage) DoPostWithPath(path string, obj interface{}) (*OnenotePage, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionOnenotePage) Post(obj interface{}) (*OnenotePage, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOnenotePage) DoPost(obj interface{}) (*OnenotePage, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for OnenoteResource collection with addtional path
@@ -39881,24 +41028,24 @@ func (s *ServiceCollectionOnenoteResource) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionOnenoteResource) GetWithPath(path string) ([]OnenoteResource, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOnenoteResource) DoGetWithPath(path string) ([]OnenoteResource, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionOnenoteResource) Get() ([]OnenoteResource, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOnenoteResource) DoGet() ([]OnenoteResource, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionOnenoteResource) PostWithPath(path string, obj interface{}) (*OnenoteResource, error) {
+func (s *ServiceCollectionOnenoteResource) DoPostWithPath(path string, obj interface{}) (*OnenoteResource, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionOnenoteResource) Post(obj interface{}) (*OnenoteResource, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOnenoteResource) DoPost(obj interface{}) (*OnenoteResource, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Pages returns service endpoint for CollectionOnenotePage
@@ -39974,24 +41121,24 @@ func (s *ServiceOnenoteSection) DoRequest(method string, obj interface{}) (*Onen
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOnenoteSection) GetWithPath(path string) (*OnenoteSection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOnenoteSection) DoGetWithPath(path string) (*OnenoteSection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOnenoteSection) Get() (*OnenoteSection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOnenoteSection) DoGet() (*OnenoteSection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOnenoteSection) PostWithPath(path string) (*OnenoteSection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOnenoteSection) DoPostWithPath(path string) (*OnenoteSection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOnenoteSection) Post() (*OnenoteSection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOnenoteSection) DoPost() (*OnenoteSection, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for OnenoteSection collection with addtional path
@@ -40106,24 +41253,156 @@ func (s *ServiceCollectionOnenoteSection) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionOnenoteSection) GetWithPath(path string) ([]OnenoteSection, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOnenoteSection) DoGetWithPath(path string) ([]OnenoteSection, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionOnenoteSection) Get() ([]OnenoteSection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOnenoteSection) DoGet() ([]OnenoteSection, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionOnenoteSection) PostWithPath(path string, obj interface{}) (*OnenoteSection, error) {
+func (s *ServiceCollectionOnenoteSection) DoPostWithPath(path string, obj interface{}) (*OnenoteSection, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionOnenoteSection) Post(obj interface{}) (*OnenoteSection, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOnenoteSection) DoPost(obj interface{}) (*OnenoteSection, error) {
+	return s.DoPostWithPath("", obj)
+}
+
+// NewRequestWithPath returns a new HTTP Request for OnlineMeeting collection with addtional path
+func (s *ServiceCollectionOnlineMeeting) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL+path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCollectionOnlineMeeting) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for OnlineMeeting
+func (s *ServiceCollectionOnlineMeeting) DoRequestWithPath(method, path string, obj interface{}) (*OnlineMeeting, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *OnlineMeeting
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCollectionOnlineMeeting) DoRequest(method string, obj interface{}) (*OnlineMeeting, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoPagingNext handles paging for OnlineMeeting collection
+func (s *ServiceCollectionOnlineMeeting) DoPagingNext(res *http.Response) ([]OnlineMeeting, error) {
+	if res.StatusCode != http.StatusOK {
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+	var (
+		obj              Paging
+		value, nextValue []OnlineMeeting
+	)
+	err := json.NewDecoder(res.Body).Decode(&obj)
+	if err != nil {
+		return nil, err
+	}
+	err = json.Unmarshal(obj.Value, &value)
+	if err != nil {
+		return nil, err
+	}
+	if len(obj.NextLink) > 0 {
+		res, err := s.client.Get(obj.NextLink)
+		if err != nil {
+			return nil, err
+		}
+		nextValue, err = s.DoPagingNext(res)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return append(value, nextValue...), nil
+}
+
+// DoPagingWithPath issues an HTTP request for OnlineMeeting collection
+func (s *ServiceCollectionOnlineMeeting) DoPagingWithPath(method, path string, obj interface{}) ([]OnlineMeeting, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	return s.DoPagingNext(res)
+}
+
+// DoPaging wraps DoPagingWithPath with empty path
+func (s *ServiceCollectionOnlineMeeting) DoPaging(method string, obj interface{}) ([]OnlineMeeting, error) {
+	return s.DoPagingWithPath(method, "", obj)
+}
+
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOnlineMeeting) DoGetWithPath(path string) ([]OnlineMeeting, error) {
+	return s.DoPagingWithPath("GET", path, nil)
+}
+
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOnlineMeeting) DoGet() ([]OnlineMeeting, error) {
+	return s.DoGetWithPath("")
+}
+
+// PostWithPath warps DoRequestWithPath with POST method
+func (s *ServiceCollectionOnlineMeeting) DoPostWithPath(path string, obj interface{}) (*OnlineMeeting, error) {
+	return s.DoRequestWithPath("POST", path, obj)
+}
+
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOnlineMeeting) DoPost(obj interface{}) (*OnlineMeeting, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Extensions returns service endpoint for CollectionExtension
@@ -40185,24 +41464,24 @@ func (s *ServiceOrganization) DoRequest(method string, obj interface{}) (*Organi
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOrganization) GetWithPath(path string) (*Organization, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOrganization) DoGetWithPath(path string) (*Organization, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOrganization) Get() (*Organization, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOrganization) DoGet() (*Organization, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOrganization) PostWithPath(path string) (*Organization, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOrganization) DoPostWithPath(path string) (*Organization, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOrganization) Post() (*Organization, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOrganization) DoPost() (*Organization, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Organization collection with addtional path
@@ -40317,24 +41596,24 @@ func (s *ServiceCollectionOrganization) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionOrganization) GetWithPath(path string) ([]Organization, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOrganization) DoGetWithPath(path string) ([]Organization, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionOrganization) Get() ([]Organization, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOrganization) DoGet() ([]Organization, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionOrganization) PostWithPath(path string, obj interface{}) (*Organization, error) {
+func (s *ServiceCollectionOrganization) DoPostWithPath(path string, obj interface{}) (*Organization, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionOrganization) Post(obj interface{}) (*Organization, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOrganization) DoPost(obj interface{}) (*Organization, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for OutlookCategory collection with addtional path
@@ -40449,24 +41728,24 @@ func (s *ServiceCollectionOutlookCategory) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionOutlookCategory) GetWithPath(path string) ([]OutlookCategory, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionOutlookCategory) DoGetWithPath(path string) ([]OutlookCategory, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionOutlookCategory) Get() ([]OutlookCategory, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionOutlookCategory) DoGet() ([]OutlookCategory, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionOutlookCategory) PostWithPath(path string, obj interface{}) (*OutlookCategory, error) {
+func (s *ServiceCollectionOutlookCategory) DoPostWithPath(path string, obj interface{}) (*OutlookCategory, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionOutlookCategory) Post(obj interface{}) (*OutlookCategory, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionOutlookCategory) DoPost(obj interface{}) (*OutlookCategory, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for OutlookItem
@@ -40521,24 +41800,24 @@ func (s *ServiceOutlookItem) DoRequest(method string, obj interface{}) (*Outlook
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOutlookItem) GetWithPath(path string) (*OutlookItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOutlookItem) DoGetWithPath(path string) (*OutlookItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOutlookItem) Get() (*OutlookItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOutlookItem) DoGet() (*OutlookItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOutlookItem) PostWithPath(path string) (*OutlookItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOutlookItem) DoPostWithPath(path string) (*OutlookItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOutlookItem) Post() (*OutlookItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOutlookItem) DoPost() (*OutlookItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // MasterCategories returns service endpoint for CollectionOutlookCategory
@@ -40600,24 +41879,156 @@ func (s *ServiceOutlookUser) DoRequest(method string, obj interface{}) (*Outlook
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceOutlookUser) GetWithPath(path string) (*OutlookUser, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceOutlookUser) DoGetWithPath(path string) (*OutlookUser, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceOutlookUser) Get() (*OutlookUser, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceOutlookUser) DoGet() (*OutlookUser, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceOutlookUser) PostWithPath(path string) (*OutlookUser, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceOutlookUser) DoPostWithPath(path string) (*OutlookUser, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceOutlookUser) Post() (*OutlookUser, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceOutlookUser) DoPost() (*OutlookUser, error) {
+	return s.DoPostWithPath("")
+}
+
+// NewRequestWithPath returns a new HTTP Request for Participant collection with addtional path
+func (s *ServiceCollectionParticipant) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, s.baseURL+path, body)
+}
+
+// NewRequest wraps NewRequestWithPath with empty path
+func (s *ServiceCollectionParticipant) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return s.NewRequestWithPath(method, "", body)
+}
+
+// DoRequestWithPath issues an HTTP request for Participant
+func (s *ServiceCollectionParticipant) DoRequestWithPath(method, path string, obj interface{}) (*Participant, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	switch res.StatusCode {
+	case http.StatusOK:
+		var obj *Participant
+		err := json.NewDecoder(res.Body).Decode(&obj)
+		if err != nil {
+			return nil, err
+		}
+		return obj, nil
+	case http.StatusNoContent:
+		return nil, nil
+	default:
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+}
+
+// DoRequest wraps DoRequestWithPath with empty path
+func (s *ServiceCollectionParticipant) DoRequest(method string, obj interface{}) (*Participant, error) {
+	return s.DoRequestWithPath(method, "", obj)
+}
+
+// DoPagingNext handles paging for Participant collection
+func (s *ServiceCollectionParticipant) DoPagingNext(res *http.Response) ([]Participant, error) {
+	if res.StatusCode != http.StatusOK {
+		b, _ := ioutil.ReadAll(res.Body)
+		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+	}
+	var (
+		obj              Paging
+		value, nextValue []Participant
+	)
+	err := json.NewDecoder(res.Body).Decode(&obj)
+	if err != nil {
+		return nil, err
+	}
+	err = json.Unmarshal(obj.Value, &value)
+	if err != nil {
+		return nil, err
+	}
+	if len(obj.NextLink) > 0 {
+		res, err := s.client.Get(obj.NextLink)
+		if err != nil {
+			return nil, err
+		}
+		nextValue, err = s.DoPagingNext(res)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return append(value, nextValue...), nil
+}
+
+// DoPagingWithPath issues an HTTP request for Participant collection
+func (s *ServiceCollectionParticipant) DoPagingWithPath(method, path string, obj interface{}) ([]Participant, error) {
+	buf := &bytes.Buffer{}
+	if obj != nil {
+		err := json.NewEncoder(buf).Encode(obj)
+		if err != nil {
+			return nil, err
+		}
+	}
+	req, err := s.NewRequestWithPath(method, path, buf)
+	if err != nil {
+		return nil, err
+	}
+	if obj != nil {
+		req.Header.Add("Content-Type", "application/json")
+	}
+	res, err := s.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+	return s.DoPagingNext(res)
+}
+
+// DoPaging wraps DoPagingWithPath with empty path
+func (s *ServiceCollectionParticipant) DoPaging(method string, obj interface{}) ([]Participant, error) {
+	return s.DoPagingWithPath(method, "", obj)
+}
+
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionParticipant) DoGetWithPath(path string) ([]Participant, error) {
+	return s.DoPagingWithPath("GET", path, nil)
+}
+
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionParticipant) DoGet() ([]Participant, error) {
+	return s.DoGetWithPath("")
+}
+
+// PostWithPath warps DoRequestWithPath with POST method
+func (s *ServiceCollectionParticipant) DoPostWithPath(path string, obj interface{}) (*Participant, error) {
+	return s.DoRequestWithPath("POST", path, obj)
+}
+
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionParticipant) DoPost(obj interface{}) (*Participant, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for Permission collection with addtional path
@@ -40732,24 +42143,24 @@ func (s *ServiceCollectionPermission) DoPaging(method string, obj interface{}) (
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionPermission) GetWithPath(path string) ([]Permission, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionPermission) DoGetWithPath(path string) ([]Permission, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionPermission) Get() ([]Permission, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionPermission) DoGet() ([]Permission, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionPermission) PostWithPath(path string, obj interface{}) (*Permission, error) {
+func (s *ServiceCollectionPermission) DoPostWithPath(path string, obj interface{}) (*Permission, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionPermission) Post(obj interface{}) (*Permission, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionPermission) DoPost(obj interface{}) (*Permission, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for Person collection with addtional path
@@ -40864,24 +42275,24 @@ func (s *ServiceCollectionPerson) DoPaging(method string, obj interface{}) ([]Pe
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionPerson) GetWithPath(path string) ([]Person, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionPerson) DoGetWithPath(path string) ([]Person, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionPerson) Get() ([]Person, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionPerson) DoGet() ([]Person, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionPerson) PostWithPath(path string, obj interface{}) (*Person, error) {
+func (s *ServiceCollectionPerson) DoPostWithPath(path string, obj interface{}) (*Person, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionPerson) Post(obj interface{}) (*Person, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionPerson) DoPost(obj interface{}) (*Person, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Buckets returns service endpoint for CollectionPlannerBucket
@@ -40957,24 +42368,24 @@ func (s *ServicePlanner) DoRequest(method string, obj interface{}) (*Planner, er
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlanner) GetWithPath(path string) (*Planner, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlanner) DoGetWithPath(path string) (*Planner, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlanner) Get() (*Planner, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlanner) DoGet() (*Planner, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlanner) PostWithPath(path string) (*Planner, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlanner) DoPostWithPath(path string) (*Planner, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlanner) Post() (*Planner, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlanner) DoPost() (*Planner, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerAssignedToTaskBoardTaskFormat
@@ -41029,24 +42440,24 @@ func (s *ServicePlannerAssignedToTaskBoardTaskFormat) DoRequest(method string, o
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerAssignedToTaskBoardTaskFormat) GetWithPath(path string) (*PlannerAssignedToTaskBoardTaskFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerAssignedToTaskBoardTaskFormat) DoGetWithPath(path string) (*PlannerAssignedToTaskBoardTaskFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerAssignedToTaskBoardTaskFormat) Get() (*PlannerAssignedToTaskBoardTaskFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerAssignedToTaskBoardTaskFormat) DoGet() (*PlannerAssignedToTaskBoardTaskFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerAssignedToTaskBoardTaskFormat) PostWithPath(path string) (*PlannerAssignedToTaskBoardTaskFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerAssignedToTaskBoardTaskFormat) DoPostWithPath(path string) (*PlannerAssignedToTaskBoardTaskFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerAssignedToTaskBoardTaskFormat) Post() (*PlannerAssignedToTaskBoardTaskFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerAssignedToTaskBoardTaskFormat) DoPost() (*PlannerAssignedToTaskBoardTaskFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Tasks returns service endpoint for CollectionPlannerTask
@@ -41108,24 +42519,24 @@ func (s *ServicePlannerBucket) DoRequest(method string, obj interface{}) (*Plann
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerBucket) GetWithPath(path string) (*PlannerBucket, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerBucket) DoGetWithPath(path string) (*PlannerBucket, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerBucket) Get() (*PlannerBucket, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerBucket) DoGet() (*PlannerBucket, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerBucket) PostWithPath(path string) (*PlannerBucket, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerBucket) DoPostWithPath(path string) (*PlannerBucket, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerBucket) Post() (*PlannerBucket, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerBucket) DoPost() (*PlannerBucket, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerBucket collection with addtional path
@@ -41240,24 +42651,24 @@ func (s *ServiceCollectionPlannerBucket) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionPlannerBucket) GetWithPath(path string) ([]PlannerBucket, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionPlannerBucket) DoGetWithPath(path string) ([]PlannerBucket, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionPlannerBucket) Get() ([]PlannerBucket, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionPlannerBucket) DoGet() ([]PlannerBucket, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionPlannerBucket) PostWithPath(path string, obj interface{}) (*PlannerBucket, error) {
+func (s *ServiceCollectionPlannerBucket) DoPostWithPath(path string, obj interface{}) (*PlannerBucket, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionPlannerBucket) Post(obj interface{}) (*PlannerBucket, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionPlannerBucket) DoPost(obj interface{}) (*PlannerBucket, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerBucketTaskBoardTaskFormat
@@ -41312,24 +42723,24 @@ func (s *ServicePlannerBucketTaskBoardTaskFormat) DoRequest(method string, obj i
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerBucketTaskBoardTaskFormat) GetWithPath(path string) (*PlannerBucketTaskBoardTaskFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerBucketTaskBoardTaskFormat) DoGetWithPath(path string) (*PlannerBucketTaskBoardTaskFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerBucketTaskBoardTaskFormat) Get() (*PlannerBucketTaskBoardTaskFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerBucketTaskBoardTaskFormat) DoGet() (*PlannerBucketTaskBoardTaskFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerBucketTaskBoardTaskFormat) PostWithPath(path string) (*PlannerBucketTaskBoardTaskFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerBucketTaskBoardTaskFormat) DoPostWithPath(path string) (*PlannerBucketTaskBoardTaskFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerBucketTaskBoardTaskFormat) Post() (*PlannerBucketTaskBoardTaskFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerBucketTaskBoardTaskFormat) DoPost() (*PlannerBucketTaskBoardTaskFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Plans returns service endpoint for CollectionPlannerPlan
@@ -41391,24 +42802,24 @@ func (s *ServicePlannerGroup) DoRequest(method string, obj interface{}) (*Planne
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerGroup) GetWithPath(path string) (*PlannerGroup, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerGroup) DoGetWithPath(path string) (*PlannerGroup, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerGroup) Get() (*PlannerGroup, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerGroup) DoGet() (*PlannerGroup, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerGroup) PostWithPath(path string) (*PlannerGroup, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerGroup) DoPostWithPath(path string) (*PlannerGroup, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerGroup) Post() (*PlannerGroup, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerGroup) DoPost() (*PlannerGroup, error) {
+	return s.DoPostWithPath("")
 }
 
 // Buckets returns service endpoint for CollectionPlannerBucket
@@ -41484,24 +42895,24 @@ func (s *ServicePlannerPlan) DoRequest(method string, obj interface{}) (*Planner
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerPlan) GetWithPath(path string) (*PlannerPlan, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerPlan) DoGetWithPath(path string) (*PlannerPlan, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerPlan) Get() (*PlannerPlan, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerPlan) DoGet() (*PlannerPlan, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerPlan) PostWithPath(path string) (*PlannerPlan, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerPlan) DoPostWithPath(path string) (*PlannerPlan, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerPlan) Post() (*PlannerPlan, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerPlan) DoPost() (*PlannerPlan, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerPlan collection with addtional path
@@ -41616,24 +43027,24 @@ func (s *ServiceCollectionPlannerPlan) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionPlannerPlan) GetWithPath(path string) ([]PlannerPlan, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionPlannerPlan) DoGetWithPath(path string) ([]PlannerPlan, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionPlannerPlan) Get() ([]PlannerPlan, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionPlannerPlan) DoGet() ([]PlannerPlan, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionPlannerPlan) PostWithPath(path string, obj interface{}) (*PlannerPlan, error) {
+func (s *ServiceCollectionPlannerPlan) DoPostWithPath(path string, obj interface{}) (*PlannerPlan, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionPlannerPlan) Post(obj interface{}) (*PlannerPlan, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionPlannerPlan) DoPost(obj interface{}) (*PlannerPlan, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerPlanDetails
@@ -41688,24 +43099,24 @@ func (s *ServicePlannerPlanDetails) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerPlanDetails) GetWithPath(path string) (*PlannerPlanDetails, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerPlanDetails) DoGetWithPath(path string) (*PlannerPlanDetails, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerPlanDetails) Get() (*PlannerPlanDetails, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerPlanDetails) DoGet() (*PlannerPlanDetails, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerPlanDetails) PostWithPath(path string) (*PlannerPlanDetails, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerPlanDetails) DoPostWithPath(path string) (*PlannerPlanDetails, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerPlanDetails) Post() (*PlannerPlanDetails, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerPlanDetails) DoPost() (*PlannerPlanDetails, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerProgressTaskBoardTaskFormat
@@ -41760,24 +43171,24 @@ func (s *ServicePlannerProgressTaskBoardTaskFormat) DoRequest(method string, obj
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerProgressTaskBoardTaskFormat) GetWithPath(path string) (*PlannerProgressTaskBoardTaskFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerProgressTaskBoardTaskFormat) DoGetWithPath(path string) (*PlannerProgressTaskBoardTaskFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerProgressTaskBoardTaskFormat) Get() (*PlannerProgressTaskBoardTaskFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerProgressTaskBoardTaskFormat) DoGet() (*PlannerProgressTaskBoardTaskFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerProgressTaskBoardTaskFormat) PostWithPath(path string) (*PlannerProgressTaskBoardTaskFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerProgressTaskBoardTaskFormat) DoPostWithPath(path string) (*PlannerProgressTaskBoardTaskFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerProgressTaskBoardTaskFormat) Post() (*PlannerProgressTaskBoardTaskFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerProgressTaskBoardTaskFormat) DoPost() (*PlannerProgressTaskBoardTaskFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // AssignedToTaskBoardFormat returns service endpoint for PlannerAssignedToTaskBoardTaskFormat
@@ -41860,24 +43271,24 @@ func (s *ServicePlannerTask) DoRequest(method string, obj interface{}) (*Planner
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerTask) GetWithPath(path string) (*PlannerTask, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerTask) DoGetWithPath(path string) (*PlannerTask, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerTask) Get() (*PlannerTask, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerTask) DoGet() (*PlannerTask, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerTask) PostWithPath(path string) (*PlannerTask, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerTask) DoPostWithPath(path string) (*PlannerTask, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerTask) Post() (*PlannerTask, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerTask) DoPost() (*PlannerTask, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerTask collection with addtional path
@@ -41992,24 +43403,24 @@ func (s *ServiceCollectionPlannerTask) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionPlannerTask) GetWithPath(path string) ([]PlannerTask, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionPlannerTask) DoGetWithPath(path string) ([]PlannerTask, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionPlannerTask) Get() ([]PlannerTask, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionPlannerTask) DoGet() ([]PlannerTask, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionPlannerTask) PostWithPath(path string, obj interface{}) (*PlannerTask, error) {
+func (s *ServiceCollectionPlannerTask) DoPostWithPath(path string, obj interface{}) (*PlannerTask, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionPlannerTask) Post(obj interface{}) (*PlannerTask, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionPlannerTask) DoPost(obj interface{}) (*PlannerTask, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for PlannerTaskDetails
@@ -42064,24 +43475,24 @@ func (s *ServicePlannerTaskDetails) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerTaskDetails) GetWithPath(path string) (*PlannerTaskDetails, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerTaskDetails) DoGetWithPath(path string) (*PlannerTaskDetails, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerTaskDetails) Get() (*PlannerTaskDetails, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerTaskDetails) DoGet() (*PlannerTaskDetails, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerTaskDetails) PostWithPath(path string) (*PlannerTaskDetails, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerTaskDetails) DoPostWithPath(path string) (*PlannerTaskDetails, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerTaskDetails) Post() (*PlannerTaskDetails, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerTaskDetails) DoPost() (*PlannerTaskDetails, error) {
+	return s.DoPostWithPath("")
 }
 
 // Plans returns service endpoint for CollectionPlannerPlan
@@ -42150,24 +43561,24 @@ func (s *ServicePlannerUser) DoRequest(method string, obj interface{}) (*Planner
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePlannerUser) GetWithPath(path string) (*PlannerUser, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePlannerUser) DoGetWithPath(path string) (*PlannerUser, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePlannerUser) Get() (*PlannerUser, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePlannerUser) DoGet() (*PlannerUser, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePlannerUser) PostWithPath(path string) (*PlannerUser, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePlannerUser) DoPostWithPath(path string) (*PlannerUser, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePlannerUser) Post() (*PlannerUser, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePlannerUser) DoPost() (*PlannerUser, error) {
+	return s.DoPostWithPath("")
 }
 
 // Attachments returns service endpoint for CollectionAttachment
@@ -42257,24 +43668,24 @@ func (s *ServicePost) DoRequest(method string, obj interface{}) (*Post, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServicePost) GetWithPath(path string) (*Post, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServicePost) DoGetWithPath(path string) (*Post, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServicePost) Get() (*Post, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServicePost) DoGet() (*Post, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServicePost) PostWithPath(path string) (*Post, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServicePost) DoPostWithPath(path string) (*Post, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServicePost) Post() (*Post, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServicePost) DoPost() (*Post, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Post collection with addtional path
@@ -42389,24 +43800,24 @@ func (s *ServiceCollectionPost) DoPaging(method string, obj interface{}) ([]Post
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionPost) GetWithPath(path string) ([]Post, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionPost) DoGetWithPath(path string) ([]Post, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionPost) Get() ([]Post, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionPost) DoGet() ([]Post, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionPost) PostWithPath(path string, obj interface{}) (*Post, error) {
+func (s *ServiceCollectionPost) DoPostWithPath(path string, obj interface{}) (*Post, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionPost) Post(obj interface{}) (*Post, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionPost) DoPost(obj interface{}) (*Post, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ProfilePhoto
@@ -42461,24 +43872,24 @@ func (s *ServiceProfilePhoto) DoRequest(method string, obj interface{}) (*Profil
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceProfilePhoto) GetWithPath(path string) (*ProfilePhoto, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceProfilePhoto) DoGetWithPath(path string) (*ProfilePhoto, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceProfilePhoto) Get() (*ProfilePhoto, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceProfilePhoto) DoGet() (*ProfilePhoto, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceProfilePhoto) PostWithPath(path string) (*ProfilePhoto, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceProfilePhoto) DoPostWithPath(path string) (*ProfilePhoto, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceProfilePhoto) Post() (*ProfilePhoto, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceProfilePhoto) DoPost() (*ProfilePhoto, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ProfilePhoto collection with addtional path
@@ -42593,24 +44004,24 @@ func (s *ServiceCollectionProfilePhoto) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionProfilePhoto) GetWithPath(path string) ([]ProfilePhoto, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionProfilePhoto) DoGetWithPath(path string) ([]ProfilePhoto, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionProfilePhoto) Get() ([]ProfilePhoto, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionProfilePhoto) DoGet() ([]ProfilePhoto, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionProfilePhoto) PostWithPath(path string, obj interface{}) (*ProfilePhoto, error) {
+func (s *ServiceCollectionProfilePhoto) DoPostWithPath(path string, obj interface{}) (*ProfilePhoto, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionProfilePhoto) Post(obj interface{}) (*ProfilePhoto, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionProfilePhoto) DoPost(obj interface{}) (*ProfilePhoto, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for RemoteAssistancePartner collection with addtional path
@@ -42725,24 +44136,24 @@ func (s *ServiceCollectionRemoteAssistancePartner) DoPaging(method string, obj i
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionRemoteAssistancePartner) GetWithPath(path string) ([]RemoteAssistancePartner, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionRemoteAssistancePartner) DoGetWithPath(path string) ([]RemoteAssistancePartner, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionRemoteAssistancePartner) Get() ([]RemoteAssistancePartner, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionRemoteAssistancePartner) DoGet() ([]RemoteAssistancePartner, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionRemoteAssistancePartner) PostWithPath(path string, obj interface{}) (*RemoteAssistancePartner, error) {
+func (s *ServiceCollectionRemoteAssistancePartner) DoPostWithPath(path string, obj interface{}) (*RemoteAssistancePartner, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionRemoteAssistancePartner) Post(obj interface{}) (*RemoteAssistancePartner, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionRemoteAssistancePartner) DoPost(obj interface{}) (*RemoteAssistancePartner, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ReportRoot
@@ -42797,24 +44208,24 @@ func (s *ServiceReportRoot) DoRequest(method string, obj interface{}) (*ReportRo
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceReportRoot) GetWithPath(path string) (*ReportRoot, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceReportRoot) DoGetWithPath(path string) (*ReportRoot, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceReportRoot) Get() (*ReportRoot, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceReportRoot) DoGet() (*ReportRoot, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceReportRoot) PostWithPath(path string) (*ReportRoot, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceReportRoot) DoPostWithPath(path string) (*ReportRoot, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceReportRoot) Post() (*ReportRoot, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceReportRoot) DoPost() (*ReportRoot, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for ResourceOperation collection with addtional path
@@ -42929,24 +44340,24 @@ func (s *ServiceCollectionResourceOperation) DoPaging(method string, obj interfa
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionResourceOperation) GetWithPath(path string) ([]ResourceOperation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionResourceOperation) DoGetWithPath(path string) ([]ResourceOperation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionResourceOperation) Get() ([]ResourceOperation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionResourceOperation) DoGet() ([]ResourceOperation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionResourceOperation) PostWithPath(path string, obj interface{}) (*ResourceOperation, error) {
+func (s *ServiceCollectionResourceOperation) DoPostWithPath(path string, obj interface{}) (*ResourceOperation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionResourceOperation) Post(obj interface{}) (*ResourceOperation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionResourceOperation) DoPost(obj interface{}) (*ResourceOperation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for RestrictedSignIn collection with addtional path
@@ -43061,24 +44472,24 @@ func (s *ServiceCollectionRestrictedSignIn) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionRestrictedSignIn) GetWithPath(path string) ([]RestrictedSignIn, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionRestrictedSignIn) DoGetWithPath(path string) ([]RestrictedSignIn, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionRestrictedSignIn) Get() ([]RestrictedSignIn, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionRestrictedSignIn) DoGet() ([]RestrictedSignIn, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionRestrictedSignIn) PostWithPath(path string, obj interface{}) (*RestrictedSignIn, error) {
+func (s *ServiceCollectionRestrictedSignIn) DoPostWithPath(path string, obj interface{}) (*RestrictedSignIn, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionRestrictedSignIn) Post(obj interface{}) (*RestrictedSignIn, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionRestrictedSignIn) DoPost(obj interface{}) (*RestrictedSignIn, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // RoleDefinition returns service endpoint for RoleDefinition
@@ -43140,24 +44551,24 @@ func (s *ServiceRoleAssignment) DoRequest(method string, obj interface{}) (*Role
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceRoleAssignment) GetWithPath(path string) (*RoleAssignment, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceRoleAssignment) DoGetWithPath(path string) (*RoleAssignment, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceRoleAssignment) Get() (*RoleAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceRoleAssignment) DoGet() (*RoleAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceRoleAssignment) PostWithPath(path string) (*RoleAssignment, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceRoleAssignment) DoPostWithPath(path string) (*RoleAssignment, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceRoleAssignment) Post() (*RoleAssignment, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceRoleAssignment) DoPost() (*RoleAssignment, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for RoleAssignment collection with addtional path
@@ -43272,24 +44683,24 @@ func (s *ServiceCollectionRoleAssignment) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionRoleAssignment) GetWithPath(path string) ([]RoleAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionRoleAssignment) DoGetWithPath(path string) ([]RoleAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionRoleAssignment) Get() ([]RoleAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionRoleAssignment) DoGet() ([]RoleAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionRoleAssignment) PostWithPath(path string, obj interface{}) (*RoleAssignment, error) {
+func (s *ServiceCollectionRoleAssignment) DoPostWithPath(path string, obj interface{}) (*RoleAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionRoleAssignment) Post(obj interface{}) (*RoleAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionRoleAssignment) DoPost(obj interface{}) (*RoleAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // RoleAssignments returns service endpoint for CollectionRoleAssignment
@@ -43351,24 +44762,24 @@ func (s *ServiceRoleDefinition) DoRequest(method string, obj interface{}) (*Role
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceRoleDefinition) GetWithPath(path string) (*RoleDefinition, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceRoleDefinition) DoGetWithPath(path string) (*RoleDefinition, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceRoleDefinition) Get() (*RoleDefinition, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceRoleDefinition) DoGet() (*RoleDefinition, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceRoleDefinition) PostWithPath(path string) (*RoleDefinition, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceRoleDefinition) DoPostWithPath(path string) (*RoleDefinition, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceRoleDefinition) Post() (*RoleDefinition, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceRoleDefinition) DoPost() (*RoleDefinition, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for RoleDefinition collection with addtional path
@@ -43483,24 +44894,24 @@ func (s *ServiceCollectionRoleDefinition) DoPaging(method string, obj interface{
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionRoleDefinition) GetWithPath(path string) ([]RoleDefinition, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionRoleDefinition) DoGetWithPath(path string) ([]RoleDefinition, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionRoleDefinition) Get() ([]RoleDefinition, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionRoleDefinition) DoGet() ([]RoleDefinition, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionRoleDefinition) PostWithPath(path string, obj interface{}) (*RoleDefinition, error) {
+func (s *ServiceCollectionRoleDefinition) DoPostWithPath(path string, obj interface{}) (*RoleDefinition, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionRoleDefinition) Post(obj interface{}) (*RoleDefinition, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionRoleDefinition) DoPost(obj interface{}) (*RoleDefinition, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for SchemaExtension
@@ -43555,24 +44966,24 @@ func (s *ServiceSchemaExtension) DoRequest(method string, obj interface{}) (*Sch
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSchemaExtension) GetWithPath(path string) (*SchemaExtension, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSchemaExtension) DoGetWithPath(path string) (*SchemaExtension, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSchemaExtension) Get() (*SchemaExtension, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSchemaExtension) DoGet() (*SchemaExtension, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSchemaExtension) PostWithPath(path string) (*SchemaExtension, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSchemaExtension) DoPostWithPath(path string) (*SchemaExtension, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSchemaExtension) Post() (*SchemaExtension, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSchemaExtension) DoPost() (*SchemaExtension, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SchemaExtension collection with addtional path
@@ -43687,24 +45098,24 @@ func (s *ServiceCollectionSchemaExtension) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSchemaExtension) GetWithPath(path string) ([]SchemaExtension, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSchemaExtension) DoGetWithPath(path string) ([]SchemaExtension, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSchemaExtension) Get() ([]SchemaExtension, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSchemaExtension) DoGet() ([]SchemaExtension, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSchemaExtension) PostWithPath(path string, obj interface{}) (*SchemaExtension, error) {
+func (s *ServiceCollectionSchemaExtension) DoPostWithPath(path string, obj interface{}) (*SchemaExtension, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSchemaExtension) Post(obj interface{}) (*SchemaExtension, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSchemaExtension) DoPost(obj interface{}) (*SchemaExtension, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // ParentNotebook returns service endpoint for Notebook
@@ -43787,24 +45198,24 @@ func (s *ServiceSectionGroup) DoRequest(method string, obj interface{}) (*Sectio
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSectionGroup) GetWithPath(path string) (*SectionGroup, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSectionGroup) DoGetWithPath(path string) (*SectionGroup, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSectionGroup) Get() (*SectionGroup, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSectionGroup) DoGet() (*SectionGroup, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSectionGroup) PostWithPath(path string) (*SectionGroup, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSectionGroup) DoPostWithPath(path string) (*SectionGroup, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSectionGroup) Post() (*SectionGroup, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSectionGroup) DoPost() (*SectionGroup, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SectionGroup collection with addtional path
@@ -43919,24 +45330,24 @@ func (s *ServiceCollectionSectionGroup) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSectionGroup) GetWithPath(path string) ([]SectionGroup, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSectionGroup) DoGetWithPath(path string) ([]SectionGroup, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSectionGroup) Get() ([]SectionGroup, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSectionGroup) DoGet() ([]SectionGroup, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSectionGroup) PostWithPath(path string, obj interface{}) (*SectionGroup, error) {
+func (s *ServiceCollectionSectionGroup) DoPostWithPath(path string, obj interface{}) (*SectionGroup, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSectionGroup) Post(obj interface{}) (*SectionGroup, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSectionGroup) DoPost(obj interface{}) (*SectionGroup, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for SecureScore collection with addtional path
@@ -44051,24 +45462,24 @@ func (s *ServiceCollectionSecureScore) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSecureScore) GetWithPath(path string) ([]SecureScore, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSecureScore) DoGetWithPath(path string) ([]SecureScore, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSecureScore) Get() ([]SecureScore, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSecureScore) DoGet() ([]SecureScore, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSecureScore) PostWithPath(path string, obj interface{}) (*SecureScore, error) {
+func (s *ServiceCollectionSecureScore) DoPostWithPath(path string, obj interface{}) (*SecureScore, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSecureScore) Post(obj interface{}) (*SecureScore, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSecureScore) DoPost(obj interface{}) (*SecureScore, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for SecureScoreControlProfile collection with addtional path
@@ -44183,24 +45594,24 @@ func (s *ServiceCollectionSecureScoreControlProfile) DoPaging(method string, obj
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSecureScoreControlProfile) GetWithPath(path string) ([]SecureScoreControlProfile, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSecureScoreControlProfile) DoGetWithPath(path string) ([]SecureScoreControlProfile, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSecureScoreControlProfile) Get() ([]SecureScoreControlProfile, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSecureScoreControlProfile) DoGet() ([]SecureScoreControlProfile, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSecureScoreControlProfile) PostWithPath(path string, obj interface{}) (*SecureScoreControlProfile, error) {
+func (s *ServiceCollectionSecureScoreControlProfile) DoPostWithPath(path string, obj interface{}) (*SecureScoreControlProfile, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSecureScoreControlProfile) Post(obj interface{}) (*SecureScoreControlProfile, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSecureScoreControlProfile) DoPost(obj interface{}) (*SecureScoreControlProfile, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Alerts returns service endpoint for CollectionAlert
@@ -44276,24 +45687,24 @@ func (s *ServiceSecurity) DoRequest(method string, obj interface{}) (*Security, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSecurity) GetWithPath(path string) (*Security, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSecurity) DoGetWithPath(path string) (*Security, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSecurity) Get() (*Security, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSecurity) DoGet() (*Security, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSecurity) PostWithPath(path string) (*Security, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSecurity) DoPostWithPath(path string) (*Security, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSecurity) Post() (*Security, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSecurity) DoPost() (*Security, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SettingStateDeviceSummary collection with addtional path
@@ -44408,24 +45819,24 @@ func (s *ServiceCollectionSettingStateDeviceSummary) DoPaging(method string, obj
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSettingStateDeviceSummary) GetWithPath(path string) ([]SettingStateDeviceSummary, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSettingStateDeviceSummary) DoGetWithPath(path string) ([]SettingStateDeviceSummary, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSettingStateDeviceSummary) Get() ([]SettingStateDeviceSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSettingStateDeviceSummary) DoGet() ([]SettingStateDeviceSummary, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSettingStateDeviceSummary) PostWithPath(path string, obj interface{}) (*SettingStateDeviceSummary, error) {
+func (s *ServiceCollectionSettingStateDeviceSummary) DoPostWithPath(path string, obj interface{}) (*SettingStateDeviceSummary, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSettingStateDeviceSummary) Post(obj interface{}) (*SettingStateDeviceSummary, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSettingStateDeviceSummary) DoPost(obj interface{}) (*SettingStateDeviceSummary, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DriveItem returns service endpoint for DriveItem
@@ -44522,24 +45933,24 @@ func (s *ServiceSharedDriveItem) DoRequest(method string, obj interface{}) (*Sha
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSharedDriveItem) GetWithPath(path string) (*SharedDriveItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSharedDriveItem) DoGetWithPath(path string) (*SharedDriveItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSharedDriveItem) Get() (*SharedDriveItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSharedDriveItem) DoGet() (*SharedDriveItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSharedDriveItem) PostWithPath(path string) (*SharedDriveItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSharedDriveItem) DoPostWithPath(path string) (*SharedDriveItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSharedDriveItem) Post() (*SharedDriveItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSharedDriveItem) DoPost() (*SharedDriveItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SharedDriveItem collection with addtional path
@@ -44654,24 +46065,24 @@ func (s *ServiceCollectionSharedDriveItem) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSharedDriveItem) GetWithPath(path string) ([]SharedDriveItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSharedDriveItem) DoGetWithPath(path string) ([]SharedDriveItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSharedDriveItem) Get() ([]SharedDriveItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSharedDriveItem) DoGet() ([]SharedDriveItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSharedDriveItem) PostWithPath(path string, obj interface{}) (*SharedDriveItem, error) {
+func (s *ServiceCollectionSharedDriveItem) DoPostWithPath(path string, obj interface{}) (*SharedDriveItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSharedDriveItem) Post(obj interface{}) (*SharedDriveItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSharedDriveItem) DoPost(obj interface{}) (*SharedDriveItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // LastSharedMethod returns service endpoint for Entity
@@ -44740,24 +46151,24 @@ func (s *ServiceSharedInsight) DoRequest(method string, obj interface{}) (*Share
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSharedInsight) GetWithPath(path string) (*SharedInsight, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSharedInsight) DoGetWithPath(path string) (*SharedInsight, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSharedInsight) Get() (*SharedInsight, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSharedInsight) DoGet() (*SharedInsight, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSharedInsight) PostWithPath(path string) (*SharedInsight, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSharedInsight) DoPostWithPath(path string) (*SharedInsight, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSharedInsight) Post() (*SharedInsight, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSharedInsight) DoPost() (*SharedInsight, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SharedInsight collection with addtional path
@@ -44872,24 +46283,24 @@ func (s *ServiceCollectionSharedInsight) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSharedInsight) GetWithPath(path string) ([]SharedInsight, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSharedInsight) DoGetWithPath(path string) ([]SharedInsight, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSharedInsight) Get() ([]SharedInsight, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSharedInsight) DoGet() ([]SharedInsight, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSharedInsight) PostWithPath(path string, obj interface{}) (*SharedInsight, error) {
+func (s *ServiceCollectionSharedInsight) DoPostWithPath(path string, obj interface{}) (*SharedInsight, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSharedInsight) Post(obj interface{}) (*SharedInsight, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSharedInsight) DoPost(obj interface{}) (*SharedInsight, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for SignIn collection with addtional path
@@ -45004,24 +46415,24 @@ func (s *ServiceCollectionSignIn) DoPaging(method string, obj interface{}) ([]Si
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSignIn) GetWithPath(path string) ([]SignIn, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSignIn) DoGetWithPath(path string) ([]SignIn, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSignIn) Get() ([]SignIn, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSignIn) DoGet() ([]SignIn, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSignIn) PostWithPath(path string, obj interface{}) (*SignIn, error) {
+func (s *ServiceCollectionSignIn) DoPostWithPath(path string, obj interface{}) (*SignIn, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSignIn) Post(obj interface{}) (*SignIn, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSignIn) DoPost(obj interface{}) (*SignIn, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for SingleValueLegacyExtendedProperty collection with addtional path
@@ -45136,24 +46547,24 @@ func (s *ServiceCollectionSingleValueLegacyExtendedProperty) DoPaging(method str
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSingleValueLegacyExtendedProperty) GetWithPath(path string) ([]SingleValueLegacyExtendedProperty, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSingleValueLegacyExtendedProperty) DoGetWithPath(path string) ([]SingleValueLegacyExtendedProperty, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSingleValueLegacyExtendedProperty) Get() ([]SingleValueLegacyExtendedProperty, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSingleValueLegacyExtendedProperty) DoGet() ([]SingleValueLegacyExtendedProperty, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSingleValueLegacyExtendedProperty) PostWithPath(path string, obj interface{}) (*SingleValueLegacyExtendedProperty, error) {
+func (s *ServiceCollectionSingleValueLegacyExtendedProperty) DoPostWithPath(path string, obj interface{}) (*SingleValueLegacyExtendedProperty, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSingleValueLegacyExtendedProperty) Post(obj interface{}) (*SingleValueLegacyExtendedProperty, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSingleValueLegacyExtendedProperty) DoPost(obj interface{}) (*SingleValueLegacyExtendedProperty, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Analytics returns service endpoint for ItemAnalytics
@@ -45271,24 +46682,24 @@ func (s *ServiceSite) DoRequest(method string, obj interface{}) (*Site, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSite) GetWithPath(path string) (*Site, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSite) DoGetWithPath(path string) (*Site, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSite) Get() (*Site, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSite) DoGet() (*Site, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSite) PostWithPath(path string) (*Site, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSite) DoPostWithPath(path string) (*Site, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSite) Post() (*Site, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSite) DoPost() (*Site, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Site collection with addtional path
@@ -45403,24 +46814,24 @@ func (s *ServiceCollectionSite) DoPaging(method string, obj interface{}) ([]Site
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSite) GetWithPath(path string) ([]Site, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSite) DoGetWithPath(path string) ([]Site, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSite) Get() ([]Site, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSite) DoGet() ([]Site, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSite) PostWithPath(path string, obj interface{}) (*Site, error) {
+func (s *ServiceCollectionSite) DoPostWithPath(path string, obj interface{}) (*Site, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSite) Post(obj interface{}) (*Site, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSite) DoPost(obj interface{}) (*Site, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for SoftwareUpdateStatusSummary
@@ -45475,24 +46886,24 @@ func (s *ServiceSoftwareUpdateStatusSummary) DoRequest(method string, obj interf
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSoftwareUpdateStatusSummary) GetWithPath(path string) (*SoftwareUpdateStatusSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSoftwareUpdateStatusSummary) DoGetWithPath(path string) (*SoftwareUpdateStatusSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSoftwareUpdateStatusSummary) Get() (*SoftwareUpdateStatusSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSoftwareUpdateStatusSummary) DoGet() (*SoftwareUpdateStatusSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSoftwareUpdateStatusSummary) PostWithPath(path string) (*SoftwareUpdateStatusSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSoftwareUpdateStatusSummary) DoPostWithPath(path string) (*SoftwareUpdateStatusSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSoftwareUpdateStatusSummary) Post() (*SoftwareUpdateStatusSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSoftwareUpdateStatusSummary) DoPost() (*SoftwareUpdateStatusSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SubscribedSku
@@ -45547,24 +46958,24 @@ func (s *ServiceSubscribedSku) DoRequest(method string, obj interface{}) (*Subsc
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSubscribedSku) GetWithPath(path string) (*SubscribedSku, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSubscribedSku) DoGetWithPath(path string) (*SubscribedSku, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSubscribedSku) Get() (*SubscribedSku, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSubscribedSku) DoGet() (*SubscribedSku, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSubscribedSku) PostWithPath(path string) (*SubscribedSku, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSubscribedSku) DoPostWithPath(path string) (*SubscribedSku, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSubscribedSku) Post() (*SubscribedSku, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSubscribedSku) DoPost() (*SubscribedSku, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for SubscribedSku collection with addtional path
@@ -45679,24 +47090,24 @@ func (s *ServiceCollectionSubscribedSku) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSubscribedSku) GetWithPath(path string) ([]SubscribedSku, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSubscribedSku) DoGetWithPath(path string) ([]SubscribedSku, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSubscribedSku) Get() ([]SubscribedSku, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSubscribedSku) DoGet() ([]SubscribedSku, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSubscribedSku) PostWithPath(path string, obj interface{}) (*SubscribedSku, error) {
+func (s *ServiceCollectionSubscribedSku) DoPostWithPath(path string, obj interface{}) (*SubscribedSku, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSubscribedSku) Post(obj interface{}) (*SubscribedSku, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSubscribedSku) DoPost(obj interface{}) (*SubscribedSku, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for Subscription
@@ -45751,24 +47162,24 @@ func (s *ServiceSubscription) DoRequest(method string, obj interface{}) (*Subscr
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceSubscription) GetWithPath(path string) (*Subscription, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceSubscription) DoGetWithPath(path string) (*Subscription, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceSubscription) Get() (*Subscription, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceSubscription) DoGet() (*Subscription, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceSubscription) PostWithPath(path string) (*Subscription, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceSubscription) DoPostWithPath(path string) (*Subscription, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceSubscription) Post() (*Subscription, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceSubscription) DoPost() (*Subscription, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Subscription collection with addtional path
@@ -45883,24 +47294,24 @@ func (s *ServiceCollectionSubscription) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionSubscription) GetWithPath(path string) ([]Subscription, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionSubscription) DoGetWithPath(path string) ([]Subscription, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionSubscription) Get() ([]Subscription, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionSubscription) DoGet() ([]Subscription, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionSubscription) PostWithPath(path string, obj interface{}) (*Subscription, error) {
+func (s *ServiceCollectionSubscription) DoPostWithPath(path string, obj interface{}) (*Subscription, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionSubscription) Post(obj interface{}) (*Subscription, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionSubscription) DoPost(obj interface{}) (*Subscription, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Apps returns service endpoint for CollectionManagedMobileApp
@@ -45976,24 +47387,24 @@ func (s *ServiceTargetedManagedAppConfiguration) DoRequest(method string, obj in
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTargetedManagedAppConfiguration) GetWithPath(path string) (*TargetedManagedAppConfiguration, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTargetedManagedAppConfiguration) DoGetWithPath(path string) (*TargetedManagedAppConfiguration, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTargetedManagedAppConfiguration) Get() (*TargetedManagedAppConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTargetedManagedAppConfiguration) DoGet() (*TargetedManagedAppConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTargetedManagedAppConfiguration) PostWithPath(path string) (*TargetedManagedAppConfiguration, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTargetedManagedAppConfiguration) DoPostWithPath(path string) (*TargetedManagedAppConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTargetedManagedAppConfiguration) Post() (*TargetedManagedAppConfiguration, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTargetedManagedAppConfiguration) DoPost() (*TargetedManagedAppConfiguration, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TargetedManagedAppConfiguration collection with addtional path
@@ -46108,24 +47519,24 @@ func (s *ServiceCollectionTargetedManagedAppConfiguration) DoPaging(method strin
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTargetedManagedAppConfiguration) GetWithPath(path string) ([]TargetedManagedAppConfiguration, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTargetedManagedAppConfiguration) DoGetWithPath(path string) ([]TargetedManagedAppConfiguration, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTargetedManagedAppConfiguration) Get() ([]TargetedManagedAppConfiguration, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTargetedManagedAppConfiguration) DoGet() ([]TargetedManagedAppConfiguration, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTargetedManagedAppConfiguration) PostWithPath(path string, obj interface{}) (*TargetedManagedAppConfiguration, error) {
+func (s *ServiceCollectionTargetedManagedAppConfiguration) DoPostWithPath(path string, obj interface{}) (*TargetedManagedAppConfiguration, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTargetedManagedAppConfiguration) Post(obj interface{}) (*TargetedManagedAppConfiguration, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTargetedManagedAppConfiguration) DoPost(obj interface{}) (*TargetedManagedAppConfiguration, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for TargetedManagedAppPolicyAssignment collection with addtional path
@@ -46240,24 +47651,24 @@ func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) DoPaging(method st
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) GetWithPath(path string) ([]TargetedManagedAppPolicyAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) DoGetWithPath(path string) ([]TargetedManagedAppPolicyAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) Get() ([]TargetedManagedAppPolicyAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) DoGet() ([]TargetedManagedAppPolicyAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) PostWithPath(path string, obj interface{}) (*TargetedManagedAppPolicyAssignment, error) {
+func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) DoPostWithPath(path string, obj interface{}) (*TargetedManagedAppPolicyAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) Post(obj interface{}) (*TargetedManagedAppPolicyAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTargetedManagedAppPolicyAssignment) DoPost(obj interface{}) (*TargetedManagedAppPolicyAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionTargetedManagedAppPolicyAssignment
@@ -46319,24 +47730,24 @@ func (s *ServiceTargetedManagedAppProtection) DoRequest(method string, obj inter
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTargetedManagedAppProtection) GetWithPath(path string) (*TargetedManagedAppProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTargetedManagedAppProtection) DoGetWithPath(path string) (*TargetedManagedAppProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTargetedManagedAppProtection) Get() (*TargetedManagedAppProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTargetedManagedAppProtection) DoGet() (*TargetedManagedAppProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTargetedManagedAppProtection) PostWithPath(path string) (*TargetedManagedAppProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTargetedManagedAppProtection) DoPostWithPath(path string) (*TargetedManagedAppProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTargetedManagedAppProtection) Post() (*TargetedManagedAppProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTargetedManagedAppProtection) DoPost() (*TargetedManagedAppProtection, error) {
+	return s.DoPostWithPath("")
 }
 
 // Channels returns service endpoint for CollectionChannel
@@ -46412,24 +47823,24 @@ func (s *ServiceTeam) DoRequest(method string, obj interface{}) (*Team, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTeam) GetWithPath(path string) (*Team, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTeam) DoGetWithPath(path string) (*Team, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTeam) Get() (*Team, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTeam) DoGet() (*Team, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTeam) PostWithPath(path string) (*Team, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTeam) DoPostWithPath(path string) (*Team, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTeam) Post() (*Team, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTeam) DoPost() (*Team, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Team collection with addtional path
@@ -46544,24 +47955,24 @@ func (s *ServiceCollectionTeam) DoPaging(method string, obj interface{}) ([]Team
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTeam) GetWithPath(path string) ([]Team, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTeam) DoGetWithPath(path string) ([]Team, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTeam) Get() ([]Team, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTeam) DoGet() ([]Team, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTeam) PostWithPath(path string, obj interface{}) (*Team, error) {
+func (s *ServiceCollectionTeam) DoPostWithPath(path string, obj interface{}) (*Team, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTeam) Post(obj interface{}) (*Team, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTeam) DoPost(obj interface{}) (*Team, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // AppDefinitions returns service endpoint for CollectionTeamsAppDefinition
@@ -46623,24 +48034,24 @@ func (s *ServiceTeamsApp) DoRequest(method string, obj interface{}) (*TeamsApp, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTeamsApp) GetWithPath(path string) (*TeamsApp, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTeamsApp) DoGetWithPath(path string) (*TeamsApp, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTeamsApp) Get() (*TeamsApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTeamsApp) DoGet() (*TeamsApp, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTeamsApp) PostWithPath(path string) (*TeamsApp, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTeamsApp) DoPostWithPath(path string) (*TeamsApp, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTeamsApp) Post() (*TeamsApp, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTeamsApp) DoPost() (*TeamsApp, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TeamsApp collection with addtional path
@@ -46755,24 +48166,24 @@ func (s *ServiceCollectionTeamsApp) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTeamsApp) GetWithPath(path string) ([]TeamsApp, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTeamsApp) DoGetWithPath(path string) ([]TeamsApp, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTeamsApp) Get() ([]TeamsApp, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTeamsApp) DoGet() ([]TeamsApp, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTeamsApp) PostWithPath(path string, obj interface{}) (*TeamsApp, error) {
+func (s *ServiceCollectionTeamsApp) DoPostWithPath(path string, obj interface{}) (*TeamsApp, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTeamsApp) Post(obj interface{}) (*TeamsApp, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTeamsApp) DoPost(obj interface{}) (*TeamsApp, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for TeamsAppDefinition
@@ -46827,24 +48238,24 @@ func (s *ServiceTeamsAppDefinition) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTeamsAppDefinition) GetWithPath(path string) (*TeamsAppDefinition, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTeamsAppDefinition) DoGetWithPath(path string) (*TeamsAppDefinition, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTeamsAppDefinition) Get() (*TeamsAppDefinition, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTeamsAppDefinition) DoGet() (*TeamsAppDefinition, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTeamsAppDefinition) PostWithPath(path string) (*TeamsAppDefinition, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTeamsAppDefinition) DoPostWithPath(path string) (*TeamsAppDefinition, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTeamsAppDefinition) Post() (*TeamsAppDefinition, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTeamsAppDefinition) DoPost() (*TeamsAppDefinition, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TeamsAppDefinition collection with addtional path
@@ -46959,24 +48370,24 @@ func (s *ServiceCollectionTeamsAppDefinition) DoPaging(method string, obj interf
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTeamsAppDefinition) GetWithPath(path string) ([]TeamsAppDefinition, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTeamsAppDefinition) DoGetWithPath(path string) ([]TeamsAppDefinition, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTeamsAppDefinition) Get() ([]TeamsAppDefinition, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTeamsAppDefinition) DoGet() ([]TeamsAppDefinition, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTeamsAppDefinition) PostWithPath(path string, obj interface{}) (*TeamsAppDefinition, error) {
+func (s *ServiceCollectionTeamsAppDefinition) DoPostWithPath(path string, obj interface{}) (*TeamsAppDefinition, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTeamsAppDefinition) Post(obj interface{}) (*TeamsAppDefinition, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTeamsAppDefinition) DoPost(obj interface{}) (*TeamsAppDefinition, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // TeamsApp returns service endpoint for TeamsApp
@@ -47045,24 +48456,24 @@ func (s *ServiceTeamsAppInstallation) DoRequest(method string, obj interface{}) 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTeamsAppInstallation) GetWithPath(path string) (*TeamsAppInstallation, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTeamsAppInstallation) DoGetWithPath(path string) (*TeamsAppInstallation, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTeamsAppInstallation) Get() (*TeamsAppInstallation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTeamsAppInstallation) DoGet() (*TeamsAppInstallation, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTeamsAppInstallation) PostWithPath(path string) (*TeamsAppInstallation, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTeamsAppInstallation) DoPostWithPath(path string) (*TeamsAppInstallation, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTeamsAppInstallation) Post() (*TeamsAppInstallation, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTeamsAppInstallation) DoPost() (*TeamsAppInstallation, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TeamsAppInstallation collection with addtional path
@@ -47177,24 +48588,24 @@ func (s *ServiceCollectionTeamsAppInstallation) DoPaging(method string, obj inte
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTeamsAppInstallation) GetWithPath(path string) ([]TeamsAppInstallation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTeamsAppInstallation) DoGetWithPath(path string) ([]TeamsAppInstallation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTeamsAppInstallation) Get() ([]TeamsAppInstallation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTeamsAppInstallation) DoGet() ([]TeamsAppInstallation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTeamsAppInstallation) PostWithPath(path string, obj interface{}) (*TeamsAppInstallation, error) {
+func (s *ServiceCollectionTeamsAppInstallation) DoPostWithPath(path string, obj interface{}) (*TeamsAppInstallation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTeamsAppInstallation) Post(obj interface{}) (*TeamsAppInstallation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTeamsAppInstallation) DoPost(obj interface{}) (*TeamsAppInstallation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for TeamsAsyncOperation collection with addtional path
@@ -47309,24 +48720,24 @@ func (s *ServiceCollectionTeamsAsyncOperation) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTeamsAsyncOperation) GetWithPath(path string) ([]TeamsAsyncOperation, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTeamsAsyncOperation) DoGetWithPath(path string) ([]TeamsAsyncOperation, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTeamsAsyncOperation) Get() ([]TeamsAsyncOperation, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTeamsAsyncOperation) DoGet() ([]TeamsAsyncOperation, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTeamsAsyncOperation) PostWithPath(path string, obj interface{}) (*TeamsAsyncOperation, error) {
+func (s *ServiceCollectionTeamsAsyncOperation) DoPostWithPath(path string, obj interface{}) (*TeamsAsyncOperation, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTeamsAsyncOperation) Post(obj interface{}) (*TeamsAsyncOperation, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTeamsAsyncOperation) DoPost(obj interface{}) (*TeamsAsyncOperation, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // TeamsApp returns service endpoint for TeamsApp
@@ -47388,24 +48799,24 @@ func (s *ServiceTeamsTab) DoRequest(method string, obj interface{}) (*TeamsTab, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTeamsTab) GetWithPath(path string) (*TeamsTab, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTeamsTab) DoGetWithPath(path string) (*TeamsTab, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTeamsTab) Get() (*TeamsTab, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTeamsTab) DoGet() (*TeamsTab, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTeamsTab) PostWithPath(path string) (*TeamsTab, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTeamsTab) DoPostWithPath(path string) (*TeamsTab, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTeamsTab) Post() (*TeamsTab, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTeamsTab) DoPost() (*TeamsTab, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TeamsTab collection with addtional path
@@ -47520,24 +48931,24 @@ func (s *ServiceCollectionTeamsTab) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTeamsTab) GetWithPath(path string) ([]TeamsTab, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTeamsTab) DoGetWithPath(path string) ([]TeamsTab, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTeamsTab) Get() ([]TeamsTab, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTeamsTab) DoGet() ([]TeamsTab, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTeamsTab) PostWithPath(path string, obj interface{}) (*TeamsTab, error) {
+func (s *ServiceCollectionTeamsTab) DoPostWithPath(path string, obj interface{}) (*TeamsTab, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTeamsTab) Post(obj interface{}) (*TeamsTab, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTeamsTab) DoPost(obj interface{}) (*TeamsTab, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for TelecomExpenseManagementPartner collection with addtional path
@@ -47652,24 +49063,24 @@ func (s *ServiceCollectionTelecomExpenseManagementPartner) DoPaging(method strin
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTelecomExpenseManagementPartner) GetWithPath(path string) ([]TelecomExpenseManagementPartner, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTelecomExpenseManagementPartner) DoGetWithPath(path string) ([]TelecomExpenseManagementPartner, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTelecomExpenseManagementPartner) Get() ([]TelecomExpenseManagementPartner, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTelecomExpenseManagementPartner) DoGet() ([]TelecomExpenseManagementPartner, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTelecomExpenseManagementPartner) PostWithPath(path string, obj interface{}) (*TelecomExpenseManagementPartner, error) {
+func (s *ServiceCollectionTelecomExpenseManagementPartner) DoPostWithPath(path string, obj interface{}) (*TelecomExpenseManagementPartner, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTelecomExpenseManagementPartner) Post(obj interface{}) (*TelecomExpenseManagementPartner, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTelecomExpenseManagementPartner) DoPost(obj interface{}) (*TelecomExpenseManagementPartner, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // AcceptanceStatuses returns service endpoint for CollectionTermsAndConditionsAcceptanceStatus
@@ -47738,24 +49149,24 @@ func (s *ServiceTermsAndConditions) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTermsAndConditions) GetWithPath(path string) (*TermsAndConditions, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTermsAndConditions) DoGetWithPath(path string) (*TermsAndConditions, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTermsAndConditions) Get() (*TermsAndConditions, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTermsAndConditions) DoGet() (*TermsAndConditions, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTermsAndConditions) PostWithPath(path string) (*TermsAndConditions, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTermsAndConditions) DoPostWithPath(path string) (*TermsAndConditions, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTermsAndConditions) Post() (*TermsAndConditions, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTermsAndConditions) DoPost() (*TermsAndConditions, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TermsAndConditions collection with addtional path
@@ -47870,24 +49281,24 @@ func (s *ServiceCollectionTermsAndConditions) DoPaging(method string, obj interf
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTermsAndConditions) GetWithPath(path string) ([]TermsAndConditions, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTermsAndConditions) DoGetWithPath(path string) ([]TermsAndConditions, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTermsAndConditions) Get() ([]TermsAndConditions, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTermsAndConditions) DoGet() ([]TermsAndConditions, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTermsAndConditions) PostWithPath(path string, obj interface{}) (*TermsAndConditions, error) {
+func (s *ServiceCollectionTermsAndConditions) DoPostWithPath(path string, obj interface{}) (*TermsAndConditions, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTermsAndConditions) Post(obj interface{}) (*TermsAndConditions, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTermsAndConditions) DoPost(obj interface{}) (*TermsAndConditions, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // TermsAndConditions returns service endpoint for TermsAndConditions
@@ -47949,24 +49360,24 @@ func (s *ServiceTermsAndConditionsAcceptanceStatus) DoRequest(method string, obj
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTermsAndConditionsAcceptanceStatus) GetWithPath(path string) (*TermsAndConditionsAcceptanceStatus, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTermsAndConditionsAcceptanceStatus) DoGetWithPath(path string) (*TermsAndConditionsAcceptanceStatus, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTermsAndConditionsAcceptanceStatus) Get() (*TermsAndConditionsAcceptanceStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTermsAndConditionsAcceptanceStatus) DoGet() (*TermsAndConditionsAcceptanceStatus, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTermsAndConditionsAcceptanceStatus) PostWithPath(path string) (*TermsAndConditionsAcceptanceStatus, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTermsAndConditionsAcceptanceStatus) DoPostWithPath(path string) (*TermsAndConditionsAcceptanceStatus, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTermsAndConditionsAcceptanceStatus) Post() (*TermsAndConditionsAcceptanceStatus, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTermsAndConditionsAcceptanceStatus) DoPost() (*TermsAndConditionsAcceptanceStatus, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for TermsAndConditionsAcceptanceStatus collection with addtional path
@@ -48081,24 +49492,24 @@ func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) DoPaging(method st
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) GetWithPath(path string) ([]TermsAndConditionsAcceptanceStatus, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) DoGetWithPath(path string) ([]TermsAndConditionsAcceptanceStatus, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) Get() ([]TermsAndConditionsAcceptanceStatus, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) DoGet() ([]TermsAndConditionsAcceptanceStatus, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) PostWithPath(path string, obj interface{}) (*TermsAndConditionsAcceptanceStatus, error) {
+func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) DoPostWithPath(path string, obj interface{}) (*TermsAndConditionsAcceptanceStatus, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) Post(obj interface{}) (*TermsAndConditionsAcceptanceStatus, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTermsAndConditionsAcceptanceStatus) DoPost(obj interface{}) (*TermsAndConditionsAcceptanceStatus, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for TermsAndConditionsAssignment collection with addtional path
@@ -48213,24 +49624,24 @@ func (s *ServiceCollectionTermsAndConditionsAssignment) DoPaging(method string, 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTermsAndConditionsAssignment) GetWithPath(path string) ([]TermsAndConditionsAssignment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTermsAndConditionsAssignment) DoGetWithPath(path string) ([]TermsAndConditionsAssignment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTermsAndConditionsAssignment) Get() ([]TermsAndConditionsAssignment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTermsAndConditionsAssignment) DoGet() ([]TermsAndConditionsAssignment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTermsAndConditionsAssignment) PostWithPath(path string, obj interface{}) (*TermsAndConditionsAssignment, error) {
+func (s *ServiceCollectionTermsAndConditionsAssignment) DoPostWithPath(path string, obj interface{}) (*TermsAndConditionsAssignment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTermsAndConditionsAssignment) Post(obj interface{}) (*TermsAndConditionsAssignment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTermsAndConditionsAssignment) DoPost(obj interface{}) (*TermsAndConditionsAssignment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for ThumbnailSet collection with addtional path
@@ -48345,24 +49756,24 @@ func (s *ServiceCollectionThumbnailSet) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionThumbnailSet) GetWithPath(path string) ([]ThumbnailSet, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionThumbnailSet) DoGetWithPath(path string) ([]ThumbnailSet, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionThumbnailSet) Get() ([]ThumbnailSet, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionThumbnailSet) DoGet() ([]ThumbnailSet, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionThumbnailSet) PostWithPath(path string, obj interface{}) (*ThumbnailSet, error) {
+func (s *ServiceCollectionThumbnailSet) DoPostWithPath(path string, obj interface{}) (*ThumbnailSet, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionThumbnailSet) Post(obj interface{}) (*ThumbnailSet, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionThumbnailSet) DoPost(obj interface{}) (*ThumbnailSet, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Resource returns service endpoint for Entity
@@ -48424,24 +49835,24 @@ func (s *ServiceTrending) DoRequest(method string, obj interface{}) (*Trending, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceTrending) GetWithPath(path string) (*Trending, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceTrending) DoGetWithPath(path string) (*Trending, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceTrending) Get() (*Trending, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceTrending) DoGet() (*Trending, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceTrending) PostWithPath(path string) (*Trending, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceTrending) DoPostWithPath(path string) (*Trending, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceTrending) Post() (*Trending, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceTrending) DoPost() (*Trending, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for Trending collection with addtional path
@@ -48556,24 +49967,24 @@ func (s *ServiceCollectionTrending) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionTrending) GetWithPath(path string) ([]Trending, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionTrending) DoGetWithPath(path string) ([]Trending, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionTrending) Get() ([]Trending, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionTrending) DoGet() ([]Trending, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionTrending) PostWithPath(path string, obj interface{}) (*Trending, error) {
+func (s *ServiceCollectionTrending) DoPostWithPath(path string, obj interface{}) (*Trending, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionTrending) Post(obj interface{}) (*Trending, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionTrending) DoPost(obj interface{}) (*Trending, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Resource returns service endpoint for Entity
@@ -48635,24 +50046,24 @@ func (s *ServiceUsedInsight) DoRequest(method string, obj interface{}) (*UsedIns
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceUsedInsight) GetWithPath(path string) (*UsedInsight, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceUsedInsight) DoGetWithPath(path string) (*UsedInsight, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceUsedInsight) Get() (*UsedInsight, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceUsedInsight) DoGet() (*UsedInsight, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceUsedInsight) PostWithPath(path string) (*UsedInsight, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceUsedInsight) DoPostWithPath(path string) (*UsedInsight, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceUsedInsight) Post() (*UsedInsight, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceUsedInsight) DoPost() (*UsedInsight, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for UsedInsight collection with addtional path
@@ -48767,24 +50178,24 @@ func (s *ServiceCollectionUsedInsight) DoPaging(method string, obj interface{}) 
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionUsedInsight) GetWithPath(path string) ([]UsedInsight, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionUsedInsight) DoGetWithPath(path string) ([]UsedInsight, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionUsedInsight) Get() ([]UsedInsight, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionUsedInsight) DoGet() ([]UsedInsight, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionUsedInsight) PostWithPath(path string, obj interface{}) (*UsedInsight, error) {
+func (s *ServiceCollectionUsedInsight) DoPostWithPath(path string, obj interface{}) (*UsedInsight, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionUsedInsight) Post(obj interface{}) (*UsedInsight, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionUsedInsight) DoPost(obj interface{}) (*UsedInsight, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Activities returns service endpoint for CollectionUserActivity
@@ -48962,6 +50373,13 @@ func (s *ServiceUser) Onenote() *ServiceOnenote {
 	return ss
 }
 
+// OnlineMeetings returns service endpoint for CollectionOnlineMeeting
+func (s *ServiceUser) OnlineMeetings() *ServiceCollectionOnlineMeeting {
+	ss := &ServiceCollectionOnlineMeeting{ServiceBase: s.ServiceBase}
+	ss.baseURL += "/onlineMeetings"
+	return ss
+}
+
 // Outlook returns service endpoint for OutlookUser
 func (s *ServiceUser) Outlook() *ServiceOutlookUser {
 	ss := &ServiceOutlookUser{ServiceBase: s.ServiceBase}
@@ -49084,24 +50502,24 @@ func (s *ServiceUser) DoRequest(method string, obj interface{}) (*User, error) {
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceUser) GetWithPath(path string) (*User, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceUser) DoGetWithPath(path string) (*User, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceUser) Get() (*User, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceUser) DoGet() (*User, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceUser) PostWithPath(path string) (*User, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceUser) DoPostWithPath(path string) (*User, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceUser) Post() (*User, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceUser) DoPost() (*User, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for User collection with addtional path
@@ -49216,24 +50634,24 @@ func (s *ServiceCollectionUser) DoPaging(method string, obj interface{}) ([]User
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionUser) GetWithPath(path string) ([]User, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionUser) DoGetWithPath(path string) ([]User, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionUser) Get() ([]User, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionUser) DoGet() ([]User, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionUser) PostWithPath(path string, obj interface{}) (*User, error) {
+func (s *ServiceCollectionUser) DoPostWithPath(path string, obj interface{}) (*User, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionUser) Post(obj interface{}) (*User, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionUser) DoPost(obj interface{}) (*User, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // HistoryItems returns service endpoint for CollectionActivityHistoryItem
@@ -49295,24 +50713,24 @@ func (s *ServiceUserActivity) DoRequest(method string, obj interface{}) (*UserAc
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceUserActivity) GetWithPath(path string) (*UserActivity, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceUserActivity) DoGetWithPath(path string) (*UserActivity, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceUserActivity) Get() (*UserActivity, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceUserActivity) DoGet() (*UserActivity, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceUserActivity) PostWithPath(path string) (*UserActivity, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceUserActivity) DoPostWithPath(path string) (*UserActivity, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceUserActivity) Post() (*UserActivity, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceUserActivity) DoPost() (*UserActivity, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for UserActivity collection with addtional path
@@ -49427,24 +50845,24 @@ func (s *ServiceCollectionUserActivity) DoPaging(method string, obj interface{})
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionUserActivity) GetWithPath(path string) ([]UserActivity, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionUserActivity) DoGetWithPath(path string) ([]UserActivity, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionUserActivity) Get() ([]UserActivity, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionUserActivity) DoGet() ([]UserActivity, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionUserActivity) PostWithPath(path string, obj interface{}) (*UserActivity, error) {
+func (s *ServiceCollectionUserActivity) DoPostWithPath(path string, obj interface{}) (*UserActivity, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionUserActivity) Post(obj interface{}) (*UserActivity, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionUserActivity) DoPost(obj interface{}) (*UserActivity, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // DeviceStates returns service endpoint for CollectionDeviceInstallState
@@ -49506,24 +50924,24 @@ func (s *ServiceUserInstallStateSummary) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceUserInstallStateSummary) GetWithPath(path string) (*UserInstallStateSummary, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceUserInstallStateSummary) DoGetWithPath(path string) (*UserInstallStateSummary, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceUserInstallStateSummary) Get() (*UserInstallStateSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceUserInstallStateSummary) DoGet() (*UserInstallStateSummary, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceUserInstallStateSummary) PostWithPath(path string) (*UserInstallStateSummary, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceUserInstallStateSummary) DoPostWithPath(path string) (*UserInstallStateSummary, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceUserInstallStateSummary) Post() (*UserInstallStateSummary, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceUserInstallStateSummary) DoPost() (*UserInstallStateSummary, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for UserInstallStateSummary collection with addtional path
@@ -49638,24 +51056,24 @@ func (s *ServiceCollectionUserInstallStateSummary) DoPaging(method string, obj i
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionUserInstallStateSummary) GetWithPath(path string) ([]UserInstallStateSummary, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionUserInstallStateSummary) DoGetWithPath(path string) ([]UserInstallStateSummary, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionUserInstallStateSummary) Get() ([]UserInstallStateSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionUserInstallStateSummary) DoGet() ([]UserInstallStateSummary, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionUserInstallStateSummary) PostWithPath(path string, obj interface{}) (*UserInstallStateSummary, error) {
+func (s *ServiceCollectionUserInstallStateSummary) DoPostWithPath(path string, obj interface{}) (*UserInstallStateSummary, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionUserInstallStateSummary) Post(obj interface{}) (*UserInstallStateSummary, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionUserInstallStateSummary) DoPost(obj interface{}) (*UserInstallStateSummary, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for UserSettings
@@ -49710,24 +51128,24 @@ func (s *ServiceUserSettings) DoRequest(method string, obj interface{}) (*UserSe
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceUserSettings) GetWithPath(path string) (*UserSettings, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceUserSettings) DoGetWithPath(path string) (*UserSettings, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceUserSettings) Get() (*UserSettings, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceUserSettings) DoGet() (*UserSettings, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceUserSettings) PostWithPath(path string) (*UserSettings, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceUserSettings) DoPostWithPath(path string) (*UserSettings, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceUserSettings) Post() (*UserSettings, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceUserSettings) DoPost() (*UserSettings, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for VppToken collection with addtional path
@@ -49842,24 +51260,24 @@ func (s *ServiceCollectionVppToken) DoPaging(method string, obj interface{}) ([]
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionVppToken) GetWithPath(path string) ([]VppToken, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionVppToken) DoGetWithPath(path string) ([]VppToken, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionVppToken) Get() ([]VppToken, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionVppToken) DoGet() ([]VppToken, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionVppToken) PostWithPath(path string, obj interface{}) (*VppToken, error) {
+func (s *ServiceCollectionVppToken) DoPostWithPath(path string, obj interface{}) (*VppToken, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionVppToken) Post(obj interface{}) (*VppToken, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionVppToken) DoPost(obj interface{}) (*VppToken, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Assignments returns service endpoint for CollectionTargetedManagedAppPolicyAssignment
@@ -49935,24 +51353,24 @@ func (s *ServiceWindowsInformationProtection) DoRequest(method string, obj inter
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWindowsInformationProtection) GetWithPath(path string) (*WindowsInformationProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWindowsInformationProtection) DoGetWithPath(path string) (*WindowsInformationProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWindowsInformationProtection) Get() (*WindowsInformationProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWindowsInformationProtection) DoGet() (*WindowsInformationProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWindowsInformationProtection) PostWithPath(path string) (*WindowsInformationProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWindowsInformationProtection) DoPostWithPath(path string) (*WindowsInformationProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWindowsInformationProtection) Post() (*WindowsInformationProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWindowsInformationProtection) DoPost() (*WindowsInformationProtection, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WindowsInformationProtectionAppLearningSummary collection with addtional path
@@ -50067,24 +51485,24 @@ func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) DoPagi
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) GetWithPath(path string) ([]WindowsInformationProtectionAppLearningSummary, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) DoGetWithPath(path string) ([]WindowsInformationProtectionAppLearningSummary, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) Get() ([]WindowsInformationProtectionAppLearningSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) DoGet() ([]WindowsInformationProtectionAppLearningSummary, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) PostWithPath(path string, obj interface{}) (*WindowsInformationProtectionAppLearningSummary, error) {
+func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) DoPostWithPath(path string, obj interface{}) (*WindowsInformationProtectionAppLearningSummary, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) Post(obj interface{}) (*WindowsInformationProtectionAppLearningSummary, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionAppLearningSummary) DoPost(obj interface{}) (*WindowsInformationProtectionAppLearningSummary, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WindowsInformationProtectionAppLockerFile collection with addtional path
@@ -50199,24 +51617,24 @@ func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) DoPaging(me
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) GetWithPath(path string) ([]WindowsInformationProtectionAppLockerFile, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) DoGetWithPath(path string) ([]WindowsInformationProtectionAppLockerFile, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) Get() ([]WindowsInformationProtectionAppLockerFile, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) DoGet() ([]WindowsInformationProtectionAppLockerFile, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) PostWithPath(path string, obj interface{}) (*WindowsInformationProtectionAppLockerFile, error) {
+func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) DoPostWithPath(path string, obj interface{}) (*WindowsInformationProtectionAppLockerFile, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) Post(obj interface{}) (*WindowsInformationProtectionAppLockerFile, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionAppLockerFile) DoPost(obj interface{}) (*WindowsInformationProtectionAppLockerFile, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WindowsInformationProtectionNetworkLearningSummary collection with addtional path
@@ -50331,24 +51749,24 @@ func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) Do
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) GetWithPath(path string) ([]WindowsInformationProtectionNetworkLearningSummary, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) DoGetWithPath(path string) ([]WindowsInformationProtectionNetworkLearningSummary, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) Get() ([]WindowsInformationProtectionNetworkLearningSummary, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) DoGet() ([]WindowsInformationProtectionNetworkLearningSummary, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) PostWithPath(path string, obj interface{}) (*WindowsInformationProtectionNetworkLearningSummary, error) {
+func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) DoPostWithPath(path string, obj interface{}) (*WindowsInformationProtectionNetworkLearningSummary, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) Post(obj interface{}) (*WindowsInformationProtectionNetworkLearningSummary, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionNetworkLearningSummary) DoPost(obj interface{}) (*WindowsInformationProtectionNetworkLearningSummary, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WindowsInformationProtectionPolicy collection with addtional path
@@ -50463,24 +51881,24 @@ func (s *ServiceCollectionWindowsInformationProtectionPolicy) DoPaging(method st
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWindowsInformationProtectionPolicy) GetWithPath(path string) ([]WindowsInformationProtectionPolicy, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWindowsInformationProtectionPolicy) DoGetWithPath(path string) ([]WindowsInformationProtectionPolicy, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionPolicy) Get() ([]WindowsInformationProtectionPolicy, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionPolicy) DoGet() ([]WindowsInformationProtectionPolicy, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWindowsInformationProtectionPolicy) PostWithPath(path string, obj interface{}) (*WindowsInformationProtectionPolicy, error) {
+func (s *ServiceCollectionWindowsInformationProtectionPolicy) DoPostWithPath(path string, obj interface{}) (*WindowsInformationProtectionPolicy, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWindowsInformationProtectionPolicy) Post(obj interface{}) (*WindowsInformationProtectionPolicy, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWindowsInformationProtectionPolicy) DoPost(obj interface{}) (*WindowsInformationProtectionPolicy, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Application returns service endpoint for WorkbookApplication
@@ -50577,24 +51995,24 @@ func (s *ServiceWorkbook) DoRequest(method string, obj interface{}) (*Workbook, 
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbook) GetWithPath(path string) (*Workbook, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbook) DoGetWithPath(path string) (*Workbook, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbook) Get() (*Workbook, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbook) DoGet() (*Workbook, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbook) PostWithPath(path string) (*Workbook, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbook) DoPostWithPath(path string) (*Workbook, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbook) Post() (*Workbook, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbook) DoPost() (*Workbook, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookApplication
@@ -50649,24 +52067,24 @@ func (s *ServiceWorkbookApplication) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookApplication) GetWithPath(path string) (*WorkbookApplication, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookApplication) DoGetWithPath(path string) (*WorkbookApplication, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookApplication) Get() (*WorkbookApplication, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookApplication) DoGet() (*WorkbookApplication, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookApplication) PostWithPath(path string) (*WorkbookApplication, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookApplication) DoPostWithPath(path string) (*WorkbookApplication, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookApplication) Post() (*WorkbookApplication, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookApplication) DoPost() (*WorkbookApplication, error) {
+	return s.DoPostWithPath("")
 }
 
 // Axes returns service endpoint for WorkbookChartAxes
@@ -50770,24 +52188,24 @@ func (s *ServiceWorkbookChart) DoRequest(method string, obj interface{}) (*Workb
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChart) GetWithPath(path string) (*WorkbookChart, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChart) DoGetWithPath(path string) (*WorkbookChart, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChart) Get() (*WorkbookChart, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChart) DoGet() (*WorkbookChart, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChart) PostWithPath(path string) (*WorkbookChart, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChart) DoPostWithPath(path string) (*WorkbookChart, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChart) Post() (*WorkbookChart, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChart) DoPost() (*WorkbookChart, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookChart collection with addtional path
@@ -50902,24 +52320,24 @@ func (s *ServiceCollectionWorkbookChart) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookChart) GetWithPath(path string) ([]WorkbookChart, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookChart) DoGetWithPath(path string) ([]WorkbookChart, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookChart) Get() ([]WorkbookChart, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookChart) DoGet() ([]WorkbookChart, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookChart) PostWithPath(path string, obj interface{}) (*WorkbookChart, error) {
+func (s *ServiceCollectionWorkbookChart) DoPostWithPath(path string, obj interface{}) (*WorkbookChart, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookChart) Post(obj interface{}) (*WorkbookChart, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookChart) DoPost(obj interface{}) (*WorkbookChart, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Fill returns service endpoint for WorkbookChartFill
@@ -50988,24 +52406,24 @@ func (s *ServiceWorkbookChartAreaFormat) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartAreaFormat) GetWithPath(path string) (*WorkbookChartAreaFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartAreaFormat) DoGetWithPath(path string) (*WorkbookChartAreaFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartAreaFormat) Get() (*WorkbookChartAreaFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartAreaFormat) DoGet() (*WorkbookChartAreaFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartAreaFormat) PostWithPath(path string) (*WorkbookChartAreaFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartAreaFormat) DoPostWithPath(path string) (*WorkbookChartAreaFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartAreaFormat) Post() (*WorkbookChartAreaFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartAreaFormat) DoPost() (*WorkbookChartAreaFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // CategoryAxis returns service endpoint for WorkbookChartAxis
@@ -51081,24 +52499,24 @@ func (s *ServiceWorkbookChartAxes) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartAxes) GetWithPath(path string) (*WorkbookChartAxes, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartAxes) DoGetWithPath(path string) (*WorkbookChartAxes, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartAxes) Get() (*WorkbookChartAxes, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartAxes) DoGet() (*WorkbookChartAxes, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartAxes) PostWithPath(path string) (*WorkbookChartAxes, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartAxes) DoPostWithPath(path string) (*WorkbookChartAxes, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartAxes) Post() (*WorkbookChartAxes, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartAxes) DoPost() (*WorkbookChartAxes, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartAxisFormat
@@ -51181,24 +52599,24 @@ func (s *ServiceWorkbookChartAxis) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartAxis) GetWithPath(path string) (*WorkbookChartAxis, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartAxis) DoGetWithPath(path string) (*WorkbookChartAxis, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartAxis) Get() (*WorkbookChartAxis, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartAxis) DoGet() (*WorkbookChartAxis, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartAxis) PostWithPath(path string) (*WorkbookChartAxis, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartAxis) DoPostWithPath(path string) (*WorkbookChartAxis, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartAxis) Post() (*WorkbookChartAxis, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartAxis) DoPost() (*WorkbookChartAxis, error) {
+	return s.DoPostWithPath("")
 }
 
 // Font returns service endpoint for WorkbookChartFont
@@ -51267,24 +52685,24 @@ func (s *ServiceWorkbookChartAxisFormat) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartAxisFormat) GetWithPath(path string) (*WorkbookChartAxisFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartAxisFormat) DoGetWithPath(path string) (*WorkbookChartAxisFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartAxisFormat) Get() (*WorkbookChartAxisFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartAxisFormat) DoGet() (*WorkbookChartAxisFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartAxisFormat) PostWithPath(path string) (*WorkbookChartAxisFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartAxisFormat) DoPostWithPath(path string) (*WorkbookChartAxisFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartAxisFormat) Post() (*WorkbookChartAxisFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartAxisFormat) DoPost() (*WorkbookChartAxisFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartAxisTitleFormat
@@ -51346,24 +52764,24 @@ func (s *ServiceWorkbookChartAxisTitle) DoRequest(method string, obj interface{}
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartAxisTitle) GetWithPath(path string) (*WorkbookChartAxisTitle, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartAxisTitle) DoGetWithPath(path string) (*WorkbookChartAxisTitle, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartAxisTitle) Get() (*WorkbookChartAxisTitle, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartAxisTitle) DoGet() (*WorkbookChartAxisTitle, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartAxisTitle) PostWithPath(path string) (*WorkbookChartAxisTitle, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartAxisTitle) DoPostWithPath(path string) (*WorkbookChartAxisTitle, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartAxisTitle) Post() (*WorkbookChartAxisTitle, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartAxisTitle) DoPost() (*WorkbookChartAxisTitle, error) {
+	return s.DoPostWithPath("")
 }
 
 // Font returns service endpoint for WorkbookChartFont
@@ -51425,24 +52843,24 @@ func (s *ServiceWorkbookChartAxisTitleFormat) DoRequest(method string, obj inter
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartAxisTitleFormat) GetWithPath(path string) (*WorkbookChartAxisTitleFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartAxisTitleFormat) DoGetWithPath(path string) (*WorkbookChartAxisTitleFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartAxisTitleFormat) Get() (*WorkbookChartAxisTitleFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartAxisTitleFormat) DoGet() (*WorkbookChartAxisTitleFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartAxisTitleFormat) PostWithPath(path string) (*WorkbookChartAxisTitleFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartAxisTitleFormat) DoPostWithPath(path string) (*WorkbookChartAxisTitleFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartAxisTitleFormat) Post() (*WorkbookChartAxisTitleFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartAxisTitleFormat) DoPost() (*WorkbookChartAxisTitleFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Fill returns service endpoint for WorkbookChartFill
@@ -51511,24 +52929,24 @@ func (s *ServiceWorkbookChartDataLabelFormat) DoRequest(method string, obj inter
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartDataLabelFormat) GetWithPath(path string) (*WorkbookChartDataLabelFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartDataLabelFormat) DoGetWithPath(path string) (*WorkbookChartDataLabelFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartDataLabelFormat) Get() (*WorkbookChartDataLabelFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartDataLabelFormat) DoGet() (*WorkbookChartDataLabelFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartDataLabelFormat) PostWithPath(path string) (*WorkbookChartDataLabelFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartDataLabelFormat) DoPostWithPath(path string) (*WorkbookChartDataLabelFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartDataLabelFormat) Post() (*WorkbookChartDataLabelFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartDataLabelFormat) DoPost() (*WorkbookChartDataLabelFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartDataLabelFormat
@@ -51590,24 +53008,24 @@ func (s *ServiceWorkbookChartDataLabels) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartDataLabels) GetWithPath(path string) (*WorkbookChartDataLabels, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartDataLabels) DoGetWithPath(path string) (*WorkbookChartDataLabels, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartDataLabels) Get() (*WorkbookChartDataLabels, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartDataLabels) DoGet() (*WorkbookChartDataLabels, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartDataLabels) PostWithPath(path string) (*WorkbookChartDataLabels, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartDataLabels) DoPostWithPath(path string) (*WorkbookChartDataLabels, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartDataLabels) Post() (*WorkbookChartDataLabels, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartDataLabels) DoPost() (*WorkbookChartDataLabels, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookChartFill
@@ -51662,24 +53080,24 @@ func (s *ServiceWorkbookChartFill) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartFill) GetWithPath(path string) (*WorkbookChartFill, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartFill) DoGetWithPath(path string) (*WorkbookChartFill, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartFill) Get() (*WorkbookChartFill, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartFill) DoGet() (*WorkbookChartFill, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartFill) PostWithPath(path string) (*WorkbookChartFill, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartFill) DoPostWithPath(path string) (*WorkbookChartFill, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartFill) Post() (*WorkbookChartFill, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartFill) DoPost() (*WorkbookChartFill, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookChartFont
@@ -51734,24 +53152,24 @@ func (s *ServiceWorkbookChartFont) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartFont) GetWithPath(path string) (*WorkbookChartFont, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartFont) DoGetWithPath(path string) (*WorkbookChartFont, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartFont) Get() (*WorkbookChartFont, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartFont) DoGet() (*WorkbookChartFont, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartFont) PostWithPath(path string) (*WorkbookChartFont, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartFont) DoPostWithPath(path string) (*WorkbookChartFont, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartFont) Post() (*WorkbookChartFont, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartFont) DoPost() (*WorkbookChartFont, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartGridlinesFormat
@@ -51813,24 +53231,24 @@ func (s *ServiceWorkbookChartGridlines) DoRequest(method string, obj interface{}
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartGridlines) GetWithPath(path string) (*WorkbookChartGridlines, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartGridlines) DoGetWithPath(path string) (*WorkbookChartGridlines, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartGridlines) Get() (*WorkbookChartGridlines, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartGridlines) DoGet() (*WorkbookChartGridlines, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartGridlines) PostWithPath(path string) (*WorkbookChartGridlines, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartGridlines) DoPostWithPath(path string) (*WorkbookChartGridlines, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartGridlines) Post() (*WorkbookChartGridlines, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartGridlines) DoPost() (*WorkbookChartGridlines, error) {
+	return s.DoPostWithPath("")
 }
 
 // Line returns service endpoint for WorkbookChartLineFormat
@@ -51892,24 +53310,24 @@ func (s *ServiceWorkbookChartGridlinesFormat) DoRequest(method string, obj inter
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartGridlinesFormat) GetWithPath(path string) (*WorkbookChartGridlinesFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartGridlinesFormat) DoGetWithPath(path string) (*WorkbookChartGridlinesFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartGridlinesFormat) Get() (*WorkbookChartGridlinesFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartGridlinesFormat) DoGet() (*WorkbookChartGridlinesFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartGridlinesFormat) PostWithPath(path string) (*WorkbookChartGridlinesFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartGridlinesFormat) DoPostWithPath(path string) (*WorkbookChartGridlinesFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartGridlinesFormat) Post() (*WorkbookChartGridlinesFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartGridlinesFormat) DoPost() (*WorkbookChartGridlinesFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartLegendFormat
@@ -51971,24 +53389,24 @@ func (s *ServiceWorkbookChartLegend) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartLegend) GetWithPath(path string) (*WorkbookChartLegend, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartLegend) DoGetWithPath(path string) (*WorkbookChartLegend, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartLegend) Get() (*WorkbookChartLegend, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartLegend) DoGet() (*WorkbookChartLegend, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartLegend) PostWithPath(path string) (*WorkbookChartLegend, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartLegend) DoPostWithPath(path string) (*WorkbookChartLegend, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartLegend) Post() (*WorkbookChartLegend, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartLegend) DoPost() (*WorkbookChartLegend, error) {
+	return s.DoPostWithPath("")
 }
 
 // Fill returns service endpoint for WorkbookChartFill
@@ -52057,24 +53475,24 @@ func (s *ServiceWorkbookChartLegendFormat) DoRequest(method string, obj interfac
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartLegendFormat) GetWithPath(path string) (*WorkbookChartLegendFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartLegendFormat) DoGetWithPath(path string) (*WorkbookChartLegendFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartLegendFormat) Get() (*WorkbookChartLegendFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartLegendFormat) DoGet() (*WorkbookChartLegendFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartLegendFormat) PostWithPath(path string) (*WorkbookChartLegendFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartLegendFormat) DoPostWithPath(path string) (*WorkbookChartLegendFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartLegendFormat) Post() (*WorkbookChartLegendFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartLegendFormat) DoPost() (*WorkbookChartLegendFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookChartLineFormat
@@ -52129,24 +53547,24 @@ func (s *ServiceWorkbookChartLineFormat) DoRequest(method string, obj interface{
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartLineFormat) GetWithPath(path string) (*WorkbookChartLineFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartLineFormat) DoGetWithPath(path string) (*WorkbookChartLineFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartLineFormat) Get() (*WorkbookChartLineFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartLineFormat) DoGet() (*WorkbookChartLineFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartLineFormat) PostWithPath(path string) (*WorkbookChartLineFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartLineFormat) DoPostWithPath(path string) (*WorkbookChartLineFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartLineFormat) Post() (*WorkbookChartLineFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartLineFormat) DoPost() (*WorkbookChartLineFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartPointFormat
@@ -52208,24 +53626,24 @@ func (s *ServiceWorkbookChartPoint) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartPoint) GetWithPath(path string) (*WorkbookChartPoint, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartPoint) DoGetWithPath(path string) (*WorkbookChartPoint, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartPoint) Get() (*WorkbookChartPoint, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartPoint) DoGet() (*WorkbookChartPoint, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartPoint) PostWithPath(path string) (*WorkbookChartPoint, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartPoint) DoPostWithPath(path string) (*WorkbookChartPoint, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartPoint) Post() (*WorkbookChartPoint, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartPoint) DoPost() (*WorkbookChartPoint, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookChartPoint collection with addtional path
@@ -52340,24 +53758,24 @@ func (s *ServiceCollectionWorkbookChartPoint) DoPaging(method string, obj interf
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookChartPoint) GetWithPath(path string) ([]WorkbookChartPoint, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookChartPoint) DoGetWithPath(path string) ([]WorkbookChartPoint, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookChartPoint) Get() ([]WorkbookChartPoint, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookChartPoint) DoGet() ([]WorkbookChartPoint, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookChartPoint) PostWithPath(path string, obj interface{}) (*WorkbookChartPoint, error) {
+func (s *ServiceCollectionWorkbookChartPoint) DoPostWithPath(path string, obj interface{}) (*WorkbookChartPoint, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookChartPoint) Post(obj interface{}) (*WorkbookChartPoint, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookChartPoint) DoPost(obj interface{}) (*WorkbookChartPoint, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Fill returns service endpoint for WorkbookChartFill
@@ -52419,24 +53837,24 @@ func (s *ServiceWorkbookChartPointFormat) DoRequest(method string, obj interface
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartPointFormat) GetWithPath(path string) (*WorkbookChartPointFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartPointFormat) DoGetWithPath(path string) (*WorkbookChartPointFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartPointFormat) Get() (*WorkbookChartPointFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartPointFormat) DoGet() (*WorkbookChartPointFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartPointFormat) PostWithPath(path string) (*WorkbookChartPointFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartPointFormat) DoPostWithPath(path string) (*WorkbookChartPointFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartPointFormat) Post() (*WorkbookChartPointFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartPointFormat) DoPost() (*WorkbookChartPointFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartSeriesFormat
@@ -52505,24 +53923,24 @@ func (s *ServiceWorkbookChartSeries) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartSeries) GetWithPath(path string) (*WorkbookChartSeries, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartSeries) DoGetWithPath(path string) (*WorkbookChartSeries, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartSeries) Get() (*WorkbookChartSeries, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartSeries) DoGet() (*WorkbookChartSeries, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartSeries) PostWithPath(path string) (*WorkbookChartSeries, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartSeries) DoPostWithPath(path string) (*WorkbookChartSeries, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartSeries) Post() (*WorkbookChartSeries, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartSeries) DoPost() (*WorkbookChartSeries, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookChartSeries collection with addtional path
@@ -52637,24 +54055,24 @@ func (s *ServiceCollectionWorkbookChartSeries) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookChartSeries) GetWithPath(path string) ([]WorkbookChartSeries, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookChartSeries) DoGetWithPath(path string) ([]WorkbookChartSeries, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookChartSeries) Get() ([]WorkbookChartSeries, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookChartSeries) DoGet() ([]WorkbookChartSeries, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookChartSeries) PostWithPath(path string, obj interface{}) (*WorkbookChartSeries, error) {
+func (s *ServiceCollectionWorkbookChartSeries) DoPostWithPath(path string, obj interface{}) (*WorkbookChartSeries, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookChartSeries) Post(obj interface{}) (*WorkbookChartSeries, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookChartSeries) DoPost(obj interface{}) (*WorkbookChartSeries, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Fill returns service endpoint for WorkbookChartFill
@@ -52723,24 +54141,24 @@ func (s *ServiceWorkbookChartSeriesFormat) DoRequest(method string, obj interfac
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartSeriesFormat) GetWithPath(path string) (*WorkbookChartSeriesFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartSeriesFormat) DoGetWithPath(path string) (*WorkbookChartSeriesFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartSeriesFormat) Get() (*WorkbookChartSeriesFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartSeriesFormat) DoGet() (*WorkbookChartSeriesFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartSeriesFormat) PostWithPath(path string) (*WorkbookChartSeriesFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartSeriesFormat) DoPostWithPath(path string) (*WorkbookChartSeriesFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartSeriesFormat) Post() (*WorkbookChartSeriesFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartSeriesFormat) DoPost() (*WorkbookChartSeriesFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Format returns service endpoint for WorkbookChartTitleFormat
@@ -52802,24 +54220,24 @@ func (s *ServiceWorkbookChartTitle) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartTitle) GetWithPath(path string) (*WorkbookChartTitle, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartTitle) DoGetWithPath(path string) (*WorkbookChartTitle, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartTitle) Get() (*WorkbookChartTitle, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartTitle) DoGet() (*WorkbookChartTitle, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartTitle) PostWithPath(path string) (*WorkbookChartTitle, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartTitle) DoPostWithPath(path string) (*WorkbookChartTitle, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartTitle) Post() (*WorkbookChartTitle, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartTitle) DoPost() (*WorkbookChartTitle, error) {
+	return s.DoPostWithPath("")
 }
 
 // Fill returns service endpoint for WorkbookChartFill
@@ -52888,24 +54306,24 @@ func (s *ServiceWorkbookChartTitleFormat) DoRequest(method string, obj interface
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookChartTitleFormat) GetWithPath(path string) (*WorkbookChartTitleFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookChartTitleFormat) DoGetWithPath(path string) (*WorkbookChartTitleFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookChartTitleFormat) Get() (*WorkbookChartTitleFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookChartTitleFormat) DoGet() (*WorkbookChartTitleFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookChartTitleFormat) PostWithPath(path string) (*WorkbookChartTitleFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookChartTitleFormat) DoPostWithPath(path string) (*WorkbookChartTitleFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookChartTitleFormat) Post() (*WorkbookChartTitleFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookChartTitleFormat) DoPost() (*WorkbookChartTitleFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // Replies returns service endpoint for CollectionWorkbookCommentReply
@@ -52967,24 +54385,24 @@ func (s *ServiceWorkbookComment) DoRequest(method string, obj interface{}) (*Wor
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookComment) GetWithPath(path string) (*WorkbookComment, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookComment) DoGetWithPath(path string) (*WorkbookComment, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookComment) Get() (*WorkbookComment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookComment) DoGet() (*WorkbookComment, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookComment) PostWithPath(path string) (*WorkbookComment, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookComment) DoPostWithPath(path string) (*WorkbookComment, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookComment) Post() (*WorkbookComment, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookComment) DoPost() (*WorkbookComment, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookComment collection with addtional path
@@ -53099,24 +54517,24 @@ func (s *ServiceCollectionWorkbookComment) DoPaging(method string, obj interface
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookComment) GetWithPath(path string) ([]WorkbookComment, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookComment) DoGetWithPath(path string) ([]WorkbookComment, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookComment) Get() ([]WorkbookComment, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookComment) DoGet() ([]WorkbookComment, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookComment) PostWithPath(path string, obj interface{}) (*WorkbookComment, error) {
+func (s *ServiceCollectionWorkbookComment) DoPostWithPath(path string, obj interface{}) (*WorkbookComment, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookComment) Post(obj interface{}) (*WorkbookComment, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookComment) DoPost(obj interface{}) (*WorkbookComment, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookCommentReply collection with addtional path
@@ -53231,24 +54649,24 @@ func (s *ServiceCollectionWorkbookCommentReply) DoPaging(method string, obj inte
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookCommentReply) GetWithPath(path string) ([]WorkbookCommentReply, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookCommentReply) DoGetWithPath(path string) ([]WorkbookCommentReply, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookCommentReply) Get() ([]WorkbookCommentReply, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookCommentReply) DoGet() ([]WorkbookCommentReply, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookCommentReply) PostWithPath(path string, obj interface{}) (*WorkbookCommentReply, error) {
+func (s *ServiceCollectionWorkbookCommentReply) DoPostWithPath(path string, obj interface{}) (*WorkbookCommentReply, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookCommentReply) Post(obj interface{}) (*WorkbookCommentReply, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookCommentReply) DoPost(obj interface{}) (*WorkbookCommentReply, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookFilter
@@ -53303,24 +54721,24 @@ func (s *ServiceWorkbookFilter) DoRequest(method string, obj interface{}) (*Work
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookFilter) GetWithPath(path string) (*WorkbookFilter, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookFilter) DoGetWithPath(path string) (*WorkbookFilter, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookFilter) Get() (*WorkbookFilter, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookFilter) DoGet() (*WorkbookFilter, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookFilter) PostWithPath(path string) (*WorkbookFilter, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookFilter) DoPostWithPath(path string) (*WorkbookFilter, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookFilter) Post() (*WorkbookFilter, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookFilter) DoPost() (*WorkbookFilter, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookFormatProtection
@@ -53375,24 +54793,24 @@ func (s *ServiceWorkbookFormatProtection) DoRequest(method string, obj interface
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookFormatProtection) GetWithPath(path string) (*WorkbookFormatProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookFormatProtection) DoGetWithPath(path string) (*WorkbookFormatProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookFormatProtection) Get() (*WorkbookFormatProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookFormatProtection) DoGet() (*WorkbookFormatProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookFormatProtection) PostWithPath(path string) (*WorkbookFormatProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookFormatProtection) DoPostWithPath(path string) (*WorkbookFormatProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookFormatProtection) Post() (*WorkbookFormatProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookFormatProtection) DoPost() (*WorkbookFormatProtection, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookFunctions
@@ -53447,24 +54865,24 @@ func (s *ServiceWorkbookFunctions) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookFunctions) GetWithPath(path string) (*WorkbookFunctions, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookFunctions) DoGetWithPath(path string) (*WorkbookFunctions, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookFunctions) Get() (*WorkbookFunctions, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookFunctions) DoGet() (*WorkbookFunctions, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookFunctions) PostWithPath(path string) (*WorkbookFunctions, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookFunctions) DoPostWithPath(path string) (*WorkbookFunctions, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookFunctions) Post() (*WorkbookFunctions, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookFunctions) DoPost() (*WorkbookFunctions, error) {
+	return s.DoPostWithPath("")
 }
 
 // Worksheet returns service endpoint for WorkbookWorksheet
@@ -53526,24 +54944,24 @@ func (s *ServiceWorkbookNamedItem) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookNamedItem) GetWithPath(path string) (*WorkbookNamedItem, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookNamedItem) DoGetWithPath(path string) (*WorkbookNamedItem, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookNamedItem) Get() (*WorkbookNamedItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookNamedItem) DoGet() (*WorkbookNamedItem, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookNamedItem) PostWithPath(path string) (*WorkbookNamedItem, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookNamedItem) DoPostWithPath(path string) (*WorkbookNamedItem, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookNamedItem) Post() (*WorkbookNamedItem, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookNamedItem) DoPost() (*WorkbookNamedItem, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookNamedItem collection with addtional path
@@ -53658,24 +55076,24 @@ func (s *ServiceCollectionWorkbookNamedItem) DoPaging(method string, obj interfa
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookNamedItem) GetWithPath(path string) ([]WorkbookNamedItem, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookNamedItem) DoGetWithPath(path string) ([]WorkbookNamedItem, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookNamedItem) Get() ([]WorkbookNamedItem, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookNamedItem) DoGet() ([]WorkbookNamedItem, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookNamedItem) PostWithPath(path string, obj interface{}) (*WorkbookNamedItem, error) {
+func (s *ServiceCollectionWorkbookNamedItem) DoPostWithPath(path string, obj interface{}) (*WorkbookNamedItem, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookNamedItem) Post(obj interface{}) (*WorkbookNamedItem, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookNamedItem) DoPost(obj interface{}) (*WorkbookNamedItem, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Worksheet returns service endpoint for WorkbookWorksheet
@@ -53737,24 +55155,24 @@ func (s *ServiceWorkbookPivotTable) DoRequest(method string, obj interface{}) (*
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookPivotTable) GetWithPath(path string) (*WorkbookPivotTable, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookPivotTable) DoGetWithPath(path string) (*WorkbookPivotTable, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookPivotTable) Get() (*WorkbookPivotTable, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookPivotTable) DoGet() (*WorkbookPivotTable, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookPivotTable) PostWithPath(path string) (*WorkbookPivotTable, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookPivotTable) DoPostWithPath(path string) (*WorkbookPivotTable, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookPivotTable) Post() (*WorkbookPivotTable, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookPivotTable) DoPost() (*WorkbookPivotTable, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookPivotTable collection with addtional path
@@ -53869,24 +55287,24 @@ func (s *ServiceCollectionWorkbookPivotTable) DoPaging(method string, obj interf
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookPivotTable) GetWithPath(path string) ([]WorkbookPivotTable, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookPivotTable) DoGetWithPath(path string) ([]WorkbookPivotTable, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookPivotTable) Get() ([]WorkbookPivotTable, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookPivotTable) DoGet() ([]WorkbookPivotTable, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookPivotTable) PostWithPath(path string, obj interface{}) (*WorkbookPivotTable, error) {
+func (s *ServiceCollectionWorkbookPivotTable) DoPostWithPath(path string, obj interface{}) (*WorkbookPivotTable, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookPivotTable) Post(obj interface{}) (*WorkbookPivotTable, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookPivotTable) DoPost(obj interface{}) (*WorkbookPivotTable, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Format returns service endpoint for WorkbookRangeFormat
@@ -53962,24 +55380,24 @@ func (s *ServiceWorkbookRange) DoRequest(method string, obj interface{}) (*Workb
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookRange) GetWithPath(path string) (*WorkbookRange, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookRange) DoGetWithPath(path string) (*WorkbookRange, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookRange) Get() (*WorkbookRange, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookRange) DoGet() (*WorkbookRange, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookRange) PostWithPath(path string) (*WorkbookRange, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookRange) DoPostWithPath(path string) (*WorkbookRange, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookRange) Post() (*WorkbookRange, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookRange) DoPost() (*WorkbookRange, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookRangeBorder collection with addtional path
@@ -54094,24 +55512,24 @@ func (s *ServiceCollectionWorkbookRangeBorder) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookRangeBorder) GetWithPath(path string) ([]WorkbookRangeBorder, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookRangeBorder) DoGetWithPath(path string) ([]WorkbookRangeBorder, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookRangeBorder) Get() ([]WorkbookRangeBorder, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookRangeBorder) DoGet() ([]WorkbookRangeBorder, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookRangeBorder) PostWithPath(path string, obj interface{}) (*WorkbookRangeBorder, error) {
+func (s *ServiceCollectionWorkbookRangeBorder) DoPostWithPath(path string, obj interface{}) (*WorkbookRangeBorder, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookRangeBorder) Post(obj interface{}) (*WorkbookRangeBorder, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookRangeBorder) DoPost(obj interface{}) (*WorkbookRangeBorder, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookRangeFill
@@ -54166,24 +55584,24 @@ func (s *ServiceWorkbookRangeFill) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookRangeFill) GetWithPath(path string) (*WorkbookRangeFill, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookRangeFill) DoGetWithPath(path string) (*WorkbookRangeFill, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookRangeFill) Get() (*WorkbookRangeFill, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookRangeFill) DoGet() (*WorkbookRangeFill, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookRangeFill) PostWithPath(path string) (*WorkbookRangeFill, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookRangeFill) DoPostWithPath(path string) (*WorkbookRangeFill, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookRangeFill) Post() (*WorkbookRangeFill, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookRangeFill) DoPost() (*WorkbookRangeFill, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookRangeFont
@@ -54238,24 +55656,24 @@ func (s *ServiceWorkbookRangeFont) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookRangeFont) GetWithPath(path string) (*WorkbookRangeFont, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookRangeFont) DoGetWithPath(path string) (*WorkbookRangeFont, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookRangeFont) Get() (*WorkbookRangeFont, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookRangeFont) DoGet() (*WorkbookRangeFont, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookRangeFont) PostWithPath(path string) (*WorkbookRangeFont, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookRangeFont) DoPostWithPath(path string) (*WorkbookRangeFont, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookRangeFont) Post() (*WorkbookRangeFont, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookRangeFont) DoPost() (*WorkbookRangeFont, error) {
+	return s.DoPostWithPath("")
 }
 
 // Borders returns service endpoint for CollectionWorkbookRangeBorder
@@ -54338,24 +55756,24 @@ func (s *ServiceWorkbookRangeFormat) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookRangeFormat) GetWithPath(path string) (*WorkbookRangeFormat, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookRangeFormat) DoGetWithPath(path string) (*WorkbookRangeFormat, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookRangeFormat) Get() (*WorkbookRangeFormat, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookRangeFormat) DoGet() (*WorkbookRangeFormat, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookRangeFormat) PostWithPath(path string) (*WorkbookRangeFormat, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookRangeFormat) DoPostWithPath(path string) (*WorkbookRangeFormat, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookRangeFormat) Post() (*WorkbookRangeFormat, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookRangeFormat) DoPost() (*WorkbookRangeFormat, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookRangeSort
@@ -54410,24 +55828,24 @@ func (s *ServiceWorkbookRangeSort) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookRangeSort) GetWithPath(path string) (*WorkbookRangeSort, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookRangeSort) DoGetWithPath(path string) (*WorkbookRangeSort, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookRangeSort) Get() (*WorkbookRangeSort, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookRangeSort) DoGet() (*WorkbookRangeSort, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookRangeSort) PostWithPath(path string) (*WorkbookRangeSort, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookRangeSort) DoPostWithPath(path string) (*WorkbookRangeSort, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookRangeSort) Post() (*WorkbookRangeSort, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookRangeSort) DoPost() (*WorkbookRangeSort, error) {
+	return s.DoPostWithPath("")
 }
 
 // Rows returns service endpoint for CollectionWorkbookRangeView
@@ -54489,24 +55907,24 @@ func (s *ServiceWorkbookRangeView) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookRangeView) GetWithPath(path string) (*WorkbookRangeView, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookRangeView) DoGetWithPath(path string) (*WorkbookRangeView, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookRangeView) Get() (*WorkbookRangeView, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookRangeView) DoGet() (*WorkbookRangeView, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookRangeView) PostWithPath(path string) (*WorkbookRangeView, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookRangeView) DoPostWithPath(path string) (*WorkbookRangeView, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookRangeView) Post() (*WorkbookRangeView, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookRangeView) DoPost() (*WorkbookRangeView, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookRangeView collection with addtional path
@@ -54621,24 +56039,24 @@ func (s *ServiceCollectionWorkbookRangeView) DoPaging(method string, obj interfa
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookRangeView) GetWithPath(path string) ([]WorkbookRangeView, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookRangeView) DoGetWithPath(path string) ([]WorkbookRangeView, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookRangeView) Get() ([]WorkbookRangeView, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookRangeView) DoGet() ([]WorkbookRangeView, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookRangeView) PostWithPath(path string, obj interface{}) (*WorkbookRangeView, error) {
+func (s *ServiceCollectionWorkbookRangeView) DoPostWithPath(path string, obj interface{}) (*WorkbookRangeView, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookRangeView) Post(obj interface{}) (*WorkbookRangeView, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookRangeView) DoPost(obj interface{}) (*WorkbookRangeView, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Columns returns service endpoint for CollectionWorkbookTableColumn
@@ -54721,24 +56139,24 @@ func (s *ServiceWorkbookTable) DoRequest(method string, obj interface{}) (*Workb
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookTable) GetWithPath(path string) (*WorkbookTable, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookTable) DoGetWithPath(path string) (*WorkbookTable, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookTable) Get() (*WorkbookTable, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookTable) DoGet() (*WorkbookTable, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookTable) PostWithPath(path string) (*WorkbookTable, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookTable) DoPostWithPath(path string) (*WorkbookTable, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookTable) Post() (*WorkbookTable, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookTable) DoPost() (*WorkbookTable, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookTable collection with addtional path
@@ -54853,24 +56271,24 @@ func (s *ServiceCollectionWorkbookTable) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookTable) GetWithPath(path string) ([]WorkbookTable, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookTable) DoGetWithPath(path string) ([]WorkbookTable, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookTable) Get() ([]WorkbookTable, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookTable) DoGet() ([]WorkbookTable, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookTable) PostWithPath(path string, obj interface{}) (*WorkbookTable, error) {
+func (s *ServiceCollectionWorkbookTable) DoPostWithPath(path string, obj interface{}) (*WorkbookTable, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookTable) Post(obj interface{}) (*WorkbookTable, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookTable) DoPost(obj interface{}) (*WorkbookTable, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // Filter returns service endpoint for WorkbookFilter
@@ -54932,24 +56350,24 @@ func (s *ServiceWorkbookTableColumn) DoRequest(method string, obj interface{}) (
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookTableColumn) GetWithPath(path string) (*WorkbookTableColumn, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookTableColumn) DoGetWithPath(path string) (*WorkbookTableColumn, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookTableColumn) Get() (*WorkbookTableColumn, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookTableColumn) DoGet() (*WorkbookTableColumn, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookTableColumn) PostWithPath(path string) (*WorkbookTableColumn, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookTableColumn) DoPostWithPath(path string) (*WorkbookTableColumn, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookTableColumn) Post() (*WorkbookTableColumn, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookTableColumn) DoPost() (*WorkbookTableColumn, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookTableColumn collection with addtional path
@@ -55064,24 +56482,24 @@ func (s *ServiceCollectionWorkbookTableColumn) DoPaging(method string, obj inter
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookTableColumn) GetWithPath(path string) ([]WorkbookTableColumn, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookTableColumn) DoGetWithPath(path string) ([]WorkbookTableColumn, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookTableColumn) Get() ([]WorkbookTableColumn, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookTableColumn) DoGet() ([]WorkbookTableColumn, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookTableColumn) PostWithPath(path string, obj interface{}) (*WorkbookTableColumn, error) {
+func (s *ServiceCollectionWorkbookTableColumn) DoPostWithPath(path string, obj interface{}) (*WorkbookTableColumn, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookTableColumn) Post(obj interface{}) (*WorkbookTableColumn, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookTableColumn) DoPost(obj interface{}) (*WorkbookTableColumn, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookTableRow collection with addtional path
@@ -55196,24 +56614,24 @@ func (s *ServiceCollectionWorkbookTableRow) DoPaging(method string, obj interfac
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookTableRow) GetWithPath(path string) ([]WorkbookTableRow, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookTableRow) DoGetWithPath(path string) ([]WorkbookTableRow, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookTableRow) Get() ([]WorkbookTableRow, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookTableRow) DoGet() ([]WorkbookTableRow, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookTableRow) PostWithPath(path string, obj interface{}) (*WorkbookTableRow, error) {
+func (s *ServiceCollectionWorkbookTableRow) DoPostWithPath(path string, obj interface{}) (*WorkbookTableRow, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookTableRow) Post(obj interface{}) (*WorkbookTableRow, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookTableRow) DoPost(obj interface{}) (*WorkbookTableRow, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookTableSort
@@ -55268,24 +56686,24 @@ func (s *ServiceWorkbookTableSort) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookTableSort) GetWithPath(path string) (*WorkbookTableSort, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookTableSort) DoGetWithPath(path string) (*WorkbookTableSort, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookTableSort) Get() (*WorkbookTableSort, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookTableSort) DoGet() (*WorkbookTableSort, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookTableSort) PostWithPath(path string) (*WorkbookTableSort, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookTableSort) DoPostWithPath(path string) (*WorkbookTableSort, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookTableSort) Post() (*WorkbookTableSort, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookTableSort) DoPost() (*WorkbookTableSort, error) {
+	return s.DoPostWithPath("")
 }
 
 // Charts returns service endpoint for CollectionWorkbookChart
@@ -55375,24 +56793,24 @@ func (s *ServiceWorkbookWorksheet) DoRequest(method string, obj interface{}) (*W
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookWorksheet) GetWithPath(path string) (*WorkbookWorksheet, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookWorksheet) DoGetWithPath(path string) (*WorkbookWorksheet, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookWorksheet) Get() (*WorkbookWorksheet, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookWorksheet) DoGet() (*WorkbookWorksheet, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookWorksheet) PostWithPath(path string) (*WorkbookWorksheet, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookWorksheet) DoPostWithPath(path string) (*WorkbookWorksheet, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookWorksheet) Post() (*WorkbookWorksheet, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookWorksheet) DoPost() (*WorkbookWorksheet, error) {
+	return s.DoPostWithPath("")
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookWorksheet collection with addtional path
@@ -55507,24 +56925,24 @@ func (s *ServiceCollectionWorkbookWorksheet) DoPaging(method string, obj interfa
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollectionWorkbookWorksheet) GetWithPath(path string) ([]WorkbookWorksheet, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollectionWorkbookWorksheet) DoGetWithPath(path string) ([]WorkbookWorksheet, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollectionWorkbookWorksheet) Get() ([]WorkbookWorksheet, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollectionWorkbookWorksheet) DoGet() ([]WorkbookWorksheet, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollectionWorkbookWorksheet) PostWithPath(path string, obj interface{}) (*WorkbookWorksheet, error) {
+func (s *ServiceCollectionWorkbookWorksheet) DoPostWithPath(path string, obj interface{}) (*WorkbookWorksheet, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollectionWorkbookWorksheet) Post(obj interface{}) (*WorkbookWorksheet, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollectionWorkbookWorksheet) DoPost(obj interface{}) (*WorkbookWorksheet, error) {
+	return s.DoPostWithPath("", obj)
 }
 
 // NewRequestWithPath returns a new HTTP Request for WorkbookWorksheetProtection
@@ -55579,22 +56997,22 @@ func (s *ServiceWorkbookWorksheetProtection) DoRequest(method string, obj interf
 	return s.DoRequestWithPath(method, "", obj)
 }
 
-// GetWithPath wraps DoRequestWithPath with GET method
-func (s *ServiceWorkbookWorksheetProtection) GetWithPath(path string) (*WorkbookWorksheetProtection, error) {
+// DoGetWithPath wraps DoRequestWithPath with GET method
+func (s *ServiceWorkbookWorksheetProtection) DoGetWithPath(path string) (*WorkbookWorksheetProtection, error) {
 	return s.DoRequestWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceWorkbookWorksheetProtection) Get() (*WorkbookWorksheetProtection, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceWorkbookWorksheetProtection) DoGet() (*WorkbookWorksheetProtection, error) {
+	return s.DoGetWithPath("")
 }
 
-// PostWithPath wraps DoRequestWithPath with POST method
-func (s *ServiceWorkbookWorksheetProtection) PostWithPath(path string) (*WorkbookWorksheetProtection, error) {
+// DoPostWithPath wraps DoRequestWithPath with POST method
+func (s *ServiceWorkbookWorksheetProtection) DoPostWithPath(path string) (*WorkbookWorksheetProtection, error) {
 	return s.DoRequestWithPath("POST", path, nil)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceWorkbookWorksheetProtection) Post() (*WorkbookWorksheetProtection, error) {
-	return s.PostWithPath("")
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceWorkbookWorksheetProtection) DoPost() (*WorkbookWorksheetProtection, error) {
+	return s.DoPostWithPath("")
 }

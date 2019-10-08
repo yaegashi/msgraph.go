@@ -112,22 +112,22 @@ func (s *ServiceCollection{{$xSymType}}) DoPaging(method string, obj interface{}
 	return s.DoPagingWithPath(method, "", obj)
 }
 
-// GetWithPath warps DoPagingWithPath with GET method and nil object
-func (s *ServiceCollection{{$xSymType}}) GetWithPath(path string) ([]{{$xSymType}}, error) {
+// DoGetWithPath warps DoPagingWithPath with GET method and nil object
+func (s *ServiceCollection{{$xSymType}}) DoGetWithPath(path string) ([]{{$xSymType}}, error) {
 	return s.DoPagingWithPath("GET", path, nil)
 }
 
-// Get wraps GetWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) Get() ([]{{$xSymType}}, error) {
-	return s.GetWithPath("")
+// DoGet wraps GetWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) DoGet() ([]{{$xSymType}}, error) {
+	return s.DoGetWithPath("")
 }
 
 // PostWithPath warps DoRequestWithPath with POST method
-func (s *ServiceCollection{{$xSymType}}) PostWithPath(path string, obj interface{}) (*{{$xSymType}}, error) {
+func (s *ServiceCollection{{$xSymType}}) DoPostWithPath(path string, obj interface{}) (*{{$xSymType}}, error) {
 	return s.DoRequestWithPath("POST", path, obj)
 }
 
-// Post wraps PostWithPath with empty path
-func (s *ServiceCollection{{$xSymType}}) Post(obj interface{}) (*{{$xSymType}}, error) {
-	return s.PostWithPath("", obj)
+// DoPost wraps PostWithPath with empty path
+func (s *ServiceCollection{{$xSymType}}) DoPost(obj interface{}) (*{{$xSymType}}, error) {
+	return s.DoPostWithPath("", obj)
 }
