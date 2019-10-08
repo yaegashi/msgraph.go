@@ -3,19 +3,75 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 )
 
+const Tab = 2
+
+const (
+	OpenTag = iota
+	CloseTag
+	Content
+)
+
+// XML dumb indentation routine
+func indent(b []byte) []byte {
+	o := &bytes.Buffer{}
+	t := OpenTag
+	i := 0
+	p := 0
+	for p < len(b) {
+		if rune(b[p]) == '<' {
+			if p+1 < len(b) && rune(b[p+1]) == '/' {
+				t = CloseTag
+				i -= Tab
+			} else {
+				t = OpenTag
+			}
+		} else {
+			t = Content
+		}
+		for x := 0; x < i; x++ {
+			o.WriteRune(' ')
+		}
+		if t == Content {
+			for p < len(b) {
+				if rune(b[p]) == '<' {
+					break
+				}
+				o.WriteByte(b[p])
+				p++
+			}
+		} else {
+			for c := true; c && p < len(b); p++ {
+				if rune(b[p]) == '>' {
+					c = false
+					if t == OpenTag && (rune(b[p-1]) != '/' && rune(b[p-1]) != '?') {
+						i += Tab
+					}
+				}
+				o.WriteByte(b[p])
+			}
+		}
+		o.WriteRune('\n')
+	}
+	return o.Bytes()
+}
+
 func main() {
 	data := struct {
+		Pretty  bool
 		BaseURL string
 		Out     string
 	}{}
 
+	flag.BoolVar(&data.Pretty, "pretty", false, "Pretty output")
 	flag.StringVar(&data.BaseURL, "baseURL", "https://graph.microsoft.com/v1.0", "Base URL")
 	flag.StringVar(&data.Out, "out", "metadata-v1.0.xml", "Output file name")
 	flag.Parse()
@@ -44,8 +100,16 @@ func main() {
 		log.Fatal(res.Status)
 	}
 	defer res.Body.Close()
+	b, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	_, err = io.Copy(outFile, res.Body)
+	if data.Pretty {
+		b = indent(b)
+	}
+
+	_, err = outFile.Write(b)
 	if err != nil {
 		log.Fatal(err)
 	}
