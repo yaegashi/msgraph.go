@@ -6,7 +6,7 @@
 
 ## Introduction 
 
-[Microsoft Graph] client library for Go.  It's still in PoC or pre-alpha stage.
+[Microsoft Graph] client library for Go.  Still in PoC or pre-alpha stage.
 Don't use in production.
 
 The library code is auto-generated from the REST API specification
@@ -44,7 +44,7 @@ import msgraph "github.com/yaegashi/msgraph.go/beta"
 [cmd/msgraph-me/main.go](cmd/msgraph-me/main.go) shows simple usage example.
 It contains [Azure AD v2 device code flow](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/v2-oauth2-device-code)
 for the user authentication.
-You can authenticate yourself with both pernsonal (Microsoft) account and organizational account.
+You can authenticate yourself with personal (Microsoft) account or organizational account.
 
 ```console
 $ go get ./cmd/msgraph-me
@@ -77,10 +77,11 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ## Todo
 
-- [ ] Process Action elements in metadata
-- [ ] Split output into multiple files
+- [x] Save indented metadata.xml
+- [x] Support Action elements in metadata
+- [ ] Support Function elements in metadata
+- [ ] Split output into multiple packages
 - [ ] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
-- [ ] Save indented metadata.xml
 - [ ] Improve API documentation in godoc.org
 - [ ] Support more OAuth2 flows
 - [ ] Persist OAuth2 tokens in file
