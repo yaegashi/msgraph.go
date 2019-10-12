@@ -1,0 +1,39 @@
+{{- $ := . }}
+{{- $y := .Y }}
+{{- $ySymBindingType := $.SymFromType $y.BindingParameterType }}
+{{- $ySymName := $.SymFromName $y.Name }}
+{{- if $y.ReturnType }}
+{{- $yTypeType := $.TypeFromType $y.ReturnType }}
+{{- end }}
+{{- range $x := .X }}
+// {{$ySymName}} {{$y.Description}}
+func (b *{{$x}}RequestBuilder) {{$ySymName}}(reqObj *{{$ySymBindingType}}{{$ySymName}}RequestObject) *{{$ySymBindingType}}{{$ySymName}}RequestBuilder {
+    bb := &{{$ySymBindingType}}{{$ySymName}}RequestBuilder {BaseRequestBuilder: b.BaseRequestBuilder}
+    bb.BaseRequestBuilder.baseURL += "/{{$y.Name}}"
+    bb.BaseRequestBuilder.requestObject = reqObj
+    return bb
+}
+{{- end }}
+
+//
+type {{$ySymBindingType}}{{$ySymName}}RequestBuilder struct { BaseRequestBuilder }
+
+//
+func (b *{{$ySymBindingType}}{{$ySymName}}RequestBuilder) Request() *{{$ySymBindingType}}{{$ySymName}}Request {
+    return &{{$ySymBindingType}}{{$ySymName}}Request{
+        BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client, requestObject: b.requestObject },
+    }
+}
+
+//
+type {{$ySymBindingType}}{{$ySymName}}Request struct { BaseRequest }
+
+//
+func (r *{{$ySymBindingType}}{{$ySymName}}Request) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *{{$ySymBindingType}}{{$ySymName}}Request) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}

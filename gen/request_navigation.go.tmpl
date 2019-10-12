@@ -1,0 +1,12 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $y := .Y }}
+{{- $xSymType := $.SymFromName $x.Name }}
+{{- $ySymName := $.SymFromName $y.Name }}
+{{- $ySymType := $.SymFromType $y.Type }}
+// {{$ySymName}} returns service endpoint for {{$ySymType}}
+func (b *{{$xSymType}}RequestBuilder) {{$ySymName}}() *{{$ySymType}}RequestBuilder {
+	bb := &{{$ySymType}}RequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/{{$y.Name}}"
+	return bb
+}

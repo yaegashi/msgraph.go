@@ -1,12 +1,12 @@
 {{- $ := . }}
 {{- $x := .X }}
-{{- $xSymName := call $.SymFromName $x.Name }}
+{{- $xSymName := $.SymFromName $x.Name }}
 // {{$xSymName}} {{$x.Description}}
 type {{$xSymName}} int
 
 const (
 {{- range $y := .X.Members }}
-{{- $ySymName := call $.SymFromName $y.Name }}
+{{- $ySymName := $.SymFromName $y.Name }}
     // {{$xSymName}}_{{$ySymName}} {{$y.Description}}
     {{$xSymName}}_{{$ySymName}} {{$xSymName}} = {{$y.Value}}
 {{- end }}

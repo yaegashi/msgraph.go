@@ -1,0 +1,38 @@
+{{- $xSymName := .SymFromName .X }}
+// {{$xSymName}}
+type {{$xSymName}}RequestBuilder struct { BaseRequestBuilder }
+
+//
+func (b *{{$xSymName}}RequestBuilder) Request() *{{$xSymName}}Request {
+    return &{{$xSymName}}Request{
+        BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client },
+    }
+}
+
+//
+type {{$xSymName}}Request struct{ BaseRequest }
+
+//
+func (r *{{$xSymName}}Request) Do(method, path string, reqObj interface{}) (resObj *{{$xSymName}}, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *{{$xSymName}}Request) Get() (*{{$xSymName}}, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Do("GET", query, nil)
+}
+
+//
+func (r *{{$xSymName}}Request) Update(reqObj *{{$xSymName}}) (*{{$xSymName}}, error) {
+	return r.Do("PATCH", "", reqObj)
+}
+
+//
+func (r *{{$xSymName}}Request) Delete() error {
+	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+}

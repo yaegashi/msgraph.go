@@ -1,0 +1,15 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymType := $.SymFromName $x.Name }}
+// {{$xSymType}} {{$x.Description}}
+type {{$xSymType}} struct {
+{{- if ne $x.Base "" }}
+{{$.SymFromType $x.Base}}
+{{- end }}
+{{- range $y := .X.Members }}
+{{- $ySymName := $.SymFromName $y.Name }}
+{{- $yTypeType := $.TypeFromType $y.Type }}
+    // {{$ySymName}} {{$y.Description}}
+    {{$ySymName}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
+{{- end }}
+}

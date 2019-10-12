@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"net/url"
 	"os"
 
 	"github.com/yaegashi/msgraph.go/auth"
@@ -45,26 +44,27 @@ func main() {
 
 	ctx := context.Background()
 	cli := dt.Client(ctx)
-	serv := msgraph.NewService(cli)
+	serv := msgraph.NewClient(cli)
 
 	{
-		s := serv.Me()
-		log.Printf("GET %s", s.URL())
-		r, err := s.DoGet()
+		r := serv.Me().Request()
+		log.Printf("GET %s", r.URL())
+		x, err := r.Get()
 		if err == nil {
-			dump(r)
+			dump(x)
 		} else {
 			log.Println(err)
 		}
 	}
 
 	{
-		s := serv.Me().Drive().Root().Children()
-		q := "?" + url.Values{"$filter": {"file ne null"}, "$select": {"name,file,size,webUrl"}}.Encode()
-		log.Printf("GET %s%s", s.URL(), q)
-		r, err := s.DoGetWithPath(q)
+		r := serv.Me().Drive().Root().Children().Request()
+		r.Filter("file ne null")
+		r.Select("name,file,size,webUrl")
+		log.Printf("GET %s", r.URL())
+		x, err := r.Get()
 		if err == nil {
-			dump(r)
+			dump(x)
 		} else {
 			log.Println(err)
 		}

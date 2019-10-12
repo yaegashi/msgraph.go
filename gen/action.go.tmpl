@@ -1,0 +1,13 @@
+{{- $ := . }}
+{{- $x := .X }}
+{{- $xSymName := $.SymFromName $x.Name }}
+{{- $xSymBindingType := $.SymFromType $x.BindingParameterType }}
+// {{$xSymBindingType}}{{$xSymName}}RequestObject {{$x.Description}}
+type {{$xSymBindingType}}{{$xSymName}}RequestObject struct {
+{{- range $y := .X.Parameters }}
+{{- $ySymName := $.SymFromName $y.Name }}
+{{- $yTypeType := $.TypeFromType $y.Type }}
+    // {{$ySymName}} {{$y.Description}}
+    {{$ySymName}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
+{{- end }}
+}

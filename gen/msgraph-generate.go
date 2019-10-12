@@ -6,9 +6,11 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"sort"
 	"strings"
 	"text/template"
@@ -125,40 +127,8 @@ func symExported(n string) string {
 	return strings.Title(n)
 }
 
-func typeFromName(n string) string {
-	return ptrType(symExported(n))
-}
-
-func typeFromType(t string) string {
-	if val, ok := reservedTypeTable[t]; ok {
-		return ptrType(val)
-	}
-	if t, ok := stripNSPrefix(t); ok {
-		return ptrType(symExported(t))
-	}
-	if strings.HasPrefix(t, colPrefix) {
-		return "[]" + typeFromType(t[len(colPrefix) : len(t)-1])[1:]
-	}
-	panic(fmt.Errorf("Unknown type %s", t))
-}
-
-func symFromName(n string) string {
-	return symExported(n)
-}
-
-func symFromType(t string) string {
-	t = typeFromType(t)
-	if t[:2] == "[]" {
-		return "Collection" + t[2:]
-	}
-	if t[:1] == "*" {
-		return t[1:]
-	}
-	return t
-}
-
 func isCollectionType(t string) bool {
-	return t[:2] == "[]"
+	return strings.HasPrefix(t, colPrefix)
 }
 
 func symBaseType(t string) string {
@@ -183,41 +153,65 @@ func attrMap(a []xml.Attr) map[string]string {
 	return m
 }
 
-var tmplX = struct {
-	TypeFromName, TypeFromType, SymFromName, SymFromType func(string) string
-	Environ                                              map[string]string
-	Data, X, Y                                           interface{}
-}{
-	TypeFromName: typeFromName,
-	TypeFromType: typeFromType,
-	SymFromName:  symFromName,
-	SymFromType:  symFromType,
-	Environ:      map[string]string{},
+type Generator struct {
+	BaseURL, In, Out, Fmt string
+	Environ               map[string]string
+	Created               []string
+	X, Y, Z               interface{}
 }
 
-func main() {
-	data := struct{ BaseURL, In, Out, Fmt string }{}
-	tmplX.Data = &data
+func (g *Generator) TypeFromName(n string) string {
+	return ptrType(symExported(n))
+}
 
-	for _, kv := range os.Environ() {
-		s := strings.Split(kv, "=")
-		tmplX.Environ[s[0]] = s[1]
+func (g *Generator) TypeFromType(t string) string {
+	if val, ok := reservedTypeTable[t]; ok {
+		return ptrType(val)
 	}
+	if t, ok := stripNSPrefix(t); ok {
+		return ptrType(symExported(t))
+	}
+	if strings.HasPrefix(t, colPrefix) {
+		return "[]" + g.TypeFromType(t[len(colPrefix) : len(t)-1])[1:]
+	}
+	panic(fmt.Errorf("Unknown type %s", t))
+}
 
-	flag.StringVar(&data.BaseURL, "baseURL", "https://graph.microsoft.com/v1.0", "Base URL")
-	flag.StringVar(&data.In, "in", "metadata-v1.0.xml", "Input file name")
-	flag.StringVar(&data.Out, "out", "-", "Output file name")
-	flag.StringVar(&data.Fmt, "fmt", "goimports", "Formatter")
-	flag.Parse()
+func (g *Generator) SymFromName(n string) string {
+	return symExported(n)
+}
 
+func (g *Generator) SymFromType(t string) string {
+	t = g.TypeFromType(t)
+	if t[:2] == "[]" {
+		return t[2:]
+	}
+	if t[:1] == "*" {
+		return t[1:]
+	}
+	return t
+}
+
+func (g *Generator) Create(path string) (io.WriteCloser, error) {
+	path = filepath.Join(g.Out, path)
+	g.Created = append(g.Created, path)
+	log.Printf("Creating %s", path)
+	err := os.MkdirAll(filepath.Dir(path), 0755)
+	if err != nil {
+		return nil, err
+	}
+	return os.Create(path)
+}
+
+func (g *Generator) Generate() error {
 	tmpl, err := template.ParseGlob("*.tmpl")
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
-	inFile, err := os.Open(data.In)
+	inFile, err := os.Open(g.In)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer inFile.Close()
 
@@ -225,17 +219,16 @@ func main() {
 	dec := xml.NewDecoder(inFile)
 	err = dec.Decode(&o)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	schema := o.Elems[0].Elems[0]
 	enumTypeMap := map[string]*EnumType{}
 	entityTypeMap := map[string]*EntityType{}
-	actionTypeMap := map[string]*ActionType{}
+	actionTypeMap := map[string][]*ActionType{}
 	entitySetMap := map[string]*EntitySet{}
 	singletonMap := map[string]*Singleton{}
-	serviceStructMap := map[string]bool{}
-	serviceActionsMap := map[string][]*ActionType{}
+	requestModelMap := map[string]bool{}
 
 	for _, x := range schema.Elems {
 		switch x.XMLName.Local {
@@ -298,9 +291,8 @@ func main() {
 			}
 			at.BindingParameterType = at.Parameters[0].Type
 			at.Parameters = at.Parameters[1:]
-			bType := symFromType(at.BindingParameterType)
-			actionTypeMap[bType+symExported(at.Name)] = at
-			serviceActionsMap[bType] = append(serviceActionsMap[bType], at)
+			bType := g.TypeFromType(at.BindingParameterType)
+			actionTypeMap[bType] = append(actionTypeMap[bType], at)
 		case "EntityContainer":
 			for _, y := range x.Elems {
 				ma := attrMap(y.Attrs)
@@ -352,31 +344,15 @@ func main() {
 		}
 	}
 
-	cmd := exec.Command(data.Fmt)
-	out, err := cmd.StdinPipe()
+	out, err := g.Create("msgraph.go")
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
+	defer out.Close()
 
-	cmd.Stderr = os.Stderr
-	if data.Out == "-" {
-		cmd.Stdout = os.Stdout
-	} else {
-		cmd.Stdout, err = os.Create(data.Out)
-		if err != nil {
-			log.Fatal(err)
-		}
-		log.Printf("Generating %s from %s", data.Out, data.In)
-	}
-
-	err = cmd.Start()
+	err = tmpl.ExecuteTemplate(out, "msgraph.go.tmpl", g)
 	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = tmpl.ExecuteTemplate(out, "msgraph.go.tmpl", tmplX)
-	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	keys := []string{}
@@ -385,10 +361,10 @@ func main() {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		tmplX.X = enumTypeMap[key]
-		err := tmpl.ExecuteTemplate(out, "enum.go.tmpl", tmplX)
+		g.X = enumTypeMap[key]
+		err := tmpl.ExecuteTemplate(out, "enum.go.tmpl", g)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
 
@@ -398,28 +374,21 @@ func main() {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		tmplX.X = entityTypeMap[key]
-		err := tmpl.ExecuteTemplate(out, "entity.go.tmpl", tmplX)
+		g.X = entityTypeMap[key]
+		err := tmpl.ExecuteTemplate(out, "model.go.tmpl", g)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
 
-	keys = nil
-	for x, y := range actionTypeMap {
-		keys = append(keys, x)
-		yType := typeFromType(y.BindingParameterType)
-		serviceStructMap[symBaseType(yType)] = true
-		if isCollectionType(yType) {
-			serviceStructMap[symCollectionType(yType)] = true
-		}
-	}
-	sort.Strings(keys)
-	for _, key := range keys {
-		tmplX.X = actionTypeMap[key]
-		err := tmpl.ExecuteTemplate(out, "action_parameters.go.tmpl", tmplX)
-		if err != nil {
-			log.Fatal(err)
+	for _, x := range actionTypeMap {
+		requestModelMap[g.SymFromType(x[0].BindingParameterType)] = true
+		for _, y := range x {
+			g.X = y
+			err := tmpl.ExecuteTemplate(out, "action.go.tmpl", g)
+			if err != nil {
+				return err
+			}
 		}
 	}
 
@@ -427,35 +396,29 @@ func main() {
 		if len(x.Navigations) == 0 {
 			continue
 		}
-		serviceStructMap[symFromName(x.Name)] = true
+		requestModelMap[g.SymFromName(x.Name)] = true
 		for _, y := range x.Navigations {
-			yType := typeFromType(y.Type)
-			serviceStructMap[symBaseType(yType)] = true
-			if isCollectionType(yType) {
-				serviceStructMap[symCollectionType(yType)] = true
-			}
+			yType := g.TypeFromType(y.Type)
+			requestModelMap[symBaseType(yType)] = true
 		}
 	}
 	for _, x := range entitySetMap {
-		xType := typeFromType(x.Type)
-		serviceStructMap[symBaseType(xType)] = true
-		serviceStructMap[symCollectionType(xType)] = true
+		requestModelMap[g.SymFromType(x.Type)] = true
 	}
 	for _, x := range singletonMap {
-		xType := typeFromType(x.Type)
-		serviceStructMap[symBaseType(xType)] = true
+		requestModelMap[g.SymFromType(x.Type)] = true
 	}
 
 	keys = nil
-	for x, _ := range serviceStructMap {
+	for x, _ := range requestModelMap {
 		keys = append(keys, x)
 	}
 	sort.Strings(keys)
 	for _, x := range keys {
-		tmplX.X = x
-		err := tmpl.ExecuteTemplate(out, "service_struct.go.tmpl", tmplX)
+		g.X = x
+		err := tmpl.ExecuteTemplate(out, "request_model.go.tmpl", g)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
 
@@ -465,10 +428,11 @@ func main() {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		tmplX.X = entitySetMap[key]
-		err := tmpl.ExecuteTemplate(out, "service_entity_set.go.tmpl", tmplX)
+		g.X = &EntityType{Name: "GraphService"}
+		g.Y = entitySetMap[key]
+		err := tmpl.ExecuteTemplate(out, "request_collection_navigation.go.tmpl", g)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
 
@@ -478,12 +442,15 @@ func main() {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		tmplX.X = singletonMap[key]
-		err := tmpl.ExecuteTemplate(out, "service_singleton.go.tmpl", tmplX)
+		g.X = &EntityType{Name: "GraphService"}
+		g.Y = singletonMap[key]
+		err := tmpl.ExecuteTemplate(out, "request_navigation.go.tmpl", g)
 		if err != nil {
-			log.Fatal(err)
+			return err
 		}
 	}
+
+	actionRequestBuilderMap := map[string][]string{}
 
 	keys = nil
 	for x, _ := range entityTypeMap {
@@ -492,54 +459,101 @@ func main() {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := entityTypeMap[key]
-		tmplX.X = x
-		xType := typeFromName(x.Name)
+		g.X = x
 		sort.Slice(x.Navigations, func(i, j int) bool { return x.Navigations[i].Name < x.Navigations[j].Name })
-		err := tmpl.ExecuteTemplate(out, "service_navigation.go.tmpl", tmplX)
-		if err != nil {
-			log.Fatal(err)
-		}
-		if _, ok := serviceStructMap[symBaseType(xType)]; ok {
-			err = tmpl.ExecuteTemplate(out, "service_request.go.tmpl", tmplX)
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-		if _, ok := serviceStructMap[symCollectionType(xType)]; ok {
-			err = tmpl.ExecuteTemplate(out, "service_collection_request.go.tmpl", tmplX)
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-	}
-
-	keys = nil
-	for x, _ := range actionTypeMap {
-		keys = append(keys, x)
-	}
-	sort.Strings(keys)
-	for _, key := range keys {
-		x := actionTypeMap[key]
-		tmplX.X = x
-		if x.ReturnType == "" {
-			err = tmpl.ExecuteTemplate(out, "action_void.go.tmpl", tmplX)
-		} else {
-			aType := typeFromType(x.ReturnType)
-			if strings.HasPrefix(aType, "[]") {
-				err = tmpl.ExecuteTemplate(out, "action_collection.go.tmpl", tmplX)
+		for _, y := range x.Navigations {
+			g.Y = y
+			yType := g.TypeFromType(y.Type)
+			if isCollectionType(y.Type) {
+				actionRequestBuilderMap[yType] = append(actionRequestBuilderMap[yType], g.SymFromName(x.Name)+g.SymFromName(y.Name)+"Collection")
+				err := tmpl.ExecuteTemplate(out, "request_collection_navigation.go.tmpl", g)
+				if err != nil {
+					return err
+				}
 			} else {
-				err = tmpl.ExecuteTemplate(out, "action_single.go.tmpl", tmplX)
+				err := tmpl.ExecuteTemplate(out, "request_navigation.go.tmpl", g)
+				if err != nil {
+					return err
+				}
 			}
 		}
-		if err != nil {
-			log.Fatal(err)
-		}
+		xType := g.TypeFromName(x.Name)
+		actionRequestBuilderMap[xType] = append(actionRequestBuilderMap[xType], g.SymFromName(x.Name))
 	}
 
-	out.Close()
+	for x, y := range actionTypeMap {
+		for _, z := range y {
+			g.Y = z
+			if a, ok := actionRequestBuilderMap[x]; ok {
+				g.X = a
+				if z.ReturnType == "" {
+					err = tmpl.ExecuteTemplate(out, "request_action_void.go.tmpl", g)
+				} else if isCollectionType(z.ReturnType) {
+					err = tmpl.ExecuteTemplate(out, "request_action_collection.go.tmpl", g)
+				} else {
+					err = tmpl.ExecuteTemplate(out, "request_action_single.go.tmpl", g)
+				}
+				if err != nil {
+					return err
+				}
+			}
+		}
+	}
+	// keys = nil
+	// for x, _ := range actionTypeMap {
+	// 	keys = append(keys, x)
+	// }
+	// sort.Strings(keys)
+	// for _, key := range keys {
+	// 	x := actionTypeMap[key]
+	// 	g.X = x
+	// 	if x.ReturnType == "" {
+	// 		err = tmpl.ExecuteTemplate(out, "action_void.go.tmpl", g)
+	// 	} else {
+	// 		aType := g.TypeFromType(x.ReturnType)
+	// 		if strings.HasPrefix(aType, "[]") {
+	// 			err = tmpl.ExecuteTemplate(out, "action_collection.go.tmpl", g)
+	// 		} else {
+	// 			err = tmpl.ExecuteTemplate(out, "action_single.go.tmpl", g)
+	// 		}
+	// 	}
+	// 	if err != nil {
+	// 		return err
+	// 	}
+	// }
 
-	err = cmd.Wait()
+	return nil
+}
+
+func (g *Generator) Format() error {
+	log.Printf("Formatting %s", strings.Join(g.Created, " "))
+	args := append([]string{"-w"}, g.Created...)
+	return exec.Command(g.Fmt, args...).Run()
+}
+
+func main() {
+	g := &Generator{
+		Environ: map[string]string{},
+	}
+
+	for _, kv := range os.Environ() {
+		s := strings.Split(kv, "=")
+		g.Environ[s[0]] = s[1]
+	}
+
+	flag.StringVar(&g.BaseURL, "baseURL", "https://graph.microsoft.com/v1.0", "Base URL")
+	flag.StringVar(&g.In, "in", "metadata-v1.0.xml", "Input file name")
+	flag.StringVar(&g.Out, "out", "out", "Output folder name")
+	flag.StringVar(&g.Fmt, "fmt", "goimports", "Formatter")
+	flag.Parse()
+
+	err := g.Generate()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Failed to generate: %s", err)
+	}
+
+	err = g.Format()
+	if err != nil {
+		log.Fatalf("Failed to format: %s", err)
 	}
 }

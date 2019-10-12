@@ -9,11 +9,13 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
+	"strconv"
 	"time"
 )
 
 const (
-	defaultBaseURL = "{{.Data.BaseURL}}"
+	defaultBaseURL = "{{.BaseURL}}"
 )
 
 // Binary undocumented
@@ -31,34 +33,94 @@ type Paging struct {
 	Value    json.RawMessage `json:"value"`
 }
 
-// ServiceBase undocumented
-type ServiceBase struct {
-	baseURL string
-	client  *http.Client
+// BaseRequestBuilder
+type BaseRequestBuilder struct {
+	baseURL       string
+	client        *http.Client
+	requestObject interface{}
+}
+
+// BaseRequest
+type BaseRequest struct {
+	baseURL       string
+	client        *http.Client
+	requestObject interface{}
+	query         url.Values
 }
 
 // URL undocumented
-func (s *ServiceBase) URL() string {
-	return s.baseURL
+func (r *BaseRequest) URL() string {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.baseURL + query
 }
 
 // Client undocumented
-func (s *ServiceBase) Client() *http.Client {
-	return s.client
+func (r *BaseRequest) Client() *http.Client {
+	return r.client
+}
+
+// Query
+func (r *BaseRequest) Query() url.Values {
+	return r.query
+}
+
+func (r *BaseRequest) Expand(value string) {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
+	r.query.Add("$expand", value)
+}
+
+func (r *BaseRequest) Select(value string) {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
+	r.query.Add("$select", value)
+}
+
+func (r *BaseRequest) Top(value int) {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
+	r.query.Add("$top", strconv.Itoa(value))
+}
+
+func (r *BaseRequest) Filter(value string) {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
+	r.query.Add("$filter", value)
+}
+
+func (r *BaseRequest) Skip(value int) {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
+	r.query.Add("$skip", strconv.Itoa(value))
+}
+
+func (r *BaseRequest) OrderBy(value string) {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
+	r.query.Add("$orderby", value)
 }
 
 // NewRequest returns a new http.Request
-func (s *ServiceBase) NewRequest(method string, body io.Reader) (*http.Request, error) {
-	return http.NewRequest(method, s.baseURL, body)
+func (r *BaseRequest) NewRequest(method string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, r.baseURL, body)
 }
 
 // NewRequestWithPath returns a new http.Request with path
-func (s *ServiceBase) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
-	return http.NewRequest(method, s.baseURL + path, body)
+func (r *BaseRequest) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+	return http.NewRequest(method, r.baseURL + path, body)
 }
 
 // NewJSONRequestWithPath returns a new http.Request with path and JSON payload
-func (s *ServiceBase) NewJSONRequestWithPath(method, path string, obj interface{}) (*http.Request, error) {
+func (r *BaseRequest) NewJSONRequestWithPath(method, path string, obj interface{}) (*http.Request, error) {
 	buf := &bytes.Buffer{}
 	if obj != nil {
 		err := json.NewEncoder(buf).Encode(obj)
@@ -66,7 +128,7 @@ func (s *ServiceBase) NewJSONRequestWithPath(method, path string, obj interface{
 			return nil, err
 		}
 	}
-	req, err := http.NewRequest(method, s.baseURL + path, buf)
+	req, err := http.NewRequest(method, r.baseURL + path, buf)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +139,7 @@ func (s *ServiceBase) NewJSONRequestWithPath(method, path string, obj interface{
 }
 
 // DecodeJSONResponse decodes a http.Response with JSON payload
-func (s *ServiceBase) DecodeJSONResponse(res *http.Response, obj interface{}) error {
+func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) error {
 	switch res.StatusCode {
 	case http.StatusOK:
 		if obj != nil {
@@ -95,31 +157,28 @@ func (s *ServiceBase) DecodeJSONResponse(res *http.Response, obj interface{}) er
 	}
 }
 
-// DoJSONRequestWithPath issues a JSON HTTP Request
-func (s *ServiceBase) DoJSONRequestWithPath(method, path string, reqObj, resObj interface{}) error {
-	req, err := s.NewJSONRequestWithPath(method, path, reqObj)
-	if err != nil {
-		return err
-	}
-	res, err := s.client.Do(req)
-	if err != nil {
-		return err
-	}
-	defer res.Body.Close()
-	return s.DecodeJSONResponse(res, resObj)
+// JSONRequestWithPath issues a JSON HTTP Request
+func (r *BaseRequest) JSONRequestWithPath(method, path string, reqObj, resObj interface{}) error {
+        req, err := r.NewJSONRequestWithPath(method, path, reqObj)
+        if err != nil {
+                return err
+        }
+        res, err := r.client.Do(req)
+        if err != nil {
+                return err
+        }
+        defer res.Body.Close()
+        return r.DecodeJSONResponse(res, resObj)
 }
 
-// Service undocumented
-type Service struct {
-	ServiceBase
+//
+type GraphServiceRequestBuilder struct {
+	BaseRequestBuilder
 }
 
-// NewService undocumented
-func NewService(cli *http.Client) *Service {
-	return &Service{
-		ServiceBase: ServiceBase{
-			baseURL: defaultBaseURL,
-			client:  cli,
-		},
+//
+func NewClient(cli *http.Client) *GraphServiceRequestBuilder {
+	return &GraphServiceRequestBuilder{
+		BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL, client: cli},
 	}
 }
