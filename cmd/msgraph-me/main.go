@@ -15,7 +15,8 @@ import (
 const (
 	defaultTenantID = "common"
 	defaultClientID = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
-	defaultScope    = "openid profile user.readwrite files.readwrite.all"
+	defaultScope    = "openid profile offline_access user.readwrite files.readwrite.all"
+	tokenStorePath  = "token_store.json"
 )
 
 func dump(o interface{}) {
@@ -30,17 +31,17 @@ func main() {
 	flag.StringVar(&clientID, "client_id", defaultClientID, "Client ID")
 	flag.Parse()
 
-	da, err := auth.NewDeviceAuth(tenantID, clientID, defaultScope)
+	m := auth.NewDeviceTokenManager()
+	m.Load(tokenStorePath)
+	callback := func(dc *auth.DeviceCode) error {
+		fmt.Println(dc.Message)
+		return nil
+	}
+	dt, err := m.Authenticate(tenantID, clientID, defaultScope, callback)
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Println(da.Message())
-
-	dt, err := da.Poll()
-	if err != nil {
-		log.Fatal(err)
-	}
+	m.Save(tokenStorePath)
 
 	ctx := context.Background()
 	cli := dt.Client(ctx)
