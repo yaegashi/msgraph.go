@@ -23,10 +23,12 @@ Use `go generate` to download the metadata and generate library code from it:
 ```console
 $ rm gen/*.xml
 $ go generate ./gen
-2019/09/16 14:14:02 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata-v1.0.xml
-2019/09/16 14:14:03 Downloading https://graph.microsoft.com/beta/$metadata to metadata-beta.xml
-2019/09/16 14:14:04 Generating ../v1.0/msgraph.go from metadata-v1.0.xml
-2019/09/16 14:14:05 Generating ../beta/msgraph.go from metadata-beta.xml
+2019/10/14 02:53:40 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata-v1.0.xml
+2019/10/14 02:53:41 Downloading https://graph.microsoft.com/beta/$metadata to metadata-beta.xml
+2019/10/14 02:53:42 Creating ../v1.0/msgraph.go
+2019/10/14 02:53:43 Formatting ../v1.0/msgraph.go
+2019/10/14 02:53:44 Creating ../beta/msgraph.go
+2019/10/14 02:53:45 Formatting ../beta/msgraph.go
 ```
 
 You can choose API version when importing `msgraph` package:
@@ -42,15 +44,14 @@ import msgraph "github.com/yaegashi/msgraph.go/beta"
 ## Example
 
 [cmd/msgraph-me/main.go](cmd/msgraph-me/main.go) shows simple usage example.
-It contains [Azure AD v2 device code flow](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/v2-oauth2-device-code)
-for the user authentication.
+It contains [Azure AD v2 device code flow](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/v2-oauth2-device-code) for the user authentication.
 You can authenticate yourself with personal (Microsoft) account or organizational account.
 
 ```console
 $ go get ./cmd/msgraph-me
 $ msgraph-me
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code HN9KG98HS to authenticate.
-2019/09/16 14:02:14 GET https://graph.microsoft.com/v1.0/me
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code H8AYAEUCS to authenticate.
+2019/10/14 02:55:02 GET https://graph.microsoft.com/v1.0/me
 {
   "id": "126871095554adb4",
   "displayName": "八重樫 剛史",
@@ -58,7 +59,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
   "surname": "八重樫",
   "userPrincipalName": "yaegashi@live.jp"
 }
-2019/09/16 14:02:14 GET https://graph.microsoft.com/v1.0/me/drive/root/children?%24filter=file+ne+null&%24select=name%2Cfile%2Csize%2CwebUrl
+2019/10/14 02:55:03 GET https://graph.microsoft.com/v1.0/me/drive/root/children?%24filter=file+ne+null&%24select=name%2Cfile%2Csize%2CwebUrl
 [
   {
     "name": "文書.docx",
@@ -75,6 +76,9 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 ]
 ```
 
+It saves auth tokens in `token_store.json` in the current directory.
+You won't be asked for authentication again until tokens in this file expires.
+
 ## Todo
 
 - [x] Save indented metadata.xml
@@ -84,7 +88,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 - [ ] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
 - [ ] Improve API documentation in godoc.org
 - [ ] Support more OAuth2 flows
-- [ ] Persist OAuth2 tokens in file
+- [x] Persist OAuth2 tokens in file
 
 ## References
 
