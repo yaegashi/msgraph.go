@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"time"
 
 	"golang.org/x/oauth2"
@@ -15,15 +16,9 @@ import (
 const (
 	endpointURLFormat         = "https://login.microsoftonline.com/%s/oauth2/v2.0/%s"
 	deviceCodeGrantType       = "urn:ietf:params:oauth:grant-type:device_code"
+	refresTokenGrantType      = "refresh_token"
 	authorizationPendingError = "authorization_pending"
 )
-
-// DeviceAuth carries device auth flow information
-type DeviceAuth struct {
-	Code     *DeviceCode
-	TenantID string
-	ClientID string
-}
 
 // DeviceCode is returned on device auth inintiation
 type DeviceCode struct {
@@ -40,6 +35,7 @@ type DeviceToken struct {
 	TokenType    string `json:"token_type"`
 	Scope        string `json:"scope"`
 	ExpiresIn    int    `json:"expires_in"`
+	ExpiresOn    int    `json:"expires_on"`
 	AccessToken  string `json:"access_token"`
 	IDToken      string `json:"id_token"`
 	RefreshToken string `json:"refresh_token"`
@@ -51,9 +47,97 @@ type DeviceError struct {
 	ErrorDescription string `json:"error_description"`
 }
 
-// NewDeviceAuth initiates a new device auth flow
-func NewDeviceAuth(tenantID, clientID, scope string) (*DeviceAuth, error) {
+// DeviceTokenManager is a persistent store for DeviceToken
+type DeviceTokenManager struct {
+	Store map[string]*DeviceToken
+	Dirty bool
+}
+
+// NewDeviceTokenManager returns a new DeviceTokenManager instance
+func NewDeviceTokenManager() *DeviceTokenManager {
+	return &DeviceTokenManager{Store: map[string]*DeviceToken{}}
+}
+
+// Load loads DeviceToken store
+func (m *DeviceTokenManager) Load(path string) error {
+	file, err := os.Open(path)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	dec := json.NewDecoder(file)
+	err = dec.Decode(&m.Store)
+	if err != nil {
+		return err
+	}
+	m.Dirty = false
+	return nil
+}
+
+// Save saves DeviceToken store
+func (m *DeviceTokenManager) Save(path string) error {
+	if !m.Dirty {
+		return nil
+	}
+	file, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	enc := json.NewEncoder(file)
+	err = enc.Encode(m.Store)
+	if err != nil {
+		file.Close()
+		return err
+	}
+	err = file.Close()
+	if err != nil {
+		return err
+	}
+	m.Dirty = false
+	return nil
+}
+
+// Authenticate acquires DeviceToken
+func (m *DeviceTokenManager) Authenticate(tenantID, clientID, scope string, callback func(*DeviceCode) error) (*DeviceToken, error) {
+	key := fmt.Sprintf("%s:%s", tenantID, clientID)
 	devicecodeURL := fmt.Sprintf(endpointURLFormat, tenantID, "devicecode")
+	tokenURL := fmt.Sprintf(endpointURLFormat, tenantID, "token")
+	dt, ok := m.Store[key]
+	if !ok {
+		dt = &DeviceToken{}
+	}
+	now := int(time.Now().Unix())
+	if now < dt.ExpiresOn {
+		return dt, nil
+	}
+	for dt.RefreshToken != "" {
+		values := url.Values{
+			"client_id":     {clientID},
+			"grant_type":    {refresTokenGrantType},
+			"scope":         {scope},
+			"refresh_token": {dt.RefreshToken},
+		}
+		res, err := http.PostForm(tokenURL, values)
+		if err != nil {
+			break
+		}
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			break
+		}
+		dt = &DeviceToken{}
+		dec := json.NewDecoder(res.Body)
+		err = dec.Decode(dt)
+		if err != nil {
+			break
+		}
+		if dt.ExpiresOn == 0 {
+			dt.ExpiresOn = int(time.Now().Unix()) + dt.ExpiresIn
+		}
+		m.Store[key] = dt
+		m.Dirty = true
+		return dt, nil
+	}
 	res, err := http.PostForm(devicecodeURL, url.Values{"client_id": {clientID}, "scope": {scope}})
 	if err != nil {
 		return nil, err
@@ -63,29 +147,22 @@ func NewDeviceAuth(tenantID, clientID, scope string) (*DeviceAuth, error) {
 		b, _ := ioutil.ReadAll(res.Body)
 		return nil, fmt.Errorf("%s: %s", res.Status, string(b))
 	}
-	da := &DeviceAuth{ClientID: clientID, TenantID: tenantID}
+	dc := &DeviceCode{}
 	dec := json.NewDecoder(res.Body)
-	err = dec.Decode(&da.Code)
+	err = dec.Decode(&dc)
 	if err != nil {
 		return nil, err
 	}
-	return da, nil
-}
-
-// Message returns a string to prompt to user
-func (da *DeviceAuth) Message() string {
-	return da.Code.Message
-}
-
-// Poll waits for the completion of device auth by user
-func (da *DeviceAuth) Poll() (*DeviceToken, error) {
-	tokenURL := fmt.Sprintf(endpointURLFormat, da.TenantID, "token")
-	values := url.Values{
-		"client_id":   {da.ClientID},
-		"grant_type":  {deviceCodeGrantType},
-		"device_code": {da.Code.DeviceCode},
+	err = callback(dc)
+	if err != nil {
+		return nil, err
 	}
-	interval := da.Code.Interval
+	values := url.Values{
+		"client_id":   {clientID},
+		"grant_type":  {deviceCodeGrantType},
+		"device_code": {dc.DeviceCode},
+	}
+	interval := dc.Interval
 	if interval == 0 {
 		interval = 5
 	}
@@ -103,6 +180,11 @@ func (da *DeviceAuth) Poll() (*DeviceToken, error) {
 			if err != nil {
 				return nil, err
 			}
+			if dt.ExpiresOn == 0 {
+				dt.ExpiresOn = int(time.Now().Unix()) + dt.ExpiresIn
+			}
+			m.Store[key] = dt
+			m.Dirty = true
 			return dt, nil
 		}
 		de := &DeviceError{}
