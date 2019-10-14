@@ -141,7 +141,7 @@ func (r *BaseRequest) NewJSONRequestWithPath(method, path string, obj interface{
 // DecodeJSONResponse decodes a http.Response with JSON payload
 func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) error {
 	switch res.StatusCode {
-	case http.StatusOK:
+	case http.StatusOK, http.StatusCreated:
 		if obj != nil {
 			err := json.NewDecoder(res.Body).Decode(obj)
 			if err != nil {

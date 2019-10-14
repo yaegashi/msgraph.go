@@ -41,6 +41,8 @@ var reservedTypeTable = map[string]string{
 	"microsoft.graph.Json": "json.RawMessage",
 }
 
+var symTypeTable = map[string]string{}
+
 type Const struct {
 	Name, Value, Type string
 }
@@ -53,18 +55,22 @@ type Elem struct {
 
 type EnumType struct {
 	Name        string
+	Sym         string
 	Members     []*EnumTypeMember
 	Description string
 }
 
 type EnumTypeMember struct {
 	Name        string
+	Sym         string
 	Value       string
 	Description string
 }
 
 type EntityType struct {
 	Name        string
+	Sym         string
+	Type        string
 	Base        string
 	Members     []*EntityTypeMember
 	Navigations []*EntityTypeNavigation
@@ -73,18 +79,21 @@ type EntityType struct {
 
 type EntityTypeMember struct {
 	Name        string
+	Sym         string
 	Type        string
 	Description string
 }
 
 type EntityTypeNavigation struct {
 	Name        string
+	Sym         string
 	Type        string
 	Description string
 }
 
 type ActionType struct {
 	Name                 string
+	Sym                  string
 	BindingParameterType string
 	Parameters           []*ActionTypeParameter
 	ReturnType           string
@@ -93,17 +102,20 @@ type ActionType struct {
 
 type ActionTypeParameter struct {
 	Name        string
+	Sym         string
 	Type        string
 	Description string
 }
 
 type EntitySet struct {
 	Name string
+	Sym  string
 	Type string
 }
 
 type Singleton struct {
 	Name string
+	Sym  string
 	Type string
 }
 
@@ -123,26 +135,12 @@ func stripNSPrefix(t string) (string, bool) {
 	return t, ok
 }
 
-func symExported(n string) string {
+func exported(n string) string {
 	return strings.Title(n)
 }
 
 func isCollectionType(t string) bool {
 	return strings.HasPrefix(t, colPrefix)
-}
-
-func symBaseType(t string) string {
-	if t[:2] == "[]" {
-		t = t[2:]
-	}
-	if t[:1] == "*" {
-		t = t[1:]
-	}
-	return t
-}
-
-func symCollectionType(t string) string {
-	return "Collection" + symBaseType(t)
 }
 
 func attrMap(a []xml.Attr) map[string]string {
@@ -155,41 +153,51 @@ func attrMap(a []xml.Attr) map[string]string {
 
 type Generator struct {
 	BaseURL, In, Out, Fmt string
-	Environ               map[string]string
 	Created               []string
+	SymTypeMap            map[string]string
 	X, Y, Z               interface{}
 }
 
-func (g *Generator) TypeFromName(n string) string {
-	return ptrType(symExported(n))
+func (g *Generator) SymBaseType(t string) string {
+	if x, ok := g.SymTypeMap[t]; ok {
+		return x
+	}
+	if x, ok := stripNSPrefix(t); ok {
+		return exported(x)
+	}
+	if strings.HasPrefix(t, colPrefix) {
+		return g.SymBaseType(t[len(colPrefix) : len(t)-1])
+	}
+	panic(fmt.Errorf("Unknown type %s", t))
+}
+
+func (g *Generator) SymFromType(t string) string {
+	if x, ok := g.SymTypeMap[t]; ok {
+		return x
+	}
+	if x, ok := stripNSPrefix(t); ok {
+		return exported(x)
+	}
+	if strings.HasPrefix(t, colPrefix) {
+		return g.SymBaseType(t[len(colPrefix):len(t)-1]) + "Collection"
+	}
+	panic(fmt.Errorf("Unknown type %s", t))
 }
 
 func (g *Generator) TypeFromType(t string) string {
-	if val, ok := reservedTypeTable[t]; ok {
-		return ptrType(val)
+	if x, ok := reservedTypeTable[t]; ok {
+		return ptrType(x)
 	}
-	if t, ok := stripNSPrefix(t); ok {
-		return ptrType(symExported(t))
+	if x, ok := g.SymTypeMap[t]; ok {
+		return ptrType(x)
+	}
+	if x, ok := stripNSPrefix(t); ok {
+		return ptrType(exported(x))
 	}
 	if strings.HasPrefix(t, colPrefix) {
 		return "[]" + g.TypeFromType(t[len(colPrefix) : len(t)-1])[1:]
 	}
 	panic(fmt.Errorf("Unknown type %s", t))
-}
-
-func (g *Generator) SymFromName(n string) string {
-	return symExported(n)
-}
-
-func (g *Generator) SymFromType(t string) string {
-	t = g.TypeFromType(t)
-	if t[:2] == "[]" {
-		return t[2:]
-	}
-	if t[:1] == "*" {
-		return t[1:]
-	}
-	return t
 }
 
 func (g *Generator) Create(path string) (io.WriteCloser, error) {
@@ -229,20 +237,19 @@ func (g *Generator) Generate() error {
 	entitySetMap := map[string]*EntitySet{}
 	singletonMap := map[string]*Singleton{}
 	requestModelMap := map[string]bool{}
+	actionRequestBuilderMap := map[string][]string{}
 
 	for _, x := range schema.Elems {
 		switch x.XMLName.Local {
 		case "EnumType":
 			m := attrMap(x.Attrs)
 			n := m["Name"]
-			t := &EnumType{
-				Name:        n,
-				Description: "undocumented",
-			}
+			t := &EnumType{Name: n, Sym: exported(n), Description: "undocumented"}
 			for _, y := range x.Elems {
-				n := symExported(y.Attrs[0].Value)
+				n := exported(y.Attrs[0].Value)
 				v := y.Attrs[1].Value
-				t.Members = append(t.Members, &EnumTypeMember{Name: n, Value: v, Description: "undocumented"})
+				m := &EnumTypeMember{Name: n, Sym: exported(n), Value: v, Description: "undocumented"}
+				t.Members = append(t.Members, m)
 			}
 			enumTypeMap[n] = t
 		case "EntityType", "ComplexType":
@@ -251,11 +258,12 @@ func (g *Generator) Generate() error {
 			if _, ok := reservedTypeTable[n]; ok {
 				continue
 			}
+			t := nsPrefix + n
 			b, _ := m["BaseType"]
-			et := &EntityType{
-				Name:        n,
-				Base:        b,
-				Description: "undocumented",
+			et := &EntityType{Name: n, Sym: exported(n), Type: t, Base: b, Description: "undocumented"}
+			if strings.HasSuffix(et.Sym, "Request") {
+				et.Sym += "Object"
+				g.SymTypeMap[t] = et.Sym
 			}
 			for _, y := range x.Elems {
 				ma := attrMap(y.Attrs)
@@ -263,20 +271,25 @@ func (g *Generator) Generate() error {
 				case "Property":
 					n := ma["Name"]
 					t := ma["Type"]
-					et.Members = append(et.Members, &EntityTypeMember{Name: n, Type: t, Description: "undocumented"})
+					m := &EntityTypeMember{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
+					et.Members = append(et.Members, m)
 				case "NavigationProperty":
 					n := ma["Name"]
 					t := ma["Type"]
-					et.Navigations = append(et.Navigations, &EntityTypeNavigation{Name: n, Type: t, Description: "undocumented"})
+					m := &EntityTypeNavigation{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
+					if strings.HasSuffix(m.Sym, "Request") {
+						m.Sym += "Navigation"
+					}
+					et.Navigations = append(et.Navigations, m)
 				}
 			}
 			entityTypeMap[et.Name] = et
 		case "Action":
 			m := attrMap(x.Attrs)
 			n := m["Name"]
-			at := &ActionType{
-				Name:        n,
-				Description: "undocumented",
+			at := &ActionType{Name: n, Sym: exported(n), Description: "undocumented"}
+			if strings.HasSuffix(at.Sym, "Request") {
+				at.Sym += "Action"
 			}
 			for _, y := range x.Elems {
 				ma := attrMap(y.Attrs)
@@ -284,15 +297,15 @@ func (g *Generator) Generate() error {
 				case "Parameter":
 					n := ma["Name"]
 					t := ma["Type"]
-					at.Parameters = append(at.Parameters, &ActionTypeParameter{Name: n, Type: t, Description: "undocumented"})
+					m := &ActionTypeParameter{Name: n, Sym: exported(n), Type: t, Description: "undocumented"}
+					at.Parameters = append(at.Parameters, m)
 				case "ReturnType":
 					at.ReturnType = ma["Type"]
 				}
 			}
 			at.BindingParameterType = at.Parameters[0].Type
 			at.Parameters = at.Parameters[1:]
-			bType := g.TypeFromType(at.BindingParameterType)
-			actionTypeMap[bType] = append(actionTypeMap[bType], at)
+			actionTypeMap[at.BindingParameterType] = append(actionTypeMap[at.BindingParameterType], at)
 		case "EntityContainer":
 			for _, y := range x.Elems {
 				ma := attrMap(y.Attrs)
@@ -300,12 +313,14 @@ func (g *Generator) Generate() error {
 				case "EntitySet":
 					s := &EntitySet{
 						Name: ma["Name"],
+						Sym:  exported(ma["Name"]),
 						Type: ma["EntityType"],
 					}
 					entitySetMap[s.Name] = s
 				case "Singleton":
 					s := &Singleton{
 						Name: ma["Name"],
+						Sym:  exported(ma["Name"]),
 						Type: ma["Type"],
 					}
 					singletonMap[s.Name] = s
@@ -381,8 +396,11 @@ func (g *Generator) Generate() error {
 		}
 	}
 
-	for _, x := range actionTypeMap {
-		requestModelMap[g.SymFromType(x[0].BindingParameterType)] = true
+	for a, x := range actionTypeMap {
+		if _, ok := reservedTypeTable[a]; ok {
+			continue
+		}
+		requestModelMap[g.SymBaseType(a)] = true
 		for _, y := range x {
 			g.X = y
 			err := tmpl.ExecuteTemplate(out, "action.go.tmpl", g)
@@ -396,17 +414,16 @@ func (g *Generator) Generate() error {
 		if len(x.Navigations) == 0 {
 			continue
 		}
-		requestModelMap[g.SymFromName(x.Name)] = true
+		requestModelMap[x.Sym] = true
 		for _, y := range x.Navigations {
-			yType := g.TypeFromType(y.Type)
-			requestModelMap[symBaseType(yType)] = true
+			requestModelMap[g.SymBaseType(y.Type)] = true
 		}
 	}
 	for _, x := range entitySetMap {
-		requestModelMap[g.SymFromType(x.Type)] = true
+		requestModelMap[g.SymBaseType(x.Type)] = true
 	}
 	for _, x := range singletonMap {
-		requestModelMap[g.SymFromType(x.Type)] = true
+		requestModelMap[g.SymBaseType(x.Type)] = true
 	}
 
 	keys = nil
@@ -428,7 +445,7 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		g.X = &EntityType{Name: "GraphService"}
+		g.X = &EntityType{Name: "GraphService", Sym: "GraphService"}
 		g.Y = entitySetMap[key]
 		err := tmpl.ExecuteTemplate(out, "request_collection_navigation.go.tmpl", g)
 		if err != nil {
@@ -442,15 +459,13 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		g.X = &EntityType{Name: "GraphService"}
+		g.X = &EntityType{Name: "GraphService", Sym: "GraphService"}
 		g.Y = singletonMap[key]
 		err := tmpl.ExecuteTemplate(out, "request_navigation.go.tmpl", g)
 		if err != nil {
 			return err
 		}
 	}
-
-	actionRequestBuilderMap := map[string][]string{}
 
 	keys = nil
 	for x, _ := range entityTypeMap {
@@ -463,9 +478,8 @@ func (g *Generator) Generate() error {
 		sort.Slice(x.Navigations, func(i, j int) bool { return x.Navigations[i].Name < x.Navigations[j].Name })
 		for _, y := range x.Navigations {
 			g.Y = y
-			yType := g.TypeFromType(y.Type)
 			if isCollectionType(y.Type) {
-				actionRequestBuilderMap[yType] = append(actionRequestBuilderMap[yType], g.SymFromName(x.Name)+g.SymFromName(y.Name)+"Collection")
+				actionRequestBuilderMap[y.Type] = append(actionRequestBuilderMap[y.Type], x.Sym+y.Sym+"Collection")
 				err := tmpl.ExecuteTemplate(out, "request_collection_navigation.go.tmpl", g)
 				if err != nil {
 					return err
@@ -477,8 +491,7 @@ func (g *Generator) Generate() error {
 				}
 			}
 		}
-		xType := g.TypeFromName(x.Name)
-		actionRequestBuilderMap[xType] = append(actionRequestBuilderMap[xType], g.SymFromName(x.Name))
+		actionRequestBuilderMap[x.Type] = append(actionRequestBuilderMap[x.Type], x.Sym)
 	}
 
 	for x, y := range actionTypeMap {
@@ -499,28 +512,6 @@ func (g *Generator) Generate() error {
 			}
 		}
 	}
-	// keys = nil
-	// for x, _ := range actionTypeMap {
-	// 	keys = append(keys, x)
-	// }
-	// sort.Strings(keys)
-	// for _, key := range keys {
-	// 	x := actionTypeMap[key]
-	// 	g.X = x
-	// 	if x.ReturnType == "" {
-	// 		err = tmpl.ExecuteTemplate(out, "action_void.go.tmpl", g)
-	// 	} else {
-	// 		aType := g.TypeFromType(x.ReturnType)
-	// 		if strings.HasPrefix(aType, "[]") {
-	// 			err = tmpl.ExecuteTemplate(out, "action_collection.go.tmpl", g)
-	// 		} else {
-	// 			err = tmpl.ExecuteTemplate(out, "action_single.go.tmpl", g)
-	// 		}
-	// 	}
-	// 	if err != nil {
-	// 		return err
-	// 	}
-	// }
 
 	return nil
 }
@@ -532,14 +523,7 @@ func (g *Generator) Format() error {
 }
 
 func main() {
-	g := &Generator{
-		Environ: map[string]string{},
-	}
-
-	for _, kv := range os.Environ() {
-		s := strings.Split(kv, "=")
-		g.Environ[s[0]] = s[1]
-	}
+	g := &Generator{SymTypeMap: map[string]string{}}
 
 	flag.StringVar(&g.BaseURL, "baseURL", "https://graph.microsoft.com/v1.0", "Base URL")
 	flag.StringVar(&g.In, "in", "metadata-v1.0.xml", "Input file name")

@@ -1,12 +1,11 @@
 {{- $ := . }}
 {{- $y := .Y }}
 {{- $ySymBindingType := $.SymFromType $y.BindingParameterType }}
-{{- $ySymName := $.SymFromName $y.Name }}
 {{- $yTypeType := $.TypeFromType $y.ReturnType }}
 {{- range $x := .X }}
-// {{$ySymName}} {{$y.Description}}
-func (b *{{$x}}RequestBuilder) {{$ySymName}}(reqObj *{{$ySymBindingType}}{{$ySymName}}RequestObject) *{{$ySymBindingType}}{{$ySymName}}RequestBuilder {
-    bb := &{{$ySymBindingType}}{{$ySymName}}RequestBuilder {BaseRequestBuilder: b.BaseRequestBuilder}
+// {{$y.Sym}} action {{$y.Description}}
+func (b *{{$x}}RequestBuilder) {{$y.Sym}}(reqObj *{{$ySymBindingType}}{{$y.Sym}}RequestParameter) *{{$ySymBindingType}}{{$y.Sym}}RequestBuilder {
+    bb := &{{$ySymBindingType}}{{$y.Sym}}RequestBuilder {BaseRequestBuilder: b.BaseRequestBuilder}
     bb.BaseRequestBuilder.baseURL += "/{{$y.Name}}"
     bb.BaseRequestBuilder.requestObject = reqObj
     return bb
@@ -14,26 +13,26 @@ func (b *{{$x}}RequestBuilder) {{$ySymName}}(reqObj *{{$ySymBindingType}}{{$ySym
 {{- end }}
 
 //
-type {{$ySymBindingType}}{{$ySymName}}RequestBuilder struct { BaseRequestBuilder }
+type {{$ySymBindingType}}{{$y.Sym}}RequestBuilder struct { BaseRequestBuilder }
 
 //
-func (b *{{$ySymBindingType}}{{$ySymName}}RequestBuilder) Request() *{{$ySymBindingType}}{{$ySymName}}Request {
-    return &{{$ySymBindingType}}{{$ySymName}}Request{
+func (b *{{$ySymBindingType}}{{$y.Sym}}RequestBuilder) Request() *{{$ySymBindingType}}{{$y.Sym}}Request {
+    return &{{$ySymBindingType}}{{$y.Sym}}Request{
         BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client, requestObject: b.requestObject },
     }
 }
 
 //
-type {{$ySymBindingType}}{{$ySymName}}Request struct { BaseRequest }
+type {{$ySymBindingType}}{{$y.Sym}}Request struct { BaseRequest }
 
 //
-func (r *{{$ySymBindingType}}{{$ySymName}}Request) Do(method, path string, reqObj interface{}) (resObj *{{$yTypeType}}, err error) {
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Do(method, path string, reqObj interface{}) (resObj *{{$yTypeType}}, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *{{$ySymBindingType}}{{$ySymName}}Request) Paging(method, path string, obj interface{}) ([]{{$yTypeType}}, error) {
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Paging(method, path string, obj interface{}) ([]{{$yTypeType}}, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -73,7 +72,7 @@ func (r *{{$ySymBindingType}}{{$ySymName}}Request) Paging(method, path string, o
 }
 
 //
-func (r *{{$ySymBindingType}}{{$ySymName}}Request) Get() ([]{{$yTypeType}}, error) {
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Get() ([]{{$yTypeType}}, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()

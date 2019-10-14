@@ -1,44 +1,42 @@
 {{- $ := . }}
 {{- $x := .X }}
 {{- $y := .Y }}
-{{- $xSymName := $.SymFromName $x.Name }}
-{{- $ySymName := $.SymFromName $y.Name }}
-{{- $ySymType := $.SymFromType $y.Type }}
-//
-func (b *{{$xSymName}}RequestBuilder) {{$ySymName}}() *{{$xSymName}}{{$ySymName}}CollectionRequestBuilder {
-	bb := &{{$xSymName}}{{$ySymName}}CollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+{{- $ySymType := $.SymBaseType $y.Type }}
+// {{$y.Sym}} returns request builder for {{$ySymType}} collection
+func (b *{{$x.Sym}}RequestBuilder) {{$y.Sym}}() *{{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder {
+	bb := &{{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/{{$y.Name}}"
 	return bb
 }
 
-//
-type {{$xSymName}}{{$ySymName}}CollectionRequestBuilder struct{ BaseRequestBuilder }
+// {{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder is request builder for {{$ySymType}} collection
+type {{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder struct{ BaseRequestBuilder }
 
-//
-func (b *{{$xSymName}}{{$ySymName}}CollectionRequestBuilder) Request() *{{$xSymName}}{{$ySymName}}CollectionRequest {
-    return &{{$xSymName}}{{$ySymName}}CollectionRequest{
+// Request returns request for {{$ySymType}} collection
+func (b *{{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder) Request() *{{$x.Sym}}{{$y.Sym}}CollectionRequest {
+    return &{{$x.Sym}}{{$y.Sym}}CollectionRequest{
         BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client },
     }
 }
 
-//
-func (b *{{$xSymName}}{{$ySymName}}CollectionRequestBuilder) ID(id string) *{{$ySymType}}RequestBuilder {
+// ID returns request builder for {{$ySymType}} item
+func (b *{{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder) ID(id string) *{{$ySymType}}RequestBuilder {
 	bb := &{{$ySymType}}RequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-//
-type {{$xSymName}}{{$ySymName}}CollectionRequest struct{ BaseRequest }
+// {{$x.Sym}}{{$y.Sym}}CollectionRequest is request for {{$ySymType}} collection
+type {{$x.Sym}}{{$y.Sym}}CollectionRequest struct{ BaseRequest }
 
-//
-func (r *{{$xSymName}}{{$ySymName}}CollectionRequest) Do(method, path string, reqObj interface{}) (resObj *{{$ySymType}}, err error) {
+// Do performs HTTP request for {{$ySymType}} collection
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Do(method, path string, reqObj interface{}) (resObj *{{$ySymType}}, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
-//
-func (r *{{$xSymName}}{{$ySymName}}CollectionRequest) Paging(method, path string, obj interface{}) ([]{{$ySymType}}, error) {
+// Paging perfoms paging operation for {{$ySymType}} collection
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(method, path string, obj interface{}) ([]{{$ySymType}}, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -77,8 +75,8 @@ func (r *{{$xSymName}}{{$ySymName}}CollectionRequest) Paging(method, path string
 	}
 }
 
-//
-func (r *{{$xSymName}}{{$ySymName}}CollectionRequest) Get() ([]{{$ySymType}}, error) {
+// Get performs GET request for {{$ySymType}} collection
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Get() ([]{{$ySymType}}, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -86,7 +84,7 @@ func (r *{{$xSymName}}{{$ySymName}}CollectionRequest) Get() ([]{{$ySymType}}, er
 	return r.Paging("GET", query, nil)
 }
 
-//
-func (r *{{$xSymName}}{{$ySymName}}CollectionRequest) Add(reqObj *{{$ySymType}}) (*{{$ySymType}}, error) {
+// Add performs POST request for {{$ySymType}} collection
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Add(reqObj *{{$ySymType}}) (*{{$ySymType}}, error) {
 	return r.Do("POST", "", reqObj)
 }

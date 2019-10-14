@@ -1,25 +1,24 @@
-{{- $xSymName := .SymFromName .X }}
-// {{$xSymName}}
-type {{$xSymName}}RequestBuilder struct { BaseRequestBuilder }
+// {{.X}}RequestBuilder is request builder for {{.X}}
+type {{.X}}RequestBuilder struct { BaseRequestBuilder }
 
-//
-func (b *{{$xSymName}}RequestBuilder) Request() *{{$xSymName}}Request {
-    return &{{$xSymName}}Request{
+// Request returns {{.X}}Request
+func (b *{{.X}}RequestBuilder) Request() *{{.X}}Request {
+    return &{{.X}}Request{
         BaseRequest: BaseRequest{ baseURL: b.baseURL, client:  b.client },
     }
 }
 
-//
-type {{$xSymName}}Request struct{ BaseRequest }
+// {{.X}}Request is request for {{.X}}
+type {{.X}}Request struct{ BaseRequest }
 
-//
-func (r *{{$xSymName}}Request) Do(method, path string, reqObj interface{}) (resObj *{{$xSymName}}, err error) {
+// Do performs HTTP request for {{.X}}
+func (r *{{.X}}Request) Do(method, path string, reqObj interface{}) (resObj *{{.X}}, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
-//
-func (r *{{$xSymName}}Request) Get() (*{{$xSymName}}, error) {
+// Get performs GET request for {{.X}}
+func (r *{{.X}}Request) Get() (*{{.X}}, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -27,12 +26,12 @@ func (r *{{$xSymName}}Request) Get() (*{{$xSymName}}, error) {
 	return r.Do("GET", query, nil)
 }
 
-//
-func (r *{{$xSymName}}Request) Update(reqObj *{{$xSymName}}) (*{{$xSymName}}, error) {
+// Update performs PATCH request for {{.X}}
+func (r *{{.X}}Request) Update(reqObj *{{.X}}) (*{{.X}}, error) {
 	return r.Do("PATCH", "", reqObj)
 }
 
-//
-func (r *{{$xSymName}}Request) Delete() error {
+// Delete performs DELETE request for {{.X}}
+func (r *{{.X}}Request) Delete() error {
 	return r.JSONRequestWithPath("DELETE", "", nil, nil)
 }

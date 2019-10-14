@@ -1,15 +1,18 @@
 {{- $ := . }}
 {{- $x := .X }}
-{{- $xSymType := $.SymFromName $x.Name }}
-// {{$xSymType}} {{$x.Description}}
-type {{$xSymType}} struct {
+// {{$x.Sym}} {{$x.Description}}
+type {{$x.Sym}} struct {
 {{- if ne $x.Base "" }}
-{{$.SymFromType $x.Base}}
+{{$.SymBaseType $x.Base}}
 {{- end }}
 {{- range $y := .X.Members }}
-{{- $ySymName := $.SymFromName $y.Name }}
 {{- $yTypeType := $.TypeFromType $y.Type }}
-    // {{$ySymName}} {{$y.Description}}
-    {{$ySymName}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
+    // {{$y.Sym}} {{$y.Description}}
+    {{$y.Sym}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
+{{- end }}
+{{- range $y := .X.Navigations }}
+{{- $yTypeType := $.TypeFromType $y.Type }}
+    // {{$y.Sym}} {{$y.Description}}
+    {{$y.Sym}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
 {{- end }}
 }

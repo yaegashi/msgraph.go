@@ -1,13 +1,11 @@
 {{- $ := . }}
 {{- $x := .X }}
-{{- $xSymName := $.SymFromName $x.Name }}
 {{- $xSymBindingType := $.SymFromType $x.BindingParameterType }}
-// {{$xSymBindingType}}{{$xSymName}}RequestObject {{$x.Description}}
-type {{$xSymBindingType}}{{$xSymName}}RequestObject struct {
+// {{$xSymBindingType}}{{$x.Sym}}RequestParameter {{$x.Description}}
+type {{$xSymBindingType}}{{$x.Sym}}RequestParameter struct {
 {{- range $y := .X.Parameters }}
-{{- $ySymName := $.SymFromName $y.Name }}
 {{- $yTypeType := $.TypeFromType $y.Type }}
-    // {{$ySymName}} {{$y.Description}}
-    {{$ySymName}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
+    // {{$y.Sym}} {{$y.Description}}
+    {{$y.Sym}} {{$yTypeType}} `json:"{{$y.Name}},omitempty"`
 {{- end }}
 }
