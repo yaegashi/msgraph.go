@@ -31,13 +31,13 @@ func main() {
 	flag.StringVar(&clientID, "client_id", defaultClientID, "Client ID")
 	flag.Parse()
 
-	m := auth.NewDeviceTokenManager()
+	m := auth.NewTokenManager()
 	m.Load(tokenStorePath)
 	callback := func(dc *auth.DeviceCode) error {
 		fmt.Println(dc.Message)
 		return nil
 	}
-	dt, err := m.Authenticate(tenantID, clientID, defaultScope, callback)
+	dt, err := m.AuthenticateDeviceAuth(tenantID, clientID, defaultScope, callback)
 	if err != nil {
 		log.Fatal(err)
 	}
