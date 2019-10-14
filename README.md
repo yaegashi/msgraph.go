@@ -87,8 +87,10 @@ You won't be asked for authentication again until tokens in this file expires.
 - [ ] Split output into multiple packages
 - [ ] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
 - [ ] Improve API documentation in godoc.org
-- [ ] Support more OAuth2 flows
 - [x] Persist OAuth2 tokens in file
+- [x] OAuth2 device auth grant
+- [x] OAuth2 client credentials grant
+- [ ] OAuth2 authorization code grant
 
 ## References
 
