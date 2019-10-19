@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/google/uuid"
 	"github.com/yaegashi/msgraph.go/auth"
 	msgraph "github.com/yaegashi/msgraph.go/beta"
 	P "github.com/yaegashi/msgraph.go/ptr"
@@ -30,7 +31,7 @@ var defaultUser = &msgraph.User{
 	Surname:           P.String("Moge"),
 	PasswordProfile: &msgraph.PasswordProfile{
 		ForceChangePasswordNextSignIn: P.Bool(false),
-		Password:                      P.String("XXX!111@YYY#222$ZZZ%333^"),
+		Password:                      P.String(uuid.New().String()),
 	},
 }
 
