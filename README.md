@@ -45,7 +45,7 @@ import msgraph "github.com/yaegashi/msgraph.go/beta"
 
 [cmd/msgraph-me/main.go](cmd/msgraph-me/main.go) shows simple usage example.
 It contains [Azure AD v2 device code flow](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/v2-oauth2-device-code) for the user authentication.
-You can authenticate yourself with personal (Microsoft) account or organizational account.
+You can authenticate yourself with your personal (Microsoft) or organizational (Azure AD) account.
 
 ```console
 $ go get ./cmd/msgraph-me
@@ -84,10 +84,11 @@ You won't be asked for authentication again until tokens in this file expires.
 - [x] Save indented metadata.xml
 - [x] Support Action elements in metadata
 - [ ] Support Function elements in metadata
+- [ ] Access to additional properties like `@odata.type` `@odata.id`
 - [ ] Split output into multiple files
 - [x] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
 - [x] Provide easy way to generate pointers to literals
-- [ ] Provide easy way to generate pointers to constants
+- [x] Provide easy way to generate pointers to constants
 - [ ] Improve API documentation in godoc.org
 - [x] Persist OAuth2 tokens in file
 - [x] OAuth2 device auth grant
@@ -100,8 +101,10 @@ You won't be asked for authentication again until tokens in this file expires.
 - [Microsoft Graph REST API reference]
 - [Microsoft Graph SDKs - Requirements and Design]
 - [Microsoft Graph SDK Code Generator]
+- [GitHub repository search for msgraph in Go]
 
 [Microsoft Graph]: https://developer.microsoft.com/en-us/graph
 [Microsoft Graph REST API reference]: https://docs.microsoft.com/en-us/graph/api/overview
 [Microsoft Graph SDKs - Requirements and Design]: https://microsoftgraph.github.io/msgraph-sdk-design/
 [Microsoft Graph SDK Code Generator]: https://github.com/microsoftgraph/MSGraph-SDK-Code-Generator
+[GitHub repository search for msgraph in Go]: https://github.com/search?l=Go&q=msgraph&type=Repositories
