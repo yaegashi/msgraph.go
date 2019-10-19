@@ -5,7 +5,15 @@ type {{$x.Sym}} int
 
 const (
 {{- range $y := .X.Members }}
-    // {{$x.Sym}}_{{$y.Sym}} {{$y.Description}}
-    {{$x.Sym}}_{{$y.Sym}} {{$x.Sym}} = {{$y.Value}}
+    // {{$x.Sym}}V{{$y.Sym}} {{$y.Description}}
+    {{$x.Sym}}V{{$y.Sym}} {{$x.Sym}} = {{$y.Value}}
 {{- end }}
 )
+
+{{- range $y := .X.Members }}
+// {{$x.Sym}}P{{$y.Sym}} returns a pointer to {{$x.Sym}}V{{$y.Sym}}
+func {{$x.Sym}}P{{$y.Sym}}() *{{$x.Sym}} {
+    v := {{$x.Sym}}V{{$y.Sym}}
+    return &v
+}
+{{- end }}

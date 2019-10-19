@@ -187,3285 +187,9753 @@ func NewClient(cli *http.Client) *GraphServiceRequestBuilder {
 type ActionState int
 
 const (
-	// ActionState_None undocumented
-	ActionState_None ActionState = 0
-	// ActionState_Pending undocumented
-	ActionState_Pending ActionState = 1
-	// ActionState_Canceled undocumented
-	ActionState_Canceled ActionState = 2
-	// ActionState_Active undocumented
-	ActionState_Active ActionState = 3
-	// ActionState_Done undocumented
-	ActionState_Done ActionState = 4
-	// ActionState_Failed undocumented
-	ActionState_Failed ActionState = 5
-	// ActionState_NotSupported undocumented
-	ActionState_NotSupported ActionState = 6
+	// ActionStateVNone undocumented
+	ActionStateVNone ActionState = 0
+	// ActionStateVPending undocumented
+	ActionStateVPending ActionState = 1
+	// ActionStateVCanceled undocumented
+	ActionStateVCanceled ActionState = 2
+	// ActionStateVActive undocumented
+	ActionStateVActive ActionState = 3
+	// ActionStateVDone undocumented
+	ActionStateVDone ActionState = 4
+	// ActionStateVFailed undocumented
+	ActionStateVFailed ActionState = 5
+	// ActionStateVNotSupported undocumented
+	ActionStateVNotSupported ActionState = 6
 )
+
+// ActionStatePNone returns a pointer to ActionStateVNone
+func ActionStatePNone() *ActionState {
+	v := ActionStateVNone
+	return &v
+}
+
+// ActionStatePPending returns a pointer to ActionStateVPending
+func ActionStatePPending() *ActionState {
+	v := ActionStateVPending
+	return &v
+}
+
+// ActionStatePCanceled returns a pointer to ActionStateVCanceled
+func ActionStatePCanceled() *ActionState {
+	v := ActionStateVCanceled
+	return &v
+}
+
+// ActionStatePActive returns a pointer to ActionStateVActive
+func ActionStatePActive() *ActionState {
+	v := ActionStateVActive
+	return &v
+}
+
+// ActionStatePDone returns a pointer to ActionStateVDone
+func ActionStatePDone() *ActionState {
+	v := ActionStateVDone
+	return &v
+}
+
+// ActionStatePFailed returns a pointer to ActionStateVFailed
+func ActionStatePFailed() *ActionState {
+	v := ActionStateVFailed
+	return &v
+}
+
+// ActionStatePNotSupported returns a pointer to ActionStateVNotSupported
+func ActionStatePNotSupported() *ActionState {
+	v := ActionStateVNotSupported
+	return &v
+}
 
 // ActivityDomain undocumented
 type ActivityDomain int
 
 const (
-	// ActivityDomain_Unknown undocumented
-	ActivityDomain_Unknown ActivityDomain = 0
-	// ActivityDomain_Work undocumented
-	ActivityDomain_Work ActivityDomain = 1
-	// ActivityDomain_Personal undocumented
-	ActivityDomain_Personal ActivityDomain = 2
-	// ActivityDomain_Unrestricted undocumented
-	ActivityDomain_Unrestricted ActivityDomain = 3
+	// ActivityDomainVUnknown undocumented
+	ActivityDomainVUnknown ActivityDomain = 0
+	// ActivityDomainVWork undocumented
+	ActivityDomainVWork ActivityDomain = 1
+	// ActivityDomainVPersonal undocumented
+	ActivityDomainVPersonal ActivityDomain = 2
+	// ActivityDomainVUnrestricted undocumented
+	ActivityDomainVUnrestricted ActivityDomain = 3
 )
+
+// ActivityDomainPUnknown returns a pointer to ActivityDomainVUnknown
+func ActivityDomainPUnknown() *ActivityDomain {
+	v := ActivityDomainVUnknown
+	return &v
+}
+
+// ActivityDomainPWork returns a pointer to ActivityDomainVWork
+func ActivityDomainPWork() *ActivityDomain {
+	v := ActivityDomainVWork
+	return &v
+}
+
+// ActivityDomainPPersonal returns a pointer to ActivityDomainVPersonal
+func ActivityDomainPPersonal() *ActivityDomain {
+	v := ActivityDomainVPersonal
+	return &v
+}
+
+// ActivityDomainPUnrestricted returns a pointer to ActivityDomainVUnrestricted
+func ActivityDomainPUnrestricted() *ActivityDomain {
+	v := ActivityDomainVUnrestricted
+	return &v
+}
 
 // AlertFeedback undocumented
 type AlertFeedback int
 
 const (
-	// AlertFeedback_Unknown undocumented
-	AlertFeedback_Unknown AlertFeedback = 0
-	// AlertFeedback_TruePositive undocumented
-	AlertFeedback_TruePositive AlertFeedback = 1
-	// AlertFeedback_FalsePositive undocumented
-	AlertFeedback_FalsePositive AlertFeedback = 2
-	// AlertFeedback_BenignPositive undocumented
-	AlertFeedback_BenignPositive AlertFeedback = 3
-	// AlertFeedback_UnknownFutureValue undocumented
-	AlertFeedback_UnknownFutureValue AlertFeedback = 127
+	// AlertFeedbackVUnknown undocumented
+	AlertFeedbackVUnknown AlertFeedback = 0
+	// AlertFeedbackVTruePositive undocumented
+	AlertFeedbackVTruePositive AlertFeedback = 1
+	// AlertFeedbackVFalsePositive undocumented
+	AlertFeedbackVFalsePositive AlertFeedback = 2
+	// AlertFeedbackVBenignPositive undocumented
+	AlertFeedbackVBenignPositive AlertFeedback = 3
+	// AlertFeedbackVUnknownFutureValue undocumented
+	AlertFeedbackVUnknownFutureValue AlertFeedback = 127
 )
+
+// AlertFeedbackPUnknown returns a pointer to AlertFeedbackVUnknown
+func AlertFeedbackPUnknown() *AlertFeedback {
+	v := AlertFeedbackVUnknown
+	return &v
+}
+
+// AlertFeedbackPTruePositive returns a pointer to AlertFeedbackVTruePositive
+func AlertFeedbackPTruePositive() *AlertFeedback {
+	v := AlertFeedbackVTruePositive
+	return &v
+}
+
+// AlertFeedbackPFalsePositive returns a pointer to AlertFeedbackVFalsePositive
+func AlertFeedbackPFalsePositive() *AlertFeedback {
+	v := AlertFeedbackVFalsePositive
+	return &v
+}
+
+// AlertFeedbackPBenignPositive returns a pointer to AlertFeedbackVBenignPositive
+func AlertFeedbackPBenignPositive() *AlertFeedback {
+	v := AlertFeedbackVBenignPositive
+	return &v
+}
+
+// AlertFeedbackPUnknownFutureValue returns a pointer to AlertFeedbackVUnknownFutureValue
+func AlertFeedbackPUnknownFutureValue() *AlertFeedback {
+	v := AlertFeedbackVUnknownFutureValue
+	return &v
+}
 
 // AlertSeverity undocumented
 type AlertSeverity int
 
 const (
-	// AlertSeverity_Unknown undocumented
-	AlertSeverity_Unknown AlertSeverity = 0
-	// AlertSeverity_Informational undocumented
-	AlertSeverity_Informational AlertSeverity = 1
-	// AlertSeverity_Low undocumented
-	AlertSeverity_Low AlertSeverity = 2
-	// AlertSeverity_Medium undocumented
-	AlertSeverity_Medium AlertSeverity = 3
-	// AlertSeverity_High undocumented
-	AlertSeverity_High AlertSeverity = 4
-	// AlertSeverity_UnknownFutureValue undocumented
-	AlertSeverity_UnknownFutureValue AlertSeverity = 127
+	// AlertSeverityVUnknown undocumented
+	AlertSeverityVUnknown AlertSeverity = 0
+	// AlertSeverityVInformational undocumented
+	AlertSeverityVInformational AlertSeverity = 1
+	// AlertSeverityVLow undocumented
+	AlertSeverityVLow AlertSeverity = 2
+	// AlertSeverityVMedium undocumented
+	AlertSeverityVMedium AlertSeverity = 3
+	// AlertSeverityVHigh undocumented
+	AlertSeverityVHigh AlertSeverity = 4
+	// AlertSeverityVUnknownFutureValue undocumented
+	AlertSeverityVUnknownFutureValue AlertSeverity = 127
 )
+
+// AlertSeverityPUnknown returns a pointer to AlertSeverityVUnknown
+func AlertSeverityPUnknown() *AlertSeverity {
+	v := AlertSeverityVUnknown
+	return &v
+}
+
+// AlertSeverityPInformational returns a pointer to AlertSeverityVInformational
+func AlertSeverityPInformational() *AlertSeverity {
+	v := AlertSeverityVInformational
+	return &v
+}
+
+// AlertSeverityPLow returns a pointer to AlertSeverityVLow
+func AlertSeverityPLow() *AlertSeverity {
+	v := AlertSeverityVLow
+	return &v
+}
+
+// AlertSeverityPMedium returns a pointer to AlertSeverityVMedium
+func AlertSeverityPMedium() *AlertSeverity {
+	v := AlertSeverityVMedium
+	return &v
+}
+
+// AlertSeverityPHigh returns a pointer to AlertSeverityVHigh
+func AlertSeverityPHigh() *AlertSeverity {
+	v := AlertSeverityVHigh
+	return &v
+}
+
+// AlertSeverityPUnknownFutureValue returns a pointer to AlertSeverityVUnknownFutureValue
+func AlertSeverityPUnknownFutureValue() *AlertSeverity {
+	v := AlertSeverityVUnknownFutureValue
+	return &v
+}
 
 // AlertStatus undocumented
 type AlertStatus int
 
 const (
-	// AlertStatus_Unknown undocumented
-	AlertStatus_Unknown AlertStatus = 0
-	// AlertStatus_NewAlert undocumented
-	AlertStatus_NewAlert AlertStatus = 1
-	// AlertStatus_InProgress undocumented
-	AlertStatus_InProgress AlertStatus = 2
-	// AlertStatus_Resolved undocumented
-	AlertStatus_Resolved AlertStatus = 3
-	// AlertStatus_Dismissed undocumented
-	AlertStatus_Dismissed AlertStatus = 4
-	// AlertStatus_UnknownFutureValue undocumented
-	AlertStatus_UnknownFutureValue AlertStatus = 127
+	// AlertStatusVUnknown undocumented
+	AlertStatusVUnknown AlertStatus = 0
+	// AlertStatusVNewAlert undocumented
+	AlertStatusVNewAlert AlertStatus = 1
+	// AlertStatusVInProgress undocumented
+	AlertStatusVInProgress AlertStatus = 2
+	// AlertStatusVResolved undocumented
+	AlertStatusVResolved AlertStatus = 3
+	// AlertStatusVDismissed undocumented
+	AlertStatusVDismissed AlertStatus = 4
+	// AlertStatusVUnknownFutureValue undocumented
+	AlertStatusVUnknownFutureValue AlertStatus = 127
 )
+
+// AlertStatusPUnknown returns a pointer to AlertStatusVUnknown
+func AlertStatusPUnknown() *AlertStatus {
+	v := AlertStatusVUnknown
+	return &v
+}
+
+// AlertStatusPNewAlert returns a pointer to AlertStatusVNewAlert
+func AlertStatusPNewAlert() *AlertStatus {
+	v := AlertStatusVNewAlert
+	return &v
+}
+
+// AlertStatusPInProgress returns a pointer to AlertStatusVInProgress
+func AlertStatusPInProgress() *AlertStatus {
+	v := AlertStatusVInProgress
+	return &v
+}
+
+// AlertStatusPResolved returns a pointer to AlertStatusVResolved
+func AlertStatusPResolved() *AlertStatus {
+	v := AlertStatusVResolved
+	return &v
+}
+
+// AlertStatusPDismissed returns a pointer to AlertStatusVDismissed
+func AlertStatusPDismissed() *AlertStatus {
+	v := AlertStatusVDismissed
+	return &v
+}
+
+// AlertStatusPUnknownFutureValue returns a pointer to AlertStatusVUnknownFutureValue
+func AlertStatusPUnknownFutureValue() *AlertStatus {
+	v := AlertStatusVUnknownFutureValue
+	return &v
+}
 
 // AndroidRequiredPasswordType undocumented
 type AndroidRequiredPasswordType int
 
 const (
-	// AndroidRequiredPasswordType_DeviceDefault undocumented
-	AndroidRequiredPasswordType_DeviceDefault AndroidRequiredPasswordType = 0
-	// AndroidRequiredPasswordType_Alphabetic undocumented
-	AndroidRequiredPasswordType_Alphabetic AndroidRequiredPasswordType = 1
-	// AndroidRequiredPasswordType_Alphanumeric undocumented
-	AndroidRequiredPasswordType_Alphanumeric AndroidRequiredPasswordType = 2
-	// AndroidRequiredPasswordType_AlphanumericWithSymbols undocumented
-	AndroidRequiredPasswordType_AlphanumericWithSymbols AndroidRequiredPasswordType = 3
-	// AndroidRequiredPasswordType_LowSecurityBiometric undocumented
-	AndroidRequiredPasswordType_LowSecurityBiometric AndroidRequiredPasswordType = 4
-	// AndroidRequiredPasswordType_Numeric undocumented
-	AndroidRequiredPasswordType_Numeric AndroidRequiredPasswordType = 5
-	// AndroidRequiredPasswordType_NumericComplex undocumented
-	AndroidRequiredPasswordType_NumericComplex AndroidRequiredPasswordType = 6
-	// AndroidRequiredPasswordType_Any undocumented
-	AndroidRequiredPasswordType_Any AndroidRequiredPasswordType = 7
+	// AndroidRequiredPasswordTypeVDeviceDefault undocumented
+	AndroidRequiredPasswordTypeVDeviceDefault AndroidRequiredPasswordType = 0
+	// AndroidRequiredPasswordTypeVAlphabetic undocumented
+	AndroidRequiredPasswordTypeVAlphabetic AndroidRequiredPasswordType = 1
+	// AndroidRequiredPasswordTypeVAlphanumeric undocumented
+	AndroidRequiredPasswordTypeVAlphanumeric AndroidRequiredPasswordType = 2
+	// AndroidRequiredPasswordTypeVAlphanumericWithSymbols undocumented
+	AndroidRequiredPasswordTypeVAlphanumericWithSymbols AndroidRequiredPasswordType = 3
+	// AndroidRequiredPasswordTypeVLowSecurityBiometric undocumented
+	AndroidRequiredPasswordTypeVLowSecurityBiometric AndroidRequiredPasswordType = 4
+	// AndroidRequiredPasswordTypeVNumeric undocumented
+	AndroidRequiredPasswordTypeVNumeric AndroidRequiredPasswordType = 5
+	// AndroidRequiredPasswordTypeVNumericComplex undocumented
+	AndroidRequiredPasswordTypeVNumericComplex AndroidRequiredPasswordType = 6
+	// AndroidRequiredPasswordTypeVAny undocumented
+	AndroidRequiredPasswordTypeVAny AndroidRequiredPasswordType = 7
 )
+
+// AndroidRequiredPasswordTypePDeviceDefault returns a pointer to AndroidRequiredPasswordTypeVDeviceDefault
+func AndroidRequiredPasswordTypePDeviceDefault() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVDeviceDefault
+	return &v
+}
+
+// AndroidRequiredPasswordTypePAlphabetic returns a pointer to AndroidRequiredPasswordTypeVAlphabetic
+func AndroidRequiredPasswordTypePAlphabetic() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVAlphabetic
+	return &v
+}
+
+// AndroidRequiredPasswordTypePAlphanumeric returns a pointer to AndroidRequiredPasswordTypeVAlphanumeric
+func AndroidRequiredPasswordTypePAlphanumeric() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVAlphanumeric
+	return &v
+}
+
+// AndroidRequiredPasswordTypePAlphanumericWithSymbols returns a pointer to AndroidRequiredPasswordTypeVAlphanumericWithSymbols
+func AndroidRequiredPasswordTypePAlphanumericWithSymbols() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVAlphanumericWithSymbols
+	return &v
+}
+
+// AndroidRequiredPasswordTypePLowSecurityBiometric returns a pointer to AndroidRequiredPasswordTypeVLowSecurityBiometric
+func AndroidRequiredPasswordTypePLowSecurityBiometric() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVLowSecurityBiometric
+	return &v
+}
+
+// AndroidRequiredPasswordTypePNumeric returns a pointer to AndroidRequiredPasswordTypeVNumeric
+func AndroidRequiredPasswordTypePNumeric() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVNumeric
+	return &v
+}
+
+// AndroidRequiredPasswordTypePNumericComplex returns a pointer to AndroidRequiredPasswordTypeVNumericComplex
+func AndroidRequiredPasswordTypePNumericComplex() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVNumericComplex
+	return &v
+}
+
+// AndroidRequiredPasswordTypePAny returns a pointer to AndroidRequiredPasswordTypeVAny
+func AndroidRequiredPasswordTypePAny() *AndroidRequiredPasswordType {
+	v := AndroidRequiredPasswordTypeVAny
+	return &v
+}
 
 // AndroidWorkProfileCrossProfileDataSharingType undocumented
 type AndroidWorkProfileCrossProfileDataSharingType int
 
 const (
-	// AndroidWorkProfileCrossProfileDataSharingType_DeviceDefault undocumented
-	AndroidWorkProfileCrossProfileDataSharingType_DeviceDefault AndroidWorkProfileCrossProfileDataSharingType = 0
-	// AndroidWorkProfileCrossProfileDataSharingType_PreventAny undocumented
-	AndroidWorkProfileCrossProfileDataSharingType_PreventAny AndroidWorkProfileCrossProfileDataSharingType = 1
-	// AndroidWorkProfileCrossProfileDataSharingType_AllowPersonalToWork undocumented
-	AndroidWorkProfileCrossProfileDataSharingType_AllowPersonalToWork AndroidWorkProfileCrossProfileDataSharingType = 2
-	// AndroidWorkProfileCrossProfileDataSharingType_NoRestrictions undocumented
-	AndroidWorkProfileCrossProfileDataSharingType_NoRestrictions AndroidWorkProfileCrossProfileDataSharingType = 3
+	// AndroidWorkProfileCrossProfileDataSharingTypeVDeviceDefault undocumented
+	AndroidWorkProfileCrossProfileDataSharingTypeVDeviceDefault AndroidWorkProfileCrossProfileDataSharingType = 0
+	// AndroidWorkProfileCrossProfileDataSharingTypeVPreventAny undocumented
+	AndroidWorkProfileCrossProfileDataSharingTypeVPreventAny AndroidWorkProfileCrossProfileDataSharingType = 1
+	// AndroidWorkProfileCrossProfileDataSharingTypeVAllowPersonalToWork undocumented
+	AndroidWorkProfileCrossProfileDataSharingTypeVAllowPersonalToWork AndroidWorkProfileCrossProfileDataSharingType = 2
+	// AndroidWorkProfileCrossProfileDataSharingTypeVNoRestrictions undocumented
+	AndroidWorkProfileCrossProfileDataSharingTypeVNoRestrictions AndroidWorkProfileCrossProfileDataSharingType = 3
 )
+
+// AndroidWorkProfileCrossProfileDataSharingTypePDeviceDefault returns a pointer to AndroidWorkProfileCrossProfileDataSharingTypeVDeviceDefault
+func AndroidWorkProfileCrossProfileDataSharingTypePDeviceDefault() *AndroidWorkProfileCrossProfileDataSharingType {
+	v := AndroidWorkProfileCrossProfileDataSharingTypeVDeviceDefault
+	return &v
+}
+
+// AndroidWorkProfileCrossProfileDataSharingTypePPreventAny returns a pointer to AndroidWorkProfileCrossProfileDataSharingTypeVPreventAny
+func AndroidWorkProfileCrossProfileDataSharingTypePPreventAny() *AndroidWorkProfileCrossProfileDataSharingType {
+	v := AndroidWorkProfileCrossProfileDataSharingTypeVPreventAny
+	return &v
+}
+
+// AndroidWorkProfileCrossProfileDataSharingTypePAllowPersonalToWork returns a pointer to AndroidWorkProfileCrossProfileDataSharingTypeVAllowPersonalToWork
+func AndroidWorkProfileCrossProfileDataSharingTypePAllowPersonalToWork() *AndroidWorkProfileCrossProfileDataSharingType {
+	v := AndroidWorkProfileCrossProfileDataSharingTypeVAllowPersonalToWork
+	return &v
+}
+
+// AndroidWorkProfileCrossProfileDataSharingTypePNoRestrictions returns a pointer to AndroidWorkProfileCrossProfileDataSharingTypeVNoRestrictions
+func AndroidWorkProfileCrossProfileDataSharingTypePNoRestrictions() *AndroidWorkProfileCrossProfileDataSharingType {
+	v := AndroidWorkProfileCrossProfileDataSharingTypeVNoRestrictions
+	return &v
+}
 
 // AndroidWorkProfileDefaultAppPermissionPolicyType undocumented
 type AndroidWorkProfileDefaultAppPermissionPolicyType int
 
 const (
-	// AndroidWorkProfileDefaultAppPermissionPolicyType_DeviceDefault undocumented
-	AndroidWorkProfileDefaultAppPermissionPolicyType_DeviceDefault AndroidWorkProfileDefaultAppPermissionPolicyType = 0
-	// AndroidWorkProfileDefaultAppPermissionPolicyType_Prompt undocumented
-	AndroidWorkProfileDefaultAppPermissionPolicyType_Prompt AndroidWorkProfileDefaultAppPermissionPolicyType = 1
-	// AndroidWorkProfileDefaultAppPermissionPolicyType_AutoGrant undocumented
-	AndroidWorkProfileDefaultAppPermissionPolicyType_AutoGrant AndroidWorkProfileDefaultAppPermissionPolicyType = 2
-	// AndroidWorkProfileDefaultAppPermissionPolicyType_AutoDeny undocumented
-	AndroidWorkProfileDefaultAppPermissionPolicyType_AutoDeny AndroidWorkProfileDefaultAppPermissionPolicyType = 3
+	// AndroidWorkProfileDefaultAppPermissionPolicyTypeVDeviceDefault undocumented
+	AndroidWorkProfileDefaultAppPermissionPolicyTypeVDeviceDefault AndroidWorkProfileDefaultAppPermissionPolicyType = 0
+	// AndroidWorkProfileDefaultAppPermissionPolicyTypeVPrompt undocumented
+	AndroidWorkProfileDefaultAppPermissionPolicyTypeVPrompt AndroidWorkProfileDefaultAppPermissionPolicyType = 1
+	// AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoGrant undocumented
+	AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoGrant AndroidWorkProfileDefaultAppPermissionPolicyType = 2
+	// AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoDeny undocumented
+	AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoDeny AndroidWorkProfileDefaultAppPermissionPolicyType = 3
 )
+
+// AndroidWorkProfileDefaultAppPermissionPolicyTypePDeviceDefault returns a pointer to AndroidWorkProfileDefaultAppPermissionPolicyTypeVDeviceDefault
+func AndroidWorkProfileDefaultAppPermissionPolicyTypePDeviceDefault() *AndroidWorkProfileDefaultAppPermissionPolicyType {
+	v := AndroidWorkProfileDefaultAppPermissionPolicyTypeVDeviceDefault
+	return &v
+}
+
+// AndroidWorkProfileDefaultAppPermissionPolicyTypePPrompt returns a pointer to AndroidWorkProfileDefaultAppPermissionPolicyTypeVPrompt
+func AndroidWorkProfileDefaultAppPermissionPolicyTypePPrompt() *AndroidWorkProfileDefaultAppPermissionPolicyType {
+	v := AndroidWorkProfileDefaultAppPermissionPolicyTypeVPrompt
+	return &v
+}
+
+// AndroidWorkProfileDefaultAppPermissionPolicyTypePAutoGrant returns a pointer to AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoGrant
+func AndroidWorkProfileDefaultAppPermissionPolicyTypePAutoGrant() *AndroidWorkProfileDefaultAppPermissionPolicyType {
+	v := AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoGrant
+	return &v
+}
+
+// AndroidWorkProfileDefaultAppPermissionPolicyTypePAutoDeny returns a pointer to AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoDeny
+func AndroidWorkProfileDefaultAppPermissionPolicyTypePAutoDeny() *AndroidWorkProfileDefaultAppPermissionPolicyType {
+	v := AndroidWorkProfileDefaultAppPermissionPolicyTypeVAutoDeny
+	return &v
+}
 
 // AndroidWorkProfileRequiredPasswordType undocumented
 type AndroidWorkProfileRequiredPasswordType int
 
 const (
-	// AndroidWorkProfileRequiredPasswordType_DeviceDefault undocumented
-	AndroidWorkProfileRequiredPasswordType_DeviceDefault AndroidWorkProfileRequiredPasswordType = 0
-	// AndroidWorkProfileRequiredPasswordType_LowSecurityBiometric undocumented
-	AndroidWorkProfileRequiredPasswordType_LowSecurityBiometric AndroidWorkProfileRequiredPasswordType = 1
-	// AndroidWorkProfileRequiredPasswordType_Required undocumented
-	AndroidWorkProfileRequiredPasswordType_Required AndroidWorkProfileRequiredPasswordType = 2
-	// AndroidWorkProfileRequiredPasswordType_AtLeastNumeric undocumented
-	AndroidWorkProfileRequiredPasswordType_AtLeastNumeric AndroidWorkProfileRequiredPasswordType = 3
-	// AndroidWorkProfileRequiredPasswordType_NumericComplex undocumented
-	AndroidWorkProfileRequiredPasswordType_NumericComplex AndroidWorkProfileRequiredPasswordType = 4
-	// AndroidWorkProfileRequiredPasswordType_AtLeastAlphabetic undocumented
-	AndroidWorkProfileRequiredPasswordType_AtLeastAlphabetic AndroidWorkProfileRequiredPasswordType = 5
-	// AndroidWorkProfileRequiredPasswordType_AtLeastAlphanumeric undocumented
-	AndroidWorkProfileRequiredPasswordType_AtLeastAlphanumeric AndroidWorkProfileRequiredPasswordType = 6
-	// AndroidWorkProfileRequiredPasswordType_AlphanumericWithSymbols undocumented
-	AndroidWorkProfileRequiredPasswordType_AlphanumericWithSymbols AndroidWorkProfileRequiredPasswordType = 7
+	// AndroidWorkProfileRequiredPasswordTypeVDeviceDefault undocumented
+	AndroidWorkProfileRequiredPasswordTypeVDeviceDefault AndroidWorkProfileRequiredPasswordType = 0
+	// AndroidWorkProfileRequiredPasswordTypeVLowSecurityBiometric undocumented
+	AndroidWorkProfileRequiredPasswordTypeVLowSecurityBiometric AndroidWorkProfileRequiredPasswordType = 1
+	// AndroidWorkProfileRequiredPasswordTypeVRequired undocumented
+	AndroidWorkProfileRequiredPasswordTypeVRequired AndroidWorkProfileRequiredPasswordType = 2
+	// AndroidWorkProfileRequiredPasswordTypeVAtLeastNumeric undocumented
+	AndroidWorkProfileRequiredPasswordTypeVAtLeastNumeric AndroidWorkProfileRequiredPasswordType = 3
+	// AndroidWorkProfileRequiredPasswordTypeVNumericComplex undocumented
+	AndroidWorkProfileRequiredPasswordTypeVNumericComplex AndroidWorkProfileRequiredPasswordType = 4
+	// AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphabetic undocumented
+	AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphabetic AndroidWorkProfileRequiredPasswordType = 5
+	// AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphanumeric undocumented
+	AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphanumeric AndroidWorkProfileRequiredPasswordType = 6
+	// AndroidWorkProfileRequiredPasswordTypeVAlphanumericWithSymbols undocumented
+	AndroidWorkProfileRequiredPasswordTypeVAlphanumericWithSymbols AndroidWorkProfileRequiredPasswordType = 7
 )
+
+// AndroidWorkProfileRequiredPasswordTypePDeviceDefault returns a pointer to AndroidWorkProfileRequiredPasswordTypeVDeviceDefault
+func AndroidWorkProfileRequiredPasswordTypePDeviceDefault() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVDeviceDefault
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePLowSecurityBiometric returns a pointer to AndroidWorkProfileRequiredPasswordTypeVLowSecurityBiometric
+func AndroidWorkProfileRequiredPasswordTypePLowSecurityBiometric() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVLowSecurityBiometric
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePRequired returns a pointer to AndroidWorkProfileRequiredPasswordTypeVRequired
+func AndroidWorkProfileRequiredPasswordTypePRequired() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVRequired
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePAtLeastNumeric returns a pointer to AndroidWorkProfileRequiredPasswordTypeVAtLeastNumeric
+func AndroidWorkProfileRequiredPasswordTypePAtLeastNumeric() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVAtLeastNumeric
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePNumericComplex returns a pointer to AndroidWorkProfileRequiredPasswordTypeVNumericComplex
+func AndroidWorkProfileRequiredPasswordTypePNumericComplex() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVNumericComplex
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePAtLeastAlphabetic returns a pointer to AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphabetic
+func AndroidWorkProfileRequiredPasswordTypePAtLeastAlphabetic() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphabetic
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePAtLeastAlphanumeric returns a pointer to AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphanumeric
+func AndroidWorkProfileRequiredPasswordTypePAtLeastAlphanumeric() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVAtLeastAlphanumeric
+	return &v
+}
+
+// AndroidWorkProfileRequiredPasswordTypePAlphanumericWithSymbols returns a pointer to AndroidWorkProfileRequiredPasswordTypeVAlphanumericWithSymbols
+func AndroidWorkProfileRequiredPasswordTypePAlphanumericWithSymbols() *AndroidWorkProfileRequiredPasswordType {
+	v := AndroidWorkProfileRequiredPasswordTypeVAlphanumericWithSymbols
+	return &v
+}
 
 // AppListType undocumented
 type AppListType int
 
 const (
-	// AppListType_None undocumented
-	AppListType_None AppListType = 0
-	// AppListType_AppsInListCompliant undocumented
-	AppListType_AppsInListCompliant AppListType = 1
-	// AppListType_AppsNotInListCompliant undocumented
-	AppListType_AppsNotInListCompliant AppListType = 2
+	// AppListTypeVNone undocumented
+	AppListTypeVNone AppListType = 0
+	// AppListTypeVAppsInListCompliant undocumented
+	AppListTypeVAppsInListCompliant AppListType = 1
+	// AppListTypeVAppsNotInListCompliant undocumented
+	AppListTypeVAppsNotInListCompliant AppListType = 2
 )
+
+// AppListTypePNone returns a pointer to AppListTypeVNone
+func AppListTypePNone() *AppListType {
+	v := AppListTypeVNone
+	return &v
+}
+
+// AppListTypePAppsInListCompliant returns a pointer to AppListTypeVAppsInListCompliant
+func AppListTypePAppsInListCompliant() *AppListType {
+	v := AppListTypeVAppsInListCompliant
+	return &v
+}
+
+// AppListTypePAppsNotInListCompliant returns a pointer to AppListTypeVAppsNotInListCompliant
+func AppListTypePAppsNotInListCompliant() *AppListType {
+	v := AppListTypeVAppsNotInListCompliant
+	return &v
+}
 
 // AppLockerApplicationControlType undocumented
 type AppLockerApplicationControlType int
 
 const (
-	// AppLockerApplicationControlType_NotConfigured undocumented
-	AppLockerApplicationControlType_NotConfigured AppLockerApplicationControlType = 0
-	// AppLockerApplicationControlType_EnforceComponentsAndStoreApps undocumented
-	AppLockerApplicationControlType_EnforceComponentsAndStoreApps AppLockerApplicationControlType = 1
-	// AppLockerApplicationControlType_AuditComponentsAndStoreApps undocumented
-	AppLockerApplicationControlType_AuditComponentsAndStoreApps AppLockerApplicationControlType = 2
-	// AppLockerApplicationControlType_EnforceComponentsStoreAppsAndSmartlocker undocumented
-	AppLockerApplicationControlType_EnforceComponentsStoreAppsAndSmartlocker AppLockerApplicationControlType = 3
-	// AppLockerApplicationControlType_AuditComponentsStoreAppsAndSmartlocker undocumented
-	AppLockerApplicationControlType_AuditComponentsStoreAppsAndSmartlocker AppLockerApplicationControlType = 4
+	// AppLockerApplicationControlTypeVNotConfigured undocumented
+	AppLockerApplicationControlTypeVNotConfigured AppLockerApplicationControlType = 0
+	// AppLockerApplicationControlTypeVEnforceComponentsAndStoreApps undocumented
+	AppLockerApplicationControlTypeVEnforceComponentsAndStoreApps AppLockerApplicationControlType = 1
+	// AppLockerApplicationControlTypeVAuditComponentsAndStoreApps undocumented
+	AppLockerApplicationControlTypeVAuditComponentsAndStoreApps AppLockerApplicationControlType = 2
+	// AppLockerApplicationControlTypeVEnforceComponentsStoreAppsAndSmartlocker undocumented
+	AppLockerApplicationControlTypeVEnforceComponentsStoreAppsAndSmartlocker AppLockerApplicationControlType = 3
+	// AppLockerApplicationControlTypeVAuditComponentsStoreAppsAndSmartlocker undocumented
+	AppLockerApplicationControlTypeVAuditComponentsStoreAppsAndSmartlocker AppLockerApplicationControlType = 4
 )
+
+// AppLockerApplicationControlTypePNotConfigured returns a pointer to AppLockerApplicationControlTypeVNotConfigured
+func AppLockerApplicationControlTypePNotConfigured() *AppLockerApplicationControlType {
+	v := AppLockerApplicationControlTypeVNotConfigured
+	return &v
+}
+
+// AppLockerApplicationControlTypePEnforceComponentsAndStoreApps returns a pointer to AppLockerApplicationControlTypeVEnforceComponentsAndStoreApps
+func AppLockerApplicationControlTypePEnforceComponentsAndStoreApps() *AppLockerApplicationControlType {
+	v := AppLockerApplicationControlTypeVEnforceComponentsAndStoreApps
+	return &v
+}
+
+// AppLockerApplicationControlTypePAuditComponentsAndStoreApps returns a pointer to AppLockerApplicationControlTypeVAuditComponentsAndStoreApps
+func AppLockerApplicationControlTypePAuditComponentsAndStoreApps() *AppLockerApplicationControlType {
+	v := AppLockerApplicationControlTypeVAuditComponentsAndStoreApps
+	return &v
+}
+
+// AppLockerApplicationControlTypePEnforceComponentsStoreAppsAndSmartlocker returns a pointer to AppLockerApplicationControlTypeVEnforceComponentsStoreAppsAndSmartlocker
+func AppLockerApplicationControlTypePEnforceComponentsStoreAppsAndSmartlocker() *AppLockerApplicationControlType {
+	v := AppLockerApplicationControlTypeVEnforceComponentsStoreAppsAndSmartlocker
+	return &v
+}
+
+// AppLockerApplicationControlTypePAuditComponentsStoreAppsAndSmartlocker returns a pointer to AppLockerApplicationControlTypeVAuditComponentsStoreAppsAndSmartlocker
+func AppLockerApplicationControlTypePAuditComponentsStoreAppsAndSmartlocker() *AppLockerApplicationControlType {
+	v := AppLockerApplicationControlTypeVAuditComponentsStoreAppsAndSmartlocker
+	return &v
+}
 
 // ApplicationGuardBlockClipboardSharingType undocumented
 type ApplicationGuardBlockClipboardSharingType int
 
 const (
-	// ApplicationGuardBlockClipboardSharingType_NotConfigured undocumented
-	ApplicationGuardBlockClipboardSharingType_NotConfigured ApplicationGuardBlockClipboardSharingType = 0
-	// ApplicationGuardBlockClipboardSharingType_BlockBoth undocumented
-	ApplicationGuardBlockClipboardSharingType_BlockBoth ApplicationGuardBlockClipboardSharingType = 1
-	// ApplicationGuardBlockClipboardSharingType_BlockHostToContainer undocumented
-	ApplicationGuardBlockClipboardSharingType_BlockHostToContainer ApplicationGuardBlockClipboardSharingType = 2
-	// ApplicationGuardBlockClipboardSharingType_BlockContainerToHost undocumented
-	ApplicationGuardBlockClipboardSharingType_BlockContainerToHost ApplicationGuardBlockClipboardSharingType = 3
-	// ApplicationGuardBlockClipboardSharingType_BlockNone undocumented
-	ApplicationGuardBlockClipboardSharingType_BlockNone ApplicationGuardBlockClipboardSharingType = 4
+	// ApplicationGuardBlockClipboardSharingTypeVNotConfigured undocumented
+	ApplicationGuardBlockClipboardSharingTypeVNotConfigured ApplicationGuardBlockClipboardSharingType = 0
+	// ApplicationGuardBlockClipboardSharingTypeVBlockBoth undocumented
+	ApplicationGuardBlockClipboardSharingTypeVBlockBoth ApplicationGuardBlockClipboardSharingType = 1
+	// ApplicationGuardBlockClipboardSharingTypeVBlockHostToContainer undocumented
+	ApplicationGuardBlockClipboardSharingTypeVBlockHostToContainer ApplicationGuardBlockClipboardSharingType = 2
+	// ApplicationGuardBlockClipboardSharingTypeVBlockContainerToHost undocumented
+	ApplicationGuardBlockClipboardSharingTypeVBlockContainerToHost ApplicationGuardBlockClipboardSharingType = 3
+	// ApplicationGuardBlockClipboardSharingTypeVBlockNone undocumented
+	ApplicationGuardBlockClipboardSharingTypeVBlockNone ApplicationGuardBlockClipboardSharingType = 4
 )
+
+// ApplicationGuardBlockClipboardSharingTypePNotConfigured returns a pointer to ApplicationGuardBlockClipboardSharingTypeVNotConfigured
+func ApplicationGuardBlockClipboardSharingTypePNotConfigured() *ApplicationGuardBlockClipboardSharingType {
+	v := ApplicationGuardBlockClipboardSharingTypeVNotConfigured
+	return &v
+}
+
+// ApplicationGuardBlockClipboardSharingTypePBlockBoth returns a pointer to ApplicationGuardBlockClipboardSharingTypeVBlockBoth
+func ApplicationGuardBlockClipboardSharingTypePBlockBoth() *ApplicationGuardBlockClipboardSharingType {
+	v := ApplicationGuardBlockClipboardSharingTypeVBlockBoth
+	return &v
+}
+
+// ApplicationGuardBlockClipboardSharingTypePBlockHostToContainer returns a pointer to ApplicationGuardBlockClipboardSharingTypeVBlockHostToContainer
+func ApplicationGuardBlockClipboardSharingTypePBlockHostToContainer() *ApplicationGuardBlockClipboardSharingType {
+	v := ApplicationGuardBlockClipboardSharingTypeVBlockHostToContainer
+	return &v
+}
+
+// ApplicationGuardBlockClipboardSharingTypePBlockContainerToHost returns a pointer to ApplicationGuardBlockClipboardSharingTypeVBlockContainerToHost
+func ApplicationGuardBlockClipboardSharingTypePBlockContainerToHost() *ApplicationGuardBlockClipboardSharingType {
+	v := ApplicationGuardBlockClipboardSharingTypeVBlockContainerToHost
+	return &v
+}
+
+// ApplicationGuardBlockClipboardSharingTypePBlockNone returns a pointer to ApplicationGuardBlockClipboardSharingTypeVBlockNone
+func ApplicationGuardBlockClipboardSharingTypePBlockNone() *ApplicationGuardBlockClipboardSharingType {
+	v := ApplicationGuardBlockClipboardSharingTypeVBlockNone
+	return &v
+}
 
 // ApplicationGuardBlockFileTransferType undocumented
 type ApplicationGuardBlockFileTransferType int
 
 const (
-	// ApplicationGuardBlockFileTransferType_NotConfigured undocumented
-	ApplicationGuardBlockFileTransferType_NotConfigured ApplicationGuardBlockFileTransferType = 0
-	// ApplicationGuardBlockFileTransferType_BlockImageAndTextFile undocumented
-	ApplicationGuardBlockFileTransferType_BlockImageAndTextFile ApplicationGuardBlockFileTransferType = 1
-	// ApplicationGuardBlockFileTransferType_BlockImageFile undocumented
-	ApplicationGuardBlockFileTransferType_BlockImageFile ApplicationGuardBlockFileTransferType = 2
-	// ApplicationGuardBlockFileTransferType_BlockNone undocumented
-	ApplicationGuardBlockFileTransferType_BlockNone ApplicationGuardBlockFileTransferType = 3
-	// ApplicationGuardBlockFileTransferType_BlockTextFile undocumented
-	ApplicationGuardBlockFileTransferType_BlockTextFile ApplicationGuardBlockFileTransferType = 4
+	// ApplicationGuardBlockFileTransferTypeVNotConfigured undocumented
+	ApplicationGuardBlockFileTransferTypeVNotConfigured ApplicationGuardBlockFileTransferType = 0
+	// ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile undocumented
+	ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile ApplicationGuardBlockFileTransferType = 1
+	// ApplicationGuardBlockFileTransferTypeVBlockImageFile undocumented
+	ApplicationGuardBlockFileTransferTypeVBlockImageFile ApplicationGuardBlockFileTransferType = 2
+	// ApplicationGuardBlockFileTransferTypeVBlockNone undocumented
+	ApplicationGuardBlockFileTransferTypeVBlockNone ApplicationGuardBlockFileTransferType = 3
+	// ApplicationGuardBlockFileTransferTypeVBlockTextFile undocumented
+	ApplicationGuardBlockFileTransferTypeVBlockTextFile ApplicationGuardBlockFileTransferType = 4
 )
+
+// ApplicationGuardBlockFileTransferTypePNotConfigured returns a pointer to ApplicationGuardBlockFileTransferTypeVNotConfigured
+func ApplicationGuardBlockFileTransferTypePNotConfigured() *ApplicationGuardBlockFileTransferType {
+	v := ApplicationGuardBlockFileTransferTypeVNotConfigured
+	return &v
+}
+
+// ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile
+func ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile() *ApplicationGuardBlockFileTransferType {
+	v := ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile
+	return &v
+}
+
+// ApplicationGuardBlockFileTransferTypePBlockImageFile returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockImageFile
+func ApplicationGuardBlockFileTransferTypePBlockImageFile() *ApplicationGuardBlockFileTransferType {
+	v := ApplicationGuardBlockFileTransferTypeVBlockImageFile
+	return &v
+}
+
+// ApplicationGuardBlockFileTransferTypePBlockNone returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockNone
+func ApplicationGuardBlockFileTransferTypePBlockNone() *ApplicationGuardBlockFileTransferType {
+	v := ApplicationGuardBlockFileTransferTypeVBlockNone
+	return &v
+}
+
+// ApplicationGuardBlockFileTransferTypePBlockTextFile returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockTextFile
+func ApplicationGuardBlockFileTransferTypePBlockTextFile() *ApplicationGuardBlockFileTransferType {
+	v := ApplicationGuardBlockFileTransferTypeVBlockTextFile
+	return &v
+}
 
 // ApplicationType undocumented
 type ApplicationType int
 
 const (
-	// ApplicationType_Universal undocumented
-	ApplicationType_Universal ApplicationType = 1
-	// ApplicationType_Desktop undocumented
-	ApplicationType_Desktop ApplicationType = 2
+	// ApplicationTypeVUniversal undocumented
+	ApplicationTypeVUniversal ApplicationType = 1
+	// ApplicationTypeVDesktop undocumented
+	ApplicationTypeVDesktop ApplicationType = 2
 )
+
+// ApplicationTypePUniversal returns a pointer to ApplicationTypeVUniversal
+func ApplicationTypePUniversal() *ApplicationType {
+	v := ApplicationTypeVUniversal
+	return &v
+}
+
+// ApplicationTypePDesktop returns a pointer to ApplicationTypeVDesktop
+func ApplicationTypePDesktop() *ApplicationType {
+	v := ApplicationTypeVDesktop
+	return &v
+}
 
 // AppliedConditionalAccessPolicyResult undocumented
 type AppliedConditionalAccessPolicyResult int
 
 const (
-	// AppliedConditionalAccessPolicyResult_Success undocumented
-	AppliedConditionalAccessPolicyResult_Success AppliedConditionalAccessPolicyResult = 0
-	// AppliedConditionalAccessPolicyResult_Failure undocumented
-	AppliedConditionalAccessPolicyResult_Failure AppliedConditionalAccessPolicyResult = 1
-	// AppliedConditionalAccessPolicyResult_NotApplied undocumented
-	AppliedConditionalAccessPolicyResult_NotApplied AppliedConditionalAccessPolicyResult = 2
-	// AppliedConditionalAccessPolicyResult_NotEnabled undocumented
-	AppliedConditionalAccessPolicyResult_NotEnabled AppliedConditionalAccessPolicyResult = 3
-	// AppliedConditionalAccessPolicyResult_Unknown undocumented
-	AppliedConditionalAccessPolicyResult_Unknown AppliedConditionalAccessPolicyResult = 4
-	// AppliedConditionalAccessPolicyResult_UnknownFutureValue undocumented
-	AppliedConditionalAccessPolicyResult_UnknownFutureValue AppliedConditionalAccessPolicyResult = 5
+	// AppliedConditionalAccessPolicyResultVSuccess undocumented
+	AppliedConditionalAccessPolicyResultVSuccess AppliedConditionalAccessPolicyResult = 0
+	// AppliedConditionalAccessPolicyResultVFailure undocumented
+	AppliedConditionalAccessPolicyResultVFailure AppliedConditionalAccessPolicyResult = 1
+	// AppliedConditionalAccessPolicyResultVNotApplied undocumented
+	AppliedConditionalAccessPolicyResultVNotApplied AppliedConditionalAccessPolicyResult = 2
+	// AppliedConditionalAccessPolicyResultVNotEnabled undocumented
+	AppliedConditionalAccessPolicyResultVNotEnabled AppliedConditionalAccessPolicyResult = 3
+	// AppliedConditionalAccessPolicyResultVUnknown undocumented
+	AppliedConditionalAccessPolicyResultVUnknown AppliedConditionalAccessPolicyResult = 4
+	// AppliedConditionalAccessPolicyResultVUnknownFutureValue undocumented
+	AppliedConditionalAccessPolicyResultVUnknownFutureValue AppliedConditionalAccessPolicyResult = 5
 )
+
+// AppliedConditionalAccessPolicyResultPSuccess returns a pointer to AppliedConditionalAccessPolicyResultVSuccess
+func AppliedConditionalAccessPolicyResultPSuccess() *AppliedConditionalAccessPolicyResult {
+	v := AppliedConditionalAccessPolicyResultVSuccess
+	return &v
+}
+
+// AppliedConditionalAccessPolicyResultPFailure returns a pointer to AppliedConditionalAccessPolicyResultVFailure
+func AppliedConditionalAccessPolicyResultPFailure() *AppliedConditionalAccessPolicyResult {
+	v := AppliedConditionalAccessPolicyResultVFailure
+	return &v
+}
+
+// AppliedConditionalAccessPolicyResultPNotApplied returns a pointer to AppliedConditionalAccessPolicyResultVNotApplied
+func AppliedConditionalAccessPolicyResultPNotApplied() *AppliedConditionalAccessPolicyResult {
+	v := AppliedConditionalAccessPolicyResultVNotApplied
+	return &v
+}
+
+// AppliedConditionalAccessPolicyResultPNotEnabled returns a pointer to AppliedConditionalAccessPolicyResultVNotEnabled
+func AppliedConditionalAccessPolicyResultPNotEnabled() *AppliedConditionalAccessPolicyResult {
+	v := AppliedConditionalAccessPolicyResultVNotEnabled
+	return &v
+}
+
+// AppliedConditionalAccessPolicyResultPUnknown returns a pointer to AppliedConditionalAccessPolicyResultVUnknown
+func AppliedConditionalAccessPolicyResultPUnknown() *AppliedConditionalAccessPolicyResult {
+	v := AppliedConditionalAccessPolicyResultVUnknown
+	return &v
+}
+
+// AppliedConditionalAccessPolicyResultPUnknownFutureValue returns a pointer to AppliedConditionalAccessPolicyResultVUnknownFutureValue
+func AppliedConditionalAccessPolicyResultPUnknownFutureValue() *AppliedConditionalAccessPolicyResult {
+	v := AppliedConditionalAccessPolicyResultVUnknownFutureValue
+	return &v
+}
 
 // AttendeeType undocumented
 type AttendeeType int
 
 const (
-	// AttendeeType_Required undocumented
-	AttendeeType_Required AttendeeType = 0
-	// AttendeeType_Optional undocumented
-	AttendeeType_Optional AttendeeType = 1
-	// AttendeeType_Resource undocumented
-	AttendeeType_Resource AttendeeType = 2
+	// AttendeeTypeVRequired undocumented
+	AttendeeTypeVRequired AttendeeType = 0
+	// AttendeeTypeVOptional undocumented
+	AttendeeTypeVOptional AttendeeType = 1
+	// AttendeeTypeVResource undocumented
+	AttendeeTypeVResource AttendeeType = 2
 )
+
+// AttendeeTypePRequired returns a pointer to AttendeeTypeVRequired
+func AttendeeTypePRequired() *AttendeeType {
+	v := AttendeeTypeVRequired
+	return &v
+}
+
+// AttendeeTypePOptional returns a pointer to AttendeeTypeVOptional
+func AttendeeTypePOptional() *AttendeeType {
+	v := AttendeeTypeVOptional
+	return &v
+}
+
+// AttendeeTypePResource returns a pointer to AttendeeTypeVResource
+func AttendeeTypePResource() *AttendeeType {
+	v := AttendeeTypeVResource
+	return &v
+}
 
 // AutomaticRepliesStatus undocumented
 type AutomaticRepliesStatus int
 
 const (
-	// AutomaticRepliesStatus_Disabled undocumented
-	AutomaticRepliesStatus_Disabled AutomaticRepliesStatus = 0
-	// AutomaticRepliesStatus_AlwaysEnabled undocumented
-	AutomaticRepliesStatus_AlwaysEnabled AutomaticRepliesStatus = 1
-	// AutomaticRepliesStatus_Scheduled undocumented
-	AutomaticRepliesStatus_Scheduled AutomaticRepliesStatus = 2
+	// AutomaticRepliesStatusVDisabled undocumented
+	AutomaticRepliesStatusVDisabled AutomaticRepliesStatus = 0
+	// AutomaticRepliesStatusVAlwaysEnabled undocumented
+	AutomaticRepliesStatusVAlwaysEnabled AutomaticRepliesStatus = 1
+	// AutomaticRepliesStatusVScheduled undocumented
+	AutomaticRepliesStatusVScheduled AutomaticRepliesStatus = 2
 )
+
+// AutomaticRepliesStatusPDisabled returns a pointer to AutomaticRepliesStatusVDisabled
+func AutomaticRepliesStatusPDisabled() *AutomaticRepliesStatus {
+	v := AutomaticRepliesStatusVDisabled
+	return &v
+}
+
+// AutomaticRepliesStatusPAlwaysEnabled returns a pointer to AutomaticRepliesStatusVAlwaysEnabled
+func AutomaticRepliesStatusPAlwaysEnabled() *AutomaticRepliesStatus {
+	v := AutomaticRepliesStatusVAlwaysEnabled
+	return &v
+}
+
+// AutomaticRepliesStatusPScheduled returns a pointer to AutomaticRepliesStatusVScheduled
+func AutomaticRepliesStatusPScheduled() *AutomaticRepliesStatus {
+	v := AutomaticRepliesStatusVScheduled
+	return &v
+}
 
 // AutomaticUpdateMode undocumented
 type AutomaticUpdateMode int
 
 const (
-	// AutomaticUpdateMode_UserDefined undocumented
-	AutomaticUpdateMode_UserDefined AutomaticUpdateMode = 0
-	// AutomaticUpdateMode_NotifyDownload undocumented
-	AutomaticUpdateMode_NotifyDownload AutomaticUpdateMode = 1
-	// AutomaticUpdateMode_AutoInstallAtMaintenanceTime undocumented
-	AutomaticUpdateMode_AutoInstallAtMaintenanceTime AutomaticUpdateMode = 2
-	// AutomaticUpdateMode_AutoInstallAndRebootAtMaintenanceTime undocumented
-	AutomaticUpdateMode_AutoInstallAndRebootAtMaintenanceTime AutomaticUpdateMode = 3
-	// AutomaticUpdateMode_AutoInstallAndRebootAtScheduledTime undocumented
-	AutomaticUpdateMode_AutoInstallAndRebootAtScheduledTime AutomaticUpdateMode = 4
-	// AutomaticUpdateMode_AutoInstallAndRebootWithoutEndUserControl undocumented
-	AutomaticUpdateMode_AutoInstallAndRebootWithoutEndUserControl AutomaticUpdateMode = 5
+	// AutomaticUpdateModeVUserDefined undocumented
+	AutomaticUpdateModeVUserDefined AutomaticUpdateMode = 0
+	// AutomaticUpdateModeVNotifyDownload undocumented
+	AutomaticUpdateModeVNotifyDownload AutomaticUpdateMode = 1
+	// AutomaticUpdateModeVAutoInstallAtMaintenanceTime undocumented
+	AutomaticUpdateModeVAutoInstallAtMaintenanceTime AutomaticUpdateMode = 2
+	// AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime undocumented
+	AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime AutomaticUpdateMode = 3
+	// AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime undocumented
+	AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime AutomaticUpdateMode = 4
+	// AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl undocumented
+	AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl AutomaticUpdateMode = 5
 )
+
+// AutomaticUpdateModePUserDefined returns a pointer to AutomaticUpdateModeVUserDefined
+func AutomaticUpdateModePUserDefined() *AutomaticUpdateMode {
+	v := AutomaticUpdateModeVUserDefined
+	return &v
+}
+
+// AutomaticUpdateModePNotifyDownload returns a pointer to AutomaticUpdateModeVNotifyDownload
+func AutomaticUpdateModePNotifyDownload() *AutomaticUpdateMode {
+	v := AutomaticUpdateModeVNotifyDownload
+	return &v
+}
+
+// AutomaticUpdateModePAutoInstallAtMaintenanceTime returns a pointer to AutomaticUpdateModeVAutoInstallAtMaintenanceTime
+func AutomaticUpdateModePAutoInstallAtMaintenanceTime() *AutomaticUpdateMode {
+	v := AutomaticUpdateModeVAutoInstallAtMaintenanceTime
+	return &v
+}
+
+// AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime returns a pointer to AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime
+func AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime() *AutomaticUpdateMode {
+	v := AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime
+	return &v
+}
+
+// AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime returns a pointer to AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime
+func AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime() *AutomaticUpdateMode {
+	v := AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime
+	return &v
+}
+
+// AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl returns a pointer to AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl
+func AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl() *AutomaticUpdateMode {
+	v := AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl
+	return &v
+}
 
 // BitLockerEncryptionMethod undocumented
 type BitLockerEncryptionMethod int
 
 const (
-	// BitLockerEncryptionMethod_AesCbc128 undocumented
-	BitLockerEncryptionMethod_AesCbc128 BitLockerEncryptionMethod = 3
-	// BitLockerEncryptionMethod_AesCbc256 undocumented
-	BitLockerEncryptionMethod_AesCbc256 BitLockerEncryptionMethod = 4
-	// BitLockerEncryptionMethod_XtsAes128 undocumented
-	BitLockerEncryptionMethod_XtsAes128 BitLockerEncryptionMethod = 6
-	// BitLockerEncryptionMethod_XtsAes256 undocumented
-	BitLockerEncryptionMethod_XtsAes256 BitLockerEncryptionMethod = 7
+	// BitLockerEncryptionMethodVAesCbc128 undocumented
+	BitLockerEncryptionMethodVAesCbc128 BitLockerEncryptionMethod = 3
+	// BitLockerEncryptionMethodVAesCbc256 undocumented
+	BitLockerEncryptionMethodVAesCbc256 BitLockerEncryptionMethod = 4
+	// BitLockerEncryptionMethodVXtsAes128 undocumented
+	BitLockerEncryptionMethodVXtsAes128 BitLockerEncryptionMethod = 6
+	// BitLockerEncryptionMethodVXtsAes256 undocumented
+	BitLockerEncryptionMethodVXtsAes256 BitLockerEncryptionMethod = 7
 )
+
+// BitLockerEncryptionMethodPAesCbc128 returns a pointer to BitLockerEncryptionMethodVAesCbc128
+func BitLockerEncryptionMethodPAesCbc128() *BitLockerEncryptionMethod {
+	v := BitLockerEncryptionMethodVAesCbc128
+	return &v
+}
+
+// BitLockerEncryptionMethodPAesCbc256 returns a pointer to BitLockerEncryptionMethodVAesCbc256
+func BitLockerEncryptionMethodPAesCbc256() *BitLockerEncryptionMethod {
+	v := BitLockerEncryptionMethodVAesCbc256
+	return &v
+}
+
+// BitLockerEncryptionMethodPXtsAes128 returns a pointer to BitLockerEncryptionMethodVXtsAes128
+func BitLockerEncryptionMethodPXtsAes128() *BitLockerEncryptionMethod {
+	v := BitLockerEncryptionMethodVXtsAes128
+	return &v
+}
+
+// BitLockerEncryptionMethodPXtsAes256 returns a pointer to BitLockerEncryptionMethodVXtsAes256
+func BitLockerEncryptionMethodPXtsAes256() *BitLockerEncryptionMethod {
+	v := BitLockerEncryptionMethodVXtsAes256
+	return &v
+}
 
 // BodyType undocumented
 type BodyType int
 
 const (
-	// BodyType_Text undocumented
-	BodyType_Text BodyType = 0
-	// BodyType_HTML undocumented
-	BodyType_HTML BodyType = 1
+	// BodyTypeVText undocumented
+	BodyTypeVText BodyType = 0
+	// BodyTypeVHTML undocumented
+	BodyTypeVHTML BodyType = 1
 )
+
+// BodyTypePText returns a pointer to BodyTypeVText
+func BodyTypePText() *BodyType {
+	v := BodyTypeVText
+	return &v
+}
+
+// BodyTypePHTML returns a pointer to BodyTypeVHTML
+func BodyTypePHTML() *BodyType {
+	v := BodyTypeVHTML
+	return &v
+}
 
 // CalendarColor undocumented
 type CalendarColor int
 
 const (
-	// CalendarColor_LightBlue undocumented
-	CalendarColor_LightBlue CalendarColor = 0
-	// CalendarColor_LightGreen undocumented
-	CalendarColor_LightGreen CalendarColor = 1
-	// CalendarColor_LightOrange undocumented
-	CalendarColor_LightOrange CalendarColor = 2
-	// CalendarColor_LightGray undocumented
-	CalendarColor_LightGray CalendarColor = 3
-	// CalendarColor_LightYellow undocumented
-	CalendarColor_LightYellow CalendarColor = 4
-	// CalendarColor_LightTeal undocumented
-	CalendarColor_LightTeal CalendarColor = 5
-	// CalendarColor_LightPink undocumented
-	CalendarColor_LightPink CalendarColor = 6
-	// CalendarColor_LightBrown undocumented
-	CalendarColor_LightBrown CalendarColor = 7
-	// CalendarColor_LightRed undocumented
-	CalendarColor_LightRed CalendarColor = 8
-	// CalendarColor_MaxColor undocumented
-	CalendarColor_MaxColor CalendarColor = 9
-	// CalendarColor_Auto undocumented
-	CalendarColor_Auto CalendarColor = -1
+	// CalendarColorVLightBlue undocumented
+	CalendarColorVLightBlue CalendarColor = 0
+	// CalendarColorVLightGreen undocumented
+	CalendarColorVLightGreen CalendarColor = 1
+	// CalendarColorVLightOrange undocumented
+	CalendarColorVLightOrange CalendarColor = 2
+	// CalendarColorVLightGray undocumented
+	CalendarColorVLightGray CalendarColor = 3
+	// CalendarColorVLightYellow undocumented
+	CalendarColorVLightYellow CalendarColor = 4
+	// CalendarColorVLightTeal undocumented
+	CalendarColorVLightTeal CalendarColor = 5
+	// CalendarColorVLightPink undocumented
+	CalendarColorVLightPink CalendarColor = 6
+	// CalendarColorVLightBrown undocumented
+	CalendarColorVLightBrown CalendarColor = 7
+	// CalendarColorVLightRed undocumented
+	CalendarColorVLightRed CalendarColor = 8
+	// CalendarColorVMaxColor undocumented
+	CalendarColorVMaxColor CalendarColor = 9
+	// CalendarColorVAuto undocumented
+	CalendarColorVAuto CalendarColor = -1
 )
+
+// CalendarColorPLightBlue returns a pointer to CalendarColorVLightBlue
+func CalendarColorPLightBlue() *CalendarColor {
+	v := CalendarColorVLightBlue
+	return &v
+}
+
+// CalendarColorPLightGreen returns a pointer to CalendarColorVLightGreen
+func CalendarColorPLightGreen() *CalendarColor {
+	v := CalendarColorVLightGreen
+	return &v
+}
+
+// CalendarColorPLightOrange returns a pointer to CalendarColorVLightOrange
+func CalendarColorPLightOrange() *CalendarColor {
+	v := CalendarColorVLightOrange
+	return &v
+}
+
+// CalendarColorPLightGray returns a pointer to CalendarColorVLightGray
+func CalendarColorPLightGray() *CalendarColor {
+	v := CalendarColorVLightGray
+	return &v
+}
+
+// CalendarColorPLightYellow returns a pointer to CalendarColorVLightYellow
+func CalendarColorPLightYellow() *CalendarColor {
+	v := CalendarColorVLightYellow
+	return &v
+}
+
+// CalendarColorPLightTeal returns a pointer to CalendarColorVLightTeal
+func CalendarColorPLightTeal() *CalendarColor {
+	v := CalendarColorVLightTeal
+	return &v
+}
+
+// CalendarColorPLightPink returns a pointer to CalendarColorVLightPink
+func CalendarColorPLightPink() *CalendarColor {
+	v := CalendarColorVLightPink
+	return &v
+}
+
+// CalendarColorPLightBrown returns a pointer to CalendarColorVLightBrown
+func CalendarColorPLightBrown() *CalendarColor {
+	v := CalendarColorVLightBrown
+	return &v
+}
+
+// CalendarColorPLightRed returns a pointer to CalendarColorVLightRed
+func CalendarColorPLightRed() *CalendarColor {
+	v := CalendarColorVLightRed
+	return &v
+}
+
+// CalendarColorPMaxColor returns a pointer to CalendarColorVMaxColor
+func CalendarColorPMaxColor() *CalendarColor {
+	v := CalendarColorVMaxColor
+	return &v
+}
+
+// CalendarColorPAuto returns a pointer to CalendarColorVAuto
+func CalendarColorPAuto() *CalendarColor {
+	v := CalendarColorVAuto
+	return &v
+}
 
 // CallDirection undocumented
 type CallDirection int
 
 const (
-	// CallDirection_Incoming undocumented
-	CallDirection_Incoming CallDirection = 0
-	// CallDirection_Outgoing undocumented
-	CallDirection_Outgoing CallDirection = 1
+	// CallDirectionVIncoming undocumented
+	CallDirectionVIncoming CallDirection = 0
+	// CallDirectionVOutgoing undocumented
+	CallDirectionVOutgoing CallDirection = 1
 )
+
+// CallDirectionPIncoming returns a pointer to CallDirectionVIncoming
+func CallDirectionPIncoming() *CallDirection {
+	v := CallDirectionVIncoming
+	return &v
+}
+
+// CallDirectionPOutgoing returns a pointer to CallDirectionVOutgoing
+func CallDirectionPOutgoing() *CallDirection {
+	v := CallDirectionVOutgoing
+	return &v
+}
 
 // CallState undocumented
 type CallState int
 
 const (
-	// CallState_Incoming undocumented
-	CallState_Incoming CallState = 0
-	// CallState_Establishing undocumented
-	CallState_Establishing CallState = 1
-	// CallState_Established undocumented
-	CallState_Established CallState = 3
-	// CallState_Hold undocumented
-	CallState_Hold CallState = 4
-	// CallState_Transferring undocumented
-	CallState_Transferring CallState = 5
-	// CallState_TransferAccepted undocumented
-	CallState_TransferAccepted CallState = 6
-	// CallState_Redirecting undocumented
-	CallState_Redirecting CallState = 7
-	// CallState_Terminating undocumented
-	CallState_Terminating CallState = 8
-	// CallState_Terminated undocumented
-	CallState_Terminated CallState = 9
-	// CallState_UnknownFutureValue undocumented
-	CallState_UnknownFutureValue CallState = 10
+	// CallStateVIncoming undocumented
+	CallStateVIncoming CallState = 0
+	// CallStateVEstablishing undocumented
+	CallStateVEstablishing CallState = 1
+	// CallStateVEstablished undocumented
+	CallStateVEstablished CallState = 3
+	// CallStateVHold undocumented
+	CallStateVHold CallState = 4
+	// CallStateVTransferring undocumented
+	CallStateVTransferring CallState = 5
+	// CallStateVTransferAccepted undocumented
+	CallStateVTransferAccepted CallState = 6
+	// CallStateVRedirecting undocumented
+	CallStateVRedirecting CallState = 7
+	// CallStateVTerminating undocumented
+	CallStateVTerminating CallState = 8
+	// CallStateVTerminated undocumented
+	CallStateVTerminated CallState = 9
+	// CallStateVUnknownFutureValue undocumented
+	CallStateVUnknownFutureValue CallState = 10
 )
+
+// CallStatePIncoming returns a pointer to CallStateVIncoming
+func CallStatePIncoming() *CallState {
+	v := CallStateVIncoming
+	return &v
+}
+
+// CallStatePEstablishing returns a pointer to CallStateVEstablishing
+func CallStatePEstablishing() *CallState {
+	v := CallStateVEstablishing
+	return &v
+}
+
+// CallStatePEstablished returns a pointer to CallStateVEstablished
+func CallStatePEstablished() *CallState {
+	v := CallStateVEstablished
+	return &v
+}
+
+// CallStatePHold returns a pointer to CallStateVHold
+func CallStatePHold() *CallState {
+	v := CallStateVHold
+	return &v
+}
+
+// CallStatePTransferring returns a pointer to CallStateVTransferring
+func CallStatePTransferring() *CallState {
+	v := CallStateVTransferring
+	return &v
+}
+
+// CallStatePTransferAccepted returns a pointer to CallStateVTransferAccepted
+func CallStatePTransferAccepted() *CallState {
+	v := CallStateVTransferAccepted
+	return &v
+}
+
+// CallStatePRedirecting returns a pointer to CallStateVRedirecting
+func CallStatePRedirecting() *CallState {
+	v := CallStateVRedirecting
+	return &v
+}
+
+// CallStatePTerminating returns a pointer to CallStateVTerminating
+func CallStatePTerminating() *CallState {
+	v := CallStateVTerminating
+	return &v
+}
+
+// CallStatePTerminated returns a pointer to CallStateVTerminated
+func CallStatePTerminated() *CallState {
+	v := CallStateVTerminated
+	return &v
+}
+
+// CallStatePUnknownFutureValue returns a pointer to CallStateVUnknownFutureValue
+func CallStatePUnknownFutureValue() *CallState {
+	v := CallStateVUnknownFutureValue
+	return &v
+}
 
 // CategoryColor undocumented
 type CategoryColor int
 
 const (
-	// CategoryColor_Preset0 undocumented
-	CategoryColor_Preset0 CategoryColor = 0
-	// CategoryColor_Preset1 undocumented
-	CategoryColor_Preset1 CategoryColor = 1
-	// CategoryColor_Preset2 undocumented
-	CategoryColor_Preset2 CategoryColor = 2
-	// CategoryColor_Preset3 undocumented
-	CategoryColor_Preset3 CategoryColor = 3
-	// CategoryColor_Preset4 undocumented
-	CategoryColor_Preset4 CategoryColor = 4
-	// CategoryColor_Preset5 undocumented
-	CategoryColor_Preset5 CategoryColor = 5
-	// CategoryColor_Preset6 undocumented
-	CategoryColor_Preset6 CategoryColor = 6
-	// CategoryColor_Preset7 undocumented
-	CategoryColor_Preset7 CategoryColor = 7
-	// CategoryColor_Preset8 undocumented
-	CategoryColor_Preset8 CategoryColor = 8
-	// CategoryColor_Preset9 undocumented
-	CategoryColor_Preset9 CategoryColor = 9
-	// CategoryColor_Preset10 undocumented
-	CategoryColor_Preset10 CategoryColor = 10
-	// CategoryColor_Preset11 undocumented
-	CategoryColor_Preset11 CategoryColor = 11
-	// CategoryColor_Preset12 undocumented
-	CategoryColor_Preset12 CategoryColor = 12
-	// CategoryColor_Preset13 undocumented
-	CategoryColor_Preset13 CategoryColor = 13
-	// CategoryColor_Preset14 undocumented
-	CategoryColor_Preset14 CategoryColor = 14
-	// CategoryColor_Preset15 undocumented
-	CategoryColor_Preset15 CategoryColor = 15
-	// CategoryColor_Preset16 undocumented
-	CategoryColor_Preset16 CategoryColor = 16
-	// CategoryColor_Preset17 undocumented
-	CategoryColor_Preset17 CategoryColor = 17
-	// CategoryColor_Preset18 undocumented
-	CategoryColor_Preset18 CategoryColor = 18
-	// CategoryColor_Preset19 undocumented
-	CategoryColor_Preset19 CategoryColor = 19
-	// CategoryColor_Preset20 undocumented
-	CategoryColor_Preset20 CategoryColor = 20
-	// CategoryColor_Preset21 undocumented
-	CategoryColor_Preset21 CategoryColor = 21
-	// CategoryColor_Preset22 undocumented
-	CategoryColor_Preset22 CategoryColor = 22
-	// CategoryColor_Preset23 undocumented
-	CategoryColor_Preset23 CategoryColor = 23
-	// CategoryColor_Preset24 undocumented
-	CategoryColor_Preset24 CategoryColor = 24
-	// CategoryColor_None undocumented
-	CategoryColor_None CategoryColor = -1
+	// CategoryColorVPreset0 undocumented
+	CategoryColorVPreset0 CategoryColor = 0
+	// CategoryColorVPreset1 undocumented
+	CategoryColorVPreset1 CategoryColor = 1
+	// CategoryColorVPreset2 undocumented
+	CategoryColorVPreset2 CategoryColor = 2
+	// CategoryColorVPreset3 undocumented
+	CategoryColorVPreset3 CategoryColor = 3
+	// CategoryColorVPreset4 undocumented
+	CategoryColorVPreset4 CategoryColor = 4
+	// CategoryColorVPreset5 undocumented
+	CategoryColorVPreset5 CategoryColor = 5
+	// CategoryColorVPreset6 undocumented
+	CategoryColorVPreset6 CategoryColor = 6
+	// CategoryColorVPreset7 undocumented
+	CategoryColorVPreset7 CategoryColor = 7
+	// CategoryColorVPreset8 undocumented
+	CategoryColorVPreset8 CategoryColor = 8
+	// CategoryColorVPreset9 undocumented
+	CategoryColorVPreset9 CategoryColor = 9
+	// CategoryColorVPreset10 undocumented
+	CategoryColorVPreset10 CategoryColor = 10
+	// CategoryColorVPreset11 undocumented
+	CategoryColorVPreset11 CategoryColor = 11
+	// CategoryColorVPreset12 undocumented
+	CategoryColorVPreset12 CategoryColor = 12
+	// CategoryColorVPreset13 undocumented
+	CategoryColorVPreset13 CategoryColor = 13
+	// CategoryColorVPreset14 undocumented
+	CategoryColorVPreset14 CategoryColor = 14
+	// CategoryColorVPreset15 undocumented
+	CategoryColorVPreset15 CategoryColor = 15
+	// CategoryColorVPreset16 undocumented
+	CategoryColorVPreset16 CategoryColor = 16
+	// CategoryColorVPreset17 undocumented
+	CategoryColorVPreset17 CategoryColor = 17
+	// CategoryColorVPreset18 undocumented
+	CategoryColorVPreset18 CategoryColor = 18
+	// CategoryColorVPreset19 undocumented
+	CategoryColorVPreset19 CategoryColor = 19
+	// CategoryColorVPreset20 undocumented
+	CategoryColorVPreset20 CategoryColor = 20
+	// CategoryColorVPreset21 undocumented
+	CategoryColorVPreset21 CategoryColor = 21
+	// CategoryColorVPreset22 undocumented
+	CategoryColorVPreset22 CategoryColor = 22
+	// CategoryColorVPreset23 undocumented
+	CategoryColorVPreset23 CategoryColor = 23
+	// CategoryColorVPreset24 undocumented
+	CategoryColorVPreset24 CategoryColor = 24
+	// CategoryColorVNone undocumented
+	CategoryColorVNone CategoryColor = -1
 )
+
+// CategoryColorPPreset0 returns a pointer to CategoryColorVPreset0
+func CategoryColorPPreset0() *CategoryColor {
+	v := CategoryColorVPreset0
+	return &v
+}
+
+// CategoryColorPPreset1 returns a pointer to CategoryColorVPreset1
+func CategoryColorPPreset1() *CategoryColor {
+	v := CategoryColorVPreset1
+	return &v
+}
+
+// CategoryColorPPreset2 returns a pointer to CategoryColorVPreset2
+func CategoryColorPPreset2() *CategoryColor {
+	v := CategoryColorVPreset2
+	return &v
+}
+
+// CategoryColorPPreset3 returns a pointer to CategoryColorVPreset3
+func CategoryColorPPreset3() *CategoryColor {
+	v := CategoryColorVPreset3
+	return &v
+}
+
+// CategoryColorPPreset4 returns a pointer to CategoryColorVPreset4
+func CategoryColorPPreset4() *CategoryColor {
+	v := CategoryColorVPreset4
+	return &v
+}
+
+// CategoryColorPPreset5 returns a pointer to CategoryColorVPreset5
+func CategoryColorPPreset5() *CategoryColor {
+	v := CategoryColorVPreset5
+	return &v
+}
+
+// CategoryColorPPreset6 returns a pointer to CategoryColorVPreset6
+func CategoryColorPPreset6() *CategoryColor {
+	v := CategoryColorVPreset6
+	return &v
+}
+
+// CategoryColorPPreset7 returns a pointer to CategoryColorVPreset7
+func CategoryColorPPreset7() *CategoryColor {
+	v := CategoryColorVPreset7
+	return &v
+}
+
+// CategoryColorPPreset8 returns a pointer to CategoryColorVPreset8
+func CategoryColorPPreset8() *CategoryColor {
+	v := CategoryColorVPreset8
+	return &v
+}
+
+// CategoryColorPPreset9 returns a pointer to CategoryColorVPreset9
+func CategoryColorPPreset9() *CategoryColor {
+	v := CategoryColorVPreset9
+	return &v
+}
+
+// CategoryColorPPreset10 returns a pointer to CategoryColorVPreset10
+func CategoryColorPPreset10() *CategoryColor {
+	v := CategoryColorVPreset10
+	return &v
+}
+
+// CategoryColorPPreset11 returns a pointer to CategoryColorVPreset11
+func CategoryColorPPreset11() *CategoryColor {
+	v := CategoryColorVPreset11
+	return &v
+}
+
+// CategoryColorPPreset12 returns a pointer to CategoryColorVPreset12
+func CategoryColorPPreset12() *CategoryColor {
+	v := CategoryColorVPreset12
+	return &v
+}
+
+// CategoryColorPPreset13 returns a pointer to CategoryColorVPreset13
+func CategoryColorPPreset13() *CategoryColor {
+	v := CategoryColorVPreset13
+	return &v
+}
+
+// CategoryColorPPreset14 returns a pointer to CategoryColorVPreset14
+func CategoryColorPPreset14() *CategoryColor {
+	v := CategoryColorVPreset14
+	return &v
+}
+
+// CategoryColorPPreset15 returns a pointer to CategoryColorVPreset15
+func CategoryColorPPreset15() *CategoryColor {
+	v := CategoryColorVPreset15
+	return &v
+}
+
+// CategoryColorPPreset16 returns a pointer to CategoryColorVPreset16
+func CategoryColorPPreset16() *CategoryColor {
+	v := CategoryColorVPreset16
+	return &v
+}
+
+// CategoryColorPPreset17 returns a pointer to CategoryColorVPreset17
+func CategoryColorPPreset17() *CategoryColor {
+	v := CategoryColorVPreset17
+	return &v
+}
+
+// CategoryColorPPreset18 returns a pointer to CategoryColorVPreset18
+func CategoryColorPPreset18() *CategoryColor {
+	v := CategoryColorVPreset18
+	return &v
+}
+
+// CategoryColorPPreset19 returns a pointer to CategoryColorVPreset19
+func CategoryColorPPreset19() *CategoryColor {
+	v := CategoryColorVPreset19
+	return &v
+}
+
+// CategoryColorPPreset20 returns a pointer to CategoryColorVPreset20
+func CategoryColorPPreset20() *CategoryColor {
+	v := CategoryColorVPreset20
+	return &v
+}
+
+// CategoryColorPPreset21 returns a pointer to CategoryColorVPreset21
+func CategoryColorPPreset21() *CategoryColor {
+	v := CategoryColorVPreset21
+	return &v
+}
+
+// CategoryColorPPreset22 returns a pointer to CategoryColorVPreset22
+func CategoryColorPPreset22() *CategoryColor {
+	v := CategoryColorVPreset22
+	return &v
+}
+
+// CategoryColorPPreset23 returns a pointer to CategoryColorVPreset23
+func CategoryColorPPreset23() *CategoryColor {
+	v := CategoryColorVPreset23
+	return &v
+}
+
+// CategoryColorPPreset24 returns a pointer to CategoryColorVPreset24
+func CategoryColorPPreset24() *CategoryColor {
+	v := CategoryColorVPreset24
+	return &v
+}
+
+// CategoryColorPNone returns a pointer to CategoryColorVNone
+func CategoryColorPNone() *CategoryColor {
+	v := CategoryColorVNone
+	return &v
+}
 
 // ChangeType undocumented
 type ChangeType int
 
 const (
-	// ChangeType_Created undocumented
-	ChangeType_Created ChangeType = 0
-	// ChangeType_Updated undocumented
-	ChangeType_Updated ChangeType = 1
-	// ChangeType_Deleted undocumented
-	ChangeType_Deleted ChangeType = 2
+	// ChangeTypeVCreated undocumented
+	ChangeTypeVCreated ChangeType = 0
+	// ChangeTypeVUpdated undocumented
+	ChangeTypeVUpdated ChangeType = 1
+	// ChangeTypeVDeleted undocumented
+	ChangeTypeVDeleted ChangeType = 2
 )
+
+// ChangeTypePCreated returns a pointer to ChangeTypeVCreated
+func ChangeTypePCreated() *ChangeType {
+	v := ChangeTypeVCreated
+	return &v
+}
+
+// ChangeTypePUpdated returns a pointer to ChangeTypeVUpdated
+func ChangeTypePUpdated() *ChangeType {
+	v := ChangeTypeVUpdated
+	return &v
+}
+
+// ChangeTypePDeleted returns a pointer to ChangeTypeVDeleted
+func ChangeTypePDeleted() *ChangeType {
+	v := ChangeTypeVDeleted
+	return &v
+}
 
 // ClonableTeamParts undocumented
 type ClonableTeamParts int
 
 const (
-	// ClonableTeamParts_Apps undocumented
-	ClonableTeamParts_Apps ClonableTeamParts = 1
-	// ClonableTeamParts_Tabs undocumented
-	ClonableTeamParts_Tabs ClonableTeamParts = 2
-	// ClonableTeamParts_Settings undocumented
-	ClonableTeamParts_Settings ClonableTeamParts = 4
-	// ClonableTeamParts_Channels undocumented
-	ClonableTeamParts_Channels ClonableTeamParts = 8
-	// ClonableTeamParts_Members undocumented
-	ClonableTeamParts_Members ClonableTeamParts = 16
+	// ClonableTeamPartsVApps undocumented
+	ClonableTeamPartsVApps ClonableTeamParts = 1
+	// ClonableTeamPartsVTabs undocumented
+	ClonableTeamPartsVTabs ClonableTeamParts = 2
+	// ClonableTeamPartsVSettings undocumented
+	ClonableTeamPartsVSettings ClonableTeamParts = 4
+	// ClonableTeamPartsVChannels undocumented
+	ClonableTeamPartsVChannels ClonableTeamParts = 8
+	// ClonableTeamPartsVMembers undocumented
+	ClonableTeamPartsVMembers ClonableTeamParts = 16
 )
+
+// ClonableTeamPartsPApps returns a pointer to ClonableTeamPartsVApps
+func ClonableTeamPartsPApps() *ClonableTeamParts {
+	v := ClonableTeamPartsVApps
+	return &v
+}
+
+// ClonableTeamPartsPTabs returns a pointer to ClonableTeamPartsVTabs
+func ClonableTeamPartsPTabs() *ClonableTeamParts {
+	v := ClonableTeamPartsVTabs
+	return &v
+}
+
+// ClonableTeamPartsPSettings returns a pointer to ClonableTeamPartsVSettings
+func ClonableTeamPartsPSettings() *ClonableTeamParts {
+	v := ClonableTeamPartsVSettings
+	return &v
+}
+
+// ClonableTeamPartsPChannels returns a pointer to ClonableTeamPartsVChannels
+func ClonableTeamPartsPChannels() *ClonableTeamParts {
+	v := ClonableTeamPartsVChannels
+	return &v
+}
+
+// ClonableTeamPartsPMembers returns a pointer to ClonableTeamPartsVMembers
+func ClonableTeamPartsPMembers() *ClonableTeamParts {
+	v := ClonableTeamPartsVMembers
+	return &v
+}
 
 // ComplianceState undocumented
 type ComplianceState int
 
 const (
-	// ComplianceState_Unknown undocumented
-	ComplianceState_Unknown ComplianceState = 0
-	// ComplianceState_Compliant undocumented
-	ComplianceState_Compliant ComplianceState = 1
-	// ComplianceState_Noncompliant undocumented
-	ComplianceState_Noncompliant ComplianceState = 2
-	// ComplianceState_Conflict undocumented
-	ComplianceState_Conflict ComplianceState = 3
-	// ComplianceState_Error undocumented
-	ComplianceState_Error ComplianceState = 4
-	// ComplianceState_InGracePeriod undocumented
-	ComplianceState_InGracePeriod ComplianceState = 254
-	// ComplianceState_ConfigManager undocumented
-	ComplianceState_ConfigManager ComplianceState = 255
+	// ComplianceStateVUnknown undocumented
+	ComplianceStateVUnknown ComplianceState = 0
+	// ComplianceStateVCompliant undocumented
+	ComplianceStateVCompliant ComplianceState = 1
+	// ComplianceStateVNoncompliant undocumented
+	ComplianceStateVNoncompliant ComplianceState = 2
+	// ComplianceStateVConflict undocumented
+	ComplianceStateVConflict ComplianceState = 3
+	// ComplianceStateVError undocumented
+	ComplianceStateVError ComplianceState = 4
+	// ComplianceStateVInGracePeriod undocumented
+	ComplianceStateVInGracePeriod ComplianceState = 254
+	// ComplianceStateVConfigManager undocumented
+	ComplianceStateVConfigManager ComplianceState = 255
 )
+
+// ComplianceStatePUnknown returns a pointer to ComplianceStateVUnknown
+func ComplianceStatePUnknown() *ComplianceState {
+	v := ComplianceStateVUnknown
+	return &v
+}
+
+// ComplianceStatePCompliant returns a pointer to ComplianceStateVCompliant
+func ComplianceStatePCompliant() *ComplianceState {
+	v := ComplianceStateVCompliant
+	return &v
+}
+
+// ComplianceStatePNoncompliant returns a pointer to ComplianceStateVNoncompliant
+func ComplianceStatePNoncompliant() *ComplianceState {
+	v := ComplianceStateVNoncompliant
+	return &v
+}
+
+// ComplianceStatePConflict returns a pointer to ComplianceStateVConflict
+func ComplianceStatePConflict() *ComplianceState {
+	v := ComplianceStateVConflict
+	return &v
+}
+
+// ComplianceStatePError returns a pointer to ComplianceStateVError
+func ComplianceStatePError() *ComplianceState {
+	v := ComplianceStateVError
+	return &v
+}
+
+// ComplianceStatePInGracePeriod returns a pointer to ComplianceStateVInGracePeriod
+func ComplianceStatePInGracePeriod() *ComplianceState {
+	v := ComplianceStateVInGracePeriod
+	return &v
+}
+
+// ComplianceStatePConfigManager returns a pointer to ComplianceStateVConfigManager
+func ComplianceStatePConfigManager() *ComplianceState {
+	v := ComplianceStateVConfigManager
+	return &v
+}
 
 // ComplianceStatus undocumented
 type ComplianceStatus int
 
 const (
-	// ComplianceStatus_Unknown undocumented
-	ComplianceStatus_Unknown ComplianceStatus = 0
-	// ComplianceStatus_NotApplicable undocumented
-	ComplianceStatus_NotApplicable ComplianceStatus = 1
-	// ComplianceStatus_Compliant undocumented
-	ComplianceStatus_Compliant ComplianceStatus = 2
-	// ComplianceStatus_Remediated undocumented
-	ComplianceStatus_Remediated ComplianceStatus = 3
-	// ComplianceStatus_NonCompliant undocumented
-	ComplianceStatus_NonCompliant ComplianceStatus = 4
-	// ComplianceStatus_Error undocumented
-	ComplianceStatus_Error ComplianceStatus = 5
-	// ComplianceStatus_Conflict undocumented
-	ComplianceStatus_Conflict ComplianceStatus = 6
-	// ComplianceStatus_NotAssigned undocumented
-	ComplianceStatus_NotAssigned ComplianceStatus = 7
+	// ComplianceStatusVUnknown undocumented
+	ComplianceStatusVUnknown ComplianceStatus = 0
+	// ComplianceStatusVNotApplicable undocumented
+	ComplianceStatusVNotApplicable ComplianceStatus = 1
+	// ComplianceStatusVCompliant undocumented
+	ComplianceStatusVCompliant ComplianceStatus = 2
+	// ComplianceStatusVRemediated undocumented
+	ComplianceStatusVRemediated ComplianceStatus = 3
+	// ComplianceStatusVNonCompliant undocumented
+	ComplianceStatusVNonCompliant ComplianceStatus = 4
+	// ComplianceStatusVError undocumented
+	ComplianceStatusVError ComplianceStatus = 5
+	// ComplianceStatusVConflict undocumented
+	ComplianceStatusVConflict ComplianceStatus = 6
+	// ComplianceStatusVNotAssigned undocumented
+	ComplianceStatusVNotAssigned ComplianceStatus = 7
 )
+
+// ComplianceStatusPUnknown returns a pointer to ComplianceStatusVUnknown
+func ComplianceStatusPUnknown() *ComplianceStatus {
+	v := ComplianceStatusVUnknown
+	return &v
+}
+
+// ComplianceStatusPNotApplicable returns a pointer to ComplianceStatusVNotApplicable
+func ComplianceStatusPNotApplicable() *ComplianceStatus {
+	v := ComplianceStatusVNotApplicable
+	return &v
+}
+
+// ComplianceStatusPCompliant returns a pointer to ComplianceStatusVCompliant
+func ComplianceStatusPCompliant() *ComplianceStatus {
+	v := ComplianceStatusVCompliant
+	return &v
+}
+
+// ComplianceStatusPRemediated returns a pointer to ComplianceStatusVRemediated
+func ComplianceStatusPRemediated() *ComplianceStatus {
+	v := ComplianceStatusVRemediated
+	return &v
+}
+
+// ComplianceStatusPNonCompliant returns a pointer to ComplianceStatusVNonCompliant
+func ComplianceStatusPNonCompliant() *ComplianceStatus {
+	v := ComplianceStatusVNonCompliant
+	return &v
+}
+
+// ComplianceStatusPError returns a pointer to ComplianceStatusVError
+func ComplianceStatusPError() *ComplianceStatus {
+	v := ComplianceStatusVError
+	return &v
+}
+
+// ComplianceStatusPConflict returns a pointer to ComplianceStatusVConflict
+func ComplianceStatusPConflict() *ComplianceStatus {
+	v := ComplianceStatusVConflict
+	return &v
+}
+
+// ComplianceStatusPNotAssigned returns a pointer to ComplianceStatusVNotAssigned
+func ComplianceStatusPNotAssigned() *ComplianceStatus {
+	v := ComplianceStatusVNotAssigned
+	return &v
+}
 
 // ConditionalAccessStatus undocumented
 type ConditionalAccessStatus int
 
 const (
-	// ConditionalAccessStatus_Success undocumented
-	ConditionalAccessStatus_Success ConditionalAccessStatus = 0
-	// ConditionalAccessStatus_Failure undocumented
-	ConditionalAccessStatus_Failure ConditionalAccessStatus = 1
-	// ConditionalAccessStatus_NotApplied undocumented
-	ConditionalAccessStatus_NotApplied ConditionalAccessStatus = 2
-	// ConditionalAccessStatus_UnknownFutureValue undocumented
-	ConditionalAccessStatus_UnknownFutureValue ConditionalAccessStatus = 3
+	// ConditionalAccessStatusVSuccess undocumented
+	ConditionalAccessStatusVSuccess ConditionalAccessStatus = 0
+	// ConditionalAccessStatusVFailure undocumented
+	ConditionalAccessStatusVFailure ConditionalAccessStatus = 1
+	// ConditionalAccessStatusVNotApplied undocumented
+	ConditionalAccessStatusVNotApplied ConditionalAccessStatus = 2
+	// ConditionalAccessStatusVUnknownFutureValue undocumented
+	ConditionalAccessStatusVUnknownFutureValue ConditionalAccessStatus = 3
 )
+
+// ConditionalAccessStatusPSuccess returns a pointer to ConditionalAccessStatusVSuccess
+func ConditionalAccessStatusPSuccess() *ConditionalAccessStatus {
+	v := ConditionalAccessStatusVSuccess
+	return &v
+}
+
+// ConditionalAccessStatusPFailure returns a pointer to ConditionalAccessStatusVFailure
+func ConditionalAccessStatusPFailure() *ConditionalAccessStatus {
+	v := ConditionalAccessStatusVFailure
+	return &v
+}
+
+// ConditionalAccessStatusPNotApplied returns a pointer to ConditionalAccessStatusVNotApplied
+func ConditionalAccessStatusPNotApplied() *ConditionalAccessStatus {
+	v := ConditionalAccessStatusVNotApplied
+	return &v
+}
+
+// ConditionalAccessStatusPUnknownFutureValue returns a pointer to ConditionalAccessStatusVUnknownFutureValue
+func ConditionalAccessStatusPUnknownFutureValue() *ConditionalAccessStatus {
+	v := ConditionalAccessStatusVUnknownFutureValue
+	return &v
+}
 
 // ConnectionDirection undocumented
 type ConnectionDirection int
 
 const (
-	// ConnectionDirection_Unknown undocumented
-	ConnectionDirection_Unknown ConnectionDirection = 0
-	// ConnectionDirection_Inbound undocumented
-	ConnectionDirection_Inbound ConnectionDirection = 1
-	// ConnectionDirection_Outbound undocumented
-	ConnectionDirection_Outbound ConnectionDirection = 2
-	// ConnectionDirection_UnknownFutureValue undocumented
-	ConnectionDirection_UnknownFutureValue ConnectionDirection = 127
+	// ConnectionDirectionVUnknown undocumented
+	ConnectionDirectionVUnknown ConnectionDirection = 0
+	// ConnectionDirectionVInbound undocumented
+	ConnectionDirectionVInbound ConnectionDirection = 1
+	// ConnectionDirectionVOutbound undocumented
+	ConnectionDirectionVOutbound ConnectionDirection = 2
+	// ConnectionDirectionVUnknownFutureValue undocumented
+	ConnectionDirectionVUnknownFutureValue ConnectionDirection = 127
 )
+
+// ConnectionDirectionPUnknown returns a pointer to ConnectionDirectionVUnknown
+func ConnectionDirectionPUnknown() *ConnectionDirection {
+	v := ConnectionDirectionVUnknown
+	return &v
+}
+
+// ConnectionDirectionPInbound returns a pointer to ConnectionDirectionVInbound
+func ConnectionDirectionPInbound() *ConnectionDirection {
+	v := ConnectionDirectionVInbound
+	return &v
+}
+
+// ConnectionDirectionPOutbound returns a pointer to ConnectionDirectionVOutbound
+func ConnectionDirectionPOutbound() *ConnectionDirection {
+	v := ConnectionDirectionVOutbound
+	return &v
+}
+
+// ConnectionDirectionPUnknownFutureValue returns a pointer to ConnectionDirectionVUnknownFutureValue
+func ConnectionDirectionPUnknownFutureValue() *ConnectionDirection {
+	v := ConnectionDirectionVUnknownFutureValue
+	return &v
+}
 
 // ConnectionStatus undocumented
 type ConnectionStatus int
 
 const (
-	// ConnectionStatus_Unknown undocumented
-	ConnectionStatus_Unknown ConnectionStatus = 0
-	// ConnectionStatus_Attempted undocumented
-	ConnectionStatus_Attempted ConnectionStatus = 1
-	// ConnectionStatus_Succeeded undocumented
-	ConnectionStatus_Succeeded ConnectionStatus = 2
-	// ConnectionStatus_Blocked undocumented
-	ConnectionStatus_Blocked ConnectionStatus = 3
-	// ConnectionStatus_Failed undocumented
-	ConnectionStatus_Failed ConnectionStatus = 4
-	// ConnectionStatus_UnknownFutureValue undocumented
-	ConnectionStatus_UnknownFutureValue ConnectionStatus = 127
+	// ConnectionStatusVUnknown undocumented
+	ConnectionStatusVUnknown ConnectionStatus = 0
+	// ConnectionStatusVAttempted undocumented
+	ConnectionStatusVAttempted ConnectionStatus = 1
+	// ConnectionStatusVSucceeded undocumented
+	ConnectionStatusVSucceeded ConnectionStatus = 2
+	// ConnectionStatusVBlocked undocumented
+	ConnectionStatusVBlocked ConnectionStatus = 3
+	// ConnectionStatusVFailed undocumented
+	ConnectionStatusVFailed ConnectionStatus = 4
+	// ConnectionStatusVUnknownFutureValue undocumented
+	ConnectionStatusVUnknownFutureValue ConnectionStatus = 127
 )
+
+// ConnectionStatusPUnknown returns a pointer to ConnectionStatusVUnknown
+func ConnectionStatusPUnknown() *ConnectionStatus {
+	v := ConnectionStatusVUnknown
+	return &v
+}
+
+// ConnectionStatusPAttempted returns a pointer to ConnectionStatusVAttempted
+func ConnectionStatusPAttempted() *ConnectionStatus {
+	v := ConnectionStatusVAttempted
+	return &v
+}
+
+// ConnectionStatusPSucceeded returns a pointer to ConnectionStatusVSucceeded
+func ConnectionStatusPSucceeded() *ConnectionStatus {
+	v := ConnectionStatusVSucceeded
+	return &v
+}
+
+// ConnectionStatusPBlocked returns a pointer to ConnectionStatusVBlocked
+func ConnectionStatusPBlocked() *ConnectionStatus {
+	v := ConnectionStatusVBlocked
+	return &v
+}
+
+// ConnectionStatusPFailed returns a pointer to ConnectionStatusVFailed
+func ConnectionStatusPFailed() *ConnectionStatus {
+	v := ConnectionStatusVFailed
+	return &v
+}
+
+// ConnectionStatusPUnknownFutureValue returns a pointer to ConnectionStatusVUnknownFutureValue
+func ConnectionStatusPUnknownFutureValue() *ConnectionStatus {
+	v := ConnectionStatusVUnknownFutureValue
+	return &v
+}
 
 // DataPolicyOperationStatus undocumented
 type DataPolicyOperationStatus int
 
 const (
-	// DataPolicyOperationStatus_NotStarted undocumented
-	DataPolicyOperationStatus_NotStarted DataPolicyOperationStatus = 0
-	// DataPolicyOperationStatus_Running undocumented
-	DataPolicyOperationStatus_Running DataPolicyOperationStatus = 1
-	// DataPolicyOperationStatus_Complete undocumented
-	DataPolicyOperationStatus_Complete DataPolicyOperationStatus = 2
-	// DataPolicyOperationStatus_Failed undocumented
-	DataPolicyOperationStatus_Failed DataPolicyOperationStatus = 3
-	// DataPolicyOperationStatus_UnknownFutureValue undocumented
-	DataPolicyOperationStatus_UnknownFutureValue DataPolicyOperationStatus = 4
+	// DataPolicyOperationStatusVNotStarted undocumented
+	DataPolicyOperationStatusVNotStarted DataPolicyOperationStatus = 0
+	// DataPolicyOperationStatusVRunning undocumented
+	DataPolicyOperationStatusVRunning DataPolicyOperationStatus = 1
+	// DataPolicyOperationStatusVComplete undocumented
+	DataPolicyOperationStatusVComplete DataPolicyOperationStatus = 2
+	// DataPolicyOperationStatusVFailed undocumented
+	DataPolicyOperationStatusVFailed DataPolicyOperationStatus = 3
+	// DataPolicyOperationStatusVUnknownFutureValue undocumented
+	DataPolicyOperationStatusVUnknownFutureValue DataPolicyOperationStatus = 4
 )
+
+// DataPolicyOperationStatusPNotStarted returns a pointer to DataPolicyOperationStatusVNotStarted
+func DataPolicyOperationStatusPNotStarted() *DataPolicyOperationStatus {
+	v := DataPolicyOperationStatusVNotStarted
+	return &v
+}
+
+// DataPolicyOperationStatusPRunning returns a pointer to DataPolicyOperationStatusVRunning
+func DataPolicyOperationStatusPRunning() *DataPolicyOperationStatus {
+	v := DataPolicyOperationStatusVRunning
+	return &v
+}
+
+// DataPolicyOperationStatusPComplete returns a pointer to DataPolicyOperationStatusVComplete
+func DataPolicyOperationStatusPComplete() *DataPolicyOperationStatus {
+	v := DataPolicyOperationStatusVComplete
+	return &v
+}
+
+// DataPolicyOperationStatusPFailed returns a pointer to DataPolicyOperationStatusVFailed
+func DataPolicyOperationStatusPFailed() *DataPolicyOperationStatus {
+	v := DataPolicyOperationStatusVFailed
+	return &v
+}
+
+// DataPolicyOperationStatusPUnknownFutureValue returns a pointer to DataPolicyOperationStatusVUnknownFutureValue
+func DataPolicyOperationStatusPUnknownFutureValue() *DataPolicyOperationStatus {
+	v := DataPolicyOperationStatusVUnknownFutureValue
+	return &v
+}
 
 // DayOfWeek undocumented
 type DayOfWeek int
 
 const (
-	// DayOfWeek_Sunday undocumented
-	DayOfWeek_Sunday DayOfWeek = 0
-	// DayOfWeek_Monday undocumented
-	DayOfWeek_Monday DayOfWeek = 1
-	// DayOfWeek_Tuesday undocumented
-	DayOfWeek_Tuesday DayOfWeek = 2
-	// DayOfWeek_Wednesday undocumented
-	DayOfWeek_Wednesday DayOfWeek = 3
-	// DayOfWeek_Thursday undocumented
-	DayOfWeek_Thursday DayOfWeek = 4
-	// DayOfWeek_Friday undocumented
-	DayOfWeek_Friday DayOfWeek = 5
-	// DayOfWeek_Saturday undocumented
-	DayOfWeek_Saturday DayOfWeek = 6
+	// DayOfWeekVSunday undocumented
+	DayOfWeekVSunday DayOfWeek = 0
+	// DayOfWeekVMonday undocumented
+	DayOfWeekVMonday DayOfWeek = 1
+	// DayOfWeekVTuesday undocumented
+	DayOfWeekVTuesday DayOfWeek = 2
+	// DayOfWeekVWednesday undocumented
+	DayOfWeekVWednesday DayOfWeek = 3
+	// DayOfWeekVThursday undocumented
+	DayOfWeekVThursday DayOfWeek = 4
+	// DayOfWeekVFriday undocumented
+	DayOfWeekVFriday DayOfWeek = 5
+	// DayOfWeekVSaturday undocumented
+	DayOfWeekVSaturday DayOfWeek = 6
 )
+
+// DayOfWeekPSunday returns a pointer to DayOfWeekVSunday
+func DayOfWeekPSunday() *DayOfWeek {
+	v := DayOfWeekVSunday
+	return &v
+}
+
+// DayOfWeekPMonday returns a pointer to DayOfWeekVMonday
+func DayOfWeekPMonday() *DayOfWeek {
+	v := DayOfWeekVMonday
+	return &v
+}
+
+// DayOfWeekPTuesday returns a pointer to DayOfWeekVTuesday
+func DayOfWeekPTuesday() *DayOfWeek {
+	v := DayOfWeekVTuesday
+	return &v
+}
+
+// DayOfWeekPWednesday returns a pointer to DayOfWeekVWednesday
+func DayOfWeekPWednesday() *DayOfWeek {
+	v := DayOfWeekVWednesday
+	return &v
+}
+
+// DayOfWeekPThursday returns a pointer to DayOfWeekVThursday
+func DayOfWeekPThursday() *DayOfWeek {
+	v := DayOfWeekVThursday
+	return &v
+}
+
+// DayOfWeekPFriday returns a pointer to DayOfWeekVFriday
+func DayOfWeekPFriday() *DayOfWeek {
+	v := DayOfWeekVFriday
+	return &v
+}
+
+// DayOfWeekPSaturday returns a pointer to DayOfWeekVSaturday
+func DayOfWeekPSaturday() *DayOfWeek {
+	v := DayOfWeekVSaturday
+	return &v
+}
 
 // DefenderCloudBlockLevelType undocumented
 type DefenderCloudBlockLevelType int
 
 const (
-	// DefenderCloudBlockLevelType_NotConfigured undocumented
-	DefenderCloudBlockLevelType_NotConfigured DefenderCloudBlockLevelType = 0
-	// DefenderCloudBlockLevelType_High undocumented
-	DefenderCloudBlockLevelType_High DefenderCloudBlockLevelType = 1
-	// DefenderCloudBlockLevelType_HighPlus undocumented
-	DefenderCloudBlockLevelType_HighPlus DefenderCloudBlockLevelType = 2
-	// DefenderCloudBlockLevelType_ZeroTolerance undocumented
-	DefenderCloudBlockLevelType_ZeroTolerance DefenderCloudBlockLevelType = 3
+	// DefenderCloudBlockLevelTypeVNotConfigured undocumented
+	DefenderCloudBlockLevelTypeVNotConfigured DefenderCloudBlockLevelType = 0
+	// DefenderCloudBlockLevelTypeVHigh undocumented
+	DefenderCloudBlockLevelTypeVHigh DefenderCloudBlockLevelType = 1
+	// DefenderCloudBlockLevelTypeVHighPlus undocumented
+	DefenderCloudBlockLevelTypeVHighPlus DefenderCloudBlockLevelType = 2
+	// DefenderCloudBlockLevelTypeVZeroTolerance undocumented
+	DefenderCloudBlockLevelTypeVZeroTolerance DefenderCloudBlockLevelType = 3
 )
+
+// DefenderCloudBlockLevelTypePNotConfigured returns a pointer to DefenderCloudBlockLevelTypeVNotConfigured
+func DefenderCloudBlockLevelTypePNotConfigured() *DefenderCloudBlockLevelType {
+	v := DefenderCloudBlockLevelTypeVNotConfigured
+	return &v
+}
+
+// DefenderCloudBlockLevelTypePHigh returns a pointer to DefenderCloudBlockLevelTypeVHigh
+func DefenderCloudBlockLevelTypePHigh() *DefenderCloudBlockLevelType {
+	v := DefenderCloudBlockLevelTypeVHigh
+	return &v
+}
+
+// DefenderCloudBlockLevelTypePHighPlus returns a pointer to DefenderCloudBlockLevelTypeVHighPlus
+func DefenderCloudBlockLevelTypePHighPlus() *DefenderCloudBlockLevelType {
+	v := DefenderCloudBlockLevelTypeVHighPlus
+	return &v
+}
+
+// DefenderCloudBlockLevelTypePZeroTolerance returns a pointer to DefenderCloudBlockLevelTypeVZeroTolerance
+func DefenderCloudBlockLevelTypePZeroTolerance() *DefenderCloudBlockLevelType {
+	v := DefenderCloudBlockLevelTypeVZeroTolerance
+	return &v
+}
 
 // DefenderMonitorFileActivity undocumented
 type DefenderMonitorFileActivity int
 
 const (
-	// DefenderMonitorFileActivity_UserDefined undocumented
-	DefenderMonitorFileActivity_UserDefined DefenderMonitorFileActivity = 0
-	// DefenderMonitorFileActivity_Disable undocumented
-	DefenderMonitorFileActivity_Disable DefenderMonitorFileActivity = 1
-	// DefenderMonitorFileActivity_MonitorAllFiles undocumented
-	DefenderMonitorFileActivity_MonitorAllFiles DefenderMonitorFileActivity = 2
-	// DefenderMonitorFileActivity_MonitorIncomingFilesOnly undocumented
-	DefenderMonitorFileActivity_MonitorIncomingFilesOnly DefenderMonitorFileActivity = 3
-	// DefenderMonitorFileActivity_MonitorOutgoingFilesOnly undocumented
-	DefenderMonitorFileActivity_MonitorOutgoingFilesOnly DefenderMonitorFileActivity = 4
+	// DefenderMonitorFileActivityVUserDefined undocumented
+	DefenderMonitorFileActivityVUserDefined DefenderMonitorFileActivity = 0
+	// DefenderMonitorFileActivityVDisable undocumented
+	DefenderMonitorFileActivityVDisable DefenderMonitorFileActivity = 1
+	// DefenderMonitorFileActivityVMonitorAllFiles undocumented
+	DefenderMonitorFileActivityVMonitorAllFiles DefenderMonitorFileActivity = 2
+	// DefenderMonitorFileActivityVMonitorIncomingFilesOnly undocumented
+	DefenderMonitorFileActivityVMonitorIncomingFilesOnly DefenderMonitorFileActivity = 3
+	// DefenderMonitorFileActivityVMonitorOutgoingFilesOnly undocumented
+	DefenderMonitorFileActivityVMonitorOutgoingFilesOnly DefenderMonitorFileActivity = 4
 )
+
+// DefenderMonitorFileActivityPUserDefined returns a pointer to DefenderMonitorFileActivityVUserDefined
+func DefenderMonitorFileActivityPUserDefined() *DefenderMonitorFileActivity {
+	v := DefenderMonitorFileActivityVUserDefined
+	return &v
+}
+
+// DefenderMonitorFileActivityPDisable returns a pointer to DefenderMonitorFileActivityVDisable
+func DefenderMonitorFileActivityPDisable() *DefenderMonitorFileActivity {
+	v := DefenderMonitorFileActivityVDisable
+	return &v
+}
+
+// DefenderMonitorFileActivityPMonitorAllFiles returns a pointer to DefenderMonitorFileActivityVMonitorAllFiles
+func DefenderMonitorFileActivityPMonitorAllFiles() *DefenderMonitorFileActivity {
+	v := DefenderMonitorFileActivityVMonitorAllFiles
+	return &v
+}
+
+// DefenderMonitorFileActivityPMonitorIncomingFilesOnly returns a pointer to DefenderMonitorFileActivityVMonitorIncomingFilesOnly
+func DefenderMonitorFileActivityPMonitorIncomingFilesOnly() *DefenderMonitorFileActivity {
+	v := DefenderMonitorFileActivityVMonitorIncomingFilesOnly
+	return &v
+}
+
+// DefenderMonitorFileActivityPMonitorOutgoingFilesOnly returns a pointer to DefenderMonitorFileActivityVMonitorOutgoingFilesOnly
+func DefenderMonitorFileActivityPMonitorOutgoingFilesOnly() *DefenderMonitorFileActivity {
+	v := DefenderMonitorFileActivityVMonitorOutgoingFilesOnly
+	return &v
+}
 
 // DefenderPromptForSampleSubmission undocumented
 type DefenderPromptForSampleSubmission int
 
 const (
-	// DefenderPromptForSampleSubmission_UserDefined undocumented
-	DefenderPromptForSampleSubmission_UserDefined DefenderPromptForSampleSubmission = 0
-	// DefenderPromptForSampleSubmission_AlwaysPrompt undocumented
-	DefenderPromptForSampleSubmission_AlwaysPrompt DefenderPromptForSampleSubmission = 1
-	// DefenderPromptForSampleSubmission_PromptBeforeSendingPersonalData undocumented
-	DefenderPromptForSampleSubmission_PromptBeforeSendingPersonalData DefenderPromptForSampleSubmission = 2
-	// DefenderPromptForSampleSubmission_NeverSendData undocumented
-	DefenderPromptForSampleSubmission_NeverSendData DefenderPromptForSampleSubmission = 3
-	// DefenderPromptForSampleSubmission_SendAllDataWithoutPrompting undocumented
-	DefenderPromptForSampleSubmission_SendAllDataWithoutPrompting DefenderPromptForSampleSubmission = 4
+	// DefenderPromptForSampleSubmissionVUserDefined undocumented
+	DefenderPromptForSampleSubmissionVUserDefined DefenderPromptForSampleSubmission = 0
+	// DefenderPromptForSampleSubmissionVAlwaysPrompt undocumented
+	DefenderPromptForSampleSubmissionVAlwaysPrompt DefenderPromptForSampleSubmission = 1
+	// DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData undocumented
+	DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData DefenderPromptForSampleSubmission = 2
+	// DefenderPromptForSampleSubmissionVNeverSendData undocumented
+	DefenderPromptForSampleSubmissionVNeverSendData DefenderPromptForSampleSubmission = 3
+	// DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting undocumented
+	DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting DefenderPromptForSampleSubmission = 4
 )
+
+// DefenderPromptForSampleSubmissionPUserDefined returns a pointer to DefenderPromptForSampleSubmissionVUserDefined
+func DefenderPromptForSampleSubmissionPUserDefined() *DefenderPromptForSampleSubmission {
+	v := DefenderPromptForSampleSubmissionVUserDefined
+	return &v
+}
+
+// DefenderPromptForSampleSubmissionPAlwaysPrompt returns a pointer to DefenderPromptForSampleSubmissionVAlwaysPrompt
+func DefenderPromptForSampleSubmissionPAlwaysPrompt() *DefenderPromptForSampleSubmission {
+	v := DefenderPromptForSampleSubmissionVAlwaysPrompt
+	return &v
+}
+
+// DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData returns a pointer to DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData
+func DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData() *DefenderPromptForSampleSubmission {
+	v := DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData
+	return &v
+}
+
+// DefenderPromptForSampleSubmissionPNeverSendData returns a pointer to DefenderPromptForSampleSubmissionVNeverSendData
+func DefenderPromptForSampleSubmissionPNeverSendData() *DefenderPromptForSampleSubmission {
+	v := DefenderPromptForSampleSubmissionVNeverSendData
+	return &v
+}
+
+// DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting returns a pointer to DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting
+func DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting() *DefenderPromptForSampleSubmission {
+	v := DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting
+	return &v
+}
 
 // DefenderScanType undocumented
 type DefenderScanType int
 
 const (
-	// DefenderScanType_UserDefined undocumented
-	DefenderScanType_UserDefined DefenderScanType = 0
-	// DefenderScanType_Disabled undocumented
-	DefenderScanType_Disabled DefenderScanType = 1
-	// DefenderScanType_Quick undocumented
-	DefenderScanType_Quick DefenderScanType = 2
-	// DefenderScanType_Full undocumented
-	DefenderScanType_Full DefenderScanType = 3
+	// DefenderScanTypeVUserDefined undocumented
+	DefenderScanTypeVUserDefined DefenderScanType = 0
+	// DefenderScanTypeVDisabled undocumented
+	DefenderScanTypeVDisabled DefenderScanType = 1
+	// DefenderScanTypeVQuick undocumented
+	DefenderScanTypeVQuick DefenderScanType = 2
+	// DefenderScanTypeVFull undocumented
+	DefenderScanTypeVFull DefenderScanType = 3
 )
+
+// DefenderScanTypePUserDefined returns a pointer to DefenderScanTypeVUserDefined
+func DefenderScanTypePUserDefined() *DefenderScanType {
+	v := DefenderScanTypeVUserDefined
+	return &v
+}
+
+// DefenderScanTypePDisabled returns a pointer to DefenderScanTypeVDisabled
+func DefenderScanTypePDisabled() *DefenderScanType {
+	v := DefenderScanTypeVDisabled
+	return &v
+}
+
+// DefenderScanTypePQuick returns a pointer to DefenderScanTypeVQuick
+func DefenderScanTypePQuick() *DefenderScanType {
+	v := DefenderScanTypeVQuick
+	return &v
+}
+
+// DefenderScanTypePFull returns a pointer to DefenderScanTypeVFull
+func DefenderScanTypePFull() *DefenderScanType {
+	v := DefenderScanTypeVFull
+	return &v
+}
 
 // DefenderThreatAction undocumented
 type DefenderThreatAction int
 
 const (
-	// DefenderThreatAction_DeviceDefault undocumented
-	DefenderThreatAction_DeviceDefault DefenderThreatAction = 0
-	// DefenderThreatAction_Clean undocumented
-	DefenderThreatAction_Clean DefenderThreatAction = 1
-	// DefenderThreatAction_Quarantine undocumented
-	DefenderThreatAction_Quarantine DefenderThreatAction = 2
-	// DefenderThreatAction_Remove undocumented
-	DefenderThreatAction_Remove DefenderThreatAction = 3
-	// DefenderThreatAction_Allow undocumented
-	DefenderThreatAction_Allow DefenderThreatAction = 4
-	// DefenderThreatAction_UserDefined undocumented
-	DefenderThreatAction_UserDefined DefenderThreatAction = 5
-	// DefenderThreatAction_Block undocumented
-	DefenderThreatAction_Block DefenderThreatAction = 6
+	// DefenderThreatActionVDeviceDefault undocumented
+	DefenderThreatActionVDeviceDefault DefenderThreatAction = 0
+	// DefenderThreatActionVClean undocumented
+	DefenderThreatActionVClean DefenderThreatAction = 1
+	// DefenderThreatActionVQuarantine undocumented
+	DefenderThreatActionVQuarantine DefenderThreatAction = 2
+	// DefenderThreatActionVRemove undocumented
+	DefenderThreatActionVRemove DefenderThreatAction = 3
+	// DefenderThreatActionVAllow undocumented
+	DefenderThreatActionVAllow DefenderThreatAction = 4
+	// DefenderThreatActionVUserDefined undocumented
+	DefenderThreatActionVUserDefined DefenderThreatAction = 5
+	// DefenderThreatActionVBlock undocumented
+	DefenderThreatActionVBlock DefenderThreatAction = 6
 )
+
+// DefenderThreatActionPDeviceDefault returns a pointer to DefenderThreatActionVDeviceDefault
+func DefenderThreatActionPDeviceDefault() *DefenderThreatAction {
+	v := DefenderThreatActionVDeviceDefault
+	return &v
+}
+
+// DefenderThreatActionPClean returns a pointer to DefenderThreatActionVClean
+func DefenderThreatActionPClean() *DefenderThreatAction {
+	v := DefenderThreatActionVClean
+	return &v
+}
+
+// DefenderThreatActionPQuarantine returns a pointer to DefenderThreatActionVQuarantine
+func DefenderThreatActionPQuarantine() *DefenderThreatAction {
+	v := DefenderThreatActionVQuarantine
+	return &v
+}
+
+// DefenderThreatActionPRemove returns a pointer to DefenderThreatActionVRemove
+func DefenderThreatActionPRemove() *DefenderThreatAction {
+	v := DefenderThreatActionVRemove
+	return &v
+}
+
+// DefenderThreatActionPAllow returns a pointer to DefenderThreatActionVAllow
+func DefenderThreatActionPAllow() *DefenderThreatAction {
+	v := DefenderThreatActionVAllow
+	return &v
+}
+
+// DefenderThreatActionPUserDefined returns a pointer to DefenderThreatActionVUserDefined
+func DefenderThreatActionPUserDefined() *DefenderThreatAction {
+	v := DefenderThreatActionVUserDefined
+	return &v
+}
+
+// DefenderThreatActionPBlock returns a pointer to DefenderThreatActionVBlock
+func DefenderThreatActionPBlock() *DefenderThreatAction {
+	v := DefenderThreatActionVBlock
+	return &v
+}
 
 // DeviceComplianceActionType undocumented
 type DeviceComplianceActionType int
 
 const (
-	// DeviceComplianceActionType_NoAction undocumented
-	DeviceComplianceActionType_NoAction DeviceComplianceActionType = 0
-	// DeviceComplianceActionType_Notification undocumented
-	DeviceComplianceActionType_Notification DeviceComplianceActionType = 1
-	// DeviceComplianceActionType_Block undocumented
-	DeviceComplianceActionType_Block DeviceComplianceActionType = 2
-	// DeviceComplianceActionType_Retire undocumented
-	DeviceComplianceActionType_Retire DeviceComplianceActionType = 3
-	// DeviceComplianceActionType_Wipe undocumented
-	DeviceComplianceActionType_Wipe DeviceComplianceActionType = 4
-	// DeviceComplianceActionType_RemoveResourceAccessProfiles undocumented
-	DeviceComplianceActionType_RemoveResourceAccessProfiles DeviceComplianceActionType = 5
-	// DeviceComplianceActionType_PushNotification undocumented
-	DeviceComplianceActionType_PushNotification DeviceComplianceActionType = 9
+	// DeviceComplianceActionTypeVNoAction undocumented
+	DeviceComplianceActionTypeVNoAction DeviceComplianceActionType = 0
+	// DeviceComplianceActionTypeVNotification undocumented
+	DeviceComplianceActionTypeVNotification DeviceComplianceActionType = 1
+	// DeviceComplianceActionTypeVBlock undocumented
+	DeviceComplianceActionTypeVBlock DeviceComplianceActionType = 2
+	// DeviceComplianceActionTypeVRetire undocumented
+	DeviceComplianceActionTypeVRetire DeviceComplianceActionType = 3
+	// DeviceComplianceActionTypeVWipe undocumented
+	DeviceComplianceActionTypeVWipe DeviceComplianceActionType = 4
+	// DeviceComplianceActionTypeVRemoveResourceAccessProfiles undocumented
+	DeviceComplianceActionTypeVRemoveResourceAccessProfiles DeviceComplianceActionType = 5
+	// DeviceComplianceActionTypeVPushNotification undocumented
+	DeviceComplianceActionTypeVPushNotification DeviceComplianceActionType = 9
 )
+
+// DeviceComplianceActionTypePNoAction returns a pointer to DeviceComplianceActionTypeVNoAction
+func DeviceComplianceActionTypePNoAction() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVNoAction
+	return &v
+}
+
+// DeviceComplianceActionTypePNotification returns a pointer to DeviceComplianceActionTypeVNotification
+func DeviceComplianceActionTypePNotification() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVNotification
+	return &v
+}
+
+// DeviceComplianceActionTypePBlock returns a pointer to DeviceComplianceActionTypeVBlock
+func DeviceComplianceActionTypePBlock() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVBlock
+	return &v
+}
+
+// DeviceComplianceActionTypePRetire returns a pointer to DeviceComplianceActionTypeVRetire
+func DeviceComplianceActionTypePRetire() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVRetire
+	return &v
+}
+
+// DeviceComplianceActionTypePWipe returns a pointer to DeviceComplianceActionTypeVWipe
+func DeviceComplianceActionTypePWipe() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVWipe
+	return &v
+}
+
+// DeviceComplianceActionTypePRemoveResourceAccessProfiles returns a pointer to DeviceComplianceActionTypeVRemoveResourceAccessProfiles
+func DeviceComplianceActionTypePRemoveResourceAccessProfiles() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVRemoveResourceAccessProfiles
+	return &v
+}
+
+// DeviceComplianceActionTypePPushNotification returns a pointer to DeviceComplianceActionTypeVPushNotification
+func DeviceComplianceActionTypePPushNotification() *DeviceComplianceActionType {
+	v := DeviceComplianceActionTypeVPushNotification
+	return &v
+}
 
 // DeviceEnrollmentFailureReason undocumented
 type DeviceEnrollmentFailureReason int
 
 const (
-	// DeviceEnrollmentFailureReason_Unknown undocumented
-	DeviceEnrollmentFailureReason_Unknown DeviceEnrollmentFailureReason = 0
-	// DeviceEnrollmentFailureReason_Authentication undocumented
-	DeviceEnrollmentFailureReason_Authentication DeviceEnrollmentFailureReason = 1
-	// DeviceEnrollmentFailureReason_Authorization undocumented
-	DeviceEnrollmentFailureReason_Authorization DeviceEnrollmentFailureReason = 2
-	// DeviceEnrollmentFailureReason_AccountValidation undocumented
-	DeviceEnrollmentFailureReason_AccountValidation DeviceEnrollmentFailureReason = 3
-	// DeviceEnrollmentFailureReason_UserValidation undocumented
-	DeviceEnrollmentFailureReason_UserValidation DeviceEnrollmentFailureReason = 4
-	// DeviceEnrollmentFailureReason_DeviceNotSupported undocumented
-	DeviceEnrollmentFailureReason_DeviceNotSupported DeviceEnrollmentFailureReason = 5
-	// DeviceEnrollmentFailureReason_InMaintenance undocumented
-	DeviceEnrollmentFailureReason_InMaintenance DeviceEnrollmentFailureReason = 6
-	// DeviceEnrollmentFailureReason_BadRequest undocumented
-	DeviceEnrollmentFailureReason_BadRequest DeviceEnrollmentFailureReason = 7
-	// DeviceEnrollmentFailureReason_FeatureNotSupported undocumented
-	DeviceEnrollmentFailureReason_FeatureNotSupported DeviceEnrollmentFailureReason = 8
-	// DeviceEnrollmentFailureReason_EnrollmentRestrictionsEnforced undocumented
-	DeviceEnrollmentFailureReason_EnrollmentRestrictionsEnforced DeviceEnrollmentFailureReason = 9
-	// DeviceEnrollmentFailureReason_ClientDisconnected undocumented
-	DeviceEnrollmentFailureReason_ClientDisconnected DeviceEnrollmentFailureReason = 10
-	// DeviceEnrollmentFailureReason_UserAbandonment undocumented
-	DeviceEnrollmentFailureReason_UserAbandonment DeviceEnrollmentFailureReason = 11
+	// DeviceEnrollmentFailureReasonVUnknown undocumented
+	DeviceEnrollmentFailureReasonVUnknown DeviceEnrollmentFailureReason = 0
+	// DeviceEnrollmentFailureReasonVAuthentication undocumented
+	DeviceEnrollmentFailureReasonVAuthentication DeviceEnrollmentFailureReason = 1
+	// DeviceEnrollmentFailureReasonVAuthorization undocumented
+	DeviceEnrollmentFailureReasonVAuthorization DeviceEnrollmentFailureReason = 2
+	// DeviceEnrollmentFailureReasonVAccountValidation undocumented
+	DeviceEnrollmentFailureReasonVAccountValidation DeviceEnrollmentFailureReason = 3
+	// DeviceEnrollmentFailureReasonVUserValidation undocumented
+	DeviceEnrollmentFailureReasonVUserValidation DeviceEnrollmentFailureReason = 4
+	// DeviceEnrollmentFailureReasonVDeviceNotSupported undocumented
+	DeviceEnrollmentFailureReasonVDeviceNotSupported DeviceEnrollmentFailureReason = 5
+	// DeviceEnrollmentFailureReasonVInMaintenance undocumented
+	DeviceEnrollmentFailureReasonVInMaintenance DeviceEnrollmentFailureReason = 6
+	// DeviceEnrollmentFailureReasonVBadRequest undocumented
+	DeviceEnrollmentFailureReasonVBadRequest DeviceEnrollmentFailureReason = 7
+	// DeviceEnrollmentFailureReasonVFeatureNotSupported undocumented
+	DeviceEnrollmentFailureReasonVFeatureNotSupported DeviceEnrollmentFailureReason = 8
+	// DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced undocumented
+	DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced DeviceEnrollmentFailureReason = 9
+	// DeviceEnrollmentFailureReasonVClientDisconnected undocumented
+	DeviceEnrollmentFailureReasonVClientDisconnected DeviceEnrollmentFailureReason = 10
+	// DeviceEnrollmentFailureReasonVUserAbandonment undocumented
+	DeviceEnrollmentFailureReasonVUserAbandonment DeviceEnrollmentFailureReason = 11
 )
+
+// DeviceEnrollmentFailureReasonPUnknown returns a pointer to DeviceEnrollmentFailureReasonVUnknown
+func DeviceEnrollmentFailureReasonPUnknown() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVUnknown
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPAuthentication returns a pointer to DeviceEnrollmentFailureReasonVAuthentication
+func DeviceEnrollmentFailureReasonPAuthentication() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVAuthentication
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPAuthorization returns a pointer to DeviceEnrollmentFailureReasonVAuthorization
+func DeviceEnrollmentFailureReasonPAuthorization() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVAuthorization
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPAccountValidation returns a pointer to DeviceEnrollmentFailureReasonVAccountValidation
+func DeviceEnrollmentFailureReasonPAccountValidation() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVAccountValidation
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPUserValidation returns a pointer to DeviceEnrollmentFailureReasonVUserValidation
+func DeviceEnrollmentFailureReasonPUserValidation() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVUserValidation
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPDeviceNotSupported returns a pointer to DeviceEnrollmentFailureReasonVDeviceNotSupported
+func DeviceEnrollmentFailureReasonPDeviceNotSupported() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVDeviceNotSupported
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPInMaintenance returns a pointer to DeviceEnrollmentFailureReasonVInMaintenance
+func DeviceEnrollmentFailureReasonPInMaintenance() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVInMaintenance
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPBadRequest returns a pointer to DeviceEnrollmentFailureReasonVBadRequest
+func DeviceEnrollmentFailureReasonPBadRequest() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVBadRequest
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPFeatureNotSupported returns a pointer to DeviceEnrollmentFailureReasonVFeatureNotSupported
+func DeviceEnrollmentFailureReasonPFeatureNotSupported() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVFeatureNotSupported
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced returns a pointer to DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
+func DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPClientDisconnected returns a pointer to DeviceEnrollmentFailureReasonVClientDisconnected
+func DeviceEnrollmentFailureReasonPClientDisconnected() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVClientDisconnected
+	return &v
+}
+
+// DeviceEnrollmentFailureReasonPUserAbandonment returns a pointer to DeviceEnrollmentFailureReasonVUserAbandonment
+func DeviceEnrollmentFailureReasonPUserAbandonment() *DeviceEnrollmentFailureReason {
+	v := DeviceEnrollmentFailureReasonVUserAbandonment
+	return &v
+}
 
 // DeviceEnrollmentType undocumented
 type DeviceEnrollmentType int
 
 const (
-	// DeviceEnrollmentType_Unknown undocumented
-	DeviceEnrollmentType_Unknown DeviceEnrollmentType = 0
-	// DeviceEnrollmentType_UserEnrollment undocumented
-	DeviceEnrollmentType_UserEnrollment DeviceEnrollmentType = 1
-	// DeviceEnrollmentType_DeviceEnrollmentManager undocumented
-	DeviceEnrollmentType_DeviceEnrollmentManager DeviceEnrollmentType = 2
-	// DeviceEnrollmentType_AppleBulkWithUser undocumented
-	DeviceEnrollmentType_AppleBulkWithUser DeviceEnrollmentType = 3
-	// DeviceEnrollmentType_AppleBulkWithoutUser undocumented
-	DeviceEnrollmentType_AppleBulkWithoutUser DeviceEnrollmentType = 4
-	// DeviceEnrollmentType_WindowsAzureADJoin undocumented
-	DeviceEnrollmentType_WindowsAzureADJoin DeviceEnrollmentType = 5
-	// DeviceEnrollmentType_WindowsBulkUserless undocumented
-	DeviceEnrollmentType_WindowsBulkUserless DeviceEnrollmentType = 6
-	// DeviceEnrollmentType_WindowsAutoEnrollment undocumented
-	DeviceEnrollmentType_WindowsAutoEnrollment DeviceEnrollmentType = 7
-	// DeviceEnrollmentType_WindowsBulkAzureDomainJoin undocumented
-	DeviceEnrollmentType_WindowsBulkAzureDomainJoin DeviceEnrollmentType = 8
-	// DeviceEnrollmentType_WindowsCoManagement undocumented
-	DeviceEnrollmentType_WindowsCoManagement DeviceEnrollmentType = 9
+	// DeviceEnrollmentTypeVUnknown undocumented
+	DeviceEnrollmentTypeVUnknown DeviceEnrollmentType = 0
+	// DeviceEnrollmentTypeVUserEnrollment undocumented
+	DeviceEnrollmentTypeVUserEnrollment DeviceEnrollmentType = 1
+	// DeviceEnrollmentTypeVDeviceEnrollmentManager undocumented
+	DeviceEnrollmentTypeVDeviceEnrollmentManager DeviceEnrollmentType = 2
+	// DeviceEnrollmentTypeVAppleBulkWithUser undocumented
+	DeviceEnrollmentTypeVAppleBulkWithUser DeviceEnrollmentType = 3
+	// DeviceEnrollmentTypeVAppleBulkWithoutUser undocumented
+	DeviceEnrollmentTypeVAppleBulkWithoutUser DeviceEnrollmentType = 4
+	// DeviceEnrollmentTypeVWindowsAzureADJoin undocumented
+	DeviceEnrollmentTypeVWindowsAzureADJoin DeviceEnrollmentType = 5
+	// DeviceEnrollmentTypeVWindowsBulkUserless undocumented
+	DeviceEnrollmentTypeVWindowsBulkUserless DeviceEnrollmentType = 6
+	// DeviceEnrollmentTypeVWindowsAutoEnrollment undocumented
+	DeviceEnrollmentTypeVWindowsAutoEnrollment DeviceEnrollmentType = 7
+	// DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin undocumented
+	DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin DeviceEnrollmentType = 8
+	// DeviceEnrollmentTypeVWindowsCoManagement undocumented
+	DeviceEnrollmentTypeVWindowsCoManagement DeviceEnrollmentType = 9
 )
+
+// DeviceEnrollmentTypePUnknown returns a pointer to DeviceEnrollmentTypeVUnknown
+func DeviceEnrollmentTypePUnknown() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVUnknown
+	return &v
+}
+
+// DeviceEnrollmentTypePUserEnrollment returns a pointer to DeviceEnrollmentTypeVUserEnrollment
+func DeviceEnrollmentTypePUserEnrollment() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVUserEnrollment
+	return &v
+}
+
+// DeviceEnrollmentTypePDeviceEnrollmentManager returns a pointer to DeviceEnrollmentTypeVDeviceEnrollmentManager
+func DeviceEnrollmentTypePDeviceEnrollmentManager() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVDeviceEnrollmentManager
+	return &v
+}
+
+// DeviceEnrollmentTypePAppleBulkWithUser returns a pointer to DeviceEnrollmentTypeVAppleBulkWithUser
+func DeviceEnrollmentTypePAppleBulkWithUser() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVAppleBulkWithUser
+	return &v
+}
+
+// DeviceEnrollmentTypePAppleBulkWithoutUser returns a pointer to DeviceEnrollmentTypeVAppleBulkWithoutUser
+func DeviceEnrollmentTypePAppleBulkWithoutUser() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVAppleBulkWithoutUser
+	return &v
+}
+
+// DeviceEnrollmentTypePWindowsAzureADJoin returns a pointer to DeviceEnrollmentTypeVWindowsAzureADJoin
+func DeviceEnrollmentTypePWindowsAzureADJoin() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVWindowsAzureADJoin
+	return &v
+}
+
+// DeviceEnrollmentTypePWindowsBulkUserless returns a pointer to DeviceEnrollmentTypeVWindowsBulkUserless
+func DeviceEnrollmentTypePWindowsBulkUserless() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVWindowsBulkUserless
+	return &v
+}
+
+// DeviceEnrollmentTypePWindowsAutoEnrollment returns a pointer to DeviceEnrollmentTypeVWindowsAutoEnrollment
+func DeviceEnrollmentTypePWindowsAutoEnrollment() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVWindowsAutoEnrollment
+	return &v
+}
+
+// DeviceEnrollmentTypePWindowsBulkAzureDomainJoin returns a pointer to DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
+func DeviceEnrollmentTypePWindowsBulkAzureDomainJoin() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
+	return &v
+}
+
+// DeviceEnrollmentTypePWindowsCoManagement returns a pointer to DeviceEnrollmentTypeVWindowsCoManagement
+func DeviceEnrollmentTypePWindowsCoManagement() *DeviceEnrollmentType {
+	v := DeviceEnrollmentTypeVWindowsCoManagement
+	return &v
+}
 
 // DeviceManagementExchangeAccessState undocumented
 type DeviceManagementExchangeAccessState int
 
 const (
-	// DeviceManagementExchangeAccessState_None undocumented
-	DeviceManagementExchangeAccessState_None DeviceManagementExchangeAccessState = 0
-	// DeviceManagementExchangeAccessState_Unknown undocumented
-	DeviceManagementExchangeAccessState_Unknown DeviceManagementExchangeAccessState = 1
-	// DeviceManagementExchangeAccessState_Allowed undocumented
-	DeviceManagementExchangeAccessState_Allowed DeviceManagementExchangeAccessState = 2
-	// DeviceManagementExchangeAccessState_Blocked undocumented
-	DeviceManagementExchangeAccessState_Blocked DeviceManagementExchangeAccessState = 3
-	// DeviceManagementExchangeAccessState_Quarantined undocumented
-	DeviceManagementExchangeAccessState_Quarantined DeviceManagementExchangeAccessState = 4
+	// DeviceManagementExchangeAccessStateVNone undocumented
+	DeviceManagementExchangeAccessStateVNone DeviceManagementExchangeAccessState = 0
+	// DeviceManagementExchangeAccessStateVUnknown undocumented
+	DeviceManagementExchangeAccessStateVUnknown DeviceManagementExchangeAccessState = 1
+	// DeviceManagementExchangeAccessStateVAllowed undocumented
+	DeviceManagementExchangeAccessStateVAllowed DeviceManagementExchangeAccessState = 2
+	// DeviceManagementExchangeAccessStateVBlocked undocumented
+	DeviceManagementExchangeAccessStateVBlocked DeviceManagementExchangeAccessState = 3
+	// DeviceManagementExchangeAccessStateVQuarantined undocumented
+	DeviceManagementExchangeAccessStateVQuarantined DeviceManagementExchangeAccessState = 4
 )
+
+// DeviceManagementExchangeAccessStatePNone returns a pointer to DeviceManagementExchangeAccessStateVNone
+func DeviceManagementExchangeAccessStatePNone() *DeviceManagementExchangeAccessState {
+	v := DeviceManagementExchangeAccessStateVNone
+	return &v
+}
+
+// DeviceManagementExchangeAccessStatePUnknown returns a pointer to DeviceManagementExchangeAccessStateVUnknown
+func DeviceManagementExchangeAccessStatePUnknown() *DeviceManagementExchangeAccessState {
+	v := DeviceManagementExchangeAccessStateVUnknown
+	return &v
+}
+
+// DeviceManagementExchangeAccessStatePAllowed returns a pointer to DeviceManagementExchangeAccessStateVAllowed
+func DeviceManagementExchangeAccessStatePAllowed() *DeviceManagementExchangeAccessState {
+	v := DeviceManagementExchangeAccessStateVAllowed
+	return &v
+}
+
+// DeviceManagementExchangeAccessStatePBlocked returns a pointer to DeviceManagementExchangeAccessStateVBlocked
+func DeviceManagementExchangeAccessStatePBlocked() *DeviceManagementExchangeAccessState {
+	v := DeviceManagementExchangeAccessStateVBlocked
+	return &v
+}
+
+// DeviceManagementExchangeAccessStatePQuarantined returns a pointer to DeviceManagementExchangeAccessStateVQuarantined
+func DeviceManagementExchangeAccessStatePQuarantined() *DeviceManagementExchangeAccessState {
+	v := DeviceManagementExchangeAccessStateVQuarantined
+	return &v
+}
 
 // DeviceManagementExchangeAccessStateReason undocumented
 type DeviceManagementExchangeAccessStateReason int
 
 const (
-	// DeviceManagementExchangeAccessStateReason_None undocumented
-	DeviceManagementExchangeAccessStateReason_None DeviceManagementExchangeAccessStateReason = 0
-	// DeviceManagementExchangeAccessStateReason_Unknown undocumented
-	DeviceManagementExchangeAccessStateReason_Unknown DeviceManagementExchangeAccessStateReason = 1
-	// DeviceManagementExchangeAccessStateReason_ExchangeGlobalRule undocumented
-	DeviceManagementExchangeAccessStateReason_ExchangeGlobalRule DeviceManagementExchangeAccessStateReason = 2
-	// DeviceManagementExchangeAccessStateReason_ExchangeIndividualRule undocumented
-	DeviceManagementExchangeAccessStateReason_ExchangeIndividualRule DeviceManagementExchangeAccessStateReason = 3
-	// DeviceManagementExchangeAccessStateReason_ExchangeDeviceRule undocumented
-	DeviceManagementExchangeAccessStateReason_ExchangeDeviceRule DeviceManagementExchangeAccessStateReason = 4
-	// DeviceManagementExchangeAccessStateReason_ExchangeUpgrade undocumented
-	DeviceManagementExchangeAccessStateReason_ExchangeUpgrade DeviceManagementExchangeAccessStateReason = 5
-	// DeviceManagementExchangeAccessStateReason_ExchangeMailboxPolicy undocumented
-	DeviceManagementExchangeAccessStateReason_ExchangeMailboxPolicy DeviceManagementExchangeAccessStateReason = 6
-	// DeviceManagementExchangeAccessStateReason_Other undocumented
-	DeviceManagementExchangeAccessStateReason_Other DeviceManagementExchangeAccessStateReason = 7
-	// DeviceManagementExchangeAccessStateReason_Compliant undocumented
-	DeviceManagementExchangeAccessStateReason_Compliant DeviceManagementExchangeAccessStateReason = 8
-	// DeviceManagementExchangeAccessStateReason_NotCompliant undocumented
-	DeviceManagementExchangeAccessStateReason_NotCompliant DeviceManagementExchangeAccessStateReason = 9
-	// DeviceManagementExchangeAccessStateReason_NotEnrolled undocumented
-	DeviceManagementExchangeAccessStateReason_NotEnrolled DeviceManagementExchangeAccessStateReason = 10
-	// DeviceManagementExchangeAccessStateReason_UnknownLocation undocumented
-	DeviceManagementExchangeAccessStateReason_UnknownLocation DeviceManagementExchangeAccessStateReason = 12
-	// DeviceManagementExchangeAccessStateReason_MfaRequired undocumented
-	DeviceManagementExchangeAccessStateReason_MfaRequired DeviceManagementExchangeAccessStateReason = 13
-	// DeviceManagementExchangeAccessStateReason_AzureADBlockDueToAccessPolicy undocumented
-	DeviceManagementExchangeAccessStateReason_AzureADBlockDueToAccessPolicy DeviceManagementExchangeAccessStateReason = 14
-	// DeviceManagementExchangeAccessStateReason_CompromisedPassword undocumented
-	DeviceManagementExchangeAccessStateReason_CompromisedPassword DeviceManagementExchangeAccessStateReason = 15
-	// DeviceManagementExchangeAccessStateReason_DeviceNotKnownWithManagedApp undocumented
-	DeviceManagementExchangeAccessStateReason_DeviceNotKnownWithManagedApp DeviceManagementExchangeAccessStateReason = 16
+	// DeviceManagementExchangeAccessStateReasonVNone undocumented
+	DeviceManagementExchangeAccessStateReasonVNone DeviceManagementExchangeAccessStateReason = 0
+	// DeviceManagementExchangeAccessStateReasonVUnknown undocumented
+	DeviceManagementExchangeAccessStateReasonVUnknown DeviceManagementExchangeAccessStateReason = 1
+	// DeviceManagementExchangeAccessStateReasonVExchangeGlobalRule undocumented
+	DeviceManagementExchangeAccessStateReasonVExchangeGlobalRule DeviceManagementExchangeAccessStateReason = 2
+	// DeviceManagementExchangeAccessStateReasonVExchangeIndividualRule undocumented
+	DeviceManagementExchangeAccessStateReasonVExchangeIndividualRule DeviceManagementExchangeAccessStateReason = 3
+	// DeviceManagementExchangeAccessStateReasonVExchangeDeviceRule undocumented
+	DeviceManagementExchangeAccessStateReasonVExchangeDeviceRule DeviceManagementExchangeAccessStateReason = 4
+	// DeviceManagementExchangeAccessStateReasonVExchangeUpgrade undocumented
+	DeviceManagementExchangeAccessStateReasonVExchangeUpgrade DeviceManagementExchangeAccessStateReason = 5
+	// DeviceManagementExchangeAccessStateReasonVExchangeMailboxPolicy undocumented
+	DeviceManagementExchangeAccessStateReasonVExchangeMailboxPolicy DeviceManagementExchangeAccessStateReason = 6
+	// DeviceManagementExchangeAccessStateReasonVOther undocumented
+	DeviceManagementExchangeAccessStateReasonVOther DeviceManagementExchangeAccessStateReason = 7
+	// DeviceManagementExchangeAccessStateReasonVCompliant undocumented
+	DeviceManagementExchangeAccessStateReasonVCompliant DeviceManagementExchangeAccessStateReason = 8
+	// DeviceManagementExchangeAccessStateReasonVNotCompliant undocumented
+	DeviceManagementExchangeAccessStateReasonVNotCompliant DeviceManagementExchangeAccessStateReason = 9
+	// DeviceManagementExchangeAccessStateReasonVNotEnrolled undocumented
+	DeviceManagementExchangeAccessStateReasonVNotEnrolled DeviceManagementExchangeAccessStateReason = 10
+	// DeviceManagementExchangeAccessStateReasonVUnknownLocation undocumented
+	DeviceManagementExchangeAccessStateReasonVUnknownLocation DeviceManagementExchangeAccessStateReason = 12
+	// DeviceManagementExchangeAccessStateReasonVMfaRequired undocumented
+	DeviceManagementExchangeAccessStateReasonVMfaRequired DeviceManagementExchangeAccessStateReason = 13
+	// DeviceManagementExchangeAccessStateReasonVAzureADBlockDueToAccessPolicy undocumented
+	DeviceManagementExchangeAccessStateReasonVAzureADBlockDueToAccessPolicy DeviceManagementExchangeAccessStateReason = 14
+	// DeviceManagementExchangeAccessStateReasonVCompromisedPassword undocumented
+	DeviceManagementExchangeAccessStateReasonVCompromisedPassword DeviceManagementExchangeAccessStateReason = 15
+	// DeviceManagementExchangeAccessStateReasonVDeviceNotKnownWithManagedApp undocumented
+	DeviceManagementExchangeAccessStateReasonVDeviceNotKnownWithManagedApp DeviceManagementExchangeAccessStateReason = 16
 )
+
+// DeviceManagementExchangeAccessStateReasonPNone returns a pointer to DeviceManagementExchangeAccessStateReasonVNone
+func DeviceManagementExchangeAccessStateReasonPNone() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVNone
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPUnknown returns a pointer to DeviceManagementExchangeAccessStateReasonVUnknown
+func DeviceManagementExchangeAccessStateReasonPUnknown() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVUnknown
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPExchangeGlobalRule returns a pointer to DeviceManagementExchangeAccessStateReasonVExchangeGlobalRule
+func DeviceManagementExchangeAccessStateReasonPExchangeGlobalRule() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVExchangeGlobalRule
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPExchangeIndividualRule returns a pointer to DeviceManagementExchangeAccessStateReasonVExchangeIndividualRule
+func DeviceManagementExchangeAccessStateReasonPExchangeIndividualRule() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVExchangeIndividualRule
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPExchangeDeviceRule returns a pointer to DeviceManagementExchangeAccessStateReasonVExchangeDeviceRule
+func DeviceManagementExchangeAccessStateReasonPExchangeDeviceRule() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVExchangeDeviceRule
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPExchangeUpgrade returns a pointer to DeviceManagementExchangeAccessStateReasonVExchangeUpgrade
+func DeviceManagementExchangeAccessStateReasonPExchangeUpgrade() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVExchangeUpgrade
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPExchangeMailboxPolicy returns a pointer to DeviceManagementExchangeAccessStateReasonVExchangeMailboxPolicy
+func DeviceManagementExchangeAccessStateReasonPExchangeMailboxPolicy() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVExchangeMailboxPolicy
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPOther returns a pointer to DeviceManagementExchangeAccessStateReasonVOther
+func DeviceManagementExchangeAccessStateReasonPOther() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVOther
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPCompliant returns a pointer to DeviceManagementExchangeAccessStateReasonVCompliant
+func DeviceManagementExchangeAccessStateReasonPCompliant() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVCompliant
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPNotCompliant returns a pointer to DeviceManagementExchangeAccessStateReasonVNotCompliant
+func DeviceManagementExchangeAccessStateReasonPNotCompliant() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVNotCompliant
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPNotEnrolled returns a pointer to DeviceManagementExchangeAccessStateReasonVNotEnrolled
+func DeviceManagementExchangeAccessStateReasonPNotEnrolled() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVNotEnrolled
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPUnknownLocation returns a pointer to DeviceManagementExchangeAccessStateReasonVUnknownLocation
+func DeviceManagementExchangeAccessStateReasonPUnknownLocation() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVUnknownLocation
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPMfaRequired returns a pointer to DeviceManagementExchangeAccessStateReasonVMfaRequired
+func DeviceManagementExchangeAccessStateReasonPMfaRequired() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVMfaRequired
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPAzureADBlockDueToAccessPolicy returns a pointer to DeviceManagementExchangeAccessStateReasonVAzureADBlockDueToAccessPolicy
+func DeviceManagementExchangeAccessStateReasonPAzureADBlockDueToAccessPolicy() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVAzureADBlockDueToAccessPolicy
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPCompromisedPassword returns a pointer to DeviceManagementExchangeAccessStateReasonVCompromisedPassword
+func DeviceManagementExchangeAccessStateReasonPCompromisedPassword() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVCompromisedPassword
+	return &v
+}
+
+// DeviceManagementExchangeAccessStateReasonPDeviceNotKnownWithManagedApp returns a pointer to DeviceManagementExchangeAccessStateReasonVDeviceNotKnownWithManagedApp
+func DeviceManagementExchangeAccessStateReasonPDeviceNotKnownWithManagedApp() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVDeviceNotKnownWithManagedApp
+	return &v
+}
 
 // DeviceManagementExchangeConnectorStatus undocumented
 type DeviceManagementExchangeConnectorStatus int
 
 const (
-	// DeviceManagementExchangeConnectorStatus_None undocumented
-	DeviceManagementExchangeConnectorStatus_None DeviceManagementExchangeConnectorStatus = 0
-	// DeviceManagementExchangeConnectorStatus_ConnectionPending undocumented
-	DeviceManagementExchangeConnectorStatus_ConnectionPending DeviceManagementExchangeConnectorStatus = 1
-	// DeviceManagementExchangeConnectorStatus_Connected undocumented
-	DeviceManagementExchangeConnectorStatus_Connected DeviceManagementExchangeConnectorStatus = 2
-	// DeviceManagementExchangeConnectorStatus_Disconnected undocumented
-	DeviceManagementExchangeConnectorStatus_Disconnected DeviceManagementExchangeConnectorStatus = 3
+	// DeviceManagementExchangeConnectorStatusVNone undocumented
+	DeviceManagementExchangeConnectorStatusVNone DeviceManagementExchangeConnectorStatus = 0
+	// DeviceManagementExchangeConnectorStatusVConnectionPending undocumented
+	DeviceManagementExchangeConnectorStatusVConnectionPending DeviceManagementExchangeConnectorStatus = 1
+	// DeviceManagementExchangeConnectorStatusVConnected undocumented
+	DeviceManagementExchangeConnectorStatusVConnected DeviceManagementExchangeConnectorStatus = 2
+	// DeviceManagementExchangeConnectorStatusVDisconnected undocumented
+	DeviceManagementExchangeConnectorStatusVDisconnected DeviceManagementExchangeConnectorStatus = 3
 )
+
+// DeviceManagementExchangeConnectorStatusPNone returns a pointer to DeviceManagementExchangeConnectorStatusVNone
+func DeviceManagementExchangeConnectorStatusPNone() *DeviceManagementExchangeConnectorStatus {
+	v := DeviceManagementExchangeConnectorStatusVNone
+	return &v
+}
+
+// DeviceManagementExchangeConnectorStatusPConnectionPending returns a pointer to DeviceManagementExchangeConnectorStatusVConnectionPending
+func DeviceManagementExchangeConnectorStatusPConnectionPending() *DeviceManagementExchangeConnectorStatus {
+	v := DeviceManagementExchangeConnectorStatusVConnectionPending
+	return &v
+}
+
+// DeviceManagementExchangeConnectorStatusPConnected returns a pointer to DeviceManagementExchangeConnectorStatusVConnected
+func DeviceManagementExchangeConnectorStatusPConnected() *DeviceManagementExchangeConnectorStatus {
+	v := DeviceManagementExchangeConnectorStatusVConnected
+	return &v
+}
+
+// DeviceManagementExchangeConnectorStatusPDisconnected returns a pointer to DeviceManagementExchangeConnectorStatusVDisconnected
+func DeviceManagementExchangeConnectorStatusPDisconnected() *DeviceManagementExchangeConnectorStatus {
+	v := DeviceManagementExchangeConnectorStatusVDisconnected
+	return &v
+}
 
 // DeviceManagementExchangeConnectorSyncType undocumented
 type DeviceManagementExchangeConnectorSyncType int
 
 const (
-	// DeviceManagementExchangeConnectorSyncType_FullSync undocumented
-	DeviceManagementExchangeConnectorSyncType_FullSync DeviceManagementExchangeConnectorSyncType = 0
-	// DeviceManagementExchangeConnectorSyncType_DeltaSync undocumented
-	DeviceManagementExchangeConnectorSyncType_DeltaSync DeviceManagementExchangeConnectorSyncType = 1
+	// DeviceManagementExchangeConnectorSyncTypeVFullSync undocumented
+	DeviceManagementExchangeConnectorSyncTypeVFullSync DeviceManagementExchangeConnectorSyncType = 0
+	// DeviceManagementExchangeConnectorSyncTypeVDeltaSync undocumented
+	DeviceManagementExchangeConnectorSyncTypeVDeltaSync DeviceManagementExchangeConnectorSyncType = 1
 )
+
+// DeviceManagementExchangeConnectorSyncTypePFullSync returns a pointer to DeviceManagementExchangeConnectorSyncTypeVFullSync
+func DeviceManagementExchangeConnectorSyncTypePFullSync() *DeviceManagementExchangeConnectorSyncType {
+	v := DeviceManagementExchangeConnectorSyncTypeVFullSync
+	return &v
+}
+
+// DeviceManagementExchangeConnectorSyncTypePDeltaSync returns a pointer to DeviceManagementExchangeConnectorSyncTypeVDeltaSync
+func DeviceManagementExchangeConnectorSyncTypePDeltaSync() *DeviceManagementExchangeConnectorSyncType {
+	v := DeviceManagementExchangeConnectorSyncTypeVDeltaSync
+	return &v
+}
 
 // DeviceManagementExchangeConnectorType undocumented
 type DeviceManagementExchangeConnectorType int
 
 const (
-	// DeviceManagementExchangeConnectorType_OnPremises undocumented
-	DeviceManagementExchangeConnectorType_OnPremises DeviceManagementExchangeConnectorType = 0
-	// DeviceManagementExchangeConnectorType_Hosted undocumented
-	DeviceManagementExchangeConnectorType_Hosted DeviceManagementExchangeConnectorType = 1
-	// DeviceManagementExchangeConnectorType_ServiceToService undocumented
-	DeviceManagementExchangeConnectorType_ServiceToService DeviceManagementExchangeConnectorType = 2
-	// DeviceManagementExchangeConnectorType_Dedicated undocumented
-	DeviceManagementExchangeConnectorType_Dedicated DeviceManagementExchangeConnectorType = 3
+	// DeviceManagementExchangeConnectorTypeVOnPremises undocumented
+	DeviceManagementExchangeConnectorTypeVOnPremises DeviceManagementExchangeConnectorType = 0
+	// DeviceManagementExchangeConnectorTypeVHosted undocumented
+	DeviceManagementExchangeConnectorTypeVHosted DeviceManagementExchangeConnectorType = 1
+	// DeviceManagementExchangeConnectorTypeVServiceToService undocumented
+	DeviceManagementExchangeConnectorTypeVServiceToService DeviceManagementExchangeConnectorType = 2
+	// DeviceManagementExchangeConnectorTypeVDedicated undocumented
+	DeviceManagementExchangeConnectorTypeVDedicated DeviceManagementExchangeConnectorType = 3
 )
+
+// DeviceManagementExchangeConnectorTypePOnPremises returns a pointer to DeviceManagementExchangeConnectorTypeVOnPremises
+func DeviceManagementExchangeConnectorTypePOnPremises() *DeviceManagementExchangeConnectorType {
+	v := DeviceManagementExchangeConnectorTypeVOnPremises
+	return &v
+}
+
+// DeviceManagementExchangeConnectorTypePHosted returns a pointer to DeviceManagementExchangeConnectorTypeVHosted
+func DeviceManagementExchangeConnectorTypePHosted() *DeviceManagementExchangeConnectorType {
+	v := DeviceManagementExchangeConnectorTypeVHosted
+	return &v
+}
+
+// DeviceManagementExchangeConnectorTypePServiceToService returns a pointer to DeviceManagementExchangeConnectorTypeVServiceToService
+func DeviceManagementExchangeConnectorTypePServiceToService() *DeviceManagementExchangeConnectorType {
+	v := DeviceManagementExchangeConnectorTypeVServiceToService
+	return &v
+}
+
+// DeviceManagementExchangeConnectorTypePDedicated returns a pointer to DeviceManagementExchangeConnectorTypeVDedicated
+func DeviceManagementExchangeConnectorTypePDedicated() *DeviceManagementExchangeConnectorType {
+	v := DeviceManagementExchangeConnectorTypeVDedicated
+	return &v
+}
 
 // DeviceManagementPartnerAppType undocumented
 type DeviceManagementPartnerAppType int
 
 const (
-	// DeviceManagementPartnerAppType_Unknown undocumented
-	DeviceManagementPartnerAppType_Unknown DeviceManagementPartnerAppType = 0
-	// DeviceManagementPartnerAppType_SingleTenantApp undocumented
-	DeviceManagementPartnerAppType_SingleTenantApp DeviceManagementPartnerAppType = 1
-	// DeviceManagementPartnerAppType_MultiTenantApp undocumented
-	DeviceManagementPartnerAppType_MultiTenantApp DeviceManagementPartnerAppType = 2
+	// DeviceManagementPartnerAppTypeVUnknown undocumented
+	DeviceManagementPartnerAppTypeVUnknown DeviceManagementPartnerAppType = 0
+	// DeviceManagementPartnerAppTypeVSingleTenantApp undocumented
+	DeviceManagementPartnerAppTypeVSingleTenantApp DeviceManagementPartnerAppType = 1
+	// DeviceManagementPartnerAppTypeVMultiTenantApp undocumented
+	DeviceManagementPartnerAppTypeVMultiTenantApp DeviceManagementPartnerAppType = 2
 )
+
+// DeviceManagementPartnerAppTypePUnknown returns a pointer to DeviceManagementPartnerAppTypeVUnknown
+func DeviceManagementPartnerAppTypePUnknown() *DeviceManagementPartnerAppType {
+	v := DeviceManagementPartnerAppTypeVUnknown
+	return &v
+}
+
+// DeviceManagementPartnerAppTypePSingleTenantApp returns a pointer to DeviceManagementPartnerAppTypeVSingleTenantApp
+func DeviceManagementPartnerAppTypePSingleTenantApp() *DeviceManagementPartnerAppType {
+	v := DeviceManagementPartnerAppTypeVSingleTenantApp
+	return &v
+}
+
+// DeviceManagementPartnerAppTypePMultiTenantApp returns a pointer to DeviceManagementPartnerAppTypeVMultiTenantApp
+func DeviceManagementPartnerAppTypePMultiTenantApp() *DeviceManagementPartnerAppType {
+	v := DeviceManagementPartnerAppTypeVMultiTenantApp
+	return &v
+}
 
 // DeviceManagementPartnerTenantState undocumented
 type DeviceManagementPartnerTenantState int
 
 const (
-	// DeviceManagementPartnerTenantState_Unknown undocumented
-	DeviceManagementPartnerTenantState_Unknown DeviceManagementPartnerTenantState = 0
-	// DeviceManagementPartnerTenantState_Unavailable undocumented
-	DeviceManagementPartnerTenantState_Unavailable DeviceManagementPartnerTenantState = 1
-	// DeviceManagementPartnerTenantState_Enabled undocumented
-	DeviceManagementPartnerTenantState_Enabled DeviceManagementPartnerTenantState = 2
-	// DeviceManagementPartnerTenantState_Terminated undocumented
-	DeviceManagementPartnerTenantState_Terminated DeviceManagementPartnerTenantState = 3
-	// DeviceManagementPartnerTenantState_Rejected undocumented
-	DeviceManagementPartnerTenantState_Rejected DeviceManagementPartnerTenantState = 4
-	// DeviceManagementPartnerTenantState_Unresponsive undocumented
-	DeviceManagementPartnerTenantState_Unresponsive DeviceManagementPartnerTenantState = 5
+	// DeviceManagementPartnerTenantStateVUnknown undocumented
+	DeviceManagementPartnerTenantStateVUnknown DeviceManagementPartnerTenantState = 0
+	// DeviceManagementPartnerTenantStateVUnavailable undocumented
+	DeviceManagementPartnerTenantStateVUnavailable DeviceManagementPartnerTenantState = 1
+	// DeviceManagementPartnerTenantStateVEnabled undocumented
+	DeviceManagementPartnerTenantStateVEnabled DeviceManagementPartnerTenantState = 2
+	// DeviceManagementPartnerTenantStateVTerminated undocumented
+	DeviceManagementPartnerTenantStateVTerminated DeviceManagementPartnerTenantState = 3
+	// DeviceManagementPartnerTenantStateVRejected undocumented
+	DeviceManagementPartnerTenantStateVRejected DeviceManagementPartnerTenantState = 4
+	// DeviceManagementPartnerTenantStateVUnresponsive undocumented
+	DeviceManagementPartnerTenantStateVUnresponsive DeviceManagementPartnerTenantState = 5
 )
+
+// DeviceManagementPartnerTenantStatePUnknown returns a pointer to DeviceManagementPartnerTenantStateVUnknown
+func DeviceManagementPartnerTenantStatePUnknown() *DeviceManagementPartnerTenantState {
+	v := DeviceManagementPartnerTenantStateVUnknown
+	return &v
+}
+
+// DeviceManagementPartnerTenantStatePUnavailable returns a pointer to DeviceManagementPartnerTenantStateVUnavailable
+func DeviceManagementPartnerTenantStatePUnavailable() *DeviceManagementPartnerTenantState {
+	v := DeviceManagementPartnerTenantStateVUnavailable
+	return &v
+}
+
+// DeviceManagementPartnerTenantStatePEnabled returns a pointer to DeviceManagementPartnerTenantStateVEnabled
+func DeviceManagementPartnerTenantStatePEnabled() *DeviceManagementPartnerTenantState {
+	v := DeviceManagementPartnerTenantStateVEnabled
+	return &v
+}
+
+// DeviceManagementPartnerTenantStatePTerminated returns a pointer to DeviceManagementPartnerTenantStateVTerminated
+func DeviceManagementPartnerTenantStatePTerminated() *DeviceManagementPartnerTenantState {
+	v := DeviceManagementPartnerTenantStateVTerminated
+	return &v
+}
+
+// DeviceManagementPartnerTenantStatePRejected returns a pointer to DeviceManagementPartnerTenantStateVRejected
+func DeviceManagementPartnerTenantStatePRejected() *DeviceManagementPartnerTenantState {
+	v := DeviceManagementPartnerTenantStateVRejected
+	return &v
+}
+
+// DeviceManagementPartnerTenantStatePUnresponsive returns a pointer to DeviceManagementPartnerTenantStateVUnresponsive
+func DeviceManagementPartnerTenantStatePUnresponsive() *DeviceManagementPartnerTenantState {
+	v := DeviceManagementPartnerTenantStateVUnresponsive
+	return &v
+}
 
 // DeviceManagementSubscriptionState undocumented
 type DeviceManagementSubscriptionState int
 
 const (
-	// DeviceManagementSubscriptionState_Pending undocumented
-	DeviceManagementSubscriptionState_Pending DeviceManagementSubscriptionState = 0
-	// DeviceManagementSubscriptionState_Active undocumented
-	DeviceManagementSubscriptionState_Active DeviceManagementSubscriptionState = 1
-	// DeviceManagementSubscriptionState_Warning undocumented
-	DeviceManagementSubscriptionState_Warning DeviceManagementSubscriptionState = 2
-	// DeviceManagementSubscriptionState_Disabled undocumented
-	DeviceManagementSubscriptionState_Disabled DeviceManagementSubscriptionState = 3
-	// DeviceManagementSubscriptionState_Deleted undocumented
-	DeviceManagementSubscriptionState_Deleted DeviceManagementSubscriptionState = 4
-	// DeviceManagementSubscriptionState_Blocked undocumented
-	DeviceManagementSubscriptionState_Blocked DeviceManagementSubscriptionState = 5
-	// DeviceManagementSubscriptionState_LockedOut undocumented
-	DeviceManagementSubscriptionState_LockedOut DeviceManagementSubscriptionState = 8
+	// DeviceManagementSubscriptionStateVPending undocumented
+	DeviceManagementSubscriptionStateVPending DeviceManagementSubscriptionState = 0
+	// DeviceManagementSubscriptionStateVActive undocumented
+	DeviceManagementSubscriptionStateVActive DeviceManagementSubscriptionState = 1
+	// DeviceManagementSubscriptionStateVWarning undocumented
+	DeviceManagementSubscriptionStateVWarning DeviceManagementSubscriptionState = 2
+	// DeviceManagementSubscriptionStateVDisabled undocumented
+	DeviceManagementSubscriptionStateVDisabled DeviceManagementSubscriptionState = 3
+	// DeviceManagementSubscriptionStateVDeleted undocumented
+	DeviceManagementSubscriptionStateVDeleted DeviceManagementSubscriptionState = 4
+	// DeviceManagementSubscriptionStateVBlocked undocumented
+	DeviceManagementSubscriptionStateVBlocked DeviceManagementSubscriptionState = 5
+	// DeviceManagementSubscriptionStateVLockedOut undocumented
+	DeviceManagementSubscriptionStateVLockedOut DeviceManagementSubscriptionState = 8
 )
+
+// DeviceManagementSubscriptionStatePPending returns a pointer to DeviceManagementSubscriptionStateVPending
+func DeviceManagementSubscriptionStatePPending() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVPending
+	return &v
+}
+
+// DeviceManagementSubscriptionStatePActive returns a pointer to DeviceManagementSubscriptionStateVActive
+func DeviceManagementSubscriptionStatePActive() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVActive
+	return &v
+}
+
+// DeviceManagementSubscriptionStatePWarning returns a pointer to DeviceManagementSubscriptionStateVWarning
+func DeviceManagementSubscriptionStatePWarning() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVWarning
+	return &v
+}
+
+// DeviceManagementSubscriptionStatePDisabled returns a pointer to DeviceManagementSubscriptionStateVDisabled
+func DeviceManagementSubscriptionStatePDisabled() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVDisabled
+	return &v
+}
+
+// DeviceManagementSubscriptionStatePDeleted returns a pointer to DeviceManagementSubscriptionStateVDeleted
+func DeviceManagementSubscriptionStatePDeleted() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVDeleted
+	return &v
+}
+
+// DeviceManagementSubscriptionStatePBlocked returns a pointer to DeviceManagementSubscriptionStateVBlocked
+func DeviceManagementSubscriptionStatePBlocked() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVBlocked
+	return &v
+}
+
+// DeviceManagementSubscriptionStatePLockedOut returns a pointer to DeviceManagementSubscriptionStateVLockedOut
+func DeviceManagementSubscriptionStatePLockedOut() *DeviceManagementSubscriptionState {
+	v := DeviceManagementSubscriptionStateVLockedOut
+	return &v
+}
 
 // DeviceRegistrationState undocumented
 type DeviceRegistrationState int
 
 const (
-	// DeviceRegistrationState_NotRegistered undocumented
-	DeviceRegistrationState_NotRegistered DeviceRegistrationState = 0
-	// DeviceRegistrationState_Registered undocumented
-	DeviceRegistrationState_Registered DeviceRegistrationState = 2
-	// DeviceRegistrationState_Revoked undocumented
-	DeviceRegistrationState_Revoked DeviceRegistrationState = 3
-	// DeviceRegistrationState_KeyConflict undocumented
-	DeviceRegistrationState_KeyConflict DeviceRegistrationState = 4
-	// DeviceRegistrationState_ApprovalPending undocumented
-	DeviceRegistrationState_ApprovalPending DeviceRegistrationState = 5
-	// DeviceRegistrationState_CertificateReset undocumented
-	DeviceRegistrationState_CertificateReset DeviceRegistrationState = 6
-	// DeviceRegistrationState_NotRegisteredPendingEnrollment undocumented
-	DeviceRegistrationState_NotRegisteredPendingEnrollment DeviceRegistrationState = 7
-	// DeviceRegistrationState_Unknown undocumented
-	DeviceRegistrationState_Unknown DeviceRegistrationState = 8
+	// DeviceRegistrationStateVNotRegistered undocumented
+	DeviceRegistrationStateVNotRegistered DeviceRegistrationState = 0
+	// DeviceRegistrationStateVRegistered undocumented
+	DeviceRegistrationStateVRegistered DeviceRegistrationState = 2
+	// DeviceRegistrationStateVRevoked undocumented
+	DeviceRegistrationStateVRevoked DeviceRegistrationState = 3
+	// DeviceRegistrationStateVKeyConflict undocumented
+	DeviceRegistrationStateVKeyConflict DeviceRegistrationState = 4
+	// DeviceRegistrationStateVApprovalPending undocumented
+	DeviceRegistrationStateVApprovalPending DeviceRegistrationState = 5
+	// DeviceRegistrationStateVCertificateReset undocumented
+	DeviceRegistrationStateVCertificateReset DeviceRegistrationState = 6
+	// DeviceRegistrationStateVNotRegisteredPendingEnrollment undocumented
+	DeviceRegistrationStateVNotRegisteredPendingEnrollment DeviceRegistrationState = 7
+	// DeviceRegistrationStateVUnknown undocumented
+	DeviceRegistrationStateVUnknown DeviceRegistrationState = 8
 )
+
+// DeviceRegistrationStatePNotRegistered returns a pointer to DeviceRegistrationStateVNotRegistered
+func DeviceRegistrationStatePNotRegistered() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVNotRegistered
+	return &v
+}
+
+// DeviceRegistrationStatePRegistered returns a pointer to DeviceRegistrationStateVRegistered
+func DeviceRegistrationStatePRegistered() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVRegistered
+	return &v
+}
+
+// DeviceRegistrationStatePRevoked returns a pointer to DeviceRegistrationStateVRevoked
+func DeviceRegistrationStatePRevoked() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVRevoked
+	return &v
+}
+
+// DeviceRegistrationStatePKeyConflict returns a pointer to DeviceRegistrationStateVKeyConflict
+func DeviceRegistrationStatePKeyConflict() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVKeyConflict
+	return &v
+}
+
+// DeviceRegistrationStatePApprovalPending returns a pointer to DeviceRegistrationStateVApprovalPending
+func DeviceRegistrationStatePApprovalPending() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVApprovalPending
+	return &v
+}
+
+// DeviceRegistrationStatePCertificateReset returns a pointer to DeviceRegistrationStateVCertificateReset
+func DeviceRegistrationStatePCertificateReset() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVCertificateReset
+	return &v
+}
+
+// DeviceRegistrationStatePNotRegisteredPendingEnrollment returns a pointer to DeviceRegistrationStateVNotRegisteredPendingEnrollment
+func DeviceRegistrationStatePNotRegisteredPendingEnrollment() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVNotRegisteredPendingEnrollment
+	return &v
+}
+
+// DeviceRegistrationStatePUnknown returns a pointer to DeviceRegistrationStateVUnknown
+func DeviceRegistrationStatePUnknown() *DeviceRegistrationState {
+	v := DeviceRegistrationStateVUnknown
+	return &v
+}
 
 // DeviceThreatProtectionLevel undocumented
 type DeviceThreatProtectionLevel int
 
 const (
-	// DeviceThreatProtectionLevel_Unavailable undocumented
-	DeviceThreatProtectionLevel_Unavailable DeviceThreatProtectionLevel = 0
-	// DeviceThreatProtectionLevel_Secured undocumented
-	DeviceThreatProtectionLevel_Secured DeviceThreatProtectionLevel = 1
-	// DeviceThreatProtectionLevel_Low undocumented
-	DeviceThreatProtectionLevel_Low DeviceThreatProtectionLevel = 2
-	// DeviceThreatProtectionLevel_Medium undocumented
-	DeviceThreatProtectionLevel_Medium DeviceThreatProtectionLevel = 3
-	// DeviceThreatProtectionLevel_High undocumented
-	DeviceThreatProtectionLevel_High DeviceThreatProtectionLevel = 4
-	// DeviceThreatProtectionLevel_NotSet undocumented
-	DeviceThreatProtectionLevel_NotSet DeviceThreatProtectionLevel = 10
+	// DeviceThreatProtectionLevelVUnavailable undocumented
+	DeviceThreatProtectionLevelVUnavailable DeviceThreatProtectionLevel = 0
+	// DeviceThreatProtectionLevelVSecured undocumented
+	DeviceThreatProtectionLevelVSecured DeviceThreatProtectionLevel = 1
+	// DeviceThreatProtectionLevelVLow undocumented
+	DeviceThreatProtectionLevelVLow DeviceThreatProtectionLevel = 2
+	// DeviceThreatProtectionLevelVMedium undocumented
+	DeviceThreatProtectionLevelVMedium DeviceThreatProtectionLevel = 3
+	// DeviceThreatProtectionLevelVHigh undocumented
+	DeviceThreatProtectionLevelVHigh DeviceThreatProtectionLevel = 4
+	// DeviceThreatProtectionLevelVNotSet undocumented
+	DeviceThreatProtectionLevelVNotSet DeviceThreatProtectionLevel = 10
 )
+
+// DeviceThreatProtectionLevelPUnavailable returns a pointer to DeviceThreatProtectionLevelVUnavailable
+func DeviceThreatProtectionLevelPUnavailable() *DeviceThreatProtectionLevel {
+	v := DeviceThreatProtectionLevelVUnavailable
+	return &v
+}
+
+// DeviceThreatProtectionLevelPSecured returns a pointer to DeviceThreatProtectionLevelVSecured
+func DeviceThreatProtectionLevelPSecured() *DeviceThreatProtectionLevel {
+	v := DeviceThreatProtectionLevelVSecured
+	return &v
+}
+
+// DeviceThreatProtectionLevelPLow returns a pointer to DeviceThreatProtectionLevelVLow
+func DeviceThreatProtectionLevelPLow() *DeviceThreatProtectionLevel {
+	v := DeviceThreatProtectionLevelVLow
+	return &v
+}
+
+// DeviceThreatProtectionLevelPMedium returns a pointer to DeviceThreatProtectionLevelVMedium
+func DeviceThreatProtectionLevelPMedium() *DeviceThreatProtectionLevel {
+	v := DeviceThreatProtectionLevelVMedium
+	return &v
+}
+
+// DeviceThreatProtectionLevelPHigh returns a pointer to DeviceThreatProtectionLevelVHigh
+func DeviceThreatProtectionLevelPHigh() *DeviceThreatProtectionLevel {
+	v := DeviceThreatProtectionLevelVHigh
+	return &v
+}
+
+// DeviceThreatProtectionLevelPNotSet returns a pointer to DeviceThreatProtectionLevelVNotSet
+func DeviceThreatProtectionLevelPNotSet() *DeviceThreatProtectionLevel {
+	v := DeviceThreatProtectionLevelVNotSet
+	return &v
+}
 
 // DiagnosticDataSubmissionMode undocumented
 type DiagnosticDataSubmissionMode int
 
 const (
-	// DiagnosticDataSubmissionMode_UserDefined undocumented
-	DiagnosticDataSubmissionMode_UserDefined DiagnosticDataSubmissionMode = 0
-	// DiagnosticDataSubmissionMode_None undocumented
-	DiagnosticDataSubmissionMode_None DiagnosticDataSubmissionMode = 1
-	// DiagnosticDataSubmissionMode_Basic undocumented
-	DiagnosticDataSubmissionMode_Basic DiagnosticDataSubmissionMode = 2
-	// DiagnosticDataSubmissionMode_Enhanced undocumented
-	DiagnosticDataSubmissionMode_Enhanced DiagnosticDataSubmissionMode = 3
-	// DiagnosticDataSubmissionMode_Full undocumented
-	DiagnosticDataSubmissionMode_Full DiagnosticDataSubmissionMode = 4
+	// DiagnosticDataSubmissionModeVUserDefined undocumented
+	DiagnosticDataSubmissionModeVUserDefined DiagnosticDataSubmissionMode = 0
+	// DiagnosticDataSubmissionModeVNone undocumented
+	DiagnosticDataSubmissionModeVNone DiagnosticDataSubmissionMode = 1
+	// DiagnosticDataSubmissionModeVBasic undocumented
+	DiagnosticDataSubmissionModeVBasic DiagnosticDataSubmissionMode = 2
+	// DiagnosticDataSubmissionModeVEnhanced undocumented
+	DiagnosticDataSubmissionModeVEnhanced DiagnosticDataSubmissionMode = 3
+	// DiagnosticDataSubmissionModeVFull undocumented
+	DiagnosticDataSubmissionModeVFull DiagnosticDataSubmissionMode = 4
 )
+
+// DiagnosticDataSubmissionModePUserDefined returns a pointer to DiagnosticDataSubmissionModeVUserDefined
+func DiagnosticDataSubmissionModePUserDefined() *DiagnosticDataSubmissionMode {
+	v := DiagnosticDataSubmissionModeVUserDefined
+	return &v
+}
+
+// DiagnosticDataSubmissionModePNone returns a pointer to DiagnosticDataSubmissionModeVNone
+func DiagnosticDataSubmissionModePNone() *DiagnosticDataSubmissionMode {
+	v := DiagnosticDataSubmissionModeVNone
+	return &v
+}
+
+// DiagnosticDataSubmissionModePBasic returns a pointer to DiagnosticDataSubmissionModeVBasic
+func DiagnosticDataSubmissionModePBasic() *DiagnosticDataSubmissionMode {
+	v := DiagnosticDataSubmissionModeVBasic
+	return &v
+}
+
+// DiagnosticDataSubmissionModePEnhanced returns a pointer to DiagnosticDataSubmissionModeVEnhanced
+func DiagnosticDataSubmissionModePEnhanced() *DiagnosticDataSubmissionMode {
+	v := DiagnosticDataSubmissionModeVEnhanced
+	return &v
+}
+
+// DiagnosticDataSubmissionModePFull returns a pointer to DiagnosticDataSubmissionModeVFull
+func DiagnosticDataSubmissionModePFull() *DiagnosticDataSubmissionMode {
+	v := DiagnosticDataSubmissionModeVFull
+	return &v
+}
 
 // EdgeCookiePolicy undocumented
 type EdgeCookiePolicy int
 
 const (
-	// EdgeCookiePolicy_UserDefined undocumented
-	EdgeCookiePolicy_UserDefined EdgeCookiePolicy = 0
-	// EdgeCookiePolicy_Allow undocumented
-	EdgeCookiePolicy_Allow EdgeCookiePolicy = 1
-	// EdgeCookiePolicy_BlockThirdParty undocumented
-	EdgeCookiePolicy_BlockThirdParty EdgeCookiePolicy = 2
-	// EdgeCookiePolicy_BlockAll undocumented
-	EdgeCookiePolicy_BlockAll EdgeCookiePolicy = 3
+	// EdgeCookiePolicyVUserDefined undocumented
+	EdgeCookiePolicyVUserDefined EdgeCookiePolicy = 0
+	// EdgeCookiePolicyVAllow undocumented
+	EdgeCookiePolicyVAllow EdgeCookiePolicy = 1
+	// EdgeCookiePolicyVBlockThirdParty undocumented
+	EdgeCookiePolicyVBlockThirdParty EdgeCookiePolicy = 2
+	// EdgeCookiePolicyVBlockAll undocumented
+	EdgeCookiePolicyVBlockAll EdgeCookiePolicy = 3
 )
+
+// EdgeCookiePolicyPUserDefined returns a pointer to EdgeCookiePolicyVUserDefined
+func EdgeCookiePolicyPUserDefined() *EdgeCookiePolicy {
+	v := EdgeCookiePolicyVUserDefined
+	return &v
+}
+
+// EdgeCookiePolicyPAllow returns a pointer to EdgeCookiePolicyVAllow
+func EdgeCookiePolicyPAllow() *EdgeCookiePolicy {
+	v := EdgeCookiePolicyVAllow
+	return &v
+}
+
+// EdgeCookiePolicyPBlockThirdParty returns a pointer to EdgeCookiePolicyVBlockThirdParty
+func EdgeCookiePolicyPBlockThirdParty() *EdgeCookiePolicy {
+	v := EdgeCookiePolicyVBlockThirdParty
+	return &v
+}
+
+// EdgeCookiePolicyPBlockAll returns a pointer to EdgeCookiePolicyVBlockAll
+func EdgeCookiePolicyPBlockAll() *EdgeCookiePolicy {
+	v := EdgeCookiePolicyVBlockAll
+	return &v
+}
 
 // EdgeSearchEngineType undocumented
 type EdgeSearchEngineType int
 
 const (
-	// EdgeSearchEngineType_Default undocumented
-	EdgeSearchEngineType_Default EdgeSearchEngineType = 0
-	// EdgeSearchEngineType_Bing undocumented
-	EdgeSearchEngineType_Bing EdgeSearchEngineType = 1
+	// EdgeSearchEngineTypeVDefault undocumented
+	EdgeSearchEngineTypeVDefault EdgeSearchEngineType = 0
+	// EdgeSearchEngineTypeVBing undocumented
+	EdgeSearchEngineTypeVBing EdgeSearchEngineType = 1
 )
+
+// EdgeSearchEngineTypePDefault returns a pointer to EdgeSearchEngineTypeVDefault
+func EdgeSearchEngineTypePDefault() *EdgeSearchEngineType {
+	v := EdgeSearchEngineTypeVDefault
+	return &v
+}
+
+// EdgeSearchEngineTypePBing returns a pointer to EdgeSearchEngineTypeVBing
+func EdgeSearchEngineTypePBing() *EdgeSearchEngineType {
+	v := EdgeSearchEngineTypeVBing
+	return &v
+}
 
 // EditionUpgradeLicenseType undocumented
 type EditionUpgradeLicenseType int
 
 const (
-	// EditionUpgradeLicenseType_ProductKey undocumented
-	EditionUpgradeLicenseType_ProductKey EditionUpgradeLicenseType = 0
-	// EditionUpgradeLicenseType_LicenseFile undocumented
-	EditionUpgradeLicenseType_LicenseFile EditionUpgradeLicenseType = 1
+	// EditionUpgradeLicenseTypeVProductKey undocumented
+	EditionUpgradeLicenseTypeVProductKey EditionUpgradeLicenseType = 0
+	// EditionUpgradeLicenseTypeVLicenseFile undocumented
+	EditionUpgradeLicenseTypeVLicenseFile EditionUpgradeLicenseType = 1
 )
+
+// EditionUpgradeLicenseTypePProductKey returns a pointer to EditionUpgradeLicenseTypeVProductKey
+func EditionUpgradeLicenseTypePProductKey() *EditionUpgradeLicenseType {
+	v := EditionUpgradeLicenseTypeVProductKey
+	return &v
+}
+
+// EditionUpgradeLicenseTypePLicenseFile returns a pointer to EditionUpgradeLicenseTypeVLicenseFile
+func EditionUpgradeLicenseTypePLicenseFile() *EditionUpgradeLicenseType {
+	v := EditionUpgradeLicenseTypeVLicenseFile
+	return &v
+}
 
 // EducationExternalSource undocumented
 type EducationExternalSource int
 
 const (
-	// EducationExternalSource_Sis undocumented
-	EducationExternalSource_Sis EducationExternalSource = 0
-	// EducationExternalSource_Manual undocumented
-	EducationExternalSource_Manual EducationExternalSource = 1
-	// EducationExternalSource_UnknownFutureValue undocumented
-	EducationExternalSource_UnknownFutureValue EducationExternalSource = 2
+	// EducationExternalSourceVSis undocumented
+	EducationExternalSourceVSis EducationExternalSource = 0
+	// EducationExternalSourceVManual undocumented
+	EducationExternalSourceVManual EducationExternalSource = 1
+	// EducationExternalSourceVUnknownFutureValue undocumented
+	EducationExternalSourceVUnknownFutureValue EducationExternalSource = 2
 )
+
+// EducationExternalSourcePSis returns a pointer to EducationExternalSourceVSis
+func EducationExternalSourcePSis() *EducationExternalSource {
+	v := EducationExternalSourceVSis
+	return &v
+}
+
+// EducationExternalSourcePManual returns a pointer to EducationExternalSourceVManual
+func EducationExternalSourcePManual() *EducationExternalSource {
+	v := EducationExternalSourceVManual
+	return &v
+}
+
+// EducationExternalSourcePUnknownFutureValue returns a pointer to EducationExternalSourceVUnknownFutureValue
+func EducationExternalSourcePUnknownFutureValue() *EducationExternalSource {
+	v := EducationExternalSourceVUnknownFutureValue
+	return &v
+}
 
 // EducationGender undocumented
 type EducationGender int
 
 const (
-	// EducationGender_Female undocumented
-	EducationGender_Female EducationGender = 0
-	// EducationGender_Male undocumented
-	EducationGender_Male EducationGender = 1
-	// EducationGender_Other undocumented
-	EducationGender_Other EducationGender = 2
-	// EducationGender_UnknownFutureValue undocumented
-	EducationGender_UnknownFutureValue EducationGender = 3
+	// EducationGenderVFemale undocumented
+	EducationGenderVFemale EducationGender = 0
+	// EducationGenderVMale undocumented
+	EducationGenderVMale EducationGender = 1
+	// EducationGenderVOther undocumented
+	EducationGenderVOther EducationGender = 2
+	// EducationGenderVUnknownFutureValue undocumented
+	EducationGenderVUnknownFutureValue EducationGender = 3
 )
+
+// EducationGenderPFemale returns a pointer to EducationGenderVFemale
+func EducationGenderPFemale() *EducationGender {
+	v := EducationGenderVFemale
+	return &v
+}
+
+// EducationGenderPMale returns a pointer to EducationGenderVMale
+func EducationGenderPMale() *EducationGender {
+	v := EducationGenderVMale
+	return &v
+}
+
+// EducationGenderPOther returns a pointer to EducationGenderVOther
+func EducationGenderPOther() *EducationGender {
+	v := EducationGenderVOther
+	return &v
+}
+
+// EducationGenderPUnknownFutureValue returns a pointer to EducationGenderVUnknownFutureValue
+func EducationGenderPUnknownFutureValue() *EducationGender {
+	v := EducationGenderVUnknownFutureValue
+	return &v
+}
 
 // EducationUserRole undocumented
 type EducationUserRole int
 
 const (
-	// EducationUserRole_Student undocumented
-	EducationUserRole_Student EducationUserRole = 0
-	// EducationUserRole_Teacher undocumented
-	EducationUserRole_Teacher EducationUserRole = 1
-	// EducationUserRole_None undocumented
-	EducationUserRole_None EducationUserRole = 2
-	// EducationUserRole_UnknownFutureValue undocumented
-	EducationUserRole_UnknownFutureValue EducationUserRole = 3
+	// EducationUserRoleVStudent undocumented
+	EducationUserRoleVStudent EducationUserRole = 0
+	// EducationUserRoleVTeacher undocumented
+	EducationUserRoleVTeacher EducationUserRole = 1
+	// EducationUserRoleVNone undocumented
+	EducationUserRoleVNone EducationUserRole = 2
+	// EducationUserRoleVUnknownFutureValue undocumented
+	EducationUserRoleVUnknownFutureValue EducationUserRole = 3
 )
+
+// EducationUserRolePStudent returns a pointer to EducationUserRoleVStudent
+func EducationUserRolePStudent() *EducationUserRole {
+	v := EducationUserRoleVStudent
+	return &v
+}
+
+// EducationUserRolePTeacher returns a pointer to EducationUserRoleVTeacher
+func EducationUserRolePTeacher() *EducationUserRole {
+	v := EducationUserRoleVTeacher
+	return &v
+}
+
+// EducationUserRolePNone returns a pointer to EducationUserRoleVNone
+func EducationUserRolePNone() *EducationUserRole {
+	v := EducationUserRoleVNone
+	return &v
+}
+
+// EducationUserRolePUnknownFutureValue returns a pointer to EducationUserRoleVUnknownFutureValue
+func EducationUserRolePUnknownFutureValue() *EducationUserRole {
+	v := EducationUserRoleVUnknownFutureValue
+	return &v
+}
 
 // EmailRole undocumented
 type EmailRole int
 
 const (
-	// EmailRole_Unknown undocumented
-	EmailRole_Unknown EmailRole = 0
-	// EmailRole_Sender undocumented
-	EmailRole_Sender EmailRole = 1
-	// EmailRole_Recipient undocumented
-	EmailRole_Recipient EmailRole = 2
-	// EmailRole_UnknownFutureValue undocumented
-	EmailRole_UnknownFutureValue EmailRole = 127
+	// EmailRoleVUnknown undocumented
+	EmailRoleVUnknown EmailRole = 0
+	// EmailRoleVSender undocumented
+	EmailRoleVSender EmailRole = 1
+	// EmailRoleVRecipient undocumented
+	EmailRoleVRecipient EmailRole = 2
+	// EmailRoleVUnknownFutureValue undocumented
+	EmailRoleVUnknownFutureValue EmailRole = 127
 )
+
+// EmailRolePUnknown returns a pointer to EmailRoleVUnknown
+func EmailRolePUnknown() *EmailRole {
+	v := EmailRoleVUnknown
+	return &v
+}
+
+// EmailRolePSender returns a pointer to EmailRoleVSender
+func EmailRolePSender() *EmailRole {
+	v := EmailRoleVSender
+	return &v
+}
+
+// EmailRolePRecipient returns a pointer to EmailRoleVRecipient
+func EmailRolePRecipient() *EmailRole {
+	v := EmailRoleVRecipient
+	return &v
+}
+
+// EmailRolePUnknownFutureValue returns a pointer to EmailRoleVUnknownFutureValue
+func EmailRolePUnknownFutureValue() *EmailRole {
+	v := EmailRoleVUnknownFutureValue
+	return &v
+}
 
 // Enablement undocumented
 type Enablement int
 
 const (
-	// Enablement_NotConfigured undocumented
-	Enablement_NotConfigured Enablement = 0
-	// Enablement_Enabled undocumented
-	Enablement_Enabled Enablement = 1
-	// Enablement_Disabled undocumented
-	Enablement_Disabled Enablement = 2
+	// EnablementVNotConfigured undocumented
+	EnablementVNotConfigured Enablement = 0
+	// EnablementVEnabled undocumented
+	EnablementVEnabled Enablement = 1
+	// EnablementVDisabled undocumented
+	EnablementVDisabled Enablement = 2
 )
+
+// EnablementPNotConfigured returns a pointer to EnablementVNotConfigured
+func EnablementPNotConfigured() *Enablement {
+	v := EnablementVNotConfigured
+	return &v
+}
+
+// EnablementPEnabled returns a pointer to EnablementVEnabled
+func EnablementPEnabled() *Enablement {
+	v := EnablementVEnabled
+	return &v
+}
+
+// EnablementPDisabled returns a pointer to EnablementVDisabled
+func EnablementPDisabled() *Enablement {
+	v := EnablementVDisabled
+	return &v
+}
 
 // EventType undocumented
 type EventType int
 
 const (
-	// EventType_SingleInstance undocumented
-	EventType_SingleInstance EventType = 0
-	// EventType_Occurrence undocumented
-	EventType_Occurrence EventType = 1
-	// EventType_Exception undocumented
-	EventType_Exception EventType = 2
-	// EventType_SeriesMaster undocumented
-	EventType_SeriesMaster EventType = 3
+	// EventTypeVSingleInstance undocumented
+	EventTypeVSingleInstance EventType = 0
+	// EventTypeVOccurrence undocumented
+	EventTypeVOccurrence EventType = 1
+	// EventTypeVException undocumented
+	EventTypeVException EventType = 2
+	// EventTypeVSeriesMaster undocumented
+	EventTypeVSeriesMaster EventType = 3
 )
+
+// EventTypePSingleInstance returns a pointer to EventTypeVSingleInstance
+func EventTypePSingleInstance() *EventType {
+	v := EventTypeVSingleInstance
+	return &v
+}
+
+// EventTypePOccurrence returns a pointer to EventTypeVOccurrence
+func EventTypePOccurrence() *EventType {
+	v := EventTypeVOccurrence
+	return &v
+}
+
+// EventTypePException returns a pointer to EventTypeVException
+func EventTypePException() *EventType {
+	v := EventTypeVException
+	return &v
+}
+
+// EventTypePSeriesMaster returns a pointer to EventTypeVSeriesMaster
+func EventTypePSeriesMaster() *EventType {
+	v := EventTypeVSeriesMaster
+	return &v
+}
 
 // ExchangeIDFormat undocumented
 type ExchangeIDFormat int
 
 const (
-	// ExchangeIDFormat_EntryID undocumented
-	ExchangeIDFormat_EntryID ExchangeIDFormat = 0
-	// ExchangeIDFormat_EwsID undocumented
-	ExchangeIDFormat_EwsID ExchangeIDFormat = 1
-	// ExchangeIDFormat_ImmutableEntryID undocumented
-	ExchangeIDFormat_ImmutableEntryID ExchangeIDFormat = 2
-	// ExchangeIDFormat_RestID undocumented
-	ExchangeIDFormat_RestID ExchangeIDFormat = 3
-	// ExchangeIDFormat_RestImmutableEntryID undocumented
-	ExchangeIDFormat_RestImmutableEntryID ExchangeIDFormat = 4
+	// ExchangeIDFormatVEntryID undocumented
+	ExchangeIDFormatVEntryID ExchangeIDFormat = 0
+	// ExchangeIDFormatVEwsID undocumented
+	ExchangeIDFormatVEwsID ExchangeIDFormat = 1
+	// ExchangeIDFormatVImmutableEntryID undocumented
+	ExchangeIDFormatVImmutableEntryID ExchangeIDFormat = 2
+	// ExchangeIDFormatVRestID undocumented
+	ExchangeIDFormatVRestID ExchangeIDFormat = 3
+	// ExchangeIDFormatVRestImmutableEntryID undocumented
+	ExchangeIDFormatVRestImmutableEntryID ExchangeIDFormat = 4
 )
+
+// ExchangeIDFormatPEntryID returns a pointer to ExchangeIDFormatVEntryID
+func ExchangeIDFormatPEntryID() *ExchangeIDFormat {
+	v := ExchangeIDFormatVEntryID
+	return &v
+}
+
+// ExchangeIDFormatPEwsID returns a pointer to ExchangeIDFormatVEwsID
+func ExchangeIDFormatPEwsID() *ExchangeIDFormat {
+	v := ExchangeIDFormatVEwsID
+	return &v
+}
+
+// ExchangeIDFormatPImmutableEntryID returns a pointer to ExchangeIDFormatVImmutableEntryID
+func ExchangeIDFormatPImmutableEntryID() *ExchangeIDFormat {
+	v := ExchangeIDFormatVImmutableEntryID
+	return &v
+}
+
+// ExchangeIDFormatPRestID returns a pointer to ExchangeIDFormatVRestID
+func ExchangeIDFormatPRestID() *ExchangeIDFormat {
+	v := ExchangeIDFormatVRestID
+	return &v
+}
+
+// ExchangeIDFormatPRestImmutableEntryID returns a pointer to ExchangeIDFormatVRestImmutableEntryID
+func ExchangeIDFormatPRestImmutableEntryID() *ExchangeIDFormat {
+	v := ExchangeIDFormatVRestImmutableEntryID
+	return &v
+}
 
 // ExternalAudienceScope undocumented
 type ExternalAudienceScope int
 
 const (
-	// ExternalAudienceScope_None undocumented
-	ExternalAudienceScope_None ExternalAudienceScope = 0
-	// ExternalAudienceScope_ContactsOnly undocumented
-	ExternalAudienceScope_ContactsOnly ExternalAudienceScope = 1
-	// ExternalAudienceScope_All undocumented
-	ExternalAudienceScope_All ExternalAudienceScope = 2
+	// ExternalAudienceScopeVNone undocumented
+	ExternalAudienceScopeVNone ExternalAudienceScope = 0
+	// ExternalAudienceScopeVContactsOnly undocumented
+	ExternalAudienceScopeVContactsOnly ExternalAudienceScope = 1
+	// ExternalAudienceScopeVAll undocumented
+	ExternalAudienceScopeVAll ExternalAudienceScope = 2
 )
+
+// ExternalAudienceScopePNone returns a pointer to ExternalAudienceScopeVNone
+func ExternalAudienceScopePNone() *ExternalAudienceScope {
+	v := ExternalAudienceScopeVNone
+	return &v
+}
+
+// ExternalAudienceScopePContactsOnly returns a pointer to ExternalAudienceScopeVContactsOnly
+func ExternalAudienceScopePContactsOnly() *ExternalAudienceScope {
+	v := ExternalAudienceScopeVContactsOnly
+	return &v
+}
+
+// ExternalAudienceScopePAll returns a pointer to ExternalAudienceScopeVAll
+func ExternalAudienceScopePAll() *ExternalAudienceScope {
+	v := ExternalAudienceScopeVAll
+	return &v
+}
 
 // FileHashType undocumented
 type FileHashType int
 
 const (
-	// FileHashType_Unknown undocumented
-	FileHashType_Unknown FileHashType = 0
-	// FileHashType_Sha1 undocumented
-	FileHashType_Sha1 FileHashType = 1
-	// FileHashType_Sha256 undocumented
-	FileHashType_Sha256 FileHashType = 2
-	// FileHashType_Md5 undocumented
-	FileHashType_Md5 FileHashType = 3
-	// FileHashType_AuthenticodeHash256 undocumented
-	FileHashType_AuthenticodeHash256 FileHashType = 4
-	// FileHashType_LsHash undocumented
-	FileHashType_LsHash FileHashType = 5
-	// FileHashType_Ctph undocumented
-	FileHashType_Ctph FileHashType = 6
-	// FileHashType_UnknownFutureValue undocumented
-	FileHashType_UnknownFutureValue FileHashType = 127
+	// FileHashTypeVUnknown undocumented
+	FileHashTypeVUnknown FileHashType = 0
+	// FileHashTypeVSha1 undocumented
+	FileHashTypeVSha1 FileHashType = 1
+	// FileHashTypeVSha256 undocumented
+	FileHashTypeVSha256 FileHashType = 2
+	// FileHashTypeVMd5 undocumented
+	FileHashTypeVMd5 FileHashType = 3
+	// FileHashTypeVAuthenticodeHash256 undocumented
+	FileHashTypeVAuthenticodeHash256 FileHashType = 4
+	// FileHashTypeVLsHash undocumented
+	FileHashTypeVLsHash FileHashType = 5
+	// FileHashTypeVCtph undocumented
+	FileHashTypeVCtph FileHashType = 6
+	// FileHashTypeVUnknownFutureValue undocumented
+	FileHashTypeVUnknownFutureValue FileHashType = 127
 )
+
+// FileHashTypePUnknown returns a pointer to FileHashTypeVUnknown
+func FileHashTypePUnknown() *FileHashType {
+	v := FileHashTypeVUnknown
+	return &v
+}
+
+// FileHashTypePSha1 returns a pointer to FileHashTypeVSha1
+func FileHashTypePSha1() *FileHashType {
+	v := FileHashTypeVSha1
+	return &v
+}
+
+// FileHashTypePSha256 returns a pointer to FileHashTypeVSha256
+func FileHashTypePSha256() *FileHashType {
+	v := FileHashTypeVSha256
+	return &v
+}
+
+// FileHashTypePMd5 returns a pointer to FileHashTypeVMd5
+func FileHashTypePMd5() *FileHashType {
+	v := FileHashTypeVMd5
+	return &v
+}
+
+// FileHashTypePAuthenticodeHash256 returns a pointer to FileHashTypeVAuthenticodeHash256
+func FileHashTypePAuthenticodeHash256() *FileHashType {
+	v := FileHashTypeVAuthenticodeHash256
+	return &v
+}
+
+// FileHashTypePLsHash returns a pointer to FileHashTypeVLsHash
+func FileHashTypePLsHash() *FileHashType {
+	v := FileHashTypeVLsHash
+	return &v
+}
+
+// FileHashTypePCtph returns a pointer to FileHashTypeVCtph
+func FileHashTypePCtph() *FileHashType {
+	v := FileHashTypeVCtph
+	return &v
+}
+
+// FileHashTypePUnknownFutureValue returns a pointer to FileHashTypeVUnknownFutureValue
+func FileHashTypePUnknownFutureValue() *FileHashType {
+	v := FileHashTypeVUnknownFutureValue
+	return &v
+}
 
 // FirewallCertificateRevocationListCheckMethodType undocumented
 type FirewallCertificateRevocationListCheckMethodType int
 
 const (
-	// FirewallCertificateRevocationListCheckMethodType_DeviceDefault undocumented
-	FirewallCertificateRevocationListCheckMethodType_DeviceDefault FirewallCertificateRevocationListCheckMethodType = 0
-	// FirewallCertificateRevocationListCheckMethodType_None undocumented
-	FirewallCertificateRevocationListCheckMethodType_None FirewallCertificateRevocationListCheckMethodType = 1
-	// FirewallCertificateRevocationListCheckMethodType_Attempt undocumented
-	FirewallCertificateRevocationListCheckMethodType_Attempt FirewallCertificateRevocationListCheckMethodType = 2
-	// FirewallCertificateRevocationListCheckMethodType_Require undocumented
-	FirewallCertificateRevocationListCheckMethodType_Require FirewallCertificateRevocationListCheckMethodType = 3
+	// FirewallCertificateRevocationListCheckMethodTypeVDeviceDefault undocumented
+	FirewallCertificateRevocationListCheckMethodTypeVDeviceDefault FirewallCertificateRevocationListCheckMethodType = 0
+	// FirewallCertificateRevocationListCheckMethodTypeVNone undocumented
+	FirewallCertificateRevocationListCheckMethodTypeVNone FirewallCertificateRevocationListCheckMethodType = 1
+	// FirewallCertificateRevocationListCheckMethodTypeVAttempt undocumented
+	FirewallCertificateRevocationListCheckMethodTypeVAttempt FirewallCertificateRevocationListCheckMethodType = 2
+	// FirewallCertificateRevocationListCheckMethodTypeVRequire undocumented
+	FirewallCertificateRevocationListCheckMethodTypeVRequire FirewallCertificateRevocationListCheckMethodType = 3
 )
+
+// FirewallCertificateRevocationListCheckMethodTypePDeviceDefault returns a pointer to FirewallCertificateRevocationListCheckMethodTypeVDeviceDefault
+func FirewallCertificateRevocationListCheckMethodTypePDeviceDefault() *FirewallCertificateRevocationListCheckMethodType {
+	v := FirewallCertificateRevocationListCheckMethodTypeVDeviceDefault
+	return &v
+}
+
+// FirewallCertificateRevocationListCheckMethodTypePNone returns a pointer to FirewallCertificateRevocationListCheckMethodTypeVNone
+func FirewallCertificateRevocationListCheckMethodTypePNone() *FirewallCertificateRevocationListCheckMethodType {
+	v := FirewallCertificateRevocationListCheckMethodTypeVNone
+	return &v
+}
+
+// FirewallCertificateRevocationListCheckMethodTypePAttempt returns a pointer to FirewallCertificateRevocationListCheckMethodTypeVAttempt
+func FirewallCertificateRevocationListCheckMethodTypePAttempt() *FirewallCertificateRevocationListCheckMethodType {
+	v := FirewallCertificateRevocationListCheckMethodTypeVAttempt
+	return &v
+}
+
+// FirewallCertificateRevocationListCheckMethodTypePRequire returns a pointer to FirewallCertificateRevocationListCheckMethodTypeVRequire
+func FirewallCertificateRevocationListCheckMethodTypePRequire() *FirewallCertificateRevocationListCheckMethodType {
+	v := FirewallCertificateRevocationListCheckMethodTypeVRequire
+	return &v
+}
 
 // FirewallPacketQueueingMethodType undocumented
 type FirewallPacketQueueingMethodType int
 
 const (
-	// FirewallPacketQueueingMethodType_DeviceDefault undocumented
-	FirewallPacketQueueingMethodType_DeviceDefault FirewallPacketQueueingMethodType = 0
-	// FirewallPacketQueueingMethodType_Disabled undocumented
-	FirewallPacketQueueingMethodType_Disabled FirewallPacketQueueingMethodType = 1
-	// FirewallPacketQueueingMethodType_QueueInbound undocumented
-	FirewallPacketQueueingMethodType_QueueInbound FirewallPacketQueueingMethodType = 2
-	// FirewallPacketQueueingMethodType_QueueOutbound undocumented
-	FirewallPacketQueueingMethodType_QueueOutbound FirewallPacketQueueingMethodType = 3
-	// FirewallPacketQueueingMethodType_QueueBoth undocumented
-	FirewallPacketQueueingMethodType_QueueBoth FirewallPacketQueueingMethodType = 4
+	// FirewallPacketQueueingMethodTypeVDeviceDefault undocumented
+	FirewallPacketQueueingMethodTypeVDeviceDefault FirewallPacketQueueingMethodType = 0
+	// FirewallPacketQueueingMethodTypeVDisabled undocumented
+	FirewallPacketQueueingMethodTypeVDisabled FirewallPacketQueueingMethodType = 1
+	// FirewallPacketQueueingMethodTypeVQueueInbound undocumented
+	FirewallPacketQueueingMethodTypeVQueueInbound FirewallPacketQueueingMethodType = 2
+	// FirewallPacketQueueingMethodTypeVQueueOutbound undocumented
+	FirewallPacketQueueingMethodTypeVQueueOutbound FirewallPacketQueueingMethodType = 3
+	// FirewallPacketQueueingMethodTypeVQueueBoth undocumented
+	FirewallPacketQueueingMethodTypeVQueueBoth FirewallPacketQueueingMethodType = 4
 )
+
+// FirewallPacketQueueingMethodTypePDeviceDefault returns a pointer to FirewallPacketQueueingMethodTypeVDeviceDefault
+func FirewallPacketQueueingMethodTypePDeviceDefault() *FirewallPacketQueueingMethodType {
+	v := FirewallPacketQueueingMethodTypeVDeviceDefault
+	return &v
+}
+
+// FirewallPacketQueueingMethodTypePDisabled returns a pointer to FirewallPacketQueueingMethodTypeVDisabled
+func FirewallPacketQueueingMethodTypePDisabled() *FirewallPacketQueueingMethodType {
+	v := FirewallPacketQueueingMethodTypeVDisabled
+	return &v
+}
+
+// FirewallPacketQueueingMethodTypePQueueInbound returns a pointer to FirewallPacketQueueingMethodTypeVQueueInbound
+func FirewallPacketQueueingMethodTypePQueueInbound() *FirewallPacketQueueingMethodType {
+	v := FirewallPacketQueueingMethodTypeVQueueInbound
+	return &v
+}
+
+// FirewallPacketQueueingMethodTypePQueueOutbound returns a pointer to FirewallPacketQueueingMethodTypeVQueueOutbound
+func FirewallPacketQueueingMethodTypePQueueOutbound() *FirewallPacketQueueingMethodType {
+	v := FirewallPacketQueueingMethodTypeVQueueOutbound
+	return &v
+}
+
+// FirewallPacketQueueingMethodTypePQueueBoth returns a pointer to FirewallPacketQueueingMethodTypeVQueueBoth
+func FirewallPacketQueueingMethodTypePQueueBoth() *FirewallPacketQueueingMethodType {
+	v := FirewallPacketQueueingMethodTypeVQueueBoth
+	return &v
+}
 
 // FirewallPreSharedKeyEncodingMethodType undocumented
 type FirewallPreSharedKeyEncodingMethodType int
 
 const (
-	// FirewallPreSharedKeyEncodingMethodType_DeviceDefault undocumented
-	FirewallPreSharedKeyEncodingMethodType_DeviceDefault FirewallPreSharedKeyEncodingMethodType = 0
-	// FirewallPreSharedKeyEncodingMethodType_None undocumented
-	FirewallPreSharedKeyEncodingMethodType_None FirewallPreSharedKeyEncodingMethodType = 1
-	// FirewallPreSharedKeyEncodingMethodType_UtF8 undocumented
-	FirewallPreSharedKeyEncodingMethodType_UtF8 FirewallPreSharedKeyEncodingMethodType = 2
+	// FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault undocumented
+	FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault FirewallPreSharedKeyEncodingMethodType = 0
+	// FirewallPreSharedKeyEncodingMethodTypeVNone undocumented
+	FirewallPreSharedKeyEncodingMethodTypeVNone FirewallPreSharedKeyEncodingMethodType = 1
+	// FirewallPreSharedKeyEncodingMethodTypeVUtF8 undocumented
+	FirewallPreSharedKeyEncodingMethodTypeVUtF8 FirewallPreSharedKeyEncodingMethodType = 2
 )
+
+// FirewallPreSharedKeyEncodingMethodTypePDeviceDefault returns a pointer to FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault
+func FirewallPreSharedKeyEncodingMethodTypePDeviceDefault() *FirewallPreSharedKeyEncodingMethodType {
+	v := FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault
+	return &v
+}
+
+// FirewallPreSharedKeyEncodingMethodTypePNone returns a pointer to FirewallPreSharedKeyEncodingMethodTypeVNone
+func FirewallPreSharedKeyEncodingMethodTypePNone() *FirewallPreSharedKeyEncodingMethodType {
+	v := FirewallPreSharedKeyEncodingMethodTypeVNone
+	return &v
+}
+
+// FirewallPreSharedKeyEncodingMethodTypePUtF8 returns a pointer to FirewallPreSharedKeyEncodingMethodTypeVUtF8
+func FirewallPreSharedKeyEncodingMethodTypePUtF8() *FirewallPreSharedKeyEncodingMethodType {
+	v := FirewallPreSharedKeyEncodingMethodTypeVUtF8
+	return &v
+}
 
 // FollowupFlagStatus undocumented
 type FollowupFlagStatus int
 
 const (
-	// FollowupFlagStatus_NotFlagged undocumented
-	FollowupFlagStatus_NotFlagged FollowupFlagStatus = 0
-	// FollowupFlagStatus_Complete undocumented
-	FollowupFlagStatus_Complete FollowupFlagStatus = 1
-	// FollowupFlagStatus_Flagged undocumented
-	FollowupFlagStatus_Flagged FollowupFlagStatus = 2
+	// FollowupFlagStatusVNotFlagged undocumented
+	FollowupFlagStatusVNotFlagged FollowupFlagStatus = 0
+	// FollowupFlagStatusVComplete undocumented
+	FollowupFlagStatusVComplete FollowupFlagStatus = 1
+	// FollowupFlagStatusVFlagged undocumented
+	FollowupFlagStatusVFlagged FollowupFlagStatus = 2
 )
+
+// FollowupFlagStatusPNotFlagged returns a pointer to FollowupFlagStatusVNotFlagged
+func FollowupFlagStatusPNotFlagged() *FollowupFlagStatus {
+	v := FollowupFlagStatusVNotFlagged
+	return &v
+}
+
+// FollowupFlagStatusPComplete returns a pointer to FollowupFlagStatusVComplete
+func FollowupFlagStatusPComplete() *FollowupFlagStatus {
+	v := FollowupFlagStatusVComplete
+	return &v
+}
+
+// FollowupFlagStatusPFlagged returns a pointer to FollowupFlagStatusVFlagged
+func FollowupFlagStatusPFlagged() *FollowupFlagStatus {
+	v := FollowupFlagStatusVFlagged
+	return &v
+}
 
 // FreeBusyStatus undocumented
 type FreeBusyStatus int
 
 const (
-	// FreeBusyStatus_Free undocumented
-	FreeBusyStatus_Free FreeBusyStatus = 0
-	// FreeBusyStatus_Tentative undocumented
-	FreeBusyStatus_Tentative FreeBusyStatus = 1
-	// FreeBusyStatus_Busy undocumented
-	FreeBusyStatus_Busy FreeBusyStatus = 2
-	// FreeBusyStatus_Oof undocumented
-	FreeBusyStatus_Oof FreeBusyStatus = 3
-	// FreeBusyStatus_WorkingElsewhere undocumented
-	FreeBusyStatus_WorkingElsewhere FreeBusyStatus = 4
-	// FreeBusyStatus_Unknown undocumented
-	FreeBusyStatus_Unknown FreeBusyStatus = -1
+	// FreeBusyStatusVFree undocumented
+	FreeBusyStatusVFree FreeBusyStatus = 0
+	// FreeBusyStatusVTentative undocumented
+	FreeBusyStatusVTentative FreeBusyStatus = 1
+	// FreeBusyStatusVBusy undocumented
+	FreeBusyStatusVBusy FreeBusyStatus = 2
+	// FreeBusyStatusVOof undocumented
+	FreeBusyStatusVOof FreeBusyStatus = 3
+	// FreeBusyStatusVWorkingElsewhere undocumented
+	FreeBusyStatusVWorkingElsewhere FreeBusyStatus = 4
+	// FreeBusyStatusVUnknown undocumented
+	FreeBusyStatusVUnknown FreeBusyStatus = -1
 )
+
+// FreeBusyStatusPFree returns a pointer to FreeBusyStatusVFree
+func FreeBusyStatusPFree() *FreeBusyStatus {
+	v := FreeBusyStatusVFree
+	return &v
+}
+
+// FreeBusyStatusPTentative returns a pointer to FreeBusyStatusVTentative
+func FreeBusyStatusPTentative() *FreeBusyStatus {
+	v := FreeBusyStatusVTentative
+	return &v
+}
+
+// FreeBusyStatusPBusy returns a pointer to FreeBusyStatusVBusy
+func FreeBusyStatusPBusy() *FreeBusyStatus {
+	v := FreeBusyStatusVBusy
+	return &v
+}
+
+// FreeBusyStatusPOof returns a pointer to FreeBusyStatusVOof
+func FreeBusyStatusPOof() *FreeBusyStatus {
+	v := FreeBusyStatusVOof
+	return &v
+}
+
+// FreeBusyStatusPWorkingElsewhere returns a pointer to FreeBusyStatusVWorkingElsewhere
+func FreeBusyStatusPWorkingElsewhere() *FreeBusyStatus {
+	v := FreeBusyStatusVWorkingElsewhere
+	return &v
+}
+
+// FreeBusyStatusPUnknown returns a pointer to FreeBusyStatusVUnknown
+func FreeBusyStatusPUnknown() *FreeBusyStatus {
+	v := FreeBusyStatusVUnknown
+	return &v
+}
 
 // GiphyRatingType undocumented
 type GiphyRatingType int
 
 const (
-	// GiphyRatingType_Moderate undocumented
-	GiphyRatingType_Moderate GiphyRatingType = 0
-	// GiphyRatingType_Strict undocumented
-	GiphyRatingType_Strict GiphyRatingType = 1
-	// GiphyRatingType_UnknownFutureValue undocumented
-	GiphyRatingType_UnknownFutureValue GiphyRatingType = 2
+	// GiphyRatingTypeVModerate undocumented
+	GiphyRatingTypeVModerate GiphyRatingType = 0
+	// GiphyRatingTypeVStrict undocumented
+	GiphyRatingTypeVStrict GiphyRatingType = 1
+	// GiphyRatingTypeVUnknownFutureValue undocumented
+	GiphyRatingTypeVUnknownFutureValue GiphyRatingType = 2
 )
+
+// GiphyRatingTypePModerate returns a pointer to GiphyRatingTypeVModerate
+func GiphyRatingTypePModerate() *GiphyRatingType {
+	v := GiphyRatingTypeVModerate
+	return &v
+}
+
+// GiphyRatingTypePStrict returns a pointer to GiphyRatingTypeVStrict
+func GiphyRatingTypePStrict() *GiphyRatingType {
+	v := GiphyRatingTypeVStrict
+	return &v
+}
+
+// GiphyRatingTypePUnknownFutureValue returns a pointer to GiphyRatingTypeVUnknownFutureValue
+func GiphyRatingTypePUnknownFutureValue() *GiphyRatingType {
+	v := GiphyRatingTypeVUnknownFutureValue
+	return &v
+}
 
 // GroupType undocumented
 type GroupType int
 
 const (
-	// GroupType_UnifiedGroups undocumented
-	GroupType_UnifiedGroups GroupType = 0
-	// GroupType_AzureAD undocumented
-	GroupType_AzureAD GroupType = 1
-	// GroupType_UnknownFutureValue undocumented
-	GroupType_UnknownFutureValue GroupType = 2
+	// GroupTypeVUnifiedGroups undocumented
+	GroupTypeVUnifiedGroups GroupType = 0
+	// GroupTypeVAzureAD undocumented
+	GroupTypeVAzureAD GroupType = 1
+	// GroupTypeVUnknownFutureValue undocumented
+	GroupTypeVUnknownFutureValue GroupType = 2
 )
+
+// GroupTypePUnifiedGroups returns a pointer to GroupTypeVUnifiedGroups
+func GroupTypePUnifiedGroups() *GroupType {
+	v := GroupTypeVUnifiedGroups
+	return &v
+}
+
+// GroupTypePAzureAD returns a pointer to GroupTypeVAzureAD
+func GroupTypePAzureAD() *GroupType {
+	v := GroupTypeVAzureAD
+	return &v
+}
+
+// GroupTypePUnknownFutureValue returns a pointer to GroupTypeVUnknownFutureValue
+func GroupTypePUnknownFutureValue() *GroupType {
+	v := GroupTypeVUnknownFutureValue
+	return &v
+}
 
 // Importance undocumented
 type Importance int
 
 const (
-	// Importance_Low undocumented
-	Importance_Low Importance = 0
-	// Importance_Normal undocumented
-	Importance_Normal Importance = 1
-	// Importance_High undocumented
-	Importance_High Importance = 2
+	// ImportanceVLow undocumented
+	ImportanceVLow Importance = 0
+	// ImportanceVNormal undocumented
+	ImportanceVNormal Importance = 1
+	// ImportanceVHigh undocumented
+	ImportanceVHigh Importance = 2
 )
+
+// ImportancePLow returns a pointer to ImportanceVLow
+func ImportancePLow() *Importance {
+	v := ImportanceVLow
+	return &v
+}
+
+// ImportancePNormal returns a pointer to ImportanceVNormal
+func ImportancePNormal() *Importance {
+	v := ImportanceVNormal
+	return &v
+}
+
+// ImportancePHigh returns a pointer to ImportanceVHigh
+func ImportancePHigh() *Importance {
+	v := ImportanceVHigh
+	return &v
+}
 
 // InferenceClassificationType undocumented
 type InferenceClassificationType int
 
 const (
-	// InferenceClassificationType_Focused undocumented
-	InferenceClassificationType_Focused InferenceClassificationType = 0
-	// InferenceClassificationType_Other undocumented
-	InferenceClassificationType_Other InferenceClassificationType = 1
+	// InferenceClassificationTypeVFocused undocumented
+	InferenceClassificationTypeVFocused InferenceClassificationType = 0
+	// InferenceClassificationTypeVOther undocumented
+	InferenceClassificationTypeVOther InferenceClassificationType = 1
 )
+
+// InferenceClassificationTypePFocused returns a pointer to InferenceClassificationTypeVFocused
+func InferenceClassificationTypePFocused() *InferenceClassificationType {
+	v := InferenceClassificationTypeVFocused
+	return &v
+}
+
+// InferenceClassificationTypePOther returns a pointer to InferenceClassificationTypeVOther
+func InferenceClassificationTypePOther() *InferenceClassificationType {
+	v := InferenceClassificationTypeVOther
+	return &v
+}
 
 // InstallIntent undocumented
 type InstallIntent int
 
 const (
-	// InstallIntent_Available undocumented
-	InstallIntent_Available InstallIntent = 0
-	// InstallIntent_Required undocumented
-	InstallIntent_Required InstallIntent = 1
-	// InstallIntent_Uninstall undocumented
-	InstallIntent_Uninstall InstallIntent = 2
-	// InstallIntent_AvailableWithoutEnrollment undocumented
-	InstallIntent_AvailableWithoutEnrollment InstallIntent = 3
+	// InstallIntentVAvailable undocumented
+	InstallIntentVAvailable InstallIntent = 0
+	// InstallIntentVRequired undocumented
+	InstallIntentVRequired InstallIntent = 1
+	// InstallIntentVUninstall undocumented
+	InstallIntentVUninstall InstallIntent = 2
+	// InstallIntentVAvailableWithoutEnrollment undocumented
+	InstallIntentVAvailableWithoutEnrollment InstallIntent = 3
 )
+
+// InstallIntentPAvailable returns a pointer to InstallIntentVAvailable
+func InstallIntentPAvailable() *InstallIntent {
+	v := InstallIntentVAvailable
+	return &v
+}
+
+// InstallIntentPRequired returns a pointer to InstallIntentVRequired
+func InstallIntentPRequired() *InstallIntent {
+	v := InstallIntentVRequired
+	return &v
+}
+
+// InstallIntentPUninstall returns a pointer to InstallIntentVUninstall
+func InstallIntentPUninstall() *InstallIntent {
+	v := InstallIntentVUninstall
+	return &v
+}
+
+// InstallIntentPAvailableWithoutEnrollment returns a pointer to InstallIntentVAvailableWithoutEnrollment
+func InstallIntentPAvailableWithoutEnrollment() *InstallIntent {
+	v := InstallIntentVAvailableWithoutEnrollment
+	return &v
+}
 
 // InstallState undocumented
 type InstallState int
 
 const (
-	// InstallState_NotApplicable undocumented
-	InstallState_NotApplicable InstallState = 0
-	// InstallState_Installed undocumented
-	InstallState_Installed InstallState = 1
-	// InstallState_Failed undocumented
-	InstallState_Failed InstallState = 2
-	// InstallState_NotInstalled undocumented
-	InstallState_NotInstalled InstallState = 3
-	// InstallState_UninstallFailed undocumented
-	InstallState_UninstallFailed InstallState = 4
-	// InstallState_Unknown undocumented
-	InstallState_Unknown InstallState = 5
+	// InstallStateVNotApplicable undocumented
+	InstallStateVNotApplicable InstallState = 0
+	// InstallStateVInstalled undocumented
+	InstallStateVInstalled InstallState = 1
+	// InstallStateVFailed undocumented
+	InstallStateVFailed InstallState = 2
+	// InstallStateVNotInstalled undocumented
+	InstallStateVNotInstalled InstallState = 3
+	// InstallStateVUninstallFailed undocumented
+	InstallStateVUninstallFailed InstallState = 4
+	// InstallStateVUnknown undocumented
+	InstallStateVUnknown InstallState = 5
 )
+
+// InstallStatePNotApplicable returns a pointer to InstallStateVNotApplicable
+func InstallStatePNotApplicable() *InstallState {
+	v := InstallStateVNotApplicable
+	return &v
+}
+
+// InstallStatePInstalled returns a pointer to InstallStateVInstalled
+func InstallStatePInstalled() *InstallState {
+	v := InstallStateVInstalled
+	return &v
+}
+
+// InstallStatePFailed returns a pointer to InstallStateVFailed
+func InstallStatePFailed() *InstallState {
+	v := InstallStateVFailed
+	return &v
+}
+
+// InstallStatePNotInstalled returns a pointer to InstallStateVNotInstalled
+func InstallStatePNotInstalled() *InstallState {
+	v := InstallStateVNotInstalled
+	return &v
+}
+
+// InstallStatePUninstallFailed returns a pointer to InstallStateVUninstallFailed
+func InstallStatePUninstallFailed() *InstallState {
+	v := InstallStateVUninstallFailed
+	return &v
+}
+
+// InstallStatePUnknown returns a pointer to InstallStateVUnknown
+func InstallStatePUnknown() *InstallState {
+	v := InstallStateVUnknown
+	return &v
+}
 
 // InternetSiteSecurityLevel undocumented
 type InternetSiteSecurityLevel int
 
 const (
-	// InternetSiteSecurityLevel_UserDefined undocumented
-	InternetSiteSecurityLevel_UserDefined InternetSiteSecurityLevel = 0
-	// InternetSiteSecurityLevel_Medium undocumented
-	InternetSiteSecurityLevel_Medium InternetSiteSecurityLevel = 1
-	// InternetSiteSecurityLevel_MediumHigh undocumented
-	InternetSiteSecurityLevel_MediumHigh InternetSiteSecurityLevel = 2
-	// InternetSiteSecurityLevel_High undocumented
-	InternetSiteSecurityLevel_High InternetSiteSecurityLevel = 3
+	// InternetSiteSecurityLevelVUserDefined undocumented
+	InternetSiteSecurityLevelVUserDefined InternetSiteSecurityLevel = 0
+	// InternetSiteSecurityLevelVMedium undocumented
+	InternetSiteSecurityLevelVMedium InternetSiteSecurityLevel = 1
+	// InternetSiteSecurityLevelVMediumHigh undocumented
+	InternetSiteSecurityLevelVMediumHigh InternetSiteSecurityLevel = 2
+	// InternetSiteSecurityLevelVHigh undocumented
+	InternetSiteSecurityLevelVHigh InternetSiteSecurityLevel = 3
 )
+
+// InternetSiteSecurityLevelPUserDefined returns a pointer to InternetSiteSecurityLevelVUserDefined
+func InternetSiteSecurityLevelPUserDefined() *InternetSiteSecurityLevel {
+	v := InternetSiteSecurityLevelVUserDefined
+	return &v
+}
+
+// InternetSiteSecurityLevelPMedium returns a pointer to InternetSiteSecurityLevelVMedium
+func InternetSiteSecurityLevelPMedium() *InternetSiteSecurityLevel {
+	v := InternetSiteSecurityLevelVMedium
+	return &v
+}
+
+// InternetSiteSecurityLevelPMediumHigh returns a pointer to InternetSiteSecurityLevelVMediumHigh
+func InternetSiteSecurityLevelPMediumHigh() *InternetSiteSecurityLevel {
+	v := InternetSiteSecurityLevelVMediumHigh
+	return &v
+}
+
+// InternetSiteSecurityLevelPHigh returns a pointer to InternetSiteSecurityLevelVHigh
+func InternetSiteSecurityLevelPHigh() *InternetSiteSecurityLevel {
+	v := InternetSiteSecurityLevelVHigh
+	return &v
+}
 
 // IosNotificationAlertType undocumented
 type IosNotificationAlertType int
 
 const (
-	// IosNotificationAlertType_DeviceDefault undocumented
-	IosNotificationAlertType_DeviceDefault IosNotificationAlertType = 0
-	// IosNotificationAlertType_Banner undocumented
-	IosNotificationAlertType_Banner IosNotificationAlertType = 1
-	// IosNotificationAlertType_Modal undocumented
-	IosNotificationAlertType_Modal IosNotificationAlertType = 2
-	// IosNotificationAlertType_None undocumented
-	IosNotificationAlertType_None IosNotificationAlertType = 3
+	// IosNotificationAlertTypeVDeviceDefault undocumented
+	IosNotificationAlertTypeVDeviceDefault IosNotificationAlertType = 0
+	// IosNotificationAlertTypeVBanner undocumented
+	IosNotificationAlertTypeVBanner IosNotificationAlertType = 1
+	// IosNotificationAlertTypeVModal undocumented
+	IosNotificationAlertTypeVModal IosNotificationAlertType = 2
+	// IosNotificationAlertTypeVNone undocumented
+	IosNotificationAlertTypeVNone IosNotificationAlertType = 3
 )
+
+// IosNotificationAlertTypePDeviceDefault returns a pointer to IosNotificationAlertTypeVDeviceDefault
+func IosNotificationAlertTypePDeviceDefault() *IosNotificationAlertType {
+	v := IosNotificationAlertTypeVDeviceDefault
+	return &v
+}
+
+// IosNotificationAlertTypePBanner returns a pointer to IosNotificationAlertTypeVBanner
+func IosNotificationAlertTypePBanner() *IosNotificationAlertType {
+	v := IosNotificationAlertTypeVBanner
+	return &v
+}
+
+// IosNotificationAlertTypePModal returns a pointer to IosNotificationAlertTypeVModal
+func IosNotificationAlertTypePModal() *IosNotificationAlertType {
+	v := IosNotificationAlertTypeVModal
+	return &v
+}
+
+// IosNotificationAlertTypePNone returns a pointer to IosNotificationAlertTypeVNone
+func IosNotificationAlertTypePNone() *IosNotificationAlertType {
+	v := IosNotificationAlertTypeVNone
+	return &v
+}
 
 // IosUpdatesInstallStatus undocumented
 type IosUpdatesInstallStatus int
 
 const (
-	// IosUpdatesInstallStatus_Success undocumented
-	IosUpdatesInstallStatus_Success IosUpdatesInstallStatus = 0
-	// IosUpdatesInstallStatus_Available undocumented
-	IosUpdatesInstallStatus_Available IosUpdatesInstallStatus = 1
-	// IosUpdatesInstallStatus_Idle undocumented
-	IosUpdatesInstallStatus_Idle IosUpdatesInstallStatus = 2
-	// IosUpdatesInstallStatus_Unknown undocumented
-	IosUpdatesInstallStatus_Unknown IosUpdatesInstallStatus = 3
-	// IosUpdatesInstallStatus_Downloading undocumented
-	IosUpdatesInstallStatus_Downloading IosUpdatesInstallStatus = -2016330712
-	// IosUpdatesInstallStatus_DownloadFailed undocumented
-	IosUpdatesInstallStatus_DownloadFailed IosUpdatesInstallStatus = -2016330711
-	// IosUpdatesInstallStatus_DownloadRequiresComputer undocumented
-	IosUpdatesInstallStatus_DownloadRequiresComputer IosUpdatesInstallStatus = -2016330710
-	// IosUpdatesInstallStatus_DownloadInsufficientSpace undocumented
-	IosUpdatesInstallStatus_DownloadInsufficientSpace IosUpdatesInstallStatus = -2016330709
-	// IosUpdatesInstallStatus_DownloadInsufficientPower undocumented
-	IosUpdatesInstallStatus_DownloadInsufficientPower IosUpdatesInstallStatus = -2016330708
-	// IosUpdatesInstallStatus_DownloadInsufficientNetwork undocumented
-	IosUpdatesInstallStatus_DownloadInsufficientNetwork IosUpdatesInstallStatus = -2016330707
-	// IosUpdatesInstallStatus_Installing undocumented
-	IosUpdatesInstallStatus_Installing IosUpdatesInstallStatus = -2016330706
-	// IosUpdatesInstallStatus_InstallInsufficientSpace undocumented
-	IosUpdatesInstallStatus_InstallInsufficientSpace IosUpdatesInstallStatus = -2016330705
-	// IosUpdatesInstallStatus_InstallInsufficientPower undocumented
-	IosUpdatesInstallStatus_InstallInsufficientPower IosUpdatesInstallStatus = -2016330704
-	// IosUpdatesInstallStatus_InstallPhoneCallInProgress undocumented
-	IosUpdatesInstallStatus_InstallPhoneCallInProgress IosUpdatesInstallStatus = -2016330703
-	// IosUpdatesInstallStatus_InstallFailed undocumented
-	IosUpdatesInstallStatus_InstallFailed IosUpdatesInstallStatus = -2016330702
-	// IosUpdatesInstallStatus_NotSupportedOperation undocumented
-	IosUpdatesInstallStatus_NotSupportedOperation IosUpdatesInstallStatus = -2016330701
-	// IosUpdatesInstallStatus_SharedDeviceUserLoggedInError undocumented
-	IosUpdatesInstallStatus_SharedDeviceUserLoggedInError IosUpdatesInstallStatus = -2016330699
+	// IosUpdatesInstallStatusVSuccess undocumented
+	IosUpdatesInstallStatusVSuccess IosUpdatesInstallStatus = 0
+	// IosUpdatesInstallStatusVAvailable undocumented
+	IosUpdatesInstallStatusVAvailable IosUpdatesInstallStatus = 1
+	// IosUpdatesInstallStatusVIdle undocumented
+	IosUpdatesInstallStatusVIdle IosUpdatesInstallStatus = 2
+	// IosUpdatesInstallStatusVUnknown undocumented
+	IosUpdatesInstallStatusVUnknown IosUpdatesInstallStatus = 3
+	// IosUpdatesInstallStatusVDownloading undocumented
+	IosUpdatesInstallStatusVDownloading IosUpdatesInstallStatus = -2016330712
+	// IosUpdatesInstallStatusVDownloadFailed undocumented
+	IosUpdatesInstallStatusVDownloadFailed IosUpdatesInstallStatus = -2016330711
+	// IosUpdatesInstallStatusVDownloadRequiresComputer undocumented
+	IosUpdatesInstallStatusVDownloadRequiresComputer IosUpdatesInstallStatus = -2016330710
+	// IosUpdatesInstallStatusVDownloadInsufficientSpace undocumented
+	IosUpdatesInstallStatusVDownloadInsufficientSpace IosUpdatesInstallStatus = -2016330709
+	// IosUpdatesInstallStatusVDownloadInsufficientPower undocumented
+	IosUpdatesInstallStatusVDownloadInsufficientPower IosUpdatesInstallStatus = -2016330708
+	// IosUpdatesInstallStatusVDownloadInsufficientNetwork undocumented
+	IosUpdatesInstallStatusVDownloadInsufficientNetwork IosUpdatesInstallStatus = -2016330707
+	// IosUpdatesInstallStatusVInstalling undocumented
+	IosUpdatesInstallStatusVInstalling IosUpdatesInstallStatus = -2016330706
+	// IosUpdatesInstallStatusVInstallInsufficientSpace undocumented
+	IosUpdatesInstallStatusVInstallInsufficientSpace IosUpdatesInstallStatus = -2016330705
+	// IosUpdatesInstallStatusVInstallInsufficientPower undocumented
+	IosUpdatesInstallStatusVInstallInsufficientPower IosUpdatesInstallStatus = -2016330704
+	// IosUpdatesInstallStatusVInstallPhoneCallInProgress undocumented
+	IosUpdatesInstallStatusVInstallPhoneCallInProgress IosUpdatesInstallStatus = -2016330703
+	// IosUpdatesInstallStatusVInstallFailed undocumented
+	IosUpdatesInstallStatusVInstallFailed IosUpdatesInstallStatus = -2016330702
+	// IosUpdatesInstallStatusVNotSupportedOperation undocumented
+	IosUpdatesInstallStatusVNotSupportedOperation IosUpdatesInstallStatus = -2016330701
+	// IosUpdatesInstallStatusVSharedDeviceUserLoggedInError undocumented
+	IosUpdatesInstallStatusVSharedDeviceUserLoggedInError IosUpdatesInstallStatus = -2016330699
 )
+
+// IosUpdatesInstallStatusPSuccess returns a pointer to IosUpdatesInstallStatusVSuccess
+func IosUpdatesInstallStatusPSuccess() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVSuccess
+	return &v
+}
+
+// IosUpdatesInstallStatusPAvailable returns a pointer to IosUpdatesInstallStatusVAvailable
+func IosUpdatesInstallStatusPAvailable() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVAvailable
+	return &v
+}
+
+// IosUpdatesInstallStatusPIdle returns a pointer to IosUpdatesInstallStatusVIdle
+func IosUpdatesInstallStatusPIdle() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVIdle
+	return &v
+}
+
+// IosUpdatesInstallStatusPUnknown returns a pointer to IosUpdatesInstallStatusVUnknown
+func IosUpdatesInstallStatusPUnknown() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVUnknown
+	return &v
+}
+
+// IosUpdatesInstallStatusPDownloading returns a pointer to IosUpdatesInstallStatusVDownloading
+func IosUpdatesInstallStatusPDownloading() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVDownloading
+	return &v
+}
+
+// IosUpdatesInstallStatusPDownloadFailed returns a pointer to IosUpdatesInstallStatusVDownloadFailed
+func IosUpdatesInstallStatusPDownloadFailed() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVDownloadFailed
+	return &v
+}
+
+// IosUpdatesInstallStatusPDownloadRequiresComputer returns a pointer to IosUpdatesInstallStatusVDownloadRequiresComputer
+func IosUpdatesInstallStatusPDownloadRequiresComputer() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVDownloadRequiresComputer
+	return &v
+}
+
+// IosUpdatesInstallStatusPDownloadInsufficientSpace returns a pointer to IosUpdatesInstallStatusVDownloadInsufficientSpace
+func IosUpdatesInstallStatusPDownloadInsufficientSpace() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVDownloadInsufficientSpace
+	return &v
+}
+
+// IosUpdatesInstallStatusPDownloadInsufficientPower returns a pointer to IosUpdatesInstallStatusVDownloadInsufficientPower
+func IosUpdatesInstallStatusPDownloadInsufficientPower() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVDownloadInsufficientPower
+	return &v
+}
+
+// IosUpdatesInstallStatusPDownloadInsufficientNetwork returns a pointer to IosUpdatesInstallStatusVDownloadInsufficientNetwork
+func IosUpdatesInstallStatusPDownloadInsufficientNetwork() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVDownloadInsufficientNetwork
+	return &v
+}
+
+// IosUpdatesInstallStatusPInstalling returns a pointer to IosUpdatesInstallStatusVInstalling
+func IosUpdatesInstallStatusPInstalling() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVInstalling
+	return &v
+}
+
+// IosUpdatesInstallStatusPInstallInsufficientSpace returns a pointer to IosUpdatesInstallStatusVInstallInsufficientSpace
+func IosUpdatesInstallStatusPInstallInsufficientSpace() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVInstallInsufficientSpace
+	return &v
+}
+
+// IosUpdatesInstallStatusPInstallInsufficientPower returns a pointer to IosUpdatesInstallStatusVInstallInsufficientPower
+func IosUpdatesInstallStatusPInstallInsufficientPower() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVInstallInsufficientPower
+	return &v
+}
+
+// IosUpdatesInstallStatusPInstallPhoneCallInProgress returns a pointer to IosUpdatesInstallStatusVInstallPhoneCallInProgress
+func IosUpdatesInstallStatusPInstallPhoneCallInProgress() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVInstallPhoneCallInProgress
+	return &v
+}
+
+// IosUpdatesInstallStatusPInstallFailed returns a pointer to IosUpdatesInstallStatusVInstallFailed
+func IosUpdatesInstallStatusPInstallFailed() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVInstallFailed
+	return &v
+}
+
+// IosUpdatesInstallStatusPNotSupportedOperation returns a pointer to IosUpdatesInstallStatusVNotSupportedOperation
+func IosUpdatesInstallStatusPNotSupportedOperation() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVNotSupportedOperation
+	return &v
+}
+
+// IosUpdatesInstallStatusPSharedDeviceUserLoggedInError returns a pointer to IosUpdatesInstallStatusVSharedDeviceUserLoggedInError
+func IosUpdatesInstallStatusPSharedDeviceUserLoggedInError() *IosUpdatesInstallStatus {
+	v := IosUpdatesInstallStatusVSharedDeviceUserLoggedInError
+	return &v
+}
 
 // LocationType undocumented
 type LocationType int
 
 const (
-	// LocationType_Default undocumented
-	LocationType_Default LocationType = 0
-	// LocationType_ConferenceRoom undocumented
-	LocationType_ConferenceRoom LocationType = 1
-	// LocationType_HomeAddress undocumented
-	LocationType_HomeAddress LocationType = 2
-	// LocationType_BusinessAddress undocumented
-	LocationType_BusinessAddress LocationType = 3
-	// LocationType_GeoCoordinates undocumented
-	LocationType_GeoCoordinates LocationType = 4
-	// LocationType_StreetAddress undocumented
-	LocationType_StreetAddress LocationType = 5
-	// LocationType_Hotel undocumented
-	LocationType_Hotel LocationType = 6
-	// LocationType_Restaurant undocumented
-	LocationType_Restaurant LocationType = 7
-	// LocationType_LocalBusiness undocumented
-	LocationType_LocalBusiness LocationType = 8
-	// LocationType_PostalAddress undocumented
-	LocationType_PostalAddress LocationType = 9
+	// LocationTypeVDefault undocumented
+	LocationTypeVDefault LocationType = 0
+	// LocationTypeVConferenceRoom undocumented
+	LocationTypeVConferenceRoom LocationType = 1
+	// LocationTypeVHomeAddress undocumented
+	LocationTypeVHomeAddress LocationType = 2
+	// LocationTypeVBusinessAddress undocumented
+	LocationTypeVBusinessAddress LocationType = 3
+	// LocationTypeVGeoCoordinates undocumented
+	LocationTypeVGeoCoordinates LocationType = 4
+	// LocationTypeVStreetAddress undocumented
+	LocationTypeVStreetAddress LocationType = 5
+	// LocationTypeVHotel undocumented
+	LocationTypeVHotel LocationType = 6
+	// LocationTypeVRestaurant undocumented
+	LocationTypeVRestaurant LocationType = 7
+	// LocationTypeVLocalBusiness undocumented
+	LocationTypeVLocalBusiness LocationType = 8
+	// LocationTypeVPostalAddress undocumented
+	LocationTypeVPostalAddress LocationType = 9
 )
+
+// LocationTypePDefault returns a pointer to LocationTypeVDefault
+func LocationTypePDefault() *LocationType {
+	v := LocationTypeVDefault
+	return &v
+}
+
+// LocationTypePConferenceRoom returns a pointer to LocationTypeVConferenceRoom
+func LocationTypePConferenceRoom() *LocationType {
+	v := LocationTypeVConferenceRoom
+	return &v
+}
+
+// LocationTypePHomeAddress returns a pointer to LocationTypeVHomeAddress
+func LocationTypePHomeAddress() *LocationType {
+	v := LocationTypeVHomeAddress
+	return &v
+}
+
+// LocationTypePBusinessAddress returns a pointer to LocationTypeVBusinessAddress
+func LocationTypePBusinessAddress() *LocationType {
+	v := LocationTypeVBusinessAddress
+	return &v
+}
+
+// LocationTypePGeoCoordinates returns a pointer to LocationTypeVGeoCoordinates
+func LocationTypePGeoCoordinates() *LocationType {
+	v := LocationTypeVGeoCoordinates
+	return &v
+}
+
+// LocationTypePStreetAddress returns a pointer to LocationTypeVStreetAddress
+func LocationTypePStreetAddress() *LocationType {
+	v := LocationTypeVStreetAddress
+	return &v
+}
+
+// LocationTypePHotel returns a pointer to LocationTypeVHotel
+func LocationTypePHotel() *LocationType {
+	v := LocationTypeVHotel
+	return &v
+}
+
+// LocationTypePRestaurant returns a pointer to LocationTypeVRestaurant
+func LocationTypePRestaurant() *LocationType {
+	v := LocationTypeVRestaurant
+	return &v
+}
+
+// LocationTypePLocalBusiness returns a pointer to LocationTypeVLocalBusiness
+func LocationTypePLocalBusiness() *LocationType {
+	v := LocationTypeVLocalBusiness
+	return &v
+}
+
+// LocationTypePPostalAddress returns a pointer to LocationTypeVPostalAddress
+func LocationTypePPostalAddress() *LocationType {
+	v := LocationTypeVPostalAddress
+	return &v
+}
 
 // LocationUniqueIDType undocumented
 type LocationUniqueIDType int
 
 const (
-	// LocationUniqueIDType_Unknown undocumented
-	LocationUniqueIDType_Unknown LocationUniqueIDType = 0
-	// LocationUniqueIDType_LocationStore undocumented
-	LocationUniqueIDType_LocationStore LocationUniqueIDType = 1
-	// LocationUniqueIDType_Directory undocumented
-	LocationUniqueIDType_Directory LocationUniqueIDType = 2
-	// LocationUniqueIDType_Private undocumented
-	LocationUniqueIDType_Private LocationUniqueIDType = 3
-	// LocationUniqueIDType_Bing undocumented
-	LocationUniqueIDType_Bing LocationUniqueIDType = 4
+	// LocationUniqueIDTypeVUnknown undocumented
+	LocationUniqueIDTypeVUnknown LocationUniqueIDType = 0
+	// LocationUniqueIDTypeVLocationStore undocumented
+	LocationUniqueIDTypeVLocationStore LocationUniqueIDType = 1
+	// LocationUniqueIDTypeVDirectory undocumented
+	LocationUniqueIDTypeVDirectory LocationUniqueIDType = 2
+	// LocationUniqueIDTypeVPrivate undocumented
+	LocationUniqueIDTypeVPrivate LocationUniqueIDType = 3
+	// LocationUniqueIDTypeVBing undocumented
+	LocationUniqueIDTypeVBing LocationUniqueIDType = 4
 )
+
+// LocationUniqueIDTypePUnknown returns a pointer to LocationUniqueIDTypeVUnknown
+func LocationUniqueIDTypePUnknown() *LocationUniqueIDType {
+	v := LocationUniqueIDTypeVUnknown
+	return &v
+}
+
+// LocationUniqueIDTypePLocationStore returns a pointer to LocationUniqueIDTypeVLocationStore
+func LocationUniqueIDTypePLocationStore() *LocationUniqueIDType {
+	v := LocationUniqueIDTypeVLocationStore
+	return &v
+}
+
+// LocationUniqueIDTypePDirectory returns a pointer to LocationUniqueIDTypeVDirectory
+func LocationUniqueIDTypePDirectory() *LocationUniqueIDType {
+	v := LocationUniqueIDTypeVDirectory
+	return &v
+}
+
+// LocationUniqueIDTypePPrivate returns a pointer to LocationUniqueIDTypeVPrivate
+func LocationUniqueIDTypePPrivate() *LocationUniqueIDType {
+	v := LocationUniqueIDTypeVPrivate
+	return &v
+}
+
+// LocationUniqueIDTypePBing returns a pointer to LocationUniqueIDTypeVBing
+func LocationUniqueIDTypePBing() *LocationUniqueIDType {
+	v := LocationUniqueIDTypeVBing
+	return &v
+}
 
 // LogonType undocumented
 type LogonType int
 
 const (
-	// LogonType_Unknown undocumented
-	LogonType_Unknown LogonType = 0
-	// LogonType_Interactive undocumented
-	LogonType_Interactive LogonType = 1
-	// LogonType_RemoteInteractive undocumented
-	LogonType_RemoteInteractive LogonType = 2
-	// LogonType_Network undocumented
-	LogonType_Network LogonType = 3
-	// LogonType_Batch undocumented
-	LogonType_Batch LogonType = 4
-	// LogonType_Service undocumented
-	LogonType_Service LogonType = 5
-	// LogonType_UnknownFutureValue undocumented
-	LogonType_UnknownFutureValue LogonType = 127
+	// LogonTypeVUnknown undocumented
+	LogonTypeVUnknown LogonType = 0
+	// LogonTypeVInteractive undocumented
+	LogonTypeVInteractive LogonType = 1
+	// LogonTypeVRemoteInteractive undocumented
+	LogonTypeVRemoteInteractive LogonType = 2
+	// LogonTypeVNetwork undocumented
+	LogonTypeVNetwork LogonType = 3
+	// LogonTypeVBatch undocumented
+	LogonTypeVBatch LogonType = 4
+	// LogonTypeVService undocumented
+	LogonTypeVService LogonType = 5
+	// LogonTypeVUnknownFutureValue undocumented
+	LogonTypeVUnknownFutureValue LogonType = 127
 )
+
+// LogonTypePUnknown returns a pointer to LogonTypeVUnknown
+func LogonTypePUnknown() *LogonType {
+	v := LogonTypeVUnknown
+	return &v
+}
+
+// LogonTypePInteractive returns a pointer to LogonTypeVInteractive
+func LogonTypePInteractive() *LogonType {
+	v := LogonTypeVInteractive
+	return &v
+}
+
+// LogonTypePRemoteInteractive returns a pointer to LogonTypeVRemoteInteractive
+func LogonTypePRemoteInteractive() *LogonType {
+	v := LogonTypeVRemoteInteractive
+	return &v
+}
+
+// LogonTypePNetwork returns a pointer to LogonTypeVNetwork
+func LogonTypePNetwork() *LogonType {
+	v := LogonTypeVNetwork
+	return &v
+}
+
+// LogonTypePBatch returns a pointer to LogonTypeVBatch
+func LogonTypePBatch() *LogonType {
+	v := LogonTypeVBatch
+	return &v
+}
+
+// LogonTypePService returns a pointer to LogonTypeVService
+func LogonTypePService() *LogonType {
+	v := LogonTypeVService
+	return &v
+}
+
+// LogonTypePUnknownFutureValue returns a pointer to LogonTypeVUnknownFutureValue
+func LogonTypePUnknownFutureValue() *LogonType {
+	v := LogonTypeVUnknownFutureValue
+	return &v
+}
 
 // MailTipsType undocumented
 type MailTipsType int
 
 const (
-	// MailTipsType_AutomaticReplies undocumented
-	MailTipsType_AutomaticReplies MailTipsType = 1
-	// MailTipsType_MailboxFullStatus undocumented
-	MailTipsType_MailboxFullStatus MailTipsType = 2
-	// MailTipsType_CustomMailTip undocumented
-	MailTipsType_CustomMailTip MailTipsType = 4
-	// MailTipsType_ExternalMemberCount undocumented
-	MailTipsType_ExternalMemberCount MailTipsType = 8
-	// MailTipsType_TotalMemberCount undocumented
-	MailTipsType_TotalMemberCount MailTipsType = 16
-	// MailTipsType_MaxMessageSize undocumented
-	MailTipsType_MaxMessageSize MailTipsType = 32
-	// MailTipsType_DeliveryRestriction undocumented
-	MailTipsType_DeliveryRestriction MailTipsType = 64
-	// MailTipsType_ModerationStatus undocumented
-	MailTipsType_ModerationStatus MailTipsType = 128
-	// MailTipsType_RecipientScope undocumented
-	MailTipsType_RecipientScope MailTipsType = 256
-	// MailTipsType_RecipientSuggestions undocumented
-	MailTipsType_RecipientSuggestions MailTipsType = 512
+	// MailTipsTypeVAutomaticReplies undocumented
+	MailTipsTypeVAutomaticReplies MailTipsType = 1
+	// MailTipsTypeVMailboxFullStatus undocumented
+	MailTipsTypeVMailboxFullStatus MailTipsType = 2
+	// MailTipsTypeVCustomMailTip undocumented
+	MailTipsTypeVCustomMailTip MailTipsType = 4
+	// MailTipsTypeVExternalMemberCount undocumented
+	MailTipsTypeVExternalMemberCount MailTipsType = 8
+	// MailTipsTypeVTotalMemberCount undocumented
+	MailTipsTypeVTotalMemberCount MailTipsType = 16
+	// MailTipsTypeVMaxMessageSize undocumented
+	MailTipsTypeVMaxMessageSize MailTipsType = 32
+	// MailTipsTypeVDeliveryRestriction undocumented
+	MailTipsTypeVDeliveryRestriction MailTipsType = 64
+	// MailTipsTypeVModerationStatus undocumented
+	MailTipsTypeVModerationStatus MailTipsType = 128
+	// MailTipsTypeVRecipientScope undocumented
+	MailTipsTypeVRecipientScope MailTipsType = 256
+	// MailTipsTypeVRecipientSuggestions undocumented
+	MailTipsTypeVRecipientSuggestions MailTipsType = 512
 )
+
+// MailTipsTypePAutomaticReplies returns a pointer to MailTipsTypeVAutomaticReplies
+func MailTipsTypePAutomaticReplies() *MailTipsType {
+	v := MailTipsTypeVAutomaticReplies
+	return &v
+}
+
+// MailTipsTypePMailboxFullStatus returns a pointer to MailTipsTypeVMailboxFullStatus
+func MailTipsTypePMailboxFullStatus() *MailTipsType {
+	v := MailTipsTypeVMailboxFullStatus
+	return &v
+}
+
+// MailTipsTypePCustomMailTip returns a pointer to MailTipsTypeVCustomMailTip
+func MailTipsTypePCustomMailTip() *MailTipsType {
+	v := MailTipsTypeVCustomMailTip
+	return &v
+}
+
+// MailTipsTypePExternalMemberCount returns a pointer to MailTipsTypeVExternalMemberCount
+func MailTipsTypePExternalMemberCount() *MailTipsType {
+	v := MailTipsTypeVExternalMemberCount
+	return &v
+}
+
+// MailTipsTypePTotalMemberCount returns a pointer to MailTipsTypeVTotalMemberCount
+func MailTipsTypePTotalMemberCount() *MailTipsType {
+	v := MailTipsTypeVTotalMemberCount
+	return &v
+}
+
+// MailTipsTypePMaxMessageSize returns a pointer to MailTipsTypeVMaxMessageSize
+func MailTipsTypePMaxMessageSize() *MailTipsType {
+	v := MailTipsTypeVMaxMessageSize
+	return &v
+}
+
+// MailTipsTypePDeliveryRestriction returns a pointer to MailTipsTypeVDeliveryRestriction
+func MailTipsTypePDeliveryRestriction() *MailTipsType {
+	v := MailTipsTypeVDeliveryRestriction
+	return &v
+}
+
+// MailTipsTypePModerationStatus returns a pointer to MailTipsTypeVModerationStatus
+func MailTipsTypePModerationStatus() *MailTipsType {
+	v := MailTipsTypeVModerationStatus
+	return &v
+}
+
+// MailTipsTypePRecipientScope returns a pointer to MailTipsTypeVRecipientScope
+func MailTipsTypePRecipientScope() *MailTipsType {
+	v := MailTipsTypeVRecipientScope
+	return &v
+}
+
+// MailTipsTypePRecipientSuggestions returns a pointer to MailTipsTypeVRecipientSuggestions
+func MailTipsTypePRecipientSuggestions() *MailTipsType {
+	v := MailTipsTypeVRecipientSuggestions
+	return &v
+}
 
 // ManagedAppAvailability undocumented
 type ManagedAppAvailability int
 
 const (
-	// ManagedAppAvailability_Global undocumented
-	ManagedAppAvailability_Global ManagedAppAvailability = 0
-	// ManagedAppAvailability_LineOfBusiness undocumented
-	ManagedAppAvailability_LineOfBusiness ManagedAppAvailability = 1
+	// ManagedAppAvailabilityVGlobal undocumented
+	ManagedAppAvailabilityVGlobal ManagedAppAvailability = 0
+	// ManagedAppAvailabilityVLineOfBusiness undocumented
+	ManagedAppAvailabilityVLineOfBusiness ManagedAppAvailability = 1
 )
+
+// ManagedAppAvailabilityPGlobal returns a pointer to ManagedAppAvailabilityVGlobal
+func ManagedAppAvailabilityPGlobal() *ManagedAppAvailability {
+	v := ManagedAppAvailabilityVGlobal
+	return &v
+}
+
+// ManagedAppAvailabilityPLineOfBusiness returns a pointer to ManagedAppAvailabilityVLineOfBusiness
+func ManagedAppAvailabilityPLineOfBusiness() *ManagedAppAvailability {
+	v := ManagedAppAvailabilityVLineOfBusiness
+	return &v
+}
 
 // ManagedAppClipboardSharingLevel undocumented
 type ManagedAppClipboardSharingLevel int
 
 const (
-	// ManagedAppClipboardSharingLevel_AllApps undocumented
-	ManagedAppClipboardSharingLevel_AllApps ManagedAppClipboardSharingLevel = 0
-	// ManagedAppClipboardSharingLevel_ManagedAppsWithPasteIn undocumented
-	ManagedAppClipboardSharingLevel_ManagedAppsWithPasteIn ManagedAppClipboardSharingLevel = 1
-	// ManagedAppClipboardSharingLevel_ManagedApps undocumented
-	ManagedAppClipboardSharingLevel_ManagedApps ManagedAppClipboardSharingLevel = 2
-	// ManagedAppClipboardSharingLevel_Blocked undocumented
-	ManagedAppClipboardSharingLevel_Blocked ManagedAppClipboardSharingLevel = 3
+	// ManagedAppClipboardSharingLevelVAllApps undocumented
+	ManagedAppClipboardSharingLevelVAllApps ManagedAppClipboardSharingLevel = 0
+	// ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn undocumented
+	ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn ManagedAppClipboardSharingLevel = 1
+	// ManagedAppClipboardSharingLevelVManagedApps undocumented
+	ManagedAppClipboardSharingLevelVManagedApps ManagedAppClipboardSharingLevel = 2
+	// ManagedAppClipboardSharingLevelVBlocked undocumented
+	ManagedAppClipboardSharingLevelVBlocked ManagedAppClipboardSharingLevel = 3
 )
+
+// ManagedAppClipboardSharingLevelPAllApps returns a pointer to ManagedAppClipboardSharingLevelVAllApps
+func ManagedAppClipboardSharingLevelPAllApps() *ManagedAppClipboardSharingLevel {
+	v := ManagedAppClipboardSharingLevelVAllApps
+	return &v
+}
+
+// ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn returns a pointer to ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn
+func ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn() *ManagedAppClipboardSharingLevel {
+	v := ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn
+	return &v
+}
+
+// ManagedAppClipboardSharingLevelPManagedApps returns a pointer to ManagedAppClipboardSharingLevelVManagedApps
+func ManagedAppClipboardSharingLevelPManagedApps() *ManagedAppClipboardSharingLevel {
+	v := ManagedAppClipboardSharingLevelVManagedApps
+	return &v
+}
+
+// ManagedAppClipboardSharingLevelPBlocked returns a pointer to ManagedAppClipboardSharingLevelVBlocked
+func ManagedAppClipboardSharingLevelPBlocked() *ManagedAppClipboardSharingLevel {
+	v := ManagedAppClipboardSharingLevelVBlocked
+	return &v
+}
 
 // ManagedAppDataEncryptionType undocumented
 type ManagedAppDataEncryptionType int
 
 const (
-	// ManagedAppDataEncryptionType_UseDeviceSettings undocumented
-	ManagedAppDataEncryptionType_UseDeviceSettings ManagedAppDataEncryptionType = 0
-	// ManagedAppDataEncryptionType_AfterDeviceRestart undocumented
-	ManagedAppDataEncryptionType_AfterDeviceRestart ManagedAppDataEncryptionType = 1
-	// ManagedAppDataEncryptionType_WhenDeviceLockedExceptOpenFiles undocumented
-	ManagedAppDataEncryptionType_WhenDeviceLockedExceptOpenFiles ManagedAppDataEncryptionType = 2
-	// ManagedAppDataEncryptionType_WhenDeviceLocked undocumented
-	ManagedAppDataEncryptionType_WhenDeviceLocked ManagedAppDataEncryptionType = 3
+	// ManagedAppDataEncryptionTypeVUseDeviceSettings undocumented
+	ManagedAppDataEncryptionTypeVUseDeviceSettings ManagedAppDataEncryptionType = 0
+	// ManagedAppDataEncryptionTypeVAfterDeviceRestart undocumented
+	ManagedAppDataEncryptionTypeVAfterDeviceRestart ManagedAppDataEncryptionType = 1
+	// ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles undocumented
+	ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles ManagedAppDataEncryptionType = 2
+	// ManagedAppDataEncryptionTypeVWhenDeviceLocked undocumented
+	ManagedAppDataEncryptionTypeVWhenDeviceLocked ManagedAppDataEncryptionType = 3
 )
+
+// ManagedAppDataEncryptionTypePUseDeviceSettings returns a pointer to ManagedAppDataEncryptionTypeVUseDeviceSettings
+func ManagedAppDataEncryptionTypePUseDeviceSettings() *ManagedAppDataEncryptionType {
+	v := ManagedAppDataEncryptionTypeVUseDeviceSettings
+	return &v
+}
+
+// ManagedAppDataEncryptionTypePAfterDeviceRestart returns a pointer to ManagedAppDataEncryptionTypeVAfterDeviceRestart
+func ManagedAppDataEncryptionTypePAfterDeviceRestart() *ManagedAppDataEncryptionType {
+	v := ManagedAppDataEncryptionTypeVAfterDeviceRestart
+	return &v
+}
+
+// ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles returns a pointer to ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles
+func ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles() *ManagedAppDataEncryptionType {
+	v := ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles
+	return &v
+}
+
+// ManagedAppDataEncryptionTypePWhenDeviceLocked returns a pointer to ManagedAppDataEncryptionTypeVWhenDeviceLocked
+func ManagedAppDataEncryptionTypePWhenDeviceLocked() *ManagedAppDataEncryptionType {
+	v := ManagedAppDataEncryptionTypeVWhenDeviceLocked
+	return &v
+}
 
 // ManagedAppDataStorageLocation undocumented
 type ManagedAppDataStorageLocation int
 
 const (
-	// ManagedAppDataStorageLocation_OneDriveForBusiness undocumented
-	ManagedAppDataStorageLocation_OneDriveForBusiness ManagedAppDataStorageLocation = 1
-	// ManagedAppDataStorageLocation_SharePoint undocumented
-	ManagedAppDataStorageLocation_SharePoint ManagedAppDataStorageLocation = 2
-	// ManagedAppDataStorageLocation_LocalStorage undocumented
-	ManagedAppDataStorageLocation_LocalStorage ManagedAppDataStorageLocation = 6
+	// ManagedAppDataStorageLocationVOneDriveForBusiness undocumented
+	ManagedAppDataStorageLocationVOneDriveForBusiness ManagedAppDataStorageLocation = 1
+	// ManagedAppDataStorageLocationVSharePoint undocumented
+	ManagedAppDataStorageLocationVSharePoint ManagedAppDataStorageLocation = 2
+	// ManagedAppDataStorageLocationVLocalStorage undocumented
+	ManagedAppDataStorageLocationVLocalStorage ManagedAppDataStorageLocation = 6
 )
+
+// ManagedAppDataStorageLocationPOneDriveForBusiness returns a pointer to ManagedAppDataStorageLocationVOneDriveForBusiness
+func ManagedAppDataStorageLocationPOneDriveForBusiness() *ManagedAppDataStorageLocation {
+	v := ManagedAppDataStorageLocationVOneDriveForBusiness
+	return &v
+}
+
+// ManagedAppDataStorageLocationPSharePoint returns a pointer to ManagedAppDataStorageLocationVSharePoint
+func ManagedAppDataStorageLocationPSharePoint() *ManagedAppDataStorageLocation {
+	v := ManagedAppDataStorageLocationVSharePoint
+	return &v
+}
+
+// ManagedAppDataStorageLocationPLocalStorage returns a pointer to ManagedAppDataStorageLocationVLocalStorage
+func ManagedAppDataStorageLocationPLocalStorage() *ManagedAppDataStorageLocation {
+	v := ManagedAppDataStorageLocationVLocalStorage
+	return &v
+}
 
 // ManagedAppDataTransferLevel undocumented
 type ManagedAppDataTransferLevel int
 
 const (
-	// ManagedAppDataTransferLevel_AllApps undocumented
-	ManagedAppDataTransferLevel_AllApps ManagedAppDataTransferLevel = 0
-	// ManagedAppDataTransferLevel_ManagedApps undocumented
-	ManagedAppDataTransferLevel_ManagedApps ManagedAppDataTransferLevel = 1
-	// ManagedAppDataTransferLevel_None undocumented
-	ManagedAppDataTransferLevel_None ManagedAppDataTransferLevel = 2
+	// ManagedAppDataTransferLevelVAllApps undocumented
+	ManagedAppDataTransferLevelVAllApps ManagedAppDataTransferLevel = 0
+	// ManagedAppDataTransferLevelVManagedApps undocumented
+	ManagedAppDataTransferLevelVManagedApps ManagedAppDataTransferLevel = 1
+	// ManagedAppDataTransferLevelVNone undocumented
+	ManagedAppDataTransferLevelVNone ManagedAppDataTransferLevel = 2
 )
+
+// ManagedAppDataTransferLevelPAllApps returns a pointer to ManagedAppDataTransferLevelVAllApps
+func ManagedAppDataTransferLevelPAllApps() *ManagedAppDataTransferLevel {
+	v := ManagedAppDataTransferLevelVAllApps
+	return &v
+}
+
+// ManagedAppDataTransferLevelPManagedApps returns a pointer to ManagedAppDataTransferLevelVManagedApps
+func ManagedAppDataTransferLevelPManagedApps() *ManagedAppDataTransferLevel {
+	v := ManagedAppDataTransferLevelVManagedApps
+	return &v
+}
+
+// ManagedAppDataTransferLevelPNone returns a pointer to ManagedAppDataTransferLevelVNone
+func ManagedAppDataTransferLevelPNone() *ManagedAppDataTransferLevel {
+	v := ManagedAppDataTransferLevelVNone
+	return &v
+}
 
 // ManagedAppFlaggedReason undocumented
 type ManagedAppFlaggedReason int
 
 const (
-	// ManagedAppFlaggedReason_None undocumented
-	ManagedAppFlaggedReason_None ManagedAppFlaggedReason = 0
-	// ManagedAppFlaggedReason_RootedDevice undocumented
-	ManagedAppFlaggedReason_RootedDevice ManagedAppFlaggedReason = 1
+	// ManagedAppFlaggedReasonVNone undocumented
+	ManagedAppFlaggedReasonVNone ManagedAppFlaggedReason = 0
+	// ManagedAppFlaggedReasonVRootedDevice undocumented
+	ManagedAppFlaggedReasonVRootedDevice ManagedAppFlaggedReason = 1
 )
+
+// ManagedAppFlaggedReasonPNone returns a pointer to ManagedAppFlaggedReasonVNone
+func ManagedAppFlaggedReasonPNone() *ManagedAppFlaggedReason {
+	v := ManagedAppFlaggedReasonVNone
+	return &v
+}
+
+// ManagedAppFlaggedReasonPRootedDevice returns a pointer to ManagedAppFlaggedReasonVRootedDevice
+func ManagedAppFlaggedReasonPRootedDevice() *ManagedAppFlaggedReason {
+	v := ManagedAppFlaggedReasonVRootedDevice
+	return &v
+}
 
 // ManagedAppPinCharacterSet undocumented
 type ManagedAppPinCharacterSet int
 
 const (
-	// ManagedAppPinCharacterSet_Numeric undocumented
-	ManagedAppPinCharacterSet_Numeric ManagedAppPinCharacterSet = 0
-	// ManagedAppPinCharacterSet_AlphanumericAndSymbol undocumented
-	ManagedAppPinCharacterSet_AlphanumericAndSymbol ManagedAppPinCharacterSet = 1
+	// ManagedAppPinCharacterSetVNumeric undocumented
+	ManagedAppPinCharacterSetVNumeric ManagedAppPinCharacterSet = 0
+	// ManagedAppPinCharacterSetVAlphanumericAndSymbol undocumented
+	ManagedAppPinCharacterSetVAlphanumericAndSymbol ManagedAppPinCharacterSet = 1
 )
+
+// ManagedAppPinCharacterSetPNumeric returns a pointer to ManagedAppPinCharacterSetVNumeric
+func ManagedAppPinCharacterSetPNumeric() *ManagedAppPinCharacterSet {
+	v := ManagedAppPinCharacterSetVNumeric
+	return &v
+}
+
+// ManagedAppPinCharacterSetPAlphanumericAndSymbol returns a pointer to ManagedAppPinCharacterSetVAlphanumericAndSymbol
+func ManagedAppPinCharacterSetPAlphanumericAndSymbol() *ManagedAppPinCharacterSet {
+	v := ManagedAppPinCharacterSetVAlphanumericAndSymbol
+	return &v
+}
 
 // ManagedDeviceOwnerType undocumented
 type ManagedDeviceOwnerType int
 
 const (
-	// ManagedDeviceOwnerType_Unknown undocumented
-	ManagedDeviceOwnerType_Unknown ManagedDeviceOwnerType = 0
-	// ManagedDeviceOwnerType_Company undocumented
-	ManagedDeviceOwnerType_Company ManagedDeviceOwnerType = 1
-	// ManagedDeviceOwnerType_Personal undocumented
-	ManagedDeviceOwnerType_Personal ManagedDeviceOwnerType = 2
+	// ManagedDeviceOwnerTypeVUnknown undocumented
+	ManagedDeviceOwnerTypeVUnknown ManagedDeviceOwnerType = 0
+	// ManagedDeviceOwnerTypeVCompany undocumented
+	ManagedDeviceOwnerTypeVCompany ManagedDeviceOwnerType = 1
+	// ManagedDeviceOwnerTypeVPersonal undocumented
+	ManagedDeviceOwnerTypeVPersonal ManagedDeviceOwnerType = 2
 )
+
+// ManagedDeviceOwnerTypePUnknown returns a pointer to ManagedDeviceOwnerTypeVUnknown
+func ManagedDeviceOwnerTypePUnknown() *ManagedDeviceOwnerType {
+	v := ManagedDeviceOwnerTypeVUnknown
+	return &v
+}
+
+// ManagedDeviceOwnerTypePCompany returns a pointer to ManagedDeviceOwnerTypeVCompany
+func ManagedDeviceOwnerTypePCompany() *ManagedDeviceOwnerType {
+	v := ManagedDeviceOwnerTypeVCompany
+	return &v
+}
+
+// ManagedDeviceOwnerTypePPersonal returns a pointer to ManagedDeviceOwnerTypeVPersonal
+func ManagedDeviceOwnerTypePPersonal() *ManagedDeviceOwnerType {
+	v := ManagedDeviceOwnerTypeVPersonal
+	return &v
+}
 
 // ManagedDevicePartnerReportedHealthState undocumented
 type ManagedDevicePartnerReportedHealthState int
 
 const (
-	// ManagedDevicePartnerReportedHealthState_Unknown undocumented
-	ManagedDevicePartnerReportedHealthState_Unknown ManagedDevicePartnerReportedHealthState = 0
-	// ManagedDevicePartnerReportedHealthState_Activated undocumented
-	ManagedDevicePartnerReportedHealthState_Activated ManagedDevicePartnerReportedHealthState = 1
-	// ManagedDevicePartnerReportedHealthState_Deactivated undocumented
-	ManagedDevicePartnerReportedHealthState_Deactivated ManagedDevicePartnerReportedHealthState = 2
-	// ManagedDevicePartnerReportedHealthState_Secured undocumented
-	ManagedDevicePartnerReportedHealthState_Secured ManagedDevicePartnerReportedHealthState = 3
-	// ManagedDevicePartnerReportedHealthState_LowSeverity undocumented
-	ManagedDevicePartnerReportedHealthState_LowSeverity ManagedDevicePartnerReportedHealthState = 4
-	// ManagedDevicePartnerReportedHealthState_MediumSeverity undocumented
-	ManagedDevicePartnerReportedHealthState_MediumSeverity ManagedDevicePartnerReportedHealthState = 5
-	// ManagedDevicePartnerReportedHealthState_HighSeverity undocumented
-	ManagedDevicePartnerReportedHealthState_HighSeverity ManagedDevicePartnerReportedHealthState = 6
-	// ManagedDevicePartnerReportedHealthState_Unresponsive undocumented
-	ManagedDevicePartnerReportedHealthState_Unresponsive ManagedDevicePartnerReportedHealthState = 7
-	// ManagedDevicePartnerReportedHealthState_Compromised undocumented
-	ManagedDevicePartnerReportedHealthState_Compromised ManagedDevicePartnerReportedHealthState = 8
-	// ManagedDevicePartnerReportedHealthState_Misconfigured undocumented
-	ManagedDevicePartnerReportedHealthState_Misconfigured ManagedDevicePartnerReportedHealthState = 9
+	// ManagedDevicePartnerReportedHealthStateVUnknown undocumented
+	ManagedDevicePartnerReportedHealthStateVUnknown ManagedDevicePartnerReportedHealthState = 0
+	// ManagedDevicePartnerReportedHealthStateVActivated undocumented
+	ManagedDevicePartnerReportedHealthStateVActivated ManagedDevicePartnerReportedHealthState = 1
+	// ManagedDevicePartnerReportedHealthStateVDeactivated undocumented
+	ManagedDevicePartnerReportedHealthStateVDeactivated ManagedDevicePartnerReportedHealthState = 2
+	// ManagedDevicePartnerReportedHealthStateVSecured undocumented
+	ManagedDevicePartnerReportedHealthStateVSecured ManagedDevicePartnerReportedHealthState = 3
+	// ManagedDevicePartnerReportedHealthStateVLowSeverity undocumented
+	ManagedDevicePartnerReportedHealthStateVLowSeverity ManagedDevicePartnerReportedHealthState = 4
+	// ManagedDevicePartnerReportedHealthStateVMediumSeverity undocumented
+	ManagedDevicePartnerReportedHealthStateVMediumSeverity ManagedDevicePartnerReportedHealthState = 5
+	// ManagedDevicePartnerReportedHealthStateVHighSeverity undocumented
+	ManagedDevicePartnerReportedHealthStateVHighSeverity ManagedDevicePartnerReportedHealthState = 6
+	// ManagedDevicePartnerReportedHealthStateVUnresponsive undocumented
+	ManagedDevicePartnerReportedHealthStateVUnresponsive ManagedDevicePartnerReportedHealthState = 7
+	// ManagedDevicePartnerReportedHealthStateVCompromised undocumented
+	ManagedDevicePartnerReportedHealthStateVCompromised ManagedDevicePartnerReportedHealthState = 8
+	// ManagedDevicePartnerReportedHealthStateVMisconfigured undocumented
+	ManagedDevicePartnerReportedHealthStateVMisconfigured ManagedDevicePartnerReportedHealthState = 9
 )
+
+// ManagedDevicePartnerReportedHealthStatePUnknown returns a pointer to ManagedDevicePartnerReportedHealthStateVUnknown
+func ManagedDevicePartnerReportedHealthStatePUnknown() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVUnknown
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePActivated returns a pointer to ManagedDevicePartnerReportedHealthStateVActivated
+func ManagedDevicePartnerReportedHealthStatePActivated() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVActivated
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePDeactivated returns a pointer to ManagedDevicePartnerReportedHealthStateVDeactivated
+func ManagedDevicePartnerReportedHealthStatePDeactivated() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVDeactivated
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePSecured returns a pointer to ManagedDevicePartnerReportedHealthStateVSecured
+func ManagedDevicePartnerReportedHealthStatePSecured() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVSecured
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePLowSeverity returns a pointer to ManagedDevicePartnerReportedHealthStateVLowSeverity
+func ManagedDevicePartnerReportedHealthStatePLowSeverity() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVLowSeverity
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePMediumSeverity returns a pointer to ManagedDevicePartnerReportedHealthStateVMediumSeverity
+func ManagedDevicePartnerReportedHealthStatePMediumSeverity() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVMediumSeverity
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePHighSeverity returns a pointer to ManagedDevicePartnerReportedHealthStateVHighSeverity
+func ManagedDevicePartnerReportedHealthStatePHighSeverity() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVHighSeverity
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePUnresponsive returns a pointer to ManagedDevicePartnerReportedHealthStateVUnresponsive
+func ManagedDevicePartnerReportedHealthStatePUnresponsive() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVUnresponsive
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePCompromised returns a pointer to ManagedDevicePartnerReportedHealthStateVCompromised
+func ManagedDevicePartnerReportedHealthStatePCompromised() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVCompromised
+	return &v
+}
+
+// ManagedDevicePartnerReportedHealthStatePMisconfigured returns a pointer to ManagedDevicePartnerReportedHealthStateVMisconfigured
+func ManagedDevicePartnerReportedHealthStatePMisconfigured() *ManagedDevicePartnerReportedHealthState {
+	v := ManagedDevicePartnerReportedHealthStateVMisconfigured
+	return &v
+}
 
 // ManagementAgentType undocumented
 type ManagementAgentType int
 
 const (
-	// ManagementAgentType_Eas undocumented
-	ManagementAgentType_Eas ManagementAgentType = 1
-	// ManagementAgentType_Mdm undocumented
-	ManagementAgentType_Mdm ManagementAgentType = 2
-	// ManagementAgentType_EasMdm undocumented
-	ManagementAgentType_EasMdm ManagementAgentType = 3
-	// ManagementAgentType_IntuneClient undocumented
-	ManagementAgentType_IntuneClient ManagementAgentType = 4
-	// ManagementAgentType_EasIntuneClient undocumented
-	ManagementAgentType_EasIntuneClient ManagementAgentType = 5
-	// ManagementAgentType_ConfigurationManagerClient undocumented
-	ManagementAgentType_ConfigurationManagerClient ManagementAgentType = 8
-	// ManagementAgentType_ConfigurationManagerClientMdm undocumented
-	ManagementAgentType_ConfigurationManagerClientMdm ManagementAgentType = 10
-	// ManagementAgentType_ConfigurationManagerClientMdmEas undocumented
-	ManagementAgentType_ConfigurationManagerClientMdmEas ManagementAgentType = 11
-	// ManagementAgentType_Unknown undocumented
-	ManagementAgentType_Unknown ManagementAgentType = 16
-	// ManagementAgentType_Jamf undocumented
-	ManagementAgentType_Jamf ManagementAgentType = 32
-	// ManagementAgentType_GoogleCloudDevicePolicyController undocumented
-	ManagementAgentType_GoogleCloudDevicePolicyController ManagementAgentType = 64
+	// ManagementAgentTypeVEas undocumented
+	ManagementAgentTypeVEas ManagementAgentType = 1
+	// ManagementAgentTypeVMdm undocumented
+	ManagementAgentTypeVMdm ManagementAgentType = 2
+	// ManagementAgentTypeVEasMdm undocumented
+	ManagementAgentTypeVEasMdm ManagementAgentType = 3
+	// ManagementAgentTypeVIntuneClient undocumented
+	ManagementAgentTypeVIntuneClient ManagementAgentType = 4
+	// ManagementAgentTypeVEasIntuneClient undocumented
+	ManagementAgentTypeVEasIntuneClient ManagementAgentType = 5
+	// ManagementAgentTypeVConfigurationManagerClient undocumented
+	ManagementAgentTypeVConfigurationManagerClient ManagementAgentType = 8
+	// ManagementAgentTypeVConfigurationManagerClientMdm undocumented
+	ManagementAgentTypeVConfigurationManagerClientMdm ManagementAgentType = 10
+	// ManagementAgentTypeVConfigurationManagerClientMdmEas undocumented
+	ManagementAgentTypeVConfigurationManagerClientMdmEas ManagementAgentType = 11
+	// ManagementAgentTypeVUnknown undocumented
+	ManagementAgentTypeVUnknown ManagementAgentType = 16
+	// ManagementAgentTypeVJamf undocumented
+	ManagementAgentTypeVJamf ManagementAgentType = 32
+	// ManagementAgentTypeVGoogleCloudDevicePolicyController undocumented
+	ManagementAgentTypeVGoogleCloudDevicePolicyController ManagementAgentType = 64
 )
+
+// ManagementAgentTypePEas returns a pointer to ManagementAgentTypeVEas
+func ManagementAgentTypePEas() *ManagementAgentType {
+	v := ManagementAgentTypeVEas
+	return &v
+}
+
+// ManagementAgentTypePMdm returns a pointer to ManagementAgentTypeVMdm
+func ManagementAgentTypePMdm() *ManagementAgentType {
+	v := ManagementAgentTypeVMdm
+	return &v
+}
+
+// ManagementAgentTypePEasMdm returns a pointer to ManagementAgentTypeVEasMdm
+func ManagementAgentTypePEasMdm() *ManagementAgentType {
+	v := ManagementAgentTypeVEasMdm
+	return &v
+}
+
+// ManagementAgentTypePIntuneClient returns a pointer to ManagementAgentTypeVIntuneClient
+func ManagementAgentTypePIntuneClient() *ManagementAgentType {
+	v := ManagementAgentTypeVIntuneClient
+	return &v
+}
+
+// ManagementAgentTypePEasIntuneClient returns a pointer to ManagementAgentTypeVEasIntuneClient
+func ManagementAgentTypePEasIntuneClient() *ManagementAgentType {
+	v := ManagementAgentTypeVEasIntuneClient
+	return &v
+}
+
+// ManagementAgentTypePConfigurationManagerClient returns a pointer to ManagementAgentTypeVConfigurationManagerClient
+func ManagementAgentTypePConfigurationManagerClient() *ManagementAgentType {
+	v := ManagementAgentTypeVConfigurationManagerClient
+	return &v
+}
+
+// ManagementAgentTypePConfigurationManagerClientMdm returns a pointer to ManagementAgentTypeVConfigurationManagerClientMdm
+func ManagementAgentTypePConfigurationManagerClientMdm() *ManagementAgentType {
+	v := ManagementAgentTypeVConfigurationManagerClientMdm
+	return &v
+}
+
+// ManagementAgentTypePConfigurationManagerClientMdmEas returns a pointer to ManagementAgentTypeVConfigurationManagerClientMdmEas
+func ManagementAgentTypePConfigurationManagerClientMdmEas() *ManagementAgentType {
+	v := ManagementAgentTypeVConfigurationManagerClientMdmEas
+	return &v
+}
+
+// ManagementAgentTypePUnknown returns a pointer to ManagementAgentTypeVUnknown
+func ManagementAgentTypePUnknown() *ManagementAgentType {
+	v := ManagementAgentTypeVUnknown
+	return &v
+}
+
+// ManagementAgentTypePJamf returns a pointer to ManagementAgentTypeVJamf
+func ManagementAgentTypePJamf() *ManagementAgentType {
+	v := ManagementAgentTypeVJamf
+	return &v
+}
+
+// ManagementAgentTypePGoogleCloudDevicePolicyController returns a pointer to ManagementAgentTypeVGoogleCloudDevicePolicyController
+func ManagementAgentTypePGoogleCloudDevicePolicyController() *ManagementAgentType {
+	v := ManagementAgentTypeVGoogleCloudDevicePolicyController
+	return &v
+}
 
 // MdmAppConfigKeyType undocumented
 type MdmAppConfigKeyType int
 
 const (
-	// MdmAppConfigKeyType_StringType undocumented
-	MdmAppConfigKeyType_StringType MdmAppConfigKeyType = 0
-	// MdmAppConfigKeyType_IntegerType undocumented
-	MdmAppConfigKeyType_IntegerType MdmAppConfigKeyType = 1
-	// MdmAppConfigKeyType_RealType undocumented
-	MdmAppConfigKeyType_RealType MdmAppConfigKeyType = 2
-	// MdmAppConfigKeyType_BooleanType undocumented
-	MdmAppConfigKeyType_BooleanType MdmAppConfigKeyType = 3
-	// MdmAppConfigKeyType_TokenType undocumented
-	MdmAppConfigKeyType_TokenType MdmAppConfigKeyType = 4
+	// MdmAppConfigKeyTypeVStringType undocumented
+	MdmAppConfigKeyTypeVStringType MdmAppConfigKeyType = 0
+	// MdmAppConfigKeyTypeVIntegerType undocumented
+	MdmAppConfigKeyTypeVIntegerType MdmAppConfigKeyType = 1
+	// MdmAppConfigKeyTypeVRealType undocumented
+	MdmAppConfigKeyTypeVRealType MdmAppConfigKeyType = 2
+	// MdmAppConfigKeyTypeVBooleanType undocumented
+	MdmAppConfigKeyTypeVBooleanType MdmAppConfigKeyType = 3
+	// MdmAppConfigKeyTypeVTokenType undocumented
+	MdmAppConfigKeyTypeVTokenType MdmAppConfigKeyType = 4
 )
+
+// MdmAppConfigKeyTypePStringType returns a pointer to MdmAppConfigKeyTypeVStringType
+func MdmAppConfigKeyTypePStringType() *MdmAppConfigKeyType {
+	v := MdmAppConfigKeyTypeVStringType
+	return &v
+}
+
+// MdmAppConfigKeyTypePIntegerType returns a pointer to MdmAppConfigKeyTypeVIntegerType
+func MdmAppConfigKeyTypePIntegerType() *MdmAppConfigKeyType {
+	v := MdmAppConfigKeyTypeVIntegerType
+	return &v
+}
+
+// MdmAppConfigKeyTypePRealType returns a pointer to MdmAppConfigKeyTypeVRealType
+func MdmAppConfigKeyTypePRealType() *MdmAppConfigKeyType {
+	v := MdmAppConfigKeyTypeVRealType
+	return &v
+}
+
+// MdmAppConfigKeyTypePBooleanType returns a pointer to MdmAppConfigKeyTypeVBooleanType
+func MdmAppConfigKeyTypePBooleanType() *MdmAppConfigKeyType {
+	v := MdmAppConfigKeyTypeVBooleanType
+	return &v
+}
+
+// MdmAppConfigKeyTypePTokenType returns a pointer to MdmAppConfigKeyTypeVTokenType
+func MdmAppConfigKeyTypePTokenType() *MdmAppConfigKeyType {
+	v := MdmAppConfigKeyTypeVTokenType
+	return &v
+}
 
 // MdmAuthority undocumented
 type MdmAuthority int
 
 const (
-	// MdmAuthority_Unknown undocumented
-	MdmAuthority_Unknown MdmAuthority = 0
-	// MdmAuthority_Intune undocumented
-	MdmAuthority_Intune MdmAuthority = 1
-	// MdmAuthority_Sccm undocumented
-	MdmAuthority_Sccm MdmAuthority = 2
-	// MdmAuthority_Office365 undocumented
-	MdmAuthority_Office365 MdmAuthority = 3
+	// MdmAuthorityVUnknown undocumented
+	MdmAuthorityVUnknown MdmAuthority = 0
+	// MdmAuthorityVIntune undocumented
+	MdmAuthorityVIntune MdmAuthority = 1
+	// MdmAuthorityVSccm undocumented
+	MdmAuthorityVSccm MdmAuthority = 2
+	// MdmAuthorityVOffice365 undocumented
+	MdmAuthorityVOffice365 MdmAuthority = 3
 )
+
+// MdmAuthorityPUnknown returns a pointer to MdmAuthorityVUnknown
+func MdmAuthorityPUnknown() *MdmAuthority {
+	v := MdmAuthorityVUnknown
+	return &v
+}
+
+// MdmAuthorityPIntune returns a pointer to MdmAuthorityVIntune
+func MdmAuthorityPIntune() *MdmAuthority {
+	v := MdmAuthorityVIntune
+	return &v
+}
+
+// MdmAuthorityPSccm returns a pointer to MdmAuthorityVSccm
+func MdmAuthorityPSccm() *MdmAuthority {
+	v := MdmAuthorityVSccm
+	return &v
+}
+
+// MdmAuthorityPOffice365 returns a pointer to MdmAuthorityVOffice365
+func MdmAuthorityPOffice365() *MdmAuthority {
+	v := MdmAuthorityVOffice365
+	return &v
+}
 
 // MediaDirection undocumented
 type MediaDirection int
 
 const (
-	// MediaDirection_Inactive undocumented
-	MediaDirection_Inactive MediaDirection = 0
-	// MediaDirection_SendOnly undocumented
-	MediaDirection_SendOnly MediaDirection = 1
-	// MediaDirection_ReceiveOnly undocumented
-	MediaDirection_ReceiveOnly MediaDirection = 2
-	// MediaDirection_SendReceive undocumented
-	MediaDirection_SendReceive MediaDirection = 3
+	// MediaDirectionVInactive undocumented
+	MediaDirectionVInactive MediaDirection = 0
+	// MediaDirectionVSendOnly undocumented
+	MediaDirectionVSendOnly MediaDirection = 1
+	// MediaDirectionVReceiveOnly undocumented
+	MediaDirectionVReceiveOnly MediaDirection = 2
+	// MediaDirectionVSendReceive undocumented
+	MediaDirectionVSendReceive MediaDirection = 3
 )
+
+// MediaDirectionPInactive returns a pointer to MediaDirectionVInactive
+func MediaDirectionPInactive() *MediaDirection {
+	v := MediaDirectionVInactive
+	return &v
+}
+
+// MediaDirectionPSendOnly returns a pointer to MediaDirectionVSendOnly
+func MediaDirectionPSendOnly() *MediaDirection {
+	v := MediaDirectionVSendOnly
+	return &v
+}
+
+// MediaDirectionPReceiveOnly returns a pointer to MediaDirectionVReceiveOnly
+func MediaDirectionPReceiveOnly() *MediaDirection {
+	v := MediaDirectionVReceiveOnly
+	return &v
+}
+
+// MediaDirectionPSendReceive returns a pointer to MediaDirectionVSendReceive
+func MediaDirectionPSendReceive() *MediaDirection {
+	v := MediaDirectionVSendReceive
+	return &v
+}
 
 // MediaState undocumented
 type MediaState int
 
 const (
-	// MediaState_Active undocumented
-	MediaState_Active MediaState = 0
-	// MediaState_Inactive undocumented
-	MediaState_Inactive MediaState = 1
-	// MediaState_UnknownFutureValue undocumented
-	MediaState_UnknownFutureValue MediaState = 2
+	// MediaStateVActive undocumented
+	MediaStateVActive MediaState = 0
+	// MediaStateVInactive undocumented
+	MediaStateVInactive MediaState = 1
+	// MediaStateVUnknownFutureValue undocumented
+	MediaStateVUnknownFutureValue MediaState = 2
 )
+
+// MediaStatePActive returns a pointer to MediaStateVActive
+func MediaStatePActive() *MediaState {
+	v := MediaStateVActive
+	return &v
+}
+
+// MediaStatePInactive returns a pointer to MediaStateVInactive
+func MediaStatePInactive() *MediaState {
+	v := MediaStateVInactive
+	return &v
+}
+
+// MediaStatePUnknownFutureValue returns a pointer to MediaStateVUnknownFutureValue
+func MediaStatePUnknownFutureValue() *MediaState {
+	v := MediaStateVUnknownFutureValue
+	return &v
+}
 
 // MeetingMessageType undocumented
 type MeetingMessageType int
 
 const (
-	// MeetingMessageType_None undocumented
-	MeetingMessageType_None MeetingMessageType = 0
-	// MeetingMessageType_MeetingRequest undocumented
-	MeetingMessageType_MeetingRequest MeetingMessageType = 1
-	// MeetingMessageType_MeetingCancelled undocumented
-	MeetingMessageType_MeetingCancelled MeetingMessageType = 2
-	// MeetingMessageType_MeetingAccepted undocumented
-	MeetingMessageType_MeetingAccepted MeetingMessageType = 3
-	// MeetingMessageType_MeetingTenativelyAccepted undocumented
-	MeetingMessageType_MeetingTenativelyAccepted MeetingMessageType = 4
-	// MeetingMessageType_MeetingDeclined undocumented
-	MeetingMessageType_MeetingDeclined MeetingMessageType = 5
+	// MeetingMessageTypeVNone undocumented
+	MeetingMessageTypeVNone MeetingMessageType = 0
+	// MeetingMessageTypeVMeetingRequest undocumented
+	MeetingMessageTypeVMeetingRequest MeetingMessageType = 1
+	// MeetingMessageTypeVMeetingCancelled undocumented
+	MeetingMessageTypeVMeetingCancelled MeetingMessageType = 2
+	// MeetingMessageTypeVMeetingAccepted undocumented
+	MeetingMessageTypeVMeetingAccepted MeetingMessageType = 3
+	// MeetingMessageTypeVMeetingTenativelyAccepted undocumented
+	MeetingMessageTypeVMeetingTenativelyAccepted MeetingMessageType = 4
+	// MeetingMessageTypeVMeetingDeclined undocumented
+	MeetingMessageTypeVMeetingDeclined MeetingMessageType = 5
 )
+
+// MeetingMessageTypePNone returns a pointer to MeetingMessageTypeVNone
+func MeetingMessageTypePNone() *MeetingMessageType {
+	v := MeetingMessageTypeVNone
+	return &v
+}
+
+// MeetingMessageTypePMeetingRequest returns a pointer to MeetingMessageTypeVMeetingRequest
+func MeetingMessageTypePMeetingRequest() *MeetingMessageType {
+	v := MeetingMessageTypeVMeetingRequest
+	return &v
+}
+
+// MeetingMessageTypePMeetingCancelled returns a pointer to MeetingMessageTypeVMeetingCancelled
+func MeetingMessageTypePMeetingCancelled() *MeetingMessageType {
+	v := MeetingMessageTypeVMeetingCancelled
+	return &v
+}
+
+// MeetingMessageTypePMeetingAccepted returns a pointer to MeetingMessageTypeVMeetingAccepted
+func MeetingMessageTypePMeetingAccepted() *MeetingMessageType {
+	v := MeetingMessageTypeVMeetingAccepted
+	return &v
+}
+
+// MeetingMessageTypePMeetingTenativelyAccepted returns a pointer to MeetingMessageTypeVMeetingTenativelyAccepted
+func MeetingMessageTypePMeetingTenativelyAccepted() *MeetingMessageType {
+	v := MeetingMessageTypeVMeetingTenativelyAccepted
+	return &v
+}
+
+// MeetingMessageTypePMeetingDeclined returns a pointer to MeetingMessageTypeVMeetingDeclined
+func MeetingMessageTypePMeetingDeclined() *MeetingMessageType {
+	v := MeetingMessageTypeVMeetingDeclined
+	return &v
+}
 
 // MessageActionFlag undocumented
 type MessageActionFlag int
 
 const (
-	// MessageActionFlag_Any undocumented
-	MessageActionFlag_Any MessageActionFlag = 0
-	// MessageActionFlag_Call undocumented
-	MessageActionFlag_Call MessageActionFlag = 1
-	// MessageActionFlag_DoNotForward undocumented
-	MessageActionFlag_DoNotForward MessageActionFlag = 2
-	// MessageActionFlag_FollowUp undocumented
-	MessageActionFlag_FollowUp MessageActionFlag = 3
-	// MessageActionFlag_Fyi undocumented
-	MessageActionFlag_Fyi MessageActionFlag = 4
-	// MessageActionFlag_Forward undocumented
-	MessageActionFlag_Forward MessageActionFlag = 5
-	// MessageActionFlag_NoResponseNecessary undocumented
-	MessageActionFlag_NoResponseNecessary MessageActionFlag = 6
-	// MessageActionFlag_Read undocumented
-	MessageActionFlag_Read MessageActionFlag = 7
-	// MessageActionFlag_Reply undocumented
-	MessageActionFlag_Reply MessageActionFlag = 8
-	// MessageActionFlag_ReplyToAll undocumented
-	MessageActionFlag_ReplyToAll MessageActionFlag = 9
-	// MessageActionFlag_Review undocumented
-	MessageActionFlag_Review MessageActionFlag = 10
+	// MessageActionFlagVAny undocumented
+	MessageActionFlagVAny MessageActionFlag = 0
+	// MessageActionFlagVCall undocumented
+	MessageActionFlagVCall MessageActionFlag = 1
+	// MessageActionFlagVDoNotForward undocumented
+	MessageActionFlagVDoNotForward MessageActionFlag = 2
+	// MessageActionFlagVFollowUp undocumented
+	MessageActionFlagVFollowUp MessageActionFlag = 3
+	// MessageActionFlagVFyi undocumented
+	MessageActionFlagVFyi MessageActionFlag = 4
+	// MessageActionFlagVForward undocumented
+	MessageActionFlagVForward MessageActionFlag = 5
+	// MessageActionFlagVNoResponseNecessary undocumented
+	MessageActionFlagVNoResponseNecessary MessageActionFlag = 6
+	// MessageActionFlagVRead undocumented
+	MessageActionFlagVRead MessageActionFlag = 7
+	// MessageActionFlagVReply undocumented
+	MessageActionFlagVReply MessageActionFlag = 8
+	// MessageActionFlagVReplyToAll undocumented
+	MessageActionFlagVReplyToAll MessageActionFlag = 9
+	// MessageActionFlagVReview undocumented
+	MessageActionFlagVReview MessageActionFlag = 10
 )
+
+// MessageActionFlagPAny returns a pointer to MessageActionFlagVAny
+func MessageActionFlagPAny() *MessageActionFlag {
+	v := MessageActionFlagVAny
+	return &v
+}
+
+// MessageActionFlagPCall returns a pointer to MessageActionFlagVCall
+func MessageActionFlagPCall() *MessageActionFlag {
+	v := MessageActionFlagVCall
+	return &v
+}
+
+// MessageActionFlagPDoNotForward returns a pointer to MessageActionFlagVDoNotForward
+func MessageActionFlagPDoNotForward() *MessageActionFlag {
+	v := MessageActionFlagVDoNotForward
+	return &v
+}
+
+// MessageActionFlagPFollowUp returns a pointer to MessageActionFlagVFollowUp
+func MessageActionFlagPFollowUp() *MessageActionFlag {
+	v := MessageActionFlagVFollowUp
+	return &v
+}
+
+// MessageActionFlagPFyi returns a pointer to MessageActionFlagVFyi
+func MessageActionFlagPFyi() *MessageActionFlag {
+	v := MessageActionFlagVFyi
+	return &v
+}
+
+// MessageActionFlagPForward returns a pointer to MessageActionFlagVForward
+func MessageActionFlagPForward() *MessageActionFlag {
+	v := MessageActionFlagVForward
+	return &v
+}
+
+// MessageActionFlagPNoResponseNecessary returns a pointer to MessageActionFlagVNoResponseNecessary
+func MessageActionFlagPNoResponseNecessary() *MessageActionFlag {
+	v := MessageActionFlagVNoResponseNecessary
+	return &v
+}
+
+// MessageActionFlagPRead returns a pointer to MessageActionFlagVRead
+func MessageActionFlagPRead() *MessageActionFlag {
+	v := MessageActionFlagVRead
+	return &v
+}
+
+// MessageActionFlagPReply returns a pointer to MessageActionFlagVReply
+func MessageActionFlagPReply() *MessageActionFlag {
+	v := MessageActionFlagVReply
+	return &v
+}
+
+// MessageActionFlagPReplyToAll returns a pointer to MessageActionFlagVReplyToAll
+func MessageActionFlagPReplyToAll() *MessageActionFlag {
+	v := MessageActionFlagVReplyToAll
+	return &v
+}
+
+// MessageActionFlagPReview returns a pointer to MessageActionFlagVReview
+func MessageActionFlagPReview() *MessageActionFlag {
+	v := MessageActionFlagVReview
+	return &v
+}
 
 // MicrosoftStoreForBusinessLicenseType undocumented
 type MicrosoftStoreForBusinessLicenseType int
 
 const (
-	// MicrosoftStoreForBusinessLicenseType_Offline undocumented
-	MicrosoftStoreForBusinessLicenseType_Offline MicrosoftStoreForBusinessLicenseType = 0
-	// MicrosoftStoreForBusinessLicenseType_Online undocumented
-	MicrosoftStoreForBusinessLicenseType_Online MicrosoftStoreForBusinessLicenseType = 1
+	// MicrosoftStoreForBusinessLicenseTypeVOffline undocumented
+	MicrosoftStoreForBusinessLicenseTypeVOffline MicrosoftStoreForBusinessLicenseType = 0
+	// MicrosoftStoreForBusinessLicenseTypeVOnline undocumented
+	MicrosoftStoreForBusinessLicenseTypeVOnline MicrosoftStoreForBusinessLicenseType = 1
 )
+
+// MicrosoftStoreForBusinessLicenseTypePOffline returns a pointer to MicrosoftStoreForBusinessLicenseTypeVOffline
+func MicrosoftStoreForBusinessLicenseTypePOffline() *MicrosoftStoreForBusinessLicenseType {
+	v := MicrosoftStoreForBusinessLicenseTypeVOffline
+	return &v
+}
+
+// MicrosoftStoreForBusinessLicenseTypePOnline returns a pointer to MicrosoftStoreForBusinessLicenseTypeVOnline
+func MicrosoftStoreForBusinessLicenseTypePOnline() *MicrosoftStoreForBusinessLicenseType {
+	v := MicrosoftStoreForBusinessLicenseTypeVOnline
+	return &v
+}
 
 // MiracastChannel undocumented
 type MiracastChannel int
 
 const (
-	// MiracastChannel_UserDefined undocumented
-	MiracastChannel_UserDefined MiracastChannel = 0
-	// MiracastChannel_One undocumented
-	MiracastChannel_One MiracastChannel = 1
-	// MiracastChannel_Two undocumented
-	MiracastChannel_Two MiracastChannel = 2
-	// MiracastChannel_Three undocumented
-	MiracastChannel_Three MiracastChannel = 3
-	// MiracastChannel_Four undocumented
-	MiracastChannel_Four MiracastChannel = 4
-	// MiracastChannel_Five undocumented
-	MiracastChannel_Five MiracastChannel = 5
-	// MiracastChannel_Six undocumented
-	MiracastChannel_Six MiracastChannel = 6
-	// MiracastChannel_Seven undocumented
-	MiracastChannel_Seven MiracastChannel = 7
-	// MiracastChannel_Eight undocumented
-	MiracastChannel_Eight MiracastChannel = 8
-	// MiracastChannel_Nine undocumented
-	MiracastChannel_Nine MiracastChannel = 9
-	// MiracastChannel_Ten undocumented
-	MiracastChannel_Ten MiracastChannel = 10
-	// MiracastChannel_Eleven undocumented
-	MiracastChannel_Eleven MiracastChannel = 11
-	// MiracastChannel_ThirtySix undocumented
-	MiracastChannel_ThirtySix MiracastChannel = 36
-	// MiracastChannel_Forty undocumented
-	MiracastChannel_Forty MiracastChannel = 40
-	// MiracastChannel_FortyFour undocumented
-	MiracastChannel_FortyFour MiracastChannel = 44
-	// MiracastChannel_FortyEight undocumented
-	MiracastChannel_FortyEight MiracastChannel = 48
-	// MiracastChannel_OneHundredFortyNine undocumented
-	MiracastChannel_OneHundredFortyNine MiracastChannel = 149
-	// MiracastChannel_OneHundredFiftyThree undocumented
-	MiracastChannel_OneHundredFiftyThree MiracastChannel = 153
-	// MiracastChannel_OneHundredFiftySeven undocumented
-	MiracastChannel_OneHundredFiftySeven MiracastChannel = 157
-	// MiracastChannel_OneHundredSixtyOne undocumented
-	MiracastChannel_OneHundredSixtyOne MiracastChannel = 161
-	// MiracastChannel_OneHundredSixtyFive undocumented
-	MiracastChannel_OneHundredSixtyFive MiracastChannel = 165
+	// MiracastChannelVUserDefined undocumented
+	MiracastChannelVUserDefined MiracastChannel = 0
+	// MiracastChannelVOne undocumented
+	MiracastChannelVOne MiracastChannel = 1
+	// MiracastChannelVTwo undocumented
+	MiracastChannelVTwo MiracastChannel = 2
+	// MiracastChannelVThree undocumented
+	MiracastChannelVThree MiracastChannel = 3
+	// MiracastChannelVFour undocumented
+	MiracastChannelVFour MiracastChannel = 4
+	// MiracastChannelVFive undocumented
+	MiracastChannelVFive MiracastChannel = 5
+	// MiracastChannelVSix undocumented
+	MiracastChannelVSix MiracastChannel = 6
+	// MiracastChannelVSeven undocumented
+	MiracastChannelVSeven MiracastChannel = 7
+	// MiracastChannelVEight undocumented
+	MiracastChannelVEight MiracastChannel = 8
+	// MiracastChannelVNine undocumented
+	MiracastChannelVNine MiracastChannel = 9
+	// MiracastChannelVTen undocumented
+	MiracastChannelVTen MiracastChannel = 10
+	// MiracastChannelVEleven undocumented
+	MiracastChannelVEleven MiracastChannel = 11
+	// MiracastChannelVThirtySix undocumented
+	MiracastChannelVThirtySix MiracastChannel = 36
+	// MiracastChannelVForty undocumented
+	MiracastChannelVForty MiracastChannel = 40
+	// MiracastChannelVFortyFour undocumented
+	MiracastChannelVFortyFour MiracastChannel = 44
+	// MiracastChannelVFortyEight undocumented
+	MiracastChannelVFortyEight MiracastChannel = 48
+	// MiracastChannelVOneHundredFortyNine undocumented
+	MiracastChannelVOneHundredFortyNine MiracastChannel = 149
+	// MiracastChannelVOneHundredFiftyThree undocumented
+	MiracastChannelVOneHundredFiftyThree MiracastChannel = 153
+	// MiracastChannelVOneHundredFiftySeven undocumented
+	MiracastChannelVOneHundredFiftySeven MiracastChannel = 157
+	// MiracastChannelVOneHundredSixtyOne undocumented
+	MiracastChannelVOneHundredSixtyOne MiracastChannel = 161
+	// MiracastChannelVOneHundredSixtyFive undocumented
+	MiracastChannelVOneHundredSixtyFive MiracastChannel = 165
 )
+
+// MiracastChannelPUserDefined returns a pointer to MiracastChannelVUserDefined
+func MiracastChannelPUserDefined() *MiracastChannel {
+	v := MiracastChannelVUserDefined
+	return &v
+}
+
+// MiracastChannelPOne returns a pointer to MiracastChannelVOne
+func MiracastChannelPOne() *MiracastChannel {
+	v := MiracastChannelVOne
+	return &v
+}
+
+// MiracastChannelPTwo returns a pointer to MiracastChannelVTwo
+func MiracastChannelPTwo() *MiracastChannel {
+	v := MiracastChannelVTwo
+	return &v
+}
+
+// MiracastChannelPThree returns a pointer to MiracastChannelVThree
+func MiracastChannelPThree() *MiracastChannel {
+	v := MiracastChannelVThree
+	return &v
+}
+
+// MiracastChannelPFour returns a pointer to MiracastChannelVFour
+func MiracastChannelPFour() *MiracastChannel {
+	v := MiracastChannelVFour
+	return &v
+}
+
+// MiracastChannelPFive returns a pointer to MiracastChannelVFive
+func MiracastChannelPFive() *MiracastChannel {
+	v := MiracastChannelVFive
+	return &v
+}
+
+// MiracastChannelPSix returns a pointer to MiracastChannelVSix
+func MiracastChannelPSix() *MiracastChannel {
+	v := MiracastChannelVSix
+	return &v
+}
+
+// MiracastChannelPSeven returns a pointer to MiracastChannelVSeven
+func MiracastChannelPSeven() *MiracastChannel {
+	v := MiracastChannelVSeven
+	return &v
+}
+
+// MiracastChannelPEight returns a pointer to MiracastChannelVEight
+func MiracastChannelPEight() *MiracastChannel {
+	v := MiracastChannelVEight
+	return &v
+}
+
+// MiracastChannelPNine returns a pointer to MiracastChannelVNine
+func MiracastChannelPNine() *MiracastChannel {
+	v := MiracastChannelVNine
+	return &v
+}
+
+// MiracastChannelPTen returns a pointer to MiracastChannelVTen
+func MiracastChannelPTen() *MiracastChannel {
+	v := MiracastChannelVTen
+	return &v
+}
+
+// MiracastChannelPEleven returns a pointer to MiracastChannelVEleven
+func MiracastChannelPEleven() *MiracastChannel {
+	v := MiracastChannelVEleven
+	return &v
+}
+
+// MiracastChannelPThirtySix returns a pointer to MiracastChannelVThirtySix
+func MiracastChannelPThirtySix() *MiracastChannel {
+	v := MiracastChannelVThirtySix
+	return &v
+}
+
+// MiracastChannelPForty returns a pointer to MiracastChannelVForty
+func MiracastChannelPForty() *MiracastChannel {
+	v := MiracastChannelVForty
+	return &v
+}
+
+// MiracastChannelPFortyFour returns a pointer to MiracastChannelVFortyFour
+func MiracastChannelPFortyFour() *MiracastChannel {
+	v := MiracastChannelVFortyFour
+	return &v
+}
+
+// MiracastChannelPFortyEight returns a pointer to MiracastChannelVFortyEight
+func MiracastChannelPFortyEight() *MiracastChannel {
+	v := MiracastChannelVFortyEight
+	return &v
+}
+
+// MiracastChannelPOneHundredFortyNine returns a pointer to MiracastChannelVOneHundredFortyNine
+func MiracastChannelPOneHundredFortyNine() *MiracastChannel {
+	v := MiracastChannelVOneHundredFortyNine
+	return &v
+}
+
+// MiracastChannelPOneHundredFiftyThree returns a pointer to MiracastChannelVOneHundredFiftyThree
+func MiracastChannelPOneHundredFiftyThree() *MiracastChannel {
+	v := MiracastChannelVOneHundredFiftyThree
+	return &v
+}
+
+// MiracastChannelPOneHundredFiftySeven returns a pointer to MiracastChannelVOneHundredFiftySeven
+func MiracastChannelPOneHundredFiftySeven() *MiracastChannel {
+	v := MiracastChannelVOneHundredFiftySeven
+	return &v
+}
+
+// MiracastChannelPOneHundredSixtyOne returns a pointer to MiracastChannelVOneHundredSixtyOne
+func MiracastChannelPOneHundredSixtyOne() *MiracastChannel {
+	v := MiracastChannelVOneHundredSixtyOne
+	return &v
+}
+
+// MiracastChannelPOneHundredSixtyFive returns a pointer to MiracastChannelVOneHundredSixtyFive
+func MiracastChannelPOneHundredSixtyFive() *MiracastChannel {
+	v := MiracastChannelVOneHundredSixtyFive
+	return &v
+}
 
 // MobileAppContentFileUploadState undocumented
 type MobileAppContentFileUploadState int
 
 const (
-	// MobileAppContentFileUploadState_Success undocumented
-	MobileAppContentFileUploadState_Success MobileAppContentFileUploadState = 0
-	// MobileAppContentFileUploadState_TransientError undocumented
-	MobileAppContentFileUploadState_TransientError MobileAppContentFileUploadState = 1
-	// MobileAppContentFileUploadState_Error undocumented
-	MobileAppContentFileUploadState_Error MobileAppContentFileUploadState = 2
-	// MobileAppContentFileUploadState_Unknown undocumented
-	MobileAppContentFileUploadState_Unknown MobileAppContentFileUploadState = 3
-	// MobileAppContentFileUploadState_AzureStorageURIRequestSuccess undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRequestSuccess MobileAppContentFileUploadState = 100
-	// MobileAppContentFileUploadState_AzureStorageURIRequestPending undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRequestPending MobileAppContentFileUploadState = 101
-	// MobileAppContentFileUploadState_AzureStorageURIRequestFailed undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRequestFailed MobileAppContentFileUploadState = 102
-	// MobileAppContentFileUploadState_AzureStorageURIRequestTimedOut undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRequestTimedOut MobileAppContentFileUploadState = 103
-	// MobileAppContentFileUploadState_AzureStorageURIRenewalSuccess undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRenewalSuccess MobileAppContentFileUploadState = 200
-	// MobileAppContentFileUploadState_AzureStorageURIRenewalPending undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRenewalPending MobileAppContentFileUploadState = 201
-	// MobileAppContentFileUploadState_AzureStorageURIRenewalFailed undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRenewalFailed MobileAppContentFileUploadState = 202
-	// MobileAppContentFileUploadState_AzureStorageURIRenewalTimedOut undocumented
-	MobileAppContentFileUploadState_AzureStorageURIRenewalTimedOut MobileAppContentFileUploadState = 203
-	// MobileAppContentFileUploadState_CommitFileSuccess undocumented
-	MobileAppContentFileUploadState_CommitFileSuccess MobileAppContentFileUploadState = 300
-	// MobileAppContentFileUploadState_CommitFilePending undocumented
-	MobileAppContentFileUploadState_CommitFilePending MobileAppContentFileUploadState = 301
-	// MobileAppContentFileUploadState_CommitFileFailed undocumented
-	MobileAppContentFileUploadState_CommitFileFailed MobileAppContentFileUploadState = 302
-	// MobileAppContentFileUploadState_CommitFileTimedOut undocumented
-	MobileAppContentFileUploadState_CommitFileTimedOut MobileAppContentFileUploadState = 303
+	// MobileAppContentFileUploadStateVSuccess undocumented
+	MobileAppContentFileUploadStateVSuccess MobileAppContentFileUploadState = 0
+	// MobileAppContentFileUploadStateVTransientError undocumented
+	MobileAppContentFileUploadStateVTransientError MobileAppContentFileUploadState = 1
+	// MobileAppContentFileUploadStateVError undocumented
+	MobileAppContentFileUploadStateVError MobileAppContentFileUploadState = 2
+	// MobileAppContentFileUploadStateVUnknown undocumented
+	MobileAppContentFileUploadStateVUnknown MobileAppContentFileUploadState = 3
+	// MobileAppContentFileUploadStateVAzureStorageURIRequestSuccess undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRequestSuccess MobileAppContentFileUploadState = 100
+	// MobileAppContentFileUploadStateVAzureStorageURIRequestPending undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRequestPending MobileAppContentFileUploadState = 101
+	// MobileAppContentFileUploadStateVAzureStorageURIRequestFailed undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRequestFailed MobileAppContentFileUploadState = 102
+	// MobileAppContentFileUploadStateVAzureStorageURIRequestTimedOut undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRequestTimedOut MobileAppContentFileUploadState = 103
+	// MobileAppContentFileUploadStateVAzureStorageURIRenewalSuccess undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRenewalSuccess MobileAppContentFileUploadState = 200
+	// MobileAppContentFileUploadStateVAzureStorageURIRenewalPending undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRenewalPending MobileAppContentFileUploadState = 201
+	// MobileAppContentFileUploadStateVAzureStorageURIRenewalFailed undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRenewalFailed MobileAppContentFileUploadState = 202
+	// MobileAppContentFileUploadStateVAzureStorageURIRenewalTimedOut undocumented
+	MobileAppContentFileUploadStateVAzureStorageURIRenewalTimedOut MobileAppContentFileUploadState = 203
+	// MobileAppContentFileUploadStateVCommitFileSuccess undocumented
+	MobileAppContentFileUploadStateVCommitFileSuccess MobileAppContentFileUploadState = 300
+	// MobileAppContentFileUploadStateVCommitFilePending undocumented
+	MobileAppContentFileUploadStateVCommitFilePending MobileAppContentFileUploadState = 301
+	// MobileAppContentFileUploadStateVCommitFileFailed undocumented
+	MobileAppContentFileUploadStateVCommitFileFailed MobileAppContentFileUploadState = 302
+	// MobileAppContentFileUploadStateVCommitFileTimedOut undocumented
+	MobileAppContentFileUploadStateVCommitFileTimedOut MobileAppContentFileUploadState = 303
 )
+
+// MobileAppContentFileUploadStatePSuccess returns a pointer to MobileAppContentFileUploadStateVSuccess
+func MobileAppContentFileUploadStatePSuccess() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVSuccess
+	return &v
+}
+
+// MobileAppContentFileUploadStatePTransientError returns a pointer to MobileAppContentFileUploadStateVTransientError
+func MobileAppContentFileUploadStatePTransientError() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVTransientError
+	return &v
+}
+
+// MobileAppContentFileUploadStatePError returns a pointer to MobileAppContentFileUploadStateVError
+func MobileAppContentFileUploadStatePError() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVError
+	return &v
+}
+
+// MobileAppContentFileUploadStatePUnknown returns a pointer to MobileAppContentFileUploadStateVUnknown
+func MobileAppContentFileUploadStatePUnknown() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVUnknown
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRequestSuccess returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRequestSuccess
+func MobileAppContentFileUploadStatePAzureStorageURIRequestSuccess() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRequestSuccess
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRequestPending returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRequestPending
+func MobileAppContentFileUploadStatePAzureStorageURIRequestPending() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRequestPending
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRequestFailed returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRequestFailed
+func MobileAppContentFileUploadStatePAzureStorageURIRequestFailed() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRequestFailed
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRequestTimedOut returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRequestTimedOut
+func MobileAppContentFileUploadStatePAzureStorageURIRequestTimedOut() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRequestTimedOut
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRenewalSuccess returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRenewalSuccess
+func MobileAppContentFileUploadStatePAzureStorageURIRenewalSuccess() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRenewalSuccess
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRenewalPending returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRenewalPending
+func MobileAppContentFileUploadStatePAzureStorageURIRenewalPending() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRenewalPending
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRenewalFailed returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRenewalFailed
+func MobileAppContentFileUploadStatePAzureStorageURIRenewalFailed() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRenewalFailed
+	return &v
+}
+
+// MobileAppContentFileUploadStatePAzureStorageURIRenewalTimedOut returns a pointer to MobileAppContentFileUploadStateVAzureStorageURIRenewalTimedOut
+func MobileAppContentFileUploadStatePAzureStorageURIRenewalTimedOut() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVAzureStorageURIRenewalTimedOut
+	return &v
+}
+
+// MobileAppContentFileUploadStatePCommitFileSuccess returns a pointer to MobileAppContentFileUploadStateVCommitFileSuccess
+func MobileAppContentFileUploadStatePCommitFileSuccess() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVCommitFileSuccess
+	return &v
+}
+
+// MobileAppContentFileUploadStatePCommitFilePending returns a pointer to MobileAppContentFileUploadStateVCommitFilePending
+func MobileAppContentFileUploadStatePCommitFilePending() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVCommitFilePending
+	return &v
+}
+
+// MobileAppContentFileUploadStatePCommitFileFailed returns a pointer to MobileAppContentFileUploadStateVCommitFileFailed
+func MobileAppContentFileUploadStatePCommitFileFailed() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVCommitFileFailed
+	return &v
+}
+
+// MobileAppContentFileUploadStatePCommitFileTimedOut returns a pointer to MobileAppContentFileUploadStateVCommitFileTimedOut
+func MobileAppContentFileUploadStatePCommitFileTimedOut() *MobileAppContentFileUploadState {
+	v := MobileAppContentFileUploadStateVCommitFileTimedOut
+	return &v
+}
 
 // MobileAppPublishingState undocumented
 type MobileAppPublishingState int
 
 const (
-	// MobileAppPublishingState_NotPublished undocumented
-	MobileAppPublishingState_NotPublished MobileAppPublishingState = 0
-	// MobileAppPublishingState_Processing undocumented
-	MobileAppPublishingState_Processing MobileAppPublishingState = 1
-	// MobileAppPublishingState_Published undocumented
-	MobileAppPublishingState_Published MobileAppPublishingState = 2
+	// MobileAppPublishingStateVNotPublished undocumented
+	MobileAppPublishingStateVNotPublished MobileAppPublishingState = 0
+	// MobileAppPublishingStateVProcessing undocumented
+	MobileAppPublishingStateVProcessing MobileAppPublishingState = 1
+	// MobileAppPublishingStateVPublished undocumented
+	MobileAppPublishingStateVPublished MobileAppPublishingState = 2
 )
+
+// MobileAppPublishingStatePNotPublished returns a pointer to MobileAppPublishingStateVNotPublished
+func MobileAppPublishingStatePNotPublished() *MobileAppPublishingState {
+	v := MobileAppPublishingStateVNotPublished
+	return &v
+}
+
+// MobileAppPublishingStatePProcessing returns a pointer to MobileAppPublishingStateVProcessing
+func MobileAppPublishingStatePProcessing() *MobileAppPublishingState {
+	v := MobileAppPublishingStateVProcessing
+	return &v
+}
+
+// MobileAppPublishingStatePPublished returns a pointer to MobileAppPublishingStateVPublished
+func MobileAppPublishingStatePPublished() *MobileAppPublishingState {
+	v := MobileAppPublishingStateVPublished
+	return &v
+}
 
 // MobileThreatPartnerTenantState undocumented
 type MobileThreatPartnerTenantState int
 
 const (
-	// MobileThreatPartnerTenantState_Unavailable undocumented
-	MobileThreatPartnerTenantState_Unavailable MobileThreatPartnerTenantState = 0
-	// MobileThreatPartnerTenantState_Available undocumented
-	MobileThreatPartnerTenantState_Available MobileThreatPartnerTenantState = 1
-	// MobileThreatPartnerTenantState_Enabled undocumented
-	MobileThreatPartnerTenantState_Enabled MobileThreatPartnerTenantState = 2
-	// MobileThreatPartnerTenantState_Unresponsive undocumented
-	MobileThreatPartnerTenantState_Unresponsive MobileThreatPartnerTenantState = 3
+	// MobileThreatPartnerTenantStateVUnavailable undocumented
+	MobileThreatPartnerTenantStateVUnavailable MobileThreatPartnerTenantState = 0
+	// MobileThreatPartnerTenantStateVAvailable undocumented
+	MobileThreatPartnerTenantStateVAvailable MobileThreatPartnerTenantState = 1
+	// MobileThreatPartnerTenantStateVEnabled undocumented
+	MobileThreatPartnerTenantStateVEnabled MobileThreatPartnerTenantState = 2
+	// MobileThreatPartnerTenantStateVUnresponsive undocumented
+	MobileThreatPartnerTenantStateVUnresponsive MobileThreatPartnerTenantState = 3
 )
+
+// MobileThreatPartnerTenantStatePUnavailable returns a pointer to MobileThreatPartnerTenantStateVUnavailable
+func MobileThreatPartnerTenantStatePUnavailable() *MobileThreatPartnerTenantState {
+	v := MobileThreatPartnerTenantStateVUnavailable
+	return &v
+}
+
+// MobileThreatPartnerTenantStatePAvailable returns a pointer to MobileThreatPartnerTenantStateVAvailable
+func MobileThreatPartnerTenantStatePAvailable() *MobileThreatPartnerTenantState {
+	v := MobileThreatPartnerTenantStateVAvailable
+	return &v
+}
+
+// MobileThreatPartnerTenantStatePEnabled returns a pointer to MobileThreatPartnerTenantStateVEnabled
+func MobileThreatPartnerTenantStatePEnabled() *MobileThreatPartnerTenantState {
+	v := MobileThreatPartnerTenantStateVEnabled
+	return &v
+}
+
+// MobileThreatPartnerTenantStatePUnresponsive returns a pointer to MobileThreatPartnerTenantStateVUnresponsive
+func MobileThreatPartnerTenantStatePUnresponsive() *MobileThreatPartnerTenantState {
+	v := MobileThreatPartnerTenantStateVUnresponsive
+	return &v
+}
 
 // Modality undocumented
 type Modality int
 
 const (
-	// Modality_Audio undocumented
-	Modality_Audio Modality = 1
-	// Modality_Video undocumented
-	Modality_Video Modality = 2
-	// Modality_VideoBasedScreenSharing undocumented
-	Modality_VideoBasedScreenSharing Modality = 3
-	// Modality_Data undocumented
-	Modality_Data Modality = 4
-	// Modality_UnknownFutureValue undocumented
-	Modality_UnknownFutureValue Modality = 5
+	// ModalityVAudio undocumented
+	ModalityVAudio Modality = 1
+	// ModalityVVideo undocumented
+	ModalityVVideo Modality = 2
+	// ModalityVVideoBasedScreenSharing undocumented
+	ModalityVVideoBasedScreenSharing Modality = 3
+	// ModalityVData undocumented
+	ModalityVData Modality = 4
+	// ModalityVUnknownFutureValue undocumented
+	ModalityVUnknownFutureValue Modality = 5
 )
+
+// ModalityPAudio returns a pointer to ModalityVAudio
+func ModalityPAudio() *Modality {
+	v := ModalityVAudio
+	return &v
+}
+
+// ModalityPVideo returns a pointer to ModalityVVideo
+func ModalityPVideo() *Modality {
+	v := ModalityVVideo
+	return &v
+}
+
+// ModalityPVideoBasedScreenSharing returns a pointer to ModalityVVideoBasedScreenSharing
+func ModalityPVideoBasedScreenSharing() *Modality {
+	v := ModalityVVideoBasedScreenSharing
+	return &v
+}
+
+// ModalityPData returns a pointer to ModalityVData
+func ModalityPData() *Modality {
+	v := ModalityVData
+	return &v
+}
+
+// ModalityPUnknownFutureValue returns a pointer to ModalityVUnknownFutureValue
+func ModalityPUnknownFutureValue() *Modality {
+	v := ModalityVUnknownFutureValue
+	return &v
+}
 
 // NotificationTemplateBrandingOptions undocumented
 type NotificationTemplateBrandingOptions int
 
 const (
-	// NotificationTemplateBrandingOptions_None undocumented
-	NotificationTemplateBrandingOptions_None NotificationTemplateBrandingOptions = 0
-	// NotificationTemplateBrandingOptions_IncludeCompanyLogo undocumented
-	NotificationTemplateBrandingOptions_IncludeCompanyLogo NotificationTemplateBrandingOptions = 1
-	// NotificationTemplateBrandingOptions_IncludeCompanyName undocumented
-	NotificationTemplateBrandingOptions_IncludeCompanyName NotificationTemplateBrandingOptions = 2
-	// NotificationTemplateBrandingOptions_IncludeContactInformation undocumented
-	NotificationTemplateBrandingOptions_IncludeContactInformation NotificationTemplateBrandingOptions = 4
+	// NotificationTemplateBrandingOptionsVNone undocumented
+	NotificationTemplateBrandingOptionsVNone NotificationTemplateBrandingOptions = 0
+	// NotificationTemplateBrandingOptionsVIncludeCompanyLogo undocumented
+	NotificationTemplateBrandingOptionsVIncludeCompanyLogo NotificationTemplateBrandingOptions = 1
+	// NotificationTemplateBrandingOptionsVIncludeCompanyName undocumented
+	NotificationTemplateBrandingOptionsVIncludeCompanyName NotificationTemplateBrandingOptions = 2
+	// NotificationTemplateBrandingOptionsVIncludeContactInformation undocumented
+	NotificationTemplateBrandingOptionsVIncludeContactInformation NotificationTemplateBrandingOptions = 4
 )
+
+// NotificationTemplateBrandingOptionsPNone returns a pointer to NotificationTemplateBrandingOptionsVNone
+func NotificationTemplateBrandingOptionsPNone() *NotificationTemplateBrandingOptions {
+	v := NotificationTemplateBrandingOptionsVNone
+	return &v
+}
+
+// NotificationTemplateBrandingOptionsPIncludeCompanyLogo returns a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyLogo
+func NotificationTemplateBrandingOptionsPIncludeCompanyLogo() *NotificationTemplateBrandingOptions {
+	v := NotificationTemplateBrandingOptionsVIncludeCompanyLogo
+	return &v
+}
+
+// NotificationTemplateBrandingOptionsPIncludeCompanyName returns a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyName
+func NotificationTemplateBrandingOptionsPIncludeCompanyName() *NotificationTemplateBrandingOptions {
+	v := NotificationTemplateBrandingOptionsVIncludeCompanyName
+	return &v
+}
+
+// NotificationTemplateBrandingOptionsPIncludeContactInformation returns a pointer to NotificationTemplateBrandingOptionsVIncludeContactInformation
+func NotificationTemplateBrandingOptionsPIncludeContactInformation() *NotificationTemplateBrandingOptions {
+	v := NotificationTemplateBrandingOptionsVIncludeContactInformation
+	return &v
+}
 
 // OnenotePatchActionType undocumented
 type OnenotePatchActionType int
 
 const (
-	// OnenotePatchActionType_Replace undocumented
-	OnenotePatchActionType_Replace OnenotePatchActionType = 0
-	// OnenotePatchActionType_Append undocumented
-	OnenotePatchActionType_Append OnenotePatchActionType = 1
-	// OnenotePatchActionType_Delete undocumented
-	OnenotePatchActionType_Delete OnenotePatchActionType = 2
-	// OnenotePatchActionType_Insert undocumented
-	OnenotePatchActionType_Insert OnenotePatchActionType = 3
-	// OnenotePatchActionType_Prepend undocumented
-	OnenotePatchActionType_Prepend OnenotePatchActionType = 4
+	// OnenotePatchActionTypeVReplace undocumented
+	OnenotePatchActionTypeVReplace OnenotePatchActionType = 0
+	// OnenotePatchActionTypeVAppend undocumented
+	OnenotePatchActionTypeVAppend OnenotePatchActionType = 1
+	// OnenotePatchActionTypeVDelete undocumented
+	OnenotePatchActionTypeVDelete OnenotePatchActionType = 2
+	// OnenotePatchActionTypeVInsert undocumented
+	OnenotePatchActionTypeVInsert OnenotePatchActionType = 3
+	// OnenotePatchActionTypeVPrepend undocumented
+	OnenotePatchActionTypeVPrepend OnenotePatchActionType = 4
 )
+
+// OnenotePatchActionTypePReplace returns a pointer to OnenotePatchActionTypeVReplace
+func OnenotePatchActionTypePReplace() *OnenotePatchActionType {
+	v := OnenotePatchActionTypeVReplace
+	return &v
+}
+
+// OnenotePatchActionTypePAppend returns a pointer to OnenotePatchActionTypeVAppend
+func OnenotePatchActionTypePAppend() *OnenotePatchActionType {
+	v := OnenotePatchActionTypeVAppend
+	return &v
+}
+
+// OnenotePatchActionTypePDelete returns a pointer to OnenotePatchActionTypeVDelete
+func OnenotePatchActionTypePDelete() *OnenotePatchActionType {
+	v := OnenotePatchActionTypeVDelete
+	return &v
+}
+
+// OnenotePatchActionTypePInsert returns a pointer to OnenotePatchActionTypeVInsert
+func OnenotePatchActionTypePInsert() *OnenotePatchActionType {
+	v := OnenotePatchActionTypeVInsert
+	return &v
+}
+
+// OnenotePatchActionTypePPrepend returns a pointer to OnenotePatchActionTypeVPrepend
+func OnenotePatchActionTypePPrepend() *OnenotePatchActionType {
+	v := OnenotePatchActionTypeVPrepend
+	return &v
+}
 
 // OnenotePatchInsertPosition undocumented
 type OnenotePatchInsertPosition int
 
 const (
-	// OnenotePatchInsertPosition_After undocumented
-	OnenotePatchInsertPosition_After OnenotePatchInsertPosition = 0
-	// OnenotePatchInsertPosition_Before undocumented
-	OnenotePatchInsertPosition_Before OnenotePatchInsertPosition = 1
+	// OnenotePatchInsertPositionVAfter undocumented
+	OnenotePatchInsertPositionVAfter OnenotePatchInsertPosition = 0
+	// OnenotePatchInsertPositionVBefore undocumented
+	OnenotePatchInsertPositionVBefore OnenotePatchInsertPosition = 1
 )
+
+// OnenotePatchInsertPositionPAfter returns a pointer to OnenotePatchInsertPositionVAfter
+func OnenotePatchInsertPositionPAfter() *OnenotePatchInsertPosition {
+	v := OnenotePatchInsertPositionVAfter
+	return &v
+}
+
+// OnenotePatchInsertPositionPBefore returns a pointer to OnenotePatchInsertPositionVBefore
+func OnenotePatchInsertPositionPBefore() *OnenotePatchInsertPosition {
+	v := OnenotePatchInsertPositionVBefore
+	return &v
+}
 
 // OnenoteSourceService undocumented
 type OnenoteSourceService int
 
 const (
-	// OnenoteSourceService_Unknown undocumented
-	OnenoteSourceService_Unknown OnenoteSourceService = 0
-	// OnenoteSourceService_OneDrive undocumented
-	OnenoteSourceService_OneDrive OnenoteSourceService = 1
-	// OnenoteSourceService_OneDriveForBusiness undocumented
-	OnenoteSourceService_OneDriveForBusiness OnenoteSourceService = 2
-	// OnenoteSourceService_OnPremOneDriveForBusiness undocumented
-	OnenoteSourceService_OnPremOneDriveForBusiness OnenoteSourceService = 3
+	// OnenoteSourceServiceVUnknown undocumented
+	OnenoteSourceServiceVUnknown OnenoteSourceService = 0
+	// OnenoteSourceServiceVOneDrive undocumented
+	OnenoteSourceServiceVOneDrive OnenoteSourceService = 1
+	// OnenoteSourceServiceVOneDriveForBusiness undocumented
+	OnenoteSourceServiceVOneDriveForBusiness OnenoteSourceService = 2
+	// OnenoteSourceServiceVOnPremOneDriveForBusiness undocumented
+	OnenoteSourceServiceVOnPremOneDriveForBusiness OnenoteSourceService = 3
 )
+
+// OnenoteSourceServicePUnknown returns a pointer to OnenoteSourceServiceVUnknown
+func OnenoteSourceServicePUnknown() *OnenoteSourceService {
+	v := OnenoteSourceServiceVUnknown
+	return &v
+}
+
+// OnenoteSourceServicePOneDrive returns a pointer to OnenoteSourceServiceVOneDrive
+func OnenoteSourceServicePOneDrive() *OnenoteSourceService {
+	v := OnenoteSourceServiceVOneDrive
+	return &v
+}
+
+// OnenoteSourceServicePOneDriveForBusiness returns a pointer to OnenoteSourceServiceVOneDriveForBusiness
+func OnenoteSourceServicePOneDriveForBusiness() *OnenoteSourceService {
+	v := OnenoteSourceServiceVOneDriveForBusiness
+	return &v
+}
+
+// OnenoteSourceServicePOnPremOneDriveForBusiness returns a pointer to OnenoteSourceServiceVOnPremOneDriveForBusiness
+func OnenoteSourceServicePOnPremOneDriveForBusiness() *OnenoteSourceService {
+	v := OnenoteSourceServiceVOnPremOneDriveForBusiness
+	return &v
+}
 
 // OnenoteUserRole undocumented
 type OnenoteUserRole int
 
 const (
-	// OnenoteUserRole_Owner undocumented
-	OnenoteUserRole_Owner OnenoteUserRole = 0
-	// OnenoteUserRole_Contributor undocumented
-	OnenoteUserRole_Contributor OnenoteUserRole = 1
-	// OnenoteUserRole_Reader undocumented
-	OnenoteUserRole_Reader OnenoteUserRole = 2
-	// OnenoteUserRole_None undocumented
-	OnenoteUserRole_None OnenoteUserRole = -1
+	// OnenoteUserRoleVOwner undocumented
+	OnenoteUserRoleVOwner OnenoteUserRole = 0
+	// OnenoteUserRoleVContributor undocumented
+	OnenoteUserRoleVContributor OnenoteUserRole = 1
+	// OnenoteUserRoleVReader undocumented
+	OnenoteUserRoleVReader OnenoteUserRole = 2
+	// OnenoteUserRoleVNone undocumented
+	OnenoteUserRoleVNone OnenoteUserRole = -1
 )
+
+// OnenoteUserRolePOwner returns a pointer to OnenoteUserRoleVOwner
+func OnenoteUserRolePOwner() *OnenoteUserRole {
+	v := OnenoteUserRoleVOwner
+	return &v
+}
+
+// OnenoteUserRolePContributor returns a pointer to OnenoteUserRoleVContributor
+func OnenoteUserRolePContributor() *OnenoteUserRole {
+	v := OnenoteUserRoleVContributor
+	return &v
+}
+
+// OnenoteUserRolePReader returns a pointer to OnenoteUserRoleVReader
+func OnenoteUserRolePReader() *OnenoteUserRole {
+	v := OnenoteUserRoleVReader
+	return &v
+}
+
+// OnenoteUserRolePNone returns a pointer to OnenoteUserRoleVNone
+func OnenoteUserRolePNone() *OnenoteUserRole {
+	v := OnenoteUserRoleVNone
+	return &v
+}
 
 // OperationResult undocumented
 type OperationResult int
 
 const (
-	// OperationResult_Success undocumented
-	OperationResult_Success OperationResult = 0
-	// OperationResult_Failure undocumented
-	OperationResult_Failure OperationResult = 1
-	// OperationResult_Timeout undocumented
-	OperationResult_Timeout OperationResult = 2
-	// OperationResult_UnknownFutureValue undocumented
-	OperationResult_UnknownFutureValue OperationResult = 3
+	// OperationResultVSuccess undocumented
+	OperationResultVSuccess OperationResult = 0
+	// OperationResultVFailure undocumented
+	OperationResultVFailure OperationResult = 1
+	// OperationResultVTimeout undocumented
+	OperationResultVTimeout OperationResult = 2
+	// OperationResultVUnknownFutureValue undocumented
+	OperationResultVUnknownFutureValue OperationResult = 3
 )
+
+// OperationResultPSuccess returns a pointer to OperationResultVSuccess
+func OperationResultPSuccess() *OperationResult {
+	v := OperationResultVSuccess
+	return &v
+}
+
+// OperationResultPFailure returns a pointer to OperationResultVFailure
+func OperationResultPFailure() *OperationResult {
+	v := OperationResultVFailure
+	return &v
+}
+
+// OperationResultPTimeout returns a pointer to OperationResultVTimeout
+func OperationResultPTimeout() *OperationResult {
+	v := OperationResultVTimeout
+	return &v
+}
+
+// OperationResultPUnknownFutureValue returns a pointer to OperationResultVUnknownFutureValue
+func OperationResultPUnknownFutureValue() *OperationResult {
+	v := OperationResultVUnknownFutureValue
+	return &v
+}
 
 // OperationStatus undocumented
 type OperationStatus int
 
 const (
-	// OperationStatus_NotStarted undocumented
-	OperationStatus_NotStarted OperationStatus = 0
-	// OperationStatus_Running undocumented
-	OperationStatus_Running OperationStatus = 1
-	// OperationStatus_Completed undocumented
-	OperationStatus_Completed OperationStatus = 2
-	// OperationStatus_Failed undocumented
-	OperationStatus_Failed OperationStatus = 3
+	// OperationStatusVNotStarted undocumented
+	OperationStatusVNotStarted OperationStatus = 0
+	// OperationStatusVRunning undocumented
+	OperationStatusVRunning OperationStatus = 1
+	// OperationStatusVCompleted undocumented
+	OperationStatusVCompleted OperationStatus = 2
+	// OperationStatusVFailed undocumented
+	OperationStatusVFailed OperationStatus = 3
 )
+
+// OperationStatusPNotStarted returns a pointer to OperationStatusVNotStarted
+func OperationStatusPNotStarted() *OperationStatus {
+	v := OperationStatusVNotStarted
+	return &v
+}
+
+// OperationStatusPRunning returns a pointer to OperationStatusVRunning
+func OperationStatusPRunning() *OperationStatus {
+	v := OperationStatusVRunning
+	return &v
+}
+
+// OperationStatusPCompleted returns a pointer to OperationStatusVCompleted
+func OperationStatusPCompleted() *OperationStatus {
+	v := OperationStatusVCompleted
+	return &v
+}
+
+// OperationStatusPFailed returns a pointer to OperationStatusVFailed
+func OperationStatusPFailed() *OperationStatus {
+	v := OperationStatusVFailed
+	return &v
+}
 
 // PhoneType undocumented
 type PhoneType int
 
 const (
-	// PhoneType_Home undocumented
-	PhoneType_Home PhoneType = 0
-	// PhoneType_Business undocumented
-	PhoneType_Business PhoneType = 1
-	// PhoneType_Mobile undocumented
-	PhoneType_Mobile PhoneType = 2
-	// PhoneType_Other undocumented
-	PhoneType_Other PhoneType = 3
-	// PhoneType_Assistant undocumented
-	PhoneType_Assistant PhoneType = 4
-	// PhoneType_HomeFax undocumented
-	PhoneType_HomeFax PhoneType = 5
-	// PhoneType_BusinessFax undocumented
-	PhoneType_BusinessFax PhoneType = 6
-	// PhoneType_OtherFax undocumented
-	PhoneType_OtherFax PhoneType = 7
-	// PhoneType_Pager undocumented
-	PhoneType_Pager PhoneType = 8
-	// PhoneType_Radio undocumented
-	PhoneType_Radio PhoneType = 9
+	// PhoneTypeVHome undocumented
+	PhoneTypeVHome PhoneType = 0
+	// PhoneTypeVBusiness undocumented
+	PhoneTypeVBusiness PhoneType = 1
+	// PhoneTypeVMobile undocumented
+	PhoneTypeVMobile PhoneType = 2
+	// PhoneTypeVOther undocumented
+	PhoneTypeVOther PhoneType = 3
+	// PhoneTypeVAssistant undocumented
+	PhoneTypeVAssistant PhoneType = 4
+	// PhoneTypeVHomeFax undocumented
+	PhoneTypeVHomeFax PhoneType = 5
+	// PhoneTypeVBusinessFax undocumented
+	PhoneTypeVBusinessFax PhoneType = 6
+	// PhoneTypeVOtherFax undocumented
+	PhoneTypeVOtherFax PhoneType = 7
+	// PhoneTypeVPager undocumented
+	PhoneTypeVPager PhoneType = 8
+	// PhoneTypeVRadio undocumented
+	PhoneTypeVRadio PhoneType = 9
 )
+
+// PhoneTypePHome returns a pointer to PhoneTypeVHome
+func PhoneTypePHome() *PhoneType {
+	v := PhoneTypeVHome
+	return &v
+}
+
+// PhoneTypePBusiness returns a pointer to PhoneTypeVBusiness
+func PhoneTypePBusiness() *PhoneType {
+	v := PhoneTypeVBusiness
+	return &v
+}
+
+// PhoneTypePMobile returns a pointer to PhoneTypeVMobile
+func PhoneTypePMobile() *PhoneType {
+	v := PhoneTypeVMobile
+	return &v
+}
+
+// PhoneTypePOther returns a pointer to PhoneTypeVOther
+func PhoneTypePOther() *PhoneType {
+	v := PhoneTypeVOther
+	return &v
+}
+
+// PhoneTypePAssistant returns a pointer to PhoneTypeVAssistant
+func PhoneTypePAssistant() *PhoneType {
+	v := PhoneTypeVAssistant
+	return &v
+}
+
+// PhoneTypePHomeFax returns a pointer to PhoneTypeVHomeFax
+func PhoneTypePHomeFax() *PhoneType {
+	v := PhoneTypeVHomeFax
+	return &v
+}
+
+// PhoneTypePBusinessFax returns a pointer to PhoneTypeVBusinessFax
+func PhoneTypePBusinessFax() *PhoneType {
+	v := PhoneTypeVBusinessFax
+	return &v
+}
+
+// PhoneTypePOtherFax returns a pointer to PhoneTypeVOtherFax
+func PhoneTypePOtherFax() *PhoneType {
+	v := PhoneTypeVOtherFax
+	return &v
+}
+
+// PhoneTypePPager returns a pointer to PhoneTypeVPager
+func PhoneTypePPager() *PhoneType {
+	v := PhoneTypeVPager
+	return &v
+}
+
+// PhoneTypePRadio returns a pointer to PhoneTypeVRadio
+func PhoneTypePRadio() *PhoneType {
+	v := PhoneTypeVRadio
+	return &v
+}
 
 // PhysicalAddressType undocumented
 type PhysicalAddressType int
 
 const (
-	// PhysicalAddressType_Unknown undocumented
-	PhysicalAddressType_Unknown PhysicalAddressType = 0
-	// PhysicalAddressType_Home undocumented
-	PhysicalAddressType_Home PhysicalAddressType = 1
-	// PhysicalAddressType_Business undocumented
-	PhysicalAddressType_Business PhysicalAddressType = 2
-	// PhysicalAddressType_Other undocumented
-	PhysicalAddressType_Other PhysicalAddressType = 3
+	// PhysicalAddressTypeVUnknown undocumented
+	PhysicalAddressTypeVUnknown PhysicalAddressType = 0
+	// PhysicalAddressTypeVHome undocumented
+	PhysicalAddressTypeVHome PhysicalAddressType = 1
+	// PhysicalAddressTypeVBusiness undocumented
+	PhysicalAddressTypeVBusiness PhysicalAddressType = 2
+	// PhysicalAddressTypeVOther undocumented
+	PhysicalAddressTypeVOther PhysicalAddressType = 3
 )
+
+// PhysicalAddressTypePUnknown returns a pointer to PhysicalAddressTypeVUnknown
+func PhysicalAddressTypePUnknown() *PhysicalAddressType {
+	v := PhysicalAddressTypeVUnknown
+	return &v
+}
+
+// PhysicalAddressTypePHome returns a pointer to PhysicalAddressTypeVHome
+func PhysicalAddressTypePHome() *PhysicalAddressType {
+	v := PhysicalAddressTypeVHome
+	return &v
+}
+
+// PhysicalAddressTypePBusiness returns a pointer to PhysicalAddressTypeVBusiness
+func PhysicalAddressTypePBusiness() *PhysicalAddressType {
+	v := PhysicalAddressTypeVBusiness
+	return &v
+}
+
+// PhysicalAddressTypePOther returns a pointer to PhysicalAddressTypeVOther
+func PhysicalAddressTypePOther() *PhysicalAddressType {
+	v := PhysicalAddressTypeVOther
+	return &v
+}
 
 // PlannerPreviewType undocumented
 type PlannerPreviewType int
 
 const (
-	// PlannerPreviewType_Automatic undocumented
-	PlannerPreviewType_Automatic PlannerPreviewType = 0
-	// PlannerPreviewType_NoPreview undocumented
-	PlannerPreviewType_NoPreview PlannerPreviewType = 1
-	// PlannerPreviewType_Checklist undocumented
-	PlannerPreviewType_Checklist PlannerPreviewType = 2
-	// PlannerPreviewType_Description undocumented
-	PlannerPreviewType_Description PlannerPreviewType = 3
-	// PlannerPreviewType_Reference undocumented
-	PlannerPreviewType_Reference PlannerPreviewType = 4
+	// PlannerPreviewTypeVAutomatic undocumented
+	PlannerPreviewTypeVAutomatic PlannerPreviewType = 0
+	// PlannerPreviewTypeVNoPreview undocumented
+	PlannerPreviewTypeVNoPreview PlannerPreviewType = 1
+	// PlannerPreviewTypeVChecklist undocumented
+	PlannerPreviewTypeVChecklist PlannerPreviewType = 2
+	// PlannerPreviewTypeVDescription undocumented
+	PlannerPreviewTypeVDescription PlannerPreviewType = 3
+	// PlannerPreviewTypeVReference undocumented
+	PlannerPreviewTypeVReference PlannerPreviewType = 4
 )
+
+// PlannerPreviewTypePAutomatic returns a pointer to PlannerPreviewTypeVAutomatic
+func PlannerPreviewTypePAutomatic() *PlannerPreviewType {
+	v := PlannerPreviewTypeVAutomatic
+	return &v
+}
+
+// PlannerPreviewTypePNoPreview returns a pointer to PlannerPreviewTypeVNoPreview
+func PlannerPreviewTypePNoPreview() *PlannerPreviewType {
+	v := PlannerPreviewTypeVNoPreview
+	return &v
+}
+
+// PlannerPreviewTypePChecklist returns a pointer to PlannerPreviewTypeVChecklist
+func PlannerPreviewTypePChecklist() *PlannerPreviewType {
+	v := PlannerPreviewTypeVChecklist
+	return &v
+}
+
+// PlannerPreviewTypePDescription returns a pointer to PlannerPreviewTypeVDescription
+func PlannerPreviewTypePDescription() *PlannerPreviewType {
+	v := PlannerPreviewTypeVDescription
+	return &v
+}
+
+// PlannerPreviewTypePReference returns a pointer to PlannerPreviewTypeVReference
+func PlannerPreviewTypePReference() *PlannerPreviewType {
+	v := PlannerPreviewTypeVReference
+	return &v
+}
 
 // PolicyPlatformType undocumented
 type PolicyPlatformType int
 
 const (
-	// PolicyPlatformType_Android undocumented
-	PolicyPlatformType_Android PolicyPlatformType = 0
-	// PolicyPlatformType_IOS undocumented
-	PolicyPlatformType_IOS PolicyPlatformType = 2
-	// PolicyPlatformType_MacOS undocumented
-	PolicyPlatformType_MacOS PolicyPlatformType = 3
-	// PolicyPlatformType_WindowsPhone81 undocumented
-	PolicyPlatformType_WindowsPhone81 PolicyPlatformType = 4
-	// PolicyPlatformType_Windows81AndLater undocumented
-	PolicyPlatformType_Windows81AndLater PolicyPlatformType = 5
-	// PolicyPlatformType_Windows10AndLater undocumented
-	PolicyPlatformType_Windows10AndLater PolicyPlatformType = 6
-	// PolicyPlatformType_AndroidWorkProfile undocumented
-	PolicyPlatformType_AndroidWorkProfile PolicyPlatformType = 7
-	// PolicyPlatformType_All undocumented
-	PolicyPlatformType_All PolicyPlatformType = 100
+	// PolicyPlatformTypeVAndroid undocumented
+	PolicyPlatformTypeVAndroid PolicyPlatformType = 0
+	// PolicyPlatformTypeVIOS undocumented
+	PolicyPlatformTypeVIOS PolicyPlatformType = 2
+	// PolicyPlatformTypeVMacOS undocumented
+	PolicyPlatformTypeVMacOS PolicyPlatformType = 3
+	// PolicyPlatformTypeVWindowsPhone81 undocumented
+	PolicyPlatformTypeVWindowsPhone81 PolicyPlatformType = 4
+	// PolicyPlatformTypeVWindows81AndLater undocumented
+	PolicyPlatformTypeVWindows81AndLater PolicyPlatformType = 5
+	// PolicyPlatformTypeVWindows10AndLater undocumented
+	PolicyPlatformTypeVWindows10AndLater PolicyPlatformType = 6
+	// PolicyPlatformTypeVAndroidWorkProfile undocumented
+	PolicyPlatformTypeVAndroidWorkProfile PolicyPlatformType = 7
+	// PolicyPlatformTypeVAll undocumented
+	PolicyPlatformTypeVAll PolicyPlatformType = 100
 )
+
+// PolicyPlatformTypePAndroid returns a pointer to PolicyPlatformTypeVAndroid
+func PolicyPlatformTypePAndroid() *PolicyPlatformType {
+	v := PolicyPlatformTypeVAndroid
+	return &v
+}
+
+// PolicyPlatformTypePIOS returns a pointer to PolicyPlatformTypeVIOS
+func PolicyPlatformTypePIOS() *PolicyPlatformType {
+	v := PolicyPlatformTypeVIOS
+	return &v
+}
+
+// PolicyPlatformTypePMacOS returns a pointer to PolicyPlatformTypeVMacOS
+func PolicyPlatformTypePMacOS() *PolicyPlatformType {
+	v := PolicyPlatformTypeVMacOS
+	return &v
+}
+
+// PolicyPlatformTypePWindowsPhone81 returns a pointer to PolicyPlatformTypeVWindowsPhone81
+func PolicyPlatformTypePWindowsPhone81() *PolicyPlatformType {
+	v := PolicyPlatformTypeVWindowsPhone81
+	return &v
+}
+
+// PolicyPlatformTypePWindows81AndLater returns a pointer to PolicyPlatformTypeVWindows81AndLater
+func PolicyPlatformTypePWindows81AndLater() *PolicyPlatformType {
+	v := PolicyPlatformTypeVWindows81AndLater
+	return &v
+}
+
+// PolicyPlatformTypePWindows10AndLater returns a pointer to PolicyPlatformTypeVWindows10AndLater
+func PolicyPlatformTypePWindows10AndLater() *PolicyPlatformType {
+	v := PolicyPlatformTypeVWindows10AndLater
+	return &v
+}
+
+// PolicyPlatformTypePAndroidWorkProfile returns a pointer to PolicyPlatformTypeVAndroidWorkProfile
+func PolicyPlatformTypePAndroidWorkProfile() *PolicyPlatformType {
+	v := PolicyPlatformTypeVAndroidWorkProfile
+	return &v
+}
+
+// PolicyPlatformTypePAll returns a pointer to PolicyPlatformTypeVAll
+func PolicyPlatformTypePAll() *PolicyPlatformType {
+	v := PolicyPlatformTypeVAll
+	return &v
+}
 
 // PrereleaseFeatures undocumented
 type PrereleaseFeatures int
 
 const (
-	// PrereleaseFeatures_UserDefined undocumented
-	PrereleaseFeatures_UserDefined PrereleaseFeatures = 0
-	// PrereleaseFeatures_SettingsOnly undocumented
-	PrereleaseFeatures_SettingsOnly PrereleaseFeatures = 1
-	// PrereleaseFeatures_SettingsAndExperimentations undocumented
-	PrereleaseFeatures_SettingsAndExperimentations PrereleaseFeatures = 2
-	// PrereleaseFeatures_NotAllowed undocumented
-	PrereleaseFeatures_NotAllowed PrereleaseFeatures = 3
+	// PrereleaseFeaturesVUserDefined undocumented
+	PrereleaseFeaturesVUserDefined PrereleaseFeatures = 0
+	// PrereleaseFeaturesVSettingsOnly undocumented
+	PrereleaseFeaturesVSettingsOnly PrereleaseFeatures = 1
+	// PrereleaseFeaturesVSettingsAndExperimentations undocumented
+	PrereleaseFeaturesVSettingsAndExperimentations PrereleaseFeatures = 2
+	// PrereleaseFeaturesVNotAllowed undocumented
+	PrereleaseFeaturesVNotAllowed PrereleaseFeatures = 3
 )
+
+// PrereleaseFeaturesPUserDefined returns a pointer to PrereleaseFeaturesVUserDefined
+func PrereleaseFeaturesPUserDefined() *PrereleaseFeatures {
+	v := PrereleaseFeaturesVUserDefined
+	return &v
+}
+
+// PrereleaseFeaturesPSettingsOnly returns a pointer to PrereleaseFeaturesVSettingsOnly
+func PrereleaseFeaturesPSettingsOnly() *PrereleaseFeatures {
+	v := PrereleaseFeaturesVSettingsOnly
+	return &v
+}
+
+// PrereleaseFeaturesPSettingsAndExperimentations returns a pointer to PrereleaseFeaturesVSettingsAndExperimentations
+func PrereleaseFeaturesPSettingsAndExperimentations() *PrereleaseFeatures {
+	v := PrereleaseFeaturesVSettingsAndExperimentations
+	return &v
+}
+
+// PrereleaseFeaturesPNotAllowed returns a pointer to PrereleaseFeaturesVNotAllowed
+func PrereleaseFeaturesPNotAllowed() *PrereleaseFeatures {
+	v := PrereleaseFeaturesVNotAllowed
+	return &v
+}
 
 // ProcessIntegrityLevel undocumented
 type ProcessIntegrityLevel int
 
 const (
-	// ProcessIntegrityLevel_Unknown undocumented
-	ProcessIntegrityLevel_Unknown ProcessIntegrityLevel = 0
-	// ProcessIntegrityLevel_Untrusted undocumented
-	ProcessIntegrityLevel_Untrusted ProcessIntegrityLevel = 1
-	// ProcessIntegrityLevel_Low undocumented
-	ProcessIntegrityLevel_Low ProcessIntegrityLevel = 2
-	// ProcessIntegrityLevel_Medium undocumented
-	ProcessIntegrityLevel_Medium ProcessIntegrityLevel = 3
-	// ProcessIntegrityLevel_High undocumented
-	ProcessIntegrityLevel_High ProcessIntegrityLevel = 4
-	// ProcessIntegrityLevel_System undocumented
-	ProcessIntegrityLevel_System ProcessIntegrityLevel = 5
-	// ProcessIntegrityLevel_UnknownFutureValue undocumented
-	ProcessIntegrityLevel_UnknownFutureValue ProcessIntegrityLevel = 127
+	// ProcessIntegrityLevelVUnknown undocumented
+	ProcessIntegrityLevelVUnknown ProcessIntegrityLevel = 0
+	// ProcessIntegrityLevelVUntrusted undocumented
+	ProcessIntegrityLevelVUntrusted ProcessIntegrityLevel = 1
+	// ProcessIntegrityLevelVLow undocumented
+	ProcessIntegrityLevelVLow ProcessIntegrityLevel = 2
+	// ProcessIntegrityLevelVMedium undocumented
+	ProcessIntegrityLevelVMedium ProcessIntegrityLevel = 3
+	// ProcessIntegrityLevelVHigh undocumented
+	ProcessIntegrityLevelVHigh ProcessIntegrityLevel = 4
+	// ProcessIntegrityLevelVSystem undocumented
+	ProcessIntegrityLevelVSystem ProcessIntegrityLevel = 5
+	// ProcessIntegrityLevelVUnknownFutureValue undocumented
+	ProcessIntegrityLevelVUnknownFutureValue ProcessIntegrityLevel = 127
 )
+
+// ProcessIntegrityLevelPUnknown returns a pointer to ProcessIntegrityLevelVUnknown
+func ProcessIntegrityLevelPUnknown() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVUnknown
+	return &v
+}
+
+// ProcessIntegrityLevelPUntrusted returns a pointer to ProcessIntegrityLevelVUntrusted
+func ProcessIntegrityLevelPUntrusted() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVUntrusted
+	return &v
+}
+
+// ProcessIntegrityLevelPLow returns a pointer to ProcessIntegrityLevelVLow
+func ProcessIntegrityLevelPLow() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVLow
+	return &v
+}
+
+// ProcessIntegrityLevelPMedium returns a pointer to ProcessIntegrityLevelVMedium
+func ProcessIntegrityLevelPMedium() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVMedium
+	return &v
+}
+
+// ProcessIntegrityLevelPHigh returns a pointer to ProcessIntegrityLevelVHigh
+func ProcessIntegrityLevelPHigh() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVHigh
+	return &v
+}
+
+// ProcessIntegrityLevelPSystem returns a pointer to ProcessIntegrityLevelVSystem
+func ProcessIntegrityLevelPSystem() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVSystem
+	return &v
+}
+
+// ProcessIntegrityLevelPUnknownFutureValue returns a pointer to ProcessIntegrityLevelVUnknownFutureValue
+func ProcessIntegrityLevelPUnknownFutureValue() *ProcessIntegrityLevel {
+	v := ProcessIntegrityLevelVUnknownFutureValue
+	return &v
+}
 
 // RatingAppsType undocumented
 type RatingAppsType int
 
 const (
-	// RatingAppsType_AllAllowed undocumented
-	RatingAppsType_AllAllowed RatingAppsType = 0
-	// RatingAppsType_AllBlocked undocumented
-	RatingAppsType_AllBlocked RatingAppsType = 1
-	// RatingAppsType_AgesAbove4 undocumented
-	RatingAppsType_AgesAbove4 RatingAppsType = 2
-	// RatingAppsType_AgesAbove9 undocumented
-	RatingAppsType_AgesAbove9 RatingAppsType = 3
-	// RatingAppsType_AgesAbove12 undocumented
-	RatingAppsType_AgesAbove12 RatingAppsType = 4
-	// RatingAppsType_AgesAbove17 undocumented
-	RatingAppsType_AgesAbove17 RatingAppsType = 5
+	// RatingAppsTypeVAllAllowed undocumented
+	RatingAppsTypeVAllAllowed RatingAppsType = 0
+	// RatingAppsTypeVAllBlocked undocumented
+	RatingAppsTypeVAllBlocked RatingAppsType = 1
+	// RatingAppsTypeVAgesAbove4 undocumented
+	RatingAppsTypeVAgesAbove4 RatingAppsType = 2
+	// RatingAppsTypeVAgesAbove9 undocumented
+	RatingAppsTypeVAgesAbove9 RatingAppsType = 3
+	// RatingAppsTypeVAgesAbove12 undocumented
+	RatingAppsTypeVAgesAbove12 RatingAppsType = 4
+	// RatingAppsTypeVAgesAbove17 undocumented
+	RatingAppsTypeVAgesAbove17 RatingAppsType = 5
 )
+
+// RatingAppsTypePAllAllowed returns a pointer to RatingAppsTypeVAllAllowed
+func RatingAppsTypePAllAllowed() *RatingAppsType {
+	v := RatingAppsTypeVAllAllowed
+	return &v
+}
+
+// RatingAppsTypePAllBlocked returns a pointer to RatingAppsTypeVAllBlocked
+func RatingAppsTypePAllBlocked() *RatingAppsType {
+	v := RatingAppsTypeVAllBlocked
+	return &v
+}
+
+// RatingAppsTypePAgesAbove4 returns a pointer to RatingAppsTypeVAgesAbove4
+func RatingAppsTypePAgesAbove4() *RatingAppsType {
+	v := RatingAppsTypeVAgesAbove4
+	return &v
+}
+
+// RatingAppsTypePAgesAbove9 returns a pointer to RatingAppsTypeVAgesAbove9
+func RatingAppsTypePAgesAbove9() *RatingAppsType {
+	v := RatingAppsTypeVAgesAbove9
+	return &v
+}
+
+// RatingAppsTypePAgesAbove12 returns a pointer to RatingAppsTypeVAgesAbove12
+func RatingAppsTypePAgesAbove12() *RatingAppsType {
+	v := RatingAppsTypeVAgesAbove12
+	return &v
+}
+
+// RatingAppsTypePAgesAbove17 returns a pointer to RatingAppsTypeVAgesAbove17
+func RatingAppsTypePAgesAbove17() *RatingAppsType {
+	v := RatingAppsTypeVAgesAbove17
+	return &v
+}
 
 // RatingAustraliaMoviesType undocumented
 type RatingAustraliaMoviesType int
 
 const (
-	// RatingAustraliaMoviesType_AllAllowed undocumented
-	RatingAustraliaMoviesType_AllAllowed RatingAustraliaMoviesType = 0
-	// RatingAustraliaMoviesType_AllBlocked undocumented
-	RatingAustraliaMoviesType_AllBlocked RatingAustraliaMoviesType = 1
-	// RatingAustraliaMoviesType_General undocumented
-	RatingAustraliaMoviesType_General RatingAustraliaMoviesType = 2
-	// RatingAustraliaMoviesType_ParentalGuidance undocumented
-	RatingAustraliaMoviesType_ParentalGuidance RatingAustraliaMoviesType = 3
-	// RatingAustraliaMoviesType_Mature undocumented
-	RatingAustraliaMoviesType_Mature RatingAustraliaMoviesType = 4
-	// RatingAustraliaMoviesType_AgesAbove15 undocumented
-	RatingAustraliaMoviesType_AgesAbove15 RatingAustraliaMoviesType = 5
-	// RatingAustraliaMoviesType_AgesAbove18 undocumented
-	RatingAustraliaMoviesType_AgesAbove18 RatingAustraliaMoviesType = 6
+	// RatingAustraliaMoviesTypeVAllAllowed undocumented
+	RatingAustraliaMoviesTypeVAllAllowed RatingAustraliaMoviesType = 0
+	// RatingAustraliaMoviesTypeVAllBlocked undocumented
+	RatingAustraliaMoviesTypeVAllBlocked RatingAustraliaMoviesType = 1
+	// RatingAustraliaMoviesTypeVGeneral undocumented
+	RatingAustraliaMoviesTypeVGeneral RatingAustraliaMoviesType = 2
+	// RatingAustraliaMoviesTypeVParentalGuidance undocumented
+	RatingAustraliaMoviesTypeVParentalGuidance RatingAustraliaMoviesType = 3
+	// RatingAustraliaMoviesTypeVMature undocumented
+	RatingAustraliaMoviesTypeVMature RatingAustraliaMoviesType = 4
+	// RatingAustraliaMoviesTypeVAgesAbove15 undocumented
+	RatingAustraliaMoviesTypeVAgesAbove15 RatingAustraliaMoviesType = 5
+	// RatingAustraliaMoviesTypeVAgesAbove18 undocumented
+	RatingAustraliaMoviesTypeVAgesAbove18 RatingAustraliaMoviesType = 6
 )
+
+// RatingAustraliaMoviesTypePAllAllowed returns a pointer to RatingAustraliaMoviesTypeVAllAllowed
+func RatingAustraliaMoviesTypePAllAllowed() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingAustraliaMoviesTypePAllBlocked returns a pointer to RatingAustraliaMoviesTypeVAllBlocked
+func RatingAustraliaMoviesTypePAllBlocked() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingAustraliaMoviesTypePGeneral returns a pointer to RatingAustraliaMoviesTypeVGeneral
+func RatingAustraliaMoviesTypePGeneral() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVGeneral
+	return &v
+}
+
+// RatingAustraliaMoviesTypePParentalGuidance returns a pointer to RatingAustraliaMoviesTypeVParentalGuidance
+func RatingAustraliaMoviesTypePParentalGuidance() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingAustraliaMoviesTypePMature returns a pointer to RatingAustraliaMoviesTypeVMature
+func RatingAustraliaMoviesTypePMature() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVMature
+	return &v
+}
+
+// RatingAustraliaMoviesTypePAgesAbove15 returns a pointer to RatingAustraliaMoviesTypeVAgesAbove15
+func RatingAustraliaMoviesTypePAgesAbove15() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVAgesAbove15
+	return &v
+}
+
+// RatingAustraliaMoviesTypePAgesAbove18 returns a pointer to RatingAustraliaMoviesTypeVAgesAbove18
+func RatingAustraliaMoviesTypePAgesAbove18() *RatingAustraliaMoviesType {
+	v := RatingAustraliaMoviesTypeVAgesAbove18
+	return &v
+}
 
 // RatingAustraliaTelevisionType undocumented
 type RatingAustraliaTelevisionType int
 
 const (
-	// RatingAustraliaTelevisionType_AllAllowed undocumented
-	RatingAustraliaTelevisionType_AllAllowed RatingAustraliaTelevisionType = 0
-	// RatingAustraliaTelevisionType_AllBlocked undocumented
-	RatingAustraliaTelevisionType_AllBlocked RatingAustraliaTelevisionType = 1
-	// RatingAustraliaTelevisionType_Preschoolers undocumented
-	RatingAustraliaTelevisionType_Preschoolers RatingAustraliaTelevisionType = 2
-	// RatingAustraliaTelevisionType_Children undocumented
-	RatingAustraliaTelevisionType_Children RatingAustraliaTelevisionType = 3
-	// RatingAustraliaTelevisionType_General undocumented
-	RatingAustraliaTelevisionType_General RatingAustraliaTelevisionType = 4
-	// RatingAustraliaTelevisionType_ParentalGuidance undocumented
-	RatingAustraliaTelevisionType_ParentalGuidance RatingAustraliaTelevisionType = 5
-	// RatingAustraliaTelevisionType_Mature undocumented
-	RatingAustraliaTelevisionType_Mature RatingAustraliaTelevisionType = 6
-	// RatingAustraliaTelevisionType_AgesAbove15 undocumented
-	RatingAustraliaTelevisionType_AgesAbove15 RatingAustraliaTelevisionType = 7
-	// RatingAustraliaTelevisionType_AgesAbove15AdultViolence undocumented
-	RatingAustraliaTelevisionType_AgesAbove15AdultViolence RatingAustraliaTelevisionType = 8
+	// RatingAustraliaTelevisionTypeVAllAllowed undocumented
+	RatingAustraliaTelevisionTypeVAllAllowed RatingAustraliaTelevisionType = 0
+	// RatingAustraliaTelevisionTypeVAllBlocked undocumented
+	RatingAustraliaTelevisionTypeVAllBlocked RatingAustraliaTelevisionType = 1
+	// RatingAustraliaTelevisionTypeVPreschoolers undocumented
+	RatingAustraliaTelevisionTypeVPreschoolers RatingAustraliaTelevisionType = 2
+	// RatingAustraliaTelevisionTypeVChildren undocumented
+	RatingAustraliaTelevisionTypeVChildren RatingAustraliaTelevisionType = 3
+	// RatingAustraliaTelevisionTypeVGeneral undocumented
+	RatingAustraliaTelevisionTypeVGeneral RatingAustraliaTelevisionType = 4
+	// RatingAustraliaTelevisionTypeVParentalGuidance undocumented
+	RatingAustraliaTelevisionTypeVParentalGuidance RatingAustraliaTelevisionType = 5
+	// RatingAustraliaTelevisionTypeVMature undocumented
+	RatingAustraliaTelevisionTypeVMature RatingAustraliaTelevisionType = 6
+	// RatingAustraliaTelevisionTypeVAgesAbove15 undocumented
+	RatingAustraliaTelevisionTypeVAgesAbove15 RatingAustraliaTelevisionType = 7
+	// RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence undocumented
+	RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence RatingAustraliaTelevisionType = 8
 )
+
+// RatingAustraliaTelevisionTypePAllAllowed returns a pointer to RatingAustraliaTelevisionTypeVAllAllowed
+func RatingAustraliaTelevisionTypePAllAllowed() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePAllBlocked returns a pointer to RatingAustraliaTelevisionTypeVAllBlocked
+func RatingAustraliaTelevisionTypePAllBlocked() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePPreschoolers returns a pointer to RatingAustraliaTelevisionTypeVPreschoolers
+func RatingAustraliaTelevisionTypePPreschoolers() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVPreschoolers
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePChildren returns a pointer to RatingAustraliaTelevisionTypeVChildren
+func RatingAustraliaTelevisionTypePChildren() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVChildren
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePGeneral returns a pointer to RatingAustraliaTelevisionTypeVGeneral
+func RatingAustraliaTelevisionTypePGeneral() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVGeneral
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePParentalGuidance returns a pointer to RatingAustraliaTelevisionTypeVParentalGuidance
+func RatingAustraliaTelevisionTypePParentalGuidance() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVParentalGuidance
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePMature returns a pointer to RatingAustraliaTelevisionTypeVMature
+func RatingAustraliaTelevisionTypePMature() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVMature
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePAgesAbove15 returns a pointer to RatingAustraliaTelevisionTypeVAgesAbove15
+func RatingAustraliaTelevisionTypePAgesAbove15() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVAgesAbove15
+	return &v
+}
+
+// RatingAustraliaTelevisionTypePAgesAbove15AdultViolence returns a pointer to RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence
+func RatingAustraliaTelevisionTypePAgesAbove15AdultViolence() *RatingAustraliaTelevisionType {
+	v := RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence
+	return &v
+}
 
 // RatingCanadaMoviesType undocumented
 type RatingCanadaMoviesType int
 
 const (
-	// RatingCanadaMoviesType_AllAllowed undocumented
-	RatingCanadaMoviesType_AllAllowed RatingCanadaMoviesType = 0
-	// RatingCanadaMoviesType_AllBlocked undocumented
-	RatingCanadaMoviesType_AllBlocked RatingCanadaMoviesType = 1
-	// RatingCanadaMoviesType_General undocumented
-	RatingCanadaMoviesType_General RatingCanadaMoviesType = 2
-	// RatingCanadaMoviesType_ParentalGuidance undocumented
-	RatingCanadaMoviesType_ParentalGuidance RatingCanadaMoviesType = 3
-	// RatingCanadaMoviesType_AgesAbove14 undocumented
-	RatingCanadaMoviesType_AgesAbove14 RatingCanadaMoviesType = 4
-	// RatingCanadaMoviesType_AgesAbove18 undocumented
-	RatingCanadaMoviesType_AgesAbove18 RatingCanadaMoviesType = 5
-	// RatingCanadaMoviesType_Restricted undocumented
-	RatingCanadaMoviesType_Restricted RatingCanadaMoviesType = 6
+	// RatingCanadaMoviesTypeVAllAllowed undocumented
+	RatingCanadaMoviesTypeVAllAllowed RatingCanadaMoviesType = 0
+	// RatingCanadaMoviesTypeVAllBlocked undocumented
+	RatingCanadaMoviesTypeVAllBlocked RatingCanadaMoviesType = 1
+	// RatingCanadaMoviesTypeVGeneral undocumented
+	RatingCanadaMoviesTypeVGeneral RatingCanadaMoviesType = 2
+	// RatingCanadaMoviesTypeVParentalGuidance undocumented
+	RatingCanadaMoviesTypeVParentalGuidance RatingCanadaMoviesType = 3
+	// RatingCanadaMoviesTypeVAgesAbove14 undocumented
+	RatingCanadaMoviesTypeVAgesAbove14 RatingCanadaMoviesType = 4
+	// RatingCanadaMoviesTypeVAgesAbove18 undocumented
+	RatingCanadaMoviesTypeVAgesAbove18 RatingCanadaMoviesType = 5
+	// RatingCanadaMoviesTypeVRestricted undocumented
+	RatingCanadaMoviesTypeVRestricted RatingCanadaMoviesType = 6
 )
+
+// RatingCanadaMoviesTypePAllAllowed returns a pointer to RatingCanadaMoviesTypeVAllAllowed
+func RatingCanadaMoviesTypePAllAllowed() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingCanadaMoviesTypePAllBlocked returns a pointer to RatingCanadaMoviesTypeVAllBlocked
+func RatingCanadaMoviesTypePAllBlocked() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingCanadaMoviesTypePGeneral returns a pointer to RatingCanadaMoviesTypeVGeneral
+func RatingCanadaMoviesTypePGeneral() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVGeneral
+	return &v
+}
+
+// RatingCanadaMoviesTypePParentalGuidance returns a pointer to RatingCanadaMoviesTypeVParentalGuidance
+func RatingCanadaMoviesTypePParentalGuidance() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingCanadaMoviesTypePAgesAbove14 returns a pointer to RatingCanadaMoviesTypeVAgesAbove14
+func RatingCanadaMoviesTypePAgesAbove14() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVAgesAbove14
+	return &v
+}
+
+// RatingCanadaMoviesTypePAgesAbove18 returns a pointer to RatingCanadaMoviesTypeVAgesAbove18
+func RatingCanadaMoviesTypePAgesAbove18() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVAgesAbove18
+	return &v
+}
+
+// RatingCanadaMoviesTypePRestricted returns a pointer to RatingCanadaMoviesTypeVRestricted
+func RatingCanadaMoviesTypePRestricted() *RatingCanadaMoviesType {
+	v := RatingCanadaMoviesTypeVRestricted
+	return &v
+}
 
 // RatingCanadaTelevisionType undocumented
 type RatingCanadaTelevisionType int
 
 const (
-	// RatingCanadaTelevisionType_AllAllowed undocumented
-	RatingCanadaTelevisionType_AllAllowed RatingCanadaTelevisionType = 0
-	// RatingCanadaTelevisionType_AllBlocked undocumented
-	RatingCanadaTelevisionType_AllBlocked RatingCanadaTelevisionType = 1
-	// RatingCanadaTelevisionType_Children undocumented
-	RatingCanadaTelevisionType_Children RatingCanadaTelevisionType = 2
-	// RatingCanadaTelevisionType_ChildrenAbove8 undocumented
-	RatingCanadaTelevisionType_ChildrenAbove8 RatingCanadaTelevisionType = 3
-	// RatingCanadaTelevisionType_General undocumented
-	RatingCanadaTelevisionType_General RatingCanadaTelevisionType = 4
-	// RatingCanadaTelevisionType_ParentalGuidance undocumented
-	RatingCanadaTelevisionType_ParentalGuidance RatingCanadaTelevisionType = 5
-	// RatingCanadaTelevisionType_AgesAbove14 undocumented
-	RatingCanadaTelevisionType_AgesAbove14 RatingCanadaTelevisionType = 6
-	// RatingCanadaTelevisionType_AgesAbove18 undocumented
-	RatingCanadaTelevisionType_AgesAbove18 RatingCanadaTelevisionType = 7
+	// RatingCanadaTelevisionTypeVAllAllowed undocumented
+	RatingCanadaTelevisionTypeVAllAllowed RatingCanadaTelevisionType = 0
+	// RatingCanadaTelevisionTypeVAllBlocked undocumented
+	RatingCanadaTelevisionTypeVAllBlocked RatingCanadaTelevisionType = 1
+	// RatingCanadaTelevisionTypeVChildren undocumented
+	RatingCanadaTelevisionTypeVChildren RatingCanadaTelevisionType = 2
+	// RatingCanadaTelevisionTypeVChildrenAbove8 undocumented
+	RatingCanadaTelevisionTypeVChildrenAbove8 RatingCanadaTelevisionType = 3
+	// RatingCanadaTelevisionTypeVGeneral undocumented
+	RatingCanadaTelevisionTypeVGeneral RatingCanadaTelevisionType = 4
+	// RatingCanadaTelevisionTypeVParentalGuidance undocumented
+	RatingCanadaTelevisionTypeVParentalGuidance RatingCanadaTelevisionType = 5
+	// RatingCanadaTelevisionTypeVAgesAbove14 undocumented
+	RatingCanadaTelevisionTypeVAgesAbove14 RatingCanadaTelevisionType = 6
+	// RatingCanadaTelevisionTypeVAgesAbove18 undocumented
+	RatingCanadaTelevisionTypeVAgesAbove18 RatingCanadaTelevisionType = 7
 )
+
+// RatingCanadaTelevisionTypePAllAllowed returns a pointer to RatingCanadaTelevisionTypeVAllAllowed
+func RatingCanadaTelevisionTypePAllAllowed() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingCanadaTelevisionTypePAllBlocked returns a pointer to RatingCanadaTelevisionTypeVAllBlocked
+func RatingCanadaTelevisionTypePAllBlocked() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingCanadaTelevisionTypePChildren returns a pointer to RatingCanadaTelevisionTypeVChildren
+func RatingCanadaTelevisionTypePChildren() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVChildren
+	return &v
+}
+
+// RatingCanadaTelevisionTypePChildrenAbove8 returns a pointer to RatingCanadaTelevisionTypeVChildrenAbove8
+func RatingCanadaTelevisionTypePChildrenAbove8() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVChildrenAbove8
+	return &v
+}
+
+// RatingCanadaTelevisionTypePGeneral returns a pointer to RatingCanadaTelevisionTypeVGeneral
+func RatingCanadaTelevisionTypePGeneral() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVGeneral
+	return &v
+}
+
+// RatingCanadaTelevisionTypePParentalGuidance returns a pointer to RatingCanadaTelevisionTypeVParentalGuidance
+func RatingCanadaTelevisionTypePParentalGuidance() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVParentalGuidance
+	return &v
+}
+
+// RatingCanadaTelevisionTypePAgesAbove14 returns a pointer to RatingCanadaTelevisionTypeVAgesAbove14
+func RatingCanadaTelevisionTypePAgesAbove14() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVAgesAbove14
+	return &v
+}
+
+// RatingCanadaTelevisionTypePAgesAbove18 returns a pointer to RatingCanadaTelevisionTypeVAgesAbove18
+func RatingCanadaTelevisionTypePAgesAbove18() *RatingCanadaTelevisionType {
+	v := RatingCanadaTelevisionTypeVAgesAbove18
+	return &v
+}
 
 // RatingFranceMoviesType undocumented
 type RatingFranceMoviesType int
 
 const (
-	// RatingFranceMoviesType_AllAllowed undocumented
-	RatingFranceMoviesType_AllAllowed RatingFranceMoviesType = 0
-	// RatingFranceMoviesType_AllBlocked undocumented
-	RatingFranceMoviesType_AllBlocked RatingFranceMoviesType = 1
-	// RatingFranceMoviesType_AgesAbove10 undocumented
-	RatingFranceMoviesType_AgesAbove10 RatingFranceMoviesType = 2
-	// RatingFranceMoviesType_AgesAbove12 undocumented
-	RatingFranceMoviesType_AgesAbove12 RatingFranceMoviesType = 3
-	// RatingFranceMoviesType_AgesAbove16 undocumented
-	RatingFranceMoviesType_AgesAbove16 RatingFranceMoviesType = 4
-	// RatingFranceMoviesType_AgesAbove18 undocumented
-	RatingFranceMoviesType_AgesAbove18 RatingFranceMoviesType = 5
+	// RatingFranceMoviesTypeVAllAllowed undocumented
+	RatingFranceMoviesTypeVAllAllowed RatingFranceMoviesType = 0
+	// RatingFranceMoviesTypeVAllBlocked undocumented
+	RatingFranceMoviesTypeVAllBlocked RatingFranceMoviesType = 1
+	// RatingFranceMoviesTypeVAgesAbove10 undocumented
+	RatingFranceMoviesTypeVAgesAbove10 RatingFranceMoviesType = 2
+	// RatingFranceMoviesTypeVAgesAbove12 undocumented
+	RatingFranceMoviesTypeVAgesAbove12 RatingFranceMoviesType = 3
+	// RatingFranceMoviesTypeVAgesAbove16 undocumented
+	RatingFranceMoviesTypeVAgesAbove16 RatingFranceMoviesType = 4
+	// RatingFranceMoviesTypeVAgesAbove18 undocumented
+	RatingFranceMoviesTypeVAgesAbove18 RatingFranceMoviesType = 5
 )
+
+// RatingFranceMoviesTypePAllAllowed returns a pointer to RatingFranceMoviesTypeVAllAllowed
+func RatingFranceMoviesTypePAllAllowed() *RatingFranceMoviesType {
+	v := RatingFranceMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingFranceMoviesTypePAllBlocked returns a pointer to RatingFranceMoviesTypeVAllBlocked
+func RatingFranceMoviesTypePAllBlocked() *RatingFranceMoviesType {
+	v := RatingFranceMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingFranceMoviesTypePAgesAbove10 returns a pointer to RatingFranceMoviesTypeVAgesAbove10
+func RatingFranceMoviesTypePAgesAbove10() *RatingFranceMoviesType {
+	v := RatingFranceMoviesTypeVAgesAbove10
+	return &v
+}
+
+// RatingFranceMoviesTypePAgesAbove12 returns a pointer to RatingFranceMoviesTypeVAgesAbove12
+func RatingFranceMoviesTypePAgesAbove12() *RatingFranceMoviesType {
+	v := RatingFranceMoviesTypeVAgesAbove12
+	return &v
+}
+
+// RatingFranceMoviesTypePAgesAbove16 returns a pointer to RatingFranceMoviesTypeVAgesAbove16
+func RatingFranceMoviesTypePAgesAbove16() *RatingFranceMoviesType {
+	v := RatingFranceMoviesTypeVAgesAbove16
+	return &v
+}
+
+// RatingFranceMoviesTypePAgesAbove18 returns a pointer to RatingFranceMoviesTypeVAgesAbove18
+func RatingFranceMoviesTypePAgesAbove18() *RatingFranceMoviesType {
+	v := RatingFranceMoviesTypeVAgesAbove18
+	return &v
+}
 
 // RatingFranceTelevisionType undocumented
 type RatingFranceTelevisionType int
 
 const (
-	// RatingFranceTelevisionType_AllAllowed undocumented
-	RatingFranceTelevisionType_AllAllowed RatingFranceTelevisionType = 0
-	// RatingFranceTelevisionType_AllBlocked undocumented
-	RatingFranceTelevisionType_AllBlocked RatingFranceTelevisionType = 1
-	// RatingFranceTelevisionType_AgesAbove10 undocumented
-	RatingFranceTelevisionType_AgesAbove10 RatingFranceTelevisionType = 2
-	// RatingFranceTelevisionType_AgesAbove12 undocumented
-	RatingFranceTelevisionType_AgesAbove12 RatingFranceTelevisionType = 3
-	// RatingFranceTelevisionType_AgesAbove16 undocumented
-	RatingFranceTelevisionType_AgesAbove16 RatingFranceTelevisionType = 4
-	// RatingFranceTelevisionType_AgesAbove18 undocumented
-	RatingFranceTelevisionType_AgesAbove18 RatingFranceTelevisionType = 5
+	// RatingFranceTelevisionTypeVAllAllowed undocumented
+	RatingFranceTelevisionTypeVAllAllowed RatingFranceTelevisionType = 0
+	// RatingFranceTelevisionTypeVAllBlocked undocumented
+	RatingFranceTelevisionTypeVAllBlocked RatingFranceTelevisionType = 1
+	// RatingFranceTelevisionTypeVAgesAbove10 undocumented
+	RatingFranceTelevisionTypeVAgesAbove10 RatingFranceTelevisionType = 2
+	// RatingFranceTelevisionTypeVAgesAbove12 undocumented
+	RatingFranceTelevisionTypeVAgesAbove12 RatingFranceTelevisionType = 3
+	// RatingFranceTelevisionTypeVAgesAbove16 undocumented
+	RatingFranceTelevisionTypeVAgesAbove16 RatingFranceTelevisionType = 4
+	// RatingFranceTelevisionTypeVAgesAbove18 undocumented
+	RatingFranceTelevisionTypeVAgesAbove18 RatingFranceTelevisionType = 5
 )
+
+// RatingFranceTelevisionTypePAllAllowed returns a pointer to RatingFranceTelevisionTypeVAllAllowed
+func RatingFranceTelevisionTypePAllAllowed() *RatingFranceTelevisionType {
+	v := RatingFranceTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingFranceTelevisionTypePAllBlocked returns a pointer to RatingFranceTelevisionTypeVAllBlocked
+func RatingFranceTelevisionTypePAllBlocked() *RatingFranceTelevisionType {
+	v := RatingFranceTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingFranceTelevisionTypePAgesAbove10 returns a pointer to RatingFranceTelevisionTypeVAgesAbove10
+func RatingFranceTelevisionTypePAgesAbove10() *RatingFranceTelevisionType {
+	v := RatingFranceTelevisionTypeVAgesAbove10
+	return &v
+}
+
+// RatingFranceTelevisionTypePAgesAbove12 returns a pointer to RatingFranceTelevisionTypeVAgesAbove12
+func RatingFranceTelevisionTypePAgesAbove12() *RatingFranceTelevisionType {
+	v := RatingFranceTelevisionTypeVAgesAbove12
+	return &v
+}
+
+// RatingFranceTelevisionTypePAgesAbove16 returns a pointer to RatingFranceTelevisionTypeVAgesAbove16
+func RatingFranceTelevisionTypePAgesAbove16() *RatingFranceTelevisionType {
+	v := RatingFranceTelevisionTypeVAgesAbove16
+	return &v
+}
+
+// RatingFranceTelevisionTypePAgesAbove18 returns a pointer to RatingFranceTelevisionTypeVAgesAbove18
+func RatingFranceTelevisionTypePAgesAbove18() *RatingFranceTelevisionType {
+	v := RatingFranceTelevisionTypeVAgesAbove18
+	return &v
+}
 
 // RatingGermanyMoviesType undocumented
 type RatingGermanyMoviesType int
 
 const (
-	// RatingGermanyMoviesType_AllAllowed undocumented
-	RatingGermanyMoviesType_AllAllowed RatingGermanyMoviesType = 0
-	// RatingGermanyMoviesType_AllBlocked undocumented
-	RatingGermanyMoviesType_AllBlocked RatingGermanyMoviesType = 1
-	// RatingGermanyMoviesType_General undocumented
-	RatingGermanyMoviesType_General RatingGermanyMoviesType = 2
-	// RatingGermanyMoviesType_AgesAbove6 undocumented
-	RatingGermanyMoviesType_AgesAbove6 RatingGermanyMoviesType = 3
-	// RatingGermanyMoviesType_AgesAbove12 undocumented
-	RatingGermanyMoviesType_AgesAbove12 RatingGermanyMoviesType = 4
-	// RatingGermanyMoviesType_AgesAbove16 undocumented
-	RatingGermanyMoviesType_AgesAbove16 RatingGermanyMoviesType = 5
-	// RatingGermanyMoviesType_Adults undocumented
-	RatingGermanyMoviesType_Adults RatingGermanyMoviesType = 6
+	// RatingGermanyMoviesTypeVAllAllowed undocumented
+	RatingGermanyMoviesTypeVAllAllowed RatingGermanyMoviesType = 0
+	// RatingGermanyMoviesTypeVAllBlocked undocumented
+	RatingGermanyMoviesTypeVAllBlocked RatingGermanyMoviesType = 1
+	// RatingGermanyMoviesTypeVGeneral undocumented
+	RatingGermanyMoviesTypeVGeneral RatingGermanyMoviesType = 2
+	// RatingGermanyMoviesTypeVAgesAbove6 undocumented
+	RatingGermanyMoviesTypeVAgesAbove6 RatingGermanyMoviesType = 3
+	// RatingGermanyMoviesTypeVAgesAbove12 undocumented
+	RatingGermanyMoviesTypeVAgesAbove12 RatingGermanyMoviesType = 4
+	// RatingGermanyMoviesTypeVAgesAbove16 undocumented
+	RatingGermanyMoviesTypeVAgesAbove16 RatingGermanyMoviesType = 5
+	// RatingGermanyMoviesTypeVAdults undocumented
+	RatingGermanyMoviesTypeVAdults RatingGermanyMoviesType = 6
 )
+
+// RatingGermanyMoviesTypePAllAllowed returns a pointer to RatingGermanyMoviesTypeVAllAllowed
+func RatingGermanyMoviesTypePAllAllowed() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingGermanyMoviesTypePAllBlocked returns a pointer to RatingGermanyMoviesTypeVAllBlocked
+func RatingGermanyMoviesTypePAllBlocked() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingGermanyMoviesTypePGeneral returns a pointer to RatingGermanyMoviesTypeVGeneral
+func RatingGermanyMoviesTypePGeneral() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVGeneral
+	return &v
+}
+
+// RatingGermanyMoviesTypePAgesAbove6 returns a pointer to RatingGermanyMoviesTypeVAgesAbove6
+func RatingGermanyMoviesTypePAgesAbove6() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVAgesAbove6
+	return &v
+}
+
+// RatingGermanyMoviesTypePAgesAbove12 returns a pointer to RatingGermanyMoviesTypeVAgesAbove12
+func RatingGermanyMoviesTypePAgesAbove12() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVAgesAbove12
+	return &v
+}
+
+// RatingGermanyMoviesTypePAgesAbove16 returns a pointer to RatingGermanyMoviesTypeVAgesAbove16
+func RatingGermanyMoviesTypePAgesAbove16() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVAgesAbove16
+	return &v
+}
+
+// RatingGermanyMoviesTypePAdults returns a pointer to RatingGermanyMoviesTypeVAdults
+func RatingGermanyMoviesTypePAdults() *RatingGermanyMoviesType {
+	v := RatingGermanyMoviesTypeVAdults
+	return &v
+}
 
 // RatingGermanyTelevisionType undocumented
 type RatingGermanyTelevisionType int
 
 const (
-	// RatingGermanyTelevisionType_AllAllowed undocumented
-	RatingGermanyTelevisionType_AllAllowed RatingGermanyTelevisionType = 0
-	// RatingGermanyTelevisionType_AllBlocked undocumented
-	RatingGermanyTelevisionType_AllBlocked RatingGermanyTelevisionType = 1
-	// RatingGermanyTelevisionType_General undocumented
-	RatingGermanyTelevisionType_General RatingGermanyTelevisionType = 2
-	// RatingGermanyTelevisionType_AgesAbove6 undocumented
-	RatingGermanyTelevisionType_AgesAbove6 RatingGermanyTelevisionType = 3
-	// RatingGermanyTelevisionType_AgesAbove12 undocumented
-	RatingGermanyTelevisionType_AgesAbove12 RatingGermanyTelevisionType = 4
-	// RatingGermanyTelevisionType_AgesAbove16 undocumented
-	RatingGermanyTelevisionType_AgesAbove16 RatingGermanyTelevisionType = 5
-	// RatingGermanyTelevisionType_Adults undocumented
-	RatingGermanyTelevisionType_Adults RatingGermanyTelevisionType = 6
+	// RatingGermanyTelevisionTypeVAllAllowed undocumented
+	RatingGermanyTelevisionTypeVAllAllowed RatingGermanyTelevisionType = 0
+	// RatingGermanyTelevisionTypeVAllBlocked undocumented
+	RatingGermanyTelevisionTypeVAllBlocked RatingGermanyTelevisionType = 1
+	// RatingGermanyTelevisionTypeVGeneral undocumented
+	RatingGermanyTelevisionTypeVGeneral RatingGermanyTelevisionType = 2
+	// RatingGermanyTelevisionTypeVAgesAbove6 undocumented
+	RatingGermanyTelevisionTypeVAgesAbove6 RatingGermanyTelevisionType = 3
+	// RatingGermanyTelevisionTypeVAgesAbove12 undocumented
+	RatingGermanyTelevisionTypeVAgesAbove12 RatingGermanyTelevisionType = 4
+	// RatingGermanyTelevisionTypeVAgesAbove16 undocumented
+	RatingGermanyTelevisionTypeVAgesAbove16 RatingGermanyTelevisionType = 5
+	// RatingGermanyTelevisionTypeVAdults undocumented
+	RatingGermanyTelevisionTypeVAdults RatingGermanyTelevisionType = 6
 )
+
+// RatingGermanyTelevisionTypePAllAllowed returns a pointer to RatingGermanyTelevisionTypeVAllAllowed
+func RatingGermanyTelevisionTypePAllAllowed() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingGermanyTelevisionTypePAllBlocked returns a pointer to RatingGermanyTelevisionTypeVAllBlocked
+func RatingGermanyTelevisionTypePAllBlocked() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingGermanyTelevisionTypePGeneral returns a pointer to RatingGermanyTelevisionTypeVGeneral
+func RatingGermanyTelevisionTypePGeneral() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVGeneral
+	return &v
+}
+
+// RatingGermanyTelevisionTypePAgesAbove6 returns a pointer to RatingGermanyTelevisionTypeVAgesAbove6
+func RatingGermanyTelevisionTypePAgesAbove6() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVAgesAbove6
+	return &v
+}
+
+// RatingGermanyTelevisionTypePAgesAbove12 returns a pointer to RatingGermanyTelevisionTypeVAgesAbove12
+func RatingGermanyTelevisionTypePAgesAbove12() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVAgesAbove12
+	return &v
+}
+
+// RatingGermanyTelevisionTypePAgesAbove16 returns a pointer to RatingGermanyTelevisionTypeVAgesAbove16
+func RatingGermanyTelevisionTypePAgesAbove16() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVAgesAbove16
+	return &v
+}
+
+// RatingGermanyTelevisionTypePAdults returns a pointer to RatingGermanyTelevisionTypeVAdults
+func RatingGermanyTelevisionTypePAdults() *RatingGermanyTelevisionType {
+	v := RatingGermanyTelevisionTypeVAdults
+	return &v
+}
 
 // RatingIrelandMoviesType undocumented
 type RatingIrelandMoviesType int
 
 const (
-	// RatingIrelandMoviesType_AllAllowed undocumented
-	RatingIrelandMoviesType_AllAllowed RatingIrelandMoviesType = 0
-	// RatingIrelandMoviesType_AllBlocked undocumented
-	RatingIrelandMoviesType_AllBlocked RatingIrelandMoviesType = 1
-	// RatingIrelandMoviesType_General undocumented
-	RatingIrelandMoviesType_General RatingIrelandMoviesType = 2
-	// RatingIrelandMoviesType_ParentalGuidance undocumented
-	RatingIrelandMoviesType_ParentalGuidance RatingIrelandMoviesType = 3
-	// RatingIrelandMoviesType_AgesAbove12 undocumented
-	RatingIrelandMoviesType_AgesAbove12 RatingIrelandMoviesType = 4
-	// RatingIrelandMoviesType_AgesAbove15 undocumented
-	RatingIrelandMoviesType_AgesAbove15 RatingIrelandMoviesType = 5
-	// RatingIrelandMoviesType_AgesAbove16 undocumented
-	RatingIrelandMoviesType_AgesAbove16 RatingIrelandMoviesType = 6
-	// RatingIrelandMoviesType_Adults undocumented
-	RatingIrelandMoviesType_Adults RatingIrelandMoviesType = 7
+	// RatingIrelandMoviesTypeVAllAllowed undocumented
+	RatingIrelandMoviesTypeVAllAllowed RatingIrelandMoviesType = 0
+	// RatingIrelandMoviesTypeVAllBlocked undocumented
+	RatingIrelandMoviesTypeVAllBlocked RatingIrelandMoviesType = 1
+	// RatingIrelandMoviesTypeVGeneral undocumented
+	RatingIrelandMoviesTypeVGeneral RatingIrelandMoviesType = 2
+	// RatingIrelandMoviesTypeVParentalGuidance undocumented
+	RatingIrelandMoviesTypeVParentalGuidance RatingIrelandMoviesType = 3
+	// RatingIrelandMoviesTypeVAgesAbove12 undocumented
+	RatingIrelandMoviesTypeVAgesAbove12 RatingIrelandMoviesType = 4
+	// RatingIrelandMoviesTypeVAgesAbove15 undocumented
+	RatingIrelandMoviesTypeVAgesAbove15 RatingIrelandMoviesType = 5
+	// RatingIrelandMoviesTypeVAgesAbove16 undocumented
+	RatingIrelandMoviesTypeVAgesAbove16 RatingIrelandMoviesType = 6
+	// RatingIrelandMoviesTypeVAdults undocumented
+	RatingIrelandMoviesTypeVAdults RatingIrelandMoviesType = 7
 )
+
+// RatingIrelandMoviesTypePAllAllowed returns a pointer to RatingIrelandMoviesTypeVAllAllowed
+func RatingIrelandMoviesTypePAllAllowed() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingIrelandMoviesTypePAllBlocked returns a pointer to RatingIrelandMoviesTypeVAllBlocked
+func RatingIrelandMoviesTypePAllBlocked() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingIrelandMoviesTypePGeneral returns a pointer to RatingIrelandMoviesTypeVGeneral
+func RatingIrelandMoviesTypePGeneral() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVGeneral
+	return &v
+}
+
+// RatingIrelandMoviesTypePParentalGuidance returns a pointer to RatingIrelandMoviesTypeVParentalGuidance
+func RatingIrelandMoviesTypePParentalGuidance() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingIrelandMoviesTypePAgesAbove12 returns a pointer to RatingIrelandMoviesTypeVAgesAbove12
+func RatingIrelandMoviesTypePAgesAbove12() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVAgesAbove12
+	return &v
+}
+
+// RatingIrelandMoviesTypePAgesAbove15 returns a pointer to RatingIrelandMoviesTypeVAgesAbove15
+func RatingIrelandMoviesTypePAgesAbove15() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVAgesAbove15
+	return &v
+}
+
+// RatingIrelandMoviesTypePAgesAbove16 returns a pointer to RatingIrelandMoviesTypeVAgesAbove16
+func RatingIrelandMoviesTypePAgesAbove16() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVAgesAbove16
+	return &v
+}
+
+// RatingIrelandMoviesTypePAdults returns a pointer to RatingIrelandMoviesTypeVAdults
+func RatingIrelandMoviesTypePAdults() *RatingIrelandMoviesType {
+	v := RatingIrelandMoviesTypeVAdults
+	return &v
+}
 
 // RatingIrelandTelevisionType undocumented
 type RatingIrelandTelevisionType int
 
 const (
-	// RatingIrelandTelevisionType_AllAllowed undocumented
-	RatingIrelandTelevisionType_AllAllowed RatingIrelandTelevisionType = 0
-	// RatingIrelandTelevisionType_AllBlocked undocumented
-	RatingIrelandTelevisionType_AllBlocked RatingIrelandTelevisionType = 1
-	// RatingIrelandTelevisionType_General undocumented
-	RatingIrelandTelevisionType_General RatingIrelandTelevisionType = 2
-	// RatingIrelandTelevisionType_Children undocumented
-	RatingIrelandTelevisionType_Children RatingIrelandTelevisionType = 3
-	// RatingIrelandTelevisionType_YoungAdults undocumented
-	RatingIrelandTelevisionType_YoungAdults RatingIrelandTelevisionType = 4
-	// RatingIrelandTelevisionType_ParentalSupervision undocumented
-	RatingIrelandTelevisionType_ParentalSupervision RatingIrelandTelevisionType = 5
-	// RatingIrelandTelevisionType_Mature undocumented
-	RatingIrelandTelevisionType_Mature RatingIrelandTelevisionType = 6
+	// RatingIrelandTelevisionTypeVAllAllowed undocumented
+	RatingIrelandTelevisionTypeVAllAllowed RatingIrelandTelevisionType = 0
+	// RatingIrelandTelevisionTypeVAllBlocked undocumented
+	RatingIrelandTelevisionTypeVAllBlocked RatingIrelandTelevisionType = 1
+	// RatingIrelandTelevisionTypeVGeneral undocumented
+	RatingIrelandTelevisionTypeVGeneral RatingIrelandTelevisionType = 2
+	// RatingIrelandTelevisionTypeVChildren undocumented
+	RatingIrelandTelevisionTypeVChildren RatingIrelandTelevisionType = 3
+	// RatingIrelandTelevisionTypeVYoungAdults undocumented
+	RatingIrelandTelevisionTypeVYoungAdults RatingIrelandTelevisionType = 4
+	// RatingIrelandTelevisionTypeVParentalSupervision undocumented
+	RatingIrelandTelevisionTypeVParentalSupervision RatingIrelandTelevisionType = 5
+	// RatingIrelandTelevisionTypeVMature undocumented
+	RatingIrelandTelevisionTypeVMature RatingIrelandTelevisionType = 6
 )
+
+// RatingIrelandTelevisionTypePAllAllowed returns a pointer to RatingIrelandTelevisionTypeVAllAllowed
+func RatingIrelandTelevisionTypePAllAllowed() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingIrelandTelevisionTypePAllBlocked returns a pointer to RatingIrelandTelevisionTypeVAllBlocked
+func RatingIrelandTelevisionTypePAllBlocked() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingIrelandTelevisionTypePGeneral returns a pointer to RatingIrelandTelevisionTypeVGeneral
+func RatingIrelandTelevisionTypePGeneral() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVGeneral
+	return &v
+}
+
+// RatingIrelandTelevisionTypePChildren returns a pointer to RatingIrelandTelevisionTypeVChildren
+func RatingIrelandTelevisionTypePChildren() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVChildren
+	return &v
+}
+
+// RatingIrelandTelevisionTypePYoungAdults returns a pointer to RatingIrelandTelevisionTypeVYoungAdults
+func RatingIrelandTelevisionTypePYoungAdults() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVYoungAdults
+	return &v
+}
+
+// RatingIrelandTelevisionTypePParentalSupervision returns a pointer to RatingIrelandTelevisionTypeVParentalSupervision
+func RatingIrelandTelevisionTypePParentalSupervision() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVParentalSupervision
+	return &v
+}
+
+// RatingIrelandTelevisionTypePMature returns a pointer to RatingIrelandTelevisionTypeVMature
+func RatingIrelandTelevisionTypePMature() *RatingIrelandTelevisionType {
+	v := RatingIrelandTelevisionTypeVMature
+	return &v
+}
 
 // RatingJapanMoviesType undocumented
 type RatingJapanMoviesType int
 
 const (
-	// RatingJapanMoviesType_AllAllowed undocumented
-	RatingJapanMoviesType_AllAllowed RatingJapanMoviesType = 0
-	// RatingJapanMoviesType_AllBlocked undocumented
-	RatingJapanMoviesType_AllBlocked RatingJapanMoviesType = 1
-	// RatingJapanMoviesType_General undocumented
-	RatingJapanMoviesType_General RatingJapanMoviesType = 2
-	// RatingJapanMoviesType_ParentalGuidance undocumented
-	RatingJapanMoviesType_ParentalGuidance RatingJapanMoviesType = 3
-	// RatingJapanMoviesType_AgesAbove15 undocumented
-	RatingJapanMoviesType_AgesAbove15 RatingJapanMoviesType = 4
-	// RatingJapanMoviesType_AgesAbove18 undocumented
-	RatingJapanMoviesType_AgesAbove18 RatingJapanMoviesType = 5
+	// RatingJapanMoviesTypeVAllAllowed undocumented
+	RatingJapanMoviesTypeVAllAllowed RatingJapanMoviesType = 0
+	// RatingJapanMoviesTypeVAllBlocked undocumented
+	RatingJapanMoviesTypeVAllBlocked RatingJapanMoviesType = 1
+	// RatingJapanMoviesTypeVGeneral undocumented
+	RatingJapanMoviesTypeVGeneral RatingJapanMoviesType = 2
+	// RatingJapanMoviesTypeVParentalGuidance undocumented
+	RatingJapanMoviesTypeVParentalGuidance RatingJapanMoviesType = 3
+	// RatingJapanMoviesTypeVAgesAbove15 undocumented
+	RatingJapanMoviesTypeVAgesAbove15 RatingJapanMoviesType = 4
+	// RatingJapanMoviesTypeVAgesAbove18 undocumented
+	RatingJapanMoviesTypeVAgesAbove18 RatingJapanMoviesType = 5
 )
+
+// RatingJapanMoviesTypePAllAllowed returns a pointer to RatingJapanMoviesTypeVAllAllowed
+func RatingJapanMoviesTypePAllAllowed() *RatingJapanMoviesType {
+	v := RatingJapanMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingJapanMoviesTypePAllBlocked returns a pointer to RatingJapanMoviesTypeVAllBlocked
+func RatingJapanMoviesTypePAllBlocked() *RatingJapanMoviesType {
+	v := RatingJapanMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingJapanMoviesTypePGeneral returns a pointer to RatingJapanMoviesTypeVGeneral
+func RatingJapanMoviesTypePGeneral() *RatingJapanMoviesType {
+	v := RatingJapanMoviesTypeVGeneral
+	return &v
+}
+
+// RatingJapanMoviesTypePParentalGuidance returns a pointer to RatingJapanMoviesTypeVParentalGuidance
+func RatingJapanMoviesTypePParentalGuidance() *RatingJapanMoviesType {
+	v := RatingJapanMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingJapanMoviesTypePAgesAbove15 returns a pointer to RatingJapanMoviesTypeVAgesAbove15
+func RatingJapanMoviesTypePAgesAbove15() *RatingJapanMoviesType {
+	v := RatingJapanMoviesTypeVAgesAbove15
+	return &v
+}
+
+// RatingJapanMoviesTypePAgesAbove18 returns a pointer to RatingJapanMoviesTypeVAgesAbove18
+func RatingJapanMoviesTypePAgesAbove18() *RatingJapanMoviesType {
+	v := RatingJapanMoviesTypeVAgesAbove18
+	return &v
+}
 
 // RatingJapanTelevisionType undocumented
 type RatingJapanTelevisionType int
 
 const (
-	// RatingJapanTelevisionType_AllAllowed undocumented
-	RatingJapanTelevisionType_AllAllowed RatingJapanTelevisionType = 0
-	// RatingJapanTelevisionType_AllBlocked undocumented
-	RatingJapanTelevisionType_AllBlocked RatingJapanTelevisionType = 1
-	// RatingJapanTelevisionType_ExplicitAllowed undocumented
-	RatingJapanTelevisionType_ExplicitAllowed RatingJapanTelevisionType = 2
+	// RatingJapanTelevisionTypeVAllAllowed undocumented
+	RatingJapanTelevisionTypeVAllAllowed RatingJapanTelevisionType = 0
+	// RatingJapanTelevisionTypeVAllBlocked undocumented
+	RatingJapanTelevisionTypeVAllBlocked RatingJapanTelevisionType = 1
+	// RatingJapanTelevisionTypeVExplicitAllowed undocumented
+	RatingJapanTelevisionTypeVExplicitAllowed RatingJapanTelevisionType = 2
 )
+
+// RatingJapanTelevisionTypePAllAllowed returns a pointer to RatingJapanTelevisionTypeVAllAllowed
+func RatingJapanTelevisionTypePAllAllowed() *RatingJapanTelevisionType {
+	v := RatingJapanTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingJapanTelevisionTypePAllBlocked returns a pointer to RatingJapanTelevisionTypeVAllBlocked
+func RatingJapanTelevisionTypePAllBlocked() *RatingJapanTelevisionType {
+	v := RatingJapanTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingJapanTelevisionTypePExplicitAllowed returns a pointer to RatingJapanTelevisionTypeVExplicitAllowed
+func RatingJapanTelevisionTypePExplicitAllowed() *RatingJapanTelevisionType {
+	v := RatingJapanTelevisionTypeVExplicitAllowed
+	return &v
+}
 
 // RatingNewZealandMoviesType undocumented
 type RatingNewZealandMoviesType int
 
 const (
-	// RatingNewZealandMoviesType_AllAllowed undocumented
-	RatingNewZealandMoviesType_AllAllowed RatingNewZealandMoviesType = 0
-	// RatingNewZealandMoviesType_AllBlocked undocumented
-	RatingNewZealandMoviesType_AllBlocked RatingNewZealandMoviesType = 1
-	// RatingNewZealandMoviesType_General undocumented
-	RatingNewZealandMoviesType_General RatingNewZealandMoviesType = 2
-	// RatingNewZealandMoviesType_ParentalGuidance undocumented
-	RatingNewZealandMoviesType_ParentalGuidance RatingNewZealandMoviesType = 3
-	// RatingNewZealandMoviesType_Mature undocumented
-	RatingNewZealandMoviesType_Mature RatingNewZealandMoviesType = 4
-	// RatingNewZealandMoviesType_AgesAbove13 undocumented
-	RatingNewZealandMoviesType_AgesAbove13 RatingNewZealandMoviesType = 5
-	// RatingNewZealandMoviesType_AgesAbove15 undocumented
-	RatingNewZealandMoviesType_AgesAbove15 RatingNewZealandMoviesType = 6
-	// RatingNewZealandMoviesType_AgesAbove16 undocumented
-	RatingNewZealandMoviesType_AgesAbove16 RatingNewZealandMoviesType = 7
-	// RatingNewZealandMoviesType_AgesAbove18 undocumented
-	RatingNewZealandMoviesType_AgesAbove18 RatingNewZealandMoviesType = 8
-	// RatingNewZealandMoviesType_Restricted undocumented
-	RatingNewZealandMoviesType_Restricted RatingNewZealandMoviesType = 9
-	// RatingNewZealandMoviesType_AgesAbove16Restricted undocumented
-	RatingNewZealandMoviesType_AgesAbove16Restricted RatingNewZealandMoviesType = 10
+	// RatingNewZealandMoviesTypeVAllAllowed undocumented
+	RatingNewZealandMoviesTypeVAllAllowed RatingNewZealandMoviesType = 0
+	// RatingNewZealandMoviesTypeVAllBlocked undocumented
+	RatingNewZealandMoviesTypeVAllBlocked RatingNewZealandMoviesType = 1
+	// RatingNewZealandMoviesTypeVGeneral undocumented
+	RatingNewZealandMoviesTypeVGeneral RatingNewZealandMoviesType = 2
+	// RatingNewZealandMoviesTypeVParentalGuidance undocumented
+	RatingNewZealandMoviesTypeVParentalGuidance RatingNewZealandMoviesType = 3
+	// RatingNewZealandMoviesTypeVMature undocumented
+	RatingNewZealandMoviesTypeVMature RatingNewZealandMoviesType = 4
+	// RatingNewZealandMoviesTypeVAgesAbove13 undocumented
+	RatingNewZealandMoviesTypeVAgesAbove13 RatingNewZealandMoviesType = 5
+	// RatingNewZealandMoviesTypeVAgesAbove15 undocumented
+	RatingNewZealandMoviesTypeVAgesAbove15 RatingNewZealandMoviesType = 6
+	// RatingNewZealandMoviesTypeVAgesAbove16 undocumented
+	RatingNewZealandMoviesTypeVAgesAbove16 RatingNewZealandMoviesType = 7
+	// RatingNewZealandMoviesTypeVAgesAbove18 undocumented
+	RatingNewZealandMoviesTypeVAgesAbove18 RatingNewZealandMoviesType = 8
+	// RatingNewZealandMoviesTypeVRestricted undocumented
+	RatingNewZealandMoviesTypeVRestricted RatingNewZealandMoviesType = 9
+	// RatingNewZealandMoviesTypeVAgesAbove16Restricted undocumented
+	RatingNewZealandMoviesTypeVAgesAbove16Restricted RatingNewZealandMoviesType = 10
 )
+
+// RatingNewZealandMoviesTypePAllAllowed returns a pointer to RatingNewZealandMoviesTypeVAllAllowed
+func RatingNewZealandMoviesTypePAllAllowed() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingNewZealandMoviesTypePAllBlocked returns a pointer to RatingNewZealandMoviesTypeVAllBlocked
+func RatingNewZealandMoviesTypePAllBlocked() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingNewZealandMoviesTypePGeneral returns a pointer to RatingNewZealandMoviesTypeVGeneral
+func RatingNewZealandMoviesTypePGeneral() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVGeneral
+	return &v
+}
+
+// RatingNewZealandMoviesTypePParentalGuidance returns a pointer to RatingNewZealandMoviesTypeVParentalGuidance
+func RatingNewZealandMoviesTypePParentalGuidance() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingNewZealandMoviesTypePMature returns a pointer to RatingNewZealandMoviesTypeVMature
+func RatingNewZealandMoviesTypePMature() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVMature
+	return &v
+}
+
+// RatingNewZealandMoviesTypePAgesAbove13 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove13
+func RatingNewZealandMoviesTypePAgesAbove13() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAgesAbove13
+	return &v
+}
+
+// RatingNewZealandMoviesTypePAgesAbove15 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove15
+func RatingNewZealandMoviesTypePAgesAbove15() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAgesAbove15
+	return &v
+}
+
+// RatingNewZealandMoviesTypePAgesAbove16 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove16
+func RatingNewZealandMoviesTypePAgesAbove16() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAgesAbove16
+	return &v
+}
+
+// RatingNewZealandMoviesTypePAgesAbove18 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove18
+func RatingNewZealandMoviesTypePAgesAbove18() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAgesAbove18
+	return &v
+}
+
+// RatingNewZealandMoviesTypePRestricted returns a pointer to RatingNewZealandMoviesTypeVRestricted
+func RatingNewZealandMoviesTypePRestricted() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVRestricted
+	return &v
+}
+
+// RatingNewZealandMoviesTypePAgesAbove16Restricted returns a pointer to RatingNewZealandMoviesTypeVAgesAbove16Restricted
+func RatingNewZealandMoviesTypePAgesAbove16Restricted() *RatingNewZealandMoviesType {
+	v := RatingNewZealandMoviesTypeVAgesAbove16Restricted
+	return &v
+}
 
 // RatingNewZealandTelevisionType undocumented
 type RatingNewZealandTelevisionType int
 
 const (
-	// RatingNewZealandTelevisionType_AllAllowed undocumented
-	RatingNewZealandTelevisionType_AllAllowed RatingNewZealandTelevisionType = 0
-	// RatingNewZealandTelevisionType_AllBlocked undocumented
-	RatingNewZealandTelevisionType_AllBlocked RatingNewZealandTelevisionType = 1
-	// RatingNewZealandTelevisionType_General undocumented
-	RatingNewZealandTelevisionType_General RatingNewZealandTelevisionType = 2
-	// RatingNewZealandTelevisionType_ParentalGuidance undocumented
-	RatingNewZealandTelevisionType_ParentalGuidance RatingNewZealandTelevisionType = 3
-	// RatingNewZealandTelevisionType_Adults undocumented
-	RatingNewZealandTelevisionType_Adults RatingNewZealandTelevisionType = 4
+	// RatingNewZealandTelevisionTypeVAllAllowed undocumented
+	RatingNewZealandTelevisionTypeVAllAllowed RatingNewZealandTelevisionType = 0
+	// RatingNewZealandTelevisionTypeVAllBlocked undocumented
+	RatingNewZealandTelevisionTypeVAllBlocked RatingNewZealandTelevisionType = 1
+	// RatingNewZealandTelevisionTypeVGeneral undocumented
+	RatingNewZealandTelevisionTypeVGeneral RatingNewZealandTelevisionType = 2
+	// RatingNewZealandTelevisionTypeVParentalGuidance undocumented
+	RatingNewZealandTelevisionTypeVParentalGuidance RatingNewZealandTelevisionType = 3
+	// RatingNewZealandTelevisionTypeVAdults undocumented
+	RatingNewZealandTelevisionTypeVAdults RatingNewZealandTelevisionType = 4
 )
+
+// RatingNewZealandTelevisionTypePAllAllowed returns a pointer to RatingNewZealandTelevisionTypeVAllAllowed
+func RatingNewZealandTelevisionTypePAllAllowed() *RatingNewZealandTelevisionType {
+	v := RatingNewZealandTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingNewZealandTelevisionTypePAllBlocked returns a pointer to RatingNewZealandTelevisionTypeVAllBlocked
+func RatingNewZealandTelevisionTypePAllBlocked() *RatingNewZealandTelevisionType {
+	v := RatingNewZealandTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingNewZealandTelevisionTypePGeneral returns a pointer to RatingNewZealandTelevisionTypeVGeneral
+func RatingNewZealandTelevisionTypePGeneral() *RatingNewZealandTelevisionType {
+	v := RatingNewZealandTelevisionTypeVGeneral
+	return &v
+}
+
+// RatingNewZealandTelevisionTypePParentalGuidance returns a pointer to RatingNewZealandTelevisionTypeVParentalGuidance
+func RatingNewZealandTelevisionTypePParentalGuidance() *RatingNewZealandTelevisionType {
+	v := RatingNewZealandTelevisionTypeVParentalGuidance
+	return &v
+}
+
+// RatingNewZealandTelevisionTypePAdults returns a pointer to RatingNewZealandTelevisionTypeVAdults
+func RatingNewZealandTelevisionTypePAdults() *RatingNewZealandTelevisionType {
+	v := RatingNewZealandTelevisionTypeVAdults
+	return &v
+}
 
 // RatingUnitedKingdomMoviesType undocumented
 type RatingUnitedKingdomMoviesType int
 
 const (
-	// RatingUnitedKingdomMoviesType_AllAllowed undocumented
-	RatingUnitedKingdomMoviesType_AllAllowed RatingUnitedKingdomMoviesType = 0
-	// RatingUnitedKingdomMoviesType_AllBlocked undocumented
-	RatingUnitedKingdomMoviesType_AllBlocked RatingUnitedKingdomMoviesType = 1
-	// RatingUnitedKingdomMoviesType_General undocumented
-	RatingUnitedKingdomMoviesType_General RatingUnitedKingdomMoviesType = 2
-	// RatingUnitedKingdomMoviesType_UniversalChildren undocumented
-	RatingUnitedKingdomMoviesType_UniversalChildren RatingUnitedKingdomMoviesType = 3
-	// RatingUnitedKingdomMoviesType_ParentalGuidance undocumented
-	RatingUnitedKingdomMoviesType_ParentalGuidance RatingUnitedKingdomMoviesType = 4
-	// RatingUnitedKingdomMoviesType_AgesAbove12Video undocumented
-	RatingUnitedKingdomMoviesType_AgesAbove12Video RatingUnitedKingdomMoviesType = 5
-	// RatingUnitedKingdomMoviesType_AgesAbove12Cinema undocumented
-	RatingUnitedKingdomMoviesType_AgesAbove12Cinema RatingUnitedKingdomMoviesType = 6
-	// RatingUnitedKingdomMoviesType_AgesAbove15 undocumented
-	RatingUnitedKingdomMoviesType_AgesAbove15 RatingUnitedKingdomMoviesType = 7
-	// RatingUnitedKingdomMoviesType_Adults undocumented
-	RatingUnitedKingdomMoviesType_Adults RatingUnitedKingdomMoviesType = 8
+	// RatingUnitedKingdomMoviesTypeVAllAllowed undocumented
+	RatingUnitedKingdomMoviesTypeVAllAllowed RatingUnitedKingdomMoviesType = 0
+	// RatingUnitedKingdomMoviesTypeVAllBlocked undocumented
+	RatingUnitedKingdomMoviesTypeVAllBlocked RatingUnitedKingdomMoviesType = 1
+	// RatingUnitedKingdomMoviesTypeVGeneral undocumented
+	RatingUnitedKingdomMoviesTypeVGeneral RatingUnitedKingdomMoviesType = 2
+	// RatingUnitedKingdomMoviesTypeVUniversalChildren undocumented
+	RatingUnitedKingdomMoviesTypeVUniversalChildren RatingUnitedKingdomMoviesType = 3
+	// RatingUnitedKingdomMoviesTypeVParentalGuidance undocumented
+	RatingUnitedKingdomMoviesTypeVParentalGuidance RatingUnitedKingdomMoviesType = 4
+	// RatingUnitedKingdomMoviesTypeVAgesAbove12Video undocumented
+	RatingUnitedKingdomMoviesTypeVAgesAbove12Video RatingUnitedKingdomMoviesType = 5
+	// RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema undocumented
+	RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema RatingUnitedKingdomMoviesType = 6
+	// RatingUnitedKingdomMoviesTypeVAgesAbove15 undocumented
+	RatingUnitedKingdomMoviesTypeVAgesAbove15 RatingUnitedKingdomMoviesType = 7
+	// RatingUnitedKingdomMoviesTypeVAdults undocumented
+	RatingUnitedKingdomMoviesTypeVAdults RatingUnitedKingdomMoviesType = 8
 )
+
+// RatingUnitedKingdomMoviesTypePAllAllowed returns a pointer to RatingUnitedKingdomMoviesTypeVAllAllowed
+func RatingUnitedKingdomMoviesTypePAllAllowed() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePAllBlocked returns a pointer to RatingUnitedKingdomMoviesTypeVAllBlocked
+func RatingUnitedKingdomMoviesTypePAllBlocked() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePGeneral returns a pointer to RatingUnitedKingdomMoviesTypeVGeneral
+func RatingUnitedKingdomMoviesTypePGeneral() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVGeneral
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePUniversalChildren returns a pointer to RatingUnitedKingdomMoviesTypeVUniversalChildren
+func RatingUnitedKingdomMoviesTypePUniversalChildren() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVUniversalChildren
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePParentalGuidance returns a pointer to RatingUnitedKingdomMoviesTypeVParentalGuidance
+func RatingUnitedKingdomMoviesTypePParentalGuidance() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePAgesAbove12Video returns a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove12Video
+func RatingUnitedKingdomMoviesTypePAgesAbove12Video() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVAgesAbove12Video
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePAgesAbove12Cinema returns a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema
+func RatingUnitedKingdomMoviesTypePAgesAbove12Cinema() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePAgesAbove15 returns a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove15
+func RatingUnitedKingdomMoviesTypePAgesAbove15() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVAgesAbove15
+	return &v
+}
+
+// RatingUnitedKingdomMoviesTypePAdults returns a pointer to RatingUnitedKingdomMoviesTypeVAdults
+func RatingUnitedKingdomMoviesTypePAdults() *RatingUnitedKingdomMoviesType {
+	v := RatingUnitedKingdomMoviesTypeVAdults
+	return &v
+}
 
 // RatingUnitedKingdomTelevisionType undocumented
 type RatingUnitedKingdomTelevisionType int
 
 const (
-	// RatingUnitedKingdomTelevisionType_AllAllowed undocumented
-	RatingUnitedKingdomTelevisionType_AllAllowed RatingUnitedKingdomTelevisionType = 0
-	// RatingUnitedKingdomTelevisionType_AllBlocked undocumented
-	RatingUnitedKingdomTelevisionType_AllBlocked RatingUnitedKingdomTelevisionType = 1
-	// RatingUnitedKingdomTelevisionType_Caution undocumented
-	RatingUnitedKingdomTelevisionType_Caution RatingUnitedKingdomTelevisionType = 2
+	// RatingUnitedKingdomTelevisionTypeVAllAllowed undocumented
+	RatingUnitedKingdomTelevisionTypeVAllAllowed RatingUnitedKingdomTelevisionType = 0
+	// RatingUnitedKingdomTelevisionTypeVAllBlocked undocumented
+	RatingUnitedKingdomTelevisionTypeVAllBlocked RatingUnitedKingdomTelevisionType = 1
+	// RatingUnitedKingdomTelevisionTypeVCaution undocumented
+	RatingUnitedKingdomTelevisionTypeVCaution RatingUnitedKingdomTelevisionType = 2
 )
+
+// RatingUnitedKingdomTelevisionTypePAllAllowed returns a pointer to RatingUnitedKingdomTelevisionTypeVAllAllowed
+func RatingUnitedKingdomTelevisionTypePAllAllowed() *RatingUnitedKingdomTelevisionType {
+	v := RatingUnitedKingdomTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingUnitedKingdomTelevisionTypePAllBlocked returns a pointer to RatingUnitedKingdomTelevisionTypeVAllBlocked
+func RatingUnitedKingdomTelevisionTypePAllBlocked() *RatingUnitedKingdomTelevisionType {
+	v := RatingUnitedKingdomTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingUnitedKingdomTelevisionTypePCaution returns a pointer to RatingUnitedKingdomTelevisionTypeVCaution
+func RatingUnitedKingdomTelevisionTypePCaution() *RatingUnitedKingdomTelevisionType {
+	v := RatingUnitedKingdomTelevisionTypeVCaution
+	return &v
+}
 
 // RatingUnitedStatesMoviesType undocumented
 type RatingUnitedStatesMoviesType int
 
 const (
-	// RatingUnitedStatesMoviesType_AllAllowed undocumented
-	RatingUnitedStatesMoviesType_AllAllowed RatingUnitedStatesMoviesType = 0
-	// RatingUnitedStatesMoviesType_AllBlocked undocumented
-	RatingUnitedStatesMoviesType_AllBlocked RatingUnitedStatesMoviesType = 1
-	// RatingUnitedStatesMoviesType_General undocumented
-	RatingUnitedStatesMoviesType_General RatingUnitedStatesMoviesType = 2
-	// RatingUnitedStatesMoviesType_ParentalGuidance undocumented
-	RatingUnitedStatesMoviesType_ParentalGuidance RatingUnitedStatesMoviesType = 3
-	// RatingUnitedStatesMoviesType_ParentalGuidance13 undocumented
-	RatingUnitedStatesMoviesType_ParentalGuidance13 RatingUnitedStatesMoviesType = 4
-	// RatingUnitedStatesMoviesType_Restricted undocumented
-	RatingUnitedStatesMoviesType_Restricted RatingUnitedStatesMoviesType = 5
-	// RatingUnitedStatesMoviesType_Adults undocumented
-	RatingUnitedStatesMoviesType_Adults RatingUnitedStatesMoviesType = 6
+	// RatingUnitedStatesMoviesTypeVAllAllowed undocumented
+	RatingUnitedStatesMoviesTypeVAllAllowed RatingUnitedStatesMoviesType = 0
+	// RatingUnitedStatesMoviesTypeVAllBlocked undocumented
+	RatingUnitedStatesMoviesTypeVAllBlocked RatingUnitedStatesMoviesType = 1
+	// RatingUnitedStatesMoviesTypeVGeneral undocumented
+	RatingUnitedStatesMoviesTypeVGeneral RatingUnitedStatesMoviesType = 2
+	// RatingUnitedStatesMoviesTypeVParentalGuidance undocumented
+	RatingUnitedStatesMoviesTypeVParentalGuidance RatingUnitedStatesMoviesType = 3
+	// RatingUnitedStatesMoviesTypeVParentalGuidance13 undocumented
+	RatingUnitedStatesMoviesTypeVParentalGuidance13 RatingUnitedStatesMoviesType = 4
+	// RatingUnitedStatesMoviesTypeVRestricted undocumented
+	RatingUnitedStatesMoviesTypeVRestricted RatingUnitedStatesMoviesType = 5
+	// RatingUnitedStatesMoviesTypeVAdults undocumented
+	RatingUnitedStatesMoviesTypeVAdults RatingUnitedStatesMoviesType = 6
 )
+
+// RatingUnitedStatesMoviesTypePAllAllowed returns a pointer to RatingUnitedStatesMoviesTypeVAllAllowed
+func RatingUnitedStatesMoviesTypePAllAllowed() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVAllAllowed
+	return &v
+}
+
+// RatingUnitedStatesMoviesTypePAllBlocked returns a pointer to RatingUnitedStatesMoviesTypeVAllBlocked
+func RatingUnitedStatesMoviesTypePAllBlocked() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVAllBlocked
+	return &v
+}
+
+// RatingUnitedStatesMoviesTypePGeneral returns a pointer to RatingUnitedStatesMoviesTypeVGeneral
+func RatingUnitedStatesMoviesTypePGeneral() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVGeneral
+	return &v
+}
+
+// RatingUnitedStatesMoviesTypePParentalGuidance returns a pointer to RatingUnitedStatesMoviesTypeVParentalGuidance
+func RatingUnitedStatesMoviesTypePParentalGuidance() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVParentalGuidance
+	return &v
+}
+
+// RatingUnitedStatesMoviesTypePParentalGuidance13 returns a pointer to RatingUnitedStatesMoviesTypeVParentalGuidance13
+func RatingUnitedStatesMoviesTypePParentalGuidance13() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVParentalGuidance13
+	return &v
+}
+
+// RatingUnitedStatesMoviesTypePRestricted returns a pointer to RatingUnitedStatesMoviesTypeVRestricted
+func RatingUnitedStatesMoviesTypePRestricted() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVRestricted
+	return &v
+}
+
+// RatingUnitedStatesMoviesTypePAdults returns a pointer to RatingUnitedStatesMoviesTypeVAdults
+func RatingUnitedStatesMoviesTypePAdults() *RatingUnitedStatesMoviesType {
+	v := RatingUnitedStatesMoviesTypeVAdults
+	return &v
+}
 
 // RatingUnitedStatesTelevisionType undocumented
 type RatingUnitedStatesTelevisionType int
 
 const (
-	// RatingUnitedStatesTelevisionType_AllAllowed undocumented
-	RatingUnitedStatesTelevisionType_AllAllowed RatingUnitedStatesTelevisionType = 0
-	// RatingUnitedStatesTelevisionType_AllBlocked undocumented
-	RatingUnitedStatesTelevisionType_AllBlocked RatingUnitedStatesTelevisionType = 1
-	// RatingUnitedStatesTelevisionType_ChildrenAll undocumented
-	RatingUnitedStatesTelevisionType_ChildrenAll RatingUnitedStatesTelevisionType = 2
-	// RatingUnitedStatesTelevisionType_ChildrenAbove7 undocumented
-	RatingUnitedStatesTelevisionType_ChildrenAbove7 RatingUnitedStatesTelevisionType = 3
-	// RatingUnitedStatesTelevisionType_General undocumented
-	RatingUnitedStatesTelevisionType_General RatingUnitedStatesTelevisionType = 4
-	// RatingUnitedStatesTelevisionType_ParentalGuidance undocumented
-	RatingUnitedStatesTelevisionType_ParentalGuidance RatingUnitedStatesTelevisionType = 5
-	// RatingUnitedStatesTelevisionType_ChildrenAbove14 undocumented
-	RatingUnitedStatesTelevisionType_ChildrenAbove14 RatingUnitedStatesTelevisionType = 6
-	// RatingUnitedStatesTelevisionType_Adults undocumented
-	RatingUnitedStatesTelevisionType_Adults RatingUnitedStatesTelevisionType = 7
+	// RatingUnitedStatesTelevisionTypeVAllAllowed undocumented
+	RatingUnitedStatesTelevisionTypeVAllAllowed RatingUnitedStatesTelevisionType = 0
+	// RatingUnitedStatesTelevisionTypeVAllBlocked undocumented
+	RatingUnitedStatesTelevisionTypeVAllBlocked RatingUnitedStatesTelevisionType = 1
+	// RatingUnitedStatesTelevisionTypeVChildrenAll undocumented
+	RatingUnitedStatesTelevisionTypeVChildrenAll RatingUnitedStatesTelevisionType = 2
+	// RatingUnitedStatesTelevisionTypeVChildrenAbove7 undocumented
+	RatingUnitedStatesTelevisionTypeVChildrenAbove7 RatingUnitedStatesTelevisionType = 3
+	// RatingUnitedStatesTelevisionTypeVGeneral undocumented
+	RatingUnitedStatesTelevisionTypeVGeneral RatingUnitedStatesTelevisionType = 4
+	// RatingUnitedStatesTelevisionTypeVParentalGuidance undocumented
+	RatingUnitedStatesTelevisionTypeVParentalGuidance RatingUnitedStatesTelevisionType = 5
+	// RatingUnitedStatesTelevisionTypeVChildrenAbove14 undocumented
+	RatingUnitedStatesTelevisionTypeVChildrenAbove14 RatingUnitedStatesTelevisionType = 6
+	// RatingUnitedStatesTelevisionTypeVAdults undocumented
+	RatingUnitedStatesTelevisionTypeVAdults RatingUnitedStatesTelevisionType = 7
 )
+
+// RatingUnitedStatesTelevisionTypePAllAllowed returns a pointer to RatingUnitedStatesTelevisionTypeVAllAllowed
+func RatingUnitedStatesTelevisionTypePAllAllowed() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVAllAllowed
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePAllBlocked returns a pointer to RatingUnitedStatesTelevisionTypeVAllBlocked
+func RatingUnitedStatesTelevisionTypePAllBlocked() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVAllBlocked
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePChildrenAll returns a pointer to RatingUnitedStatesTelevisionTypeVChildrenAll
+func RatingUnitedStatesTelevisionTypePChildrenAll() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVChildrenAll
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePChildrenAbove7 returns a pointer to RatingUnitedStatesTelevisionTypeVChildrenAbove7
+func RatingUnitedStatesTelevisionTypePChildrenAbove7() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVChildrenAbove7
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePGeneral returns a pointer to RatingUnitedStatesTelevisionTypeVGeneral
+func RatingUnitedStatesTelevisionTypePGeneral() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVGeneral
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePParentalGuidance returns a pointer to RatingUnitedStatesTelevisionTypeVParentalGuidance
+func RatingUnitedStatesTelevisionTypePParentalGuidance() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVParentalGuidance
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePChildrenAbove14 returns a pointer to RatingUnitedStatesTelevisionTypeVChildrenAbove14
+func RatingUnitedStatesTelevisionTypePChildrenAbove14() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVChildrenAbove14
+	return &v
+}
+
+// RatingUnitedStatesTelevisionTypePAdults returns a pointer to RatingUnitedStatesTelevisionTypeVAdults
+func RatingUnitedStatesTelevisionTypePAdults() *RatingUnitedStatesTelevisionType {
+	v := RatingUnitedStatesTelevisionTypeVAdults
+	return &v
+}
 
 // RecipientScopeType undocumented
 type RecipientScopeType int
 
 const (
-	// RecipientScopeType_None undocumented
-	RecipientScopeType_None RecipientScopeType = 0
-	// RecipientScopeType_Internal undocumented
-	RecipientScopeType_Internal RecipientScopeType = 1
-	// RecipientScopeType_External undocumented
-	RecipientScopeType_External RecipientScopeType = 2
-	// RecipientScopeType_ExternalPartner undocumented
-	RecipientScopeType_ExternalPartner RecipientScopeType = 4
-	// RecipientScopeType_ExternalNonPartner undocumented
-	RecipientScopeType_ExternalNonPartner RecipientScopeType = 8
+	// RecipientScopeTypeVNone undocumented
+	RecipientScopeTypeVNone RecipientScopeType = 0
+	// RecipientScopeTypeVInternal undocumented
+	RecipientScopeTypeVInternal RecipientScopeType = 1
+	// RecipientScopeTypeVExternal undocumented
+	RecipientScopeTypeVExternal RecipientScopeType = 2
+	// RecipientScopeTypeVExternalPartner undocumented
+	RecipientScopeTypeVExternalPartner RecipientScopeType = 4
+	// RecipientScopeTypeVExternalNonPartner undocumented
+	RecipientScopeTypeVExternalNonPartner RecipientScopeType = 8
 )
+
+// RecipientScopeTypePNone returns a pointer to RecipientScopeTypeVNone
+func RecipientScopeTypePNone() *RecipientScopeType {
+	v := RecipientScopeTypeVNone
+	return &v
+}
+
+// RecipientScopeTypePInternal returns a pointer to RecipientScopeTypeVInternal
+func RecipientScopeTypePInternal() *RecipientScopeType {
+	v := RecipientScopeTypeVInternal
+	return &v
+}
+
+// RecipientScopeTypePExternal returns a pointer to RecipientScopeTypeVExternal
+func RecipientScopeTypePExternal() *RecipientScopeType {
+	v := RecipientScopeTypeVExternal
+	return &v
+}
+
+// RecipientScopeTypePExternalPartner returns a pointer to RecipientScopeTypeVExternalPartner
+func RecipientScopeTypePExternalPartner() *RecipientScopeType {
+	v := RecipientScopeTypeVExternalPartner
+	return &v
+}
+
+// RecipientScopeTypePExternalNonPartner returns a pointer to RecipientScopeTypeVExternalNonPartner
+func RecipientScopeTypePExternalNonPartner() *RecipientScopeType {
+	v := RecipientScopeTypeVExternalNonPartner
+	return &v
+}
 
 // RecurrencePatternType undocumented
 type RecurrencePatternType int
 
 const (
-	// RecurrencePatternType_Daily undocumented
-	RecurrencePatternType_Daily RecurrencePatternType = 0
-	// RecurrencePatternType_Weekly undocumented
-	RecurrencePatternType_Weekly RecurrencePatternType = 1
-	// RecurrencePatternType_AbsoluteMonthly undocumented
-	RecurrencePatternType_AbsoluteMonthly RecurrencePatternType = 2
-	// RecurrencePatternType_RelativeMonthly undocumented
-	RecurrencePatternType_RelativeMonthly RecurrencePatternType = 3
-	// RecurrencePatternType_AbsoluteYearly undocumented
-	RecurrencePatternType_AbsoluteYearly RecurrencePatternType = 4
-	// RecurrencePatternType_RelativeYearly undocumented
-	RecurrencePatternType_RelativeYearly RecurrencePatternType = 5
+	// RecurrencePatternTypeVDaily undocumented
+	RecurrencePatternTypeVDaily RecurrencePatternType = 0
+	// RecurrencePatternTypeVWeekly undocumented
+	RecurrencePatternTypeVWeekly RecurrencePatternType = 1
+	// RecurrencePatternTypeVAbsoluteMonthly undocumented
+	RecurrencePatternTypeVAbsoluteMonthly RecurrencePatternType = 2
+	// RecurrencePatternTypeVRelativeMonthly undocumented
+	RecurrencePatternTypeVRelativeMonthly RecurrencePatternType = 3
+	// RecurrencePatternTypeVAbsoluteYearly undocumented
+	RecurrencePatternTypeVAbsoluteYearly RecurrencePatternType = 4
+	// RecurrencePatternTypeVRelativeYearly undocumented
+	RecurrencePatternTypeVRelativeYearly RecurrencePatternType = 5
 )
+
+// RecurrencePatternTypePDaily returns a pointer to RecurrencePatternTypeVDaily
+func RecurrencePatternTypePDaily() *RecurrencePatternType {
+	v := RecurrencePatternTypeVDaily
+	return &v
+}
+
+// RecurrencePatternTypePWeekly returns a pointer to RecurrencePatternTypeVWeekly
+func RecurrencePatternTypePWeekly() *RecurrencePatternType {
+	v := RecurrencePatternTypeVWeekly
+	return &v
+}
+
+// RecurrencePatternTypePAbsoluteMonthly returns a pointer to RecurrencePatternTypeVAbsoluteMonthly
+func RecurrencePatternTypePAbsoluteMonthly() *RecurrencePatternType {
+	v := RecurrencePatternTypeVAbsoluteMonthly
+	return &v
+}
+
+// RecurrencePatternTypePRelativeMonthly returns a pointer to RecurrencePatternTypeVRelativeMonthly
+func RecurrencePatternTypePRelativeMonthly() *RecurrencePatternType {
+	v := RecurrencePatternTypeVRelativeMonthly
+	return &v
+}
+
+// RecurrencePatternTypePAbsoluteYearly returns a pointer to RecurrencePatternTypeVAbsoluteYearly
+func RecurrencePatternTypePAbsoluteYearly() *RecurrencePatternType {
+	v := RecurrencePatternTypeVAbsoluteYearly
+	return &v
+}
+
+// RecurrencePatternTypePRelativeYearly returns a pointer to RecurrencePatternTypeVRelativeYearly
+func RecurrencePatternTypePRelativeYearly() *RecurrencePatternType {
+	v := RecurrencePatternTypeVRelativeYearly
+	return &v
+}
 
 // RecurrenceRangeType undocumented
 type RecurrenceRangeType int
 
 const (
-	// RecurrenceRangeType_EndDate undocumented
-	RecurrenceRangeType_EndDate RecurrenceRangeType = 0
-	// RecurrenceRangeType_NoEnd undocumented
-	RecurrenceRangeType_NoEnd RecurrenceRangeType = 1
-	// RecurrenceRangeType_Numbered undocumented
-	RecurrenceRangeType_Numbered RecurrenceRangeType = 2
+	// RecurrenceRangeTypeVEndDate undocumented
+	RecurrenceRangeTypeVEndDate RecurrenceRangeType = 0
+	// RecurrenceRangeTypeVNoEnd undocumented
+	RecurrenceRangeTypeVNoEnd RecurrenceRangeType = 1
+	// RecurrenceRangeTypeVNumbered undocumented
+	RecurrenceRangeTypeVNumbered RecurrenceRangeType = 2
 )
+
+// RecurrenceRangeTypePEndDate returns a pointer to RecurrenceRangeTypeVEndDate
+func RecurrenceRangeTypePEndDate() *RecurrenceRangeType {
+	v := RecurrenceRangeTypeVEndDate
+	return &v
+}
+
+// RecurrenceRangeTypePNoEnd returns a pointer to RecurrenceRangeTypeVNoEnd
+func RecurrenceRangeTypePNoEnd() *RecurrenceRangeType {
+	v := RecurrenceRangeTypeVNoEnd
+	return &v
+}
+
+// RecurrenceRangeTypePNumbered returns a pointer to RecurrenceRangeTypeVNumbered
+func RecurrenceRangeTypePNumbered() *RecurrenceRangeType {
+	v := RecurrenceRangeTypeVNumbered
+	return &v
+}
 
 // RegistryHive undocumented
 type RegistryHive int
 
 const (
-	// RegistryHive_Unknown undocumented
-	RegistryHive_Unknown RegistryHive = 0
-	// RegistryHive_CurrentConfig undocumented
-	RegistryHive_CurrentConfig RegistryHive = 1
-	// RegistryHive_CurrentUser undocumented
-	RegistryHive_CurrentUser RegistryHive = 2
-	// RegistryHive_LocalMachineSam undocumented
-	RegistryHive_LocalMachineSam RegistryHive = 3
-	// RegistryHive_LocalMachineSecurity undocumented
-	RegistryHive_LocalMachineSecurity RegistryHive = 4
-	// RegistryHive_LocalMachineSoftware undocumented
-	RegistryHive_LocalMachineSoftware RegistryHive = 5
-	// RegistryHive_LocalMachineSystem undocumented
-	RegistryHive_LocalMachineSystem RegistryHive = 6
-	// RegistryHive_UsersDefault undocumented
-	RegistryHive_UsersDefault RegistryHive = 7
-	// RegistryHive_UnknownFutureValue undocumented
-	RegistryHive_UnknownFutureValue RegistryHive = 127
+	// RegistryHiveVUnknown undocumented
+	RegistryHiveVUnknown RegistryHive = 0
+	// RegistryHiveVCurrentConfig undocumented
+	RegistryHiveVCurrentConfig RegistryHive = 1
+	// RegistryHiveVCurrentUser undocumented
+	RegistryHiveVCurrentUser RegistryHive = 2
+	// RegistryHiveVLocalMachineSam undocumented
+	RegistryHiveVLocalMachineSam RegistryHive = 3
+	// RegistryHiveVLocalMachineSecurity undocumented
+	RegistryHiveVLocalMachineSecurity RegistryHive = 4
+	// RegistryHiveVLocalMachineSoftware undocumented
+	RegistryHiveVLocalMachineSoftware RegistryHive = 5
+	// RegistryHiveVLocalMachineSystem undocumented
+	RegistryHiveVLocalMachineSystem RegistryHive = 6
+	// RegistryHiveVUsersDefault undocumented
+	RegistryHiveVUsersDefault RegistryHive = 7
+	// RegistryHiveVUnknownFutureValue undocumented
+	RegistryHiveVUnknownFutureValue RegistryHive = 127
 )
+
+// RegistryHivePUnknown returns a pointer to RegistryHiveVUnknown
+func RegistryHivePUnknown() *RegistryHive {
+	v := RegistryHiveVUnknown
+	return &v
+}
+
+// RegistryHivePCurrentConfig returns a pointer to RegistryHiveVCurrentConfig
+func RegistryHivePCurrentConfig() *RegistryHive {
+	v := RegistryHiveVCurrentConfig
+	return &v
+}
+
+// RegistryHivePCurrentUser returns a pointer to RegistryHiveVCurrentUser
+func RegistryHivePCurrentUser() *RegistryHive {
+	v := RegistryHiveVCurrentUser
+	return &v
+}
+
+// RegistryHivePLocalMachineSam returns a pointer to RegistryHiveVLocalMachineSam
+func RegistryHivePLocalMachineSam() *RegistryHive {
+	v := RegistryHiveVLocalMachineSam
+	return &v
+}
+
+// RegistryHivePLocalMachineSecurity returns a pointer to RegistryHiveVLocalMachineSecurity
+func RegistryHivePLocalMachineSecurity() *RegistryHive {
+	v := RegistryHiveVLocalMachineSecurity
+	return &v
+}
+
+// RegistryHivePLocalMachineSoftware returns a pointer to RegistryHiveVLocalMachineSoftware
+func RegistryHivePLocalMachineSoftware() *RegistryHive {
+	v := RegistryHiveVLocalMachineSoftware
+	return &v
+}
+
+// RegistryHivePLocalMachineSystem returns a pointer to RegistryHiveVLocalMachineSystem
+func RegistryHivePLocalMachineSystem() *RegistryHive {
+	v := RegistryHiveVLocalMachineSystem
+	return &v
+}
+
+// RegistryHivePUsersDefault returns a pointer to RegistryHiveVUsersDefault
+func RegistryHivePUsersDefault() *RegistryHive {
+	v := RegistryHiveVUsersDefault
+	return &v
+}
+
+// RegistryHivePUnknownFutureValue returns a pointer to RegistryHiveVUnknownFutureValue
+func RegistryHivePUnknownFutureValue() *RegistryHive {
+	v := RegistryHiveVUnknownFutureValue
+	return &v
+}
 
 // RegistryOperation undocumented
 type RegistryOperation int
 
 const (
-	// RegistryOperation_Unknown undocumented
-	RegistryOperation_Unknown RegistryOperation = 0
-	// RegistryOperation_Create undocumented
-	RegistryOperation_Create RegistryOperation = 1
-	// RegistryOperation_Modify undocumented
-	RegistryOperation_Modify RegistryOperation = 2
-	// RegistryOperation_Delete undocumented
-	RegistryOperation_Delete RegistryOperation = 3
-	// RegistryOperation_UnknownFutureValue undocumented
-	RegistryOperation_UnknownFutureValue RegistryOperation = 127
+	// RegistryOperationVUnknown undocumented
+	RegistryOperationVUnknown RegistryOperation = 0
+	// RegistryOperationVCreate undocumented
+	RegistryOperationVCreate RegistryOperation = 1
+	// RegistryOperationVModify undocumented
+	RegistryOperationVModify RegistryOperation = 2
+	// RegistryOperationVDelete undocumented
+	RegistryOperationVDelete RegistryOperation = 3
+	// RegistryOperationVUnknownFutureValue undocumented
+	RegistryOperationVUnknownFutureValue RegistryOperation = 127
 )
+
+// RegistryOperationPUnknown returns a pointer to RegistryOperationVUnknown
+func RegistryOperationPUnknown() *RegistryOperation {
+	v := RegistryOperationVUnknown
+	return &v
+}
+
+// RegistryOperationPCreate returns a pointer to RegistryOperationVCreate
+func RegistryOperationPCreate() *RegistryOperation {
+	v := RegistryOperationVCreate
+	return &v
+}
+
+// RegistryOperationPModify returns a pointer to RegistryOperationVModify
+func RegistryOperationPModify() *RegistryOperation {
+	v := RegistryOperationVModify
+	return &v
+}
+
+// RegistryOperationPDelete returns a pointer to RegistryOperationVDelete
+func RegistryOperationPDelete() *RegistryOperation {
+	v := RegistryOperationVDelete
+	return &v
+}
+
+// RegistryOperationPUnknownFutureValue returns a pointer to RegistryOperationVUnknownFutureValue
+func RegistryOperationPUnknownFutureValue() *RegistryOperation {
+	v := RegistryOperationVUnknownFutureValue
+	return &v
+}
 
 // RegistryValueType undocumented
 type RegistryValueType int
 
 const (
-	// RegistryValueType_Unknown undocumented
-	RegistryValueType_Unknown RegistryValueType = 0
-	// RegistryValueType_Binary undocumented
-	RegistryValueType_Binary RegistryValueType = 1
-	// RegistryValueType_Dword undocumented
-	RegistryValueType_Dword RegistryValueType = 2
-	// RegistryValueType_DwordLittleEndian undocumented
-	RegistryValueType_DwordLittleEndian RegistryValueType = 3
-	// RegistryValueType_DwordBigEndian undocumented
-	RegistryValueType_DwordBigEndian RegistryValueType = 4
-	// RegistryValueType_ExpandSz undocumented
-	RegistryValueType_ExpandSz RegistryValueType = 5
-	// RegistryValueType_Link undocumented
-	RegistryValueType_Link RegistryValueType = 6
-	// RegistryValueType_MultiSz undocumented
-	RegistryValueType_MultiSz RegistryValueType = 7
-	// RegistryValueType_None undocumented
-	RegistryValueType_None RegistryValueType = 8
-	// RegistryValueType_Qword undocumented
-	RegistryValueType_Qword RegistryValueType = 9
-	// RegistryValueType_QwordlittleEndian undocumented
-	RegistryValueType_QwordlittleEndian RegistryValueType = 10
-	// RegistryValueType_Sz undocumented
-	RegistryValueType_Sz RegistryValueType = 11
-	// RegistryValueType_UnknownFutureValue undocumented
-	RegistryValueType_UnknownFutureValue RegistryValueType = 127
+	// RegistryValueTypeVUnknown undocumented
+	RegistryValueTypeVUnknown RegistryValueType = 0
+	// RegistryValueTypeVBinary undocumented
+	RegistryValueTypeVBinary RegistryValueType = 1
+	// RegistryValueTypeVDword undocumented
+	RegistryValueTypeVDword RegistryValueType = 2
+	// RegistryValueTypeVDwordLittleEndian undocumented
+	RegistryValueTypeVDwordLittleEndian RegistryValueType = 3
+	// RegistryValueTypeVDwordBigEndian undocumented
+	RegistryValueTypeVDwordBigEndian RegistryValueType = 4
+	// RegistryValueTypeVExpandSz undocumented
+	RegistryValueTypeVExpandSz RegistryValueType = 5
+	// RegistryValueTypeVLink undocumented
+	RegistryValueTypeVLink RegistryValueType = 6
+	// RegistryValueTypeVMultiSz undocumented
+	RegistryValueTypeVMultiSz RegistryValueType = 7
+	// RegistryValueTypeVNone undocumented
+	RegistryValueTypeVNone RegistryValueType = 8
+	// RegistryValueTypeVQword undocumented
+	RegistryValueTypeVQword RegistryValueType = 9
+	// RegistryValueTypeVQwordlittleEndian undocumented
+	RegistryValueTypeVQwordlittleEndian RegistryValueType = 10
+	// RegistryValueTypeVSz undocumented
+	RegistryValueTypeVSz RegistryValueType = 11
+	// RegistryValueTypeVUnknownFutureValue undocumented
+	RegistryValueTypeVUnknownFutureValue RegistryValueType = 127
 )
+
+// RegistryValueTypePUnknown returns a pointer to RegistryValueTypeVUnknown
+func RegistryValueTypePUnknown() *RegistryValueType {
+	v := RegistryValueTypeVUnknown
+	return &v
+}
+
+// RegistryValueTypePBinary returns a pointer to RegistryValueTypeVBinary
+func RegistryValueTypePBinary() *RegistryValueType {
+	v := RegistryValueTypeVBinary
+	return &v
+}
+
+// RegistryValueTypePDword returns a pointer to RegistryValueTypeVDword
+func RegistryValueTypePDword() *RegistryValueType {
+	v := RegistryValueTypeVDword
+	return &v
+}
+
+// RegistryValueTypePDwordLittleEndian returns a pointer to RegistryValueTypeVDwordLittleEndian
+func RegistryValueTypePDwordLittleEndian() *RegistryValueType {
+	v := RegistryValueTypeVDwordLittleEndian
+	return &v
+}
+
+// RegistryValueTypePDwordBigEndian returns a pointer to RegistryValueTypeVDwordBigEndian
+func RegistryValueTypePDwordBigEndian() *RegistryValueType {
+	v := RegistryValueTypeVDwordBigEndian
+	return &v
+}
+
+// RegistryValueTypePExpandSz returns a pointer to RegistryValueTypeVExpandSz
+func RegistryValueTypePExpandSz() *RegistryValueType {
+	v := RegistryValueTypeVExpandSz
+	return &v
+}
+
+// RegistryValueTypePLink returns a pointer to RegistryValueTypeVLink
+func RegistryValueTypePLink() *RegistryValueType {
+	v := RegistryValueTypeVLink
+	return &v
+}
+
+// RegistryValueTypePMultiSz returns a pointer to RegistryValueTypeVMultiSz
+func RegistryValueTypePMultiSz() *RegistryValueType {
+	v := RegistryValueTypeVMultiSz
+	return &v
+}
+
+// RegistryValueTypePNone returns a pointer to RegistryValueTypeVNone
+func RegistryValueTypePNone() *RegistryValueType {
+	v := RegistryValueTypeVNone
+	return &v
+}
+
+// RegistryValueTypePQword returns a pointer to RegistryValueTypeVQword
+func RegistryValueTypePQword() *RegistryValueType {
+	v := RegistryValueTypeVQword
+	return &v
+}
+
+// RegistryValueTypePQwordlittleEndian returns a pointer to RegistryValueTypeVQwordlittleEndian
+func RegistryValueTypePQwordlittleEndian() *RegistryValueType {
+	v := RegistryValueTypeVQwordlittleEndian
+	return &v
+}
+
+// RegistryValueTypePSz returns a pointer to RegistryValueTypeVSz
+func RegistryValueTypePSz() *RegistryValueType {
+	v := RegistryValueTypeVSz
+	return &v
+}
+
+// RegistryValueTypePUnknownFutureValue returns a pointer to RegistryValueTypeVUnknownFutureValue
+func RegistryValueTypePUnknownFutureValue() *RegistryValueType {
+	v := RegistryValueTypeVUnknownFutureValue
+	return &v
+}
 
 // RejectReason undocumented
 type RejectReason int
 
 const (
-	// RejectReason_None undocumented
-	RejectReason_None RejectReason = 0
-	// RejectReason_Busy undocumented
-	RejectReason_Busy RejectReason = 1
-	// RejectReason_Forbidden undocumented
-	RejectReason_Forbidden RejectReason = 2
-	// RejectReason_UnknownFutureValue undocumented
-	RejectReason_UnknownFutureValue RejectReason = 3
+	// RejectReasonVNone undocumented
+	RejectReasonVNone RejectReason = 0
+	// RejectReasonVBusy undocumented
+	RejectReasonVBusy RejectReason = 1
+	// RejectReasonVForbidden undocumented
+	RejectReasonVForbidden RejectReason = 2
+	// RejectReasonVUnknownFutureValue undocumented
+	RejectReasonVUnknownFutureValue RejectReason = 3
 )
+
+// RejectReasonPNone returns a pointer to RejectReasonVNone
+func RejectReasonPNone() *RejectReason {
+	v := RejectReasonVNone
+	return &v
+}
+
+// RejectReasonPBusy returns a pointer to RejectReasonVBusy
+func RejectReasonPBusy() *RejectReason {
+	v := RejectReasonVBusy
+	return &v
+}
+
+// RejectReasonPForbidden returns a pointer to RejectReasonVForbidden
+func RejectReasonPForbidden() *RejectReason {
+	v := RejectReasonVForbidden
+	return &v
+}
+
+// RejectReasonPUnknownFutureValue returns a pointer to RejectReasonVUnknownFutureValue
+func RejectReasonPUnknownFutureValue() *RejectReason {
+	v := RejectReasonVUnknownFutureValue
+	return &v
+}
 
 // RemoteAssistanceOnboardingStatus undocumented
 type RemoteAssistanceOnboardingStatus int
 
 const (
-	// RemoteAssistanceOnboardingStatus_NotOnboarded undocumented
-	RemoteAssistanceOnboardingStatus_NotOnboarded RemoteAssistanceOnboardingStatus = 0
-	// RemoteAssistanceOnboardingStatus_Onboarding undocumented
-	RemoteAssistanceOnboardingStatus_Onboarding RemoteAssistanceOnboardingStatus = 1
-	// RemoteAssistanceOnboardingStatus_Onboarded undocumented
-	RemoteAssistanceOnboardingStatus_Onboarded RemoteAssistanceOnboardingStatus = 2
+	// RemoteAssistanceOnboardingStatusVNotOnboarded undocumented
+	RemoteAssistanceOnboardingStatusVNotOnboarded RemoteAssistanceOnboardingStatus = 0
+	// RemoteAssistanceOnboardingStatusVOnboarding undocumented
+	RemoteAssistanceOnboardingStatusVOnboarding RemoteAssistanceOnboardingStatus = 1
+	// RemoteAssistanceOnboardingStatusVOnboarded undocumented
+	RemoteAssistanceOnboardingStatusVOnboarded RemoteAssistanceOnboardingStatus = 2
 )
+
+// RemoteAssistanceOnboardingStatusPNotOnboarded returns a pointer to RemoteAssistanceOnboardingStatusVNotOnboarded
+func RemoteAssistanceOnboardingStatusPNotOnboarded() *RemoteAssistanceOnboardingStatus {
+	v := RemoteAssistanceOnboardingStatusVNotOnboarded
+	return &v
+}
+
+// RemoteAssistanceOnboardingStatusPOnboarding returns a pointer to RemoteAssistanceOnboardingStatusVOnboarding
+func RemoteAssistanceOnboardingStatusPOnboarding() *RemoteAssistanceOnboardingStatus {
+	v := RemoteAssistanceOnboardingStatusVOnboarding
+	return &v
+}
+
+// RemoteAssistanceOnboardingStatusPOnboarded returns a pointer to RemoteAssistanceOnboardingStatusVOnboarded
+func RemoteAssistanceOnboardingStatusPOnboarded() *RemoteAssistanceOnboardingStatus {
+	v := RemoteAssistanceOnboardingStatusVOnboarded
+	return &v
+}
 
 // RequiredPasswordType undocumented
 type RequiredPasswordType int
 
 const (
-	// RequiredPasswordType_DeviceDefault undocumented
-	RequiredPasswordType_DeviceDefault RequiredPasswordType = 0
-	// RequiredPasswordType_Alphanumeric undocumented
-	RequiredPasswordType_Alphanumeric RequiredPasswordType = 1
-	// RequiredPasswordType_Numeric undocumented
-	RequiredPasswordType_Numeric RequiredPasswordType = 2
+	// RequiredPasswordTypeVDeviceDefault undocumented
+	RequiredPasswordTypeVDeviceDefault RequiredPasswordType = 0
+	// RequiredPasswordTypeVAlphanumeric undocumented
+	RequiredPasswordTypeVAlphanumeric RequiredPasswordType = 1
+	// RequiredPasswordTypeVNumeric undocumented
+	RequiredPasswordTypeVNumeric RequiredPasswordType = 2
 )
+
+// RequiredPasswordTypePDeviceDefault returns a pointer to RequiredPasswordTypeVDeviceDefault
+func RequiredPasswordTypePDeviceDefault() *RequiredPasswordType {
+	v := RequiredPasswordTypeVDeviceDefault
+	return &v
+}
+
+// RequiredPasswordTypePAlphanumeric returns a pointer to RequiredPasswordTypeVAlphanumeric
+func RequiredPasswordTypePAlphanumeric() *RequiredPasswordType {
+	v := RequiredPasswordTypeVAlphanumeric
+	return &v
+}
+
+// RequiredPasswordTypePNumeric returns a pointer to RequiredPasswordTypeVNumeric
+func RequiredPasswordTypePNumeric() *RequiredPasswordType {
+	v := RequiredPasswordTypeVNumeric
+	return &v
+}
 
 // ResponseType undocumented
 type ResponseType int
 
 const (
-	// ResponseType_None undocumented
-	ResponseType_None ResponseType = 0
-	// ResponseType_Organizer undocumented
-	ResponseType_Organizer ResponseType = 1
-	// ResponseType_TentativelyAccepted undocumented
-	ResponseType_TentativelyAccepted ResponseType = 2
-	// ResponseType_Accepted undocumented
-	ResponseType_Accepted ResponseType = 3
-	// ResponseType_Declined undocumented
-	ResponseType_Declined ResponseType = 4
-	// ResponseType_NotResponded undocumented
-	ResponseType_NotResponded ResponseType = 5
+	// ResponseTypeVNone undocumented
+	ResponseTypeVNone ResponseType = 0
+	// ResponseTypeVOrganizer undocumented
+	ResponseTypeVOrganizer ResponseType = 1
+	// ResponseTypeVTentativelyAccepted undocumented
+	ResponseTypeVTentativelyAccepted ResponseType = 2
+	// ResponseTypeVAccepted undocumented
+	ResponseTypeVAccepted ResponseType = 3
+	// ResponseTypeVDeclined undocumented
+	ResponseTypeVDeclined ResponseType = 4
+	// ResponseTypeVNotResponded undocumented
+	ResponseTypeVNotResponded ResponseType = 5
 )
+
+// ResponseTypePNone returns a pointer to ResponseTypeVNone
+func ResponseTypePNone() *ResponseType {
+	v := ResponseTypeVNone
+	return &v
+}
+
+// ResponseTypePOrganizer returns a pointer to ResponseTypeVOrganizer
+func ResponseTypePOrganizer() *ResponseType {
+	v := ResponseTypeVOrganizer
+	return &v
+}
+
+// ResponseTypePTentativelyAccepted returns a pointer to ResponseTypeVTentativelyAccepted
+func ResponseTypePTentativelyAccepted() *ResponseType {
+	v := ResponseTypeVTentativelyAccepted
+	return &v
+}
+
+// ResponseTypePAccepted returns a pointer to ResponseTypeVAccepted
+func ResponseTypePAccepted() *ResponseType {
+	v := ResponseTypeVAccepted
+	return &v
+}
+
+// ResponseTypePDeclined returns a pointer to ResponseTypeVDeclined
+func ResponseTypePDeclined() *ResponseType {
+	v := ResponseTypeVDeclined
+	return &v
+}
+
+// ResponseTypePNotResponded returns a pointer to ResponseTypeVNotResponded
+func ResponseTypePNotResponded() *ResponseType {
+	v := ResponseTypeVNotResponded
+	return &v
+}
 
 // RiskDetail undocumented
 type RiskDetail int
 
 const (
-	// RiskDetail_None undocumented
-	RiskDetail_None RiskDetail = 0
-	// RiskDetail_AdminGeneratedTemporaryPassword undocumented
-	RiskDetail_AdminGeneratedTemporaryPassword RiskDetail = 1
-	// RiskDetail_UserPerformedSecuredPasswordChange undocumented
-	RiskDetail_UserPerformedSecuredPasswordChange RiskDetail = 2
-	// RiskDetail_UserPerformedSecuredPasswordReset undocumented
-	RiskDetail_UserPerformedSecuredPasswordReset RiskDetail = 3
-	// RiskDetail_AdminConfirmedSigninSafe undocumented
-	RiskDetail_AdminConfirmedSigninSafe RiskDetail = 4
-	// RiskDetail_AiConfirmedSigninSafe undocumented
-	RiskDetail_AiConfirmedSigninSafe RiskDetail = 5
-	// RiskDetail_UserPassedMFADrivenByRiskBasedPolicy undocumented
-	RiskDetail_UserPassedMFADrivenByRiskBasedPolicy RiskDetail = 6
-	// RiskDetail_AdminDismissedAllRiskForUser undocumented
-	RiskDetail_AdminDismissedAllRiskForUser RiskDetail = 7
-	// RiskDetail_AdminConfirmedSigninCompromised undocumented
-	RiskDetail_AdminConfirmedSigninCompromised RiskDetail = 8
-	// RiskDetail_Hidden undocumented
-	RiskDetail_Hidden RiskDetail = 9
-	// RiskDetail_AdminConfirmedUserCompromised undocumented
-	RiskDetail_AdminConfirmedUserCompromised RiskDetail = 10
-	// RiskDetail_UnknownFutureValue undocumented
-	RiskDetail_UnknownFutureValue RiskDetail = 11
+	// RiskDetailVNone undocumented
+	RiskDetailVNone RiskDetail = 0
+	// RiskDetailVAdminGeneratedTemporaryPassword undocumented
+	RiskDetailVAdminGeneratedTemporaryPassword RiskDetail = 1
+	// RiskDetailVUserPerformedSecuredPasswordChange undocumented
+	RiskDetailVUserPerformedSecuredPasswordChange RiskDetail = 2
+	// RiskDetailVUserPerformedSecuredPasswordReset undocumented
+	RiskDetailVUserPerformedSecuredPasswordReset RiskDetail = 3
+	// RiskDetailVAdminConfirmedSigninSafe undocumented
+	RiskDetailVAdminConfirmedSigninSafe RiskDetail = 4
+	// RiskDetailVAiConfirmedSigninSafe undocumented
+	RiskDetailVAiConfirmedSigninSafe RiskDetail = 5
+	// RiskDetailVUserPassedMFADrivenByRiskBasedPolicy undocumented
+	RiskDetailVUserPassedMFADrivenByRiskBasedPolicy RiskDetail = 6
+	// RiskDetailVAdminDismissedAllRiskForUser undocumented
+	RiskDetailVAdminDismissedAllRiskForUser RiskDetail = 7
+	// RiskDetailVAdminConfirmedSigninCompromised undocumented
+	RiskDetailVAdminConfirmedSigninCompromised RiskDetail = 8
+	// RiskDetailVHidden undocumented
+	RiskDetailVHidden RiskDetail = 9
+	// RiskDetailVAdminConfirmedUserCompromised undocumented
+	RiskDetailVAdminConfirmedUserCompromised RiskDetail = 10
+	// RiskDetailVUnknownFutureValue undocumented
+	RiskDetailVUnknownFutureValue RiskDetail = 11
 )
+
+// RiskDetailPNone returns a pointer to RiskDetailVNone
+func RiskDetailPNone() *RiskDetail {
+	v := RiskDetailVNone
+	return &v
+}
+
+// RiskDetailPAdminGeneratedTemporaryPassword returns a pointer to RiskDetailVAdminGeneratedTemporaryPassword
+func RiskDetailPAdminGeneratedTemporaryPassword() *RiskDetail {
+	v := RiskDetailVAdminGeneratedTemporaryPassword
+	return &v
+}
+
+// RiskDetailPUserPerformedSecuredPasswordChange returns a pointer to RiskDetailVUserPerformedSecuredPasswordChange
+func RiskDetailPUserPerformedSecuredPasswordChange() *RiskDetail {
+	v := RiskDetailVUserPerformedSecuredPasswordChange
+	return &v
+}
+
+// RiskDetailPUserPerformedSecuredPasswordReset returns a pointer to RiskDetailVUserPerformedSecuredPasswordReset
+func RiskDetailPUserPerformedSecuredPasswordReset() *RiskDetail {
+	v := RiskDetailVUserPerformedSecuredPasswordReset
+	return &v
+}
+
+// RiskDetailPAdminConfirmedSigninSafe returns a pointer to RiskDetailVAdminConfirmedSigninSafe
+func RiskDetailPAdminConfirmedSigninSafe() *RiskDetail {
+	v := RiskDetailVAdminConfirmedSigninSafe
+	return &v
+}
+
+// RiskDetailPAiConfirmedSigninSafe returns a pointer to RiskDetailVAiConfirmedSigninSafe
+func RiskDetailPAiConfirmedSigninSafe() *RiskDetail {
+	v := RiskDetailVAiConfirmedSigninSafe
+	return &v
+}
+
+// RiskDetailPUserPassedMFADrivenByRiskBasedPolicy returns a pointer to RiskDetailVUserPassedMFADrivenByRiskBasedPolicy
+func RiskDetailPUserPassedMFADrivenByRiskBasedPolicy() *RiskDetail {
+	v := RiskDetailVUserPassedMFADrivenByRiskBasedPolicy
+	return &v
+}
+
+// RiskDetailPAdminDismissedAllRiskForUser returns a pointer to RiskDetailVAdminDismissedAllRiskForUser
+func RiskDetailPAdminDismissedAllRiskForUser() *RiskDetail {
+	v := RiskDetailVAdminDismissedAllRiskForUser
+	return &v
+}
+
+// RiskDetailPAdminConfirmedSigninCompromised returns a pointer to RiskDetailVAdminConfirmedSigninCompromised
+func RiskDetailPAdminConfirmedSigninCompromised() *RiskDetail {
+	v := RiskDetailVAdminConfirmedSigninCompromised
+	return &v
+}
+
+// RiskDetailPHidden returns a pointer to RiskDetailVHidden
+func RiskDetailPHidden() *RiskDetail {
+	v := RiskDetailVHidden
+	return &v
+}
+
+// RiskDetailPAdminConfirmedUserCompromised returns a pointer to RiskDetailVAdminConfirmedUserCompromised
+func RiskDetailPAdminConfirmedUserCompromised() *RiskDetail {
+	v := RiskDetailVAdminConfirmedUserCompromised
+	return &v
+}
+
+// RiskDetailPUnknownFutureValue returns a pointer to RiskDetailVUnknownFutureValue
+func RiskDetailPUnknownFutureValue() *RiskDetail {
+	v := RiskDetailVUnknownFutureValue
+	return &v
+}
 
 // RiskEventType undocumented
 type RiskEventType int
 
 const (
-	// RiskEventType_UnlikelyTravel undocumented
-	RiskEventType_UnlikelyTravel RiskEventType = 0
-	// RiskEventType_AnonymizedIPAddress undocumented
-	RiskEventType_AnonymizedIPAddress RiskEventType = 1
-	// RiskEventType_MaliciousIPAddress undocumented
-	RiskEventType_MaliciousIPAddress RiskEventType = 2
-	// RiskEventType_UnfamiliarFeatures undocumented
-	RiskEventType_UnfamiliarFeatures RiskEventType = 3
-	// RiskEventType_MalwareInfectedIPAddress undocumented
-	RiskEventType_MalwareInfectedIPAddress RiskEventType = 4
-	// RiskEventType_SuspiciousIPAddress undocumented
-	RiskEventType_SuspiciousIPAddress RiskEventType = 5
-	// RiskEventType_LeakedCredentials undocumented
-	RiskEventType_LeakedCredentials RiskEventType = 6
-	// RiskEventType_InvestigationsThreatIntelligence undocumented
-	RiskEventType_InvestigationsThreatIntelligence RiskEventType = 7
-	// RiskEventType_Generic undocumented
-	RiskEventType_Generic RiskEventType = 8
-	// RiskEventType_AdminConfirmedUserCompromised undocumented
-	RiskEventType_AdminConfirmedUserCompromised RiskEventType = 9
-	// RiskEventType_McasImpossibleTravel undocumented
-	RiskEventType_McasImpossibleTravel RiskEventType = 10
-	// RiskEventType_McasSuspiciousInboxManipulationRules undocumented
-	RiskEventType_McasSuspiciousInboxManipulationRules RiskEventType = 11
-	// RiskEventType_InvestigationsThreatIntelligenceSigninLinked undocumented
-	RiskEventType_InvestigationsThreatIntelligenceSigninLinked RiskEventType = 12
-	// RiskEventType_MaliciousIPAddressValidCredentialsBlockedIP undocumented
-	RiskEventType_MaliciousIPAddressValidCredentialsBlockedIP RiskEventType = 13
-	// RiskEventType_UnknownFutureValue undocumented
-	RiskEventType_UnknownFutureValue RiskEventType = 14
+	// RiskEventTypeVUnlikelyTravel undocumented
+	RiskEventTypeVUnlikelyTravel RiskEventType = 0
+	// RiskEventTypeVAnonymizedIPAddress undocumented
+	RiskEventTypeVAnonymizedIPAddress RiskEventType = 1
+	// RiskEventTypeVMaliciousIPAddress undocumented
+	RiskEventTypeVMaliciousIPAddress RiskEventType = 2
+	// RiskEventTypeVUnfamiliarFeatures undocumented
+	RiskEventTypeVUnfamiliarFeatures RiskEventType = 3
+	// RiskEventTypeVMalwareInfectedIPAddress undocumented
+	RiskEventTypeVMalwareInfectedIPAddress RiskEventType = 4
+	// RiskEventTypeVSuspiciousIPAddress undocumented
+	RiskEventTypeVSuspiciousIPAddress RiskEventType = 5
+	// RiskEventTypeVLeakedCredentials undocumented
+	RiskEventTypeVLeakedCredentials RiskEventType = 6
+	// RiskEventTypeVInvestigationsThreatIntelligence undocumented
+	RiskEventTypeVInvestigationsThreatIntelligence RiskEventType = 7
+	// RiskEventTypeVGeneric undocumented
+	RiskEventTypeVGeneric RiskEventType = 8
+	// RiskEventTypeVAdminConfirmedUserCompromised undocumented
+	RiskEventTypeVAdminConfirmedUserCompromised RiskEventType = 9
+	// RiskEventTypeVMcasImpossibleTravel undocumented
+	RiskEventTypeVMcasImpossibleTravel RiskEventType = 10
+	// RiskEventTypeVMcasSuspiciousInboxManipulationRules undocumented
+	RiskEventTypeVMcasSuspiciousInboxManipulationRules RiskEventType = 11
+	// RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked undocumented
+	RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked RiskEventType = 12
+	// RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP undocumented
+	RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP RiskEventType = 13
+	// RiskEventTypeVUnknownFutureValue undocumented
+	RiskEventTypeVUnknownFutureValue RiskEventType = 14
 )
+
+// RiskEventTypePUnlikelyTravel returns a pointer to RiskEventTypeVUnlikelyTravel
+func RiskEventTypePUnlikelyTravel() *RiskEventType {
+	v := RiskEventTypeVUnlikelyTravel
+	return &v
+}
+
+// RiskEventTypePAnonymizedIPAddress returns a pointer to RiskEventTypeVAnonymizedIPAddress
+func RiskEventTypePAnonymizedIPAddress() *RiskEventType {
+	v := RiskEventTypeVAnonymizedIPAddress
+	return &v
+}
+
+// RiskEventTypePMaliciousIPAddress returns a pointer to RiskEventTypeVMaliciousIPAddress
+func RiskEventTypePMaliciousIPAddress() *RiskEventType {
+	v := RiskEventTypeVMaliciousIPAddress
+	return &v
+}
+
+// RiskEventTypePUnfamiliarFeatures returns a pointer to RiskEventTypeVUnfamiliarFeatures
+func RiskEventTypePUnfamiliarFeatures() *RiskEventType {
+	v := RiskEventTypeVUnfamiliarFeatures
+	return &v
+}
+
+// RiskEventTypePMalwareInfectedIPAddress returns a pointer to RiskEventTypeVMalwareInfectedIPAddress
+func RiskEventTypePMalwareInfectedIPAddress() *RiskEventType {
+	v := RiskEventTypeVMalwareInfectedIPAddress
+	return &v
+}
+
+// RiskEventTypePSuspiciousIPAddress returns a pointer to RiskEventTypeVSuspiciousIPAddress
+func RiskEventTypePSuspiciousIPAddress() *RiskEventType {
+	v := RiskEventTypeVSuspiciousIPAddress
+	return &v
+}
+
+// RiskEventTypePLeakedCredentials returns a pointer to RiskEventTypeVLeakedCredentials
+func RiskEventTypePLeakedCredentials() *RiskEventType {
+	v := RiskEventTypeVLeakedCredentials
+	return &v
+}
+
+// RiskEventTypePInvestigationsThreatIntelligence returns a pointer to RiskEventTypeVInvestigationsThreatIntelligence
+func RiskEventTypePInvestigationsThreatIntelligence() *RiskEventType {
+	v := RiskEventTypeVInvestigationsThreatIntelligence
+	return &v
+}
+
+// RiskEventTypePGeneric returns a pointer to RiskEventTypeVGeneric
+func RiskEventTypePGeneric() *RiskEventType {
+	v := RiskEventTypeVGeneric
+	return &v
+}
+
+// RiskEventTypePAdminConfirmedUserCompromised returns a pointer to RiskEventTypeVAdminConfirmedUserCompromised
+func RiskEventTypePAdminConfirmedUserCompromised() *RiskEventType {
+	v := RiskEventTypeVAdminConfirmedUserCompromised
+	return &v
+}
+
+// RiskEventTypePMcasImpossibleTravel returns a pointer to RiskEventTypeVMcasImpossibleTravel
+func RiskEventTypePMcasImpossibleTravel() *RiskEventType {
+	v := RiskEventTypeVMcasImpossibleTravel
+	return &v
+}
+
+// RiskEventTypePMcasSuspiciousInboxManipulationRules returns a pointer to RiskEventTypeVMcasSuspiciousInboxManipulationRules
+func RiskEventTypePMcasSuspiciousInboxManipulationRules() *RiskEventType {
+	v := RiskEventTypeVMcasSuspiciousInboxManipulationRules
+	return &v
+}
+
+// RiskEventTypePInvestigationsThreatIntelligenceSigninLinked returns a pointer to RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked
+func RiskEventTypePInvestigationsThreatIntelligenceSigninLinked() *RiskEventType {
+	v := RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked
+	return &v
+}
+
+// RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP returns a pointer to RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP
+func RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP() *RiskEventType {
+	v := RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP
+	return &v
+}
+
+// RiskEventTypePUnknownFutureValue returns a pointer to RiskEventTypeVUnknownFutureValue
+func RiskEventTypePUnknownFutureValue() *RiskEventType {
+	v := RiskEventTypeVUnknownFutureValue
+	return &v
+}
 
 // RiskLevel undocumented
 type RiskLevel int
 
 const (
-	// RiskLevel_Low undocumented
-	RiskLevel_Low RiskLevel = 0
-	// RiskLevel_Medium undocumented
-	RiskLevel_Medium RiskLevel = 1
-	// RiskLevel_High undocumented
-	RiskLevel_High RiskLevel = 2
-	// RiskLevel_Hidden undocumented
-	RiskLevel_Hidden RiskLevel = 3
-	// RiskLevel_None undocumented
-	RiskLevel_None RiskLevel = 4
-	// RiskLevel_UnknownFutureValue undocumented
-	RiskLevel_UnknownFutureValue RiskLevel = 5
+	// RiskLevelVLow undocumented
+	RiskLevelVLow RiskLevel = 0
+	// RiskLevelVMedium undocumented
+	RiskLevelVMedium RiskLevel = 1
+	// RiskLevelVHigh undocumented
+	RiskLevelVHigh RiskLevel = 2
+	// RiskLevelVHidden undocumented
+	RiskLevelVHidden RiskLevel = 3
+	// RiskLevelVNone undocumented
+	RiskLevelVNone RiskLevel = 4
+	// RiskLevelVUnknownFutureValue undocumented
+	RiskLevelVUnknownFutureValue RiskLevel = 5
 )
+
+// RiskLevelPLow returns a pointer to RiskLevelVLow
+func RiskLevelPLow() *RiskLevel {
+	v := RiskLevelVLow
+	return &v
+}
+
+// RiskLevelPMedium returns a pointer to RiskLevelVMedium
+func RiskLevelPMedium() *RiskLevel {
+	v := RiskLevelVMedium
+	return &v
+}
+
+// RiskLevelPHigh returns a pointer to RiskLevelVHigh
+func RiskLevelPHigh() *RiskLevel {
+	v := RiskLevelVHigh
+	return &v
+}
+
+// RiskLevelPHidden returns a pointer to RiskLevelVHidden
+func RiskLevelPHidden() *RiskLevel {
+	v := RiskLevelVHidden
+	return &v
+}
+
+// RiskLevelPNone returns a pointer to RiskLevelVNone
+func RiskLevelPNone() *RiskLevel {
+	v := RiskLevelVNone
+	return &v
+}
+
+// RiskLevelPUnknownFutureValue returns a pointer to RiskLevelVUnknownFutureValue
+func RiskLevelPUnknownFutureValue() *RiskLevel {
+	v := RiskLevelVUnknownFutureValue
+	return &v
+}
 
 // RiskState undocumented
 type RiskState int
 
 const (
-	// RiskState_None undocumented
-	RiskState_None RiskState = 0
-	// RiskState_ConfirmedSafe undocumented
-	RiskState_ConfirmedSafe RiskState = 1
-	// RiskState_Remediated undocumented
-	RiskState_Remediated RiskState = 2
-	// RiskState_Dismissed undocumented
-	RiskState_Dismissed RiskState = 3
-	// RiskState_AtRisk undocumented
-	RiskState_AtRisk RiskState = 4
-	// RiskState_ConfirmedCompromised undocumented
-	RiskState_ConfirmedCompromised RiskState = 5
-	// RiskState_UnknownFutureValue undocumented
-	RiskState_UnknownFutureValue RiskState = 6
+	// RiskStateVNone undocumented
+	RiskStateVNone RiskState = 0
+	// RiskStateVConfirmedSafe undocumented
+	RiskStateVConfirmedSafe RiskState = 1
+	// RiskStateVRemediated undocumented
+	RiskStateVRemediated RiskState = 2
+	// RiskStateVDismissed undocumented
+	RiskStateVDismissed RiskState = 3
+	// RiskStateVAtRisk undocumented
+	RiskStateVAtRisk RiskState = 4
+	// RiskStateVConfirmedCompromised undocumented
+	RiskStateVConfirmedCompromised RiskState = 5
+	// RiskStateVUnknownFutureValue undocumented
+	RiskStateVUnknownFutureValue RiskState = 6
 )
+
+// RiskStatePNone returns a pointer to RiskStateVNone
+func RiskStatePNone() *RiskState {
+	v := RiskStateVNone
+	return &v
+}
+
+// RiskStatePConfirmedSafe returns a pointer to RiskStateVConfirmedSafe
+func RiskStatePConfirmedSafe() *RiskState {
+	v := RiskStateVConfirmedSafe
+	return &v
+}
+
+// RiskStatePRemediated returns a pointer to RiskStateVRemediated
+func RiskStatePRemediated() *RiskState {
+	v := RiskStateVRemediated
+	return &v
+}
+
+// RiskStatePDismissed returns a pointer to RiskStateVDismissed
+func RiskStatePDismissed() *RiskState {
+	v := RiskStateVDismissed
+	return &v
+}
+
+// RiskStatePAtRisk returns a pointer to RiskStateVAtRisk
+func RiskStatePAtRisk() *RiskState {
+	v := RiskStateVAtRisk
+	return &v
+}
+
+// RiskStatePConfirmedCompromised returns a pointer to RiskStateVConfirmedCompromised
+func RiskStatePConfirmedCompromised() *RiskState {
+	v := RiskStateVConfirmedCompromised
+	return &v
+}
+
+// RiskStatePUnknownFutureValue returns a pointer to RiskStateVUnknownFutureValue
+func RiskStatePUnknownFutureValue() *RiskState {
+	v := RiskStateVUnknownFutureValue
+	return &v
+}
 
 // SafeSearchFilterType undocumented
 type SafeSearchFilterType int
 
 const (
-	// SafeSearchFilterType_UserDefined undocumented
-	SafeSearchFilterType_UserDefined SafeSearchFilterType = 0
-	// SafeSearchFilterType_Strict undocumented
-	SafeSearchFilterType_Strict SafeSearchFilterType = 1
-	// SafeSearchFilterType_Moderate undocumented
-	SafeSearchFilterType_Moderate SafeSearchFilterType = 2
+	// SafeSearchFilterTypeVUserDefined undocumented
+	SafeSearchFilterTypeVUserDefined SafeSearchFilterType = 0
+	// SafeSearchFilterTypeVStrict undocumented
+	SafeSearchFilterTypeVStrict SafeSearchFilterType = 1
+	// SafeSearchFilterTypeVModerate undocumented
+	SafeSearchFilterTypeVModerate SafeSearchFilterType = 2
 )
+
+// SafeSearchFilterTypePUserDefined returns a pointer to SafeSearchFilterTypeVUserDefined
+func SafeSearchFilterTypePUserDefined() *SafeSearchFilterType {
+	v := SafeSearchFilterTypeVUserDefined
+	return &v
+}
+
+// SafeSearchFilterTypePStrict returns a pointer to SafeSearchFilterTypeVStrict
+func SafeSearchFilterTypePStrict() *SafeSearchFilterType {
+	v := SafeSearchFilterTypeVStrict
+	return &v
+}
+
+// SafeSearchFilterTypePModerate returns a pointer to SafeSearchFilterTypeVModerate
+func SafeSearchFilterTypePModerate() *SafeSearchFilterType {
+	v := SafeSearchFilterTypeVModerate
+	return &v
+}
 
 // ScreenSharingRole undocumented
 type ScreenSharingRole int
 
 const (
-	// ScreenSharingRole_Viewer undocumented
-	ScreenSharingRole_Viewer ScreenSharingRole = 0
-	// ScreenSharingRole_Sharer undocumented
-	ScreenSharingRole_Sharer ScreenSharingRole = 1
+	// ScreenSharingRoleVViewer undocumented
+	ScreenSharingRoleVViewer ScreenSharingRole = 0
+	// ScreenSharingRoleVSharer undocumented
+	ScreenSharingRoleVSharer ScreenSharingRole = 1
 )
+
+// ScreenSharingRolePViewer returns a pointer to ScreenSharingRoleVViewer
+func ScreenSharingRolePViewer() *ScreenSharingRole {
+	v := ScreenSharingRoleVViewer
+	return &v
+}
+
+// ScreenSharingRolePSharer returns a pointer to ScreenSharingRoleVSharer
+func ScreenSharingRolePSharer() *ScreenSharingRole {
+	v := ScreenSharingRoleVSharer
+	return &v
+}
 
 // SecurityNetworkProtocol undocumented
 type SecurityNetworkProtocol int
 
 const (
-	// SecurityNetworkProtocol_IP undocumented
-	SecurityNetworkProtocol_IP SecurityNetworkProtocol = 0
-	// SecurityNetworkProtocol_Icmp undocumented
-	SecurityNetworkProtocol_Icmp SecurityNetworkProtocol = 1
-	// SecurityNetworkProtocol_Igmp undocumented
-	SecurityNetworkProtocol_Igmp SecurityNetworkProtocol = 2
-	// SecurityNetworkProtocol_Ggp undocumented
-	SecurityNetworkProtocol_Ggp SecurityNetworkProtocol = 3
-	// SecurityNetworkProtocol_Ipv4 undocumented
-	SecurityNetworkProtocol_Ipv4 SecurityNetworkProtocol = 4
-	// SecurityNetworkProtocol_TCP undocumented
-	SecurityNetworkProtocol_TCP SecurityNetworkProtocol = 6
-	// SecurityNetworkProtocol_Pup undocumented
-	SecurityNetworkProtocol_Pup SecurityNetworkProtocol = 12
-	// SecurityNetworkProtocol_UDP undocumented
-	SecurityNetworkProtocol_UDP SecurityNetworkProtocol = 17
-	// SecurityNetworkProtocol_Idp undocumented
-	SecurityNetworkProtocol_Idp SecurityNetworkProtocol = 22
-	// SecurityNetworkProtocol_Ipv6 undocumented
-	SecurityNetworkProtocol_Ipv6 SecurityNetworkProtocol = 41
-	// SecurityNetworkProtocol_Ipv6RoutingHeader undocumented
-	SecurityNetworkProtocol_Ipv6RoutingHeader SecurityNetworkProtocol = 43
-	// SecurityNetworkProtocol_Ipv6FragmentHeader undocumented
-	SecurityNetworkProtocol_Ipv6FragmentHeader SecurityNetworkProtocol = 44
-	// SecurityNetworkProtocol_IPSecEncapsulatingSecurityPayload undocumented
-	SecurityNetworkProtocol_IPSecEncapsulatingSecurityPayload SecurityNetworkProtocol = 50
-	// SecurityNetworkProtocol_IPSecAuthenticationHeader undocumented
-	SecurityNetworkProtocol_IPSecAuthenticationHeader SecurityNetworkProtocol = 51
-	// SecurityNetworkProtocol_IcmpV6 undocumented
-	SecurityNetworkProtocol_IcmpV6 SecurityNetworkProtocol = 58
-	// SecurityNetworkProtocol_Ipv6NoNextHeader undocumented
-	SecurityNetworkProtocol_Ipv6NoNextHeader SecurityNetworkProtocol = 59
-	// SecurityNetworkProtocol_Ipv6DestinationOptions undocumented
-	SecurityNetworkProtocol_Ipv6DestinationOptions SecurityNetworkProtocol = 60
-	// SecurityNetworkProtocol_Nd undocumented
-	SecurityNetworkProtocol_Nd SecurityNetworkProtocol = 77
-	// SecurityNetworkProtocol_Raw undocumented
-	SecurityNetworkProtocol_Raw SecurityNetworkProtocol = 255
-	// SecurityNetworkProtocol_Ipx undocumented
-	SecurityNetworkProtocol_Ipx SecurityNetworkProtocol = 1000
-	// SecurityNetworkProtocol_Spx undocumented
-	SecurityNetworkProtocol_Spx SecurityNetworkProtocol = 1256
-	// SecurityNetworkProtocol_SpxII undocumented
-	SecurityNetworkProtocol_SpxII SecurityNetworkProtocol = 1257
-	// SecurityNetworkProtocol_UnknownFutureValue undocumented
-	SecurityNetworkProtocol_UnknownFutureValue SecurityNetworkProtocol = 32767
-	// SecurityNetworkProtocol_Unknown undocumented
-	SecurityNetworkProtocol_Unknown SecurityNetworkProtocol = -1
+	// SecurityNetworkProtocolVIP undocumented
+	SecurityNetworkProtocolVIP SecurityNetworkProtocol = 0
+	// SecurityNetworkProtocolVIcmp undocumented
+	SecurityNetworkProtocolVIcmp SecurityNetworkProtocol = 1
+	// SecurityNetworkProtocolVIgmp undocumented
+	SecurityNetworkProtocolVIgmp SecurityNetworkProtocol = 2
+	// SecurityNetworkProtocolVGgp undocumented
+	SecurityNetworkProtocolVGgp SecurityNetworkProtocol = 3
+	// SecurityNetworkProtocolVIpv4 undocumented
+	SecurityNetworkProtocolVIpv4 SecurityNetworkProtocol = 4
+	// SecurityNetworkProtocolVTCP undocumented
+	SecurityNetworkProtocolVTCP SecurityNetworkProtocol = 6
+	// SecurityNetworkProtocolVPup undocumented
+	SecurityNetworkProtocolVPup SecurityNetworkProtocol = 12
+	// SecurityNetworkProtocolVUDP undocumented
+	SecurityNetworkProtocolVUDP SecurityNetworkProtocol = 17
+	// SecurityNetworkProtocolVIdp undocumented
+	SecurityNetworkProtocolVIdp SecurityNetworkProtocol = 22
+	// SecurityNetworkProtocolVIpv6 undocumented
+	SecurityNetworkProtocolVIpv6 SecurityNetworkProtocol = 41
+	// SecurityNetworkProtocolVIpv6RoutingHeader undocumented
+	SecurityNetworkProtocolVIpv6RoutingHeader SecurityNetworkProtocol = 43
+	// SecurityNetworkProtocolVIpv6FragmentHeader undocumented
+	SecurityNetworkProtocolVIpv6FragmentHeader SecurityNetworkProtocol = 44
+	// SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload undocumented
+	SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload SecurityNetworkProtocol = 50
+	// SecurityNetworkProtocolVIPSecAuthenticationHeader undocumented
+	SecurityNetworkProtocolVIPSecAuthenticationHeader SecurityNetworkProtocol = 51
+	// SecurityNetworkProtocolVIcmpV6 undocumented
+	SecurityNetworkProtocolVIcmpV6 SecurityNetworkProtocol = 58
+	// SecurityNetworkProtocolVIpv6NoNextHeader undocumented
+	SecurityNetworkProtocolVIpv6NoNextHeader SecurityNetworkProtocol = 59
+	// SecurityNetworkProtocolVIpv6DestinationOptions undocumented
+	SecurityNetworkProtocolVIpv6DestinationOptions SecurityNetworkProtocol = 60
+	// SecurityNetworkProtocolVNd undocumented
+	SecurityNetworkProtocolVNd SecurityNetworkProtocol = 77
+	// SecurityNetworkProtocolVRaw undocumented
+	SecurityNetworkProtocolVRaw SecurityNetworkProtocol = 255
+	// SecurityNetworkProtocolVIpx undocumented
+	SecurityNetworkProtocolVIpx SecurityNetworkProtocol = 1000
+	// SecurityNetworkProtocolVSpx undocumented
+	SecurityNetworkProtocolVSpx SecurityNetworkProtocol = 1256
+	// SecurityNetworkProtocolVSpxII undocumented
+	SecurityNetworkProtocolVSpxII SecurityNetworkProtocol = 1257
+	// SecurityNetworkProtocolVUnknownFutureValue undocumented
+	SecurityNetworkProtocolVUnknownFutureValue SecurityNetworkProtocol = 32767
+	// SecurityNetworkProtocolVUnknown undocumented
+	SecurityNetworkProtocolVUnknown SecurityNetworkProtocol = -1
 )
+
+// SecurityNetworkProtocolPIP returns a pointer to SecurityNetworkProtocolVIP
+func SecurityNetworkProtocolPIP() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIP
+	return &v
+}
+
+// SecurityNetworkProtocolPIcmp returns a pointer to SecurityNetworkProtocolVIcmp
+func SecurityNetworkProtocolPIcmp() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIcmp
+	return &v
+}
+
+// SecurityNetworkProtocolPIgmp returns a pointer to SecurityNetworkProtocolVIgmp
+func SecurityNetworkProtocolPIgmp() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIgmp
+	return &v
+}
+
+// SecurityNetworkProtocolPGgp returns a pointer to SecurityNetworkProtocolVGgp
+func SecurityNetworkProtocolPGgp() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVGgp
+	return &v
+}
+
+// SecurityNetworkProtocolPIpv4 returns a pointer to SecurityNetworkProtocolVIpv4
+func SecurityNetworkProtocolPIpv4() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpv4
+	return &v
+}
+
+// SecurityNetworkProtocolPTCP returns a pointer to SecurityNetworkProtocolVTCP
+func SecurityNetworkProtocolPTCP() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVTCP
+	return &v
+}
+
+// SecurityNetworkProtocolPPup returns a pointer to SecurityNetworkProtocolVPup
+func SecurityNetworkProtocolPPup() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVPup
+	return &v
+}
+
+// SecurityNetworkProtocolPUDP returns a pointer to SecurityNetworkProtocolVUDP
+func SecurityNetworkProtocolPUDP() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVUDP
+	return &v
+}
+
+// SecurityNetworkProtocolPIdp returns a pointer to SecurityNetworkProtocolVIdp
+func SecurityNetworkProtocolPIdp() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIdp
+	return &v
+}
+
+// SecurityNetworkProtocolPIpv6 returns a pointer to SecurityNetworkProtocolVIpv6
+func SecurityNetworkProtocolPIpv6() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpv6
+	return &v
+}
+
+// SecurityNetworkProtocolPIpv6RoutingHeader returns a pointer to SecurityNetworkProtocolVIpv6RoutingHeader
+func SecurityNetworkProtocolPIpv6RoutingHeader() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpv6RoutingHeader
+	return &v
+}
+
+// SecurityNetworkProtocolPIpv6FragmentHeader returns a pointer to SecurityNetworkProtocolVIpv6FragmentHeader
+func SecurityNetworkProtocolPIpv6FragmentHeader() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpv6FragmentHeader
+	return &v
+}
+
+// SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload returns a pointer to SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload
+func SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload
+	return &v
+}
+
+// SecurityNetworkProtocolPIPSecAuthenticationHeader returns a pointer to SecurityNetworkProtocolVIPSecAuthenticationHeader
+func SecurityNetworkProtocolPIPSecAuthenticationHeader() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIPSecAuthenticationHeader
+	return &v
+}
+
+// SecurityNetworkProtocolPIcmpV6 returns a pointer to SecurityNetworkProtocolVIcmpV6
+func SecurityNetworkProtocolPIcmpV6() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIcmpV6
+	return &v
+}
+
+// SecurityNetworkProtocolPIpv6NoNextHeader returns a pointer to SecurityNetworkProtocolVIpv6NoNextHeader
+func SecurityNetworkProtocolPIpv6NoNextHeader() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpv6NoNextHeader
+	return &v
+}
+
+// SecurityNetworkProtocolPIpv6DestinationOptions returns a pointer to SecurityNetworkProtocolVIpv6DestinationOptions
+func SecurityNetworkProtocolPIpv6DestinationOptions() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpv6DestinationOptions
+	return &v
+}
+
+// SecurityNetworkProtocolPNd returns a pointer to SecurityNetworkProtocolVNd
+func SecurityNetworkProtocolPNd() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVNd
+	return &v
+}
+
+// SecurityNetworkProtocolPRaw returns a pointer to SecurityNetworkProtocolVRaw
+func SecurityNetworkProtocolPRaw() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVRaw
+	return &v
+}
+
+// SecurityNetworkProtocolPIpx returns a pointer to SecurityNetworkProtocolVIpx
+func SecurityNetworkProtocolPIpx() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIpx
+	return &v
+}
+
+// SecurityNetworkProtocolPSpx returns a pointer to SecurityNetworkProtocolVSpx
+func SecurityNetworkProtocolPSpx() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVSpx
+	return &v
+}
+
+// SecurityNetworkProtocolPSpxII returns a pointer to SecurityNetworkProtocolVSpxII
+func SecurityNetworkProtocolPSpxII() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVSpxII
+	return &v
+}
+
+// SecurityNetworkProtocolPUnknownFutureValue returns a pointer to SecurityNetworkProtocolVUnknownFutureValue
+func SecurityNetworkProtocolPUnknownFutureValue() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVUnknownFutureValue
+	return &v
+}
+
+// SecurityNetworkProtocolPUnknown returns a pointer to SecurityNetworkProtocolVUnknown
+func SecurityNetworkProtocolPUnknown() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVUnknown
+	return &v
+}
 
 // SelectionLikelihoodInfo undocumented
 type SelectionLikelihoodInfo int
 
 const (
-	// SelectionLikelihoodInfo_NotSpecified undocumented
-	SelectionLikelihoodInfo_NotSpecified SelectionLikelihoodInfo = 0
-	// SelectionLikelihoodInfo_High undocumented
-	SelectionLikelihoodInfo_High SelectionLikelihoodInfo = 1
+	// SelectionLikelihoodInfoVNotSpecified undocumented
+	SelectionLikelihoodInfoVNotSpecified SelectionLikelihoodInfo = 0
+	// SelectionLikelihoodInfoVHigh undocumented
+	SelectionLikelihoodInfoVHigh SelectionLikelihoodInfo = 1
 )
+
+// SelectionLikelihoodInfoPNotSpecified returns a pointer to SelectionLikelihoodInfoVNotSpecified
+func SelectionLikelihoodInfoPNotSpecified() *SelectionLikelihoodInfo {
+	v := SelectionLikelihoodInfoVNotSpecified
+	return &v
+}
+
+// SelectionLikelihoodInfoPHigh returns a pointer to SelectionLikelihoodInfoVHigh
+func SelectionLikelihoodInfoPHigh() *SelectionLikelihoodInfo {
+	v := SelectionLikelihoodInfoVHigh
+	return &v
+}
 
 // Sensitivity undocumented
 type Sensitivity int
 
 const (
-	// Sensitivity_Normal undocumented
-	Sensitivity_Normal Sensitivity = 0
-	// Sensitivity_Personal undocumented
-	Sensitivity_Personal Sensitivity = 1
-	// Sensitivity_Private undocumented
-	Sensitivity_Private Sensitivity = 2
-	// Sensitivity_Confidential undocumented
-	Sensitivity_Confidential Sensitivity = 3
+	// SensitivityVNormal undocumented
+	SensitivityVNormal Sensitivity = 0
+	// SensitivityVPersonal undocumented
+	SensitivityVPersonal Sensitivity = 1
+	// SensitivityVPrivate undocumented
+	SensitivityVPrivate Sensitivity = 2
+	// SensitivityVConfidential undocumented
+	SensitivityVConfidential Sensitivity = 3
 )
+
+// SensitivityPNormal returns a pointer to SensitivityVNormal
+func SensitivityPNormal() *Sensitivity {
+	v := SensitivityVNormal
+	return &v
+}
+
+// SensitivityPPersonal returns a pointer to SensitivityVPersonal
+func SensitivityPPersonal() *Sensitivity {
+	v := SensitivityVPersonal
+	return &v
+}
+
+// SensitivityPPrivate returns a pointer to SensitivityVPrivate
+func SensitivityPPrivate() *Sensitivity {
+	v := SensitivityVPrivate
+	return &v
+}
+
+// SensitivityPConfidential returns a pointer to SensitivityVConfidential
+func SensitivityPConfidential() *Sensitivity {
+	v := SensitivityVConfidential
+	return &v
+}
 
 // SharedPCAccountDeletionPolicyType undocumented
 type SharedPCAccountDeletionPolicyType int
 
 const (
-	// SharedPCAccountDeletionPolicyType_Immediate undocumented
-	SharedPCAccountDeletionPolicyType_Immediate SharedPCAccountDeletionPolicyType = 0
-	// SharedPCAccountDeletionPolicyType_DiskSpaceThreshold undocumented
-	SharedPCAccountDeletionPolicyType_DiskSpaceThreshold SharedPCAccountDeletionPolicyType = 1
-	// SharedPCAccountDeletionPolicyType_DiskSpaceThresholdOrInactiveThreshold undocumented
-	SharedPCAccountDeletionPolicyType_DiskSpaceThresholdOrInactiveThreshold SharedPCAccountDeletionPolicyType = 2
+	// SharedPCAccountDeletionPolicyTypeVImmediate undocumented
+	SharedPCAccountDeletionPolicyTypeVImmediate SharedPCAccountDeletionPolicyType = 0
+	// SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold undocumented
+	SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold SharedPCAccountDeletionPolicyType = 1
+	// SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold undocumented
+	SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold SharedPCAccountDeletionPolicyType = 2
 )
+
+// SharedPCAccountDeletionPolicyTypePImmediate returns a pointer to SharedPCAccountDeletionPolicyTypeVImmediate
+func SharedPCAccountDeletionPolicyTypePImmediate() *SharedPCAccountDeletionPolicyType {
+	v := SharedPCAccountDeletionPolicyTypeVImmediate
+	return &v
+}
+
+// SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold returns a pointer to SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold
+func SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold() *SharedPCAccountDeletionPolicyType {
+	v := SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold
+	return &v
+}
+
+// SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold returns a pointer to SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold
+func SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold() *SharedPCAccountDeletionPolicyType {
+	v := SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold
+	return &v
+}
 
 // SharedPCAllowedAccountType undocumented
 type SharedPCAllowedAccountType int
 
 const (
-	// SharedPCAllowedAccountType_Guest undocumented
-	SharedPCAllowedAccountType_Guest SharedPCAllowedAccountType = 1
-	// SharedPCAllowedAccountType_Domain undocumented
-	SharedPCAllowedAccountType_Domain SharedPCAllowedAccountType = 2
+	// SharedPCAllowedAccountTypeVGuest undocumented
+	SharedPCAllowedAccountTypeVGuest SharedPCAllowedAccountType = 1
+	// SharedPCAllowedAccountTypeVDomain undocumented
+	SharedPCAllowedAccountTypeVDomain SharedPCAllowedAccountType = 2
 )
+
+// SharedPCAllowedAccountTypePGuest returns a pointer to SharedPCAllowedAccountTypeVGuest
+func SharedPCAllowedAccountTypePGuest() *SharedPCAllowedAccountType {
+	v := SharedPCAllowedAccountTypeVGuest
+	return &v
+}
+
+// SharedPCAllowedAccountTypePDomain returns a pointer to SharedPCAllowedAccountTypeVDomain
+func SharedPCAllowedAccountTypePDomain() *SharedPCAllowedAccountType {
+	v := SharedPCAllowedAccountTypeVDomain
+	return &v
+}
 
 // SiteSecurityLevel undocumented
 type SiteSecurityLevel int
 
 const (
-	// SiteSecurityLevel_UserDefined undocumented
-	SiteSecurityLevel_UserDefined SiteSecurityLevel = 0
-	// SiteSecurityLevel_Low undocumented
-	SiteSecurityLevel_Low SiteSecurityLevel = 1
-	// SiteSecurityLevel_MediumLow undocumented
-	SiteSecurityLevel_MediumLow SiteSecurityLevel = 2
-	// SiteSecurityLevel_Medium undocumented
-	SiteSecurityLevel_Medium SiteSecurityLevel = 3
-	// SiteSecurityLevel_MediumHigh undocumented
-	SiteSecurityLevel_MediumHigh SiteSecurityLevel = 4
-	// SiteSecurityLevel_High undocumented
-	SiteSecurityLevel_High SiteSecurityLevel = 5
+	// SiteSecurityLevelVUserDefined undocumented
+	SiteSecurityLevelVUserDefined SiteSecurityLevel = 0
+	// SiteSecurityLevelVLow undocumented
+	SiteSecurityLevelVLow SiteSecurityLevel = 1
+	// SiteSecurityLevelVMediumLow undocumented
+	SiteSecurityLevelVMediumLow SiteSecurityLevel = 2
+	// SiteSecurityLevelVMedium undocumented
+	SiteSecurityLevelVMedium SiteSecurityLevel = 3
+	// SiteSecurityLevelVMediumHigh undocumented
+	SiteSecurityLevelVMediumHigh SiteSecurityLevel = 4
+	// SiteSecurityLevelVHigh undocumented
+	SiteSecurityLevelVHigh SiteSecurityLevel = 5
 )
+
+// SiteSecurityLevelPUserDefined returns a pointer to SiteSecurityLevelVUserDefined
+func SiteSecurityLevelPUserDefined() *SiteSecurityLevel {
+	v := SiteSecurityLevelVUserDefined
+	return &v
+}
+
+// SiteSecurityLevelPLow returns a pointer to SiteSecurityLevelVLow
+func SiteSecurityLevelPLow() *SiteSecurityLevel {
+	v := SiteSecurityLevelVLow
+	return &v
+}
+
+// SiteSecurityLevelPMediumLow returns a pointer to SiteSecurityLevelVMediumLow
+func SiteSecurityLevelPMediumLow() *SiteSecurityLevel {
+	v := SiteSecurityLevelVMediumLow
+	return &v
+}
+
+// SiteSecurityLevelPMedium returns a pointer to SiteSecurityLevelVMedium
+func SiteSecurityLevelPMedium() *SiteSecurityLevel {
+	v := SiteSecurityLevelVMedium
+	return &v
+}
+
+// SiteSecurityLevelPMediumHigh returns a pointer to SiteSecurityLevelVMediumHigh
+func SiteSecurityLevelPMediumHigh() *SiteSecurityLevel {
+	v := SiteSecurityLevelVMediumHigh
+	return &v
+}
+
+// SiteSecurityLevelPHigh returns a pointer to SiteSecurityLevelVHigh
+func SiteSecurityLevelPHigh() *SiteSecurityLevel {
+	v := SiteSecurityLevelVHigh
+	return &v
+}
 
 // StateManagementSetting undocumented
 type StateManagementSetting int
 
 const (
-	// StateManagementSetting_NotConfigured undocumented
-	StateManagementSetting_NotConfigured StateManagementSetting = 0
-	// StateManagementSetting_Blocked undocumented
-	StateManagementSetting_Blocked StateManagementSetting = 1
-	// StateManagementSetting_Allowed undocumented
-	StateManagementSetting_Allowed StateManagementSetting = 2
+	// StateManagementSettingVNotConfigured undocumented
+	StateManagementSettingVNotConfigured StateManagementSetting = 0
+	// StateManagementSettingVBlocked undocumented
+	StateManagementSettingVBlocked StateManagementSetting = 1
+	// StateManagementSettingVAllowed undocumented
+	StateManagementSettingVAllowed StateManagementSetting = 2
 )
+
+// StateManagementSettingPNotConfigured returns a pointer to StateManagementSettingVNotConfigured
+func StateManagementSettingPNotConfigured() *StateManagementSetting {
+	v := StateManagementSettingVNotConfigured
+	return &v
+}
+
+// StateManagementSettingPBlocked returns a pointer to StateManagementSettingVBlocked
+func StateManagementSettingPBlocked() *StateManagementSetting {
+	v := StateManagementSettingVBlocked
+	return &v
+}
+
+// StateManagementSettingPAllowed returns a pointer to StateManagementSettingVAllowed
+func StateManagementSettingPAllowed() *StateManagementSetting {
+	v := StateManagementSettingVAllowed
+	return &v
+}
 
 // Status undocumented
 type Status int
 
 const (
-	// Status_Active undocumented
-	Status_Active Status = 0
-	// Status_Updated undocumented
-	Status_Updated Status = 1
-	// Status_Deleted undocumented
-	Status_Deleted Status = 2
-	// Status_Ignored undocumented
-	Status_Ignored Status = 3
-	// Status_UnknownFutureValue undocumented
-	Status_UnknownFutureValue Status = 4
+	// StatusVActive undocumented
+	StatusVActive Status = 0
+	// StatusVUpdated undocumented
+	StatusVUpdated Status = 1
+	// StatusVDeleted undocumented
+	StatusVDeleted Status = 2
+	// StatusVIgnored undocumented
+	StatusVIgnored Status = 3
+	// StatusVUnknownFutureValue undocumented
+	StatusVUnknownFutureValue Status = 4
 )
+
+// StatusPActive returns a pointer to StatusVActive
+func StatusPActive() *Status {
+	v := StatusVActive
+	return &v
+}
+
+// StatusPUpdated returns a pointer to StatusVUpdated
+func StatusPUpdated() *Status {
+	v := StatusVUpdated
+	return &v
+}
+
+// StatusPDeleted returns a pointer to StatusVDeleted
+func StatusPDeleted() *Status {
+	v := StatusVDeleted
+	return &v
+}
+
+// StatusPIgnored returns a pointer to StatusVIgnored
+func StatusPIgnored() *Status {
+	v := StatusVIgnored
+	return &v
+}
+
+// StatusPUnknownFutureValue returns a pointer to StatusVUnknownFutureValue
+func StatusPUnknownFutureValue() *Status {
+	v := StatusVUnknownFutureValue
+	return &v
+}
 
 // TeamVisibilityType undocumented
 type TeamVisibilityType int
 
 const (
-	// TeamVisibilityType_Private undocumented
-	TeamVisibilityType_Private TeamVisibilityType = 0
-	// TeamVisibilityType_Public undocumented
-	TeamVisibilityType_Public TeamVisibilityType = 1
-	// TeamVisibilityType_HiddenMembership undocumented
-	TeamVisibilityType_HiddenMembership TeamVisibilityType = 2
-	// TeamVisibilityType_UnknownFutureValue undocumented
-	TeamVisibilityType_UnknownFutureValue TeamVisibilityType = 3
+	// TeamVisibilityTypeVPrivate undocumented
+	TeamVisibilityTypeVPrivate TeamVisibilityType = 0
+	// TeamVisibilityTypeVPublic undocumented
+	TeamVisibilityTypeVPublic TeamVisibilityType = 1
+	// TeamVisibilityTypeVHiddenMembership undocumented
+	TeamVisibilityTypeVHiddenMembership TeamVisibilityType = 2
+	// TeamVisibilityTypeVUnknownFutureValue undocumented
+	TeamVisibilityTypeVUnknownFutureValue TeamVisibilityType = 3
 )
+
+// TeamVisibilityTypePPrivate returns a pointer to TeamVisibilityTypeVPrivate
+func TeamVisibilityTypePPrivate() *TeamVisibilityType {
+	v := TeamVisibilityTypeVPrivate
+	return &v
+}
+
+// TeamVisibilityTypePPublic returns a pointer to TeamVisibilityTypeVPublic
+func TeamVisibilityTypePPublic() *TeamVisibilityType {
+	v := TeamVisibilityTypeVPublic
+	return &v
+}
+
+// TeamVisibilityTypePHiddenMembership returns a pointer to TeamVisibilityTypeVHiddenMembership
+func TeamVisibilityTypePHiddenMembership() *TeamVisibilityType {
+	v := TeamVisibilityTypeVHiddenMembership
+	return &v
+}
+
+// TeamVisibilityTypePUnknownFutureValue returns a pointer to TeamVisibilityTypeVUnknownFutureValue
+func TeamVisibilityTypePUnknownFutureValue() *TeamVisibilityType {
+	v := TeamVisibilityTypeVUnknownFutureValue
+	return &v
+}
 
 // TeamsAppDistributionMethod undocumented
 type TeamsAppDistributionMethod int
 
 const (
-	// TeamsAppDistributionMethod_Store undocumented
-	TeamsAppDistributionMethod_Store TeamsAppDistributionMethod = 0
-	// TeamsAppDistributionMethod_Organization undocumented
-	TeamsAppDistributionMethod_Organization TeamsAppDistributionMethod = 1
-	// TeamsAppDistributionMethod_Sideloaded undocumented
-	TeamsAppDistributionMethod_Sideloaded TeamsAppDistributionMethod = 2
-	// TeamsAppDistributionMethod_UnknownFutureValue undocumented
-	TeamsAppDistributionMethod_UnknownFutureValue TeamsAppDistributionMethod = 3
+	// TeamsAppDistributionMethodVStore undocumented
+	TeamsAppDistributionMethodVStore TeamsAppDistributionMethod = 0
+	// TeamsAppDistributionMethodVOrganization undocumented
+	TeamsAppDistributionMethodVOrganization TeamsAppDistributionMethod = 1
+	// TeamsAppDistributionMethodVSideloaded undocumented
+	TeamsAppDistributionMethodVSideloaded TeamsAppDistributionMethod = 2
+	// TeamsAppDistributionMethodVUnknownFutureValue undocumented
+	TeamsAppDistributionMethodVUnknownFutureValue TeamsAppDistributionMethod = 3
 )
+
+// TeamsAppDistributionMethodPStore returns a pointer to TeamsAppDistributionMethodVStore
+func TeamsAppDistributionMethodPStore() *TeamsAppDistributionMethod {
+	v := TeamsAppDistributionMethodVStore
+	return &v
+}
+
+// TeamsAppDistributionMethodPOrganization returns a pointer to TeamsAppDistributionMethodVOrganization
+func TeamsAppDistributionMethodPOrganization() *TeamsAppDistributionMethod {
+	v := TeamsAppDistributionMethodVOrganization
+	return &v
+}
+
+// TeamsAppDistributionMethodPSideloaded returns a pointer to TeamsAppDistributionMethodVSideloaded
+func TeamsAppDistributionMethodPSideloaded() *TeamsAppDistributionMethod {
+	v := TeamsAppDistributionMethodVSideloaded
+	return &v
+}
+
+// TeamsAppDistributionMethodPUnknownFutureValue returns a pointer to TeamsAppDistributionMethodVUnknownFutureValue
+func TeamsAppDistributionMethodPUnknownFutureValue() *TeamsAppDistributionMethod {
+	v := TeamsAppDistributionMethodVUnknownFutureValue
+	return &v
+}
 
 // TeamsAsyncOperationStatus undocumented
 type TeamsAsyncOperationStatus int
 
 const (
-	// TeamsAsyncOperationStatus_Invalid undocumented
-	TeamsAsyncOperationStatus_Invalid TeamsAsyncOperationStatus = 0
-	// TeamsAsyncOperationStatus_NotStarted undocumented
-	TeamsAsyncOperationStatus_NotStarted TeamsAsyncOperationStatus = 1
-	// TeamsAsyncOperationStatus_InProgress undocumented
-	TeamsAsyncOperationStatus_InProgress TeamsAsyncOperationStatus = 2
-	// TeamsAsyncOperationStatus_Succeeded undocumented
-	TeamsAsyncOperationStatus_Succeeded TeamsAsyncOperationStatus = 3
-	// TeamsAsyncOperationStatus_Failed undocumented
-	TeamsAsyncOperationStatus_Failed TeamsAsyncOperationStatus = 4
-	// TeamsAsyncOperationStatus_UnknownFutureValue undocumented
-	TeamsAsyncOperationStatus_UnknownFutureValue TeamsAsyncOperationStatus = 5
+	// TeamsAsyncOperationStatusVInvalid undocumented
+	TeamsAsyncOperationStatusVInvalid TeamsAsyncOperationStatus = 0
+	// TeamsAsyncOperationStatusVNotStarted undocumented
+	TeamsAsyncOperationStatusVNotStarted TeamsAsyncOperationStatus = 1
+	// TeamsAsyncOperationStatusVInProgress undocumented
+	TeamsAsyncOperationStatusVInProgress TeamsAsyncOperationStatus = 2
+	// TeamsAsyncOperationStatusVSucceeded undocumented
+	TeamsAsyncOperationStatusVSucceeded TeamsAsyncOperationStatus = 3
+	// TeamsAsyncOperationStatusVFailed undocumented
+	TeamsAsyncOperationStatusVFailed TeamsAsyncOperationStatus = 4
+	// TeamsAsyncOperationStatusVUnknownFutureValue undocumented
+	TeamsAsyncOperationStatusVUnknownFutureValue TeamsAsyncOperationStatus = 5
 )
+
+// TeamsAsyncOperationStatusPInvalid returns a pointer to TeamsAsyncOperationStatusVInvalid
+func TeamsAsyncOperationStatusPInvalid() *TeamsAsyncOperationStatus {
+	v := TeamsAsyncOperationStatusVInvalid
+	return &v
+}
+
+// TeamsAsyncOperationStatusPNotStarted returns a pointer to TeamsAsyncOperationStatusVNotStarted
+func TeamsAsyncOperationStatusPNotStarted() *TeamsAsyncOperationStatus {
+	v := TeamsAsyncOperationStatusVNotStarted
+	return &v
+}
+
+// TeamsAsyncOperationStatusPInProgress returns a pointer to TeamsAsyncOperationStatusVInProgress
+func TeamsAsyncOperationStatusPInProgress() *TeamsAsyncOperationStatus {
+	v := TeamsAsyncOperationStatusVInProgress
+	return &v
+}
+
+// TeamsAsyncOperationStatusPSucceeded returns a pointer to TeamsAsyncOperationStatusVSucceeded
+func TeamsAsyncOperationStatusPSucceeded() *TeamsAsyncOperationStatus {
+	v := TeamsAsyncOperationStatusVSucceeded
+	return &v
+}
+
+// TeamsAsyncOperationStatusPFailed returns a pointer to TeamsAsyncOperationStatusVFailed
+func TeamsAsyncOperationStatusPFailed() *TeamsAsyncOperationStatus {
+	v := TeamsAsyncOperationStatusVFailed
+	return &v
+}
+
+// TeamsAsyncOperationStatusPUnknownFutureValue returns a pointer to TeamsAsyncOperationStatusVUnknownFutureValue
+func TeamsAsyncOperationStatusPUnknownFutureValue() *TeamsAsyncOperationStatus {
+	v := TeamsAsyncOperationStatusVUnknownFutureValue
+	return &v
+}
 
 // TeamsAsyncOperationType undocumented
 type TeamsAsyncOperationType int
 
 const (
-	// TeamsAsyncOperationType_Invalid undocumented
-	TeamsAsyncOperationType_Invalid TeamsAsyncOperationType = 0
-	// TeamsAsyncOperationType_CloneTeam undocumented
-	TeamsAsyncOperationType_CloneTeam TeamsAsyncOperationType = 1
-	// TeamsAsyncOperationType_ArchiveTeam undocumented
-	TeamsAsyncOperationType_ArchiveTeam TeamsAsyncOperationType = 2
-	// TeamsAsyncOperationType_UnarchiveTeam undocumented
-	TeamsAsyncOperationType_UnarchiveTeam TeamsAsyncOperationType = 3
-	// TeamsAsyncOperationType_CreateTeam undocumented
-	TeamsAsyncOperationType_CreateTeam TeamsAsyncOperationType = 4
-	// TeamsAsyncOperationType_UnknownFutureValue undocumented
-	TeamsAsyncOperationType_UnknownFutureValue TeamsAsyncOperationType = 5
+	// TeamsAsyncOperationTypeVInvalid undocumented
+	TeamsAsyncOperationTypeVInvalid TeamsAsyncOperationType = 0
+	// TeamsAsyncOperationTypeVCloneTeam undocumented
+	TeamsAsyncOperationTypeVCloneTeam TeamsAsyncOperationType = 1
+	// TeamsAsyncOperationTypeVArchiveTeam undocumented
+	TeamsAsyncOperationTypeVArchiveTeam TeamsAsyncOperationType = 2
+	// TeamsAsyncOperationTypeVUnarchiveTeam undocumented
+	TeamsAsyncOperationTypeVUnarchiveTeam TeamsAsyncOperationType = 3
+	// TeamsAsyncOperationTypeVCreateTeam undocumented
+	TeamsAsyncOperationTypeVCreateTeam TeamsAsyncOperationType = 4
+	// TeamsAsyncOperationTypeVUnknownFutureValue undocumented
+	TeamsAsyncOperationTypeVUnknownFutureValue TeamsAsyncOperationType = 5
 )
+
+// TeamsAsyncOperationTypePInvalid returns a pointer to TeamsAsyncOperationTypeVInvalid
+func TeamsAsyncOperationTypePInvalid() *TeamsAsyncOperationType {
+	v := TeamsAsyncOperationTypeVInvalid
+	return &v
+}
+
+// TeamsAsyncOperationTypePCloneTeam returns a pointer to TeamsAsyncOperationTypeVCloneTeam
+func TeamsAsyncOperationTypePCloneTeam() *TeamsAsyncOperationType {
+	v := TeamsAsyncOperationTypeVCloneTeam
+	return &v
+}
+
+// TeamsAsyncOperationTypePArchiveTeam returns a pointer to TeamsAsyncOperationTypeVArchiveTeam
+func TeamsAsyncOperationTypePArchiveTeam() *TeamsAsyncOperationType {
+	v := TeamsAsyncOperationTypeVArchiveTeam
+	return &v
+}
+
+// TeamsAsyncOperationTypePUnarchiveTeam returns a pointer to TeamsAsyncOperationTypeVUnarchiveTeam
+func TeamsAsyncOperationTypePUnarchiveTeam() *TeamsAsyncOperationType {
+	v := TeamsAsyncOperationTypeVUnarchiveTeam
+	return &v
+}
+
+// TeamsAsyncOperationTypePCreateTeam returns a pointer to TeamsAsyncOperationTypeVCreateTeam
+func TeamsAsyncOperationTypePCreateTeam() *TeamsAsyncOperationType {
+	v := TeamsAsyncOperationTypeVCreateTeam
+	return &v
+}
+
+// TeamsAsyncOperationTypePUnknownFutureValue returns a pointer to TeamsAsyncOperationTypeVUnknownFutureValue
+func TeamsAsyncOperationTypePUnknownFutureValue() *TeamsAsyncOperationType {
+	v := TeamsAsyncOperationTypeVUnknownFutureValue
+	return &v
+}
 
 // TimeZoneStandard undocumented
 type TimeZoneStandard int
 
 const (
-	// TimeZoneStandard_Windows undocumented
-	TimeZoneStandard_Windows TimeZoneStandard = 0
-	// TimeZoneStandard_Iana undocumented
-	TimeZoneStandard_Iana TimeZoneStandard = 1
+	// TimeZoneStandardVWindows undocumented
+	TimeZoneStandardVWindows TimeZoneStandard = 0
+	// TimeZoneStandardVIana undocumented
+	TimeZoneStandardVIana TimeZoneStandard = 1
 )
+
+// TimeZoneStandardPWindows returns a pointer to TimeZoneStandardVWindows
+func TimeZoneStandardPWindows() *TimeZoneStandard {
+	v := TimeZoneStandardVWindows
+	return &v
+}
+
+// TimeZoneStandardPIana returns a pointer to TimeZoneStandardVIana
+func TimeZoneStandardPIana() *TimeZoneStandard {
+	v := TimeZoneStandardVIana
+	return &v
+}
 
 // Tone undocumented
 type Tone int
 
 const (
-	// Tone_Tone0 undocumented
-	Tone_Tone0 Tone = 0
-	// Tone_Tone1 undocumented
-	Tone_Tone1 Tone = 1
-	// Tone_Tone2 undocumented
-	Tone_Tone2 Tone = 2
-	// Tone_Tone3 undocumented
-	Tone_Tone3 Tone = 3
-	// Tone_Tone4 undocumented
-	Tone_Tone4 Tone = 4
-	// Tone_Tone5 undocumented
-	Tone_Tone5 Tone = 5
-	// Tone_Tone6 undocumented
-	Tone_Tone6 Tone = 6
-	// Tone_Tone7 undocumented
-	Tone_Tone7 Tone = 7
-	// Tone_Tone8 undocumented
-	Tone_Tone8 Tone = 8
-	// Tone_Tone9 undocumented
-	Tone_Tone9 Tone = 9
-	// Tone_Star undocumented
-	Tone_Star Tone = 10
-	// Tone_Pound undocumented
-	Tone_Pound Tone = 11
-	// Tone_A undocumented
-	Tone_A Tone = 12
-	// Tone_B undocumented
-	Tone_B Tone = 13
-	// Tone_C undocumented
-	Tone_C Tone = 14
-	// Tone_D undocumented
-	Tone_D Tone = 15
-	// Tone_Flash undocumented
-	Tone_Flash Tone = 16
+	// ToneVTone0 undocumented
+	ToneVTone0 Tone = 0
+	// ToneVTone1 undocumented
+	ToneVTone1 Tone = 1
+	// ToneVTone2 undocumented
+	ToneVTone2 Tone = 2
+	// ToneVTone3 undocumented
+	ToneVTone3 Tone = 3
+	// ToneVTone4 undocumented
+	ToneVTone4 Tone = 4
+	// ToneVTone5 undocumented
+	ToneVTone5 Tone = 5
+	// ToneVTone6 undocumented
+	ToneVTone6 Tone = 6
+	// ToneVTone7 undocumented
+	ToneVTone7 Tone = 7
+	// ToneVTone8 undocumented
+	ToneVTone8 Tone = 8
+	// ToneVTone9 undocumented
+	ToneVTone9 Tone = 9
+	// ToneVStar undocumented
+	ToneVStar Tone = 10
+	// ToneVPound undocumented
+	ToneVPound Tone = 11
+	// ToneVA undocumented
+	ToneVA Tone = 12
+	// ToneVB undocumented
+	ToneVB Tone = 13
+	// ToneVC undocumented
+	ToneVC Tone = 14
+	// ToneVD undocumented
+	ToneVD Tone = 15
+	// ToneVFlash undocumented
+	ToneVFlash Tone = 16
 )
+
+// TonePTone0 returns a pointer to ToneVTone0
+func TonePTone0() *Tone {
+	v := ToneVTone0
+	return &v
+}
+
+// TonePTone1 returns a pointer to ToneVTone1
+func TonePTone1() *Tone {
+	v := ToneVTone1
+	return &v
+}
+
+// TonePTone2 returns a pointer to ToneVTone2
+func TonePTone2() *Tone {
+	v := ToneVTone2
+	return &v
+}
+
+// TonePTone3 returns a pointer to ToneVTone3
+func TonePTone3() *Tone {
+	v := ToneVTone3
+	return &v
+}
+
+// TonePTone4 returns a pointer to ToneVTone4
+func TonePTone4() *Tone {
+	v := ToneVTone4
+	return &v
+}
+
+// TonePTone5 returns a pointer to ToneVTone5
+func TonePTone5() *Tone {
+	v := ToneVTone5
+	return &v
+}
+
+// TonePTone6 returns a pointer to ToneVTone6
+func TonePTone6() *Tone {
+	v := ToneVTone6
+	return &v
+}
+
+// TonePTone7 returns a pointer to ToneVTone7
+func TonePTone7() *Tone {
+	v := ToneVTone7
+	return &v
+}
+
+// TonePTone8 returns a pointer to ToneVTone8
+func TonePTone8() *Tone {
+	v := ToneVTone8
+	return &v
+}
+
+// TonePTone9 returns a pointer to ToneVTone9
+func TonePTone9() *Tone {
+	v := ToneVTone9
+	return &v
+}
+
+// TonePStar returns a pointer to ToneVStar
+func TonePStar() *Tone {
+	v := ToneVStar
+	return &v
+}
+
+// TonePPound returns a pointer to ToneVPound
+func TonePPound() *Tone {
+	v := ToneVPound
+	return &v
+}
+
+// TonePA returns a pointer to ToneVA
+func TonePA() *Tone {
+	v := ToneVA
+	return &v
+}
+
+// TonePB returns a pointer to ToneVB
+func TonePB() *Tone {
+	v := ToneVB
+	return &v
+}
+
+// TonePC returns a pointer to ToneVC
+func TonePC() *Tone {
+	v := ToneVC
+	return &v
+}
+
+// TonePD returns a pointer to ToneVD
+func TonePD() *Tone {
+	v := ToneVD
+	return &v
+}
+
+// TonePFlash returns a pointer to ToneVFlash
+func TonePFlash() *Tone {
+	v := ToneVFlash
+	return &v
+}
 
 // UserAccountSecurityType undocumented
 type UserAccountSecurityType int
 
 const (
-	// UserAccountSecurityType_Unknown undocumented
-	UserAccountSecurityType_Unknown UserAccountSecurityType = 0
-	// UserAccountSecurityType_Standard undocumented
-	UserAccountSecurityType_Standard UserAccountSecurityType = 1
-	// UserAccountSecurityType_Power undocumented
-	UserAccountSecurityType_Power UserAccountSecurityType = 2
-	// UserAccountSecurityType_Administrator undocumented
-	UserAccountSecurityType_Administrator UserAccountSecurityType = 3
-	// UserAccountSecurityType_UnknownFutureValue undocumented
-	UserAccountSecurityType_UnknownFutureValue UserAccountSecurityType = 127
+	// UserAccountSecurityTypeVUnknown undocumented
+	UserAccountSecurityTypeVUnknown UserAccountSecurityType = 0
+	// UserAccountSecurityTypeVStandard undocumented
+	UserAccountSecurityTypeVStandard UserAccountSecurityType = 1
+	// UserAccountSecurityTypeVPower undocumented
+	UserAccountSecurityTypeVPower UserAccountSecurityType = 2
+	// UserAccountSecurityTypeVAdministrator undocumented
+	UserAccountSecurityTypeVAdministrator UserAccountSecurityType = 3
+	// UserAccountSecurityTypeVUnknownFutureValue undocumented
+	UserAccountSecurityTypeVUnknownFutureValue UserAccountSecurityType = 127
 )
+
+// UserAccountSecurityTypePUnknown returns a pointer to UserAccountSecurityTypeVUnknown
+func UserAccountSecurityTypePUnknown() *UserAccountSecurityType {
+	v := UserAccountSecurityTypeVUnknown
+	return &v
+}
+
+// UserAccountSecurityTypePStandard returns a pointer to UserAccountSecurityTypeVStandard
+func UserAccountSecurityTypePStandard() *UserAccountSecurityType {
+	v := UserAccountSecurityTypeVStandard
+	return &v
+}
+
+// UserAccountSecurityTypePPower returns a pointer to UserAccountSecurityTypeVPower
+func UserAccountSecurityTypePPower() *UserAccountSecurityType {
+	v := UserAccountSecurityTypeVPower
+	return &v
+}
+
+// UserAccountSecurityTypePAdministrator returns a pointer to UserAccountSecurityTypeVAdministrator
+func UserAccountSecurityTypePAdministrator() *UserAccountSecurityType {
+	v := UserAccountSecurityTypeVAdministrator
+	return &v
+}
+
+// UserAccountSecurityTypePUnknownFutureValue returns a pointer to UserAccountSecurityTypeVUnknownFutureValue
+func UserAccountSecurityTypePUnknownFutureValue() *UserAccountSecurityType {
+	v := UserAccountSecurityTypeVUnknownFutureValue
+	return &v
+}
 
 // VisibilitySetting undocumented
 type VisibilitySetting int
 
 const (
-	// VisibilitySetting_NotConfigured undocumented
-	VisibilitySetting_NotConfigured VisibilitySetting = 0
-	// VisibilitySetting_Hide undocumented
-	VisibilitySetting_Hide VisibilitySetting = 1
-	// VisibilitySetting_Show undocumented
-	VisibilitySetting_Show VisibilitySetting = 2
+	// VisibilitySettingVNotConfigured undocumented
+	VisibilitySettingVNotConfigured VisibilitySetting = 0
+	// VisibilitySettingVHide undocumented
+	VisibilitySettingVHide VisibilitySetting = 1
+	// VisibilitySettingVShow undocumented
+	VisibilitySettingVShow VisibilitySetting = 2
 )
+
+// VisibilitySettingPNotConfigured returns a pointer to VisibilitySettingVNotConfigured
+func VisibilitySettingPNotConfigured() *VisibilitySetting {
+	v := VisibilitySettingVNotConfigured
+	return &v
+}
+
+// VisibilitySettingPHide returns a pointer to VisibilitySettingVHide
+func VisibilitySettingPHide() *VisibilitySetting {
+	v := VisibilitySettingVHide
+	return &v
+}
+
+// VisibilitySettingPShow returns a pointer to VisibilitySettingVShow
+func VisibilitySettingPShow() *VisibilitySetting {
+	v := VisibilitySettingVShow
+	return &v
+}
 
 // VppTokenAccountType undocumented
 type VppTokenAccountType int
 
 const (
-	// VppTokenAccountType_Business undocumented
-	VppTokenAccountType_Business VppTokenAccountType = 0
-	// VppTokenAccountType_Education undocumented
-	VppTokenAccountType_Education VppTokenAccountType = 1
+	// VppTokenAccountTypeVBusiness undocumented
+	VppTokenAccountTypeVBusiness VppTokenAccountType = 0
+	// VppTokenAccountTypeVEducation undocumented
+	VppTokenAccountTypeVEducation VppTokenAccountType = 1
 )
+
+// VppTokenAccountTypePBusiness returns a pointer to VppTokenAccountTypeVBusiness
+func VppTokenAccountTypePBusiness() *VppTokenAccountType {
+	v := VppTokenAccountTypeVBusiness
+	return &v
+}
+
+// VppTokenAccountTypePEducation returns a pointer to VppTokenAccountTypeVEducation
+func VppTokenAccountTypePEducation() *VppTokenAccountType {
+	v := VppTokenAccountTypeVEducation
+	return &v
+}
 
 // VppTokenState undocumented
 type VppTokenState int
 
 const (
-	// VppTokenState_Unknown undocumented
-	VppTokenState_Unknown VppTokenState = 0
-	// VppTokenState_Valid undocumented
-	VppTokenState_Valid VppTokenState = 1
-	// VppTokenState_Expired undocumented
-	VppTokenState_Expired VppTokenState = 2
-	// VppTokenState_Invalid undocumented
-	VppTokenState_Invalid VppTokenState = 3
-	// VppTokenState_AssignedToExternalMDM undocumented
-	VppTokenState_AssignedToExternalMDM VppTokenState = 4
+	// VppTokenStateVUnknown undocumented
+	VppTokenStateVUnknown VppTokenState = 0
+	// VppTokenStateVValid undocumented
+	VppTokenStateVValid VppTokenState = 1
+	// VppTokenStateVExpired undocumented
+	VppTokenStateVExpired VppTokenState = 2
+	// VppTokenStateVInvalid undocumented
+	VppTokenStateVInvalid VppTokenState = 3
+	// VppTokenStateVAssignedToExternalMDM undocumented
+	VppTokenStateVAssignedToExternalMDM VppTokenState = 4
 )
+
+// VppTokenStatePUnknown returns a pointer to VppTokenStateVUnknown
+func VppTokenStatePUnknown() *VppTokenState {
+	v := VppTokenStateVUnknown
+	return &v
+}
+
+// VppTokenStatePValid returns a pointer to VppTokenStateVValid
+func VppTokenStatePValid() *VppTokenState {
+	v := VppTokenStateVValid
+	return &v
+}
+
+// VppTokenStatePExpired returns a pointer to VppTokenStateVExpired
+func VppTokenStatePExpired() *VppTokenState {
+	v := VppTokenStateVExpired
+	return &v
+}
+
+// VppTokenStatePInvalid returns a pointer to VppTokenStateVInvalid
+func VppTokenStatePInvalid() *VppTokenState {
+	v := VppTokenStateVInvalid
+	return &v
+}
+
+// VppTokenStatePAssignedToExternalMDM returns a pointer to VppTokenStateVAssignedToExternalMDM
+func VppTokenStatePAssignedToExternalMDM() *VppTokenState {
+	v := VppTokenStateVAssignedToExternalMDM
+	return &v
+}
 
 // VppTokenSyncStatus undocumented
 type VppTokenSyncStatus int
 
 const (
-	// VppTokenSyncStatus_None undocumented
-	VppTokenSyncStatus_None VppTokenSyncStatus = 0
-	// VppTokenSyncStatus_InProgress undocumented
-	VppTokenSyncStatus_InProgress VppTokenSyncStatus = 1
-	// VppTokenSyncStatus_Completed undocumented
-	VppTokenSyncStatus_Completed VppTokenSyncStatus = 2
-	// VppTokenSyncStatus_Failed undocumented
-	VppTokenSyncStatus_Failed VppTokenSyncStatus = 3
+	// VppTokenSyncStatusVNone undocumented
+	VppTokenSyncStatusVNone VppTokenSyncStatus = 0
+	// VppTokenSyncStatusVInProgress undocumented
+	VppTokenSyncStatusVInProgress VppTokenSyncStatus = 1
+	// VppTokenSyncStatusVCompleted undocumented
+	VppTokenSyncStatusVCompleted VppTokenSyncStatus = 2
+	// VppTokenSyncStatusVFailed undocumented
+	VppTokenSyncStatusVFailed VppTokenSyncStatus = 3
 )
+
+// VppTokenSyncStatusPNone returns a pointer to VppTokenSyncStatusVNone
+func VppTokenSyncStatusPNone() *VppTokenSyncStatus {
+	v := VppTokenSyncStatusVNone
+	return &v
+}
+
+// VppTokenSyncStatusPInProgress returns a pointer to VppTokenSyncStatusVInProgress
+func VppTokenSyncStatusPInProgress() *VppTokenSyncStatus {
+	v := VppTokenSyncStatusVInProgress
+	return &v
+}
+
+// VppTokenSyncStatusPCompleted returns a pointer to VppTokenSyncStatusVCompleted
+func VppTokenSyncStatusPCompleted() *VppTokenSyncStatus {
+	v := VppTokenSyncStatusVCompleted
+	return &v
+}
+
+// VppTokenSyncStatusPFailed returns a pointer to VppTokenSyncStatusVFailed
+func VppTokenSyncStatusPFailed() *VppTokenSyncStatus {
+	v := VppTokenSyncStatusVFailed
+	return &v
+}
 
 // WebBrowserCookieSettings undocumented
 type WebBrowserCookieSettings int
 
 const (
-	// WebBrowserCookieSettings_BrowserDefault undocumented
-	WebBrowserCookieSettings_BrowserDefault WebBrowserCookieSettings = 0
-	// WebBrowserCookieSettings_BlockAlways undocumented
-	WebBrowserCookieSettings_BlockAlways WebBrowserCookieSettings = 1
-	// WebBrowserCookieSettings_AllowCurrentWebSite undocumented
-	WebBrowserCookieSettings_AllowCurrentWebSite WebBrowserCookieSettings = 2
-	// WebBrowserCookieSettings_AllowFromWebsitesVisited undocumented
-	WebBrowserCookieSettings_AllowFromWebsitesVisited WebBrowserCookieSettings = 3
-	// WebBrowserCookieSettings_AllowAlways undocumented
-	WebBrowserCookieSettings_AllowAlways WebBrowserCookieSettings = 4
+	// WebBrowserCookieSettingsVBrowserDefault undocumented
+	WebBrowserCookieSettingsVBrowserDefault WebBrowserCookieSettings = 0
+	// WebBrowserCookieSettingsVBlockAlways undocumented
+	WebBrowserCookieSettingsVBlockAlways WebBrowserCookieSettings = 1
+	// WebBrowserCookieSettingsVAllowCurrentWebSite undocumented
+	WebBrowserCookieSettingsVAllowCurrentWebSite WebBrowserCookieSettings = 2
+	// WebBrowserCookieSettingsVAllowFromWebsitesVisited undocumented
+	WebBrowserCookieSettingsVAllowFromWebsitesVisited WebBrowserCookieSettings = 3
+	// WebBrowserCookieSettingsVAllowAlways undocumented
+	WebBrowserCookieSettingsVAllowAlways WebBrowserCookieSettings = 4
 )
+
+// WebBrowserCookieSettingsPBrowserDefault returns a pointer to WebBrowserCookieSettingsVBrowserDefault
+func WebBrowserCookieSettingsPBrowserDefault() *WebBrowserCookieSettings {
+	v := WebBrowserCookieSettingsVBrowserDefault
+	return &v
+}
+
+// WebBrowserCookieSettingsPBlockAlways returns a pointer to WebBrowserCookieSettingsVBlockAlways
+func WebBrowserCookieSettingsPBlockAlways() *WebBrowserCookieSettings {
+	v := WebBrowserCookieSettingsVBlockAlways
+	return &v
+}
+
+// WebBrowserCookieSettingsPAllowCurrentWebSite returns a pointer to WebBrowserCookieSettingsVAllowCurrentWebSite
+func WebBrowserCookieSettingsPAllowCurrentWebSite() *WebBrowserCookieSettings {
+	v := WebBrowserCookieSettingsVAllowCurrentWebSite
+	return &v
+}
+
+// WebBrowserCookieSettingsPAllowFromWebsitesVisited returns a pointer to WebBrowserCookieSettingsVAllowFromWebsitesVisited
+func WebBrowserCookieSettingsPAllowFromWebsitesVisited() *WebBrowserCookieSettings {
+	v := WebBrowserCookieSettingsVAllowFromWebsitesVisited
+	return &v
+}
+
+// WebBrowserCookieSettingsPAllowAlways returns a pointer to WebBrowserCookieSettingsVAllowAlways
+func WebBrowserCookieSettingsPAllowAlways() *WebBrowserCookieSettings {
+	v := WebBrowserCookieSettingsVAllowAlways
+	return &v
+}
 
 // WebsiteType undocumented
 type WebsiteType int
 
 const (
-	// WebsiteType_Other undocumented
-	WebsiteType_Other WebsiteType = 0
-	// WebsiteType_Home undocumented
-	WebsiteType_Home WebsiteType = 1
-	// WebsiteType_Work undocumented
-	WebsiteType_Work WebsiteType = 2
-	// WebsiteType_Blog undocumented
-	WebsiteType_Blog WebsiteType = 3
-	// WebsiteType_Profile undocumented
-	WebsiteType_Profile WebsiteType = 4
+	// WebsiteTypeVOther undocumented
+	WebsiteTypeVOther WebsiteType = 0
+	// WebsiteTypeVHome undocumented
+	WebsiteTypeVHome WebsiteType = 1
+	// WebsiteTypeVWork undocumented
+	WebsiteTypeVWork WebsiteType = 2
+	// WebsiteTypeVBlog undocumented
+	WebsiteTypeVBlog WebsiteType = 3
+	// WebsiteTypeVProfile undocumented
+	WebsiteTypeVProfile WebsiteType = 4
 )
+
+// WebsiteTypePOther returns a pointer to WebsiteTypeVOther
+func WebsiteTypePOther() *WebsiteType {
+	v := WebsiteTypeVOther
+	return &v
+}
+
+// WebsiteTypePHome returns a pointer to WebsiteTypeVHome
+func WebsiteTypePHome() *WebsiteType {
+	v := WebsiteTypeVHome
+	return &v
+}
+
+// WebsiteTypePWork returns a pointer to WebsiteTypeVWork
+func WebsiteTypePWork() *WebsiteType {
+	v := WebsiteTypeVWork
+	return &v
+}
+
+// WebsiteTypePBlog returns a pointer to WebsiteTypeVBlog
+func WebsiteTypePBlog() *WebsiteType {
+	v := WebsiteTypeVBlog
+	return &v
+}
+
+// WebsiteTypePProfile returns a pointer to WebsiteTypeVProfile
+func WebsiteTypePProfile() *WebsiteType {
+	v := WebsiteTypeVProfile
+	return &v
+}
 
 // WeekIndex undocumented
 type WeekIndex int
 
 const (
-	// WeekIndex_First undocumented
-	WeekIndex_First WeekIndex = 0
-	// WeekIndex_Second undocumented
-	WeekIndex_Second WeekIndex = 1
-	// WeekIndex_Third undocumented
-	WeekIndex_Third WeekIndex = 2
-	// WeekIndex_Fourth undocumented
-	WeekIndex_Fourth WeekIndex = 3
-	// WeekIndex_Last undocumented
-	WeekIndex_Last WeekIndex = 4
+	// WeekIndexVFirst undocumented
+	WeekIndexVFirst WeekIndex = 0
+	// WeekIndexVSecond undocumented
+	WeekIndexVSecond WeekIndex = 1
+	// WeekIndexVThird undocumented
+	WeekIndexVThird WeekIndex = 2
+	// WeekIndexVFourth undocumented
+	WeekIndexVFourth WeekIndex = 3
+	// WeekIndexVLast undocumented
+	WeekIndexVLast WeekIndex = 4
 )
+
+// WeekIndexPFirst returns a pointer to WeekIndexVFirst
+func WeekIndexPFirst() *WeekIndex {
+	v := WeekIndexVFirst
+	return &v
+}
+
+// WeekIndexPSecond returns a pointer to WeekIndexVSecond
+func WeekIndexPSecond() *WeekIndex {
+	v := WeekIndexVSecond
+	return &v
+}
+
+// WeekIndexPThird returns a pointer to WeekIndexVThird
+func WeekIndexPThird() *WeekIndex {
+	v := WeekIndexVThird
+	return &v
+}
+
+// WeekIndexPFourth returns a pointer to WeekIndexVFourth
+func WeekIndexPFourth() *WeekIndex {
+	v := WeekIndexVFourth
+	return &v
+}
+
+// WeekIndexPLast returns a pointer to WeekIndexVLast
+func WeekIndexPLast() *WeekIndex {
+	v := WeekIndexVLast
+	return &v
+}
 
 // WeeklySchedule undocumented
 type WeeklySchedule int
 
 const (
-	// WeeklySchedule_UserDefined undocumented
-	WeeklySchedule_UserDefined WeeklySchedule = 0
-	// WeeklySchedule_Everyday undocumented
-	WeeklySchedule_Everyday WeeklySchedule = 1
-	// WeeklySchedule_Sunday undocumented
-	WeeklySchedule_Sunday WeeklySchedule = 2
-	// WeeklySchedule_Monday undocumented
-	WeeklySchedule_Monday WeeklySchedule = 3
-	// WeeklySchedule_Tuesday undocumented
-	WeeklySchedule_Tuesday WeeklySchedule = 4
-	// WeeklySchedule_Wednesday undocumented
-	WeeklySchedule_Wednesday WeeklySchedule = 5
-	// WeeklySchedule_Thursday undocumented
-	WeeklySchedule_Thursday WeeklySchedule = 6
-	// WeeklySchedule_Friday undocumented
-	WeeklySchedule_Friday WeeklySchedule = 7
-	// WeeklySchedule_Saturday undocumented
-	WeeklySchedule_Saturday WeeklySchedule = 8
+	// WeeklyScheduleVUserDefined undocumented
+	WeeklyScheduleVUserDefined WeeklySchedule = 0
+	// WeeklyScheduleVEveryday undocumented
+	WeeklyScheduleVEveryday WeeklySchedule = 1
+	// WeeklyScheduleVSunday undocumented
+	WeeklyScheduleVSunday WeeklySchedule = 2
+	// WeeklyScheduleVMonday undocumented
+	WeeklyScheduleVMonday WeeklySchedule = 3
+	// WeeklyScheduleVTuesday undocumented
+	WeeklyScheduleVTuesday WeeklySchedule = 4
+	// WeeklyScheduleVWednesday undocumented
+	WeeklyScheduleVWednesday WeeklySchedule = 5
+	// WeeklyScheduleVThursday undocumented
+	WeeklyScheduleVThursday WeeklySchedule = 6
+	// WeeklyScheduleVFriday undocumented
+	WeeklyScheduleVFriday WeeklySchedule = 7
+	// WeeklyScheduleVSaturday undocumented
+	WeeklyScheduleVSaturday WeeklySchedule = 8
 )
+
+// WeeklySchedulePUserDefined returns a pointer to WeeklyScheduleVUserDefined
+func WeeklySchedulePUserDefined() *WeeklySchedule {
+	v := WeeklyScheduleVUserDefined
+	return &v
+}
+
+// WeeklySchedulePEveryday returns a pointer to WeeklyScheduleVEveryday
+func WeeklySchedulePEveryday() *WeeklySchedule {
+	v := WeeklyScheduleVEveryday
+	return &v
+}
+
+// WeeklySchedulePSunday returns a pointer to WeeklyScheduleVSunday
+func WeeklySchedulePSunday() *WeeklySchedule {
+	v := WeeklyScheduleVSunday
+	return &v
+}
+
+// WeeklySchedulePMonday returns a pointer to WeeklyScheduleVMonday
+func WeeklySchedulePMonday() *WeeklySchedule {
+	v := WeeklyScheduleVMonday
+	return &v
+}
+
+// WeeklySchedulePTuesday returns a pointer to WeeklyScheduleVTuesday
+func WeeklySchedulePTuesday() *WeeklySchedule {
+	v := WeeklyScheduleVTuesday
+	return &v
+}
+
+// WeeklySchedulePWednesday returns a pointer to WeeklyScheduleVWednesday
+func WeeklySchedulePWednesday() *WeeklySchedule {
+	v := WeeklyScheduleVWednesday
+	return &v
+}
+
+// WeeklySchedulePThursday returns a pointer to WeeklyScheduleVThursday
+func WeeklySchedulePThursday() *WeeklySchedule {
+	v := WeeklyScheduleVThursday
+	return &v
+}
+
+// WeeklySchedulePFriday returns a pointer to WeeklyScheduleVFriday
+func WeeklySchedulePFriday() *WeeklySchedule {
+	v := WeeklyScheduleVFriday
+	return &v
+}
+
+// WeeklySchedulePSaturday returns a pointer to WeeklyScheduleVSaturday
+func WeeklySchedulePSaturday() *WeeklySchedule {
+	v := WeeklyScheduleVSaturday
+	return &v
+}
 
 // WelcomeScreenMeetingInformation undocumented
 type WelcomeScreenMeetingInformation int
 
 const (
-	// WelcomeScreenMeetingInformation_UserDefined undocumented
-	WelcomeScreenMeetingInformation_UserDefined WelcomeScreenMeetingInformation = 0
-	// WelcomeScreenMeetingInformation_ShowOrganizerAndTimeOnly undocumented
-	WelcomeScreenMeetingInformation_ShowOrganizerAndTimeOnly WelcomeScreenMeetingInformation = 1
-	// WelcomeScreenMeetingInformation_ShowOrganizerAndTimeAndSubject undocumented
-	WelcomeScreenMeetingInformation_ShowOrganizerAndTimeAndSubject WelcomeScreenMeetingInformation = 2
+	// WelcomeScreenMeetingInformationVUserDefined undocumented
+	WelcomeScreenMeetingInformationVUserDefined WelcomeScreenMeetingInformation = 0
+	// WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly undocumented
+	WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly WelcomeScreenMeetingInformation = 1
+	// WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject undocumented
+	WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject WelcomeScreenMeetingInformation = 2
 )
+
+// WelcomeScreenMeetingInformationPUserDefined returns a pointer to WelcomeScreenMeetingInformationVUserDefined
+func WelcomeScreenMeetingInformationPUserDefined() *WelcomeScreenMeetingInformation {
+	v := WelcomeScreenMeetingInformationVUserDefined
+	return &v
+}
+
+// WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly returns a pointer to WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly
+func WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly() *WelcomeScreenMeetingInformation {
+	v := WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly
+	return &v
+}
+
+// WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject returns a pointer to WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject
+func WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject() *WelcomeScreenMeetingInformation {
+	v := WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject
+	return &v
+}
 
 // Windows10EditionType undocumented
 type Windows10EditionType int
 
 const (
-	// Windows10EditionType_Windows10Enterprise undocumented
-	Windows10EditionType_Windows10Enterprise Windows10EditionType = 0
-	// Windows10EditionType_Windows10EnterpriseN undocumented
-	Windows10EditionType_Windows10EnterpriseN Windows10EditionType = 1
-	// Windows10EditionType_Windows10Education undocumented
-	Windows10EditionType_Windows10Education Windows10EditionType = 2
-	// Windows10EditionType_Windows10EducationN undocumented
-	Windows10EditionType_Windows10EducationN Windows10EditionType = 3
-	// Windows10EditionType_Windows10MobileEnterprise undocumented
-	Windows10EditionType_Windows10MobileEnterprise Windows10EditionType = 4
-	// Windows10EditionType_Windows10HolographicEnterprise undocumented
-	Windows10EditionType_Windows10HolographicEnterprise Windows10EditionType = 5
-	// Windows10EditionType_Windows10Professional undocumented
-	Windows10EditionType_Windows10Professional Windows10EditionType = 6
-	// Windows10EditionType_Windows10ProfessionalN undocumented
-	Windows10EditionType_Windows10ProfessionalN Windows10EditionType = 7
-	// Windows10EditionType_Windows10ProfessionalEducation undocumented
-	Windows10EditionType_Windows10ProfessionalEducation Windows10EditionType = 8
-	// Windows10EditionType_Windows10ProfessionalEducationN undocumented
-	Windows10EditionType_Windows10ProfessionalEducationN Windows10EditionType = 9
-	// Windows10EditionType_Windows10ProfessionalWorkstation undocumented
-	Windows10EditionType_Windows10ProfessionalWorkstation Windows10EditionType = 10
-	// Windows10EditionType_Windows10ProfessionalWorkstationN undocumented
-	Windows10EditionType_Windows10ProfessionalWorkstationN Windows10EditionType = 11
+	// Windows10EditionTypeVWindows10Enterprise undocumented
+	Windows10EditionTypeVWindows10Enterprise Windows10EditionType = 0
+	// Windows10EditionTypeVWindows10EnterpriseN undocumented
+	Windows10EditionTypeVWindows10EnterpriseN Windows10EditionType = 1
+	// Windows10EditionTypeVWindows10Education undocumented
+	Windows10EditionTypeVWindows10Education Windows10EditionType = 2
+	// Windows10EditionTypeVWindows10EducationN undocumented
+	Windows10EditionTypeVWindows10EducationN Windows10EditionType = 3
+	// Windows10EditionTypeVWindows10MobileEnterprise undocumented
+	Windows10EditionTypeVWindows10MobileEnterprise Windows10EditionType = 4
+	// Windows10EditionTypeVWindows10HolographicEnterprise undocumented
+	Windows10EditionTypeVWindows10HolographicEnterprise Windows10EditionType = 5
+	// Windows10EditionTypeVWindows10Professional undocumented
+	Windows10EditionTypeVWindows10Professional Windows10EditionType = 6
+	// Windows10EditionTypeVWindows10ProfessionalN undocumented
+	Windows10EditionTypeVWindows10ProfessionalN Windows10EditionType = 7
+	// Windows10EditionTypeVWindows10ProfessionalEducation undocumented
+	Windows10EditionTypeVWindows10ProfessionalEducation Windows10EditionType = 8
+	// Windows10EditionTypeVWindows10ProfessionalEducationN undocumented
+	Windows10EditionTypeVWindows10ProfessionalEducationN Windows10EditionType = 9
+	// Windows10EditionTypeVWindows10ProfessionalWorkstation undocumented
+	Windows10EditionTypeVWindows10ProfessionalWorkstation Windows10EditionType = 10
+	// Windows10EditionTypeVWindows10ProfessionalWorkstationN undocumented
+	Windows10EditionTypeVWindows10ProfessionalWorkstationN Windows10EditionType = 11
 )
+
+// Windows10EditionTypePWindows10Enterprise returns a pointer to Windows10EditionTypeVWindows10Enterprise
+func Windows10EditionTypePWindows10Enterprise() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10Enterprise
+	return &v
+}
+
+// Windows10EditionTypePWindows10EnterpriseN returns a pointer to Windows10EditionTypeVWindows10EnterpriseN
+func Windows10EditionTypePWindows10EnterpriseN() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10EnterpriseN
+	return &v
+}
+
+// Windows10EditionTypePWindows10Education returns a pointer to Windows10EditionTypeVWindows10Education
+func Windows10EditionTypePWindows10Education() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10Education
+	return &v
+}
+
+// Windows10EditionTypePWindows10EducationN returns a pointer to Windows10EditionTypeVWindows10EducationN
+func Windows10EditionTypePWindows10EducationN() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10EducationN
+	return &v
+}
+
+// Windows10EditionTypePWindows10MobileEnterprise returns a pointer to Windows10EditionTypeVWindows10MobileEnterprise
+func Windows10EditionTypePWindows10MobileEnterprise() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10MobileEnterprise
+	return &v
+}
+
+// Windows10EditionTypePWindows10HolographicEnterprise returns a pointer to Windows10EditionTypeVWindows10HolographicEnterprise
+func Windows10EditionTypePWindows10HolographicEnterprise() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10HolographicEnterprise
+	return &v
+}
+
+// Windows10EditionTypePWindows10Professional returns a pointer to Windows10EditionTypeVWindows10Professional
+func Windows10EditionTypePWindows10Professional() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10Professional
+	return &v
+}
+
+// Windows10EditionTypePWindows10ProfessionalN returns a pointer to Windows10EditionTypeVWindows10ProfessionalN
+func Windows10EditionTypePWindows10ProfessionalN() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10ProfessionalN
+	return &v
+}
+
+// Windows10EditionTypePWindows10ProfessionalEducation returns a pointer to Windows10EditionTypeVWindows10ProfessionalEducation
+func Windows10EditionTypePWindows10ProfessionalEducation() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10ProfessionalEducation
+	return &v
+}
+
+// Windows10EditionTypePWindows10ProfessionalEducationN returns a pointer to Windows10EditionTypeVWindows10ProfessionalEducationN
+func Windows10EditionTypePWindows10ProfessionalEducationN() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10ProfessionalEducationN
+	return &v
+}
+
+// Windows10EditionTypePWindows10ProfessionalWorkstation returns a pointer to Windows10EditionTypeVWindows10ProfessionalWorkstation
+func Windows10EditionTypePWindows10ProfessionalWorkstation() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10ProfessionalWorkstation
+	return &v
+}
+
+// Windows10EditionTypePWindows10ProfessionalWorkstationN returns a pointer to Windows10EditionTypeVWindows10ProfessionalWorkstationN
+func Windows10EditionTypePWindows10ProfessionalWorkstationN() *Windows10EditionType {
+	v := Windows10EditionTypeVWindows10ProfessionalWorkstationN
+	return &v
+}
 
 // WindowsArchitecture undocumented
 type WindowsArchitecture int
 
 const (
-	// WindowsArchitecture_None undocumented
-	WindowsArchitecture_None WindowsArchitecture = 0
-	// WindowsArchitecture_X86 undocumented
-	WindowsArchitecture_X86 WindowsArchitecture = 1
-	// WindowsArchitecture_X64 undocumented
-	WindowsArchitecture_X64 WindowsArchitecture = 2
-	// WindowsArchitecture_Arm undocumented
-	WindowsArchitecture_Arm WindowsArchitecture = 4
-	// WindowsArchitecture_Neutral undocumented
-	WindowsArchitecture_Neutral WindowsArchitecture = 8
+	// WindowsArchitectureVNone undocumented
+	WindowsArchitectureVNone WindowsArchitecture = 0
+	// WindowsArchitectureVX86 undocumented
+	WindowsArchitectureVX86 WindowsArchitecture = 1
+	// WindowsArchitectureVX64 undocumented
+	WindowsArchitectureVX64 WindowsArchitecture = 2
+	// WindowsArchitectureVArm undocumented
+	WindowsArchitectureVArm WindowsArchitecture = 4
+	// WindowsArchitectureVNeutral undocumented
+	WindowsArchitectureVNeutral WindowsArchitecture = 8
 )
+
+// WindowsArchitecturePNone returns a pointer to WindowsArchitectureVNone
+func WindowsArchitecturePNone() *WindowsArchitecture {
+	v := WindowsArchitectureVNone
+	return &v
+}
+
+// WindowsArchitecturePX86 returns a pointer to WindowsArchitectureVX86
+func WindowsArchitecturePX86() *WindowsArchitecture {
+	v := WindowsArchitectureVX86
+	return &v
+}
+
+// WindowsArchitecturePX64 returns a pointer to WindowsArchitectureVX64
+func WindowsArchitecturePX64() *WindowsArchitecture {
+	v := WindowsArchitectureVX64
+	return &v
+}
+
+// WindowsArchitecturePArm returns a pointer to WindowsArchitectureVArm
+func WindowsArchitecturePArm() *WindowsArchitecture {
+	v := WindowsArchitectureVArm
+	return &v
+}
+
+// WindowsArchitecturePNeutral returns a pointer to WindowsArchitectureVNeutral
+func WindowsArchitecturePNeutral() *WindowsArchitecture {
+	v := WindowsArchitectureVNeutral
+	return &v
+}
 
 // WindowsDeliveryOptimizationMode undocumented
 type WindowsDeliveryOptimizationMode int
 
 const (
-	// WindowsDeliveryOptimizationMode_UserDefined undocumented
-	WindowsDeliveryOptimizationMode_UserDefined WindowsDeliveryOptimizationMode = 0
-	// WindowsDeliveryOptimizationMode_HTTPOnly undocumented
-	WindowsDeliveryOptimizationMode_HTTPOnly WindowsDeliveryOptimizationMode = 1
-	// WindowsDeliveryOptimizationMode_HTTPWithPeeringNat undocumented
-	WindowsDeliveryOptimizationMode_HTTPWithPeeringNat WindowsDeliveryOptimizationMode = 2
-	// WindowsDeliveryOptimizationMode_HTTPWithPeeringPrivateGroup undocumented
-	WindowsDeliveryOptimizationMode_HTTPWithPeeringPrivateGroup WindowsDeliveryOptimizationMode = 3
-	// WindowsDeliveryOptimizationMode_HTTPWithInternetPeering undocumented
-	WindowsDeliveryOptimizationMode_HTTPWithInternetPeering WindowsDeliveryOptimizationMode = 4
-	// WindowsDeliveryOptimizationMode_SimpleDownload undocumented
-	WindowsDeliveryOptimizationMode_SimpleDownload WindowsDeliveryOptimizationMode = 99
-	// WindowsDeliveryOptimizationMode_BypassMode undocumented
-	WindowsDeliveryOptimizationMode_BypassMode WindowsDeliveryOptimizationMode = 100
+	// WindowsDeliveryOptimizationModeVUserDefined undocumented
+	WindowsDeliveryOptimizationModeVUserDefined WindowsDeliveryOptimizationMode = 0
+	// WindowsDeliveryOptimizationModeVHTTPOnly undocumented
+	WindowsDeliveryOptimizationModeVHTTPOnly WindowsDeliveryOptimizationMode = 1
+	// WindowsDeliveryOptimizationModeVHTTPWithPeeringNat undocumented
+	WindowsDeliveryOptimizationModeVHTTPWithPeeringNat WindowsDeliveryOptimizationMode = 2
+	// WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup undocumented
+	WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup WindowsDeliveryOptimizationMode = 3
+	// WindowsDeliveryOptimizationModeVHTTPWithInternetPeering undocumented
+	WindowsDeliveryOptimizationModeVHTTPWithInternetPeering WindowsDeliveryOptimizationMode = 4
+	// WindowsDeliveryOptimizationModeVSimpleDownload undocumented
+	WindowsDeliveryOptimizationModeVSimpleDownload WindowsDeliveryOptimizationMode = 99
+	// WindowsDeliveryOptimizationModeVBypassMode undocumented
+	WindowsDeliveryOptimizationModeVBypassMode WindowsDeliveryOptimizationMode = 100
 )
+
+// WindowsDeliveryOptimizationModePUserDefined returns a pointer to WindowsDeliveryOptimizationModeVUserDefined
+func WindowsDeliveryOptimizationModePUserDefined() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVUserDefined
+	return &v
+}
+
+// WindowsDeliveryOptimizationModePHTTPOnly returns a pointer to WindowsDeliveryOptimizationModeVHTTPOnly
+func WindowsDeliveryOptimizationModePHTTPOnly() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVHTTPOnly
+	return &v
+}
+
+// WindowsDeliveryOptimizationModePHTTPWithPeeringNat returns a pointer to WindowsDeliveryOptimizationModeVHTTPWithPeeringNat
+func WindowsDeliveryOptimizationModePHTTPWithPeeringNat() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVHTTPWithPeeringNat
+	return &v
+}
+
+// WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup returns a pointer to WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup
+func WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup
+	return &v
+}
+
+// WindowsDeliveryOptimizationModePHTTPWithInternetPeering returns a pointer to WindowsDeliveryOptimizationModeVHTTPWithInternetPeering
+func WindowsDeliveryOptimizationModePHTTPWithInternetPeering() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVHTTPWithInternetPeering
+	return &v
+}
+
+// WindowsDeliveryOptimizationModePSimpleDownload returns a pointer to WindowsDeliveryOptimizationModeVSimpleDownload
+func WindowsDeliveryOptimizationModePSimpleDownload() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVSimpleDownload
+	return &v
+}
+
+// WindowsDeliveryOptimizationModePBypassMode returns a pointer to WindowsDeliveryOptimizationModeVBypassMode
+func WindowsDeliveryOptimizationModePBypassMode() *WindowsDeliveryOptimizationMode {
+	v := WindowsDeliveryOptimizationModeVBypassMode
+	return &v
+}
 
 // WindowsDeviceType undocumented
 type WindowsDeviceType int
 
 const (
-	// WindowsDeviceType_None undocumented
-	WindowsDeviceType_None WindowsDeviceType = 0
-	// WindowsDeviceType_Desktop undocumented
-	WindowsDeviceType_Desktop WindowsDeviceType = 1
-	// WindowsDeviceType_Mobile undocumented
-	WindowsDeviceType_Mobile WindowsDeviceType = 2
-	// WindowsDeviceType_Holographic undocumented
-	WindowsDeviceType_Holographic WindowsDeviceType = 4
-	// WindowsDeviceType_Team undocumented
-	WindowsDeviceType_Team WindowsDeviceType = 8
+	// WindowsDeviceTypeVNone undocumented
+	WindowsDeviceTypeVNone WindowsDeviceType = 0
+	// WindowsDeviceTypeVDesktop undocumented
+	WindowsDeviceTypeVDesktop WindowsDeviceType = 1
+	// WindowsDeviceTypeVMobile undocumented
+	WindowsDeviceTypeVMobile WindowsDeviceType = 2
+	// WindowsDeviceTypeVHolographic undocumented
+	WindowsDeviceTypeVHolographic WindowsDeviceType = 4
+	// WindowsDeviceTypeVTeam undocumented
+	WindowsDeviceTypeVTeam WindowsDeviceType = 8
 )
+
+// WindowsDeviceTypePNone returns a pointer to WindowsDeviceTypeVNone
+func WindowsDeviceTypePNone() *WindowsDeviceType {
+	v := WindowsDeviceTypeVNone
+	return &v
+}
+
+// WindowsDeviceTypePDesktop returns a pointer to WindowsDeviceTypeVDesktop
+func WindowsDeviceTypePDesktop() *WindowsDeviceType {
+	v := WindowsDeviceTypeVDesktop
+	return &v
+}
+
+// WindowsDeviceTypePMobile returns a pointer to WindowsDeviceTypeVMobile
+func WindowsDeviceTypePMobile() *WindowsDeviceType {
+	v := WindowsDeviceTypeVMobile
+	return &v
+}
+
+// WindowsDeviceTypePHolographic returns a pointer to WindowsDeviceTypeVHolographic
+func WindowsDeviceTypePHolographic() *WindowsDeviceType {
+	v := WindowsDeviceTypeVHolographic
+	return &v
+}
+
+// WindowsDeviceTypePTeam returns a pointer to WindowsDeviceTypeVTeam
+func WindowsDeviceTypePTeam() *WindowsDeviceType {
+	v := WindowsDeviceTypeVTeam
+	return &v
+}
 
 // WindowsHelloForBusinessPinUsage undocumented
 type WindowsHelloForBusinessPinUsage int
 
 const (
-	// WindowsHelloForBusinessPinUsage_Allowed undocumented
-	WindowsHelloForBusinessPinUsage_Allowed WindowsHelloForBusinessPinUsage = 0
-	// WindowsHelloForBusinessPinUsage_Required undocumented
-	WindowsHelloForBusinessPinUsage_Required WindowsHelloForBusinessPinUsage = 1
-	// WindowsHelloForBusinessPinUsage_Disallowed undocumented
-	WindowsHelloForBusinessPinUsage_Disallowed WindowsHelloForBusinessPinUsage = 2
+	// WindowsHelloForBusinessPinUsageVAllowed undocumented
+	WindowsHelloForBusinessPinUsageVAllowed WindowsHelloForBusinessPinUsage = 0
+	// WindowsHelloForBusinessPinUsageVRequired undocumented
+	WindowsHelloForBusinessPinUsageVRequired WindowsHelloForBusinessPinUsage = 1
+	// WindowsHelloForBusinessPinUsageVDisallowed undocumented
+	WindowsHelloForBusinessPinUsageVDisallowed WindowsHelloForBusinessPinUsage = 2
 )
+
+// WindowsHelloForBusinessPinUsagePAllowed returns a pointer to WindowsHelloForBusinessPinUsageVAllowed
+func WindowsHelloForBusinessPinUsagePAllowed() *WindowsHelloForBusinessPinUsage {
+	v := WindowsHelloForBusinessPinUsageVAllowed
+	return &v
+}
+
+// WindowsHelloForBusinessPinUsagePRequired returns a pointer to WindowsHelloForBusinessPinUsageVRequired
+func WindowsHelloForBusinessPinUsagePRequired() *WindowsHelloForBusinessPinUsage {
+	v := WindowsHelloForBusinessPinUsageVRequired
+	return &v
+}
+
+// WindowsHelloForBusinessPinUsagePDisallowed returns a pointer to WindowsHelloForBusinessPinUsageVDisallowed
+func WindowsHelloForBusinessPinUsagePDisallowed() *WindowsHelloForBusinessPinUsage {
+	v := WindowsHelloForBusinessPinUsageVDisallowed
+	return &v
+}
 
 // WindowsInformationProtectionEnforcementLevel undocumented
 type WindowsInformationProtectionEnforcementLevel int
 
 const (
-	// WindowsInformationProtectionEnforcementLevel_NoProtection undocumented
-	WindowsInformationProtectionEnforcementLevel_NoProtection WindowsInformationProtectionEnforcementLevel = 0
-	// WindowsInformationProtectionEnforcementLevel_EncryptAndAuditOnly undocumented
-	WindowsInformationProtectionEnforcementLevel_EncryptAndAuditOnly WindowsInformationProtectionEnforcementLevel = 1
-	// WindowsInformationProtectionEnforcementLevel_EncryptAuditAndPrompt undocumented
-	WindowsInformationProtectionEnforcementLevel_EncryptAuditAndPrompt WindowsInformationProtectionEnforcementLevel = 2
-	// WindowsInformationProtectionEnforcementLevel_EncryptAuditAndBlock undocumented
-	WindowsInformationProtectionEnforcementLevel_EncryptAuditAndBlock WindowsInformationProtectionEnforcementLevel = 3
+	// WindowsInformationProtectionEnforcementLevelVNoProtection undocumented
+	WindowsInformationProtectionEnforcementLevelVNoProtection WindowsInformationProtectionEnforcementLevel = 0
+	// WindowsInformationProtectionEnforcementLevelVEncryptAndAuditOnly undocumented
+	WindowsInformationProtectionEnforcementLevelVEncryptAndAuditOnly WindowsInformationProtectionEnforcementLevel = 1
+	// WindowsInformationProtectionEnforcementLevelVEncryptAuditAndPrompt undocumented
+	WindowsInformationProtectionEnforcementLevelVEncryptAuditAndPrompt WindowsInformationProtectionEnforcementLevel = 2
+	// WindowsInformationProtectionEnforcementLevelVEncryptAuditAndBlock undocumented
+	WindowsInformationProtectionEnforcementLevelVEncryptAuditAndBlock WindowsInformationProtectionEnforcementLevel = 3
 )
+
+// WindowsInformationProtectionEnforcementLevelPNoProtection returns a pointer to WindowsInformationProtectionEnforcementLevelVNoProtection
+func WindowsInformationProtectionEnforcementLevelPNoProtection() *WindowsInformationProtectionEnforcementLevel {
+	v := WindowsInformationProtectionEnforcementLevelVNoProtection
+	return &v
+}
+
+// WindowsInformationProtectionEnforcementLevelPEncryptAndAuditOnly returns a pointer to WindowsInformationProtectionEnforcementLevelVEncryptAndAuditOnly
+func WindowsInformationProtectionEnforcementLevelPEncryptAndAuditOnly() *WindowsInformationProtectionEnforcementLevel {
+	v := WindowsInformationProtectionEnforcementLevelVEncryptAndAuditOnly
+	return &v
+}
+
+// WindowsInformationProtectionEnforcementLevelPEncryptAuditAndPrompt returns a pointer to WindowsInformationProtectionEnforcementLevelVEncryptAuditAndPrompt
+func WindowsInformationProtectionEnforcementLevelPEncryptAuditAndPrompt() *WindowsInformationProtectionEnforcementLevel {
+	v := WindowsInformationProtectionEnforcementLevelVEncryptAuditAndPrompt
+	return &v
+}
+
+// WindowsInformationProtectionEnforcementLevelPEncryptAuditAndBlock returns a pointer to WindowsInformationProtectionEnforcementLevelVEncryptAuditAndBlock
+func WindowsInformationProtectionEnforcementLevelPEncryptAuditAndBlock() *WindowsInformationProtectionEnforcementLevel {
+	v := WindowsInformationProtectionEnforcementLevelVEncryptAuditAndBlock
+	return &v
+}
 
 // WindowsInformationProtectionPinCharacterRequirements undocumented
 type WindowsInformationProtectionPinCharacterRequirements int
 
 const (
-	// WindowsInformationProtectionPinCharacterRequirements_NotAllow undocumented
-	WindowsInformationProtectionPinCharacterRequirements_NotAllow WindowsInformationProtectionPinCharacterRequirements = 0
-	// WindowsInformationProtectionPinCharacterRequirements_RequireAtLeastOne undocumented
-	WindowsInformationProtectionPinCharacterRequirements_RequireAtLeastOne WindowsInformationProtectionPinCharacterRequirements = 1
-	// WindowsInformationProtectionPinCharacterRequirements_Allow undocumented
-	WindowsInformationProtectionPinCharacterRequirements_Allow WindowsInformationProtectionPinCharacterRequirements = 2
+	// WindowsInformationProtectionPinCharacterRequirementsVNotAllow undocumented
+	WindowsInformationProtectionPinCharacterRequirementsVNotAllow WindowsInformationProtectionPinCharacterRequirements = 0
+	// WindowsInformationProtectionPinCharacterRequirementsVRequireAtLeastOne undocumented
+	WindowsInformationProtectionPinCharacterRequirementsVRequireAtLeastOne WindowsInformationProtectionPinCharacterRequirements = 1
+	// WindowsInformationProtectionPinCharacterRequirementsVAllow undocumented
+	WindowsInformationProtectionPinCharacterRequirementsVAllow WindowsInformationProtectionPinCharacterRequirements = 2
 )
+
+// WindowsInformationProtectionPinCharacterRequirementsPNotAllow returns a pointer to WindowsInformationProtectionPinCharacterRequirementsVNotAllow
+func WindowsInformationProtectionPinCharacterRequirementsPNotAllow() *WindowsInformationProtectionPinCharacterRequirements {
+	v := WindowsInformationProtectionPinCharacterRequirementsVNotAllow
+	return &v
+}
+
+// WindowsInformationProtectionPinCharacterRequirementsPRequireAtLeastOne returns a pointer to WindowsInformationProtectionPinCharacterRequirementsVRequireAtLeastOne
+func WindowsInformationProtectionPinCharacterRequirementsPRequireAtLeastOne() *WindowsInformationProtectionPinCharacterRequirements {
+	v := WindowsInformationProtectionPinCharacterRequirementsVRequireAtLeastOne
+	return &v
+}
+
+// WindowsInformationProtectionPinCharacterRequirementsPAllow returns a pointer to WindowsInformationProtectionPinCharacterRequirementsVAllow
+func WindowsInformationProtectionPinCharacterRequirementsPAllow() *WindowsInformationProtectionPinCharacterRequirements {
+	v := WindowsInformationProtectionPinCharacterRequirementsVAllow
+	return &v
+}
 
 // WindowsSpotlightEnablementSettings undocumented
 type WindowsSpotlightEnablementSettings int
 
 const (
-	// WindowsSpotlightEnablementSettings_NotConfigured undocumented
-	WindowsSpotlightEnablementSettings_NotConfigured WindowsSpotlightEnablementSettings = 0
-	// WindowsSpotlightEnablementSettings_Disabled undocumented
-	WindowsSpotlightEnablementSettings_Disabled WindowsSpotlightEnablementSettings = 1
-	// WindowsSpotlightEnablementSettings_Enabled undocumented
-	WindowsSpotlightEnablementSettings_Enabled WindowsSpotlightEnablementSettings = 2
+	// WindowsSpotlightEnablementSettingsVNotConfigured undocumented
+	WindowsSpotlightEnablementSettingsVNotConfigured WindowsSpotlightEnablementSettings = 0
+	// WindowsSpotlightEnablementSettingsVDisabled undocumented
+	WindowsSpotlightEnablementSettingsVDisabled WindowsSpotlightEnablementSettings = 1
+	// WindowsSpotlightEnablementSettingsVEnabled undocumented
+	WindowsSpotlightEnablementSettingsVEnabled WindowsSpotlightEnablementSettings = 2
 )
+
+// WindowsSpotlightEnablementSettingsPNotConfigured returns a pointer to WindowsSpotlightEnablementSettingsVNotConfigured
+func WindowsSpotlightEnablementSettingsPNotConfigured() *WindowsSpotlightEnablementSettings {
+	v := WindowsSpotlightEnablementSettingsVNotConfigured
+	return &v
+}
+
+// WindowsSpotlightEnablementSettingsPDisabled returns a pointer to WindowsSpotlightEnablementSettingsVDisabled
+func WindowsSpotlightEnablementSettingsPDisabled() *WindowsSpotlightEnablementSettings {
+	v := WindowsSpotlightEnablementSettingsVDisabled
+	return &v
+}
+
+// WindowsSpotlightEnablementSettingsPEnabled returns a pointer to WindowsSpotlightEnablementSettingsVEnabled
+func WindowsSpotlightEnablementSettingsPEnabled() *WindowsSpotlightEnablementSettings {
+	v := WindowsSpotlightEnablementSettingsVEnabled
+	return &v
+}
 
 // WindowsStartMenuAppListVisibilityType undocumented
 type WindowsStartMenuAppListVisibilityType int
 
 const (
-	// WindowsStartMenuAppListVisibilityType_UserDefined undocumented
-	WindowsStartMenuAppListVisibilityType_UserDefined WindowsStartMenuAppListVisibilityType = 0
-	// WindowsStartMenuAppListVisibilityType_Collapse undocumented
-	WindowsStartMenuAppListVisibilityType_Collapse WindowsStartMenuAppListVisibilityType = 1
-	// WindowsStartMenuAppListVisibilityType_Remove undocumented
-	WindowsStartMenuAppListVisibilityType_Remove WindowsStartMenuAppListVisibilityType = 2
-	// WindowsStartMenuAppListVisibilityType_DisableSettingsApp undocumented
-	WindowsStartMenuAppListVisibilityType_DisableSettingsApp WindowsStartMenuAppListVisibilityType = 4
+	// WindowsStartMenuAppListVisibilityTypeVUserDefined undocumented
+	WindowsStartMenuAppListVisibilityTypeVUserDefined WindowsStartMenuAppListVisibilityType = 0
+	// WindowsStartMenuAppListVisibilityTypeVCollapse undocumented
+	WindowsStartMenuAppListVisibilityTypeVCollapse WindowsStartMenuAppListVisibilityType = 1
+	// WindowsStartMenuAppListVisibilityTypeVRemove undocumented
+	WindowsStartMenuAppListVisibilityTypeVRemove WindowsStartMenuAppListVisibilityType = 2
+	// WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp undocumented
+	WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp WindowsStartMenuAppListVisibilityType = 4
 )
+
+// WindowsStartMenuAppListVisibilityTypePUserDefined returns a pointer to WindowsStartMenuAppListVisibilityTypeVUserDefined
+func WindowsStartMenuAppListVisibilityTypePUserDefined() *WindowsStartMenuAppListVisibilityType {
+	v := WindowsStartMenuAppListVisibilityTypeVUserDefined
+	return &v
+}
+
+// WindowsStartMenuAppListVisibilityTypePCollapse returns a pointer to WindowsStartMenuAppListVisibilityTypeVCollapse
+func WindowsStartMenuAppListVisibilityTypePCollapse() *WindowsStartMenuAppListVisibilityType {
+	v := WindowsStartMenuAppListVisibilityTypeVCollapse
+	return &v
+}
+
+// WindowsStartMenuAppListVisibilityTypePRemove returns a pointer to WindowsStartMenuAppListVisibilityTypeVRemove
+func WindowsStartMenuAppListVisibilityTypePRemove() *WindowsStartMenuAppListVisibilityType {
+	v := WindowsStartMenuAppListVisibilityTypeVRemove
+	return &v
+}
+
+// WindowsStartMenuAppListVisibilityTypePDisableSettingsApp returns a pointer to WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp
+func WindowsStartMenuAppListVisibilityTypePDisableSettingsApp() *WindowsStartMenuAppListVisibilityType {
+	v := WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp
+	return &v
+}
 
 // WindowsStartMenuModeType undocumented
 type WindowsStartMenuModeType int
 
 const (
-	// WindowsStartMenuModeType_UserDefined undocumented
-	WindowsStartMenuModeType_UserDefined WindowsStartMenuModeType = 0
-	// WindowsStartMenuModeType_FullScreen undocumented
-	WindowsStartMenuModeType_FullScreen WindowsStartMenuModeType = 1
-	// WindowsStartMenuModeType_NonFullScreen undocumented
-	WindowsStartMenuModeType_NonFullScreen WindowsStartMenuModeType = 2
+	// WindowsStartMenuModeTypeVUserDefined undocumented
+	WindowsStartMenuModeTypeVUserDefined WindowsStartMenuModeType = 0
+	// WindowsStartMenuModeTypeVFullScreen undocumented
+	WindowsStartMenuModeTypeVFullScreen WindowsStartMenuModeType = 1
+	// WindowsStartMenuModeTypeVNonFullScreen undocumented
+	WindowsStartMenuModeTypeVNonFullScreen WindowsStartMenuModeType = 2
 )
+
+// WindowsStartMenuModeTypePUserDefined returns a pointer to WindowsStartMenuModeTypeVUserDefined
+func WindowsStartMenuModeTypePUserDefined() *WindowsStartMenuModeType {
+	v := WindowsStartMenuModeTypeVUserDefined
+	return &v
+}
+
+// WindowsStartMenuModeTypePFullScreen returns a pointer to WindowsStartMenuModeTypeVFullScreen
+func WindowsStartMenuModeTypePFullScreen() *WindowsStartMenuModeType {
+	v := WindowsStartMenuModeTypeVFullScreen
+	return &v
+}
+
+// WindowsStartMenuModeTypePNonFullScreen returns a pointer to WindowsStartMenuModeTypeVNonFullScreen
+func WindowsStartMenuModeTypePNonFullScreen() *WindowsStartMenuModeType {
+	v := WindowsStartMenuModeTypeVNonFullScreen
+	return &v
+}
 
 // WindowsUpdateType undocumented
 type WindowsUpdateType int
 
 const (
-	// WindowsUpdateType_UserDefined undocumented
-	WindowsUpdateType_UserDefined WindowsUpdateType = 0
-	// WindowsUpdateType_All undocumented
-	WindowsUpdateType_All WindowsUpdateType = 1
-	// WindowsUpdateType_BusinessReadyOnly undocumented
-	WindowsUpdateType_BusinessReadyOnly WindowsUpdateType = 2
-	// WindowsUpdateType_WindowsInsiderBuildFast undocumented
-	WindowsUpdateType_WindowsInsiderBuildFast WindowsUpdateType = 3
-	// WindowsUpdateType_WindowsInsiderBuildSlow undocumented
-	WindowsUpdateType_WindowsInsiderBuildSlow WindowsUpdateType = 4
-	// WindowsUpdateType_WindowsInsiderBuildRelease undocumented
-	WindowsUpdateType_WindowsInsiderBuildRelease WindowsUpdateType = 5
+	// WindowsUpdateTypeVUserDefined undocumented
+	WindowsUpdateTypeVUserDefined WindowsUpdateType = 0
+	// WindowsUpdateTypeVAll undocumented
+	WindowsUpdateTypeVAll WindowsUpdateType = 1
+	// WindowsUpdateTypeVBusinessReadyOnly undocumented
+	WindowsUpdateTypeVBusinessReadyOnly WindowsUpdateType = 2
+	// WindowsUpdateTypeVWindowsInsiderBuildFast undocumented
+	WindowsUpdateTypeVWindowsInsiderBuildFast WindowsUpdateType = 3
+	// WindowsUpdateTypeVWindowsInsiderBuildSlow undocumented
+	WindowsUpdateTypeVWindowsInsiderBuildSlow WindowsUpdateType = 4
+	// WindowsUpdateTypeVWindowsInsiderBuildRelease undocumented
+	WindowsUpdateTypeVWindowsInsiderBuildRelease WindowsUpdateType = 5
 )
+
+// WindowsUpdateTypePUserDefined returns a pointer to WindowsUpdateTypeVUserDefined
+func WindowsUpdateTypePUserDefined() *WindowsUpdateType {
+	v := WindowsUpdateTypeVUserDefined
+	return &v
+}
+
+// WindowsUpdateTypePAll returns a pointer to WindowsUpdateTypeVAll
+func WindowsUpdateTypePAll() *WindowsUpdateType {
+	v := WindowsUpdateTypeVAll
+	return &v
+}
+
+// WindowsUpdateTypePBusinessReadyOnly returns a pointer to WindowsUpdateTypeVBusinessReadyOnly
+func WindowsUpdateTypePBusinessReadyOnly() *WindowsUpdateType {
+	v := WindowsUpdateTypeVBusinessReadyOnly
+	return &v
+}
+
+// WindowsUpdateTypePWindowsInsiderBuildFast returns a pointer to WindowsUpdateTypeVWindowsInsiderBuildFast
+func WindowsUpdateTypePWindowsInsiderBuildFast() *WindowsUpdateType {
+	v := WindowsUpdateTypeVWindowsInsiderBuildFast
+	return &v
+}
+
+// WindowsUpdateTypePWindowsInsiderBuildSlow returns a pointer to WindowsUpdateTypeVWindowsInsiderBuildSlow
+func WindowsUpdateTypePWindowsInsiderBuildSlow() *WindowsUpdateType {
+	v := WindowsUpdateTypeVWindowsInsiderBuildSlow
+	return &v
+}
+
+// WindowsUpdateTypePWindowsInsiderBuildRelease returns a pointer to WindowsUpdateTypeVWindowsInsiderBuildRelease
+func WindowsUpdateTypePWindowsInsiderBuildRelease() *WindowsUpdateType {
+	v := WindowsUpdateTypeVWindowsInsiderBuildRelease
+	return &v
+}
 
 // WindowsUserAccountControlSettings undocumented
 type WindowsUserAccountControlSettings int
 
 const (
-	// WindowsUserAccountControlSettings_UserDefined undocumented
-	WindowsUserAccountControlSettings_UserDefined WindowsUserAccountControlSettings = 0
-	// WindowsUserAccountControlSettings_AlwaysNotify undocumented
-	WindowsUserAccountControlSettings_AlwaysNotify WindowsUserAccountControlSettings = 1
-	// WindowsUserAccountControlSettings_NotifyOnAppChanges undocumented
-	WindowsUserAccountControlSettings_NotifyOnAppChanges WindowsUserAccountControlSettings = 2
-	// WindowsUserAccountControlSettings_NotifyOnAppChangesWithoutDimming undocumented
-	WindowsUserAccountControlSettings_NotifyOnAppChangesWithoutDimming WindowsUserAccountControlSettings = 3
-	// WindowsUserAccountControlSettings_NeverNotify undocumented
-	WindowsUserAccountControlSettings_NeverNotify WindowsUserAccountControlSettings = 4
+	// WindowsUserAccountControlSettingsVUserDefined undocumented
+	WindowsUserAccountControlSettingsVUserDefined WindowsUserAccountControlSettings = 0
+	// WindowsUserAccountControlSettingsVAlwaysNotify undocumented
+	WindowsUserAccountControlSettingsVAlwaysNotify WindowsUserAccountControlSettings = 1
+	// WindowsUserAccountControlSettingsVNotifyOnAppChanges undocumented
+	WindowsUserAccountControlSettingsVNotifyOnAppChanges WindowsUserAccountControlSettings = 2
+	// WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming undocumented
+	WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming WindowsUserAccountControlSettings = 3
+	// WindowsUserAccountControlSettingsVNeverNotify undocumented
+	WindowsUserAccountControlSettingsVNeverNotify WindowsUserAccountControlSettings = 4
 )
+
+// WindowsUserAccountControlSettingsPUserDefined returns a pointer to WindowsUserAccountControlSettingsVUserDefined
+func WindowsUserAccountControlSettingsPUserDefined() *WindowsUserAccountControlSettings {
+	v := WindowsUserAccountControlSettingsVUserDefined
+	return &v
+}
+
+// WindowsUserAccountControlSettingsPAlwaysNotify returns a pointer to WindowsUserAccountControlSettingsVAlwaysNotify
+func WindowsUserAccountControlSettingsPAlwaysNotify() *WindowsUserAccountControlSettings {
+	v := WindowsUserAccountControlSettingsVAlwaysNotify
+	return &v
+}
+
+// WindowsUserAccountControlSettingsPNotifyOnAppChanges returns a pointer to WindowsUserAccountControlSettingsVNotifyOnAppChanges
+func WindowsUserAccountControlSettingsPNotifyOnAppChanges() *WindowsUserAccountControlSettings {
+	v := WindowsUserAccountControlSettingsVNotifyOnAppChanges
+	return &v
+}
+
+// WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming returns a pointer to WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming
+func WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming() *WindowsUserAccountControlSettings {
+	v := WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming
+	return &v
+}
+
+// WindowsUserAccountControlSettingsPNeverNotify returns a pointer to WindowsUserAccountControlSettingsVNeverNotify
+func WindowsUserAccountControlSettingsPNeverNotify() *WindowsUserAccountControlSettings {
+	v := WindowsUserAccountControlSettingsVNeverNotify
+	return &v
+}
 
 // ComplexExtensionValue undocumented
 type ComplexExtensionValue struct {
@@ -13898,120 +20366,6 @@ type WorkingHours struct {
 	TimeZone *TimeZoneBase `json:"timeZone,omitempty"`
 }
 
-// WorkbookTableColumnCollectionAddRequestParameter undocumented
-type WorkbookTableColumnCollectionAddRequestParameter struct {
-	// Index undocumented
-	Index *int `json:"index,omitempty"`
-	// Values undocumented
-	Values json.RawMessage `json:"values,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-}
-
-// OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
-type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
-}
-
-// ParticipantCollectionInviteRequestParameter undocumented
-type ParticipantCollectionInviteRequestParameter struct {
-	// Participants undocumented
-	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// MobileAppAssignRequestParameter undocumented
-type MobileAppAssignRequestParameter struct {
-	// MobileAppAssignments undocumented
-	MobileAppAssignments []MobileAppAssignment `json:"mobileAppAssignments,omitempty"`
-}
-
-// ManagedEBookAssignRequestParameter undocumented
-type ManagedEBookAssignRequestParameter struct {
-	// ManagedEBookAssignments undocumented
-	ManagedEBookAssignments []ManagedEBookAssignment `json:"managedEBookAssignments,omitempty"`
-}
-
-// TeamCloneRequestParameter undocumented
-type TeamCloneRequestParameter struct {
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// Classification undocumented
-	Classification *string `json:"classification,omitempty"`
-	// Visibility undocumented
-	Visibility *TeamVisibilityType `json:"visibility,omitempty"`
-	// PartsToClone undocumented
-	PartsToClone *ClonableTeamParts `json:"partsToClone,omitempty"`
-}
-
-// TeamArchiveRequestParameter undocumented
-type TeamArchiveRequestParameter struct {
-	// ShouldSetSpoSiteReadOnlyForMembers undocumented
-	ShouldSetSpoSiteReadOnlyForMembers *bool `json:"shouldSetSpoSiteReadOnlyForMembers,omitempty"`
-}
-
-// TeamUnarchiveRequestParameter undocumented
-type TeamUnarchiveRequestParameter struct {
-}
-
-// TeamsAppInstallationUpgradeRequestParameter undocumented
-type TeamsAppInstallationUpgradeRequestParameter struct {
-}
-
-// ManagedAppPolicyTargetAppsRequestParameter undocumented
-type ManagedAppPolicyTargetAppsRequestParameter struct {
-	// Apps undocumented
-	Apps []ManagedMobileApp `json:"apps,omitempty"`
-}
-
-// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
-type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
-	// WebURL undocumented
-	WebURL *string `json:"webUrl,omitempty"`
-}
-
-// DeviceManagementExchangeConnectorSyncRequestParameter undocumented
-type DeviceManagementExchangeConnectorSyncRequestParameter struct {
-	// SyncType undocumented
-	SyncType *DeviceManagementExchangeConnectorSyncType `json:"syncType,omitempty"`
-}
-
-// OnenotePageOnenotePatchContentRequestParameter undocumented
-type OnenotePageOnenotePatchContentRequestParameter struct {
-	// Commands undocumented
-	Commands []OnenotePatchContentCommand `json:"commands,omitempty"`
-}
-
-// OnenotePageCopyToSectionRequestParameter undocumented
-type OnenotePageCopyToSectionRequestParameter struct {
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
-	// GroupID undocumented
-	GroupID *string `json:"groupId,omitempty"`
-	// SiteCollectionID undocumented
-	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
-	// SiteID undocumented
-	SiteID *string `json:"siteId,omitempty"`
-}
-
-// ParticipantMuteRequestParameter undocumented
-type ParticipantMuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// WorkbookRangeFormatAutofitColumnsRequestParameter undocumented
-type WorkbookRangeFormatAutofitColumnsRequestParameter struct {
-}
-
-// WorkbookRangeFormatAutofitRowsRequestParameter undocumented
-type WorkbookRangeFormatAutofitRowsRequestParameter struct {
-}
-
 // MessageCreateReplyRequestParameter undocumented
 type MessageCreateReplyRequestParameter struct {
 	// Message undocumented
@@ -14080,28 +20434,200 @@ type MessageForwardRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// CalendarGetScheduleRequestParameter undocumented
-type CalendarGetScheduleRequestParameter struct {
-	// Schedules undocumented
-	Schedules []string `json:"Schedules,omitempty"`
-	// EndTime undocumented
-	EndTime *DateTimeTimeZone `json:"EndTime,omitempty"`
-	// StartTime undocumented
-	StartTime *DateTimeTimeZone `json:"StartTime,omitempty"`
-	// AvailabilityViewInterval undocumented
-	AvailabilityViewInterval *int `json:"AvailabilityViewInterval,omitempty"`
+// WorkbookCreateSessionRequestParameter undocumented
+type WorkbookCreateSessionRequestParameter struct {
+	// PersistChanges undocumented
+	PersistChanges *bool `json:"persistChanges,omitempty"`
 }
 
-// GroupLifecyclePolicyAddGroupRequestParameter undocumented
-type GroupLifecyclePolicyAddGroupRequestParameter struct {
-	// GroupID undocumented
-	GroupID *string `json:"groupId,omitempty"`
+// WorkbookCloseSessionRequestParameter undocumented
+type WorkbookCloseSessionRequestParameter struct {
 }
 
-// GroupLifecyclePolicyRemoveGroupRequestParameter undocumented
-type GroupLifecyclePolicyRemoveGroupRequestParameter struct {
-	// GroupID undocumented
-	GroupID *string `json:"groupId,omitempty"`
+// WorkbookRefreshSessionRequestParameter undocumented
+type WorkbookRefreshSessionRequestParameter struct {
+}
+
+// EventDismissReminderRequestParameter undocumented
+type EventDismissReminderRequestParameter struct {
+}
+
+// EventSnoozeReminderRequestParameter undocumented
+type EventSnoozeReminderRequestParameter struct {
+	// NewReminderTime undocumented
+	NewReminderTime *DateTimeTimeZone `json:"NewReminderTime,omitempty"`
+}
+
+// EventAcceptRequestParameter undocumented
+type EventAcceptRequestParameter struct {
+	// SendResponse undocumented
+	SendResponse *bool `json:"SendResponse,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// EventDeclineRequestParameter undocumented
+type EventDeclineRequestParameter struct {
+	// SendResponse undocumented
+	SendResponse *bool `json:"SendResponse,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// EventTentativelyAcceptRequestParameter undocumented
+type EventTentativelyAcceptRequestParameter struct {
+	// SendResponse undocumented
+	SendResponse *bool `json:"SendResponse,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// WorkbookNamedItemCollectionAddRequestParameter undocumented
+type WorkbookNamedItemCollectionAddRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Reference undocumented
+	Reference json.RawMessage `json:"reference,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"comment,omitempty"`
+}
+
+// WorkbookNamedItemCollectionAddFormulaLocalRequestParameter undocumented
+type WorkbookNamedItemCollectionAddFormulaLocalRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Formula undocumented
+	Formula *string `json:"formula,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"comment,omitempty"`
+}
+
+// WorkbookRangeFormatAutofitColumnsRequestParameter undocumented
+type WorkbookRangeFormatAutofitColumnsRequestParameter struct {
+}
+
+// WorkbookRangeFormatAutofitRowsRequestParameter undocumented
+type WorkbookRangeFormatAutofitRowsRequestParameter struct {
+}
+
+// WorkbookTableColumnCollectionAddRequestParameter undocumented
+type WorkbookTableColumnCollectionAddRequestParameter struct {
+	// Index undocumented
+	Index *int `json:"index,omitempty"`
+	// Values undocumented
+	Values json.RawMessage `json:"values,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+}
+
+// DeviceManagementExchangeConnectorSyncRequestParameter undocumented
+type DeviceManagementExchangeConnectorSyncRequestParameter struct {
+	// SyncType undocumented
+	SyncType *DeviceManagementExchangeConnectorSyncType `json:"syncType,omitempty"`
+}
+
+// TeamsAppInstallationUpgradeRequestParameter undocumented
+type TeamsAppInstallationUpgradeRequestParameter struct {
+}
+
+// ConversationThreadReplyRequestParameter undocumented
+type ConversationThreadReplyRequestParameter struct {
+	// Post undocumented
+	Post *Post `json:"Post,omitempty"`
+}
+
+// RemoteAssistancePartnerBeginOnboardingRequestParameter undocumented
+type RemoteAssistancePartnerBeginOnboardingRequestParameter struct {
+}
+
+// RemoteAssistancePartnerDisconnectRequestParameter undocumented
+type RemoteAssistancePartnerDisconnectRequestParameter struct {
+}
+
+// CallAnswerRequestParameter undocumented
+type CallAnswerRequestParameter struct {
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+	// MediaConfig undocumented
+	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
+	// AcceptedModalities undocumented
+	AcceptedModalities []Modality `json:"acceptedModalities,omitempty"`
+}
+
+// CallChangeScreenSharingRoleRequestParameter undocumented
+type CallChangeScreenSharingRoleRequestParameter struct {
+	// Role undocumented
+	Role *ScreenSharingRole `json:"role,omitempty"`
+}
+
+// CallMuteRequestParameter undocumented
+type CallMuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallPlayPromptRequestParameter undocumented
+type CallPlayPromptRequestParameter struct {
+	// Prompts undocumented
+	Prompts []Prompt `json:"prompts,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallRecordRequestParameter undocumented
+type CallRecordRequestParameter struct {
+	// Prompts undocumented
+	Prompts []Prompt `json:"prompts,omitempty"`
+	// BargeInAllowed undocumented
+	BargeInAllowed *bool `json:"bargeInAllowed,omitempty"`
+	// InitialSilenceTimeoutInSeconds undocumented
+	InitialSilenceTimeoutInSeconds *int `json:"initialSilenceTimeoutInSeconds,omitempty"`
+	// MaxSilenceTimeoutInSeconds undocumented
+	MaxSilenceTimeoutInSeconds *int `json:"maxSilenceTimeoutInSeconds,omitempty"`
+	// MaxRecordDurationInSeconds undocumented
+	MaxRecordDurationInSeconds *int `json:"maxRecordDurationInSeconds,omitempty"`
+	// PlayBeep undocumented
+	PlayBeep *bool `json:"playBeep,omitempty"`
+	// StopTones undocumented
+	StopTones []string `json:"stopTones,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallRedirectRequestParameter undocumented
+type CallRedirectRequestParameter struct {
+	// Targets undocumented
+	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
+	// Timeout undocumented
+	Timeout *int `json:"timeout,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+}
+
+// CallRejectRequestParameter undocumented
+type CallRejectRequestParameter struct {
+	// Reason undocumented
+	Reason *RejectReason `json:"reason,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+}
+
+// CallSubscribeToToneRequestParameter undocumented
+type CallSubscribeToToneRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallTransferRequestParameter undocumented
+type CallTransferRequestParameter struct {
+	// TransferTarget undocumented
+	TransferTarget *InvitationParticipantInfo `json:"transferTarget,omitempty"`
+}
+
+// CallUnmuteRequestParameter undocumented
+type CallUnmuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
 }
 
 // DirectoryObjectCheckMemberGroupsRequestParameter undocumented
@@ -14130,6 +20656,476 @@ type DirectoryObjectGetMemberObjectsRequestParameter struct {
 
 // DirectoryObjectRestoreRequestParameter undocumented
 type DirectoryObjectRestoreRequestParameter struct {
+}
+
+// WorkbookApplicationCalculateRequestParameter undocumented
+type WorkbookApplicationCalculateRequestParameter struct {
+	// CalculationType undocumented
+	CalculationType *string `json:"calculationType,omitempty"`
+}
+
+// CalendarGetScheduleRequestParameter undocumented
+type CalendarGetScheduleRequestParameter struct {
+	// Schedules undocumented
+	Schedules []string `json:"Schedules,omitempty"`
+	// EndTime undocumented
+	EndTime *DateTimeTimeZone `json:"EndTime,omitempty"`
+	// StartTime undocumented
+	StartTime *DateTimeTimeZone `json:"StartTime,omitempty"`
+	// AvailabilityViewInterval undocumented
+	AvailabilityViewInterval *int `json:"AvailabilityViewInterval,omitempty"`
+}
+
+// MobileAppContentFileCommitRequestParameter undocumented
+type MobileAppContentFileCommitRequestParameter struct {
+	// FileEncryptionInfo undocumented
+	FileEncryptionInfo *FileEncryptionInfo `json:"fileEncryptionInfo,omitempty"`
+}
+
+// MobileAppContentFileRenewUploadRequestParameter undocumented
+type MobileAppContentFileRenewUploadRequestParameter struct {
+}
+
+// WorkbookChartFillClearRequestParameter undocumented
+type WorkbookChartFillClearRequestParameter struct {
+}
+
+// WorkbookChartFillSetSolidColorRequestParameter undocumented
+type WorkbookChartFillSetSolidColorRequestParameter struct {
+	// Color undocumented
+	Color *string `json:"color,omitempty"`
+}
+
+// DeviceConfigurationAssignRequestParameter undocumented
+type DeviceConfigurationAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
+}
+
+// WorkbookChartSetDataRequestParameter undocumented
+type WorkbookChartSetDataRequestParameter struct {
+	// SourceData undocumented
+	SourceData json.RawMessage `json:"sourceData,omitempty"`
+	// SeriesBy undocumented
+	SeriesBy *string `json:"seriesBy,omitempty"`
+}
+
+// WorkbookChartSetPositionRequestParameter undocumented
+type WorkbookChartSetPositionRequestParameter struct {
+	// StartCell undocumented
+	StartCell json.RawMessage `json:"startCell,omitempty"`
+	// EndCell undocumented
+	EndCell json.RawMessage `json:"endCell,omitempty"`
+}
+
+// WorkbookFilterApplyRequestParameter undocumented
+type WorkbookFilterApplyRequestParameter struct {
+	// Criteria undocumented
+	Criteria *WorkbookFilterCriteria `json:"criteria,omitempty"`
+}
+
+// WorkbookFilterApplyBottomItemsFilterRequestParameter undocumented
+type WorkbookFilterApplyBottomItemsFilterRequestParameter struct {
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+}
+
+// WorkbookFilterApplyBottomPercentFilterRequestParameter undocumented
+type WorkbookFilterApplyBottomPercentFilterRequestParameter struct {
+	// Percent undocumented
+	Percent *int `json:"percent,omitempty"`
+}
+
+// WorkbookFilterApplyCellColorFilterRequestParameter undocumented
+type WorkbookFilterApplyCellColorFilterRequestParameter struct {
+	// Color undocumented
+	Color *string `json:"color,omitempty"`
+}
+
+// WorkbookFilterApplyCustomFilterRequestParameter undocumented
+type WorkbookFilterApplyCustomFilterRequestParameter struct {
+	// Criteria1 undocumented
+	Criteria1 *string `json:"criteria1,omitempty"`
+	// Criteria2 undocumented
+	Criteria2 *string `json:"criteria2,omitempty"`
+	// Oper undocumented
+	Oper *string `json:"oper,omitempty"`
+}
+
+// WorkbookFilterApplyDynamicFilterRequestParameter undocumented
+type WorkbookFilterApplyDynamicFilterRequestParameter struct {
+	// Criteria undocumented
+	Criteria *string `json:"criteria,omitempty"`
+}
+
+// WorkbookFilterApplyFontColorFilterRequestParameter undocumented
+type WorkbookFilterApplyFontColorFilterRequestParameter struct {
+	// Color undocumented
+	Color *string `json:"color,omitempty"`
+}
+
+// WorkbookFilterApplyIconFilterRequestParameter undocumented
+type WorkbookFilterApplyIconFilterRequestParameter struct {
+	// Icon undocumented
+	Icon *WorkbookIcon `json:"icon,omitempty"`
+}
+
+// WorkbookFilterApplyTopItemsFilterRequestParameter undocumented
+type WorkbookFilterApplyTopItemsFilterRequestParameter struct {
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+}
+
+// WorkbookFilterApplyTopPercentFilterRequestParameter undocumented
+type WorkbookFilterApplyTopPercentFilterRequestParameter struct {
+	// Percent undocumented
+	Percent *int `json:"percent,omitempty"`
+}
+
+// WorkbookFilterApplyValuesFilterRequestParameter undocumented
+type WorkbookFilterApplyValuesFilterRequestParameter struct {
+	// Values undocumented
+	Values json.RawMessage `json:"values,omitempty"`
+}
+
+// WorkbookFilterClearRequestParameter undocumented
+type WorkbookFilterClearRequestParameter struct {
+}
+
+// WorkbookWorksheetCollectionAddRequestParameter undocumented
+type WorkbookWorksheetCollectionAddRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+}
+
+// ManagedDeviceRetireRequestParameter undocumented
+type ManagedDeviceRetireRequestParameter struct {
+}
+
+// ManagedDeviceWipeRequestParameter undocumented
+type ManagedDeviceWipeRequestParameter struct {
+	// KeepEnrollmentData undocumented
+	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+	// MacOsUnlockCode undocumented
+	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
+}
+
+// ManagedDeviceResetPasscodeRequestParameter undocumented
+type ManagedDeviceResetPasscodeRequestParameter struct {
+}
+
+// ManagedDeviceRemoteLockRequestParameter undocumented
+type ManagedDeviceRemoteLockRequestParameter struct {
+}
+
+// ManagedDeviceRequestRemoteAssistanceRequestParameter undocumented
+type ManagedDeviceRequestRemoteAssistanceRequestParameter struct {
+}
+
+// ManagedDeviceDisableLostModeRequestParameter undocumented
+type ManagedDeviceDisableLostModeRequestParameter struct {
+}
+
+// ManagedDeviceLocateDeviceRequestParameter undocumented
+type ManagedDeviceLocateDeviceRequestParameter struct {
+}
+
+// ManagedDeviceBypassActivationLockRequestParameter undocumented
+type ManagedDeviceBypassActivationLockRequestParameter struct {
+}
+
+// ManagedDeviceRebootNowRequestParameter undocumented
+type ManagedDeviceRebootNowRequestParameter struct {
+}
+
+// ManagedDeviceShutDownRequestParameter undocumented
+type ManagedDeviceShutDownRequestParameter struct {
+}
+
+// ManagedDeviceRecoverPasscodeRequestParameter undocumented
+type ManagedDeviceRecoverPasscodeRequestParameter struct {
+}
+
+// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
+type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+}
+
+// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
+}
+
+// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// ManagedDeviceSyncDeviceRequestParameter undocumented
+type ManagedDeviceSyncDeviceRequestParameter struct {
+}
+
+// ManagedDeviceWindowsDefenderScanRequestParameter undocumented
+type ManagedDeviceWindowsDefenderScanRequestParameter struct {
+	// QuickScan undocumented
+	QuickScan *bool `json:"quickScan,omitempty"`
+}
+
+// ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter undocumented
+type ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter struct {
+}
+
+// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
+type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
+	// UpdateWindowsDeviceAccountActionParameter undocumented
+	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
+}
+
+// ManagedAppProtectionTargetAppsRequestParameter undocumented
+type ManagedAppProtectionTargetAppsRequestParameter struct {
+	// Apps undocumented
+	Apps []ManagedMobileApp `json:"apps,omitempty"`
+}
+
+// TeamCloneRequestParameter undocumented
+type TeamCloneRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// Classification undocumented
+	Classification *string `json:"classification,omitempty"`
+	// Visibility undocumented
+	Visibility *TeamVisibilityType `json:"visibility,omitempty"`
+	// PartsToClone undocumented
+	PartsToClone *ClonableTeamParts `json:"partsToClone,omitempty"`
+}
+
+// TeamArchiveRequestParameter undocumented
+type TeamArchiveRequestParameter struct {
+	// ShouldSetSpoSiteReadOnlyForMembers undocumented
+	ShouldSetSpoSiteReadOnlyForMembers *bool `json:"shouldSetSpoSiteReadOnlyForMembers,omitempty"`
+}
+
+// TeamUnarchiveRequestParameter undocumented
+type TeamUnarchiveRequestParameter struct {
+}
+
+// WorkbookRangeClearRequestParameter undocumented
+type WorkbookRangeClearRequestParameter struct {
+	// ApplyTo undocumented
+	ApplyTo *string `json:"applyTo,omitempty"`
+}
+
+// WorkbookRangeDeleteRequestParameter undocumented
+type WorkbookRangeDeleteRequestParameter struct {
+	// Shift undocumented
+	Shift *string `json:"shift,omitempty"`
+}
+
+// WorkbookRangeInsertRequestParameter undocumented
+type WorkbookRangeInsertRequestParameter struct {
+	// Shift undocumented
+	Shift *string `json:"shift,omitempty"`
+}
+
+// WorkbookRangeMergeRequestParameter undocumented
+type WorkbookRangeMergeRequestParameter struct {
+	// Across undocumented
+	Across *bool `json:"across,omitempty"`
+}
+
+// WorkbookRangeUnmergeRequestParameter undocumented
+type WorkbookRangeUnmergeRequestParameter struct {
+}
+
+// WorkbookTableClearFiltersRequestParameter undocumented
+type WorkbookTableClearFiltersRequestParameter struct {
+}
+
+// WorkbookTableConvertToRangeRequestParameter undocumented
+type WorkbookTableConvertToRangeRequestParameter struct {
+}
+
+// WorkbookTableReapplyFiltersRequestParameter undocumented
+type WorkbookTableReapplyFiltersRequestParameter struct {
+}
+
+// DeviceCompliancePolicyAssignRequestParameter undocumented
+type DeviceCompliancePolicyAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
+}
+
+// DeviceCompliancePolicyScheduleActionsForRulesRequestParameter undocumented
+type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
+	// DeviceComplianceScheduledActionForRules undocumented
+	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
+}
+
+// GroupValidatePropertiesRequestParameter undocumented
+type GroupValidatePropertiesRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
+// GroupSubscribeByMailRequestParameter undocumented
+type GroupSubscribeByMailRequestParameter struct {
+}
+
+// GroupUnsubscribeByMailRequestParameter undocumented
+type GroupUnsubscribeByMailRequestParameter struct {
+}
+
+// GroupAddFavoriteRequestParameter undocumented
+type GroupAddFavoriteRequestParameter struct {
+}
+
+// GroupRemoveFavoriteRequestParameter undocumented
+type GroupRemoveFavoriteRequestParameter struct {
+}
+
+// GroupResetUnseenCountRequestParameter undocumented
+type GroupResetUnseenCountRequestParameter struct {
+}
+
+// GroupRenewRequestParameter undocumented
+type GroupRenewRequestParameter struct {
+}
+
+// MobileAppAssignRequestParameter undocumented
+type MobileAppAssignRequestParameter struct {
+	// MobileAppAssignments undocumented
+	MobileAppAssignments []MobileAppAssignment `json:"mobileAppAssignments,omitempty"`
+}
+
+// ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
+type ManagedDeviceMobileAppConfigurationAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []ManagedDeviceMobileAppConfigurationAssignment `json:"assignments,omitempty"`
+}
+
+// ManagedEBookAssignRequestParameter undocumented
+type ManagedEBookAssignRequestParameter struct {
+	// ManagedEBookAssignments undocumented
+	ManagedEBookAssignments []ManagedEBookAssignment `json:"managedEBookAssignments,omitempty"`
+}
+
+// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
+type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
+	// Priority undocumented
+	Priority *int `json:"priority,omitempty"`
+}
+
+// DeviceEnrollmentConfigurationAssignRequestParameter undocumented
+type DeviceEnrollmentConfigurationAssignRequestParameter struct {
+	// EnrollmentConfigurationAssignments undocumented
+	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
+}
+
+// ManagedAppPolicyTargetAppsRequestParameter undocumented
+type ManagedAppPolicyTargetAppsRequestParameter struct {
+	// Apps undocumented
+	Apps []ManagedMobileApp `json:"apps,omitempty"`
+}
+
+// WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
+type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
+}
+
+// DriveItemVersionRestoreVersionRequestParameter undocumented
+type DriveItemVersionRestoreVersionRequestParameter struct {
+}
+
+// UserAssignLicenseRequestParameter undocumented
+type UserAssignLicenseRequestParameter struct {
+	// AddLicenses undocumented
+	AddLicenses []AssignedLicense `json:"addLicenses,omitempty"`
+	// RemoveLicenses undocumented
+	RemoveLicenses []UUID `json:"removeLicenses,omitempty"`
+}
+
+// UserChangePasswordRequestParameter undocumented
+type UserChangePasswordRequestParameter struct {
+	// CurrentPassword undocumented
+	CurrentPassword *string `json:"currentPassword,omitempty"`
+	// NewPassword undocumented
+	NewPassword *string `json:"newPassword,omitempty"`
+}
+
+// UserRevokeSignInSessionsRequestParameter undocumented
+type UserRevokeSignInSessionsRequestParameter struct {
+}
+
+// UserFindMeetingTimesRequestParameter undocumented
+type UserFindMeetingTimesRequestParameter struct {
+	// Attendees undocumented
+	Attendees []AttendeeBase `json:"attendees,omitempty"`
+	// LocationConstraint undocumented
+	LocationConstraint *LocationConstraint `json:"locationConstraint,omitempty"`
+	// TimeConstraint undocumented
+	TimeConstraint *TimeConstraint `json:"timeConstraint,omitempty"`
+	// MeetingDuration undocumented
+	MeetingDuration *time.Duration `json:"meetingDuration,omitempty"`
+	// MaxCandidates undocumented
+	MaxCandidates *int `json:"maxCandidates,omitempty"`
+	// IsOrganizerOptional undocumented
+	IsOrganizerOptional *bool `json:"isOrganizerOptional,omitempty"`
+	// ReturnSuggestionReasons undocumented
+	ReturnSuggestionReasons *bool `json:"returnSuggestionReasons,omitempty"`
+	// MinimumAttendeePercentage undocumented
+	MinimumAttendeePercentage *float64 `json:"minimumAttendeePercentage,omitempty"`
+}
+
+// UserSendMailRequestParameter undocumented
+type UserSendMailRequestParameter struct {
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// SaveToSentItems undocumented
+	SaveToSentItems *bool `json:"SaveToSentItems,omitempty"`
+}
+
+// UserGetMailTipsRequestParameter undocumented
+type UserGetMailTipsRequestParameter struct {
+	// EmailAddresses undocumented
+	EmailAddresses []string `json:"EmailAddresses,omitempty"`
+	// MailTipsOptions undocumented
+	MailTipsOptions *MailTipsType `json:"MailTipsOptions,omitempty"`
+}
+
+// UserTranslateExchangeIdsRequestParameter undocumented
+type UserTranslateExchangeIdsRequestParameter struct {
+	// InputIds undocumented
+	InputIds []string `json:"InputIds,omitempty"`
+	// TargetIDType undocumented
+	TargetIDType *ExchangeIDFormat `json:"TargetIdType,omitempty"`
+	// SourceIDType undocumented
+	SourceIDType *ExchangeIDFormat `json:"SourceIdType,omitempty"`
+}
+
+// UserRemoveAllDevicesFromManagementRequestParameter undocumented
+type UserRemoveAllDevicesFromManagementRequestParameter struct {
+}
+
+// UserWipeManagedAppRegistrationsByDeviceTagRequestParameter undocumented
+type UserWipeManagedAppRegistrationsByDeviceTagRequestParameter struct {
+	// DeviceTag undocumented
+	DeviceTag *string `json:"deviceTag,omitempty"`
+}
+
+// UserExportPersonalDataRequestParameter undocumented
+type UserExportPersonalDataRequestParameter struct {
+	// StorageLocation undocumented
+	StorageLocation *string `json:"storageLocation,omitempty"`
 }
 
 // WorkbookFunctionsAbsRequestParameter undocumented
@@ -17226,142 +24222,32 @@ type WorkbookFunctionsZ_TestRequestParameter struct {
 	Sigma json.RawMessage `json:"sigma,omitempty"`
 }
 
-// ManagedAppProtectionTargetAppsRequestParameter undocumented
-type ManagedAppProtectionTargetAppsRequestParameter struct {
-	// Apps undocumented
-	Apps []ManagedMobileApp `json:"apps,omitempty"`
-}
-
-// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
-type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
-	// Priority undocumented
-	Priority *int `json:"priority,omitempty"`
-}
-
-// DeviceEnrollmentConfigurationAssignRequestParameter undocumented
-type DeviceEnrollmentConfigurationAssignRequestParameter struct {
-	// EnrollmentConfigurationAssignments undocumented
-	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
-}
-
-// TargetedManagedAppProtectionAssignRequestParameter undocumented
-type TargetedManagedAppProtectionAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
-}
-
-// RemoteAssistancePartnerBeginOnboardingRequestParameter undocumented
-type RemoteAssistancePartnerBeginOnboardingRequestParameter struct {
-}
-
-// RemoteAssistancePartnerDisconnectRequestParameter undocumented
-type RemoteAssistancePartnerDisconnectRequestParameter struct {
-}
-
-// OnenoteSectionCopyToNotebookRequestParameter undocumented
-type OnenoteSectionCopyToNotebookRequestParameter struct {
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
-	// GroupID undocumented
-	GroupID *string `json:"groupId,omitempty"`
-	// RenameAs undocumented
-	RenameAs *string `json:"renameAs,omitempty"`
-	// SiteCollectionID undocumented
-	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
-	// SiteID undocumented
-	SiteID *string `json:"siteId,omitempty"`
-}
-
-// OnenoteSectionCopyToSectionGroupRequestParameter undocumented
-type OnenoteSectionCopyToSectionGroupRequestParameter struct {
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
-	// GroupID undocumented
-	GroupID *string `json:"groupId,omitempty"`
-	// RenameAs undocumented
-	RenameAs *string `json:"renameAs,omitempty"`
-	// SiteCollectionID undocumented
-	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
-	// SiteID undocumented
-	SiteID *string `json:"siteId,omitempty"`
-}
-
 // WorkbookPivotTableRefreshRequestParameter undocumented
 type WorkbookPivotTableRefreshRequestParameter struct {
 }
 
-// WorkbookRangeFillClearRequestParameter undocumented
-type WorkbookRangeFillClearRequestParameter struct {
+// OnenotePageOnenotePatchContentRequestParameter undocumented
+type OnenotePageOnenotePatchContentRequestParameter struct {
+	// Commands undocumented
+	Commands []OnenotePatchContentCommand `json:"commands,omitempty"`
 }
 
-// DriveItemVersionRestoreVersionRequestParameter undocumented
-type DriveItemVersionRestoreVersionRequestParameter struct {
+// OnenotePageCopyToSectionRequestParameter undocumented
+type OnenotePageCopyToSectionRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
-// DeviceCompliancePolicyAssignRequestParameter undocumented
-type DeviceCompliancePolicyAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
-}
-
-// DeviceCompliancePolicyScheduleActionsForRulesRequestParameter undocumented
-type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
-	// DeviceComplianceScheduledActionForRules undocumented
-	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
-}
-
-// WorkbookTableClearFiltersRequestParameter undocumented
-type WorkbookTableClearFiltersRequestParameter struct {
-}
-
-// WorkbookTableConvertToRangeRequestParameter undocumented
-type WorkbookTableConvertToRangeRequestParameter struct {
-}
-
-// WorkbookTableReapplyFiltersRequestParameter undocumented
-type WorkbookTableReapplyFiltersRequestParameter struct {
-}
-
-// DeviceConfigurationAssignRequestParameter undocumented
-type DeviceConfigurationAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
-}
-
-// WorkbookChartLineFormatClearRequestParameter undocumented
-type WorkbookChartLineFormatClearRequestParameter struct {
-}
-
-// WorkbookRangeClearRequestParameter undocumented
-type WorkbookRangeClearRequestParameter struct {
-	// ApplyTo undocumented
-	ApplyTo *string `json:"applyTo,omitempty"`
-}
-
-// WorkbookRangeDeleteRequestParameter undocumented
-type WorkbookRangeDeleteRequestParameter struct {
-	// Shift undocumented
-	Shift *string `json:"shift,omitempty"`
-}
-
-// WorkbookRangeInsertRequestParameter undocumented
-type WorkbookRangeInsertRequestParameter struct {
-	// Shift undocumented
-	Shift *string `json:"shift,omitempty"`
-}
-
-// WorkbookRangeMergeRequestParameter undocumented
-type WorkbookRangeMergeRequestParameter struct {
-	// Across undocumented
-	Across *bool `json:"across,omitempty"`
-}
-
-// WorkbookRangeUnmergeRequestParameter undocumented
-type WorkbookRangeUnmergeRequestParameter struct {
-}
-
-// VppTokenSyncLicensesRequestParameter undocumented
-type VppTokenSyncLicensesRequestParameter struct {
+// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
+type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // TargetedManagedAppConfigurationAssignRequestParameter undocumented
@@ -17374,90 +24260,6 @@ type TargetedManagedAppConfigurationAssignRequestParameter struct {
 type TargetedManagedAppConfigurationTargetAppsRequestParameter struct {
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
-}
-
-// DomainForceDeleteRequestParameter undocumented
-type DomainForceDeleteRequestParameter struct {
-	// DisableUserAccounts undocumented
-	DisableUserAccounts *bool `json:"disableUserAccounts,omitempty"`
-}
-
-// DomainVerifyRequestParameter undocumented
-type DomainVerifyRequestParameter struct {
-}
-
-// GroupValidatePropertiesRequestParameter undocumented
-type GroupValidatePropertiesRequestParameter struct {
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserID undocumented
-	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-// GroupSubscribeByMailRequestParameter undocumented
-type GroupSubscribeByMailRequestParameter struct {
-}
-
-// GroupUnsubscribeByMailRequestParameter undocumented
-type GroupUnsubscribeByMailRequestParameter struct {
-}
-
-// GroupAddFavoriteRequestParameter undocumented
-type GroupAddFavoriteRequestParameter struct {
-}
-
-// GroupRemoveFavoriteRequestParameter undocumented
-type GroupRemoveFavoriteRequestParameter struct {
-}
-
-// GroupResetUnseenCountRequestParameter undocumented
-type GroupResetUnseenCountRequestParameter struct {
-}
-
-// GroupRenewRequestParameter undocumented
-type GroupRenewRequestParameter struct {
-}
-
-// WorkbookWorksheetCollectionAddRequestParameter undocumented
-type WorkbookWorksheetCollectionAddRequestParameter struct {
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-}
-
-// WorkbookWorksheetProtectionProtectRequestParameter undocumented
-type WorkbookWorksheetProtectionProtectRequestParameter struct {
-	// Options undocumented
-	Options *WorkbookWorksheetProtectionOptions `json:"options,omitempty"`
-}
-
-// WorkbookWorksheetProtectionUnprotectRequestParameter undocumented
-type WorkbookWorksheetProtectionUnprotectRequestParameter struct {
-}
-
-// WorkbookChartFillClearRequestParameter undocumented
-type WorkbookChartFillClearRequestParameter struct {
-}
-
-// WorkbookChartFillSetSolidColorRequestParameter undocumented
-type WorkbookChartFillSetSolidColorRequestParameter struct {
-	// Color undocumented
-	Color *string `json:"color,omitempty"`
-}
-
-// WorkbookRangeSortApplyRequestParameter undocumented
-type WorkbookRangeSortApplyRequestParameter struct {
-	// Fields undocumented
-	Fields []WorkbookSortField `json:"fields,omitempty"`
-	// MatchCase undocumented
-	MatchCase *bool `json:"matchCase,omitempty"`
-	// HasHeaders undocumented
-	HasHeaders *bool `json:"hasHeaders,omitempty"`
-	// Orientation undocumented
-	Orientation *string `json:"orientation,omitempty"`
-	// Method undocumented
-	Method *string `json:"method,omitempty"`
 }
 
 // NotebookCopyNotebookRequestParameter undocumented
@@ -17474,142 +24276,6 @@ type NotebookCopyNotebookRequestParameter struct {
 	SiteID *string `json:"siteId,omitempty"`
 }
 
-// PostReplyRequestParameter undocumented
-type PostReplyRequestParameter struct {
-	// Post undocumented
-	Post *Post `json:"Post,omitempty"`
-}
-
-// PostForwardRequestParameter undocumented
-type PostForwardRequestParameter struct {
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-	// ToRecipients undocumented
-	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
-}
-
-// ManagedDeviceRetireRequestParameter undocumented
-type ManagedDeviceRetireRequestParameter struct {
-}
-
-// ManagedDeviceWipeRequestParameter undocumented
-type ManagedDeviceWipeRequestParameter struct {
-	// KeepEnrollmentData undocumented
-	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-	// MacOsUnlockCode undocumented
-	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
-}
-
-// ManagedDeviceResetPasscodeRequestParameter undocumented
-type ManagedDeviceResetPasscodeRequestParameter struct {
-}
-
-// ManagedDeviceRemoteLockRequestParameter undocumented
-type ManagedDeviceRemoteLockRequestParameter struct {
-}
-
-// ManagedDeviceRequestRemoteAssistanceRequestParameter undocumented
-type ManagedDeviceRequestRemoteAssistanceRequestParameter struct {
-}
-
-// ManagedDeviceDisableLostModeRequestParameter undocumented
-type ManagedDeviceDisableLostModeRequestParameter struct {
-}
-
-// ManagedDeviceLocateDeviceRequestParameter undocumented
-type ManagedDeviceLocateDeviceRequestParameter struct {
-}
-
-// ManagedDeviceBypassActivationLockRequestParameter undocumented
-type ManagedDeviceBypassActivationLockRequestParameter struct {
-}
-
-// ManagedDeviceRebootNowRequestParameter undocumented
-type ManagedDeviceRebootNowRequestParameter struct {
-}
-
-// ManagedDeviceShutDownRequestParameter undocumented
-type ManagedDeviceShutDownRequestParameter struct {
-}
-
-// ManagedDeviceRecoverPasscodeRequestParameter undocumented
-type ManagedDeviceRecoverPasscodeRequestParameter struct {
-}
-
-// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
-type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-}
-
-// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
-}
-
-// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-}
-
-// ManagedDeviceSyncDeviceRequestParameter undocumented
-type ManagedDeviceSyncDeviceRequestParameter struct {
-}
-
-// ManagedDeviceWindowsDefenderScanRequestParameter undocumented
-type ManagedDeviceWindowsDefenderScanRequestParameter struct {
-	// QuickScan undocumented
-	QuickScan *bool `json:"quickScan,omitempty"`
-}
-
-// ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter undocumented
-type ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter struct {
-}
-
-// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
-type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
-	// UpdateWindowsDeviceAccountActionParameter undocumented
-	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
-}
-
-// WorkbookApplicationCalculateRequestParameter undocumented
-type WorkbookApplicationCalculateRequestParameter struct {
-	// CalculationType undocumented
-	CalculationType *string `json:"calculationType,omitempty"`
-}
-
-// WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
-type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
-}
-
-// WorkbookTableRowCollectionAddRequestParameter undocumented
-type WorkbookTableRowCollectionAddRequestParameter struct {
-	// Index undocumented
-	Index *int `json:"index,omitempty"`
-	// Values undocumented
-	Values json.RawMessage `json:"values,omitempty"`
-}
-
-// WorkbookTableSortApplyRequestParameter undocumented
-type WorkbookTableSortApplyRequestParameter struct {
-	// Fields undocumented
-	Fields []WorkbookSortField `json:"fields,omitempty"`
-	// MatchCase undocumented
-	MatchCase *bool `json:"matchCase,omitempty"`
-	// Method undocumented
-	Method *string `json:"method,omitempty"`
-}
-
-// WorkbookTableSortClearRequestParameter undocumented
-type WorkbookTableSortClearRequestParameter struct {
-}
-
-// WorkbookTableSortReapplyRequestParameter undocumented
-type WorkbookTableSortReapplyRequestParameter struct {
-}
-
 // WorkbookChartCollectionAddRequestParameter undocumented
 type WorkbookChartCollectionAddRequestParameter struct {
 	// Type undocumented
@@ -17620,88 +24286,8 @@ type WorkbookChartCollectionAddRequestParameter struct {
 	SeriesBy *string `json:"seriesBy,omitempty"`
 }
 
-// WorkbookFilterApplyRequestParameter undocumented
-type WorkbookFilterApplyRequestParameter struct {
-	// Criteria undocumented
-	Criteria *WorkbookFilterCriteria `json:"criteria,omitempty"`
-}
-
-// WorkbookFilterApplyBottomItemsFilterRequestParameter undocumented
-type WorkbookFilterApplyBottomItemsFilterRequestParameter struct {
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
-}
-
-// WorkbookFilterApplyBottomPercentFilterRequestParameter undocumented
-type WorkbookFilterApplyBottomPercentFilterRequestParameter struct {
-	// Percent undocumented
-	Percent *int `json:"percent,omitempty"`
-}
-
-// WorkbookFilterApplyCellColorFilterRequestParameter undocumented
-type WorkbookFilterApplyCellColorFilterRequestParameter struct {
-	// Color undocumented
-	Color *string `json:"color,omitempty"`
-}
-
-// WorkbookFilterApplyCustomFilterRequestParameter undocumented
-type WorkbookFilterApplyCustomFilterRequestParameter struct {
-	// Criteria1 undocumented
-	Criteria1 *string `json:"criteria1,omitempty"`
-	// Criteria2 undocumented
-	Criteria2 *string `json:"criteria2,omitempty"`
-	// Oper undocumented
-	Oper *string `json:"oper,omitempty"`
-}
-
-// WorkbookFilterApplyDynamicFilterRequestParameter undocumented
-type WorkbookFilterApplyDynamicFilterRequestParameter struct {
-	// Criteria undocumented
-	Criteria *string `json:"criteria,omitempty"`
-}
-
-// WorkbookFilterApplyFontColorFilterRequestParameter undocumented
-type WorkbookFilterApplyFontColorFilterRequestParameter struct {
-	// Color undocumented
-	Color *string `json:"color,omitempty"`
-}
-
-// WorkbookFilterApplyIconFilterRequestParameter undocumented
-type WorkbookFilterApplyIconFilterRequestParameter struct {
-	// Icon undocumented
-	Icon *WorkbookIcon `json:"icon,omitempty"`
-}
-
-// WorkbookFilterApplyTopItemsFilterRequestParameter undocumented
-type WorkbookFilterApplyTopItemsFilterRequestParameter struct {
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
-}
-
-// WorkbookFilterApplyTopPercentFilterRequestParameter undocumented
-type WorkbookFilterApplyTopPercentFilterRequestParameter struct {
-	// Percent undocumented
-	Percent *int `json:"percent,omitempty"`
-}
-
-// WorkbookFilterApplyValuesFilterRequestParameter undocumented
-type WorkbookFilterApplyValuesFilterRequestParameter struct {
-	// Values undocumented
-	Values json.RawMessage `json:"values,omitempty"`
-}
-
-// WorkbookFilterClearRequestParameter undocumented
-type WorkbookFilterClearRequestParameter struct {
-}
-
-// MobileAppContentFileCommitRequestParameter undocumented
-type MobileAppContentFileCommitRequestParameter struct {
-	// FileEncryptionInfo undocumented
-	FileEncryptionInfo *FileEncryptionInfo `json:"fileEncryptionInfo,omitempty"`
-}
-
-// MobileAppContentFileRenewUploadRequestParameter undocumented
-type MobileAppContentFileRenewUploadRequestParameter struct {
+// WorkbookRangeFillClearRequestParameter undocumented
+type WorkbookRangeFillClearRequestParameter struct {
 }
 
 // MailFolderCopyRequestParameter undocumented
@@ -17714,6 +24300,20 @@ type MailFolderCopyRequestParameter struct {
 type MailFolderMoveRequestParameter struct {
 	// DestinationID undocumented
 	DestinationID *string `json:"DestinationId,omitempty"`
+}
+
+// PostReplyRequestParameter undocumented
+type PostReplyRequestParameter struct {
+	// Post undocumented
+	Post *Post `json:"Post,omitempty"`
+}
+
+// PostForwardRequestParameter undocumented
+type PostForwardRequestParameter struct {
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+	// ToRecipients undocumented
+	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
 }
 
 // DriveItemCheckinRequestParameter undocumented
@@ -17772,30 +24372,48 @@ type DriveItemPreviewRequestParameter struct {
 	Zoom *float64 `json:"zoom,omitempty"`
 }
 
+// VppTokenSyncLicensesRequestParameter undocumented
+type VppTokenSyncLicensesRequestParameter struct {
+}
+
+// WorkbookChartLineFormatClearRequestParameter undocumented
+type WorkbookChartLineFormatClearRequestParameter struct {
+}
+
+// WorkbookTableRowCollectionAddRequestParameter undocumented
+type WorkbookTableRowCollectionAddRequestParameter struct {
+	// Index undocumented
+	Index *int `json:"index,omitempty"`
+	// Values undocumented
+	Values json.RawMessage `json:"values,omitempty"`
+}
+
 // ListItemVersionRestoreVersionRequestParameter undocumented
 type ListItemVersionRestoreVersionRequestParameter struct {
 }
 
-// WorkbookChartSetDataRequestParameter undocumented
-type WorkbookChartSetDataRequestParameter struct {
-	// SourceData undocumented
-	SourceData json.RawMessage `json:"sourceData,omitempty"`
-	// SeriesBy undocumented
-	SeriesBy *string `json:"seriesBy,omitempty"`
+// DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter undocumented
+type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter struct {
 }
 
-// WorkbookChartSetPositionRequestParameter undocumented
-type WorkbookChartSetPositionRequestParameter struct {
-	// StartCell undocumented
-	StartCell json.RawMessage `json:"startCell,omitempty"`
-	// EndCell undocumented
-	EndCell json.RawMessage `json:"endCell,omitempty"`
+// ParticipantMuteRequestParameter undocumented
+type ParticipantMuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
 }
 
-// ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
-type ManagedDeviceMobileAppConfigurationAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []ManagedDeviceMobileAppConfigurationAssignment `json:"assignments,omitempty"`
+// WorkbookRangeSortApplyRequestParameter undocumented
+type WorkbookRangeSortApplyRequestParameter struct {
+	// Fields undocumented
+	Fields []WorkbookSortField `json:"fields,omitempty"`
+	// MatchCase undocumented
+	MatchCase *bool `json:"matchCase,omitempty"`
+	// HasHeaders undocumented
+	HasHeaders *bool `json:"hasHeaders,omitempty"`
+	// Orientation undocumented
+	Orientation *string `json:"orientation,omitempty"`
+	// Method undocumented
+	Method *string `json:"method,omitempty"`
 }
 
 // WorkbookTableCollectionAddRequestParameter undocumented
@@ -17806,52 +24424,22 @@ type WorkbookTableCollectionAddRequestParameter struct {
 	HasHeaders *bool `json:"hasHeaders,omitempty"`
 }
 
-// EventDismissReminderRequestParameter undocumented
-type EventDismissReminderRequestParameter struct {
+// WorkbookTableSortApplyRequestParameter undocumented
+type WorkbookTableSortApplyRequestParameter struct {
+	// Fields undocumented
+	Fields []WorkbookSortField `json:"fields,omitempty"`
+	// MatchCase undocumented
+	MatchCase *bool `json:"matchCase,omitempty"`
+	// Method undocumented
+	Method *string `json:"method,omitempty"`
 }
 
-// EventSnoozeReminderRequestParameter undocumented
-type EventSnoozeReminderRequestParameter struct {
-	// NewReminderTime undocumented
-	NewReminderTime *DateTimeTimeZone `json:"NewReminderTime,omitempty"`
+// WorkbookTableSortClearRequestParameter undocumented
+type WorkbookTableSortClearRequestParameter struct {
 }
 
-// EventAcceptRequestParameter undocumented
-type EventAcceptRequestParameter struct {
-	// SendResponse undocumented
-	SendResponse *bool `json:"SendResponse,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// EventDeclineRequestParameter undocumented
-type EventDeclineRequestParameter struct {
-	// SendResponse undocumented
-	SendResponse *bool `json:"SendResponse,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// EventTentativelyAcceptRequestParameter undocumented
-type EventTentativelyAcceptRequestParameter struct {
-	// SendResponse undocumented
-	SendResponse *bool `json:"SendResponse,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// ConversationThreadReplyRequestParameter undocumented
-type ConversationThreadReplyRequestParameter struct {
-	// Post undocumented
-	Post *Post `json:"Post,omitempty"`
-}
-
-// NotificationMessageTemplateSendTestMessageRequestParameter undocumented
-type NotificationMessageTemplateSendTestMessageRequestParameter struct {
-}
-
-// DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter undocumented
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter struct {
+// WorkbookTableSortReapplyRequestParameter undocumented
+type WorkbookTableSortReapplyRequestParameter struct {
 }
 
 // WindowsInformationProtectionAssignRequestParameter undocumented
@@ -17860,90 +24448,56 @@ type WindowsInformationProtectionAssignRequestParameter struct {
 	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
 }
 
-// CallAnswerRequestParameter undocumented
-type CallAnswerRequestParameter struct {
-	// CallbackURI undocumented
-	CallbackURI *string `json:"callbackUri,omitempty"`
-	// MediaConfig undocumented
-	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
-	// AcceptedModalities undocumented
-	AcceptedModalities []Modality `json:"acceptedModalities,omitempty"`
+// OnenoteSectionCopyToNotebookRequestParameter undocumented
+type OnenoteSectionCopyToNotebookRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+	// RenameAs undocumented
+	RenameAs *string `json:"renameAs,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
-// CallChangeScreenSharingRoleRequestParameter undocumented
-type CallChangeScreenSharingRoleRequestParameter struct {
-	// Role undocumented
-	Role *ScreenSharingRole `json:"role,omitempty"`
+// OnenoteSectionCopyToSectionGroupRequestParameter undocumented
+type OnenoteSectionCopyToSectionGroupRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+	// RenameAs undocumented
+	RenameAs *string `json:"renameAs,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
-// CallMuteRequestParameter undocumented
-type CallMuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
+// DomainForceDeleteRequestParameter undocumented
+type DomainForceDeleteRequestParameter struct {
+	// DisableUserAccounts undocumented
+	DisableUserAccounts *bool `json:"disableUserAccounts,omitempty"`
 }
 
-// CallPlayPromptRequestParameter undocumented
-type CallPlayPromptRequestParameter struct {
-	// Prompts undocumented
-	Prompts []Prompt `json:"prompts,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
+// DomainVerifyRequestParameter undocumented
+type DomainVerifyRequestParameter struct {
 }
 
-// CallRecordRequestParameter undocumented
-type CallRecordRequestParameter struct {
-	// Prompts undocumented
-	Prompts []Prompt `json:"prompts,omitempty"`
-	// BargeInAllowed undocumented
-	BargeInAllowed *bool `json:"bargeInAllowed,omitempty"`
-	// InitialSilenceTimeoutInSeconds undocumented
-	InitialSilenceTimeoutInSeconds *int `json:"initialSilenceTimeoutInSeconds,omitempty"`
-	// MaxSilenceTimeoutInSeconds undocumented
-	MaxSilenceTimeoutInSeconds *int `json:"maxSilenceTimeoutInSeconds,omitempty"`
-	// MaxRecordDurationInSeconds undocumented
-	MaxRecordDurationInSeconds *int `json:"maxRecordDurationInSeconds,omitempty"`
-	// PlayBeep undocumented
-	PlayBeep *bool `json:"playBeep,omitempty"`
-	// StopTones undocumented
-	StopTones []string `json:"stopTones,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
+// WorkbookWorksheetProtectionProtectRequestParameter undocumented
+type WorkbookWorksheetProtectionProtectRequestParameter struct {
+	// Options undocumented
+	Options *WorkbookWorksheetProtectionOptions `json:"options,omitempty"`
 }
 
-// CallRedirectRequestParameter undocumented
-type CallRedirectRequestParameter struct {
-	// Targets undocumented
-	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
-	// Timeout undocumented
-	Timeout *int `json:"timeout,omitempty"`
-	// CallbackURI undocumented
-	CallbackURI *string `json:"callbackUri,omitempty"`
+// WorkbookWorksheetProtectionUnprotectRequestParameter undocumented
+type WorkbookWorksheetProtectionUnprotectRequestParameter struct {
 }
 
-// CallRejectRequestParameter undocumented
-type CallRejectRequestParameter struct {
-	// Reason undocumented
-	Reason *RejectReason `json:"reason,omitempty"`
-	// CallbackURI undocumented
-	CallbackURI *string `json:"callbackUri,omitempty"`
-}
-
-// CallSubscribeToToneRequestParameter undocumented
-type CallSubscribeToToneRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// CallTransferRequestParameter undocumented
-type CallTransferRequestParameter struct {
-	// TransferTarget undocumented
-	TransferTarget *InvitationParticipantInfo `json:"transferTarget,omitempty"`
-}
-
-// CallUnmuteRequestParameter undocumented
-type CallUnmuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
+// OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
+type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
 }
 
 // DirectoryObjectCollectionGetByIdsRequestParameter undocumented
@@ -17966,120 +24520,34 @@ type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
 	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
 }
 
-// UserAssignLicenseRequestParameter undocumented
-type UserAssignLicenseRequestParameter struct {
-	// AddLicenses undocumented
-	AddLicenses []AssignedLicense `json:"addLicenses,omitempty"`
-	// RemoveLicenses undocumented
-	RemoveLicenses []UUID `json:"removeLicenses,omitempty"`
+// GroupLifecyclePolicyAddGroupRequestParameter undocumented
+type GroupLifecyclePolicyAddGroupRequestParameter struct {
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
 }
 
-// UserChangePasswordRequestParameter undocumented
-type UserChangePasswordRequestParameter struct {
-	// CurrentPassword undocumented
-	CurrentPassword *string `json:"currentPassword,omitempty"`
-	// NewPassword undocumented
-	NewPassword *string `json:"newPassword,omitempty"`
+// GroupLifecyclePolicyRemoveGroupRequestParameter undocumented
+type GroupLifecyclePolicyRemoveGroupRequestParameter struct {
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
 }
 
-// UserRevokeSignInSessionsRequestParameter undocumented
-type UserRevokeSignInSessionsRequestParameter struct {
+// TargetedManagedAppProtectionAssignRequestParameter undocumented
+type TargetedManagedAppProtectionAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
 }
 
-// UserFindMeetingTimesRequestParameter undocumented
-type UserFindMeetingTimesRequestParameter struct {
-	// Attendees undocumented
-	Attendees []AttendeeBase `json:"attendees,omitempty"`
-	// LocationConstraint undocumented
-	LocationConstraint *LocationConstraint `json:"locationConstraint,omitempty"`
-	// TimeConstraint undocumented
-	TimeConstraint *TimeConstraint `json:"timeConstraint,omitempty"`
-	// MeetingDuration undocumented
-	MeetingDuration *time.Duration `json:"meetingDuration,omitempty"`
-	// MaxCandidates undocumented
-	MaxCandidates *int `json:"maxCandidates,omitempty"`
-	// IsOrganizerOptional undocumented
-	IsOrganizerOptional *bool `json:"isOrganizerOptional,omitempty"`
-	// ReturnSuggestionReasons undocumented
-	ReturnSuggestionReasons *bool `json:"returnSuggestionReasons,omitempty"`
-	// MinimumAttendeePercentage undocumented
-	MinimumAttendeePercentage *float64 `json:"minimumAttendeePercentage,omitempty"`
+// NotificationMessageTemplateSendTestMessageRequestParameter undocumented
+type NotificationMessageTemplateSendTestMessageRequestParameter struct {
 }
 
-// UserSendMailRequestParameter undocumented
-type UserSendMailRequestParameter struct {
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// SaveToSentItems undocumented
-	SaveToSentItems *bool `json:"SaveToSentItems,omitempty"`
-}
-
-// UserGetMailTipsRequestParameter undocumented
-type UserGetMailTipsRequestParameter struct {
-	// EmailAddresses undocumented
-	EmailAddresses []string `json:"EmailAddresses,omitempty"`
-	// MailTipsOptions undocumented
-	MailTipsOptions *MailTipsType `json:"MailTipsOptions,omitempty"`
-}
-
-// UserTranslateExchangeIdsRequestParameter undocumented
-type UserTranslateExchangeIdsRequestParameter struct {
-	// InputIds undocumented
-	InputIds []string `json:"InputIds,omitempty"`
-	// TargetIDType undocumented
-	TargetIDType *ExchangeIDFormat `json:"TargetIdType,omitempty"`
-	// SourceIDType undocumented
-	SourceIDType *ExchangeIDFormat `json:"SourceIdType,omitempty"`
-}
-
-// UserRemoveAllDevicesFromManagementRequestParameter undocumented
-type UserRemoveAllDevicesFromManagementRequestParameter struct {
-}
-
-// UserWipeManagedAppRegistrationsByDeviceTagRequestParameter undocumented
-type UserWipeManagedAppRegistrationsByDeviceTagRequestParameter struct {
-	// DeviceTag undocumented
-	DeviceTag *string `json:"deviceTag,omitempty"`
-}
-
-// UserExportPersonalDataRequestParameter undocumented
-type UserExportPersonalDataRequestParameter struct {
-	// StorageLocation undocumented
-	StorageLocation *string `json:"storageLocation,omitempty"`
-}
-
-// WorkbookCreateSessionRequestParameter undocumented
-type WorkbookCreateSessionRequestParameter struct {
-	// PersistChanges undocumented
-	PersistChanges *bool `json:"persistChanges,omitempty"`
-}
-
-// WorkbookCloseSessionRequestParameter undocumented
-type WorkbookCloseSessionRequestParameter struct {
-}
-
-// WorkbookRefreshSessionRequestParameter undocumented
-type WorkbookRefreshSessionRequestParameter struct {
-}
-
-// WorkbookNamedItemCollectionAddRequestParameter undocumented
-type WorkbookNamedItemCollectionAddRequestParameter struct {
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Reference undocumented
-	Reference json.RawMessage `json:"reference,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"comment,omitempty"`
-}
-
-// WorkbookNamedItemCollectionAddFormulaLocalRequestParameter undocumented
-type WorkbookNamedItemCollectionAddFormulaLocalRequestParameter struct {
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Formula undocumented
-	Formula *string `json:"formula,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"comment,omitempty"`
+// ParticipantCollectionInviteRequestParameter undocumented
+type ParticipantCollectionInviteRequestParameter struct {
+	// Participants undocumented
+	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
 }
 
 // ActivityHistoryItemRequestBuilder is request builder for ActivityHistoryItem
@@ -52747,6 +59215,775 @@ func (r *WorkbookWorksheetTablesCollectionRequest) Add(reqObj *WorkbookTable) (*
 }
 
 // Add action undocumented
+func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
+	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
+	return &WorkbookChartCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookRangeFillRequestBuilder) Clear(reqObj *WorkbookRangeFillClearRequestParameter) *WorkbookRangeFillClearRequestBuilder {
+	bb := &WorkbookRangeFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeFillClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClearRequest {
+	return &WorkbookRangeFillClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeFillClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeFillClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeFillClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Copy action undocumented
+func (b *MailFolderRequestBuilder) Copy(reqObj *MailFolderCopyRequestParameter) *MailFolderCopyRequestBuilder {
+	bb := &MailFolderCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MailFolderCopyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
+	return &MailFolderCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MailFolderCopyRequest struct{ BaseRequest }
+
+//
+func (r *MailFolderCopyRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MailFolderCopyRequest) Post() (*MailFolder, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Move action undocumented
+func (b *MailFolderRequestBuilder) Move(reqObj *MailFolderMoveRequestParameter) *MailFolderMoveRequestBuilder {
+	bb := &MailFolderMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/move"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MailFolderMoveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
+	return &MailFolderMoveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MailFolderMoveRequest struct{ BaseRequest }
+
+//
+func (r *MailFolderMoveRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MailFolderMoveRequest) Post() (*MailFolder, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reply action undocumented
+func (b *PostRequestBuilder) Reply(reqObj *PostReplyRequestParameter) *PostReplyRequestBuilder {
+	bb := &PostReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type PostReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
+	return &PostReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type PostReplyRequest struct{ BaseRequest }
+
+//
+func (r *PostReplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *PostReplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Forward action undocumented
+func (b *PostRequestBuilder) Forward(reqObj *PostForwardRequestParameter) *PostForwardRequestBuilder {
+	bb := &PostForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type PostForwardRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
+	return &PostForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type PostForwardRequest struct{ BaseRequest }
+
+//
+func (r *PostForwardRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *PostForwardRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Checkin action undocumented
+func (b *DriveItemRequestBuilder) Checkin(reqObj *DriveItemCheckinRequestParameter) *DriveItemCheckinRequestBuilder {
+	bb := &DriveItemCheckinRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkin"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCheckinRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
+	return &DriveItemCheckinRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCheckinRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCheckinRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DriveItemCheckinRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Checkout action undocumented
+func (b *DriveItemRequestBuilder) Checkout(reqObj *DriveItemCheckoutRequestParameter) *DriveItemCheckoutRequestBuilder {
+	bb := &DriveItemCheckoutRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkout"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCheckoutRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
+	return &DriveItemCheckoutRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCheckoutRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCheckoutRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DriveItemCheckoutRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Copy action undocumented
+func (b *DriveItemRequestBuilder) Copy(reqObj *DriveItemCopyRequestParameter) *DriveItemCopyRequestBuilder {
+	bb := &DriveItemCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCopyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
+	return &DriveItemCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCopyRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCopyRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemCopyRequest) Post() (*DriveItem, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateLink action undocumented
+func (b *DriveItemRequestBuilder) CreateLink(reqObj *DriveItemCreateLinkRequestParameter) *DriveItemCreateLinkRequestBuilder {
+	bb := &DriveItemCreateLinkRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createLink"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCreateLinkRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkRequest {
+	return &DriveItemCreateLinkRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCreateLinkRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCreateLinkRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemCreateLinkRequest) Post() (*Permission, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateUploadSession action undocumented
+func (b *DriveItemRequestBuilder) CreateUploadSession(reqObj *DriveItemCreateUploadSessionRequestParameter) *DriveItemCreateUploadSessionRequestBuilder {
+	bb := &DriveItemCreateUploadSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createUploadSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCreateUploadSessionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateUploadSessionRequest {
+	return &DriveItemCreateUploadSessionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCreateUploadSessionRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCreateUploadSessionRequest) Do(method, path string, reqObj interface{}) (resObj *UploadSession, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemCreateUploadSessionRequest) Post() (*UploadSession, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Invite action undocumented
+func (b *DriveItemRequestBuilder) Invite(reqObj *DriveItemInviteRequestParameter) *DriveItemInviteRequestBuilder {
+	bb := &DriveItemInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/invite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemInviteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
+	return &DriveItemInviteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemInviteRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemInviteRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]Permission
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]Permission
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DriveItemInviteRequest) Get() ([][]Permission, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// Preview action undocumented
+func (b *DriveItemRequestBuilder) Preview(reqObj *DriveItemPreviewRequestParameter) *DriveItemPreviewRequestBuilder {
+	bb := &DriveItemPreviewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/preview"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemPreviewRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
+	return &DriveItemPreviewRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemPreviewRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemPreviewRequest) Do(method, path string, reqObj interface{}) (resObj *ItemPreviewInfo, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemPreviewRequest) Post() (*ItemPreviewInfo, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SyncLicenses action undocumented
+func (b *VppTokenRequestBuilder) SyncLicenses(reqObj *VppTokenSyncLicensesRequestParameter) *VppTokenSyncLicensesRequestBuilder {
+	bb := &VppTokenSyncLicensesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncLicenses"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type VppTokenSyncLicensesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequest {
+	return &VppTokenSyncLicensesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type VppTokenSyncLicensesRequest struct{ BaseRequest }
+
+//
+func (r *VppTokenSyncLicensesRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *VppTokenSyncLicensesRequest) Post() (*VppToken, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *TargetedManagedAppConfigurationRequestBuilder) Assign(reqObj *TargetedManagedAppConfigurationAssignRequestParameter) *TargetedManagedAppConfigurationAssignRequestBuilder {
+	bb := &TargetedManagedAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
+	return &TargetedManagedAppConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (r *TargetedManagedAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TargetApps action undocumented
+func (b *TargetedManagedAppConfigurationRequestBuilder) TargetApps(reqObj *TargetedManagedAppConfigurationTargetAppsRequestParameter) *TargetedManagedAppConfigurationTargetAppsRequestBuilder {
+	bb := &TargetedManagedAppConfigurationTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppConfigurationTargetAppsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
+	return &TargetedManagedAppConfigurationTargetAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
+
+//
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CopyNotebook action undocumented
+func (b *NotebookRequestBuilder) CopyNotebook(reqObj *NotebookCopyNotebookRequestParameter) *NotebookCopyNotebookRequestBuilder {
+	bb := &NotebookCopyNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyNotebook"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
+	return &NotebookCopyNotebookRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type NotebookCopyNotebookRequest struct{ BaseRequest }
+
+//
+func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *NotebookCopyNotebookRequest) Post() (*OnenoteOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookChartLineFormatRequestBuilder) Clear(reqObj *WorkbookChartLineFormatClearRequestParameter) *WorkbookChartLineFormatClearRequestBuilder {
+	bb := &WorkbookChartLineFormatClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartLineFormatClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLineFormatClearRequest {
+	return &WorkbookChartLineFormatClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartLineFormatClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartLineFormatClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartLineFormatClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookTableRowsCollectionRequestBuilder) Add(reqObj *WorkbookTableRowCollectionAddRequestParameter) *WorkbookTableRowCollectionAddRequestBuilder {
+	bb := &WorkbookTableRowCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableRowCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableRowCollectionAddRequestBuilder) Request() *WorkbookTableRowCollectionAddRequest {
+	return &WorkbookTableRowCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableRowCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableRowCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookTableRowCollectionAddRequest) Post() (*WorkbookTableRow, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RestoreVersion action undocumented
+func (b *ListItemVersionRequestBuilder) RestoreVersion(reqObj *ListItemVersionRestoreVersionRequestParameter) *ListItemVersionRestoreVersionRequestBuilder {
+	bb := &ListItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ListItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersionRestoreVersionRequest {
+	return &ListItemVersionRestoreVersionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ListItemVersionRestoreVersionRequest struct{ BaseRequest }
+
+//
+func (r *ListItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ListItemVersionRestoreVersionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SyncMicrosoftStoreForBusinessApps action undocumented
+func (b *DeviceAppManagementRequestBuilder) SyncMicrosoftStoreForBusinessApps(reqObj *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter) *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder {
+	bb := &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncMicrosoftStoreForBusinessApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Request() *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest {
+	return &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest struct{ BaseRequest }
+
+//
+func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Mute action undocumented
+func (b *ParticipantRequestBuilder) Mute(reqObj *ParticipantMuteRequestParameter) *ParticipantMuteRequestBuilder {
+	bb := &ParticipantMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/mute"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
+	return &ParticipantMuteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ParticipantMuteRequest struct{ BaseRequest }
+
+//
+func (r *ParticipantMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *ParticipantMuteRequest) Post() (*MuteParticipantOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Apply action undocumented
+func (b *WorkbookRangeSortRequestBuilder) Apply(reqObj *WorkbookRangeSortApplyRequestParameter) *WorkbookRangeSortApplyRequestBuilder {
+	bb := &WorkbookRangeSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/apply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeSortApplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApplyRequest {
+	return &WorkbookRangeSortApplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeSortApplyRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeSortApplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeSortApplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
 func (b *WorkbookTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
 	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/add"
@@ -52786,220 +60023,96 @@ func (r *WorkbookTableCollectionAddRequest) Post() (*WorkbookTable, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// DismissReminder action undocumented
-func (b *EventRequestBuilder) DismissReminder(reqObj *EventDismissReminderRequestParameter) *EventDismissReminderRequestBuilder {
-	bb := &EventDismissReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/dismissReminder"
+// Apply action undocumented
+func (b *WorkbookTableSortRequestBuilder) Apply(reqObj *WorkbookTableSortApplyRequestParameter) *WorkbookTableSortApplyRequestBuilder {
+	bb := &WorkbookTableSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/apply"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type EventDismissReminderRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookTableSortApplyRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequest {
-	return &EventDismissReminderRequest{
+func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApplyRequest {
+	return &WorkbookTableSortApplyRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type EventDismissReminderRequest struct{ BaseRequest }
+type WorkbookTableSortApplyRequest struct{ BaseRequest }
 
 //
-func (r *EventDismissReminderRequest) Do(method, path string, reqObj interface{}) error {
+func (r *WorkbookTableSortApplyRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *EventDismissReminderRequest) Post() error {
+func (r *WorkbookTableSortApplyRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// SnoozeReminder action undocumented
-func (b *EventRequestBuilder) SnoozeReminder(reqObj *EventSnoozeReminderRequestParameter) *EventSnoozeReminderRequestBuilder {
-	bb := &EventSnoozeReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/snoozeReminder"
+// Clear action undocumented
+func (b *WorkbookTableSortRequestBuilder) Clear(reqObj *WorkbookTableSortClearRequestParameter) *WorkbookTableSortClearRequestBuilder {
+	bb := &WorkbookTableSortClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type EventSnoozeReminderRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookTableSortClearRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderRequest {
-	return &EventSnoozeReminderRequest{
+func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClearRequest {
+	return &WorkbookTableSortClearRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type EventSnoozeReminderRequest struct{ BaseRequest }
+type WorkbookTableSortClearRequest struct{ BaseRequest }
 
 //
-func (r *EventSnoozeReminderRequest) Do(method, path string, reqObj interface{}) error {
+func (r *WorkbookTableSortClearRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *EventSnoozeReminderRequest) Post() error {
+func (r *WorkbookTableSortClearRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Accept action undocumented
-func (b *EventRequestBuilder) Accept(reqObj *EventAcceptRequestParameter) *EventAcceptRequestBuilder {
-	bb := &EventAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/accept"
+// Reapply action undocumented
+func (b *WorkbookTableSortRequestBuilder) Reapply(reqObj *WorkbookTableSortReapplyRequestParameter) *WorkbookTableSortReapplyRequestBuilder {
+	bb := &WorkbookTableSortReapplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reapply"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type EventAcceptRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookTableSortReapplyRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
-	return &EventAcceptRequest{
+func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortReapplyRequest {
+	return &WorkbookTableSortReapplyRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type EventAcceptRequest struct{ BaseRequest }
+type WorkbookTableSortReapplyRequest struct{ BaseRequest }
 
 //
-func (r *EventAcceptRequest) Do(method, path string, reqObj interface{}) error {
+func (r *WorkbookTableSortReapplyRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *EventAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Decline action undocumented
-func (b *EventRequestBuilder) Decline(reqObj *EventDeclineRequestParameter) *EventDeclineRequestBuilder {
-	bb := &EventDeclineRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/decline"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type EventDeclineRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
-	return &EventDeclineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type EventDeclineRequest struct{ BaseRequest }
-
-//
-func (r *EventDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventDeclineRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TentativelyAccept action undocumented
-func (b *EventRequestBuilder) TentativelyAccept(reqObj *EventTentativelyAcceptRequestParameter) *EventTentativelyAcceptRequestBuilder {
-	bb := &EventTentativelyAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/tentativelyAccept"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type EventTentativelyAcceptRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAcceptRequest {
-	return &EventTentativelyAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type EventTentativelyAcceptRequest struct{ BaseRequest }
-
-//
-func (r *EventTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventTentativelyAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reply action undocumented
-func (b *ConversationThreadRequestBuilder) Reply(reqObj *ConversationThreadReplyRequestParameter) *ConversationThreadReplyRequestBuilder {
-	bb := &ConversationThreadReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ConversationThreadReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadReplyRequest {
-	return &ConversationThreadReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ConversationThreadReplyRequest struct{ BaseRequest }
-
-//
-func (r *ConversationThreadReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ConversationThreadReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SendTestMessage action undocumented
-func (b *NotificationMessageTemplateRequestBuilder) SendTestMessage(reqObj *NotificationMessageTemplateSendTestMessageRequestParameter) *NotificationMessageTemplateSendTestMessageRequestBuilder {
-	bb := &NotificationMessageTemplateSendTestMessageRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sendTestMessage"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotificationMessageTemplateSendTestMessageRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *NotificationMessageTemplateSendTestMessageRequestBuilder) Request() *NotificationMessageTemplateSendTestMessageRequest {
-	return &NotificationMessageTemplateSendTestMessageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type NotificationMessageTemplateSendTestMessageRequest struct{ BaseRequest }
-
-//
-func (r *NotificationMessageTemplateSendTestMessageRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *NotificationMessageTemplateSendTestMessageRequest) Post() error {
+func (r *WorkbookTableSortReapplyRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -53034,318 +60147,224 @@ func (r *WindowsInformationProtectionAssignRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Answer action undocumented
-func (b *CallRequestBuilder) Answer(reqObj *CallAnswerRequestParameter) *CallAnswerRequestBuilder {
-	bb := &CallAnswerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/answer"
+// CopyToNotebook action undocumented
+func (b *OnenoteSectionRequestBuilder) CopyToNotebook(reqObj *OnenoteSectionCopyToNotebookRequestParameter) *OnenoteSectionCopyToNotebookRequestBuilder {
+	bb := &OnenoteSectionCopyToNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyToNotebook"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallAnswerRequestBuilder struct{ BaseRequestBuilder }
+type OnenoteSectionCopyToNotebookRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
-	return &CallAnswerRequest{
+func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCopyToNotebookRequest {
+	return &OnenoteSectionCopyToNotebookRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type CallAnswerRequest struct{ BaseRequest }
+type OnenoteSectionCopyToNotebookRequest struct{ BaseRequest }
 
 //
-func (r *CallAnswerRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallAnswerRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ChangeScreenSharingRole action undocumented
-func (b *CallRequestBuilder) ChangeScreenSharingRole(reqObj *CallChangeScreenSharingRoleRequestParameter) *CallChangeScreenSharingRoleRequestBuilder {
-	bb := &CallChangeScreenSharingRoleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/changeScreenSharingRole"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallChangeScreenSharingRoleRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenSharingRoleRequest {
-	return &CallChangeScreenSharingRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallChangeScreenSharingRoleRequest struct{ BaseRequest }
-
-//
-func (r *CallChangeScreenSharingRoleRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallChangeScreenSharingRoleRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Mute action undocumented
-func (b *CallRequestBuilder) Mute(reqObj *CallMuteRequestParameter) *CallMuteRequestBuilder {
-	bb := &CallMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/mute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallMuteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
-	return &CallMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallMuteRequest struct{ BaseRequest }
-
-//
-func (r *CallMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
+func (r *OnenoteSectionCopyToNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *CallMuteRequest) Post() (*MuteParticipantOperation, error) {
+func (r *OnenoteSectionCopyToNotebookRequest) Post() (*OnenoteOperation, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// PlayPrompt action undocumented
-func (b *CallRequestBuilder) PlayPrompt(reqObj *CallPlayPromptRequestParameter) *CallPlayPromptRequestBuilder {
-	bb := &CallPlayPromptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/playPrompt"
+// CopyToSectionGroup action undocumented
+func (b *OnenoteSectionRequestBuilder) CopyToSectionGroup(reqObj *OnenoteSectionCopyToSectionGroupRequestParameter) *OnenoteSectionCopyToSectionGroupRequestBuilder {
+	bb := &OnenoteSectionCopyToSectionGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyToSectionGroup"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallPlayPromptRequestBuilder struct{ BaseRequestBuilder }
+type OnenoteSectionCopyToSectionGroupRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
-	return &CallPlayPromptRequest{
+func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSectionCopyToSectionGroupRequest {
+	return &OnenoteSectionCopyToSectionGroupRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type CallPlayPromptRequest struct{ BaseRequest }
+type OnenoteSectionCopyToSectionGroupRequest struct{ BaseRequest }
 
 //
-func (r *CallPlayPromptRequest) Do(method, path string, reqObj interface{}) (resObj *PlayPromptOperation, err error) {
+func (r *OnenoteSectionCopyToSectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *CallPlayPromptRequest) Post() (*PlayPromptOperation, error) {
+func (r *OnenoteSectionCopyToSectionGroupRequest) Post() (*OnenoteOperation, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Record action undocumented
-func (b *CallRequestBuilder) Record(reqObj *CallRecordRequestParameter) *CallRecordRequestBuilder {
-	bb := &CallRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/record"
+// ForceDelete action undocumented
+func (b *DomainRequestBuilder) ForceDelete(reqObj *DomainForceDeleteRequestParameter) *DomainForceDeleteRequestBuilder {
+	bb := &DomainForceDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forceDelete"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallRecordRequestBuilder struct{ BaseRequestBuilder }
+type DomainForceDeleteRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
-	return &CallRecordRequest{
+func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
+	return &DomainForceDeleteRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type CallRecordRequest struct{ BaseRequest }
+type DomainForceDeleteRequest struct{ BaseRequest }
 
 //
-func (r *CallRecordRequest) Do(method, path string, reqObj interface{}) (resObj *RecordOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CallRecordRequest) Post() (*RecordOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Redirect action undocumented
-func (b *CallRequestBuilder) Redirect(reqObj *CallRedirectRequestParameter) *CallRedirectRequestBuilder {
-	bb := &CallRedirectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/redirect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallRedirectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
-	return &CallRedirectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallRedirectRequest struct{ BaseRequest }
-
-//
-func (r *CallRedirectRequest) Do(method, path string, reqObj interface{}) error {
+func (r *DomainForceDeleteRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *CallRedirectRequest) Post() error {
+func (r *DomainForceDeleteRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Reject action undocumented
-func (b *CallRequestBuilder) Reject(reqObj *CallRejectRequestParameter) *CallRejectRequestBuilder {
-	bb := &CallRejectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reject"
+// Verify action undocumented
+func (b *DomainRequestBuilder) Verify(reqObj *DomainVerifyRequestParameter) *DomainVerifyRequestBuilder {
+	bb := &DomainVerifyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/verify"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallRejectRequestBuilder struct{ BaseRequestBuilder }
+type DomainVerifyRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
-	return &CallRejectRequest{
+func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
+	return &DomainVerifyRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type CallRejectRequest struct{ BaseRequest }
+type DomainVerifyRequest struct{ BaseRequest }
 
 //
-func (r *CallRejectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallRejectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SubscribeToTone action undocumented
-func (b *CallRequestBuilder) SubscribeToTone(reqObj *CallSubscribeToToneRequestParameter) *CallSubscribeToToneRequestBuilder {
-	bb := &CallSubscribeToToneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/subscribeToTone"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallSubscribeToToneRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneRequest {
-	return &CallSubscribeToToneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallSubscribeToToneRequest struct{ BaseRequest }
-
-//
-func (r *CallSubscribeToToneRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribeToToneOperation, err error) {
+func (r *DomainVerifyRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *CallSubscribeToToneRequest) Post() (*SubscribeToToneOperation, error) {
+func (r *DomainVerifyRequest) Post() (*Domain, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Transfer action undocumented
-func (b *CallRequestBuilder) Transfer(reqObj *CallTransferRequestParameter) *CallTransferRequestBuilder {
-	bb := &CallTransferRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/transfer"
+// Protect action undocumented
+func (b *WorkbookWorksheetProtectionRequestBuilder) Protect(reqObj *WorkbookWorksheetProtectionProtectRequestParameter) *WorkbookWorksheetProtectionProtectRequestBuilder {
+	bb := &WorkbookWorksheetProtectionProtectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/protect"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallTransferRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookWorksheetProtectionProtectRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
-	return &CallTransferRequest{
+func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWorksheetProtectionProtectRequest {
+	return &WorkbookWorksheetProtectionProtectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type CallTransferRequest struct{ BaseRequest }
+type WorkbookWorksheetProtectionProtectRequest struct{ BaseRequest }
 
 //
-func (r *CallTransferRequest) Do(method, path string, reqObj interface{}) error {
+func (r *WorkbookWorksheetProtectionProtectRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *CallTransferRequest) Post() error {
+func (r *WorkbookWorksheetProtectionProtectRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Unmute action undocumented
-func (b *CallRequestBuilder) Unmute(reqObj *CallUnmuteRequestParameter) *CallUnmuteRequestBuilder {
-	bb := &CallUnmuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unmute"
+// Unprotect action undocumented
+func (b *WorkbookWorksheetProtectionRequestBuilder) Unprotect(reqObj *WorkbookWorksheetProtectionUnprotectRequestParameter) *WorkbookWorksheetProtectionUnprotectRequestBuilder {
+	bb := &WorkbookWorksheetProtectionUnprotectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unprotect"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallUnmuteRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookWorksheetProtectionUnprotectRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
-	return &CallUnmuteRequest{
+func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *WorkbookWorksheetProtectionUnprotectRequest {
+	return &WorkbookWorksheetProtectionUnprotectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type CallUnmuteRequest struct{ BaseRequest }
+type WorkbookWorksheetProtectionUnprotectRequest struct{ BaseRequest }
 
 //
-func (r *CallUnmuteRequest) Do(method, path string, reqObj interface{}) (resObj *UnmuteParticipantOperation, err error) {
+func (r *WorkbookWorksheetProtectionUnprotectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookWorksheetProtectionUnprotectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetMobileDeviceManagementAuthority action undocumented
+func (b *OrganizationRequestBuilder) SetMobileDeviceManagementAuthority(reqObj *OrganizationSetMobileDeviceManagementAuthorityRequestParameter) *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder {
+	bb := &OrganizationSetMobileDeviceManagementAuthorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setMobileDeviceManagementAuthority"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OrganizationSetMobileDeviceManagementAuthorityRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request() *OrganizationSetMobileDeviceManagementAuthorityRequest {
+	return &OrganizationSetMobileDeviceManagementAuthorityRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type OrganizationSetMobileDeviceManagementAuthorityRequest struct{ BaseRequest }
+
+//
+func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Do(method, path string, reqObj interface{}) (resObj *int, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *CallUnmuteRequest) Post() (*UnmuteParticipantOperation, error) {
+func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post() (*int, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -53792,6 +60811,3954 @@ func (r *DirectoryObjectCollectionValidatePropertiesRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
+// AddGroup action undocumented
+func (b *GroupLifecyclePolicyRequestBuilder) AddGroup(reqObj *GroupLifecyclePolicyAddGroupRequestParameter) *GroupLifecyclePolicyAddGroupRequestBuilder {
+	bb := &GroupLifecyclePolicyAddGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addGroup"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupLifecyclePolicyAddGroupRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePolicyAddGroupRequest {
+	return &GroupLifecyclePolicyAddGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupLifecyclePolicyAddGroupRequest struct{ BaseRequest }
+
+//
+func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *GroupLifecyclePolicyAddGroupRequest) Post() (*bool, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RemoveGroup action undocumented
+func (b *GroupLifecyclePolicyRequestBuilder) RemoveGroup(reqObj *GroupLifecyclePolicyRemoveGroupRequestParameter) *GroupLifecyclePolicyRemoveGroupRequestBuilder {
+	bb := &GroupLifecyclePolicyRemoveGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/removeGroup"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupLifecyclePolicyRemoveGroupRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecyclePolicyRemoveGroupRequest {
+	return &GroupLifecyclePolicyRemoveGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupLifecyclePolicyRemoveGroupRequest struct{ BaseRequest }
+
+//
+func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (*bool, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *TargetedManagedAppProtectionRequestBuilder) Assign(reqObj *TargetedManagedAppProtectionAssignRequestParameter) *TargetedManagedAppProtectionAssignRequestBuilder {
+	bb := &TargetedManagedAppProtectionAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedManagedAppProtectionAssignRequest {
+	return &TargetedManagedAppProtectionAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TargetedManagedAppProtectionAssignRequest struct{ BaseRequest }
+
+//
+func (r *TargetedManagedAppProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TargetedManagedAppProtectionAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SendTestMessage action undocumented
+func (b *NotificationMessageTemplateRequestBuilder) SendTestMessage(reqObj *NotificationMessageTemplateSendTestMessageRequestParameter) *NotificationMessageTemplateSendTestMessageRequestBuilder {
+	bb := &NotificationMessageTemplateSendTestMessageRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sendTestMessage"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type NotificationMessageTemplateSendTestMessageRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *NotificationMessageTemplateSendTestMessageRequestBuilder) Request() *NotificationMessageTemplateSendTestMessageRequest {
+	return &NotificationMessageTemplateSendTestMessageRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type NotificationMessageTemplateSendTestMessageRequest struct{ BaseRequest }
+
+//
+func (r *NotificationMessageTemplateSendTestMessageRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *NotificationMessageTemplateSendTestMessageRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Invite action undocumented
+func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
+	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/invite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
+	return &ParticipantCollectionInviteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ParticipantCollectionInviteRequest struct{ BaseRequest }
+
+//
+func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateReply action undocumented
+func (b *MessageRequestBuilder) CreateReply(reqObj *MessageCreateReplyRequestParameter) *MessageCreateReplyRequestBuilder {
+	bb := &MessageCreateReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createReply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
+	return &MessageCreateReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCreateReplyRequest struct{ BaseRequest }
+
+//
+func (r *MessageCreateReplyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCreateReplyRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateReplyAll action undocumented
+func (b *MessageRequestBuilder) CreateReplyAll(reqObj *MessageCreateReplyAllRequestParameter) *MessageCreateReplyAllRequestBuilder {
+	bb := &MessageCreateReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createReplyAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateReplyAllRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
+	return &MessageCreateReplyAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCreateReplyAllRequest struct{ BaseRequest }
+
+//
+func (r *MessageCreateReplyAllRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCreateReplyAllRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateForward action undocumented
+func (b *MessageRequestBuilder) CreateForward(reqObj *MessageCreateForwardRequestParameter) *MessageCreateForwardRequestBuilder {
+	bb := &MessageCreateForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createForward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
+	return &MessageCreateForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCreateForwardRequest struct{ BaseRequest }
+
+//
+func (r *MessageCreateForwardRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCreateForwardRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Send action undocumented
+func (b *MessageRequestBuilder) Send(reqObj *MessageSendRequestParameter) *MessageSendRequestBuilder {
+	bb := &MessageSendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/send"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageSendRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
+	return &MessageSendRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageSendRequest struct{ BaseRequest }
+
+//
+func (r *MessageSendRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageSendRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Copy action undocumented
+func (b *MessageRequestBuilder) Copy(reqObj *MessageCopyRequestParameter) *MessageCopyRequestBuilder {
+	bb := &MessageCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCopyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
+	return &MessageCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCopyRequest struct{ BaseRequest }
+
+//
+func (r *MessageCopyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCopyRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Move action undocumented
+func (b *MessageRequestBuilder) Move(reqObj *MessageMoveRequestParameter) *MessageMoveRequestBuilder {
+	bb := &MessageMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/move"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageMoveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
+	return &MessageMoveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageMoveRequest struct{ BaseRequest }
+
+//
+func (r *MessageMoveRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageMoveRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reply action undocumented
+func (b *MessageRequestBuilder) Reply(reqObj *MessageReplyRequestParameter) *MessageReplyRequestBuilder {
+	bb := &MessageReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
+	return &MessageReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageReplyRequest struct{ BaseRequest }
+
+//
+func (r *MessageReplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageReplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ReplyAll action undocumented
+func (b *MessageRequestBuilder) ReplyAll(reqObj *MessageReplyAllRequestParameter) *MessageReplyAllRequestBuilder {
+	bb := &MessageReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/replyAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageReplyAllRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
+	return &MessageReplyAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageReplyAllRequest struct{ BaseRequest }
+
+//
+func (r *MessageReplyAllRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageReplyAllRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Forward action undocumented
+func (b *MessageRequestBuilder) Forward(reqObj *MessageForwardRequestParameter) *MessageForwardRequestBuilder {
+	bb := &MessageForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
+	return &MessageForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageForwardRequest struct{ BaseRequest }
+
+//
+func (r *MessageForwardRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageForwardRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateSession action undocumented
+func (b *WorkbookRequestBuilder) CreateSession(reqObj *WorkbookCreateSessionRequestParameter) *WorkbookCreateSessionRequestBuilder {
+	bb := &WorkbookCreateSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookCreateSessionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRequest {
+	return &WorkbookCreateSessionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookCreateSessionRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookCreateSessionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookSessionInfo, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookCreateSessionRequest) Post() (*WorkbookSessionInfo, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CloseSession action undocumented
+func (b *WorkbookRequestBuilder) CloseSession(reqObj *WorkbookCloseSessionRequestParameter) *WorkbookCloseSessionRequestBuilder {
+	bb := &WorkbookCloseSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/closeSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
+	return &WorkbookCloseSessionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookCloseSessionRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookCloseSessionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookCloseSessionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RefreshSession action undocumented
+func (b *WorkbookRequestBuilder) RefreshSession(reqObj *WorkbookRefreshSessionRequestParameter) *WorkbookRefreshSessionRequestBuilder {
+	bb := &WorkbookRefreshSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refreshSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRefreshSessionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSessionRequest {
+	return &WorkbookRefreshSessionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRefreshSessionRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRefreshSessionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRefreshSessionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// DismissReminder action undocumented
+func (b *EventRequestBuilder) DismissReminder(reqObj *EventDismissReminderRequestParameter) *EventDismissReminderRequestBuilder {
+	bb := &EventDismissReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/dismissReminder"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventDismissReminderRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequest {
+	return &EventDismissReminderRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventDismissReminderRequest struct{ BaseRequest }
+
+//
+func (r *EventDismissReminderRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventDismissReminderRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SnoozeReminder action undocumented
+func (b *EventRequestBuilder) SnoozeReminder(reqObj *EventSnoozeReminderRequestParameter) *EventSnoozeReminderRequestBuilder {
+	bb := &EventSnoozeReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/snoozeReminder"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventSnoozeReminderRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderRequest {
+	return &EventSnoozeReminderRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventSnoozeReminderRequest struct{ BaseRequest }
+
+//
+func (r *EventSnoozeReminderRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventSnoozeReminderRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Accept action undocumented
+func (b *EventRequestBuilder) Accept(reqObj *EventAcceptRequestParameter) *EventAcceptRequestBuilder {
+	bb := &EventAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/accept"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventAcceptRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
+	return &EventAcceptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventAcceptRequest struct{ BaseRequest }
+
+//
+func (r *EventAcceptRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventAcceptRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Decline action undocumented
+func (b *EventRequestBuilder) Decline(reqObj *EventDeclineRequestParameter) *EventDeclineRequestBuilder {
+	bb := &EventDeclineRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/decline"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventDeclineRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
+	return &EventDeclineRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventDeclineRequest struct{ BaseRequest }
+
+//
+func (r *EventDeclineRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventDeclineRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TentativelyAccept action undocumented
+func (b *EventRequestBuilder) TentativelyAccept(reqObj *EventTentativelyAcceptRequestParameter) *EventTentativelyAcceptRequestBuilder {
+	bb := &EventTentativelyAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/tentativelyAccept"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventTentativelyAcceptRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAcceptRequest {
+	return &EventTentativelyAcceptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventTentativelyAcceptRequest struct{ BaseRequest }
+
+//
+func (r *EventTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventTentativelyAcceptRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// Add action undocumented
+func (b *WorkbookWorksheetNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookNamedItemCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedItemCollectionAddRequest {
+	return &WorkbookNamedItemCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookNamedItemCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookNamedItemCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookNamedItemCollectionAddRequest) Post() (*WorkbookNamedItem, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// AddFormulaLocal action undocumented
+func (b *WorkbookNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// AddFormulaLocal action undocumented
+func (b *WorkbookWorksheetNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *WorkbookNamedItemCollectionAddFormulaLocalRequest {
+	return &WorkbookNamedItemCollectionAddFormulaLocalRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookNamedItemCollectionAddFormulaLocalRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (*WorkbookNamedItem, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// AutofitColumns action undocumented
+func (b *WorkbookRangeFormatRequestBuilder) AutofitColumns(reqObj *WorkbookRangeFormatAutofitColumnsRequestParameter) *WorkbookRangeFormatAutofitColumnsRequestBuilder {
+	bb := &WorkbookRangeFormatAutofitColumnsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/autofitColumns"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeFormatAutofitColumnsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRangeFormatAutofitColumnsRequest {
+	return &WorkbookRangeFormatAutofitColumnsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeFormatAutofitColumnsRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeFormatAutofitColumnsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeFormatAutofitColumnsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// AutofitRows action undocumented
+func (b *WorkbookRangeFormatRequestBuilder) AutofitRows(reqObj *WorkbookRangeFormatAutofitRowsRequestParameter) *WorkbookRangeFormatAutofitRowsRequestBuilder {
+	bb := &WorkbookRangeFormatAutofitRowsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/autofitRows"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeFormatAutofitRowsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeFormatAutofitRowsRequest {
+	return &WorkbookRangeFormatAutofitRowsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeFormatAutofitRowsRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeFormatAutofitRowsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeFormatAutofitRowsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookTableColumnsCollectionRequestBuilder) Add(reqObj *WorkbookTableColumnCollectionAddRequestParameter) *WorkbookTableColumnCollectionAddRequestBuilder {
+	bb := &WorkbookTableColumnCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableColumnCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTableColumnCollectionAddRequest {
+	return &WorkbookTableColumnCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableColumnCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableColumnCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookTableColumnCollectionAddRequest) Post() (*WorkbookTableColumn, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Sync action undocumented
+func (b *DeviceManagementExchangeConnectorRequestBuilder) Sync(reqObj *DeviceManagementExchangeConnectorSyncRequestParameter) *DeviceManagementExchangeConnectorSyncRequestBuilder {
+	bb := &DeviceManagementExchangeConnectorSyncRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sync"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceManagementExchangeConnectorSyncRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceManagementExchangeConnectorSyncRequest {
+	return &DeviceManagementExchangeConnectorSyncRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceManagementExchangeConnectorSyncRequest struct{ BaseRequest }
+
+//
+func (r *DeviceManagementExchangeConnectorSyncRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceManagementExchangeConnectorSyncRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Upgrade action undocumented
+func (b *TeamsAppInstallationRequestBuilder) Upgrade(reqObj *TeamsAppInstallationUpgradeRequestParameter) *TeamsAppInstallationUpgradeRequestBuilder {
+	bb := &TeamsAppInstallationUpgradeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/upgrade"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
+	return &TeamsAppInstallationUpgradeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
+
+//
+func (r *TeamsAppInstallationUpgradeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamsAppInstallationUpgradeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reply action undocumented
+func (b *ConversationThreadRequestBuilder) Reply(reqObj *ConversationThreadReplyRequestParameter) *ConversationThreadReplyRequestBuilder {
+	bb := &ConversationThreadReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ConversationThreadReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadReplyRequest {
+	return &ConversationThreadReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ConversationThreadReplyRequest struct{ BaseRequest }
+
+//
+func (r *ConversationThreadReplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ConversationThreadReplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// BeginOnboarding action undocumented
+func (b *RemoteAssistancePartnerRequestBuilder) BeginOnboarding(reqObj *RemoteAssistancePartnerBeginOnboardingRequestParameter) *RemoteAssistancePartnerBeginOnboardingRequestBuilder {
+	bb := &RemoteAssistancePartnerBeginOnboardingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/beginOnboarding"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RemoteAssistancePartnerBeginOnboardingRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *RemoteAssistancePartnerBeginOnboardingRequest {
+	return &RemoteAssistancePartnerBeginOnboardingRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type RemoteAssistancePartnerBeginOnboardingRequest struct{ BaseRequest }
+
+//
+func (r *RemoteAssistancePartnerBeginOnboardingRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Disconnect action undocumented
+func (b *RemoteAssistancePartnerRequestBuilder) Disconnect(reqObj *RemoteAssistancePartnerDisconnectRequestParameter) *RemoteAssistancePartnerDisconnectRequestBuilder {
+	bb := &RemoteAssistancePartnerDisconnectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/disconnect"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RemoteAssistancePartnerDisconnectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssistancePartnerDisconnectRequest {
+	return &RemoteAssistancePartnerDisconnectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type RemoteAssistancePartnerDisconnectRequest struct{ BaseRequest }
+
+//
+func (r *RemoteAssistancePartnerDisconnectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *RemoteAssistancePartnerDisconnectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Answer action undocumented
+func (b *CallRequestBuilder) Answer(reqObj *CallAnswerRequestParameter) *CallAnswerRequestBuilder {
+	bb := &CallAnswerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/answer"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallAnswerRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
+	return &CallAnswerRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallAnswerRequest struct{ BaseRequest }
+
+//
+func (r *CallAnswerRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallAnswerRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ChangeScreenSharingRole action undocumented
+func (b *CallRequestBuilder) ChangeScreenSharingRole(reqObj *CallChangeScreenSharingRoleRequestParameter) *CallChangeScreenSharingRoleRequestBuilder {
+	bb := &CallChangeScreenSharingRoleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/changeScreenSharingRole"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallChangeScreenSharingRoleRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenSharingRoleRequest {
+	return &CallChangeScreenSharingRoleRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallChangeScreenSharingRoleRequest struct{ BaseRequest }
+
+//
+func (r *CallChangeScreenSharingRoleRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallChangeScreenSharingRoleRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Mute action undocumented
+func (b *CallRequestBuilder) Mute(reqObj *CallMuteRequestParameter) *CallMuteRequestBuilder {
+	bb := &CallMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/mute"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallMuteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
+	return &CallMuteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallMuteRequest struct{ BaseRequest }
+
+//
+func (r *CallMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallMuteRequest) Post() (*MuteParticipantOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// PlayPrompt action undocumented
+func (b *CallRequestBuilder) PlayPrompt(reqObj *CallPlayPromptRequestParameter) *CallPlayPromptRequestBuilder {
+	bb := &CallPlayPromptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/playPrompt"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallPlayPromptRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
+	return &CallPlayPromptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallPlayPromptRequest struct{ BaseRequest }
+
+//
+func (r *CallPlayPromptRequest) Do(method, path string, reqObj interface{}) (resObj *PlayPromptOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallPlayPromptRequest) Post() (*PlayPromptOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Record action undocumented
+func (b *CallRequestBuilder) Record(reqObj *CallRecordRequestParameter) *CallRecordRequestBuilder {
+	bb := &CallRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/record"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRecordRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
+	return &CallRecordRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallRecordRequest struct{ BaseRequest }
+
+//
+func (r *CallRecordRequest) Do(method, path string, reqObj interface{}) (resObj *RecordOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallRecordRequest) Post() (*RecordOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Redirect action undocumented
+func (b *CallRequestBuilder) Redirect(reqObj *CallRedirectRequestParameter) *CallRedirectRequestBuilder {
+	bb := &CallRedirectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/redirect"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRedirectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
+	return &CallRedirectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallRedirectRequest struct{ BaseRequest }
+
+//
+func (r *CallRedirectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallRedirectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reject action undocumented
+func (b *CallRequestBuilder) Reject(reqObj *CallRejectRequestParameter) *CallRejectRequestBuilder {
+	bb := &CallRejectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reject"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRejectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
+	return &CallRejectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallRejectRequest struct{ BaseRequest }
+
+//
+func (r *CallRejectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallRejectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SubscribeToTone action undocumented
+func (b *CallRequestBuilder) SubscribeToTone(reqObj *CallSubscribeToToneRequestParameter) *CallSubscribeToToneRequestBuilder {
+	bb := &CallSubscribeToToneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/subscribeToTone"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallSubscribeToToneRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneRequest {
+	return &CallSubscribeToToneRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallSubscribeToToneRequest struct{ BaseRequest }
+
+//
+func (r *CallSubscribeToToneRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribeToToneOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallSubscribeToToneRequest) Post() (*SubscribeToToneOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Transfer action undocumented
+func (b *CallRequestBuilder) Transfer(reqObj *CallTransferRequestParameter) *CallTransferRequestBuilder {
+	bb := &CallTransferRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/transfer"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallTransferRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
+	return &CallTransferRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallTransferRequest struct{ BaseRequest }
+
+//
+func (r *CallTransferRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallTransferRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unmute action undocumented
+func (b *CallRequestBuilder) Unmute(reqObj *CallUnmuteRequestParameter) *CallUnmuteRequestBuilder {
+	bb := &CallUnmuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unmute"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallUnmuteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
+	return &CallUnmuteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallUnmuteRequest struct{ BaseRequest }
+
+//
+func (r *CallUnmuteRequest) Do(method, path string, reqObj interface{}) (resObj *UnmuteParticipantOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallUnmuteRequest) Post() (*UnmuteParticipantOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CheckMemberGroups action undocumented
+func (b *DirectoryObjectRequestBuilder) CheckMemberGroups(reqObj *DirectoryObjectCheckMemberGroupsRequestParameter) *DirectoryObjectCheckMemberGroupsRequestBuilder {
+	bb := &DirectoryObjectCheckMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkMemberGroups"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectCheckMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
+	return &DirectoryObjectCheckMemberGroupsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// CheckMemberObjects action undocumented
+func (b *DirectoryObjectRequestBuilder) CheckMemberObjects(reqObj *DirectoryObjectCheckMemberObjectsRequestParameter) *DirectoryObjectCheckMemberObjectsRequestBuilder {
+	bb := &DirectoryObjectCheckMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkMemberObjects"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
+	return &DirectoryObjectCheckMemberObjectsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// GetMemberGroups action undocumented
+func (b *DirectoryObjectRequestBuilder) GetMemberGroups(reqObj *DirectoryObjectGetMemberGroupsRequestParameter) *DirectoryObjectGetMemberGroupsRequestBuilder {
+	bb := &DirectoryObjectGetMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getMemberGroups"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectGetMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
+	return &DirectoryObjectGetMemberGroupsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// GetMemberObjects action undocumented
+func (b *DirectoryObjectRequestBuilder) GetMemberObjects(reqObj *DirectoryObjectGetMemberObjectsRequestParameter) *DirectoryObjectGetMemberObjectsRequestBuilder {
+	bb := &DirectoryObjectGetMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getMemberObjects"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
+	return &DirectoryObjectGetMemberObjectsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// Restore action undocumented
+func (b *DirectoryObjectRequestBuilder) Restore(reqObj *DirectoryObjectRestoreRequestParameter) *DirectoryObjectRestoreRequestBuilder {
+	bb := &DirectoryObjectRestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restore"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
+	return &DirectoryObjectRestoreRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectRestoreRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectRestoreRequest) Post() (*DirectoryObject, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Calculate action undocumented
+func (b *WorkbookApplicationRequestBuilder) Calculate(reqObj *WorkbookApplicationCalculateRequestParameter) *WorkbookApplicationCalculateRequestBuilder {
+	bb := &WorkbookApplicationCalculateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/calculate"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookApplicationCalculateRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicationCalculateRequest {
+	return &WorkbookApplicationCalculateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookApplicationCalculateRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookApplicationCalculateRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookApplicationCalculateRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// GetSchedule action undocumented
+func (b *CalendarRequestBuilder) GetSchedule(reqObj *CalendarGetScheduleRequestParameter) *CalendarGetScheduleRequestBuilder {
+	bb := &CalendarGetScheduleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getSchedule"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CalendarGetScheduleRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleRequest {
+	return &CalendarGetScheduleRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CalendarGetScheduleRequest struct{ BaseRequest }
+
+//
+func (r *CalendarGetScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *[]ScheduleInformation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CalendarGetScheduleRequest) Paging(method, path string, obj interface{}) ([][]ScheduleInformation, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]ScheduleInformation
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]ScheduleInformation
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *CalendarGetScheduleRequest) Get() ([][]ScheduleInformation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// Commit action undocumented
+func (b *MobileAppContentFileRequestBuilder) Commit(reqObj *MobileAppContentFileCommitRequestParameter) *MobileAppContentFileCommitRequestBuilder {
+	bb := &MobileAppContentFileCommitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/commit"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppContentFileCommitRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFileCommitRequest {
+	return &MobileAppContentFileCommitRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MobileAppContentFileCommitRequest struct{ BaseRequest }
+
+//
+func (r *MobileAppContentFileCommitRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppContentFileCommitRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RenewUpload action undocumented
+func (b *MobileAppContentFileRequestBuilder) RenewUpload(reqObj *MobileAppContentFileRenewUploadRequestParameter) *MobileAppContentFileRenewUploadRequestBuilder {
+	bb := &MobileAppContentFileRenewUploadRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/renewUpload"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppContentFileRenewUploadRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppContentFileRenewUploadRequest {
+	return &MobileAppContentFileRenewUploadRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MobileAppContentFileRenewUploadRequest struct{ BaseRequest }
+
+//
+func (r *MobileAppContentFileRenewUploadRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppContentFileRenewUploadRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookChartFillRequestBuilder) Clear(reqObj *WorkbookChartFillClearRequestParameter) *WorkbookChartFillClearRequestBuilder {
+	bb := &WorkbookChartFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartFillClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClearRequest {
+	return &WorkbookChartFillClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartFillClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartFillClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartFillClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetSolidColor action undocumented
+func (b *WorkbookChartFillRequestBuilder) SetSolidColor(reqObj *WorkbookChartFillSetSolidColorRequestParameter) *WorkbookChartFillSetSolidColorRequestBuilder {
+	bb := &WorkbookChartFillSetSolidColorRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setSolidColor"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartFillSetSolidColorRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartFillSetSolidColorRequest {
+	return &WorkbookChartFillSetSolidColorRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartFillSetSolidColorRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartFillSetSolidColorRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartFillSetSolidColorRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
+	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
+	return &DeviceConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceConfigurationAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]DeviceConfigurationAssignment
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// SetData action undocumented
+func (b *WorkbookChartRequestBuilder) SetData(reqObj *WorkbookChartSetDataRequestParameter) *WorkbookChartSetDataRequestBuilder {
+	bb := &WorkbookChartSetDataRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setData"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartSetDataRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequest {
+	return &WorkbookChartSetDataRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartSetDataRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartSetDataRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartSetDataRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetPosition action undocumented
+func (b *WorkbookChartRequestBuilder) SetPosition(reqObj *WorkbookChartSetPositionRequestParameter) *WorkbookChartSetPositionRequestBuilder {
+	bb := &WorkbookChartSetPositionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setPosition"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartSetPositionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPositionRequest {
+	return &WorkbookChartSetPositionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartSetPositionRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartSetPositionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Apply action undocumented
+func (b *WorkbookFilterRequestBuilder) Apply(reqObj *WorkbookFilterApplyRequestParameter) *WorkbookFilterApplyRequestBuilder {
+	bb := &WorkbookFilterApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/apply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyRequest {
+	return &WorkbookFilterApplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyBottomItemsFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyBottomItemsFilter(reqObj *WorkbookFilterApplyBottomItemsFilterRequestParameter) *WorkbookFilterApplyBottomItemsFilterRequestBuilder {
+	bb := &WorkbookFilterApplyBottomItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyBottomItemsFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyBottomItemsFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *WorkbookFilterApplyBottomItemsFilterRequest {
+	return &WorkbookFilterApplyBottomItemsFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyBottomItemsFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyBottomItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyBottomPercentFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyBottomPercentFilter(reqObj *WorkbookFilterApplyBottomPercentFilterRequestParameter) *WorkbookFilterApplyBottomPercentFilterRequestBuilder {
+	bb := &WorkbookFilterApplyBottomPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyBottomPercentFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyBottomPercentFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *WorkbookFilterApplyBottomPercentFilterRequest {
+	return &WorkbookFilterApplyBottomPercentFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyBottomPercentFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyBottomPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyCellColorFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyCellColorFilter(reqObj *WorkbookFilterApplyCellColorFilterRequestParameter) *WorkbookFilterApplyCellColorFilterRequestBuilder {
+	bb := &WorkbookFilterApplyCellColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyCellColorFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyCellColorFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFilterApplyCellColorFilterRequest {
+	return &WorkbookFilterApplyCellColorFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyCellColorFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyCellColorFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyCellColorFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyCustomFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyCustomFilter(reqObj *WorkbookFilterApplyCustomFilterRequestParameter) *WorkbookFilterApplyCustomFilterRequestBuilder {
+	bb := &WorkbookFilterApplyCustomFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyCustomFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyCustomFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilterApplyCustomFilterRequest {
+	return &WorkbookFilterApplyCustomFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyCustomFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyCustomFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyCustomFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyDynamicFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyDynamicFilter(reqObj *WorkbookFilterApplyDynamicFilterRequestParameter) *WorkbookFilterApplyDynamicFilterRequestBuilder {
+	bb := &WorkbookFilterApplyDynamicFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyDynamicFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyDynamicFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilterApplyDynamicFilterRequest {
+	return &WorkbookFilterApplyDynamicFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyDynamicFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyDynamicFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyDynamicFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyFontColorFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyFontColorFilter(reqObj *WorkbookFilterApplyFontColorFilterRequestParameter) *WorkbookFilterApplyFontColorFilterRequestBuilder {
+	bb := &WorkbookFilterApplyFontColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyFontColorFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyFontColorFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFilterApplyFontColorFilterRequest {
+	return &WorkbookFilterApplyFontColorFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyFontColorFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyFontColorFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyFontColorFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyIconFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyIconFilter(reqObj *WorkbookFilterApplyIconFilterRequestParameter) *WorkbookFilterApplyIconFilterRequestBuilder {
+	bb := &WorkbookFilterApplyIconFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyIconFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyIconFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterApplyIconFilterRequest {
+	return &WorkbookFilterApplyIconFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyIconFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyIconFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyIconFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyTopItemsFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyTopItemsFilter(reqObj *WorkbookFilterApplyTopItemsFilterRequestParameter) *WorkbookFilterApplyTopItemsFilterRequestBuilder {
+	bb := &WorkbookFilterApplyTopItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyTopItemsFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyTopItemsFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFilterApplyTopItemsFilterRequest {
+	return &WorkbookFilterApplyTopItemsFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyTopItemsFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyTopItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyTopItemsFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyTopPercentFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyTopPercentFilter(reqObj *WorkbookFilterApplyTopPercentFilterRequestParameter) *WorkbookFilterApplyTopPercentFilterRequestBuilder {
+	bb := &WorkbookFilterApplyTopPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyTopPercentFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyTopPercentFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookFilterApplyTopPercentFilterRequest {
+	return &WorkbookFilterApplyTopPercentFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyTopPercentFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyTopPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyTopPercentFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyValuesFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyValuesFilter(reqObj *WorkbookFilterApplyValuesFilterRequestParameter) *WorkbookFilterApplyValuesFilterRequestBuilder {
+	bb := &WorkbookFilterApplyValuesFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyValuesFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyValuesFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilterApplyValuesFilterRequest {
+	return &WorkbookFilterApplyValuesFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyValuesFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyValuesFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyValuesFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookFilterRequestBuilder) Clear(reqObj *WorkbookFilterClearRequestParameter) *WorkbookFilterClearRequestBuilder {
+	bb := &WorkbookFilterClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearRequest {
+	return &WorkbookFilterClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookWorksheetsCollectionRequestBuilder) Add(reqObj *WorkbookWorksheetCollectionAddRequestParameter) *WorkbookWorksheetCollectionAddRequestBuilder {
+	bb := &WorkbookWorksheetCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookWorksheetCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksheetCollectionAddRequest {
+	return &WorkbookWorksheetCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookWorksheetCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookWorksheetCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheet, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookWorksheetCollectionAddRequest) Post() (*WorkbookWorksheet, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Retire action undocumented
+func (b *ManagedDeviceRequestBuilder) Retire(reqObj *ManagedDeviceRetireRequestParameter) *ManagedDeviceRetireRequestBuilder {
+	bb := &ManagedDeviceRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/retire"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRetireRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
+	return &ManagedDeviceRetireRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRetireRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRetireRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRetireRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Wipe action undocumented
+func (b *ManagedDeviceRequestBuilder) Wipe(reqObj *ManagedDeviceWipeRequestParameter) *ManagedDeviceWipeRequestBuilder {
+	bb := &ManagedDeviceWipeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/wipe"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
+	return &ManagedDeviceWipeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceWipeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceWipeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceWipeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ResetPasscode action undocumented
+func (b *ManagedDeviceRequestBuilder) ResetPasscode(reqObj *ManagedDeviceResetPasscodeRequestParameter) *ManagedDeviceResetPasscodeRequestBuilder {
+	bb := &ManagedDeviceResetPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/resetPasscode"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceResetPasscodeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
+	return &ManagedDeviceResetPasscodeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceResetPasscodeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceResetPasscodeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RemoteLock action undocumented
+func (b *ManagedDeviceRequestBuilder) RemoteLock(reqObj *ManagedDeviceRemoteLockRequestParameter) *ManagedDeviceRemoteLockRequestBuilder {
+	bb := &ManagedDeviceRemoteLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/remoteLock"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
+	return &ManagedDeviceRemoteLockRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRemoteLockRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRemoteLockRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RequestRemoteAssistance action undocumented
+func (b *ManagedDeviceRequestBuilder) RequestRemoteAssistance(reqObj *ManagedDeviceRequestRemoteAssistanceRequestParameter) *ManagedDeviceRequestRemoteAssistanceRequestBuilder {
+	bb := &ManagedDeviceRequestRemoteAssistanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/requestRemoteAssistance"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRequestRemoteAssistanceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
+	return &ManagedDeviceRequestRemoteAssistanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// DisableLostMode action undocumented
+func (b *ManagedDeviceRequestBuilder) DisableLostMode(reqObj *ManagedDeviceDisableLostModeRequestParameter) *ManagedDeviceDisableLostModeRequestBuilder {
+	bb := &ManagedDeviceDisableLostModeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/disableLostMode"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceDisableLostModeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDisableLostModeRequest {
+	return &ManagedDeviceDisableLostModeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceDisableLostModeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceDisableLostModeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceDisableLostModeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// LocateDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) LocateDevice(reqObj *ManagedDeviceLocateDeviceRequestParameter) *ManagedDeviceLocateDeviceRequestBuilder {
+	bb := &ManagedDeviceLocateDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/locateDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceLocateDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocateDeviceRequest {
+	return &ManagedDeviceLocateDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceLocateDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceLocateDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceLocateDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// BypassActivationLock action undocumented
+func (b *ManagedDeviceRequestBuilder) BypassActivationLock(reqObj *ManagedDeviceBypassActivationLockRequestParameter) *ManagedDeviceBypassActivationLockRequestBuilder {
+	bb := &ManagedDeviceBypassActivationLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/bypassActivationLock"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
+	return &ManagedDeviceBypassActivationLockRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceBypassActivationLockRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceBypassActivationLockRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RebootNow action undocumented
+func (b *ManagedDeviceRequestBuilder) RebootNow(reqObj *ManagedDeviceRebootNowRequestParameter) *ManagedDeviceRebootNowRequestBuilder {
+	bb := &ManagedDeviceRebootNowRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/rebootNow"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRebootNowRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNowRequest {
+	return &ManagedDeviceRebootNowRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRebootNowRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRebootNowRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRebootNowRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ShutDown action undocumented
+func (b *ManagedDeviceRequestBuilder) ShutDown(reqObj *ManagedDeviceShutDownRequestParameter) *ManagedDeviceShutDownRequestBuilder {
+	bb := &ManagedDeviceShutDownRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/shutDown"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
+	return &ManagedDeviceShutDownRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceShutDownRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceShutDownRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceShutDownRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RecoverPasscode action undocumented
+func (b *ManagedDeviceRequestBuilder) RecoverPasscode(reqObj *ManagedDeviceRecoverPasscodeRequestParameter) *ManagedDeviceRecoverPasscodeRequestBuilder {
+	bb := &ManagedDeviceRecoverPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/recoverPasscode"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRecoverPasscodeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRecoverPasscodeRequest {
+	return &ManagedDeviceRecoverPasscodeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRecoverPasscodeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRecoverPasscodeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRecoverPasscodeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CleanWindowsDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) CleanWindowsDevice(reqObj *ManagedDeviceCleanWindowsDeviceRequestParameter) *ManagedDeviceCleanWindowsDeviceRequestBuilder {
+	bb := &ManagedDeviceCleanWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/cleanWindowsDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
+	return &ManagedDeviceCleanWindowsDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceCleanWindowsDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceCleanWindowsDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// LogoutSharedAppleDeviceActiveUser action undocumented
+func (b *ManagedDeviceRequestBuilder) LogoutSharedAppleDeviceActiveUser(reqObj *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter) *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder {
+	bb := &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/logoutSharedAppleDeviceActiveUser"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
+	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// DeleteUserFromSharedAppleDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) DeleteUserFromSharedAppleDevice(reqObj *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter) *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder {
+	bb := &ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/deleteUserFromSharedAppleDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
+	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SyncDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) SyncDevice(reqObj *ManagedDeviceSyncDeviceRequestParameter) *ManagedDeviceSyncDeviceRequestBuilder {
+	bb := &ManagedDeviceSyncDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceSyncDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDeviceRequest {
+	return &ManagedDeviceSyncDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceSyncDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceSyncDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceSyncDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// WindowsDefenderScan action undocumented
+func (b *ManagedDeviceRequestBuilder) WindowsDefenderScan(reqObj *ManagedDeviceWindowsDefenderScanRequestParameter) *ManagedDeviceWindowsDefenderScanRequestBuilder {
+	bb := &ManagedDeviceWindowsDefenderScanRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/windowsDefenderScan"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceWindowsDefenderScanRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDeviceWindowsDefenderScanRequest {
+	return &ManagedDeviceWindowsDefenderScanRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceWindowsDefenderScanRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceWindowsDefenderScanRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceWindowsDefenderScanRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// WindowsDefenderUpdateSignatures action undocumented
+func (b *ManagedDeviceRequestBuilder) WindowsDefenderUpdateSignatures(reqObj *ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter) *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder {
+	bb := &ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/windowsDefenderUpdateSignatures"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *ManagedDeviceWindowsDefenderUpdateSignaturesRequest {
+	return &ManagedDeviceWindowsDefenderUpdateSignaturesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceWindowsDefenderUpdateSignaturesRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// UpdateWindowsDeviceAccount action undocumented
+func (b *ManagedDeviceRequestBuilder) UpdateWindowsDeviceAccount(reqObj *ManagedDeviceUpdateWindowsDeviceAccountRequestParameter) *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder {
+	bb := &ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateWindowsDeviceAccount"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
+	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TargetApps action undocumented
+func (b *ManagedAppProtectionRequestBuilder) TargetApps(reqObj *ManagedAppProtectionTargetAppsRequestParameter) *ManagedAppProtectionTargetAppsRequestBuilder {
+	bb := &ManagedAppProtectionTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedAppProtectionTargetAppsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedAppProtectionTargetAppsRequestBuilder) Request() *ManagedAppProtectionTargetAppsRequest {
+	return &ManagedAppProtectionTargetAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedAppProtectionTargetAppsRequest struct{ BaseRequest }
+
+//
+func (r *ManagedAppProtectionTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedAppProtectionTargetAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clone action undocumented
+func (b *TeamRequestBuilder) Clone(reqObj *TeamCloneRequestParameter) *TeamCloneRequestBuilder {
+	bb := &TeamCloneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clone"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamCloneRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
+	return &TeamCloneRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamCloneRequest struct{ BaseRequest }
+
+//
+func (r *TeamCloneRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamCloneRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Archive action undocumented
+func (b *TeamRequestBuilder) Archive(reqObj *TeamArchiveRequestParameter) *TeamArchiveRequestBuilder {
+	bb := &TeamArchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/archive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamArchiveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
+	return &TeamArchiveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamArchiveRequest struct{ BaseRequest }
+
+//
+func (r *TeamArchiveRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamArchiveRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unarchive action undocumented
+func (b *TeamRequestBuilder) Unarchive(reqObj *TeamUnarchiveRequestParameter) *TeamUnarchiveRequestBuilder {
+	bb := &TeamUnarchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unarchive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamUnarchiveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
+	return &TeamUnarchiveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamUnarchiveRequest struct{ BaseRequest }
+
+//
+func (r *TeamUnarchiveRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamUnarchiveRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookRangeRequestBuilder) Clear(reqObj *WorkbookRangeClearRequestParameter) *WorkbookRangeClearRequestBuilder {
+	bb := &WorkbookRangeClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest {
+	return &WorkbookRangeClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Delete action undocumented
+func (b *WorkbookRangeRequestBuilder) Delete(reqObj *WorkbookRangeDeleteRequestParameter) *WorkbookRangeDeleteRequestBuilder {
+	bb := &WorkbookRangeDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/delete"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeDeleteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteRequest {
+	return &WorkbookRangeDeleteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeDeleteRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeDeleteRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeDeleteRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Insert action undocumented
+func (b *WorkbookRangeRequestBuilder) Insert(reqObj *WorkbookRangeInsertRequestParameter) *WorkbookRangeInsertRequestBuilder {
+	bb := &WorkbookRangeInsertRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/insert"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeInsertRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertRequest {
+	return &WorkbookRangeInsertRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeInsertRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeInsertRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookRangeInsertRequest) Post() (*WorkbookRange, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Merge action undocumented
+func (b *WorkbookRangeRequestBuilder) Merge(reqObj *WorkbookRangeMergeRequestParameter) *WorkbookRangeMergeRequestBuilder {
+	bb := &WorkbookRangeMergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/merge"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeMergeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest {
+	return &WorkbookRangeMergeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeMergeRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeMergeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeMergeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unmerge action undocumented
+func (b *WorkbookRangeRequestBuilder) Unmerge(reqObj *WorkbookRangeUnmergeRequestParameter) *WorkbookRangeUnmergeRequestBuilder {
+	bb := &WorkbookRangeUnmergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unmerge"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeUnmergeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequest {
+	return &WorkbookRangeUnmergeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeUnmergeRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeUnmergeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeUnmergeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ClearFilters action undocumented
+func (b *WorkbookTableRequestBuilder) ClearFilters(reqObj *WorkbookTableClearFiltersRequestParameter) *WorkbookTableClearFiltersRequestBuilder {
+	bb := &WorkbookTableClearFiltersRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clearFilters"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableClearFiltersRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableClearFiltersRequestBuilder) Request() *WorkbookTableClearFiltersRequest {
+	return &WorkbookTableClearFiltersRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableClearFiltersRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableClearFiltersRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookTableClearFiltersRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ConvertToRange action undocumented
+func (b *WorkbookTableRequestBuilder) ConvertToRange(reqObj *WorkbookTableConvertToRangeRequestParameter) *WorkbookTableConvertToRangeRequestBuilder {
+	bb := &WorkbookTableConvertToRangeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/convertToRange"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableConvertToRangeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableConvertToRangeRequestBuilder) Request() *WorkbookTableConvertToRangeRequest {
+	return &WorkbookTableConvertToRangeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableConvertToRangeRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableConvertToRangeRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookTableConvertToRangeRequest) Post() (*WorkbookRange, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ReapplyFilters action undocumented
+func (b *WorkbookTableRequestBuilder) ReapplyFilters(reqObj *WorkbookTableReapplyFiltersRequestParameter) *WorkbookTableReapplyFiltersRequestBuilder {
+	bb := &WorkbookTableReapplyFiltersRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reapplyFilters"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableReapplyFiltersRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReapplyFiltersRequest {
+	return &WorkbookTableReapplyFiltersRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableReapplyFiltersRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableReapplyFiltersRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookTableReapplyFiltersRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
+	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
+	return &DeviceCompliancePolicyAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceCompliancePolicyAssignment, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceCompliancePolicyAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]DeviceCompliancePolicyAssignment
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// ScheduleActionsForRules action undocumented
+func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
+	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
+	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
+
+//
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ValidateProperties action undocumented
+func (b *GroupRequestBuilder) ValidateProperties(reqObj *GroupValidatePropertiesRequestParameter) *GroupValidatePropertiesRequestBuilder {
+	bb := &GroupValidatePropertiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/validateProperties"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupValidatePropertiesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidatePropertiesRequest {
+	return &GroupValidatePropertiesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupValidatePropertiesRequest struct{ BaseRequest }
+
+//
+func (r *GroupValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupValidatePropertiesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SubscribeByMail action undocumented
+func (b *GroupRequestBuilder) SubscribeByMail(reqObj *GroupSubscribeByMailRequestParameter) *GroupSubscribeByMailRequestBuilder {
+	bb := &GroupSubscribeByMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/subscribeByMail"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupSubscribeByMailRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequest {
+	return &GroupSubscribeByMailRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupSubscribeByMailRequest struct{ BaseRequest }
+
+//
+func (r *GroupSubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupSubscribeByMailRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// UnsubscribeByMail action undocumented
+func (b *GroupRequestBuilder) UnsubscribeByMail(reqObj *GroupUnsubscribeByMailRequestParameter) *GroupUnsubscribeByMailRequestBuilder {
+	bb := &GroupUnsubscribeByMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unsubscribeByMail"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupUnsubscribeByMailRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMailRequest {
+	return &GroupUnsubscribeByMailRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupUnsubscribeByMailRequest struct{ BaseRequest }
+
+//
+func (r *GroupUnsubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupUnsubscribeByMailRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// AddFavorite action undocumented
+func (b *GroupRequestBuilder) AddFavorite(reqObj *GroupAddFavoriteRequestParameter) *GroupAddFavoriteRequestBuilder {
+	bb := &GroupAddFavoriteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addFavorite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupAddFavoriteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
+	return &GroupAddFavoriteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupAddFavoriteRequest struct{ BaseRequest }
+
+//
+func (r *GroupAddFavoriteRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupAddFavoriteRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RemoveFavorite action undocumented
+func (b *GroupRequestBuilder) RemoveFavorite(reqObj *GroupRemoveFavoriteRequestParameter) *GroupRemoveFavoriteRequestBuilder {
+	bb := &GroupRemoveFavoriteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/removeFavorite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupRemoveFavoriteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteRequest {
+	return &GroupRemoveFavoriteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupRemoveFavoriteRequest struct{ BaseRequest }
+
+//
+func (r *GroupRemoveFavoriteRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupRemoveFavoriteRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ResetUnseenCount action undocumented
+func (b *GroupRequestBuilder) ResetUnseenCount(reqObj *GroupResetUnseenCountRequestParameter) *GroupResetUnseenCountRequestBuilder {
+	bb := &GroupResetUnseenCountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/resetUnseenCount"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupResetUnseenCountRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRequest {
+	return &GroupResetUnseenCountRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupResetUnseenCountRequest struct{ BaseRequest }
+
+//
+func (r *GroupResetUnseenCountRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupResetUnseenCountRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Renew action undocumented
+func (b *GroupRequestBuilder) Renew(reqObj *GroupRenewRequestParameter) *GroupRenewRequestBuilder {
+	bb := &GroupRenewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/renew"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupRenewRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
+	return &GroupRenewRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupRenewRequest struct{ BaseRequest }
+
+//
+func (r *GroupRenewRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *GroupRenewRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
+	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
+	return &MobileAppAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MobileAppAssignRequest struct{ BaseRequest }
+
+//
+func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) Assign(reqObj *ManagedDeviceMobileAppConfigurationAssignRequestParameter) *ManagedDeviceMobileAppConfigurationAssignRequestBuilder {
+	bb := &ManagedDeviceMobileAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceMobileAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceMobileAppConfigurationAssignRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationAssignRequest {
+	return &ManagedDeviceMobileAppConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceMobileAppConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *ManagedEBookRequestBuilder) Assign(reqObj *ManagedEBookAssignRequestParameter) *ManagedEBookAssignRequestBuilder {
+	bb := &ManagedEBookAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedEBookAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest {
+	return &ManagedEBookAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedEBookAssignRequest struct{ BaseRequest }
+
+//
+func (r *ManagedEBookAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedEBookAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetPriority action undocumented
+func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
+	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setPriority"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
+	return &DeviceEnrollmentConfigurationSetPriorityRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
+
+//
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *DeviceEnrollmentConfigurationRequestBuilder) Assign(reqObj *DeviceEnrollmentConfigurationAssignRequestParameter) *DeviceEnrollmentConfigurationAssignRequestBuilder {
+	bb := &DeviceEnrollmentConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceEnrollmentConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignRequest {
+	return &DeviceEnrollmentConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceEnrollmentConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (r *DeviceEnrollmentConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TargetApps action undocumented
+func (b *ManagedAppPolicyRequestBuilder) TargetApps(reqObj *ManagedAppPolicyTargetAppsRequestParameter) *ManagedAppPolicyTargetAppsRequestBuilder {
+	bb := &ManagedAppPolicyTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedAppPolicyTargetAppsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTargetAppsRequest {
+	return &ManagedAppPolicyTargetAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedAppPolicyTargetAppsRequest struct{ BaseRequest }
+
+//
+func (r *ManagedAppPolicyTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedAppPolicyTargetAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RefreshAll action undocumented
+func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) RefreshAll(reqObj *WorkbookPivotTableCollectionRefreshAllRequestParameter) *WorkbookPivotTableCollectionRefreshAllRequestBuilder {
+	bb := &WorkbookPivotTableCollectionRefreshAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refreshAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
+	return &WorkbookPivotTableCollectionRefreshAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookPivotTableCollectionRefreshAllRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RestoreVersion action undocumented
+func (b *DriveItemVersionRequestBuilder) RestoreVersion(reqObj *DriveItemVersionRestoreVersionRequestParameter) *DriveItemVersionRestoreVersionRequestBuilder {
+	bb := &DriveItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersionRestoreVersionRequest {
+	return &DriveItemVersionRestoreVersionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemVersionRestoreVersionRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DriveItemVersionRestoreVersionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
 // AssignLicense action undocumented
 func (b *UserRequestBuilder) AssignLicense(reqObj *UserAssignLicenseRequestParameter) *UserAssignLicenseRequestBuilder {
 	bb := &UserAssignLicenseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -54192,1504 +65159,6 @@ func (r *UserExportPersonalDataRequest) Do(method, path string, reqObj interface
 
 //
 func (r *UserExportPersonalDataRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateSession action undocumented
-func (b *WorkbookRequestBuilder) CreateSession(reqObj *WorkbookCreateSessionRequestParameter) *WorkbookCreateSessionRequestBuilder {
-	bb := &WorkbookCreateSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookCreateSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRequest {
-	return &WorkbookCreateSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookCreateSessionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookCreateSessionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookSessionInfo, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookCreateSessionRequest) Post() (*WorkbookSessionInfo, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CloseSession action undocumented
-func (b *WorkbookRequestBuilder) CloseSession(reqObj *WorkbookCloseSessionRequestParameter) *WorkbookCloseSessionRequestBuilder {
-	bb := &WorkbookCloseSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/closeSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
-	return &WorkbookCloseSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookCloseSessionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookCloseSessionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookCloseSessionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RefreshSession action undocumented
-func (b *WorkbookRequestBuilder) RefreshSession(reqObj *WorkbookRefreshSessionRequestParameter) *WorkbookRefreshSessionRequestBuilder {
-	bb := &WorkbookRefreshSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refreshSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRefreshSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSessionRequest {
-	return &WorkbookRefreshSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRefreshSessionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRefreshSessionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRefreshSessionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// Add action undocumented
-func (b *WorkbookWorksheetNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookNamedItemCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedItemCollectionAddRequest {
-	return &WorkbookNamedItemCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookNamedItemCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookNamedItemCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookNamedItemCollectionAddRequest) Post() (*WorkbookNamedItem, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AddFormulaLocal action undocumented
-func (b *WorkbookNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// AddFormulaLocal action undocumented
-func (b *WorkbookWorksheetNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *WorkbookNamedItemCollectionAddFormulaLocalRequest {
-	return &WorkbookNamedItemCollectionAddFormulaLocalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookNamedItemCollectionAddFormulaLocalRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (*WorkbookNamedItem, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SyncMicrosoftStoreForBusinessApps action undocumented
-func (b *DeviceAppManagementRequestBuilder) SyncMicrosoftStoreForBusinessApps(reqObj *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter) *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder {
-	bb := &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncMicrosoftStoreForBusinessApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Request() *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest {
-	return &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest struct{ BaseRequest }
-
-//
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookTableColumnsCollectionRequestBuilder) Add(reqObj *WorkbookTableColumnCollectionAddRequestParameter) *WorkbookTableColumnCollectionAddRequestBuilder {
-	bb := &WorkbookTableColumnCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableColumnCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTableColumnCollectionAddRequest {
-	return &WorkbookTableColumnCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableColumnCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableColumnCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookTableColumnCollectionAddRequest) Post() (*WorkbookTableColumn, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetMobileDeviceManagementAuthority action undocumented
-func (b *OrganizationRequestBuilder) SetMobileDeviceManagementAuthority(reqObj *OrganizationSetMobileDeviceManagementAuthorityRequestParameter) *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder {
-	bb := &OrganizationSetMobileDeviceManagementAuthorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setMobileDeviceManagementAuthority"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OrganizationSetMobileDeviceManagementAuthorityRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request() *OrganizationSetMobileDeviceManagementAuthorityRequest {
-	return &OrganizationSetMobileDeviceManagementAuthorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OrganizationSetMobileDeviceManagementAuthorityRequest struct{ BaseRequest }
-
-//
-func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Do(method, path string, reqObj interface{}) (resObj *int, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post() (*int, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Invite action undocumented
-func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
-	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/invite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
-	return &ParticipantCollectionInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ParticipantCollectionInviteRequest struct{ BaseRequest }
-
-//
-func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
-	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
-	return &MobileAppAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MobileAppAssignRequest struct{ BaseRequest }
-
-//
-func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *ManagedEBookRequestBuilder) Assign(reqObj *ManagedEBookAssignRequestParameter) *ManagedEBookAssignRequestBuilder {
-	bb := &ManagedEBookAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedEBookAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest {
-	return &ManagedEBookAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedEBookAssignRequest struct{ BaseRequest }
-
-//
-func (r *ManagedEBookAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedEBookAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clone action undocumented
-func (b *TeamRequestBuilder) Clone(reqObj *TeamCloneRequestParameter) *TeamCloneRequestBuilder {
-	bb := &TeamCloneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clone"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamCloneRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
-	return &TeamCloneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamCloneRequest struct{ BaseRequest }
-
-//
-func (r *TeamCloneRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamCloneRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Archive action undocumented
-func (b *TeamRequestBuilder) Archive(reqObj *TeamArchiveRequestParameter) *TeamArchiveRequestBuilder {
-	bb := &TeamArchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/archive"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamArchiveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
-	return &TeamArchiveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamArchiveRequest struct{ BaseRequest }
-
-//
-func (r *TeamArchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamArchiveRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unarchive action undocumented
-func (b *TeamRequestBuilder) Unarchive(reqObj *TeamUnarchiveRequestParameter) *TeamUnarchiveRequestBuilder {
-	bb := &TeamUnarchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unarchive"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamUnarchiveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
-	return &TeamUnarchiveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamUnarchiveRequest struct{ BaseRequest }
-
-//
-func (r *TeamUnarchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamUnarchiveRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Upgrade action undocumented
-func (b *TeamsAppInstallationRequestBuilder) Upgrade(reqObj *TeamsAppInstallationUpgradeRequestParameter) *TeamsAppInstallationUpgradeRequestBuilder {
-	bb := &TeamsAppInstallationUpgradeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/upgrade"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
-	return &TeamsAppInstallationUpgradeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
-
-//
-func (r *TeamsAppInstallationUpgradeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamsAppInstallationUpgradeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TargetApps action undocumented
-func (b *ManagedAppPolicyRequestBuilder) TargetApps(reqObj *ManagedAppPolicyTargetAppsRequestParameter) *ManagedAppPolicyTargetAppsRequestBuilder {
-	bb := &ManagedAppPolicyTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedAppPolicyTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTargetAppsRequest {
-	return &ManagedAppPolicyTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedAppPolicyTargetAppsRequest struct{ BaseRequest }
-
-//
-func (r *ManagedAppPolicyTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedAppPolicyTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// GetNotebookFromWebURL action undocumented
-func (b *OnenoteNotebooksCollectionRequestBuilder) GetNotebookFromWebURL(reqObj *NotebookCollectionGetNotebookFromWebURLRequestParameter) *NotebookCollectionGetNotebookFromWebURLRequestBuilder {
-	bb := &NotebookCollectionGetNotebookFromWebURLRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getNotebookFromWebUrl"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotebookCollectionGetNotebookFromWebURLRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebURLRequest {
-	return &NotebookCollectionGetNotebookFromWebURLRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type NotebookCollectionGetNotebookFromWebURLRequest struct{ BaseRequest }
-
-//
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (*CopyNotebookModel, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// OnenotePatchContent action undocumented
-func (b *OnenotePageRequestBuilder) OnenotePatchContent(reqObj *OnenotePageOnenotePatchContentRequestParameter) *OnenotePageOnenotePatchContentRequestBuilder {
-	bb := &OnenotePageOnenotePatchContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/onenotePatchContent"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
-	return &OnenotePageOnenotePatchContentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
-
-//
-func (r *OnenotePageOnenotePatchContentRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *OnenotePageOnenotePatchContentRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyToSection action undocumented
-func (b *OnenotePageRequestBuilder) CopyToSection(reqObj *OnenotePageCopyToSectionRequestParameter) *OnenotePageCopyToSectionRequestBuilder {
-	bb := &OnenotePageCopyToSectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyToSection"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenotePageCopyToSectionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSectionRequest {
-	return &OnenotePageCopyToSectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenotePageCopyToSectionRequest struct{ BaseRequest }
-
-//
-func (r *OnenotePageCopyToSectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OnenotePageCopyToSectionRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Mute action undocumented
-func (b *ParticipantRequestBuilder) Mute(reqObj *ParticipantMuteRequestParameter) *ParticipantMuteRequestBuilder {
-	bb := &ParticipantMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/mute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
-	return &ParticipantMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ParticipantMuteRequest struct{ BaseRequest }
-
-//
-func (r *ParticipantMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *ParticipantMuteRequest) Post() (*MuteParticipantOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AutofitColumns action undocumented
-func (b *WorkbookRangeFormatRequestBuilder) AutofitColumns(reqObj *WorkbookRangeFormatAutofitColumnsRequestParameter) *WorkbookRangeFormatAutofitColumnsRequestBuilder {
-	bb := &WorkbookRangeFormatAutofitColumnsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/autofitColumns"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeFormatAutofitColumnsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRangeFormatAutofitColumnsRequest {
-	return &WorkbookRangeFormatAutofitColumnsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeFormatAutofitColumnsRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeFormatAutofitColumnsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeFormatAutofitColumnsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AutofitRows action undocumented
-func (b *WorkbookRangeFormatRequestBuilder) AutofitRows(reqObj *WorkbookRangeFormatAutofitRowsRequestParameter) *WorkbookRangeFormatAutofitRowsRequestBuilder {
-	bb := &WorkbookRangeFormatAutofitRowsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/autofitRows"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeFormatAutofitRowsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeFormatAutofitRowsRequest {
-	return &WorkbookRangeFormatAutofitRowsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeFormatAutofitRowsRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeFormatAutofitRowsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeFormatAutofitRowsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateReply action undocumented
-func (b *MessageRequestBuilder) CreateReply(reqObj *MessageCreateReplyRequestParameter) *MessageCreateReplyRequestBuilder {
-	bb := &MessageCreateReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createReply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
-	return &MessageCreateReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCreateReplyRequest struct{ BaseRequest }
-
-//
-func (r *MessageCreateReplyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCreateReplyRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateReplyAll action undocumented
-func (b *MessageRequestBuilder) CreateReplyAll(reqObj *MessageCreateReplyAllRequestParameter) *MessageCreateReplyAllRequestBuilder {
-	bb := &MessageCreateReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createReplyAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateReplyAllRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
-	return &MessageCreateReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCreateReplyAllRequest struct{ BaseRequest }
-
-//
-func (r *MessageCreateReplyAllRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCreateReplyAllRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateForward action undocumented
-func (b *MessageRequestBuilder) CreateForward(reqObj *MessageCreateForwardRequestParameter) *MessageCreateForwardRequestBuilder {
-	bb := &MessageCreateForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createForward"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
-	return &MessageCreateForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCreateForwardRequest struct{ BaseRequest }
-
-//
-func (r *MessageCreateForwardRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCreateForwardRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Send action undocumented
-func (b *MessageRequestBuilder) Send(reqObj *MessageSendRequestParameter) *MessageSendRequestBuilder {
-	bb := &MessageSendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/send"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageSendRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
-	return &MessageSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageSendRequest struct{ BaseRequest }
-
-//
-func (r *MessageSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Copy action undocumented
-func (b *MessageRequestBuilder) Copy(reqObj *MessageCopyRequestParameter) *MessageCopyRequestBuilder {
-	bb := &MessageCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copy"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCopyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
-	return &MessageCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCopyRequest struct{ BaseRequest }
-
-//
-func (r *MessageCopyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCopyRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Move action undocumented
-func (b *MessageRequestBuilder) Move(reqObj *MessageMoveRequestParameter) *MessageMoveRequestBuilder {
-	bb := &MessageMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/move"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageMoveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
-	return &MessageMoveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageMoveRequest struct{ BaseRequest }
-
-//
-func (r *MessageMoveRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageMoveRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reply action undocumented
-func (b *MessageRequestBuilder) Reply(reqObj *MessageReplyRequestParameter) *MessageReplyRequestBuilder {
-	bb := &MessageReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
-	return &MessageReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageReplyRequest struct{ BaseRequest }
-
-//
-func (r *MessageReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ReplyAll action undocumented
-func (b *MessageRequestBuilder) ReplyAll(reqObj *MessageReplyAllRequestParameter) *MessageReplyAllRequestBuilder {
-	bb := &MessageReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/replyAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageReplyAllRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
-	return &MessageReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageReplyAllRequest struct{ BaseRequest }
-
-//
-func (r *MessageReplyAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageReplyAllRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Forward action undocumented
-func (b *MessageRequestBuilder) Forward(reqObj *MessageForwardRequestParameter) *MessageForwardRequestBuilder {
-	bb := &MessageForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forward"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
-	return &MessageForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageForwardRequest struct{ BaseRequest }
-
-//
-func (r *MessageForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageForwardRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// GetSchedule action undocumented
-func (b *CalendarRequestBuilder) GetSchedule(reqObj *CalendarGetScheduleRequestParameter) *CalendarGetScheduleRequestBuilder {
-	bb := &CalendarGetScheduleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getSchedule"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CalendarGetScheduleRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleRequest {
-	return &CalendarGetScheduleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CalendarGetScheduleRequest struct{ BaseRequest }
-
-//
-func (r *CalendarGetScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *[]ScheduleInformation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CalendarGetScheduleRequest) Paging(method, path string, obj interface{}) ([][]ScheduleInformation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]ScheduleInformation
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]ScheduleInformation
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *CalendarGetScheduleRequest) Get() ([][]ScheduleInformation, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// AddGroup action undocumented
-func (b *GroupLifecyclePolicyRequestBuilder) AddGroup(reqObj *GroupLifecyclePolicyAddGroupRequestParameter) *GroupLifecyclePolicyAddGroupRequestBuilder {
-	bb := &GroupLifecyclePolicyAddGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupLifecyclePolicyAddGroupRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePolicyAddGroupRequest {
-	return &GroupLifecyclePolicyAddGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupLifecyclePolicyAddGroupRequest struct{ BaseRequest }
-
-//
-func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *GroupLifecyclePolicyAddGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RemoveGroup action undocumented
-func (b *GroupLifecyclePolicyRequestBuilder) RemoveGroup(reqObj *GroupLifecyclePolicyRemoveGroupRequestParameter) *GroupLifecyclePolicyRemoveGroupRequestBuilder {
-	bb := &GroupLifecyclePolicyRemoveGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/removeGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupLifecyclePolicyRemoveGroupRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecyclePolicyRemoveGroupRequest {
-	return &GroupLifecyclePolicyRemoveGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupLifecyclePolicyRemoveGroupRequest struct{ BaseRequest }
-
-//
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Sync action undocumented
-func (b *DeviceManagementExchangeConnectorRequestBuilder) Sync(reqObj *DeviceManagementExchangeConnectorSyncRequestParameter) *DeviceManagementExchangeConnectorSyncRequestBuilder {
-	bb := &DeviceManagementExchangeConnectorSyncRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sync"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementExchangeConnectorSyncRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceManagementExchangeConnectorSyncRequest {
-	return &DeviceManagementExchangeConnectorSyncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceManagementExchangeConnectorSyncRequest struct{ BaseRequest }
-
-//
-func (r *DeviceManagementExchangeConnectorSyncRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceManagementExchangeConnectorSyncRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CheckMemberGroups action undocumented
-func (b *DirectoryObjectRequestBuilder) CheckMemberGroups(reqObj *DirectoryObjectCheckMemberGroupsRequestParameter) *DirectoryObjectCheckMemberGroupsRequestBuilder {
-	bb := &DirectoryObjectCheckMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkMemberGroups"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectCheckMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
-	return &DirectoryObjectCheckMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// CheckMemberObjects action undocumented
-func (b *DirectoryObjectRequestBuilder) CheckMemberObjects(reqObj *DirectoryObjectCheckMemberObjectsRequestParameter) *DirectoryObjectCheckMemberObjectsRequestBuilder {
-	bb := &DirectoryObjectCheckMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkMemberObjects"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
-	return &DirectoryObjectCheckMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// GetMemberGroups action undocumented
-func (b *DirectoryObjectRequestBuilder) GetMemberGroups(reqObj *DirectoryObjectGetMemberGroupsRequestParameter) *DirectoryObjectGetMemberGroupsRequestBuilder {
-	bb := &DirectoryObjectGetMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMemberGroups"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectGetMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
-	return &DirectoryObjectGetMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// GetMemberObjects action undocumented
-func (b *DirectoryObjectRequestBuilder) GetMemberObjects(reqObj *DirectoryObjectGetMemberObjectsRequestParameter) *DirectoryObjectGetMemberObjectsRequestBuilder {
-	bb := &DirectoryObjectGetMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMemberObjects"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
-	return &DirectoryObjectGetMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// Restore action undocumented
-func (b *DirectoryObjectRequestBuilder) Restore(reqObj *DirectoryObjectRestoreRequestParameter) *DirectoryObjectRestoreRequestBuilder {
-	bb := &DirectoryObjectRestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restore"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
-	return &DirectoryObjectRestoreRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectRestoreRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectRestoreRequest) Post() (*DirectoryObject, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -67405,194 +76874,6 @@ func (r *WorkbookFunctionsZ_TestRequest) Post() (*WorkbookFunctionResult, error)
 	return r.Do("POST", "", r.requestObject)
 }
 
-// TargetApps action undocumented
-func (b *ManagedAppProtectionRequestBuilder) TargetApps(reqObj *ManagedAppProtectionTargetAppsRequestParameter) *ManagedAppProtectionTargetAppsRequestBuilder {
-	bb := &ManagedAppProtectionTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedAppProtectionTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedAppProtectionTargetAppsRequestBuilder) Request() *ManagedAppProtectionTargetAppsRequest {
-	return &ManagedAppProtectionTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedAppProtectionTargetAppsRequest struct{ BaseRequest }
-
-//
-func (r *ManagedAppProtectionTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedAppProtectionTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *TargetedManagedAppProtectionRequestBuilder) Assign(reqObj *TargetedManagedAppProtectionAssignRequestParameter) *TargetedManagedAppProtectionAssignRequestBuilder {
-	bb := &TargetedManagedAppProtectionAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedManagedAppProtectionAssignRequest {
-	return &TargetedManagedAppProtectionAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TargetedManagedAppProtectionAssignRequest struct{ BaseRequest }
-
-//
-func (r *TargetedManagedAppProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TargetedManagedAppProtectionAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// BeginOnboarding action undocumented
-func (b *RemoteAssistancePartnerRequestBuilder) BeginOnboarding(reqObj *RemoteAssistancePartnerBeginOnboardingRequestParameter) *RemoteAssistancePartnerBeginOnboardingRequestBuilder {
-	bb := &RemoteAssistancePartnerBeginOnboardingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/beginOnboarding"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RemoteAssistancePartnerBeginOnboardingRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *RemoteAssistancePartnerBeginOnboardingRequest {
-	return &RemoteAssistancePartnerBeginOnboardingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type RemoteAssistancePartnerBeginOnboardingRequest struct{ BaseRequest }
-
-//
-func (r *RemoteAssistancePartnerBeginOnboardingRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Disconnect action undocumented
-func (b *RemoteAssistancePartnerRequestBuilder) Disconnect(reqObj *RemoteAssistancePartnerDisconnectRequestParameter) *RemoteAssistancePartnerDisconnectRequestBuilder {
-	bb := &RemoteAssistancePartnerDisconnectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/disconnect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RemoteAssistancePartnerDisconnectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssistancePartnerDisconnectRequest {
-	return &RemoteAssistancePartnerDisconnectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type RemoteAssistancePartnerDisconnectRequest struct{ BaseRequest }
-
-//
-func (r *RemoteAssistancePartnerDisconnectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *RemoteAssistancePartnerDisconnectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyToNotebook action undocumented
-func (b *OnenoteSectionRequestBuilder) CopyToNotebook(reqObj *OnenoteSectionCopyToNotebookRequestParameter) *OnenoteSectionCopyToNotebookRequestBuilder {
-	bb := &OnenoteSectionCopyToNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyToNotebook"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenoteSectionCopyToNotebookRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCopyToNotebookRequest {
-	return &OnenoteSectionCopyToNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenoteSectionCopyToNotebookRequest struct{ BaseRequest }
-
-//
-func (r *OnenoteSectionCopyToNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OnenoteSectionCopyToNotebookRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyToSectionGroup action undocumented
-func (b *OnenoteSectionRequestBuilder) CopyToSectionGroup(reqObj *OnenoteSectionCopyToSectionGroupRequestParameter) *OnenoteSectionCopyToSectionGroupRequestBuilder {
-	bb := &OnenoteSectionCopyToSectionGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyToSectionGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenoteSectionCopyToSectionGroupRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSectionCopyToSectionGroupRequest {
-	return &OnenoteSectionCopyToSectionGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenoteSectionCopyToSectionGroupRequest struct{ BaseRequest }
-
-//
-func (r *OnenoteSectionCopyToSectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OnenoteSectionCopyToSectionGroupRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
 // Refresh action undocumented
 func (b *WorkbookPivotTableRequestBuilder) Refresh(reqObj *WorkbookPivotTableRefreshRequestParameter) *WorkbookPivotTableRefreshRequestBuilder {
 	bb := &WorkbookPivotTableRefreshRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -67624,2910 +76905,97 @@ func (r *WorkbookPivotTableRefreshRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Clear action undocumented
-func (b *WorkbookRangeFillRequestBuilder) Clear(reqObj *WorkbookRangeFillClearRequestParameter) *WorkbookRangeFillClearRequestBuilder {
-	bb := &WorkbookRangeFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
+// OnenotePatchContent action undocumented
+func (b *OnenotePageRequestBuilder) OnenotePatchContent(reqObj *OnenotePageOnenotePatchContentRequestParameter) *OnenotePageOnenotePatchContentRequestBuilder {
+	bb := &OnenotePageOnenotePatchContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/onenotePatchContent"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type WorkbookRangeFillClearRequestBuilder struct{ BaseRequestBuilder }
+type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClearRequest {
-	return &WorkbookRangeFillClearRequest{
+func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
+	return &OnenotePageOnenotePatchContentRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type WorkbookRangeFillClearRequest struct{ BaseRequest }
+type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
 
 //
-func (r *WorkbookRangeFillClearRequest) Do(method, path string, reqObj interface{}) error {
+func (r *OnenotePageOnenotePatchContentRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *WorkbookRangeFillClearRequest) Post() error {
+func (r *OnenotePageOnenotePatchContentRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// RestoreVersion action undocumented
-func (b *DriveItemVersionRequestBuilder) RestoreVersion(reqObj *DriveItemVersionRestoreVersionRequestParameter) *DriveItemVersionRestoreVersionRequestBuilder {
-	bb := &DriveItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
+// CopyToSection action undocumented
+func (b *OnenotePageRequestBuilder) CopyToSection(reqObj *OnenotePageCopyToSectionRequestParameter) *OnenotePageCopyToSectionRequestBuilder {
+	bb := &OnenotePageCopyToSectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyToSection"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
+type OnenotePageCopyToSectionRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersionRestoreVersionRequest {
-	return &DriveItemVersionRestoreVersionRequest{
+func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSectionRequest {
+	return &OnenotePageCopyToSectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemVersionRestoreVersionRequest struct{ BaseRequest }
+type OnenotePageCopyToSectionRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DriveItemVersionRestoreVersionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
-	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
-	return &DeviceCompliancePolicyAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceCompliancePolicyAssignment, err error) {
+func (r *OnenotePageCopyToSectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceCompliancePolicyAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]DeviceCompliancePolicyAssignment
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// ScheduleActionsForRules action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
-	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
-	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
-
-//
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
+func (r *OnenotePageCopyToSectionRequest) Post() (*OnenoteOperation, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// SetPriority action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPriority"
+// GetNotebookFromWebURL action undocumented
+func (b *OnenoteNotebooksCollectionRequestBuilder) GetNotebookFromWebURL(reqObj *NotebookCollectionGetNotebookFromWebURLRequestParameter) *NotebookCollectionGetNotebookFromWebURLRequestBuilder {
+	bb := &NotebookCollectionGetNotebookFromWebURLRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getNotebookFromWebUrl"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
+type NotebookCollectionGetNotebookFromWebURLRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
-	return &DeviceEnrollmentConfigurationSetPriorityRequest{
+func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebURLRequest {
+	return &NotebookCollectionGetNotebookFromWebURLRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
+type NotebookCollectionGetNotebookFromWebURLRequest struct{ BaseRequest }
 
 //
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) Assign(reqObj *DeviceEnrollmentConfigurationAssignRequestParameter) *DeviceEnrollmentConfigurationAssignRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceEnrollmentConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignRequest {
-	return &DeviceEnrollmentConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceEnrollmentConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (r *DeviceEnrollmentConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ClearFilters action undocumented
-func (b *WorkbookTableRequestBuilder) ClearFilters(reqObj *WorkbookTableClearFiltersRequestParameter) *WorkbookTableClearFiltersRequestBuilder {
-	bb := &WorkbookTableClearFiltersRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clearFilters"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableClearFiltersRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableClearFiltersRequestBuilder) Request() *WorkbookTableClearFiltersRequest {
-	return &WorkbookTableClearFiltersRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableClearFiltersRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableClearFiltersRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableClearFiltersRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ConvertToRange action undocumented
-func (b *WorkbookTableRequestBuilder) ConvertToRange(reqObj *WorkbookTableConvertToRangeRequestParameter) *WorkbookTableConvertToRangeRequestBuilder {
-	bb := &WorkbookTableConvertToRangeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/convertToRange"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableConvertToRangeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableConvertToRangeRequestBuilder) Request() *WorkbookTableConvertToRangeRequest {
-	return &WorkbookTableConvertToRangeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableConvertToRangeRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableConvertToRangeRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *WorkbookTableConvertToRangeRequest) Post() (*WorkbookRange, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ReapplyFilters action undocumented
-func (b *WorkbookTableRequestBuilder) ReapplyFilters(reqObj *WorkbookTableReapplyFiltersRequestParameter) *WorkbookTableReapplyFiltersRequestBuilder {
-	bb := &WorkbookTableReapplyFiltersRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reapplyFilters"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableReapplyFiltersRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReapplyFiltersRequest {
-	return &WorkbookTableReapplyFiltersRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableReapplyFiltersRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableReapplyFiltersRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableReapplyFiltersRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
-	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
-	return &DeviceConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceConfigurationAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]DeviceConfigurationAssignment
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// Clear action undocumented
-func (b *WorkbookChartLineFormatRequestBuilder) Clear(reqObj *WorkbookChartLineFormatClearRequestParameter) *WorkbookChartLineFormatClearRequestBuilder {
-	bb := &WorkbookChartLineFormatClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartLineFormatClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLineFormatClearRequest {
-	return &WorkbookChartLineFormatClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartLineFormatClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartLineFormatClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartLineFormatClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookRangeRequestBuilder) Clear(reqObj *WorkbookRangeClearRequestParameter) *WorkbookRangeClearRequestBuilder {
-	bb := &WorkbookRangeClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest {
-	return &WorkbookRangeClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Delete action undocumented
-func (b *WorkbookRangeRequestBuilder) Delete(reqObj *WorkbookRangeDeleteRequestParameter) *WorkbookRangeDeleteRequestBuilder {
-	bb := &WorkbookRangeDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/delete"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeDeleteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteRequest {
-	return &WorkbookRangeDeleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeDeleteRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeDeleteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Insert action undocumented
-func (b *WorkbookRangeRequestBuilder) Insert(reqObj *WorkbookRangeInsertRequestParameter) *WorkbookRangeInsertRequestBuilder {
-	bb := &WorkbookRangeInsertRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/insert"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeInsertRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertRequest {
-	return &WorkbookRangeInsertRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeInsertRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeInsertRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookRangeInsertRequest) Post() (*WorkbookRange, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Merge action undocumented
-func (b *WorkbookRangeRequestBuilder) Merge(reqObj *WorkbookRangeMergeRequestParameter) *WorkbookRangeMergeRequestBuilder {
-	bb := &WorkbookRangeMergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/merge"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeMergeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest {
-	return &WorkbookRangeMergeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeMergeRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeMergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeMergeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unmerge action undocumented
-func (b *WorkbookRangeRequestBuilder) Unmerge(reqObj *WorkbookRangeUnmergeRequestParameter) *WorkbookRangeUnmergeRequestBuilder {
-	bb := &WorkbookRangeUnmergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unmerge"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeUnmergeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequest {
-	return &WorkbookRangeUnmergeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeUnmergeRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeUnmergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeUnmergeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SyncLicenses action undocumented
-func (b *VppTokenRequestBuilder) SyncLicenses(reqObj *VppTokenSyncLicensesRequestParameter) *VppTokenSyncLicensesRequestBuilder {
-	bb := &VppTokenSyncLicensesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncLicenses"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type VppTokenSyncLicensesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequest {
-	return &VppTokenSyncLicensesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type VppTokenSyncLicensesRequest struct{ BaseRequest }
-
-//
-func (r *VppTokenSyncLicensesRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *VppTokenSyncLicensesRequest) Post() (*VppToken, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ForceDelete action undocumented
-func (b *DomainRequestBuilder) ForceDelete(reqObj *DomainForceDeleteRequestParameter) *DomainForceDeleteRequestBuilder {
-	bb := &DomainForceDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forceDelete"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DomainForceDeleteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
-	return &DomainForceDeleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DomainForceDeleteRequest struct{ BaseRequest }
-
-//
-func (r *DomainForceDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DomainForceDeleteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Verify action undocumented
-func (b *DomainRequestBuilder) Verify(reqObj *DomainVerifyRequestParameter) *DomainVerifyRequestBuilder {
-	bb := &DomainVerifyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/verify"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DomainVerifyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
-	return &DomainVerifyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DomainVerifyRequest struct{ BaseRequest }
-
-//
-func (r *DomainVerifyRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DomainVerifyRequest) Post() (*Domain, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ValidateProperties action undocumented
-func (b *GroupRequestBuilder) ValidateProperties(reqObj *GroupValidatePropertiesRequestParameter) *GroupValidatePropertiesRequestBuilder {
-	bb := &GroupValidatePropertiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/validateProperties"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupValidatePropertiesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidatePropertiesRequest {
-	return &GroupValidatePropertiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupValidatePropertiesRequest struct{ BaseRequest }
-
-//
-func (r *GroupValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupValidatePropertiesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SubscribeByMail action undocumented
-func (b *GroupRequestBuilder) SubscribeByMail(reqObj *GroupSubscribeByMailRequestParameter) *GroupSubscribeByMailRequestBuilder {
-	bb := &GroupSubscribeByMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/subscribeByMail"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupSubscribeByMailRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequest {
-	return &GroupSubscribeByMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupSubscribeByMailRequest struct{ BaseRequest }
-
-//
-func (r *GroupSubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupSubscribeByMailRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// UnsubscribeByMail action undocumented
-func (b *GroupRequestBuilder) UnsubscribeByMail(reqObj *GroupUnsubscribeByMailRequestParameter) *GroupUnsubscribeByMailRequestBuilder {
-	bb := &GroupUnsubscribeByMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unsubscribeByMail"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupUnsubscribeByMailRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMailRequest {
-	return &GroupUnsubscribeByMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupUnsubscribeByMailRequest struct{ BaseRequest }
-
-//
-func (r *GroupUnsubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupUnsubscribeByMailRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AddFavorite action undocumented
-func (b *GroupRequestBuilder) AddFavorite(reqObj *GroupAddFavoriteRequestParameter) *GroupAddFavoriteRequestBuilder {
-	bb := &GroupAddFavoriteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addFavorite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupAddFavoriteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
-	return &GroupAddFavoriteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupAddFavoriteRequest struct{ BaseRequest }
-
-//
-func (r *GroupAddFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupAddFavoriteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RemoveFavorite action undocumented
-func (b *GroupRequestBuilder) RemoveFavorite(reqObj *GroupRemoveFavoriteRequestParameter) *GroupRemoveFavoriteRequestBuilder {
-	bb := &GroupRemoveFavoriteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/removeFavorite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupRemoveFavoriteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteRequest {
-	return &GroupRemoveFavoriteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupRemoveFavoriteRequest struct{ BaseRequest }
-
-//
-func (r *GroupRemoveFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupRemoveFavoriteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ResetUnseenCount action undocumented
-func (b *GroupRequestBuilder) ResetUnseenCount(reqObj *GroupResetUnseenCountRequestParameter) *GroupResetUnseenCountRequestBuilder {
-	bb := &GroupResetUnseenCountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/resetUnseenCount"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupResetUnseenCountRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRequest {
-	return &GroupResetUnseenCountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupResetUnseenCountRequest struct{ BaseRequest }
-
-//
-func (r *GroupResetUnseenCountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupResetUnseenCountRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Renew action undocumented
-func (b *GroupRequestBuilder) Renew(reqObj *GroupRenewRequestParameter) *GroupRenewRequestBuilder {
-	bb := &GroupRenewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/renew"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupRenewRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
-	return &GroupRenewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupRenewRequest struct{ BaseRequest }
-
-//
-func (r *GroupRenewRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *GroupRenewRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookWorksheetsCollectionRequestBuilder) Add(reqObj *WorkbookWorksheetCollectionAddRequestParameter) *WorkbookWorksheetCollectionAddRequestBuilder {
-	bb := &WorkbookWorksheetCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookWorksheetCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksheetCollectionAddRequest {
-	return &WorkbookWorksheetCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookWorksheetCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookWorksheetCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookWorksheetCollectionAddRequest) Post() (*WorkbookWorksheet, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Protect action undocumented
-func (b *WorkbookWorksheetProtectionRequestBuilder) Protect(reqObj *WorkbookWorksheetProtectionProtectRequestParameter) *WorkbookWorksheetProtectionProtectRequestBuilder {
-	bb := &WorkbookWorksheetProtectionProtectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/protect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookWorksheetProtectionProtectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWorksheetProtectionProtectRequest {
-	return &WorkbookWorksheetProtectionProtectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookWorksheetProtectionProtectRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookWorksheetProtectionProtectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookWorksheetProtectionProtectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unprotect action undocumented
-func (b *WorkbookWorksheetProtectionRequestBuilder) Unprotect(reqObj *WorkbookWorksheetProtectionUnprotectRequestParameter) *WorkbookWorksheetProtectionUnprotectRequestBuilder {
-	bb := &WorkbookWorksheetProtectionUnprotectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unprotect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookWorksheetProtectionUnprotectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *WorkbookWorksheetProtectionUnprotectRequest {
-	return &WorkbookWorksheetProtectionUnprotectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookWorksheetProtectionUnprotectRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookWorksheetProtectionUnprotectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookWorksheetProtectionUnprotectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *TargetedManagedAppConfigurationRequestBuilder) Assign(reqObj *TargetedManagedAppConfigurationAssignRequestParameter) *TargetedManagedAppConfigurationAssignRequestBuilder {
-	bb := &TargetedManagedAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
-	return &TargetedManagedAppConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (r *TargetedManagedAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TargetApps action undocumented
-func (b *TargetedManagedAppConfigurationRequestBuilder) TargetApps(reqObj *TargetedManagedAppConfigurationTargetAppsRequestParameter) *TargetedManagedAppConfigurationTargetAppsRequestBuilder {
-	bb := &TargetedManagedAppConfigurationTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppConfigurationTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
-	return &TargetedManagedAppConfigurationTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
-
-//
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookChartFillRequestBuilder) Clear(reqObj *WorkbookChartFillClearRequestParameter) *WorkbookChartFillClearRequestBuilder {
-	bb := &WorkbookChartFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartFillClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClearRequest {
-	return &WorkbookChartFillClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartFillClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartFillClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartFillClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetSolidColor action undocumented
-func (b *WorkbookChartFillRequestBuilder) SetSolidColor(reqObj *WorkbookChartFillSetSolidColorRequestParameter) *WorkbookChartFillSetSolidColorRequestBuilder {
-	bb := &WorkbookChartFillSetSolidColorRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setSolidColor"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartFillSetSolidColorRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartFillSetSolidColorRequest {
-	return &WorkbookChartFillSetSolidColorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartFillSetSolidColorRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartFillSetSolidColorRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartFillSetSolidColorRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Apply action undocumented
-func (b *WorkbookRangeSortRequestBuilder) Apply(reqObj *WorkbookRangeSortApplyRequestParameter) *WorkbookRangeSortApplyRequestBuilder {
-	bb := &WorkbookRangeSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/apply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeSortApplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApplyRequest {
-	return &WorkbookRangeSortApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeSortApplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeSortApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyNotebook action undocumented
-func (b *NotebookRequestBuilder) CopyNotebook(reqObj *NotebookCopyNotebookRequestParameter) *NotebookCopyNotebookRequestBuilder {
-	bb := &NotebookCopyNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyNotebook"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
-	return &NotebookCopyNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type NotebookCopyNotebookRequest struct{ BaseRequest }
-
-//
-func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *NotebookCopyNotebookRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Retire action undocumented
-func (b *ManagedDeviceRequestBuilder) Retire(reqObj *ManagedDeviceRetireRequestParameter) *ManagedDeviceRetireRequestBuilder {
-	bb := &ManagedDeviceRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/retire"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRetireRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
-	return &ManagedDeviceRetireRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRetireRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRetireRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRetireRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Wipe action undocumented
-func (b *ManagedDeviceRequestBuilder) Wipe(reqObj *ManagedDeviceWipeRequestParameter) *ManagedDeviceWipeRequestBuilder {
-	bb := &ManagedDeviceWipeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/wipe"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
-	return &ManagedDeviceWipeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceWipeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceWipeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceWipeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ResetPasscode action undocumented
-func (b *ManagedDeviceRequestBuilder) ResetPasscode(reqObj *ManagedDeviceResetPasscodeRequestParameter) *ManagedDeviceResetPasscodeRequestBuilder {
-	bb := &ManagedDeviceResetPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/resetPasscode"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceResetPasscodeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
-	return &ManagedDeviceResetPasscodeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceResetPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceResetPasscodeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RemoteLock action undocumented
-func (b *ManagedDeviceRequestBuilder) RemoteLock(reqObj *ManagedDeviceRemoteLockRequestParameter) *ManagedDeviceRemoteLockRequestBuilder {
-	bb := &ManagedDeviceRemoteLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/remoteLock"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
-	return &ManagedDeviceRemoteLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRemoteLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRemoteLockRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RequestRemoteAssistance action undocumented
-func (b *ManagedDeviceRequestBuilder) RequestRemoteAssistance(reqObj *ManagedDeviceRequestRemoteAssistanceRequestParameter) *ManagedDeviceRequestRemoteAssistanceRequestBuilder {
-	bb := &ManagedDeviceRequestRemoteAssistanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/requestRemoteAssistance"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRequestRemoteAssistanceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
-	return &ManagedDeviceRequestRemoteAssistanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// DisableLostMode action undocumented
-func (b *ManagedDeviceRequestBuilder) DisableLostMode(reqObj *ManagedDeviceDisableLostModeRequestParameter) *ManagedDeviceDisableLostModeRequestBuilder {
-	bb := &ManagedDeviceDisableLostModeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/disableLostMode"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceDisableLostModeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDisableLostModeRequest {
-	return &ManagedDeviceDisableLostModeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceDisableLostModeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceDisableLostModeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceDisableLostModeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// LocateDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) LocateDevice(reqObj *ManagedDeviceLocateDeviceRequestParameter) *ManagedDeviceLocateDeviceRequestBuilder {
-	bb := &ManagedDeviceLocateDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/locateDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceLocateDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocateDeviceRequest {
-	return &ManagedDeviceLocateDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceLocateDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceLocateDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceLocateDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// BypassActivationLock action undocumented
-func (b *ManagedDeviceRequestBuilder) BypassActivationLock(reqObj *ManagedDeviceBypassActivationLockRequestParameter) *ManagedDeviceBypassActivationLockRequestBuilder {
-	bb := &ManagedDeviceBypassActivationLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/bypassActivationLock"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
-	return &ManagedDeviceBypassActivationLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceBypassActivationLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceBypassActivationLockRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RebootNow action undocumented
-func (b *ManagedDeviceRequestBuilder) RebootNow(reqObj *ManagedDeviceRebootNowRequestParameter) *ManagedDeviceRebootNowRequestBuilder {
-	bb := &ManagedDeviceRebootNowRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/rebootNow"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRebootNowRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNowRequest {
-	return &ManagedDeviceRebootNowRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRebootNowRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRebootNowRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRebootNowRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ShutDown action undocumented
-func (b *ManagedDeviceRequestBuilder) ShutDown(reqObj *ManagedDeviceShutDownRequestParameter) *ManagedDeviceShutDownRequestBuilder {
-	bb := &ManagedDeviceShutDownRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/shutDown"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
-	return &ManagedDeviceShutDownRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceShutDownRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceShutDownRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceShutDownRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RecoverPasscode action undocumented
-func (b *ManagedDeviceRequestBuilder) RecoverPasscode(reqObj *ManagedDeviceRecoverPasscodeRequestParameter) *ManagedDeviceRecoverPasscodeRequestBuilder {
-	bb := &ManagedDeviceRecoverPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/recoverPasscode"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRecoverPasscodeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRecoverPasscodeRequest {
-	return &ManagedDeviceRecoverPasscodeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRecoverPasscodeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRecoverPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRecoverPasscodeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CleanWindowsDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) CleanWindowsDevice(reqObj *ManagedDeviceCleanWindowsDeviceRequestParameter) *ManagedDeviceCleanWindowsDeviceRequestBuilder {
-	bb := &ManagedDeviceCleanWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/cleanWindowsDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
-	return &ManagedDeviceCleanWindowsDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// LogoutSharedAppleDeviceActiveUser action undocumented
-func (b *ManagedDeviceRequestBuilder) LogoutSharedAppleDeviceActiveUser(reqObj *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter) *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder {
-	bb := &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/logoutSharedAppleDeviceActiveUser"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
-	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// DeleteUserFromSharedAppleDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) DeleteUserFromSharedAppleDevice(reqObj *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter) *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder {
-	bb := &ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/deleteUserFromSharedAppleDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
-	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SyncDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) SyncDevice(reqObj *ManagedDeviceSyncDeviceRequestParameter) *ManagedDeviceSyncDeviceRequestBuilder {
-	bb := &ManagedDeviceSyncDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceSyncDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDeviceRequest {
-	return &ManagedDeviceSyncDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceSyncDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceSyncDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceSyncDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// WindowsDefenderScan action undocumented
-func (b *ManagedDeviceRequestBuilder) WindowsDefenderScan(reqObj *ManagedDeviceWindowsDefenderScanRequestParameter) *ManagedDeviceWindowsDefenderScanRequestBuilder {
-	bb := &ManagedDeviceWindowsDefenderScanRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/windowsDefenderScan"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceWindowsDefenderScanRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDeviceWindowsDefenderScanRequest {
-	return &ManagedDeviceWindowsDefenderScanRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceWindowsDefenderScanRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceWindowsDefenderScanRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceWindowsDefenderScanRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// WindowsDefenderUpdateSignatures action undocumented
-func (b *ManagedDeviceRequestBuilder) WindowsDefenderUpdateSignatures(reqObj *ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter) *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder {
-	bb := &ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/windowsDefenderUpdateSignatures"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *ManagedDeviceWindowsDefenderUpdateSignaturesRequest {
-	return &ManagedDeviceWindowsDefenderUpdateSignaturesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceWindowsDefenderUpdateSignaturesRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// UpdateWindowsDeviceAccount action undocumented
-func (b *ManagedDeviceRequestBuilder) UpdateWindowsDeviceAccount(reqObj *ManagedDeviceUpdateWindowsDeviceAccountRequestParameter) *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder {
-	bb := &ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateWindowsDeviceAccount"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
-	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Calculate action undocumented
-func (b *WorkbookApplicationRequestBuilder) Calculate(reqObj *WorkbookApplicationCalculateRequestParameter) *WorkbookApplicationCalculateRequestBuilder {
-	bb := &WorkbookApplicationCalculateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/calculate"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookApplicationCalculateRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicationCalculateRequest {
-	return &WorkbookApplicationCalculateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookApplicationCalculateRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookApplicationCalculateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookApplicationCalculateRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RefreshAll action undocumented
-func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) RefreshAll(reqObj *WorkbookPivotTableCollectionRefreshAllRequestParameter) *WorkbookPivotTableCollectionRefreshAllRequestBuilder {
-	bb := &WorkbookPivotTableCollectionRefreshAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refreshAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
-	return &WorkbookPivotTableCollectionRefreshAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookPivotTableCollectionRefreshAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookTableRowsCollectionRequestBuilder) Add(reqObj *WorkbookTableRowCollectionAddRequestParameter) *WorkbookTableRowCollectionAddRequestBuilder {
-	bb := &WorkbookTableRowCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableRowCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableRowCollectionAddRequestBuilder) Request() *WorkbookTableRowCollectionAddRequest {
-	return &WorkbookTableRowCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableRowCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableRowCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookTableRowCollectionAddRequest) Post() (*WorkbookTableRow, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Apply action undocumented
-func (b *WorkbookTableSortRequestBuilder) Apply(reqObj *WorkbookTableSortApplyRequestParameter) *WorkbookTableSortApplyRequestBuilder {
-	bb := &WorkbookTableSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/apply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableSortApplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApplyRequest {
-	return &WorkbookTableSortApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableSortApplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableSortApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookTableSortRequestBuilder) Clear(reqObj *WorkbookTableSortClearRequestParameter) *WorkbookTableSortClearRequestBuilder {
-	bb := &WorkbookTableSortClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableSortClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClearRequest {
-	return &WorkbookTableSortClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableSortClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableSortClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableSortClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reapply action undocumented
-func (b *WorkbookTableSortRequestBuilder) Reapply(reqObj *WorkbookTableSortReapplyRequestParameter) *WorkbookTableSortReapplyRequestBuilder {
-	bb := &WorkbookTableSortReapplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reapply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableSortReapplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortReapplyRequest {
-	return &WorkbookTableSortReapplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableSortReapplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableSortReapplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableSortReapplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reply action undocumented
-func (b *PostRequestBuilder) Reply(reqObj *PostReplyRequestParameter) *PostReplyRequestBuilder {
-	bb := &PostReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PostReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
-	return &PostReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type PostReplyRequest struct{ BaseRequest }
-
-//
-func (r *PostReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *PostReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Forward action undocumented
-func (b *PostRequestBuilder) Forward(reqObj *PostForwardRequestParameter) *PostForwardRequestBuilder {
-	bb := &PostForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forward"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PostForwardRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
-	return &PostForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type PostForwardRequest struct{ BaseRequest }
-
-//
-func (r *PostForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *PostForwardRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
-	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
-	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Apply action undocumented
-func (b *WorkbookFilterRequestBuilder) Apply(reqObj *WorkbookFilterApplyRequestParameter) *WorkbookFilterApplyRequestBuilder {
-	bb := &WorkbookFilterApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/apply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyRequest {
-	return &WorkbookFilterApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyBottomItemsFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyBottomItemsFilter(reqObj *WorkbookFilterApplyBottomItemsFilterRequestParameter) *WorkbookFilterApplyBottomItemsFilterRequestBuilder {
-	bb := &WorkbookFilterApplyBottomItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyBottomItemsFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyBottomItemsFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *WorkbookFilterApplyBottomItemsFilterRequest {
-	return &WorkbookFilterApplyBottomItemsFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyBottomItemsFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyBottomItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyBottomPercentFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyBottomPercentFilter(reqObj *WorkbookFilterApplyBottomPercentFilterRequestParameter) *WorkbookFilterApplyBottomPercentFilterRequestBuilder {
-	bb := &WorkbookFilterApplyBottomPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyBottomPercentFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyBottomPercentFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *WorkbookFilterApplyBottomPercentFilterRequest {
-	return &WorkbookFilterApplyBottomPercentFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyBottomPercentFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyBottomPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyCellColorFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyCellColorFilter(reqObj *WorkbookFilterApplyCellColorFilterRequestParameter) *WorkbookFilterApplyCellColorFilterRequestBuilder {
-	bb := &WorkbookFilterApplyCellColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyCellColorFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyCellColorFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFilterApplyCellColorFilterRequest {
-	return &WorkbookFilterApplyCellColorFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyCellColorFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyCellColorFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyCellColorFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyCustomFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyCustomFilter(reqObj *WorkbookFilterApplyCustomFilterRequestParameter) *WorkbookFilterApplyCustomFilterRequestBuilder {
-	bb := &WorkbookFilterApplyCustomFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyCustomFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyCustomFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilterApplyCustomFilterRequest {
-	return &WorkbookFilterApplyCustomFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyCustomFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyCustomFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyCustomFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyDynamicFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyDynamicFilter(reqObj *WorkbookFilterApplyDynamicFilterRequestParameter) *WorkbookFilterApplyDynamicFilterRequestBuilder {
-	bb := &WorkbookFilterApplyDynamicFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyDynamicFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyDynamicFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilterApplyDynamicFilterRequest {
-	return &WorkbookFilterApplyDynamicFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyDynamicFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyDynamicFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyDynamicFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyFontColorFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyFontColorFilter(reqObj *WorkbookFilterApplyFontColorFilterRequestParameter) *WorkbookFilterApplyFontColorFilterRequestBuilder {
-	bb := &WorkbookFilterApplyFontColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyFontColorFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyFontColorFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFilterApplyFontColorFilterRequest {
-	return &WorkbookFilterApplyFontColorFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyFontColorFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyFontColorFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyFontColorFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyIconFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyIconFilter(reqObj *WorkbookFilterApplyIconFilterRequestParameter) *WorkbookFilterApplyIconFilterRequestBuilder {
-	bb := &WorkbookFilterApplyIconFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyIconFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyIconFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterApplyIconFilterRequest {
-	return &WorkbookFilterApplyIconFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyIconFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyIconFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyIconFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyTopItemsFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyTopItemsFilter(reqObj *WorkbookFilterApplyTopItemsFilterRequestParameter) *WorkbookFilterApplyTopItemsFilterRequestBuilder {
-	bb := &WorkbookFilterApplyTopItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyTopItemsFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyTopItemsFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFilterApplyTopItemsFilterRequest {
-	return &WorkbookFilterApplyTopItemsFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyTopItemsFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyTopItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyTopItemsFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyTopPercentFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyTopPercentFilter(reqObj *WorkbookFilterApplyTopPercentFilterRequestParameter) *WorkbookFilterApplyTopPercentFilterRequestBuilder {
-	bb := &WorkbookFilterApplyTopPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyTopPercentFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyTopPercentFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookFilterApplyTopPercentFilterRequest {
-	return &WorkbookFilterApplyTopPercentFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyTopPercentFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyTopPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyTopPercentFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyValuesFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyValuesFilter(reqObj *WorkbookFilterApplyValuesFilterRequestParameter) *WorkbookFilterApplyValuesFilterRequestBuilder {
-	bb := &WorkbookFilterApplyValuesFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyValuesFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyValuesFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilterApplyValuesFilterRequest {
-	return &WorkbookFilterApplyValuesFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyValuesFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyValuesFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyValuesFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookFilterRequestBuilder) Clear(reqObj *WorkbookFilterClearRequestParameter) *WorkbookFilterClearRequestBuilder {
-	bb := &WorkbookFilterClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearRequest {
-	return &WorkbookFilterClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Commit action undocumented
-func (b *MobileAppContentFileRequestBuilder) Commit(reqObj *MobileAppContentFileCommitRequestParameter) *MobileAppContentFileCommitRequestBuilder {
-	bb := &MobileAppContentFileCommitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/commit"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppContentFileCommitRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFileCommitRequest {
-	return &MobileAppContentFileCommitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MobileAppContentFileCommitRequest struct{ BaseRequest }
-
-//
-func (r *MobileAppContentFileCommitRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppContentFileCommitRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RenewUpload action undocumented
-func (b *MobileAppContentFileRequestBuilder) RenewUpload(reqObj *MobileAppContentFileRenewUploadRequestParameter) *MobileAppContentFileRenewUploadRequestBuilder {
-	bb := &MobileAppContentFileRenewUploadRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/renewUpload"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppContentFileRenewUploadRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppContentFileRenewUploadRequest {
-	return &MobileAppContentFileRenewUploadRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MobileAppContentFileRenewUploadRequest struct{ BaseRequest }
-
-//
-func (r *MobileAppContentFileRenewUploadRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppContentFileRenewUploadRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Copy action undocumented
-func (b *MailFolderRequestBuilder) Copy(reqObj *MailFolderCopyRequestParameter) *MailFolderCopyRequestBuilder {
-	bb := &MailFolderCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copy"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MailFolderCopyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
-	return &MailFolderCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MailFolderCopyRequest struct{ BaseRequest }
-
-//
-func (r *MailFolderCopyRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MailFolderCopyRequest) Post() (*MailFolder, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Move action undocumented
-func (b *MailFolderRequestBuilder) Move(reqObj *MailFolderMoveRequestParameter) *MailFolderMoveRequestBuilder {
-	bb := &MailFolderMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/move"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MailFolderMoveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
-	return &MailFolderMoveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MailFolderMoveRequest struct{ BaseRequest }
-
-//
-func (r *MailFolderMoveRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MailFolderMoveRequest) Post() (*MailFolder, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Checkin action undocumented
-func (b *DriveItemRequestBuilder) Checkin(reqObj *DriveItemCheckinRequestParameter) *DriveItemCheckinRequestBuilder {
-	bb := &DriveItemCheckinRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkin"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemCheckinRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
-	return &DriveItemCheckinRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemCheckinRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemCheckinRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DriveItemCheckinRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Checkout action undocumented
-func (b *DriveItemRequestBuilder) Checkout(reqObj *DriveItemCheckoutRequestParameter) *DriveItemCheckoutRequestBuilder {
-	bb := &DriveItemCheckoutRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkout"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemCheckoutRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
-	return &DriveItemCheckoutRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemCheckoutRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemCheckoutRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DriveItemCheckoutRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Copy action undocumented
-func (b *DriveItemRequestBuilder) Copy(reqObj *DriveItemCopyRequestParameter) *DriveItemCopyRequestBuilder {
-	bb := &DriveItemCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copy"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemCopyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
-	return &DriveItemCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemCopyRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemCopyRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DriveItemCopyRequest) Post() (*DriveItem, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateLink action undocumented
-func (b *DriveItemRequestBuilder) CreateLink(reqObj *DriveItemCreateLinkRequestParameter) *DriveItemCreateLinkRequestBuilder {
-	bb := &DriveItemCreateLinkRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createLink"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemCreateLinkRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkRequest {
-	return &DriveItemCreateLinkRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemCreateLinkRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemCreateLinkRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DriveItemCreateLinkRequest) Post() (*Permission, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateUploadSession action undocumented
-func (b *DriveItemRequestBuilder) CreateUploadSession(reqObj *DriveItemCreateUploadSessionRequestParameter) *DriveItemCreateUploadSessionRequestBuilder {
-	bb := &DriveItemCreateUploadSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createUploadSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemCreateUploadSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateUploadSessionRequest {
-	return &DriveItemCreateUploadSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemCreateUploadSessionRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemCreateUploadSessionRequest) Do(method, path string, reqObj interface{}) (resObj *UploadSession, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DriveItemCreateUploadSessionRequest) Post() (*UploadSession, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Invite action undocumented
-func (b *DriveItemRequestBuilder) Invite(reqObj *DriveItemInviteRequestParameter) *DriveItemInviteRequestBuilder {
-	bb := &DriveItemInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/invite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemInviteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
-	return &DriveItemInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemInviteRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemInviteRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]Permission
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]Permission
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DriveItemInviteRequest) Get() ([][]Permission, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// Preview action undocumented
-func (b *DriveItemRequestBuilder) Preview(reqObj *DriveItemPreviewRequestParameter) *DriveItemPreviewRequestBuilder {
-	bb := &DriveItemPreviewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/preview"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemPreviewRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
-	return &DriveItemPreviewRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemPreviewRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemPreviewRequest) Do(method, path string, reqObj interface{}) (resObj *ItemPreviewInfo, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DriveItemPreviewRequest) Post() (*ItemPreviewInfo, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RestoreVersion action undocumented
-func (b *ListItemVersionRequestBuilder) RestoreVersion(reqObj *ListItemVersionRestoreVersionRequestParameter) *ListItemVersionRestoreVersionRequestBuilder {
-	bb := &ListItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ListItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersionRestoreVersionRequest {
-	return &ListItemVersionRestoreVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ListItemVersionRestoreVersionRequest struct{ BaseRequest }
-
-//
-func (r *ListItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ListItemVersionRestoreVersionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetData action undocumented
-func (b *WorkbookChartRequestBuilder) SetData(reqObj *WorkbookChartSetDataRequestParameter) *WorkbookChartSetDataRequestBuilder {
-	bb := &WorkbookChartSetDataRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setData"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartSetDataRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequest {
-	return &WorkbookChartSetDataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartSetDataRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartSetDataRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartSetDataRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetPosition action undocumented
-func (b *WorkbookChartRequestBuilder) SetPosition(reqObj *WorkbookChartSetPositionRequestParameter) *WorkbookChartSetPositionRequestBuilder {
-	bb := &WorkbookChartSetPositionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPosition"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartSetPositionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPositionRequest {
-	return &WorkbookChartSetPositionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartSetPositionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartSetPositionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) Assign(reqObj *ManagedDeviceMobileAppConfigurationAssignRequestParameter) *ManagedDeviceMobileAppConfigurationAssignRequestBuilder {
-	bb := &ManagedDeviceMobileAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceMobileAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceMobileAppConfigurationAssignRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationAssignRequest {
-	return &ManagedDeviceMobileAppConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceMobileAppConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post() error {
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (*CopyNotebookModel, error) {
 	return r.Do("POST", "", r.requestObject)
 }
