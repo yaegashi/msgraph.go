@@ -243,7 +243,7 @@ func attrMap(a []xml.Attr) map[string]string {
 
 type Generator struct {
 	BaseURL, In, Out, Fmt string
-	Created               []string
+	Created               map[string]bool
 	SymTypeMap            map[string]string
 	X, Y, Z               interface{}
 }
@@ -288,17 +288,6 @@ func (g *Generator) TypeFromType(t string) string {
 		return "[]" + g.TypeFromType(t[len(colPrefix) : len(t)-1])[1:]
 	}
 	panic(fmt.Errorf("Unknown type %s", t))
-}
-
-func (g *Generator) Create(path string) (io.WriteCloser, error) {
-	path = filepath.Join(g.Out, path)
-	g.Created = append(g.Created, path)
-	log.Printf("Creating %s", path)
-	err := os.MkdirAll(filepath.Dir(path), 0755)
-	if err != nil {
-		return nil, err
-	}
-	return os.Create(path)
 }
 
 func (g *Generator) Generate() error {
@@ -453,12 +442,11 @@ func (g *Generator) Generate() error {
 	if err != nil {
 		return err
 	}
-	defer out.Close()
-
 	err = tmpl.ExecuteTemplate(out, "msgraph.go.tmpl", g)
 	if err != nil {
 		return err
 	}
+	out.Close()
 
 	keys := []string{}
 	for x, _ := range enumTypeMap {
@@ -466,11 +454,17 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		g.X = enumTypeMap[key]
+		x := enumTypeMap[key]
+		out, err = g.Create(x.Sym + "Enum.go")
+		g.X = x
+		if err != nil {
+			return err
+		}
 		err := tmpl.ExecuteTemplate(out, "enum.go.tmpl", g)
 		if err != nil {
 			return err
 		}
+		out.Close()
 	}
 
 	keys = nil
@@ -479,16 +473,26 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, key := range keys {
-		g.X = entityTypeMap[key]
+		x := entityTypeMap[key]
+		out, err = g.Create(x.Sym + "Model.go")
+		if err != nil {
+			return err
+		}
+		g.X = x
 		err := tmpl.ExecuteTemplate(out, "model.go.tmpl", g)
 		if err != nil {
 			return err
 		}
+		out.Close()
 	}
 
 	for a, x := range actionTypeMap {
 		if _, ok := reservedTypeTable[a]; ok {
 			continue
+		}
+		out, err = g.Create(g.SymBaseType(a) + "Action.go")
+		if err != nil {
+			return err
 		}
 		requestModelMap[g.SymBaseType(a)] = true
 		for _, y := range x {
@@ -498,6 +502,7 @@ func (g *Generator) Generate() error {
 				return err
 			}
 		}
+		out.Close()
 	}
 
 	for _, x := range entityTypeMap {
@@ -522,13 +527,22 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, x := range keys {
+		out, err = g.Create(x + "Request.go")
+		if err != nil {
+			return err
+		}
 		g.X = x
 		err := tmpl.ExecuteTemplate(out, "request_model.go.tmpl", g)
 		if err != nil {
 			return err
 		}
+		out.Close()
 	}
 
+	out, err = g.Create("GraphServiceRequest.go")
+	if err != nil {
+		return err
+	}
 	keys = nil
 	for x, _ := range entitySetMap {
 		keys = append(keys, x)
@@ -542,7 +556,6 @@ func (g *Generator) Generate() error {
 			return err
 		}
 	}
-
 	keys = nil
 	for x, _ := range singletonMap {
 		keys = append(keys, x)
@@ -556,6 +569,7 @@ func (g *Generator) Generate() error {
 			return err
 		}
 	}
+	out.Close()
 
 	keys = nil
 	for x, _ := range entityTypeMap {
@@ -564,6 +578,14 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := entityTypeMap[key]
+		actionRequestBuilderMap[x.Type] = append(actionRequestBuilderMap[x.Type], x.Sym)
+		if len(x.Navigations) == 0 {
+			continue
+		}
+		out, err = g.Create(x.Sym + "Request.go")
+		if err != nil {
+			return err
+		}
 		g.X = x
 		sort.Slice(x.Navigations, func(i, j int) bool { return x.Navigations[i].Name < x.Navigations[j].Name })
 		for _, y := range x.Navigations {
@@ -581,17 +603,24 @@ func (g *Generator) Generate() error {
 				}
 			}
 		}
-		actionRequestBuilderMap[x.Type] = append(actionRequestBuilderMap[x.Type], x.Sym)
+		out.Close()
 	}
 
-	for x, y := range actionTypeMap {
-		for _, z := range y {
-			g.Y = z
-			if a, ok := actionRequestBuilderMap[x]; ok {
-				g.X = a
-				if z.ReturnType == "" {
+	for a, x := range actionTypeMap {
+		if _, ok := reservedTypeTable[a]; ok {
+			continue
+		}
+		out, err = g.Create(g.SymBaseType(a) + "Action.go")
+		if err != nil {
+			return err
+		}
+		for _, y := range x {
+			g.Y = y
+			if b, ok := actionRequestBuilderMap[a]; ok {
+				g.X = b
+				if y.ReturnType == "" {
 					err = tmpl.ExecuteTemplate(out, "request_action_void.go.tmpl", g)
-				} else if isCollectionType(z.ReturnType) {
+				} else if isCollectionType(y.ReturnType) {
 					err = tmpl.ExecuteTemplate(out, "request_action_collection.go.tmpl", g)
 				} else {
 					err = tmpl.ExecuteTemplate(out, "request_action_single.go.tmpl", g)
@@ -601,19 +630,73 @@ func (g *Generator) Generate() error {
 				}
 			}
 		}
+		out.Close()
 	}
 
 	return nil
 }
 
+func (g *Generator) Clean() error {
+	log.Printf("Creating directory %s", g.Out)
+	err := os.MkdirAll(filepath.Dir(g.Out), 0755)
+	if err != nil {
+		return err
+	}
+	dir, err := os.Open(g.Out)
+	if err != nil {
+		return err
+	}
+	files, err := dir.Readdir(-1)
+	if err != nil {
+		return err
+	}
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+		if !strings.HasSuffix(file.Name(), ".go") {
+			continue
+		}
+		if strings.HasSuffix(file.Name(), "_test.go") {
+			continue
+		}
+		path := filepath.Join(g.Out, file.Name())
+		log.Printf("Removing %s", path)
+		err := os.Remove(path)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (g *Generator) Create(path string) (io.WriteCloser, error) {
+	path = filepath.Join(g.Out, path)
+	if g.Created[path] {
+		return os.OpenFile(path, os.O_WRONLY|os.O_APPEND, 0644)
+	}
+	log.Printf("Creating %s", path)
+	g.Created[path] = true
+	out, err := os.Create(path)
+	if err != nil {
+		return nil, err
+	}
+	out.WriteString("// Code generated by msgraph-generate.go DO NOT EDIT.\n\npackage msgraph\n\n")
+	return out, nil
+}
+
 func (g *Generator) Format() error {
-	log.Printf("Formatting %s", strings.Join(g.Created, " "))
-	args := append([]string{"-w"}, g.Created...)
+	var files []string
+	for file := range g.Created {
+		files = append(files, file)
+	}
+	log.Printf("Formatting %s", strings.Join(files, " "))
+	args := append([]string{"-w"}, files...)
 	return exec.Command(g.Fmt, args...).Run()
 }
 
 func main() {
-	g := &Generator{SymTypeMap: map[string]string{}}
+	g := &Generator{Created: map[string]bool{}, SymTypeMap: map[string]string{}}
 
 	flag.StringVar(&g.BaseURL, "baseURL", "https://graph.microsoft.com/v1.0", "Base URL")
 	flag.StringVar(&g.In, "in", "metadata-v1.0.xml", "Input file name")
@@ -621,7 +704,12 @@ func main() {
 	flag.StringVar(&g.Fmt, "fmt", "goimports", "Formatter")
 	flag.Parse()
 
-	err := g.Generate()
+	err := g.Clean()
+	if err != nil {
+		log.Fatalf("Failed to clean: %s", err)
+	}
+
+	err = g.Generate()
 	if err != nil {
 		log.Fatalf("Failed to generate: %s", err)
 	}
