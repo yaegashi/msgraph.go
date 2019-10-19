@@ -101,7 +101,7 @@ func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyReques
 
 //
 func (r *WorkbookFilterApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -132,7 +132,7 @@ func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *Workbook
 
 //
 func (r *WorkbookFilterApplyBottomItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -163,7 +163,7 @@ func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *Workbo
 
 //
 func (r *WorkbookFilterApplyBottomPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -194,7 +194,7 @@ func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFi
 
 //
 func (r *WorkbookFilterApplyCellColorFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -225,7 +225,7 @@ func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilte
 
 //
 func (r *WorkbookFilterApplyCustomFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -256,7 +256,7 @@ func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilt
 
 //
 func (r *WorkbookFilterApplyDynamicFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -287,7 +287,7 @@ func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFi
 
 //
 func (r *WorkbookFilterApplyFontColorFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -318,7 +318,7 @@ func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterA
 
 //
 func (r *WorkbookFilterApplyIconFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -349,7 +349,7 @@ func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFil
 
 //
 func (r *WorkbookFilterApplyTopItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -380,7 +380,7 @@ func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookF
 
 //
 func (r *WorkbookFilterApplyTopPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -411,7 +411,7 @@ func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilte
 
 //
 func (r *WorkbookFilterApplyValuesFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -442,7 +442,7 @@ func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearReques
 
 //
 func (r *WorkbookFilterClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

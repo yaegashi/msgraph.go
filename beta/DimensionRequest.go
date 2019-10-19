@@ -24,7 +24,7 @@ type DimensionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Dimension
 func (r *DimensionRequest) Do(method, path string, reqObj interface{}) (resObj *Dimension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DimensionRequest) Update(reqObj *Dimension) (*Dimension, error) {
 
 // Delete performs DELETE request for Dimension
 func (r *DimensionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DimensionValues returns request builder for DimensionValue collection
@@ -76,13 +76,13 @@ type DimensionDimensionValuesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DimensionValue collection
 func (r *DimensionDimensionValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DimensionValue, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DimensionValue collection
 func (r *DimensionDimensionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]DimensionValue, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

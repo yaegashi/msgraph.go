@@ -17,7 +17,7 @@ type GovernanceRoleAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleAssignment
 func (r *GovernanceRoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *GovernanceRoleAssignmentRequest) Update(reqObj *GovernanceRoleAssignmen
 
 // Delete performs DELETE request for GovernanceRoleAssignment
 func (r *GovernanceRoleAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // LinkedEligibleRoleAssignment is navigation property

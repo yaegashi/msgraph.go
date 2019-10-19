@@ -17,7 +17,7 @@ type DeviceComplianceDeviceStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceComplianceDeviceStatus
 func (r *DeviceComplianceDeviceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceComplianceDeviceStatusRequest) Update(reqObj *DeviceComplianceDev
 
 // Delete performs DELETE request for DeviceComplianceDeviceStatus
 func (r *DeviceComplianceDeviceStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

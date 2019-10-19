@@ -17,7 +17,7 @@ type WindowsFeatureUpdateProfileAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsFeatureUpdateProfileAssignment
 func (r *WindowsFeatureUpdateProfileAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsFeatureUpdateProfileAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsFeatureUpdateProfileAssignmentRequest) Update(reqObj *WindowsFea
 
 // Delete performs DELETE request for WindowsFeatureUpdateProfileAssignment
 func (r *WindowsFeatureUpdateProfileAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

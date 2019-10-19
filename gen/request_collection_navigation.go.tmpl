@@ -31,13 +31,13 @@ type {{$x.Sym}}{{$y.Sym}}CollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for {{$ySymType}} collection
 func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Do(method, path string, reqObj interface{}) (resObj *{{$ySymType}}, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for {{$ySymType}} collection
 func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(method, path string, obj interface{}) ([]{{$ySymType}}, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

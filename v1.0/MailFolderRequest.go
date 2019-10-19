@@ -24,7 +24,7 @@ type MailFolderRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MailFolder
 func (r *MailFolderRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *MailFolderRequest) Update(reqObj *MailFolder) (*MailFolder, error) {
 
 // Delete performs DELETE request for MailFolder
 func (r *MailFolderRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ChildFolders returns request builder for MailFolder collection
@@ -76,13 +76,13 @@ type MailFolderChildFoldersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MailFolder collection
 func (r *MailFolderChildFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MailFolder collection
 func (r *MailFolderChildFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]MailFolder, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type MailFolderMessageRulesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MessageRule collection
 func (r *MailFolderMessageRulesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MessageRule, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MessageRule collection
 func (r *MailFolderMessageRulesCollectionRequest) Paging(method, path string, obj interface{}) ([]MessageRule, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type MailFolderMessagesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Message collection
 func (r *MailFolderMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Message collection
 func (r *MailFolderMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]Message, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type MailFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for MultiValueLegacyExtendedProperty collection
 func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type MailFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for SingleValueLegacyExtendedProperty collection
 func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

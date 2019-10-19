@@ -17,7 +17,7 @@ type AndroidForWorkAppConfigurationSchemaRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidForWorkAppConfigurationSchema
 func (r *AndroidForWorkAppConfigurationSchemaRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkAppConfigurationSchema, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidForWorkAppConfigurationSchemaRequest) Update(reqObj *AndroidForW
 
 // Delete performs DELETE request for AndroidForWorkAppConfigurationSchema
 func (r *AndroidForWorkAppConfigurationSchemaRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

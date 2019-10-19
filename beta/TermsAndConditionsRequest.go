@@ -24,7 +24,7 @@ type TermsAndConditionsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditions
 func (r *TermsAndConditionsRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditions, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TermsAndConditionsRequest) Update(reqObj *TermsAndConditions) (*TermsAn
 
 // Delete performs DELETE request for TermsAndConditions
 func (r *TermsAndConditionsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AcceptanceStatuses returns request builder for TermsAndConditionsAcceptanceStatus collection
@@ -76,13 +76,13 @@ type TermsAndConditionsAcceptanceStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditionsAcceptanceStatus collection
 func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsAcceptanceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TermsAndConditionsAcceptanceStatus collection
 func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsAcceptanceStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type TermsAndConditionsAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditionsAssignment collection
 func (r *TermsAndConditionsAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TermsAndConditionsAssignment collection
 func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type TermsAndConditionsGroupAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditionsGroupAssignment collection
 func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsGroupAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TermsAndConditionsGroupAssignment collection
 func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsGroupAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

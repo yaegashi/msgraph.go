@@ -17,7 +17,7 @@ type RoomRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Room
 func (r *RoomRequest) Do(method, path string, reqObj interface{}) (resObj *Room, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *RoomRequest) Update(reqObj *Room) (*Room, error) {
 
 // Delete performs DELETE request for Room
 func (r *RoomRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

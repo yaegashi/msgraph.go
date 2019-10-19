@@ -24,7 +24,7 @@ type RoomListRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoomList
 func (r *RoomListRequest) Do(method, path string, reqObj interface{}) (resObj *RoomList, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *RoomListRequest) Update(reqObj *RoomList) (*RoomList, error) {
 
 // Delete performs DELETE request for RoomList
 func (r *RoomListRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Rooms returns request builder for Room collection
@@ -76,13 +76,13 @@ type RoomListRoomsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Room collection
 func (r *RoomListRoomsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Room, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Room collection
 func (r *RoomListRoomsCollectionRequest) Paging(method, path string, obj interface{}) ([]Room, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

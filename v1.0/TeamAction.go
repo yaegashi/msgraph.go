@@ -51,7 +51,7 @@ func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
 
 //
 func (r *TeamCloneRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -82,7 +82,7 @@ func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
 
 //
 func (r *TeamArchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -113,7 +113,7 @@ func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
 
 //
 func (r *TeamUnarchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

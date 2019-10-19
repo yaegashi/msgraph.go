@@ -17,7 +17,7 @@ type AlertRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Alert
 func (r *AlertRequest) Do(method, path string, reqObj interface{}) (resObj *Alert, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AlertRequest) Update(reqObj *Alert) (*Alert, error) {
 
 // Delete performs DELETE request for Alert
 func (r *AlertRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

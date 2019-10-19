@@ -24,7 +24,7 @@ type AppCatalogsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AppCatalogs
 func (r *AppCatalogsRequest) Do(method, path string, reqObj interface{}) (resObj *AppCatalogs, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AppCatalogsRequest) Update(reqObj *AppCatalogs) (*AppCatalogs, error) {
 
 // Delete performs DELETE request for AppCatalogs
 func (r *AppCatalogsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // TeamsApps returns request builder for TeamsApp collection
@@ -76,13 +76,13 @@ type AppCatalogsTeamsAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsApp collection
 func (r *AppCatalogsTeamsAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsApp collection
 func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

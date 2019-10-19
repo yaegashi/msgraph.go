@@ -17,7 +17,7 @@ type RiskyUserHistoryItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RiskyUserHistoryItem
 func (r *RiskyUserHistoryItemRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUserHistoryItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *RiskyUserHistoryItemRequest) Update(reqObj *RiskyUserHistoryItem) (*Ris
 
 // Delete performs DELETE request for RiskyUserHistoryItem
 func (r *RiskyUserHistoryItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

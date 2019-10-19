@@ -24,7 +24,7 @@ type PostRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Post
 func (r *PostRequest) Do(method, path string, reqObj interface{}) (resObj *Post, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PostRequest) Update(reqObj *Post) (*Post, error) {
 
 // Delete performs DELETE request for Post
 func (r *PostRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Attachments returns request builder for Attachment collection
@@ -76,13 +76,13 @@ type PostAttachmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Attachment collection
 func (r *PostAttachmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Attachment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Attachment collection
 func (r *PostAttachmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]Attachment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type PostExtensionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Extension collection
 func (r *PostExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Extension collection
 func (r *PostExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type PostMentionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Mention collection
 func (r *PostMentionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Mention, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Mention collection
 func (r *PostMentionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Mention, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type PostMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MultiValueLegacyExtendedProperty collection
 func (r *PostMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *PostMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -431,13 +431,13 @@ type PostSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SingleValueLegacyExtendedProperty collection
 func (r *PostSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *PostSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

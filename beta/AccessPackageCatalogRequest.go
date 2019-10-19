@@ -24,7 +24,7 @@ type AccessPackageCatalogRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageCatalog
 func (r *AccessPackageCatalogRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageCatalog, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AccessPackageCatalogRequest) Update(reqObj *AccessPackageCatalog) (*Acc
 
 // Delete performs DELETE request for AccessPackageCatalog
 func (r *AccessPackageCatalogRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AccessPackageResourceRoles returns request builder for AccessPackageResourceRole collection
@@ -76,13 +76,13 @@ type AccessPackageCatalogAccessPackageResourceRolesCollectionRequest struct{ Bas
 
 // Do performs HTTP request for AccessPackageResourceRole collection
 func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageResourceRole collection
 func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceRole, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type AccessPackageCatalogAccessPackageResourceScopesCollectionRequest struct{ Ba
 
 // Do performs HTTP request for AccessPackageResourceScope collection
 func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceScope, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageResourceScope collection
 func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceScope, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type AccessPackageCatalogAccessPackageResourcesCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for AccessPackageResource collection
 func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageResource collection
 func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type AccessPackageCatalogAccessPackagesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackage collection
 func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackage collection
 func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

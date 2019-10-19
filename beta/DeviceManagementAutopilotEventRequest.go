@@ -17,7 +17,7 @@ type DeviceManagementAutopilotEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementAutopilotEvent
 func (r *DeviceManagementAutopilotEventRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementAutopilotEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementAutopilotEventRequest) Update(reqObj *DeviceManagementA
 
 // Delete performs DELETE request for DeviceManagementAutopilotEvent
 func (r *DeviceManagementAutopilotEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

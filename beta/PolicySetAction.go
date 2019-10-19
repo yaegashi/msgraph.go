@@ -9,6 +9,12 @@ import (
 	"net/http"
 )
 
+// PolicySetCollectionGetPolicySetsRequestParameter undocumented
+type PolicySetCollectionGetPolicySetsRequestParameter struct {
+	// PolicySetIDs undocumented
+	PolicySetIDs []string `json:"policySetIds,omitempty"`
+}
+
 // PolicySetUpdateRequestParameter undocumented
 type PolicySetUpdateRequestParameter struct {
 	// AddedPolicySetItems undocumented
@@ -19,12 +25,6 @@ type PolicySetUpdateRequestParameter struct {
 	DeletedPolicySetItems []string `json:"deletedPolicySetItems,omitempty"`
 	// Assignments undocumented
 	Assignments []PolicySetAssignment `json:"assignments,omitempty"`
-}
-
-// PolicySetCollectionGetPolicySetsRequestParameter undocumented
-type PolicySetCollectionGetPolicySetsRequestParameter struct {
-	// PolicySetIDs undocumented
-	PolicySetIDs []string `json:"policySetIds,omitempty"`
 }
 
 //
@@ -50,7 +50,7 @@ func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
 
 //
 func (r *PolicySetUpdateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -81,13 +81,13 @@ func (b *PolicySetCollectionGetPolicySetsRequestBuilder) Request() *PolicySetCol
 
 //
 func (r *PolicySetCollectionGetPolicySetsRequest) Do(method, path string, reqObj interface{}) (resObj *[]PolicySet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *PolicySetCollectionGetPolicySetsRequest) Paging(method, path string, obj interface{}) ([][]PolicySet, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

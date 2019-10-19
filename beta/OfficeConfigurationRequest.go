@@ -24,7 +24,7 @@ type OfficeConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OfficeConfiguration
 func (r *OfficeConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OfficeConfigurationRequest) Update(reqObj *OfficeConfiguration) (*Offic
 
 // Delete performs DELETE request for OfficeConfiguration
 func (r *OfficeConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ClientConfigurations returns request builder for OfficeClientConfiguration collection
@@ -76,13 +76,13 @@ type OfficeConfigurationClientConfigurationsCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for OfficeClientConfiguration collection
 func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeClientConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OfficeClientConfiguration collection
 func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]OfficeClientConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

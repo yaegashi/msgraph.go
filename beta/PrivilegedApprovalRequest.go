@@ -17,7 +17,7 @@ type PrivilegedApprovalRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedApproval
 func (r *PrivilegedApprovalRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedApproval, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *PrivilegedApprovalRequest) Update(reqObj *PrivilegedApproval) (*Privile
 
 // Delete performs DELETE request for PrivilegedApproval
 func (r *PrivilegedApprovalRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // RequestNavigation is navigation property

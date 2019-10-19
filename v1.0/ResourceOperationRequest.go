@@ -17,7 +17,7 @@ type ResourceOperationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ResourceOperation
 func (r *ResourceOperationRequest) Do(method, path string, reqObj interface{}) (resObj *ResourceOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ResourceOperationRequest) Update(reqObj *ResourceOperation) (*ResourceO
 
 // Delete performs DELETE request for ResourceOperation
 func (r *ResourceOperationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

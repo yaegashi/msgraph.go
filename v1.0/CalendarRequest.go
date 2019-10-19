@@ -24,7 +24,7 @@ type CalendarRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Calendar
 func (r *CalendarRequest) Do(method, path string, reqObj interface{}) (resObj *Calendar, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *CalendarRequest) Update(reqObj *Calendar) (*Calendar, error) {
 
 // Delete performs DELETE request for Calendar
 func (r *CalendarRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // CalendarView returns request builder for Event collection
@@ -76,13 +76,13 @@ type CalendarCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Event collection
 func (r *CalendarCalendarViewCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Event collection
 func (r *CalendarCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type CalendarEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Event collection
 func (r *CalendarEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Event collection
 func (r *CalendarEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type CalendarMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MultiValueLegacyExtendedProperty collection
 func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type CalendarSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for SingleValueLegacyExtendedProperty collection
 func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

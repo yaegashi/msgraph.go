@@ -17,7 +17,7 @@ type DataSharingConsentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DataSharingConsent
 func (r *DataSharingConsentRequest) Do(method, path string, reqObj interface{}) (resObj *DataSharingConsent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DataSharingConsentRequest) Update(reqObj *DataSharingConsent) (*DataSha
 
 // Delete performs DELETE request for DataSharingConsent
 func (r *DataSharingConsentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

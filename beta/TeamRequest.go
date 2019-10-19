@@ -24,7 +24,7 @@ type TeamRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Team
 func (r *TeamRequest) Do(method, path string, reqObj interface{}) (resObj *Team, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TeamRequest) Update(reqObj *Team) (*Team, error) {
 
 // Delete performs DELETE request for Team
 func (r *TeamRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Apps returns request builder for TeamsCatalogApp collection
@@ -76,13 +76,13 @@ type TeamAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsCatalogApp collection
 func (r *TeamAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsCatalogApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsCatalogApp collection
 func (r *TeamAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsCatalogApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type TeamChannelsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Channel collection
 func (r *TeamChannelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Channel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Channel collection
 func (r *TeamChannelsCollectionRequest) Paging(method, path string, obj interface{}) ([]Channel, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type TeamInstalledAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsAppInstallation collection
 func (r *TeamInstalledAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
 func (r *TeamInstalledAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type TeamOperationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsAsyncOperation collection
 func (r *TeamOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAsyncOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsAsyncOperation collection
 func (r *TeamOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAsyncOperation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -431,13 +431,13 @@ type TeamOwnersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for User collection
 func (r *TeamOwnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *User, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for User collection
 func (r *TeamOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]User, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

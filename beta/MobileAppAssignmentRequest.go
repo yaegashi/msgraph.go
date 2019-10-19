@@ -17,7 +17,7 @@ type MobileAppAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppAssignment
 func (r *MobileAppAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MobileAppAssignmentRequest) Update(reqObj *MobileAppAssignment) (*Mobil
 
 // Delete performs DELETE request for MobileAppAssignment
 func (r *MobileAppAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

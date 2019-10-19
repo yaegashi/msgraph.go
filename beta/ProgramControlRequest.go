@@ -17,7 +17,7 @@ type ProgramControlRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ProgramControl
 func (r *ProgramControlRequest) Do(method, path string, reqObj interface{}) (resObj *ProgramControl, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *ProgramControlRequest) Update(reqObj *ProgramControl) (*ProgramControl,
 
 // Delete performs DELETE request for ProgramControl
 func (r *ProgramControlRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Program is navigation property

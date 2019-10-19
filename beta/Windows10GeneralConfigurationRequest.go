@@ -24,7 +24,7 @@ type Windows10GeneralConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Windows10GeneralConfiguration
 func (r *Windows10GeneralConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *Windows10GeneralConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *Windows10GeneralConfigurationRequest) Update(reqObj *Windows10GeneralCo
 
 // Delete performs DELETE request for Windows10GeneralConfiguration
 func (r *Windows10GeneralConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // PrivacyAccessControls returns request builder for WindowsPrivacyDataAccessControlItem collection
@@ -76,13 +76,13 @@ type Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest struct{
 
 // Do performs HTTP request for WindowsPrivacyDataAccessControlItem collection
 func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPrivacyDataAccessControlItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsPrivacyDataAccessControlItem collection
 func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsPrivacyDataAccessControlItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -38,13 +38,13 @@ type GraphServiceAccessPackageAssignmentPoliciesCollectionRequest struct{ BaseRe
 
 // Do performs HTTP request for AccessPackageAssignmentPolicy collection
 func (r *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignmentPolicy collection
 func (r *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentPolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -125,13 +125,13 @@ type GraphServiceAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRe
 
 // Do performs HTTP request for AccessPackageAssignmentRequestObject collection
 func (r *GraphServiceAccessPackageAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
 func (r *GraphServiceAccessPackageAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -212,13 +212,13 @@ type GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest struct{ B
 
 // Do performs HTTP request for AccessPackageAssignmentResourceRole collection
 func (r *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentResourceRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignmentResourceRole collection
 func (r *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentResourceRole, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -299,13 +299,13 @@ type GraphServiceAccessPackageAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageAssignment collection
 func (r *GraphServiceAccessPackageAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignment collection
 func (r *GraphServiceAccessPackageAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -386,13 +386,13 @@ type GraphServiceAccessPackageCatalogsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageCatalog collection
 func (r *GraphServiceAccessPackageCatalogsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageCatalog, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageCatalog collection
 func (r *GraphServiceAccessPackageCatalogsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageCatalog, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -473,13 +473,13 @@ type GraphServiceAccessPackageResourceRequestsCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for AccessPackageResourceRequestObject collection
 func (r *GraphServiceAccessPackageResourceRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageResourceRequestObject collection
 func (r *GraphServiceAccessPackageResourceRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -560,13 +560,13 @@ type GraphServiceAccessPackageResourceRoleScopesCollectionRequest struct{ BaseRe
 
 // Do performs HTTP request for AccessPackageResourceRoleScope collection
 func (r *GraphServiceAccessPackageResourceRoleScopesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRoleScope, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageResourceRoleScope collection
 func (r *GraphServiceAccessPackageResourceRoleScopesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceRoleScope, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -647,13 +647,13 @@ type GraphServiceAccessPackageResourcesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageResource collection
 func (r *GraphServiceAccessPackageResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageResource collection
 func (r *GraphServiceAccessPackageResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -734,13 +734,13 @@ type GraphServiceAccessPackagesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackage collection
 func (r *GraphServiceAccessPackagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackage collection
 func (r *GraphServiceAccessPackagesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -821,13 +821,13 @@ type GraphServiceAccessReviewDecisionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewDecision collection
 func (r *GraphServiceAccessReviewDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *GraphServiceAccessReviewDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -908,13 +908,13 @@ type GraphServiceAccessReviewsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReview collection
 func (r *GraphServiceAccessReviewsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReview, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReview collection
 func (r *GraphServiceAccessReviewsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReview, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -995,13 +995,13 @@ type GraphServiceActivitystatisticsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ActivityStatistics collection
 func (r *GraphServiceActivitystatisticsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityStatistics, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ActivityStatistics collection
 func (r *GraphServiceActivitystatisticsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityStatistics, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1082,13 +1082,13 @@ type GraphServiceAdministrativeUnitsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AdministrativeUnit collection
 func (r *GraphServiceAdministrativeUnitsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AdministrativeUnit, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AdministrativeUnit collection
 func (r *GraphServiceAdministrativeUnitsCollectionRequest) Paging(method, path string, obj interface{}) ([]AdministrativeUnit, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1169,13 +1169,13 @@ type GraphServiceAgreementAcceptancesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AgreementAcceptance collection
 func (r *GraphServiceAgreementAcceptancesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgreementAcceptance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AgreementAcceptance collection
 func (r *GraphServiceAgreementAcceptancesCollectionRequest) Paging(method, path string, obj interface{}) ([]AgreementAcceptance, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1256,13 +1256,13 @@ type GraphServiceAgreementsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Agreement collection
 func (r *GraphServiceAgreementsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Agreement, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Agreement collection
 func (r *GraphServiceAgreementsCollectionRequest) Paging(method, path string, obj interface{}) ([]Agreement, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1343,13 +1343,13 @@ type GraphServiceAllowedDataLocationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AllowedDataLocation collection
 func (r *GraphServiceAllowedDataLocationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AllowedDataLocation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AllowedDataLocation collection
 func (r *GraphServiceAllowedDataLocationsCollectionRequest) Paging(method, path string, obj interface{}) ([]AllowedDataLocation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1430,13 +1430,13 @@ type GraphServiceAnonymousIPRiskEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AnonymousIPRiskEvent collection
 func (r *GraphServiceAnonymousIPRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AnonymousIPRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AnonymousIPRiskEvent collection
 func (r *GraphServiceAnonymousIPRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]AnonymousIPRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1517,13 +1517,13 @@ type GraphServiceAppRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AppRoleAssignment collection
 func (r *GraphServiceAppRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AppRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AppRoleAssignment collection
 func (r *GraphServiceAppRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1604,13 +1604,13 @@ type GraphServiceApplicationTemplatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ApplicationTemplate collection
 func (r *GraphServiceApplicationTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ApplicationTemplate collection
 func (r *GraphServiceApplicationTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ApplicationTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1691,13 +1691,13 @@ type GraphServiceApplicationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Application collection
 func (r *GraphServiceApplicationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Application, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Application collection
 func (r *GraphServiceApplicationsCollectionRequest) Paging(method, path string, obj interface{}) ([]Application, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1778,13 +1778,13 @@ type GraphServiceApprovalWorkflowProvidersCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for ApprovalWorkflowProvider collection
 func (r *GraphServiceApprovalWorkflowProvidersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ApprovalWorkflowProvider, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ApprovalWorkflowProvider collection
 func (r *GraphServiceApprovalWorkflowProvidersCollectionRequest) Paging(method, path string, obj interface{}) ([]ApprovalWorkflowProvider, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1865,13 +1865,13 @@ type GraphServiceBookingBusinessesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingBusiness collection
 func (r *GraphServiceBookingBusinessesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingBusiness, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingBusiness collection
 func (r *GraphServiceBookingBusinessesCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingBusiness, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1952,13 +1952,13 @@ type GraphServiceBookingCurrenciesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingCurrency collection
 func (r *GraphServiceBookingCurrenciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingCurrency, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingCurrency collection
 func (r *GraphServiceBookingCurrenciesCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingCurrency, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2039,13 +2039,13 @@ type GraphServiceBusinessFlowTemplatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BusinessFlowTemplate collection
 func (r *GraphServiceBusinessFlowTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlowTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BusinessFlowTemplate collection
 func (r *GraphServiceBusinessFlowTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlowTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2126,13 +2126,13 @@ type GraphServiceCertificateBasedAuthConfigurationCollectionRequest struct{ Base
 
 // Do performs HTTP request for CertificateBasedAuthConfiguration collection
 func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CertificateBasedAuthConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CertificateBasedAuthConfiguration collection
 func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2213,13 +2213,13 @@ type GraphServiceChatsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Chat collection
 func (r *GraphServiceChatsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Chat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Chat collection
 func (r *GraphServiceChatsCollectionRequest) Paging(method, path string, obj interface{}) ([]Chat, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2300,13 +2300,13 @@ type GraphServiceCommandsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Command collection
 func (r *GraphServiceCommandsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Command, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Command collection
 func (r *GraphServiceCommandsCollectionRequest) Paging(method, path string, obj interface{}) ([]Command, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2387,13 +2387,13 @@ type GraphServiceContactsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OrgContact collection
 func (r *GraphServiceContactsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OrgContact, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OrgContact collection
 func (r *GraphServiceContactsCollectionRequest) Paging(method, path string, obj interface{}) ([]OrgContact, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2474,13 +2474,13 @@ type GraphServiceContractsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Contract collection
 func (r *GraphServiceContractsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Contract, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Contract collection
 func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj interface{}) ([]Contract, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2561,13 +2561,13 @@ type GraphServiceDataPolicyOperationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DataPolicyOperation collection
 func (r *GraphServiceDataPolicyOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DataPolicyOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DataPolicyOperation collection
 func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DataPolicyOperation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2648,13 +2648,13 @@ type GraphServiceDevicesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Device collection
 func (r *GraphServiceDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Device, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Device collection
 func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]Device, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2735,13 +2735,13 @@ type GraphServiceDirectoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryDefinition collection
 func (r *GraphServiceDirectoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryDefinition collection
 func (r *GraphServiceDirectoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2822,13 +2822,13 @@ type GraphServiceDirectoryObjectsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *GraphServiceDirectoryObjectsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2909,13 +2909,13 @@ type GraphServiceDirectoryRoleTemplatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryRoleTemplate collection
 func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRoleTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryRoleTemplate collection
 func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryRoleTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2996,13 +2996,13 @@ type GraphServiceDirectoryRolesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryRole collection
 func (r *GraphServiceDirectoryRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryRole collection
 func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryRole, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3083,13 +3083,13 @@ type GraphServiceDirectorySettingTemplatesCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for DirectorySettingTemplate collection
 func (r *GraphServiceDirectorySettingTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectorySettingTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectorySettingTemplate collection
 func (r *GraphServiceDirectorySettingTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectorySettingTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3170,13 +3170,13 @@ type GraphServiceDomainDNSRecordsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DomainDNSRecord collection
 func (r *GraphServiceDomainDNSRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DomainDNSRecord collection
 func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3257,13 +3257,13 @@ type GraphServiceDomainsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Domain collection
 func (r *GraphServiceDomainsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Domain collection
 func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj interface{}) ([]Domain, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3344,13 +3344,13 @@ type GraphServiceDrivesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Drive collection
 func (r *GraphServiceDrivesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Drive, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Drive collection
 func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3431,13 +3431,13 @@ type GraphServiceFilterOperatorsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for FilterOperatorSchema collection
 func (r *GraphServiceFilterOperatorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *FilterOperatorSchema, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for FilterOperatorSchema collection
 func (r *GraphServiceFilterOperatorsCollectionRequest) Paging(method, path string, obj interface{}) ([]FilterOperatorSchema, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3518,13 +3518,13 @@ type GraphServiceFunctionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AttributeMappingFunctionSchema collection
 func (r *GraphServiceFunctionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AttributeMappingFunctionSchema, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AttributeMappingFunctionSchema collection
 func (r *GraphServiceFunctionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AttributeMappingFunctionSchema, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3605,13 +3605,13 @@ type GraphServiceGovernanceResourcesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceResource collection
 func (r *GraphServiceGovernanceResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceResource collection
 func (r *GraphServiceGovernanceResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3692,13 +3692,13 @@ type GraphServiceGovernanceRoleAssignmentRequestsCollectionRequest struct{ BaseR
 
 // Do performs HTTP request for GovernanceRoleAssignmentRequestObject collection
 func (r *GraphServiceGovernanceRoleAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
 func (r *GraphServiceGovernanceRoleAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3779,13 +3779,13 @@ type GraphServiceGovernanceRoleAssignmentsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for GovernanceRoleAssignment collection
 func (r *GraphServiceGovernanceRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleAssignment collection
 func (r *GraphServiceGovernanceRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3866,13 +3866,13 @@ type GraphServiceGovernanceRoleDefinitionsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for GovernanceRoleDefinition collection
 func (r *GraphServiceGovernanceRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleDefinition collection
 func (r *GraphServiceGovernanceRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3953,13 +3953,13 @@ type GraphServiceGovernanceRoleSettingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleSetting collection
 func (r *GraphServiceGovernanceRoleSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleSetting collection
 func (r *GraphServiceGovernanceRoleSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleSetting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4040,13 +4040,13 @@ type GraphServiceGovernanceSubjectsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceSubject collection
 func (r *GraphServiceGovernanceSubjectsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceSubject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceSubject collection
 func (r *GraphServiceGovernanceSubjectsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceSubject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4127,13 +4127,13 @@ type GraphServiceGroupLifecyclePoliciesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupLifecyclePolicy collection
 func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GroupLifecyclePolicy collection
 func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4214,13 +4214,13 @@ type GraphServiceGroupsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Group collection
 func (r *GraphServiceGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Group, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Group collection
 func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]Group, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4301,13 +4301,13 @@ type GraphServiceIdentityProvidersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IdentityProvider collection
 func (r *GraphServiceIdentityProvidersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityProvider, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IdentityProvider collection
 func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path string, obj interface{}) ([]IdentityProvider, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4388,13 +4388,13 @@ type GraphServiceIdentityRiskEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IdentityRiskEvent collection
 func (r *GraphServiceIdentityRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IdentityRiskEvent collection
 func (r *GraphServiceIdentityRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]IdentityRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4475,13 +4475,13 @@ type GraphServiceImpossibleTravelRiskEventsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for ImpossibleTravelRiskEvent collection
 func (r *GraphServiceImpossibleTravelRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ImpossibleTravelRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ImpossibleTravelRiskEvent collection
 func (r *GraphServiceImpossibleTravelRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]ImpossibleTravelRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4562,13 +4562,13 @@ type GraphServiceInvitationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Invitation collection
 func (r *GraphServiceInvitationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Invitation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Invitation collection
 func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, obj interface{}) ([]Invitation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4649,13 +4649,13 @@ type GraphServiceLeakedCredentialsRiskEventsCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for LeakedCredentialsRiskEvent collection
 func (r *GraphServiceLeakedCredentialsRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *LeakedCredentialsRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for LeakedCredentialsRiskEvent collection
 func (r *GraphServiceLeakedCredentialsRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]LeakedCredentialsRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4736,13 +4736,13 @@ type GraphServiceMalwareRiskEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MalwareRiskEvent collection
 func (r *GraphServiceMalwareRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MalwareRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MalwareRiskEvent collection
 func (r *GraphServiceMalwareRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]MalwareRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4823,13 +4823,13 @@ type GraphServiceOauth2PermissionGrantsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OAuth2PermissionGrant collection
 func (r *GraphServiceOauth2PermissionGrantsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OAuth2PermissionGrant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OAuth2PermissionGrant collection
 func (r *GraphServiceOauth2PermissionGrantsCollectionRequest) Paging(method, path string, obj interface{}) ([]OAuth2PermissionGrant, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4910,13 +4910,13 @@ type GraphServiceOnPremisesPublishingProfilesCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for OnPremisesPublishingProfile collection
 func (r *GraphServiceOnPremisesPublishingProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesPublishingProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnPremisesPublishingProfile collection
 func (r *GraphServiceOnPremisesPublishingProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesPublishingProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4997,13 +4997,13 @@ type GraphServiceOrganizationCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Organization collection
 func (r *GraphServiceOrganizationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Organization, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Organization collection
 func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, obj interface{}) ([]Organization, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5084,13 +5084,13 @@ type GraphServicePayloadResponseCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PayloadResponse collection
 func (r *GraphServicePayloadResponseCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PayloadResponse, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PayloadResponse collection
 func (r *GraphServicePayloadResponseCollectionRequest) Paging(method, path string, obj interface{}) ([]PayloadResponse, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5171,13 +5171,13 @@ type GraphServicePermissionGrantsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ResourceSpecificPermissionGrant collection
 func (r *GraphServicePermissionGrantsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ResourceSpecificPermissionGrant collection
 func (r *GraphServicePermissionGrantsCollectionRequest) Paging(method, path string, obj interface{}) ([]ResourceSpecificPermissionGrant, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5258,13 +5258,13 @@ type GraphServicePlacesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Place collection
 func (r *GraphServicePlacesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Place, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Place collection
 func (r *GraphServicePlacesCollectionRequest) Paging(method, path string, obj interface{}) ([]Place, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5345,13 +5345,13 @@ type GraphServicePoliciesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Policy collection
 func (r *GraphServicePoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Policy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Policy collection
 func (r *GraphServicePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]Policy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5432,13 +5432,13 @@ type GraphServicePrivilegedAccessCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedAccess collection
 func (r *GraphServicePrivilegedAccessCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedAccess, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedAccess collection
 func (r *GraphServicePrivilegedAccessCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedAccess, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5519,13 +5519,13 @@ type GraphServicePrivilegedApprovalCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedApproval collection
 func (r *GraphServicePrivilegedApprovalCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedApproval, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedApproval collection
 func (r *GraphServicePrivilegedApprovalCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedApproval, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5606,13 +5606,13 @@ type GraphServicePrivilegedOperationEventsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for PrivilegedOperationEvent collection
 func (r *GraphServicePrivilegedOperationEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedOperationEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedOperationEvent collection
 func (r *GraphServicePrivilegedOperationEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedOperationEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5693,13 +5693,13 @@ type GraphServicePrivilegedRoleAssignmentRequestsCollectionRequest struct{ BaseR
 
 // Do performs HTTP request for PrivilegedRoleAssignmentRequestObject collection
 func (r *GraphServicePrivilegedRoleAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedRoleAssignmentRequestObject collection
 func (r *GraphServicePrivilegedRoleAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedRoleAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5780,13 +5780,13 @@ type GraphServicePrivilegedRoleAssignmentsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for PrivilegedRoleAssignment collection
 func (r *GraphServicePrivilegedRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedRoleAssignment collection
 func (r *GraphServicePrivilegedRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5867,13 +5867,13 @@ type GraphServicePrivilegedRolesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedRole collection
 func (r *GraphServicePrivilegedRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedRole collection
 func (r *GraphServicePrivilegedRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedRole, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5954,13 +5954,13 @@ type GraphServicePrivilegedSignupStatusCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedSignupStatus collection
 func (r *GraphServicePrivilegedSignupStatusCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedSignupStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedSignupStatus collection
 func (r *GraphServicePrivilegedSignupStatusCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedSignupStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6041,13 +6041,13 @@ type GraphServiceProgramControlTypesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ProgramControlType collection
 func (r *GraphServiceProgramControlTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ProgramControlType, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ProgramControlType collection
 func (r *GraphServiceProgramControlTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]ProgramControlType, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6128,13 +6128,13 @@ type GraphServiceProgramControlsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ProgramControl collection
 func (r *GraphServiceProgramControlsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ProgramControl, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ProgramControl collection
 func (r *GraphServiceProgramControlsCollectionRequest) Paging(method, path string, obj interface{}) ([]ProgramControl, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6215,13 +6215,13 @@ type GraphServiceProgramsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Program collection
 func (r *GraphServiceProgramsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Program, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Program collection
 func (r *GraphServiceProgramsCollectionRequest) Paging(method, path string, obj interface{}) ([]Program, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6302,13 +6302,13 @@ type GraphServiceRiskDetectionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RiskDetection collection
 func (r *GraphServiceRiskDetectionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RiskDetection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RiskDetection collection
 func (r *GraphServiceRiskDetectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]RiskDetection, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6389,13 +6389,13 @@ type GraphServiceRiskyUsersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RiskyUser collection
 func (r *GraphServiceRiskyUsersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUser, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RiskyUser collection
 func (r *GraphServiceRiskyUsersCollectionRequest) Paging(method, path string, obj interface{}) ([]RiskyUser, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6476,13 +6476,13 @@ type GraphServiceSchemaExtensionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SchemaExtension collection
 func (r *GraphServiceSchemaExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SchemaExtension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SchemaExtension collection
 func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]SchemaExtension, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6563,13 +6563,13 @@ type GraphServiceScopedRoleMembershipsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ScopedRoleMembership collection
 func (r *GraphServiceScopedRoleMembershipsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ScopedRoleMembership, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ScopedRoleMembership collection
 func (r *GraphServiceScopedRoleMembershipsCollectionRequest) Paging(method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6650,13 +6650,13 @@ type GraphServiceServicePrincipalsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ServicePrincipal collection
 func (r *GraphServiceServicePrincipalsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ServicePrincipal, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ServicePrincipal collection
 func (r *GraphServiceServicePrincipalsCollectionRequest) Paging(method, path string, obj interface{}) ([]ServicePrincipal, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6737,13 +6737,13 @@ type GraphServiceSettingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectorySetting collection
 func (r *GraphServiceSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectorySetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectorySetting collection
 func (r *GraphServiceSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectorySetting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6824,13 +6824,13 @@ type GraphServiceSharesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SharedDriveItem collection
 func (r *GraphServiceSharesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SharedDriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SharedDriveItem collection
 func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj interface{}) ([]SharedDriveItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6911,13 +6911,13 @@ type GraphServiceSitesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Site collection
 func (r *GraphServiceSitesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Site collection
 func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -6998,13 +6998,13 @@ type GraphServiceSubscribedSKUsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SubscribedSKU collection
 func (r *GraphServiceSubscribedSKUsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribedSKU, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SubscribedSKU collection
 func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string, obj interface{}) ([]SubscribedSKU, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7085,13 +7085,13 @@ type GraphServiceSubscriptionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Subscription collection
 func (r *GraphServiceSubscriptionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Subscription, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Subscription collection
 func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Subscription, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7172,13 +7172,13 @@ type GraphServiceSuspiciousIPRiskEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SuspiciousIPRiskEvent collection
 func (r *GraphServiceSuspiciousIPRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SuspiciousIPRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SuspiciousIPRiskEvent collection
 func (r *GraphServiceSuspiciousIPRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]SuspiciousIPRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7259,13 +7259,13 @@ type GraphServiceTeamsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Team collection
 func (r *GraphServiceTeamsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Team, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Team collection
 func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj interface{}) ([]Team, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7346,13 +7346,13 @@ type GraphServiceTeamsTemplatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsTemplate collection
 func (r *GraphServiceTeamsTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsTemplate collection
 func (r *GraphServiceTeamsTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7433,13 +7433,13 @@ type GraphServiceUnfamiliarLocationRiskEventsCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for UnfamiliarLocationRiskEvent collection
 func (r *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnfamiliarLocationRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UnfamiliarLocationRiskEvent collection
 func (r *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]UnfamiliarLocationRiskEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7520,13 +7520,13 @@ type GraphServiceUsersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for User collection
 func (r *GraphServiceUsersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *User, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for User collection
 func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj interface{}) ([]User, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -7607,13 +7607,13 @@ type GraphServiceWorkbooksCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DriveItem collection
 func (r *GraphServiceWorkbooksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

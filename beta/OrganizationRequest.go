@@ -24,7 +24,7 @@ type OrganizationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Organization
 func (r *OrganizationRequest) Do(method, path string, reqObj interface{}) (resObj *Organization, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OrganizationRequest) Update(reqObj *Organization) (*Organization, error
 
 // Delete performs DELETE request for Organization
 func (r *OrganizationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Brandings returns request builder for OrganizationalBranding collection
@@ -76,13 +76,13 @@ type OrganizationBrandingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OrganizationalBranding collection
 func (r *OrganizationBrandingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OrganizationalBranding, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OrganizationalBranding collection
 func (r *OrganizationBrandingsCollectionRequest) Paging(method, path string, obj interface{}) ([]OrganizationalBranding, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OrganizationCertificateBasedAuthConfigurationCollectionRequest struct{ Base
 
 // Do performs HTTP request for CertificateBasedAuthConfiguration collection
 func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CertificateBasedAuthConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CertificateBasedAuthConfiguration collection
 func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Paging(method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type OrganizationExtensionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Extension collection
 func (r *OrganizationExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Extension collection
 func (r *OrganizationExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

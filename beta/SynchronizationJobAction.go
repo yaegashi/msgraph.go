@@ -55,6 +55,37 @@ type SynchronizationJobValidateCredentialsRequestParameter struct {
 }
 
 //
+type SynchronizationJobCollectionValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
+
+// ValidateCredentials action undocumented
+func (b *SynchronizationJobsCollectionRequestBuilder) ValidateCredentials(reqObj *SynchronizationJobCollectionValidateCredentialsRequestParameter) *SynchronizationJobCollectionValidateCredentialsRequestBuilder {
+	bb := &SynchronizationJobCollectionValidateCredentialsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/validateCredentials"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type SynchronizationJobCollectionValidateCredentialsRequest struct{ BaseRequest }
+
+//
+func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request() *SynchronizationJobCollectionValidateCredentialsRequest {
+	return &SynchronizationJobCollectionValidateCredentialsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *SynchronizationJobCollectionValidateCredentialsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
 type SynchronizationJobPauseRequestBuilder struct{ BaseRequestBuilder }
 
 // Pause action undocumented
@@ -77,7 +108,7 @@ func (b *SynchronizationJobPauseRequestBuilder) Request() *SynchronizationJobPau
 
 //
 func (r *SynchronizationJobPauseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -108,7 +139,7 @@ func (b *SynchronizationJobStartRequestBuilder) Request() *SynchronizationJobSta
 
 //
 func (r *SynchronizationJobStartRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -139,7 +170,7 @@ func (b *SynchronizationJobStopRequestBuilder) Request() *SynchronizationJobStop
 
 //
 func (r *SynchronizationJobStopRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -170,7 +201,7 @@ func (b *SynchronizationJobApplyRequestBuilder) Request() *SynchronizationJobApp
 
 //
 func (r *SynchronizationJobApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -201,7 +232,7 @@ func (b *SynchronizationJobRestartRequestBuilder) Request() *SynchronizationJobR
 
 //
 func (r *SynchronizationJobRestartRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -232,41 +263,10 @@ func (b *SynchronizationJobValidateCredentialsRequestBuilder) Request() *Synchro
 
 //
 func (r *SynchronizationJobValidateCredentialsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
 func (r *SynchronizationJobValidateCredentialsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
-type SynchronizationJobCollectionValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
-
-// ValidateCredentials action undocumented
-func (b *SynchronizationJobsCollectionRequestBuilder) ValidateCredentials(reqObj *SynchronizationJobCollectionValidateCredentialsRequestParameter) *SynchronizationJobCollectionValidateCredentialsRequestBuilder {
-	bb := &SynchronizationJobCollectionValidateCredentialsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/validateCredentials"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type SynchronizationJobCollectionValidateCredentialsRequest struct{ BaseRequest }
-
-//
-func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request() *SynchronizationJobCollectionValidateCredentialsRequest {
-	return &SynchronizationJobCollectionValidateCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *SynchronizationJobCollectionValidateCredentialsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }

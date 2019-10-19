@@ -17,7 +17,7 @@ type DeviceManagementScriptDeviceStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScriptDeviceState
 func (r *DeviceManagementScriptDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *DeviceManagementScriptDeviceStateRequest) Update(reqObj *DeviceManageme
 
 // Delete performs DELETE request for DeviceManagementScriptDeviceState
 func (r *DeviceManagementScriptDeviceStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagedDevice is navigation property

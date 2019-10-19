@@ -17,7 +17,7 @@ type UsedInsightRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UsedInsight
 func (r *UsedInsightRequest) Do(method, path string, reqObj interface{}) (resObj *UsedInsight, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *UsedInsightRequest) Update(reqObj *UsedInsight) (*UsedInsight, error) {
 
 // Delete performs DELETE request for UsedInsight
 func (r *UsedInsightRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Resource is navigation property

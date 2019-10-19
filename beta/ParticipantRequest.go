@@ -17,7 +17,7 @@ type ParticipantRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Participant
 func (r *ParticipantRequest) Do(method, path string, reqObj interface{}) (resObj *Participant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ParticipantRequest) Update(reqObj *Participant) (*Participant, error) {
 
 // Delete performs DELETE request for Participant
 func (r *ParticipantRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

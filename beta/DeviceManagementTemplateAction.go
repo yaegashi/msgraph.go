@@ -37,7 +37,7 @@ func (b *DeviceManagementTemplateCreateInstanceRequestBuilder) Request() *Device
 
 //
 func (r *DeviceManagementTemplateCreateInstanceRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

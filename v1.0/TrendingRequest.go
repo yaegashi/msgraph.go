@@ -17,7 +17,7 @@ type TrendingRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Trending
 func (r *TrendingRequest) Do(method, path string, reqObj interface{}) (resObj *Trending, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *TrendingRequest) Update(reqObj *Trending) (*Trending, error) {
 
 // Delete performs DELETE request for Trending
 func (r *TrendingRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Resource is navigation property

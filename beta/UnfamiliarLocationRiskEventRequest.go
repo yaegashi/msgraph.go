@@ -17,7 +17,7 @@ type UnfamiliarLocationRiskEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UnfamiliarLocationRiskEvent
 func (r *UnfamiliarLocationRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *UnfamiliarLocationRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *UnfamiliarLocationRiskEventRequest) Update(reqObj *UnfamiliarLocationRi
 
 // Delete performs DELETE request for UnfamiliarLocationRiskEvent
 func (r *UnfamiliarLocationRiskEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

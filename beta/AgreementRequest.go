@@ -24,7 +24,7 @@ type AgreementRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Agreement
 func (r *AgreementRequest) Do(method, path string, reqObj interface{}) (resObj *Agreement, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AgreementRequest) Update(reqObj *Agreement) (*Agreement, error) {
 
 // Delete performs DELETE request for Agreement
 func (r *AgreementRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Files returns request builder for AgreementFile collection
@@ -76,13 +76,13 @@ type AgreementFilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AgreementFile collection
 func (r *AgreementFilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgreementFile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AgreementFile collection
 func (r *AgreementFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]AgreementFile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

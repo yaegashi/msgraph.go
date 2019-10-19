@@ -24,7 +24,7 @@ type DataClassificationServiceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DataClassificationService
 func (r *DataClassificationServiceRequest) Do(method, path string, reqObj interface{}) (resObj *DataClassificationService, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DataClassificationServiceRequest) Update(reqObj *DataClassificationServ
 
 // Delete performs DELETE request for DataClassificationService
 func (r *DataClassificationServiceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ClassifyFile returns request builder for FileClassificationRequestObject collection
@@ -76,13 +76,13 @@ type DataClassificationServiceClassifyFileCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for FileClassificationRequestObject collection
 func (r *DataClassificationServiceClassifyFileCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *FileClassificationRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for FileClassificationRequestObject collection
 func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(method, path string, obj interface{}) ([]FileClassificationRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type DataClassificationServiceClassifyFileJobsCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for JobResponseBase collection
 func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type DataClassificationServiceClassifyTextCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for TextClassificationRequestObject collection
 func (r *DataClassificationServiceClassifyTextCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TextClassificationRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TextClassificationRequestObject collection
 func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(method, path string, obj interface{}) ([]TextClassificationRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type DataClassificationServiceClassifyTextJobsCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for JobResponseBase collection
 func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type DataClassificationServiceEvaluateLabelJobsCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for JobResponseBase collection
 func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -511,13 +511,13 @@ type DataClassificationServiceExactMatchDataStoresCollectionRequest struct{ Base
 
 // Do performs HTTP request for ExactMatchDataStore collection
 func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchDataStore, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ExactMatchDataStore collection
 func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchDataStore, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -598,13 +598,13 @@ type DataClassificationServiceExactMatchUploadAgentsCollectionRequest struct{ Ba
 
 // Do performs HTTP request for ExactMatchUploadAgent collection
 func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchUploadAgent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ExactMatchUploadAgent collection
 func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchUploadAgent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -685,13 +685,13 @@ type DataClassificationServiceJobsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for JobResponseBase collection
 func (r *DataClassificationServiceJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -772,13 +772,13 @@ type DataClassificationServiceSensitiveTypesCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for SensitiveType collection
 func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitiveType, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SensitiveType collection
 func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitiveType, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -859,13 +859,13 @@ type DataClassificationServiceSensitivityLabelsCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for SensitivityLabel collection
 func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SensitivityLabel collection
 func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

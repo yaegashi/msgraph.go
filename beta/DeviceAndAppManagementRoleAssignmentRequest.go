@@ -24,7 +24,7 @@ type DeviceAndAppManagementRoleAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceAndAppManagementRoleAssignment
 func (r *DeviceAndAppManagementRoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceAndAppManagementRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceAndAppManagementRoleAssignmentRequest) Update(reqObj *DeviceAndAp
 
 // Delete performs DELETE request for DeviceAndAppManagementRoleAssignment
 func (r *DeviceAndAppManagementRoleAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // RoleScopeTags returns request builder for RoleScopeTag collection
@@ -76,13 +76,13 @@ type DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest struct{ 
 
 // Do performs HTTP request for RoleScopeTag collection
 func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTag, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RoleScopeTag collection
 func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleScopeTag, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

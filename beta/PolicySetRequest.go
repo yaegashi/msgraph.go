@@ -24,7 +24,7 @@ type PolicySetRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PolicySet
 func (r *PolicySetRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PolicySetRequest) Update(reqObj *PolicySet) (*PolicySet, error) {
 
 // Delete performs DELETE request for PolicySet
 func (r *PolicySetRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for PolicySetAssignment collection
@@ -76,13 +76,13 @@ type PolicySetAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PolicySetAssignment collection
 func (r *PolicySetAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySetAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PolicySetAssignment collection
 func (r *PolicySetAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySetAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type PolicySetItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PolicySetItem collection
 func (r *PolicySetItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySetItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PolicySetItem collection
 func (r *PolicySetItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySetItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type AudioRoutingGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AudioRoutingGroup
 func (r *AudioRoutingGroupRequest) Do(method, path string, reqObj interface{}) (resObj *AudioRoutingGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AudioRoutingGroupRequest) Update(reqObj *AudioRoutingGroup) (*AudioRout
 
 // Delete performs DELETE request for AudioRoutingGroup
 func (r *AudioRoutingGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

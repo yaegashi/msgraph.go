@@ -31,7 +31,7 @@ func (b *ApplicationTemplateInstantiateRequestBuilder) Request() *ApplicationTem
 
 //
 func (r *ApplicationTemplateInstantiateRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationServicePrincipal, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

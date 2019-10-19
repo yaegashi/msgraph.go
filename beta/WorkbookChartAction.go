@@ -53,7 +53,7 @@ func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartColle
 
 //
 func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -85,7 +85,7 @@ func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequ
 
 //
 func (r *WorkbookChartSetDataRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -116,7 +116,7 @@ func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPosi
 
 //
 func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

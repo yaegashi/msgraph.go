@@ -37,7 +37,7 @@ func (b *EducationSubmissionReturnRequestBuilder) Request() *EducationSubmission
 
 //
 func (r *EducationSubmissionReturnRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -69,7 +69,7 @@ func (b *EducationSubmissionSubmitRequestBuilder) Request() *EducationSubmission
 
 //
 func (r *EducationSubmissionSubmitRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -101,7 +101,7 @@ func (b *EducationSubmissionUnsubmitRequestBuilder) Request() *EducationSubmissi
 
 //
 func (r *EducationSubmissionUnsubmitRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

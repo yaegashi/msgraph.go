@@ -24,7 +24,7 @@ type DepOnboardingSettingRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DepOnboardingSetting
 func (r *DepOnboardingSettingRequest) Do(method, path string, reqObj interface{}) (resObj *DepOnboardingSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DepOnboardingSettingRequest) Update(reqObj *DepOnboardingSetting) (*Dep
 
 // Delete performs DELETE request for DepOnboardingSetting
 func (r *DepOnboardingSettingRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DefaultIOSEnrollmentProfile is navigation property
@@ -90,13 +90,13 @@ type DepOnboardingSettingEnrollmentProfilesCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for EnrollmentProfile collection
 func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EnrollmentProfile collection
 func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]EnrollmentProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -177,13 +177,13 @@ type DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest struct{ 
 
 // Do performs HTTP request for ImportedAppleDeviceIdentity collection
 func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedAppleDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ImportedAppleDeviceIdentity collection
 func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ImportedAppleDeviceIdentity, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

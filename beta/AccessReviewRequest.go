@@ -24,7 +24,7 @@ type AccessReviewRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReview
 func (r *AccessReviewRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReview, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AccessReviewRequest) Update(reqObj *AccessReview) (*AccessReview, error
 
 // Delete performs DELETE request for AccessReview
 func (r *AccessReviewRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Decisions returns request builder for AccessReviewDecision collection
@@ -76,13 +76,13 @@ type AccessReviewDecisionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewDecision collection
 func (r *AccessReviewDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *AccessReviewDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type AccessReviewInstancesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReview collection
 func (r *AccessReviewInstancesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReview, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReview collection
 func (r *AccessReviewInstancesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReview, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type AccessReviewMyDecisionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewDecision collection
 func (r *AccessReviewMyDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *AccessReviewMyDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type AccessReviewReviewersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewReviewer collection
 func (r *AccessReviewReviewersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewReviewer, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReviewReviewer collection
 func (r *AccessReviewReviewersCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewReviewer, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

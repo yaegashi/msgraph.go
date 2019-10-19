@@ -17,7 +17,7 @@ type TrustFrameworkKeySetRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TrustFrameworkKeySet
 func (r *TrustFrameworkKeySetRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkKeySet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TrustFrameworkKeySetRequest) Update(reqObj *TrustFrameworkKeySet) (*Tru
 
 // Delete performs DELETE request for TrustFrameworkKeySet
 func (r *TrustFrameworkKeySetRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

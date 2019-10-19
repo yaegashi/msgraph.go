@@ -17,7 +17,7 @@ type IOSLobAppProvisioningConfigurationAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSLobAppProvisioningConfigurationAssignment
 func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Update(reqObj *IOS
 
 // Delete performs DELETE request for IOSLobAppProvisioningConfigurationAssignment
 func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

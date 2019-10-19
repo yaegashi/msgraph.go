@@ -17,7 +17,7 @@ type BusinessFlowTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BusinessFlowTemplate
 func (r *BusinessFlowTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlowTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *BusinessFlowTemplateRequest) Update(reqObj *BusinessFlowTemplate) (*Bus
 
 // Delete performs DELETE request for BusinessFlowTemplate
 func (r *BusinessFlowTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

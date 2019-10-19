@@ -17,7 +17,7 @@ type DeviceManagementExchangeOnPremisesPolicyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementExchangeOnPremisesPolicy
 func (r *DeviceManagementExchangeOnPremisesPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementExchangeOnPremisesPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *DeviceManagementExchangeOnPremisesPolicyRequest) Update(reqObj *DeviceM
 
 // Delete performs DELETE request for DeviceManagementExchangeOnPremisesPolicy
 func (r *DeviceManagementExchangeOnPremisesPolicyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ConditionalAccessSettings is navigation property

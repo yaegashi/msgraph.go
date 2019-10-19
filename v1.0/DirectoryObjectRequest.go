@@ -17,7 +17,7 @@ type DirectoryObjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject
 func (r *DirectoryObjectRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DirectoryObjectRequest) Update(reqObj *DirectoryObject) (*DirectoryObje
 
 // Delete performs DELETE request for DirectoryObject
 func (r *DirectoryObjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -24,7 +24,7 @@ type DeviceManagementIntentSettingCategoryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementIntentSettingCategory
 func (r *DeviceManagementIntentSettingCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentSettingCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceManagementIntentSettingCategoryRequest) Update(reqObj *DeviceMana
 
 // Delete performs DELETE request for DeviceManagementIntentSettingCategory
 func (r *DeviceManagementIntentSettingCategoryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Settings returns request builder for DeviceManagementSettingInstance collection
@@ -76,13 +76,13 @@ type DeviceManagementIntentSettingCategorySettingsCollectionRequest struct{ Base
 
 // Do performs HTTP request for DeviceManagementSettingInstance collection
 func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
 func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

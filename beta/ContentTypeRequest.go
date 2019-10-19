@@ -24,7 +24,7 @@ type ContentTypeRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ContentType
 func (r *ContentTypeRequest) Do(method, path string, reqObj interface{}) (resObj *ContentType, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ContentTypeRequest) Update(reqObj *ContentType) (*ContentType, error) {
 
 // Delete performs DELETE request for ContentType
 func (r *ContentTypeRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ColumnLinks returns request builder for ColumnLink collection
@@ -76,13 +76,13 @@ type ContentTypeColumnLinksCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ColumnLink collection
 func (r *ContentTypeColumnLinksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnLink, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ColumnLink collection
 func (r *ContentTypeColumnLinksCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnLink, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

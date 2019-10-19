@@ -17,7 +17,7 @@ type TimeOffReasonRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TimeOffReason
 func (r *TimeOffReasonRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffReason, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TimeOffReasonRequest) Update(reqObj *TimeOffReason) (*TimeOffReason, er
 
 // Delete performs DELETE request for TimeOffReason
 func (r *TimeOffReasonRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

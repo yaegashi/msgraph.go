@@ -17,7 +17,7 @@ type SingleValueLegacyExtendedPropertyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SingleValueLegacyExtendedProperty
 func (r *SingleValueLegacyExtendedPropertyRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SingleValueLegacyExtendedPropertyRequest) Update(reqObj *SingleValueLeg
 
 // Delete performs DELETE request for SingleValueLegacyExtendedProperty
 func (r *SingleValueLegacyExtendedPropertyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

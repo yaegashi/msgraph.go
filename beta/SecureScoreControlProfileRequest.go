@@ -17,7 +17,7 @@ type SecureScoreControlProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecureScoreControlProfile
 func (r *SecureScoreControlProfileRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScoreControlProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SecureScoreControlProfileRequest) Update(reqObj *SecureScoreControlProf
 
 // Delete performs DELETE request for SecureScoreControlProfile
 func (r *SecureScoreControlProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

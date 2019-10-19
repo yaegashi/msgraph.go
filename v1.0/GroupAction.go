@@ -59,7 +59,7 @@ func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidateProperti
 
 //
 func (r *GroupValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -90,7 +90,7 @@ func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequ
 
 //
 func (r *GroupSubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -121,7 +121,7 @@ func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMail
 
 //
 func (r *GroupUnsubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -152,7 +152,7 @@ func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 
 //
 func (r *GroupAddFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -183,7 +183,7 @@ func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteReques
 
 //
 func (r *GroupRemoveFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -214,7 +214,7 @@ func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRe
 
 //
 func (r *GroupResetUnseenCountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -245,7 +245,7 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 
 //
 func (r *GroupRenewRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

@@ -111,7 +111,7 @@ func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireReques
 
 //
 func (r *ManagedDeviceRetireRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -142,7 +142,7 @@ func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
 
 //
 func (r *ManagedDeviceWipeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -173,7 +173,7 @@ func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceReset
 
 //
 func (r *ManagedDeviceResetPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -204,7 +204,7 @@ func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLo
 
 //
 func (r *ManagedDeviceRemoteLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -235,7 +235,7 @@ func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedD
 
 //
 func (r *ManagedDeviceRequestRemoteAssistanceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -266,7 +266,7 @@ func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDis
 
 //
 func (r *ManagedDeviceDisableLostModeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -297,7 +297,7 @@ func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocate
 
 //
 func (r *ManagedDeviceLocateDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -328,7 +328,7 @@ func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDevi
 
 //
 func (r *ManagedDeviceBypassActivationLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -359,7 +359,7 @@ func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNow
 
 //
 func (r *ManagedDeviceRebootNowRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -390,7 +390,7 @@ func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRe
 
 //
 func (r *ManagedDeviceShutDownRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -421,7 +421,7 @@ func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRec
 
 //
 func (r *ManagedDeviceRecoverPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -452,7 +452,7 @@ func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDevice
 
 //
 func (r *ManagedDeviceCleanWindowsDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -483,7 +483,7 @@ func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request()
 
 //
 func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -514,7 +514,7 @@ func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *
 
 //
 func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -545,7 +545,7 @@ func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDevi
 
 //
 func (r *ManagedDeviceSyncDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -576,7 +576,7 @@ func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDevic
 
 //
 func (r *ManagedDeviceWindowsDefenderScanRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -607,7 +607,7 @@ func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *
 
 //
 func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -638,7 +638,7 @@ func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *Manag
 
 //
 func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

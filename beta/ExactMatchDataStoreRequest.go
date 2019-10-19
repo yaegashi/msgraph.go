@@ -24,7 +24,7 @@ type ExactMatchDataStoreRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ExactMatchDataStore
 func (r *ExactMatchDataStoreRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchDataStore, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ExactMatchDataStoreRequest) Update(reqObj *ExactMatchDataStore) (*Exact
 
 // Delete performs DELETE request for ExactMatchDataStore
 func (r *ExactMatchDataStoreRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Sessions returns request builder for ExactMatchSession collection
@@ -76,13 +76,13 @@ type ExactMatchDataStoreSessionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ExactMatchSession collection
 func (r *ExactMatchDataStoreSessionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ExactMatchSession collection
 func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchSession, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

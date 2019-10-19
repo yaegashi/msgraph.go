@@ -115,7 +115,7 @@ func (b *UserAssignLicenseRequestBuilder) Request() *UserAssignLicenseRequest {
 
 //
 func (r *UserAssignLicenseRequest) Do(method, path string, reqObj interface{}) (resObj *User, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -147,7 +147,7 @@ func (b *UserChangePasswordRequestBuilder) Request() *UserChangePasswordRequest 
 
 //
 func (r *UserChangePasswordRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -178,7 +178,7 @@ func (b *UserRevokeSignInSessionsRequestBuilder) Request() *UserRevokeSignInSess
 
 //
 func (r *UserRevokeSignInSessionsRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -210,7 +210,7 @@ func (b *UserFindMeetingTimesRequestBuilder) Request() *UserFindMeetingTimesRequ
 
 //
 func (r *UserFindMeetingTimesRequest) Do(method, path string, reqObj interface{}) (resObj *MeetingTimeSuggestionsResult, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -242,7 +242,7 @@ func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
 
 //
 func (r *UserSendMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -273,13 +273,13 @@ func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
 
 //
 func (r *UserGetMailTipsRequest) Do(method, path string, reqObj interface{}) (resObj *[]MailTips, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *UserGetMailTipsRequest) Paging(method, path string, obj interface{}) ([][]MailTips, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -349,13 +349,13 @@ func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchang
 
 //
 func (r *UserTranslateExchangeIDsRequest) Do(method, path string, reqObj interface{}) (resObj *[]ConvertIDResult, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *UserTranslateExchangeIDsRequest) Paging(method, path string, obj interface{}) ([][]ConvertIDResult, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -425,7 +425,7 @@ func (b *UserRemoveAllDevicesFromManagementRequestBuilder) Request() *UserRemove
 
 //
 func (r *UserRemoveAllDevicesFromManagementRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -456,7 +456,7 @@ func (b *UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder) Request() *Us
 
 //
 func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -487,7 +487,7 @@ func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalData
 
 //
 func (r *UserExportPersonalDataRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

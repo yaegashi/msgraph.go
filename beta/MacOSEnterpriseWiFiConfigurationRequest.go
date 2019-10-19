@@ -17,7 +17,7 @@ type MacOSEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MacOSEnterpriseWiFiConfiguration
 func (r *MacOSEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *MacOSEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *MacOSEnterpriseWiFiConfigurationRequest) Update(reqObj *MacOSEnterprise
 
 // Delete performs DELETE request for MacOSEnterpriseWiFiConfiguration
 func (r *MacOSEnterpriseWiFiConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property

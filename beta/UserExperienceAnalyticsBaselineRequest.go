@@ -17,7 +17,7 @@ type UserExperienceAnalyticsBaselineRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserExperienceAnalyticsBaseline
 func (r *UserExperienceAnalyticsBaselineRequest) Do(method, path string, reqObj interface{}) (resObj *UserExperienceAnalyticsBaseline, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *UserExperienceAnalyticsBaselineRequest) Update(reqObj *UserExperienceAn
 
 // Delete performs DELETE request for UserExperienceAnalyticsBaseline
 func (r *UserExperienceAnalyticsBaselineRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // BestPracticesMetrics is navigation property

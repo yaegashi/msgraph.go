@@ -24,7 +24,7 @@ type OutlookTaskGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookTaskGroup
 func (r *OutlookTaskGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OutlookTaskGroupRequest) Update(reqObj *OutlookTaskGroup) (*OutlookTask
 
 // Delete performs DELETE request for OutlookTaskGroup
 func (r *OutlookTaskGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // TaskFolders returns request builder for OutlookTaskFolder collection
@@ -76,13 +76,13 @@ type OutlookTaskGroupTaskFoldersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookTaskFolder collection
 func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OutlookTaskFolder collection
 func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookTaskFolder, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

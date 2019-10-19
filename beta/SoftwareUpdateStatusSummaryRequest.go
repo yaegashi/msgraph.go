@@ -17,7 +17,7 @@ type SoftwareUpdateStatusSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SoftwareUpdateStatusSummary
 func (r *SoftwareUpdateStatusSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *SoftwareUpdateStatusSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SoftwareUpdateStatusSummaryRequest) Update(reqObj *SoftwareUpdateStatus
 
 // Delete performs DELETE request for SoftwareUpdateStatusSummary
 func (r *SoftwareUpdateStatusSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

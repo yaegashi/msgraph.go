@@ -24,7 +24,7 @@ type ApprovalWorkflowProviderRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ApprovalWorkflowProvider
 func (r *ApprovalWorkflowProviderRequest) Do(method, path string, reqObj interface{}) (resObj *ApprovalWorkflowProvider, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ApprovalWorkflowProviderRequest) Update(reqObj *ApprovalWorkflowProvide
 
 // Delete performs DELETE request for ApprovalWorkflowProvider
 func (r *ApprovalWorkflowProviderRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // BusinessFlows returns request builder for BusinessFlow collection
@@ -76,13 +76,13 @@ type ApprovalWorkflowProviderBusinessFlowsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for BusinessFlow collection
 func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BusinessFlow collection
 func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlow, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollecti
 
 // Do performs HTTP request for BusinessFlow collection
 func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BusinessFlow collection
 func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlow, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type ApprovalWorkflowProviderPolicyTemplatesCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for GovernancePolicyTemplate collection
 func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernancePolicyTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernancePolicyTemplate collection
 func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernancePolicyTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type ApprovalWorkflowProviderRequestsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RequestObject collection
 func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RequestObject collection
 func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]RequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest struct{
 
 // Do performs HTTP request for RequestObject collection
 func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RequestObject collection
 func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(method, path string, obj interface{}) ([]RequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

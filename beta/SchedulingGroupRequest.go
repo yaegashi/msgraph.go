@@ -17,7 +17,7 @@ type SchedulingGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SchedulingGroup
 func (r *SchedulingGroupRequest) Do(method, path string, reqObj interface{}) (resObj *SchedulingGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SchedulingGroupRequest) Update(reqObj *SchedulingGroup) (*SchedulingGro
 
 // Delete performs DELETE request for SchedulingGroup
 func (r *SchedulingGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

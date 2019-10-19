@@ -17,7 +17,7 @@ type WindowsAutopilotDeviceIdentityRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsAutopilotDeviceIdentity
 func (r *WindowsAutopilotDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WindowsAutopilotDeviceIdentityRequest) Update(reqObj *WindowsAutopilotD
 
 // Delete performs DELETE request for WindowsAutopilotDeviceIdentity
 func (r *WindowsAutopilotDeviceIdentityRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeploymentProfile is navigation property

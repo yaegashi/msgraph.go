@@ -17,7 +17,7 @@ type GeneralLedgerEntryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GeneralLedgerEntry
 func (r *GeneralLedgerEntryRequest) Do(method, path string, reqObj interface{}) (resObj *GeneralLedgerEntry, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *GeneralLedgerEntryRequest) Update(reqObj *GeneralLedgerEntry) (*General
 
 // Delete performs DELETE request for GeneralLedgerEntry
 func (r *GeneralLedgerEntryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Account is navigation property

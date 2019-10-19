@@ -17,7 +17,7 @@ type OfficeClientConfigurationAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OfficeClientConfigurationAssignment
 func (r *OfficeClientConfigurationAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeClientConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *OfficeClientConfigurationAssignmentRequest) Update(reqObj *OfficeClient
 
 // Delete performs DELETE request for OfficeClientConfigurationAssignment
 func (r *OfficeClientConfigurationAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

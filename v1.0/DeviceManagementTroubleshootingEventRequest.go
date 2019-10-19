@@ -17,7 +17,7 @@ type DeviceManagementTroubleshootingEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementTroubleshootingEvent
 func (r *DeviceManagementTroubleshootingEventRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTroubleshootingEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementTroubleshootingEventRequest) Update(reqObj *DeviceManag
 
 // Delete performs DELETE request for DeviceManagementTroubleshootingEvent
 func (r *DeviceManagementTroubleshootingEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

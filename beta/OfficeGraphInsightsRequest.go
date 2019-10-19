@@ -24,7 +24,7 @@ type OfficeGraphInsightsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OfficeGraphInsights
 func (r *OfficeGraphInsightsRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeGraphInsights, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OfficeGraphInsightsRequest) Update(reqObj *OfficeGraphInsights) (*Offic
 
 // Delete performs DELETE request for OfficeGraphInsights
 func (r *OfficeGraphInsightsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Shared returns request builder for SharedInsight collection
@@ -76,13 +76,13 @@ type OfficeGraphInsightsSharedCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SharedInsight collection
 func (r *OfficeGraphInsightsSharedCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SharedInsight, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SharedInsight collection
 func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(method, path string, obj interface{}) ([]SharedInsight, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OfficeGraphInsightsTrendingCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Trending collection
 func (r *OfficeGraphInsightsTrendingCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Trending, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Trending collection
 func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(method, path string, obj interface{}) ([]Trending, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type OfficeGraphInsightsUsedCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UsedInsight collection
 func (r *OfficeGraphInsightsUsedCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UsedInsight, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UsedInsight collection
 func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(method, path string, obj interface{}) ([]UsedInsight, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

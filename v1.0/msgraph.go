@@ -17,29 +17,29 @@ const (
 	defaultBaseURL = "https://graph.microsoft.com/v1.0"
 )
 
-// Binary undocumented
+// Binary is type alias for Edm.Binary
 type Binary []byte
 
-// Stream undocumented
+// Stream is type alias for Edm.Stream
 type Stream []byte
 
-// UUID undocumented
+// UUID is type alias for Edm.Guid
 type UUID string
 
-// Paging undocumented
+// Paging is sturct returned to paging requests
 type Paging struct {
 	NextLink string          `json:"@odata.nextLink"`
 	Value    json.RawMessage `json:"value"`
 }
 
-// BaseRequestBuilder
+// BaseRequestBuilder is base reuqest builder
 type BaseRequestBuilder struct {
 	baseURL       string
 	client        *http.Client
 	requestObject interface{}
 }
 
-// BaseRequest
+// BaseRequest is base request
 type BaseRequest struct {
 	baseURL       string
 	client        *http.Client
@@ -47,7 +47,7 @@ type BaseRequest struct {
 	query         url.Values
 }
 
-// URL undocumented
+// URL returns URL with queries
 func (r *BaseRequest) URL() string {
 	var query string
 	if r.query != nil {
@@ -56,16 +56,17 @@ func (r *BaseRequest) URL() string {
 	return r.baseURL + query
 }
 
-// Client undocumented
+// Client returns HTTP client
 func (r *BaseRequest) Client() *http.Client {
 	return r.client
 }
 
-// Query
+// Query returns queries for URL
 func (r *BaseRequest) Query() url.Values {
 	return r.query
 }
 
+// Expand adds $expand query
 func (r *BaseRequest) Expand(value string) {
 	if r.query == nil {
 		r.query = url.Values{}
@@ -73,6 +74,7 @@ func (r *BaseRequest) Expand(value string) {
 	r.query.Add("$expand", value)
 }
 
+// Select adds $select query
 func (r *BaseRequest) Select(value string) {
 	if r.query == nil {
 		r.query = url.Values{}
@@ -80,6 +82,7 @@ func (r *BaseRequest) Select(value string) {
 	r.query.Add("$select", value)
 }
 
+// Top adds $top query
 func (r *BaseRequest) Top(value int) {
 	if r.query == nil {
 		r.query = url.Values{}
@@ -87,6 +90,7 @@ func (r *BaseRequest) Top(value int) {
 	r.query.Add("$top", strconv.Itoa(value))
 }
 
+// Filter adds $filter query
 func (r *BaseRequest) Filter(value string) {
 	if r.query == nil {
 		r.query = url.Values{}
@@ -94,6 +98,7 @@ func (r *BaseRequest) Filter(value string) {
 	r.query.Add("$filter", value)
 }
 
+// Skip adds $skip query
 func (r *BaseRequest) Skip(value int) {
 	if r.query == nil {
 		r.query = url.Values{}
@@ -101,6 +106,7 @@ func (r *BaseRequest) Skip(value int) {
 	r.query.Add("$skip", strconv.Itoa(value))
 }
 
+// OrderBy adds $orderby query
 func (r *BaseRequest) OrderBy(value string) {
 	if r.query == nil {
 		r.query = url.Values{}
@@ -108,18 +114,13 @@ func (r *BaseRequest) OrderBy(value string) {
 	r.query.Add("$orderby", value)
 }
 
-// NewRequest returns a new http.Request
-func (r *BaseRequest) NewRequest(method string, body io.Reader) (*http.Request, error) {
-	return http.NewRequest(method, r.baseURL, body)
-}
-
-// NewRequestWithPath returns a new http.Request with path
-func (r *BaseRequest) NewRequestWithPath(method, path string, body io.Reader) (*http.Request, error) {
+// NewRequest returns new HTTP request
+func (r *BaseRequest) NewRequest(method, path string, body io.Reader) (*http.Request, error) {
 	return http.NewRequest(method, r.baseURL+path, body)
 }
 
-// NewJSONRequestWithPath returns a new http.Request with path and JSON payload
-func (r *BaseRequest) NewJSONRequestWithPath(method, path string, obj interface{}) (*http.Request, error) {
+// NewJSONRequest returns new HTTP request with JSON payload
+func (r *BaseRequest) NewJSONRequest(method, path string, obj interface{}) (*http.Request, error) {
 	buf := &bytes.Buffer{}
 	if obj != nil {
 		err := json.NewEncoder(buf).Encode(obj)
@@ -137,7 +138,7 @@ func (r *BaseRequest) NewJSONRequestWithPath(method, path string, obj interface{
 	return req, nil
 }
 
-// DecodeJSONResponse decodes a http.Response with JSON payload
+// DecodeJSONResponse decodes HTTP response with JSON payload
 func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) error {
 	switch res.StatusCode {
 	case http.StatusOK, http.StatusCreated:
@@ -156,9 +157,9 @@ func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) er
 	}
 }
 
-// JSONRequestWithPath issues a JSON HTTP Request
-func (r *BaseRequest) JSONRequestWithPath(method, path string, reqObj, resObj interface{}) error {
-	req, err := r.NewJSONRequestWithPath(method, path, reqObj)
+// JSONRequest issues HTTP request with JSON payload
+func (r *BaseRequest) JSONRequest(method, path string, reqObj, resObj interface{}) error {
+	req, err := r.NewJSONRequest(method, path, reqObj)
 	if err != nil {
 		return err
 	}
@@ -170,12 +171,12 @@ func (r *BaseRequest) JSONRequestWithPath(method, path string, reqObj, resObj in
 	return r.DecodeJSONResponse(res, resObj)
 }
 
-//
+// GraphServiceRequestBuilder is GraphService reuqest builder
 type GraphServiceRequestBuilder struct {
 	BaseRequestBuilder
 }
 
-//
+// NewClient returns GraphService request builder with default base URL
 func NewClient(cli *http.Client) *GraphServiceRequestBuilder {
 	return &GraphServiceRequestBuilder{
 		BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL, client: cli},

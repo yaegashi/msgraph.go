@@ -17,7 +17,7 @@ type EntityRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Entity
 func (r *EntityRequest) Do(method, path string, reqObj interface{}) (resObj *Entity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EntityRequest) Update(reqObj *Entity) (*Entity, error) {
 
 // Delete performs DELETE request for Entity
 func (r *EntityRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

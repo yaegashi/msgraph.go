@@ -17,7 +17,7 @@ type AllowedDataLocationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AllowedDataLocation
 func (r *AllowedDataLocationRequest) Do(method, path string, reqObj interface{}) (resObj *AllowedDataLocation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AllowedDataLocationRequest) Update(reqObj *AllowedDataLocation) (*Allow
 
 // Delete performs DELETE request for AllowedDataLocation
 func (r *AllowedDataLocationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

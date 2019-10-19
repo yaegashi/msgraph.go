@@ -17,7 +17,7 @@ type SuspiciousIPRiskEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SuspiciousIPRiskEvent
 func (r *SuspiciousIPRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *SuspiciousIPRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SuspiciousIPRiskEventRequest) Update(reqObj *SuspiciousIPRiskEvent) (*S
 
 // Delete performs DELETE request for SuspiciousIPRiskEvent
 func (r *SuspiciousIPRiskEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

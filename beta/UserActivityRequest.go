@@ -24,7 +24,7 @@ type UserActivityRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserActivity
 func (r *UserActivityRequest) Do(method, path string, reqObj interface{}) (resObj *UserActivity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *UserActivityRequest) Update(reqObj *UserActivity) (*UserActivity, error
 
 // Delete performs DELETE request for UserActivity
 func (r *UserActivityRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // HistoryItems returns request builder for ActivityHistoryItem collection
@@ -76,13 +76,13 @@ type UserActivityHistoryItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ActivityHistoryItem collection
 func (r *UserActivityHistoryItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityHistoryItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ActivityHistoryItem collection
 func (r *UserActivityHistoryItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityHistoryItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

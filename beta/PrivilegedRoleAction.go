@@ -41,7 +41,7 @@ func (b *PrivilegedRoleSelfActivateRequestBuilder) Request() *PrivilegedRoleSelf
 
 //
 func (r *PrivilegedRoleSelfActivateRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -73,7 +73,7 @@ func (b *PrivilegedRoleSelfDeactivateRequestBuilder) Request() *PrivilegedRoleSe
 
 //
 func (r *PrivilegedRoleSelfDeactivateRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

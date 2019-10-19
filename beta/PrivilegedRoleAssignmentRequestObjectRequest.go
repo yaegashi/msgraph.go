@@ -17,7 +17,7 @@ type PrivilegedRoleAssignmentRequestObjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedRoleAssignmentRequestObject
 func (r *PrivilegedRoleAssignmentRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *PrivilegedRoleAssignmentRequestObjectRequest) Update(reqObj *Privileged
 
 // Delete performs DELETE request for PrivilegedRoleAssignmentRequestObject
 func (r *PrivilegedRoleAssignmentRequestObjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // RoleInfo is navigation property

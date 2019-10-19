@@ -2,6 +2,12 @@
 
 package msgraph
 
+// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
+type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+}
+
 // NotebookCopyNotebookRequestParameter undocumented
 type NotebookCopyNotebookRequestParameter struct {
 	// GroupID undocumented
@@ -14,12 +20,6 @@ type NotebookCopyNotebookRequestParameter struct {
 	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
 	// SiteID undocumented
 	SiteID *string `json:"siteId,omitempty"`
-}
-
-// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
-type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
-	// WebURL undocumented
-	WebURL *string `json:"webUrl,omitempty"`
 }
 
 //
@@ -45,7 +45,7 @@ func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *Noteb
 
 //
 func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -77,7 +77,7 @@ func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequ
 
 //
 func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

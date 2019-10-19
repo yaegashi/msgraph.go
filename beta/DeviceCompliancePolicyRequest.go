@@ -24,7 +24,7 @@ type DeviceCompliancePolicyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceCompliancePolicy
 func (r *DeviceCompliancePolicyRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceCompliancePolicyRequest) Update(reqObj *DeviceCompliancePolicy) (
 
 // Delete performs DELETE request for DeviceCompliancePolicy
 func (r *DeviceCompliancePolicyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for DeviceCompliancePolicyAssignment collection
@@ -76,13 +76,13 @@ type DeviceCompliancePolicyAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceCompliancePolicyAssignment collection
 func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicyAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceCompliancePolicyAssignment collection
 func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCompliancePolicyAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest struct{ 
 
 // Do performs HTTP request for SettingStateDeviceSummary collection
 func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SettingStateDeviceSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SettingStateDeviceSummary collection
 func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SettingStateDeviceSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type DeviceCompliancePolicyDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceComplianceDeviceStatus collection
 func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceComplianceDeviceStatus collection
 func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceDeviceStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest struct{ Base
 
 // Do performs HTTP request for DeviceComplianceScheduledActionForRule collection
 func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceScheduledActionForRule, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceComplianceScheduledActionForRule collection
 func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceScheduledActionForRule, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -438,13 +438,13 @@ type DeviceCompliancePolicyUserStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceComplianceUserStatus collection
 func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceUserStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceComplianceUserStatus collection
 func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceUserStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

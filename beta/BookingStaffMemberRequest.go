@@ -17,7 +17,7 @@ type BookingStaffMemberRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingStaffMember
 func (r *BookingStaffMemberRequest) Do(method, path string, reqObj interface{}) (resObj *BookingStaffMember, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *BookingStaffMemberRequest) Update(reqObj *BookingStaffMember) (*Booking
 
 // Delete performs DELETE request for BookingStaffMember
 func (r *BookingStaffMemberRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

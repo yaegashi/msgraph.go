@@ -24,7 +24,7 @@ type WindowsUpdateForBusinessConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsUpdateForBusinessConfiguration
 func (r *WindowsUpdateForBusinessConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateForBusinessConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsUpdateForBusinessConfigurationRequest) Update(reqObj *WindowsUpd
 
 // Delete performs DELETE request for WindowsUpdateForBusinessConfiguration
 func (r *WindowsUpdateForBusinessConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeviceUpdateStates returns request builder for WindowsUpdateState collection
@@ -76,13 +76,13 @@ type WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest st
 
 // Do performs HTTP request for WindowsUpdateState collection
 func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsUpdateState collection
 func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsUpdateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

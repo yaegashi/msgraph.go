@@ -17,7 +17,7 @@ type SensitiveTypeRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SensitiveType
 func (r *SensitiveTypeRequest) Do(method, path string, reqObj interface{}) (resObj *SensitiveType, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SensitiveTypeRequest) Update(reqObj *SensitiveType) (*SensitiveType, er
 
 // Delete performs DELETE request for SensitiveType
 func (r *SensitiveTypeRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

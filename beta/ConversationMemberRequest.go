@@ -17,7 +17,7 @@ type ConversationMemberRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ConversationMember
 func (r *ConversationMemberRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationMember, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ConversationMemberRequest) Update(reqObj *ConversationMember) (*Convers
 
 // Delete performs DELETE request for ConversationMember
 func (r *ConversationMemberRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

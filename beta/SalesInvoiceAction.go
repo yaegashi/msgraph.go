@@ -45,7 +45,7 @@ func (b *SalesInvoiceCancelAndSendRequestBuilder) Request() *SalesInvoiceCancelA
 
 //
 func (r *SalesInvoiceCancelAndSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -76,7 +76,7 @@ func (b *SalesInvoiceCancelRequestBuilder) Request() *SalesInvoiceCancelRequest 
 
 //
 func (r *SalesInvoiceCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -107,7 +107,7 @@ func (b *SalesInvoicePostAndSendRequestBuilder) Request() *SalesInvoicePostAndSe
 
 //
 func (r *SalesInvoicePostAndSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -138,7 +138,7 @@ func (b *SalesInvoicePostRequestBuilder) Request() *SalesInvoicePostRequest {
 
 //
 func (r *SalesInvoicePostRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -169,7 +169,7 @@ func (b *SalesInvoiceSendRequestBuilder) Request() *SalesInvoiceSendRequest {
 
 //
 func (r *SalesInvoiceSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

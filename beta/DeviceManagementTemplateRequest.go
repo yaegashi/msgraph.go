@@ -24,7 +24,7 @@ type DeviceManagementTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementTemplate
 func (r *DeviceManagementTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceManagementTemplateRequest) Update(reqObj *DeviceManagementTemplat
 
 // Delete performs DELETE request for DeviceManagementTemplate
 func (r *DeviceManagementTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Categories returns request builder for DeviceManagementTemplateSettingCategory collection
@@ -76,13 +76,13 @@ type DeviceManagementTemplateCategoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementTemplateSettingCategory collection
 func (r *DeviceManagementTemplateCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplateSettingCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementTemplateSettingCategory collection
 func (r *DeviceManagementTemplateCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplateSettingCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type DeviceManagementTemplateMigratableToCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementTemplate collection
 func (r *DeviceManagementTemplateMigratableToCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementTemplate collection
 func (r *DeviceManagementTemplateMigratableToCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type DeviceManagementTemplateSettingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementSettingInstance collection
 func (r *DeviceManagementTemplateSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
 func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

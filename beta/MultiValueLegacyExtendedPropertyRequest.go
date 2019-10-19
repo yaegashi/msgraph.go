@@ -17,7 +17,7 @@ type MultiValueLegacyExtendedPropertyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MultiValueLegacyExtendedProperty
 func (r *MultiValueLegacyExtendedPropertyRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MultiValueLegacyExtendedPropertyRequest) Update(reqObj *MultiValueLegac
 
 // Delete performs DELETE request for MultiValueLegacyExtendedProperty
 func (r *MultiValueLegacyExtendedPropertyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

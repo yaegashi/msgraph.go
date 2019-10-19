@@ -17,7 +17,7 @@ type InferenceClassificationOverrideRequest struct{ BaseRequest }
 
 // Do performs HTTP request for InferenceClassificationOverride
 func (r *InferenceClassificationOverrideRequest) Do(method, path string, reqObj interface{}) (resObj *InferenceClassificationOverride, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *InferenceClassificationOverrideRequest) Update(reqObj *InferenceClassif
 
 // Delete performs DELETE request for InferenceClassificationOverride
 func (r *InferenceClassificationOverrideRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

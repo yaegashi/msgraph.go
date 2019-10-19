@@ -17,7 +17,7 @@ type AnonymousIPRiskEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AnonymousIPRiskEvent
 func (r *AnonymousIPRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *AnonymousIPRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AnonymousIPRiskEventRequest) Update(reqObj *AnonymousIPRiskEvent) (*Ano
 
 // Delete performs DELETE request for AnonymousIPRiskEvent
 func (r *AnonymousIPRiskEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

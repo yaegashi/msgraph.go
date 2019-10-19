@@ -17,7 +17,7 @@ type WorkbookNamedItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookNamedItem
 func (r *WorkbookNamedItemRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookNamedItemRequest) Update(reqObj *WorkbookNamedItem) (*WorkbookN
 
 // Delete performs DELETE request for WorkbookNamedItem
 func (r *WorkbookNamedItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Worksheet is navigation property

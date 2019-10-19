@@ -17,7 +17,7 @@ type DataPolicyOperationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DataPolicyOperation
 func (r *DataPolicyOperationRequest) Do(method, path string, reqObj interface{}) (resObj *DataPolicyOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DataPolicyOperationRequest) Update(reqObj *DataPolicyOperation) (*DataP
 
 // Delete performs DELETE request for DataPolicyOperation
 func (r *DataPolicyOperationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

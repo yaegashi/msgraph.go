@@ -24,7 +24,7 @@ type SensitivityLabelRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SensitivityLabel
 func (r *SensitivityLabelRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SensitivityLabelRequest) Update(reqObj *SensitivityLabel) (*Sensitivity
 
 // Delete performs DELETE request for SensitivityLabel
 func (r *SensitivityLabelRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Sublabels returns request builder for SensitivityLabel collection
@@ -76,13 +76,13 @@ type SensitivityLabelSublabelsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SensitivityLabel collection
 func (r *SensitivityLabelSublabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SensitivityLabel collection
 func (r *SensitivityLabelSublabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

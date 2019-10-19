@@ -24,7 +24,7 @@ type DeviceCompliancePolicySettingStateSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceCompliancePolicySettingStateSummary
 func (r *DeviceCompliancePolicySettingStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceCompliancePolicySettingStateSummaryRequest) Update(reqObj *Device
 
 // Delete performs DELETE request for DeviceCompliancePolicySettingStateSummary
 func (r *DeviceCompliancePolicySettingStateSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeviceComplianceSettingStates returns request builder for DeviceComplianceSettingState collection
@@ -76,13 +76,13 @@ type DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesColle
 
 // Do performs HTTP request for DeviceComplianceSettingState collection
 func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceSettingState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceComplianceSettingState collection
 func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceSettingState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

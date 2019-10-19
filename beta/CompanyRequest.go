@@ -24,7 +24,7 @@ type CompanyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Company
 func (r *CompanyRequest) Do(method, path string, reqObj interface{}) (resObj *Company, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *CompanyRequest) Update(reqObj *Company) (*Company, error) {
 
 // Delete performs DELETE request for Company
 func (r *CompanyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Accounts returns request builder for Account collection
@@ -76,13 +76,13 @@ type CompanyAccountsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Account collection
 func (r *CompanyAccountsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Account, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Account collection
 func (r *CompanyAccountsCollectionRequest) Paging(method, path string, obj interface{}) ([]Account, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type CompanyAgedAccountsPayableCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AgedAccountsPayable collection
 func (r *CompanyAgedAccountsPayableCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgedAccountsPayable, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AgedAccountsPayable collection
 func (r *CompanyAgedAccountsPayableCollectionRequest) Paging(method, path string, obj interface{}) ([]AgedAccountsPayable, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type CompanyAgedAccountsReceivableCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AgedAccountsReceivable collection
 func (r *CompanyAgedAccountsReceivableCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgedAccountsReceivable, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AgedAccountsReceivable collection
 func (r *CompanyAgedAccountsReceivableCollectionRequest) Paging(method, path string, obj interface{}) ([]AgedAccountsReceivable, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type CompanyCompanyInformationCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CompanyInformation collection
 func (r *CompanyCompanyInformationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CompanyInformation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CompanyInformation collection
 func (r *CompanyCompanyInformationCollectionRequest) Paging(method, path string, obj interface{}) ([]CompanyInformation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type CompanyCountriesRegionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CountryRegion collection
 func (r *CompanyCountriesRegionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CountryRegion, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CountryRegion collection
 func (r *CompanyCountriesRegionsCollectionRequest) Paging(method, path string, obj interface{}) ([]CountryRegion, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -511,13 +511,13 @@ type CompanyCurrenciesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Currency collection
 func (r *CompanyCurrenciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Currency, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Currency collection
 func (r *CompanyCurrenciesCollectionRequest) Paging(method, path string, obj interface{}) ([]Currency, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -598,13 +598,13 @@ type CompanyCustomerPaymentJournalsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CustomerPaymentJournal collection
 func (r *CompanyCustomerPaymentJournalsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPaymentJournal, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CustomerPaymentJournal collection
 func (r *CompanyCustomerPaymentJournalsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPaymentJournal, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -685,13 +685,13 @@ type CompanyCustomerPaymentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CustomerPayment collection
 func (r *CompanyCustomerPaymentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CustomerPayment collection
 func (r *CompanyCustomerPaymentsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPayment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -772,13 +772,13 @@ type CompanyCustomersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Customer collection
 func (r *CompanyCustomersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Customer, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Customer collection
 func (r *CompanyCustomersCollectionRequest) Paging(method, path string, obj interface{}) ([]Customer, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -859,13 +859,13 @@ type CompanyDimensionValuesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DimensionValue collection
 func (r *CompanyDimensionValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DimensionValue, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DimensionValue collection
 func (r *CompanyDimensionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]DimensionValue, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -946,13 +946,13 @@ type CompanyDimensionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Dimension collection
 func (r *CompanyDimensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Dimension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Dimension collection
 func (r *CompanyDimensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Dimension, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1033,13 +1033,13 @@ type CompanyEmployeesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Employee collection
 func (r *CompanyEmployeesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Employee, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Employee collection
 func (r *CompanyEmployeesCollectionRequest) Paging(method, path string, obj interface{}) ([]Employee, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1120,13 +1120,13 @@ type CompanyGeneralLedgerEntriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GeneralLedgerEntry collection
 func (r *CompanyGeneralLedgerEntriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GeneralLedgerEntry, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GeneralLedgerEntry collection
 func (r *CompanyGeneralLedgerEntriesCollectionRequest) Paging(method, path string, obj interface{}) ([]GeneralLedgerEntry, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1207,13 +1207,13 @@ type CompanyItemCategoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ItemCategory collection
 func (r *CompanyItemCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ItemCategory collection
 func (r *CompanyItemCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1294,13 +1294,13 @@ type CompanyItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Item collection
 func (r *CompanyItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Item, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Item collection
 func (r *CompanyItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]Item, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1381,13 +1381,13 @@ type CompanyJournalLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for JournalLine collection
 func (r *CompanyJournalLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JournalLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for JournalLine collection
 func (r *CompanyJournalLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]JournalLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1468,13 +1468,13 @@ type CompanyJournalsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Journal collection
 func (r *CompanyJournalsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Journal, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Journal collection
 func (r *CompanyJournalsCollectionRequest) Paging(method, path string, obj interface{}) ([]Journal, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1555,13 +1555,13 @@ type CompanyPaymentMethodsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PaymentMethod collection
 func (r *CompanyPaymentMethodsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PaymentMethod, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PaymentMethod collection
 func (r *CompanyPaymentMethodsCollectionRequest) Paging(method, path string, obj interface{}) ([]PaymentMethod, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1642,13 +1642,13 @@ type CompanyPaymentTermsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PaymentTerm collection
 func (r *CompanyPaymentTermsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PaymentTerm, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PaymentTerm collection
 func (r *CompanyPaymentTermsCollectionRequest) Paging(method, path string, obj interface{}) ([]PaymentTerm, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1729,13 +1729,13 @@ type CompanyPictureCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Picture collection
 func (r *CompanyPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Picture collection
 func (r *CompanyPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1816,13 +1816,13 @@ type CompanyPurchaseInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PurchaseInvoiceLine collection
 func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoiceLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PurchaseInvoiceLine collection
 func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoiceLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1903,13 +1903,13 @@ type CompanyPurchaseInvoicesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PurchaseInvoice collection
 func (r *CompanyPurchaseInvoicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PurchaseInvoice collection
 func (r *CompanyPurchaseInvoicesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoice, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1990,13 +1990,13 @@ type CompanySalesCreditMemoLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesCreditMemoLine collection
 func (r *CompanySalesCreditMemoLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesCreditMemoLine collection
 func (r *CompanySalesCreditMemoLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2077,13 +2077,13 @@ type CompanySalesCreditMemosCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesCreditMemo collection
 func (r *CompanySalesCreditMemosCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemo, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesCreditMemo collection
 func (r *CompanySalesCreditMemosCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemo, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2164,13 +2164,13 @@ type CompanySalesInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesInvoiceLine collection
 func (r *CompanySalesInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesInvoiceLine collection
 func (r *CompanySalesInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2251,13 +2251,13 @@ type CompanySalesInvoicesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesInvoice collection
 func (r *CompanySalesInvoicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesInvoice collection
 func (r *CompanySalesInvoicesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoice, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2338,13 +2338,13 @@ type CompanySalesOrderLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesOrderLine collection
 func (r *CompanySalesOrderLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrderLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesOrderLine collection
 func (r *CompanySalesOrderLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrderLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2425,13 +2425,13 @@ type CompanySalesOrdersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesOrder collection
 func (r *CompanySalesOrdersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesOrder collection
 func (r *CompanySalesOrdersCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrder, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2512,13 +2512,13 @@ type CompanySalesQuoteLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesQuoteLine collection
 func (r *CompanySalesQuoteLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuoteLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesQuoteLine collection
 func (r *CompanySalesQuoteLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuoteLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2599,13 +2599,13 @@ type CompanySalesQuotesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesQuote collection
 func (r *CompanySalesQuotesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuote, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesQuote collection
 func (r *CompanySalesQuotesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuote, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2686,13 +2686,13 @@ type CompanyShipmentMethodsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ShipmentMethod collection
 func (r *CompanyShipmentMethodsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ShipmentMethod, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ShipmentMethod collection
 func (r *CompanyShipmentMethodsCollectionRequest) Paging(method, path string, obj interface{}) ([]ShipmentMethod, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2773,13 +2773,13 @@ type CompanyTaxAreasCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TaxArea collection
 func (r *CompanyTaxAreasCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TaxArea, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TaxArea collection
 func (r *CompanyTaxAreasCollectionRequest) Paging(method, path string, obj interface{}) ([]TaxArea, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2860,13 +2860,13 @@ type CompanyTaxGroupsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TaxGroup collection
 func (r *CompanyTaxGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TaxGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TaxGroup collection
 func (r *CompanyTaxGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]TaxGroup, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2947,13 +2947,13 @@ type CompanyUnitsOfMeasureCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UnitOfMeasure collection
 func (r *CompanyUnitsOfMeasureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnitOfMeasure, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UnitOfMeasure collection
 func (r *CompanyUnitsOfMeasureCollectionRequest) Paging(method, path string, obj interface{}) ([]UnitOfMeasure, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3034,13 +3034,13 @@ type CompanyVendorsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Vendor collection
 func (r *CompanyVendorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Vendor, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Vendor collection
 func (r *CompanyVendorsCollectionRequest) Paging(method, path string, obj interface{}) ([]Vendor, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

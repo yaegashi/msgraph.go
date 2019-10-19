@@ -24,7 +24,7 @@ type WindowsDomainJoinConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsDomainJoinConfiguration
 func (r *WindowsDomainJoinConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsDomainJoinConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsDomainJoinConfigurationRequest) Update(reqObj *WindowsDomainJoin
 
 // Delete performs DELETE request for WindowsDomainJoinConfiguration
 func (r *WindowsDomainJoinConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // NetworkAccessConfigurations returns request builder for DeviceConfiguration collection
@@ -76,13 +76,13 @@ type WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest 
 
 // Do performs HTTP request for DeviceConfiguration collection
 func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfiguration collection
 func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

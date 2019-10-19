@@ -17,7 +17,7 @@ type FileSecurityProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for FileSecurityProfile
 func (r *FileSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *FileSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *FileSecurityProfileRequest) Update(reqObj *FileSecurityProfile) (*FileS
 
 // Delete performs DELETE request for FileSecurityProfile
 func (r *FileSecurityProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

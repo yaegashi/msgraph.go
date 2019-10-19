@@ -9,34 +9,6 @@ import (
 	"net/http"
 )
 
-// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
-type DirectoryObjectCollectionGetByIDsRequestParameter struct {
-	// IDs undocumented
-	IDs []string `json:"ids,omitempty"`
-	// Types undocumented
-	Types []string `json:"types,omitempty"`
-}
-
-// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
-type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
-	// EntityType undocumented
-	EntityType *string `json:"entityType,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserID undocumented
-	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-// DirectoryObjectCollectionGetUserOwnedObjectsRequestParameter undocumented
-type DirectoryObjectCollectionGetUserOwnedObjectsRequestParameter struct {
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-}
-
 // DirectoryObjectCheckMemberGroupsRequestParameter undocumented
 type DirectoryObjectCheckMemberGroupsRequestParameter struct {
 	// GroupIDs undocumented
@@ -63,6 +35,34 @@ type DirectoryObjectGetMemberObjectsRequestParameter struct {
 
 // DirectoryObjectRestoreRequestParameter undocumented
 type DirectoryObjectRestoreRequestParameter struct {
+}
+
+// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
+type DirectoryObjectCollectionGetByIDsRequestParameter struct {
+	// IDs undocumented
+	IDs []string `json:"ids,omitempty"`
+	// Types undocumented
+	Types []string `json:"types,omitempty"`
+}
+
+// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
+type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
+	// EntityType undocumented
+	EntityType *string `json:"entityType,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
+// DirectoryObjectCollectionGetUserOwnedObjectsRequestParameter undocumented
+type DirectoryObjectCollectionGetUserOwnedObjectsRequestParameter struct {
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }
 
 //
@@ -368,13 +368,13 @@ func (b *DirectoryObjectCollectionGetByIDsRequestBuilder) Request() *DirectoryOb
 
 //
 func (r *DirectoryObjectCollectionGetByIDsRequest) Do(method, path string, reqObj interface{}) (resObj *[]DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(method, path string, obj interface{}) ([][]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -724,7 +724,7 @@ func (b *DirectoryObjectCollectionValidatePropertiesRequestBuilder) Request() *D
 
 //
 func (r *DirectoryObjectCollectionValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -1035,7 +1035,7 @@ func (b *DirectoryObjectCollectionGetUserOwnedObjectsRequestBuilder) Request() *
 
 //
 func (r *DirectoryObjectCollectionGetUserOwnedObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -1067,13 +1067,13 @@ func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObj
 
 //
 func (r *DirectoryObjectCheckMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1143,13 +1143,13 @@ func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryOb
 
 //
 func (r *DirectoryObjectCheckMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1219,13 +1219,13 @@ func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjec
 
 //
 func (r *DirectoryObjectGetMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1295,13 +1295,13 @@ func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObje
 
 //
 func (r *DirectoryObjectGetMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1371,7 +1371,7 @@ func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestore
 
 //
 func (r *DirectoryObjectRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

@@ -17,7 +17,7 @@ type EmbeddedSIMActivationCodePoolAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EmbeddedSIMActivationCodePoolAssignment
 func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Update(reqObj *Embedded
 
 // Delete performs DELETE request for EmbeddedSIMActivationCodePoolAssignment
 func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

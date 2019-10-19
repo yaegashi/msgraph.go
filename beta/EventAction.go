@@ -73,7 +73,7 @@ func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequ
 
 //
 func (r *EventDismissReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -104,7 +104,7 @@ func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderReques
 
 //
 func (r *EventSnoozeReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -135,7 +135,7 @@ func (b *EventForwardRequestBuilder) Request() *EventForwardRequest {
 
 //
 func (r *EventForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -166,7 +166,7 @@ func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
 
 //
 func (r *EventAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -197,7 +197,7 @@ func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
 
 //
 func (r *EventDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -228,7 +228,7 @@ func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAccept
 
 //
 func (r *EventTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -259,7 +259,7 @@ func (b *EventCancelRequestBuilder) Request() *EventCancelRequest {
 
 //
 func (r *EventCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

@@ -35,7 +35,7 @@ func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClear
 
 //
 func (r *WorkbookChartFillClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -66,7 +66,7 @@ func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartF
 
 //
 func (r *WorkbookChartFillSetSolidColorRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

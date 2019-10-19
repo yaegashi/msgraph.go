@@ -17,7 +17,7 @@ type MdmWindowsInformationProtectionPolicyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MdmWindowsInformationProtectionPolicy
 func (r *MdmWindowsInformationProtectionPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *MdmWindowsInformationProtectionPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MdmWindowsInformationProtectionPolicyRequest) Update(reqObj *MdmWindows
 
 // Delete performs DELETE request for MdmWindowsInformationProtectionPolicy
 func (r *MdmWindowsInformationProtectionPolicyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

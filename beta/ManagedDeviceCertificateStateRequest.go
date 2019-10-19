@@ -17,7 +17,7 @@ type ManagedDeviceCertificateStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDeviceCertificateState
 func (r *ManagedDeviceCertificateStateRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedDeviceCertificateStateRequest) Update(reqObj *ManagedDeviceCerti
 
 // Delete performs DELETE request for ManagedDeviceCertificateState
 func (r *ManagedDeviceCertificateStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

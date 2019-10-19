@@ -37,7 +37,7 @@ func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePo
 
 //
 func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -69,7 +69,7 @@ func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecycl
 
 //
 func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

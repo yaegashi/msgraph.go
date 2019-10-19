@@ -60,13 +60,13 @@ func (b *SiteCollectionAddRequestBuilder) Request() *SiteCollectionAddRequest {
 
 //
 func (r *SiteCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *[]Site, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *SiteCollectionAddRequest) Paging(method, path string, obj interface{}) ([][]Site, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -152,13 +152,13 @@ func (b *SiteCollectionRemoveRequestBuilder) Request() *SiteCollectionRemoveRequ
 
 //
 func (r *SiteCollectionRemoveRequest) Do(method, path string, reqObj interface{}) (resObj *[]Site, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *SiteCollectionRemoveRequest) Paging(method, path string, obj interface{}) ([][]Site, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

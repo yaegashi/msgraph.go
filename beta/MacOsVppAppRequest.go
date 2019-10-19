@@ -24,7 +24,7 @@ type MacOsVppAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MacOsVppApp
 func (r *MacOsVppAppRequest) Do(method, path string, reqObj interface{}) (resObj *MacOsVppApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *MacOsVppAppRequest) Update(reqObj *MacOsVppApp) (*MacOsVppApp, error) {
 
 // Delete performs DELETE request for MacOsVppApp
 func (r *MacOsVppAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AssignedLicenses returns request builder for MacOsVppAppAssignedLicense collection
@@ -76,13 +76,13 @@ type MacOsVppAppAssignedLicensesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MacOsVppAppAssignedLicense collection
 func (r *MacOsVppAppAssignedLicensesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MacOsVppAppAssignedLicense, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MacOsVppAppAssignedLicense collection
 func (r *MacOsVppAppAssignedLicensesCollectionRequest) Paging(method, path string, obj interface{}) ([]MacOsVppAppAssignedLicense, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

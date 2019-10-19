@@ -43,7 +43,7 @@ func (b *DeviceManagementEnableLegacyPcManagementRequestBuilder) Request() *Devi
 
 //
 func (r *DeviceManagementEnableLegacyPcManagementRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -74,7 +74,7 @@ func (b *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilde
 
 //
 func (r *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -105,7 +105,7 @@ func (b *DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder) Re
 
 //
 func (r *DeviceManagementSendCustomNotificationToCompanyPortalRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

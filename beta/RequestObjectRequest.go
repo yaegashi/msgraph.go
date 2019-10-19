@@ -24,7 +24,7 @@ type RequestObjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RequestObject
 func (r *RequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *RequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *RequestObjectRequest) Update(reqObj *RequestObject) (*RequestObject, er
 
 // Delete performs DELETE request for RequestObject
 func (r *RequestObjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Decisions returns request builder for AccessReviewDecision collection
@@ -76,13 +76,13 @@ type RequestObjectDecisionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewDecision collection
 func (r *RequestObjectDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *RequestObjectDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type RequestObjectMyDecisionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewDecision collection
 func (r *RequestObjectMyDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *RequestObjectMyDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

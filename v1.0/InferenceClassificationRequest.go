@@ -24,7 +24,7 @@ type InferenceClassificationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for InferenceClassification
 func (r *InferenceClassificationRequest) Do(method, path string, reqObj interface{}) (resObj *InferenceClassification, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *InferenceClassificationRequest) Update(reqObj *InferenceClassification)
 
 // Delete performs DELETE request for InferenceClassification
 func (r *InferenceClassificationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Overrides returns request builder for InferenceClassificationOverride collection
@@ -76,13 +76,13 @@ type InferenceClassificationOverridesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for InferenceClassificationOverride collection
 func (r *InferenceClassificationOverridesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *InferenceClassificationOverride, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for InferenceClassificationOverride collection
 func (r *InferenceClassificationOverridesCollectionRequest) Paging(method, path string, obj interface{}) ([]InferenceClassificationOverride, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

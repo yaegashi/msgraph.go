@@ -17,7 +17,7 @@ type WindowsManagementAppHealthStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsManagementAppHealthState
 func (r *WindowsManagementAppHealthStateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsManagementAppHealthState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsManagementAppHealthStateRequest) Update(reqObj *WindowsManagemen
 
 // Delete performs DELETE request for WindowsManagementAppHealthState
 func (r *WindowsManagementAppHealthStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

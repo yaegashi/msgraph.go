@@ -24,7 +24,7 @@ type PrivilegedAccessRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedAccess
 func (r *PrivilegedAccessRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedAccess, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PrivilegedAccessRequest) Update(reqObj *PrivilegedAccess) (*PrivilegedA
 
 // Delete performs DELETE request for PrivilegedAccess
 func (r *PrivilegedAccessRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Resources returns request builder for GovernanceResource collection
@@ -76,13 +76,13 @@ type PrivilegedAccessResourcesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceResource collection
 func (r *PrivilegedAccessResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceResource collection
 func (r *PrivilegedAccessResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type PrivilegedAccessRoleAssignmentRequestsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for GovernanceRoleAssignmentRequestObject collection
 func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
 func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type PrivilegedAccessRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleAssignment collection
 func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleAssignment collection
 func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type PrivilegedAccessRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleDefinition collection
 func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleDefinition collection
 func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type PrivilegedAccessRoleSettingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleSetting collection
 func (r *PrivilegedAccessRoleSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleSetting collection
 func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleSetting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

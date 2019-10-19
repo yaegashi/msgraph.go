@@ -24,7 +24,7 @@ type IntuneBrandingProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IntuneBrandingProfile
 func (r *IntuneBrandingProfileRequest) Do(method, path string, reqObj interface{}) (resObj *IntuneBrandingProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *IntuneBrandingProfileRequest) Update(reqObj *IntuneBrandingProfile) (*I
 
 // Delete performs DELETE request for IntuneBrandingProfile
 func (r *IntuneBrandingProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for IntuneBrandingProfileAssignment collection
@@ -76,13 +76,13 @@ type IntuneBrandingProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IntuneBrandingProfileAssignment collection
 func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IntuneBrandingProfileAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IntuneBrandingProfileAssignment collection
 func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]IntuneBrandingProfileAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

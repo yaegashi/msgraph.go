@@ -24,7 +24,7 @@ type TargetedManagedAppProtectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TargetedManagedAppProtection
 func (r *TargetedManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppProtection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TargetedManagedAppProtectionRequest) Update(reqObj *TargetedManagedAppP
 
 // Delete performs DELETE request for TargetedManagedAppProtection
 func (r *TargetedManagedAppProtectionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection
@@ -76,13 +76,13 @@ type TargetedManagedAppProtectionAssignmentsCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for TargetedManagedAppPolicyAssignment collection
 func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
 func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type ExtensionPropertyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ExtensionProperty
 func (r *ExtensionPropertyRequest) Do(method, path string, reqObj interface{}) (resObj *ExtensionProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ExtensionPropertyRequest) Update(reqObj *ExtensionProperty) (*Extension
 
 // Delete performs DELETE request for ExtensionProperty
 func (r *ExtensionPropertyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

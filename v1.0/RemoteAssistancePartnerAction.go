@@ -33,7 +33,7 @@ func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *Remote
 
 //
 func (r *RemoteAssistancePartnerBeginOnboardingRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -64,7 +64,7 @@ func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssis
 
 //
 func (r *RemoteAssistancePartnerDisconnectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

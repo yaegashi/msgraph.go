@@ -17,7 +17,7 @@ type PayloadResponseRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PayloadResponse
 func (r *PayloadResponseRequest) Do(method, path string, reqObj interface{}) (resObj *PayloadResponse, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PayloadResponseRequest) Update(reqObj *PayloadResponse) (*PayloadRespon
 
 // Delete performs DELETE request for PayloadResponse
 func (r *PayloadResponseRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

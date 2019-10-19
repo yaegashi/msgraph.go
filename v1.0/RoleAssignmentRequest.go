@@ -17,7 +17,7 @@ type RoleAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleAssignment
 func (r *RoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *RoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *RoleAssignmentRequest) Update(reqObj *RoleAssignment) (*RoleAssignment,
 
 // Delete performs DELETE request for RoleAssignment
 func (r *RoleAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // RoleDefinition is navigation property

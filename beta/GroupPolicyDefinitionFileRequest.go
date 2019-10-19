@@ -24,7 +24,7 @@ type GroupPolicyDefinitionFileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupPolicyDefinitionFile
 func (r *GroupPolicyDefinitionFileRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinitionFile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *GroupPolicyDefinitionFileRequest) Update(reqObj *GroupPolicyDefinitionF
 
 // Delete performs DELETE request for GroupPolicyDefinitionFile
 func (r *GroupPolicyDefinitionFileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Definitions returns request builder for GroupPolicyDefinition collection
@@ -76,13 +76,13 @@ type GroupPolicyDefinitionFileDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupPolicyDefinition collection
 func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GroupPolicyDefinition collection
 func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

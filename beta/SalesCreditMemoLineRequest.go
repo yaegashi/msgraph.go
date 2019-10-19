@@ -17,7 +17,7 @@ type SalesCreditMemoLineRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesCreditMemoLine
 func (r *SalesCreditMemoLineRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *SalesCreditMemoLineRequest) Update(reqObj *SalesCreditMemoLine) (*Sales
 
 // Delete performs DELETE request for SalesCreditMemoLine
 func (r *SalesCreditMemoLineRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Account is navigation property

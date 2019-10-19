@@ -24,7 +24,7 @@ type DeviceEnrollmentConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceEnrollmentConfiguration
 func (r *DeviceEnrollmentConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceEnrollmentConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceEnrollmentConfigurationRequest) Update(reqObj *DeviceEnrollmentCo
 
 // Delete performs DELETE request for DeviceEnrollmentConfiguration
 func (r *DeviceEnrollmentConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for EnrollmentConfigurationAssignment collection
@@ -76,13 +76,13 @@ type DeviceEnrollmentConfigurationAssignmentsCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for EnrollmentConfigurationAssignment collection
 func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EnrollmentConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EnrollmentConfigurationAssignment collection
 func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EnrollmentConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

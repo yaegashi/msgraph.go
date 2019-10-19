@@ -24,7 +24,7 @@ type AppleUserInitiatedEnrollmentProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AppleUserInitiatedEnrollmentProfile
 func (r *AppleUserInitiatedEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AppleUserInitiatedEnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AppleUserInitiatedEnrollmentProfileRequest) Update(reqObj *AppleUserIni
 
 // Delete performs DELETE request for AppleUserInitiatedEnrollmentProfile
 func (r *AppleUserInitiatedEnrollmentProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for AppleEnrollmentProfileAssignment collection
@@ -76,13 +76,13 @@ type AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest struct{ Bas
 
 // Do performs HTTP request for AppleEnrollmentProfileAssignment collection
 func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AppleEnrollmentProfileAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AppleEnrollmentProfileAssignment collection
 func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppleEnrollmentProfileAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

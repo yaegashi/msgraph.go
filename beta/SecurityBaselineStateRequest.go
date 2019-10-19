@@ -24,7 +24,7 @@ type SecurityBaselineStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityBaselineState
 func (r *SecurityBaselineStateRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SecurityBaselineStateRequest) Update(reqObj *SecurityBaselineState) (*S
 
 // Delete performs DELETE request for SecurityBaselineState
 func (r *SecurityBaselineStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // SettingStates returns request builder for SecurityBaselineSettingState collection
@@ -76,13 +76,13 @@ type SecurityBaselineStateSettingStatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityBaselineSettingState collection
 func (r *SecurityBaselineStateSettingStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineSettingState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SecurityBaselineSettingState collection
 func (r *SecurityBaselineStateSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineSettingState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

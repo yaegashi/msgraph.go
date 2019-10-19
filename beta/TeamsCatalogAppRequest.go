@@ -17,7 +17,7 @@ type TeamsCatalogAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsCatalogApp
 func (r *TeamsCatalogAppRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsCatalogApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TeamsCatalogAppRequest) Update(reqObj *TeamsCatalogApp) (*TeamsCatalogA
 
 // Delete performs DELETE request for TeamsCatalogApp
 func (r *TeamsCatalogAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

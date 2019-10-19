@@ -24,7 +24,7 @@ type WindowsFeatureUpdateProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsFeatureUpdateProfile
 func (r *WindowsFeatureUpdateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsFeatureUpdateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsFeatureUpdateProfileRequest) Update(reqObj *WindowsFeatureUpdate
 
 // Delete performs DELETE request for WindowsFeatureUpdateProfile
 func (r *WindowsFeatureUpdateProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for WindowsFeatureUpdateProfileAssignment collection
@@ -76,13 +76,13 @@ type WindowsFeatureUpdateProfileAssignmentsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for WindowsFeatureUpdateProfileAssignment collection
 func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsFeatureUpdateProfileAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsFeatureUpdateProfileAssignment collection
 func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsFeatureUpdateProfileAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest struct{ Base
 
 // Do performs HTTP request for WindowsUpdateState collection
 func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsUpdateState collection
 func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsUpdateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

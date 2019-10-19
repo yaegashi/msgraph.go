@@ -17,7 +17,7 @@ type IOSUpdateDeviceStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSUpdateDeviceStatus
 func (r *IOSUpdateDeviceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *IOSUpdateDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *IOSUpdateDeviceStatusRequest) Update(reqObj *IOSUpdateDeviceStatus) (*I
 
 // Delete performs DELETE request for IOSUpdateDeviceStatus
 func (r *IOSUpdateDeviceStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

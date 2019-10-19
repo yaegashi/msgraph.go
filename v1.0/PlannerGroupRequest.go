@@ -24,7 +24,7 @@ type PlannerGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerGroup
 func (r *PlannerGroupRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PlannerGroupRequest) Update(reqObj *PlannerGroup) (*PlannerGroup, error
 
 // Delete performs DELETE request for PlannerGroup
 func (r *PlannerGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Plans returns request builder for PlannerPlan collection
@@ -76,13 +76,13 @@ type PlannerGroupPlansCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerPlan collection
 func (r *PlannerGroupPlansCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerPlan, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PlannerPlan collection
 func (r *PlannerGroupPlansCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerPlan, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

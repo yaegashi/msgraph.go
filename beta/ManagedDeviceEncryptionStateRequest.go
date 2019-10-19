@@ -17,7 +17,7 @@ type ManagedDeviceEncryptionStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDeviceEncryptionState
 func (r *ManagedDeviceEncryptionStateRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceEncryptionState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedDeviceEncryptionStateRequest) Update(reqObj *ManagedDeviceEncryp
 
 // Delete performs DELETE request for ManagedDeviceEncryptionState
 func (r *ManagedDeviceEncryptionStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

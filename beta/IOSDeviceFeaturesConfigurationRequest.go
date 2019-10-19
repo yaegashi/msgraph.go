@@ -17,7 +17,7 @@ type IOSDeviceFeaturesConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSDeviceFeaturesConfiguration
 func (r *IOSDeviceFeaturesConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSDeviceFeaturesConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *IOSDeviceFeaturesConfigurationRequest) Update(reqObj *IOSDeviceFeatures
 
 // Delete performs DELETE request for IOSDeviceFeaturesConfiguration
 func (r *IOSDeviceFeaturesConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property

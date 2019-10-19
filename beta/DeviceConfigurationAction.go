@@ -9,6 +9,18 @@ import (
 	"net/http"
 )
 
+// DeviceConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
+}
+
+// DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter undocumented
+type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter struct {
+	// DeviceConfigurationIDs undocumented
+	DeviceConfigurationIDs []string `json:"deviceConfigurationIds,omitempty"`
+}
+
 // DeviceConfigurationAssignRequestParameter undocumented
 type DeviceConfigurationAssignRequestParameter struct {
 	// DeviceConfigurationGroupAssignments undocumented
@@ -29,16 +41,142 @@ type DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter struct {
 	AssignedAccessMultiModeProfiles []WindowsAssignedAccessProfile `json:"assignedAccessMultiModeProfiles,omitempty"`
 }
 
-// DeviceConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
+//
+type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
+	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
 }
 
-// DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter undocumented
-type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter struct {
-	// DeviceConfigurationIDs undocumented
-	DeviceConfigurationIDs []string `json:"deviceConfigurationIds,omitempty"`
+//
+type DeviceConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
+	return &DeviceConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
+	err = r.JSONRequest(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceConfigurationAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]DeviceConfigurationAssignment
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder struct{ BaseRequestBuilder }
+
+// WindowsPrivacyAccessControls action undocumented
+func (b *DeviceConfigurationRequestBuilder) WindowsPrivacyAccessControls(reqObj *DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter) *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder {
+	bb := &DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/windowsPrivacyAccessControls"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceConfigurationWindowsPrivacyAccessControlsRequest struct{ BaseRequest }
+
+//
+func (b *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder) Request() *DeviceConfigurationWindowsPrivacyAccessControlsRequest {
+	return &DeviceConfigurationWindowsPrivacyAccessControlsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
+type DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder struct{ BaseRequestBuilder }
+
+// AssignedAccessMultiModeProfiles action undocumented
+func (b *DeviceConfigurationRequestBuilder) AssignedAccessMultiModeProfiles(reqObj *DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter) *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder {
+	bb := &DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assignedAccessMultiModeProfiles"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceConfigurationAssignedAccessMultiModeProfilesRequest struct{ BaseRequest }
+
+//
+func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Request() *DeviceConfigurationAssignedAccessMultiModeProfilesRequest {
+	return &DeviceConfigurationAssignedAccessMultiModeProfilesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -72,13 +210,13 @@ func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *
 
 //
 func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -156,13 +294,13 @@ func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) 
 
 //
 func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationTargetedUserAndDevice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -207,142 +345,4 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Get() (
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
-	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
-	return &DeviceConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceConfigurationAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]DeviceConfigurationAssignment
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder struct{ BaseRequestBuilder }
-
-// WindowsPrivacyAccessControls action undocumented
-func (b *DeviceConfigurationRequestBuilder) WindowsPrivacyAccessControls(reqObj *DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter) *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder {
-	bb := &DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/windowsPrivacyAccessControls"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationWindowsPrivacyAccessControlsRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder) Request() *DeviceConfigurationWindowsPrivacyAccessControlsRequest {
-	return &DeviceConfigurationWindowsPrivacyAccessControlsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
-type DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder struct{ BaseRequestBuilder }
-
-// AssignedAccessMultiModeProfiles action undocumented
-func (b *DeviceConfigurationRequestBuilder) AssignedAccessMultiModeProfiles(reqObj *DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter) *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder {
-	bb := &DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assignedAccessMultiModeProfiles"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationAssignedAccessMultiModeProfilesRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Request() *DeviceConfigurationAssignedAccessMultiModeProfilesRequest {
-	return &DeviceConfigurationAssignedAccessMultiModeProfilesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
 }

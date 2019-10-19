@@ -24,7 +24,7 @@ type WindowsUniversalAppXRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsUniversalAppX
 func (r *WindowsUniversalAppXRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUniversalAppX, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsUniversalAppXRequest) Update(reqObj *WindowsUniversalAppX) (*Win
 
 // Delete performs DELETE request for WindowsUniversalAppX
 func (r *WindowsUniversalAppXRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // CommittedContainedApps returns request builder for MobileContainedApp collection
@@ -76,13 +76,13 @@ type WindowsUniversalAppXCommittedContainedAppsCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for MobileContainedApp collection
 func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileContainedApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileContainedApp collection
 func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileContainedApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

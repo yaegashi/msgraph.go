@@ -17,7 +17,7 @@ type ColumnLinkRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ColumnLink
 func (r *ColumnLinkRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnLink, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ColumnLinkRequest) Update(reqObj *ColumnLink) (*ColumnLink, error) {
 
 // Delete performs DELETE request for ColumnLink
 func (r *ColumnLinkRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

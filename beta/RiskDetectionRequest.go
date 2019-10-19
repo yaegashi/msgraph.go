@@ -17,7 +17,7 @@ type RiskDetectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RiskDetection
 func (r *RiskDetectionRequest) Do(method, path string, reqObj interface{}) (resObj *RiskDetection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *RiskDetectionRequest) Update(reqObj *RiskDetection) (*RiskDetection, er
 
 // Delete performs DELETE request for RiskDetection
 func (r *RiskDetectionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

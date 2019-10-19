@@ -37,7 +37,7 @@ func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTabl
 
 //
 func (r *WorkbookTableColumnCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

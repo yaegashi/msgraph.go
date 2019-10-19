@@ -17,7 +17,7 @@ type CommsOperationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CommsOperation
 func (r *CommsOperationRequest) Do(method, path string, reqObj interface{}) (resObj *CommsOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *CommsOperationRequest) Update(reqObj *CommsOperation) (*CommsOperation,
 
 // Delete performs DELETE request for CommsOperation
 func (r *CommsOperationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

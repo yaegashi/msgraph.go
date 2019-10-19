@@ -17,7 +17,7 @@ type UserSecurityProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserSecurityProfile
 func (r *UserSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *UserSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *UserSecurityProfileRequest) Update(reqObj *UserSecurityProfile) (*UserS
 
 // Delete performs DELETE request for UserSecurityProfile
 func (r *UserSecurityProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

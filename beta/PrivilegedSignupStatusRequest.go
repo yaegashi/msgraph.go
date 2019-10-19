@@ -17,7 +17,7 @@ type PrivilegedSignupStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedSignupStatus
 func (r *PrivilegedSignupStatusRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedSignupStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PrivilegedSignupStatusRequest) Update(reqObj *PrivilegedSignupStatus) (
 
 // Delete performs DELETE request for PrivilegedSignupStatus
 func (r *PrivilegedSignupStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

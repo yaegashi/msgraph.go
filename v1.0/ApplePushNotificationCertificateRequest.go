@@ -17,7 +17,7 @@ type ApplePushNotificationCertificateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ApplePushNotificationCertificate
 func (r *ApplePushNotificationCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *ApplePushNotificationCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ApplePushNotificationCertificateRequest) Update(reqObj *ApplePushNotifi
 
 // Delete performs DELETE request for ApplePushNotificationCertificate
 func (r *ApplePushNotificationCertificateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

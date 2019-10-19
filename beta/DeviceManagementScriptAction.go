@@ -24,37 +24,6 @@ type DeviceManagementScriptAssignRequestParameter struct {
 }
 
 //
-type DeviceManagementScriptAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceManagementScriptRequestBuilder) Assign(reqObj *DeviceManagementScriptAssignRequestParameter) *DeviceManagementScriptAssignRequestBuilder {
-	bb := &DeviceManagementScriptAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementScriptAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementScriptAssignRequestBuilder) Request() *DeviceManagementScriptAssignRequest {
-	return &DeviceManagementScriptAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementScriptAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceManagementScriptAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
 type DeviceManagementScriptCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -77,13 +46,13 @@ func (b *DeviceManagementScriptCollectionHasPayloadLinksRequestBuilder) Request(
 
 //
 func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -128,4 +97,35 @@ func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Get() ([][]HasP
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
+}
+
+//
+type DeviceManagementScriptAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *DeviceManagementScriptRequestBuilder) Assign(reqObj *DeviceManagementScriptAssignRequestParameter) *DeviceManagementScriptAssignRequestBuilder {
+	bb := &DeviceManagementScriptAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceManagementScriptAssignRequest struct{ BaseRequest }
+
+//
+func (b *DeviceManagementScriptAssignRequestBuilder) Request() *DeviceManagementScriptAssignRequest {
+	return &DeviceManagementScriptAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceManagementScriptAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceManagementScriptAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
 }

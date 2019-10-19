@@ -17,7 +17,7 @@ type DeviceInstallStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceInstallState
 func (r *DeviceInstallStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceInstallState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceInstallStateRequest) Update(reqObj *DeviceInstallState) (*DeviceI
 
 // Delete performs DELETE request for DeviceInstallState
 func (r *DeviceInstallStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -45,7 +45,7 @@ func (b *AndroidForWorkSettingsRequestSignupURLRequestBuilder) Request() *Androi
 
 //
 func (r *AndroidForWorkSettingsRequestSignupURLRequest) Do(method, path string, reqObj interface{}) (resObj *string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -77,7 +77,7 @@ func (b *AndroidForWorkSettingsCompleteSignupRequestBuilder) Request() *AndroidF
 
 //
 func (r *AndroidForWorkSettingsCompleteSignupRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -108,7 +108,7 @@ func (b *AndroidForWorkSettingsSyncAppsRequestBuilder) Request() *AndroidForWork
 
 //
 func (r *AndroidForWorkSettingsSyncAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -139,7 +139,7 @@ func (b *AndroidForWorkSettingsUnbindRequestBuilder) Request() *AndroidForWorkSe
 
 //
 func (r *AndroidForWorkSettingsUnbindRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

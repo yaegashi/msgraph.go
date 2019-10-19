@@ -17,7 +17,7 @@ type PlannerTaskRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerTask
 func (r *PlannerTaskRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerTask, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *PlannerTaskRequest) Update(reqObj *PlannerTask) (*PlannerTask, error) {
 
 // Delete performs DELETE request for PlannerTask
 func (r *PlannerTaskRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AssignedToTaskBoardFormat is navigation property

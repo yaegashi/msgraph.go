@@ -17,7 +17,7 @@ type SignInRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SignIn
 func (r *SignInRequest) Do(method, path string, reqObj interface{}) (resObj *SignIn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SignInRequest) Update(reqObj *SignIn) (*SignIn, error) {
 
 // Delete performs DELETE request for SignIn
 func (r *SignInRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

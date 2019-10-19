@@ -17,7 +17,7 @@ type DriveItemVersionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DriveItemVersion
 func (r *DriveItemVersionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItemVersion, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DriveItemVersionRequest) Update(reqObj *DriveItemVersion) (*DriveItemVe
 
 // Delete performs DELETE request for DriveItemVersion
 func (r *DriveItemVersionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

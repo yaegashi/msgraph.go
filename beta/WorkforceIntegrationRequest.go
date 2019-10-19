@@ -17,7 +17,7 @@ type WorkforceIntegrationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkforceIntegration
 func (r *WorkforceIntegrationRequest) Do(method, path string, reqObj interface{}) (resObj *WorkforceIntegration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkforceIntegrationRequest) Update(reqObj *WorkforceIntegration) (*Wor
 
 // Delete performs DELETE request for WorkforceIntegration
 func (r *WorkforceIntegrationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

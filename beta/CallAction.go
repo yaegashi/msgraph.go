@@ -127,7 +127,7 @@ func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
 
 //
 func (r *CallAnswerRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -158,7 +158,7 @@ func (b *CallCancelMediaProcessingRequestBuilder) Request() *CallCancelMediaProc
 
 //
 func (r *CallCancelMediaProcessingRequest) Do(method, path string, reqObj interface{}) (resObj *CancelMediaProcessingOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -190,7 +190,7 @@ func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenS
 
 //
 func (r *CallChangeScreenSharingRoleRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -221,7 +221,7 @@ func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
 
 //
 func (r *CallMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -253,7 +253,7 @@ func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
 
 //
 func (r *CallPlayPromptRequest) Do(method, path string, reqObj interface{}) (resObj *PlayPromptOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -285,7 +285,7 @@ func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
 
 //
 func (r *CallRecordRequest) Do(method, path string, reqObj interface{}) (resObj *RecordOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -317,7 +317,7 @@ func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
 
 //
 func (r *CallRedirectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -348,7 +348,7 @@ func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
 
 //
 func (r *CallRejectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -379,7 +379,7 @@ func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneReques
 
 //
 func (r *CallSubscribeToToneRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribeToToneOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -411,7 +411,7 @@ func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
 
 //
 func (r *CallTransferRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -442,7 +442,7 @@ func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
 
 //
 func (r *CallUnmuteRequest) Do(method, path string, reqObj interface{}) (resObj *UnmuteParticipantOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

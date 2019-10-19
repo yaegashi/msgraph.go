@@ -24,7 +24,7 @@ type MobileAppTroubleshootingEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppTroubleshootingEvent
 func (r *MobileAppTroubleshootingEventRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppTroubleshootingEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *MobileAppTroubleshootingEventRequest) Update(reqObj *MobileAppTroublesh
 
 // Delete performs DELETE request for MobileAppTroubleshootingEvent
 func (r *MobileAppTroubleshootingEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AppLogCollectionRequests returns request builder for AppLogCollectionRequestObject collection
@@ -76,13 +76,13 @@ type MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest stru
 
 // Do performs HTTP request for AppLogCollectionRequestObject collection
 func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AppLogCollectionRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AppLogCollectionRequestObject collection
 func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppLogCollectionRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

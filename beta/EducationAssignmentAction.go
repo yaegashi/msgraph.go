@@ -29,7 +29,7 @@ func (b *EducationAssignmentPublishRequestBuilder) Request() *EducationAssignmen
 
 //
 func (r *EducationAssignmentPublishRequest) Do(method, path string, reqObj interface{}) (resObj *EducationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

@@ -24,7 +24,7 @@ type WindowsPhone81ImportedPFXCertificateProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsPhone81ImportedPFXCertificateProfile
 func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81ImportedPFXCertificateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Update(reqObj *Wind
 
 // Delete performs DELETE request for WindowsPhone81ImportedPFXCertificateProfile
 func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -76,13 +76,13 @@ type WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCo
 
 // Do performs HTTP request for ManagedDeviceCertificateState collection
 func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

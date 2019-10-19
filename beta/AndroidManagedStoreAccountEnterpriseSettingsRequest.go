@@ -17,7 +17,7 @@ type AndroidManagedStoreAccountEnterpriseSettingsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidManagedStoreAccountEnterpriseSettings
 func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidManagedStoreAccountEnterpriseSettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Update(reqObj *And
 
 // Delete performs DELETE request for AndroidManagedStoreAccountEnterpriseSettings
 func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

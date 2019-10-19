@@ -17,7 +17,7 @@ type ExactMatchUploadAgentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ExactMatchUploadAgent
 func (r *ExactMatchUploadAgentRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchUploadAgent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ExactMatchUploadAgentRequest) Update(reqObj *ExactMatchUploadAgent) (*E
 
 // Delete performs DELETE request for ExactMatchUploadAgent
 func (r *ExactMatchUploadAgentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

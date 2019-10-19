@@ -17,7 +17,7 @@ type EducationSynchronizationProfileStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationSynchronizationProfileStatus
 func (r *EducationSynchronizationProfileStatusRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationProfileStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EducationSynchronizationProfileStatusRequest) Update(reqObj *EducationS
 
 // Delete performs DELETE request for EducationSynchronizationProfileStatus
 func (r *EducationSynchronizationProfileStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

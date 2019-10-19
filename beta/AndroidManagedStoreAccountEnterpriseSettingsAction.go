@@ -57,7 +57,7 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestBuil
 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Do(method, path string, reqObj interface{}) (resObj *string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -89,7 +89,7 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestBuilde
 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -120,7 +120,7 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestBuilder) Req
 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -151,7 +151,7 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestBuilder) Reque
 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -182,7 +182,7 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenReq
 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) Do(method, path string, reqObj interface{}) (resObj *string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -214,7 +214,7 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyM
 
 //
 func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

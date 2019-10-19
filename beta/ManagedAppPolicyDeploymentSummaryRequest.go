@@ -17,7 +17,7 @@ type ManagedAppPolicyDeploymentSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedAppPolicyDeploymentSummary
 func (r *ManagedAppPolicyDeploymentSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppPolicyDeploymentSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedAppPolicyDeploymentSummaryRequest) Update(reqObj *ManagedAppPoli
 
 // Delete performs DELETE request for ManagedAppPolicyDeploymentSummary
 func (r *ManagedAppPolicyDeploymentSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

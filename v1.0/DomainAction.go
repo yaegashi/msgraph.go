@@ -35,7 +35,7 @@ func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
 
 //
 func (r *DomainForceDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -66,7 +66,7 @@ func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
 
 //
 func (r *DomainVerifyRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

@@ -24,7 +24,7 @@ type TeamworkRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Teamwork
 func (r *TeamworkRequest) Do(method, path string, reqObj interface{}) (resObj *Teamwork, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TeamworkRequest) Update(reqObj *Teamwork) (*Teamwork, error) {
 
 // Delete performs DELETE request for Teamwork
 func (r *TeamworkRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // WorkforceIntegrations returns request builder for WorkforceIntegration collection
@@ -76,13 +76,13 @@ type TeamworkWorkforceIntegrationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkforceIntegration collection
 func (r *TeamworkWorkforceIntegrationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkforceIntegration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkforceIntegration collection
 func (r *TeamworkWorkforceIntegrationsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkforceIntegration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

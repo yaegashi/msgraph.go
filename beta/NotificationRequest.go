@@ -17,7 +17,7 @@ type NotificationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Notification
 func (r *NotificationRequest) Do(method, path string, reqObj interface{}) (resObj *Notification, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *NotificationRequest) Update(reqObj *Notification) (*Notification, error
 
 // Delete performs DELETE request for Notification
 func (r *NotificationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -24,6 +24,37 @@ type OfficeClientConfigurationAssignRequestParameter struct {
 }
 
 //
+type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdatePriorities action undocumented
+func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) UpdatePriorities(reqObj *OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter) *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder {
+	bb := &OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updatePriorities"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequest }
+
+//
+func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
+	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
 type OfficeClientConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
 
 // Assign action undocumented
@@ -46,13 +77,13 @@ func (b *OfficeClientConfigurationAssignRequestBuilder) Request() *OfficeClientC
 
 //
 func (r *OfficeClientConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]OfficeClientConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *OfficeClientConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]OfficeClientConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -97,35 +128,4 @@ func (r *OfficeClientConfigurationAssignRequest) Get() ([][]OfficeClientConfigur
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdatePriorities action undocumented
-func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) UpdatePriorities(reqObj *OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter) *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder {
-	bb := &OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updatePriorities"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequest }
-
-//
-func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
-	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
 }

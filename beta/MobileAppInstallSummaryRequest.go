@@ -17,7 +17,7 @@ type MobileAppInstallSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppInstallSummary
 func (r *MobileAppInstallSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MobileAppInstallSummaryRequest) Update(reqObj *MobileAppInstallSummary)
 
 // Delete performs DELETE request for MobileAppInstallSummary
 func (r *MobileAppInstallSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

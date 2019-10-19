@@ -17,7 +17,7 @@ type SubscribedSKURequest struct{ BaseRequest }
 
 // Do performs HTTP request for SubscribedSKU
 func (r *SubscribedSKURequest) Do(method, path string, reqObj interface{}) (resObj *SubscribedSKU, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SubscribedSKURequest) Update(reqObj *SubscribedSKU) (*SubscribedSKU, er
 
 // Delete performs DELETE request for SubscribedSKU
 func (r *SubscribedSKURequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

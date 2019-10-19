@@ -17,7 +17,7 @@ type SharedInsightRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SharedInsight
 func (r *SharedInsightRequest) Do(method, path string, reqObj interface{}) (resObj *SharedInsight, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *SharedInsightRequest) Update(reqObj *SharedInsight) (*SharedInsight, er
 
 // Delete performs DELETE request for SharedInsight
 func (r *SharedInsightRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // LastSharedMethod is navigation property

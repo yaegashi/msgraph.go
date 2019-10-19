@@ -24,7 +24,7 @@ type Windows10PkcsCertificateProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Windows10PkcsCertificateProfile
 func (r *Windows10PkcsCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *Windows10PkcsCertificateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *Windows10PkcsCertificateProfileRequest) Update(reqObj *Windows10PkcsCer
 
 // Delete performs DELETE request for Windows10PkcsCertificateProfile
 func (r *Windows10PkcsCertificateProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -76,13 +76,13 @@ type Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 
 // Do performs HTTP request for ManagedDeviceCertificateState collection
 func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

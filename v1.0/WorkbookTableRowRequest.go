@@ -17,7 +17,7 @@ type WorkbookTableRowRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookTableRow
 func (r *WorkbookTableRowRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkbookTableRowRequest) Update(reqObj *WorkbookTableRow) (*WorkbookTab
 
 // Delete performs DELETE request for WorkbookTableRow
 func (r *WorkbookTableRowRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

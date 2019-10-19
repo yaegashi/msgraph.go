@@ -24,7 +24,7 @@ type DomainRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Domain
 func (r *DomainRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DomainRequest) Update(reqObj *Domain) (*Domain, error) {
 
 // Delete performs DELETE request for Domain
 func (r *DomainRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DomainNameReferences returns request builder for DirectoryObject collection
@@ -76,13 +76,13 @@ type DomainDomainNameReferencesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *DomainDomainNameReferencesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DomainDomainNameReferencesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type DomainServiceConfigurationRecordsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DomainDNSRecord collection
 func (r *DomainServiceConfigurationRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DomainDNSRecord collection
 func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type DomainVerificationDNSRecordsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DomainDNSRecord collection
 func (r *DomainVerificationDNSRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DomainDNSRecord collection
 func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

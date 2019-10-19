@@ -17,7 +17,7 @@ type DeviceManagementIntentUserStateSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementIntentUserStateSummary
 func (r *DeviceManagementIntentUserStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentUserStateSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementIntentUserStateSummaryRequest) Update(reqObj *DeviceMan
 
 // Delete performs DELETE request for DeviceManagementIntentUserStateSummary
 func (r *DeviceManagementIntentUserStateSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

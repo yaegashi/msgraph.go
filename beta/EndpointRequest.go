@@ -17,7 +17,7 @@ type EndpointRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Endpoint
 func (r *EndpointRequest) Do(method, path string, reqObj interface{}) (resObj *Endpoint, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EndpointRequest) Update(reqObj *Endpoint) (*Endpoint, error) {
 
 // Delete performs DELETE request for Endpoint
 func (r *EndpointRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

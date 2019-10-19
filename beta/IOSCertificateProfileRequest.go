@@ -17,7 +17,7 @@ type IOSCertificateProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSCertificateProfile
 func (r *IOSCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *IOSCertificateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *IOSCertificateProfileRequest) Update(reqObj *IOSCertificateProfile) (*I
 
 // Delete performs DELETE request for IOSCertificateProfile
 func (r *IOSCertificateProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -24,7 +24,7 @@ type OrgContactRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OrgContact
 func (r *OrgContactRequest) Do(method, path string, reqObj interface{}) (resObj *OrgContact, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OrgContactRequest) Update(reqObj *OrgContact) (*OrgContact, error) {
 
 // Delete performs DELETE request for OrgContact
 func (r *OrgContactRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DirectReports returns request builder for DirectoryObject collection
@@ -76,13 +76,13 @@ type OrgContactDirectReportsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *OrgContactDirectReportsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *OrgContactDirectReportsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type OrgContactMemberOfCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *OrgContactMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *OrgContactMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type OrgContactTransitiveMemberOfCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *OrgContactTransitiveMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *OrgContactTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

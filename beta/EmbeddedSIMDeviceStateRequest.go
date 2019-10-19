@@ -17,7 +17,7 @@ type EmbeddedSIMDeviceStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EmbeddedSIMDeviceState
 func (r *EmbeddedSIMDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EmbeddedSIMDeviceStateRequest) Update(reqObj *EmbeddedSIMDeviceState) (
 
 // Delete performs DELETE request for EmbeddedSIMDeviceState
 func (r *EmbeddedSIMDeviceStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

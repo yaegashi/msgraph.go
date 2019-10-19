@@ -41,7 +41,7 @@ func (b *GovernanceRoleAssignmentRequestObjectCancelRequestBuilder) Request() *G
 
 //
 func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -72,7 +72,7 @@ func (b *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder)
 
 //
 func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

@@ -17,7 +17,7 @@ type WorkbookChartLineFormatRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartLineFormat
 func (r *WorkbookChartLineFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartLineFormat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkbookChartLineFormatRequest) Update(reqObj *WorkbookChartLineFormat)
 
 // Delete performs DELETE request for WorkbookChartLineFormat
 func (r *WorkbookChartLineFormatRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

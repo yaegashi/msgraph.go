@@ -29,7 +29,7 @@ func (b *DirectoryDefinitionDiscoverRequestBuilder) Request() *DirectoryDefiniti
 
 //
 func (r *DirectoryDefinitionDiscoverRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

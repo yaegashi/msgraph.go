@@ -24,7 +24,7 @@ type ManagedDeviceMobileAppConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDeviceMobileAppConfiguration
 func (r *ManagedDeviceMobileAppConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ManagedDeviceMobileAppConfigurationRequest) Update(reqObj *ManagedDevic
 
 // Delete performs DELETE request for ManagedDeviceMobileAppConfiguration
 func (r *ManagedDeviceMobileAppConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for ManagedDeviceMobileAppConfigurationAssignment collection
@@ -76,13 +76,13 @@ type ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest struct{ Bas
 
 // Do performs HTTP request for ManagedDeviceMobileAppConfigurationAssignment collection
 func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationAssignment collection
 func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest struct{ 
 
 // Do performs HTTP request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -264,13 +264,13 @@ type ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest struct{ Ba
 
 // Do performs HTTP request for ManagedDeviceMobileAppConfigurationUserStatus collection
 func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationUserStatus collection
 func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type AndroidForWorkEnrollmentProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidForWorkEnrollmentProfile
 func (r *AndroidForWorkEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkEnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidForWorkEnrollmentProfileRequest) Update(reqObj *AndroidForWorkEn
 
 // Delete performs DELETE request for AndroidForWorkEnrollmentProfile
 func (r *AndroidForWorkEnrollmentProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

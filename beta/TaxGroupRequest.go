@@ -17,7 +17,7 @@ type TaxGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TaxGroup
 func (r *TaxGroupRequest) Do(method, path string, reqObj interface{}) (resObj *TaxGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TaxGroupRequest) Update(reqObj *TaxGroup) (*TaxGroup, error) {
 
 // Delete performs DELETE request for TaxGroup
 func (r *TaxGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

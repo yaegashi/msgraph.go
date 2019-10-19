@@ -24,7 +24,7 @@ type PlannerUserRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerUser
 func (r *PlannerUserRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerUser, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PlannerUserRequest) Update(reqObj *PlannerUser) (*PlannerUser, error) {
 
 // Delete performs DELETE request for PlannerUser
 func (r *PlannerUserRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Plans returns request builder for PlannerPlan collection
@@ -76,13 +76,13 @@ type PlannerUserPlansCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerPlan collection
 func (r *PlannerUserPlansCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerPlan, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PlannerPlan collection
 func (r *PlannerUserPlansCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerPlan, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type PlannerUserTasksCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerTask collection
 func (r *PlannerUserTasksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerTask, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PlannerTask collection
 func (r *PlannerUserTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerTask, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

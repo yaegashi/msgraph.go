@@ -28,6 +28,68 @@ type MobileAppUpdateRelationshipsRequestParameter struct {
 }
 
 //
+type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
+	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppAssignRequest struct{ BaseRequest }
+
+//
+func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
+	return &MobileAppAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
+type MobileAppUpdateRelationshipsRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdateRelationships action undocumented
+func (b *MobileAppRequestBuilder) UpdateRelationships(reqObj *MobileAppUpdateRelationshipsRequestParameter) *MobileAppUpdateRelationshipsRequestBuilder {
+	bb := &MobileAppUpdateRelationshipsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateRelationships"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppUpdateRelationshipsRequest struct{ BaseRequest }
+
+//
+func (b *MobileAppUpdateRelationshipsRequestBuilder) Request() *MobileAppUpdateRelationshipsRequest {
+	return &MobileAppUpdateRelationshipsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *MobileAppUpdateRelationshipsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppUpdateRelationshipsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
 type MobileAppCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -50,13 +112,13 @@ func (b *MobileAppCollectionHasPayloadLinksRequestBuilder) Request() *MobileAppC
 
 //
 func (r *MobileAppCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -101,66 +163,4 @@ func (r *MobileAppCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkRes
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
-	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppAssignRequest struct{ BaseRequest }
-
-//
-func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
-	return &MobileAppAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
-type MobileAppUpdateRelationshipsRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdateRelationships action undocumented
-func (b *MobileAppRequestBuilder) UpdateRelationships(reqObj *MobileAppUpdateRelationshipsRequestParameter) *MobileAppUpdateRelationshipsRequestBuilder {
-	bb := &MobileAppUpdateRelationshipsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateRelationships"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppUpdateRelationshipsRequest struct{ BaseRequest }
-
-//
-func (b *MobileAppUpdateRelationshipsRequestBuilder) Request() *MobileAppUpdateRelationshipsRequest {
-	return &MobileAppUpdateRelationshipsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MobileAppUpdateRelationshipsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppUpdateRelationshipsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
 }

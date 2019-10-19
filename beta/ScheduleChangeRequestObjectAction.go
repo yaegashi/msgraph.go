@@ -37,7 +37,7 @@ func (b *ScheduleChangeRequestObjectApproveRequestBuilder) Request() *ScheduleCh
 
 //
 func (r *ScheduleChangeRequestObjectApproveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -68,7 +68,7 @@ func (b *ScheduleChangeRequestObjectDeclineRequestBuilder) Request() *ScheduleCh
 
 //
 func (r *ScheduleChangeRequestObjectDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

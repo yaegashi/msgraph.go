@@ -24,7 +24,7 @@ type OnenoteRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Onenote
 func (r *OnenoteRequest) Do(method, path string, reqObj interface{}) (resObj *Onenote, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OnenoteRequest) Update(reqObj *Onenote) (*Onenote, error) {
 
 // Delete performs DELETE request for Onenote
 func (r *OnenoteRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Notebooks returns request builder for Notebook collection
@@ -76,13 +76,13 @@ type OnenoteNotebooksCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Notebook collection
 func (r *OnenoteNotebooksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Notebook, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Notebook collection
 func (r *OnenoteNotebooksCollectionRequest) Paging(method, path string, obj interface{}) ([]Notebook, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OnenoteOperationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnenoteOperation collection
 func (r *OnenoteOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnenoteOperation collection
 func (r *OnenoteOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteOperation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type OnenotePagesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnenotePage collection
 func (r *OnenotePagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenotePage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnenotePage collection
 func (r *OnenotePagesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenotePage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type OnenoteResourcesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnenoteResource collection
 func (r *OnenoteResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnenoteResource collection
 func (r *OnenoteResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type OnenoteSectionGroupsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SectionGroup collection
 func (r *OnenoteSectionGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SectionGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SectionGroup collection
 func (r *OnenoteSectionGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SectionGroup, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -511,13 +511,13 @@ type OnenoteSectionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnenoteSection collection
 func (r *OnenoteSectionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteSection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnenoteSection collection
 func (r *OnenoteSectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteSection, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

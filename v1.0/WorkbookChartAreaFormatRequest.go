@@ -17,7 +17,7 @@ type WorkbookChartAreaFormatRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartAreaFormat
 func (r *WorkbookChartAreaFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartAreaFormat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartAreaFormatRequest) Update(reqObj *WorkbookChartAreaFormat)
 
 // Delete performs DELETE request for WorkbookChartAreaFormat
 func (r *WorkbookChartAreaFormatRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Fill is navigation property

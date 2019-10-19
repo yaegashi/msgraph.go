@@ -17,7 +17,7 @@ type DimensionValueRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DimensionValue
 func (r *DimensionValueRequest) Do(method, path string, reqObj interface{}) (resObj *DimensionValue, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DimensionValueRequest) Update(reqObj *DimensionValue) (*DimensionValue,
 
 // Delete performs DELETE request for DimensionValue
 func (r *DimensionValueRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

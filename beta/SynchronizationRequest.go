@@ -24,7 +24,7 @@ type SynchronizationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Synchronization
 func (r *SynchronizationRequest) Do(method, path string, reqObj interface{}) (resObj *Synchronization, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SynchronizationRequest) Update(reqObj *Synchronization) (*Synchronizati
 
 // Delete performs DELETE request for Synchronization
 func (r *SynchronizationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Jobs returns request builder for SynchronizationJob collection
@@ -76,13 +76,13 @@ type SynchronizationJobsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SynchronizationJob collection
 func (r *SynchronizationJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationJob, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SynchronizationJob collection
 func (r *SynchronizationJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]SynchronizationJob, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type SynchronizationTemplatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SynchronizationTemplate collection
 func (r *SynchronizationTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SynchronizationTemplate collection
 func (r *SynchronizationTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SynchronizationTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

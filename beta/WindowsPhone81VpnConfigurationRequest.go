@@ -17,7 +17,7 @@ type WindowsPhone81VpnConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsPhone81VpnConfiguration
 func (r *WindowsPhone81VpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81VpnConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WindowsPhone81VpnConfigurationRequest) Update(reqObj *WindowsPhone81Vpn
 
 // Delete performs DELETE request for WindowsPhone81VpnConfiguration
 func (r *WindowsPhone81VpnConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

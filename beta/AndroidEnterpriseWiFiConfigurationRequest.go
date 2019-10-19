@@ -17,7 +17,7 @@ type AndroidEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidEnterpriseWiFiConfiguration
 func (r *AndroidEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AndroidEnterpriseWiFiConfigurationRequest) Update(reqObj *AndroidEnterp
 
 // Delete performs DELETE request for AndroidEnterpriseWiFiConfiguration
 func (r *AndroidEnterpriseWiFiConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property

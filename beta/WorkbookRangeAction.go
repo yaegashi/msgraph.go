@@ -53,7 +53,7 @@ func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest 
 
 //
 func (r *WorkbookRangeClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -84,7 +84,7 @@ func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteReques
 
 //
 func (r *WorkbookRangeDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -115,7 +115,7 @@ func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertReques
 
 //
 func (r *WorkbookRangeInsertRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -147,7 +147,7 @@ func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest 
 
 //
 func (r *WorkbookRangeMergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -178,7 +178,7 @@ func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequ
 
 //
 func (r *WorkbookRangeUnmergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

@@ -17,7 +17,7 @@ type WorkbookRangeBorderRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookRangeBorder
 func (r *WorkbookRangeBorderRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeBorder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkbookRangeBorderRequest) Update(reqObj *WorkbookRangeBorder) (*Workb
 
 // Delete performs DELETE request for WorkbookRangeBorder
 func (r *WorkbookRangeBorderRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

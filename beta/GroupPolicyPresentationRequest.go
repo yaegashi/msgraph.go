@@ -17,7 +17,7 @@ type GroupPolicyPresentationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupPolicyPresentation
 func (r *GroupPolicyPresentationRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyPresentation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *GroupPolicyPresentationRequest) Update(reqObj *GroupPolicyPresentation)
 
 // Delete performs DELETE request for GroupPolicyPresentation
 func (r *GroupPolicyPresentationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Definition is navigation property

@@ -24,7 +24,7 @@ type ItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Item
 func (r *ItemRequest) Do(method, path string, reqObj interface{}) (resObj *Item, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ItemRequest) Update(reqObj *Item) (*Item, error) {
 
 // Delete performs DELETE request for Item
 func (r *ItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ItemCategory is navigation property
@@ -83,13 +83,13 @@ type ItemPictureCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Picture collection
 func (r *ItemPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Picture collection
 func (r *ItemPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

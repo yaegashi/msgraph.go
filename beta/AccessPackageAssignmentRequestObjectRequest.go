@@ -17,7 +17,7 @@ type AccessPackageAssignmentRequestObjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageAssignmentRequestObject
 func (r *AccessPackageAssignmentRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AccessPackageAssignmentRequestObjectRequest) Update(reqObj *AccessPacka
 
 // Delete performs DELETE request for AccessPackageAssignmentRequestObject
 func (r *AccessPackageAssignmentRequestObjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AccessPackage is navigation property

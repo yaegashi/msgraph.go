@@ -17,7 +17,7 @@ type PlannerProgressTaskBoardTaskFormatRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerProgressTaskBoardTaskFormat
 func (r *PlannerProgressTaskBoardTaskFormatRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerProgressTaskBoardTaskFormat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PlannerProgressTaskBoardTaskFormatRequest) Update(reqObj *PlannerProgre
 
 // Delete performs DELETE request for PlannerProgressTaskBoardTaskFormat
 func (r *PlannerProgressTaskBoardTaskFormatRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

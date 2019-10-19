@@ -38,13 +38,13 @@ func (b *AlertCollectionUpdateAlertsRequestBuilder) Request() *AlertCollectionUp
 
 //
 func (r *AlertCollectionUpdateAlertsRequest) Do(method, path string, reqObj interface{}) (resObj *[]Alert, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *AlertCollectionUpdateAlertsRequest) Paging(method, path string, obj interface{}) ([][]Alert, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

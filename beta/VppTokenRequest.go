@@ -17,7 +17,7 @@ type VppTokenRequest struct{ BaseRequest }
 
 // Do performs HTTP request for VppToken
 func (r *VppTokenRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *VppTokenRequest) Update(reqObj *VppToken) (*VppToken, error) {
 
 // Delete performs DELETE request for VppToken
 func (r *VppTokenRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

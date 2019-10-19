@@ -24,7 +24,7 @@ type IOSEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSEnterpriseWiFiConfiguration
 func (r *IOSEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *IOSEnterpriseWiFiConfigurationRequest) Update(reqObj *IOSEnterpriseWiFi
 
 // Delete performs DELETE request for IOSEnterpriseWiFiConfiguration
 func (r *IOSEnterpriseWiFiConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DerivedCredentialSettings is navigation property
@@ -90,13 +90,13 @@ type IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollection
 
 // Do performs HTTP request for IOSTrustedRootCertificate collection
 func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IOSTrustedRootCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IOSTrustedRootCertificate collection
 func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSTrustedRootCertificate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

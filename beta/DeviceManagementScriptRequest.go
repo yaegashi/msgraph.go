@@ -24,7 +24,7 @@ type DeviceManagementScriptRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScript
 func (r *DeviceManagementScriptRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScript, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceManagementScriptRequest) Update(reqObj *DeviceManagementScript) (
 
 // Delete performs DELETE request for DeviceManagementScript
 func (r *DeviceManagementScriptRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for DeviceManagementScriptAssignment collection
@@ -76,13 +76,13 @@ type DeviceManagementScriptAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScriptAssignment collection
 func (r *DeviceManagementScriptAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementScriptAssignment collection
 func (r *DeviceManagementScriptAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type DeviceManagementScriptDeviceRunStatesCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for DeviceManagementScriptDeviceState collection
 func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
 func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptDeviceState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type DeviceManagementScriptGroupAssignmentsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for DeviceManagementScriptGroupAssignment collection
 func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptGroupAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementScriptGroupAssignment collection
 func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptGroupAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type DeviceManagementScriptUserRunStatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScriptUserState collection
 func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptUserState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementScriptUserState collection
 func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptUserState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

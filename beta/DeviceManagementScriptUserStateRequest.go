@@ -24,7 +24,7 @@ type DeviceManagementScriptUserStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScriptUserState
 func (r *DeviceManagementScriptUserStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptUserState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceManagementScriptUserStateRequest) Update(reqObj *DeviceManagement
 
 // Delete performs DELETE request for DeviceManagementScriptUserState
 func (r *DeviceManagementScriptUserStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeviceRunStates returns request builder for DeviceManagementScriptDeviceState collection
@@ -76,13 +76,13 @@ type DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest struct{ Bas
 
 // Do performs HTTP request for DeviceManagementScriptDeviceState collection
 func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
 func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptDeviceState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

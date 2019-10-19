@@ -17,7 +17,7 @@ type CertificateBasedAuthConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CertificateBasedAuthConfiguration
 func (r *CertificateBasedAuthConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *CertificateBasedAuthConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *CertificateBasedAuthConfigurationRequest) Update(reqObj *CertificateBas
 
 // Delete performs DELETE request for CertificateBasedAuthConfiguration
 func (r *CertificateBasedAuthConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

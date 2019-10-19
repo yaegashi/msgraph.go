@@ -35,7 +35,7 @@ func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFi
 
 //
 func (r *MobileAppContentFileCommitRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -66,7 +66,7 @@ func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppCont
 
 //
 func (r *MobileAppContentFileRenewUploadRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

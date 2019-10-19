@@ -29,7 +29,7 @@ func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersion
 
 //
 func (r *ListItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

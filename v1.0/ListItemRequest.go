@@ -24,7 +24,7 @@ type ListItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ListItem
 func (r *ListItemRequest) Do(method, path string, reqObj interface{}) (resObj *ListItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ListItemRequest) Update(reqObj *ListItem) (*ListItem, error) {
 
 // Delete performs DELETE request for ListItem
 func (r *ListItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Analytics is navigation property
@@ -97,13 +97,13 @@ type ListItemVersionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ListItemVersion collection
 func (r *ListItemVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ListItemVersion, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ListItemVersion collection
 func (r *ListItemVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]ListItemVersion, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -24,7 +24,7 @@ type ListRequest struct{ BaseRequest }
 
 // Do performs HTTP request for List
 func (r *ListRequest) Do(method, path string, reqObj interface{}) (resObj *List, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ListRequest) Update(reqObj *List) (*List, error) {
 
 // Delete performs DELETE request for List
 func (r *ListRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Columns returns request builder for ColumnDefinition collection
@@ -76,13 +76,13 @@ type ListColumnsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ColumnDefinition collection
 func (r *ListColumnsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ColumnDefinition collection
 func (r *ListColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ListContentTypesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ContentType collection
 func (r *ListContentTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ContentType, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ContentType collection
 func (r *ListContentTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]ContentType, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type ListItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ListItem collection
 func (r *ListItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ListItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ListItem collection
 func (r *ListItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]ListItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

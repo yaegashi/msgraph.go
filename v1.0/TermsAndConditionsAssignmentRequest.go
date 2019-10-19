@@ -17,7 +17,7 @@ type TermsAndConditionsAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditionsAssignment
 func (r *TermsAndConditionsAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TermsAndConditionsAssignmentRequest) Update(reqObj *TermsAndConditionsA
 
 // Delete performs DELETE request for TermsAndConditionsAssignment
 func (r *TermsAndConditionsAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

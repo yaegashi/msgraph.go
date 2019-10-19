@@ -37,7 +37,7 @@ func (b *ExactMatchSessionCancelRequestBuilder) Request() *ExactMatchSessionCanc
 
 //
 func (r *ExactMatchSessionCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -68,7 +68,7 @@ func (b *ExactMatchSessionCommitRequestBuilder) Request() *ExactMatchSessionComm
 
 //
 func (r *ExactMatchSessionCommitRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -99,7 +99,7 @@ func (b *ExactMatchSessionRenewRequestBuilder) Request() *ExactMatchSessionRenew
 
 //
 func (r *ExactMatchSessionRenewRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

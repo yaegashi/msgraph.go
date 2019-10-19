@@ -17,7 +17,7 @@ type UnitOfMeasureRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UnitOfMeasure
 func (r *UnitOfMeasureRequest) Do(method, path string, reqObj interface{}) (resObj *UnitOfMeasure, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *UnitOfMeasureRequest) Update(reqObj *UnitOfMeasure) (*UnitOfMeasure, er
 
 // Delete performs DELETE request for UnitOfMeasure
 func (r *UnitOfMeasureRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

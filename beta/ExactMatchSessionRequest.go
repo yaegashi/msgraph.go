@@ -17,7 +17,7 @@ type ExactMatchSessionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ExactMatchSession
 func (r *ExactMatchSessionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *ExactMatchSessionRequest) Update(reqObj *ExactMatchSession) (*ExactMatc
 
 // Delete performs DELETE request for ExactMatchSession
 func (r *ExactMatchSessionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // UploadAgent is navigation property

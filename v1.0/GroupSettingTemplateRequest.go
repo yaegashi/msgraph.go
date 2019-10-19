@@ -17,7 +17,7 @@ type GroupSettingTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupSettingTemplate
 func (r *GroupSettingTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *GroupSettingTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *GroupSettingTemplateRequest) Update(reqObj *GroupSettingTemplate) (*Gro
 
 // Delete performs DELETE request for GroupSettingTemplate
 func (r *GroupSettingTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

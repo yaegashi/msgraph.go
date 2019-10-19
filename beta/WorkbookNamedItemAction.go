@@ -55,7 +55,7 @@ func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedI
 
 //
 func (r *WorkbookNamedItemCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -95,7 +95,7 @@ func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *Wo
 
 //
 func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

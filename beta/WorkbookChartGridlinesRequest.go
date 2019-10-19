@@ -17,7 +17,7 @@ type WorkbookChartGridlinesRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartGridlines
 func (r *WorkbookChartGridlinesRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartGridlines, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartGridlinesRequest) Update(reqObj *WorkbookChartGridlines) (
 
 // Delete performs DELETE request for WorkbookChartGridlines
 func (r *WorkbookChartGridlinesRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Format is navigation property

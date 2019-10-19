@@ -17,7 +17,7 @@ type ActivityHistoryItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ActivityHistoryItem
 func (r *ActivityHistoryItemRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityHistoryItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *ActivityHistoryItemRequest) Update(reqObj *ActivityHistoryItem) (*Activ
 
 // Delete performs DELETE request for ActivityHistoryItem
 func (r *ActivityHistoryItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Activity is navigation property

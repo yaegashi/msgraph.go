@@ -17,7 +17,7 @@ type AdvancedThreatProtectionOnboardingDeviceSettingStateRequest struct{ BaseReq
 
 // Do performs HTTP request for AdvancedThreatProtectionOnboardingDeviceSettingState
 func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) Do(method, path string, reqObj interface{}) (resObj *AdvancedThreatProtectionOnboardingDeviceSettingState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) Update(req
 
 // Delete performs DELETE request for AdvancedThreatProtectionOnboardingDeviceSettingState
 func (r *AdvancedThreatProtectionOnboardingDeviceSettingStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -17,7 +17,7 @@ type TeamsAsyncOperationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsAsyncOperation
 func (r *TeamsAsyncOperationRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAsyncOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TeamsAsyncOperationRequest) Update(reqObj *TeamsAsyncOperation) (*Teams
 
 // Delete performs DELETE request for TeamsAsyncOperation
 func (r *TeamsAsyncOperationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

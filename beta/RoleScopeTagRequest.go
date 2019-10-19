@@ -24,7 +24,7 @@ type RoleScopeTagRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleScopeTag
 func (r *RoleScopeTagRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTag, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *RoleScopeTagRequest) Update(reqObj *RoleScopeTag) (*RoleScopeTag, error
 
 // Delete performs DELETE request for RoleScopeTag
 func (r *RoleScopeTagRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for RoleScopeTagAutoAssignment collection
@@ -76,13 +76,13 @@ type RoleScopeTagAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleScopeTagAutoAssignment collection
 func (r *RoleScopeTagAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTagAutoAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RoleScopeTagAutoAssignment collection
 func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

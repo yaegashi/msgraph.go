@@ -17,7 +17,7 @@ type WindowsPrivacyDataAccessControlItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsPrivacyDataAccessControlItem
 func (r *WindowsPrivacyDataAccessControlItemRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPrivacyDataAccessControlItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsPrivacyDataAccessControlItemRequest) Update(reqObj *WindowsPriva
 
 // Delete performs DELETE request for WindowsPrivacyDataAccessControlItem
 func (r *WindowsPrivacyDataAccessControlItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

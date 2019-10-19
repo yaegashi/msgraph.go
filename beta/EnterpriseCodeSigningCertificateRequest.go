@@ -17,7 +17,7 @@ type EnterpriseCodeSigningCertificateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EnterpriseCodeSigningCertificate
 func (r *EnterpriseCodeSigningCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *EnterpriseCodeSigningCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EnterpriseCodeSigningCertificateRequest) Update(reqObj *EnterpriseCodeS
 
 // Delete performs DELETE request for EnterpriseCodeSigningCertificate
 func (r *EnterpriseCodeSigningCertificateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

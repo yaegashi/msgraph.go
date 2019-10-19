@@ -24,7 +24,7 @@ type ContactFolderRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ContactFolder
 func (r *ContactFolderRequest) Do(method, path string, reqObj interface{}) (resObj *ContactFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ContactFolderRequest) Update(reqObj *ContactFolder) (*ContactFolder, er
 
 // Delete performs DELETE request for ContactFolder
 func (r *ContactFolderRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ChildFolders returns request builder for ContactFolder collection
@@ -76,13 +76,13 @@ type ContactFolderChildFoldersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ContactFolder collection
 func (r *ContactFolderChildFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ContactFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ContactFolder collection
 func (r *ContactFolderChildFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]ContactFolder, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ContactFolderContactsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Contact collection
 func (r *ContactFolderContactsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Contact, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Contact collection
 func (r *ContactFolderContactsCollectionRequest) Paging(method, path string, obj interface{}) ([]Contact, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type ContactFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for MultiValueLegacyExtendedProperty collection
 func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type ContactFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for SingleValueLegacyExtendedProperty collection
 func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -78,7 +78,7 @@ func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidateProperti
 
 //
 func (r *GroupValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -109,13 +109,13 @@ func (b *GroupCheckGrantedPermissionsForAppRequestBuilder) Request() *GroupCheck
 
 //
 func (r *GroupCheckGrantedPermissionsForAppRequest) Do(method, path string, reqObj interface{}) (resObj *[]ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(method, path string, obj interface{}) ([][]ResourceSpecificPermissionGrant, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -185,7 +185,7 @@ func (b *GroupAssignLicenseRequestBuilder) Request() *GroupAssignLicenseRequest 
 
 //
 func (r *GroupAssignLicenseRequest) Do(method, path string, reqObj interface{}) (resObj *Group, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -217,7 +217,7 @@ func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequ
 
 //
 func (r *GroupSubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -248,7 +248,7 @@ func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMail
 
 //
 func (r *GroupUnsubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -279,7 +279,7 @@ func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 
 //
 func (r *GroupAddFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -310,7 +310,7 @@ func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteReques
 
 //
 func (r *GroupRemoveFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -341,7 +341,7 @@ func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRe
 
 //
 func (r *GroupResetUnseenCountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -372,7 +372,7 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 
 //
 func (r *GroupRenewRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

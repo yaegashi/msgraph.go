@@ -24,7 +24,7 @@ type EducationSchoolRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationSchool
 func (r *EducationSchoolRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSchool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *EducationSchoolRequest) Update(reqObj *EducationSchool) (*EducationScho
 
 // Delete performs DELETE request for EducationSchool
 func (r *EducationSchoolRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Classes returns request builder for EducationClass collection
@@ -76,13 +76,13 @@ type EducationSchoolClassesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationClass collection
 func (r *EducationSchoolClassesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationClass, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationClass collection
 func (r *EducationSchoolClassesCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationClass, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type EducationSchoolUsersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationUser collection
 func (r *EducationSchoolUsersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationUser, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationUser collection
 func (r *EducationSchoolUsersCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationUser, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

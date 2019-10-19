@@ -17,7 +17,7 @@ type ProviderTenantSettingRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ProviderTenantSetting
 func (r *ProviderTenantSettingRequest) Do(method, path string, reqObj interface{}) (resObj *ProviderTenantSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ProviderTenantSettingRequest) Update(reqObj *ProviderTenantSetting) (*P
 
 // Delete performs DELETE request for ProviderTenantSetting
 func (r *ProviderTenantSettingRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

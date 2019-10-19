@@ -24,7 +24,7 @@ type WindowsProtectionStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsProtectionState
 func (r *WindowsProtectionStateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsProtectionState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsProtectionStateRequest) Update(reqObj *WindowsProtectionState) (
 
 // Delete performs DELETE request for WindowsProtectionState
 func (r *WindowsProtectionStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DetectedMalwareState returns request builder for WindowsDeviceMalwareState collection
@@ -76,13 +76,13 @@ type WindowsProtectionStateDetectedMalwareStateCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for WindowsDeviceMalwareState collection
 func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsDeviceMalwareState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsDeviceMalwareState collection
 func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsDeviceMalwareState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

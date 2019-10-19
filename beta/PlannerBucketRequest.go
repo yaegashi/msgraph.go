@@ -24,7 +24,7 @@ type PlannerBucketRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerBucket
 func (r *PlannerBucketRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerBucket, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PlannerBucketRequest) Update(reqObj *PlannerBucket) (*PlannerBucket, er
 
 // Delete performs DELETE request for PlannerBucket
 func (r *PlannerBucketRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Tasks returns request builder for PlannerTask collection
@@ -76,13 +76,13 @@ type PlannerBucketTasksCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerTask collection
 func (r *PlannerBucketTasksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerTask, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PlannerTask collection
 func (r *PlannerBucketTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerTask, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -24,7 +24,7 @@ type EducationUserRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationUser
 func (r *EducationUserRequest) Do(method, path string, reqObj interface{}) (resObj *EducationUser, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *EducationUserRequest) Update(reqObj *EducationUser) (*EducationUser, er
 
 // Delete performs DELETE request for EducationUser
 func (r *EducationUserRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for EducationAssignment collection
@@ -76,13 +76,13 @@ type EducationUserAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationAssignment collection
 func (r *EducationUserAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationAssignment collection
 func (r *EducationUserAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type EducationUserClassesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationClass collection
 func (r *EducationUserClassesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationClass, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationClass collection
 func (r *EducationUserClassesCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationClass, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type EducationUserRubricsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationRubric collection
 func (r *EducationUserRubricsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationRubric, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationRubric collection
 func (r *EducationUserRubricsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationRubric, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type EducationUserSchoolsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationSchool collection
 func (r *EducationUserSchoolsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSchool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationSchool collection
 func (r *EducationUserSchoolsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationSchool, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type EducationUserTaughtClassesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationClass collection
 func (r *EducationUserTaughtClassesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationClass, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationClass collection
 func (r *EducationUserTaughtClassesCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationClass, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type ItemActivityOLDRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ItemActivityOLD
 func (r *ItemActivityOLDRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityOLD, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *ItemActivityOLDRequest) Update(reqObj *ItemActivityOLD) (*ItemActivityO
 
 // Delete performs DELETE request for ItemActivityOLD
 func (r *ItemActivityOLDRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DriveItem is navigation property

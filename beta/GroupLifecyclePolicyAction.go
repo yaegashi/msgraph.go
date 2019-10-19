@@ -21,6 +21,38 @@ type GroupLifecyclePolicyCollectionRenewGroupRequestParameter struct {
 }
 
 //
+type GroupLifecyclePolicyCollectionRenewGroupRequestBuilder struct{ BaseRequestBuilder }
+
+// RenewGroup action undocumented
+func (b *GroupGroupLifecyclePoliciesCollectionRequestBuilder) RenewGroup(reqObj *GroupLifecyclePolicyCollectionRenewGroupRequestParameter) *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder {
+	bb := &GroupLifecyclePolicyCollectionRenewGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/renewGroup"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupLifecyclePolicyCollectionRenewGroupRequest struct{ BaseRequest }
+
+//
+func (b *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder) Request() *GroupLifecyclePolicyCollectionRenewGroupRequest {
+	return &GroupLifecyclePolicyCollectionRenewGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
+	err = r.JSONRequest(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post() (*bool, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
 type GroupLifecyclePolicyAddGroupRequestBuilder struct{ BaseRequestBuilder }
 
 // AddGroup action undocumented
@@ -43,7 +75,7 @@ func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePo
 
 //
 func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -75,43 +107,11 @@ func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecycl
 
 //
 func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
-type GroupLifecyclePolicyCollectionRenewGroupRequestBuilder struct{ BaseRequestBuilder }
-
-// RenewGroup action undocumented
-func (b *GroupGroupLifecyclePoliciesCollectionRequestBuilder) RenewGroup(reqObj *GroupLifecyclePolicyCollectionRenewGroupRequestParameter) *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder {
-	bb := &GroupLifecyclePolicyCollectionRenewGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/renewGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupLifecyclePolicyCollectionRenewGroupRequest struct{ BaseRequest }
-
-//
-func (b *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder) Request() *GroupLifecyclePolicyCollectionRenewGroupRequest {
-	return &GroupLifecyclePolicyCollectionRenewGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post() (*bool, error) {
 	return r.Do("POST", "", r.requestObject)
 }

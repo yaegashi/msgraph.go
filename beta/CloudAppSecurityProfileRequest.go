@@ -17,7 +17,7 @@ type CloudAppSecurityProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CloudAppSecurityProfile
 func (r *CloudAppSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *CloudAppSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *CloudAppSecurityProfileRequest) Update(reqObj *CloudAppSecurityProfile)
 
 // Delete performs DELETE request for CloudAppSecurityProfile
 func (r *CloudAppSecurityProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

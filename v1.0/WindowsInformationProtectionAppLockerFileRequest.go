@@ -17,7 +17,7 @@ type WindowsInformationProtectionAppLockerFileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsInformationProtectionAppLockerFile
 func (r *WindowsInformationProtectionAppLockerFileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsInformationProtectionAppLockerFileRequest) Update(reqObj *Window
 
 // Delete performs DELETE request for WindowsInformationProtectionAppLockerFile
 func (r *WindowsInformationProtectionAppLockerFileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

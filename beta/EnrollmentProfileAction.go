@@ -35,7 +35,7 @@ func (b *EnrollmentProfileSetDefaultProfileRequestBuilder) Request() *Enrollment
 
 //
 func (r *EnrollmentProfileSetDefaultProfileRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -66,7 +66,7 @@ func (b *EnrollmentProfileUpdateDeviceProfileAssignmentRequestBuilder) Request()
 
 //
 func (r *EnrollmentProfileUpdateDeviceProfileAssignmentRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

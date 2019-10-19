@@ -31,7 +31,7 @@ func (b *ApplicationAddPasswordRequestBuilder) Request() *ApplicationAddPassword
 
 //
 func (r *ApplicationAddPasswordRequest) Do(method, path string, reqObj interface{}) (resObj *PasswordCredential, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

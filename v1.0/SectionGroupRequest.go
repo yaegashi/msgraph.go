@@ -24,7 +24,7 @@ type SectionGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SectionGroup
 func (r *SectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *SectionGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SectionGroupRequest) Update(reqObj *SectionGroup) (*SectionGroup, error
 
 // Delete performs DELETE request for SectionGroup
 func (r *SectionGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ParentNotebook is navigation property
@@ -90,13 +90,13 @@ type SectionGroupSectionGroupsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SectionGroup collection
 func (r *SectionGroupSectionGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SectionGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SectionGroup collection
 func (r *SectionGroupSectionGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SectionGroup, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -177,13 +177,13 @@ type SectionGroupSectionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnenoteSection collection
 func (r *SectionGroupSectionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteSection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnenoteSection collection
 func (r *SectionGroupSectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteSection, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

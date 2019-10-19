@@ -17,7 +17,7 @@ type WorkbookChartFillRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartFill
 func (r *WorkbookChartFillRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartFill, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkbookChartFillRequest) Update(reqObj *WorkbookChartFill) (*WorkbookC
 
 // Delete performs DELETE request for WorkbookChartFill
 func (r *WorkbookChartFillRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

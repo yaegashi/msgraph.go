@@ -31,7 +31,7 @@ func (b *GovernanceResourceCollectionRegisterRequestBuilder) Request() *Governan
 
 //
 func (r *GovernanceResourceCollectionRegisterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

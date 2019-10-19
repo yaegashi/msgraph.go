@@ -17,7 +17,7 @@ type DeviceManagementDerivedCredentialSettingsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementDerivedCredentialSettings
 func (r *DeviceManagementDerivedCredentialSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementDerivedCredentialSettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementDerivedCredentialSettingsRequest) Update(reqObj *Device
 
 // Delete performs DELETE request for DeviceManagementDerivedCredentialSettings
 func (r *DeviceManagementDerivedCredentialSettingsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

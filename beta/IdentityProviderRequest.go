@@ -17,7 +17,7 @@ type IdentityProviderRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IdentityProvider
 func (r *IdentityProviderRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityProvider, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *IdentityProviderRequest) Update(reqObj *IdentityProvider) (*IdentityPro
 
 // Delete performs DELETE request for IdentityProvider
 func (r *IdentityProviderRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

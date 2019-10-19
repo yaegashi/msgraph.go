@@ -17,7 +17,7 @@ type WindowsUpdateStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsUpdateState
 func (r *WindowsUpdateStateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsUpdateStateRequest) Update(reqObj *WindowsUpdateState) (*Windows
 
 // Delete performs DELETE request for WindowsUpdateState
 func (r *WindowsUpdateStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

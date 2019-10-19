@@ -24,7 +24,7 @@ type SharedDriveItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SharedDriveItem
 func (r *SharedDriveItemRequest) Do(method, path string, reqObj interface{}) (resObj *SharedDriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SharedDriveItemRequest) Update(reqObj *SharedDriveItem) (*SharedDriveIt
 
 // Delete performs DELETE request for SharedDriveItem
 func (r *SharedDriveItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DriveItem is navigation property
@@ -83,13 +83,13 @@ type SharedDriveItemItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DriveItem collection
 func (r *SharedDriveItemItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *SharedDriveItemItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type WindowsPhone81TrustedRootCertificateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsPhone81TrustedRootCertificate
 func (r *WindowsPhone81TrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81TrustedRootCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsPhone81TrustedRootCertificateRequest) Update(reqObj *WindowsPhon
 
 // Delete performs DELETE request for WindowsPhone81TrustedRootCertificate
 func (r *WindowsPhone81TrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

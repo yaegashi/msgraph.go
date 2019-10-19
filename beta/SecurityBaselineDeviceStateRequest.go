@@ -17,7 +17,7 @@ type SecurityBaselineDeviceStateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityBaselineDeviceState
 func (r *SecurityBaselineDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SecurityBaselineDeviceStateRequest) Update(reqObj *SecurityBaselineDevi
 
 // Delete performs DELETE request for SecurityBaselineDeviceState
 func (r *SecurityBaselineDeviceStateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

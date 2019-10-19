@@ -17,7 +17,7 @@ type TeamsTabRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsTab
 func (r *TeamsTabRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTab, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *TeamsTabRequest) Update(reqObj *TeamsTab) (*TeamsTab, error) {
 
 // Delete performs DELETE request for TeamsTab
 func (r *TeamsTabRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // TeamsApp is navigation property

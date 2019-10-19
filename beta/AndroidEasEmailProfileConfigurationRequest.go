@@ -17,7 +17,7 @@ type AndroidEasEmailProfileConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidEasEmailProfileConfiguration
 func (r *AndroidEasEmailProfileConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidEasEmailProfileConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AndroidEasEmailProfileConfigurationRequest) Update(reqObj *AndroidEasEm
 
 // Delete performs DELETE request for AndroidEasEmailProfileConfiguration
 func (r *AndroidEasEmailProfileConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

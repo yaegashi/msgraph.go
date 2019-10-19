@@ -17,7 +17,7 @@ type TermsAndConditionsGroupAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditionsGroupAssignment
 func (r *TermsAndConditionsGroupAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsGroupAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *TermsAndConditionsGroupAssignmentRequest) Update(reqObj *TermsAndCondit
 
 // Delete performs DELETE request for TermsAndConditionsGroupAssignment
 func (r *TermsAndConditionsGroupAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // TermsAndConditions is navigation property

@@ -17,7 +17,7 @@ type WorkbookChartTitleRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartTitle
 func (r *WorkbookChartTitleRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartTitle, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartTitleRequest) Update(reqObj *WorkbookChartTitle) (*Workboo
 
 // Delete performs DELETE request for WorkbookChartTitle
 func (r *WorkbookChartTitleRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Format is navigation property

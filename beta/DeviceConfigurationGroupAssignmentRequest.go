@@ -17,7 +17,7 @@ type DeviceConfigurationGroupAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceConfigurationGroupAssignment
 func (r *DeviceConfigurationGroupAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationGroupAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *DeviceConfigurationGroupAssignmentRequest) Update(reqObj *DeviceConfigu
 
 // Delete performs DELETE request for DeviceConfigurationGroupAssignment
 func (r *DeviceConfigurationGroupAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeviceConfiguration is navigation property

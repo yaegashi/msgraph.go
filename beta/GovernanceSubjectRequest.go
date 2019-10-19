@@ -17,7 +17,7 @@ type GovernanceSubjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceSubject
 func (r *GovernanceSubjectRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceSubject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *GovernanceSubjectRequest) Update(reqObj *GovernanceSubject) (*Governanc
 
 // Delete performs DELETE request for GovernanceSubject
 func (r *GovernanceSubjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

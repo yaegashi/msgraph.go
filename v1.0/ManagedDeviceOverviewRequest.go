@@ -17,7 +17,7 @@ type ManagedDeviceOverviewRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDeviceOverview
 func (r *ManagedDeviceOverviewRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceOverview, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedDeviceOverviewRequest) Update(reqObj *ManagedDeviceOverview) (*M
 
 // Delete performs DELETE request for ManagedDeviceOverview
 func (r *ManagedDeviceOverviewRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

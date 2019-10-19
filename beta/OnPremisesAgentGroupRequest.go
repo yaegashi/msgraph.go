@@ -24,7 +24,7 @@ type OnPremisesAgentGroupRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnPremisesAgentGroup
 func (r *OnPremisesAgentGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgentGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OnPremisesAgentGroupRequest) Update(reqObj *OnPremisesAgentGroup) (*OnP
 
 // Delete performs DELETE request for OnPremisesAgentGroup
 func (r *OnPremisesAgentGroupRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Agents returns request builder for OnPremisesAgent collection
@@ -76,13 +76,13 @@ type OnPremisesAgentGroupAgentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnPremisesAgent collection
 func (r *OnPremisesAgentGroupAgentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnPremisesAgent collection
 func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OnPremisesAgentGroupPublishedResourcesCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for PublishedResource collection
 func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PublishedResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PublishedResource collection
 func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]PublishedResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

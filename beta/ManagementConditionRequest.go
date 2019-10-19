@@ -24,7 +24,7 @@ type ManagementConditionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagementCondition
 func (r *ManagementConditionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagementCondition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ManagementConditionRequest) Update(reqObj *ManagementCondition) (*Manag
 
 // Delete performs DELETE request for ManagementCondition
 func (r *ManagementConditionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagementConditionStatements returns request builder for ManagementConditionStatement collection
@@ -76,13 +76,13 @@ type ManagementConditionManagementConditionStatementsCollectionRequest struct{ B
 
 // Do performs HTTP request for ManagementConditionStatement collection
 func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagementConditionStatement, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagementConditionStatement collection
 func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagementConditionStatement, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

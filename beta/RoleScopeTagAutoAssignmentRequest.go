@@ -17,7 +17,7 @@ type RoleScopeTagAutoAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleScopeTagAutoAssignment
 func (r *RoleScopeTagAutoAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTagAutoAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *RoleScopeTagAutoAssignmentRequest) Update(reqObj *RoleScopeTagAutoAssig
 
 // Delete performs DELETE request for RoleScopeTagAutoAssignment
 func (r *RoleScopeTagAutoAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

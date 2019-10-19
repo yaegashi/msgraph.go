@@ -24,7 +24,7 @@ type SiteRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Site
 func (r *SiteRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SiteRequest) Update(reqObj *Site) (*Site, error) {
 
 // Delete performs DELETE request for Site
 func (r *SiteRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Analytics is navigation property
@@ -83,13 +83,13 @@ type SiteColumnsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ColumnDefinition collection
 func (r *SiteColumnsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ColumnDefinition collection
 func (r *SiteColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type SiteContentTypesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ContentType collection
 func (r *SiteContentTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ContentType, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ContentType collection
 func (r *SiteContentTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]ContentType, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -264,13 +264,13 @@ type SiteDrivesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Drive collection
 func (r *SiteDrivesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Drive, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Drive collection
 func (r *SiteDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +351,13 @@ type SiteItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BaseItem collection
 func (r *SiteItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BaseItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BaseItem collection
 func (r *SiteItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]BaseItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -438,13 +438,13 @@ type SiteListsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for List collection
 func (r *SiteListsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *List, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for List collection
 func (r *SiteListsCollectionRequest) Paging(method, path string, obj interface{}) ([]List, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -532,13 +532,13 @@ type SitePagesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SitePage collection
 func (r *SitePagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SitePage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SitePage collection
 func (r *SitePagesCollectionRequest) Paging(method, path string, obj interface{}) ([]SitePage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -619,13 +619,13 @@ type SiteSitesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Site collection
 func (r *SiteSitesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Site collection
 func (r *SiteSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

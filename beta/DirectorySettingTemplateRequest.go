@@ -17,7 +17,7 @@ type DirectorySettingTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectorySettingTemplate
 func (r *DirectorySettingTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *DirectorySettingTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DirectorySettingTemplateRequest) Update(reqObj *DirectorySettingTemplat
 
 // Delete performs DELETE request for DirectorySettingTemplate
 func (r *DirectorySettingTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

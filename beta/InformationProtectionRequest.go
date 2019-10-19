@@ -24,7 +24,7 @@ type InformationProtectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for InformationProtection
 func (r *InformationProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *InformationProtectionRequest) Update(reqObj *InformationProtection) (*I
 
 // Delete performs DELETE request for InformationProtection
 func (r *InformationProtectionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Policy is navigation property
@@ -83,13 +83,13 @@ type InformationProtectionSensitivityLabelsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for SensitivityLabel collection
 func (r *InformationProtectionSensitivityLabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SensitivityLabel collection
 func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

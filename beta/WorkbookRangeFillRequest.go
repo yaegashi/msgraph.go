@@ -17,7 +17,7 @@ type WorkbookRangeFillRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookRangeFill
 func (r *WorkbookRangeFillRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeFill, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkbookRangeFillRequest) Update(reqObj *WorkbookRangeFill) (*WorkbookR
 
 // Delete performs DELETE request for WorkbookRangeFill
 func (r *WorkbookRangeFillRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

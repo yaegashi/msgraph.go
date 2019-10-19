@@ -44,13 +44,13 @@ func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliance
 
 //
 func (r *DeviceCompliancePolicyAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceCompliancePolicyAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() 
 
 //
 func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

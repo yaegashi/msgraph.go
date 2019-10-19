@@ -24,7 +24,7 @@ type WindowsWifiEnterpriseEAPConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsWifiEnterpriseEAPConfiguration
 func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsWifiEnterpriseEAPConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Update(reqObj *WindowsWif
 
 // Delete performs DELETE request for WindowsWifiEnterpriseEAPConfiguration
 func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property
@@ -83,13 +83,13 @@ type WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCol
 
 // Do performs HTTP request for Windows81TrustedRootCertificate collection
 func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Windows81TrustedRootCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Windows81TrustedRootCertificate collection
 func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(method, path string, obj interface{}) ([]Windows81TrustedRootCertificate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

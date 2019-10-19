@@ -17,7 +17,7 @@ type WorkbookChartSeriesFormatRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartSeriesFormat
 func (r *WorkbookChartSeriesFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartSeriesFormat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartSeriesFormatRequest) Update(reqObj *WorkbookChartSeriesFor
 
 // Delete performs DELETE request for WorkbookChartSeriesFormat
 func (r *WorkbookChartSeriesFormatRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Fill is navigation property

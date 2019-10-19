@@ -24,7 +24,7 @@ type TargetedManagedAppConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TargetedManagedAppConfiguration
 func (r *TargetedManagedAppConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TargetedManagedAppConfigurationRequest) Update(reqObj *TargetedManagedA
 
 // Delete performs DELETE request for TargetedManagedAppConfiguration
 func (r *TargetedManagedAppConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Apps returns request builder for ManagedMobileApp collection
@@ -76,13 +76,13 @@ type TargetedManagedAppConfigurationAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedMobileApp collection
 func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedMobileApp collection
 func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type TargetedManagedAppConfigurationAssignmentsCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for TargetedManagedAppPolicyAssignment collection
 func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
 func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

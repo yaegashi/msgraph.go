@@ -29,7 +29,7 @@ func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequ
 
 //
 func (r *VppTokenSyncLicensesRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

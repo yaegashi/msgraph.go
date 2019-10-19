@@ -17,7 +17,7 @@ type AndroidForWorkEasEmailProfileBaseRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidForWorkEasEmailProfileBase
 func (r *AndroidForWorkEasEmailProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkEasEmailProfileBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AndroidForWorkEasEmailProfileBaseRequest) Update(reqObj *AndroidForWork
 
 // Delete performs DELETE request for AndroidForWorkEasEmailProfileBase
 func (r *AndroidForWorkEasEmailProfileBaseRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

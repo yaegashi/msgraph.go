@@ -17,7 +17,7 @@ type ShiftRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Shift
 func (r *ShiftRequest) Do(method, path string, reqObj interface{}) (resObj *Shift, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ShiftRequest) Update(reqObj *Shift) (*Shift, error) {
 
 // Delete performs DELETE request for Shift
 func (r *ShiftRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

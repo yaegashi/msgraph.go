@@ -24,7 +24,7 @@ type AccessPackageAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageAssignment
 func (r *AccessPackageAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AccessPackageAssignmentRequest) Update(reqObj *AccessPackageAssignment)
 
 // Delete performs DELETE request for AccessPackageAssignment
 func (r *AccessPackageAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AccessPackage is navigation property
@@ -90,13 +90,13 @@ type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest str
 
 // Do performs HTTP request for AccessPackageAssignmentRequestObject collection
 func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
 func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -177,13 +177,13 @@ type AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionReques
 
 // Do performs HTTP request for AccessPackageAssignmentResourceRole collection
 func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentResourceRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignmentResourceRole collection
 func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentResourceRole, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

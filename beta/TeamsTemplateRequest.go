@@ -17,7 +17,7 @@ type TeamsTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsTemplate
 func (r *TeamsTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TeamsTemplateRequest) Update(reqObj *TeamsTemplate) (*TeamsTemplate, er
 
 // Delete performs DELETE request for TeamsTemplate
 func (r *TeamsTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

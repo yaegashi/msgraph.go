@@ -17,7 +17,7 @@ type ManagedDeviceMobileAppConfigurationDeviceStatusRequest struct{ BaseRequest 
 
 // Do performs HTTP request for ManagedDeviceMobileAppConfigurationDeviceStatus
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Update(reqObj *
 
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationDeviceStatus
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

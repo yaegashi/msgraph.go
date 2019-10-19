@@ -39,7 +39,7 @@ func (b *PrivilegedRoleAssignmentMakePermanentRequestBuilder) Request() *Privile
 
 //
 func (r *PrivilegedRoleAssignmentMakePermanentRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -71,7 +71,7 @@ func (b *PrivilegedRoleAssignmentMakeEligibleRequestBuilder) Request() *Privileg
 
 //
 func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

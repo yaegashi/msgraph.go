@@ -24,7 +24,7 @@ type EducationSynchronizationProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationSynchronizationProfile
 func (r *EducationSynchronizationProfileRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *EducationSynchronizationProfileRequest) Update(reqObj *EducationSynchro
 
 // Delete performs DELETE request for EducationSynchronizationProfile
 func (r *EducationSynchronizationProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Errors returns request builder for EducationSynchronizationError collection
@@ -76,13 +76,13 @@ type EducationSynchronizationProfileErrorsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for EducationSynchronizationError collection
 func (r *EducationSynchronizationProfileErrorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationError, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EducationSynchronizationError collection
 func (r *EducationSynchronizationProfileErrorsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationSynchronizationError, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

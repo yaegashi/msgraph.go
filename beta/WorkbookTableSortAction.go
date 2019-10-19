@@ -43,7 +43,7 @@ func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApply
 
 //
 func (r *WorkbookTableSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -74,7 +74,7 @@ func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClear
 
 //
 func (r *WorkbookTableSortClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -105,7 +105,7 @@ func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortRea
 
 //
 func (r *WorkbookTableSortReapplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

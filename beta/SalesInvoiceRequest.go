@@ -24,7 +24,7 @@ type SalesInvoiceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesInvoice
 func (r *SalesInvoiceRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SalesInvoiceRequest) Update(reqObj *SalesInvoice) (*SalesInvoice, error
 
 // Delete performs DELETE request for SalesInvoice
 func (r *SalesInvoiceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Currency is navigation property
@@ -97,13 +97,13 @@ type SalesInvoiceSalesInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesInvoiceLine collection
 func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SalesInvoiceLine collection
 func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

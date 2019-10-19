@@ -17,7 +17,7 @@ type AgreementAcceptanceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AgreementAcceptance
 func (r *AgreementAcceptanceRequest) Do(method, path string, reqObj interface{}) (resObj *AgreementAcceptance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AgreementAcceptanceRequest) Update(reqObj *AgreementAcceptance) (*Agree
 
 // Delete performs DELETE request for AgreementAcceptance
 func (r *AgreementAcceptanceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

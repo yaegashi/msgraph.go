@@ -17,7 +17,7 @@ type HostSecurityProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for HostSecurityProfile
 func (r *HostSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *HostSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *HostSecurityProfileRequest) Update(reqObj *HostSecurityProfile) (*HostS
 
 // Delete performs DELETE request for HostSecurityProfile
 func (r *HostSecurityProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

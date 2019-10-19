@@ -17,7 +17,7 @@ type TenantSetupInfoRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TenantSetupInfo
 func (r *TenantSetupInfoRequest) Do(method, path string, reqObj interface{}) (resObj *TenantSetupInfo, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *TenantSetupInfoRequest) Update(reqObj *TenantSetupInfo) (*TenantSetupIn
 
 // Delete performs DELETE request for TenantSetupInfo
 func (r *TenantSetupInfoRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DefaultRolesSettings is navigation property

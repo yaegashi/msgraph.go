@@ -17,7 +17,7 @@ type RestrictedSignInRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RestrictedSignIn
 func (r *RestrictedSignInRequest) Do(method, path string, reqObj interface{}) (resObj *RestrictedSignIn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *RestrictedSignInRequest) Update(reqObj *RestrictedSignIn) (*RestrictedS
 
 // Delete performs DELETE request for RestrictedSignIn
 func (r *RestrictedSignInRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

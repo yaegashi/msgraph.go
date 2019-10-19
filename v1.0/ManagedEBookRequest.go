@@ -24,7 +24,7 @@ type ManagedEBookRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedEBook
 func (r *ManagedEBookRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBook, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ManagedEBookRequest) Update(reqObj *ManagedEBook) (*ManagedEBook, error
 
 // Delete performs DELETE request for ManagedEBook
 func (r *ManagedEBookRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for ManagedEBookAssignment collection
@@ -76,13 +76,13 @@ type ManagedEBookAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedEBookAssignment collection
 func (r *ManagedEBookAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedEBookAssignment collection
 func (r *ManagedEBookAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedEBookAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ManagedEBookDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceInstallState collection
 func (r *ManagedEBookDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceInstallState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceInstallState collection
 func (r *ManagedEBookDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceInstallState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type ManagedEBookUserStateSummaryCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserInstallStateSummary collection
 func (r *ManagedEBookUserStateSummaryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserInstallStateSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserInstallStateSummary collection
 func (r *ManagedEBookUserStateSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]UserInstallStateSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

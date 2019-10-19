@@ -17,7 +17,7 @@ type OAuth2PermissionGrantRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OAuth2PermissionGrant
 func (r *OAuth2PermissionGrantRequest) Do(method, path string, reqObj interface{}) (resObj *OAuth2PermissionGrant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *OAuth2PermissionGrantRequest) Update(reqObj *OAuth2PermissionGrant) (*O
 
 // Delete performs DELETE request for OAuth2PermissionGrant
 func (r *OAuth2PermissionGrantRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

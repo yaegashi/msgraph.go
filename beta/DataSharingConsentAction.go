@@ -29,7 +29,7 @@ func (b *DataSharingConsentConsentToDataSharingRequestBuilder) Request() *DataSh
 
 //
 func (r *DataSharingConsentConsentToDataSharingRequest) Do(method, path string, reqObj interface{}) (resObj *DataSharingConsent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

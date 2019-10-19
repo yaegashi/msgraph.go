@@ -24,7 +24,7 @@ type WorkbookRangeFormatRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookRangeFormat
 func (r *WorkbookRangeFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeFormat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WorkbookRangeFormatRequest) Update(reqObj *WorkbookRangeFormat) (*Workb
 
 // Delete performs DELETE request for WorkbookRangeFormat
 func (r *WorkbookRangeFormatRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Borders returns request builder for WorkbookRangeBorder collection
@@ -76,13 +76,13 @@ type WorkbookRangeFormatBordersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookRangeBorder collection
 func (r *WorkbookRangeFormatBordersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeBorder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookRangeBorder collection
 func (r *WorkbookRangeFormatBordersCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookRangeBorder, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

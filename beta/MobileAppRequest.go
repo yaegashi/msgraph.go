@@ -24,7 +24,7 @@ type MobileAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileApp
 func (r *MobileAppRequest) Do(method, path string, reqObj interface{}) (resObj *MobileApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *MobileAppRequest) Update(reqObj *MobileApp) (*MobileApp, error) {
 
 // Delete performs DELETE request for MobileApp
 func (r *MobileAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for MobileAppAssignment collection
@@ -76,13 +76,13 @@ type MobileAppAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppAssignment collection
 func (r *MobileAppAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppAssignment collection
 func (r *MobileAppAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type MobileAppCategoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppCategory collection
 func (r *MobileAppCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppCategory collection
 func (r *MobileAppCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type MobileAppDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppInstallStatus collection
 func (r *MobileAppDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppInstallStatus collection
 func (r *MobileAppDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppInstallStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type MobileAppRelationshipsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppRelationship collection
 func (r *MobileAppRelationshipsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppRelationship, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppRelationship collection
 func (r *MobileAppRelationshipsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppRelationship, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -431,13 +431,13 @@ type MobileAppUserStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserAppInstallStatus collection
 func (r *MobileAppUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserAppInstallStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserAppInstallStatus collection
 func (r *MobileAppUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserAppInstallStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

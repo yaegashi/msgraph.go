@@ -17,7 +17,7 @@ type IdentityRiskEventRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IdentityRiskEvent
 func (r *IdentityRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityRiskEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *IdentityRiskEventRequest) Update(reqObj *IdentityRiskEvent) (*IdentityR
 
 // Delete performs DELETE request for IdentityRiskEvent
 func (r *IdentityRiskEventRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ImpactedUser is navigation property

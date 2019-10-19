@@ -24,7 +24,7 @@ type AdvancedThreatProtectionOnboardingStateSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AdvancedThreatProtectionOnboardingStateSummary
 func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *AdvancedThreatProtectionOnboardingStateSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Update(reqObj *A
 
 // Delete performs DELETE request for AdvancedThreatProtectionOnboardingStateSummary
 func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AdvancedThreatProtectionOnboardingDeviceSettingStates returns request builder for AdvancedThreatProtectionOnboardingDeviceSettingState collection
@@ -76,13 +76,13 @@ type AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboa
 
 // Do performs HTTP request for AdvancedThreatProtectionOnboardingDeviceSettingState collection
 func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AdvancedThreatProtectionOnboardingDeviceSettingState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AdvancedThreatProtectionOnboardingDeviceSettingState collection
 func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]AdvancedThreatProtectionOnboardingDeviceSettingState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

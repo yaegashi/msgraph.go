@@ -24,7 +24,7 @@ type DetectedAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DetectedApp
 func (r *DetectedAppRequest) Do(method, path string, reqObj interface{}) (resObj *DetectedApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DetectedAppRequest) Update(reqObj *DetectedApp) (*DetectedApp, error) {
 
 // Delete performs DELETE request for DetectedApp
 func (r *DetectedAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagedDevices returns request builder for ManagedDevice collection
@@ -76,13 +76,13 @@ type DetectedAppManagedDevicesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDevice collection
 func (r *DetectedAppManagedDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDevice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDevice collection
 func (r *DetectedAppManagedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDevice, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

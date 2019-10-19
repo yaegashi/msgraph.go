@@ -17,7 +17,7 @@ type SchemaExtensionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SchemaExtension
 func (r *SchemaExtensionRequest) Do(method, path string, reqObj interface{}) (resObj *SchemaExtension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SchemaExtensionRequest) Update(reqObj *SchemaExtension) (*SchemaExtensi
 
 // Delete performs DELETE request for SchemaExtension
 func (r *SchemaExtensionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

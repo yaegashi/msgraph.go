@@ -17,7 +17,7 @@ type DeviceManagementScriptAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScriptAssignment
 func (r *DeviceManagementScriptAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementScriptAssignmentRequest) Update(reqObj *DeviceManagemen
 
 // Delete performs DELETE request for DeviceManagementScriptAssignment
 func (r *DeviceManagementScriptAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

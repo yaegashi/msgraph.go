@@ -53,7 +53,7 @@ func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCo
 
 //
 func (r *OnenoteSectionCopyToNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -85,7 +85,7 @@ func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSecti
 
 //
 func (r *OnenoteSectionCopyToSectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

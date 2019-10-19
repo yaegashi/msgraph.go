@@ -17,7 +17,7 @@ type MobileAppRelationshipRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppRelationship
 func (r *MobileAppRelationshipRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppRelationship, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MobileAppRelationshipRequest) Update(reqObj *MobileAppRelationship) (*M
 
 // Delete performs DELETE request for MobileAppRelationship
 func (r *MobileAppRelationshipRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

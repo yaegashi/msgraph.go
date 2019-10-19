@@ -17,7 +17,7 @@ type JournalLineRequest struct{ BaseRequest }
 
 // Do performs HTTP request for JournalLine
 func (r *JournalLineRequest) Do(method, path string, reqObj interface{}) (resObj *JournalLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *JournalLineRequest) Update(reqObj *JournalLine) (*JournalLine, error) {
 
 // Delete performs DELETE request for JournalLine
 func (r *JournalLineRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Account is navigation property

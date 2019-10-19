@@ -24,7 +24,7 @@ type AndroidForWorkImportedPFXCertificateProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidForWorkImportedPFXCertificateProfile
 func (r *AndroidForWorkImportedPFXCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkImportedPFXCertificateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AndroidForWorkImportedPFXCertificateProfileRequest) Update(reqObj *Andr
 
 // Delete performs DELETE request for AndroidForWorkImportedPFXCertificateProfile
 func (r *AndroidForWorkImportedPFXCertificateProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -76,13 +76,13 @@ type AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCo
 
 // Do performs HTTP request for ManagedDeviceCertificateState collection
 func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

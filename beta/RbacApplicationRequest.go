@@ -24,7 +24,7 @@ type RbacApplicationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RbacApplication
 func (r *RbacApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *RbacApplication, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *RbacApplicationRequest) Update(reqObj *RbacApplication) (*RbacApplicati
 
 // Delete performs DELETE request for RbacApplication
 func (r *RbacApplicationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // RoleAssignments returns request builder for UnifiedRoleAssignment collection
@@ -76,13 +76,13 @@ type RbacApplicationRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UnifiedRoleAssignment collection
 func (r *RbacApplicationRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnifiedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UnifiedRoleAssignment collection
 func (r *RbacApplicationRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]UnifiedRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type RbacApplicationRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UnifiedRoleDefinition collection
 func (r *RbacApplicationRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnifiedRoleDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UnifiedRoleDefinition collection
 func (r *RbacApplicationRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]UnifiedRoleDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

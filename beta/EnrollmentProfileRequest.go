@@ -17,7 +17,7 @@ type EnrollmentProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EnrollmentProfile
 func (r *EnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *EnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EnrollmentProfileRequest) Update(reqObj *EnrollmentProfile) (*Enrollmen
 
 // Delete performs DELETE request for EnrollmentProfile
 func (r *EnrollmentProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

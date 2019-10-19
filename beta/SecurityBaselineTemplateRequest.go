@@ -24,7 +24,7 @@ type SecurityBaselineTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityBaselineTemplate
 func (r *SecurityBaselineTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SecurityBaselineTemplateRequest) Update(reqObj *SecurityBaselineTemplat
 
 // Delete performs DELETE request for SecurityBaselineTemplate
 func (r *SecurityBaselineTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // CategoryDeviceStateSummaries returns request builder for SecurityBaselineCategoryStateSummary collection
@@ -76,13 +76,13 @@ type SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest struc
 
 // Do performs HTTP request for SecurityBaselineCategoryStateSummary collection
 func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineCategoryStateSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SecurityBaselineCategoryStateSummary collection
 func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineCategoryStateSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type SecurityBaselineTemplateDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityBaselineDeviceState collection
 func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SecurityBaselineDeviceState collection
 func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineDeviceState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

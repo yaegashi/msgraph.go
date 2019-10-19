@@ -9,6 +9,12 @@ import (
 	"net/http"
 )
 
+// DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
+}
+
 // DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
 type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
 	// Priority undocumented
@@ -21,10 +27,66 @@ type DeviceEnrollmentConfigurationAssignRequestParameter struct {
 	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
 }
 
-// DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
+//
+type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
+
+// SetPriority action undocumented
+func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
+	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setPriority"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
+
+//
+func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
+	return &DeviceEnrollmentConfigurationSetPriorityRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
+type DeviceEnrollmentConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *DeviceEnrollmentConfigurationRequestBuilder) Assign(reqObj *DeviceEnrollmentConfigurationAssignRequestParameter) *DeviceEnrollmentConfigurationAssignRequestBuilder {
+	bb := &DeviceEnrollmentConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceEnrollmentConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignRequest {
+	return &DeviceEnrollmentConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceEnrollmentConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -58,13 +120,13 @@ func (b *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestBuilder) R
 
 //
 func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -109,66 +171,4 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Get() ([
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
-
-// SetPriority action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPriority"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
-
-//
-func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
-	return &DeviceEnrollmentConfigurationSetPriorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
-type DeviceEnrollmentConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) Assign(reqObj *DeviceEnrollmentConfigurationAssignRequestParameter) *DeviceEnrollmentConfigurationAssignRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceEnrollmentConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignRequest {
-	return &DeviceEnrollmentConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceEnrollmentConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
 }

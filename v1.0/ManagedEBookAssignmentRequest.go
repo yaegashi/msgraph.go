@@ -17,7 +17,7 @@ type ManagedEBookAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedEBookAssignment
 func (r *ManagedEBookAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedEBookAssignmentRequest) Update(reqObj *ManagedEBookAssignment) (
 
 // Delete performs DELETE request for ManagedEBookAssignment
 func (r *ManagedEBookAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -17,7 +17,7 @@ type DeviceManagementSettingInstanceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementSettingInstance
 func (r *DeviceManagementSettingInstanceRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementSettingInstanceRequest) Update(reqObj *DeviceManagement
 
 // Delete performs DELETE request for DeviceManagementSettingInstance
 func (r *DeviceManagementSettingInstanceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

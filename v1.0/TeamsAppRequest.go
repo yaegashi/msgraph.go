@@ -24,7 +24,7 @@ type TeamsAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsApp
 func (r *TeamsAppRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TeamsAppRequest) Update(reqObj *TeamsApp) (*TeamsApp, error) {
 
 // Delete performs DELETE request for TeamsApp
 func (r *TeamsAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AppDefinitions returns request builder for TeamsAppDefinition collection
@@ -76,13 +76,13 @@ type TeamsAppAppDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsAppDefinition collection
 func (r *TeamsAppAppDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsAppDefinition collection
 func (r *TeamsAppAppDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

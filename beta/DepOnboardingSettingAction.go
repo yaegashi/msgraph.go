@@ -45,7 +45,7 @@ func (b *DepOnboardingSettingUploadDepTokenRequestBuilder) Request() *DepOnboard
 
 //
 func (r *DepOnboardingSettingUploadDepTokenRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -76,7 +76,7 @@ func (b *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestBuilder)
 
 //
 func (r *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -107,7 +107,7 @@ func (b *DepOnboardingSettingShareForSchoolDataSyncServiceRequestBuilder) Reques
 
 //
 func (r *DepOnboardingSettingShareForSchoolDataSyncServiceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -138,7 +138,7 @@ func (b *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestBuilder) Requ
 
 //
 func (r *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

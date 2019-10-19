@@ -24,7 +24,7 @@ type CommsApplicationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CommsApplication
 func (r *CommsApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *CommsApplication, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *CommsApplicationRequest) Update(reqObj *CommsApplication) (*CommsApplic
 
 // Delete performs DELETE request for CommsApplication
 func (r *CommsApplicationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Calls returns request builder for Call collection
@@ -76,13 +76,13 @@ type CommsApplicationCallsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Call collection
 func (r *CommsApplicationCallsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Call, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Call collection
 func (r *CommsApplicationCallsCollectionRequest) Paging(method, path string, obj interface{}) ([]Call, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type CommsApplicationOnlineMeetingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnlineMeeting collection
 func (r *CommsApplicationOnlineMeetingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnlineMeeting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnlineMeeting collection
 func (r *CommsApplicationOnlineMeetingsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnlineMeeting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

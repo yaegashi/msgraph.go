@@ -24,7 +24,7 @@ type ItemAnalyticsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ItemAnalytics
 func (r *ItemAnalyticsRequest) Do(method, path string, reqObj interface{}) (resObj *ItemAnalytics, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ItemAnalyticsRequest) Update(reqObj *ItemAnalytics) (*ItemAnalytics, er
 
 // Delete performs DELETE request for ItemAnalytics
 func (r *ItemAnalyticsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AllTime is navigation property
@@ -83,13 +83,13 @@ type ItemAnalyticsItemActivityStatsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ItemActivityStat collection
 func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityStat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ItemActivityStat collection
 func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemActivityStat, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

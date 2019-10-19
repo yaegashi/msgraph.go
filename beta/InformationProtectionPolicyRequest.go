@@ -24,7 +24,7 @@ type InformationProtectionPolicyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for InformationProtectionPolicy
 func (r *InformationProtectionPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *InformationProtectionPolicyRequest) Update(reqObj *InformationProtectio
 
 // Delete performs DELETE request for InformationProtectionPolicy
 func (r *InformationProtectionPolicyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Labels returns request builder for InformationProtectionLabel collection
@@ -76,13 +76,13 @@ type InformationProtectionPolicyLabelsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for InformationProtectionLabel collection
 func (r *InformationProtectionPolicyLabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionLabel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for InformationProtectionLabel collection
 func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]InformationProtectionLabel, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

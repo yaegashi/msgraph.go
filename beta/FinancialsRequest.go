@@ -24,7 +24,7 @@ type FinancialsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Financials
 func (r *FinancialsRequest) Do(method, path string, reqObj interface{}) (resObj *Financials, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *FinancialsRequest) Update(reqObj *Financials) (*Financials, error) {
 
 // Delete performs DELETE request for Financials
 func (r *FinancialsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Companies returns request builder for Company collection
@@ -76,13 +76,13 @@ type FinancialsCompaniesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Company collection
 func (r *FinancialsCompaniesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Company, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Company collection
 func (r *FinancialsCompaniesCollectionRequest) Paging(method, path string, obj interface{}) ([]Company, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

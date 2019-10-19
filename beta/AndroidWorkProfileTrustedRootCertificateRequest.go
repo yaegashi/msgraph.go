@@ -17,7 +17,7 @@ type AndroidWorkProfileTrustedRootCertificateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidWorkProfileTrustedRootCertificate
 func (r *AndroidWorkProfileTrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidWorkProfileTrustedRootCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidWorkProfileTrustedRootCertificateRequest) Update(reqObj *Android
 
 // Delete performs DELETE request for AndroidWorkProfileTrustedRootCertificate
 func (r *AndroidWorkProfileTrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -17,7 +17,7 @@ type ManagedAppProtectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedAppProtection
 func (r *ManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppProtection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedAppProtectionRequest) Update(reqObj *ManagedAppProtection) (*Man
 
 // Delete performs DELETE request for ManagedAppProtection
 func (r *ManagedAppProtectionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

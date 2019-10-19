@@ -17,7 +17,7 @@ type AgedAccountsReceivableRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AgedAccountsReceivable
 func (r *AgedAccountsReceivableRequest) Do(method, path string, reqObj interface{}) (resObj *AgedAccountsReceivable, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AgedAccountsReceivableRequest) Update(reqObj *AgedAccountsReceivable) (
 
 // Delete performs DELETE request for AgedAccountsReceivable
 func (r *AgedAccountsReceivableRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

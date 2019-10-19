@@ -17,7 +17,7 @@ type WindowsCertificateProfileBaseRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsCertificateProfileBase
 func (r *WindowsCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsCertificateProfileBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsCertificateProfileBaseRequest) Update(reqObj *WindowsCertificate
 
 // Delete performs DELETE request for WindowsCertificateProfileBase
 func (r *WindowsCertificateProfileBaseRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

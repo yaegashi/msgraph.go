@@ -17,7 +17,7 @@ type WorkbookTableSortRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookTableSort
 func (r *WorkbookTableSortRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableSort, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WorkbookTableSortRequest) Update(reqObj *WorkbookTableSort) (*WorkbookT
 
 // Delete performs DELETE request for WorkbookTableSort
 func (r *WorkbookTableSortRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

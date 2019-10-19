@@ -24,7 +24,7 @@ type DriveItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DriveItem
 func (r *DriveItemRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DriveItemRequest) Update(reqObj *DriveItem) (*DriveItem, error) {
 
 // Delete performs DELETE request for DriveItem
 func (r *DriveItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Analytics is navigation property
@@ -83,13 +83,13 @@ type DriveItemChildrenCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DriveItem collection
 func (r *DriveItemChildrenCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *DriveItemChildrenCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -177,13 +177,13 @@ type DriveItemPermissionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Permission collection
 func (r *DriveItemPermissionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Permission collection
 func (r *DriveItemPermissionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Permission, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -264,13 +264,13 @@ type DriveItemSubscriptionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Subscription collection
 func (r *DriveItemSubscriptionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Subscription, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Subscription collection
 func (r *DriveItemSubscriptionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Subscription, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +351,13 @@ type DriveItemThumbnailsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ThumbnailSet collection
 func (r *DriveItemThumbnailsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ThumbnailSet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ThumbnailSet collection
 func (r *DriveItemThumbnailsCollectionRequest) Paging(method, path string, obj interface{}) ([]ThumbnailSet, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -438,13 +438,13 @@ type DriveItemVersionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DriveItemVersion collection
 func (r *DriveItemVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItemVersion, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DriveItemVersion collection
 func (r *DriveItemVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItemVersion, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

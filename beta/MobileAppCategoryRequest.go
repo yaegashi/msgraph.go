@@ -17,7 +17,7 @@ type MobileAppCategoryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppCategory
 func (r *MobileAppCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MobileAppCategoryRequest) Update(reqObj *MobileAppCategory) (*MobileApp
 
 // Delete performs DELETE request for MobileAppCategory
 func (r *MobileAppCategoryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

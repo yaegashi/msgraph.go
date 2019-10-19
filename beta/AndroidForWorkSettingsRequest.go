@@ -17,7 +17,7 @@ type AndroidForWorkSettingsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidForWorkSettings
 func (r *AndroidForWorkSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkSettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidForWorkSettingsRequest) Update(reqObj *AndroidForWorkSettings) (
 
 // Delete performs DELETE request for AndroidForWorkSettings
 func (r *AndroidForWorkSettingsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

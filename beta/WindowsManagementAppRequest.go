@@ -24,7 +24,7 @@ type WindowsManagementAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsManagementApp
 func (r *WindowsManagementAppRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsManagementApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsManagementAppRequest) Update(reqObj *WindowsManagementApp) (*Win
 
 // Delete performs DELETE request for WindowsManagementApp
 func (r *WindowsManagementAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // HealthStates returns request builder for WindowsManagementAppHealthState collection
@@ -76,13 +76,13 @@ type WindowsManagementAppHealthStatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsManagementAppHealthState collection
 func (r *WindowsManagementAppHealthStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsManagementAppHealthState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsManagementAppHealthState collection
 func (r *WindowsManagementAppHealthStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsManagementAppHealthState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

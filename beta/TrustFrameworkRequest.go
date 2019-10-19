@@ -24,7 +24,7 @@ type TrustFrameworkRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TrustFramework
 func (r *TrustFrameworkRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFramework, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *TrustFrameworkRequest) Update(reqObj *TrustFramework) (*TrustFramework,
 
 // Delete performs DELETE request for TrustFramework
 func (r *TrustFrameworkRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // KeySets returns request builder for TrustFrameworkKeySet collection
@@ -76,13 +76,13 @@ type TrustFrameworkKeySetsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TrustFrameworkKeySet collection
 func (r *TrustFrameworkKeySetsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkKeySet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TrustFrameworkKeySet collection
 func (r *TrustFrameworkKeySetsCollectionRequest) Paging(method, path string, obj interface{}) ([]TrustFrameworkKeySet, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type TrustFrameworkPoliciesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TrustFrameworkPolicy collection
 func (r *TrustFrameworkPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TrustFrameworkPolicy collection
 func (r *TrustFrameworkPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]TrustFrameworkPolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

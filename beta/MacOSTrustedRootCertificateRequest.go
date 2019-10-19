@@ -17,7 +17,7 @@ type MacOSTrustedRootCertificateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MacOSTrustedRootCertificate
 func (r *MacOSTrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *MacOSTrustedRootCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MacOSTrustedRootCertificateRequest) Update(reqObj *MacOSTrustedRootCert
 
 // Delete performs DELETE request for MacOSTrustedRootCertificate
 func (r *MacOSTrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

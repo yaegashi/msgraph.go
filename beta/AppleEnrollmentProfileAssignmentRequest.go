@@ -17,7 +17,7 @@ type AppleEnrollmentProfileAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AppleEnrollmentProfileAssignment
 func (r *AppleEnrollmentProfileAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *AppleEnrollmentProfileAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AppleEnrollmentProfileAssignmentRequest) Update(reqObj *AppleEnrollment
 
 // Delete performs DELETE request for AppleEnrollmentProfileAssignment
 func (r *AppleEnrollmentProfileAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

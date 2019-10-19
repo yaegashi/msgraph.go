@@ -24,7 +24,7 @@ type WorkbookChartSeriesRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartSeries
 func (r *WorkbookChartSeriesRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartSeries, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WorkbookChartSeriesRequest) Update(reqObj *WorkbookChartSeries) (*Workb
 
 // Delete performs DELETE request for WorkbookChartSeries
 func (r *WorkbookChartSeriesRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Format is navigation property
@@ -83,13 +83,13 @@ type WorkbookChartSeriesPointsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartPoint collection
 func (r *WorkbookChartSeriesPointsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartPoint, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookChartPoint collection
 func (r *WorkbookChartSeriesPointsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookChartPoint, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

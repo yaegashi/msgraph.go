@@ -17,7 +17,7 @@ type EBookInstallSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EBookInstallSummary
 func (r *EBookInstallSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *EBookInstallSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EBookInstallSummaryRequest) Update(reqObj *EBookInstallSummary) (*EBook
 
 // Delete performs DELETE request for EBookInstallSummary
 func (r *EBookInstallSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

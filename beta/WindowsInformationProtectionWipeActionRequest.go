@@ -17,7 +17,7 @@ type WindowsInformationProtectionWipeActionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsInformationProtectionWipeAction
 func (r *WindowsInformationProtectionWipeActionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionWipeAction, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *WindowsInformationProtectionWipeActionRequest) Update(reqObj *WindowsIn
 
 // Delete performs DELETE request for WindowsInformationProtectionWipeAction
 func (r *WindowsInformationProtectionWipeActionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

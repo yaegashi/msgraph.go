@@ -37,7 +37,7 @@ func (b *RequestObjectStopRequestBuilder) Request() *RequestObjectStopRequest {
 
 //
 func (r *RequestObjectStopRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -68,7 +68,7 @@ func (b *RequestObjectRecordDecisionsRequestBuilder) Request() *RequestObjectRec
 
 //
 func (r *RequestObjectRecordDecisionsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

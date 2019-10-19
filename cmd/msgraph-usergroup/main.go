@@ -114,7 +114,7 @@ func main() {
 			"@odata.id": graphClient.DirectoryObjects().ID(*u.ID).Request().URL(),
 		}
 		r := graphClient.Groups().ID(*g.ID).Members().Request()
-		err := r.JSONRequestWithPath("POST", "/$ref", reqObj, nil)
+		err := r.JSONRequest("POST", "/$ref", reqObj, nil)
 		if err != nil {
 			log.Fatal(err)
 		}

@@ -17,7 +17,7 @@ type AndroidWorkProfileCertificateProfileBaseRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidWorkProfileCertificateProfileBase
 func (r *AndroidWorkProfileCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidWorkProfileCertificateProfileBase, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AndroidWorkProfileCertificateProfileBaseRequest) Update(reqObj *Android
 
 // Delete performs DELETE request for AndroidWorkProfileCertificateProfileBase
 func (r *AndroidWorkProfileCertificateProfileBaseRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // RootCertificate is navigation property

@@ -17,7 +17,7 @@ type AccountRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Account
 func (r *AccountRequest) Do(method, path string, reqObj interface{}) (resObj *Account, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AccountRequest) Update(reqObj *Account) (*Account, error) {
 
 // Delete performs DELETE request for Account
 func (r *AccountRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

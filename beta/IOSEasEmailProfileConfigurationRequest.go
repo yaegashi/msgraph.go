@@ -17,7 +17,7 @@ type IOSEasEmailProfileConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSEasEmailProfileConfiguration
 func (r *IOSEasEmailProfileConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSEasEmailProfileConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *IOSEasEmailProfileConfigurationRequest) Update(reqObj *IOSEasEmailProfi
 
 // Delete performs DELETE request for IOSEasEmailProfileConfiguration
 func (r *IOSEasEmailProfileConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DerivedCredentialSettings is navigation property

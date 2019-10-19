@@ -24,7 +24,7 @@ type DeviceManagementRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagement
 func (r *DeviceManagementRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagement, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceManagementRequest) Update(reqObj *DeviceManagement) (*DeviceManag
 
 // Delete performs DELETE request for DeviceManagement
 func (r *DeviceManagementRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AdvancedThreatProtectionOnboardingStateSummary is navigation property
@@ -83,13 +83,13 @@ type DeviceManagementAndroidDeviceOwnerEnrollmentProfilesCollectionRequest struc
 
 // Do performs HTTP request for AndroidDeviceOwnerEnrollmentProfile collection
 func (r *DeviceManagementAndroidDeviceOwnerEnrollmentProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidDeviceOwnerEnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AndroidDeviceOwnerEnrollmentProfile collection
 func (r *DeviceManagementAndroidDeviceOwnerEnrollmentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]AndroidDeviceOwnerEnrollmentProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequest stru
 
 // Do performs HTTP request for AndroidForWorkAppConfigurationSchema collection
 func (r *DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkAppConfigurationSchema, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AndroidForWorkAppConfigurationSchema collection
 func (r *DeviceManagementAndroidForWorkAppConfigurationSchemasCollectionRequest) Paging(method, path string, obj interface{}) ([]AndroidForWorkAppConfigurationSchema, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest struct{ B
 
 // Do performs HTTP request for AndroidForWorkEnrollmentProfile collection
 func (r *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkEnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AndroidForWorkEnrollmentProfile collection
 func (r *DeviceManagementAndroidForWorkEnrollmentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]AndroidForWorkEnrollmentProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -358,13 +358,13 @@ type DeviceManagementAndroidManagedStoreAppConfigurationSchemasCollectionRequest
 
 // Do performs HTTP request for AndroidManagedStoreAppConfigurationSchema collection
 func (r *DeviceManagementAndroidManagedStoreAppConfigurationSchemasCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidManagedStoreAppConfigurationSchema, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AndroidManagedStoreAppConfigurationSchema collection
 func (r *DeviceManagementAndroidManagedStoreAppConfigurationSchemasCollectionRequest) Paging(method, path string, obj interface{}) ([]AndroidManagedStoreAppConfigurationSchema, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -452,13 +452,13 @@ type DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest struc
 
 // Do performs HTTP request for AppleUserInitiatedEnrollmentProfile collection
 func (r *DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AppleUserInitiatedEnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AppleUserInitiatedEnrollmentProfile collection
 func (r *DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]AppleUserInitiatedEnrollmentProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -539,13 +539,13 @@ type DeviceManagementAuditEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AuditEvent collection
 func (r *DeviceManagementAuditEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AuditEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AuditEvent collection
 func (r *DeviceManagementAuditEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]AuditEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -626,13 +626,13 @@ type DeviceManagementAutopilotEventsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementAutopilotEvent collection
 func (r *DeviceManagementAutopilotEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementAutopilotEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementAutopilotEvent collection
 func (r *DeviceManagementAutopilotEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementAutopilotEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -713,13 +713,13 @@ type DeviceManagementCartToClassAssociationsCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for CartToClassAssociation collection
 func (r *DeviceManagementCartToClassAssociationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CartToClassAssociation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CartToClassAssociation collection
 func (r *DeviceManagementCartToClassAssociationsCollectionRequest) Paging(method, path string, obj interface{}) ([]CartToClassAssociation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -800,13 +800,13 @@ type DeviceManagementCategoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementSettingCategory collection
 func (r *DeviceManagementCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementSettingCategory collection
 func (r *DeviceManagementCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -894,13 +894,13 @@ type DeviceManagementDataSharingConsentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DataSharingConsent collection
 func (r *DeviceManagementDataSharingConsentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DataSharingConsent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DataSharingConsent collection
 func (r *DeviceManagementDataSharingConsentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DataSharingConsent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -981,13 +981,13 @@ type DeviceManagementDepOnboardingSettingsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for DepOnboardingSetting collection
 func (r *DeviceManagementDepOnboardingSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DepOnboardingSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DepOnboardingSetting collection
 func (r *DeviceManagementDepOnboardingSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DepOnboardingSetting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1068,13 +1068,13 @@ type DeviceManagementDerivedCredentialsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementDerivedCredentialSettings collection
 func (r *DeviceManagementDerivedCredentialsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementDerivedCredentialSettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementDerivedCredentialSettings collection
 func (r *DeviceManagementDerivedCredentialsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementDerivedCredentialSettings, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1155,13 +1155,13 @@ type DeviceManagementDetectedAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DetectedApp collection
 func (r *DeviceManagementDetectedAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DetectedApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DetectedApp collection
 func (r *DeviceManagementDetectedAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]DetectedApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1242,13 +1242,13 @@ type DeviceManagementDeviceCategoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceCategory collection
 func (r *DeviceManagementDeviceCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceCategory collection
 func (r *DeviceManagementDeviceCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1329,13 +1329,13 @@ type DeviceManagementDeviceCompliancePoliciesCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for DeviceCompliancePolicy collection
 func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceCompliancePolicy collection
 func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCompliancePolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1423,13 +1423,13 @@ type DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionReques
 
 // Do performs HTTP request for DeviceCompliancePolicySettingStateSummary collection
 func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceCompliancePolicySettingStateSummary collection
 func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCompliancePolicySettingStateSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1510,13 +1510,13 @@ type DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest struct{
 
 // Do performs HTTP request for DeviceConfigurationConflictSummary collection
 func (r *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationConflictSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfigurationConflictSummary collection
 func (r *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationConflictSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1604,13 +1604,13 @@ type DeviceManagementDeviceConfigurationRestrictedAppsViolationsCollectionReques
 
 // Do performs HTTP request for RestrictedAppsViolation collection
 func (r *DeviceManagementDeviceConfigurationRestrictedAppsViolationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RestrictedAppsViolation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RestrictedAppsViolation collection
 func (r *DeviceManagementDeviceConfigurationRestrictedAppsViolationsCollectionRequest) Paging(method, path string, obj interface{}) ([]RestrictedAppsViolation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1698,13 +1698,13 @@ type DeviceManagementDeviceConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceConfiguration collection
 func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfiguration collection
 func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1785,13 +1785,13 @@ type DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollec
 
 // Do performs HTTP request for ManagedAllDeviceCertificateState collection
 func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAllDeviceCertificateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedAllDeviceCertificateState collection
 func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAllDeviceCertificateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1872,13 +1872,13 @@ type DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest struct{ Bas
 
 // Do performs HTTP request for DeviceEnrollmentConfiguration collection
 func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceEnrollmentConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceEnrollmentConfiguration collection
 func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceEnrollmentConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1959,13 +1959,13 @@ type DeviceManagementDeviceManagementPartnersCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for DeviceManagementPartner collection
 func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementPartner, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementPartner collection
 func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementPartner, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2046,13 +2046,13 @@ type DeviceManagementDeviceManagementScriptsCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for DeviceManagementScript collection
 func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScript, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementScript collection
 func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScript, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2133,13 +2133,13 @@ type DeviceManagementDomainJoinConnectorsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementDomainJoinConnector collection
 func (r *DeviceManagementDomainJoinConnectorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementDomainJoinConnector, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementDomainJoinConnector collection
 func (r *DeviceManagementDomainJoinConnectorsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementDomainJoinConnector, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2220,13 +2220,13 @@ type DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest struct{ Bas
 
 // Do performs HTTP request for EmbeddedSIMActivationCodePool collection
 func (r *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EmbeddedSIMActivationCodePool collection
 func (r *DeviceManagementEmbeddedSIMActivationCodePoolsCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePool, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2307,13 +2307,13 @@ type DeviceManagementExchangeConnectorsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementExchangeConnector collection
 func (r *DeviceManagementExchangeConnectorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementExchangeConnector, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementExchangeConnector collection
 func (r *DeviceManagementExchangeConnectorsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementExchangeConnector, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2394,13 +2394,13 @@ type DeviceManagementExchangeOnPremisesPoliciesCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for DeviceManagementExchangeOnPremisesPolicy collection
 func (r *DeviceManagementExchangeOnPremisesPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementExchangeOnPremisesPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementExchangeOnPremisesPolicy collection
 func (r *DeviceManagementExchangeOnPremisesPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementExchangeOnPremisesPolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2488,13 +2488,13 @@ type DeviceManagementGroupPolicyConfigurationsCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for GroupPolicyConfiguration collection
 func (r *DeviceManagementGroupPolicyConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GroupPolicyConfiguration collection
 func (r *DeviceManagementGroupPolicyConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyConfiguration, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2575,13 +2575,13 @@ type DeviceManagementGroupPolicyDefinitionFilesCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for GroupPolicyDefinitionFile collection
 func (r *DeviceManagementGroupPolicyDefinitionFilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinitionFile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GroupPolicyDefinitionFile collection
 func (r *DeviceManagementGroupPolicyDefinitionFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyDefinitionFile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2662,13 +2662,13 @@ type DeviceManagementGroupPolicyDefinitionsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for GroupPolicyDefinition collection
 func (r *DeviceManagementGroupPolicyDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GroupPolicyDefinition collection
 func (r *DeviceManagementGroupPolicyDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2749,13 +2749,13 @@ type DeviceManagementImportedDeviceIdentitiesCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for ImportedDeviceIdentity collection
 func (r *DeviceManagementImportedDeviceIdentitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ImportedDeviceIdentity collection
 func (r *DeviceManagementImportedDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ImportedDeviceIdentity, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2836,13 +2836,13 @@ type DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest s
 
 // Do performs HTTP request for ImportedWindowsAutopilotDeviceIdentity collection
 func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ImportedWindowsAutopilotDeviceIdentity collection
 func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -2923,13 +2923,13 @@ type DeviceManagementIntentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementIntent collection
 func (r *DeviceManagementIntentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementIntent collection
 func (r *DeviceManagementIntentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3010,13 +3010,13 @@ type DeviceManagementIntuneBrandingProfilesCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for IntuneBrandingProfile collection
 func (r *DeviceManagementIntuneBrandingProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IntuneBrandingProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IntuneBrandingProfile collection
 func (r *DeviceManagementIntuneBrandingProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]IntuneBrandingProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3097,13 +3097,13 @@ type DeviceManagementIOSUpdateStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSUpdateDeviceStatus collection
 func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IOSUpdateDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IOSUpdateDeviceStatus collection
 func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSUpdateDeviceStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3184,13 +3184,13 @@ type DeviceManagementManagedDeviceEncryptionStatesCollectionRequest struct{ Base
 
 // Do performs HTTP request for ManagedDeviceEncryptionState collection
 func (r *DeviceManagementManagedDeviceEncryptionStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceEncryptionState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceEncryptionState collection
 func (r *DeviceManagementManagedDeviceEncryptionStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceEncryptionState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3278,13 +3278,13 @@ type DeviceManagementManagedDevicesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDevice collection
 func (r *DeviceManagementManagedDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDevice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDevice collection
 func (r *DeviceManagementManagedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDevice, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3365,13 +3365,13 @@ type DeviceManagementManagementConditionStatementsCollectionRequest struct{ Base
 
 // Do performs HTTP request for ManagementConditionStatement collection
 func (r *DeviceManagementManagementConditionStatementsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagementConditionStatement, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagementConditionStatement collection
 func (r *DeviceManagementManagementConditionStatementsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagementConditionStatement, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3452,13 +3452,13 @@ type DeviceManagementManagementConditionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagementCondition collection
 func (r *DeviceManagementManagementConditionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagementCondition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagementCondition collection
 func (r *DeviceManagementManagementConditionsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagementCondition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3539,13 +3539,13 @@ type DeviceManagementMobileAppTroubleshootingEventsCollectionRequest struct{ Bas
 
 // Do performs HTTP request for MobileAppTroubleshootingEvent collection
 func (r *DeviceManagementMobileAppTroubleshootingEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppTroubleshootingEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppTroubleshootingEvent collection
 func (r *DeviceManagementMobileAppTroubleshootingEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppTroubleshootingEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3626,13 +3626,13 @@ type DeviceManagementMobileThreatDefenseConnectorsCollectionRequest struct{ Base
 
 // Do performs HTTP request for MobileThreatDefenseConnector collection
 func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileThreatDefenseConnector, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileThreatDefenseConnector collection
 func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileThreatDefenseConnector, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3713,13 +3713,13 @@ type DeviceManagementNdesConnectorsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for NdesConnector collection
 func (r *DeviceManagementNdesConnectorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *NdesConnector, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for NdesConnector collection
 func (r *DeviceManagementNdesConnectorsCollectionRequest) Paging(method, path string, obj interface{}) ([]NdesConnector, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3800,13 +3800,13 @@ type DeviceManagementNotificationMessageTemplatesCollectionRequest struct{ BaseR
 
 // Do performs HTTP request for NotificationMessageTemplate collection
 func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *NotificationMessageTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for NotificationMessageTemplate collection
 func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]NotificationMessageTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3887,13 +3887,13 @@ type DeviceManagementRemoteActionAuditsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RemoteActionAudit collection
 func (r *DeviceManagementRemoteActionAuditsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RemoteActionAudit, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RemoteActionAudit collection
 func (r *DeviceManagementRemoteActionAuditsCollectionRequest) Paging(method, path string, obj interface{}) ([]RemoteActionAudit, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -3974,13 +3974,13 @@ type DeviceManagementRemoteAssistancePartnersCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for RemoteAssistancePartner collection
 func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RemoteAssistancePartner, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RemoteAssistancePartner collection
 func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Paging(method, path string, obj interface{}) ([]RemoteAssistancePartner, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4061,13 +4061,13 @@ type DeviceManagementResourceOperationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ResourceOperation collection
 func (r *DeviceManagementResourceOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ResourceOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ResourceOperation collection
 func (r *DeviceManagementResourceOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]ResourceOperation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4148,13 +4148,13 @@ type DeviceManagementRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceAndAppManagementRoleAssignment collection
 func (r *DeviceManagementRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceAndAppManagementRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceAndAppManagementRoleAssignment collection
 func (r *DeviceManagementRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceAndAppManagementRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4235,13 +4235,13 @@ type DeviceManagementRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleDefinition collection
 func (r *DeviceManagementRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RoleDefinition collection
 func (r *DeviceManagementRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4322,13 +4322,13 @@ type DeviceManagementRoleScopeTagsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleScopeTag collection
 func (r *DeviceManagementRoleScopeTagsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTag, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RoleScopeTag collection
 func (r *DeviceManagementRoleScopeTagsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleScopeTag, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4409,13 +4409,13 @@ type DeviceManagementSettingDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementSettingDefinition collection
 func (r *DeviceManagementSettingDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementSettingDefinition collection
 func (r *DeviceManagementSettingDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4503,13 +4503,13 @@ type DeviceManagementTelecomExpenseManagementPartnersCollectionRequest struct{ B
 
 // Do performs HTTP request for TelecomExpenseManagementPartner collection
 func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TelecomExpenseManagementPartner, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TelecomExpenseManagementPartner collection
 func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Paging(method, path string, obj interface{}) ([]TelecomExpenseManagementPartner, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4590,13 +4590,13 @@ type DeviceManagementTemplatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementTemplate collection
 func (r *DeviceManagementTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementTemplate collection
 func (r *DeviceManagementTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4677,13 +4677,13 @@ type DeviceManagementTermsAndConditionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TermsAndConditions collection
 func (r *DeviceManagementTermsAndConditionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditions, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TermsAndConditions collection
 func (r *DeviceManagementTermsAndConditionsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditions, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4764,13 +4764,13 @@ type DeviceManagementTroubleshootingEventsCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for DeviceManagementTroubleshootingEvent collection
 func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTroubleshootingEvent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementTroubleshootingEvent collection
 func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTroubleshootingEvent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4851,13 +4851,13 @@ type DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequest struct{ B
 
 // Do performs HTTP request for UserExperienceAnalyticsBaseline collection
 func (r *DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserExperienceAnalyticsBaseline, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserExperienceAnalyticsBaseline collection
 func (r *DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserExperienceAnalyticsBaseline, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -4938,13 +4938,13 @@ type DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest struct{ 
 
 // Do performs HTTP request for UserExperienceAnalyticsCategory collection
 func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserExperienceAnalyticsCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserExperienceAnalyticsCategory collection
 func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserExperienceAnalyticsCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5032,13 +5032,13 @@ type DeviceManagementUserPfxCertificatesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserPFXCertificate collection
 func (r *DeviceManagementUserPfxCertificatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserPFXCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserPFXCertificate collection
 func (r *DeviceManagementUserPfxCertificatesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserPFXCertificate, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5119,13 +5119,13 @@ type DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequest struct{
 
 // Do performs HTTP request for WindowsAutopilotDeploymentProfile collection
 func (r *DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeploymentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsAutopilotDeploymentProfile collection
 func (r *DeviceManagementWindowsAutopilotDeploymentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeploymentProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5206,13 +5206,13 @@ type DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest struct{ B
 
 // Do performs HTTP request for WindowsAutopilotDeviceIdentity collection
 func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsAutopilotDeviceIdentity collection
 func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeviceIdentity, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5300,13 +5300,13 @@ type DeviceManagementWindowsFeatureUpdateProfilesCollectionRequest struct{ BaseR
 
 // Do performs HTTP request for WindowsFeatureUpdateProfile collection
 func (r *DeviceManagementWindowsFeatureUpdateProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsFeatureUpdateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsFeatureUpdateProfile collection
 func (r *DeviceManagementWindowsFeatureUpdateProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsFeatureUpdateProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5387,13 +5387,13 @@ type DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionR
 
 // Do performs HTTP request for WindowsInformationProtectionAppLearningSummary collection
 func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionAppLearningSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLearningSummary collection
 func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionAppLearningSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5474,13 +5474,13 @@ type DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollect
 
 // Do performs HTTP request for WindowsInformationProtectionNetworkLearningSummary collection
 func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionNetworkLearningSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsInformationProtectionNetworkLearningSummary collection
 func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionNetworkLearningSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -5561,13 +5561,13 @@ type DeviceManagementWindowsMalwareInformationCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for WindowsMalwareInformation collection
 func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsMalwareInformation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsMalwareInformation collection
 func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsMalwareInformation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

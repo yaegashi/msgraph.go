@@ -24,7 +24,7 @@ type WorkbookTableRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookTable
 func (r *WorkbookTableRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTable, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WorkbookTableRequest) Update(reqObj *WorkbookTable) (*WorkbookTable, er
 
 // Delete performs DELETE request for WorkbookTable
 func (r *WorkbookTableRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Columns returns request builder for WorkbookTableColumn collection
@@ -76,13 +76,13 @@ type WorkbookTableColumnsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookTableColumn collection
 func (r *WorkbookTableColumnsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookTableColumn collection
 func (r *WorkbookTableColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookTableColumn, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type WorkbookTableRowsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookTableRow collection
 func (r *WorkbookTableRowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookTableRow collection
 func (r *WorkbookTableRowsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookTableRow, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

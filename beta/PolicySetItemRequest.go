@@ -17,7 +17,7 @@ type PolicySetItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PolicySetItem
 func (r *PolicySetItemRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySetItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PolicySetItemRequest) Update(reqObj *PolicySetItem) (*PolicySetItem, er
 
 // Delete performs DELETE request for PolicySetItem
 func (r *PolicySetItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

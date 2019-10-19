@@ -24,7 +24,7 @@ type BookingBusinessRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingBusiness
 func (r *BookingBusinessRequest) Do(method, path string, reqObj interface{}) (resObj *BookingBusiness, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *BookingBusinessRequest) Update(reqObj *BookingBusiness) (*BookingBusine
 
 // Delete performs DELETE request for BookingBusiness
 func (r *BookingBusinessRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Appointments returns request builder for BookingAppointment collection
@@ -76,13 +76,13 @@ type BookingBusinessAppointmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingAppointment collection
 func (r *BookingBusinessAppointmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingAppointment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingAppointment collection
 func (r *BookingBusinessAppointmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingAppointment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type BookingBusinessCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingAppointment collection
 func (r *BookingBusinessCalendarViewCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingAppointment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingAppointment collection
 func (r *BookingBusinessCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingAppointment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type BookingBusinessCustomersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingCustomer collection
 func (r *BookingBusinessCustomersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingCustomer, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingCustomer collection
 func (r *BookingBusinessCustomersCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingCustomer, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type BookingBusinessServicesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingService collection
 func (r *BookingBusinessServicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingService, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingService collection
 func (r *BookingBusinessServicesCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingService, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type BookingBusinessStaffMembersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BookingStaffMember collection
 func (r *BookingBusinessStaffMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingStaffMember, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for BookingStaffMember collection
 func (r *BookingBusinessStaffMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingStaffMember, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

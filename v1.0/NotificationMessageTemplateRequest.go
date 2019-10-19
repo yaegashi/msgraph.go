@@ -24,7 +24,7 @@ type NotificationMessageTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for NotificationMessageTemplate
 func (r *NotificationMessageTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *NotificationMessageTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *NotificationMessageTemplateRequest) Update(reqObj *NotificationMessageT
 
 // Delete performs DELETE request for NotificationMessageTemplate
 func (r *NotificationMessageTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // LocalizedNotificationMessages returns request builder for LocalizedNotificationMessage collection
@@ -76,13 +76,13 @@ type NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest s
 
 // Do performs HTTP request for LocalizedNotificationMessage collection
 func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *LocalizedNotificationMessage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for LocalizedNotificationMessage collection
 func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]LocalizedNotificationMessage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

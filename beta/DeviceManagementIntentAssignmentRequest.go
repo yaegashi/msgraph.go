@@ -17,7 +17,7 @@ type DeviceManagementIntentAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementIntentAssignment
 func (r *DeviceManagementIntentAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementIntentAssignmentRequest) Update(reqObj *DeviceManagemen
 
 // Delete performs DELETE request for DeviceManagementIntentAssignment
 func (r *DeviceManagementIntentAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

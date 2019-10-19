@@ -17,7 +17,7 @@ type DirectoryAuditRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryAudit
 func (r *DirectoryAuditRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryAudit, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DirectoryAuditRequest) Update(reqObj *DirectoryAudit) (*DirectoryAudit,
 
 // Delete performs DELETE request for DirectoryAudit
 func (r *DirectoryAuditRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

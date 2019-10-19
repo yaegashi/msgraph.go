@@ -24,7 +24,7 @@ type CallRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Call
 func (r *CallRequest) Do(method, path string, reqObj interface{}) (resObj *Call, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *CallRequest) Update(reqObj *Call) (*Call, error) {
 
 // Delete performs DELETE request for Call
 func (r *CallRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Operations returns request builder for CommsOperation collection
@@ -76,13 +76,13 @@ type CallOperationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CommsOperation collection
 func (r *CallOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CommsOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CommsOperation collection
 func (r *CallOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]CommsOperation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type CallParticipantsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Participant collection
 func (r *CallParticipantsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Participant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Participant collection
 func (r *CallParticipantsCollectionRequest) Paging(method, path string, obj interface{}) ([]Participant, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

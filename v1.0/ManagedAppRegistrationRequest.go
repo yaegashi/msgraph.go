@@ -24,7 +24,7 @@ type ManagedAppRegistrationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedAppRegistration
 func (r *ManagedAppRegistrationRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppRegistration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ManagedAppRegistrationRequest) Update(reqObj *ManagedAppRegistration) (
 
 // Delete performs DELETE request for ManagedAppRegistration
 func (r *ManagedAppRegistrationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AppliedPolicies returns request builder for ManagedAppPolicy collection
@@ -76,13 +76,13 @@ type ManagedAppRegistrationAppliedPoliciesCollectionRequest struct{ BaseRequest 
 
 // Do performs HTTP request for ManagedAppPolicy collection
 func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
 func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ManagedAppRegistrationIntendedPoliciesCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for ManagedAppPolicy collection
 func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
 func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type ManagedAppRegistrationOperationsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedAppOperation collection
 func (r *ManagedAppRegistrationOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedAppOperation collection
 func (r *ManagedAppRegistrationOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppOperation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

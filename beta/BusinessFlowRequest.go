@@ -17,7 +17,7 @@ type BusinessFlowRequest struct{ BaseRequest }
 
 // Do performs HTTP request for BusinessFlow
 func (r *BusinessFlowRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *BusinessFlowRequest) Update(reqObj *BusinessFlow) (*BusinessFlow, error
 
 // Delete performs DELETE request for BusinessFlow
 func (r *BusinessFlowRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

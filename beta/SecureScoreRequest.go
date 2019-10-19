@@ -17,7 +17,7 @@ type SecureScoreRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecureScore
 func (r *SecureScoreRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScore, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SecureScoreRequest) Update(reqObj *SecureScore) (*SecureScore, error) {
 
 // Delete performs DELETE request for SecureScore
 func (r *SecureScoreRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

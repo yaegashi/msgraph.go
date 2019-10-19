@@ -17,7 +17,7 @@ type SwapShiftsChangeRequestObjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SwapShiftsChangeRequestObject
 func (r *SwapShiftsChangeRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *SwapShiftsChangeRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SwapShiftsChangeRequestObjectRequest) Update(reqObj *SwapShiftsChangeRe
 
 // Delete performs DELETE request for SwapShiftsChangeRequestObject
 func (r *SwapShiftsChangeRequestObjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

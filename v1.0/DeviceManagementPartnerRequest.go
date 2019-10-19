@@ -17,7 +17,7 @@ type DeviceManagementPartnerRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementPartner
 func (r *DeviceManagementPartnerRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementPartner, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementPartnerRequest) Update(reqObj *DeviceManagementPartner)
 
 // Delete performs DELETE request for DeviceManagementPartner
 func (r *DeviceManagementPartnerRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

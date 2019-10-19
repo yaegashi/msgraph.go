@@ -17,7 +17,7 @@ type GroupLifecyclePolicyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupLifecyclePolicy
 func (r *GroupLifecyclePolicyRequest) Do(method, path string, reqObj interface{}) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *GroupLifecyclePolicyRequest) Update(reqObj *GroupLifecyclePolicy) (*Gro
 
 // Delete performs DELETE request for GroupLifecyclePolicy
 func (r *GroupLifecyclePolicyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

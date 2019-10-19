@@ -17,7 +17,7 @@ type UserCredentialUsageDetailsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserCredentialUsageDetails
 func (r *UserCredentialUsageDetailsRequest) Do(method, path string, reqObj interface{}) (resObj *UserCredentialUsageDetails, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *UserCredentialUsageDetailsRequest) Update(reqObj *UserCredentialUsageDe
 
 // Delete performs DELETE request for UserCredentialUsageDetails
 func (r *UserCredentialUsageDetailsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

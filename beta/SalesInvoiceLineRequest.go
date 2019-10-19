@@ -17,7 +17,7 @@ type SalesInvoiceLineRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SalesInvoiceLine
 func (r *SalesInvoiceLineRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *SalesInvoiceLineRequest) Update(reqObj *SalesInvoiceLine) (*SalesInvoic
 
 // Delete performs DELETE request for SalesInvoiceLine
 func (r *SalesInvoiceLineRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Account is navigation property

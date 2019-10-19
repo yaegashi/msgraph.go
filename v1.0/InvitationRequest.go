@@ -17,7 +17,7 @@ type InvitationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Invitation
 func (r *InvitationRequest) Do(method, path string, reqObj interface{}) (resObj *Invitation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *InvitationRequest) Update(reqObj *Invitation) (*Invitation, error) {
 
 // Delete performs DELETE request for Invitation
 func (r *InvitationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // InvitedUser is navigation property

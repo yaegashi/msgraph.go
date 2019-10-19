@@ -24,7 +24,7 @@ type DeviceComplianceScheduledActionForRuleRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceComplianceScheduledActionForRule
 func (r *DeviceComplianceScheduledActionForRuleRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceScheduledActionForRule, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceComplianceScheduledActionForRuleRequest) Update(reqObj *DeviceCom
 
 // Delete performs DELETE request for DeviceComplianceScheduledActionForRule
 func (r *DeviceComplianceScheduledActionForRuleRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ScheduledActionConfigurations returns request builder for DeviceComplianceActionItem collection
@@ -76,13 +76,13 @@ type DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollecti
 
 // Do performs HTTP request for DeviceComplianceActionItem collection
 func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceActionItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceComplianceActionItem collection
 func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceActionItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type ManagedAppStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedAppStatus
 func (r *ManagedAppStatusRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedAppStatusRequest) Update(reqObj *ManagedAppStatus) (*ManagedAppS
 
 // Delete performs DELETE request for ManagedAppStatus
 func (r *ManagedAppStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

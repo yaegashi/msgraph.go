@@ -24,7 +24,7 @@ type UserAppInstallStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserAppInstallStatus
 func (r *UserAppInstallStatusRequest) Do(method, path string, reqObj interface{}) (resObj *UserAppInstallStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *UserAppInstallStatusRequest) Update(reqObj *UserAppInstallStatus) (*Use
 
 // Delete performs DELETE request for UserAppInstallStatus
 func (r *UserAppInstallStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // App is navigation property
@@ -83,13 +83,13 @@ type UserAppInstallStatusDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppInstallStatus collection
 func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppInstallStatus collection
 func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppInstallStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type SensitivityPolicySettingsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SensitivityPolicySettings
 func (r *SensitivityPolicySettingsRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityPolicySettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SensitivityPolicySettingsRequest) Update(reqObj *SensitivityPolicySetti
 
 // Delete performs DELETE request for SensitivityPolicySettings
 func (r *SensitivityPolicySettingsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

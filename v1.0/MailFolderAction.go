@@ -37,7 +37,7 @@ func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
 
 //
 func (r *MailFolderCopyRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -69,7 +69,7 @@ func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
 
 //
 func (r *MailFolderMoveRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

@@ -24,7 +24,7 @@ type OutlookTaskRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookTask
 func (r *OutlookTaskRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTask, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OutlookTaskRequest) Update(reqObj *OutlookTask) (*OutlookTask, error) {
 
 // Delete performs DELETE request for OutlookTask
 func (r *OutlookTaskRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Attachments returns request builder for Attachment collection
@@ -76,13 +76,13 @@ type OutlookTaskAttachmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Attachment collection
 func (r *OutlookTaskAttachmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Attachment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Attachment collection
 func (r *OutlookTaskAttachmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]Attachment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OutlookTaskMultiValueExtendedPropertiesCollectionRequest struct{ BaseReques
 
 // Do performs HTTP request for MultiValueLegacyExtendedProperty collection
 func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type OutlookTaskSingleValueExtendedPropertiesCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for SingleValueLegacyExtendedProperty collection
 func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

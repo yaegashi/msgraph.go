@@ -24,7 +24,7 @@ type ReportRootRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ReportRoot
 func (r *ReportRootRequest) Do(method, path string, reqObj interface{}) (resObj *ReportRoot, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ReportRootRequest) Update(reqObj *ReportRoot) (*ReportRoot, error) {
 
 // Delete performs DELETE request for ReportRoot
 func (r *ReportRootRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ApplicationSignInDetailedSummary returns request builder for ApplicationSignInDetailedSummary collection
@@ -76,13 +76,13 @@ type ReportRootApplicationSignInDetailedSummaryCollectionRequest struct{ BaseReq
 
 // Do performs HTTP request for ApplicationSignInDetailedSummary collection
 func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationSignInDetailedSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ApplicationSignInDetailedSummary collection
 func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]ApplicationSignInDetailedSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ReportRootCredentialUserRegistrationDetailsCollectionRequest struct{ BaseRe
 
 // Do performs HTTP request for CredentialUserRegistrationDetails collection
 func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CredentialUserRegistrationDetails, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CredentialUserRegistrationDetails collection
 func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]CredentialUserRegistrationDetails, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type ReportRootUserCredentialUsageDetailsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserCredentialUsageDetails collection
 func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserCredentialUsageDetails, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserCredentialUsageDetails collection
 func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]UserCredentialUsageDetails, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

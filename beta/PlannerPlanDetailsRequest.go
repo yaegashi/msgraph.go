@@ -17,7 +17,7 @@ type PlannerPlanDetailsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PlannerPlanDetails
 func (r *PlannerPlanDetailsRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerPlanDetails, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PlannerPlanDetailsRequest) Update(reqObj *PlannerPlanDetails) (*Planner
 
 // Delete performs DELETE request for PlannerPlanDetails
 func (r *PlannerPlanDetailsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

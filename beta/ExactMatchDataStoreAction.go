@@ -42,13 +42,13 @@ func (b *ExactMatchDataStoreLookupRequestBuilder) Request() *ExactMatchDataStore
 
 //
 func (r *ExactMatchDataStoreLookupRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *ExactMatchDataStoreLookupRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

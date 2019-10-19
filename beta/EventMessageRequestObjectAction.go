@@ -49,7 +49,7 @@ func (b *EventMessageRequestObjectAcceptRequestBuilder) Request() *EventMessageR
 
 //
 func (r *EventMessageRequestObjectAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -80,7 +80,7 @@ func (b *EventMessageRequestObjectDeclineRequestBuilder) Request() *EventMessage
 
 //
 func (r *EventMessageRequestObjectDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -111,7 +111,7 @@ func (b *EventMessageRequestObjectTentativelyAcceptRequestBuilder) Request() *Ev
 
 //
 func (r *EventMessageRequestObjectTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

@@ -17,7 +17,7 @@ type CompanyInformationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CompanyInformation
 func (r *CompanyInformationRequest) Do(method, path string, reqObj interface{}) (resObj *CompanyInformation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *CompanyInformationRequest) Update(reqObj *CompanyInformation) (*Company
 
 // Delete performs DELETE request for CompanyInformation
 func (r *CompanyInformationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

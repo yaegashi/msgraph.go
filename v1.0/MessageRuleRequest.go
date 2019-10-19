@@ -17,7 +17,7 @@ type MessageRuleRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MessageRule
 func (r *MessageRuleRequest) Do(method, path string, reqObj interface{}) (resObj *MessageRule, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MessageRuleRequest) Update(reqObj *MessageRule) (*MessageRule, error) {
 
 // Delete performs DELETE request for MessageRule
 func (r *MessageRuleRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

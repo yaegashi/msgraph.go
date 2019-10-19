@@ -17,7 +17,7 @@ type RoleManagementRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RoleManagement
 func (r *RoleManagementRequest) Do(method, path string, reqObj interface{}) (resObj *RoleManagement, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *RoleManagementRequest) Update(reqObj *RoleManagement) (*RoleManagement,
 
 // Delete performs DELETE request for RoleManagement
 func (r *RoleManagementRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Directory is navigation property

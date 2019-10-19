@@ -24,7 +24,7 @@ type AdministrativeUnitRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AdministrativeUnit
 func (r *AdministrativeUnitRequest) Do(method, path string, reqObj interface{}) (resObj *AdministrativeUnit, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AdministrativeUnitRequest) Update(reqObj *AdministrativeUnit) (*Adminis
 
 // Delete performs DELETE request for AdministrativeUnit
 func (r *AdministrativeUnitRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Extensions returns request builder for Extension collection
@@ -76,13 +76,13 @@ type AdministrativeUnitExtensionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Extension collection
 func (r *AdministrativeUnitExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Extension collection
 func (r *AdministrativeUnitExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type AdministrativeUnitMembersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *AdministrativeUnitMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *AdministrativeUnitMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type AdministrativeUnitScopedRoleMembersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ScopedRoleMembership collection
 func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ScopedRoleMembership, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ScopedRoleMembership collection
 func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

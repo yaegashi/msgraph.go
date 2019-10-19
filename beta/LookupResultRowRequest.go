@@ -17,7 +17,7 @@ type LookupResultRowRequest struct{ BaseRequest }
 
 // Do performs HTTP request for LookupResultRow
 func (r *LookupResultRowRequest) Do(method, path string, reqObj interface{}) (resObj *LookupResultRow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *LookupResultRowRequest) Update(reqObj *LookupResultRow) (*LookupResultR
 
 // Delete performs DELETE request for LookupResultRow
 func (r *LookupResultRowRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -33,7 +33,7 @@ func (b *BookingBusinessPublishRequestBuilder) Request() *BookingBusinessPublish
 
 //
 func (r *BookingBusinessPublishRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -64,7 +64,7 @@ func (b *BookingBusinessUnpublishRequestBuilder) Request() *BookingBusinessUnpub
 
 //
 func (r *BookingBusinessUnpublishRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

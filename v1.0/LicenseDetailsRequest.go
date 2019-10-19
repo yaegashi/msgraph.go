@@ -17,7 +17,7 @@ type LicenseDetailsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for LicenseDetails
 func (r *LicenseDetailsRequest) Do(method, path string, reqObj interface{}) (resObj *LicenseDetails, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *LicenseDetailsRequest) Update(reqObj *LicenseDetails) (*LicenseDetails,
 
 // Delete performs DELETE request for LicenseDetails
 func (r *LicenseDetailsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

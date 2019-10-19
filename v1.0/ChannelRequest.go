@@ -24,7 +24,7 @@ type ChannelRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Channel
 func (r *ChannelRequest) Do(method, path string, reqObj interface{}) (resObj *Channel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ChannelRequest) Update(reqObj *Channel) (*Channel, error) {
 
 // Delete performs DELETE request for Channel
 func (r *ChannelRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Tabs returns request builder for TeamsTab collection
@@ -76,13 +76,13 @@ type ChannelTabsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsTab collection
 func (r *ChannelTabsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTab, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsTab collection
 func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsTab, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -24,7 +24,7 @@ type AccessPackageAssignmentResourceRoleRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageAssignmentResourceRole
 func (r *AccessPackageAssignmentResourceRoleRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentResourceRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AccessPackageAssignmentResourceRoleRequest) Update(reqObj *AccessPackag
 
 // Delete performs DELETE request for AccessPackageAssignmentResourceRole
 func (r *AccessPackageAssignmentResourceRoleRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AccessPackageAssignments returns request builder for AccessPackageAssignment collection
@@ -76,13 +76,13 @@ type AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionReques
 
 // Do performs HTTP request for AccessPackageAssignment collection
 func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for AccessPackageAssignment collection
 func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

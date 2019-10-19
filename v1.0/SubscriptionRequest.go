@@ -17,7 +17,7 @@ type SubscriptionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Subscription
 func (r *SubscriptionRequest) Do(method, path string, reqObj interface{}) (resObj *Subscription, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SubscriptionRequest) Update(reqObj *Subscription) (*Subscription, error
 
 // Delete performs DELETE request for Subscription
 func (r *SubscriptionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

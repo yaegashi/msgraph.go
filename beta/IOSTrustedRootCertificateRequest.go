@@ -17,7 +17,7 @@ type IOSTrustedRootCertificateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IOSTrustedRootCertificate
 func (r *IOSTrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *IOSTrustedRootCertificate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *IOSTrustedRootCertificateRequest) Update(reqObj *IOSTrustedRootCertific
 
 // Delete performs DELETE request for IOSTrustedRootCertificate
 func (r *IOSTrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

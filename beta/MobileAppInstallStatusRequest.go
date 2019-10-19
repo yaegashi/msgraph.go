@@ -17,7 +17,7 @@ type MobileAppInstallStatusRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppInstallStatus
 func (r *MobileAppInstallStatusRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *MobileAppInstallStatusRequest) Update(reqObj *MobileAppInstallStatus) (
 
 // Delete performs DELETE request for MobileAppInstallStatus
 func (r *MobileAppInstallStatusRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // App is navigation property

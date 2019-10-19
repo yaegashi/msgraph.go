@@ -17,7 +17,7 @@ type MobileAppContentFileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppContentFile
 func (r *MobileAppContentFileRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContentFile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MobileAppContentFileRequest) Update(reqObj *MobileAppContentFile) (*Mob
 
 // Delete performs DELETE request for MobileAppContentFile
 func (r *MobileAppContentFileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

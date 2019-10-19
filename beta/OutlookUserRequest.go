@@ -24,7 +24,7 @@ type OutlookUserRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookUser
 func (r *OutlookUserRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookUser, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OutlookUserRequest) Update(reqObj *OutlookUser) (*OutlookUser, error) {
 
 // Delete performs DELETE request for OutlookUser
 func (r *OutlookUserRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // MasterCategories returns request builder for OutlookCategory collection
@@ -76,13 +76,13 @@ type OutlookUserMasterCategoriesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookCategory collection
 func (r *OutlookUserMasterCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OutlookCategory collection
 func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookCategory, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OutlookUserTaskFoldersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookTaskFolder collection
 func (r *OutlookUserTaskFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OutlookTaskFolder collection
 func (r *OutlookUserTaskFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookTaskFolder, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type OutlookUserTaskGroupsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookTaskGroup collection
 func (r *OutlookUserTaskGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OutlookTaskGroup collection
 func (r *OutlookUserTaskGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookTaskGroup, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type OutlookUserTasksCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookTask collection
 func (r *OutlookUserTasksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTask, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OutlookTask collection
 func (r *OutlookUserTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookTask, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

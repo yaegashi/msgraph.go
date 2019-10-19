@@ -37,7 +37,7 @@ func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *Targete
 
 //
 func (r *TargetedManagedAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -68,7 +68,7 @@ func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *Tar
 
 //
 func (r *TargetedManagedAppConfigurationTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

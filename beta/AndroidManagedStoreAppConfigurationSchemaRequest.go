@@ -17,7 +17,7 @@ type AndroidManagedStoreAppConfigurationSchemaRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidManagedStoreAppConfigurationSchema
 func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidManagedStoreAppConfigurationSchema, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Update(reqObj *Androi
 
 // Delete performs DELETE request for AndroidManagedStoreAppConfigurationSchema
 func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

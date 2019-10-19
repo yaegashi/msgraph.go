@@ -17,7 +17,7 @@ type PaymentTermRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PaymentTerm
 func (r *PaymentTermRequest) Do(method, path string, reqObj interface{}) (resObj *PaymentTerm, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PaymentTermRequest) Update(reqObj *PaymentTerm) (*PaymentTerm, error) {
 
 // Delete performs DELETE request for PaymentTerm
 func (r *PaymentTermRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

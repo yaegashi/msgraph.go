@@ -17,7 +17,7 @@ type FieldValueSetRequest struct{ BaseRequest }
 
 // Do performs HTTP request for FieldValueSet
 func (r *FieldValueSetRequest) Do(method, path string, reqObj interface{}) (resObj *FieldValueSet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *FieldValueSetRequest) Update(reqObj *FieldValueSet) (*FieldValueSet, er
 
 // Delete performs DELETE request for FieldValueSet
 func (r *FieldValueSetRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

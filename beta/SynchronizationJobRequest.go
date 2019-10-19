@@ -17,7 +17,7 @@ type SynchronizationJobRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SynchronizationJob
 func (r *SynchronizationJobRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationJob, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *SynchronizationJobRequest) Update(reqObj *SynchronizationJob) (*Synchro
 
 // Delete performs DELETE request for SynchronizationJob
 func (r *SynchronizationJobRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Schema is navigation property

@@ -17,7 +17,7 @@ type ImportedWindowsAutopilotDeviceIdentityRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ImportedWindowsAutopilotDeviceIdentity
 func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Update(reqObj *ImportedW
 
 // Delete performs DELETE request for ImportedWindowsAutopilotDeviceIdentity
 func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

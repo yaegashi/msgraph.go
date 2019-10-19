@@ -24,7 +24,7 @@ type OnPremisesPublishingProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnPremisesPublishingProfile
 func (r *OnPremisesPublishingProfileRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesPublishingProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *OnPremisesPublishingProfileRequest) Update(reqObj *OnPremisesPublishing
 
 // Delete performs DELETE request for OnPremisesPublishingProfile
 func (r *OnPremisesPublishingProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AgentGroups returns request builder for OnPremisesAgentGroup collection
@@ -76,13 +76,13 @@ type OnPremisesPublishingProfileAgentGroupsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for OnPremisesAgentGroup collection
 func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgentGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
 func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type OnPremisesPublishingProfileAgentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnPremisesAgent collection
 func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for OnPremisesAgent collection
 func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type OnPremisesPublishingProfilePublishedResourcesCollectionRequest struct{ Base
 
 // Do performs HTTP request for PublishedResource collection
 func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PublishedResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PublishedResource collection
 func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]PublishedResource, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

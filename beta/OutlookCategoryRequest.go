@@ -17,7 +17,7 @@ type OutlookCategoryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookCategory
 func (r *OutlookCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *OutlookCategoryRequest) Update(reqObj *OutlookCategory) (*OutlookCatego
 
 // Delete performs DELETE request for OutlookCategory
 func (r *OutlookCategoryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

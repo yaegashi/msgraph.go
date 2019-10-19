@@ -24,7 +24,7 @@ type EmployeeRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Employee
 func (r *EmployeeRequest) Do(method, path string, reqObj interface{}) (resObj *Employee, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *EmployeeRequest) Update(reqObj *Employee) (*Employee, error) {
 
 // Delete performs DELETE request for Employee
 func (r *EmployeeRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Picture returns request builder for Picture collection
@@ -76,13 +76,13 @@ type EmployeePictureCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Picture collection
 func (r *EmployeePictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Picture collection
 func (r *EmployeePictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

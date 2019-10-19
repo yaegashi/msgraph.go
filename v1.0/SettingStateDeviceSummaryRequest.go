@@ -17,7 +17,7 @@ type SettingStateDeviceSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SettingStateDeviceSummary
 func (r *SettingStateDeviceSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *SettingStateDeviceSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SettingStateDeviceSummaryRequest) Update(reqObj *SettingStateDeviceSumm
 
 // Delete performs DELETE request for SettingStateDeviceSummary
 func (r *SettingStateDeviceSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

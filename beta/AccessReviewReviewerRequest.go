@@ -17,7 +17,7 @@ type AccessReviewReviewerRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessReviewReviewer
 func (r *AccessReviewReviewerRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewReviewer, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AccessReviewReviewerRequest) Update(reqObj *AccessReviewReviewer) (*Acc
 
 // Delete performs DELETE request for AccessReviewReviewer
 func (r *AccessReviewReviewerRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -17,7 +17,7 @@ type ResourceSpecificPermissionGrantRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ResourceSpecificPermissionGrant
 func (r *ResourceSpecificPermissionGrantRequest) Do(method, path string, reqObj interface{}) (resObj *ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ResourceSpecificPermissionGrantRequest) Update(reqObj *ResourceSpecific
 
 // Delete performs DELETE request for ResourceSpecificPermissionGrant
 func (r *ResourceSpecificPermissionGrantRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

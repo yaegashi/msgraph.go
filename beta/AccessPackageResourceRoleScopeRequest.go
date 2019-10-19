@@ -17,7 +17,7 @@ type AccessPackageResourceRoleScopeRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageResourceRoleScope
 func (r *AccessPackageResourceRoleScopeRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRoleScope, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AccessPackageResourceRoleScopeRequest) Update(reqObj *AccessPackageReso
 
 // Delete performs DELETE request for AccessPackageResourceRoleScope
 func (r *AccessPackageResourceRoleScopeRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AccessPackageResourceRole is navigation property

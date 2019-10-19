@@ -2,12 +2,12 @@
 
 package msgraph
 
-// WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
-type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
-}
-
 // WorkbookPivotTableRefreshRequestParameter undocumented
 type WorkbookPivotTableRefreshRequestParameter struct {
+}
+
+// WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
+type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
 }
 
 //
@@ -33,7 +33,7 @@ func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *Workbo
 
 //
 func (r *WorkbookPivotTableCollectionRefreshAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -64,7 +64,7 @@ func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableR
 
 //
 func (r *WorkbookPivotTableRefreshRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

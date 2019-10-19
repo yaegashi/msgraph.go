@@ -17,7 +17,7 @@ type ApplicationSignInDetailedSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ApplicationSignInDetailedSummary
 func (r *ApplicationSignInDetailedSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationSignInDetailedSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ApplicationSignInDetailedSummaryRequest) Update(reqObj *ApplicationSign
 
 // Delete performs DELETE request for ApplicationSignInDetailedSummary
 func (r *ApplicationSignInDetailedSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

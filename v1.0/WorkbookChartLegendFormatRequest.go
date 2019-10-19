@@ -17,7 +17,7 @@ type WorkbookChartLegendFormatRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartLegendFormat
 func (r *WorkbookChartLegendFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartLegendFormat, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartLegendFormatRequest) Update(reqObj *WorkbookChartLegendFor
 
 // Delete performs DELETE request for WorkbookChartLegendFormat
 func (r *WorkbookChartLegendFormatRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Fill is navigation property

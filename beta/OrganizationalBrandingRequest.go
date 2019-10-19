@@ -17,7 +17,7 @@ type OrganizationalBrandingRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OrganizationalBranding
 func (r *OrganizationalBrandingRequest) Do(method, path string, reqObj interface{}) (resObj *OrganizationalBranding, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *OrganizationalBrandingRequest) Update(reqObj *OrganizationalBranding) (
 
 // Delete performs DELETE request for OrganizationalBranding
 func (r *OrganizationalBrandingRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

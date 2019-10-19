@@ -17,7 +17,7 @@ type CartToClassAssociationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CartToClassAssociation
 func (r *CartToClassAssociationRequest) Do(method, path string, reqObj interface{}) (resObj *CartToClassAssociation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *CartToClassAssociationRequest) Update(reqObj *CartToClassAssociation) (
 
 // Delete performs DELETE request for CartToClassAssociation
 func (r *CartToClassAssociationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

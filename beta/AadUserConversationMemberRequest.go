@@ -17,7 +17,7 @@ type AadUserConversationMemberRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AadUserConversationMember
 func (r *AadUserConversationMemberRequest) Do(method, path string, reqObj interface{}) (resObj *AadUserConversationMember, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AadUserConversationMemberRequest) Update(reqObj *AadUserConversationMem
 
 // Delete performs DELETE request for AadUserConversationMember
 func (r *AadUserConversationMemberRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // User is navigation property

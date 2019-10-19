@@ -17,7 +17,7 @@ type ContractRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Contract
 func (r *ContractRequest) Do(method, path string, reqObj interface{}) (resObj *Contract, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ContractRequest) Update(reqObj *Contract) (*Contract, error) {
 
 // Delete performs DELETE request for Contract
 func (r *ContractRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

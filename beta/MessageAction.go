@@ -97,7 +97,7 @@ func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest 
 
 //
 func (r *MessageCreateReplyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -129,7 +129,7 @@ func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRe
 
 //
 func (r *MessageCreateReplyAllRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -161,7 +161,7 @@ func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequ
 
 //
 func (r *MessageCreateForwardRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -193,7 +193,7 @@ func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
 
 //
 func (r *MessageSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -224,7 +224,7 @@ func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
 
 //
 func (r *MessageCopyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -256,7 +256,7 @@ func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
 
 //
 func (r *MessageMoveRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -288,7 +288,7 @@ func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
 
 //
 func (r *MessageReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -319,7 +319,7 @@ func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
 
 //
 func (r *MessageReplyAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -350,7 +350,7 @@ func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
 
 //
 func (r *MessageForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -381,7 +381,7 @@ func (b *MessageUnsubscribeRequestBuilder) Request() *MessageUnsubscribeRequest 
 
 //
 func (r *MessageUnsubscribeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

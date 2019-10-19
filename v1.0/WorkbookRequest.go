@@ -24,7 +24,7 @@ type WorkbookRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Workbook
 func (r *WorkbookRequest) Do(method, path string, reqObj interface{}) (resObj *Workbook, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WorkbookRequest) Update(reqObj *Workbook) (*Workbook, error) {
 
 // Delete performs DELETE request for Workbook
 func (r *WorkbookRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Application is navigation property
@@ -83,13 +83,13 @@ type WorkbookCommentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookComment collection
 func (r *WorkbookCommentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookComment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookComment collection
 func (r *WorkbookCommentsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookComment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -177,13 +177,13 @@ type WorkbookNamesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookNamedItem collection
 func (r *WorkbookNamesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookNamedItem collection
 func (r *WorkbookNamesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookNamedItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -264,13 +264,13 @@ type WorkbookTablesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookTable collection
 func (r *WorkbookTablesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTable, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookTable collection
 func (r *WorkbookTablesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookTable, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +351,13 @@ type WorkbookWorksheetsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookWorksheet collection
 func (r *WorkbookWorksheetsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WorkbookWorksheet collection
 func (r *WorkbookWorksheetsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookWorksheet, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

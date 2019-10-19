@@ -24,7 +24,7 @@ type PrivilegedRoleRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedRole
 func (r *PrivilegedRoleRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRole, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *PrivilegedRoleRequest) Update(reqObj *PrivilegedRole) (*PrivilegedRole,
 
 // Delete performs DELETE request for PrivilegedRole
 func (r *PrivilegedRoleRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for PrivilegedRoleAssignment collection
@@ -76,13 +76,13 @@ type PrivilegedRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedRoleAssignment collection
 func (r *PrivilegedRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for PrivilegedRoleAssignment collection
 func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

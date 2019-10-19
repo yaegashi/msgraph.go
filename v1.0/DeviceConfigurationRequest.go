@@ -24,7 +24,7 @@ type DeviceConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceConfiguration
 func (r *DeviceConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceConfigurationRequest) Update(reqObj *DeviceConfiguration) (*Devic
 
 // Delete performs DELETE request for DeviceConfiguration
 func (r *DeviceConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for DeviceConfigurationAssignment collection
@@ -76,13 +76,13 @@ type DeviceConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceConfigurationAssignment collection
 func (r *DeviceConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfigurationAssignment collection
 func (r *DeviceConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type DeviceConfigurationDeviceSettingStateSummariesCollectionRequest struct{ Bas
 
 // Do performs HTTP request for SettingStateDeviceSummary collection
 func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SettingStateDeviceSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SettingStateDeviceSummary collection
 func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SettingStateDeviceSummary, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type DeviceConfigurationDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceConfigurationDeviceStatus collection
 func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationDeviceStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfigurationDeviceStatus collection
 func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationDeviceStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -351,13 +351,13 @@ type DeviceConfigurationUserStatusesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceConfigurationUserStatus collection
 func (r *DeviceConfigurationUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationUserStatus, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfigurationUserStatus collection
 func (r *DeviceConfigurationUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationUserStatus, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

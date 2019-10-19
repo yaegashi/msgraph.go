@@ -17,7 +17,7 @@ type EducationSubmissionResourceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EducationSubmissionResource
 func (r *EducationSubmissionResourceRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmissionResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *EducationSubmissionResourceRequest) Update(reqObj *EducationSubmissionR
 
 // Delete performs DELETE request for EducationSubmissionResource
 func (r *EducationSubmissionResourceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

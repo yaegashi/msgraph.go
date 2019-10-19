@@ -51,7 +51,7 @@ func (b *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestBuilder) Request
 
 //
 func (r *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -82,7 +82,7 @@ func (b *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestBuilder) Req
 
 //
 func (r *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -113,7 +113,7 @@ func (b *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestBuild
 
 //
 func (r *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -144,7 +144,7 @@ func (b *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestB
 
 //
 func (r *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

@@ -17,7 +17,7 @@ type ReportRootRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ReportRoot
 func (r *ReportRootRequest) Do(method, path string, reqObj interface{}) (resObj *ReportRoot, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ReportRootRequest) Update(reqObj *ReportRoot) (*ReportRoot, error) {
 
 // Delete performs DELETE request for ReportRoot
 func (r *ReportRootRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

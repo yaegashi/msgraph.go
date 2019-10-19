@@ -24,7 +24,7 @@ type SecurityRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Security
 func (r *SecurityRequest) Do(method, path string, reqObj interface{}) (resObj *Security, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *SecurityRequest) Update(reqObj *Security) (*Security, error) {
 
 // Delete performs DELETE request for Security
 func (r *SecurityRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Alerts returns request builder for Alert collection
@@ -76,13 +76,13 @@ type SecurityAlertsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Alert collection
 func (r *SecurityAlertsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Alert, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Alert collection
 func (r *SecurityAlertsCollectionRequest) Paging(method, path string, obj interface{}) ([]Alert, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type SecurityCloudAppSecurityProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CloudAppSecurityProfile collection
 func (r *SecurityCloudAppSecurityProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CloudAppSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CloudAppSecurityProfile collection
 func (r *SecurityCloudAppSecurityProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]CloudAppSecurityProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type SecurityDomainSecurityProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DomainSecurityProfile collection
 func (r *SecurityDomainSecurityProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DomainSecurityProfile collection
 func (r *SecurityDomainSecurityProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainSecurityProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type SecurityFileSecurityProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for FileSecurityProfile collection
 func (r *SecurityFileSecurityProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *FileSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for FileSecurityProfile collection
 func (r *SecurityFileSecurityProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]FileSecurityProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type SecurityHostSecurityProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for HostSecurityProfile collection
 func (r *SecurityHostSecurityProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *HostSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for HostSecurityProfile collection
 func (r *SecurityHostSecurityProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]HostSecurityProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -511,13 +511,13 @@ type SecurityIPSecurityProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for IPSecurityProfile collection
 func (r *SecurityIPSecurityProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IPSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for IPSecurityProfile collection
 func (r *SecurityIPSecurityProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]IPSecurityProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -598,13 +598,13 @@ type SecurityProviderTenantSettingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ProviderTenantSetting collection
 func (r *SecurityProviderTenantSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ProviderTenantSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ProviderTenantSetting collection
 func (r *SecurityProviderTenantSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]ProviderTenantSetting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -685,13 +685,13 @@ type SecuritySecureScoreControlProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecureScoreControlProfile collection
 func (r *SecuritySecureScoreControlProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScoreControlProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SecureScoreControlProfile collection
 func (r *SecuritySecureScoreControlProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecureScoreControlProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -772,13 +772,13 @@ type SecuritySecureScoresCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecureScore collection
 func (r *SecuritySecureScoresCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScore, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SecureScore collection
 func (r *SecuritySecureScoresCollectionRequest) Paging(method, path string, obj interface{}) ([]SecureScore, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -859,13 +859,13 @@ type SecuritySecurityActionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityAction collection
 func (r *SecuritySecurityActionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityAction, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SecurityAction collection
 func (r *SecuritySecurityActionsCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityAction, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -946,13 +946,13 @@ type SecurityTiIndicatorsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TiIndicator collection
 func (r *SecurityTiIndicatorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TiIndicator, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TiIndicator collection
 func (r *SecurityTiIndicatorsCollectionRequest) Paging(method, path string, obj interface{}) ([]TiIndicator, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -1033,13 +1033,13 @@ type SecurityUserSecurityProfilesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserSecurityProfile collection
 func (r *SecurityUserSecurityProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserSecurityProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for UserSecurityProfile collection
 func (r *SecurityUserSecurityProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserSecurityProfile, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

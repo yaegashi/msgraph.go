@@ -24,7 +24,7 @@ type ScheduleRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Schedule
 func (r *ScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *Schedule, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ScheduleRequest) Update(reqObj *Schedule) (*Schedule, error) {
 
 // Delete performs DELETE request for Schedule
 func (r *ScheduleRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // SchedulingGroups returns request builder for SchedulingGroup collection
@@ -76,13 +76,13 @@ type ScheduleSchedulingGroupsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SchedulingGroup collection
 func (r *ScheduleSchedulingGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SchedulingGroup, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SchedulingGroup collection
 func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SchedulingGroup, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ScheduleShiftsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Shift collection
 func (r *ScheduleShiftsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Shift, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Shift collection
 func (r *ScheduleShiftsCollectionRequest) Paging(method, path string, obj interface{}) ([]Shift, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type ScheduleSwapShiftsChangeRequestsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SwapShiftsChangeRequestObject collection
 func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SwapShiftsChangeRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SwapShiftsChangeRequestObject collection
 func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]SwapShiftsChangeRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +337,13 @@ type ScheduleTimeOffReasonsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TimeOffReason collection
 func (r *ScheduleTimeOffReasonsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffReason, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TimeOffReason collection
 func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOffReason, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -424,13 +424,13 @@ type ScheduleTimeOffRequestsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TimeOffRequestObject collection
 func (r *ScheduleTimeOffRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TimeOffRequestObject collection
 func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOffRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -511,13 +511,13 @@ type ScheduleTimesOffCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TimeOff collection
 func (r *ScheduleTimesOffCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOff, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TimeOff collection
 func (r *ScheduleTimesOffCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOff, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

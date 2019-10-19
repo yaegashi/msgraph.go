@@ -17,7 +17,7 @@ type DirectoryRoleTemplateRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryRoleTemplate
 func (r *DirectoryRoleTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRoleTemplate, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DirectoryRoleTemplateRequest) Update(reqObj *DirectoryRoleTemplate) (*D
 
 // Delete performs DELETE request for DirectoryRoleTemplate
 func (r *DirectoryRoleTemplateRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

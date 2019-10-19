@@ -62,7 +62,7 @@ func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request
 
 //
 func (r *InformationProtectionLabelCollectionExtractLabelRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionContentLabel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -94,13 +94,13 @@ func (b *InformationProtectionLabelCollectionEvaluateApplicationRequestBuilder) 
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *[]InformationProtectionAction, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Requ
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Do(method, path string, reqObj interface{}) (resObj *[]InformationProtectionAction, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -246,13 +246,13 @@ func (b *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Do(method, path string, reqObj interface{}) (resObj *[]InformationProtectionAction, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

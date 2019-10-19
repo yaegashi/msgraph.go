@@ -17,7 +17,7 @@ type ColumnDefinitionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ColumnDefinition
 func (r *ColumnDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ColumnDefinitionRequest) Update(reqObj *ColumnDefinition) (*ColumnDefin
 
 // Delete performs DELETE request for ColumnDefinition
 func (r *ColumnDefinitionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -17,7 +17,7 @@ type AndroidDeviceOwnerVpnConfigurationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidDeviceOwnerVpnConfiguration
 func (r *AndroidDeviceOwnerVpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidDeviceOwnerVpnConfiguration, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *AndroidDeviceOwnerVpnConfigurationRequest) Update(reqObj *AndroidDevice
 
 // Delete performs DELETE request for AndroidDeviceOwnerVpnConfiguration
 func (r *AndroidDeviceOwnerVpnConfigurationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

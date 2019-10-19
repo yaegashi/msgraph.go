@@ -17,7 +17,7 @@ type GroupPolicyConfigurationAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GroupPolicyConfigurationAssignment
 func (r *GroupPolicyConfigurationAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *GroupPolicyConfigurationAssignmentRequest) Update(reqObj *GroupPolicyCo
 
 // Delete performs DELETE request for GroupPolicyConfigurationAssignment
 func (r *GroupPolicyConfigurationAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

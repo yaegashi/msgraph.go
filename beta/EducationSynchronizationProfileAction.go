@@ -48,7 +48,7 @@ func (b *EducationSynchronizationProfileResumeRequestBuilder) Request() *Educati
 
 //
 func (r *EducationSynchronizationProfileResumeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -79,7 +79,7 @@ func (b *EducationSynchronizationProfilePauseRequestBuilder) Request() *Educatio
 
 //
 func (r *EducationSynchronizationProfilePauseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -110,7 +110,7 @@ func (b *EducationSynchronizationProfileResetRequestBuilder) Request() *Educatio
 
 //
 func (r *EducationSynchronizationProfileResetRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -141,13 +141,13 @@ func (b *EducationSynchronizationProfileStartRequestBuilder) Request() *Educatio
 
 //
 func (r *EducationSynchronizationProfileStartRequest) Do(method, path string, reqObj interface{}) (resObj *[]EducationFileSynchronizationVerificationMessage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *EducationSynchronizationProfileStartRequest) Paging(method, path string, obj interface{}) ([][]EducationFileSynchronizationVerificationMessage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

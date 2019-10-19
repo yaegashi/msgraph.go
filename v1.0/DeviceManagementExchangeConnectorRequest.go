@@ -17,7 +17,7 @@ type DeviceManagementExchangeConnectorRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementExchangeConnector
 func (r *DeviceManagementExchangeConnectorRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementExchangeConnector, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementExchangeConnectorRequest) Update(reqObj *DeviceManageme
 
 // Delete performs DELETE request for DeviceManagementExchangeConnector
 func (r *DeviceManagementExchangeConnectorRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

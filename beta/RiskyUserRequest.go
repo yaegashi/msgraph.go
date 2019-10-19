@@ -24,7 +24,7 @@ type RiskyUserRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RiskyUser
 func (r *RiskyUserRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUser, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *RiskyUserRequest) Update(reqObj *RiskyUser) (*RiskyUser, error) {
 
 // Delete performs DELETE request for RiskyUser
 func (r *RiskyUserRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // History returns request builder for RiskyUserHistoryItem collection
@@ -76,13 +76,13 @@ type RiskyUserHistoryCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RiskyUserHistoryItem collection
 func (r *RiskyUserHistoryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUserHistoryItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RiskyUserHistoryItem collection
 func (r *RiskyUserHistoryCollectionRequest) Paging(method, path string, obj interface{}) ([]RiskyUserHistoryItem, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

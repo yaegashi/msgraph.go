@@ -17,7 +17,7 @@ type GovernanceRoleSettingRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleSetting
 func (r *GovernanceRoleSettingRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *GovernanceRoleSettingRequest) Update(reqObj *GovernanceRoleSetting) (*G
 
 // Delete performs DELETE request for GovernanceRoleSetting
 func (r *GovernanceRoleSettingRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Resource is navigation property

@@ -17,7 +17,7 @@ type TeamsAppInstallationRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsAppInstallation
 func (r *TeamsAppInstallationRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *TeamsAppInstallationRequest) Update(reqObj *TeamsAppInstallation) (*Tea
 
 // Delete performs DELETE request for TeamsAppInstallation
 func (r *TeamsAppInstallationRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // TeamsApp is navigation property

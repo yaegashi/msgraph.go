@@ -13,7 +13,7 @@ type {{.X}}Request struct{ BaseRequest }
 
 // Do performs HTTP request for {{.X}}
 func (r *{{.X}}Request) Do(method, path string, reqObj interface{}) (resObj *{{.X}}, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -33,5 +33,5 @@ func (r *{{.X}}Request) Update(reqObj *{{.X}}) (*{{.X}}, error) {
 
 // Delete performs DELETE request for {{.X}}
 func (r *{{.X}}Request) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

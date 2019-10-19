@@ -24,7 +24,7 @@ type Windows81SCEPCertificateProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Windows81SCEPCertificateProfile
 func (r *Windows81SCEPCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *Windows81SCEPCertificateProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *Windows81SCEPCertificateProfileRequest) Update(reqObj *Windows81SCEPCer
 
 // Delete performs DELETE request for Windows81SCEPCertificateProfile
 func (r *Windows81SCEPCertificateProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -76,13 +76,13 @@ type Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 
 // Do performs HTTP request for ManagedDeviceCertificateState collection
 func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -24,7 +24,7 @@ type EmbeddedSIMActivationCodePoolRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EmbeddedSIMActivationCodePool
 func (r *EmbeddedSIMActivationCodePoolRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *EmbeddedSIMActivationCodePoolRequest) Update(reqObj *EmbeddedSIMActivat
 
 // Delete performs DELETE request for EmbeddedSIMActivationCodePool
 func (r *EmbeddedSIMActivationCodePoolRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for EmbeddedSIMActivationCodePoolAssignment collection
@@ -76,13 +76,13 @@ type EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for EmbeddedSIMActivationCodePoolAssignment collection
 func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EmbeddedSIMActivationCodePoolAssignment collection
 func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for EmbeddedSIMDeviceState collection
 func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMDeviceState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for EmbeddedSIMDeviceState collection
 func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMDeviceState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

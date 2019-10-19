@@ -17,7 +17,7 @@ type MentionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Mention
 func (r *MentionRequest) Do(method, path string, reqObj interface{}) (resObj *Mention, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MentionRequest) Update(reqObj *Mention) (*Mention, error) {
 
 // Delete performs DELETE request for Mention
 func (r *MentionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

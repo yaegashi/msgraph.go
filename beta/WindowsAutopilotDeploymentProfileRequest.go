@@ -24,7 +24,7 @@ type WindowsAutopilotDeploymentProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WindowsAutopilotDeploymentProfile
 func (r *WindowsAutopilotDeploymentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeploymentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *WindowsAutopilotDeploymentProfileRequest) Update(reqObj *WindowsAutopil
 
 // Delete performs DELETE request for WindowsAutopilotDeploymentProfile
 func (r *WindowsAutopilotDeploymentProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // AssignedDevices returns request builder for WindowsAutopilotDeviceIdentity collection
@@ -76,13 +76,13 @@ type WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest struct{ B
 
 // Do performs HTTP request for WindowsAutopilotDeviceIdentity collection
 func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsAutopilotDeviceIdentity collection
 func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeviceIdentity, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest struct{ BaseR
 
 // Do performs HTTP request for WindowsAutopilotDeploymentProfileAssignment collection
 func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for WindowsAutopilotDeploymentProfileAssignment collection
 func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

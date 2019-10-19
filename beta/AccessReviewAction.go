@@ -41,7 +41,7 @@ func (b *AccessReviewStopRequestBuilder) Request() *AccessReviewStopRequest {
 
 //
 func (r *AccessReviewStopRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -72,7 +72,7 @@ func (b *AccessReviewSendReminderRequestBuilder) Request() *AccessReviewSendRemi
 
 //
 func (r *AccessReviewSendReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -103,7 +103,7 @@ func (b *AccessReviewResetDecisionsRequestBuilder) Request() *AccessReviewResetD
 
 //
 func (r *AccessReviewResetDecisionsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -134,7 +134,7 @@ func (b *AccessReviewApplyDecisionsRequestBuilder) Request() *AccessReviewApplyD
 
 //
 func (r *AccessReviewApplyDecisionsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

@@ -17,7 +17,7 @@ type ManagedEBookCategoryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedEBookCategory
 func (r *ManagedEBookCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookCategory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ManagedEBookCategoryRequest) Update(reqObj *ManagedEBookCategory) (*Man
 
 // Delete performs DELETE request for ManagedEBookCategory
 func (r *ManagedEBookCategoryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

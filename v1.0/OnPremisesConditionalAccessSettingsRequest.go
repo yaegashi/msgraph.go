@@ -17,7 +17,7 @@ type OnPremisesConditionalAccessSettingsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OnPremisesConditionalAccessSettings
 func (r *OnPremisesConditionalAccessSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesConditionalAccessSettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *OnPremisesConditionalAccessSettingsRequest) Update(reqObj *OnPremisesCo
 
 // Delete performs DELETE request for OnPremisesConditionalAccessSettings
 func (r *OnPremisesConditionalAccessSettingsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

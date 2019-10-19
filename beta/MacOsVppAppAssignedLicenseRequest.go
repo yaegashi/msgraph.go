@@ -17,7 +17,7 @@ type MacOsVppAppAssignedLicenseRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MacOsVppAppAssignedLicense
 func (r *MacOsVppAppAssignedLicenseRequest) Do(method, path string, reqObj interface{}) (resObj *MacOsVppAppAssignedLicense, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *MacOsVppAppAssignedLicenseRequest) Update(reqObj *MacOsVppAppAssignedLi
 
 // Delete performs DELETE request for MacOsVppAppAssignedLicense
 func (r *MacOsVppAppAssignedLicenseRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

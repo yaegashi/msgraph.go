@@ -133,7 +133,7 @@ func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
 
 //
 func (r *DriveItemCheckinRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -164,7 +164,7 @@ func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
 
 //
 func (r *DriveItemCheckoutRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -195,7 +195,7 @@ func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
 
 //
 func (r *DriveItemCopyRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -227,7 +227,7 @@ func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkReques
 
 //
 func (r *DriveItemCreateLinkRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -259,7 +259,7 @@ func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateU
 
 //
 func (r *DriveItemCreateUploadSessionRequest) Do(method, path string, reqObj interface{}) (resObj *UploadSession, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -291,7 +291,7 @@ func (b *DriveItemFollowRequestBuilder) Request() *DriveItemFollowRequest {
 
 //
 func (r *DriveItemFollowRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -323,7 +323,7 @@ func (b *DriveItemUnfollowRequestBuilder) Request() *DriveItemUnfollowRequest {
 
 //
 func (r *DriveItemUnfollowRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //
@@ -354,13 +354,13 @@ func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
 
 //
 func (r *DriveItemInviteRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 //
 func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -430,7 +430,7 @@ func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
 
 //
 func (r *DriveItemPreviewRequest) Do(method, path string, reqObj interface{}) (resObj *ItemPreviewInfo, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -462,7 +462,7 @@ func (b *DriveItemRestoreRequestBuilder) Request() *DriveItemRestoreRequest {
 
 //
 func (r *DriveItemRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -494,7 +494,7 @@ func (b *DriveItemValidatePermissionRequestBuilder) Request() *DriveItemValidate
 
 //
 func (r *DriveItemValidatePermissionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
+	return r.JSONRequest(method, path, reqObj, nil)
 }
 
 //

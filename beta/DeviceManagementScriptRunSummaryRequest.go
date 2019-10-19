@@ -17,7 +17,7 @@ type DeviceManagementScriptRunSummaryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementScriptRunSummary
 func (r *DeviceManagementScriptRunSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptRunSummary, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *DeviceManagementScriptRunSummaryRequest) Update(reqObj *DeviceManagemen
 
 // Delete performs DELETE request for DeviceManagementScriptRunSummary
 func (r *DeviceManagementScriptRunSummaryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

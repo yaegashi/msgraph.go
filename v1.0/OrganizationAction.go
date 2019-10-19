@@ -29,7 +29,7 @@ func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request()
 
 //
 func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Do(method, path string, reqObj interface{}) (resObj *int, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

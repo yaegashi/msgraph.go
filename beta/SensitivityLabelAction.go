@@ -47,7 +47,7 @@ func (b *SensitivityLabelCollectionEvaluateRequestBuilder) Request() *Sensitivit
 
 //
 func (r *SensitivityLabelCollectionEvaluateRequest) Do(method, path string, reqObj interface{}) (resObj *EvaluateLabelJobResponse, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 

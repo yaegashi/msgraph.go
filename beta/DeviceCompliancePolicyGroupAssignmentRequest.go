@@ -17,7 +17,7 @@ type DeviceCompliancePolicyGroupAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceCompliancePolicyGroupAssignment
 func (r *DeviceCompliancePolicyGroupAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicyGroupAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *DeviceCompliancePolicyGroupAssignmentRequest) Update(reqObj *DeviceComp
 
 // Delete performs DELETE request for DeviceCompliancePolicyGroupAssignment
 func (r *DeviceCompliancePolicyGroupAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeviceCompliancePolicy is navigation property

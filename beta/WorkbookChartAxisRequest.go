@@ -17,7 +17,7 @@ type WorkbookChartAxisRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartAxis
 func (r *WorkbookChartAxisRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartAxis, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartAxisRequest) Update(reqObj *WorkbookChartAxis) (*WorkbookC
 
 // Delete performs DELETE request for WorkbookChartAxis
 func (r *WorkbookChartAxisRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Format is navigation property

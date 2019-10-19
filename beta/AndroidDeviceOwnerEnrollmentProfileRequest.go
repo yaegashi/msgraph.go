@@ -17,7 +17,7 @@ type AndroidDeviceOwnerEnrollmentProfileRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidDeviceOwnerEnrollmentProfile
 func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidDeviceOwnerEnrollmentProfile, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Update(reqObj *AndroidDevic
 
 // Delete performs DELETE request for AndroidDeviceOwnerEnrollmentProfile
 func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

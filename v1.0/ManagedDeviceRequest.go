@@ -24,7 +24,7 @@ type ManagedDeviceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedDevice
 func (r *ManagedDeviceRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDevice, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ManagedDeviceRequest) Update(reqObj *ManagedDevice) (*ManagedDevice, er
 
 // Delete performs DELETE request for ManagedDevice
 func (r *ManagedDeviceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeviceCategory is navigation property
@@ -83,13 +83,13 @@ type ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for DeviceCompliancePolicyState collection
 func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicyState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceCompliancePolicyState collection
 func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCompliancePolicyState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type ManagedDeviceDeviceConfigurationStatesCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for DeviceConfigurationState collection
 func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationState, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceConfigurationState collection
 func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationState, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

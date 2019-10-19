@@ -24,7 +24,7 @@ type ExactMatchLookupJobRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ExactMatchLookupJob
 func (r *ExactMatchLookupJobRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchLookupJob, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ExactMatchLookupJobRequest) Update(reqObj *ExactMatchLookupJob) (*Exact
 
 // Delete performs DELETE request for ExactMatchLookupJob
 func (r *ExactMatchLookupJobRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // MatchingRows returns request builder for LookupResultRow collection
@@ -76,13 +76,13 @@ type ExactMatchLookupJobMatchingRowsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for LookupResultRow collection
 func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *LookupResultRow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for LookupResultRow collection
 func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(method, path string, obj interface{}) ([]LookupResultRow, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

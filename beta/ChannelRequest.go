@@ -24,7 +24,7 @@ type ChannelRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Channel
 func (r *ChannelRequest) Do(method, path string, reqObj interface{}) (resObj *Channel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ChannelRequest) Update(reqObj *Channel) (*Channel, error) {
 
 // Delete performs DELETE request for Channel
 func (r *ChannelRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ChatThreads returns request builder for ChatThread collection
@@ -76,13 +76,13 @@ type ChannelChatThreadsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ChatThread collection
 func (r *ChannelChatThreadsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatThread, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ChatThread collection
 func (r *ChannelChatThreadsCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatThread, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type ChannelMembersCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ConversationMember collection
 func (r *ChannelMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationMember, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ConversationMember collection
 func (r *ChannelMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationMember, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type ChannelMessagesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ChatMessage collection
 func (r *ChannelMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ChatMessage collection
 func (r *ChannelMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type ChannelTabsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsTab collection
 func (r *ChannelTabsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTab, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsTab collection
 func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsTab, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type PictureRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Picture
 func (r *PictureRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PictureRequest) Update(reqObj *Picture) (*Picture, error) {
 
 // Delete performs DELETE request for Picture
 func (r *PictureRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

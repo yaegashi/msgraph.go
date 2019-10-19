@@ -24,7 +24,7 @@ type ChatMessageRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ChatMessage
 func (r *ChatMessageRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ChatMessageRequest) Update(reqObj *ChatMessage) (*ChatMessage, error) {
 
 // Delete performs DELETE request for ChatMessage
 func (r *ChatMessageRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // HostedContents returns request builder for ChatMessageHostedContent collection
@@ -76,13 +76,13 @@ type ChatMessageHostedContentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ChatMessageHostedContent collection
 func (r *ChatMessageHostedContentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessageHostedContent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ChatMessageHostedContent collection
 func (r *ChatMessageHostedContentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessageHostedContent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type ChatMessageRepliesCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ChatMessage collection
 func (r *ChatMessageRepliesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ChatMessage collection
 func (r *ChatMessageRepliesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

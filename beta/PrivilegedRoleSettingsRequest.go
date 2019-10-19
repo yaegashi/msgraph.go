@@ -17,7 +17,7 @@ type PrivilegedRoleSettingsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for PrivilegedRoleSettings
 func (r *PrivilegedRoleSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleSettings, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *PrivilegedRoleSettingsRequest) Update(reqObj *PrivilegedRoleSettings) (
 
 // Delete performs DELETE request for PrivilegedRoleSettings
 func (r *PrivilegedRoleSettingsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

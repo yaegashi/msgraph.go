@@ -17,7 +17,7 @@ type ImportedDeviceIdentityRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ImportedDeviceIdentity
 func (r *ImportedDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedDeviceIdentity, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *ImportedDeviceIdentityRequest) Update(reqObj *ImportedDeviceIdentity) (
 
 // Delete performs DELETE request for ImportedDeviceIdentity
 func (r *ImportedDeviceIdentityRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

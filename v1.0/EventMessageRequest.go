@@ -17,7 +17,7 @@ type EventMessageRequest struct{ BaseRequest }
 
 // Do performs HTTP request for EventMessage
 func (r *EventMessageRequest) Do(method, path string, reqObj interface{}) (resObj *EventMessage, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *EventMessageRequest) Update(reqObj *EventMessage) (*EventMessage, error
 
 // Delete performs DELETE request for EventMessage
 func (r *EventMessageRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Event is navigation property

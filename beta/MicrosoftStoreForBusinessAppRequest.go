@@ -24,7 +24,7 @@ type MicrosoftStoreForBusinessAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MicrosoftStoreForBusinessApp
 func (r *MicrosoftStoreForBusinessAppRequest) Do(method, path string, reqObj interface{}) (resObj *MicrosoftStoreForBusinessApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *MicrosoftStoreForBusinessAppRequest) Update(reqObj *MicrosoftStoreForBu
 
 // Delete performs DELETE request for MicrosoftStoreForBusinessApp
 func (r *MicrosoftStoreForBusinessAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ContainedApps returns request builder for MobileContainedApp collection
@@ -76,13 +76,13 @@ type MicrosoftStoreForBusinessAppContainedAppsCollectionRequest struct{ BaseRequ
 
 // Do performs HTTP request for MobileContainedApp collection
 func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileContainedApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileContainedApp collection
 func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileContainedApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -24,7 +24,7 @@ type VendorRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Vendor
 func (r *VendorRequest) Do(method, path string, reqObj interface{}) (resObj *Vendor, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *VendorRequest) Update(reqObj *Vendor) (*Vendor, error) {
 
 // Delete performs DELETE request for Vendor
 func (r *VendorRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Currency is navigation property
@@ -97,13 +97,13 @@ type VendorPictureCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Picture collection
 func (r *VendorPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for Picture collection
 func (r *VendorPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

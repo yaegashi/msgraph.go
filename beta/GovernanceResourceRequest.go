@@ -24,7 +24,7 @@ type GovernanceResourceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceResource
 func (r *GovernanceResourceRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceResource, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *GovernanceResourceRequest) Update(reqObj *GovernanceResource) (*Governa
 
 // Delete performs DELETE request for GovernanceResource
 func (r *GovernanceResourceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Parent is navigation property
@@ -83,13 +83,13 @@ type GovernanceResourceRoleAssignmentRequestsCollectionRequest struct{ BaseReque
 
 // Do performs HTTP request for GovernanceRoleAssignmentRequestObject collection
 func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
 func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -170,13 +170,13 @@ type GovernanceResourceRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleAssignment collection
 func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleAssignment collection
 func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +257,13 @@ type GovernanceResourceRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleDefinition collection
 func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleDefinition, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleDefinition collection
 func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleDefinition, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -344,13 +344,13 @@ type GovernanceResourceRoleSettingsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for GovernanceRoleSetting collection
 func (r *GovernanceResourceRoleSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleSetting, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for GovernanceRoleSetting collection
 func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleSetting, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

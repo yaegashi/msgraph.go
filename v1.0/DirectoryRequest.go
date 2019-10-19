@@ -24,7 +24,7 @@ type DirectoryRequest struct{ BaseRequest }
 
 // Do performs HTTP request for Directory
 func (r *DirectoryRequest) Do(method, path string, reqObj interface{}) (resObj *Directory, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DirectoryRequest) Update(reqObj *Directory) (*Directory, error) {
 
 // Delete performs DELETE request for Directory
 func (r *DirectoryRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DeletedItems returns request builder for DirectoryObject collection
@@ -76,13 +76,13 @@ type DirectoryDeletedItemsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryObject collection
 func (r *DirectoryDeletedItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DirectoryDeletedItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

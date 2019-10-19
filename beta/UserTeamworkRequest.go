@@ -24,7 +24,7 @@ type UserTeamworkRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserTeamwork
 func (r *UserTeamworkRequest) Do(method, path string, reqObj interface{}) (resObj *UserTeamwork, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *UserTeamworkRequest) Update(reqObj *UserTeamwork) (*UserTeamwork, error
 
 // Delete performs DELETE request for UserTeamwork
 func (r *UserTeamworkRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // InstalledApps returns request builder for TeamsAppInstallation collection
@@ -76,13 +76,13 @@ type UserTeamworkInstalledAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TeamsAppInstallation collection
 func (r *UserTeamworkInstalledAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
 func (r *UserTeamworkInstalledAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

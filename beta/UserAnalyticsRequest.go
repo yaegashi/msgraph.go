@@ -24,7 +24,7 @@ type UserAnalyticsRequest struct{ BaseRequest }
 
 // Do performs HTTP request for UserAnalytics
 func (r *UserAnalyticsRequest) Do(method, path string, reqObj interface{}) (resObj *UserAnalytics, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *UserAnalyticsRequest) Update(reqObj *UserAnalytics) (*UserAnalytics, er
 
 // Delete performs DELETE request for UserAnalytics
 func (r *UserAnalyticsRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ActivityStatistics returns request builder for ActivityStatistics collection
@@ -76,13 +76,13 @@ type UserAnalyticsActivityStatisticsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ActivityStatistics collection
 func (r *UserAnalyticsActivityStatisticsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityStatistics, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ActivityStatistics collection
 func (r *UserAnalyticsActivityStatisticsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityStatistics, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

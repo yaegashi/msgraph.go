@@ -24,7 +24,7 @@ type CustomerPaymentJournalRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CustomerPaymentJournal
 func (r *CustomerPaymentJournalRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPaymentJournal, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *CustomerPaymentJournalRequest) Update(reqObj *CustomerPaymentJournal) (
 
 // Delete performs DELETE request for CustomerPaymentJournal
 func (r *CustomerPaymentJournalRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Account is navigation property
@@ -83,13 +83,13 @@ type CustomerPaymentJournalCustomerPaymentsCollectionRequest struct{ BaseRequest
 
 // Do performs HTTP request for CustomerPayment collection
 func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for CustomerPayment collection
 func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPayment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

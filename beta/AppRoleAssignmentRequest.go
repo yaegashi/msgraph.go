@@ -17,7 +17,7 @@ type AppRoleAssignmentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AppRoleAssignment
 func (r *AppRoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *AppRoleAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AppRoleAssignmentRequest) Update(reqObj *AppRoleAssignment) (*AppRoleAs
 
 // Delete performs DELETE request for AppRoleAssignment
 func (r *AppRoleAssignmentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

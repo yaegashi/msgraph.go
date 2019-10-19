@@ -24,7 +24,7 @@ type AuditLogRootRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AuditLogRoot
 func (r *AuditLogRootRequest) Do(method, path string, reqObj interface{}) (resObj *AuditLogRoot, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AuditLogRootRequest) Update(reqObj *AuditLogRoot) (*AuditLogRoot, error
 
 // Delete performs DELETE request for AuditLogRoot
 func (r *AuditLogRootRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // DirectoryAudits returns request builder for DirectoryAudit collection
@@ -76,13 +76,13 @@ type AuditLogRootDirectoryAuditsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DirectoryAudit collection
 func (r *AuditLogRootDirectoryAuditsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryAudit, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DirectoryAudit collection
 func (r *AuditLogRootDirectoryAuditsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryAudit, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -163,13 +163,13 @@ type AuditLogRootRestrictedSignInsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for RestrictedSignIn collection
 func (r *AuditLogRootRestrictedSignInsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RestrictedSignIn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for RestrictedSignIn collection
 func (r *AuditLogRootRestrictedSignInsCollectionRequest) Paging(method, path string, obj interface{}) ([]RestrictedSignIn, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}
@@ -250,13 +250,13 @@ type AuditLogRootSignInsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SignIn collection
 func (r *AuditLogRootSignInsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SignIn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for SignIn collection
 func (r *AuditLogRootSignInsCollectionRequest) Paging(method, path string, obj interface{}) ([]SignIn, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

@@ -17,7 +17,7 @@ type CustomerPaymentRequest struct{ BaseRequest }
 
 // Do performs HTTP request for CustomerPayment
 func (r *CustomerPaymentRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *CustomerPaymentRequest) Update(reqObj *CustomerPayment) (*CustomerPayme
 
 // Delete performs DELETE request for CustomerPayment
 func (r *CustomerPaymentRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Customer is navigation property

@@ -17,7 +17,7 @@ type WorkbookChartPointRequest struct{ BaseRequest }
 
 // Do performs HTTP request for WorkbookChartPoint
 func (r *WorkbookChartPointRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartPoint, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,7 +37,7 @@ func (r *WorkbookChartPointRequest) Update(reqObj *WorkbookChartPoint) (*Workboo
 
 // Delete performs DELETE request for WorkbookChartPoint
 func (r *WorkbookChartPointRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Format is navigation property

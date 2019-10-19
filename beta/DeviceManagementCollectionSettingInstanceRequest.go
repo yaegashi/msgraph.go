@@ -24,7 +24,7 @@ type DeviceManagementCollectionSettingInstanceRequest struct{ BaseRequest }
 
 // Do performs HTTP request for DeviceManagementCollectionSettingInstance
 func (r *DeviceManagementCollectionSettingInstanceRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementCollectionSettingInstance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *DeviceManagementCollectionSettingInstanceRequest) Update(reqObj *Device
 
 // Delete performs DELETE request for DeviceManagementCollectionSettingInstance
 func (r *DeviceManagementCollectionSettingInstanceRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Value returns request builder for DeviceManagementSettingInstance collection
@@ -76,13 +76,13 @@ type DeviceManagementCollectionSettingInstanceValueCollectionRequest struct{ Bas
 
 // Do performs HTTP request for DeviceManagementSettingInstance collection
 func (r *DeviceManagementCollectionSettingInstanceValueCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
 func (r *DeviceManagementCollectionSettingInstanceValueCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

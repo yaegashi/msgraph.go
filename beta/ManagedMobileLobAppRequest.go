@@ -24,7 +24,7 @@ type ManagedMobileLobAppRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedMobileLobApp
 func (r *ManagedMobileLobAppRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileLobApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *ManagedMobileLobAppRequest) Update(reqObj *ManagedMobileLobApp) (*Manag
 
 // Delete performs DELETE request for ManagedMobileLobApp
 func (r *ManagedMobileLobAppRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // ContentVersions returns request builder for MobileAppContent collection
@@ -76,13 +76,13 @@ type ManagedMobileLobAppContentVersionsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for MobileAppContent collection
 func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContent, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for MobileAppContent collection
 func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppContent, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

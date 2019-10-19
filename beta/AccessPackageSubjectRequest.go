@@ -17,7 +17,7 @@ type AccessPackageSubjectRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AccessPackageSubject
 func (r *AccessPackageSubjectRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageSubject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *AccessPackageSubjectRequest) Update(reqObj *AccessPackageSubject) (*Acc
 
 // Delete performs DELETE request for AccessPackageSubject
 func (r *AccessPackageSubjectRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

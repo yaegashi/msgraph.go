@@ -17,7 +17,7 @@ type TrustFrameworkPolicyRequest struct{ BaseRequest }
 
 // Do performs HTTP request for TrustFrameworkPolicy
 func (r *TrustFrameworkPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkPolicy, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *TrustFrameworkPolicyRequest) Update(reqObj *TrustFrameworkPolicy) (*Tru
 
 // Delete performs DELETE request for TrustFrameworkPolicy
 func (r *TrustFrameworkPolicyRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

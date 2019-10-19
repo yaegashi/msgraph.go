@@ -17,7 +17,7 @@ type SecurityActionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for SecurityAction
 func (r *SecurityActionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityAction, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *SecurityActionRequest) Update(reqObj *SecurityAction) (*SecurityAction,
 
 // Delete performs DELETE request for SecurityAction
 func (r *SecurityActionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }

@@ -24,7 +24,7 @@ type AndroidManagedAppProtectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for AndroidManagedAppProtection
 func (r *AndroidManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidManagedAppProtection, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -44,7 +44,7 @@ func (r *AndroidManagedAppProtectionRequest) Update(reqObj *AndroidManagedAppPro
 
 // Delete performs DELETE request for AndroidManagedAppProtection
 func (r *AndroidManagedAppProtectionRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
 
 // Apps returns request builder for ManagedMobileApp collection
@@ -76,13 +76,13 @@ type AndroidManagedAppProtectionAppsCollectionRequest struct{ BaseRequest }
 
 // Do performs HTTP request for ManagedMobileApp collection
 func (r *AndroidManagedAppProtectionAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
 // Paging perfoms paging operation for ManagedMobileApp collection
 func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
 	}

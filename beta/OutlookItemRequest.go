@@ -17,7 +17,7 @@ type OutlookItemRequest struct{ BaseRequest }
 
 // Do performs HTTP request for OutlookItem
 func (r *OutlookItemRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	err = r.JSONRequest(method, path, reqObj, &resObj)
 	return
 }
 
@@ -37,5 +37,5 @@ func (r *OutlookItemRequest) Update(reqObj *OutlookItem) (*OutlookItem, error) {
 
 // Delete performs DELETE request for OutlookItem
 func (r *OutlookItemRequest) Delete() error {
-	return r.JSONRequestWithPath("DELETE", "", nil, nil)
+	return r.JSONRequest("DELETE", "", nil, nil)
 }
