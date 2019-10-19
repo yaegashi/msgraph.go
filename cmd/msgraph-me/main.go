@@ -37,7 +37,7 @@ func main() {
 		fmt.Println(dc.Message)
 		return nil
 	}
-	dt, err := m.AuthenticateDeviceAuth(tenantID, clientID, defaultScope, callback)
+	dt, err := m.DeviceAuthorizationGrant(tenantID, clientID, defaultScope, callback)
 	if err != nil {
 		log.Fatal(err)
 	}

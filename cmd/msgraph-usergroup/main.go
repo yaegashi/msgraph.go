@@ -57,7 +57,7 @@ func main() {
 	flag.Parse()
 
 	m := auth.NewTokenManager()
-	t, err := m.AuthenticateClientCredentials(tenantID, clientID, clientSecret, auth.DefaultMSGraphScope)
+	t, err := m.ClientCredentialsGrant(tenantID, clientID, clientSecret, auth.DefaultMSGraphScope)
 	if err != nil {
 		log.Fatal(err)
 	}

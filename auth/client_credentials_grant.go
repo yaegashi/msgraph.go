@@ -6,8 +6,8 @@ const (
 	clientCredentialsGrantType = "client_credentials"
 )
 
-// AuthenticateClientCredentials authenticates via OAuth2 client credentials flow
-func (m *TokenManager) AuthenticateClientCredentials(tenantID, clientID, clientSecret, scope string) (*Token, error) {
+// ClientCredentialsGrant authenticates via OAuth 2.0 client credentials grant
+func (m *TokenManager) ClientCredentialsGrant(tenantID, clientID, clientSecret, scope string) (*Token, error) {
 	t, err := m.refreshToken(tenantID, clientID, clientSecret, scope)
 	if err == nil && t != nil {
 		return t, nil

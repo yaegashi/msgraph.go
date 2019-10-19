@@ -14,7 +14,7 @@ const (
 	authorizationPendingError = "authorization_pending"
 )
 
-// DeviceCode is returned on device auth inintiation
+// DeviceCode is returned on device auth initiation
 type DeviceCode struct {
 	DeviceCode      string `json:"device_code"`
 	UserCode        string `json:"user_code"`
@@ -24,8 +24,8 @@ type DeviceCode struct {
 	Message         string `json:"message"`
 }
 
-// AuthenticateDeviceAuth authenticates via OAuth2 device auth flow
-func (m *TokenManager) AuthenticateDeviceAuth(tenantID, clientID, scope string, callback func(*DeviceCode) error) (*Token, error) {
+// DeviceAuthorizationGrant authenticates via OAuth 2.0 device authorization grant
+func (m *TokenManager) DeviceAuthorizationGrant(tenantID, clientID, scope string, callback func(*DeviceCode) error) (*Token, error) {
 	t, err := m.refreshToken(tenantID, clientID, "", scope)
 	if err == nil && t != nil {
 		return t, nil
