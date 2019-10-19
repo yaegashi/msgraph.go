@@ -85,11 +85,11 @@ You won't be asked for authentication again until tokens in this file expires.
 - [x] Support Action elements in metadata
 - [ ] Support Function elements in metadata
 - [ ] Access to additional properties like `@odata.type` `@odata.id`
-- [ ] Split output into multiple files
+- [x] Split output into multiple files
 - [x] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
 - [x] Provide easy way to generate pointers to literals
 - [x] Provide easy way to generate pointers to constants
-- [ ] Improve API documentation in godoc.org
+- [ ] Online API docs (the output is too big for godoc.org to handle)
 - [x] Persist OAuth2 tokens in file
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
