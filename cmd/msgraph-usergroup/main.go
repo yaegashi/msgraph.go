@@ -71,8 +71,8 @@ func main() {
 		r.Filter(fmt.Sprintf("userPrincipalName eq '%s'", *defaultUser.UserPrincipalName))
 		users, _ := r.Get()
 		for _, user := range users {
-			log.Printf("Delete user %s", *user.Id)
-			graphClient.Users().ID(*user.Id).Request().Delete()
+			log.Printf("Delete user %s", *user.ID)
+			graphClient.Users().ID(*user.ID).Request().Delete()
 		}
 	}
 
@@ -82,8 +82,8 @@ func main() {
 		r.Filter(fmt.Sprintf("mailNickname eq '%s'", *defaultGroup.MailNickname))
 		groups, _ := r.Get()
 		for _, group := range groups {
-			log.Printf("Delete group %s", *group.Id)
-			graphClient.Groups().ID(*group.Id).Request().Delete()
+			log.Printf("Delete group %s", *group.ID)
+			graphClient.Groups().ID(*group.ID).Request().Delete()
 		}
 	}
 
@@ -108,11 +108,11 @@ func main() {
 	}
 
 	{
-		log.Printf("Add member %s to group %s", *u.Id, *g.Id)
+		log.Printf("Add member %s to group %s", *u.ID, *g.ID)
 		reqObj := map[string]interface{}{
-			"@odata.id": graphClient.DirectoryObjects().ID(*u.Id).Request().URL(),
+			"@odata.id": graphClient.DirectoryObjects().ID(*u.ID).Request().URL(),
 		}
-		r := graphClient.Groups().ID(*g.Id).Members().Request()
+		r := graphClient.Groups().ID(*g.ID).Members().Request()
 		err := r.JSONRequestWithPath("POST", "/$ref", reqObj, nil)
 		if err != nil {
 			log.Fatal(err)
@@ -120,8 +120,8 @@ func main() {
 	}
 
 	{
-		log.Printf("Show user %s", *u.Id)
-		r := graphClient.Users().ID(*u.Id).Request()
+		log.Printf("Show user %s", *u.ID)
+		r := graphClient.Users().ID(*u.ID).Request()
 		r.Expand("memberOf")
 		users, err := r.Get()
 		if err != nil {
@@ -131,8 +131,8 @@ func main() {
 	}
 
 	{
-		log.Printf("Show group %s", *g.Id)
-		r := graphClient.Groups().ID(*g.Id).Request()
+		log.Printf("Show group %s", *g.ID)
+		r := graphClient.Groups().ID(*g.ID).Request()
 		r.Expand("members")
 		groups, err := r.Get()
 		if err != nil {

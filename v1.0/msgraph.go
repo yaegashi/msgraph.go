@@ -491,8 +491,8 @@ type BodyType int
 const (
 	// BodyType_Text undocumented
 	BodyType_Text BodyType = 0
-	// BodyType_Html undocumented
-	BodyType_Html BodyType = 1
+	// BodyType_HTML undocumented
+	BodyType_HTML BodyType = 1
 )
 
 // CalendarColor undocumented
@@ -1237,20 +1237,20 @@ const (
 	EventType_SeriesMaster EventType = 3
 )
 
-// ExchangeIdFormat undocumented
-type ExchangeIdFormat int
+// ExchangeIDFormat undocumented
+type ExchangeIDFormat int
 
 const (
-	// ExchangeIdFormat_EntryId undocumented
-	ExchangeIdFormat_EntryId ExchangeIdFormat = 0
-	// ExchangeIdFormat_EwsId undocumented
-	ExchangeIdFormat_EwsId ExchangeIdFormat = 1
-	// ExchangeIdFormat_ImmutableEntryId undocumented
-	ExchangeIdFormat_ImmutableEntryId ExchangeIdFormat = 2
-	// ExchangeIdFormat_RestId undocumented
-	ExchangeIdFormat_RestId ExchangeIdFormat = 3
-	// ExchangeIdFormat_RestImmutableEntryId undocumented
-	ExchangeIdFormat_RestImmutableEntryId ExchangeIdFormat = 4
+	// ExchangeIDFormat_EntryID undocumented
+	ExchangeIDFormat_EntryID ExchangeIDFormat = 0
+	// ExchangeIDFormat_EwsID undocumented
+	ExchangeIDFormat_EwsID ExchangeIDFormat = 1
+	// ExchangeIDFormat_ImmutableEntryID undocumented
+	ExchangeIDFormat_ImmutableEntryID ExchangeIDFormat = 2
+	// ExchangeIDFormat_RestID undocumented
+	ExchangeIDFormat_RestID ExchangeIDFormat = 3
+	// ExchangeIDFormat_RestImmutableEntryID undocumented
+	ExchangeIDFormat_RestImmutableEntryID ExchangeIDFormat = 4
 )
 
 // ExternalAudienceScope undocumented
@@ -1531,20 +1531,20 @@ const (
 	LocationType_PostalAddress LocationType = 9
 )
 
-// LocationUniqueIdType undocumented
-type LocationUniqueIdType int
+// LocationUniqueIDType undocumented
+type LocationUniqueIDType int
 
 const (
-	// LocationUniqueIdType_Unknown undocumented
-	LocationUniqueIdType_Unknown LocationUniqueIdType = 0
-	// LocationUniqueIdType_LocationStore undocumented
-	LocationUniqueIdType_LocationStore LocationUniqueIdType = 1
-	// LocationUniqueIdType_Directory undocumented
-	LocationUniqueIdType_Directory LocationUniqueIdType = 2
-	// LocationUniqueIdType_Private undocumented
-	LocationUniqueIdType_Private LocationUniqueIdType = 3
-	// LocationUniqueIdType_Bing undocumented
-	LocationUniqueIdType_Bing LocationUniqueIdType = 4
+	// LocationUniqueIDType_Unknown undocumented
+	LocationUniqueIDType_Unknown LocationUniqueIDType = 0
+	// LocationUniqueIDType_LocationStore undocumented
+	LocationUniqueIDType_LocationStore LocationUniqueIDType = 1
+	// LocationUniqueIDType_Directory undocumented
+	LocationUniqueIDType_Directory LocationUniqueIDType = 2
+	// LocationUniqueIDType_Private undocumented
+	LocationUniqueIDType_Private LocationUniqueIDType = 3
+	// LocationUniqueIDType_Bing undocumented
+	LocationUniqueIDType_Bing LocationUniqueIDType = 4
 )
 
 // LogonType undocumented
@@ -1913,22 +1913,22 @@ const (
 	MobileAppContentFileUploadState_Error MobileAppContentFileUploadState = 2
 	// MobileAppContentFileUploadState_Unknown undocumented
 	MobileAppContentFileUploadState_Unknown MobileAppContentFileUploadState = 3
-	// MobileAppContentFileUploadState_AzureStorageUriRequestSuccess undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRequestSuccess MobileAppContentFileUploadState = 100
-	// MobileAppContentFileUploadState_AzureStorageUriRequestPending undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRequestPending MobileAppContentFileUploadState = 101
-	// MobileAppContentFileUploadState_AzureStorageUriRequestFailed undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRequestFailed MobileAppContentFileUploadState = 102
-	// MobileAppContentFileUploadState_AzureStorageUriRequestTimedOut undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRequestTimedOut MobileAppContentFileUploadState = 103
-	// MobileAppContentFileUploadState_AzureStorageUriRenewalSuccess undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRenewalSuccess MobileAppContentFileUploadState = 200
-	// MobileAppContentFileUploadState_AzureStorageUriRenewalPending undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRenewalPending MobileAppContentFileUploadState = 201
-	// MobileAppContentFileUploadState_AzureStorageUriRenewalFailed undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRenewalFailed MobileAppContentFileUploadState = 202
-	// MobileAppContentFileUploadState_AzureStorageUriRenewalTimedOut undocumented
-	MobileAppContentFileUploadState_AzureStorageUriRenewalTimedOut MobileAppContentFileUploadState = 203
+	// MobileAppContentFileUploadState_AzureStorageURIRequestSuccess undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRequestSuccess MobileAppContentFileUploadState = 100
+	// MobileAppContentFileUploadState_AzureStorageURIRequestPending undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRequestPending MobileAppContentFileUploadState = 101
+	// MobileAppContentFileUploadState_AzureStorageURIRequestFailed undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRequestFailed MobileAppContentFileUploadState = 102
+	// MobileAppContentFileUploadState_AzureStorageURIRequestTimedOut undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRequestTimedOut MobileAppContentFileUploadState = 103
+	// MobileAppContentFileUploadState_AzureStorageURIRenewalSuccess undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRenewalSuccess MobileAppContentFileUploadState = 200
+	// MobileAppContentFileUploadState_AzureStorageURIRenewalPending undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRenewalPending MobileAppContentFileUploadState = 201
+	// MobileAppContentFileUploadState_AzureStorageURIRenewalFailed undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRenewalFailed MobileAppContentFileUploadState = 202
+	// MobileAppContentFileUploadState_AzureStorageURIRenewalTimedOut undocumented
+	MobileAppContentFileUploadState_AzureStorageURIRenewalTimedOut MobileAppContentFileUploadState = 203
 	// MobileAppContentFileUploadState_CommitFileSuccess undocumented
 	MobileAppContentFileUploadState_CommitFileSuccess MobileAppContentFileUploadState = 300
 	// MobileAppContentFileUploadState_CommitFilePending undocumented
@@ -2867,8 +2867,8 @@ const (
 type SecurityNetworkProtocol int
 
 const (
-	// SecurityNetworkProtocol_Ip undocumented
-	SecurityNetworkProtocol_Ip SecurityNetworkProtocol = 0
+	// SecurityNetworkProtocol_IP undocumented
+	SecurityNetworkProtocol_IP SecurityNetworkProtocol = 0
 	// SecurityNetworkProtocol_Icmp undocumented
 	SecurityNetworkProtocol_Icmp SecurityNetworkProtocol = 1
 	// SecurityNetworkProtocol_Igmp undocumented
@@ -2877,12 +2877,12 @@ const (
 	SecurityNetworkProtocol_Ggp SecurityNetworkProtocol = 3
 	// SecurityNetworkProtocol_Ipv4 undocumented
 	SecurityNetworkProtocol_Ipv4 SecurityNetworkProtocol = 4
-	// SecurityNetworkProtocol_Tcp undocumented
-	SecurityNetworkProtocol_Tcp SecurityNetworkProtocol = 6
+	// SecurityNetworkProtocol_TCP undocumented
+	SecurityNetworkProtocol_TCP SecurityNetworkProtocol = 6
 	// SecurityNetworkProtocol_Pup undocumented
 	SecurityNetworkProtocol_Pup SecurityNetworkProtocol = 12
-	// SecurityNetworkProtocol_Udp undocumented
-	SecurityNetworkProtocol_Udp SecurityNetworkProtocol = 17
+	// SecurityNetworkProtocol_UDP undocumented
+	SecurityNetworkProtocol_UDP SecurityNetworkProtocol = 17
 	// SecurityNetworkProtocol_Idp undocumented
 	SecurityNetworkProtocol_Idp SecurityNetworkProtocol = 22
 	// SecurityNetworkProtocol_Ipv6 undocumented
@@ -2891,10 +2891,10 @@ const (
 	SecurityNetworkProtocol_Ipv6RoutingHeader SecurityNetworkProtocol = 43
 	// SecurityNetworkProtocol_Ipv6FragmentHeader undocumented
 	SecurityNetworkProtocol_Ipv6FragmentHeader SecurityNetworkProtocol = 44
-	// SecurityNetworkProtocol_IpSecEncapsulatingSecurityPayload undocumented
-	SecurityNetworkProtocol_IpSecEncapsulatingSecurityPayload SecurityNetworkProtocol = 50
-	// SecurityNetworkProtocol_IpSecAuthenticationHeader undocumented
-	SecurityNetworkProtocol_IpSecAuthenticationHeader SecurityNetworkProtocol = 51
+	// SecurityNetworkProtocol_IPSecEncapsulatingSecurityPayload undocumented
+	SecurityNetworkProtocol_IPSecEncapsulatingSecurityPayload SecurityNetworkProtocol = 50
+	// SecurityNetworkProtocol_IPSecAuthenticationHeader undocumented
+	SecurityNetworkProtocol_IPSecAuthenticationHeader SecurityNetworkProtocol = 51
 	// SecurityNetworkProtocol_IcmpV6 undocumented
 	SecurityNetworkProtocol_IcmpV6 SecurityNetworkProtocol = 58
 	// SecurityNetworkProtocol_Ipv6NoNextHeader undocumented
@@ -3327,14 +3327,14 @@ type WindowsDeliveryOptimizationMode int
 const (
 	// WindowsDeliveryOptimizationMode_UserDefined undocumented
 	WindowsDeliveryOptimizationMode_UserDefined WindowsDeliveryOptimizationMode = 0
-	// WindowsDeliveryOptimizationMode_HttpOnly undocumented
-	WindowsDeliveryOptimizationMode_HttpOnly WindowsDeliveryOptimizationMode = 1
-	// WindowsDeliveryOptimizationMode_HttpWithPeeringNat undocumented
-	WindowsDeliveryOptimizationMode_HttpWithPeeringNat WindowsDeliveryOptimizationMode = 2
-	// WindowsDeliveryOptimizationMode_HttpWithPeeringPrivateGroup undocumented
-	WindowsDeliveryOptimizationMode_HttpWithPeeringPrivateGroup WindowsDeliveryOptimizationMode = 3
-	// WindowsDeliveryOptimizationMode_HttpWithInternetPeering undocumented
-	WindowsDeliveryOptimizationMode_HttpWithInternetPeering WindowsDeliveryOptimizationMode = 4
+	// WindowsDeliveryOptimizationMode_HTTPOnly undocumented
+	WindowsDeliveryOptimizationMode_HTTPOnly WindowsDeliveryOptimizationMode = 1
+	// WindowsDeliveryOptimizationMode_HTTPWithPeeringNat undocumented
+	WindowsDeliveryOptimizationMode_HTTPWithPeeringNat WindowsDeliveryOptimizationMode = 2
+	// WindowsDeliveryOptimizationMode_HTTPWithPeeringPrivateGroup undocumented
+	WindowsDeliveryOptimizationMode_HTTPWithPeeringPrivateGroup WindowsDeliveryOptimizationMode = 3
+	// WindowsDeliveryOptimizationMode_HTTPWithInternetPeering undocumented
+	WindowsDeliveryOptimizationMode_HTTPWithInternetPeering WindowsDeliveryOptimizationMode = 4
 	// WindowsDeliveryOptimizationMode_SimpleDownload undocumented
 	WindowsDeliveryOptimizationMode_SimpleDownload WindowsDeliveryOptimizationMode = 99
 	// WindowsDeliveryOptimizationMode_BypassMode undocumented
@@ -3479,10 +3479,10 @@ type CopyNotebookModel struct {
 	UserRole *OnenoteUserRole `json:"userRole,omitempty"`
 	// IsShared undocumented
 	IsShared *bool `json:"isShared,omitempty"`
-	// SectionsUrl undocumented
-	SectionsUrl *string `json:"sectionsUrl,omitempty"`
-	// SectionGroupsUrl undocumented
-	SectionGroupsUrl *string `json:"sectionGroupsUrl,omitempty"`
+	// SectionsURL undocumented
+	SectionsURL *string `json:"sectionsUrl,omitempty"`
+	// SectionGroupsURL undocumented
+	SectionGroupsURL *string `json:"sectionGroupsUrl,omitempty"`
 	// Links undocumented
 	Links *NotebookLinks `json:"links,omitempty"`
 	// Name undocumented
@@ -3497,16 +3497,16 @@ type CopyNotebookModel struct {
 	LastModifiedByIdentity *IdentitySet `json:"lastModifiedByIdentity,omitempty"`
 	// LastModifiedTime undocumented
 	LastModifiedTime *time.Time `json:"lastModifiedTime,omitempty"`
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// Self undocumented
 	Self *string `json:"self,omitempty"`
 	// CreatedTime undocumented
 	CreatedTime *time.Time `json:"createdTime,omitempty"`
 }
 
-// Json undocumented
-type Json struct {
+// JSON undocumented
+type JSON struct {
 }
 
 // AccessAction undocumented
@@ -3548,10 +3548,10 @@ type Alert struct {
 	ActivityGroupName *string `json:"activityGroupName,omitempty"`
 	// AssignedTo undocumented
 	AssignedTo *string `json:"assignedTo,omitempty"`
-	// AzureSubscriptionId undocumented
-	AzureSubscriptionId *string `json:"azureSubscriptionId,omitempty"`
-	// AzureTenantId undocumented
-	AzureTenantId *string `json:"azureTenantId,omitempty"`
+	// AzureSubscriptionID undocumented
+	AzureSubscriptionID *string `json:"azureSubscriptionId,omitempty"`
+	// AzureTenantID undocumented
+	AzureTenantID *string `json:"azureTenantId,omitempty"`
 	// Category undocumented
 	Category *string `json:"category,omitempty"`
 	// ClosedDateTime undocumented
@@ -3612,8 +3612,8 @@ type Alert struct {
 
 // AlertHistoryState undocumented
 type AlertHistoryState struct {
-	// AppId undocumented
-	AppId *string `json:"appId,omitempty"`
+	// AppID undocumented
+	AppID *string `json:"appId,omitempty"`
 	// AssignedTo undocumented
 	AssignedTo *string `json:"assignedTo,omitempty"`
 	// Comments undocumented
@@ -3648,8 +3648,8 @@ type AllLicensedUsersAssignmentTarget struct {
 	DeviceAndAppManagementAssignmentTarget
 }
 
-// AlternativeSecurityId undocumented
-type AlternativeSecurityId struct {
+// AlternativeSecurityID undocumented
+type AlternativeSecurityID struct {
 	// Type undocumented
 	Type *int `json:"type,omitempty"`
 	// IdentityProvider undocumented
@@ -3816,8 +3816,8 @@ type AndroidGeneralDeviceConfiguration struct {
 // AndroidLobApp Contains properties and inherited properties for Android Line Of Business apps.
 type AndroidLobApp struct {
 	MobileLobApp
-	// PackageId The package identifier.
-	PackageId *string `json:"packageId,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 	// VersionName The version name of Android Line of Business (LoB) app.
@@ -3875,17 +3875,17 @@ type AndroidMinimumOperatingSystem struct {
 // AndroidMobileAppIdentifier undocumented
 type AndroidMobileAppIdentifier struct {
 	MobileAppIdentifier
-	// PackageId The identifier for an app, as specified in the play store.
-	PackageId *string `json:"packageId,omitempty"`
+	// PackageID The identifier for an app, as specified in the play store.
+	PackageID *string `json:"packageId,omitempty"`
 }
 
 // AndroidStoreApp Contains properties and inherited properties for Android store apps.
 type AndroidStoreApp struct {
 	MobileApp
-	// PackageId The package identifier.
-	PackageId *string `json:"packageId,omitempty"`
-	// AppStoreUrl The Android app store URL.
-	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
+	// AppStoreURL The Android app store URL.
+	AppStoreURL *string `json:"appStoreUrl,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 }
@@ -3973,8 +3973,8 @@ type AndroidWorkProfileGeneralDeviceConfiguration struct {
 	WorkProfileBluetoothEnableContactSharing *bool `json:"workProfileBluetoothEnableContactSharing,omitempty"`
 	// WorkProfileBlockScreenCapture Block screen capture in work profile.
 	WorkProfileBlockScreenCapture *bool `json:"workProfileBlockScreenCapture,omitempty"`
-	// WorkProfileBlockCrossProfileCallerId Block display work profile caller ID in personal profile.
-	WorkProfileBlockCrossProfileCallerId *bool `json:"workProfileBlockCrossProfileCallerId,omitempty"`
+	// WorkProfileBlockCrossProfileCallerID Block display work profile caller ID in personal profile.
+	WorkProfileBlockCrossProfileCallerID *bool `json:"workProfileBlockCrossProfileCallerId,omitempty"`
 	// WorkProfileBlockCamera Block work profile camera.
 	WorkProfileBlockCamera *bool `json:"workProfileBlockCamera,omitempty"`
 	// WorkProfileBlockCrossProfileContactsSearch Block work profile contacts availability in personal profile.
@@ -4043,12 +4043,12 @@ type AppHostedMediaConfig struct {
 
 // AppIdentity undocumented
 type AppIdentity struct {
-	// AppId undocumented
-	AppId *string `json:"appId,omitempty"`
+	// AppID undocumented
+	AppID *string `json:"appId,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// ServicePrincipalId undocumented
-	ServicePrincipalId *string `json:"servicePrincipalId,omitempty"`
+	// ServicePrincipalID undocumented
+	ServicePrincipalID *string `json:"servicePrincipalId,omitempty"`
 	// ServicePrincipalName undocumented
 	ServicePrincipalName *string `json:"servicePrincipalName,omitempty"`
 }
@@ -4059,10 +4059,10 @@ type AppListItem struct {
 	Name *string `json:"name,omitempty"`
 	// Publisher The publisher of the application
 	Publisher *string `json:"publisher,omitempty"`
-	// AppStoreUrl The Store URL of the application
-	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
-	// AppId The application or bundle identifier of the application
-	AppId *string `json:"appId,omitempty"`
+	// AppStoreURL The Store URL of the application
+	AppStoreURL *string `json:"appStoreUrl,omitempty"`
+	// AppID The application or bundle identifier of the application
+	AppID *string `json:"appId,omitempty"`
 }
 
 // AppleDeviceFeaturesConfigurationBase Apple device features configuration profile.
@@ -4087,8 +4087,8 @@ type ApplePushNotificationCertificate struct {
 
 // AppliedConditionalAccessPolicy undocumented
 type AppliedConditionalAccessPolicy struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// EnforcedGrantControls undocumented
@@ -4103,8 +4103,8 @@ type AppliedConditionalAccessPolicy struct {
 type AssignedLicense struct {
 	// DisabledPlans undocumented
 	DisabledPlans []UUID `json:"disabledPlans,omitempty"`
-	// SkuId undocumented
-	SkuId *UUID `json:"skuId,omitempty"`
+	// SkuID undocumented
+	SkuID *UUID `json:"skuId,omitempty"`
 }
 
 // AssignedPlan undocumented
@@ -4115,8 +4115,8 @@ type AssignedPlan struct {
 	CapabilityStatus *string `json:"capabilityStatus,omitempty"`
 	// Service undocumented
 	Service *string `json:"service,omitempty"`
-	// ServicePlanId undocumented
-	ServicePlanId *UUID `json:"servicePlanId,omitempty"`
+	// ServicePlanID undocumented
+	ServicePlanID *UUID `json:"servicePlanId,omitempty"`
 }
 
 // Attachment undocumented
@@ -4194,14 +4194,14 @@ type Audio struct {
 
 // AudioConferencing undocumented
 type AudioConferencing struct {
-	// ConferenceId undocumented
-	ConferenceId *string `json:"conferenceId,omitempty"`
+	// ConferenceID undocumented
+	ConferenceID *string `json:"conferenceId,omitempty"`
 	// TollNumber undocumented
 	TollNumber *string `json:"tollNumber,omitempty"`
 	// TollFreeNumber undocumented
 	TollFreeNumber *string `json:"tollFreeNumber,omitempty"`
-	// DialinUrl undocumented
-	DialinUrl *string `json:"dialinUrl,omitempty"`
+	// DialinURL undocumented
+	DialinURL *string `json:"dialinUrl,omitempty"`
 }
 
 // AuditActivityInitiator undocumented
@@ -4278,8 +4278,8 @@ type BaseItem struct {
 	Name *string `json:"name,omitempty"`
 	// ParentReference undocumented
 	ParentReference *ItemReference `json:"parentReference,omitempty"`
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 	// CreatedByUser undocumented
 	CreatedByUser *User `json:"createdByUser,omitempty"`
 	// LastModifiedByUser undocumented
@@ -4353,8 +4353,8 @@ type CalendarGroup struct {
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// ClassId undocumented
-	ClassId *UUID `json:"classId,omitempty"`
+	// ClassID undocumented
+	ClassID *UUID `json:"classId,omitempty"`
 	// ChangeKey undocumented
 	ChangeKey *string `json:"changeKey,omitempty"`
 	// Calendars undocumented
@@ -4374,8 +4374,8 @@ type Call struct {
 	Direction *CallDirection `json:"direction,omitempty"`
 	// Subject undocumented
 	Subject *string `json:"subject,omitempty"`
-	// CallbackUri undocumented
-	CallbackUri *string `json:"callbackUri,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
 	// Source undocumented
 	Source *ParticipantInfo `json:"source,omitempty"`
 	// Targets undocumented
@@ -4388,10 +4388,10 @@ type Call struct {
 	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
 	// MeetingInfo undocumented
 	MeetingInfo *MeetingInfo `json:"meetingInfo,omitempty"`
-	// TenantId undocumented
-	TenantId *string `json:"tenantId,omitempty"`
-	// MyParticipantId undocumented
-	MyParticipantId *string `json:"myParticipantId,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// MyParticipantID undocumented
+	MyParticipantID *string `json:"myParticipantId,omitempty"`
 	// ToneInfo undocumented
 	ToneInfo *ToneInfo `json:"toneInfo,omitempty"`
 	// Participants undocumented
@@ -4410,10 +4410,10 @@ type CallMediaState struct {
 type CertificateAuthority struct {
 	// IsRootAuthority undocumented
 	IsRootAuthority *bool `json:"isRootAuthority,omitempty"`
-	// CertificateRevocationListUrl undocumented
-	CertificateRevocationListUrl *string `json:"certificateRevocationListUrl,omitempty"`
-	// DeltaCertificateRevocationListUrl undocumented
-	DeltaCertificateRevocationListUrl *string `json:"deltaCertificateRevocationListUrl,omitempty"`
+	// CertificateRevocationListURL undocumented
+	CertificateRevocationListURL *string `json:"certificateRevocationListUrl,omitempty"`
+	// DeltaCertificateRevocationListURL undocumented
+	DeltaCertificateRevocationListURL *string `json:"deltaCertificateRevocationListUrl,omitempty"`
 	// Certificate undocumented
 	Certificate *Binary `json:"certificate,omitempty"`
 	// Issuer undocumented
@@ -4433,8 +4433,8 @@ type CertificateBasedAuthConfiguration struct {
 type CertificationControl struct {
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// Url undocumented
-	Url *string `json:"url,omitempty"`
+	// URL undocumented
+	URL *string `json:"url,omitempty"`
 }
 
 // Channel undocumented
@@ -4446,20 +4446,20 @@ type Channel struct {
 	Description *string `json:"description,omitempty"`
 	// Email undocumented
 	Email *string `json:"email,omitempty"`
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 	// Tabs undocumented
 	Tabs []TeamsTab `json:"tabs,omitempty"`
 }
 
 // ChatInfo undocumented
 type ChatInfo struct {
-	// ThreadId undocumented
-	ThreadId *string `json:"threadId,omitempty"`
-	// MessageId undocumented
-	MessageId *string `json:"messageId,omitempty"`
-	// ReplyChainMessageId undocumented
-	ReplyChainMessageId *string `json:"replyChainMessageId,omitempty"`
+	// ThreadID undocumented
+	ThreadID *string `json:"threadId,omitempty"`
+	// MessageID undocumented
+	MessageID *string `json:"messageId,omitempty"`
+	// ReplyChainMessageID undocumented
+	ReplyChainMessageID *string `json:"replyChainMessageId,omitempty"`
 }
 
 // ChoiceColumn undocumented
@@ -4474,8 +4474,8 @@ type ChoiceColumn struct {
 
 // CloudAppSecurityState undocumented
 type CloudAppSecurityState struct {
-	// DestinationServiceIp undocumented
-	DestinationServiceIp *string `json:"destinationServiceIp,omitempty"`
+	// DestinationServiceIP undocumented
+	DestinationServiceIP *string `json:"destinationServiceIp,omitempty"`
 	// DestinationServiceName undocumented
 	DestinationServiceName *string `json:"destinationServiceName,omitempty"`
 	// RiskScore undocumented
@@ -4545,8 +4545,8 @@ type ColumnLink struct {
 type CommsNotification struct {
 	// ChangeType undocumented
 	ChangeType *ChangeType `json:"changeType,omitempty"`
-	// ResourceUrl undocumented
-	ResourceUrl *string `json:"resourceUrl,omitempty"`
+	// ResourceURL undocumented
+	ResourceURL *string `json:"resourceUrl,omitempty"`
 }
 
 // CommsNotifications undocumented
@@ -4593,8 +4593,8 @@ type ConfigurationManagerClientEnabledFeatures struct {
 // Contact undocumented
 type Contact struct {
 	OutlookItem
-	// ParentFolderId undocumented
-	ParentFolderId *string `json:"parentFolderId,omitempty"`
+	// ParentFolderID undocumented
+	ParentFolderID *string `json:"parentFolderId,omitempty"`
 	// Birthday undocumented
 	Birthday *time.Time `json:"birthday,omitempty"`
 	// FileAs undocumented
@@ -4672,8 +4672,8 @@ type Contact struct {
 // ContactFolder undocumented
 type ContactFolder struct {
 	Entity
-	// ParentFolderId undocumented
-	ParentFolderId *string `json:"parentFolderId,omitempty"`
+	// ParentFolderID undocumented
+	ParentFolderID *string `json:"parentFolderId,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// SingleValueExtendedProperties undocumented
@@ -4701,8 +4701,8 @@ type ContentType struct {
 	Name *string `json:"name,omitempty"`
 	// Order undocumented
 	Order *ContentTypeOrder `json:"order,omitempty"`
-	// ParentId undocumented
-	ParentId *string `json:"parentId,omitempty"`
+	// ParentID undocumented
+	ParentID *string `json:"parentId,omitempty"`
 	// ReadOnly undocumented
 	ReadOnly *bool `json:"readOnly,omitempty"`
 	// Sealed undocumented
@@ -4713,8 +4713,8 @@ type ContentType struct {
 
 // ContentTypeInfo undocumented
 type ContentTypeInfo struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 }
 
 // ContentTypeOrder undocumented
@@ -4730,8 +4730,8 @@ type Contract struct {
 	DirectoryObject
 	// ContractType undocumented
 	ContractType *string `json:"contractType,omitempty"`
-	// CustomerId undocumented
-	CustomerId *UUID `json:"customerId,omitempty"`
+	// CustomerID undocumented
+	CustomerID *UUID `json:"customerId,omitempty"`
 	// DefaultDomainName undocumented
 	DefaultDomainName *string `json:"defaultDomainName,omitempty"`
 	// DisplayName undocumented
@@ -4790,12 +4790,12 @@ type ConversationThread struct {
 	Posts []Post `json:"posts,omitempty"`
 }
 
-// ConvertIdResult undocumented
-type ConvertIdResult struct {
-	// SourceId undocumented
-	SourceId *string `json:"sourceId,omitempty"`
-	// TargetId undocumented
-	TargetId *string `json:"targetId,omitempty"`
+// ConvertIDResult undocumented
+type ConvertIDResult struct {
+	// SourceID undocumented
+	SourceID *string `json:"sourceId,omitempty"`
+	// TargetID undocumented
+	TargetID *string `json:"targetId,omitempty"`
 	// ErrorDetails undocumented
 	ErrorDetails *GenericError `json:"errorDetails,omitempty"`
 }
@@ -4826,8 +4826,8 @@ type DataPolicyOperation struct {
 	Status *DataPolicyOperationStatus `json:"status,omitempty"`
 	// StorageLocation undocumented
 	StorageLocation *string `json:"storageLocation,omitempty"`
-	// UserId undocumented
-	UserId *string `json:"userId,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 	// SubmittedDateTime undocumented
 	SubmittedDateTime *time.Time `json:"submittedDateTime,omitempty"`
 	// Progress undocumented
@@ -4886,8 +4886,8 @@ type DefaultManagedAppProtection struct {
 	MinimumRequiredPatchVersion *string `json:"minimumRequiredPatchVersion,omitempty"`
 	// MinimumWarningPatchVersion Define the oldest recommended Android security patch level a user can have for secure access to the app. (Android only)
 	MinimumWarningPatchVersion *string `json:"minimumWarningPatchVersion,omitempty"`
-	// FaceIdBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
-	FaceIdBlocked *bool `json:"faceIdBlocked,omitempty"`
+	// FaceIDBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
+	FaceIDBlocked *bool `json:"faceIdBlocked,omitempty"`
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 	// DeploymentSummary undocumented
@@ -4940,13 +4940,13 @@ type Device struct {
 	// AccountEnabled undocumented
 	AccountEnabled *bool `json:"accountEnabled,omitempty"`
 	// AlternativeSecurityIds undocumented
-	AlternativeSecurityIds []AlternativeSecurityId `json:"alternativeSecurityIds,omitempty"`
+	AlternativeSecurityIds []AlternativeSecurityID `json:"alternativeSecurityIds,omitempty"`
 	// ApproximateLastSignInDateTime undocumented
 	ApproximateLastSignInDateTime *time.Time `json:"approximateLastSignInDateTime,omitempty"`
 	// ComplianceExpirationDateTime undocumented
 	ComplianceExpirationDateTime *time.Time `json:"complianceExpirationDateTime,omitempty"`
-	// DeviceId undocumented
-	DeviceId *string `json:"deviceId,omitempty"`
+	// DeviceID undocumented
+	DeviceID *string `json:"deviceId,omitempty"`
 	// DeviceMetadata undocumented
 	DeviceMetadata *string `json:"deviceMetadata,omitempty"`
 	// DeviceVersion undocumented
@@ -5070,8 +5070,8 @@ type DeviceComplianceActionItem struct {
 	GracePeriodHours *int `json:"gracePeriodHours,omitempty"`
 	// ActionType What action to take
 	ActionType *DeviceComplianceActionType `json:"actionType,omitempty"`
-	// NotificationTemplateId What notification Message template to use
-	NotificationTemplateId *string `json:"notificationTemplateId,omitempty"`
+	// NotificationTemplateID What notification Message template to use
+	NotificationTemplateID *string `json:"notificationTemplateId,omitempty"`
 	// NotificationMessageCCList A list of group IDs to speicify who to CC this notification message to.
 	NotificationMessageCCList []string `json:"notificationMessageCCList,omitempty"`
 }
@@ -5187,8 +5187,8 @@ type DeviceCompliancePolicySettingState struct {
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// ErrorDescription Error description
 	ErrorDescription *string `json:"errorDescription,omitempty"`
-	// UserId UserId
-	UserId *string `json:"userId,omitempty"`
+	// UserID UserId
+	UserID *string `json:"userId,omitempty"`
 	// UserName UserName
 	UserName *string `json:"userName,omitempty"`
 	// UserEmail UserEmail
@@ -5261,12 +5261,12 @@ type DeviceComplianceSettingState struct {
 	Setting *string `json:"setting,omitempty"`
 	// SettingName The Setting Name that is being reported
 	SettingName *string `json:"settingName,omitempty"`
-	// DeviceId The Device Id that is being reported
-	DeviceId *string `json:"deviceId,omitempty"`
+	// DeviceID The Device Id that is being reported
+	DeviceID *string `json:"deviceId,omitempty"`
 	// DeviceName The Device Name that is being reported
 	DeviceName *string `json:"deviceName,omitempty"`
-	// UserId The user Id that is being reported
-	UserId *string `json:"userId,omitempty"`
+	// UserID The user Id that is being reported
+	UserID *string `json:"userId,omitempty"`
 	// UserEmail The User email address that is being reported
 	UserEmail *string `json:"userEmail,omitempty"`
 	// UserName The User Name that is being reported
@@ -5420,8 +5420,8 @@ type DeviceConfigurationSettingState struct {
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// ErrorDescription Error description
 	ErrorDescription *string `json:"errorDescription,omitempty"`
-	// UserId UserId
-	UserId *string `json:"userId,omitempty"`
+	// UserID UserId
+	UserID *string `json:"userId,omitempty"`
 	// UserName UserName
 	UserName *string `json:"userName,omitempty"`
 	// UserEmail UserEmail
@@ -5487,8 +5487,8 @@ type DeviceConfigurationUserStatus struct {
 
 // DeviceDetail undocumented
 type DeviceDetail struct {
-	// DeviceId undocumented
-	DeviceId *string `json:"deviceId,omitempty"`
+	// DeviceID undocumented
+	DeviceID *string `json:"deviceId,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// OperatingSystem undocumented
@@ -5623,8 +5623,8 @@ type DeviceGeoLocation struct {
 type DeviceHealthAttestationState struct {
 	// LastUpdateDateTime The Timestamp of the last update.
 	LastUpdateDateTime *string `json:"lastUpdateDateTime,omitempty"`
-	// ContentNamespaceUrl The DHA report version. (Namespace version)
-	ContentNamespaceUrl *string `json:"contentNamespaceUrl,omitempty"`
+	// ContentNamespaceURL The DHA report version. (Namespace version)
+	ContentNamespaceURL *string `json:"contentNamespaceUrl,omitempty"`
 	// DeviceHealthAttestationStatus The DHA report version. (Namespace version)
 	DeviceHealthAttestationStatus *string `json:"deviceHealthAttestationStatus,omitempty"`
 	// ContentVersion The HealthAttestation state schema version
@@ -5692,8 +5692,8 @@ type DeviceInstallState struct {
 	Entity
 	// DeviceName Device name.
 	DeviceName *string `json:"deviceName,omitempty"`
-	// DeviceId Device Id.
-	DeviceId *string `json:"deviceId,omitempty"`
+	// DeviceID Device Id.
+	DeviceID *string `json:"deviceId,omitempty"`
 	// LastSyncDateTime Last sync date and time.
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
 	// InstallState The install state of the eBook.
@@ -5780,8 +5780,8 @@ type DeviceManagementExchangeConnector struct {
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
 	// Status Exchange Connector Status
 	Status *DeviceManagementExchangeConnectorStatus `json:"status,omitempty"`
-	// PrimarySmtpAddress Email address used to configure the Service To Service Exchange Connector.
-	PrimarySmtpAddress *string `json:"primarySmtpAddress,omitempty"`
+	// PrimarySMTPAddress Email address used to configure the Service To Service Exchange Connector.
+	PrimarySMTPAddress *string `json:"primarySmtpAddress,omitempty"`
 	// ServerName The name of the Exchange server.
 	ServerName *string `json:"serverName,omitempty"`
 	// ConnectorServerName The name of the server hosting the Exchange Connector.
@@ -5805,8 +5805,8 @@ type DeviceManagementPartner struct {
 	PartnerState *DeviceManagementPartnerTenantState `json:"partnerState,omitempty"`
 	// PartnerAppType Partner App type
 	PartnerAppType *DeviceManagementPartnerAppType `json:"partnerAppType,omitempty"`
-	// SingleTenantAppId Partner Single tenant App id
-	SingleTenantAppId *string `json:"singleTenantAppId,omitempty"`
+	// SingleTenantAppID Partner Single tenant App id
+	SingleTenantAppID *string `json:"singleTenantAppId,omitempty"`
 	// DisplayName Partner display name
 	DisplayName *string `json:"displayName,omitempty"`
 	// IsConfigured Whether device management partner is configured or not
@@ -5832,8 +5832,8 @@ type DeviceManagementTroubleshootingEvent struct {
 	Entity
 	// EventDateTime Time when the event occurred .
 	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
-	// CorrelationId Id used for tracing the failure in the service.
-	CorrelationId *string `json:"correlationId,omitempty"`
+	// CorrelationID Id used for tracing the failure in the service.
+	CorrelationID *string `json:"correlationId,omitempty"`
 }
 
 // DeviceOperatingSystemSummary undocumented
@@ -5856,8 +5856,8 @@ type DeviceOperatingSystemSummary struct {
 type Diagnostic struct {
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
-	// Url undocumented
-	Url *string `json:"url,omitempty"`
+	// URL undocumented
+	URL *string `json:"url,omitempty"`
 }
 
 // Directory undocumented
@@ -5872,8 +5872,8 @@ type DirectoryAudit struct {
 	Entity
 	// Category undocumented
 	Category *string `json:"category,omitempty"`
-	// CorrelationId undocumented
-	CorrelationId *string `json:"correlationId,omitempty"`
+	// CorrelationID undocumented
+	CorrelationID *string `json:"correlationId,omitempty"`
 	// Result undocumented
 	Result *OperationResult `json:"result,omitempty"`
 	// ResultReason undocumented
@@ -5908,8 +5908,8 @@ type DirectoryObjectPartnerReference struct {
 	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// ExternalPartnerTenantId undocumented
-	ExternalPartnerTenantId *UUID `json:"externalPartnerTenantId,omitempty"`
+	// ExternalPartnerTenantID undocumented
+	ExternalPartnerTenantID *UUID `json:"externalPartnerTenantId,omitempty"`
 	// ObjectType undocumented
 	ObjectType *string `json:"objectType,omitempty"`
 }
@@ -5921,8 +5921,8 @@ type DirectoryRole struct {
 	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// RoleTemplateId undocumented
-	RoleTemplateId *string `json:"roleTemplateId,omitempty"`
+	// RoleTemplateID undocumented
+	RoleTemplateID *string `json:"roleTemplateId,omitempty"`
 	// Members undocumented
 	Members []DirectoryObject `json:"members,omitempty"`
 }
@@ -5962,31 +5962,31 @@ type Domain struct {
 	// State undocumented
 	State *DomainState `json:"state,omitempty"`
 	// ServiceConfigurationRecords undocumented
-	ServiceConfigurationRecords []DomainDnsRecord `json:"serviceConfigurationRecords,omitempty"`
-	// VerificationDnsRecords undocumented
-	VerificationDnsRecords []DomainDnsRecord `json:"verificationDnsRecords,omitempty"`
+	ServiceConfigurationRecords []DomainDNSRecord `json:"serviceConfigurationRecords,omitempty"`
+	// VerificationDNSRecords undocumented
+	VerificationDNSRecords []DomainDNSRecord `json:"verificationDnsRecords,omitempty"`
 	// DomainNameReferences undocumented
 	DomainNameReferences []DirectoryObject `json:"domainNameReferences,omitempty"`
 }
 
-// DomainDnsCnameRecord undocumented
-type DomainDnsCnameRecord struct {
-	DomainDnsRecord
+// DomainDNSCnameRecord undocumented
+type DomainDNSCnameRecord struct {
+	DomainDNSRecord
 	// CanonicalName undocumented
 	CanonicalName *string `json:"canonicalName,omitempty"`
 }
 
-// DomainDnsMxRecord undocumented
-type DomainDnsMxRecord struct {
-	DomainDnsRecord
+// DomainDNSMxRecord undocumented
+type DomainDNSMxRecord struct {
+	DomainDNSRecord
 	// MailExchange undocumented
 	MailExchange *string `json:"mailExchange,omitempty"`
 	// Preference undocumented
 	Preference *int `json:"preference,omitempty"`
 }
 
-// DomainDnsRecord undocumented
-type DomainDnsRecord struct {
+// DomainDNSRecord undocumented
+type DomainDNSRecord struct {
 	Entity
 	// IsOptional undocumented
 	IsOptional *bool `json:"isOptional,omitempty"`
@@ -5996,13 +5996,13 @@ type DomainDnsRecord struct {
 	RecordType *string `json:"recordType,omitempty"`
 	// SupportedService undocumented
 	SupportedService *string `json:"supportedService,omitempty"`
-	// Ttl undocumented
-	Ttl *int `json:"ttl,omitempty"`
+	// TTL undocumented
+	TTL *int `json:"ttl,omitempty"`
 }
 
-// DomainDnsSrvRecord undocumented
-type DomainDnsSrvRecord struct {
-	DomainDnsRecord
+// DomainDNSSrvRecord undocumented
+type DomainDNSSrvRecord struct {
+	DomainDNSRecord
 	// NameTarget undocumented
 	NameTarget *string `json:"nameTarget,omitempty"`
 	// Port undocumented
@@ -6017,16 +6017,16 @@ type DomainDnsSrvRecord struct {
 	Weight *int `json:"weight,omitempty"`
 }
 
-// DomainDnsTxtRecord undocumented
-type DomainDnsTxtRecord struct {
-	DomainDnsRecord
+// DomainDNSTxtRecord undocumented
+type DomainDNSTxtRecord struct {
+	DomainDNSRecord
 	// Text undocumented
 	Text *string `json:"text,omitempty"`
 }
 
-// DomainDnsUnavailableRecord undocumented
-type DomainDnsUnavailableRecord struct {
-	DomainDnsRecord
+// DomainDNSUnavailableRecord undocumented
+type DomainDNSUnavailableRecord struct {
+	DomainDNSRecord
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 }
@@ -6107,8 +6107,8 @@ type DriveItem struct {
 	SpecialFolder *SpecialFolder `json:"specialFolder,omitempty"`
 	// Video undocumented
 	Video *Video `json:"video,omitempty"`
-	// WebDavUrl undocumented
-	WebDavUrl *string `json:"webDavUrl,omitempty"`
+	// WebDavURL undocumented
+	WebDavURL *string `json:"webDavUrl,omitempty"`
 	// Workbook undocumented
 	Workbook *Workbook `json:"workbook,omitempty"`
 	// Analytics undocumented
@@ -6152,8 +6152,8 @@ type DriveRecipient struct {
 	Alias *string `json:"alias,omitempty"`
 	// Email undocumented
 	Email *string `json:"email,omitempty"`
-	// ObjectId undocumented
-	ObjectId *string `json:"objectId,omitempty"`
+	// ObjectID undocumented
+	ObjectID *string `json:"objectId,omitempty"`
 }
 
 // EBookInstallSummary Contains properties for the installation summary of a book for a device.
@@ -6187,8 +6187,8 @@ type EdgeSearchEngineBase struct {
 // EdgeSearchEngineCustom undocumented
 type EdgeSearchEngineCustom struct {
 	EdgeSearchEngineBase
-	// EdgeSearchEngineOpenSearchXmlUrl Points to a https link containing the OpenSearch xml file that contains, at minimum, the short name and the URL to the search Engine.
-	EdgeSearchEngineOpenSearchXmlUrl *string `json:"edgeSearchEngineOpenSearchXmlUrl,omitempty"`
+	// EdgeSearchEngineOpenSearchXMLURL Points to a https link containing the OpenSearch xml file that contains, at minimum, the short name and the URL to the search Engine.
+	EdgeSearchEngineOpenSearchXMLURL *string `json:"edgeSearchEngineOpenSearchXmlUrl,omitempty"`
 }
 
 // EditionUpgradeConfiguration Windows 10 Edition Upgrade configuration.
@@ -6219,8 +6219,8 @@ type EducationClass struct {
 	ClassCode *string `json:"classCode,omitempty"`
 	// ExternalName undocumented
 	ExternalName *string `json:"externalName,omitempty"`
-	// ExternalId undocumented
-	ExternalId *string `json:"externalId,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 	// ExternalSource undocumented
 	ExternalSource *EducationExternalSource `json:"externalSource,omitempty"`
 	// Term undocumented
@@ -6266,16 +6266,16 @@ type EducationSchool struct {
 	PrincipalEmail *string `json:"principalEmail,omitempty"`
 	// PrincipalName undocumented
 	PrincipalName *string `json:"principalName,omitempty"`
-	// ExternalPrincipalId undocumented
-	ExternalPrincipalId *string `json:"externalPrincipalId,omitempty"`
+	// ExternalPrincipalID undocumented
+	ExternalPrincipalID *string `json:"externalPrincipalId,omitempty"`
 	// LowestGrade undocumented
 	LowestGrade *string `json:"lowestGrade,omitempty"`
 	// HighestGrade undocumented
 	HighestGrade *string `json:"highestGrade,omitempty"`
 	// SchoolNumber undocumented
 	SchoolNumber *string `json:"schoolNumber,omitempty"`
-	// ExternalId undocumented
-	ExternalId *string `json:"externalId,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 	// Phone undocumented
 	Phone *string `json:"phone,omitempty"`
 	// Fax undocumented
@@ -6302,22 +6302,22 @@ type EducationStudent struct {
 	Gender *EducationGender `json:"gender,omitempty"`
 	// StudentNumber undocumented
 	StudentNumber *string `json:"studentNumber,omitempty"`
-	// ExternalId undocumented
-	ExternalId *string `json:"externalId,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 }
 
 // EducationTeacher undocumented
 type EducationTeacher struct {
 	// TeacherNumber undocumented
 	TeacherNumber *string `json:"teacherNumber,omitempty"`
-	// ExternalId undocumented
-	ExternalId *string `json:"externalId,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 }
 
 // EducationTerm undocumented
 type EducationTerm struct {
-	// ExternalId undocumented
-	ExternalId *string `json:"externalId,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 	// StartDate undocumented
 	StartDate *time.Time `json:"startDate,omitempty"`
 	// EndDate undocumented
@@ -6419,10 +6419,10 @@ type EnrollmentTroubleshootingEvent struct {
 	OperatingSystem *string `json:"operatingSystem,omitempty"`
 	// OsVersion OS Version.
 	OsVersion *string `json:"osVersion,omitempty"`
-	// UserId Identifier for the user that tried to enroll the device.
-	UserId *string `json:"userId,omitempty"`
-	// DeviceId Azure AD device identifier.
-	DeviceId *string `json:"deviceId,omitempty"`
+	// UserID Identifier for the user that tried to enroll the device.
+	UserID *string `json:"userId,omitempty"`
+	// DeviceID Azure AD device identifier.
+	DeviceID *string `json:"deviceId,omitempty"`
 	// EnrollmentType Type of the enrollment.
 	EnrollmentType *DeviceEnrollmentType `json:"enrollmentType,omitempty"`
 	// FailureCategory Highlevel failure category.
@@ -6433,8 +6433,8 @@ type EnrollmentTroubleshootingEvent struct {
 
 // Entity undocumented
 type Entity struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 }
 
 // Event undocumented
@@ -6446,8 +6446,8 @@ type Event struct {
 	OriginalEndTimeZone *string `json:"originalEndTimeZone,omitempty"`
 	// ResponseStatus undocumented
 	ResponseStatus *ResponseStatus `json:"responseStatus,omitempty"`
-	// ICalUId undocumented
-	ICalUId *string `json:"iCalUId,omitempty"`
+	// ICalUID undocumented
+	ICalUID *string `json:"iCalUId,omitempty"`
 	// ReminderMinutesBeforeStart undocumented
 	ReminderMinutesBeforeStart *int `json:"reminderMinutesBeforeStart,omitempty"`
 	// IsReminderOn undocumented
@@ -6484,8 +6484,8 @@ type Event struct {
 	Recurrence *PatternedRecurrence `json:"recurrence,omitempty"`
 	// ResponseRequested undocumented
 	ResponseRequested *bool `json:"responseRequested,omitempty"`
-	// SeriesMasterId undocumented
-	SeriesMasterId *string `json:"seriesMasterId,omitempty"`
+	// SeriesMasterID undocumented
+	SeriesMasterID *string `json:"seriesMasterId,omitempty"`
 	// ShowAs undocumented
 	ShowAs *FreeBusyStatus `json:"showAs,omitempty"`
 	// Type undocumented
@@ -6496,8 +6496,8 @@ type Event struct {
 	Organizer *Recipient `json:"organizer,omitempty"`
 	// WebLink undocumented
 	WebLink *string `json:"webLink,omitempty"`
-	// OnlineMeetingUrl undocumented
-	OnlineMeetingUrl *string `json:"onlineMeetingUrl,omitempty"`
+	// OnlineMeetingURL undocumented
+	OnlineMeetingURL *string `json:"onlineMeetingUrl,omitempty"`
 	// Attachments undocumented
 	Attachments []Attachment `json:"attachments,omitempty"`
 	// SingleValueExtendedProperties undocumented
@@ -6563,8 +6563,8 @@ type File struct {
 // FileAttachment undocumented
 type FileAttachment struct {
 	Attachment
-	// ContentId undocumented
-	ContentId *string `json:"contentId,omitempty"`
+	// ContentID undocumented
+	ContentID *string `json:"contentId,omitempty"`
 	// ContentLocation undocumented
 	ContentLocation *string `json:"contentLocation,omitempty"`
 	// ContentBytes undocumented
@@ -6783,8 +6783,8 @@ type Group struct {
 // GroupAssignmentTarget undocumented
 type GroupAssignmentTarget struct {
 	DeviceAndAppManagementAssignmentTarget
-	// GroupId The group Id that is the target of the assignment.
-	GroupId *string `json:"groupId,omitempty"`
+	// GroupID The group Id that is the target of the assignment.
+	GroupID *string `json:"groupId,omitempty"`
 }
 
 // GroupLifecyclePolicy undocumented
@@ -6803,8 +6803,8 @@ type GroupSetting struct {
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// TemplateId undocumented
-	TemplateId *string `json:"templateId,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
 	// Values undocumented
 	Values []SettingValue `json:"values,omitempty"`
 }
@@ -6844,17 +6844,17 @@ type HostSecurityState struct {
 	NetBiosName *string `json:"netBiosName,omitempty"`
 	// Os undocumented
 	Os *string `json:"os,omitempty"`
-	// PrivateIpAddress undocumented
-	PrivateIpAddress *string `json:"privateIpAddress,omitempty"`
-	// PublicIpAddress undocumented
-	PublicIpAddress *string `json:"publicIpAddress,omitempty"`
+	// PrivateIPAddress undocumented
+	PrivateIPAddress *string `json:"privateIpAddress,omitempty"`
+	// PublicIPAddress undocumented
+	PublicIPAddress *string `json:"publicIpAddress,omitempty"`
 	// RiskScore undocumented
 	RiskScore *string `json:"riskScore,omitempty"`
 }
 
 // IPv4Range undocumented
 type IPv4Range struct {
-	IpRange
+	IPRange
 	// LowerAddress Lower address.
 	LowerAddress *string `json:"lowerAddress,omitempty"`
 	// UpperAddress Upper address.
@@ -6863,7 +6863,7 @@ type IPv4Range struct {
 
 // IPv6Range undocumented
 type IPv6Range struct {
-	IpRange
+	IPRange
 	// LowerAddress Lower address
 	LowerAddress *string `json:"lowerAddress,omitempty"`
 	// UpperAddress Upper address
@@ -6874,8 +6874,8 @@ type IPv6Range struct {
 type Identity struct {
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 }
 
 // IdentityProvider undocumented
@@ -6885,8 +6885,8 @@ type IdentityProvider struct {
 	Type *string `json:"type,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// ClientId undocumented
-	ClientId *string `json:"clientId,omitempty"`
+	// ClientID undocumented
+	ClientID *string `json:"clientId,omitempty"`
 	// ClientSecret undocumented
 	ClientSecret *string `json:"clientSecret,omitempty"`
 }
@@ -6911,8 +6911,8 @@ type Image struct {
 
 // ImageInfo undocumented
 type ImageInfo struct {
-	// IconUrl undocumented
-	IconUrl *string `json:"iconUrl,omitempty"`
+	// IconURL undocumented
+	IconURL *string `json:"iconUrl,omitempty"`
 	// AlternativeText undocumented
 	AlternativeText *string `json:"alternativeText,omitempty"`
 	// AlternateText undocumented
@@ -6949,8 +6949,8 @@ type InferenceClassificationOverride struct {
 type InsightIdentity struct {
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// Address undocumented
 	Address *string `json:"address,omitempty"`
 }
@@ -6975,10 +6975,10 @@ type IntuneBrand struct {
 	ContactITEmailAddress *string `json:"contactITEmailAddress,omitempty"`
 	// ContactITNotes Text comments regarding the person/organization responsible for IT support.
 	ContactITNotes *string `json:"contactITNotes,omitempty"`
-	// PrivacyUrl URL to the company/organization’s privacy policy.
-	PrivacyUrl *string `json:"privacyUrl,omitempty"`
-	// OnlineSupportSiteUrl URL to the company/organization’s IT helpdesk site.
-	OnlineSupportSiteUrl *string `json:"onlineSupportSiteUrl,omitempty"`
+	// PrivacyURL URL to the company/organization’s privacy policy.
+	PrivacyURL *string `json:"privacyUrl,omitempty"`
+	// OnlineSupportSiteURL URL to the company/organization’s IT helpdesk site.
+	OnlineSupportSiteURL *string `json:"onlineSupportSiteUrl,omitempty"`
 	// OnlineSupportSiteName Display name of the company/organization’s IT helpdesk site.
 	OnlineSupportSiteName *string `json:"onlineSupportSiteName,omitempty"`
 	// ThemeColor Primary theme color used in the Company Portal applications and web portal.
@@ -7008,10 +7008,10 @@ type Invitation struct {
 	InvitedUserMessageInfo *InvitedUserMessageInfo `json:"invitedUserMessageInfo,omitempty"`
 	// SendInvitationMessage undocumented
 	SendInvitationMessage *bool `json:"sendInvitationMessage,omitempty"`
-	// InviteRedirectUrl undocumented
-	InviteRedirectUrl *string `json:"inviteRedirectUrl,omitempty"`
-	// InviteRedeemUrl undocumented
-	InviteRedeemUrl *string `json:"inviteRedeemUrl,omitempty"`
+	// InviteRedirectURL undocumented
+	InviteRedirectURL *string `json:"inviteRedirectUrl,omitempty"`
+	// InviteRedeemURL undocumented
+	InviteRedeemURL *string `json:"inviteRedeemUrl,omitempty"`
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
 	// InvitedUser undocumented
@@ -7021,8 +7021,8 @@ type Invitation struct {
 // InvitationParticipantInfo undocumented
 type InvitationParticipantInfo struct {
 	ParticipantInfo
-	// ReplacesCallId undocumented
-	ReplacesCallId *string `json:"replacesCallId,omitempty"`
+	// ReplacesCallID undocumented
+	ReplacesCallID *string `json:"replacesCallId,omitempty"`
 }
 
 // InviteParticipantsOperation undocumented
@@ -7163,8 +7163,8 @@ type IosGeneralDeviceConfiguration struct {
 	CellularBlockPersonalHotspot *bool `json:"cellularBlockPersonalHotspot,omitempty"`
 	// CellularBlockVoiceRoaming Indicates whether or not to block voice roaming.
 	CellularBlockVoiceRoaming *bool `json:"cellularBlockVoiceRoaming,omitempty"`
-	// CertificatesBlockUntrustedTlsCertificates Indicates whether or not to block untrusted TLS certificates.
-	CertificatesBlockUntrustedTlsCertificates *bool `json:"certificatesBlockUntrustedTlsCertificates,omitempty"`
+	// CertificatesBlockUntrustedTLSCertificates Indicates whether or not to block untrusted TLS certificates.
+	CertificatesBlockUntrustedTLSCertificates *bool `json:"certificatesBlockUntrustedTlsCertificates,omitempty"`
 	// ClassroomAppBlockRemoteScreenObservation Indicates whether or not to allow remote screen observation by Classroom app when the device is in supervised mode (iOS 9.3 and later).
 	ClassroomAppBlockRemoteScreenObservation *bool `json:"classroomAppBlockRemoteScreenObservation,omitempty"`
 	// ClassroomAppForceUnpromptedScreenObservation Indicates whether or not to automatically give permission to the teacher of a managed course on the Classroom app to view a student's screen without prompting when the device is in supervised mode.
@@ -7267,10 +7267,10 @@ type IosGeneralDeviceConfiguration struct {
 	KioskModeAllowVolumeButtons *bool `json:"kioskModeAllowVolumeButtons,omitempty"`
 	// KioskModeAllowZoomSettings Indicates whether or not to allow access to the zoom settings while in kiosk mode.
 	KioskModeAllowZoomSettings *bool `json:"kioskModeAllowZoomSettings,omitempty"`
-	// KioskModeAppStoreUrl URL in the app store to the app to use for kiosk mode. Use if KioskModeManagedAppId is not known.
-	KioskModeAppStoreUrl *string `json:"kioskModeAppStoreUrl,omitempty"`
-	// KioskModeBuiltInAppId ID for built-in apps to use for kiosk mode. Used when KioskModeManagedAppId and KioskModeAppStoreUrl are not set.
-	KioskModeBuiltInAppId *string `json:"kioskModeBuiltInAppId,omitempty"`
+	// KioskModeAppStoreURL URL in the app store to the app to use for kiosk mode. Use if KioskModeManagedAppId is not known.
+	KioskModeAppStoreURL *string `json:"kioskModeAppStoreUrl,omitempty"`
+	// KioskModeBuiltInAppID ID for built-in apps to use for kiosk mode. Used when KioskModeManagedAppId and KioskModeAppStoreUrl are not set.
+	KioskModeBuiltInAppID *string `json:"kioskModeBuiltInAppId,omitempty"`
 	// KioskModeRequireAssistiveTouch Indicates whether or not to require assistive touch while in kiosk mode.
 	KioskModeRequireAssistiveTouch *bool `json:"kioskModeRequireAssistiveTouch,omitempty"`
 	// KioskModeRequireColorInversion Indicates whether or not to require color inversion while in kiosk mode.
@@ -7281,8 +7281,8 @@ type IosGeneralDeviceConfiguration struct {
 	KioskModeRequireVoiceOver *bool `json:"kioskModeRequireVoiceOver,omitempty"`
 	// KioskModeRequireZoom Indicates whether or not to require zoom while in kiosk mode.
 	KioskModeRequireZoom *bool `json:"kioskModeRequireZoom,omitempty"`
-	// KioskModeManagedAppId Managed app id of the app to use for kiosk mode. If KioskModeManagedAppId is specified then KioskModeAppStoreUrl will be ignored.
-	KioskModeManagedAppId *string `json:"kioskModeManagedAppId,omitempty"`
+	// KioskModeManagedAppID Managed app id of the app to use for kiosk mode. If KioskModeManagedAppId is specified then KioskModeAppStoreUrl will be ignored.
+	KioskModeManagedAppID *string `json:"kioskModeManagedAppId,omitempty"`
 	// LockScreenBlockControlCenter Indicates whether or not to block the user from using control center on the lock screen.
 	LockScreenBlockControlCenter *bool `json:"lockScreenBlockControlCenter,omitempty"`
 	// LockScreenBlockNotificationView Indicates whether or not to block the user from using the notification view on the lock screen.
@@ -7420,8 +7420,8 @@ type IosHomeScreenPage struct {
 // IosLobApp Contains properties and inherited properties for iOS Line Of Business apps.
 type IosLobApp struct {
 	MobileLobApp
-	// BundleId The Identity Name.
-	BundleId *string `json:"bundleId,omitempty"`
+	// BundleID The Identity Name.
+	BundleID *string `json:"bundleId,omitempty"`
 	// ApplicableDeviceType The iOS architecture for which this app can run on.
 	ApplicableDeviceType *IosDeviceType `json:"applicableDeviceType,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
@@ -7437,8 +7437,8 @@ type IosLobApp struct {
 // IosLobAppAssignmentSettings undocumented
 type IosLobAppAssignmentSettings struct {
 	MobileAppAssignmentSettings
-	// VpnConfigurationId The VPN Configuration Id to apply for this app.
-	VpnConfigurationId *string `json:"vpnConfigurationId,omitempty"`
+	// VpnConfigurationID The VPN Configuration Id to apply for this app.
+	VpnConfigurationID *string `json:"vpnConfigurationId,omitempty"`
 }
 
 // IosManagedAppProtection Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device
@@ -7450,8 +7450,8 @@ type IosManagedAppProtection struct {
 	MinimumRequiredSdkVersion *string `json:"minimumRequiredSdkVersion,omitempty"`
 	// DeployedAppCount Count of apps to which the current policy is deployed.
 	DeployedAppCount *int `json:"deployedAppCount,omitempty"`
-	// FaceIdBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
-	FaceIdBlocked *bool `json:"faceIdBlocked,omitempty"`
+	// FaceIDBlocked Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
+	FaceIDBlocked *bool `json:"faceIdBlocked,omitempty"`
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 	// DeploymentSummary undocumented
@@ -7482,8 +7482,8 @@ type IosMinimumOperatingSystem struct {
 // IosMobileAppConfiguration Contains properties, inherited properties and actions for iOS mobile app configurations.
 type IosMobileAppConfiguration struct {
 	ManagedDeviceMobileAppConfiguration
-	// EncodedSettingXml mdm app configuration Base64 binary.
-	EncodedSettingXml *Binary `json:"encodedSettingXml,omitempty"`
+	// EncodedSettingXML mdm app configuration Base64 binary.
+	EncodedSettingXML *Binary `json:"encodedSettingXml,omitempty"`
 	// Settings app configuration setting items.
 	Settings []AppConfigurationSettingItem `json:"settings,omitempty"`
 }
@@ -7491,8 +7491,8 @@ type IosMobileAppConfiguration struct {
 // IosMobileAppIdentifier undocumented
 type IosMobileAppIdentifier struct {
 	MobileAppIdentifier
-	// BundleId The identifier for an app, as specified in the app store.
-	BundleId *string `json:"bundleId,omitempty"`
+	// BundleID The identifier for an app, as specified in the app store.
+	BundleID *string `json:"bundleId,omitempty"`
 }
 
 // IosNetworkUsageRule undocumented
@@ -7530,10 +7530,10 @@ type IosNotificationSettings struct {
 // IosStoreApp Contains properties and inherited properties for iOS store apps.
 type IosStoreApp struct {
 	MobileApp
-	// BundleId The Identity Name.
-	BundleId *string `json:"bundleId,omitempty"`
-	// AppStoreUrl The Apple App Store URL
-	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
+	// BundleID The Identity Name.
+	BundleID *string `json:"bundleId,omitempty"`
+	// AppStoreURL The Apple App Store URL
+	AppStoreURL *string `json:"appStoreUrl,omitempty"`
 	// ApplicableDeviceType The iOS architecture for which this app can run on.
 	ApplicableDeviceType *IosDeviceType `json:"applicableDeviceType,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
@@ -7543,8 +7543,8 @@ type IosStoreApp struct {
 // IosStoreAppAssignmentSettings undocumented
 type IosStoreAppAssignmentSettings struct {
 	MobileAppAssignmentSettings
-	// VpnConfigurationId The VPN Configuration Id to apply for this app.
-	VpnConfigurationId *string `json:"vpnConfigurationId,omitempty"`
+	// VpnConfigurationID The VPN Configuration Id to apply for this app.
+	VpnConfigurationID *string `json:"vpnConfigurationId,omitempty"`
 }
 
 // IosUpdateConfiguration IOS Update Configuration, allows you to configure time window within week to install iOS updates
@@ -7567,10 +7567,10 @@ type IosUpdateDeviceStatus struct {
 	InstallStatus *IosUpdatesInstallStatus `json:"installStatus,omitempty"`
 	// OsVersion The device version that is being reported.
 	OsVersion *string `json:"osVersion,omitempty"`
-	// DeviceId The device id that is being reported.
-	DeviceId *string `json:"deviceId,omitempty"`
-	// UserId The User id that is being reported.
-	UserId *string `json:"userId,omitempty"`
+	// DeviceID The device id that is being reported.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// UserID The User id that is being reported.
+	UserID *string `json:"userId,omitempty"`
 	// DeviceDisplayName Device name of the DevicePolicyStatus.
 	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
 	// UserName The User Name that is being reported
@@ -7596,8 +7596,8 @@ type IosVppApp struct {
 	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
 	// ReleaseDateTime The VPP application release date and time.
 	ReleaseDateTime *time.Time `json:"releaseDateTime,omitempty"`
-	// AppStoreUrl The store URL.
-	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
+	// AppStoreURL The store URL.
+	AppStoreURL *string `json:"appStoreUrl,omitempty"`
 	// LicensingType The supported License Type.
 	LicensingType *VppLicensingType `json:"licensingType,omitempty"`
 	// ApplicableDeviceType The applicable iOS Device Type.
@@ -7606,10 +7606,10 @@ type IosVppApp struct {
 	VppTokenOrganizationName *string `json:"vppTokenOrganizationName,omitempty"`
 	// VppTokenAccountType The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: `business`, `education`.
 	VppTokenAccountType *VppTokenAccountType `json:"vppTokenAccountType,omitempty"`
-	// VppTokenAppleId The Apple Id associated with the given Apple Volume Purchase Program Token.
-	VppTokenAppleId *string `json:"vppTokenAppleId,omitempty"`
-	// BundleId The Identity Name.
-	BundleId *string `json:"bundleId,omitempty"`
+	// VppTokenAppleID The Apple Id associated with the given Apple Volume Purchase Program Token.
+	VppTokenAppleID *string `json:"vppTokenAppleId,omitempty"`
+	// BundleID The Identity Name.
+	BundleID *string `json:"bundleId,omitempty"`
 }
 
 // IosVppAppAssignmentSettings undocumented
@@ -7617,17 +7617,17 @@ type IosVppAppAssignmentSettings struct {
 	MobileAppAssignmentSettings
 	// UseDeviceLicensing Whether or not to use device licensing.
 	UseDeviceLicensing *bool `json:"useDeviceLicensing,omitempty"`
-	// VpnConfigurationId The VPN Configuration Id to apply for this app.
-	VpnConfigurationId *string `json:"vpnConfigurationId,omitempty"`
+	// VpnConfigurationID The VPN Configuration Id to apply for this app.
+	VpnConfigurationID *string `json:"vpnConfigurationId,omitempty"`
 }
 
 // IosVppEBook A class containing the properties for iOS Vpp eBook.
 type IosVppEBook struct {
 	ManagedEBook
-	// VppTokenId The Vpp token ID.
-	VppTokenId *UUID `json:"vppTokenId,omitempty"`
-	// AppleId The Apple ID associated with Vpp token.
-	AppleId *string `json:"appleId,omitempty"`
+	// VppTokenID The Vpp token ID.
+	VppTokenID *UUID `json:"vppTokenId,omitempty"`
+	// AppleID The Apple ID associated with Vpp token.
+	AppleID *string `json:"appleId,omitempty"`
 	// VppOrganizationName The Vpp token's organization name.
 	VppOrganizationName *string `json:"vppOrganizationName,omitempty"`
 	// Genres Genres.
@@ -7647,8 +7647,8 @@ type IosVppEBookAssignment struct {
 	ManagedEBookAssignment
 }
 
-// IpRange undocumented
-type IpRange struct {
+// IPRange undocumented
+type IPRange struct {
 }
 
 // ItemActionStat undocumented
@@ -7725,32 +7725,32 @@ type ItemBody struct {
 
 // ItemPreviewInfo undocumented
 type ItemPreviewInfo struct {
-	// GetUrl undocumented
-	GetUrl *string `json:"getUrl,omitempty"`
+	// GetURL undocumented
+	GetURL *string `json:"getUrl,omitempty"`
 	// PostParameters undocumented
 	PostParameters *string `json:"postParameters,omitempty"`
-	// PostUrl undocumented
-	PostUrl *string `json:"postUrl,omitempty"`
+	// PostURL undocumented
+	PostURL *string `json:"postUrl,omitempty"`
 }
 
 // ItemReference undocumented
 type ItemReference struct {
-	// DriveId undocumented
-	DriveId *string `json:"driveId,omitempty"`
+	// DriveID undocumented
+	DriveID *string `json:"driveId,omitempty"`
 	// DriveType undocumented
 	DriveType *string `json:"driveType,omitempty"`
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Path undocumented
 	Path *string `json:"path,omitempty"`
-	// ShareId undocumented
-	ShareId *string `json:"shareId,omitempty"`
+	// ShareID undocumented
+	ShareID *string `json:"shareId,omitempty"`
 	// SharepointIds undocumented
 	SharepointIds *SharepointIds `json:"sharepointIds,omitempty"`
-	// SiteId undocumented
-	SiteId *string `json:"siteId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
 // KeyValue undocumented
@@ -7771,8 +7771,8 @@ type KeyValuePair struct {
 
 // LicenseAssignmentState undocumented
 type LicenseAssignmentState struct {
-	// SkuId undocumented
-	SkuId *UUID `json:"skuId,omitempty"`
+	// SkuID undocumented
+	SkuID *UUID `json:"skuId,omitempty"`
 	// DisabledPlans undocumented
 	DisabledPlans []UUID `json:"disabledPlans,omitempty"`
 	// AssignedByGroup undocumented
@@ -7788,8 +7788,8 @@ type LicenseDetails struct {
 	Entity
 	// ServicePlans undocumented
 	ServicePlans []ServicePlanInfo `json:"servicePlans,omitempty"`
-	// SkuId undocumented
-	SkuId *UUID `json:"skuId,omitempty"`
+	// SkuID undocumented
+	SkuID *UUID `json:"skuId,omitempty"`
 	// SkuPartNumber undocumented
 	SkuPartNumber *string `json:"skuPartNumber,omitempty"`
 }
@@ -7903,16 +7903,16 @@ type Location struct {
 	LocationEmailAddress *string `json:"locationEmailAddress,omitempty"`
 	// Address undocumented
 	Address *PhysicalAddress `json:"address,omitempty"`
-	// LocationUri undocumented
-	LocationUri *string `json:"locationUri,omitempty"`
+	// LocationURI undocumented
+	LocationURI *string `json:"locationUri,omitempty"`
 	// Coordinates undocumented
 	Coordinates *OutlookGeoCoordinates `json:"coordinates,omitempty"`
 	// LocationType undocumented
 	LocationType *LocationType `json:"locationType,omitempty"`
-	// UniqueId undocumented
-	UniqueId *string `json:"uniqueId,omitempty"`
-	// UniqueIdType undocumented
-	UniqueIdType *LocationUniqueIdType `json:"uniqueIdType,omitempty"`
+	// UniqueID undocumented
+	UniqueID *string `json:"uniqueId,omitempty"`
+	// UniqueIDType undocumented
+	UniqueIDType *LocationUniqueIDType `json:"uniqueIdType,omitempty"`
 }
 
 // LocationConstraint undocumented
@@ -7940,10 +7940,10 @@ type LookupColumn struct {
 	AllowUnlimitedLength *bool `json:"allowUnlimitedLength,omitempty"`
 	// ColumnName undocumented
 	ColumnName *string `json:"columnName,omitempty"`
-	// ListId undocumented
-	ListId *string `json:"listId,omitempty"`
-	// PrimaryLookupColumnId undocumented
-	PrimaryLookupColumnId *string `json:"primaryLookupColumnId,omitempty"`
+	// ListID undocumented
+	ListID *string `json:"listId,omitempty"`
+	// PrimaryLookupColumnID undocumented
+	PrimaryLookupColumnID *string `json:"primaryLookupColumnId,omitempty"`
 }
 
 // MacOSCompliancePolicy This class contains compliance settings for Mac OS.
@@ -8040,8 +8040,8 @@ type MailFolder struct {
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// ParentFolderId undocumented
-	ParentFolderId *string `json:"parentFolderId,omitempty"`
+	// ParentFolderID undocumented
+	ParentFolderID *string `json:"parentFolderId,omitempty"`
 	// ChildFolderCount undocumented
 	ChildFolderCount *int `json:"childFolderCount,omitempty"`
 	// UnreadItemCount undocumented
@@ -8144,8 +8144,8 @@ type MalwareState struct {
 // ManagedAndroidLobApp Contains properties and inherited properties for Managed Android Line Of Business apps.
 type ManagedAndroidLobApp struct {
 	ManagedMobileLobApp
-	// PackageId The package identifier.
-	PackageId *string `json:"packageId,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 	// VersionName The version name of managed Android Line of Business (LoB) app.
@@ -8157,10 +8157,10 @@ type ManagedAndroidLobApp struct {
 // ManagedAndroidStoreApp Contains properties and inherited properties for Android store apps that you can manage with an Intune app protection policy.
 type ManagedAndroidStoreApp struct {
 	ManagedApp
-	// PackageId The app's package ID.
-	PackageId *string `json:"packageId,omitempty"`
-	// AppStoreUrl The Android AppStoreUrl.
-	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
+	// PackageID The app's package ID.
+	PackageID *string `json:"packageId,omitempty"`
+	// AppStoreURL The Android AppStoreUrl.
+	AppStoreURL *string `json:"appStoreUrl,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum supported operating system.
 	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 }
@@ -8320,8 +8320,8 @@ type ManagedAppRegistration struct {
 	DeviceName *string `json:"deviceName,omitempty"`
 	// FlaggedReasons Zero or more reasons an app registration is flagged. E.g. app running on rooted device
 	FlaggedReasons []ManagedAppFlaggedReason `json:"flaggedReasons,omitempty"`
-	// UserId The user Id to who this app registration belongs.
-	UserId *string `json:"userId,omitempty"`
+	// UserID The user Id to who this app registration belongs.
+	UserID *string `json:"userId,omitempty"`
 	// AppIdentifier The app package Identifier
 	AppIdentifier *MobileAppIdentifier `json:"appIdentifier,omitempty"`
 	// Version Version of the entity.
@@ -8353,8 +8353,8 @@ type ManagedAppStatusRaw struct {
 // ManagedDevice Devices that are managed or pre-enrolled through Intune
 type ManagedDevice struct {
 	Entity
-	// UserId Unique Identifier for the user associated with the device
-	UserId *string `json:"userId,omitempty"`
+	// UserID Unique Identifier for the user associated with the device
+	UserID *string `json:"userId,omitempty"`
 	// DeviceName Name of the device
 	DeviceName *string `json:"deviceName,omitempty"`
 	// ManagedDeviceOwnerType Ownership of the device. Can be 'company' or 'personal'
@@ -8377,8 +8377,8 @@ type ManagedDevice struct {
 	OsVersion *string `json:"osVersion,omitempty"`
 	// EasActivated Whether the device is Exchange ActiveSync activated.
 	EasActivated *bool `json:"easActivated,omitempty"`
-	// EasDeviceId Exchange ActiveSync Id of the device.
-	EasDeviceId *string `json:"easDeviceId,omitempty"`
+	// EasDeviceID Exchange ActiveSync Id of the device.
+	EasDeviceID *string `json:"easDeviceId,omitempty"`
 	// EasActivationDateTime Exchange ActivationSync activation time of the device.
 	EasActivationDateTime *time.Time `json:"easActivationDateTime,omitempty"`
 	// AzureADRegistered Whether the device is Azure Active Directory registered.
@@ -8389,8 +8389,8 @@ type ManagedDevice struct {
 	ActivationLockBypassCode *string `json:"activationLockBypassCode,omitempty"`
 	// EmailAddress Email(s) for the user associated with the device
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// AzureADDeviceId The unique identifier for the Azure Active Directory device. Read only.
-	AzureADDeviceId *string `json:"azureADDeviceId,omitempty"`
+	// AzureADDeviceID The unique identifier for the Azure Active Directory device. Read only.
+	AzureADDeviceID *string `json:"azureADDeviceId,omitempty"`
 	// DeviceRegistrationState Device registration state.
 	DeviceRegistrationState *DeviceRegistrationState `json:"deviceRegistrationState,omitempty"`
 	// DeviceCategoryDisplayName Device category display name
@@ -8403,8 +8403,8 @@ type ManagedDevice struct {
 	ExchangeAccessState *DeviceManagementExchangeAccessState `json:"exchangeAccessState,omitempty"`
 	// ExchangeAccessStateReason The reason for the device's access state in Exchange.
 	ExchangeAccessStateReason *DeviceManagementExchangeAccessStateReason `json:"exchangeAccessStateReason,omitempty"`
-	// RemoteAssistanceSessionUrl Url that allows a Remote Assistance session to be established with the device.
-	RemoteAssistanceSessionUrl *string `json:"remoteAssistanceSessionUrl,omitempty"`
+	// RemoteAssistanceSessionURL Url that allows a Remote Assistance session to be established with the device.
+	RemoteAssistanceSessionURL *string `json:"remoteAssistanceSessionUrl,omitempty"`
 	// RemoteAssistanceSessionErrorDetails An error string that identifies issues when creating Remote Assistance session objects.
 	RemoteAssistanceSessionErrorDetails *string `json:"remoteAssistanceSessionErrorDetails,omitempty"`
 	// IsEncrypted Device encryption status
@@ -8591,10 +8591,10 @@ type ManagedEBook struct {
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// LastModifiedDateTime The date and time when the eBook was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// InformationUrl The more information Url.
-	InformationUrl *string `json:"informationUrl,omitempty"`
-	// PrivacyInformationUrl The privacy statement Url.
-	PrivacyInformationUrl *string `json:"privacyInformationUrl,omitempty"`
+	// InformationURL The more information Url.
+	InformationURL *string `json:"informationUrl,omitempty"`
+	// PrivacyInformationURL The privacy statement Url.
+	PrivacyInformationURL *string `json:"privacyInformationUrl,omitempty"`
 	// Assignments undocumented
 	Assignments []ManagedEBookAssignment `json:"assignments,omitempty"`
 	// InstallSummary undocumented
@@ -8617,8 +8617,8 @@ type ManagedEBookAssignment struct {
 // ManagedIOSLobApp Contains properties and inherited properties for Managed iOS Line Of Business apps.
 type ManagedIOSLobApp struct {
 	ManagedMobileLobApp
-	// BundleId The Identity Name.
-	BundleId *string `json:"bundleId,omitempty"`
+	// BundleID The Identity Name.
+	BundleID *string `json:"bundleId,omitempty"`
 	// ApplicableDeviceType The iOS architecture for which this app can run on.
 	ApplicableDeviceType *IosDeviceType `json:"applicableDeviceType,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
@@ -8634,10 +8634,10 @@ type ManagedIOSLobApp struct {
 // ManagedIOSStoreApp Contains properties and inherited properties for an iOS store app that you can manage with an Intune app protection policy.
 type ManagedIOSStoreApp struct {
 	ManagedApp
-	// BundleId The app's Bundle ID.
-	BundleId *string `json:"bundleId,omitempty"`
-	// AppStoreUrl The Apple AppStoreUrl.
-	AppStoreUrl *string `json:"appStoreUrl,omitempty"`
+	// BundleID The app's Bundle ID.
+	BundleID *string `json:"bundleId,omitempty"`
+	// AppStoreURL The Apple AppStoreUrl.
+	AppStoreURL *string `json:"appStoreUrl,omitempty"`
 	// ApplicableDeviceType The iOS architecture for which this app can run on.
 	ApplicableDeviceType *IosDeviceType `json:"applicableDeviceType,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum supported operating system.
@@ -8749,10 +8749,10 @@ type MediaContentRatingUnitedStates struct {
 
 // MediaInfo undocumented
 type MediaInfo struct {
-	// Uri undocumented
-	Uri *string `json:"uri,omitempty"`
-	// ResourceId undocumented
-	ResourceId *string `json:"resourceId,omitempty"`
+	// URI undocumented
+	URI *string `json:"uri,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
 }
 
 // MediaPrompt undocumented
@@ -8768,8 +8768,8 @@ type MediaStream struct {
 	MediaType *Modality `json:"mediaType,omitempty"`
 	// Label undocumented
 	Label *string `json:"label,omitempty"`
-	// SourceId undocumented
-	SourceId *string `json:"sourceId,omitempty"`
+	// SourceID undocumented
+	SourceID *string `json:"sourceId,omitempty"`
 	// Direction undocumented
 	Direction *MediaDirection `json:"direction,omitempty"`
 	// ServerMuted undocumented
@@ -8831,8 +8831,8 @@ type Message struct {
 	SentDateTime *time.Time `json:"sentDateTime,omitempty"`
 	// HasAttachments undocumented
 	HasAttachments *bool `json:"hasAttachments,omitempty"`
-	// InternetMessageId undocumented
-	InternetMessageId *string `json:"internetMessageId,omitempty"`
+	// InternetMessageID undocumented
+	InternetMessageID *string `json:"internetMessageId,omitempty"`
 	// InternetMessageHeaders undocumented
 	InternetMessageHeaders []InternetMessageHeader `json:"internetMessageHeaders,omitempty"`
 	// Subject undocumented
@@ -8843,8 +8843,8 @@ type Message struct {
 	BodyPreview *string `json:"bodyPreview,omitempty"`
 	// Importance undocumented
 	Importance *Importance `json:"importance,omitempty"`
-	// ParentFolderId undocumented
-	ParentFolderId *string `json:"parentFolderId,omitempty"`
+	// ParentFolderID undocumented
+	ParentFolderID *string `json:"parentFolderId,omitempty"`
 	// Sender undocumented
 	Sender *Recipient `json:"sender,omitempty"`
 	// From undocumented
@@ -8857,8 +8857,8 @@ type Message struct {
 	BccRecipients []Recipient `json:"bccRecipients,omitempty"`
 	// ReplyTo undocumented
 	ReplyTo []Recipient `json:"replyTo,omitempty"`
-	// ConversationId undocumented
-	ConversationId *string `json:"conversationId,omitempty"`
+	// ConversationID undocumented
+	ConversationID *string `json:"conversationId,omitempty"`
 	// UniqueBody undocumented
 	UniqueBody *ItemBody `json:"uniqueBody,omitempty"`
 	// IsDeliveryReceiptRequested undocumented
@@ -9043,10 +9043,10 @@ type MobileApp struct {
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// IsFeatured The value indicating whether the app is marked as featured by the admin.
 	IsFeatured *bool `json:"isFeatured,omitempty"`
-	// PrivacyInformationUrl The privacy statement Url.
-	PrivacyInformationUrl *string `json:"privacyInformationUrl,omitempty"`
-	// InformationUrl The more information Url.
-	InformationUrl *string `json:"informationUrl,omitempty"`
+	// PrivacyInformationURL The privacy statement Url.
+	PrivacyInformationURL *string `json:"privacyInformationUrl,omitempty"`
+	// InformationURL The more information Url.
+	InformationURL *string `json:"informationUrl,omitempty"`
 	// Owner The owner of the app.
 	Owner *string `json:"owner,omitempty"`
 	// Developer The developer of the app.
@@ -9095,8 +9095,8 @@ type MobileAppContent struct {
 // MobileAppContentFile Contains properties for a single installer file that is associated with a given mobileAppContent version.
 type MobileAppContentFile struct {
 	Entity
-	// AzureStorageUri The Azure Storage URI.
-	AzureStorageUri *string `json:"azureStorageUri,omitempty"`
+	// AzureStorageURI The Azure Storage URI.
+	AzureStorageURI *string `json:"azureStorageUri,omitempty"`
 	// IsCommitted A value indicating whether the file is committed.
 	IsCommitted *bool `json:"isCommitted,omitempty"`
 	// CreatedDateTime The time the file was created.
@@ -9107,8 +9107,8 @@ type MobileAppContentFile struct {
 	Size *int `json:"size,omitempty"`
 	// SizeEncrypted The size of the file after encryption.
 	SizeEncrypted *int `json:"sizeEncrypted,omitempty"`
-	// AzureStorageUriExpirationDateTime The time the Azure storage Uri expires.
-	AzureStorageUriExpirationDateTime *time.Time `json:"azureStorageUriExpirationDateTime,omitempty"`
+	// AzureStorageURIExpirationDateTime The time the Azure storage Uri expires.
+	AzureStorageURIExpirationDateTime *time.Time `json:"azureStorageUriExpirationDateTime,omitempty"`
 	// Manifest The manifest information.
 	Manifest *Binary `json:"manifest,omitempty"`
 	// UploadState The state of the current upload request.
@@ -9185,14 +9185,14 @@ type NetworkConnection struct {
 	DestinationDomain *string `json:"destinationDomain,omitempty"`
 	// DestinationPort undocumented
 	DestinationPort *string `json:"destinationPort,omitempty"`
-	// DestinationUrl undocumented
-	DestinationUrl *string `json:"destinationUrl,omitempty"`
+	// DestinationURL undocumented
+	DestinationURL *string `json:"destinationUrl,omitempty"`
 	// Direction undocumented
 	Direction *ConnectionDirection `json:"direction,omitempty"`
 	// DomainRegisteredDateTime undocumented
 	DomainRegisteredDateTime *time.Time `json:"domainRegisteredDateTime,omitempty"`
-	// LocalDnsName undocumented
-	LocalDnsName *string `json:"localDnsName,omitempty"`
+	// LocalDNSName undocumented
+	LocalDNSName *string `json:"localDnsName,omitempty"`
 	// NatDestinationAddress undocumented
 	NatDestinationAddress *string `json:"natDestinationAddress,omitempty"`
 	// NatDestinationPort undocumented
@@ -9211,8 +9211,8 @@ type NetworkConnection struct {
 	SourcePort *string `json:"sourcePort,omitempty"`
 	// Status undocumented
 	Status *ConnectionStatus `json:"status,omitempty"`
-	// UrlParameters undocumented
-	UrlParameters *string `json:"urlParameters,omitempty"`
+	// URLParameters undocumented
+	URLParameters *string `json:"urlParameters,omitempty"`
 }
 
 // Notebook undocumented
@@ -9224,10 +9224,10 @@ type Notebook struct {
 	UserRole *OnenoteUserRole `json:"userRole,omitempty"`
 	// IsShared undocumented
 	IsShared *bool `json:"isShared,omitempty"`
-	// SectionsUrl undocumented
-	SectionsUrl *string `json:"sectionsUrl,omitempty"`
-	// SectionGroupsUrl undocumented
-	SectionGroupsUrl *string `json:"sectionGroupsUrl,omitempty"`
+	// SectionsURL undocumented
+	SectionsURL *string `json:"sectionsUrl,omitempty"`
+	// SectionGroupsURL undocumented
+	SectionGroupsURL *string `json:"sectionGroupsUrl,omitempty"`
 	// Links undocumented
 	Links *NotebookLinks `json:"links,omitempty"`
 	// Sections undocumented
@@ -9238,10 +9238,10 @@ type Notebook struct {
 
 // NotebookLinks undocumented
 type NotebookLinks struct {
-	// OneNoteClientUrl undocumented
-	OneNoteClientUrl *ExternalLink `json:"oneNoteClientUrl,omitempty"`
-	// OneNoteWebUrl undocumented
-	OneNoteWebUrl *ExternalLink `json:"oneNoteWebUrl,omitempty"`
+	// OneNoteClientURL undocumented
+	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
+	// OneNoteWebURL undocumented
+	OneNoteWebURL *ExternalLink `json:"oneNoteWebUrl,omitempty"`
 }
 
 // NotificationMessageTemplate Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance.
@@ -9288,8 +9288,8 @@ type OmaSetting struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description.
 	Description *string `json:"description,omitempty"`
-	// OmaUri OMA.
-	OmaUri *string `json:"omaUri,omitempty"`
+	// OmaURI OMA.
+	OmaURI *string `json:"omaUri,omitempty"`
 }
 
 // OmaSettingBase64 undocumented
@@ -9336,8 +9336,8 @@ type OmaSettingString struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// OmaSettingStringXml undocumented
-type OmaSettingStringXml struct {
+// OmaSettingStringXML undocumented
+type OmaSettingStringXML struct {
 	OmaSetting
 	// FileName File name associated with the Value property (*.xml).
 	FileName *string `json:"fileName,omitempty"`
@@ -9453,8 +9453,8 @@ type OnenoteOperation struct {
 	Operation
 	// ResourceLocation undocumented
 	ResourceLocation *string `json:"resourceLocation,omitempty"`
-	// ResourceId undocumented
-	ResourceId *string `json:"resourceId,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
 	// Error undocumented
 	Error *OnenoteOperationError `json:"error,omitempty"`
 	// PercentComplete undocumented
@@ -9474,12 +9474,12 @@ type OnenotePage struct {
 	OnenoteEntitySchemaObjectModel
 	// Title undocumented
 	Title *string `json:"title,omitempty"`
-	// CreatedByAppId undocumented
-	CreatedByAppId *string `json:"createdByAppId,omitempty"`
+	// CreatedByAppID undocumented
+	CreatedByAppID *string `json:"createdByAppId,omitempty"`
 	// Links undocumented
 	Links *PageLinks `json:"links,omitempty"`
-	// ContentUrl undocumented
-	ContentUrl *string `json:"contentUrl,omitempty"`
+	// ContentURL undocumented
+	ContentURL *string `json:"contentUrl,omitempty"`
 	// Content undocumented
 	Content *Stream `json:"content,omitempty"`
 	// LastModifiedDateTime undocumented
@@ -9506,8 +9506,8 @@ type OnenotePagePreview struct {
 
 // OnenotePagePreviewLinks undocumented
 type OnenotePagePreviewLinks struct {
-	// PreviewImageUrl undocumented
-	PreviewImageUrl *ExternalLink `json:"previewImageUrl,omitempty"`
+	// PreviewImageURL undocumented
+	PreviewImageURL *ExternalLink `json:"previewImageUrl,omitempty"`
 }
 
 // OnenotePatchContentCommand undocumented
@@ -9527,8 +9527,8 @@ type OnenoteResource struct {
 	OnenoteEntityBaseModel
 	// Content undocumented
 	Content *Stream `json:"content,omitempty"`
-	// ContentUrl undocumented
-	ContentUrl *string `json:"contentUrl,omitempty"`
+	// ContentURL undocumented
+	ContentURL *string `json:"contentUrl,omitempty"`
 }
 
 // OnenoteSection undocumented
@@ -9538,8 +9538,8 @@ type OnenoteSection struct {
 	IsDefault *bool `json:"isDefault,omitempty"`
 	// Links undocumented
 	Links *SectionLinks `json:"links,omitempty"`
-	// PagesUrl undocumented
-	PagesUrl *string `json:"pagesUrl,omitempty"`
+	// PagesURL undocumented
+	PagesURL *string `json:"pagesUrl,omitempty"`
 	// ParentNotebook undocumented
 	ParentNotebook *Notebook `json:"parentNotebook,omitempty"`
 	// ParentSectionGroup undocumented
@@ -9557,8 +9557,8 @@ type OnlineMeeting struct {
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// JoinUrl undocumented
-	JoinUrl *string `json:"joinUrl,omitempty"`
+	// JoinURL undocumented
+	JoinURL *string `json:"joinUrl,omitempty"`
 	// Subject undocumented
 	Subject *string `json:"subject,omitempty"`
 	// Participants undocumented
@@ -9567,8 +9567,8 @@ type OnlineMeeting struct {
 	AudioConferencing *AudioConferencing `json:"audioConferencing,omitempty"`
 	// ChatInfo undocumented
 	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
-	// VideoTeleconferenceId undocumented
-	VideoTeleconferenceId *string `json:"videoTeleconferenceId,omitempty"`
+	// VideoTeleconferenceID undocumented
+	VideoTeleconferenceID *string `json:"videoTeleconferenceId,omitempty"`
 }
 
 // OpenTypeExtension undocumented
@@ -9706,10 +9706,10 @@ type Package struct {
 
 // PageLinks undocumented
 type PageLinks struct {
-	// OneNoteClientUrl undocumented
-	OneNoteClientUrl *ExternalLink `json:"oneNoteClientUrl,omitempty"`
-	// OneNoteWebUrl undocumented
-	OneNoteWebUrl *ExternalLink `json:"oneNoteWebUrl,omitempty"`
+	// OneNoteClientURL undocumented
+	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
+	// OneNoteWebURL undocumented
+	OneNoteWebURL *ExternalLink `json:"oneNoteWebUrl,omitempty"`
 }
 
 // Participant undocumented
@@ -9731,8 +9731,8 @@ type ParticipantInfo struct {
 	Identity *IdentitySet `json:"identity,omitempty"`
 	// Region undocumented
 	Region *string `json:"region,omitempty"`
-	// LanguageId undocumented
-	LanguageId *string `json:"languageId,omitempty"`
+	// LanguageID undocumented
+	LanguageID *string `json:"languageId,omitempty"`
 }
 
 // PasswordProfile undocumented
@@ -9766,8 +9766,8 @@ type Permission struct {
 	Link *SharingLink `json:"link,omitempty"`
 	// Roles undocumented
 	Roles []string `json:"roles,omitempty"`
-	// ShareId undocumented
-	ShareId *string `json:"shareId,omitempty"`
+	// ShareID undocumented
+	ShareID *string `json:"shareId,omitempty"`
 }
 
 // Person undocumented
@@ -9920,8 +9920,8 @@ type PlannerBucket struct {
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// PlanId undocumented
-	PlanId *string `json:"planId,omitempty"`
+	// PlanID undocumented
+	PlanID *string `json:"planId,omitempty"`
 	// OrderHint undocumented
 	OrderHint *string `json:"orderHint,omitempty"`
 	// Tasks undocumented
@@ -10038,10 +10038,10 @@ type PlannerTask struct {
 	Entity
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
-	// PlanId undocumented
-	PlanId *string `json:"planId,omitempty"`
-	// BucketId undocumented
-	BucketId *string `json:"bucketId,omitempty"`
+	// PlanID undocumented
+	PlanID *string `json:"planId,omitempty"`
+	// BucketID undocumented
+	BucketID *string `json:"bucketId,omitempty"`
 	// Title undocumented
 	Title *string `json:"title,omitempty"`
 	// OrderHint undocumented
@@ -10074,8 +10074,8 @@ type PlannerTask struct {
 	AppliedCategories *PlannerAppliedCategories `json:"appliedCategories,omitempty"`
 	// Assignments undocumented
 	Assignments *PlannerAssignments `json:"assignments,omitempty"`
-	// ConversationThreadId undocumented
-	ConversationThreadId *string `json:"conversationThreadId,omitempty"`
+	// ConversationThreadID undocumented
+	ConversationThreadID *string `json:"conversationThreadId,omitempty"`
 	// Details undocumented
 	Details *PlannerTaskDetails `json:"details,omitempty"`
 	// AssignedToTaskBoardFormat undocumented
@@ -10130,12 +10130,12 @@ type Post struct {
 	From *Recipient `json:"from,omitempty"`
 	// Sender undocumented
 	Sender *Recipient `json:"sender,omitempty"`
-	// ConversationThreadId undocumented
-	ConversationThreadId *string `json:"conversationThreadId,omitempty"`
+	// ConversationThreadID undocumented
+	ConversationThreadID *string `json:"conversationThreadId,omitempty"`
 	// NewParticipants undocumented
 	NewParticipants []Recipient `json:"newParticipants,omitempty"`
-	// ConversationId undocumented
-	ConversationId *string `json:"conversationId,omitempty"`
+	// ConversationID undocumented
+	ConversationID *string `json:"conversationId,omitempty"`
 	// InReplyTo undocumented
 	InReplyTo *Post `json:"inReplyTo,omitempty"`
 	// SingleValueExtendedProperties undocumented
@@ -10152,8 +10152,8 @@ type Post struct {
 type PrivacyProfile struct {
 	// ContactEmail undocumented
 	ContactEmail *string `json:"contactEmail,omitempty"`
-	// StatementUrl undocumented
-	StatementUrl *string `json:"statementUrl,omitempty"`
+	// StatementURL undocumented
+	StatementURL *string `json:"statementUrl,omitempty"`
 }
 
 // Process undocumented
@@ -10174,14 +10174,14 @@ type Process struct {
 	Name *string `json:"name,omitempty"`
 	// ParentProcessCreatedDateTime undocumented
 	ParentProcessCreatedDateTime *time.Time `json:"parentProcessCreatedDateTime,omitempty"`
-	// ParentProcessId undocumented
-	ParentProcessId *int `json:"parentProcessId,omitempty"`
+	// ParentProcessID undocumented
+	ParentProcessID *int `json:"parentProcessId,omitempty"`
 	// ParentProcessName undocumented
 	ParentProcessName *string `json:"parentProcessName,omitempty"`
 	// Path undocumented
 	Path *string `json:"path,omitempty"`
-	// ProcessId undocumented
-	ProcessId *int `json:"processId,omitempty"`
+	// ProcessID undocumented
+	ProcessID *int `json:"processId,omitempty"`
 }
 
 // ProfilePhoto undocumented
@@ -10209,8 +10209,8 @@ type ProvisionedPlan struct {
 
 // ProxiedDomain undocumented
 type ProxiedDomain struct {
-	// IpAddressOrFQDN The IP address or FQDN
-	IpAddressOrFQDN *string `json:"ipAddressOrFQDN,omitempty"`
+	// IPAddressOrFQDN The IP address or FQDN
+	IPAddressOrFQDN *string `json:"ipAddressOrFQDN,omitempty"`
 	// Proxy Proxy IP or FQDN
 	Proxy *string `json:"proxy,omitempty"`
 }
@@ -10219,8 +10219,8 @@ type ProxiedDomain struct {
 type PublicationFacet struct {
 	// Level undocumented
 	Level *string `json:"level,omitempty"`
-	// VersionId undocumented
-	VersionId *string `json:"versionId,omitempty"`
+	// VersionID undocumented
+	VersionID *string `json:"versionId,omitempty"`
 }
 
 // Quota undocumented
@@ -10251,10 +10251,10 @@ type RecentNotebook struct {
 
 // RecentNotebookLinks undocumented
 type RecentNotebookLinks struct {
-	// OneNoteClientUrl undocumented
-	OneNoteClientUrl *ExternalLink `json:"oneNoteClientUrl,omitempty"`
-	// OneNoteWebUrl undocumented
-	OneNoteWebUrl *ExternalLink `json:"oneNoteWebUrl,omitempty"`
+	// OneNoteClientURL undocumented
+	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
+	// OneNoteWebURL undocumented
+	OneNoteWebURL *ExternalLink `json:"oneNoteWebUrl,omitempty"`
 }
 
 // Recipient undocumented
@@ -10323,8 +10323,8 @@ type RegistryKeyState struct {
 	OldValueName *string `json:"oldValueName,omitempty"`
 	// Operation undocumented
 	Operation *RegistryOperation `json:"operation,omitempty"`
-	// ProcessId undocumented
-	ProcessId *int `json:"processId,omitempty"`
+	// ProcessID undocumented
+	ProcessID *int `json:"processId,omitempty"`
 	// ValueData undocumented
 	ValueData *string `json:"valueData,omitempty"`
 	// ValueName undocumented
@@ -10335,8 +10335,8 @@ type RegistryKeyState struct {
 
 // Reminder undocumented
 type Reminder struct {
-	// EventId undocumented
-	EventId *string `json:"eventId,omitempty"`
+	// EventID undocumented
+	EventID *string `json:"eventId,omitempty"`
 	// EventStartTime undocumented
 	EventStartTime *DateTimeTimeZone `json:"eventStartTime,omitempty"`
 	// EventEndTime undocumented
@@ -10358,8 +10358,8 @@ type RemoteAssistancePartner struct {
 	Entity
 	// DisplayName Display name of the partner.
 	DisplayName *string `json:"displayName,omitempty"`
-	// OnboardingUrl URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
-	OnboardingUrl *string `json:"onboardingUrl,omitempty"`
+	// OnboardingURL URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
+	OnboardingURL *string `json:"onboardingUrl,omitempty"`
 	// OnboardingStatus TBD
 	OnboardingStatus *RemoteAssistanceOnboardingStatus `json:"onboardingStatus,omitempty"`
 	// LastConnectionDateTime Timestamp of the last request sent to Intune by the TEM partner.
@@ -10378,8 +10378,8 @@ type RemoteItem struct {
 	FileSystemInfo *FileSystemInfo `json:"fileSystemInfo,omitempty"`
 	// Folder undocumented
 	Folder *Folder `json:"folder,omitempty"`
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// LastModifiedBy undocumented
 	LastModifiedBy *IdentitySet `json:"lastModifiedBy,omitempty"`
 	// LastModifiedDateTime undocumented
@@ -10398,10 +10398,10 @@ type RemoteItem struct {
 	Size *int `json:"size,omitempty"`
 	// SpecialFolder undocumented
 	SpecialFolder *SpecialFolder `json:"specialFolder,omitempty"`
-	// WebDavUrl undocumented
-	WebDavUrl *string `json:"webDavUrl,omitempty"`
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
+	// WebDavURL undocumented
+	WebDavURL *string `json:"webDavUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // RemoteLockActionResult undocumented
@@ -10450,10 +10450,10 @@ type ResourceOperation struct {
 
 // ResourceReference undocumented
 type ResourceReference struct {
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
 }
@@ -10466,12 +10466,12 @@ type ResourceVisualization struct {
 	Type *string `json:"type,omitempty"`
 	// MediaType undocumented
 	MediaType *string `json:"mediaType,omitempty"`
-	// PreviewImageUrl undocumented
-	PreviewImageUrl *string `json:"previewImageUrl,omitempty"`
+	// PreviewImageURL undocumented
+	PreviewImageURL *string `json:"previewImageUrl,omitempty"`
 	// PreviewText undocumented
 	PreviewText *string `json:"previewText,omitempty"`
-	// ContainerWebUrl undocumented
-	ContainerWebUrl *string `json:"containerWebUrl,omitempty"`
+	// ContainerWebURL undocumented
+	ContainerWebURL *string `json:"containerWebUrl,omitempty"`
 	// ContainerDisplayName undocumented
 	ContainerDisplayName *string `json:"containerDisplayName,omitempty"`
 	// ContainerType undocumented
@@ -10489,8 +10489,8 @@ type ResponseStatus struct {
 // RestrictedSignIn undocumented
 type RestrictedSignIn struct {
 	SignIn
-	// TargetTenantId undocumented
-	TargetTenantId *UUID `json:"targetTenantId,omitempty"`
+	// TargetTenantID undocumented
+	TargetTenantID *UUID `json:"targetTenantId,omitempty"`
 }
 
 // ResultInfo undocumented
@@ -10553,8 +10553,8 @@ type Root struct {
 
 // ScheduleInformation undocumented
 type ScheduleInformation struct {
-	// ScheduleId undocumented
-	ScheduleId *string `json:"scheduleId,omitempty"`
+	// ScheduleID undocumented
+	ScheduleID *string `json:"scheduleId,omitempty"`
 	// ScheduleItems undocumented
 	ScheduleItems []ScheduleItem `json:"scheduleItems,omitempty"`
 	// AvailabilityView undocumented
@@ -10604,23 +10604,23 @@ type ScoredEmailAddress struct {
 	RelevanceScore *float64 `json:"relevanceScore,omitempty"`
 	// SelectionLikelihood undocumented
 	SelectionLikelihood *SelectionLikelihoodInfo `json:"selectionLikelihood,omitempty"`
-	// ItemId undocumented
-	ItemId *string `json:"itemId,omitempty"`
+	// ItemID undocumented
+	ItemID *string `json:"itemId,omitempty"`
 }
 
 // SearchResult undocumented
 type SearchResult struct {
-	// OnClickTelemetryUrl undocumented
-	OnClickTelemetryUrl *string `json:"onClickTelemetryUrl,omitempty"`
+	// OnClickTelemetryURL undocumented
+	OnClickTelemetryURL *string `json:"onClickTelemetryUrl,omitempty"`
 }
 
 // SectionGroup undocumented
 type SectionGroup struct {
 	OnenoteEntityHierarchyModel
-	// SectionsUrl undocumented
-	SectionsUrl *string `json:"sectionsUrl,omitempty"`
-	// SectionGroupsUrl undocumented
-	SectionGroupsUrl *string `json:"sectionGroupsUrl,omitempty"`
+	// SectionsURL undocumented
+	SectionsURL *string `json:"sectionsUrl,omitempty"`
+	// SectionGroupsURL undocumented
+	SectionGroupsURL *string `json:"sectionGroupsUrl,omitempty"`
 	// ParentNotebook undocumented
 	ParentNotebook *Notebook `json:"parentNotebook,omitempty"`
 	// ParentSectionGroup undocumented
@@ -10633,10 +10633,10 @@ type SectionGroup struct {
 
 // SectionLinks undocumented
 type SectionLinks struct {
-	// OneNoteClientUrl undocumented
-	OneNoteClientUrl *ExternalLink `json:"oneNoteClientUrl,omitempty"`
-	// OneNoteWebUrl undocumented
-	OneNoteWebUrl *ExternalLink `json:"oneNoteWebUrl,omitempty"`
+	// OneNoteClientURL undocumented
+	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
+	// OneNoteWebURL undocumented
+	OneNoteWebURL *ExternalLink `json:"oneNoteWebUrl,omitempty"`
 }
 
 // SecureScore undocumented
@@ -10646,8 +10646,8 @@ type SecureScore struct {
 	ActiveUserCount *int `json:"activeUserCount,omitempty"`
 	// AverageComparativeScores undocumented
 	AverageComparativeScores []AverageComparativeScore `json:"averageComparativeScores,omitempty"`
-	// AzureTenantId undocumented
-	AzureTenantId *string `json:"azureTenantId,omitempty"`
+	// AzureTenantID undocumented
+	AzureTenantID *string `json:"azureTenantId,omitempty"`
 	// ControlScores undocumented
 	ControlScores []ControlScore `json:"controlScores,omitempty"`
 	// CreatedDateTime undocumented
@@ -10669,10 +10669,10 @@ type SecureScoreControlProfile struct {
 	Entity
 	// ActionType undocumented
 	ActionType *string `json:"actionType,omitempty"`
-	// ActionUrl undocumented
-	ActionUrl *string `json:"actionUrl,omitempty"`
-	// AzureTenantId undocumented
-	AzureTenantId *string `json:"azureTenantId,omitempty"`
+	// ActionURL undocumented
+	ActionURL *string `json:"actionUrl,omitempty"`
+	// AzureTenantID undocumented
+	AzureTenantID *string `json:"azureTenantId,omitempty"`
 	// ComplianceInformation undocumented
 	ComplianceInformation []ComplianceInformation `json:"complianceInformation,omitempty"`
 	// ControlCategory undocumented
@@ -10753,8 +10753,8 @@ type ServiceHostedMediaConfig struct {
 
 // ServicePlanInfo undocumented
 type ServicePlanInfo struct {
-	// ServicePlanId undocumented
-	ServicePlanId *UUID `json:"servicePlanId,omitempty"`
+	// ServicePlanID undocumented
+	ServicePlanID *UUID `json:"servicePlanId,omitempty"`
 	// ServicePlanName undocumented
 	ServicePlanName *string `json:"servicePlanName,omitempty"`
 	// ProvisioningStatus undocumented
@@ -10765,8 +10765,8 @@ type ServicePlanInfo struct {
 
 // SettingSource undocumented
 type SettingSource struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 }
@@ -10897,26 +10897,26 @@ type SharedPCConfiguration struct {
 	IdleTimeBeforeSleepInSeconds *int `json:"idleTimeBeforeSleepInSeconds,omitempty"`
 	// KioskAppDisplayName Specifies the display text for the account shown on the sign-in screen which launches the app specified by SetKioskAppUserModelId. Only applies when KioskAppUserModelId is set.
 	KioskAppDisplayName *string `json:"kioskAppDisplayName,omitempty"`
-	// KioskAppUserModelId Specifies the application user model ID of the app to use with assigned access.
-	KioskAppUserModelId *string `json:"kioskAppUserModelId,omitempty"`
+	// KioskAppUserModelID Specifies the application user model ID of the app to use with assigned access.
+	KioskAppUserModelID *string `json:"kioskAppUserModelId,omitempty"`
 	// MaintenanceStartTime Specifies the daily start time of maintenance hour.
 	MaintenanceStartTime *time.Time `json:"maintenanceStartTime,omitempty"`
 }
 
 // SharepointIds undocumented
 type SharepointIds struct {
-	// ListId undocumented
-	ListId *string `json:"listId,omitempty"`
-	// ListItemId undocumented
-	ListItemId *string `json:"listItemId,omitempty"`
-	// ListItemUniqueId undocumented
-	ListItemUniqueId *string `json:"listItemUniqueId,omitempty"`
-	// SiteId undocumented
-	SiteId *string `json:"siteId,omitempty"`
-	// SiteUrl undocumented
-	SiteUrl *string `json:"siteUrl,omitempty"`
-	// WebId undocumented
-	WebId *string `json:"webId,omitempty"`
+	// ListID undocumented
+	ListID *string `json:"listId,omitempty"`
+	// ListItemID undocumented
+	ListItemID *string `json:"listItemId,omitempty"`
+	// ListItemUniqueID undocumented
+	ListItemUniqueID *string `json:"listItemUniqueId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
+	// SiteURL undocumented
+	SiteURL *string `json:"siteUrl,omitempty"`
+	// WebID undocumented
+	WebID *string `json:"webId,omitempty"`
 }
 
 // SharingDetail undocumented
@@ -10953,8 +10953,8 @@ type SharingLink struct {
 	Scope *string `json:"scope,omitempty"`
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // SignIn undocumented
@@ -10966,14 +10966,14 @@ type SignIn struct {
 	UserDisplayName *string `json:"userDisplayName,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// UserId undocumented
-	UserId *string `json:"userId,omitempty"`
-	// AppId undocumented
-	AppId *string `json:"appId,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// AppID undocumented
+	AppID *string `json:"appId,omitempty"`
 	// AppDisplayName undocumented
 	AppDisplayName *string `json:"appDisplayName,omitempty"`
-	// IpAddress undocumented
-	IpAddress *string `json:"ipAddress,omitempty"`
+	// IPAddress undocumented
+	IPAddress *string `json:"ipAddress,omitempty"`
 	// Status undocumented
 	Status *SignInStatus `json:"status,omitempty"`
 	// ClientAppUsed undocumented
@@ -10982,8 +10982,8 @@ type SignIn struct {
 	DeviceDetail *DeviceDetail `json:"deviceDetail,omitempty"`
 	// Location undocumented
 	Location *SignInLocation `json:"location,omitempty"`
-	// CorrelationId undocumented
-	CorrelationId *string `json:"correlationId,omitempty"`
+	// CorrelationID undocumented
+	CorrelationID *string `json:"correlationId,omitempty"`
 	// ConditionalAccessStatus undocumented
 	ConditionalAccessStatus *ConditionalAccessStatus `json:"conditionalAccessStatus,omitempty"`
 	// AppliedConditionalAccessPolicies undocumented
@@ -11002,8 +11002,8 @@ type SignIn struct {
 	RiskEventTypes []RiskEventType `json:"riskEventTypes,omitempty"`
 	// ResourceDisplayName undocumented
 	ResourceDisplayName *string `json:"resourceDisplayName,omitempty"`
-	// ResourceId undocumented
-	ResourceId *string `json:"resourceId,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
 }
 
 // SignInLocation undocumented
@@ -11153,8 +11153,8 @@ type SubscribedSku struct {
 	PrepaidUnits *LicenseUnitsDetail `json:"prepaidUnits,omitempty"`
 	// ServicePlans undocumented
 	ServicePlans []ServicePlanInfo `json:"servicePlans,omitempty"`
-	// SkuId undocumented
-	SkuId *UUID `json:"skuId,omitempty"`
+	// SkuID undocumented
+	SkuID *UUID `json:"skuId,omitempty"`
 	// SkuPartNumber undocumented
 	SkuPartNumber *string `json:"skuPartNumber,omitempty"`
 	// AppliesTo undocumented
@@ -11170,14 +11170,14 @@ type Subscription struct {
 	ChangeType *string `json:"changeType,omitempty"`
 	// ClientState undocumented
 	ClientState *string `json:"clientState,omitempty"`
-	// NotificationUrl undocumented
-	NotificationUrl *string `json:"notificationUrl,omitempty"`
+	// NotificationURL undocumented
+	NotificationURL *string `json:"notificationUrl,omitempty"`
 	// ExpirationDateTime undocumented
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// ApplicationId undocumented
-	ApplicationId *string `json:"applicationId,omitempty"`
-	// CreatorId undocumented
-	CreatorId *string `json:"creatorId,omitempty"`
+	// ApplicationID undocumented
+	ApplicationID *string `json:"applicationId,omitempty"`
+	// CreatorID undocumented
+	CreatorID *string `json:"creatorId,omitempty"`
 }
 
 // SystemFacet undocumented
@@ -11186,8 +11186,8 @@ type SystemFacet struct {
 
 // TargetResource undocumented
 type TargetResource struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// Type undocumented
@@ -11234,8 +11234,8 @@ type TargetedManagedAppProtection struct {
 // Team undocumented
 type Team struct {
 	Entity
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 	// MemberSettings undocumented
 	MemberSettings *TeamMemberSettings `json:"memberSettings,omitempty"`
 	// GuestSettings undocumented
@@ -11311,8 +11311,8 @@ type TeamMessagingSettings struct {
 // TeamsApp undocumented
 type TeamsApp struct {
 	Entity
-	// ExternalId undocumented
-	ExternalId *string `json:"externalId,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// DistributionMethod undocumented
@@ -11324,8 +11324,8 @@ type TeamsApp struct {
 // TeamsAppDefinition undocumented
 type TeamsAppDefinition struct {
 	Entity
-	// TeamsAppId undocumented
-	TeamsAppId *string `json:"teamsAppId,omitempty"`
+	// TeamsAppID undocumented
+	TeamsAppID *string `json:"teamsAppId,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// Version undocumented
@@ -11354,8 +11354,8 @@ type TeamsAsyncOperation struct {
 	LastActionDateTime *time.Time `json:"lastActionDateTime,omitempty"`
 	// AttemptsCount undocumented
 	AttemptsCount *int `json:"attemptsCount,omitempty"`
-	// TargetResourceId undocumented
-	TargetResourceId *string `json:"targetResourceId,omitempty"`
+	// TargetResourceID undocumented
+	TargetResourceID *string `json:"targetResourceId,omitempty"`
 	// TargetResourceLocation undocumented
 	TargetResourceLocation *string `json:"targetResourceLocation,omitempty"`
 	// Error undocumented
@@ -11367,8 +11367,8 @@ type TeamsTab struct {
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 	// Configuration undocumented
 	Configuration *TeamsTabConfiguration `json:"configuration,omitempty"`
 	// TeamsApp undocumented
@@ -11377,14 +11377,14 @@ type TeamsTab struct {
 
 // TeamsTabConfiguration undocumented
 type TeamsTabConfiguration struct {
-	// EntityId undocumented
-	EntityId *string `json:"entityId,omitempty"`
-	// ContentUrl undocumented
-	ContentUrl *string `json:"contentUrl,omitempty"`
-	// RemoveUrl undocumented
-	RemoveUrl *string `json:"removeUrl,omitempty"`
-	// WebsiteUrl undocumented
-	WebsiteUrl *string `json:"websiteUrl,omitempty"`
+	// EntityID undocumented
+	EntityID *string `json:"entityId,omitempty"`
+	// ContentURL undocumented
+	ContentURL *string `json:"contentUrl,omitempty"`
+	// RemoveURL undocumented
+	RemoveURL *string `json:"removeUrl,omitempty"`
+	// WebsiteURL undocumented
+	WebsiteURL *string `json:"websiteUrl,omitempty"`
 }
 
 // TelecomExpenseManagementPartner telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off.
@@ -11392,8 +11392,8 @@ type TelecomExpenseManagementPartner struct {
 	Entity
 	// DisplayName Display name of the TEM partner.
 	DisplayName *string `json:"displayName,omitempty"`
-	// Url URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
-	Url *string `json:"url,omitempty"`
+	// URL URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
+	URL *string `json:"url,omitempty"`
 	// AppAuthorized Whether the partner's AAD app has been authorized to access Intune.
 	AppAuthorized *bool `json:"appAuthorized,omitempty"`
 	// Enabled Whether Intune's connection to the TEM service is currently enabled or disabled.
@@ -11467,10 +11467,10 @@ type Thumbnail struct {
 	Content *Stream `json:"content,omitempty"`
 	// Height undocumented
 	Height *int `json:"height,omitempty"`
-	// SourceItemId undocumented
-	SourceItemId *string `json:"sourceItemId,omitempty"`
-	// Url undocumented
-	Url *string `json:"url,omitempty"`
+	// SourceItemID undocumented
+	SourceItemID *string `json:"sourceItemId,omitempty"`
+	// URL undocumented
+	URL *string `json:"url,omitempty"`
 	// Width undocumented
 	Width *int `json:"width,omitempty"`
 }
@@ -11527,8 +11527,8 @@ type TokenMeetingInfo struct {
 
 // ToneInfo undocumented
 type ToneInfo struct {
-	// SequenceId undocumented
-	SequenceId *int `json:"sequenceId,omitempty"`
+	// SequenceID undocumented
+	SequenceID *int `json:"sequenceId,omitempty"`
 	// Tone undocumented
 	Tone *Tone `json:"tone,omitempty"`
 }
@@ -11575,8 +11575,8 @@ type UploadSession struct {
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// NextExpectedRanges undocumented
 	NextExpectedRanges []string `json:"nextExpectedRanges,omitempty"`
-	// UploadUrl undocumented
-	UploadUrl *string `json:"uploadUrl,omitempty"`
+	// UploadURL undocumented
+	UploadURL *string `json:"uploadUrl,omitempty"`
 }
 
 // UsageDetails undocumented
@@ -11625,8 +11625,8 @@ type User struct {
 	Department *string `json:"department,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// EmployeeId undocumented
-	EmployeeId *string `json:"employeeId,omitempty"`
+	// EmployeeID undocumented
+	EmployeeID *string `json:"employeeId,omitempty"`
 	// FaxNumber undocumented
 	FaxNumber *string `json:"faxNumber,omitempty"`
 	// GivenName undocumented
@@ -11651,8 +11651,8 @@ type User struct {
 	OnPremisesDistinguishedName *string `json:"onPremisesDistinguishedName,omitempty"`
 	// OnPremisesExtensionAttributes undocumented
 	OnPremisesExtensionAttributes *OnPremisesExtensionAttributes `json:"onPremisesExtensionAttributes,omitempty"`
-	// OnPremisesImmutableId undocumented
-	OnPremisesImmutableId *string `json:"onPremisesImmutableId,omitempty"`
+	// OnPremisesImmutableID undocumented
+	OnPremisesImmutableID *string `json:"onPremisesImmutableId,omitempty"`
 	// OnPremisesLastSyncDateTime undocumented
 	OnPremisesLastSyncDateTime *time.Time `json:"onPremisesLastSyncDateTime,omitempty"`
 	// OnPremisesProvisioningErrors undocumented
@@ -11804,20 +11804,20 @@ type UserActivity struct {
 	VisualElements *VisualInfo `json:"visualElements,omitempty"`
 	// ActivitySourceHost undocumented
 	ActivitySourceHost *string `json:"activitySourceHost,omitempty"`
-	// ActivationUrl undocumented
-	ActivationUrl *string `json:"activationUrl,omitempty"`
-	// AppActivityId undocumented
-	AppActivityId *string `json:"appActivityId,omitempty"`
+	// ActivationURL undocumented
+	ActivationURL *string `json:"activationUrl,omitempty"`
+	// AppActivityID undocumented
+	AppActivityID *string `json:"appActivityId,omitempty"`
 	// AppDisplayName undocumented
 	AppDisplayName *string `json:"appDisplayName,omitempty"`
-	// ContentUrl undocumented
-	ContentUrl *string `json:"contentUrl,omitempty"`
+	// ContentURL undocumented
+	ContentURL *string `json:"contentUrl,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// ExpirationDateTime undocumented
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// FallbackUrl undocumented
-	FallbackUrl *string `json:"fallbackUrl,omitempty"`
+	// FallbackURL undocumented
+	FallbackURL *string `json:"fallbackUrl,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// UserTimezone undocumented
@@ -11832,12 +11832,12 @@ type UserActivity struct {
 
 // UserIdentity undocumented
 type UserIdentity struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// IpAddress undocumented
-	IpAddress *string `json:"ipAddress,omitempty"`
+	// IPAddress undocumented
+	IPAddress *string `json:"ipAddress,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
@@ -11859,8 +11859,8 @@ type UserInstallStateSummary struct {
 
 // UserSecurityState undocumented
 type UserSecurityState struct {
-	// AadUserId undocumented
-	AadUserId *string `json:"aadUserId,omitempty"`
+	// AadUserID undocumented
+	AadUserID *string `json:"aadUserId,omitempty"`
 	// AccountName undocumented
 	AccountName *string `json:"accountName,omitempty"`
 	// DomainName undocumented
@@ -11871,10 +11871,10 @@ type UserSecurityState struct {
 	IsVpn *bool `json:"isVpn,omitempty"`
 	// LogonDateTime undocumented
 	LogonDateTime *time.Time `json:"logonDateTime,omitempty"`
-	// LogonId undocumented
-	LogonId *string `json:"logonId,omitempty"`
-	// LogonIp undocumented
-	LogonIp *string `json:"logonIp,omitempty"`
+	// LogonID undocumented
+	LogonID *string `json:"logonId,omitempty"`
+	// LogonIP undocumented
+	LogonIP *string `json:"logonIp,omitempty"`
 	// LogonLocation undocumented
 	LogonLocation *string `json:"logonLocation,omitempty"`
 	// LogonType undocumented
@@ -11965,8 +11965,8 @@ type VppToken struct {
 	OrganizationName *string `json:"organizationName,omitempty"`
 	// VppTokenAccountType The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: `business`, `education`.
 	VppTokenAccountType *VppTokenAccountType `json:"vppTokenAccountType,omitempty"`
-	// AppleId The apple Id associated with the given Apple Volume Purchase Program Token.
-	AppleId *string `json:"appleId,omitempty"`
+	// AppleID The apple Id associated with the given Apple Volume Purchase Program Token.
+	AppleID *string `json:"appleId,omitempty"`
 	// ExpirationDateTime The expiration date time of the Apple Volume Purchase Program Token.
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// LastSyncDateTime The last time when an application sync was done with the Apple volume purchase program service using the the Apple Volume Purchase Program Token.
@@ -11998,8 +11998,8 @@ type VulnerabilityState struct {
 // WebApp Contains properties and inherited properties for web apps.
 type WebApp struct {
 	MobileApp
-	// AppUrl The web app URL.
-	AppUrl *string `json:"appUrl,omitempty"`
+	// AppURL The web app URL.
+	AppURL *string `json:"appUrl,omitempty"`
 	// UseManagedBrowser Whether or not to use managed browser. This property is only applicable for Android and IOS.
 	UseManagedBrowser *bool `json:"useManagedBrowser,omitempty"`
 }
@@ -12099,10 +12099,10 @@ type Windows10EndpointProtectionConfiguration struct {
 	DefenderGuardedFoldersAllowedAppPaths []string `json:"defenderGuardedFoldersAllowedAppPaths,omitempty"`
 	// DefenderAdditionalGuardedFolders List of folder paths to be added to the list of protected folders
 	DefenderAdditionalGuardedFolders []string `json:"defenderAdditionalGuardedFolders,omitempty"`
-	// DefenderExploitProtectionXml Xml content containing information regarding exploit protection details.
-	DefenderExploitProtectionXml *Binary `json:"defenderExploitProtectionXml,omitempty"`
-	// DefenderExploitProtectionXmlFileName Name of the file from which DefenderExploitProtectionXml was obtained.
-	DefenderExploitProtectionXmlFileName *string `json:"defenderExploitProtectionXmlFileName,omitempty"`
+	// DefenderExploitProtectionXML Xml content containing information regarding exploit protection details.
+	DefenderExploitProtectionXML *Binary `json:"defenderExploitProtectionXml,omitempty"`
+	// DefenderExploitProtectionXMLFileName Name of the file from which DefenderExploitProtectionXml was obtained.
+	DefenderExploitProtectionXMLFileName *string `json:"defenderExploitProtectionXmlFileName,omitempty"`
 	// DefenderSecurityCenterBlockExploitProtectionOverride Indicates whether or not to block user from overriding Exploit Protection settings.
 	DefenderSecurityCenterBlockExploitProtectionOverride *bool `json:"defenderSecurityCenterBlockExploitProtectionOverride,omitempty"`
 	// AppLockerApplicationControl Enables the Admin to choose what types of app to allow on devices.
@@ -12183,10 +12183,10 @@ type Windows10GeneralConfiguration struct {
 	OneDriveDisableFileSync *bool `json:"oneDriveDisableFileSync,omitempty"`
 	// SmartScreenEnableAppInstallControl Allows IT Admins to control whether users are allowed to install apps from places other than the Store.
 	SmartScreenEnableAppInstallControl *bool `json:"smartScreenEnableAppInstallControl,omitempty"`
-	// PersonalizationDesktopImageUrl A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
-	PersonalizationDesktopImageUrl *string `json:"personalizationDesktopImageUrl,omitempty"`
-	// PersonalizationLockScreenImageUrl A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
-	PersonalizationLockScreenImageUrl *string `json:"personalizationLockScreenImageUrl,omitempty"`
+	// PersonalizationDesktopImageURL A http or https Url to a jpg, jpeg or png image that needs to be downloaded and used as the Desktop Image or a file Url to a local image on the file system that needs to used as the Desktop Image.
+	PersonalizationDesktopImageURL *string `json:"personalizationDesktopImageUrl,omitempty"`
+	// PersonalizationLockScreenImageURL A http or https Url to a jpg, jpeg or png image that neeeds to be downloaded and used as the Lock Screen Image or a file Url to a local image on the file system that needs to be used as the Lock Screen Image.
+	PersonalizationLockScreenImageURL *string `json:"personalizationLockScreenImageUrl,omitempty"`
 	// BluetoothAllowedServices Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
 	BluetoothAllowedServices []string `json:"bluetoothAllowedServices,omitempty"`
 	// BluetoothBlockAdvertising Whether or not to Block the user from using bluetooth advertising.
@@ -12245,8 +12245,8 @@ type Windows10GeneralConfiguration struct {
 	DefenderFilesAndFoldersToExclude []string `json:"defenderFilesAndFoldersToExclude,omitempty"`
 	// DefenderFileExtensionsToExclude File extensions to exclude from scans and real time protection.
 	DefenderFileExtensionsToExclude []string `json:"defenderFileExtensionsToExclude,omitempty"`
-	// DefenderScanMaxCpu Max CPU usage percentage during scan. Valid values 0 to 100
-	DefenderScanMaxCpu *int `json:"defenderScanMaxCpu,omitempty"`
+	// DefenderScanMaxCPU Max CPU usage percentage during scan. Valid values 0 to 100
+	DefenderScanMaxCPU *int `json:"defenderScanMaxCpu,omitempty"`
 	// DefenderMonitorFileActivity Value for monitoring file activity.
 	DefenderMonitorFileActivity *DefenderMonitorFileActivity `json:"defenderMonitorFileActivity,omitempty"`
 	// DefenderProcessesToExclude Processes to exclude from scans and real time protection.
@@ -12315,8 +12315,8 @@ type Windows10GeneralConfiguration struct {
 	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordSignInFailureCountBeforeFactoryReset The number of sign in failures before factory reset. Valid values 0 to 999
 	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// PrivacyAdvertisingId Enables or disables the use of advertising ID. Added in Windows 10, version 1607.
-	PrivacyAdvertisingId *StateManagementSetting `json:"privacyAdvertisingId,omitempty"`
+	// PrivacyAdvertisingID Enables or disables the use of advertising ID. Added in Windows 10, version 1607.
+	PrivacyAdvertisingID *StateManagementSetting `json:"privacyAdvertisingId,omitempty"`
 	// PrivacyAutoAcceptPairingAndConsentPrompts Indicates whether or not to allow the automatic acceptance of the pairing and privacy user consent dialog when launching apps.
 	PrivacyAutoAcceptPairingAndConsentPrompts *bool `json:"privacyAutoAcceptPairingAndConsentPrompts,omitempty"`
 	// PrivacyBlockInputPersonalization Indicates whether or not to block the usage of cloud based speech services for Cortana, Dictation, or Store applications.
@@ -12351,10 +12351,10 @@ type Windows10GeneralConfiguration struct {
 	StartMenuHideSwitchAccount *bool `json:"startMenuHideSwitchAccount,omitempty"`
 	// StartMenuHideUserTile Enabling this policy hides the user tile from appearing in the start menu.
 	StartMenuHideUserTile *bool `json:"startMenuHideUserTile,omitempty"`
-	// StartMenuLayoutEdgeAssetsXml This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
-	StartMenuLayoutEdgeAssetsXml *Binary `json:"startMenuLayoutEdgeAssetsXml,omitempty"`
-	// StartMenuLayoutXml Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
-	StartMenuLayoutXml *Binary `json:"startMenuLayoutXml,omitempty"`
+	// StartMenuLayoutEdgeAssetsXML This policy setting allows you to import Edge assets to be used with startMenuLayoutXml policy. Start layout can contain secondary tile from Edge app which looks for Edge local asset file. Edge local asset would not exist and cause Edge secondary tile to appear empty in this case. This policy only gets applied when startMenuLayoutXml policy is modified. The value should be a UTF-8 Base64 encoded byte array.
+	StartMenuLayoutEdgeAssetsXML *Binary `json:"startMenuLayoutEdgeAssetsXml,omitempty"`
+	// StartMenuLayoutXML Allows admins to override the default Start menu layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in a UTF8 encoded byte array format.
+	StartMenuLayoutXML *Binary `json:"startMenuLayoutXml,omitempty"`
 	// StartMenuMode Allows admins to decide how the Start menu is displayed.
 	StartMenuMode *WindowsStartMenuModeType `json:"startMenuMode,omitempty"`
 	// StartMenuPinnedFolderDocuments Enforces the visibility (Show/Hide) of the Documents folder shortcut on the Start menu.
@@ -12421,8 +12421,8 @@ type Windows10GeneralConfiguration struct {
 	NetworkProxyApplySettingsDeviceWide *bool `json:"networkProxyApplySettingsDeviceWide,omitempty"`
 	// NetworkProxyDisableAutoDetect Disable automatic detection of settings. If enabled, the system will try to find the path to a proxy auto-config (PAC) script.
 	NetworkProxyDisableAutoDetect *bool `json:"networkProxyDisableAutoDetect,omitempty"`
-	// NetworkProxyAutomaticConfigurationUrl Address to the proxy auto-config (PAC) script you want to use.
-	NetworkProxyAutomaticConfigurationUrl *string `json:"networkProxyAutomaticConfigurationUrl,omitempty"`
+	// NetworkProxyAutomaticConfigurationURL Address to the proxy auto-config (PAC) script you want to use.
+	NetworkProxyAutomaticConfigurationURL *string `json:"networkProxyAutomaticConfigurationUrl,omitempty"`
 	// NetworkProxyServer Specifies manual proxy server settings.
 	NetworkProxyServer *Windows10NetworkProxyServer `json:"networkProxyServer,omitempty"`
 	// AccountsBlockAddingNonMicrosoftAccountEmail Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
@@ -12459,8 +12459,8 @@ type Windows10GeneralConfiguration struct {
 	EdgeRequireSmartScreen *bool `json:"edgeRequireSmartScreen,omitempty"`
 	// EdgeEnterpriseModeSiteListLocation Indicates the enterprise mode site list location. Could be a local file, local network or http location.
 	EdgeEnterpriseModeSiteListLocation *string `json:"edgeEnterpriseModeSiteListLocation,omitempty"`
-	// EdgeFirstRunUrl The first run URL for when Edge browser is opened for the first time.
-	EdgeFirstRunUrl *string `json:"edgeFirstRunUrl,omitempty"`
+	// EdgeFirstRunURL The first run URL for when Edge browser is opened for the first time.
+	EdgeFirstRunURL *string `json:"edgeFirstRunUrl,omitempty"`
 	// EdgeSearchEngine Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
 	EdgeSearchEngine *EdgeSearchEngineBase `json:"edgeSearchEngine,omitempty"`
 	// EdgeHomepageUrls The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
@@ -12471,8 +12471,8 @@ type Windows10GeneralConfiguration struct {
 	SmartScreenBlockPromptOverride *bool `json:"smartScreenBlockPromptOverride,omitempty"`
 	// SmartScreenBlockPromptOverrideForFiles Indicates whether or not users can override the SmartScreen Filter warnings about downloading unverified files
 	SmartScreenBlockPromptOverrideForFiles *bool `json:"smartScreenBlockPromptOverrideForFiles,omitempty"`
-	// WebRtcBlockLocalhostIpAddress Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
-	WebRtcBlockLocalhostIpAddress *bool `json:"webRtcBlockLocalhostIpAddress,omitempty"`
+	// WebRtcBlockLocalhostIPAddress Indicates whether or not user's localhost IP address is displayed while making phone calls using the WebRTC
+	WebRtcBlockLocalhostIPAddress *bool `json:"webRtcBlockLocalhostIpAddress,omitempty"`
 	// InternetSharingBlocked Indicates whether or not to Block the user from using internet sharing.
 	InternetSharingBlocked *bool `json:"internetSharingBlocked,omitempty"`
 	// SettingsBlockAddProvisioningPackage Indicates whether or not to block the user from installing provisioning packages.
@@ -12605,8 +12605,8 @@ type Windows10NetworkProxyServer struct {
 // Windows10SecureAssessmentConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the secureAssessment resource.
 type Windows10SecureAssessmentConfiguration struct {
 	DeviceConfiguration
-	// LaunchUri Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
-	LaunchUri *string `json:"launchUri,omitempty"`
+	// LaunchURI Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
+	LaunchURI *string `json:"launchUri,omitempty"`
 	// ConfigurationAccount The account used to configure the Windows device for taking the test. The user can be a domain account (domain\user), an AAD account (username@tenant.com) or a local account (username).
 	ConfigurationAccount *string `json:"configurationAccount,omitempty"`
 	// AllowPrinting Indicates whether or not to allow the app from printing during the test.
@@ -12622,8 +12622,8 @@ type Windows10TeamGeneralConfiguration struct {
 	DeviceConfiguration
 	// AzureOperationalInsightsBlockTelemetry Indicates whether or not to Block Azure Operational Insights.
 	AzureOperationalInsightsBlockTelemetry *bool `json:"azureOperationalInsightsBlockTelemetry,omitempty"`
-	// AzureOperationalInsightsWorkspaceId The Azure Operational Insights workspace id.
-	AzureOperationalInsightsWorkspaceId *string `json:"azureOperationalInsightsWorkspaceId,omitempty"`
+	// AzureOperationalInsightsWorkspaceID The Azure Operational Insights workspace id.
+	AzureOperationalInsightsWorkspaceID *string `json:"azureOperationalInsightsWorkspaceId,omitempty"`
 	// AzureOperationalInsightsWorkspaceKey The Azure Operational Insights Workspace key.
 	AzureOperationalInsightsWorkspaceKey *string `json:"azureOperationalInsightsWorkspaceKey,omitempty"`
 	// ConnectAppBlockAutoLaunch Specifies whether to automatically launch the Connect app whenever a projection is initiated.
@@ -12656,8 +12656,8 @@ type Windows10TeamGeneralConfiguration struct {
 	SettingsSleepTimeoutInMinutes *int `json:"settingsSleepTimeoutInMinutes,omitempty"`
 	// WelcomeScreenBlockAutomaticWakeUp Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room.
 	WelcomeScreenBlockAutomaticWakeUp *bool `json:"welcomeScreenBlockAutomaticWakeUp,omitempty"`
-	// WelcomeScreenBackgroundImageUrl The welcome screen background image URL. The URL must use the HTTPS protocol and return a PNG image.
-	WelcomeScreenBackgroundImageUrl *string `json:"welcomeScreenBackgroundImageUrl,omitempty"`
+	// WelcomeScreenBackgroundImageURL The welcome screen background image URL. The URL must use the HTTPS protocol and return a PNG image.
+	WelcomeScreenBackgroundImageURL *string `json:"welcomeScreenBackgroundImageUrl,omitempty"`
 	// WelcomeScreenMeetingInformation The welcome screen meeting information shown.
 	WelcomeScreenMeetingInformation *WelcomeScreenMeetingInformation `json:"welcomeScreenMeetingInformation,omitempty"`
 }
@@ -12756,8 +12756,8 @@ type Windows81GeneralConfiguration struct {
 	UpdatesRequireAutomaticUpdates *bool `json:"updatesRequireAutomaticUpdates,omitempty"`
 	// UserAccountControlSettings The user account control settings.
 	UserAccountControlSettings *WindowsUserAccountControlSettings `json:"userAccountControlSettings,omitempty"`
-	// WorkFoldersUrl The work folders url.
-	WorkFoldersUrl *string `json:"workFoldersUrl,omitempty"`
+	// WorkFoldersURL The work folders url.
+	WorkFoldersURL *string `json:"workFoldersUrl,omitempty"`
 }
 
 // WindowsDefenderAdvancedThreatProtectionConfiguration Windows Defender AdvancedThreatProtection Configuration.
@@ -12841,8 +12841,8 @@ type WindowsInformationProtection struct {
 	DataRecoveryCertificate *WindowsInformationProtectionDataRecoveryCertificate `json:"dataRecoveryCertificate,omitempty"`
 	// RevokeOnUnenrollDisabled This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently.
 	RevokeOnUnenrollDisabled *bool `json:"revokeOnUnenrollDisabled,omitempty"`
-	// RightsManagementServicesTemplateId TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
-	RightsManagementServicesTemplateId *UUID `json:"rightsManagementServicesTemplateId,omitempty"`
+	// RightsManagementServicesTemplateID TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
+	RightsManagementServicesTemplateID *UUID `json:"rightsManagementServicesTemplateId,omitempty"`
 	// AzureRightsManagementServicesAllowed Specifies whether to allow Azure RMS encryption for WIP
 	AzureRightsManagementServicesAllowed *bool `json:"azureRightsManagementServicesAllowed,omitempty"`
 	// IconsVisible Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app
@@ -12947,14 +12947,14 @@ type WindowsInformationProtectionIPRangeCollection struct {
 	// DisplayName Display name
 	DisplayName *string `json:"displayName,omitempty"`
 	// Ranges Collection of ip ranges
-	Ranges []IpRange `json:"ranges,omitempty"`
+	Ranges []IPRange `json:"ranges,omitempty"`
 }
 
 // WindowsInformationProtectionNetworkLearningSummary Windows Information Protection Network learning Summary entity.
 type WindowsInformationProtectionNetworkLearningSummary struct {
 	Entity
-	// Url Website url
-	Url *string `json:"url,omitempty"`
+	// URL Website url
+	URL *string `json:"url,omitempty"`
 	// DeviceCount Device Count
 	DeviceCount *int `json:"deviceCount,omitempty"`
 }
@@ -12964,8 +12964,8 @@ type WindowsInformationProtectionPolicy struct {
 	WindowsInformationProtection
 	// RevokeOnMdmHandoffDisabled New property in RS2, pending documentation
 	RevokeOnMdmHandoffDisabled *bool `json:"revokeOnMdmHandoffDisabled,omitempty"`
-	// MdmEnrollmentUrl Enrollment url for the MDM
-	MdmEnrollmentUrl *string `json:"mdmEnrollmentUrl,omitempty"`
+	// MdmEnrollmentURL Enrollment url for the MDM
+	MdmEnrollmentURL *string `json:"mdmEnrollmentUrl,omitempty"`
 	// WindowsHelloForBusinessBlocked Boolean value that sets Windows Hello for Business as a method for signing into Windows.
 	WindowsHelloForBusinessBlocked *bool `json:"windowsHelloForBusinessBlocked,omitempty"`
 	// PinMinimumLength Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest.
@@ -13742,8 +13742,8 @@ type WorkbookRangeView struct {
 
 // WorkbookSessionInfo undocumented
 type WorkbookSessionInfo struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// PersistChanges undocumented
 	PersistChanges *bool `json:"persistChanges,omitempty"`
 }
@@ -13771,8 +13771,8 @@ type WorkbookTable struct {
 	HighlightFirstColumn *bool `json:"highlightFirstColumn,omitempty"`
 	// HighlightLastColumn undocumented
 	HighlightLastColumn *bool `json:"highlightLastColumn,omitempty"`
-	// LegacyId undocumented
-	LegacyId *string `json:"legacyId,omitempty"`
+	// LegacyID undocumented
+	LegacyID *string `json:"legacyId,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// ShowBandedColumns undocumented
@@ -13898,28 +13898,238 @@ type WorkingHours struct {
 	TimeZone *TimeZoneBase `json:"timeZone,omitempty"`
 }
 
-// ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
-type ManagedDeviceMobileAppConfigurationAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []ManagedDeviceMobileAppConfigurationAssignment `json:"assignments,omitempty"`
+// WorkbookTableColumnCollectionAddRequestParameter undocumented
+type WorkbookTableColumnCollectionAddRequestParameter struct {
+	// Index undocumented
+	Index *int `json:"index,omitempty"`
+	// Values undocumented
+	Values json.RawMessage `json:"values,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 }
 
-// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
-type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
-	// Priority undocumented
-	Priority *int `json:"priority,omitempty"`
+// OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
+type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
 }
 
-// DeviceEnrollmentConfigurationAssignRequestParameter undocumented
-type DeviceEnrollmentConfigurationAssignRequestParameter struct {
-	// EnrollmentConfigurationAssignments undocumented
-	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
+// ParticipantCollectionInviteRequestParameter undocumented
+type ParticipantCollectionInviteRequestParameter struct {
+	// Participants undocumented
+	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
 }
 
-// WorkbookApplicationCalculateRequestParameter undocumented
-type WorkbookApplicationCalculateRequestParameter struct {
-	// CalculationType undocumented
-	CalculationType *string `json:"calculationType,omitempty"`
+// MobileAppAssignRequestParameter undocumented
+type MobileAppAssignRequestParameter struct {
+	// MobileAppAssignments undocumented
+	MobileAppAssignments []MobileAppAssignment `json:"mobileAppAssignments,omitempty"`
+}
+
+// ManagedEBookAssignRequestParameter undocumented
+type ManagedEBookAssignRequestParameter struct {
+	// ManagedEBookAssignments undocumented
+	ManagedEBookAssignments []ManagedEBookAssignment `json:"managedEBookAssignments,omitempty"`
+}
+
+// TeamCloneRequestParameter undocumented
+type TeamCloneRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// Classification undocumented
+	Classification *string `json:"classification,omitempty"`
+	// Visibility undocumented
+	Visibility *TeamVisibilityType `json:"visibility,omitempty"`
+	// PartsToClone undocumented
+	PartsToClone *ClonableTeamParts `json:"partsToClone,omitempty"`
+}
+
+// TeamArchiveRequestParameter undocumented
+type TeamArchiveRequestParameter struct {
+	// ShouldSetSpoSiteReadOnlyForMembers undocumented
+	ShouldSetSpoSiteReadOnlyForMembers *bool `json:"shouldSetSpoSiteReadOnlyForMembers,omitempty"`
+}
+
+// TeamUnarchiveRequestParameter undocumented
+type TeamUnarchiveRequestParameter struct {
+}
+
+// TeamsAppInstallationUpgradeRequestParameter undocumented
+type TeamsAppInstallationUpgradeRequestParameter struct {
+}
+
+// ManagedAppPolicyTargetAppsRequestParameter undocumented
+type ManagedAppPolicyTargetAppsRequestParameter struct {
+	// Apps undocumented
+	Apps []ManagedMobileApp `json:"apps,omitempty"`
+}
+
+// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
+type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+}
+
+// DeviceManagementExchangeConnectorSyncRequestParameter undocumented
+type DeviceManagementExchangeConnectorSyncRequestParameter struct {
+	// SyncType undocumented
+	SyncType *DeviceManagementExchangeConnectorSyncType `json:"syncType,omitempty"`
+}
+
+// OnenotePageOnenotePatchContentRequestParameter undocumented
+type OnenotePageOnenotePatchContentRequestParameter struct {
+	// Commands undocumented
+	Commands []OnenotePatchContentCommand `json:"commands,omitempty"`
+}
+
+// OnenotePageCopyToSectionRequestParameter undocumented
+type OnenotePageCopyToSectionRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
+}
+
+// ParticipantMuteRequestParameter undocumented
+type ParticipantMuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// WorkbookRangeFormatAutofitColumnsRequestParameter undocumented
+type WorkbookRangeFormatAutofitColumnsRequestParameter struct {
+}
+
+// WorkbookRangeFormatAutofitRowsRequestParameter undocumented
+type WorkbookRangeFormatAutofitRowsRequestParameter struct {
+}
+
+// MessageCreateReplyRequestParameter undocumented
+type MessageCreateReplyRequestParameter struct {
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// MessageCreateReplyAllRequestParameter undocumented
+type MessageCreateReplyAllRequestParameter struct {
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// MessageCreateForwardRequestParameter undocumented
+type MessageCreateForwardRequestParameter struct {
+	// ToRecipients undocumented
+	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// MessageSendRequestParameter undocumented
+type MessageSendRequestParameter struct {
+}
+
+// MessageCopyRequestParameter undocumented
+type MessageCopyRequestParameter struct {
+	// DestinationID undocumented
+	DestinationID *string `json:"DestinationId,omitempty"`
+}
+
+// MessageMoveRequestParameter undocumented
+type MessageMoveRequestParameter struct {
+	// DestinationID undocumented
+	DestinationID *string `json:"DestinationId,omitempty"`
+}
+
+// MessageReplyRequestParameter undocumented
+type MessageReplyRequestParameter struct {
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// MessageReplyAllRequestParameter undocumented
+type MessageReplyAllRequestParameter struct {
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// MessageForwardRequestParameter undocumented
+type MessageForwardRequestParameter struct {
+	// ToRecipients undocumented
+	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
+	// Message undocumented
+	Message *Message `json:"Message,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// CalendarGetScheduleRequestParameter undocumented
+type CalendarGetScheduleRequestParameter struct {
+	// Schedules undocumented
+	Schedules []string `json:"Schedules,omitempty"`
+	// EndTime undocumented
+	EndTime *DateTimeTimeZone `json:"EndTime,omitempty"`
+	// StartTime undocumented
+	StartTime *DateTimeTimeZone `json:"StartTime,omitempty"`
+	// AvailabilityViewInterval undocumented
+	AvailabilityViewInterval *int `json:"AvailabilityViewInterval,omitempty"`
+}
+
+// GroupLifecyclePolicyAddGroupRequestParameter undocumented
+type GroupLifecyclePolicyAddGroupRequestParameter struct {
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+}
+
+// GroupLifecyclePolicyRemoveGroupRequestParameter undocumented
+type GroupLifecyclePolicyRemoveGroupRequestParameter struct {
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+}
+
+// DirectoryObjectCheckMemberGroupsRequestParameter undocumented
+type DirectoryObjectCheckMemberGroupsRequestParameter struct {
+	// GroupIds undocumented
+	GroupIds []string `json:"groupIds,omitempty"`
+}
+
+// DirectoryObjectCheckMemberObjectsRequestParameter undocumented
+type DirectoryObjectCheckMemberObjectsRequestParameter struct {
+	// Ids undocumented
+	Ids []string `json:"ids,omitempty"`
+}
+
+// DirectoryObjectGetMemberGroupsRequestParameter undocumented
+type DirectoryObjectGetMemberGroupsRequestParameter struct {
+	// SecurityEnabledOnly undocumented
+	SecurityEnabledOnly *bool `json:"securityEnabledOnly,omitempty"`
+}
+
+// DirectoryObjectGetMemberObjectsRequestParameter undocumented
+type DirectoryObjectGetMemberObjectsRequestParameter struct {
+	// SecurityEnabledOnly undocumented
+	SecurityEnabledOnly *bool `json:"securityEnabledOnly,omitempty"`
+}
+
+// DirectoryObjectRestoreRequestParameter undocumented
+type DirectoryObjectRestoreRequestParameter struct {
 }
 
 // WorkbookFunctionsAbsRequestParameter undocumented
@@ -17016,316 +17226,88 @@ type WorkbookFunctionsZ_TestRequestParameter struct {
 	Sigma json.RawMessage `json:"sigma,omitempty"`
 }
 
-// WorkbookWorksheetProtectionProtectRequestParameter undocumented
-type WorkbookWorksheetProtectionProtectRequestParameter struct {
-	// Options undocumented
-	Options *WorkbookWorksheetProtectionOptions `json:"options,omitempty"`
-}
-
-// WorkbookWorksheetProtectionUnprotectRequestParameter undocumented
-type WorkbookWorksheetProtectionUnprotectRequestParameter struct {
-}
-
-// ListItemVersionRestoreVersionRequestParameter undocumented
-type ListItemVersionRestoreVersionRequestParameter struct {
-}
-
-// TeamsAppInstallationUpgradeRequestParameter undocumented
-type TeamsAppInstallationUpgradeRequestParameter struct {
-}
-
-// WorkbookChartCollectionAddRequestParameter undocumented
-type WorkbookChartCollectionAddRequestParameter struct {
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// SourceData undocumented
-	SourceData json.RawMessage `json:"sourceData,omitempty"`
-	// SeriesBy undocumented
-	SeriesBy *string `json:"seriesBy,omitempty"`
-}
-
-// MobileAppContentFileCommitRequestParameter undocumented
-type MobileAppContentFileCommitRequestParameter struct {
-	// FileEncryptionInfo undocumented
-	FileEncryptionInfo *FileEncryptionInfo `json:"fileEncryptionInfo,omitempty"`
-}
-
-// MobileAppContentFileRenewUploadRequestParameter undocumented
-type MobileAppContentFileRenewUploadRequestParameter struct {
-}
-
 // ManagedAppProtectionTargetAppsRequestParameter undocumented
 type ManagedAppProtectionTargetAppsRequestParameter struct {
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 }
 
-// NotificationMessageTemplateSendTestMessageRequestParameter undocumented
-type NotificationMessageTemplateSendTestMessageRequestParameter struct {
+// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
+type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
+	// Priority undocumented
+	Priority *int `json:"priority,omitempty"`
 }
 
-// VppTokenSyncLicensesRequestParameter undocumented
-type VppTokenSyncLicensesRequestParameter struct {
+// DeviceEnrollmentConfigurationAssignRequestParameter undocumented
+type DeviceEnrollmentConfigurationAssignRequestParameter struct {
+	// EnrollmentConfigurationAssignments undocumented
+	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
 }
 
-// OnenotePageOnenotePatchContentRequestParameter undocumented
-type OnenotePageOnenotePatchContentRequestParameter struct {
-	// Commands undocumented
-	Commands []OnenotePatchContentCommand `json:"commands,omitempty"`
+// TargetedManagedAppProtectionAssignRequestParameter undocumented
+type TargetedManagedAppProtectionAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
 }
 
-// OnenotePageCopyToSectionRequestParameter undocumented
-type OnenotePageCopyToSectionRequestParameter struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
-	// GroupId undocumented
-	GroupId *string `json:"groupId,omitempty"`
-	// SiteCollectionId undocumented
-	SiteCollectionId *string `json:"siteCollectionId,omitempty"`
-	// SiteId undocumented
-	SiteId *string `json:"siteId,omitempty"`
+// RemoteAssistancePartnerBeginOnboardingRequestParameter undocumented
+type RemoteAssistancePartnerBeginOnboardingRequestParameter struct {
 }
 
-// NotebookCopyNotebookRequestParameter undocumented
-type NotebookCopyNotebookRequestParameter struct {
-	// GroupId undocumented
-	GroupId *string `json:"groupId,omitempty"`
+// RemoteAssistancePartnerDisconnectRequestParameter undocumented
+type RemoteAssistancePartnerDisconnectRequestParameter struct {
+}
+
+// OnenoteSectionCopyToNotebookRequestParameter undocumented
+type OnenoteSectionCopyToNotebookRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
 	// RenameAs undocumented
 	RenameAs *string `json:"renameAs,omitempty"`
-	// NotebookFolder undocumented
-	NotebookFolder *string `json:"notebookFolder,omitempty"`
-	// SiteCollectionId undocumented
-	SiteCollectionId *string `json:"siteCollectionId,omitempty"`
-	// SiteId undocumented
-	SiteId *string `json:"siteId,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
-// WorkbookCreateSessionRequestParameter undocumented
-type WorkbookCreateSessionRequestParameter struct {
-	// PersistChanges undocumented
-	PersistChanges *bool `json:"persistChanges,omitempty"`
+// OnenoteSectionCopyToSectionGroupRequestParameter undocumented
+type OnenoteSectionCopyToSectionGroupRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+	// RenameAs undocumented
+	RenameAs *string `json:"renameAs,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
-// WorkbookCloseSessionRequestParameter undocumented
-type WorkbookCloseSessionRequestParameter struct {
+// WorkbookPivotTableRefreshRequestParameter undocumented
+type WorkbookPivotTableRefreshRequestParameter struct {
 }
 
-// WorkbookRefreshSessionRequestParameter undocumented
-type WorkbookRefreshSessionRequestParameter struct {
-}
-
-// WorkbookTableColumnCollectionAddRequestParameter undocumented
-type WorkbookTableColumnCollectionAddRequestParameter struct {
-	// Index undocumented
-	Index *int `json:"index,omitempty"`
-	// Values undocumented
-	Values json.RawMessage `json:"values,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
+// WorkbookRangeFillClearRequestParameter undocumented
+type WorkbookRangeFillClearRequestParameter struct {
 }
 
 // DriveItemVersionRestoreVersionRequestParameter undocumented
 type DriveItemVersionRestoreVersionRequestParameter struct {
 }
 
-// MobileAppAssignRequestParameter undocumented
-type MobileAppAssignRequestParameter struct {
-	// MobileAppAssignments undocumented
-	MobileAppAssignments []MobileAppAssignment `json:"mobileAppAssignments,omitempty"`
-}
-
-// ConversationThreadReplyRequestParameter undocumented
-type ConversationThreadReplyRequestParameter struct {
-	// Post undocumented
-	Post *Post `json:"Post,omitempty"`
-}
-
-// GroupLifecyclePolicyAddGroupRequestParameter undocumented
-type GroupLifecyclePolicyAddGroupRequestParameter struct {
-	// GroupId undocumented
-	GroupId *string `json:"groupId,omitempty"`
-}
-
-// GroupLifecyclePolicyRemoveGroupRequestParameter undocumented
-type GroupLifecyclePolicyRemoveGroupRequestParameter struct {
-	// GroupId undocumented
-	GroupId *string `json:"groupId,omitempty"`
-}
-
-// WindowsInformationProtectionAssignRequestParameter undocumented
-type WindowsInformationProtectionAssignRequestParameter struct {
+// DeviceCompliancePolicyAssignRequestParameter undocumented
+type DeviceCompliancePolicyAssignRequestParameter struct {
 	// Assignments undocumented
-	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
 }
 
-// DirectoryObjectCheckMemberGroupsRequestParameter undocumented
-type DirectoryObjectCheckMemberGroupsRequestParameter struct {
-	// GroupIds undocumented
-	GroupIds []string `json:"groupIds,omitempty"`
-}
-
-// DirectoryObjectCheckMemberObjectsRequestParameter undocumented
-type DirectoryObjectCheckMemberObjectsRequestParameter struct {
-	// Ids undocumented
-	Ids []string `json:"ids,omitempty"`
-}
-
-// DirectoryObjectGetMemberGroupsRequestParameter undocumented
-type DirectoryObjectGetMemberGroupsRequestParameter struct {
-	// SecurityEnabledOnly undocumented
-	SecurityEnabledOnly *bool `json:"securityEnabledOnly,omitempty"`
-}
-
-// DirectoryObjectGetMemberObjectsRequestParameter undocumented
-type DirectoryObjectGetMemberObjectsRequestParameter struct {
-	// SecurityEnabledOnly undocumented
-	SecurityEnabledOnly *bool `json:"securityEnabledOnly,omitempty"`
-}
-
-// DirectoryObjectRestoreRequestParameter undocumented
-type DirectoryObjectRestoreRequestParameter struct {
-}
-
-// WorkbookChartSetDataRequestParameter undocumented
-type WorkbookChartSetDataRequestParameter struct {
-	// SourceData undocumented
-	SourceData json.RawMessage `json:"sourceData,omitempty"`
-	// SeriesBy undocumented
-	SeriesBy *string `json:"seriesBy,omitempty"`
-}
-
-// WorkbookChartSetPositionRequestParameter undocumented
-type WorkbookChartSetPositionRequestParameter struct {
-	// StartCell undocumented
-	StartCell json.RawMessage `json:"startCell,omitempty"`
-	// EndCell undocumented
-	EndCell json.RawMessage `json:"endCell,omitempty"`
-}
-
-// WorkbookChartFillClearRequestParameter undocumented
-type WorkbookChartFillClearRequestParameter struct {
-}
-
-// WorkbookChartFillSetSolidColorRequestParameter undocumented
-type WorkbookChartFillSetSolidColorRequestParameter struct {
-	// Color undocumented
-	Color *string `json:"color,omitempty"`
-}
-
-// MessageCreateReplyRequestParameter undocumented
-type MessageCreateReplyRequestParameter struct {
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// MessageCreateReplyAllRequestParameter undocumented
-type MessageCreateReplyAllRequestParameter struct {
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// MessageCreateForwardRequestParameter undocumented
-type MessageCreateForwardRequestParameter struct {
-	// ToRecipients undocumented
-	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// MessageSendRequestParameter undocumented
-type MessageSendRequestParameter struct {
-}
-
-// MessageCopyRequestParameter undocumented
-type MessageCopyRequestParameter struct {
-	// DestinationId undocumented
-	DestinationId *string `json:"DestinationId,omitempty"`
-}
-
-// MessageMoveRequestParameter undocumented
-type MessageMoveRequestParameter struct {
-	// DestinationId undocumented
-	DestinationId *string `json:"DestinationId,omitempty"`
-}
-
-// MessageReplyRequestParameter undocumented
-type MessageReplyRequestParameter struct {
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// MessageReplyAllRequestParameter undocumented
-type MessageReplyAllRequestParameter struct {
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// MessageForwardRequestParameter undocumented
-type MessageForwardRequestParameter struct {
-	// ToRecipients undocumented
-	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
-	// Message undocumented
-	Message *Message `json:"Message,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter undocumented
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter struct {
-}
-
-// ParticipantMuteRequestParameter undocumented
-type ParticipantMuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// GroupValidatePropertiesRequestParameter undocumented
-type GroupValidatePropertiesRequestParameter struct {
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserId undocumented
-	OnBehalfOfUserId *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-// GroupSubscribeByMailRequestParameter undocumented
-type GroupSubscribeByMailRequestParameter struct {
-}
-
-// GroupUnsubscribeByMailRequestParameter undocumented
-type GroupUnsubscribeByMailRequestParameter struct {
-}
-
-// GroupAddFavoriteRequestParameter undocumented
-type GroupAddFavoriteRequestParameter struct {
-}
-
-// GroupRemoveFavoriteRequestParameter undocumented
-type GroupRemoveFavoriteRequestParameter struct {
-}
-
-// GroupResetUnseenCountRequestParameter undocumented
-type GroupResetUnseenCountRequestParameter struct {
-}
-
-// GroupRenewRequestParameter undocumented
-type GroupRenewRequestParameter struct {
-}
-
-// WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
-type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
+// DeviceCompliancePolicyScheduleActionsForRulesRequestParameter undocumented
+type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
+	// DeviceComplianceScheduledActionForRules undocumented
+	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
 }
 
 // WorkbookTableClearFiltersRequestParameter undocumented
@@ -17340,84 +17322,14 @@ type WorkbookTableConvertToRangeRequestParameter struct {
 type WorkbookTableReapplyFiltersRequestParameter struct {
 }
 
-// ManagedEBookAssignRequestParameter undocumented
-type ManagedEBookAssignRequestParameter struct {
-	// ManagedEBookAssignments undocumented
-	ManagedEBookAssignments []ManagedEBookAssignment `json:"managedEBookAssignments,omitempty"`
+// DeviceConfigurationAssignRequestParameter undocumented
+type DeviceConfigurationAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
 }
 
-// WorkbookFilterApplyRequestParameter undocumented
-type WorkbookFilterApplyRequestParameter struct {
-	// Criteria undocumented
-	Criteria *WorkbookFilterCriteria `json:"criteria,omitempty"`
-}
-
-// WorkbookFilterApplyBottomItemsFilterRequestParameter undocumented
-type WorkbookFilterApplyBottomItemsFilterRequestParameter struct {
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
-}
-
-// WorkbookFilterApplyBottomPercentFilterRequestParameter undocumented
-type WorkbookFilterApplyBottomPercentFilterRequestParameter struct {
-	// Percent undocumented
-	Percent *int `json:"percent,omitempty"`
-}
-
-// WorkbookFilterApplyCellColorFilterRequestParameter undocumented
-type WorkbookFilterApplyCellColorFilterRequestParameter struct {
-	// Color undocumented
-	Color *string `json:"color,omitempty"`
-}
-
-// WorkbookFilterApplyCustomFilterRequestParameter undocumented
-type WorkbookFilterApplyCustomFilterRequestParameter struct {
-	// Criteria1 undocumented
-	Criteria1 *string `json:"criteria1,omitempty"`
-	// Criteria2 undocumented
-	Criteria2 *string `json:"criteria2,omitempty"`
-	// Oper undocumented
-	Oper *string `json:"oper,omitempty"`
-}
-
-// WorkbookFilterApplyDynamicFilterRequestParameter undocumented
-type WorkbookFilterApplyDynamicFilterRequestParameter struct {
-	// Criteria undocumented
-	Criteria *string `json:"criteria,omitempty"`
-}
-
-// WorkbookFilterApplyFontColorFilterRequestParameter undocumented
-type WorkbookFilterApplyFontColorFilterRequestParameter struct {
-	// Color undocumented
-	Color *string `json:"color,omitempty"`
-}
-
-// WorkbookFilterApplyIconFilterRequestParameter undocumented
-type WorkbookFilterApplyIconFilterRequestParameter struct {
-	// Icon undocumented
-	Icon *WorkbookIcon `json:"icon,omitempty"`
-}
-
-// WorkbookFilterApplyTopItemsFilterRequestParameter undocumented
-type WorkbookFilterApplyTopItemsFilterRequestParameter struct {
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
-}
-
-// WorkbookFilterApplyTopPercentFilterRequestParameter undocumented
-type WorkbookFilterApplyTopPercentFilterRequestParameter struct {
-	// Percent undocumented
-	Percent *int `json:"percent,omitempty"`
-}
-
-// WorkbookFilterApplyValuesFilterRequestParameter undocumented
-type WorkbookFilterApplyValuesFilterRequestParameter struct {
-	// Values undocumented
-	Values json.RawMessage `json:"values,omitempty"`
-}
-
-// WorkbookFilterClearRequestParameter undocumented
-type WorkbookFilterClearRequestParameter struct {
+// WorkbookChartLineFormatClearRequestParameter undocumented
+type WorkbookChartLineFormatClearRequestParameter struct {
 }
 
 // WorkbookRangeClearRequestParameter undocumented
@@ -17448,12 +17360,64 @@ type WorkbookRangeMergeRequestParameter struct {
 type WorkbookRangeUnmergeRequestParameter struct {
 }
 
-// WorkbookRangeFormatAutofitColumnsRequestParameter undocumented
-type WorkbookRangeFormatAutofitColumnsRequestParameter struct {
+// VppTokenSyncLicensesRequestParameter undocumented
+type VppTokenSyncLicensesRequestParameter struct {
 }
 
-// WorkbookRangeFormatAutofitRowsRequestParameter undocumented
-type WorkbookRangeFormatAutofitRowsRequestParameter struct {
+// TargetedManagedAppConfigurationAssignRequestParameter undocumented
+type TargetedManagedAppConfigurationAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+}
+
+// TargetedManagedAppConfigurationTargetAppsRequestParameter undocumented
+type TargetedManagedAppConfigurationTargetAppsRequestParameter struct {
+	// Apps undocumented
+	Apps []ManagedMobileApp `json:"apps,omitempty"`
+}
+
+// DomainForceDeleteRequestParameter undocumented
+type DomainForceDeleteRequestParameter struct {
+	// DisableUserAccounts undocumented
+	DisableUserAccounts *bool `json:"disableUserAccounts,omitempty"`
+}
+
+// DomainVerifyRequestParameter undocumented
+type DomainVerifyRequestParameter struct {
+}
+
+// GroupValidatePropertiesRequestParameter undocumented
+type GroupValidatePropertiesRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
+// GroupSubscribeByMailRequestParameter undocumented
+type GroupSubscribeByMailRequestParameter struct {
+}
+
+// GroupUnsubscribeByMailRequestParameter undocumented
+type GroupUnsubscribeByMailRequestParameter struct {
+}
+
+// GroupAddFavoriteRequestParameter undocumented
+type GroupAddFavoriteRequestParameter struct {
+}
+
+// GroupRemoveFavoriteRequestParameter undocumented
+type GroupRemoveFavoriteRequestParameter struct {
+}
+
+// GroupResetUnseenCountRequestParameter undocumented
+type GroupResetUnseenCountRequestParameter struct {
+}
+
+// GroupRenewRequestParameter undocumented
+type GroupRenewRequestParameter struct {
 }
 
 // WorkbookWorksheetCollectionAddRequestParameter undocumented
@@ -17462,100 +17426,52 @@ type WorkbookWorksheetCollectionAddRequestParameter struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// WorkbookNamedItemCollectionAddRequestParameter undocumented
-type WorkbookNamedItemCollectionAddRequestParameter struct {
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Reference undocumented
-	Reference json.RawMessage `json:"reference,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"comment,omitempty"`
+// WorkbookWorksheetProtectionProtectRequestParameter undocumented
+type WorkbookWorksheetProtectionProtectRequestParameter struct {
+	// Options undocumented
+	Options *WorkbookWorksheetProtectionOptions `json:"options,omitempty"`
 }
 
-// WorkbookNamedItemCollectionAddFormulaLocalRequestParameter undocumented
-type WorkbookNamedItemCollectionAddFormulaLocalRequestParameter struct {
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Formula undocumented
-	Formula *string `json:"formula,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"comment,omitempty"`
+// WorkbookWorksheetProtectionUnprotectRequestParameter undocumented
+type WorkbookWorksheetProtectionUnprotectRequestParameter struct {
 }
 
-// ManagedAppPolicyTargetAppsRequestParameter undocumented
-type ManagedAppPolicyTargetAppsRequestParameter struct {
-	// Apps undocumented
-	Apps []ManagedMobileApp `json:"apps,omitempty"`
+// WorkbookChartFillClearRequestParameter undocumented
+type WorkbookChartFillClearRequestParameter struct {
 }
 
-// ParticipantCollectionInviteRequestParameter undocumented
-type ParticipantCollectionInviteRequestParameter struct {
-	// Participants undocumented
-	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
+// WorkbookChartFillSetSolidColorRequestParameter undocumented
+type WorkbookChartFillSetSolidColorRequestParameter struct {
+	// Color undocumented
+	Color *string `json:"color,omitempty"`
 }
 
-// MailFolderCopyRequestParameter undocumented
-type MailFolderCopyRequestParameter struct {
-	// DestinationId undocumented
-	DestinationId *string `json:"DestinationId,omitempty"`
+// WorkbookRangeSortApplyRequestParameter undocumented
+type WorkbookRangeSortApplyRequestParameter struct {
+	// Fields undocumented
+	Fields []WorkbookSortField `json:"fields,omitempty"`
+	// MatchCase undocumented
+	MatchCase *bool `json:"matchCase,omitempty"`
+	// HasHeaders undocumented
+	HasHeaders *bool `json:"hasHeaders,omitempty"`
+	// Orientation undocumented
+	Orientation *string `json:"orientation,omitempty"`
+	// Method undocumented
+	Method *string `json:"method,omitempty"`
 }
 
-// MailFolderMoveRequestParameter undocumented
-type MailFolderMoveRequestParameter struct {
-	// DestinationId undocumented
-	DestinationId *string `json:"DestinationId,omitempty"`
-}
-
-// CalendarGetScheduleRequestParameter undocumented
-type CalendarGetScheduleRequestParameter struct {
-	// Schedules undocumented
-	Schedules []string `json:"Schedules,omitempty"`
-	// EndTime undocumented
-	EndTime *DateTimeTimeZone `json:"EndTime,omitempty"`
-	// StartTime undocumented
-	StartTime *DateTimeTimeZone `json:"StartTime,omitempty"`
-	// AvailabilityViewInterval undocumented
-	AvailabilityViewInterval *int `json:"AvailabilityViewInterval,omitempty"`
-}
-
-// DeviceConfigurationAssignRequestParameter undocumented
-type DeviceConfigurationAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
-}
-
-// OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
-type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
-}
-
-// DirectoryObjectCollectionGetByIdsRequestParameter undocumented
-type DirectoryObjectCollectionGetByIdsRequestParameter struct {
-	// Ids undocumented
-	Ids []string `json:"ids,omitempty"`
-	// Types undocumented
-	Types []string `json:"types,omitempty"`
-}
-
-// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
-type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
-	// EntityType undocumented
-	EntityType *string `json:"entityType,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserId undocumented
-	OnBehalfOfUserId *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-// WorkbookChartLineFormatClearRequestParameter undocumented
-type WorkbookChartLineFormatClearRequestParameter struct {
-}
-
-// WorkbookRangeFillClearRequestParameter undocumented
-type WorkbookRangeFillClearRequestParameter struct {
+// NotebookCopyNotebookRequestParameter undocumented
+type NotebookCopyNotebookRequestParameter struct {
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+	// RenameAs undocumented
+	RenameAs *string `json:"renameAs,omitempty"`
+	// NotebookFolder undocumented
+	NotebookFolder *string `json:"notebookFolder,omitempty"`
+	// SiteCollectionID undocumented
+	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
+	// SiteID undocumented
+	SiteID *string `json:"siteId,omitempty"`
 }
 
 // PostReplyRequestParameter undocumented
@@ -17570,106 +17486,6 @@ type PostForwardRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 	// ToRecipients undocumented
 	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
-}
-
-// CallAnswerRequestParameter undocumented
-type CallAnswerRequestParameter struct {
-	// CallbackUri undocumented
-	CallbackUri *string `json:"callbackUri,omitempty"`
-	// MediaConfig undocumented
-	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
-	// AcceptedModalities undocumented
-	AcceptedModalities []Modality `json:"acceptedModalities,omitempty"`
-}
-
-// CallChangeScreenSharingRoleRequestParameter undocumented
-type CallChangeScreenSharingRoleRequestParameter struct {
-	// Role undocumented
-	Role *ScreenSharingRole `json:"role,omitempty"`
-}
-
-// CallMuteRequestParameter undocumented
-type CallMuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// CallPlayPromptRequestParameter undocumented
-type CallPlayPromptRequestParameter struct {
-	// Prompts undocumented
-	Prompts []Prompt `json:"prompts,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// CallRecordRequestParameter undocumented
-type CallRecordRequestParameter struct {
-	// Prompts undocumented
-	Prompts []Prompt `json:"prompts,omitempty"`
-	// BargeInAllowed undocumented
-	BargeInAllowed *bool `json:"bargeInAllowed,omitempty"`
-	// InitialSilenceTimeoutInSeconds undocumented
-	InitialSilenceTimeoutInSeconds *int `json:"initialSilenceTimeoutInSeconds,omitempty"`
-	// MaxSilenceTimeoutInSeconds undocumented
-	MaxSilenceTimeoutInSeconds *int `json:"maxSilenceTimeoutInSeconds,omitempty"`
-	// MaxRecordDurationInSeconds undocumented
-	MaxRecordDurationInSeconds *int `json:"maxRecordDurationInSeconds,omitempty"`
-	// PlayBeep undocumented
-	PlayBeep *bool `json:"playBeep,omitempty"`
-	// StopTones undocumented
-	StopTones []string `json:"stopTones,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// CallRedirectRequestParameter undocumented
-type CallRedirectRequestParameter struct {
-	// Targets undocumented
-	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
-	// Timeout undocumented
-	Timeout *int `json:"timeout,omitempty"`
-	// CallbackUri undocumented
-	CallbackUri *string `json:"callbackUri,omitempty"`
-}
-
-// CallRejectRequestParameter undocumented
-type CallRejectRequestParameter struct {
-	// Reason undocumented
-	Reason *RejectReason `json:"reason,omitempty"`
-	// CallbackUri undocumented
-	CallbackUri *string `json:"callbackUri,omitempty"`
-}
-
-// CallSubscribeToToneRequestParameter undocumented
-type CallSubscribeToToneRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// CallTransferRequestParameter undocumented
-type CallTransferRequestParameter struct {
-	// TransferTarget undocumented
-	TransferTarget *InvitationParticipantInfo `json:"transferTarget,omitempty"`
-}
-
-// CallUnmuteRequestParameter undocumented
-type CallUnmuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// WorkbookTableRowCollectionAddRequestParameter undocumented
-type WorkbookTableRowCollectionAddRequestParameter struct {
-	// Index undocumented
-	Index *int `json:"index,omitempty"`
-	// Values undocumented
-	Values json.RawMessage `json:"values,omitempty"`
-}
-
-// DeviceManagementExchangeConnectorSyncRequestParameter undocumented
-type DeviceManagementExchangeConnectorSyncRequestParameter struct {
-	// SyncType undocumented
-	SyncType *DeviceManagementExchangeConnectorSyncType `json:"syncType,omitempty"`
 }
 
 // ManagedDeviceRetireRequestParameter undocumented
@@ -17758,22 +17574,22 @@ type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
 	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
 }
 
-// RemoteAssistancePartnerBeginOnboardingRequestParameter undocumented
-type RemoteAssistancePartnerBeginOnboardingRequestParameter struct {
+// WorkbookApplicationCalculateRequestParameter undocumented
+type WorkbookApplicationCalculateRequestParameter struct {
+	// CalculationType undocumented
+	CalculationType *string `json:"calculationType,omitempty"`
 }
 
-// RemoteAssistancePartnerDisconnectRequestParameter undocumented
-type RemoteAssistancePartnerDisconnectRequestParameter struct {
+// WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
+type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
 }
 
-// NotebookCollectionGetNotebookFromWebUrlRequestParameter undocumented
-type NotebookCollectionGetNotebookFromWebUrlRequestParameter struct {
-	// WebUrl undocumented
-	WebUrl *string `json:"webUrl,omitempty"`
-}
-
-// WorkbookPivotTableRefreshRequestParameter undocumented
-type WorkbookPivotTableRefreshRequestParameter struct {
+// WorkbookTableRowCollectionAddRequestParameter undocumented
+type WorkbookTableRowCollectionAddRequestParameter struct {
+	// Index undocumented
+	Index *int `json:"index,omitempty"`
+	// Values undocumented
+	Values json.RawMessage `json:"values,omitempty"`
 }
 
 // WorkbookTableSortApplyRequestParameter undocumented
@@ -17794,42 +17610,192 @@ type WorkbookTableSortClearRequestParameter struct {
 type WorkbookTableSortReapplyRequestParameter struct {
 }
 
-// DeviceCompliancePolicyAssignRequestParameter undocumented
-type DeviceCompliancePolicyAssignRequestParameter struct {
+// WorkbookChartCollectionAddRequestParameter undocumented
+type WorkbookChartCollectionAddRequestParameter struct {
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// SourceData undocumented
+	SourceData json.RawMessage `json:"sourceData,omitempty"`
+	// SeriesBy undocumented
+	SeriesBy *string `json:"seriesBy,omitempty"`
+}
+
+// WorkbookFilterApplyRequestParameter undocumented
+type WorkbookFilterApplyRequestParameter struct {
+	// Criteria undocumented
+	Criteria *WorkbookFilterCriteria `json:"criteria,omitempty"`
+}
+
+// WorkbookFilterApplyBottomItemsFilterRequestParameter undocumented
+type WorkbookFilterApplyBottomItemsFilterRequestParameter struct {
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+}
+
+// WorkbookFilterApplyBottomPercentFilterRequestParameter undocumented
+type WorkbookFilterApplyBottomPercentFilterRequestParameter struct {
+	// Percent undocumented
+	Percent *int `json:"percent,omitempty"`
+}
+
+// WorkbookFilterApplyCellColorFilterRequestParameter undocumented
+type WorkbookFilterApplyCellColorFilterRequestParameter struct {
+	// Color undocumented
+	Color *string `json:"color,omitempty"`
+}
+
+// WorkbookFilterApplyCustomFilterRequestParameter undocumented
+type WorkbookFilterApplyCustomFilterRequestParameter struct {
+	// Criteria1 undocumented
+	Criteria1 *string `json:"criteria1,omitempty"`
+	// Criteria2 undocumented
+	Criteria2 *string `json:"criteria2,omitempty"`
+	// Oper undocumented
+	Oper *string `json:"oper,omitempty"`
+}
+
+// WorkbookFilterApplyDynamicFilterRequestParameter undocumented
+type WorkbookFilterApplyDynamicFilterRequestParameter struct {
+	// Criteria undocumented
+	Criteria *string `json:"criteria,omitempty"`
+}
+
+// WorkbookFilterApplyFontColorFilterRequestParameter undocumented
+type WorkbookFilterApplyFontColorFilterRequestParameter struct {
+	// Color undocumented
+	Color *string `json:"color,omitempty"`
+}
+
+// WorkbookFilterApplyIconFilterRequestParameter undocumented
+type WorkbookFilterApplyIconFilterRequestParameter struct {
+	// Icon undocumented
+	Icon *WorkbookIcon `json:"icon,omitempty"`
+}
+
+// WorkbookFilterApplyTopItemsFilterRequestParameter undocumented
+type WorkbookFilterApplyTopItemsFilterRequestParameter struct {
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+}
+
+// WorkbookFilterApplyTopPercentFilterRequestParameter undocumented
+type WorkbookFilterApplyTopPercentFilterRequestParameter struct {
+	// Percent undocumented
+	Percent *int `json:"percent,omitempty"`
+}
+
+// WorkbookFilterApplyValuesFilterRequestParameter undocumented
+type WorkbookFilterApplyValuesFilterRequestParameter struct {
+	// Values undocumented
+	Values json.RawMessage `json:"values,omitempty"`
+}
+
+// WorkbookFilterClearRequestParameter undocumented
+type WorkbookFilterClearRequestParameter struct {
+}
+
+// MobileAppContentFileCommitRequestParameter undocumented
+type MobileAppContentFileCommitRequestParameter struct {
+	// FileEncryptionInfo undocumented
+	FileEncryptionInfo *FileEncryptionInfo `json:"fileEncryptionInfo,omitempty"`
+}
+
+// MobileAppContentFileRenewUploadRequestParameter undocumented
+type MobileAppContentFileRenewUploadRequestParameter struct {
+}
+
+// MailFolderCopyRequestParameter undocumented
+type MailFolderCopyRequestParameter struct {
+	// DestinationID undocumented
+	DestinationID *string `json:"DestinationId,omitempty"`
+}
+
+// MailFolderMoveRequestParameter undocumented
+type MailFolderMoveRequestParameter struct {
+	// DestinationID undocumented
+	DestinationID *string `json:"DestinationId,omitempty"`
+}
+
+// DriveItemCheckinRequestParameter undocumented
+type DriveItemCheckinRequestParameter struct {
+	// CheckInAs undocumented
+	CheckInAs *string `json:"checkInAs,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"comment,omitempty"`
+}
+
+// DriveItemCheckoutRequestParameter undocumented
+type DriveItemCheckoutRequestParameter struct {
+}
+
+// DriveItemCopyRequestParameter undocumented
+type DriveItemCopyRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// ParentReference undocumented
+	ParentReference *ItemReference `json:"parentReference,omitempty"`
+}
+
+// DriveItemCreateLinkRequestParameter undocumented
+type DriveItemCreateLinkRequestParameter struct {
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// Scope undocumented
+	Scope *string `json:"scope,omitempty"`
+}
+
+// DriveItemCreateUploadSessionRequestParameter undocumented
+type DriveItemCreateUploadSessionRequestParameter struct {
+	// Item undocumented
+	Item *DriveItemUploadableProperties `json:"item,omitempty"`
+}
+
+// DriveItemInviteRequestParameter undocumented
+type DriveItemInviteRequestParameter struct {
+	// RequireSignIn undocumented
+	RequireSignIn *bool `json:"requireSignIn,omitempty"`
+	// Roles undocumented
+	Roles []string `json:"roles,omitempty"`
+	// SendInvitation undocumented
+	SendInvitation *bool `json:"sendInvitation,omitempty"`
+	// Message undocumented
+	Message *string `json:"message,omitempty"`
+	// Recipients undocumented
+	Recipients []DriveRecipient `json:"recipients,omitempty"`
+}
+
+// DriveItemPreviewRequestParameter undocumented
+type DriveItemPreviewRequestParameter struct {
+	// Page undocumented
+	Page *string `json:"page,omitempty"`
+	// Zoom undocumented
+	Zoom *float64 `json:"zoom,omitempty"`
+}
+
+// ListItemVersionRestoreVersionRequestParameter undocumented
+type ListItemVersionRestoreVersionRequestParameter struct {
+}
+
+// WorkbookChartSetDataRequestParameter undocumented
+type WorkbookChartSetDataRequestParameter struct {
+	// SourceData undocumented
+	SourceData json.RawMessage `json:"sourceData,omitempty"`
+	// SeriesBy undocumented
+	SeriesBy *string `json:"seriesBy,omitempty"`
+}
+
+// WorkbookChartSetPositionRequestParameter undocumented
+type WorkbookChartSetPositionRequestParameter struct {
+	// StartCell undocumented
+	StartCell json.RawMessage `json:"startCell,omitempty"`
+	// EndCell undocumented
+	EndCell json.RawMessage `json:"endCell,omitempty"`
+}
+
+// ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
+type ManagedDeviceMobileAppConfigurationAssignRequestParameter struct {
 	// Assignments undocumented
-	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
-}
-
-// DeviceCompliancePolicyScheduleActionsForRulesRequestParameter undocumented
-type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
-	// DeviceComplianceScheduledActionForRules undocumented
-	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
-}
-
-// TargetedManagedAppConfigurationAssignRequestParameter undocumented
-type TargetedManagedAppConfigurationAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
-}
-
-// TargetedManagedAppConfigurationTargetAppsRequestParameter undocumented
-type TargetedManagedAppConfigurationTargetAppsRequestParameter struct {
-	// Apps undocumented
-	Apps []ManagedMobileApp `json:"apps,omitempty"`
-}
-
-// WorkbookRangeSortApplyRequestParameter undocumented
-type WorkbookRangeSortApplyRequestParameter struct {
-	// Fields undocumented
-	Fields []WorkbookSortField `json:"fields,omitempty"`
-	// MatchCase undocumented
-	MatchCase *bool `json:"matchCase,omitempty"`
-	// HasHeaders undocumented
-	HasHeaders *bool `json:"hasHeaders,omitempty"`
-	// Orientation undocumented
-	Orientation *string `json:"orientation,omitempty"`
-	// Method undocumented
-	Method *string `json:"method,omitempty"`
+	Assignments []ManagedDeviceMobileAppConfigurationAssignment `json:"assignments,omitempty"`
 }
 
 // WorkbookTableCollectionAddRequestParameter undocumented
@@ -17840,68 +17806,164 @@ type WorkbookTableCollectionAddRequestParameter struct {
 	HasHeaders *bool `json:"hasHeaders,omitempty"`
 }
 
-// OnenoteSectionCopyToNotebookRequestParameter undocumented
-type OnenoteSectionCopyToNotebookRequestParameter struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
-	// GroupId undocumented
-	GroupId *string `json:"groupId,omitempty"`
-	// RenameAs undocumented
-	RenameAs *string `json:"renameAs,omitempty"`
-	// SiteCollectionId undocumented
-	SiteCollectionId *string `json:"siteCollectionId,omitempty"`
-	// SiteId undocumented
-	SiteId *string `json:"siteId,omitempty"`
+// EventDismissReminderRequestParameter undocumented
+type EventDismissReminderRequestParameter struct {
 }
 
-// OnenoteSectionCopyToSectionGroupRequestParameter undocumented
-type OnenoteSectionCopyToSectionGroupRequestParameter struct {
-	// Id undocumented
-	Id *string `json:"id,omitempty"`
-	// GroupId undocumented
-	GroupId *string `json:"groupId,omitempty"`
-	// RenameAs undocumented
-	RenameAs *string `json:"renameAs,omitempty"`
-	// SiteCollectionId undocumented
-	SiteCollectionId *string `json:"siteCollectionId,omitempty"`
-	// SiteId undocumented
-	SiteId *string `json:"siteId,omitempty"`
+// EventSnoozeReminderRequestParameter undocumented
+type EventSnoozeReminderRequestParameter struct {
+	// NewReminderTime undocumented
+	NewReminderTime *DateTimeTimeZone `json:"NewReminderTime,omitempty"`
 }
 
-// TeamCloneRequestParameter undocumented
-type TeamCloneRequestParameter struct {
+// EventAcceptRequestParameter undocumented
+type EventAcceptRequestParameter struct {
+	// SendResponse undocumented
+	SendResponse *bool `json:"SendResponse,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// EventDeclineRequestParameter undocumented
+type EventDeclineRequestParameter struct {
+	// SendResponse undocumented
+	SendResponse *bool `json:"SendResponse,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// EventTentativelyAcceptRequestParameter undocumented
+type EventTentativelyAcceptRequestParameter struct {
+	// SendResponse undocumented
+	SendResponse *bool `json:"SendResponse,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// ConversationThreadReplyRequestParameter undocumented
+type ConversationThreadReplyRequestParameter struct {
+	// Post undocumented
+	Post *Post `json:"Post,omitempty"`
+}
+
+// NotificationMessageTemplateSendTestMessageRequestParameter undocumented
+type NotificationMessageTemplateSendTestMessageRequestParameter struct {
+}
+
+// DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter undocumented
+type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter struct {
+}
+
+// WindowsInformationProtectionAssignRequestParameter undocumented
+type WindowsInformationProtectionAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+}
+
+// CallAnswerRequestParameter undocumented
+type CallAnswerRequestParameter struct {
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+	// MediaConfig undocumented
+	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
+	// AcceptedModalities undocumented
+	AcceptedModalities []Modality `json:"acceptedModalities,omitempty"`
+}
+
+// CallChangeScreenSharingRoleRequestParameter undocumented
+type CallChangeScreenSharingRoleRequestParameter struct {
+	// Role undocumented
+	Role *ScreenSharingRole `json:"role,omitempty"`
+}
+
+// CallMuteRequestParameter undocumented
+type CallMuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallPlayPromptRequestParameter undocumented
+type CallPlayPromptRequestParameter struct {
+	// Prompts undocumented
+	Prompts []Prompt `json:"prompts,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallRecordRequestParameter undocumented
+type CallRecordRequestParameter struct {
+	// Prompts undocumented
+	Prompts []Prompt `json:"prompts,omitempty"`
+	// BargeInAllowed undocumented
+	BargeInAllowed *bool `json:"bargeInAllowed,omitempty"`
+	// InitialSilenceTimeoutInSeconds undocumented
+	InitialSilenceTimeoutInSeconds *int `json:"initialSilenceTimeoutInSeconds,omitempty"`
+	// MaxSilenceTimeoutInSeconds undocumented
+	MaxSilenceTimeoutInSeconds *int `json:"maxSilenceTimeoutInSeconds,omitempty"`
+	// MaxRecordDurationInSeconds undocumented
+	MaxRecordDurationInSeconds *int `json:"maxRecordDurationInSeconds,omitempty"`
+	// PlayBeep undocumented
+	PlayBeep *bool `json:"playBeep,omitempty"`
+	// StopTones undocumented
+	StopTones []string `json:"stopTones,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallRedirectRequestParameter undocumented
+type CallRedirectRequestParameter struct {
+	// Targets undocumented
+	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
+	// Timeout undocumented
+	Timeout *int `json:"timeout,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+}
+
+// CallRejectRequestParameter undocumented
+type CallRejectRequestParameter struct {
+	// Reason undocumented
+	Reason *RejectReason `json:"reason,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+}
+
+// CallSubscribeToToneRequestParameter undocumented
+type CallSubscribeToToneRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallTransferRequestParameter undocumented
+type CallTransferRequestParameter struct {
+	// TransferTarget undocumented
+	TransferTarget *InvitationParticipantInfo `json:"transferTarget,omitempty"`
+}
+
+// CallUnmuteRequestParameter undocumented
+type CallUnmuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// DirectoryObjectCollectionGetByIdsRequestParameter undocumented
+type DirectoryObjectCollectionGetByIdsRequestParameter struct {
+	// Ids undocumented
+	Ids []string `json:"ids,omitempty"`
+	// Types undocumented
+	Types []string `json:"types,omitempty"`
+}
+
+// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
+type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
+	// EntityType undocumented
+	EntityType *string `json:"entityType,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
 	// MailNickname undocumented
 	MailNickname *string `json:"mailNickname,omitempty"`
-	// Classification undocumented
-	Classification *string `json:"classification,omitempty"`
-	// Visibility undocumented
-	Visibility *TeamVisibilityType `json:"visibility,omitempty"`
-	// PartsToClone undocumented
-	PartsToClone *ClonableTeamParts `json:"partsToClone,omitempty"`
-}
-
-// TeamArchiveRequestParameter undocumented
-type TeamArchiveRequestParameter struct {
-	// ShouldSetSpoSiteReadOnlyForMembers undocumented
-	ShouldSetSpoSiteReadOnlyForMembers *bool `json:"shouldSetSpoSiteReadOnlyForMembers,omitempty"`
-}
-
-// TeamUnarchiveRequestParameter undocumented
-type TeamUnarchiveRequestParameter struct {
-}
-
-// DomainForceDeleteRequestParameter undocumented
-type DomainForceDeleteRequestParameter struct {
-	// DisableUserAccounts undocumented
-	DisableUserAccounts *bool `json:"disableUserAccounts,omitempty"`
-}
-
-// DomainVerifyRequestParameter undocumented
-type DomainVerifyRequestParameter struct {
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
 }
 
 // UserAssignLicenseRequestParameter undocumented
@@ -17964,10 +18026,10 @@ type UserGetMailTipsRequestParameter struct {
 type UserTranslateExchangeIdsRequestParameter struct {
 	// InputIds undocumented
 	InputIds []string `json:"InputIds,omitempty"`
-	// TargetIdType undocumented
-	TargetIdType *ExchangeIdFormat `json:"TargetIdType,omitempty"`
-	// SourceIdType undocumented
-	SourceIdType *ExchangeIdFormat `json:"SourceIdType,omitempty"`
+	// TargetIDType undocumented
+	TargetIDType *ExchangeIDFormat `json:"TargetIdType,omitempty"`
+	// SourceIDType undocumented
+	SourceIDType *ExchangeIDFormat `json:"SourceIdType,omitempty"`
 }
 
 // UserRemoveAllDevicesFromManagementRequestParameter undocumented
@@ -17986,100 +18048,38 @@ type UserExportPersonalDataRequestParameter struct {
 	StorageLocation *string `json:"storageLocation,omitempty"`
 }
 
-// EventDismissReminderRequestParameter undocumented
-type EventDismissReminderRequestParameter struct {
+// WorkbookCreateSessionRequestParameter undocumented
+type WorkbookCreateSessionRequestParameter struct {
+	// PersistChanges undocumented
+	PersistChanges *bool `json:"persistChanges,omitempty"`
 }
 
-// EventSnoozeReminderRequestParameter undocumented
-type EventSnoozeReminderRequestParameter struct {
-	// NewReminderTime undocumented
-	NewReminderTime *DateTimeTimeZone `json:"NewReminderTime,omitempty"`
+// WorkbookCloseSessionRequestParameter undocumented
+type WorkbookCloseSessionRequestParameter struct {
 }
 
-// EventAcceptRequestParameter undocumented
-type EventAcceptRequestParameter struct {
-	// SendResponse undocumented
-	SendResponse *bool `json:"SendResponse,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
+// WorkbookRefreshSessionRequestParameter undocumented
+type WorkbookRefreshSessionRequestParameter struct {
 }
 
-// EventDeclineRequestParameter undocumented
-type EventDeclineRequestParameter struct {
-	// SendResponse undocumented
-	SendResponse *bool `json:"SendResponse,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// EventTentativelyAcceptRequestParameter undocumented
-type EventTentativelyAcceptRequestParameter struct {
-	// SendResponse undocumented
-	SendResponse *bool `json:"SendResponse,omitempty"`
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// DriveItemCheckinRequestParameter undocumented
-type DriveItemCheckinRequestParameter struct {
-	// CheckInAs undocumented
-	CheckInAs *string `json:"checkInAs,omitempty"`
+// WorkbookNamedItemCollectionAddRequestParameter undocumented
+type WorkbookNamedItemCollectionAddRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Reference undocumented
+	Reference json.RawMessage `json:"reference,omitempty"`
 	// Comment undocumented
 	Comment *string `json:"comment,omitempty"`
 }
 
-// DriveItemCheckoutRequestParameter undocumented
-type DriveItemCheckoutRequestParameter struct {
-}
-
-// DriveItemCopyRequestParameter undocumented
-type DriveItemCopyRequestParameter struct {
+// WorkbookNamedItemCollectionAddFormulaLocalRequestParameter undocumented
+type WorkbookNamedItemCollectionAddFormulaLocalRequestParameter struct {
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// ParentReference undocumented
-	ParentReference *ItemReference `json:"parentReference,omitempty"`
-}
-
-// DriveItemCreateLinkRequestParameter undocumented
-type DriveItemCreateLinkRequestParameter struct {
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// Scope undocumented
-	Scope *string `json:"scope,omitempty"`
-}
-
-// DriveItemCreateUploadSessionRequestParameter undocumented
-type DriveItemCreateUploadSessionRequestParameter struct {
-	// Item undocumented
-	Item *DriveItemUploadableProperties `json:"item,omitempty"`
-}
-
-// DriveItemInviteRequestParameter undocumented
-type DriveItemInviteRequestParameter struct {
-	// RequireSignIn undocumented
-	RequireSignIn *bool `json:"requireSignIn,omitempty"`
-	// Roles undocumented
-	Roles []string `json:"roles,omitempty"`
-	// SendInvitation undocumented
-	SendInvitation *bool `json:"sendInvitation,omitempty"`
-	// Message undocumented
-	Message *string `json:"message,omitempty"`
-	// Recipients undocumented
-	Recipients []DriveRecipient `json:"recipients,omitempty"`
-}
-
-// DriveItemPreviewRequestParameter undocumented
-type DriveItemPreviewRequestParameter struct {
-	// Page undocumented
-	Page *string `json:"page,omitempty"`
-	// Zoom undocumented
-	Zoom *float64 `json:"zoom,omitempty"`
-}
-
-// TargetedManagedAppProtectionAssignRequestParameter undocumented
-type TargetedManagedAppProtectionAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+	// Formula undocumented
+	Formula *string `json:"formula,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"comment,omitempty"`
 }
 
 // ActivityHistoryItemRequestBuilder is request builder for ActivityHistoryItem
@@ -20438,27 +20438,27 @@ func (r *DomainRequest) Delete() error {
 	return r.JSONRequestWithPath("DELETE", "", nil, nil)
 }
 
-// DomainDnsRecordRequestBuilder is request builder for DomainDnsRecord
-type DomainDnsRecordRequestBuilder struct{ BaseRequestBuilder }
+// DomainDNSRecordRequestBuilder is request builder for DomainDNSRecord
+type DomainDNSRecordRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns DomainDnsRecordRequest
-func (b *DomainDnsRecordRequestBuilder) Request() *DomainDnsRecordRequest {
-	return &DomainDnsRecordRequest{
+// Request returns DomainDNSRecordRequest
+func (b *DomainDNSRecordRequestBuilder) Request() *DomainDNSRecordRequest {
+	return &DomainDNSRecordRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// DomainDnsRecordRequest is request for DomainDnsRecord
-type DomainDnsRecordRequest struct{ BaseRequest }
+// DomainDNSRecordRequest is request for DomainDNSRecord
+type DomainDNSRecordRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DomainDnsRecord
-func (r *DomainDnsRecordRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDnsRecord, err error) {
+// Do performs HTTP request for DomainDNSRecord
+func (r *DomainDNSRecordRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
-// Get performs GET request for DomainDnsRecord
-func (r *DomainDnsRecordRequest) Get() (*DomainDnsRecord, error) {
+// Get performs GET request for DomainDNSRecord
+func (r *DomainDNSRecordRequest) Get() (*DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -20466,13 +20466,13 @@ func (r *DomainDnsRecordRequest) Get() (*DomainDnsRecord, error) {
 	return r.Do("GET", query, nil)
 }
 
-// Update performs PATCH request for DomainDnsRecord
-func (r *DomainDnsRecordRequest) Update(reqObj *DomainDnsRecord) (*DomainDnsRecord, error) {
+// Update performs PATCH request for DomainDNSRecord
+func (r *DomainDNSRecordRequest) Update(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
 	return r.Do("PATCH", "", reqObj)
 }
 
-// Delete performs DELETE request for DomainDnsRecord
-func (r *DomainDnsRecordRequest) Delete() error {
+// Delete performs DELETE request for DomainDNSRecord
+func (r *DomainDNSRecordRequest) Delete() error {
 	return r.JSONRequestWithPath("DELETE", "", nil, nil)
 }
 
@@ -28039,41 +28039,41 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Add(reqObj *DirectoryRole)
 	return r.Do("POST", "", reqObj)
 }
 
-// DomainDnsRecords returns request builder for DomainDnsRecord collection
-func (b *GraphServiceRequestBuilder) DomainDnsRecords() *GraphServiceDomainDnsRecordsCollectionRequestBuilder {
-	bb := &GraphServiceDomainDnsRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// DomainDNSRecords returns request builder for DomainDNSRecord collection
+func (b *GraphServiceRequestBuilder) DomainDNSRecords() *GraphServiceDomainDNSRecordsCollectionRequestBuilder {
+	bb := &GraphServiceDomainDNSRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/domainDnsRecords"
 	return bb
 }
 
-// GraphServiceDomainDnsRecordsCollectionRequestBuilder is request builder for DomainDnsRecord collection
-type GraphServiceDomainDnsRecordsCollectionRequestBuilder struct{ BaseRequestBuilder }
+// GraphServiceDomainDNSRecordsCollectionRequestBuilder is request builder for DomainDNSRecord collection
+type GraphServiceDomainDNSRecordsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for DomainDnsRecord collection
-func (b *GraphServiceDomainDnsRecordsCollectionRequestBuilder) Request() *GraphServiceDomainDnsRecordsCollectionRequest {
-	return &GraphServiceDomainDnsRecordsCollectionRequest{
+// Request returns request for DomainDNSRecord collection
+func (b *GraphServiceDomainDNSRecordsCollectionRequestBuilder) Request() *GraphServiceDomainDNSRecordsCollectionRequest {
+	return &GraphServiceDomainDNSRecordsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for DomainDnsRecord item
-func (b *GraphServiceDomainDnsRecordsCollectionRequestBuilder) ID(id string) *DomainDnsRecordRequestBuilder {
-	bb := &DomainDnsRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for DomainDNSRecord item
+func (b *GraphServiceDomainDNSRecordsCollectionRequestBuilder) ID(id string) *DomainDNSRecordRequestBuilder {
+	bb := &DomainDNSRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// GraphServiceDomainDnsRecordsCollectionRequest is request for DomainDnsRecord collection
-type GraphServiceDomainDnsRecordsCollectionRequest struct{ BaseRequest }
+// GraphServiceDomainDNSRecordsCollectionRequest is request for DomainDNSRecord collection
+type GraphServiceDomainDNSRecordsCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DomainDnsRecord collection
-func (r *GraphServiceDomainDnsRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDnsRecord, err error) {
+// Do performs HTTP request for DomainDNSRecord collection
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
-// Paging perfoms paging operation for DomainDnsRecord collection
-func (r *GraphServiceDomainDnsRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDnsRecord, error) {
+// Paging perfoms paging operation for DomainDNSRecord collection
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -28082,7 +28082,7 @@ func (r *GraphServiceDomainDnsRecordsCollectionRequest) Paging(method, path stri
 	if err != nil {
 		return nil, err
 	}
-	var values []DomainDnsRecord
+	var values []DomainDNSRecord
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -28091,7 +28091,7 @@ func (r *GraphServiceDomainDnsRecordsCollectionRequest) Paging(method, path stri
 		}
 		var (
 			paging Paging
-			value  []DomainDnsRecord
+			value  []DomainDNSRecord
 		)
 		err := json.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -28112,8 +28112,8 @@ func (r *GraphServiceDomainDnsRecordsCollectionRequest) Paging(method, path stri
 	}
 }
 
-// Get performs GET request for DomainDnsRecord collection
-func (r *GraphServiceDomainDnsRecordsCollectionRequest) Get() ([]DomainDnsRecord, error) {
+// Get performs GET request for DomainDNSRecord collection
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Get() ([]DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -28121,8 +28121,8 @@ func (r *GraphServiceDomainDnsRecordsCollectionRequest) Get() ([]DomainDnsRecord
 	return r.Paging("GET", query, nil)
 }
 
-// Add performs POST request for DomainDnsRecord collection
-func (r *GraphServiceDomainDnsRecordsCollectionRequest) Add(reqObj *DomainDnsRecord) (*DomainDnsRecord, error) {
+// Add performs POST request for DomainDNSRecord collection
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
 	return r.Do("POST", "", reqObj)
 }
 
@@ -36935,41 +36935,41 @@ func (r *DomainDomainNameReferencesCollectionRequest) Add(reqObj *DirectoryObjec
 	return r.Do("POST", "", reqObj)
 }
 
-// ServiceConfigurationRecords returns request builder for DomainDnsRecord collection
+// ServiceConfigurationRecords returns request builder for DomainDNSRecord collection
 func (b *DomainRequestBuilder) ServiceConfigurationRecords() *DomainServiceConfigurationRecordsCollectionRequestBuilder {
 	bb := &DomainServiceConfigurationRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/serviceConfigurationRecords"
 	return bb
 }
 
-// DomainServiceConfigurationRecordsCollectionRequestBuilder is request builder for DomainDnsRecord collection
+// DomainServiceConfigurationRecordsCollectionRequestBuilder is request builder for DomainDNSRecord collection
 type DomainServiceConfigurationRecordsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for DomainDnsRecord collection
+// Request returns request for DomainDNSRecord collection
 func (b *DomainServiceConfigurationRecordsCollectionRequestBuilder) Request() *DomainServiceConfigurationRecordsCollectionRequest {
 	return &DomainServiceConfigurationRecordsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for DomainDnsRecord item
-func (b *DomainServiceConfigurationRecordsCollectionRequestBuilder) ID(id string) *DomainDnsRecordRequestBuilder {
-	bb := &DomainDnsRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for DomainDNSRecord item
+func (b *DomainServiceConfigurationRecordsCollectionRequestBuilder) ID(id string) *DomainDNSRecordRequestBuilder {
+	bb := &DomainDNSRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// DomainServiceConfigurationRecordsCollectionRequest is request for DomainDnsRecord collection
+// DomainServiceConfigurationRecordsCollectionRequest is request for DomainDNSRecord collection
 type DomainServiceConfigurationRecordsCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DomainDnsRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDnsRecord, err error) {
+// Do performs HTTP request for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
-// Paging perfoms paging operation for DomainDnsRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDnsRecord, error) {
+// Paging perfoms paging operation for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -36978,7 +36978,7 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path
 	if err != nil {
 		return nil, err
 	}
-	var values []DomainDnsRecord
+	var values []DomainDNSRecord
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -36987,7 +36987,7 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path
 		}
 		var (
 			paging Paging
-			value  []DomainDnsRecord
+			value  []DomainDNSRecord
 		)
 		err := json.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -37008,8 +37008,8 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path
 	}
 }
 
-// Get performs GET request for DomainDnsRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Get() ([]DomainDnsRecord, error) {
+// Get performs GET request for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Get() ([]DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -37017,46 +37017,46 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Get() ([]DomainDnsR
 	return r.Paging("GET", query, nil)
 }
 
-// Add performs POST request for DomainDnsRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Add(reqObj *DomainDnsRecord) (*DomainDnsRecord, error) {
+// Add performs POST request for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
 	return r.Do("POST", "", reqObj)
 }
 
-// VerificationDnsRecords returns request builder for DomainDnsRecord collection
-func (b *DomainRequestBuilder) VerificationDnsRecords() *DomainVerificationDnsRecordsCollectionRequestBuilder {
-	bb := &DomainVerificationDnsRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// VerificationDNSRecords returns request builder for DomainDNSRecord collection
+func (b *DomainRequestBuilder) VerificationDNSRecords() *DomainVerificationDNSRecordsCollectionRequestBuilder {
+	bb := &DomainVerificationDNSRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/verificationDnsRecords"
 	return bb
 }
 
-// DomainVerificationDnsRecordsCollectionRequestBuilder is request builder for DomainDnsRecord collection
-type DomainVerificationDnsRecordsCollectionRequestBuilder struct{ BaseRequestBuilder }
+// DomainVerificationDNSRecordsCollectionRequestBuilder is request builder for DomainDNSRecord collection
+type DomainVerificationDNSRecordsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for DomainDnsRecord collection
-func (b *DomainVerificationDnsRecordsCollectionRequestBuilder) Request() *DomainVerificationDnsRecordsCollectionRequest {
-	return &DomainVerificationDnsRecordsCollectionRequest{
+// Request returns request for DomainDNSRecord collection
+func (b *DomainVerificationDNSRecordsCollectionRequestBuilder) Request() *DomainVerificationDNSRecordsCollectionRequest {
+	return &DomainVerificationDNSRecordsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for DomainDnsRecord item
-func (b *DomainVerificationDnsRecordsCollectionRequestBuilder) ID(id string) *DomainDnsRecordRequestBuilder {
-	bb := &DomainDnsRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for DomainDNSRecord item
+func (b *DomainVerificationDNSRecordsCollectionRequestBuilder) ID(id string) *DomainDNSRecordRequestBuilder {
+	bb := &DomainDNSRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// DomainVerificationDnsRecordsCollectionRequest is request for DomainDnsRecord collection
-type DomainVerificationDnsRecordsCollectionRequest struct{ BaseRequest }
+// DomainVerificationDNSRecordsCollectionRequest is request for DomainDNSRecord collection
+type DomainVerificationDNSRecordsCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DomainDnsRecord collection
-func (r *DomainVerificationDnsRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDnsRecord, err error) {
+// Do performs HTTP request for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
-// Paging perfoms paging operation for DomainDnsRecord collection
-func (r *DomainVerificationDnsRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDnsRecord, error) {
+// Paging perfoms paging operation for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -37065,7 +37065,7 @@ func (r *DomainVerificationDnsRecordsCollectionRequest) Paging(method, path stri
 	if err != nil {
 		return nil, err
 	}
-	var values []DomainDnsRecord
+	var values []DomainDNSRecord
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -37074,7 +37074,7 @@ func (r *DomainVerificationDnsRecordsCollectionRequest) Paging(method, path stri
 		}
 		var (
 			paging Paging
-			value  []DomainDnsRecord
+			value  []DomainDNSRecord
 		)
 		err := json.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -37095,8 +37095,8 @@ func (r *DomainVerificationDnsRecordsCollectionRequest) Paging(method, path stri
 	}
 }
 
-// Get performs GET request for DomainDnsRecord collection
-func (r *DomainVerificationDnsRecordsCollectionRequest) Get() ([]DomainDnsRecord, error) {
+// Get performs GET request for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) Get() ([]DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -37104,8 +37104,8 @@ func (r *DomainVerificationDnsRecordsCollectionRequest) Get() ([]DomainDnsRecord
 	return r.Paging("GET", query, nil)
 }
 
-// Add performs POST request for DomainDnsRecord collection
-func (r *DomainVerificationDnsRecordsCollectionRequest) Add(reqObj *DomainDnsRecord) (*DomainDnsRecord, error) {
+// Add performs POST request for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
 	return r.Do("POST", "", reqObj)
 }
 
@@ -52746,1140 +52746,606 @@ func (r *WorkbookWorksheetTablesCollectionRequest) Add(reqObj *WorkbookTable) (*
 	return r.Do("POST", "", reqObj)
 }
 
-// Clear action undocumented
-func (b *WorkbookRangeRequestBuilder) Clear(reqObj *WorkbookRangeClearRequestParameter) *WorkbookRangeClearRequestBuilder {
-	bb := &WorkbookRangeClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest {
-	return &WorkbookRangeClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Delete action undocumented
-func (b *WorkbookRangeRequestBuilder) Delete(reqObj *WorkbookRangeDeleteRequestParameter) *WorkbookRangeDeleteRequestBuilder {
-	bb := &WorkbookRangeDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/delete"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeDeleteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteRequest {
-	return &WorkbookRangeDeleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeDeleteRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeDeleteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Insert action undocumented
-func (b *WorkbookRangeRequestBuilder) Insert(reqObj *WorkbookRangeInsertRequestParameter) *WorkbookRangeInsertRequestBuilder {
-	bb := &WorkbookRangeInsertRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/insert"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeInsertRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertRequest {
-	return &WorkbookRangeInsertRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeInsertRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeInsertRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookRangeInsertRequest) Post() (*WorkbookRange, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Merge action undocumented
-func (b *WorkbookRangeRequestBuilder) Merge(reqObj *WorkbookRangeMergeRequestParameter) *WorkbookRangeMergeRequestBuilder {
-	bb := &WorkbookRangeMergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/merge"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeMergeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest {
-	return &WorkbookRangeMergeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeMergeRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeMergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeMergeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unmerge action undocumented
-func (b *WorkbookRangeRequestBuilder) Unmerge(reqObj *WorkbookRangeUnmergeRequestParameter) *WorkbookRangeUnmergeRequestBuilder {
-	bb := &WorkbookRangeUnmergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unmerge"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeUnmergeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequest {
-	return &WorkbookRangeUnmergeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeUnmergeRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeUnmergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeUnmergeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AutofitColumns action undocumented
-func (b *WorkbookRangeFormatRequestBuilder) AutofitColumns(reqObj *WorkbookRangeFormatAutofitColumnsRequestParameter) *WorkbookRangeFormatAutofitColumnsRequestBuilder {
-	bb := &WorkbookRangeFormatAutofitColumnsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/autofitColumns"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeFormatAutofitColumnsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRangeFormatAutofitColumnsRequest {
-	return &WorkbookRangeFormatAutofitColumnsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeFormatAutofitColumnsRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeFormatAutofitColumnsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeFormatAutofitColumnsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AutofitRows action undocumented
-func (b *WorkbookRangeFormatRequestBuilder) AutofitRows(reqObj *WorkbookRangeFormatAutofitRowsRequestParameter) *WorkbookRangeFormatAutofitRowsRequestBuilder {
-	bb := &WorkbookRangeFormatAutofitRowsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/autofitRows"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeFormatAutofitRowsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeFormatAutofitRowsRequest {
-	return &WorkbookRangeFormatAutofitRowsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeFormatAutofitRowsRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeFormatAutofitRowsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeFormatAutofitRowsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
 // Add action undocumented
-func (b *WorkbookWorksheetsCollectionRequestBuilder) Add(reqObj *WorkbookWorksheetCollectionAddRequestParameter) *WorkbookWorksheetCollectionAddRequestBuilder {
-	bb := &WorkbookWorksheetCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookWorksheetCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksheetCollectionAddRequest {
-	return &WorkbookWorksheetCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookWorksheetCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookWorksheetCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheet, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookWorksheetCollectionAddRequest) Post() (*WorkbookWorksheet, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Apply action undocumented
-func (b *WorkbookFilterRequestBuilder) Apply(reqObj *WorkbookFilterApplyRequestParameter) *WorkbookFilterApplyRequestBuilder {
-	bb := &WorkbookFilterApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/apply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyRequest {
-	return &WorkbookFilterApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyBottomItemsFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyBottomItemsFilter(reqObj *WorkbookFilterApplyBottomItemsFilterRequestParameter) *WorkbookFilterApplyBottomItemsFilterRequestBuilder {
-	bb := &WorkbookFilterApplyBottomItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyBottomItemsFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyBottomItemsFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *WorkbookFilterApplyBottomItemsFilterRequest {
-	return &WorkbookFilterApplyBottomItemsFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyBottomItemsFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyBottomItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyBottomPercentFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyBottomPercentFilter(reqObj *WorkbookFilterApplyBottomPercentFilterRequestParameter) *WorkbookFilterApplyBottomPercentFilterRequestBuilder {
-	bb := &WorkbookFilterApplyBottomPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyBottomPercentFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyBottomPercentFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *WorkbookFilterApplyBottomPercentFilterRequest {
-	return &WorkbookFilterApplyBottomPercentFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyBottomPercentFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyBottomPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyCellColorFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyCellColorFilter(reqObj *WorkbookFilterApplyCellColorFilterRequestParameter) *WorkbookFilterApplyCellColorFilterRequestBuilder {
-	bb := &WorkbookFilterApplyCellColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyCellColorFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyCellColorFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFilterApplyCellColorFilterRequest {
-	return &WorkbookFilterApplyCellColorFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyCellColorFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyCellColorFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyCellColorFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyCustomFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyCustomFilter(reqObj *WorkbookFilterApplyCustomFilterRequestParameter) *WorkbookFilterApplyCustomFilterRequestBuilder {
-	bb := &WorkbookFilterApplyCustomFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyCustomFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyCustomFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilterApplyCustomFilterRequest {
-	return &WorkbookFilterApplyCustomFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyCustomFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyCustomFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyCustomFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyDynamicFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyDynamicFilter(reqObj *WorkbookFilterApplyDynamicFilterRequestParameter) *WorkbookFilterApplyDynamicFilterRequestBuilder {
-	bb := &WorkbookFilterApplyDynamicFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyDynamicFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyDynamicFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilterApplyDynamicFilterRequest {
-	return &WorkbookFilterApplyDynamicFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyDynamicFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyDynamicFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyDynamicFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyFontColorFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyFontColorFilter(reqObj *WorkbookFilterApplyFontColorFilterRequestParameter) *WorkbookFilterApplyFontColorFilterRequestBuilder {
-	bb := &WorkbookFilterApplyFontColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyFontColorFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyFontColorFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFilterApplyFontColorFilterRequest {
-	return &WorkbookFilterApplyFontColorFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyFontColorFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyFontColorFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyFontColorFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyIconFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyIconFilter(reqObj *WorkbookFilterApplyIconFilterRequestParameter) *WorkbookFilterApplyIconFilterRequestBuilder {
-	bb := &WorkbookFilterApplyIconFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyIconFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyIconFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterApplyIconFilterRequest {
-	return &WorkbookFilterApplyIconFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyIconFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyIconFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyIconFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyTopItemsFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyTopItemsFilter(reqObj *WorkbookFilterApplyTopItemsFilterRequestParameter) *WorkbookFilterApplyTopItemsFilterRequestBuilder {
-	bb := &WorkbookFilterApplyTopItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyTopItemsFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyTopItemsFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFilterApplyTopItemsFilterRequest {
-	return &WorkbookFilterApplyTopItemsFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyTopItemsFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyTopItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyTopItemsFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyTopPercentFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyTopPercentFilter(reqObj *WorkbookFilterApplyTopPercentFilterRequestParameter) *WorkbookFilterApplyTopPercentFilterRequestBuilder {
-	bb := &WorkbookFilterApplyTopPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyTopPercentFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyTopPercentFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookFilterApplyTopPercentFilterRequest {
-	return &WorkbookFilterApplyTopPercentFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyTopPercentFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyTopPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyTopPercentFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ApplyValuesFilter action undocumented
-func (b *WorkbookFilterRequestBuilder) ApplyValuesFilter(reqObj *WorkbookFilterApplyValuesFilterRequestParameter) *WorkbookFilterApplyValuesFilterRequestBuilder {
-	bb := &WorkbookFilterApplyValuesFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyValuesFilter"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterApplyValuesFilterRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilterApplyValuesFilterRequest {
-	return &WorkbookFilterApplyValuesFilterRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterApplyValuesFilterRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterApplyValuesFilterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterApplyValuesFilterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookFilterRequestBuilder) Clear(reqObj *WorkbookFilterClearRequestParameter) *WorkbookFilterClearRequestBuilder {
-	bb := &WorkbookFilterClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookFilterClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearRequest {
-	return &WorkbookFilterClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookFilterClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookFilterClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookFilterClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TargetApps action undocumented
-func (b *ManagedAppPolicyRequestBuilder) TargetApps(reqObj *ManagedAppPolicyTargetAppsRequestParameter) *ManagedAppPolicyTargetAppsRequestBuilder {
-	bb := &ManagedAppPolicyTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedAppPolicyTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTargetAppsRequest {
-	return &ManagedAppPolicyTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedAppPolicyTargetAppsRequest struct{ BaseRequest }
-
-//
-func (r *ManagedAppPolicyTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedAppPolicyTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Invite action undocumented
-func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
-	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/invite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
-	return &ParticipantCollectionInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ParticipantCollectionInviteRequest struct{ BaseRequest }
-
-//
-func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *WorkbookTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
+	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/add"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 // Add action undocumented
-func (b *WorkbookWorksheetNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *WorkbookWorksheetTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
+	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/add"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type WorkbookNamedItemCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookTableCollectionAddRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedItemCollectionAddRequest {
-	return &WorkbookNamedItemCollectionAddRequest{
+func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableCollectionAddRequest {
+	return &WorkbookTableCollectionAddRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type WorkbookNamedItemCollectionAddRequest struct{ BaseRequest }
+type WorkbookTableCollectionAddRequest struct{ BaseRequest }
 
 //
-func (r *WorkbookNamedItemCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
+func (r *WorkbookTableCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTable, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *WorkbookNamedItemCollectionAddRequest) Post() (*WorkbookNamedItem, error) {
+func (r *WorkbookTableCollectionAddRequest) Post() (*WorkbookTable, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// AddFormulaLocal action undocumented
-func (b *WorkbookNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// AddFormulaLocal action undocumented
-func (b *WorkbookWorksheetNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
-	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
+// DismissReminder action undocumented
+func (b *EventRequestBuilder) DismissReminder(reqObj *EventDismissReminderRequestParameter) *EventDismissReminderRequestBuilder {
+	bb := &EventDismissReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/dismissReminder"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder struct{ BaseRequestBuilder }
+type EventDismissReminderRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *WorkbookNamedItemCollectionAddFormulaLocalRequest {
-	return &WorkbookNamedItemCollectionAddFormulaLocalRequest{
+func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequest {
+	return &EventDismissReminderRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type WorkbookNamedItemCollectionAddFormulaLocalRequest struct{ BaseRequest }
+type EventDismissReminderRequest struct{ BaseRequest }
 
 //
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (*WorkbookNamedItem, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// GetSchedule action undocumented
-func (b *CalendarRequestBuilder) GetSchedule(reqObj *CalendarGetScheduleRequestParameter) *CalendarGetScheduleRequestBuilder {
-	bb := &CalendarGetScheduleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getSchedule"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CalendarGetScheduleRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleRequest {
-	return &CalendarGetScheduleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CalendarGetScheduleRequest struct{ BaseRequest }
-
-//
-func (r *CalendarGetScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *[]ScheduleInformation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CalendarGetScheduleRequest) Paging(method, path string, obj interface{}) ([][]ScheduleInformation, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]ScheduleInformation
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]ScheduleInformation
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *CalendarGetScheduleRequest) Get() ([][]ScheduleInformation, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// Assign action undocumented
-func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
-	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
-	return &DeviceConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceConfigurationAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]DeviceConfigurationAssignment
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// Copy action undocumented
-func (b *MailFolderRequestBuilder) Copy(reqObj *MailFolderCopyRequestParameter) *MailFolderCopyRequestBuilder {
-	bb := &MailFolderCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copy"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MailFolderCopyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
-	return &MailFolderCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MailFolderCopyRequest struct{ BaseRequest }
-
-//
-func (r *MailFolderCopyRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MailFolderCopyRequest) Post() (*MailFolder, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Move action undocumented
-func (b *MailFolderRequestBuilder) Move(reqObj *MailFolderMoveRequestParameter) *MailFolderMoveRequestBuilder {
-	bb := &MailFolderMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/move"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MailFolderMoveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
-	return &MailFolderMoveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MailFolderMoveRequest struct{ BaseRequest }
-
-//
-func (r *MailFolderMoveRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MailFolderMoveRequest) Post() (*MailFolder, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookChartLineFormatRequestBuilder) Clear(reqObj *WorkbookChartLineFormatClearRequestParameter) *WorkbookChartLineFormatClearRequestBuilder {
-	bb := &WorkbookChartLineFormatClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartLineFormatClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLineFormatClearRequest {
-	return &WorkbookChartLineFormatClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartLineFormatClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartLineFormatClearRequest) Do(method, path string, reqObj interface{}) error {
+func (r *EventDismissReminderRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *WorkbookChartLineFormatClearRequest) Post() error {
+func (r *EventDismissReminderRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Clear action undocumented
-func (b *WorkbookRangeFillRequestBuilder) Clear(reqObj *WorkbookRangeFillClearRequestParameter) *WorkbookRangeFillClearRequestBuilder {
-	bb := &WorkbookRangeFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
+// SnoozeReminder action undocumented
+func (b *EventRequestBuilder) SnoozeReminder(reqObj *EventSnoozeReminderRequestParameter) *EventSnoozeReminderRequestBuilder {
+	bb := &EventSnoozeReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/snoozeReminder"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type WorkbookRangeFillClearRequestBuilder struct{ BaseRequestBuilder }
+type EventSnoozeReminderRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClearRequest {
-	return &WorkbookRangeFillClearRequest{
+func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderRequest {
+	return &EventSnoozeReminderRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type WorkbookRangeFillClearRequest struct{ BaseRequest }
+type EventSnoozeReminderRequest struct{ BaseRequest }
 
 //
-func (r *WorkbookRangeFillClearRequest) Do(method, path string, reqObj interface{}) error {
+func (r *EventSnoozeReminderRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *WorkbookRangeFillClearRequest) Post() error {
+func (r *EventSnoozeReminderRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Accept action undocumented
+func (b *EventRequestBuilder) Accept(reqObj *EventAcceptRequestParameter) *EventAcceptRequestBuilder {
+	bb := &EventAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/accept"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventAcceptRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
+	return &EventAcceptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventAcceptRequest struct{ BaseRequest }
+
+//
+func (r *EventAcceptRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventAcceptRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Decline action undocumented
+func (b *EventRequestBuilder) Decline(reqObj *EventDeclineRequestParameter) *EventDeclineRequestBuilder {
+	bb := &EventDeclineRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/decline"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventDeclineRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
+	return &EventDeclineRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventDeclineRequest struct{ BaseRequest }
+
+//
+func (r *EventDeclineRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventDeclineRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TentativelyAccept action undocumented
+func (b *EventRequestBuilder) TentativelyAccept(reqObj *EventTentativelyAcceptRequestParameter) *EventTentativelyAcceptRequestBuilder {
+	bb := &EventTentativelyAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/tentativelyAccept"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type EventTentativelyAcceptRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAcceptRequest {
+	return &EventTentativelyAcceptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type EventTentativelyAcceptRequest struct{ BaseRequest }
+
+//
+func (r *EventTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *EventTentativelyAcceptRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
 // Reply action undocumented
-func (b *PostRequestBuilder) Reply(reqObj *PostReplyRequestParameter) *PostReplyRequestBuilder {
-	bb := &PostReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *ConversationThreadRequestBuilder) Reply(reqObj *ConversationThreadReplyRequestParameter) *ConversationThreadReplyRequestBuilder {
+	bb := &ConversationThreadReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/reply"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type PostReplyRequestBuilder struct{ BaseRequestBuilder }
+type ConversationThreadReplyRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
-	return &PostReplyRequest{
+func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadReplyRequest {
+	return &ConversationThreadReplyRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type PostReplyRequest struct{ BaseRequest }
+type ConversationThreadReplyRequest struct{ BaseRequest }
 
 //
-func (r *PostReplyRequest) Do(method, path string, reqObj interface{}) error {
+func (r *ConversationThreadReplyRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *PostReplyRequest) Post() error {
+func (r *ConversationThreadReplyRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Forward action undocumented
-func (b *PostRequestBuilder) Forward(reqObj *PostForwardRequestParameter) *PostForwardRequestBuilder {
-	bb := &PostForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forward"
+// SendTestMessage action undocumented
+func (b *NotificationMessageTemplateRequestBuilder) SendTestMessage(reqObj *NotificationMessageTemplateSendTestMessageRequestParameter) *NotificationMessageTemplateSendTestMessageRequestBuilder {
+	bb := &NotificationMessageTemplateSendTestMessageRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sendTestMessage"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type PostForwardRequestBuilder struct{ BaseRequestBuilder }
+type NotificationMessageTemplateSendTestMessageRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
-	return &PostForwardRequest{
+func (b *NotificationMessageTemplateSendTestMessageRequestBuilder) Request() *NotificationMessageTemplateSendTestMessageRequest {
+	return &NotificationMessageTemplateSendTestMessageRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type PostForwardRequest struct{ BaseRequest }
+type NotificationMessageTemplateSendTestMessageRequest struct{ BaseRequest }
 
 //
-func (r *PostForwardRequest) Do(method, path string, reqObj interface{}) error {
+func (r *NotificationMessageTemplateSendTestMessageRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *PostForwardRequest) Post() error {
+func (r *NotificationMessageTemplateSendTestMessageRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// SetMobileDeviceManagementAuthority action undocumented
-func (b *OrganizationRequestBuilder) SetMobileDeviceManagementAuthority(reqObj *OrganizationSetMobileDeviceManagementAuthorityRequestParameter) *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder {
-	bb := &OrganizationSetMobileDeviceManagementAuthorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setMobileDeviceManagementAuthority"
+// Assign action undocumented
+func (b *WindowsInformationProtectionRequestBuilder) Assign(reqObj *WindowsInformationProtectionAssignRequestParameter) *WindowsInformationProtectionAssignRequestBuilder {
+	bb := &WindowsInformationProtectionAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type OrganizationSetMobileDeviceManagementAuthorityRequestBuilder struct{ BaseRequestBuilder }
+type WindowsInformationProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request() *OrganizationSetMobileDeviceManagementAuthorityRequest {
-	return &OrganizationSetMobileDeviceManagementAuthorityRequest{
+func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInformationProtectionAssignRequest {
+	return &WindowsInformationProtectionAssignRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type OrganizationSetMobileDeviceManagementAuthorityRequest struct{ BaseRequest }
+type WindowsInformationProtectionAssignRequest struct{ BaseRequest }
 
 //
-func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Do(method, path string, reqObj interface{}) (resObj *int, err error) {
+func (r *WindowsInformationProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WindowsInformationProtectionAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Answer action undocumented
+func (b *CallRequestBuilder) Answer(reqObj *CallAnswerRequestParameter) *CallAnswerRequestBuilder {
+	bb := &CallAnswerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/answer"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallAnswerRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
+	return &CallAnswerRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallAnswerRequest struct{ BaseRequest }
+
+//
+func (r *CallAnswerRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallAnswerRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ChangeScreenSharingRole action undocumented
+func (b *CallRequestBuilder) ChangeScreenSharingRole(reqObj *CallChangeScreenSharingRoleRequestParameter) *CallChangeScreenSharingRoleRequestBuilder {
+	bb := &CallChangeScreenSharingRoleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/changeScreenSharingRole"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallChangeScreenSharingRoleRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenSharingRoleRequest {
+	return &CallChangeScreenSharingRoleRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallChangeScreenSharingRoleRequest struct{ BaseRequest }
+
+//
+func (r *CallChangeScreenSharingRoleRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallChangeScreenSharingRoleRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Mute action undocumented
+func (b *CallRequestBuilder) Mute(reqObj *CallMuteRequestParameter) *CallMuteRequestBuilder {
+	bb := &CallMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/mute"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallMuteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
+	return &CallMuteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallMuteRequest struct{ BaseRequest }
+
+//
+func (r *CallMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post() (*int, error) {
+func (r *CallMuteRequest) Post() (*MuteParticipantOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// PlayPrompt action undocumented
+func (b *CallRequestBuilder) PlayPrompt(reqObj *CallPlayPromptRequestParameter) *CallPlayPromptRequestBuilder {
+	bb := &CallPlayPromptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/playPrompt"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallPlayPromptRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
+	return &CallPlayPromptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallPlayPromptRequest struct{ BaseRequest }
+
+//
+func (r *CallPlayPromptRequest) Do(method, path string, reqObj interface{}) (resObj *PlayPromptOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallPlayPromptRequest) Post() (*PlayPromptOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Record action undocumented
+func (b *CallRequestBuilder) Record(reqObj *CallRecordRequestParameter) *CallRecordRequestBuilder {
+	bb := &CallRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/record"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRecordRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
+	return &CallRecordRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallRecordRequest struct{ BaseRequest }
+
+//
+func (r *CallRecordRequest) Do(method, path string, reqObj interface{}) (resObj *RecordOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallRecordRequest) Post() (*RecordOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Redirect action undocumented
+func (b *CallRequestBuilder) Redirect(reqObj *CallRedirectRequestParameter) *CallRedirectRequestBuilder {
+	bb := &CallRedirectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/redirect"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRedirectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
+	return &CallRedirectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallRedirectRequest struct{ BaseRequest }
+
+//
+func (r *CallRedirectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallRedirectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reject action undocumented
+func (b *CallRequestBuilder) Reject(reqObj *CallRejectRequestParameter) *CallRejectRequestBuilder {
+	bb := &CallRejectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reject"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRejectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
+	return &CallRejectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallRejectRequest struct{ BaseRequest }
+
+//
+func (r *CallRejectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallRejectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SubscribeToTone action undocumented
+func (b *CallRequestBuilder) SubscribeToTone(reqObj *CallSubscribeToToneRequestParameter) *CallSubscribeToToneRequestBuilder {
+	bb := &CallSubscribeToToneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/subscribeToTone"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallSubscribeToToneRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneRequest {
+	return &CallSubscribeToToneRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallSubscribeToToneRequest struct{ BaseRequest }
+
+//
+func (r *CallSubscribeToToneRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribeToToneOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallSubscribeToToneRequest) Post() (*SubscribeToToneOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Transfer action undocumented
+func (b *CallRequestBuilder) Transfer(reqObj *CallTransferRequestParameter) *CallTransferRequestBuilder {
+	bb := &CallTransferRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/transfer"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallTransferRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
+	return &CallTransferRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallTransferRequest struct{ BaseRequest }
+
+//
+func (r *CallTransferRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *CallTransferRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unmute action undocumented
+func (b *CallRequestBuilder) Unmute(reqObj *CallUnmuteRequestParameter) *CallUnmuteRequestBuilder {
+	bb := &CallUnmuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unmute"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallUnmuteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
+	return &CallUnmuteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CallUnmuteRequest struct{ BaseRequest }
+
+//
+func (r *CallUnmuteRequest) Do(method, path string, reqObj interface{}) (resObj *UnmuteParticipantOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CallUnmuteRequest) Post() (*UnmuteParticipantOperation, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -54326,1557 +53792,6 @@ func (r *DirectoryObjectCollectionValidatePropertiesRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Sync action undocumented
-func (b *DeviceManagementExchangeConnectorRequestBuilder) Sync(reqObj *DeviceManagementExchangeConnectorSyncRequestParameter) *DeviceManagementExchangeConnectorSyncRequestBuilder {
-	bb := &DeviceManagementExchangeConnectorSyncRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sync"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementExchangeConnectorSyncRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceManagementExchangeConnectorSyncRequest {
-	return &DeviceManagementExchangeConnectorSyncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceManagementExchangeConnectorSyncRequest struct{ BaseRequest }
-
-//
-func (r *DeviceManagementExchangeConnectorSyncRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceManagementExchangeConnectorSyncRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Retire action undocumented
-func (b *ManagedDeviceRequestBuilder) Retire(reqObj *ManagedDeviceRetireRequestParameter) *ManagedDeviceRetireRequestBuilder {
-	bb := &ManagedDeviceRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/retire"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRetireRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
-	return &ManagedDeviceRetireRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRetireRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRetireRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRetireRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Wipe action undocumented
-func (b *ManagedDeviceRequestBuilder) Wipe(reqObj *ManagedDeviceWipeRequestParameter) *ManagedDeviceWipeRequestBuilder {
-	bb := &ManagedDeviceWipeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/wipe"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
-	return &ManagedDeviceWipeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceWipeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceWipeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceWipeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ResetPasscode action undocumented
-func (b *ManagedDeviceRequestBuilder) ResetPasscode(reqObj *ManagedDeviceResetPasscodeRequestParameter) *ManagedDeviceResetPasscodeRequestBuilder {
-	bb := &ManagedDeviceResetPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/resetPasscode"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceResetPasscodeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
-	return &ManagedDeviceResetPasscodeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceResetPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceResetPasscodeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RemoteLock action undocumented
-func (b *ManagedDeviceRequestBuilder) RemoteLock(reqObj *ManagedDeviceRemoteLockRequestParameter) *ManagedDeviceRemoteLockRequestBuilder {
-	bb := &ManagedDeviceRemoteLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/remoteLock"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
-	return &ManagedDeviceRemoteLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRemoteLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRemoteLockRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RequestRemoteAssistance action undocumented
-func (b *ManagedDeviceRequestBuilder) RequestRemoteAssistance(reqObj *ManagedDeviceRequestRemoteAssistanceRequestParameter) *ManagedDeviceRequestRemoteAssistanceRequestBuilder {
-	bb := &ManagedDeviceRequestRemoteAssistanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/requestRemoteAssistance"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRequestRemoteAssistanceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
-	return &ManagedDeviceRequestRemoteAssistanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// DisableLostMode action undocumented
-func (b *ManagedDeviceRequestBuilder) DisableLostMode(reqObj *ManagedDeviceDisableLostModeRequestParameter) *ManagedDeviceDisableLostModeRequestBuilder {
-	bb := &ManagedDeviceDisableLostModeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/disableLostMode"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceDisableLostModeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDisableLostModeRequest {
-	return &ManagedDeviceDisableLostModeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceDisableLostModeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceDisableLostModeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceDisableLostModeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// LocateDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) LocateDevice(reqObj *ManagedDeviceLocateDeviceRequestParameter) *ManagedDeviceLocateDeviceRequestBuilder {
-	bb := &ManagedDeviceLocateDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/locateDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceLocateDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocateDeviceRequest {
-	return &ManagedDeviceLocateDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceLocateDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceLocateDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceLocateDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// BypassActivationLock action undocumented
-func (b *ManagedDeviceRequestBuilder) BypassActivationLock(reqObj *ManagedDeviceBypassActivationLockRequestParameter) *ManagedDeviceBypassActivationLockRequestBuilder {
-	bb := &ManagedDeviceBypassActivationLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/bypassActivationLock"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
-	return &ManagedDeviceBypassActivationLockRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceBypassActivationLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceBypassActivationLockRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RebootNow action undocumented
-func (b *ManagedDeviceRequestBuilder) RebootNow(reqObj *ManagedDeviceRebootNowRequestParameter) *ManagedDeviceRebootNowRequestBuilder {
-	bb := &ManagedDeviceRebootNowRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/rebootNow"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRebootNowRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNowRequest {
-	return &ManagedDeviceRebootNowRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRebootNowRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRebootNowRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRebootNowRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ShutDown action undocumented
-func (b *ManagedDeviceRequestBuilder) ShutDown(reqObj *ManagedDeviceShutDownRequestParameter) *ManagedDeviceShutDownRequestBuilder {
-	bb := &ManagedDeviceShutDownRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/shutDown"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
-	return &ManagedDeviceShutDownRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceShutDownRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceShutDownRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceShutDownRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RecoverPasscode action undocumented
-func (b *ManagedDeviceRequestBuilder) RecoverPasscode(reqObj *ManagedDeviceRecoverPasscodeRequestParameter) *ManagedDeviceRecoverPasscodeRequestBuilder {
-	bb := &ManagedDeviceRecoverPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/recoverPasscode"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceRecoverPasscodeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRecoverPasscodeRequest {
-	return &ManagedDeviceRecoverPasscodeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceRecoverPasscodeRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceRecoverPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceRecoverPasscodeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CleanWindowsDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) CleanWindowsDevice(reqObj *ManagedDeviceCleanWindowsDeviceRequestParameter) *ManagedDeviceCleanWindowsDeviceRequestBuilder {
-	bb := &ManagedDeviceCleanWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/cleanWindowsDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
-	return &ManagedDeviceCleanWindowsDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// LogoutSharedAppleDeviceActiveUser action undocumented
-func (b *ManagedDeviceRequestBuilder) LogoutSharedAppleDeviceActiveUser(reqObj *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter) *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder {
-	bb := &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/logoutSharedAppleDeviceActiveUser"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
-	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// DeleteUserFromSharedAppleDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) DeleteUserFromSharedAppleDevice(reqObj *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter) *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder {
-	bb := &ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/deleteUserFromSharedAppleDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
-	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SyncDevice action undocumented
-func (b *ManagedDeviceRequestBuilder) SyncDevice(reqObj *ManagedDeviceSyncDeviceRequestParameter) *ManagedDeviceSyncDeviceRequestBuilder {
-	bb := &ManagedDeviceSyncDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncDevice"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceSyncDeviceRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDeviceRequest {
-	return &ManagedDeviceSyncDeviceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceSyncDeviceRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceSyncDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceSyncDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// WindowsDefenderScan action undocumented
-func (b *ManagedDeviceRequestBuilder) WindowsDefenderScan(reqObj *ManagedDeviceWindowsDefenderScanRequestParameter) *ManagedDeviceWindowsDefenderScanRequestBuilder {
-	bb := &ManagedDeviceWindowsDefenderScanRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/windowsDefenderScan"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceWindowsDefenderScanRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDeviceWindowsDefenderScanRequest {
-	return &ManagedDeviceWindowsDefenderScanRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceWindowsDefenderScanRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceWindowsDefenderScanRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceWindowsDefenderScanRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// WindowsDefenderUpdateSignatures action undocumented
-func (b *ManagedDeviceRequestBuilder) WindowsDefenderUpdateSignatures(reqObj *ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter) *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder {
-	bb := &ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/windowsDefenderUpdateSignatures"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *ManagedDeviceWindowsDefenderUpdateSignaturesRequest {
-	return &ManagedDeviceWindowsDefenderUpdateSignaturesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceWindowsDefenderUpdateSignaturesRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// UpdateWindowsDeviceAccount action undocumented
-func (b *ManagedDeviceRequestBuilder) UpdateWindowsDeviceAccount(reqObj *ManagedDeviceUpdateWindowsDeviceAccountRequestParameter) *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder {
-	bb := &ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateWindowsDeviceAccount"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
-	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
-
-//
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// BeginOnboarding action undocumented
-func (b *RemoteAssistancePartnerRequestBuilder) BeginOnboarding(reqObj *RemoteAssistancePartnerBeginOnboardingRequestParameter) *RemoteAssistancePartnerBeginOnboardingRequestBuilder {
-	bb := &RemoteAssistancePartnerBeginOnboardingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/beginOnboarding"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RemoteAssistancePartnerBeginOnboardingRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *RemoteAssistancePartnerBeginOnboardingRequest {
-	return &RemoteAssistancePartnerBeginOnboardingRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type RemoteAssistancePartnerBeginOnboardingRequest struct{ BaseRequest }
-
-//
-func (r *RemoteAssistancePartnerBeginOnboardingRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Disconnect action undocumented
-func (b *RemoteAssistancePartnerRequestBuilder) Disconnect(reqObj *RemoteAssistancePartnerDisconnectRequestParameter) *RemoteAssistancePartnerDisconnectRequestBuilder {
-	bb := &RemoteAssistancePartnerDisconnectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/disconnect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RemoteAssistancePartnerDisconnectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssistancePartnerDisconnectRequest {
-	return &RemoteAssistancePartnerDisconnectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type RemoteAssistancePartnerDisconnectRequest struct{ BaseRequest }
-
-//
-func (r *RemoteAssistancePartnerDisconnectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *RemoteAssistancePartnerDisconnectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Answer action undocumented
-func (b *CallRequestBuilder) Answer(reqObj *CallAnswerRequestParameter) *CallAnswerRequestBuilder {
-	bb := &CallAnswerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/answer"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallAnswerRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
-	return &CallAnswerRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallAnswerRequest struct{ BaseRequest }
-
-//
-func (r *CallAnswerRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallAnswerRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ChangeScreenSharingRole action undocumented
-func (b *CallRequestBuilder) ChangeScreenSharingRole(reqObj *CallChangeScreenSharingRoleRequestParameter) *CallChangeScreenSharingRoleRequestBuilder {
-	bb := &CallChangeScreenSharingRoleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/changeScreenSharingRole"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallChangeScreenSharingRoleRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenSharingRoleRequest {
-	return &CallChangeScreenSharingRoleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallChangeScreenSharingRoleRequest struct{ BaseRequest }
-
-//
-func (r *CallChangeScreenSharingRoleRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallChangeScreenSharingRoleRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Mute action undocumented
-func (b *CallRequestBuilder) Mute(reqObj *CallMuteRequestParameter) *CallMuteRequestBuilder {
-	bb := &CallMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/mute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallMuteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
-	return &CallMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallMuteRequest struct{ BaseRequest }
-
-//
-func (r *CallMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CallMuteRequest) Post() (*MuteParticipantOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// PlayPrompt action undocumented
-func (b *CallRequestBuilder) PlayPrompt(reqObj *CallPlayPromptRequestParameter) *CallPlayPromptRequestBuilder {
-	bb := &CallPlayPromptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/playPrompt"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallPlayPromptRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
-	return &CallPlayPromptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallPlayPromptRequest struct{ BaseRequest }
-
-//
-func (r *CallPlayPromptRequest) Do(method, path string, reqObj interface{}) (resObj *PlayPromptOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CallPlayPromptRequest) Post() (*PlayPromptOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Record action undocumented
-func (b *CallRequestBuilder) Record(reqObj *CallRecordRequestParameter) *CallRecordRequestBuilder {
-	bb := &CallRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/record"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallRecordRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
-	return &CallRecordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallRecordRequest struct{ BaseRequest }
-
-//
-func (r *CallRecordRequest) Do(method, path string, reqObj interface{}) (resObj *RecordOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CallRecordRequest) Post() (*RecordOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Redirect action undocumented
-func (b *CallRequestBuilder) Redirect(reqObj *CallRedirectRequestParameter) *CallRedirectRequestBuilder {
-	bb := &CallRedirectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/redirect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallRedirectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
-	return &CallRedirectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallRedirectRequest struct{ BaseRequest }
-
-//
-func (r *CallRedirectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallRedirectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reject action undocumented
-func (b *CallRequestBuilder) Reject(reqObj *CallRejectRequestParameter) *CallRejectRequestBuilder {
-	bb := &CallRejectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reject"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallRejectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
-	return &CallRejectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallRejectRequest struct{ BaseRequest }
-
-//
-func (r *CallRejectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallRejectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SubscribeToTone action undocumented
-func (b *CallRequestBuilder) SubscribeToTone(reqObj *CallSubscribeToToneRequestParameter) *CallSubscribeToToneRequestBuilder {
-	bb := &CallSubscribeToToneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/subscribeToTone"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallSubscribeToToneRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneRequest {
-	return &CallSubscribeToToneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallSubscribeToToneRequest struct{ BaseRequest }
-
-//
-func (r *CallSubscribeToToneRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribeToToneOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CallSubscribeToToneRequest) Post() (*SubscribeToToneOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Transfer action undocumented
-func (b *CallRequestBuilder) Transfer(reqObj *CallTransferRequestParameter) *CallTransferRequestBuilder {
-	bb := &CallTransferRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/transfer"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallTransferRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
-	return &CallTransferRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallTransferRequest struct{ BaseRequest }
-
-//
-func (r *CallTransferRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *CallTransferRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unmute action undocumented
-func (b *CallRequestBuilder) Unmute(reqObj *CallUnmuteRequestParameter) *CallUnmuteRequestBuilder {
-	bb := &CallUnmuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unmute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CallUnmuteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
-	return &CallUnmuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type CallUnmuteRequest struct{ BaseRequest }
-
-//
-func (r *CallUnmuteRequest) Do(method, path string, reqObj interface{}) (resObj *UnmuteParticipantOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *CallUnmuteRequest) Post() (*UnmuteParticipantOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookTableRowsCollectionRequestBuilder) Add(reqObj *WorkbookTableRowCollectionAddRequestParameter) *WorkbookTableRowCollectionAddRequestBuilder {
-	bb := &WorkbookTableRowCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableRowCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableRowCollectionAddRequestBuilder) Request() *WorkbookTableRowCollectionAddRequest {
-	return &WorkbookTableRowCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableRowCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableRowCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookTableRowCollectionAddRequest) Post() (*WorkbookTableRow, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Apply action undocumented
-func (b *WorkbookTableSortRequestBuilder) Apply(reqObj *WorkbookTableSortApplyRequestParameter) *WorkbookTableSortApplyRequestBuilder {
-	bb := &WorkbookTableSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/apply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableSortApplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApplyRequest {
-	return &WorkbookTableSortApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableSortApplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableSortApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookTableSortRequestBuilder) Clear(reqObj *WorkbookTableSortClearRequestParameter) *WorkbookTableSortClearRequestBuilder {
-	bb := &WorkbookTableSortClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableSortClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClearRequest {
-	return &WorkbookTableSortClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableSortClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableSortClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableSortClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reapply action undocumented
-func (b *WorkbookTableSortRequestBuilder) Reapply(reqObj *WorkbookTableSortReapplyRequestParameter) *WorkbookTableSortReapplyRequestBuilder {
-	bb := &WorkbookTableSortReapplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reapply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableSortReapplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortReapplyRequest {
-	return &WorkbookTableSortReapplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableSortReapplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableSortReapplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookTableSortReapplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
-	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
-	return &DeviceCompliancePolicyAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceCompliancePolicyAssignment, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceCompliancePolicyAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]DeviceCompliancePolicyAssignment
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// ScheduleActionsForRules action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
-	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
-	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
-
-//
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *TargetedManagedAppConfigurationRequestBuilder) Assign(reqObj *TargetedManagedAppConfigurationAssignRequestParameter) *TargetedManagedAppConfigurationAssignRequestBuilder {
-	bb := &TargetedManagedAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
-	return &TargetedManagedAppConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (r *TargetedManagedAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TargetApps action undocumented
-func (b *TargetedManagedAppConfigurationRequestBuilder) TargetApps(reqObj *TargetedManagedAppConfigurationTargetAppsRequestParameter) *TargetedManagedAppConfigurationTargetAppsRequestBuilder {
-	bb := &TargetedManagedAppConfigurationTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppConfigurationTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
-	return &TargetedManagedAppConfigurationTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
-
-//
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// GetNotebookFromWebUrl action undocumented
-func (b *OnenoteNotebooksCollectionRequestBuilder) GetNotebookFromWebUrl(reqObj *NotebookCollectionGetNotebookFromWebUrlRequestParameter) *NotebookCollectionGetNotebookFromWebUrlRequestBuilder {
-	bb := &NotebookCollectionGetNotebookFromWebUrlRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getNotebookFromWebUrl"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotebookCollectionGetNotebookFromWebUrlRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *NotebookCollectionGetNotebookFromWebUrlRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebUrlRequest {
-	return &NotebookCollectionGetNotebookFromWebUrlRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type NotebookCollectionGetNotebookFromWebUrlRequest struct{ BaseRequest }
-
-//
-func (r *NotebookCollectionGetNotebookFromWebUrlRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *NotebookCollectionGetNotebookFromWebUrlRequest) Post() (*CopyNotebookModel, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Refresh action undocumented
-func (b *WorkbookPivotTableRequestBuilder) Refresh(reqObj *WorkbookPivotTableRefreshRequestParameter) *WorkbookPivotTableRefreshRequestBuilder {
-	bb := &WorkbookPivotTableRefreshRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refresh"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookPivotTableRefreshRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableRefreshRequest {
-	return &WorkbookPivotTableRefreshRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookPivotTableRefreshRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookPivotTableRefreshRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookPivotTableRefreshRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
-	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// Add action undocumented
-func (b *WorkbookWorksheetTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
-	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableCollectionAddRequest {
-	return &WorkbookTableCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTable, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookTableCollectionAddRequest) Post() (*WorkbookTable, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyToNotebook action undocumented
-func (b *OnenoteSectionRequestBuilder) CopyToNotebook(reqObj *OnenoteSectionCopyToNotebookRequestParameter) *OnenoteSectionCopyToNotebookRequestBuilder {
-	bb := &OnenoteSectionCopyToNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyToNotebook"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenoteSectionCopyToNotebookRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCopyToNotebookRequest {
-	return &OnenoteSectionCopyToNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenoteSectionCopyToNotebookRequest struct{ BaseRequest }
-
-//
-func (r *OnenoteSectionCopyToNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OnenoteSectionCopyToNotebookRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyToSectionGroup action undocumented
-func (b *OnenoteSectionRequestBuilder) CopyToSectionGroup(reqObj *OnenoteSectionCopyToSectionGroupRequestParameter) *OnenoteSectionCopyToSectionGroupRequestBuilder {
-	bb := &OnenoteSectionCopyToSectionGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyToSectionGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenoteSectionCopyToSectionGroupRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSectionCopyToSectionGroupRequest {
-	return &OnenoteSectionCopyToSectionGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenoteSectionCopyToSectionGroupRequest struct{ BaseRequest }
-
-//
-func (r *OnenoteSectionCopyToSectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OnenoteSectionCopyToSectionGroupRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clone action undocumented
-func (b *TeamRequestBuilder) Clone(reqObj *TeamCloneRequestParameter) *TeamCloneRequestBuilder {
-	bb := &TeamCloneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clone"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamCloneRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
-	return &TeamCloneRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamCloneRequest struct{ BaseRequest }
-
-//
-func (r *TeamCloneRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamCloneRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Archive action undocumented
-func (b *TeamRequestBuilder) Archive(reqObj *TeamArchiveRequestParameter) *TeamArchiveRequestBuilder {
-	bb := &TeamArchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/archive"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamArchiveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
-	return &TeamArchiveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamArchiveRequest struct{ BaseRequest }
-
-//
-func (r *TeamArchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamArchiveRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unarchive action undocumented
-func (b *TeamRequestBuilder) Unarchive(reqObj *TeamUnarchiveRequestParameter) *TeamUnarchiveRequestBuilder {
-	bb := &TeamUnarchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unarchive"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamUnarchiveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
-	return &TeamUnarchiveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamUnarchiveRequest struct{ BaseRequest }
-
-//
-func (r *TeamUnarchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamUnarchiveRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Apply action undocumented
-func (b *WorkbookRangeSortRequestBuilder) Apply(reqObj *WorkbookRangeSortApplyRequestParameter) *WorkbookRangeSortApplyRequestBuilder {
-	bb := &WorkbookRangeSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/apply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRangeSortApplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApplyRequest {
-	return &WorkbookRangeSortApplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRangeSortApplyRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRangeSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRangeSortApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
 // AssignLicense action undocumented
 func (b *UserRequestBuilder) AssignLicense(reqObj *UserAssignLicenseRequestParameter) *UserAssignLicenseRequestBuilder {
 	bb := &UserAssignLicenseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -56133,13 +54048,13 @@ func (b *UserTranslateExchangeIdsRequestBuilder) Request() *UserTranslateExchang
 type UserTranslateExchangeIdsRequest struct{ BaseRequest }
 
 //
-func (r *UserTranslateExchangeIdsRequest) Do(method, path string, reqObj interface{}) (resObj *[]ConvertIdResult, err error) {
+func (r *UserTranslateExchangeIdsRequest) Do(method, path string, reqObj interface{}) (resObj *[]ConvertIDResult, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *UserTranslateExchangeIdsRequest) Paging(method, path string, obj interface{}) ([][]ConvertIdResult, error) {
+func (r *UserTranslateExchangeIdsRequest) Paging(method, path string, obj interface{}) ([][]ConvertIDResult, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -56148,7 +54063,7 @@ func (r *UserTranslateExchangeIdsRequest) Paging(method, path string, obj interf
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ConvertIdResult
+	var values [][]ConvertIDResult
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -56157,7 +54072,7 @@ func (r *UserTranslateExchangeIdsRequest) Paging(method, path string, obj interf
 		}
 		var (
 			paging Paging
-			value  [][]ConvertIdResult
+			value  [][]ConvertIDResult
 		)
 		err := json.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -56179,7 +54094,7 @@ func (r *UserTranslateExchangeIdsRequest) Paging(method, path string, obj interf
 }
 
 //
-func (r *UserTranslateExchangeIdsRequest) Get() ([][]ConvertIdResult, error) {
+func (r *UserTranslateExchangeIdsRequest) Get() ([][]ConvertIDResult, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -56280,442 +54195,1026 @@ func (r *UserExportPersonalDataRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// DismissReminder action undocumented
-func (b *EventRequestBuilder) DismissReminder(reqObj *EventDismissReminderRequestParameter) *EventDismissReminderRequestBuilder {
-	bb := &EventDismissReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/dismissReminder"
+// CreateSession action undocumented
+func (b *WorkbookRequestBuilder) CreateSession(reqObj *WorkbookCreateSessionRequestParameter) *WorkbookCreateSessionRequestBuilder {
+	bb := &WorkbookCreateSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createSession"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type EventDismissReminderRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookCreateSessionRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequest {
-	return &EventDismissReminderRequest{
+func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRequest {
+	return &WorkbookCreateSessionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type EventDismissReminderRequest struct{ BaseRequest }
+type WorkbookCreateSessionRequest struct{ BaseRequest }
 
 //
-func (r *EventDismissReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventDismissReminderRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SnoozeReminder action undocumented
-func (b *EventRequestBuilder) SnoozeReminder(reqObj *EventSnoozeReminderRequestParameter) *EventSnoozeReminderRequestBuilder {
-	bb := &EventSnoozeReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/snoozeReminder"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type EventSnoozeReminderRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderRequest {
-	return &EventSnoozeReminderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type EventSnoozeReminderRequest struct{ BaseRequest }
-
-//
-func (r *EventSnoozeReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventSnoozeReminderRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Accept action undocumented
-func (b *EventRequestBuilder) Accept(reqObj *EventAcceptRequestParameter) *EventAcceptRequestBuilder {
-	bb := &EventAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/accept"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type EventAcceptRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
-	return &EventAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type EventAcceptRequest struct{ BaseRequest }
-
-//
-func (r *EventAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Decline action undocumented
-func (b *EventRequestBuilder) Decline(reqObj *EventDeclineRequestParameter) *EventDeclineRequestBuilder {
-	bb := &EventDeclineRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/decline"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type EventDeclineRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
-	return &EventDeclineRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type EventDeclineRequest struct{ BaseRequest }
-
-//
-func (r *EventDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventDeclineRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TentativelyAccept action undocumented
-func (b *EventRequestBuilder) TentativelyAccept(reqObj *EventTentativelyAcceptRequestParameter) *EventTentativelyAcceptRequestBuilder {
-	bb := &EventTentativelyAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/tentativelyAccept"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type EventTentativelyAcceptRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAcceptRequest {
-	return &EventTentativelyAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type EventTentativelyAcceptRequest struct{ BaseRequest }
-
-//
-func (r *EventTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *EventTentativelyAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ForceDelete action undocumented
-func (b *DomainRequestBuilder) ForceDelete(reqObj *DomainForceDeleteRequestParameter) *DomainForceDeleteRequestBuilder {
-	bb := &DomainForceDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forceDelete"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DomainForceDeleteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
-	return &DomainForceDeleteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DomainForceDeleteRequest struct{ BaseRequest }
-
-//
-func (r *DomainForceDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DomainForceDeleteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Verify action undocumented
-func (b *DomainRequestBuilder) Verify(reqObj *DomainVerifyRequestParameter) *DomainVerifyRequestBuilder {
-	bb := &DomainVerifyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/verify"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DomainVerifyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
-	return &DomainVerifyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DomainVerifyRequest struct{ BaseRequest }
-
-//
-func (r *DomainVerifyRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
+func (r *WorkbookCreateSessionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookSessionInfo, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DomainVerifyRequest) Post() (*Domain, error) {
+func (r *WorkbookCreateSessionRequest) Post() (*WorkbookSessionInfo, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Assign action undocumented
-func (b *TargetedManagedAppProtectionRequestBuilder) Assign(reqObj *TargetedManagedAppProtectionAssignRequestParameter) *TargetedManagedAppProtectionAssignRequestBuilder {
-	bb := &TargetedManagedAppProtectionAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
+// CloseSession action undocumented
+func (b *WorkbookRequestBuilder) CloseSession(reqObj *WorkbookCloseSessionRequestParameter) *WorkbookCloseSessionRequestBuilder {
+	bb := &WorkbookCloseSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/closeSession"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type TargetedManagedAppProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedManagedAppProtectionAssignRequest {
-	return &TargetedManagedAppProtectionAssignRequest{
+func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
+	return &WorkbookCloseSessionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type TargetedManagedAppProtectionAssignRequest struct{ BaseRequest }
+type WorkbookCloseSessionRequest struct{ BaseRequest }
 
 //
-func (r *TargetedManagedAppProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
+func (r *WorkbookCloseSessionRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *TargetedManagedAppProtectionAssignRequest) Post() error {
+func (r *WorkbookCloseSessionRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Checkin action undocumented
-func (b *DriveItemRequestBuilder) Checkin(reqObj *DriveItemCheckinRequestParameter) *DriveItemCheckinRequestBuilder {
-	bb := &DriveItemCheckinRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkin"
+// RefreshSession action undocumented
+func (b *WorkbookRequestBuilder) RefreshSession(reqObj *WorkbookRefreshSessionRequestParameter) *WorkbookRefreshSessionRequestBuilder {
+	bb := &WorkbookRefreshSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refreshSession"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemCheckinRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookRefreshSessionRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
-	return &DriveItemCheckinRequest{
+func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSessionRequest {
+	return &WorkbookRefreshSessionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemCheckinRequest struct{ BaseRequest }
+type WorkbookRefreshSessionRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemCheckinRequest) Do(method, path string, reqObj interface{}) error {
+func (r *WorkbookRefreshSessionRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *DriveItemCheckinRequest) Post() error {
+func (r *WorkbookRefreshSessionRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Checkout action undocumented
-func (b *DriveItemRequestBuilder) Checkout(reqObj *DriveItemCheckoutRequestParameter) *DriveItemCheckoutRequestBuilder {
-	bb := &DriveItemCheckoutRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkout"
+// Add action undocumented
+func (b *WorkbookNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// Add action undocumented
+func (b *WorkbookWorksheetNamesCollectionRequestBuilder) Add(reqObj *WorkbookNamedItemCollectionAddRequestParameter) *WorkbookNamedItemCollectionAddRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemCheckoutRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookNamedItemCollectionAddRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
-	return &DriveItemCheckoutRequest{
+func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedItemCollectionAddRequest {
+	return &WorkbookNamedItemCollectionAddRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemCheckoutRequest struct{ BaseRequest }
+type WorkbookNamedItemCollectionAddRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemCheckoutRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DriveItemCheckoutRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Copy action undocumented
-func (b *DriveItemRequestBuilder) Copy(reqObj *DriveItemCopyRequestParameter) *DriveItemCopyRequestBuilder {
-	bb := &DriveItemCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copy"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemCopyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
-	return &DriveItemCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemCopyRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemCopyRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
+func (r *WorkbookNamedItemCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DriveItemCopyRequest) Post() (*DriveItem, error) {
+func (r *WorkbookNamedItemCollectionAddRequest) Post() (*WorkbookNamedItem, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// CreateLink action undocumented
-func (b *DriveItemRequestBuilder) CreateLink(reqObj *DriveItemCreateLinkRequestParameter) *DriveItemCreateLinkRequestBuilder {
-	bb := &DriveItemCreateLinkRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createLink"
+// AddFormulaLocal action undocumented
+func (b *WorkbookNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// AddFormulaLocal action undocumented
+func (b *WorkbookWorksheetNamesCollectionRequestBuilder) AddFormulaLocal(reqObj *WorkbookNamedItemCollectionAddFormulaLocalRequestParameter) *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder {
+	bb := &WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addFormulaLocal"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemCreateLinkRequestBuilder struct{ BaseRequestBuilder }
+type WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkRequest {
-	return &DriveItemCreateLinkRequest{
+func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *WorkbookNamedItemCollectionAddFormulaLocalRequest {
+	return &WorkbookNamedItemCollectionAddFormulaLocalRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemCreateLinkRequest struct{ BaseRequest }
+type WorkbookNamedItemCollectionAddFormulaLocalRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemCreateLinkRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DriveItemCreateLinkRequest) Post() (*Permission, error) {
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (*WorkbookNamedItem, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
-// CreateUploadSession action undocumented
-func (b *DriveItemRequestBuilder) CreateUploadSession(reqObj *DriveItemCreateUploadSessionRequestParameter) *DriveItemCreateUploadSessionRequestBuilder {
-	bb := &DriveItemCreateUploadSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createUploadSession"
+// SyncMicrosoftStoreForBusinessApps action undocumented
+func (b *DeviceAppManagementRequestBuilder) SyncMicrosoftStoreForBusinessApps(reqObj *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter) *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder {
+	bb := &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncMicrosoftStoreForBusinessApps"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemCreateUploadSessionRequestBuilder struct{ BaseRequestBuilder }
+type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateUploadSessionRequest {
-	return &DriveItemCreateUploadSessionRequest{
+func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Request() *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest {
+	return &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemCreateUploadSessionRequest struct{ BaseRequest }
+type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemCreateUploadSessionRequest) Do(method, path string, reqObj interface{}) (resObj *UploadSession, err error) {
+func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookTableColumnsCollectionRequestBuilder) Add(reqObj *WorkbookTableColumnCollectionAddRequestParameter) *WorkbookTableColumnCollectionAddRequestBuilder {
+	bb := &WorkbookTableColumnCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableColumnCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTableColumnCollectionAddRequest {
+	return &WorkbookTableColumnCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableColumnCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableColumnCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DriveItemCreateUploadSessionRequest) Post() (*UploadSession, error) {
+func (r *WorkbookTableColumnCollectionAddRequest) Post() (*WorkbookTableColumn, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetMobileDeviceManagementAuthority action undocumented
+func (b *OrganizationRequestBuilder) SetMobileDeviceManagementAuthority(reqObj *OrganizationSetMobileDeviceManagementAuthorityRequestParameter) *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder {
+	bb := &OrganizationSetMobileDeviceManagementAuthorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setMobileDeviceManagementAuthority"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OrganizationSetMobileDeviceManagementAuthorityRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request() *OrganizationSetMobileDeviceManagementAuthorityRequest {
+	return &OrganizationSetMobileDeviceManagementAuthorityRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type OrganizationSetMobileDeviceManagementAuthorityRequest struct{ BaseRequest }
+
+//
+func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Do(method, path string, reqObj interface{}) (resObj *int, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post() (*int, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
 // Invite action undocumented
-func (b *DriveItemRequestBuilder) Invite(reqObj *DriveItemInviteRequestParameter) *DriveItemInviteRequestBuilder {
-	bb := &DriveItemInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
+	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/invite"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemInviteRequestBuilder struct{ BaseRequestBuilder }
+type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
-	return &DriveItemInviteRequest{
+func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
+	return &ParticipantCollectionInviteRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemInviteRequest struct{ BaseRequest }
+type ParticipantCollectionInviteRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemInviteRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
+func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
+func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
+	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
+	return &MobileAppAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MobileAppAssignRequest struct{ BaseRequest }
+
+//
+func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *ManagedEBookRequestBuilder) Assign(reqObj *ManagedEBookAssignRequestParameter) *ManagedEBookAssignRequestBuilder {
+	bb := &ManagedEBookAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedEBookAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest {
+	return &ManagedEBookAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedEBookAssignRequest struct{ BaseRequest }
+
+//
+func (r *ManagedEBookAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedEBookAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clone action undocumented
+func (b *TeamRequestBuilder) Clone(reqObj *TeamCloneRequestParameter) *TeamCloneRequestBuilder {
+	bb := &TeamCloneRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clone"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamCloneRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
+	return &TeamCloneRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamCloneRequest struct{ BaseRequest }
+
+//
+func (r *TeamCloneRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamCloneRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Archive action undocumented
+func (b *TeamRequestBuilder) Archive(reqObj *TeamArchiveRequestParameter) *TeamArchiveRequestBuilder {
+	bb := &TeamArchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/archive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamArchiveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
+	return &TeamArchiveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamArchiveRequest struct{ BaseRequest }
+
+//
+func (r *TeamArchiveRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamArchiveRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unarchive action undocumented
+func (b *TeamRequestBuilder) Unarchive(reqObj *TeamUnarchiveRequestParameter) *TeamUnarchiveRequestBuilder {
+	bb := &TeamUnarchiveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unarchive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamUnarchiveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
+	return &TeamUnarchiveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamUnarchiveRequest struct{ BaseRequest }
+
+//
+func (r *TeamUnarchiveRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamUnarchiveRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Upgrade action undocumented
+func (b *TeamsAppInstallationRequestBuilder) Upgrade(reqObj *TeamsAppInstallationUpgradeRequestParameter) *TeamsAppInstallationUpgradeRequestBuilder {
+	bb := &TeamsAppInstallationUpgradeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/upgrade"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
+	return &TeamsAppInstallationUpgradeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
+
+//
+func (r *TeamsAppInstallationUpgradeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TeamsAppInstallationUpgradeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TargetApps action undocumented
+func (b *ManagedAppPolicyRequestBuilder) TargetApps(reqObj *ManagedAppPolicyTargetAppsRequestParameter) *ManagedAppPolicyTargetAppsRequestBuilder {
+	bb := &ManagedAppPolicyTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedAppPolicyTargetAppsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTargetAppsRequest {
+	return &ManagedAppPolicyTargetAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedAppPolicyTargetAppsRequest struct{ BaseRequest }
+
+//
+func (r *ManagedAppPolicyTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedAppPolicyTargetAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// GetNotebookFromWebURL action undocumented
+func (b *OnenoteNotebooksCollectionRequestBuilder) GetNotebookFromWebURL(reqObj *NotebookCollectionGetNotebookFromWebURLRequestParameter) *NotebookCollectionGetNotebookFromWebURLRequestBuilder {
+	bb := &NotebookCollectionGetNotebookFromWebURLRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getNotebookFromWebUrl"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type NotebookCollectionGetNotebookFromWebURLRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebURLRequest {
+	return &NotebookCollectionGetNotebookFromWebURLRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type NotebookCollectionGetNotebookFromWebURLRequest struct{ BaseRequest }
+
+//
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (*CopyNotebookModel, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// OnenotePatchContent action undocumented
+func (b *OnenotePageRequestBuilder) OnenotePatchContent(reqObj *OnenotePageOnenotePatchContentRequestParameter) *OnenotePageOnenotePatchContentRequestBuilder {
+	bb := &OnenotePageOnenotePatchContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/onenotePatchContent"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
+	return &OnenotePageOnenotePatchContentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
+
+//
+func (r *OnenotePageOnenotePatchContentRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *OnenotePageOnenotePatchContentRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CopyToSection action undocumented
+func (b *OnenotePageRequestBuilder) CopyToSection(reqObj *OnenotePageCopyToSectionRequestParameter) *OnenotePageCopyToSectionRequestBuilder {
+	bb := &OnenotePageCopyToSectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyToSection"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OnenotePageCopyToSectionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSectionRequest {
+	return &OnenotePageCopyToSectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type OnenotePageCopyToSectionRequest struct{ BaseRequest }
+
+//
+func (r *OnenotePageCopyToSectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *OnenotePageCopyToSectionRequest) Post() (*OnenoteOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Mute action undocumented
+func (b *ParticipantRequestBuilder) Mute(reqObj *ParticipantMuteRequestParameter) *ParticipantMuteRequestBuilder {
+	bb := &ParticipantMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/mute"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
+	return &ParticipantMuteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ParticipantMuteRequest struct{ BaseRequest }
+
+//
+func (r *ParticipantMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *ParticipantMuteRequest) Post() (*MuteParticipantOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// AutofitColumns action undocumented
+func (b *WorkbookRangeFormatRequestBuilder) AutofitColumns(reqObj *WorkbookRangeFormatAutofitColumnsRequestParameter) *WorkbookRangeFormatAutofitColumnsRequestBuilder {
+	bb := &WorkbookRangeFormatAutofitColumnsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/autofitColumns"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeFormatAutofitColumnsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRangeFormatAutofitColumnsRequest {
+	return &WorkbookRangeFormatAutofitColumnsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeFormatAutofitColumnsRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeFormatAutofitColumnsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeFormatAutofitColumnsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// AutofitRows action undocumented
+func (b *WorkbookRangeFormatRequestBuilder) AutofitRows(reqObj *WorkbookRangeFormatAutofitRowsRequestParameter) *WorkbookRangeFormatAutofitRowsRequestBuilder {
+	bb := &WorkbookRangeFormatAutofitRowsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/autofitRows"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeFormatAutofitRowsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeFormatAutofitRowsRequest {
+	return &WorkbookRangeFormatAutofitRowsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeFormatAutofitRowsRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeFormatAutofitRowsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeFormatAutofitRowsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateReply action undocumented
+func (b *MessageRequestBuilder) CreateReply(reqObj *MessageCreateReplyRequestParameter) *MessageCreateReplyRequestBuilder {
+	bb := &MessageCreateReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createReply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
+	return &MessageCreateReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCreateReplyRequest struct{ BaseRequest }
+
+//
+func (r *MessageCreateReplyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCreateReplyRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateReplyAll action undocumented
+func (b *MessageRequestBuilder) CreateReplyAll(reqObj *MessageCreateReplyAllRequestParameter) *MessageCreateReplyAllRequestBuilder {
+	bb := &MessageCreateReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createReplyAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateReplyAllRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
+	return &MessageCreateReplyAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCreateReplyAllRequest struct{ BaseRequest }
+
+//
+func (r *MessageCreateReplyAllRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCreateReplyAllRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateForward action undocumented
+func (b *MessageRequestBuilder) CreateForward(reqObj *MessageCreateForwardRequestParameter) *MessageCreateForwardRequestBuilder {
+	bb := &MessageCreateForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createForward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
+	return &MessageCreateForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCreateForwardRequest struct{ BaseRequest }
+
+//
+func (r *MessageCreateForwardRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCreateForwardRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Send action undocumented
+func (b *MessageRequestBuilder) Send(reqObj *MessageSendRequestParameter) *MessageSendRequestBuilder {
+	bb := &MessageSendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/send"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageSendRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
+	return &MessageSendRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageSendRequest struct{ BaseRequest }
+
+//
+func (r *MessageSendRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageSendRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Copy action undocumented
+func (b *MessageRequestBuilder) Copy(reqObj *MessageCopyRequestParameter) *MessageCopyRequestBuilder {
+	bb := &MessageCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageCopyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
+	return &MessageCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageCopyRequest struct{ BaseRequest }
+
+//
+func (r *MessageCopyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageCopyRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Move action undocumented
+func (b *MessageRequestBuilder) Move(reqObj *MessageMoveRequestParameter) *MessageMoveRequestBuilder {
+	bb := &MessageMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/move"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageMoveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
+	return &MessageMoveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageMoveRequest struct{ BaseRequest }
+
+//
+func (r *MessageMoveRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MessageMoveRequest) Post() (*Message, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reply action undocumented
+func (b *MessageRequestBuilder) Reply(reqObj *MessageReplyRequestParameter) *MessageReplyRequestBuilder {
+	bb := &MessageReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
+	return &MessageReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageReplyRequest struct{ BaseRequest }
+
+//
+func (r *MessageReplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageReplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ReplyAll action undocumented
+func (b *MessageRequestBuilder) ReplyAll(reqObj *MessageReplyAllRequestParameter) *MessageReplyAllRequestBuilder {
+	bb := &MessageReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/replyAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageReplyAllRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
+	return &MessageReplyAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageReplyAllRequest struct{ BaseRequest }
+
+//
+func (r *MessageReplyAllRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageReplyAllRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Forward action undocumented
+func (b *MessageRequestBuilder) Forward(reqObj *MessageForwardRequestParameter) *MessageForwardRequestBuilder {
+	bb := &MessageForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
+	return &MessageForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MessageForwardRequest struct{ BaseRequest }
+
+//
+func (r *MessageForwardRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MessageForwardRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// GetSchedule action undocumented
+func (b *CalendarRequestBuilder) GetSchedule(reqObj *CalendarGetScheduleRequestParameter) *CalendarGetScheduleRequestBuilder {
+	bb := &CalendarGetScheduleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getSchedule"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CalendarGetScheduleRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleRequest {
+	return &CalendarGetScheduleRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type CalendarGetScheduleRequest struct{ BaseRequest }
+
+//
+func (r *CalendarGetScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *[]ScheduleInformation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *CalendarGetScheduleRequest) Paging(method, path string, obj interface{}) ([][]ScheduleInformation, error) {
 	req, err := r.NewJSONRequestWithPath(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -56724,7 +55223,7 @@ func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([
 	if err != nil {
 		return nil, err
 	}
-	var values [][]Permission
+	var values [][]ScheduleInformation
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -56733,7 +55232,7 @@ func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([
 		}
 		var (
 			paging Paging
-			value  [][]Permission
+			value  [][]ScheduleInformation
 		)
 		err := json.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -56755,7 +55254,7 @@ func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([
 }
 
 //
-func (r *DriveItemInviteRequest) Get() ([][]Permission, error) {
+func (r *CalendarGetScheduleRequest) Get() ([][]ScheduleInformation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -56763,35 +55262,434 @@ func (r *DriveItemInviteRequest) Get() ([][]Permission, error) {
 	return r.Paging("GET", query, nil)
 }
 
-// Preview action undocumented
-func (b *DriveItemRequestBuilder) Preview(reqObj *DriveItemPreviewRequestParameter) *DriveItemPreviewRequestBuilder {
-	bb := &DriveItemPreviewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/preview"
+// AddGroup action undocumented
+func (b *GroupLifecyclePolicyRequestBuilder) AddGroup(reqObj *GroupLifecyclePolicyAddGroupRequestParameter) *GroupLifecyclePolicyAddGroupRequestBuilder {
+	bb := &GroupLifecyclePolicyAddGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addGroup"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DriveItemPreviewRequestBuilder struct{ BaseRequestBuilder }
+type GroupLifecyclePolicyAddGroupRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
-	return &DriveItemPreviewRequest{
+func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePolicyAddGroupRequest {
+	return &GroupLifecyclePolicyAddGroupRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type DriveItemPreviewRequest struct{ BaseRequest }
+type GroupLifecyclePolicyAddGroupRequest struct{ BaseRequest }
 
 //
-func (r *DriveItemPreviewRequest) Do(method, path string, reqObj interface{}) (resObj *ItemPreviewInfo, err error) {
+func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *DriveItemPreviewRequest) Post() (*ItemPreviewInfo, error) {
+func (r *GroupLifecyclePolicyAddGroupRequest) Post() (*bool, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RemoveGroup action undocumented
+func (b *GroupLifecyclePolicyRequestBuilder) RemoveGroup(reqObj *GroupLifecyclePolicyRemoveGroupRequestParameter) *GroupLifecyclePolicyRemoveGroupRequestBuilder {
+	bb := &GroupLifecyclePolicyRemoveGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/removeGroup"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupLifecyclePolicyRemoveGroupRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecyclePolicyRemoveGroupRequest {
+	return &GroupLifecyclePolicyRemoveGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type GroupLifecyclePolicyRemoveGroupRequest struct{ BaseRequest }
+
+//
+func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (*bool, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Sync action undocumented
+func (b *DeviceManagementExchangeConnectorRequestBuilder) Sync(reqObj *DeviceManagementExchangeConnectorSyncRequestParameter) *DeviceManagementExchangeConnectorSyncRequestBuilder {
+	bb := &DeviceManagementExchangeConnectorSyncRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/sync"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceManagementExchangeConnectorSyncRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceManagementExchangeConnectorSyncRequest {
+	return &DeviceManagementExchangeConnectorSyncRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceManagementExchangeConnectorSyncRequest struct{ BaseRequest }
+
+//
+func (r *DeviceManagementExchangeConnectorSyncRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceManagementExchangeConnectorSyncRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CheckMemberGroups action undocumented
+func (b *DirectoryObjectRequestBuilder) CheckMemberGroups(reqObj *DirectoryObjectCheckMemberGroupsRequestParameter) *DirectoryObjectCheckMemberGroupsRequestBuilder {
+	bb := &DirectoryObjectCheckMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkMemberGroups"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectCheckMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
+	return &DirectoryObjectCheckMemberGroupsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// CheckMemberObjects action undocumented
+func (b *DirectoryObjectRequestBuilder) CheckMemberObjects(reqObj *DirectoryObjectCheckMemberObjectsRequestParameter) *DirectoryObjectCheckMemberObjectsRequestBuilder {
+	bb := &DirectoryObjectCheckMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkMemberObjects"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
+	return &DirectoryObjectCheckMemberObjectsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// GetMemberGroups action undocumented
+func (b *DirectoryObjectRequestBuilder) GetMemberGroups(reqObj *DirectoryObjectGetMemberGroupsRequestParameter) *DirectoryObjectGetMemberGroupsRequestBuilder {
+	bb := &DirectoryObjectGetMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getMemberGroups"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectGetMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
+	return &DirectoryObjectGetMemberGroupsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// GetMemberObjects action undocumented
+func (b *DirectoryObjectRequestBuilder) GetMemberObjects(reqObj *DirectoryObjectGetMemberObjectsRequestParameter) *DirectoryObjectGetMemberObjectsRequestBuilder {
+	bb := &DirectoryObjectGetMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getMemberObjects"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
+	return &DirectoryObjectGetMemberObjectsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// Restore action undocumented
+func (b *DirectoryObjectRequestBuilder) Restore(reqObj *DirectoryObjectRestoreRequestParameter) *DirectoryObjectRestoreRequestBuilder {
+	bb := &DirectoryObjectRestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restore"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
+	return &DirectoryObjectRestoreRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DirectoryObjectRestoreRequest struct{ BaseRequest }
+
+//
+func (r *DirectoryObjectRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DirectoryObjectRestoreRequest) Post() (*DirectoryObject, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -68507,127 +67405,391 @@ func (r *WorkbookFunctionsZ_TestRequest) Post() (*WorkbookFunctionResult, error)
 	return r.Do("POST", "", r.requestObject)
 }
 
-// Protect action undocumented
-func (b *WorkbookWorksheetProtectionRequestBuilder) Protect(reqObj *WorkbookWorksheetProtectionProtectRequestParameter) *WorkbookWorksheetProtectionProtectRequestBuilder {
-	bb := &WorkbookWorksheetProtectionProtectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/protect"
+// TargetApps action undocumented
+func (b *ManagedAppProtectionRequestBuilder) TargetApps(reqObj *ManagedAppProtectionTargetAppsRequestParameter) *ManagedAppProtectionTargetAppsRequestBuilder {
+	bb := &ManagedAppProtectionTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type WorkbookWorksheetProtectionProtectRequestBuilder struct{ BaseRequestBuilder }
+type ManagedAppProtectionTargetAppsRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWorksheetProtectionProtectRequest {
-	return &WorkbookWorksheetProtectionProtectRequest{
+func (b *ManagedAppProtectionTargetAppsRequestBuilder) Request() *ManagedAppProtectionTargetAppsRequest {
+	return &ManagedAppProtectionTargetAppsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type WorkbookWorksheetProtectionProtectRequest struct{ BaseRequest }
+type ManagedAppProtectionTargetAppsRequest struct{ BaseRequest }
 
 //
-func (r *WorkbookWorksheetProtectionProtectRequest) Do(method, path string, reqObj interface{}) error {
+func (r *ManagedAppProtectionTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *WorkbookWorksheetProtectionProtectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Unprotect action undocumented
-func (b *WorkbookWorksheetProtectionRequestBuilder) Unprotect(reqObj *WorkbookWorksheetProtectionUnprotectRequestParameter) *WorkbookWorksheetProtectionUnprotectRequestBuilder {
-	bb := &WorkbookWorksheetProtectionUnprotectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/unprotect"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookWorksheetProtectionUnprotectRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *WorkbookWorksheetProtectionUnprotectRequest {
-	return &WorkbookWorksheetProtectionUnprotectRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookWorksheetProtectionUnprotectRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookWorksheetProtectionUnprotectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookWorksheetProtectionUnprotectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RestoreVersion action undocumented
-func (b *ListItemVersionRequestBuilder) RestoreVersion(reqObj *ListItemVersionRestoreVersionRequestParameter) *ListItemVersionRestoreVersionRequestBuilder {
-	bb := &ListItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ListItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersionRestoreVersionRequest {
-	return &ListItemVersionRestoreVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ListItemVersionRestoreVersionRequest struct{ BaseRequest }
-
-//
-func (r *ListItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ListItemVersionRestoreVersionRequest) Post() error {
+func (r *ManagedAppProtectionTargetAppsRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
 // Assign action undocumented
-func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) Assign(reqObj *ManagedDeviceMobileAppConfigurationAssignRequestParameter) *ManagedDeviceMobileAppConfigurationAssignRequestBuilder {
-	bb := &ManagedDeviceMobileAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *TargetedManagedAppProtectionRequestBuilder) Assign(reqObj *TargetedManagedAppProtectionAssignRequestParameter) *TargetedManagedAppProtectionAssignRequestBuilder {
+	bb := &TargetedManagedAppProtectionAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/assign"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedDeviceMobileAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+type TargetedManagedAppProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *ManagedDeviceMobileAppConfigurationAssignRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationAssignRequest {
-	return &ManagedDeviceMobileAppConfigurationAssignRequest{
+func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedManagedAppProtectionAssignRequest {
+	return &TargetedManagedAppProtectionAssignRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type ManagedDeviceMobileAppConfigurationAssignRequest struct{ BaseRequest }
+type TargetedManagedAppProtectionAssignRequest struct{ BaseRequest }
 
 //
-func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+func (r *TargetedManagedAppProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
 	return r.JSONRequestWithPath(method, path, reqObj, nil)
 }
 
 //
-func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post() error {
+func (r *TargetedManagedAppProtectionAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// BeginOnboarding action undocumented
+func (b *RemoteAssistancePartnerRequestBuilder) BeginOnboarding(reqObj *RemoteAssistancePartnerBeginOnboardingRequestParameter) *RemoteAssistancePartnerBeginOnboardingRequestBuilder {
+	bb := &RemoteAssistancePartnerBeginOnboardingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/beginOnboarding"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RemoteAssistancePartnerBeginOnboardingRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *RemoteAssistancePartnerBeginOnboardingRequest {
+	return &RemoteAssistancePartnerBeginOnboardingRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type RemoteAssistancePartnerBeginOnboardingRequest struct{ BaseRequest }
+
+//
+func (r *RemoteAssistancePartnerBeginOnboardingRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Disconnect action undocumented
+func (b *RemoteAssistancePartnerRequestBuilder) Disconnect(reqObj *RemoteAssistancePartnerDisconnectRequestParameter) *RemoteAssistancePartnerDisconnectRequestBuilder {
+	bb := &RemoteAssistancePartnerDisconnectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/disconnect"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RemoteAssistancePartnerDisconnectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssistancePartnerDisconnectRequest {
+	return &RemoteAssistancePartnerDisconnectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type RemoteAssistancePartnerDisconnectRequest struct{ BaseRequest }
+
+//
+func (r *RemoteAssistancePartnerDisconnectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *RemoteAssistancePartnerDisconnectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CopyToNotebook action undocumented
+func (b *OnenoteSectionRequestBuilder) CopyToNotebook(reqObj *OnenoteSectionCopyToNotebookRequestParameter) *OnenoteSectionCopyToNotebookRequestBuilder {
+	bb := &OnenoteSectionCopyToNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyToNotebook"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OnenoteSectionCopyToNotebookRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCopyToNotebookRequest {
+	return &OnenoteSectionCopyToNotebookRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type OnenoteSectionCopyToNotebookRequest struct{ BaseRequest }
+
+//
+func (r *OnenoteSectionCopyToNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *OnenoteSectionCopyToNotebookRequest) Post() (*OnenoteOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CopyToSectionGroup action undocumented
+func (b *OnenoteSectionRequestBuilder) CopyToSectionGroup(reqObj *OnenoteSectionCopyToSectionGroupRequestParameter) *OnenoteSectionCopyToSectionGroupRequestBuilder {
+	bb := &OnenoteSectionCopyToSectionGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyToSectionGroup"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OnenoteSectionCopyToSectionGroupRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSectionCopyToSectionGroupRequest {
+	return &OnenoteSectionCopyToSectionGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type OnenoteSectionCopyToSectionGroupRequest struct{ BaseRequest }
+
+//
+func (r *OnenoteSectionCopyToSectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *OnenoteSectionCopyToSectionGroupRequest) Post() (*OnenoteOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Refresh action undocumented
+func (b *WorkbookPivotTableRequestBuilder) Refresh(reqObj *WorkbookPivotTableRefreshRequestParameter) *WorkbookPivotTableRefreshRequestBuilder {
+	bb := &WorkbookPivotTableRefreshRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refresh"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookPivotTableRefreshRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableRefreshRequest {
+	return &WorkbookPivotTableRefreshRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookPivotTableRefreshRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookPivotTableRefreshRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookPivotTableRefreshRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookRangeFillRequestBuilder) Clear(reqObj *WorkbookRangeFillClearRequestParameter) *WorkbookRangeFillClearRequestBuilder {
+	bb := &WorkbookRangeFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeFillClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClearRequest {
+	return &WorkbookRangeFillClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeFillClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeFillClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeFillClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RestoreVersion action undocumented
+func (b *DriveItemVersionRequestBuilder) RestoreVersion(reqObj *DriveItemVersionRestoreVersionRequestParameter) *DriveItemVersionRestoreVersionRequestBuilder {
+	bb := &DriveItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersionRestoreVersionRequest {
+	return &DriveItemVersionRestoreVersionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemVersionRestoreVersionRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DriveItemVersionRestoreVersionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
+	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
+	return &DeviceCompliancePolicyAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceCompliancePolicyAssignment, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceCompliancePolicyAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]DeviceCompliancePolicyAssignment
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// ScheduleActionsForRules action undocumented
+func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
+	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
+	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
+
+//
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -68690,1440 +67852,6 @@ func (r *DeviceEnrollmentConfigurationAssignRequest) Do(method, path string, req
 
 //
 func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Calculate action undocumented
-func (b *WorkbookApplicationRequestBuilder) Calculate(reqObj *WorkbookApplicationCalculateRequestParameter) *WorkbookApplicationCalculateRequestBuilder {
-	bb := &WorkbookApplicationCalculateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/calculate"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookApplicationCalculateRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicationCalculateRequest {
-	return &WorkbookApplicationCalculateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookApplicationCalculateRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookApplicationCalculateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookApplicationCalculateRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Commit action undocumented
-func (b *MobileAppContentFileRequestBuilder) Commit(reqObj *MobileAppContentFileCommitRequestParameter) *MobileAppContentFileCommitRequestBuilder {
-	bb := &MobileAppContentFileCommitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/commit"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppContentFileCommitRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFileCommitRequest {
-	return &MobileAppContentFileCommitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MobileAppContentFileCommitRequest struct{ BaseRequest }
-
-//
-func (r *MobileAppContentFileCommitRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppContentFileCommitRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RenewUpload action undocumented
-func (b *MobileAppContentFileRequestBuilder) RenewUpload(reqObj *MobileAppContentFileRenewUploadRequestParameter) *MobileAppContentFileRenewUploadRequestBuilder {
-	bb := &MobileAppContentFileRenewUploadRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/renewUpload"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppContentFileRenewUploadRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppContentFileRenewUploadRequest {
-	return &MobileAppContentFileRenewUploadRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MobileAppContentFileRenewUploadRequest struct{ BaseRequest }
-
-//
-func (r *MobileAppContentFileRenewUploadRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppContentFileRenewUploadRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// TargetApps action undocumented
-func (b *ManagedAppProtectionRequestBuilder) TargetApps(reqObj *ManagedAppProtectionTargetAppsRequestParameter) *ManagedAppProtectionTargetAppsRequestBuilder {
-	bb := &ManagedAppProtectionTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedAppProtectionTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ManagedAppProtectionTargetAppsRequestBuilder) Request() *ManagedAppProtectionTargetAppsRequest {
-	return &ManagedAppProtectionTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ManagedAppProtectionTargetAppsRequest struct{ BaseRequest }
-
-//
-func (r *ManagedAppProtectionTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedAppProtectionTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SendTestMessage action undocumented
-func (b *NotificationMessageTemplateRequestBuilder) SendTestMessage(reqObj *NotificationMessageTemplateSendTestMessageRequestParameter) *NotificationMessageTemplateSendTestMessageRequestBuilder {
-	bb := &NotificationMessageTemplateSendTestMessageRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sendTestMessage"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotificationMessageTemplateSendTestMessageRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *NotificationMessageTemplateSendTestMessageRequestBuilder) Request() *NotificationMessageTemplateSendTestMessageRequest {
-	return &NotificationMessageTemplateSendTestMessageRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type NotificationMessageTemplateSendTestMessageRequest struct{ BaseRequest }
-
-//
-func (r *NotificationMessageTemplateSendTestMessageRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *NotificationMessageTemplateSendTestMessageRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Upgrade action undocumented
-func (b *TeamsAppInstallationRequestBuilder) Upgrade(reqObj *TeamsAppInstallationUpgradeRequestParameter) *TeamsAppInstallationUpgradeRequestBuilder {
-	bb := &TeamsAppInstallationUpgradeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/upgrade"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
-	return &TeamsAppInstallationUpgradeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
-
-//
-func (r *TeamsAppInstallationUpgradeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *TeamsAppInstallationUpgradeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
-	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
-	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// OnenotePatchContent action undocumented
-func (b *OnenotePageRequestBuilder) OnenotePatchContent(reqObj *OnenotePageOnenotePatchContentRequestParameter) *OnenotePageOnenotePatchContentRequestBuilder {
-	bb := &OnenotePageOnenotePatchContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/onenotePatchContent"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenotePageOnenotePatchContentRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOnenotePatchContentRequest {
-	return &OnenotePageOnenotePatchContentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenotePageOnenotePatchContentRequest struct{ BaseRequest }
-
-//
-func (r *OnenotePageOnenotePatchContentRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *OnenotePageOnenotePatchContentRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyToSection action undocumented
-func (b *OnenotePageRequestBuilder) CopyToSection(reqObj *OnenotePageCopyToSectionRequestParameter) *OnenotePageCopyToSectionRequestBuilder {
-	bb := &OnenotePageCopyToSectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyToSection"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OnenotePageCopyToSectionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSectionRequest {
-	return &OnenotePageCopyToSectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type OnenotePageCopyToSectionRequest struct{ BaseRequest }
-
-//
-func (r *OnenotePageCopyToSectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *OnenotePageCopyToSectionRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CopyNotebook action undocumented
-func (b *NotebookRequestBuilder) CopyNotebook(reqObj *NotebookCopyNotebookRequestParameter) *NotebookCopyNotebookRequestBuilder {
-	bb := &NotebookCopyNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyNotebook"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
-	return &NotebookCopyNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type NotebookCopyNotebookRequest struct{ BaseRequest }
-
-//
-func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *NotebookCopyNotebookRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SyncLicenses action undocumented
-func (b *VppTokenRequestBuilder) SyncLicenses(reqObj *VppTokenSyncLicensesRequestParameter) *VppTokenSyncLicensesRequestBuilder {
-	bb := &VppTokenSyncLicensesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncLicenses"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type VppTokenSyncLicensesRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequest {
-	return &VppTokenSyncLicensesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type VppTokenSyncLicensesRequest struct{ BaseRequest }
-
-//
-func (r *VppTokenSyncLicensesRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *VppTokenSyncLicensesRequest) Post() (*VppToken, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Add action undocumented
-func (b *WorkbookTableColumnsCollectionRequestBuilder) Add(reqObj *WorkbookTableColumnCollectionAddRequestParameter) *WorkbookTableColumnCollectionAddRequestBuilder {
-	bb := &WorkbookTableColumnCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableColumnCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTableColumnCollectionAddRequest {
-	return &WorkbookTableColumnCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookTableColumnCollectionAddRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookTableColumnCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookTableColumnCollectionAddRequest) Post() (*WorkbookTableColumn, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RestoreVersion action undocumented
-func (b *DriveItemVersionRequestBuilder) RestoreVersion(reqObj *DriveItemVersionRestoreVersionRequestParameter) *DriveItemVersionRestoreVersionRequestBuilder {
-	bb := &DriveItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DriveItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersionRestoreVersionRequest {
-	return &DriveItemVersionRestoreVersionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DriveItemVersionRestoreVersionRequest struct{ BaseRequest }
-
-//
-func (r *DriveItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DriveItemVersionRestoreVersionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
-	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
-	return &MobileAppAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MobileAppAssignRequest struct{ BaseRequest }
-
-//
-func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MobileAppAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateSession action undocumented
-func (b *WorkbookRequestBuilder) CreateSession(reqObj *WorkbookCreateSessionRequestParameter) *WorkbookCreateSessionRequestBuilder {
-	bb := &WorkbookCreateSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookCreateSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRequest {
-	return &WorkbookCreateSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookCreateSessionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookCreateSessionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookSessionInfo, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookCreateSessionRequest) Post() (*WorkbookSessionInfo, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CloseSession action undocumented
-func (b *WorkbookRequestBuilder) CloseSession(reqObj *WorkbookCloseSessionRequestParameter) *WorkbookCloseSessionRequestBuilder {
-	bb := &WorkbookCloseSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/closeSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookCloseSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequest {
-	return &WorkbookCloseSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookCloseSessionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookCloseSessionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookCloseSessionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RefreshSession action undocumented
-func (b *WorkbookRequestBuilder) RefreshSession(reqObj *WorkbookRefreshSessionRequestParameter) *WorkbookRefreshSessionRequestBuilder {
-	bb := &WorkbookRefreshSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refreshSession"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookRefreshSessionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSessionRequest {
-	return &WorkbookRefreshSessionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookRefreshSessionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookRefreshSessionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookRefreshSessionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetData action undocumented
-func (b *WorkbookChartRequestBuilder) SetData(reqObj *WorkbookChartSetDataRequestParameter) *WorkbookChartSetDataRequestBuilder {
-	bb := &WorkbookChartSetDataRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setData"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartSetDataRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequest {
-	return &WorkbookChartSetDataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartSetDataRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartSetDataRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartSetDataRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetPosition action undocumented
-func (b *WorkbookChartRequestBuilder) SetPosition(reqObj *WorkbookChartSetPositionRequestParameter) *WorkbookChartSetPositionRequestBuilder {
-	bb := &WorkbookChartSetPositionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPosition"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartSetPositionRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPositionRequest {
-	return &WorkbookChartSetPositionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartSetPositionRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartSetPositionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Clear action undocumented
-func (b *WorkbookChartFillRequestBuilder) Clear(reqObj *WorkbookChartFillClearRequestParameter) *WorkbookChartFillClearRequestBuilder {
-	bb := &WorkbookChartFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/clear"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartFillClearRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClearRequest {
-	return &WorkbookChartFillClearRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartFillClearRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartFillClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartFillClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SetSolidColor action undocumented
-func (b *WorkbookChartFillRequestBuilder) SetSolidColor(reqObj *WorkbookChartFillSetSolidColorRequestParameter) *WorkbookChartFillSetSolidColorRequestBuilder {
-	bb := &WorkbookChartFillSetSolidColorRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setSolidColor"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartFillSetSolidColorRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartFillSetSolidColorRequest {
-	return &WorkbookChartFillSetSolidColorRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookChartFillSetSolidColorRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookChartFillSetSolidColorRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookChartFillSetSolidColorRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateReply action undocumented
-func (b *MessageRequestBuilder) CreateReply(reqObj *MessageCreateReplyRequestParameter) *MessageCreateReplyRequestBuilder {
-	bb := &MessageCreateReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createReply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest {
-	return &MessageCreateReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCreateReplyRequest struct{ BaseRequest }
-
-//
-func (r *MessageCreateReplyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCreateReplyRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateReplyAll action undocumented
-func (b *MessageRequestBuilder) CreateReplyAll(reqObj *MessageCreateReplyAllRequestParameter) *MessageCreateReplyAllRequestBuilder {
-	bb := &MessageCreateReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createReplyAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateReplyAllRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRequest {
-	return &MessageCreateReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCreateReplyAllRequest struct{ BaseRequest }
-
-//
-func (r *MessageCreateReplyAllRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCreateReplyAllRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CreateForward action undocumented
-func (b *MessageRequestBuilder) CreateForward(reqObj *MessageCreateForwardRequestParameter) *MessageCreateForwardRequestBuilder {
-	bb := &MessageCreateForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createForward"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCreateForwardRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequest {
-	return &MessageCreateForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCreateForwardRequest struct{ BaseRequest }
-
-//
-func (r *MessageCreateForwardRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCreateForwardRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Send action undocumented
-func (b *MessageRequestBuilder) Send(reqObj *MessageSendRequestParameter) *MessageSendRequestBuilder {
-	bb := &MessageSendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/send"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageSendRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
-	return &MessageSendRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageSendRequest struct{ BaseRequest }
-
-//
-func (r *MessageSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Copy action undocumented
-func (b *MessageRequestBuilder) Copy(reqObj *MessageCopyRequestParameter) *MessageCopyRequestBuilder {
-	bb := &MessageCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copy"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageCopyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
-	return &MessageCopyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageCopyRequest struct{ BaseRequest }
-
-//
-func (r *MessageCopyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageCopyRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Move action undocumented
-func (b *MessageRequestBuilder) Move(reqObj *MessageMoveRequestParameter) *MessageMoveRequestBuilder {
-	bb := &MessageMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/move"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageMoveRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
-	return &MessageMoveRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageMoveRequest struct{ BaseRequest }
-
-//
-func (r *MessageMoveRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *MessageMoveRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reply action undocumented
-func (b *MessageRequestBuilder) Reply(reqObj *MessageReplyRequestParameter) *MessageReplyRequestBuilder {
-	bb := &MessageReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
-	return &MessageReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageReplyRequest struct{ BaseRequest }
-
-//
-func (r *MessageReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// ReplyAll action undocumented
-func (b *MessageRequestBuilder) ReplyAll(reqObj *MessageReplyAllRequestParameter) *MessageReplyAllRequestBuilder {
-	bb := &MessageReplyAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/replyAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageReplyAllRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
-	return &MessageReplyAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageReplyAllRequest struct{ BaseRequest }
-
-//
-func (r *MessageReplyAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageReplyAllRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Forward action undocumented
-func (b *MessageRequestBuilder) Forward(reqObj *MessageForwardRequestParameter) *MessageForwardRequestBuilder {
-	bb := &MessageForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/forward"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MessageForwardRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
-	return &MessageForwardRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type MessageForwardRequest struct{ BaseRequest }
-
-//
-func (r *MessageForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *MessageForwardRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Reply action undocumented
-func (b *ConversationThreadRequestBuilder) Reply(reqObj *ConversationThreadReplyRequestParameter) *ConversationThreadReplyRequestBuilder {
-	bb := &ConversationThreadReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ConversationThreadReplyRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadReplyRequest {
-	return &ConversationThreadReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ConversationThreadReplyRequest struct{ BaseRequest }
-
-//
-func (r *ConversationThreadReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ConversationThreadReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// AddGroup action undocumented
-func (b *GroupLifecyclePolicyRequestBuilder) AddGroup(reqObj *GroupLifecyclePolicyAddGroupRequestParameter) *GroupLifecyclePolicyAddGroupRequestBuilder {
-	bb := &GroupLifecyclePolicyAddGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupLifecyclePolicyAddGroupRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePolicyAddGroupRequest {
-	return &GroupLifecyclePolicyAddGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupLifecyclePolicyAddGroupRequest struct{ BaseRequest }
-
-//
-func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *GroupLifecyclePolicyAddGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RemoveGroup action undocumented
-func (b *GroupLifecyclePolicyRequestBuilder) RemoveGroup(reqObj *GroupLifecyclePolicyRemoveGroupRequestParameter) *GroupLifecyclePolicyRemoveGroupRequestBuilder {
-	bb := &GroupLifecyclePolicyRemoveGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/removeGroup"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GroupLifecyclePolicyRemoveGroupRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecyclePolicyRemoveGroupRequest {
-	return &GroupLifecyclePolicyRemoveGroupRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type GroupLifecyclePolicyRemoveGroupRequest struct{ BaseRequest }
-
-//
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Assign action undocumented
-func (b *WindowsInformationProtectionRequestBuilder) Assign(reqObj *WindowsInformationProtectionAssignRequestParameter) *WindowsInformationProtectionAssignRequestBuilder {
-	bb := &WindowsInformationProtectionAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WindowsInformationProtectionAssignRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInformationProtectionAssignRequest {
-	return &WindowsInformationProtectionAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WindowsInformationProtectionAssignRequest struct{ BaseRequest }
-
-//
-func (r *WindowsInformationProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WindowsInformationProtectionAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// CheckMemberGroups action undocumented
-func (b *DirectoryObjectRequestBuilder) CheckMemberGroups(reqObj *DirectoryObjectCheckMemberGroupsRequestParameter) *DirectoryObjectCheckMemberGroupsRequestBuilder {
-	bb := &DirectoryObjectCheckMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkMemberGroups"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectCheckMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
-	return &DirectoryObjectCheckMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// CheckMemberObjects action undocumented
-func (b *DirectoryObjectRequestBuilder) CheckMemberObjects(reqObj *DirectoryObjectCheckMemberObjectsRequestParameter) *DirectoryObjectCheckMemberObjectsRequestBuilder {
-	bb := &DirectoryObjectCheckMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkMemberObjects"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
-	return &DirectoryObjectCheckMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// GetMemberGroups action undocumented
-func (b *DirectoryObjectRequestBuilder) GetMemberGroups(reqObj *DirectoryObjectGetMemberGroupsRequestParameter) *DirectoryObjectGetMemberGroupsRequestBuilder {
-	bb := &DirectoryObjectGetMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMemberGroups"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectGetMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
-	return &DirectoryObjectGetMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// GetMemberObjects action undocumented
-func (b *DirectoryObjectRequestBuilder) GetMemberObjects(reqObj *DirectoryObjectGetMemberObjectsRequestParameter) *DirectoryObjectGetMemberObjectsRequestBuilder {
-	bb := &DirectoryObjectGetMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMemberObjects"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
-	return &DirectoryObjectGetMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequestWithPath(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = json.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-// Restore action undocumented
-func (b *DirectoryObjectRequestBuilder) Restore(reqObj *DirectoryObjectRestoreRequestParameter) *DirectoryObjectRestoreRequestBuilder {
-	bb := &DirectoryObjectRestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restore"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
-	return &DirectoryObjectRestoreRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DirectoryObjectRestoreRequest struct{ BaseRequest }
-
-//
-func (r *DirectoryObjectRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *DirectoryObjectRestoreRequest) Post() (*DirectoryObject, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// RefreshAll action undocumented
-func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) RefreshAll(reqObj *WorkbookPivotTableCollectionRefreshAllRequestParameter) *WorkbookPivotTableCollectionRefreshAllRequestBuilder {
-	bb := &WorkbookPivotTableCollectionRefreshAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refreshAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
-	return &WorkbookPivotTableCollectionRefreshAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
-
-//
-func (r *WorkbookPivotTableCollectionRefreshAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -70222,96 +67950,360 @@ func (r *WorkbookTableReapplyFiltersRequest) Post() error {
 }
 
 // Assign action undocumented
-func (b *ManagedEBookRequestBuilder) Assign(reqObj *ManagedEBookAssignRequestParameter) *ManagedEBookAssignRequestBuilder {
-	bb := &ManagedEBookAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
+	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/assign"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type ManagedEBookAssignRequestBuilder struct{ BaseRequestBuilder }
+type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
 
 //
-func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest {
-	return &ManagedEBookAssignRequest{
+func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
+	return &DeviceConfigurationAssignRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-type ManagedEBookAssignRequest struct{ BaseRequest }
+type DeviceConfigurationAssignRequest struct{ BaseRequest }
 
 //
-func (r *ManagedEBookAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *ManagedEBookAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// SyncMicrosoftStoreForBusinessApps action undocumented
-func (b *DeviceAppManagementRequestBuilder) SyncMicrosoftStoreForBusinessApps(reqObj *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter) *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder {
-	bb := &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncMicrosoftStoreForBusinessApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Request() *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest {
-	return &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest struct{ BaseRequest }
-
-//
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequestWithPath(method, path, reqObj, nil)
-}
-
-//
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-// Mute action undocumented
-func (b *ParticipantRequestBuilder) Mute(reqObj *ParticipantMuteRequestParameter) *ParticipantMuteRequestBuilder {
-	bb := &ParticipantMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/mute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
-
-//
-func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
-	return &ParticipantMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-type ParticipantMuteRequest struct{ BaseRequest }
-
-//
-func (r *ParticipantMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
+func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
 	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
 	return
 }
 
 //
-func (r *ParticipantMuteRequest) Post() (*MuteParticipantOperation, error) {
+func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceConfigurationAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]DeviceConfigurationAssignment
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// Clear action undocumented
+func (b *WorkbookChartLineFormatRequestBuilder) Clear(reqObj *WorkbookChartLineFormatClearRequestParameter) *WorkbookChartLineFormatClearRequestBuilder {
+	bb := &WorkbookChartLineFormatClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartLineFormatClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLineFormatClearRequest {
+	return &WorkbookChartLineFormatClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartLineFormatClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartLineFormatClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartLineFormatClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookRangeRequestBuilder) Clear(reqObj *WorkbookRangeClearRequestParameter) *WorkbookRangeClearRequestBuilder {
+	bb := &WorkbookRangeClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest {
+	return &WorkbookRangeClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Delete action undocumented
+func (b *WorkbookRangeRequestBuilder) Delete(reqObj *WorkbookRangeDeleteRequestParameter) *WorkbookRangeDeleteRequestBuilder {
+	bb := &WorkbookRangeDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/delete"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeDeleteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteRequest {
+	return &WorkbookRangeDeleteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeDeleteRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeDeleteRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeDeleteRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Insert action undocumented
+func (b *WorkbookRangeRequestBuilder) Insert(reqObj *WorkbookRangeInsertRequestParameter) *WorkbookRangeInsertRequestBuilder {
+	bb := &WorkbookRangeInsertRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/insert"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeInsertRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertRequest {
+	return &WorkbookRangeInsertRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeInsertRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeInsertRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookRangeInsertRequest) Post() (*WorkbookRange, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Merge action undocumented
+func (b *WorkbookRangeRequestBuilder) Merge(reqObj *WorkbookRangeMergeRequestParameter) *WorkbookRangeMergeRequestBuilder {
+	bb := &WorkbookRangeMergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/merge"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeMergeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest {
+	return &WorkbookRangeMergeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeMergeRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeMergeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeMergeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unmerge action undocumented
+func (b *WorkbookRangeRequestBuilder) Unmerge(reqObj *WorkbookRangeUnmergeRequestParameter) *WorkbookRangeUnmergeRequestBuilder {
+	bb := &WorkbookRangeUnmergeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unmerge"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeUnmergeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequest {
+	return &WorkbookRangeUnmergeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeUnmergeRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeUnmergeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeUnmergeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SyncLicenses action undocumented
+func (b *VppTokenRequestBuilder) SyncLicenses(reqObj *VppTokenSyncLicensesRequestParameter) *VppTokenSyncLicensesRequestBuilder {
+	bb := &VppTokenSyncLicensesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncLicenses"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type VppTokenSyncLicensesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequest {
+	return &VppTokenSyncLicensesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type VppTokenSyncLicensesRequest struct{ BaseRequest }
+
+//
+func (r *VppTokenSyncLicensesRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *VppTokenSyncLicensesRequest) Post() (*VppToken, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ForceDelete action undocumented
+func (b *DomainRequestBuilder) ForceDelete(reqObj *DomainForceDeleteRequestParameter) *DomainForceDeleteRequestBuilder {
+	bb := &DomainForceDeleteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forceDelete"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DomainForceDeleteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
+	return &DomainForceDeleteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DomainForceDeleteRequest struct{ BaseRequest }
+
+//
+func (r *DomainForceDeleteRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DomainForceDeleteRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Verify action undocumented
+func (b *DomainRequestBuilder) Verify(reqObj *DomainVerifyRequestParameter) *DomainVerifyRequestBuilder {
+	bb := &DomainVerifyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/verify"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DomainVerifyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
+	return &DomainVerifyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DomainVerifyRequest struct{ BaseRequest }
+
+//
+func (r *DomainVerifyRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DomainVerifyRequest) Post() (*Domain, error) {
 	return r.Do("POST", "", r.requestObject)
 }
 
@@ -70529,5 +68521,2013 @@ func (r *GroupRenewRequest) Do(method, path string, reqObj interface{}) error {
 
 //
 func (r *GroupRenewRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookWorksheetsCollectionRequestBuilder) Add(reqObj *WorkbookWorksheetCollectionAddRequestParameter) *WorkbookWorksheetCollectionAddRequestBuilder {
+	bb := &WorkbookWorksheetCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookWorksheetCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksheetCollectionAddRequest {
+	return &WorkbookWorksheetCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookWorksheetCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookWorksheetCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheet, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookWorksheetCollectionAddRequest) Post() (*WorkbookWorksheet, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Protect action undocumented
+func (b *WorkbookWorksheetProtectionRequestBuilder) Protect(reqObj *WorkbookWorksheetProtectionProtectRequestParameter) *WorkbookWorksheetProtectionProtectRequestBuilder {
+	bb := &WorkbookWorksheetProtectionProtectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/protect"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookWorksheetProtectionProtectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWorksheetProtectionProtectRequest {
+	return &WorkbookWorksheetProtectionProtectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookWorksheetProtectionProtectRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookWorksheetProtectionProtectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookWorksheetProtectionProtectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Unprotect action undocumented
+func (b *WorkbookWorksheetProtectionRequestBuilder) Unprotect(reqObj *WorkbookWorksheetProtectionUnprotectRequestParameter) *WorkbookWorksheetProtectionUnprotectRequestBuilder {
+	bb := &WorkbookWorksheetProtectionUnprotectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/unprotect"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookWorksheetProtectionUnprotectRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *WorkbookWorksheetProtectionUnprotectRequest {
+	return &WorkbookWorksheetProtectionUnprotectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookWorksheetProtectionUnprotectRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookWorksheetProtectionUnprotectRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookWorksheetProtectionUnprotectRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *TargetedManagedAppConfigurationRequestBuilder) Assign(reqObj *TargetedManagedAppConfigurationAssignRequestParameter) *TargetedManagedAppConfigurationAssignRequestBuilder {
+	bb := &TargetedManagedAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
+	return &TargetedManagedAppConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (r *TargetedManagedAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// TargetApps action undocumented
+func (b *TargetedManagedAppConfigurationRequestBuilder) TargetApps(reqObj *TargetedManagedAppConfigurationTargetAppsRequestParameter) *TargetedManagedAppConfigurationTargetAppsRequestBuilder {
+	bb := &TargetedManagedAppConfigurationTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppConfigurationTargetAppsRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
+	return &TargetedManagedAppConfigurationTargetAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
+
+//
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookChartFillRequestBuilder) Clear(reqObj *WorkbookChartFillClearRequestParameter) *WorkbookChartFillClearRequestBuilder {
+	bb := &WorkbookChartFillClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartFillClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClearRequest {
+	return &WorkbookChartFillClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartFillClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartFillClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartFillClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetSolidColor action undocumented
+func (b *WorkbookChartFillRequestBuilder) SetSolidColor(reqObj *WorkbookChartFillSetSolidColorRequestParameter) *WorkbookChartFillSetSolidColorRequestBuilder {
+	bb := &WorkbookChartFillSetSolidColorRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setSolidColor"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartFillSetSolidColorRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartFillSetSolidColorRequest {
+	return &WorkbookChartFillSetSolidColorRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartFillSetSolidColorRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartFillSetSolidColorRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartFillSetSolidColorRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Apply action undocumented
+func (b *WorkbookRangeSortRequestBuilder) Apply(reqObj *WorkbookRangeSortApplyRequestParameter) *WorkbookRangeSortApplyRequestBuilder {
+	bb := &WorkbookRangeSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/apply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookRangeSortApplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApplyRequest {
+	return &WorkbookRangeSortApplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookRangeSortApplyRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookRangeSortApplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookRangeSortApplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CopyNotebook action undocumented
+func (b *NotebookRequestBuilder) CopyNotebook(reqObj *NotebookCopyNotebookRequestParameter) *NotebookCopyNotebookRequestBuilder {
+	bb := &NotebookCopyNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyNotebook"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
+	return &NotebookCopyNotebookRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type NotebookCopyNotebookRequest struct{ BaseRequest }
+
+//
+func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *NotebookCopyNotebookRequest) Post() (*OnenoteOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Retire action undocumented
+func (b *ManagedDeviceRequestBuilder) Retire(reqObj *ManagedDeviceRetireRequestParameter) *ManagedDeviceRetireRequestBuilder {
+	bb := &ManagedDeviceRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/retire"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRetireRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireRequest {
+	return &ManagedDeviceRetireRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRetireRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRetireRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRetireRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Wipe action undocumented
+func (b *ManagedDeviceRequestBuilder) Wipe(reqObj *ManagedDeviceWipeRequestParameter) *ManagedDeviceWipeRequestBuilder {
+	bb := &ManagedDeviceWipeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/wipe"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceWipeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
+	return &ManagedDeviceWipeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceWipeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceWipeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceWipeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ResetPasscode action undocumented
+func (b *ManagedDeviceRequestBuilder) ResetPasscode(reqObj *ManagedDeviceResetPasscodeRequestParameter) *ManagedDeviceResetPasscodeRequestBuilder {
+	bb := &ManagedDeviceResetPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/resetPasscode"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceResetPasscodeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceResetPasscodeRequest {
+	return &ManagedDeviceResetPasscodeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceResetPasscodeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceResetPasscodeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceResetPasscodeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RemoteLock action undocumented
+func (b *ManagedDeviceRequestBuilder) RemoteLock(reqObj *ManagedDeviceRemoteLockRequestParameter) *ManagedDeviceRemoteLockRequestBuilder {
+	bb := &ManagedDeviceRemoteLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/remoteLock"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRemoteLockRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLockRequest {
+	return &ManagedDeviceRemoteLockRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRemoteLockRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRemoteLockRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRemoteLockRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RequestRemoteAssistance action undocumented
+func (b *ManagedDeviceRequestBuilder) RequestRemoteAssistance(reqObj *ManagedDeviceRequestRemoteAssistanceRequestParameter) *ManagedDeviceRequestRemoteAssistanceRequestBuilder {
+	bb := &ManagedDeviceRequestRemoteAssistanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/requestRemoteAssistance"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRequestRemoteAssistanceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedDeviceRequestRemoteAssistanceRequest {
+	return &ManagedDeviceRequestRemoteAssistanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRequestRemoteAssistanceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// DisableLostMode action undocumented
+func (b *ManagedDeviceRequestBuilder) DisableLostMode(reqObj *ManagedDeviceDisableLostModeRequestParameter) *ManagedDeviceDisableLostModeRequestBuilder {
+	bb := &ManagedDeviceDisableLostModeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/disableLostMode"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceDisableLostModeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDisableLostModeRequest {
+	return &ManagedDeviceDisableLostModeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceDisableLostModeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceDisableLostModeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceDisableLostModeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// LocateDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) LocateDevice(reqObj *ManagedDeviceLocateDeviceRequestParameter) *ManagedDeviceLocateDeviceRequestBuilder {
+	bb := &ManagedDeviceLocateDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/locateDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceLocateDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocateDeviceRequest {
+	return &ManagedDeviceLocateDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceLocateDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceLocateDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceLocateDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// BypassActivationLock action undocumented
+func (b *ManagedDeviceRequestBuilder) BypassActivationLock(reqObj *ManagedDeviceBypassActivationLockRequestParameter) *ManagedDeviceBypassActivationLockRequestBuilder {
+	bb := &ManagedDeviceBypassActivationLockRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/bypassActivationLock"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceBypassActivationLockRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDeviceBypassActivationLockRequest {
+	return &ManagedDeviceBypassActivationLockRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceBypassActivationLockRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceBypassActivationLockRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceBypassActivationLockRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RebootNow action undocumented
+func (b *ManagedDeviceRequestBuilder) RebootNow(reqObj *ManagedDeviceRebootNowRequestParameter) *ManagedDeviceRebootNowRequestBuilder {
+	bb := &ManagedDeviceRebootNowRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/rebootNow"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRebootNowRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNowRequest {
+	return &ManagedDeviceRebootNowRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRebootNowRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRebootNowRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRebootNowRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ShutDown action undocumented
+func (b *ManagedDeviceRequestBuilder) ShutDown(reqObj *ManagedDeviceShutDownRequestParameter) *ManagedDeviceShutDownRequestBuilder {
+	bb := &ManagedDeviceShutDownRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/shutDown"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceShutDownRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRequest {
+	return &ManagedDeviceShutDownRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceShutDownRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceShutDownRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceShutDownRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RecoverPasscode action undocumented
+func (b *ManagedDeviceRequestBuilder) RecoverPasscode(reqObj *ManagedDeviceRecoverPasscodeRequestParameter) *ManagedDeviceRecoverPasscodeRequestBuilder {
+	bb := &ManagedDeviceRecoverPasscodeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/recoverPasscode"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceRecoverPasscodeRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRecoverPasscodeRequest {
+	return &ManagedDeviceRecoverPasscodeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceRecoverPasscodeRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceRecoverPasscodeRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceRecoverPasscodeRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CleanWindowsDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) CleanWindowsDevice(reqObj *ManagedDeviceCleanWindowsDeviceRequestParameter) *ManagedDeviceCleanWindowsDeviceRequestBuilder {
+	bb := &ManagedDeviceCleanWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/cleanWindowsDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceCleanWindowsDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDeviceCleanWindowsDeviceRequest {
+	return &ManagedDeviceCleanWindowsDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceCleanWindowsDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceCleanWindowsDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceCleanWindowsDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// LogoutSharedAppleDeviceActiveUser action undocumented
+func (b *ManagedDeviceRequestBuilder) LogoutSharedAppleDeviceActiveUser(reqObj *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter) *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder {
+	bb := &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/logoutSharedAppleDeviceActiveUser"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request() *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest {
+	return &ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// DeleteUserFromSharedAppleDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) DeleteUserFromSharedAppleDevice(reqObj *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter) *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder {
+	bb := &ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/deleteUserFromSharedAppleDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest {
+	return &ManagedDeviceDeleteUserFromSharedAppleDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SyncDevice action undocumented
+func (b *ManagedDeviceRequestBuilder) SyncDevice(reqObj *ManagedDeviceSyncDeviceRequestParameter) *ManagedDeviceSyncDeviceRequestBuilder {
+	bb := &ManagedDeviceSyncDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncDevice"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceSyncDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDeviceRequest {
+	return &ManagedDeviceSyncDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceSyncDeviceRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceSyncDeviceRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceSyncDeviceRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// WindowsDefenderScan action undocumented
+func (b *ManagedDeviceRequestBuilder) WindowsDefenderScan(reqObj *ManagedDeviceWindowsDefenderScanRequestParameter) *ManagedDeviceWindowsDefenderScanRequestBuilder {
+	bb := &ManagedDeviceWindowsDefenderScanRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/windowsDefenderScan"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceWindowsDefenderScanRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDeviceWindowsDefenderScanRequest {
+	return &ManagedDeviceWindowsDefenderScanRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceWindowsDefenderScanRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceWindowsDefenderScanRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceWindowsDefenderScanRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// WindowsDefenderUpdateSignatures action undocumented
+func (b *ManagedDeviceRequestBuilder) WindowsDefenderUpdateSignatures(reqObj *ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter) *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder {
+	bb := &ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/windowsDefenderUpdateSignatures"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *ManagedDeviceWindowsDefenderUpdateSignaturesRequest {
+	return &ManagedDeviceWindowsDefenderUpdateSignaturesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceWindowsDefenderUpdateSignaturesRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// UpdateWindowsDeviceAccount action undocumented
+func (b *ManagedDeviceRequestBuilder) UpdateWindowsDeviceAccount(reqObj *ManagedDeviceUpdateWindowsDeviceAccountRequestParameter) *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder {
+	bb := &ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateWindowsDeviceAccount"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *ManagedDeviceUpdateWindowsDeviceAccountRequest {
+	return &ManagedDeviceUpdateWindowsDeviceAccountRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceUpdateWindowsDeviceAccountRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Calculate action undocumented
+func (b *WorkbookApplicationRequestBuilder) Calculate(reqObj *WorkbookApplicationCalculateRequestParameter) *WorkbookApplicationCalculateRequestBuilder {
+	bb := &WorkbookApplicationCalculateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/calculate"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookApplicationCalculateRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicationCalculateRequest {
+	return &WorkbookApplicationCalculateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookApplicationCalculateRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookApplicationCalculateRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookApplicationCalculateRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RefreshAll action undocumented
+func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) RefreshAll(reqObj *WorkbookPivotTableCollectionRefreshAllRequestParameter) *WorkbookPivotTableCollectionRefreshAllRequestBuilder {
+	bb := &WorkbookPivotTableCollectionRefreshAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refreshAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
+	return &WorkbookPivotTableCollectionRefreshAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookPivotTableCollectionRefreshAllRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookTableRowsCollectionRequestBuilder) Add(reqObj *WorkbookTableRowCollectionAddRequestParameter) *WorkbookTableRowCollectionAddRequestBuilder {
+	bb := &WorkbookTableRowCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableRowCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableRowCollectionAddRequestBuilder) Request() *WorkbookTableRowCollectionAddRequest {
+	return &WorkbookTableRowCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableRowCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableRowCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookTableRowCollectionAddRequest) Post() (*WorkbookTableRow, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Apply action undocumented
+func (b *WorkbookTableSortRequestBuilder) Apply(reqObj *WorkbookTableSortApplyRequestParameter) *WorkbookTableSortApplyRequestBuilder {
+	bb := &WorkbookTableSortApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/apply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableSortApplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApplyRequest {
+	return &WorkbookTableSortApplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableSortApplyRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableSortApplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookTableSortApplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookTableSortRequestBuilder) Clear(reqObj *WorkbookTableSortClearRequestParameter) *WorkbookTableSortClearRequestBuilder {
+	bb := &WorkbookTableSortClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableSortClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClearRequest {
+	return &WorkbookTableSortClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableSortClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableSortClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookTableSortClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reapply action undocumented
+func (b *WorkbookTableSortRequestBuilder) Reapply(reqObj *WorkbookTableSortReapplyRequestParameter) *WorkbookTableSortReapplyRequestBuilder {
+	bb := &WorkbookTableSortReapplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reapply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableSortReapplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortReapplyRequest {
+	return &WorkbookTableSortReapplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookTableSortReapplyRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookTableSortReapplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookTableSortReapplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Reply action undocumented
+func (b *PostRequestBuilder) Reply(reqObj *PostReplyRequestParameter) *PostReplyRequestBuilder {
+	bb := &PostReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/reply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type PostReplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
+	return &PostReplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type PostReplyRequest struct{ BaseRequest }
+
+//
+func (r *PostReplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *PostReplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Forward action undocumented
+func (b *PostRequestBuilder) Forward(reqObj *PostForwardRequestParameter) *PostForwardRequestBuilder {
+	bb := &PostForwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/forward"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type PostForwardRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
+	return &PostForwardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type PostForwardRequest struct{ BaseRequest }
+
+//
+func (r *PostForwardRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *PostForwardRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Add action undocumented
+func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
+	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
+	return &WorkbookChartCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartCollectionAddRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Apply action undocumented
+func (b *WorkbookFilterRequestBuilder) Apply(reqObj *WorkbookFilterApplyRequestParameter) *WorkbookFilterApplyRequestBuilder {
+	bb := &WorkbookFilterApplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/apply"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyRequest {
+	return &WorkbookFilterApplyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyBottomItemsFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyBottomItemsFilter(reqObj *WorkbookFilterApplyBottomItemsFilterRequestParameter) *WorkbookFilterApplyBottomItemsFilterRequestBuilder {
+	bb := &WorkbookFilterApplyBottomItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyBottomItemsFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyBottomItemsFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *WorkbookFilterApplyBottomItemsFilterRequest {
+	return &WorkbookFilterApplyBottomItemsFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyBottomItemsFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyBottomItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyBottomPercentFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyBottomPercentFilter(reqObj *WorkbookFilterApplyBottomPercentFilterRequestParameter) *WorkbookFilterApplyBottomPercentFilterRequestBuilder {
+	bb := &WorkbookFilterApplyBottomPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyBottomPercentFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyBottomPercentFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *WorkbookFilterApplyBottomPercentFilterRequest {
+	return &WorkbookFilterApplyBottomPercentFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyBottomPercentFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyBottomPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyCellColorFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyCellColorFilter(reqObj *WorkbookFilterApplyCellColorFilterRequestParameter) *WorkbookFilterApplyCellColorFilterRequestBuilder {
+	bb := &WorkbookFilterApplyCellColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyCellColorFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyCellColorFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFilterApplyCellColorFilterRequest {
+	return &WorkbookFilterApplyCellColorFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyCellColorFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyCellColorFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyCellColorFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyCustomFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyCustomFilter(reqObj *WorkbookFilterApplyCustomFilterRequestParameter) *WorkbookFilterApplyCustomFilterRequestBuilder {
+	bb := &WorkbookFilterApplyCustomFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyCustomFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyCustomFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilterApplyCustomFilterRequest {
+	return &WorkbookFilterApplyCustomFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyCustomFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyCustomFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyCustomFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyDynamicFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyDynamicFilter(reqObj *WorkbookFilterApplyDynamicFilterRequestParameter) *WorkbookFilterApplyDynamicFilterRequestBuilder {
+	bb := &WorkbookFilterApplyDynamicFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyDynamicFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyDynamicFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilterApplyDynamicFilterRequest {
+	return &WorkbookFilterApplyDynamicFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyDynamicFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyDynamicFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyDynamicFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyFontColorFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyFontColorFilter(reqObj *WorkbookFilterApplyFontColorFilterRequestParameter) *WorkbookFilterApplyFontColorFilterRequestBuilder {
+	bb := &WorkbookFilterApplyFontColorFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyFontColorFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyFontColorFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFilterApplyFontColorFilterRequest {
+	return &WorkbookFilterApplyFontColorFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyFontColorFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyFontColorFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyFontColorFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyIconFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyIconFilter(reqObj *WorkbookFilterApplyIconFilterRequestParameter) *WorkbookFilterApplyIconFilterRequestBuilder {
+	bb := &WorkbookFilterApplyIconFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyIconFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyIconFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterApplyIconFilterRequest {
+	return &WorkbookFilterApplyIconFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyIconFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyIconFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyIconFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyTopItemsFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyTopItemsFilter(reqObj *WorkbookFilterApplyTopItemsFilterRequestParameter) *WorkbookFilterApplyTopItemsFilterRequestBuilder {
+	bb := &WorkbookFilterApplyTopItemsFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyTopItemsFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyTopItemsFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFilterApplyTopItemsFilterRequest {
+	return &WorkbookFilterApplyTopItemsFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyTopItemsFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyTopItemsFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyTopItemsFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyTopPercentFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyTopPercentFilter(reqObj *WorkbookFilterApplyTopPercentFilterRequestParameter) *WorkbookFilterApplyTopPercentFilterRequestBuilder {
+	bb := &WorkbookFilterApplyTopPercentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyTopPercentFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyTopPercentFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookFilterApplyTopPercentFilterRequest {
+	return &WorkbookFilterApplyTopPercentFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyTopPercentFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyTopPercentFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyTopPercentFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// ApplyValuesFilter action undocumented
+func (b *WorkbookFilterRequestBuilder) ApplyValuesFilter(reqObj *WorkbookFilterApplyValuesFilterRequestParameter) *WorkbookFilterApplyValuesFilterRequestBuilder {
+	bb := &WorkbookFilterApplyValuesFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/applyValuesFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterApplyValuesFilterRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilterApplyValuesFilterRequest {
+	return &WorkbookFilterApplyValuesFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterApplyValuesFilterRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterApplyValuesFilterRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterApplyValuesFilterRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Clear action undocumented
+func (b *WorkbookFilterRequestBuilder) Clear(reqObj *WorkbookFilterClearRequestParameter) *WorkbookFilterClearRequestBuilder {
+	bb := &WorkbookFilterClearRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clear"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookFilterClearRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearRequest {
+	return &WorkbookFilterClearRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookFilterClearRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookFilterClearRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookFilterClearRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Commit action undocumented
+func (b *MobileAppContentFileRequestBuilder) Commit(reqObj *MobileAppContentFileCommitRequestParameter) *MobileAppContentFileCommitRequestBuilder {
+	bb := &MobileAppContentFileCommitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/commit"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppContentFileCommitRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFileCommitRequest {
+	return &MobileAppContentFileCommitRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MobileAppContentFileCommitRequest struct{ BaseRequest }
+
+//
+func (r *MobileAppContentFileCommitRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppContentFileCommitRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RenewUpload action undocumented
+func (b *MobileAppContentFileRequestBuilder) RenewUpload(reqObj *MobileAppContentFileRenewUploadRequestParameter) *MobileAppContentFileRenewUploadRequestBuilder {
+	bb := &MobileAppContentFileRenewUploadRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/renewUpload"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppContentFileRenewUploadRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppContentFileRenewUploadRequest {
+	return &MobileAppContentFileRenewUploadRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MobileAppContentFileRenewUploadRequest struct{ BaseRequest }
+
+//
+func (r *MobileAppContentFileRenewUploadRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *MobileAppContentFileRenewUploadRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Copy action undocumented
+func (b *MailFolderRequestBuilder) Copy(reqObj *MailFolderCopyRequestParameter) *MailFolderCopyRequestBuilder {
+	bb := &MailFolderCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MailFolderCopyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
+	return &MailFolderCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MailFolderCopyRequest struct{ BaseRequest }
+
+//
+func (r *MailFolderCopyRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MailFolderCopyRequest) Post() (*MailFolder, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Move action undocumented
+func (b *MailFolderRequestBuilder) Move(reqObj *MailFolderMoveRequestParameter) *MailFolderMoveRequestBuilder {
+	bb := &MailFolderMoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/move"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MailFolderMoveRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
+	return &MailFolderMoveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type MailFolderMoveRequest struct{ BaseRequest }
+
+//
+func (r *MailFolderMoveRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *MailFolderMoveRequest) Post() (*MailFolder, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Checkin action undocumented
+func (b *DriveItemRequestBuilder) Checkin(reqObj *DriveItemCheckinRequestParameter) *DriveItemCheckinRequestBuilder {
+	bb := &DriveItemCheckinRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkin"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCheckinRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
+	return &DriveItemCheckinRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCheckinRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCheckinRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DriveItemCheckinRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Checkout action undocumented
+func (b *DriveItemRequestBuilder) Checkout(reqObj *DriveItemCheckoutRequestParameter) *DriveItemCheckoutRequestBuilder {
+	bb := &DriveItemCheckoutRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkout"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCheckoutRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
+	return &DriveItemCheckoutRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCheckoutRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCheckoutRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *DriveItemCheckoutRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Copy action undocumented
+func (b *DriveItemRequestBuilder) Copy(reqObj *DriveItemCopyRequestParameter) *DriveItemCopyRequestBuilder {
+	bb := &DriveItemCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCopyRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
+	return &DriveItemCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCopyRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCopyRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemCopyRequest) Post() (*DriveItem, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateLink action undocumented
+func (b *DriveItemRequestBuilder) CreateLink(reqObj *DriveItemCreateLinkRequestParameter) *DriveItemCreateLinkRequestBuilder {
+	bb := &DriveItemCreateLinkRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createLink"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCreateLinkRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkRequest {
+	return &DriveItemCreateLinkRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCreateLinkRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCreateLinkRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemCreateLinkRequest) Post() (*Permission, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// CreateUploadSession action undocumented
+func (b *DriveItemRequestBuilder) CreateUploadSession(reqObj *DriveItemCreateUploadSessionRequestParameter) *DriveItemCreateUploadSessionRequestBuilder {
+	bb := &DriveItemCreateUploadSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createUploadSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemCreateUploadSessionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateUploadSessionRequest {
+	return &DriveItemCreateUploadSessionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemCreateUploadSessionRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemCreateUploadSessionRequest) Do(method, path string, reqObj interface{}) (resObj *UploadSession, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemCreateUploadSessionRequest) Post() (*UploadSession, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Invite action undocumented
+func (b *DriveItemRequestBuilder) Invite(reqObj *DriveItemInviteRequestParameter) *DriveItemInviteRequestBuilder {
+	bb := &DriveItemInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/invite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemInviteRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
+	return &DriveItemInviteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemInviteRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemInviteRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
+	req, err := r.NewJSONRequestWithPath(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]Permission
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]Permission
+		)
+		err := json.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DriveItemInviteRequest) Get() ([][]Permission, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+// Preview action undocumented
+func (b *DriveItemRequestBuilder) Preview(reqObj *DriveItemPreviewRequestParameter) *DriveItemPreviewRequestBuilder {
+	bb := &DriveItemPreviewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/preview"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DriveItemPreviewRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
+	return &DriveItemPreviewRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type DriveItemPreviewRequest struct{ BaseRequest }
+
+//
+func (r *DriveItemPreviewRequest) Do(method, path string, reqObj interface{}) (resObj *ItemPreviewInfo, err error) {
+	err = r.JSONRequestWithPath(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *DriveItemPreviewRequest) Post() (*ItemPreviewInfo, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// RestoreVersion action undocumented
+func (b *ListItemVersionRequestBuilder) RestoreVersion(reqObj *ListItemVersionRestoreVersionRequestParameter) *ListItemVersionRestoreVersionRequestBuilder {
+	bb := &ListItemVersionRestoreVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restoreVersion"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ListItemVersionRestoreVersionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersionRestoreVersionRequest {
+	return &ListItemVersionRestoreVersionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ListItemVersionRestoreVersionRequest struct{ BaseRequest }
+
+//
+func (r *ListItemVersionRestoreVersionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ListItemVersionRestoreVersionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetData action undocumented
+func (b *WorkbookChartRequestBuilder) SetData(reqObj *WorkbookChartSetDataRequestParameter) *WorkbookChartSetDataRequestBuilder {
+	bb := &WorkbookChartSetDataRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setData"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartSetDataRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequest {
+	return &WorkbookChartSetDataRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartSetDataRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartSetDataRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartSetDataRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// SetPosition action undocumented
+func (b *WorkbookChartRequestBuilder) SetPosition(reqObj *WorkbookChartSetPositionRequestParameter) *WorkbookChartSetPositionRequestBuilder {
+	bb := &WorkbookChartSetPositionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setPosition"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartSetPositionRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPositionRequest {
+	return &WorkbookChartSetPositionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type WorkbookChartSetPositionRequest struct{ BaseRequest }
+
+//
+func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *WorkbookChartSetPositionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+// Assign action undocumented
+func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) Assign(reqObj *ManagedDeviceMobileAppConfigurationAssignRequestParameter) *ManagedDeviceMobileAppConfigurationAssignRequestBuilder {
+	bb := &ManagedDeviceMobileAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceMobileAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+//
+func (b *ManagedDeviceMobileAppConfigurationAssignRequestBuilder) Request() *ManagedDeviceMobileAppConfigurationAssignRequest {
+	return &ManagedDeviceMobileAppConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+type ManagedDeviceMobileAppConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequestWithPath(method, path, reqObj, nil)
+}
+
+//
+func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post() error {
 	return r.Do("POST", "", r.requestObject)
 }
