@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
@@ -11,6 +10,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/yaegashi/msgraph.go/auth"
 	msgraph "github.com/yaegashi/msgraph.go/beta"
+	"github.com/yaegashi/msgraph.go/jsonx"
 	P "github.com/yaegashi/msgraph.go/ptr"
 )
 
@@ -44,7 +44,7 @@ var defaultGroup = &msgraph.Group{
 }
 
 func dump(o interface{}) {
-	enc := json.NewEncoder(os.Stdout)
+	enc := jsonx.NewEncoder(os.Stdout)
 	enc.SetIndent("", "  ")
 	enc.Encode(o)
 }
