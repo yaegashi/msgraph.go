@@ -4,6 +4,7 @@ package msgraph
 
 // ImportedWindowsAutopilotDeviceIdentity Imported windows autopilot devices.
 type ImportedWindowsAutopilotDeviceIdentity struct {
+	// Entity is the base model of ImportedWindowsAutopilotDeviceIdentity
 	Entity
 	// OrderIdentifier Order Id of the Windows autopilot device. - Deprecate
 	OrderIdentifier *string `json:"orderIdentifier,omitempty"`

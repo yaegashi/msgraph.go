@@ -4,6 +4,8 @@ package msgraph
 
 // IOSNotificationSettings undocumented
 type IOSNotificationSettings struct {
+	// Object is the base model of IOSNotificationSettings
+	Object
 	// BundleID Bundle id of app to which to apply these notification settings.
 	BundleID *string `json:"bundleID,omitempty"`
 	// AppName Application name to be associated with the bundleID.

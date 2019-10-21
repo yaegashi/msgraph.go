@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementTroubleshootingErrorDetails undocumented
 type DeviceManagementTroubleshootingErrorDetails struct {
+	// Object is the base model of DeviceManagementTroubleshootingErrorDetails
+	Object
 	// Context undocumented
 	Context *string `json:"context,omitempty"`
 	// Failure undocumented

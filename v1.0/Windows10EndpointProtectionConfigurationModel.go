@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10EndpointProtectionConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the Windows10EndpointProtectionConfiguration resource.
 type Windows10EndpointProtectionConfiguration struct {
+	// DeviceConfiguration is the base model of Windows10EndpointProtectionConfiguration
 	DeviceConfiguration
 	// FirewallBlockStatefulFTP Blocks stateful FTP connections to the device
 	FirewallBlockStatefulFTP *bool `json:"firewallBlockStatefulFTP,omitempty"`

@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsManagedDevice Windows devices that are managed or pre-enrolled through Intune
 type WindowsManagedDevice struct {
+	// ManagedDevice is the base model of WindowsManagedDevice
 	ManagedDevice
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // DefaultManagedAppProtection Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy
 type DefaultManagedAppProtection struct {
+	// ManagedAppProtection is the base model of DefaultManagedAppProtection
 	ManagedAppProtection
 	// AppDataEncryptionType Type of encryption which should be used for data in a managed app. (iOS Only)
 	AppDataEncryptionType *ManagedAppDataEncryptionType `json:"appDataEncryptionType,omitempty"`

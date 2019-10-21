@@ -4,6 +4,7 @@ package msgraph
 
 // IOSVppEBook A class containing the properties for iOS Vpp eBook.
 type IOSVppEBook struct {
+	// ManagedEBook is the base model of IOSVppEBook
 	ManagedEBook
 	// VppTokenID The Vpp token ID.
 	VppTokenID *UUID `json:"vppTokenId,omitempty"`

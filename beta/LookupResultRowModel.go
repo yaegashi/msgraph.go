@@ -4,6 +4,7 @@ package msgraph
 
 // LookupResultRow undocumented
 type LookupResultRow struct {
+	// Entity is the base model of LookupResultRow
 	Entity
 	// Row undocumented
 	Row *string `json:"row,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // OfficeGraphInsights undocumented
 type OfficeGraphInsights struct {
+	// Entity is the base model of OfficeGraphInsights
 	Entity
 	// Trending undocumented
 	Trending []Trending `json:"trending,omitempty"`

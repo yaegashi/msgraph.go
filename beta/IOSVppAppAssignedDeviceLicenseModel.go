@@ -4,6 +4,7 @@ package msgraph
 
 // IOSVppAppAssignedDeviceLicense iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update.
 type IOSVppAppAssignedDeviceLicense struct {
+	// IOSVppAppAssignedLicense is the base model of IOSVppAppAssignedDeviceLicense
 	IOSVppAppAssignedLicense
 	// ManagedDeviceID The managed device ID.
 	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`

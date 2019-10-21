@@ -4,6 +4,8 @@ package msgraph
 
 // TimeSlot undocumented
 type TimeSlot struct {
+	// Object is the base model of TimeSlot
+	Object
 	// Start undocumented
 	Start *DateTimeTimeZone `json:"start,omitempty"`
 	// End undocumented

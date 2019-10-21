@@ -6,6 +6,7 @@ import "time"
 
 // WindowsManagementAppHealthState Windows management app health state entity.
 type WindowsManagementAppHealthState struct {
+	// Entity is the base model of WindowsManagementAppHealthState
 	Entity
 	// HealthState Windows management app health state.
 	HealthState *HealthState `json:"healthState,omitempty"`

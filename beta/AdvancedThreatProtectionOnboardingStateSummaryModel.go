@@ -4,6 +4,7 @@ package msgraph
 
 // AdvancedThreatProtectionOnboardingStateSummary Windows defender advanced threat protection onboarding state summary across the account.
 type AdvancedThreatProtectionOnboardingStateSummary struct {
+	// Entity is the base model of AdvancedThreatProtectionOnboardingStateSummary
 	Entity
 	// UnknownDeviceCount Number of unknown devices
 	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`

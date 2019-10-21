@@ -4,6 +4,8 @@ package msgraph
 
 // TeamMessagingSettings undocumented
 type TeamMessagingSettings struct {
+	// Object is the base model of TeamMessagingSettings
+	Object
 	// AllowUserEditMessages undocumented
 	AllowUserEditMessages *bool `json:"allowUserEditMessages,omitempty"`
 	// AllowUserDeleteMessages undocumented

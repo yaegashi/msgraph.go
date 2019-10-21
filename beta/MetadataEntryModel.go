@@ -4,6 +4,8 @@ package msgraph
 
 // MetadataEntry undocumented
 type MetadataEntry struct {
+	// Object is the base model of MetadataEntry
+	Object
 	// Key undocumented
 	Key *string `json:"key,omitempty"`
 	// Value undocumented

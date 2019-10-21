@@ -4,4 +4,6 @@ package msgraph
 
 // MobileAppAssignmentSettings undocumented
 type MobileAppAssignmentSettings struct {
+	// Object is the base model of MobileAppAssignmentSettings
+	Object
 }

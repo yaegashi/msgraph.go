@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskUWPApp undocumented
 type WindowsKioskUWPApp struct {
+	// WindowsKioskAppBase is the base model of WindowsKioskUWPApp
 	WindowsKioskAppBase
 	// AppUserModelID This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
 	AppUserModelID *string `json:"appUserModelId,omitempty"`

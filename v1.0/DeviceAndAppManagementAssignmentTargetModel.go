@@ -4,4 +4,6 @@ package msgraph
 
 // DeviceAndAppManagementAssignmentTarget undocumented
 type DeviceAndAppManagementAssignmentTarget struct {
+	// Object is the base model of DeviceAndAppManagementAssignmentTarget
+	Object
 }

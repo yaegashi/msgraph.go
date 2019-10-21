@@ -4,6 +4,8 @@ package msgraph
 
 // AndroidEnrollmentCompanyCode undocumented
 type AndroidEnrollmentCompanyCode struct {
+	// Object is the base model of AndroidEnrollmentCompanyCode
+	Object
 	// EnrollmentToken Enrollment Token used by the User to enroll their device.
 	EnrollmentToken *string `json:"enrollmentToken,omitempty"`
 	// QrCodeContent String used to generate a QR code for the token.

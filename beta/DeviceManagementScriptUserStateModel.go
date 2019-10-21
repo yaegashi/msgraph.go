@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementScriptUserState Contains properties for user run state of the device management script.
 type DeviceManagementScriptUserState struct {
+	// Entity is the base model of DeviceManagementScriptUserState
 	Entity
 	// SuccessDeviceCount Success device count for specific user.
 	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`

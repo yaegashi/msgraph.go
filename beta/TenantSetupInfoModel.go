@@ -4,6 +4,7 @@ package msgraph
 
 // TenantSetupInfo undocumented
 type TenantSetupInfo struct {
+	// Entity is the base model of TenantSetupInfo
 	Entity
 	// UserRolesActions undocumented
 	UserRolesActions *string `json:"userRolesActions,omitempty"`

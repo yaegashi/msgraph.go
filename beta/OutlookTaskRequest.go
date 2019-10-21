@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // OutlookTaskRequestBuilder is request builder for OutlookTask
@@ -101,11 +102,11 @@ func (r *OutlookTaskAttachmentsCollectionRequest) Paging(method, path string, ob
 			paging Paging
 			value  []Attachment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -188,11 +189,11 @@ func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(method
 			paging Paging
 			value  []MultiValueLegacyExtendedProperty
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -275,11 +276,11 @@ func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(metho
 			paging Paging
 			value  []SingleValueLegacyExtendedProperty
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

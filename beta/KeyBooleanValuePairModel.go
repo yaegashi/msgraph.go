@@ -4,6 +4,7 @@ package msgraph
 
 // KeyBooleanValuePair undocumented
 type KeyBooleanValuePair struct {
+	// KeyTypedValuePair is the base model of KeyBooleanValuePair
 	KeyTypedValuePair
 	// Value The Boolean value of the key-value pair.
 	Value *bool `json:"value,omitempty"`

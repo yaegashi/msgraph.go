@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementIntent Entity that represents an intent to apply settings to a device
 type DeviceManagementIntent struct {
+	// Entity is the base model of DeviceManagementIntent
 	Entity
 	// DisplayName The user given display name
 	DisplayName *string `json:"displayName,omitempty"`

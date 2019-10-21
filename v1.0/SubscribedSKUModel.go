@@ -4,6 +4,7 @@ package msgraph
 
 // SubscribedSKU undocumented
 type SubscribedSKU struct {
+	// Entity is the base model of SubscribedSKU
 	Entity
 	// CapabilityStatus undocumented
 	CapabilityStatus *string `json:"capabilityStatus,omitempty"`

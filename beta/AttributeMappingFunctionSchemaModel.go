@@ -4,6 +4,7 @@ package msgraph
 
 // AttributeMappingFunctionSchema undocumented
 type AttributeMappingFunctionSchema struct {
+	// Entity is the base model of AttributeMappingFunctionSchema
 	Entity
 	// Parameters undocumented
 	Parameters []AttributeMappingParameterSchema `json:"parameters,omitempty"`

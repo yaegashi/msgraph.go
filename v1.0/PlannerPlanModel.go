@@ -6,6 +6,7 @@ import "time"
 
 // PlannerPlan undocumented
 type PlannerPlan struct {
+	// Entity is the base model of PlannerPlan
 	Entity
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`

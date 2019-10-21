@@ -4,5 +4,6 @@ package msgraph
 
 // EdgeHomeButtonHidden undocumented
 type EdgeHomeButtonHidden struct {
+	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonHidden
 	EdgeHomeButtonConfiguration
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // Place undocumented
 type Place struct {
+	// Entity is the base model of Place
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

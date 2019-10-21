@@ -4,6 +4,8 @@ package msgraph
 
 // Windows10NetworkProxyServer undocumented
 type Windows10NetworkProxyServer struct {
+	// Object is the base model of Windows10NetworkProxyServer
+	Object
 	// Address Address to the proxy server. Specify an address in the format <server>[“:”<port>]
 	Address *string `json:"address,omitempty"`
 	// Exceptions Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node.

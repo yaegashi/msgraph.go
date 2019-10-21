@@ -6,6 +6,7 @@ import "time"
 
 // TimeOffRequestObject undocumented
 type TimeOffRequestObject struct {
+	// ScheduleChangeRequestObject is the base model of TimeOffRequestObject
 	ScheduleChangeRequestObject
 	// StartDateTime undocumented
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`

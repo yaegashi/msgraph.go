@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartAxes undocumented
 type WorkbookChartAxes struct {
+	// Entity is the base model of WorkbookChartAxes
 	Entity
 	// CategoryAxis undocumented
 	CategoryAxis *WorkbookChartAxis `json:"categoryAxis,omitempty"`

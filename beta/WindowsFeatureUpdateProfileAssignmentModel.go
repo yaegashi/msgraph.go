@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsFeatureUpdateProfileAssignment This entity contains the properties used to assign a windows feature update profile to a group.
 type WindowsFeatureUpdateProfileAssignment struct {
+	// Entity is the base model of WindowsFeatureUpdateProfileAssignment
 	Entity
 	// Target The assignment target that the feature update profile is assigned to.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

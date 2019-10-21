@@ -4,6 +4,8 @@ package msgraph
 
 // AttributeMappingParameterSchema undocumented
 type AttributeMappingParameterSchema struct {
+	// Object is the base model of AttributeMappingParameterSchema
+	Object
 	// AllowMultipleOccurrences undocumented
 	AllowMultipleOccurrences *bool `json:"allowMultipleOccurrences,omitempty"`
 	// Name undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // ImportedWindowsAutopilotDeviceIdentityState undocumented
 type ImportedWindowsAutopilotDeviceIdentityState struct {
+	// Object is the base model of ImportedWindowsAutopilotDeviceIdentityState
+	Object
 	// DeviceImportStatus Device status reported by Device Directory Service(DDS).
 	DeviceImportStatus *ImportedWindowsAutopilotDeviceIdentityImportStatus `json:"deviceImportStatus,omitempty"`
 	// DeviceRegistrationID Device Registration ID for successfully added device reported by Device Directory Service(DDS).

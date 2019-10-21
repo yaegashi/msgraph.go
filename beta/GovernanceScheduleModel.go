@@ -6,6 +6,8 @@ import "time"
 
 // GovernanceSchedule undocumented
 type GovernanceSchedule struct {
+	// Object is the base model of GovernanceSchedule
+	Object
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
 	// StartDateTime undocumented

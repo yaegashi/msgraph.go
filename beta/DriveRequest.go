@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // DriveRequestBuilder is request builder for Drive
@@ -101,11 +102,11 @@ func (r *DriveActivitiesCollectionRequest) Paging(method, path string, obj inter
 			paging Paging
 			value  []ItemActivityOLD
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -188,11 +189,11 @@ func (r *DriveBundlesCollectionRequest) Paging(method, path string, obj interfac
 			paging Paging
 			value  []DriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -275,11 +276,11 @@ func (r *DriveFollowingCollectionRequest) Paging(method, path string, obj interf
 			paging Paging
 			value  []DriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -362,11 +363,11 @@ func (r *DriveItemsCollectionRequest) Paging(method, path string, obj interface{
 			paging Paging
 			value  []DriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -463,11 +464,11 @@ func (r *DriveSpecialCollectionRequest) Paging(method, path string, obj interfac
 			paging Paging
 			value  []DriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

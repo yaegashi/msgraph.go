@@ -6,6 +6,7 @@ import "time"
 
 // ManagedAppPolicy The ManagedAppPolicy resource represents a base type for platform specific policies.
 type ManagedAppPolicy struct {
+	// Entity is the base model of ManagedAppPolicy
 	Entity
 	// DisplayName Policy display name.
 	DisplayName *string `json:"displayName,omitempty"`

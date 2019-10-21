@@ -4,6 +4,8 @@ package msgraph
 
 // MacOSLaunchItem undocumented
 type MacOSLaunchItem struct {
+	// Object is the base model of MacOSLaunchItem
+	Object
 	// Path Path to the launch item.
 	Path *string `json:"path,omitempty"`
 	// Hide Whether or not to hide the item from the Users and Groups List.

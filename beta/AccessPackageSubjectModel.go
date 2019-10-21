@@ -4,6 +4,7 @@ package msgraph
 
 // AccessPackageSubject undocumented
 type AccessPackageSubject struct {
+	// Entity is the base model of AccessPackageSubject
 	Entity
 	// ObjectID undocumented
 	ObjectID *string `json:"objectId,omitempty"`

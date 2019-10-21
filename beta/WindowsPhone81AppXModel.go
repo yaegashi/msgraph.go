@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhone81AppX Contains properties and inherited properties for Windows Phone 8.1 AppX Line Of Business apps.
 type WindowsPhone81AppX struct {
+	// MobileLobApp is the base model of WindowsPhone81AppX
 	MobileLobApp
 	// ApplicableArchitectures The Windows architecture(s) for which this app can run on.
 	ApplicableArchitectures *WindowsArchitecture `json:"applicableArchitectures,omitempty"`

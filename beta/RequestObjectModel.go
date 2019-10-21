@@ -6,6 +6,7 @@ import "time"
 
 // RequestObject undocumented
 type RequestObject struct {
+	// Entity is the base model of RequestObject
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

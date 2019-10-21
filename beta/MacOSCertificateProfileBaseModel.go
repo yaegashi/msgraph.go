@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSCertificateProfileBase Mac OS certificate profile.
 type MacOSCertificateProfileBase struct {
+	// DeviceConfiguration is the base model of MacOSCertificateProfileBase
 	DeviceConfiguration
 	// RenewalThresholdPercentage Certificate renewal threshold percentage.
 	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`

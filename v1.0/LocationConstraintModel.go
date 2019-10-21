@@ -4,6 +4,8 @@ package msgraph
 
 // LocationConstraint undocumented
 type LocationConstraint struct {
+	// Object is the base model of LocationConstraint
+	Object
 	// Locations undocumented
 	Locations []LocationConstraintItem `json:"locations,omitempty"`
 	// IsRequired undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDefenderAdvancedThreatProtectionConfiguration Windows Defender AdvancedThreatProtection Configuration.
 type WindowsDefenderAdvancedThreatProtectionConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsDefenderAdvancedThreatProtectionConfiguration
 	DeviceConfiguration
 	// AllowSampleSharing Windows Defender AdvancedThreatProtection "Allow Sample Sharing" Rule
 	AllowSampleSharing *bool `json:"allowSampleSharing,omitempty"`

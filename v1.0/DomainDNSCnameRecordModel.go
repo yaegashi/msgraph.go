@@ -4,6 +4,7 @@ package msgraph
 
 // DomainDNSCnameRecord undocumented
 type DomainDNSCnameRecord struct {
+	// DomainDNSRecord is the base model of DomainDNSCnameRecord
 	DomainDNSRecord
 	// CanonicalName undocumented
 	CanonicalName *string `json:"canonicalName,omitempty"`

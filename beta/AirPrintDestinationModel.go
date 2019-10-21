@@ -4,6 +4,8 @@ package msgraph
 
 // AirPrintDestination undocumented
 type AirPrintDestination struct {
+	// Object is the base model of AirPrintDestination
+	Object
 	// IPAddress The IP Address of the AirPrint destination.
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// ResourcePath undocumented

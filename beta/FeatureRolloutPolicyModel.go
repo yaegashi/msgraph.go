@@ -4,6 +4,7 @@ package msgraph
 
 // FeatureRolloutPolicy undocumented
 type FeatureRolloutPolicy struct {
+	// Entity is the base model of FeatureRolloutPolicy
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

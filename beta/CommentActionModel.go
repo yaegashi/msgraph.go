@@ -4,6 +4,8 @@ package msgraph
 
 // CommentAction undocumented
 type CommentAction struct {
+	// Object is the base model of CommentAction
+	Object
 	// IsReply undocumented
 	IsReply *bool `json:"isReply,omitempty"`
 	// ParentAuthor undocumented

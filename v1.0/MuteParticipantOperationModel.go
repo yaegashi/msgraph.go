@@ -4,5 +4,6 @@ package msgraph
 
 // MuteParticipantOperation undocumented
 type MuteParticipantOperation struct {
+	// CommsOperation is the base model of MuteParticipantOperation
 	CommsOperation
 }

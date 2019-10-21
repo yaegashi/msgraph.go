@@ -4,6 +4,8 @@ package msgraph
 
 // ResourceAction undocumented
 type ResourceAction struct {
+	// Object is the base model of ResourceAction
+	Object
 	// AllowedResourceActions Allowed Actions
 	AllowedResourceActions []string `json:"allowedResourceActions,omitempty"`
 	// NotAllowedResourceActions Not Allowed Actions.

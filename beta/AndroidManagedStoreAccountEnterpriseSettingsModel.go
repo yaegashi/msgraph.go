@@ -6,6 +6,7 @@ import "time"
 
 // AndroidManagedStoreAccountEnterpriseSettings Enterprise settings for an Android managed store account.
 type AndroidManagedStoreAccountEnterpriseSettings struct {
+	// Entity is the base model of AndroidManagedStoreAccountEnterpriseSettings
 	Entity
 	// BindStatus Bind status of the tenant with the Google EMM API
 	BindStatus *AndroidManagedStoreAccountBindStatus `json:"bindStatus,omitempty"`

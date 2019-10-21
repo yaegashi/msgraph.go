@@ -4,6 +4,8 @@ package msgraph
 
 // SiteCollection undocumented
 type SiteCollection struct {
+	// Object is the base model of SiteCollection
+	Object
 	// DataLocationCode undocumented
 	DataLocationCode *string `json:"dataLocationCode,omitempty"`
 	// Hostname undocumented

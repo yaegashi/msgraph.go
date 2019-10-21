@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81VpnConfiguration By providing the configurations in this profile you can instruct the Windows 8.1 (and later) devices to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type Windows81VpnConfiguration struct {
+	// WindowsVpnConfiguration is the base model of Windows81VpnConfiguration
 	WindowsVpnConfiguration
 	// ApplyOnlyToWindows81 Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
 	ApplyOnlyToWindows81 *bool `json:"applyOnlyToWindows81,omitempty"`

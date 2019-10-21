@@ -4,5 +4,6 @@ package msgraph
 
 // FocusActivityStatistics undocumented
 type FocusActivityStatistics struct {
+	// ActivityStatistics is the base model of FocusActivityStatistics
 	ActivityStatistics
 }

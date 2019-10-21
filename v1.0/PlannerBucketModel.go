@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerBucket undocumented
 type PlannerBucket struct {
+	// Entity is the base model of PlannerBucket
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // AttendeeAvailability undocumented
 type AttendeeAvailability struct {
+	// Object is the base model of AttendeeAvailability
+	Object
 	// Attendee undocumented
 	Attendee *AttendeeBase `json:"attendee,omitempty"`
 	// Availability undocumented

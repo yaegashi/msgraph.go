@@ -4,6 +4,8 @@ package msgraph
 
 // AppLogCollectionDownloadDetails undocumented
 type AppLogCollectionDownloadDetails struct {
+	// Object is the base model of AppLogCollectionDownloadDetails
+	Object
 	// DownloadURL Download SAS Url for completed AppLogUploadRequest
 	DownloadURL *string `json:"downloadUrl,omitempty"`
 	// DecryptionKey DecryptionKey as string

@@ -4,5 +4,6 @@ package msgraph
 
 // PlayPromptOperation undocumented
 type PlayPromptOperation struct {
+	// CommsOperation is the base model of PlayPromptOperation
 	CommsOperation
 }

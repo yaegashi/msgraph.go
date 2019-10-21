@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // DriveItemRequestBuilder is request builder for DriveItem
@@ -101,11 +102,11 @@ func (r *DriveItemActivitiesCollectionRequest) Paging(method, path string, obj i
 			paging Paging
 			value  []ItemActivityOLD
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -195,11 +196,11 @@ func (r *DriveItemChildrenCollectionRequest) Paging(method, path string, obj int
 			paging Paging
 			value  []DriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -289,11 +290,11 @@ func (r *DriveItemPermissionsCollectionRequest) Paging(method, path string, obj 
 			paging Paging
 			value  []Permission
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -376,11 +377,11 @@ func (r *DriveItemSubscriptionsCollectionRequest) Paging(method, path string, ob
 			paging Paging
 			value  []Subscription
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -463,11 +464,11 @@ func (r *DriveItemThumbnailsCollectionRequest) Paging(method, path string, obj i
 			paging Paging
 			value  []ThumbnailSet
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -550,11 +551,11 @@ func (r *DriveItemVersionsCollectionRequest) Paging(method, path string, obj int
 			paging Paging
 			value  []DriveItemVersion
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

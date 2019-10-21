@@ -4,6 +4,8 @@ package msgraph
 
 // PersonType undocumented
 type PersonType struct {
+	// Object is the base model of PersonType
+	Object
 	// Class undocumented
 	Class *string `json:"class,omitempty"`
 	// Subclass undocumented

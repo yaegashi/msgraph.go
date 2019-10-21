@@ -4,5 +4,6 @@ package msgraph
 
 // EdgeHomeButtonLoadsStartPage undocumented
 type EdgeHomeButtonLoadsStartPage struct {
+	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonLoadsStartPage
 	EdgeHomeButtonConfiguration
 }

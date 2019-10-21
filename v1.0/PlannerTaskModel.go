@@ -6,6 +6,7 @@ import "time"
 
 // PlannerTask undocumented
 type PlannerTask struct {
+	// Entity is the base model of PlannerTask
 	Entity
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`

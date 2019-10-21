@@ -4,6 +4,7 @@ package msgraph
 
 // OnPremisesConditionalAccessSettings Singleton entity which represents the Exchange OnPremises Conditional Access Settings for a tenant.
 type OnPremisesConditionalAccessSettings struct {
+	// Entity is the base model of OnPremisesConditionalAccessSettings
 	Entity
 	// Enabled Indicates if on premises conditional access is enabled for this organization
 	Enabled *bool `json:"enabled,omitempty"`

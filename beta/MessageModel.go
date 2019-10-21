@@ -6,6 +6,7 @@ import "time"
 
 // Message undocumented
 type Message struct {
+	// OutlookItem is the base model of Message
 	OutlookItem
 	// ReceivedDateTime undocumented
 	ReceivedDateTime *time.Time `json:"receivedDateTime,omitempty"`

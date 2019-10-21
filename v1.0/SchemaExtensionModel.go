@@ -4,6 +4,7 @@ package msgraph
 
 // SchemaExtension undocumented
 type SchemaExtension struct {
+	// Entity is the base model of SchemaExtension
 	Entity
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

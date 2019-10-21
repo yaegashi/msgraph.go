@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidDeviceOwnerGeneralDeviceConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the androidDeviceOwnerGeneralDeviceConfiguration resource.
 type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of AndroidDeviceOwnerGeneralDeviceConfiguration
 	DeviceConfiguration
 	// AccountsBlockModification Indicates whether or not adding or removing accounts is disabled.
 	AccountsBlockModification *bool `json:"accountsBlockModification,omitempty"`

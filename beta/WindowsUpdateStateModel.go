@@ -6,6 +6,7 @@ import "time"
 
 // WindowsUpdateState undocumented
 type WindowsUpdateState struct {
+	// Entity is the base model of WindowsUpdateState
 	Entity
 	// DeviceID The id of the device.
 	DeviceID *string `json:"deviceId,omitempty"`

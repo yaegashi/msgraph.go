@@ -4,6 +4,8 @@ package msgraph
 
 // AccessReviewSettings undocumented
 type AccessReviewSettings struct {
+	// Object is the base model of AccessReviewSettings
+	Object
 	// MailNotificationsEnabled undocumented
 	MailNotificationsEnabled *bool `json:"mailNotificationsEnabled,omitempty"`
 	// RemindersEnabled undocumented

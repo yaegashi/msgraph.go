@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookChartAxis undocumented
 type WorkbookChartAxis struct {
+	// Entity is the base model of WorkbookChartAxis
 	Entity
 	// MajorUnit undocumented
 	MajorUnit json.RawMessage `json:"majorUnit,omitempty"`

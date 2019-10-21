@@ -4,6 +4,7 @@ package msgraph
 
 // UserGovernanceCriteria undocumented
 type UserGovernanceCriteria struct {
+	// GovernanceCriteria is the base model of UserGovernanceCriteria
 	GovernanceCriteria
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`

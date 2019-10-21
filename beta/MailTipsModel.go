@@ -4,6 +4,8 @@ package msgraph
 
 // MailTips undocumented
 type MailTips struct {
+	// Object is the base model of MailTips
+	Object
 	// EmailAddress undocumented
 	EmailAddress *EmailAddress `json:"emailAddress,omitempty"`
 	// AutomaticReplies undocumented

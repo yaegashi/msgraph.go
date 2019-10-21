@@ -6,6 +6,7 @@ import "time"
 
 // ProviderTenantSetting undocumented
 type ProviderTenantSetting struct {
+	// Entity is the base model of ProviderTenantSetting
 	Entity
 	// AzureTenantID undocumented
 	AzureTenantID *string `json:"azureTenantId,omitempty"`

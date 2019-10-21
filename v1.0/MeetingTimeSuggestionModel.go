@@ -4,6 +4,8 @@ package msgraph
 
 // MeetingTimeSuggestion undocumented
 type MeetingTimeSuggestion struct {
+	// Object is the base model of MeetingTimeSuggestion
+	Object
 	// Confidence undocumented
 	Confidence *float64 `json:"confidence,omitempty"`
 	// Order undocumented

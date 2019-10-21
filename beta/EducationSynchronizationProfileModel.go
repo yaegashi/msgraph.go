@@ -4,6 +4,7 @@ package msgraph
 
 // EducationSynchronizationProfile undocumented
 type EducationSynchronizationProfile struct {
+	// Entity is the base model of EducationSynchronizationProfile
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // GovernanceSubject undocumented
 type GovernanceSubject struct {
+	// Entity is the base model of GovernanceSubject
 	Entity
 	// Type undocumented
 	Type *string `json:"type,omitempty"`

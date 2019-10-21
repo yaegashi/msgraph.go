@@ -23,6 +23,31 @@ type Stream []byte
 // UUID is type alias for Edm.Guid
 type UUID string
 
+// Object is the common ancestor of all models
+type Object struct {
+    // AdditionalData contains all other fields not defined above
+    AdditionalData map[string]interface{} `json:"-" jsonx:"true"`
+}
+
+// SetAdditionalData sets object's additional data
+func (o *Object) SetAdditionalData(key string, val interface{}) {
+	if o.AdditionalData == nil {
+		o.AdditionalData = map[string]interface{}{key: val}
+	} else {
+		o.AdditionalData[key] = val
+	}
+}
+
+// GetAdditionalData gets object's additional data
+func (o *Object) GetAdditionalData(key string) (interface{}, bool) {
+	if o.AdditionalData == nil {
+		return nil, false
+	} else {
+		val, ok := o.AdditionalData[key]
+		return val, ok
+	}
+}
+
 // Paging is sturct returned to paging requests
 type Paging struct {
 	NextLink string          `json:"@odata.nextLink"`
@@ -34,6 +59,11 @@ type BaseRequestBuilder struct {
 	baseURL       string
 	client        *http.Client
 	requestObject interface{}
+}
+
+// URL returns URL
+func (r *BaseRequestBuilder) URL() string {
+	return r.baseURL
 }
 
 // BaseRequest is base request
@@ -120,7 +150,7 @@ func (r *BaseRequest) NewRequest(method, path string, body io.Reader) (*http.Req
 func (r *BaseRequest) NewJSONRequest(method, path string, obj interface{}) (*http.Request, error) {
 	buf := &bytes.Buffer{}
 	if obj != nil {
-		err := json.NewEncoder(buf).Encode(obj)
+		err := jsonx.NewEncoder(buf).Encode(obj)
 		if err != nil {
 			return nil, err
 		}
@@ -140,7 +170,7 @@ func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) er
 	switch res.StatusCode {
 	case http.StatusOK, http.StatusCreated:
 		if obj != nil {
-			err := json.NewDecoder(res.Body).Decode(obj)
+			err := jsonx.NewDecoder(res.Body).Decode(obj)
 			if err != nil {
 				return err
 			}

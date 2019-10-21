@@ -6,6 +6,7 @@ import "time"
 
 // Contact undocumented
 type Contact struct {
+	// OutlookItem is the base model of Contact
 	OutlookItem
 	// ParentFolderID undocumented
 	ParentFolderID *string `json:"parentFolderId,omitempty"`

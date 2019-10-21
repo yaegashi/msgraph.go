@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsFirewallNetworkProfile undocumented
 type WindowsFirewallNetworkProfile struct {
+	// Object is the base model of WindowsFirewallNetworkProfile
+	Object
 	// FirewallEnabled Configures the host device to allow or block the firewall and advanced security enforcement for the network profile.
 	FirewallEnabled *StateManagementSetting `json:"firewallEnabled,omitempty"`
 	// StealthModeBlocked Prevent the server from operating in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.

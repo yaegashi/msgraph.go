@@ -6,6 +6,7 @@ import "time"
 
 // ManagedEBookCategory Contains properties for a single Intune eBook category.
 type ManagedEBookCategory struct {
+	// Entity is the base model of ManagedEBookCategory
 	Entity
 	// DisplayName The name of the eBook category.
 	DisplayName *string `json:"displayName,omitempty"`

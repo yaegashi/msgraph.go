@@ -6,6 +6,7 @@ import "time"
 
 // AppRoleAssignment undocumented
 type AppRoleAssignment struct {
+	// Entity is the base model of AppRoleAssignment
 	Entity
 	// AppRoleID undocumented
 	AppRoleID *UUID `json:"appRoleId,omitempty"`

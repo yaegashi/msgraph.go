@@ -6,6 +6,7 @@ import "time"
 
 // GovernanceRoleSetting undocumented
 type GovernanceRoleSetting struct {
+	// Entity is the base model of GovernanceRoleSetting
 	Entity
 	// ResourceID undocumented
 	ResourceID *string `json:"resourceId,omitempty"`

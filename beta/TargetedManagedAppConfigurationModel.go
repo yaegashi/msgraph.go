@@ -4,6 +4,7 @@ package msgraph
 
 // TargetedManagedAppConfiguration Configuration used to deliver a set of custom settings as-is to all users in the targeted security group
 type TargetedManagedAppConfiguration struct {
+	// ManagedAppConfiguration is the base model of TargetedManagedAppConfiguration
 	ManagedAppConfiguration
 	// DeployedAppCount Count of apps to which the current policy is deployed.
 	DeployedAppCount *int `json:"deployedAppCount,omitempty"`

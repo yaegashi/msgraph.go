@@ -4,6 +4,8 @@ package msgraph
 
 // ExtendedPlacePropertiesModel undocumented
 type ExtendedPlacePropertiesModel struct {
+	// Object is the base model of ExtendedPlacePropertiesModel
+	Object
 	// PriceRange undocumented
 	PriceRange *string `json:"priceRange,omitempty"`
 	// MenuURL undocumented

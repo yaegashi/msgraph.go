@@ -4,6 +4,8 @@ package msgraph
 
 // DetectedSensitiveContent undocumented
 type DetectedSensitiveContent struct {
+	// Object is the base model of DetectedSensitiveContent
+	Object
 	// ID undocumented
 	ID *UUID `json:"id,omitempty"`
 	// DisplayName undocumented

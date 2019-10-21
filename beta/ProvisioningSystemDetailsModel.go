@@ -4,6 +4,8 @@ package msgraph
 
 // ProvisioningSystemDetails undocumented
 type ProvisioningSystemDetails struct {
+	// Object is the base model of ProvisioningSystemDetails
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // DomainSecurityProfile undocumented
 type DomainSecurityProfile struct {
+	// Entity is the base model of DomainSecurityProfile
 	Entity
 	// ActivityGroupNames undocumented
 	ActivityGroupNames []string `json:"activityGroupNames,omitempty"`

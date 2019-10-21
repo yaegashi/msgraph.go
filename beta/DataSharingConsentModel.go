@@ -6,6 +6,7 @@ import "time"
 
 // DataSharingConsent Data sharing consent information.
 type DataSharingConsent struct {
+	// Entity is the base model of DataSharingConsent
 	Entity
 	// ServiceDisplayName The display name of the service work flow
 	ServiceDisplayName *string `json:"serviceDisplayName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // OutlookTaskGroup undocumented
 type OutlookTaskGroup struct {
+	// Entity is the base model of OutlookTaskGroup
 	Entity
 	// ChangeKey undocumented
 	ChangeKey *string `json:"changeKey,omitempty"`

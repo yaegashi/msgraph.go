@@ -4,4 +4,6 @@ package msgraph
 
 // EditAction undocumented
 type EditAction struct {
+	// Object is the base model of EditAction
+	Object
 }

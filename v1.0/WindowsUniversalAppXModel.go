@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsUniversalAppX Contains properties and inherited properties for Windows Universal AppX Line Of Business apps.
 type WindowsUniversalAppX struct {
+	// MobileLobApp is the base model of WindowsUniversalAppX
 	MobileLobApp
 	// ApplicableArchitectures The Windows architecture(s) for which this app can run on.
 	ApplicableArchitectures *WindowsArchitecture `json:"applicableArchitectures,omitempty"`

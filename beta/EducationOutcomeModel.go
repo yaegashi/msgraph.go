@@ -6,6 +6,7 @@ import "time"
 
 // EducationOutcome undocumented
 type EducationOutcome struct {
+	// Entity is the base model of EducationOutcome
 	Entity
 	// LastModifiedBy undocumented
 	LastModifiedBy *IdentitySet `json:"lastModifiedBy,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // IOSEnterpriseWiFiConfiguration By providing the configurations in this profile you can instruct the iOS device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
 type IOSEnterpriseWiFiConfiguration struct {
+	// IOSWiFiConfiguration is the base model of IOSEnterpriseWiFiConfiguration
 	IOSWiFiConfiguration
 	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
 	EapType *EapType `json:"eapType,omitempty"`

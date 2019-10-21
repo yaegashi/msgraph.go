@@ -6,6 +6,8 @@ import "time"
 
 // ConfigurationManagerClientHealthState undocumented
 type ConfigurationManagerClientHealthState struct {
+	// Object is the base model of ConfigurationManagerClientHealthState
+	Object
 	// State Current configuration manager client state.
 	State *ConfigurationManagerClientState `json:"state,omitempty"`
 	// ErrorCode Error code for failed state.

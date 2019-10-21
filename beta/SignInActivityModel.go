@@ -6,6 +6,8 @@ import "time"
 
 // SignInActivity undocumented
 type SignInActivity struct {
+	// Object is the base model of SignInActivity
+	Object
 	// LastSignInDateTime undocumented
 	LastSignInDateTime *time.Time `json:"lastSignInDateTime,omitempty"`
 	// LastSignInRequestID undocumented

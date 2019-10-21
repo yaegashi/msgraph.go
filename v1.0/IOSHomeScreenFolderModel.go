@@ -4,6 +4,7 @@ package msgraph
 
 // IOSHomeScreenFolder undocumented
 type IOSHomeScreenFolder struct {
+	// IOSHomeScreenItem is the base model of IOSHomeScreenFolder
 	IOSHomeScreenItem
 	// Pages Pages of Home Screen Layout Icons which must be Application Type. This collection can contain a maximum of 500 elements.
 	Pages []IOSHomeScreenFolderPage `json:"pages,omitempty"`

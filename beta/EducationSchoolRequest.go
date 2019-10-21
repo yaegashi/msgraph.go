@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // EducationSchoolRequestBuilder is request builder for EducationSchool
@@ -108,11 +109,11 @@ func (r *EducationSchoolClassesCollectionRequest) Paging(method, path string, ob
 			paging Paging
 			value  []EducationClass
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -195,11 +196,11 @@ func (r *EducationSchoolUsersCollectionRequest) Paging(method, path string, obj 
 			paging Paging
 			value  []EducationUser
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

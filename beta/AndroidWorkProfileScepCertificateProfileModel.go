@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidWorkProfileScepCertificateProfile Android Work Profile SCEP certificate profile
 type AndroidWorkProfileScepCertificateProfile struct {
+	// AndroidWorkProfileCertificateProfileBase is the base model of AndroidWorkProfileScepCertificateProfile
 	AndroidWorkProfileCertificateProfileBase
 	// ScepServerUrls SCEP Server Url(s)
 	ScepServerUrls []string `json:"scepServerUrls,omitempty"`

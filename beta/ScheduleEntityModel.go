@@ -6,6 +6,8 @@ import "time"
 
 // ScheduleEntity undocumented
 type ScheduleEntity struct {
+	// Object is the base model of ScheduleEntity
+	Object
 	// StartDateTime undocumented
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// EndDateTime undocumented

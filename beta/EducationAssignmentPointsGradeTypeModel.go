@@ -4,6 +4,7 @@ package msgraph
 
 // EducationAssignmentPointsGradeType undocumented
 type EducationAssignmentPointsGradeType struct {
+	// EducationAssignmentGradeType is the base model of EducationAssignmentPointsGradeType
 	EducationAssignmentGradeType
 	// MaxPoints undocumented
 	MaxPoints *float64 `json:"maxPoints,omitempty"`

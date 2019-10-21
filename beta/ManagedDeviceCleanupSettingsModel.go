@@ -4,6 +4,8 @@ package msgraph
 
 // ManagedDeviceCleanupSettings undocumented
 type ManagedDeviceCleanupSettings struct {
+	// Object is the base model of ManagedDeviceCleanupSettings
+	Object
 	// DeviceInactivityBeforeRetirementInDays Number of days when the device has not contacted Intune.
 	DeviceInactivityBeforeRetirementInDays *string `json:"deviceInactivityBeforeRetirementInDays,omitempty"`
 }

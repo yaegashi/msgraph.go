@@ -4,6 +4,7 @@ package msgraph
 
 // RbacApplication undocumented
 type RbacApplication struct {
+	// Entity is the base model of RbacApplication
 	Entity
 	// RoleDefinitions undocumented
 	RoleDefinitions []UnifiedRoleDefinition `json:"roleDefinitions,omitempty"`

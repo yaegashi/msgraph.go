@@ -4,6 +4,8 @@ package msgraph
 
 // OptionalClaims undocumented
 type OptionalClaims struct {
+	// Object is the base model of OptionalClaims
+	Object
 	// IDToken undocumented
 	IDToken []OptionalClaim `json:"idToken,omitempty"`
 	// AccessToken undocumented

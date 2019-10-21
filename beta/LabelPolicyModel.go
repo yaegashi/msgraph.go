@@ -4,6 +4,8 @@ package msgraph
 
 // LabelPolicy undocumented
 type LabelPolicy struct {
+	// Object is the base model of LabelPolicy
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Name undocumented

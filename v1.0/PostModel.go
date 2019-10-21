@@ -6,6 +6,7 @@ import "time"
 
 // Post undocumented
 type Post struct {
+	// OutlookItem is the base model of Post
 	OutlookItem
 	// Body undocumented
 	Body *ItemBody `json:"body,omitempty"`

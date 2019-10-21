@@ -4,6 +4,7 @@ package msgraph
 
 // ProfilePhoto undocumented
 type ProfilePhoto struct {
+	// Entity is the base model of ProfilePhoto
 	Entity
 	// Height undocumented
 	Height *int `json:"height,omitempty"`

@@ -4,4 +4,6 @@ package msgraph
 
 // EducationAssignmentGradeType undocumented
 type EducationAssignmentGradeType struct {
+	// Object is the base model of EducationAssignmentGradeType
+	Object
 }

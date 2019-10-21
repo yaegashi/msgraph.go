@@ -4,6 +4,8 @@ package msgraph
 
 // MeetingTimeSuggestionsResult undocumented
 type MeetingTimeSuggestionsResult struct {
+	// Object is the base model of MeetingTimeSuggestionsResult
+	Object
 	// MeetingTimeSuggestions undocumented
 	MeetingTimeSuggestions []MeetingTimeSuggestion `json:"meetingTimeSuggestions,omitempty"`
 	// EmptySuggestionsReason undocumented

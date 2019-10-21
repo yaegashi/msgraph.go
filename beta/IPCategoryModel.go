@@ -4,6 +4,8 @@ package msgraph
 
 // IPCategory undocumented
 type IPCategory struct {
+	// Object is the base model of IPCategory
+	Object
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// Name undocumented

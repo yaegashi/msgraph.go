@@ -4,6 +4,8 @@ package msgraph
 
 // PlannerFavoritePlanReference undocumented
 type PlannerFavoritePlanReference struct {
+	// Object is the base model of PlannerFavoritePlanReference
+	Object
 	// OrderHint undocumented
 	OrderHint *string `json:"orderHint,omitempty"`
 	// PlanTitle undocumented

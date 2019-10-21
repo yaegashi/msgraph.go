@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSScepCertificateProfile Mac OS SCEP certificate profile.
 type MacOSScepCertificateProfile struct {
+	// MacOSCertificateProfileBase is the base model of MacOSScepCertificateProfile
 	MacOSCertificateProfileBase
 	// ScepServerUrls SCEP Server Url(s).
 	ScepServerUrls []string `json:"scepServerUrls,omitempty"`

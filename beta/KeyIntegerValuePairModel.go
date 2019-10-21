@@ -4,6 +4,7 @@ package msgraph
 
 // KeyIntegerValuePair undocumented
 type KeyIntegerValuePair struct {
+	// KeyTypedValuePair is the base model of KeyIntegerValuePair
 	KeyTypedValuePair
 	// Value The integer value of the key-value pair.
 	Value *int `json:"value,omitempty"`

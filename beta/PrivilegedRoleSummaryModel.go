@@ -4,6 +4,7 @@ package msgraph
 
 // PrivilegedRoleSummary undocumented
 type PrivilegedRoleSummary struct {
+	// Entity is the base model of PrivilegedRoleSummary
 	Entity
 	// Status undocumented
 	Status *RoleSummaryStatus `json:"status,omitempty"`

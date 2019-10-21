@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // ServicePrincipalRequestBuilder is request builder for ServicePrincipal
@@ -101,11 +102,11 @@ func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Paging(method, path
 			paging Paging
 			value  []AppRoleAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -188,11 +189,11 @@ func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []AppRoleAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -275,11 +276,11 @@ func (r *ServicePrincipalCreatedObjectsCollectionRequest) Paging(method, path st
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -362,11 +363,11 @@ func (r *ServicePrincipalLicenseDetailsCollectionRequest) Paging(method, path st
 			paging Paging
 			value  []LicenseDetails
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -449,11 +450,11 @@ func (r *ServicePrincipalMemberOfCollectionRequest) Paging(method, path string, 
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -536,11 +537,11 @@ func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Paging(method,
 			paging Paging
 			value  []OAuth2PermissionGrant
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -623,11 +624,11 @@ func (r *ServicePrincipalOwnedObjectsCollectionRequest) Paging(method, path stri
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -710,11 +711,11 @@ func (r *ServicePrincipalOwnersCollectionRequest) Paging(method, path string, ob
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -797,11 +798,11 @@ func (r *ServicePrincipalPoliciesCollectionRequest) Paging(method, path string, 
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -891,11 +892,11 @@ func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

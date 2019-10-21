@@ -4,6 +4,8 @@ package msgraph
 
 // SettingValue undocumented
 type SettingValue struct {
+	// Object is the base model of SettingValue
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Value undocumented

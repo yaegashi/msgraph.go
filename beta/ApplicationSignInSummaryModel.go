@@ -4,6 +4,7 @@ package msgraph
 
 // ApplicationSignInSummary undocumented
 type ApplicationSignInSummary struct {
+	// Entity is the base model of ApplicationSignInSummary
 	Entity
 	// AppDisplayName undocumented
 	AppDisplayName *string `json:"appDisplayName,omitempty"`

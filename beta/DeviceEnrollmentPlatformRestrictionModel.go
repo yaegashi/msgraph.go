@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceEnrollmentPlatformRestriction undocumented
 type DeviceEnrollmentPlatformRestriction struct {
+	// Object is the base model of DeviceEnrollmentPlatformRestriction
+	Object
 	// PlatformBlocked Block the platform from enrolling
 	PlatformBlocked *bool `json:"platformBlocked,omitempty"`
 	// PersonalDeviceEnrollmentBlocked Block personally owned devices from enrolling

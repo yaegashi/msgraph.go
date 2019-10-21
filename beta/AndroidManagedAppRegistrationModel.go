@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidManagedAppRegistration Represents the synchronization details of an android app, with management capabilities, for a specific user.
 type AndroidManagedAppRegistration struct {
+	// ManagedAppRegistration is the base model of AndroidManagedAppRegistration
 	ManagedAppRegistration
 	// PatchVersion The patch version for the current android app registration
 	PatchVersion *string `json:"patchVersion,omitempty"`

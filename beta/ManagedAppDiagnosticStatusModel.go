@@ -4,6 +4,8 @@ package msgraph
 
 // ManagedAppDiagnosticStatus undocumented
 type ManagedAppDiagnosticStatus struct {
+	// Object is the base model of ManagedAppDiagnosticStatus
+	Object
 	// ValidationName The validation friendly name
 	ValidationName *string `json:"validationName,omitempty"`
 	// State The state of the operation

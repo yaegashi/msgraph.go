@@ -4,6 +4,7 @@ package msgraph
 
 // EducationSynchronizationOAuth2ClientCredentialsConnectionSettings undocumented
 type EducationSynchronizationOAuth2ClientCredentialsConnectionSettings struct {
+	// EducationSynchronizationConnectionSettings is the base model of EducationSynchronizationOAuth2ClientCredentialsConnectionSettings
 	EducationSynchronizationConnectionSettings
 	// TokenURL undocumented
 	TokenURL *string `json:"tokenUrl,omitempty"`

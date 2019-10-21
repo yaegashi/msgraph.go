@@ -4,6 +4,8 @@ package msgraph
 
 // AuditActor undocumented
 type AuditActor struct {
+	// Object is the base model of AuditActor
+	Object
 	// Type Actor Type.
 	Type *string `json:"type,omitempty"`
 	// UserPermissions List of user permissions when the audit was performed.

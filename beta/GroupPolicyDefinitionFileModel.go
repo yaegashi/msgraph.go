@@ -6,6 +6,7 @@ import "time"
 
 // GroupPolicyDefinitionFile The entity represents an ADMX (Administrative Template) XML file. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
 type GroupPolicyDefinitionFile struct {
+	// Entity is the base model of GroupPolicyDefinitionFile
 	Entity
 	// DisplayName The localized friendly name of the ADMX file.
 	DisplayName *string `json:"displayName,omitempty"`

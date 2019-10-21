@@ -4,6 +4,8 @@ package msgraph
 
 // FileEncryptionInfo undocumented
 type FileEncryptionInfo struct {
+	// Object is the base model of FileEncryptionInfo
+	Object
 	// EncryptionKey The key used to encrypt the file content.
 	EncryptionKey *Binary `json:"encryptionKey,omitempty"`
 	// InitializationVector The initialization vector used for the encryption algorithm.

@@ -4,6 +4,8 @@ package msgraph
 
 // SynchronizationSecretKeyStringValuePair undocumented
 type SynchronizationSecretKeyStringValuePair struct {
+	// Object is the base model of SynchronizationSecretKeyStringValuePair
+	Object
 	// Key undocumented
 	Key *SynchronizationSecret `json:"key,omitempty"`
 	// Value undocumented

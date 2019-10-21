@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsKioskAppBase undocumented
 type WindowsKioskAppBase struct {
+	// Object is the base model of WindowsKioskAppBase
+	Object
 	// StartLayoutTileSize The app tile size for the start layout
 	StartLayoutTileSize *WindowsAppStartLayoutTileSize `json:"startLayoutTileSize,omitempty"`
 	// Name Represents the friendly name of an app

@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhone81GeneralConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the windowsPhone81GeneralConfiguration resource.
 type WindowsPhone81GeneralConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsPhone81GeneralConfiguration
 	DeviceConfiguration
 	// ApplyOnlyToWindowsPhone81 Value indicating whether this policy only applies to Windows Phone 8.1. This property is read-only.
 	ApplyOnlyToWindowsPhone81 *bool `json:"applyOnlyToWindowsPhone81,omitempty"`

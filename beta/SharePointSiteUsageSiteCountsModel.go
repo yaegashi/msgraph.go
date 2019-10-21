@@ -6,6 +6,7 @@ import "time"
 
 // SharePointSiteUsageSiteCounts undocumented
 type SharePointSiteUsageSiteCounts struct {
+	// Entity is the base model of SharePointSiteUsageSiteCounts
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

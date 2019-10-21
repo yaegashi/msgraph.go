@@ -6,6 +6,7 @@ import "time"
 
 // SecureScoreControlProfile undocumented
 type SecureScoreControlProfile struct {
+	// Entity is the base model of SecureScoreControlProfile
 	Entity
 	// ActionType undocumented
 	ActionType *string `json:"actionType,omitempty"`

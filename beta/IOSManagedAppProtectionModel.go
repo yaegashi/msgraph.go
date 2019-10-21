@@ -4,6 +4,7 @@ package msgraph
 
 // IOSManagedAppProtection Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device
 type IOSManagedAppProtection struct {
+	// TargetedManagedAppProtection is the base model of IOSManagedAppProtection
 	TargetedManagedAppProtection
 	// AppDataEncryptionType Type of encryption which should be used for data in a managed app.
 	AppDataEncryptionType *ManagedAppDataEncryptionType `json:"appDataEncryptionType,omitempty"`

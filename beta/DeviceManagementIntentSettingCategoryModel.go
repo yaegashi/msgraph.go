@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementIntentSettingCategory Entity representing an intent setting category
 type DeviceManagementIntentSettingCategory struct {
+	// DeviceManagementSettingCategory is the base model of DeviceManagementIntentSettingCategory
 	DeviceManagementSettingCategory
 	// Settings undocumented
 	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`

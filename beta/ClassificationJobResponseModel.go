@@ -4,6 +4,7 @@ package msgraph
 
 // ClassificationJobResponse undocumented
 type ClassificationJobResponse struct {
+	// JobResponseBase is the base model of ClassificationJobResponse
 	JobResponseBase
 	// Result undocumented
 	Result *DetectedSensitiveContentWrapper `json:"result,omitempty"`

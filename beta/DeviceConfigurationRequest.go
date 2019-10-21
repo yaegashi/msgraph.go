@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // DeviceConfigurationRequestBuilder is request builder for DeviceConfiguration
@@ -101,11 +102,11 @@ func (r *DeviceConfigurationAssignmentsCollectionRequest) Paging(method, path st
 			paging Paging
 			value  []DeviceConfigurationAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -188,11 +189,11 @@ func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Paging
 			paging Paging
 			value  []SettingStateDeviceSummary
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -282,11 +283,11 @@ func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Paging(method, path
 			paging Paging
 			value  []DeviceConfigurationDeviceStatus
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -369,11 +370,11 @@ func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Paging(method, pa
 			paging Paging
 			value  []DeviceConfigurationGroupAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -463,11 +464,11 @@ func (r *DeviceConfigurationUserStatusesCollectionRequest) Paging(method, path s
 			paging Paging
 			value  []DeviceConfigurationUserStatus
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

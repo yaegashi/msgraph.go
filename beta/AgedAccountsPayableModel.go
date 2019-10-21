@@ -6,6 +6,7 @@ import "time"
 
 // AgedAccountsPayable undocumented
 type AgedAccountsPayable struct {
+	// Entity is the base model of AgedAccountsPayable
 	Entity
 	// VendorNumber undocumented
 	VendorNumber *string `json:"vendorNumber,omitempty"`

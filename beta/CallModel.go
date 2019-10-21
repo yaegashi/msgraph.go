@@ -4,6 +4,7 @@ package msgraph
 
 // Call undocumented
 type Call struct {
+	// Entity is the base model of Call
 	Entity
 	// State undocumented
 	State *CallState `json:"state,omitempty"`

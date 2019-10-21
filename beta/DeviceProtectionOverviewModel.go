@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceProtectionOverview undocumented
 type DeviceProtectionOverview struct {
+	// Object is the base model of DeviceProtectionOverview
+	Object
 	// TotalReportedDeviceCount Total device count.
 	TotalReportedDeviceCount *int `json:"totalReportedDeviceCount,omitempty"`
 	// InactiveThreatAgentDeviceCount Device with inactive threat agent count

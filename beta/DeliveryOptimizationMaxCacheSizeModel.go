@@ -4,4 +4,6 @@ package msgraph
 
 // DeliveryOptimizationMaxCacheSize undocumented
 type DeliveryOptimizationMaxCacheSize struct {
+	// Object is the base model of DeliveryOptimizationMaxCacheSize
+	Object
 }

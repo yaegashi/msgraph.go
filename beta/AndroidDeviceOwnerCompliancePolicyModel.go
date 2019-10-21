@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidDeviceOwnerCompliancePolicy This topic provides descriptions of the declared methods, properties and relationships exposed by the AndroidDeviceOwnerCompliancePolicy resource.
 type AndroidDeviceOwnerCompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of AndroidDeviceOwnerCompliancePolicy
 	DeviceCompliancePolicy
 	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
 	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`

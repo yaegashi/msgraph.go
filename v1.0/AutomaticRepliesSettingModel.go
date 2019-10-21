@@ -4,6 +4,8 @@ package msgraph
 
 // AutomaticRepliesSetting undocumented
 type AutomaticRepliesSetting struct {
+	// Object is the base model of AutomaticRepliesSetting
+	Object
 	// Status undocumented
 	Status *AutomaticRepliesStatus `json:"status,omitempty"`
 	// ExternalAudience undocumented

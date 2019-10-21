@@ -4,6 +4,7 @@ package msgraph
 
 // SensitivityPolicySettings undocumented
 type SensitivityPolicySettings struct {
+	// Entity is the base model of SensitivityPolicySettings
 	Entity
 	// IsMandatory undocumented
 	IsMandatory *bool `json:"isMandatory,omitempty"`

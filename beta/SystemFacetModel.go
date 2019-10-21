@@ -4,4 +4,6 @@ package msgraph
 
 // SystemFacet undocumented
 type SystemFacet struct {
+	// Object is the base model of SystemFacet
+	Object
 }

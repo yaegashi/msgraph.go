@@ -4,6 +4,7 @@ package msgraph
 
 // TypedEmailAddress undocumented
 type TypedEmailAddress struct {
+	// EmailAddress is the base model of TypedEmailAddress
 	EmailAddress
 	// Type undocumented
 	Type *EmailType `json:"type,omitempty"`

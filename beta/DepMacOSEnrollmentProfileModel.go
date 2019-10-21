@@ -4,6 +4,7 @@ package msgraph
 
 // DepMacOSEnrollmentProfile The DepMacOSEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile specific to macOS configuration. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
 type DepMacOSEnrollmentProfile struct {
+	// DepEnrollmentBaseProfile is the base model of DepMacOSEnrollmentProfile
 	DepEnrollmentBaseProfile
 	// RegistrationDisabled Indicates if registration is disabled
 	RegistrationDisabled *bool `json:"registrationDisabled,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // RestrictedAppsViolation Violation of restricted apps configuration profile per device per user
 type RestrictedAppsViolation struct {
+	// Entity is the base model of RestrictedAppsViolation
 	Entity
 	// UserID User unique identifier, must be Guid
 	UserID *string `json:"userId,omitempty"`

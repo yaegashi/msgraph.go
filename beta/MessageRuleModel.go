@@ -4,6 +4,7 @@ package msgraph
 
 // MessageRule undocumented
 type MessageRule struct {
+	// Entity is the base model of MessageRule
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // Album undocumented
 type Album struct {
+	// Object is the base model of Album
+	Object
 	// CoverImageItemID undocumented
 	CoverImageItemID *string `json:"coverImageItemId,omitempty"`
 }

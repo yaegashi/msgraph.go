@@ -4,6 +4,7 @@ package msgraph
 
 // Company undocumented
 type Company struct {
+	// Entity is the base model of Company
 	Entity
 	// SystemVersion undocumented
 	SystemVersion *string `json:"systemVersion,omitempty"`

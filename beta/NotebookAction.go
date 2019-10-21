@@ -23,38 +23,6 @@ type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
 }
 
 //
-type NotebookCollectionGetNotebookFromWebURLRequestBuilder struct{ BaseRequestBuilder }
-
-// GetNotebookFromWebURL action undocumented
-func (b *OnenoteNotebooksCollectionRequestBuilder) GetNotebookFromWebURL(reqObj *NotebookCollectionGetNotebookFromWebURLRequestParameter) *NotebookCollectionGetNotebookFromWebURLRequestBuilder {
-	bb := &NotebookCollectionGetNotebookFromWebURLRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getNotebookFromWebUrl"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotebookCollectionGetNotebookFromWebURLRequest struct{ BaseRequest }
-
-//
-func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebURLRequest {
-	return &NotebookCollectionGetNotebookFromWebURLRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (*CopyNotebookModel, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
 type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
 
 // CopyNotebook action undocumented
@@ -83,5 +51,37 @@ func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}
 
 //
 func (r *NotebookCopyNotebookRequest) Post() (*OnenoteOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
+type NotebookCollectionGetNotebookFromWebURLRequestBuilder struct{ BaseRequestBuilder }
+
+// GetNotebookFromWebURL action undocumented
+func (b *OnenoteNotebooksCollectionRequestBuilder) GetNotebookFromWebURL(reqObj *NotebookCollectionGetNotebookFromWebURLRequestParameter) *NotebookCollectionGetNotebookFromWebURLRequestBuilder {
+	bb := &NotebookCollectionGetNotebookFromWebURLRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getNotebookFromWebUrl"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type NotebookCollectionGetNotebookFromWebURLRequest struct{ BaseRequest }
+
+//
+func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *NotebookCollectionGetNotebookFromWebURLRequest {
+	return &NotebookCollectionGetNotebookFromWebURLRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
+	err = r.JSONRequest(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (*CopyNotebookModel, error) {
 	return r.Do("POST", "", r.requestObject)
 }

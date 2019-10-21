@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsInformationProtectionDesktopApp undocumented
 type WindowsInformationProtectionDesktopApp struct {
+	// WindowsInformationProtectionApp is the base model of WindowsInformationProtectionDesktopApp
 	WindowsInformationProtectionApp
 	// BinaryName The binary name.
 	BinaryName *string `json:"binaryName,omitempty"`

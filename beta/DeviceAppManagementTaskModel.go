@@ -6,6 +6,7 @@ import "time"
 
 // DeviceAppManagementTask A device app management task.
 type DeviceAppManagementTask struct {
+	// Entity is the base model of DeviceAppManagementTask
 	Entity
 	// DisplayName The name.
 	DisplayName *string `json:"displayName,omitempty"`

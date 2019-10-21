@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsManagementAppHealthSummary Contains properties for the health summary of the Windows management app.
 type WindowsManagementAppHealthSummary struct {
+	// Entity is the base model of WindowsManagementAppHealthSummary
 	Entity
 	// HealthyDeviceCount Healthy device count.
 	HealthyDeviceCount *int `json:"healthyDeviceCount,omitempty"`

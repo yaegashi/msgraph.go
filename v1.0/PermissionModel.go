@@ -4,6 +4,7 @@ package msgraph
 
 // Permission undocumented
 type Permission struct {
+	// Entity is the base model of Permission
 	Entity
 	// GrantedTo undocumented
 	GrantedTo *IdentitySet `json:"grantedTo,omitempty"`

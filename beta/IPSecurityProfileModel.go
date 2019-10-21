@@ -6,6 +6,7 @@ import "time"
 
 // IPSecurityProfile undocumented
 type IPSecurityProfile struct {
+	// Entity is the base model of IPSecurityProfile
 	Entity
 	// ActivityGroupNames undocumented
 	ActivityGroupNames []string `json:"activityGroupNames,omitempty"`

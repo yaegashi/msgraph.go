@@ -4,6 +4,7 @@ package msgraph
 
 // Invitation undocumented
 type Invitation struct {
+	// Entity is the base model of Invitation
 	Entity
 	// InvitedUserDisplayName undocumented
 	InvitedUserDisplayName *string `json:"invitedUserDisplayName,omitempty"`

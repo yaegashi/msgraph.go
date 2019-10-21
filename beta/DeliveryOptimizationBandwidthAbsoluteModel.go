@@ -4,6 +4,7 @@ package msgraph
 
 // DeliveryOptimizationBandwidthAbsolute undocumented
 type DeliveryOptimizationBandwidthAbsolute struct {
+	// DeliveryOptimizationBandwidth is the base model of DeliveryOptimizationBandwidthAbsolute
 	DeliveryOptimizationBandwidth
 	// MaximumDownloadBandwidthInKilobytesPerSecond Specifies the maximum download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization. Valid values 0 to 4294967295
 	MaximumDownloadBandwidthInKilobytesPerSecond *int `json:"maximumDownloadBandwidthInKilobytesPerSecond,omitempty"`

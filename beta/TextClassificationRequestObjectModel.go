@@ -4,6 +4,7 @@ package msgraph
 
 // TextClassificationRequestObject undocumented
 type TextClassificationRequestObject struct {
+	// Entity is the base model of TextClassificationRequestObject
 	Entity
 	// Text undocumented
 	Text *string `json:"text,omitempty"`

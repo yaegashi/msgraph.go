@@ -4,6 +4,8 @@ package msgraph
 
 // ProvisioningStep undocumented
 type ProvisioningStep struct {
+	// Object is the base model of ProvisioningStep
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Status undocumented

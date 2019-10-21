@@ -4,5 +4,6 @@ package msgraph
 
 // AndroidDeviceComplianceLocalActionLockDevice Local Action Lock Device Only Configuration
 type AndroidDeviceComplianceLocalActionLockDevice struct {
+	// AndroidDeviceComplianceLocalActionBase is the base model of AndroidDeviceComplianceLocalActionLockDevice
 	AndroidDeviceComplianceLocalActionBase
 }

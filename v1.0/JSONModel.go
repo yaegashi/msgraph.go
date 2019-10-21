@@ -4,4 +4,6 @@ package msgraph
 
 // JSON undocumented
 type JSON struct {
+	// Object is the base model of JSON
+	Object
 }

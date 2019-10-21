@@ -4,5 +4,6 @@ package msgraph
 
 // SuspiciousIPRiskEvent undocumented
 type SuspiciousIPRiskEvent struct {
+	// LocatedRiskEvent is the base model of SuspiciousIPRiskEvent
 	LocatedRiskEvent
 }

@@ -6,6 +6,8 @@ import "time"
 
 // ItemActivityTimeSet undocumented
 type ItemActivityTimeSet struct {
+	// Object is the base model of ItemActivityTimeSet
+	Object
 	// LastRecordedDateTime undocumented
 	LastRecordedDateTime *time.Time `json:"lastRecordedDateTime,omitempty"`
 	// ObservedDateTime undocumented

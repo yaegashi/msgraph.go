@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsWifiConfiguration Device Configuration.
 type WindowsWifiConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsWifiConfiguration
 	DeviceConfiguration
 	// PreSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
 	PreSharedKey *string `json:"preSharedKey,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // RecentNotebook undocumented
 type RecentNotebook struct {
+	// Object is the base model of RecentNotebook
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// LastAccessedTime undocumented

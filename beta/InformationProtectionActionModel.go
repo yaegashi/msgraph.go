@@ -4,4 +4,6 @@ package msgraph
 
 // InformationProtectionAction undocumented
 type InformationProtectionAction struct {
+	// Object is the base model of InformationProtectionAction
+	Object
 }

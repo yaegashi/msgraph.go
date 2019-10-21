@@ -4,6 +4,7 @@ package msgraph
 
 // SecurityBaselineStateSummary The security baseline compliance state summary for the security baseline of the account.
 type SecurityBaselineStateSummary struct {
+	// Entity is the base model of SecurityBaselineStateSummary
 	Entity
 	// SecureCount Number of secure devices
 	SecureCount *int `json:"secureCount,omitempty"`

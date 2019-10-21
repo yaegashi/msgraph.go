@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDefenderScanActionResult undocumented
 type WindowsDefenderScanActionResult struct {
+	// DeviceActionResult is the base model of WindowsDefenderScanActionResult
 	DeviceActionResult
 	// ScanType Scan type either full scan or quick scan
 	ScanType *string `json:"scanType,omitempty"`

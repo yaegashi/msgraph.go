@@ -4,6 +4,8 @@ package msgraph
 
 // Video undocumented
 type Video struct {
+	// Object is the base model of Video
+	Object
 	// AudioBitsPerSample undocumented
 	AudioBitsPerSample *int `json:"audioBitsPerSample,omitempty"`
 	// AudioChannels undocumented

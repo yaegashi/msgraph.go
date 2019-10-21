@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkImportedPFXCertificateProfile Android For Work PFX Import certificate profile
 type AndroidForWorkImportedPFXCertificateProfile struct {
+	// AndroidCertificateProfileBase is the base model of AndroidForWorkImportedPFXCertificateProfile
 	AndroidCertificateProfileBase
 	// IntendedPurpose undocumented
 	IntendedPurpose *IntendedPurpose `json:"intendedPurpose,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ChatMessagePolicyViolationPolicyTip undocumented
 type ChatMessagePolicyViolationPolicyTip struct {
+	// Object is the base model of ChatMessagePolicyViolationPolicyTip
+	Object
 	// GeneralText undocumented
 	GeneralText *string `json:"generalText,omitempty"`
 	// ComplianceURL undocumented

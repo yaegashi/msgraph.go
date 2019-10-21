@@ -4,6 +4,8 @@ package msgraph
 
 // SiteCollection undocumented
 type SiteCollection struct {
+	// Object is the base model of SiteCollection
+	Object
 	// Hostname undocumented
 	Hostname *string `json:"hostname,omitempty"`
 	// Root undocumented

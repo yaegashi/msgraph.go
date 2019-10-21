@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceConfigurationDeviceStateSummary undocumented
 type DeviceConfigurationDeviceStateSummary struct {
+	// Entity is the base model of DeviceConfigurationDeviceStateSummary
 	Entity
 	// UnknownDeviceCount Number of unknown devices
 	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`

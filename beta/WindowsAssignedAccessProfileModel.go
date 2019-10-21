@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsAssignedAccessProfile Assigned Access profile for Windows.
 type WindowsAssignedAccessProfile struct {
+	// Entity is the base model of WindowsAssignedAccessProfile
 	Entity
 	// ProfileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
 	ProfileName *string `json:"profileName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // InvitationParticipantInfo undocumented
 type InvitationParticipantInfo struct {
+	// ParticipantInfo is the base model of InvitationParticipantInfo
 	ParticipantInfo
 	// EndpointType undocumented
 	EndpointType *EndpointType `json:"endpointType,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10EnterpriseModernAppManagementConfiguration Windows10 Enterprise Modern App Management Configuration.
 type Windows10EnterpriseModernAppManagementConfiguration struct {
+	// DeviceConfiguration is the base model of Windows10EnterpriseModernAppManagementConfiguration
 	DeviceConfiguration
 	// UninstallBuiltInApps Indicates whether or not to uninstall a fixed list of built-in Windows apps.
 	UninstallBuiltInApps *bool `json:"uninstallBuiltInApps,omitempty"`

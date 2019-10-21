@@ -4,6 +4,8 @@ package msgraph
 
 // MailTipsError undocumented
 type MailTipsError struct {
+	// Object is the base model of MailTipsError
+	Object
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
 	// Code undocumented

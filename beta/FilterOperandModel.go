@@ -4,6 +4,8 @@ package msgraph
 
 // FilterOperand undocumented
 type FilterOperand struct {
+	// Object is the base model of FilterOperand
+	Object
 	// Values undocumented
 	Values []string `json:"values,omitempty"`
 }

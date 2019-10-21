@@ -6,6 +6,7 @@ import "time"
 
 // OAuth2PermissionGrant undocumented
 type OAuth2PermissionGrant struct {
+	// Entity is the base model of OAuth2PermissionGrant
 	Entity
 	// ClientID undocumented
 	ClientID *string `json:"clientId,omitempty"`

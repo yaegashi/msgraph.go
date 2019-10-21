@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceAndAppManagementAssignedRoleDetails undocumented
 type DeviceAndAppManagementAssignedRoleDetails struct {
+	// Object is the base model of DeviceAndAppManagementAssignedRoleDetails
+	Object
 	// RoleDefinitionIDs Role Definition IDs for the specifc Role Definitions assigned to a user.
 	RoleDefinitionIDs []string `json:"roleDefinitionIds,omitempty"`
 	// RoleAssignmentIDs Role Assignment IDs for the specifc Role Assignments assigned to a user.

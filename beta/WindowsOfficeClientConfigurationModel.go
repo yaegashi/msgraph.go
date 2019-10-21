@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsOfficeClientConfiguration undocumented
 type WindowsOfficeClientConfiguration struct {
+	// OfficeClientConfiguration is the base model of WindowsOfficeClientConfiguration
 	OfficeClientConfiguration
 }

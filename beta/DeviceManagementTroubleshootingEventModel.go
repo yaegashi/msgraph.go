@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementTroubleshootingEvent Event representing an general failure.
 type DeviceManagementTroubleshootingEvent struct {
+	// Entity is the base model of DeviceManagementTroubleshootingEvent
 	Entity
 	// EventDateTime Time when the event occurred .
 	EventDateTime *time.Time `json:"eventDateTime,omitempty"`

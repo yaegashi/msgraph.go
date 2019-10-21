@@ -4,6 +4,8 @@ package msgraph
 
 // AppListItem undocumented
 type AppListItem struct {
+	// Object is the base model of AppListItem
+	Object
 	// Name The application name
 	Name *string `json:"name,omitempty"`
 	// Publisher The publisher of the application

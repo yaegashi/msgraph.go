@@ -4,6 +4,8 @@ package msgraph
 
 // MimeContent undocumented
 type MimeContent struct {
+	// Object is the base model of MimeContent
+	Object
 	// Type Indicates the content mime type.
 	Type *string `json:"type,omitempty"`
 	// Value The byte array that contains the actual content.

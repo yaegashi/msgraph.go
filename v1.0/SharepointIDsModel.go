@@ -4,6 +4,8 @@ package msgraph
 
 // SharepointIDs undocumented
 type SharepointIDs struct {
+	// Object is the base model of SharepointIDs
+	Object
 	// ListID undocumented
 	ListID *string `json:"listId,omitempty"`
 	// ListItemID undocumented

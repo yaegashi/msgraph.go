@@ -4,6 +4,7 @@ package msgraph
 
 // MailFolder undocumented
 type MailFolder struct {
+	// Entity is the base model of MailFolder
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

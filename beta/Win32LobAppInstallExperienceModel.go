@@ -4,6 +4,8 @@ package msgraph
 
 // Win32LobAppInstallExperience undocumented
 type Win32LobAppInstallExperience struct {
+	// Object is the base model of Win32LobAppInstallExperience
+	Object
 	// RunAsAccount Indicates the type of execution context the app runs in.
 	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
 }

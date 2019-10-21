@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidManagedAppProtection Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device
 type AndroidManagedAppProtection struct {
+	// TargetedManagedAppProtection is the base model of AndroidManagedAppProtection
 	TargetedManagedAppProtection
 	// ScreenCaptureBlocked Indicates whether a managed user can take screen captures of managed apps
 	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`

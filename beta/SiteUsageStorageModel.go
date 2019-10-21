@@ -6,6 +6,7 @@ import "time"
 
 // SiteUsageStorage undocumented
 type SiteUsageStorage struct {
+	// Entity is the base model of SiteUsageStorage
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

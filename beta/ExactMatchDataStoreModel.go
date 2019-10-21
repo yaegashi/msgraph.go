@@ -6,6 +6,7 @@ import "time"
 
 // ExactMatchDataStore undocumented
 type ExactMatchDataStore struct {
+	// Entity is the base model of ExactMatchDataStore
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

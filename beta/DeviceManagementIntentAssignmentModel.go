@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementIntentAssignment Intent assignment entity
 type DeviceManagementIntentAssignment struct {
+	// Entity is the base model of DeviceManagementIntentAssignment
 	Entity
 	// Target The assignment target
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

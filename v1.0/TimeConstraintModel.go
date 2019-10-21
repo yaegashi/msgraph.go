@@ -4,6 +4,8 @@ package msgraph
 
 // TimeConstraint undocumented
 type TimeConstraint struct {
+	// Object is the base model of TimeConstraint
+	Object
 	// ActivityDomain undocumented
 	ActivityDomain *ActivityDomain `json:"activityDomain,omitempty"`
 	// TimeSlots undocumented

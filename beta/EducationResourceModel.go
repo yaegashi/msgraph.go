@@ -6,6 +6,8 @@ import "time"
 
 // EducationResource undocumented
 type EducationResource struct {
+	// Object is the base model of EducationResource
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// CreatedDateTime undocumented

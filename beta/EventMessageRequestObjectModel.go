@@ -4,6 +4,7 @@ package msgraph
 
 // EventMessageRequestObject undocumented
 type EventMessageRequestObject struct {
+	// EventMessage is the base model of EventMessageRequestObject
 	EventMessage
 	// PreviousLocation undocumented
 	PreviousLocation *Location `json:"previousLocation,omitempty"`

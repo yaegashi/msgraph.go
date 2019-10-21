@@ -3,11 +3,12 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // DriveItemCheckinRequestParameter undocumented
@@ -379,11 +380,11 @@ func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([
 			paging Paging
 			value  [][]Permission
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

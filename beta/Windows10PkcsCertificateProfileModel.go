@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10PkcsCertificateProfile Windows 10 Desktop and Mobile PKCS certificate profile
 type Windows10PkcsCertificateProfile struct {
+	// Windows10CertificateProfileBase is the base model of Windows10PkcsCertificateProfile
 	Windows10CertificateProfileBase
 	// CertificationAuthority PKCS Certification Authority
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`

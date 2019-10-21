@@ -6,6 +6,8 @@ import "time"
 
 // MobileAppTroubleshootingHistoryItem undocumented
 type MobileAppTroubleshootingHistoryItem struct {
+	// Object is the base model of MobileAppTroubleshootingHistoryItem
+	Object
 	// OccurrenceDateTime Time when the history item occurred.
 	OccurrenceDateTime *time.Time `json:"occurrenceDateTime,omitempty"`
 }

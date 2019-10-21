@@ -4,6 +4,8 @@ package msgraph
 
 // SettingSource undocumented
 type SettingSource struct {
+	// Object is the base model of SettingSource
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented

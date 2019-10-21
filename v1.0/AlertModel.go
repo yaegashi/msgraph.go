@@ -6,6 +6,7 @@ import "time"
 
 // Alert undocumented
 type Alert struct {
+	// Entity is the base model of Alert
 	Entity
 	// ActivityGroupName undocumented
 	ActivityGroupName *string `json:"activityGroupName,omitempty"`

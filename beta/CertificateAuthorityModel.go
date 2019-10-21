@@ -4,6 +4,8 @@ package msgraph
 
 // CertificateAuthority undocumented
 type CertificateAuthority struct {
+	// Object is the base model of CertificateAuthority
+	Object
 	// IsRootAuthority undocumented
 	IsRootAuthority *bool `json:"isRootAuthority,omitempty"`
 	// CertificateRevocationListURL undocumented

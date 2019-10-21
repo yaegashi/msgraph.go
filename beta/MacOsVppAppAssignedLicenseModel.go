@@ -4,6 +4,7 @@ package msgraph
 
 // MacOsVppAppAssignedLicense MacOS Volume Purchase Program license assignment. This class does not support Create, Delete, or Update.
 type MacOsVppAppAssignedLicense struct {
+	// Entity is the base model of MacOsVppAppAssignedLicense
 	Entity
 	// UserEmailAddress The user email address.
 	UserEmailAddress *string `json:"userEmailAddress,omitempty"`

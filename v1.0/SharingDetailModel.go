@@ -6,6 +6,8 @@ import "time"
 
 // SharingDetail undocumented
 type SharingDetail struct {
+	// Object is the base model of SharingDetail
+	Object
 	// SharedBy undocumented
 	SharedBy *InsightIdentity `json:"sharedBy,omitempty"`
 	// SharedDateTime undocumented

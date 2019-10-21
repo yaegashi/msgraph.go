@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedDeviceMobileAppConfigurationAssignment Contains the properties used to assign an MDM app configuration to a group.
 type ManagedDeviceMobileAppConfigurationAssignment struct {
+	// Entity is the base model of ManagedDeviceMobileAppConfigurationAssignment
 	Entity
 	// Target Assignment target that the T&C policy is assigned to.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

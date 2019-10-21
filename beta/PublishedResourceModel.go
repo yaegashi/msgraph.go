@@ -4,6 +4,7 @@ package msgraph
 
 // PublishedResource undocumented
 type PublishedResource struct {
+	// Entity is the base model of PublishedResource
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

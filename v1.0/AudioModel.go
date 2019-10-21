@@ -4,6 +4,8 @@ package msgraph
 
 // Audio undocumented
 type Audio struct {
+	// Object is the base model of Audio
+	Object
 	// Album undocumented
 	Album *string `json:"album,omitempty"`
 	// AlbumArtist undocumented

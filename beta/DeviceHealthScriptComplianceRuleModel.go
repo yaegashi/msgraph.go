@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceHealthScriptComplianceRule undocumented
 type DeviceHealthScriptComplianceRule struct {
+	// Object is the base model of DeviceHealthScriptComplianceRule
+	Object
 	// DetectionType undocumented
 	DetectionType *DeviceHealthScriptDetectionType `json:"detectionType,omitempty"`
 	// Operator undocumented

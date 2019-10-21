@@ -4,6 +4,7 @@ package msgraph
 
 // TeamsApp undocumented
 type TeamsApp struct {
+	// Entity is the base model of TeamsApp
 	Entity
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`

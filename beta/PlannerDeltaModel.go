@@ -4,5 +4,6 @@ package msgraph
 
 // PlannerDelta undocumented
 type PlannerDelta struct {
+	// Entity is the base model of PlannerDelta
 	Entity
 }

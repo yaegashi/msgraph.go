@@ -4,6 +4,7 @@ package msgraph
 
 // DriveItem undocumented
 type DriveItem struct {
+	// BaseItem is the base model of DriveItem
 	BaseItem
 	// Audio undocumented
 	Audio *Audio `json:"audio,omitempty"`

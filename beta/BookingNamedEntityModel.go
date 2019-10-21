@@ -4,6 +4,7 @@ package msgraph
 
 // BookingNamedEntity Booking entities that provide a display name.
 type BookingNamedEntity struct {
+	// Entity is the base model of BookingNamedEntity
 	Entity
 	// DisplayName Display name of this entity.
 	DisplayName *string `json:"displayName,omitempty"`

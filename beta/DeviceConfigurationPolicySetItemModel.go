@@ -4,5 +4,6 @@ package msgraph
 
 // DeviceConfigurationPolicySetItem A class containing the properties used for device configuration PolicySetItem.
 type DeviceConfigurationPolicySetItem struct {
+	// PolicySetItem is the base model of DeviceConfigurationPolicySetItem
 	PolicySetItem
 }

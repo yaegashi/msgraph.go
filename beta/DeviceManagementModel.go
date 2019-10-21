@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagement Singleton that acts as container for a collection of UserPFXCertificate entities.
 type DeviceManagement struct {
+	// Entity is the base model of DeviceManagement
 	Entity
 	// Settings Account level settings.
 	Settings *DeviceManagementSettings `json:"settings,omitempty"`

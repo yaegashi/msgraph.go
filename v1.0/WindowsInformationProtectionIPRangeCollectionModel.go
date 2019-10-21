@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsInformationProtectionIPRangeCollection undocumented
 type WindowsInformationProtectionIPRangeCollection struct {
+	// Object is the base model of WindowsInformationProtectionIPRangeCollection
+	Object
 	// DisplayName Display name
 	DisplayName *string `json:"displayName,omitempty"`
 	// Ranges Collection of ip ranges

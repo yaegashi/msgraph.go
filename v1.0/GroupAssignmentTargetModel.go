@@ -4,6 +4,7 @@ package msgraph
 
 // GroupAssignmentTarget undocumented
 type GroupAssignmentTarget struct {
+	// DeviceAndAppManagementAssignmentTarget is the base model of GroupAssignmentTarget
 	DeviceAndAppManagementAssignmentTarget
 	// GroupID The group Id that is the target of the assignment.
 	GroupID *string `json:"groupId,omitempty"`

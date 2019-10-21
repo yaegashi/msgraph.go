@@ -4,6 +4,8 @@ package msgraph
 
 // KeyValue undocumented
 type KeyValue struct {
+	// Object is the base model of KeyValue
+	Object
 	// Key undocumented
 	Key *string `json:"key,omitempty"`
 	// Value undocumented

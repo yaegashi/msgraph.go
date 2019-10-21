@@ -6,6 +6,8 @@ import "time"
 
 // DeviceHealthAttestationState undocumented
 type DeviceHealthAttestationState struct {
+	// Object is the base model of DeviceHealthAttestationState
+	Object
 	// LastUpdateDateTime The Timestamp of the last update.
 	LastUpdateDateTime *string `json:"lastUpdateDateTime,omitempty"`
 	// ContentNamespaceURL The DHA report version. (Namespace version)

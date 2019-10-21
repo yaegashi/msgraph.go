@@ -4,6 +4,8 @@ package msgraph
 
 // ImageInfo undocumented
 type ImageInfo struct {
+	// Object is the base model of ImageInfo
+	Object
 	// IconURL undocumented
 	IconURL *string `json:"iconUrl,omitempty"`
 	// AlternativeText undocumented

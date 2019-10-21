@@ -6,6 +6,7 @@ import "time"
 
 // Office365ActiveUserCounts undocumented
 type Office365ActiveUserCounts struct {
+	// Entity is the base model of Office365ActiveUserCounts
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

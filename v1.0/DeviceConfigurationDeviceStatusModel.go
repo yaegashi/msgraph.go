@@ -6,6 +6,7 @@ import "time"
 
 // DeviceConfigurationDeviceStatus undocumented
 type DeviceConfigurationDeviceStatus struct {
+	// Entity is the base model of DeviceConfigurationDeviceStatus
 	Entity
 	// DeviceDisplayName Device name of the DevicePolicyStatus.
 	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`

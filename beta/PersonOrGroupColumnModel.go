@@ -4,6 +4,8 @@ package msgraph
 
 // PersonOrGroupColumn undocumented
 type PersonOrGroupColumn struct {
+	// Object is the base model of PersonOrGroupColumn
+	Object
 	// AllowMultipleSelection undocumented
 	AllowMultipleSelection *bool `json:"allowMultipleSelection,omitempty"`
 	// ChooseFromType undocumented

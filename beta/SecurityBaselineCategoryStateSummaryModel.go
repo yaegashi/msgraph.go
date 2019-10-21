@@ -4,6 +4,7 @@ package msgraph
 
 // SecurityBaselineCategoryStateSummary The security baseline per category compliance state summary for the security baseline of the account.
 type SecurityBaselineCategoryStateSummary struct {
+	// SecurityBaselineStateSummary is the base model of SecurityBaselineCategoryStateSummary
 	SecurityBaselineStateSummary
 	// DisplayName The category name
 	DisplayName *string `json:"displayName,omitempty"`

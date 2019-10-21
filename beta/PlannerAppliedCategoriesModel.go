@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerAppliedCategories undocumented
 type PlannerAppliedCategories struct {
+	// Object is the base model of PlannerAppliedCategories
+	Object
 }

@@ -4,6 +4,8 @@ package msgraph
 
 // FolderView undocumented
 type FolderView struct {
+	// Object is the base model of FolderView
+	Object
 	// SortBy undocumented
 	SortBy *string `json:"sortBy,omitempty"`
 	// SortOrder undocumented

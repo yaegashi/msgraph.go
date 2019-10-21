@@ -4,6 +4,7 @@ package msgraph
 
 // EasEmailProfileConfigurationBase Apple device features configuration profile.
 type EasEmailProfileConfigurationBase struct {
+	// DeviceConfiguration is the base model of EasEmailProfileConfigurationBase
 	DeviceConfiguration
 	// UsernameSource Username attribute that is picked from AAD and injected into this profile before installing on the device.
 	UsernameSource *UserEmailSource `json:"usernameSource,omitempty"`

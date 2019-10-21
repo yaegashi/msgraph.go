@@ -4,6 +4,7 @@ package msgraph
 
 // EnrollmentConfigurationAssignment undocumented
 type EnrollmentConfigurationAssignment struct {
+	// Entity is the base model of EnrollmentConfigurationAssignment
 	Entity
 	// Target undocumented
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

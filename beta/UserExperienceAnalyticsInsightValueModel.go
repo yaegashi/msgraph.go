@@ -4,4 +4,6 @@ package msgraph
 
 // UserExperienceAnalyticsInsightValue undocumented
 type UserExperienceAnalyticsInsightValue struct {
+	// Object is the base model of UserExperienceAnalyticsInsightValue
+	Object
 }

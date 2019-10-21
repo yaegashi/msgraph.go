@@ -6,6 +6,7 @@ import "time"
 
 // IOSUpdateConfiguration IOS Update Configuration, allows you to configure time window within week to install iOS updates
 type IOSUpdateConfiguration struct {
+	// DeviceConfiguration is the base model of IOSUpdateConfiguration
 	DeviceConfiguration
 	// IsEnabled Is setting enabled in UI
 	IsEnabled *bool `json:"isEnabled,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // FileAttachment undocumented
 type FileAttachment struct {
+	// Attachment is the base model of FileAttachment
 	Attachment
 	// ContentID undocumented
 	ContentID *string `json:"contentId,omitempty"`

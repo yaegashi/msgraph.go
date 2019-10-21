@@ -4,6 +4,7 @@ package msgraph
 
 // HourlySchedule undocumented
 type HourlySchedule struct {
+	// RunSchedule is the base model of HourlySchedule
 	RunSchedule
 	// Interval Interval in number of hours
 	Interval *int `json:"interval,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // YammerDeviceUsageDistributionUserCounts undocumented
 type YammerDeviceUsageDistributionUserCounts struct {
+	// Entity is the base model of YammerDeviceUsageDistributionUserCounts
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

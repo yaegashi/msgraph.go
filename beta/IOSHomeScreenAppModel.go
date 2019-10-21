@@ -4,6 +4,7 @@ package msgraph
 
 // IOSHomeScreenApp undocumented
 type IOSHomeScreenApp struct {
+	// IOSHomeScreenItem is the base model of IOSHomeScreenApp
 	IOSHomeScreenItem
 	// BundleID BundleID of app
 	BundleID *string `json:"bundleID,omitempty"`

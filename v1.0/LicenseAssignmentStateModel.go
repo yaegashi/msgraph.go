@@ -4,6 +4,8 @@ package msgraph
 
 // LicenseAssignmentState undocumented
 type LicenseAssignmentState struct {
+	// Object is the base model of LicenseAssignmentState
+	Object
 	// SKUID undocumented
 	SKUID *UUID `json:"skuId,omitempty"`
 	// DisabledPlans undocumented

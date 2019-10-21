@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookFunctionResult undocumented
 type WorkbookFunctionResult struct {
+	// Entity is the base model of WorkbookFunctionResult
 	Entity
 	// Error undocumented
 	Error *string `json:"error,omitempty"`

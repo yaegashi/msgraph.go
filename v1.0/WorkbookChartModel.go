@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChart undocumented
 type WorkbookChart struct {
+	// Entity is the base model of WorkbookChart
 	Entity
 	// Height undocumented
 	Height *float64 `json:"height,omitempty"`

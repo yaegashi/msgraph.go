@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementPartner Entity which represents a connection to device management partner.
 type DeviceManagementPartner struct {
+	// Entity is the base model of DeviceManagementPartner
 	Entity
 	// LastHeartbeatDateTime Timestamp of last heartbeat after admin enabled option Connect to Device management Partner
 	LastHeartbeatDateTime *time.Time `json:"lastHeartbeatDateTime,omitempty"`

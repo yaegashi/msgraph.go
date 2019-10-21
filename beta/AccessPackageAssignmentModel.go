@@ -6,6 +6,7 @@ import "time"
 
 // AccessPackageAssignment undocumented
 type AccessPackageAssignment struct {
+	// Entity is the base model of AccessPackageAssignment
 	Entity
 	// CatalogID undocumented
 	CatalogID *string `json:"catalogId,omitempty"`

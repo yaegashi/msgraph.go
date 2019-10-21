@@ -4,4 +4,6 @@ package msgraph
 
 // DeliveryOptimizationBandwidth undocumented
 type DeliveryOptimizationBandwidth struct {
+	// Object is the base model of DeliveryOptimizationBandwidth
+	Object
 }

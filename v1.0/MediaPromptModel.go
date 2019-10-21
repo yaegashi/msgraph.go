@@ -4,6 +4,7 @@ package msgraph
 
 // MediaPrompt undocumented
 type MediaPrompt struct {
+	// Prompt is the base model of MediaPrompt
 	Prompt
 	// MediaInfo undocumented
 	MediaInfo *MediaInfo `json:"mediaInfo,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhone81SCEPCertificateProfile Windows Phone 8.1+ SCEP certificate profile
 type WindowsPhone81SCEPCertificateProfile struct {
+	// WindowsPhone81CertificateProfileBase is the base model of WindowsPhone81SCEPCertificateProfile
 	WindowsPhone81CertificateProfileBase
 	// ScepServerUrls SCEP Server Url(s).
 	ScepServerUrls []string `json:"scepServerUrls,omitempty"`

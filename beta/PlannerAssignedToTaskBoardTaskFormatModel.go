@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerAssignedToTaskBoardTaskFormat undocumented
 type PlannerAssignedToTaskBoardTaskFormat struct {
+	// PlannerDelta is the base model of PlannerAssignedToTaskBoardTaskFormat
 	PlannerDelta
 	// UnassignedOrderHint undocumented
 	UnassignedOrderHint *string `json:"unassignedOrderHint,omitempty"`

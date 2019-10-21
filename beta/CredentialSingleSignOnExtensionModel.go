@@ -4,6 +4,7 @@ package msgraph
 
 // CredentialSingleSignOnExtension undocumented
 type CredentialSingleSignOnExtension struct {
+	// SingleSignOnExtension is the base model of CredentialSingleSignOnExtension
 	SingleSignOnExtension
 	// ExtensionIdentifier Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
 	ExtensionIdentifier *string `json:"extensionIdentifier,omitempty"`

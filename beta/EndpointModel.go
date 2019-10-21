@@ -4,6 +4,7 @@ package msgraph
 
 // Endpoint undocumented
 type Endpoint struct {
+	// DirectoryObject is the base model of Endpoint
 	DirectoryObject
 	// Capability undocumented
 	Capability *string `json:"capability,omitempty"`

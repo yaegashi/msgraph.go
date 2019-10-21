@@ -4,5 +4,6 @@ package msgraph
 
 // TrustFrameworkKeySet undocumented
 type TrustFrameworkKeySet struct {
+	// Entity is the base model of TrustFrameworkKeySet
 	Entity
 }

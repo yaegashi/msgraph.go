@@ -6,6 +6,7 @@ import "time"
 
 // MobileAppContentFile Contains properties for a single installer file that is associated with a given mobileAppContent version.
 type MobileAppContentFile struct {
+	// Entity is the base model of MobileAppContentFile
 	Entity
 	// AzureStorageURI The Azure Storage URI.
 	AzureStorageURI *string `json:"azureStorageUri,omitempty"`

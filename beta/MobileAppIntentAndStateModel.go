@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppIntentAndState MobileApp Intent and Install State for a given device.
 type MobileAppIntentAndState struct {
+	// Entity is the base model of MobileAppIntentAndState
 	Entity
 	// ManagedDeviceIdentifier Device identifier created or collected by Intune.
 	ManagedDeviceIdentifier *string `json:"managedDeviceIdentifier,omitempty"`

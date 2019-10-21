@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationLongDecimalTextBox Represents an ADMX longDecimalTextBox element and an ADMX longDecimal element.
 type GroupPolicyPresentationLongDecimalTextBox struct {
+	// GroupPolicyPresentation is the base model of GroupPolicyPresentationLongDecimalTextBox
 	GroupPolicyPresentation
 	// DefaultValue An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
 	DefaultValue *int `json:"defaultValue,omitempty"`

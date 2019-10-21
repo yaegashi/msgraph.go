@@ -4,6 +4,8 @@ package msgraph
 
 // Recipient undocumented
 type Recipient struct {
+	// Object is the base model of Recipient
+	Object
 	// EmailAddress undocumented
 	EmailAddress *EmailAddress `json:"emailAddress,omitempty"`
 }

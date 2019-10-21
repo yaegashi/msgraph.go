@@ -4,6 +4,8 @@ package msgraph
 
 // EducationTeacher undocumented
 type EducationTeacher struct {
+	// Object is the base model of EducationTeacher
+	Object
 	// TeacherNumber undocumented
 	TeacherNumber *string `json:"teacherNumber,omitempty"`
 	// ExternalID undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // MobileAppInstallStatus Contains properties for the installation state of a mobile app for a device.
 type MobileAppInstallStatus struct {
+	// Entity is the base model of MobileAppInstallStatus
 	Entity
 	// DeviceName Device name
 	DeviceName *string `json:"deviceName,omitempty"`

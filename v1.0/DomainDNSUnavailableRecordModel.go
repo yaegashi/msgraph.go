@@ -4,6 +4,7 @@ package msgraph
 
 // DomainDNSUnavailableRecord undocumented
 type DomainDNSUnavailableRecord struct {
+	// DomainDNSRecord is the base model of DomainDNSUnavailableRecord
 	DomainDNSRecord
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

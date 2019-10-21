@@ -4,6 +4,8 @@ package msgraph
 
 // MacOSFirewallApplication undocumented
 type MacOSFirewallApplication struct {
+	// Object is the base model of MacOSFirewallApplication
+	Object
 	// BundleID BundleId of the application.
 	BundleID *string `json:"bundleId,omitempty"`
 	// AllowsIncomingConnections Whether or not incoming connections are allowed.

@@ -4,6 +4,8 @@ package msgraph
 
 // SignInLocation undocumented
 type SignInLocation struct {
+	// Object is the base model of SignInLocation
+	Object
 	// City undocumented
 	City *string `json:"city,omitempty"`
 	// State undocumented

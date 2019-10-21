@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceKey undocumented
 type DeviceKey struct {
+	// Object is the base model of DeviceKey
+	Object
 	// KeyType undocumented
 	KeyType *string `json:"keyType,omitempty"`
 	// KeyMaterial undocumented

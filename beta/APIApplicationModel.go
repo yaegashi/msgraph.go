@@ -4,6 +4,8 @@ package msgraph
 
 // APIApplication undocumented
 type APIApplication struct {
+	// Object is the base model of APIApplication
+	Object
 	// AcceptMappedClaims undocumented
 	AcceptMappedClaims *bool `json:"acceptMappedClaims,omitempty"`
 	// KnownClientApplications undocumented

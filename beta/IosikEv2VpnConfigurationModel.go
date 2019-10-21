@@ -4,6 +4,7 @@ package msgraph
 
 // IosikEv2VpnConfiguration By providing the configurations in this profile you can instruct the iOS device to connect to desired IKEv2 VPN endpoint.
 type IosikEv2VpnConfiguration struct {
+	// IOSVpnConfiguration is the base model of IosikEv2VpnConfiguration
 	IOSVpnConfiguration
 	// ChildSecurityAssociationParameters Child Security Association Parameters
 	ChildSecurityAssociationParameters *IOSVpnSecurityAssociationParameters `json:"childSecurityAssociationParameters,omitempty"`

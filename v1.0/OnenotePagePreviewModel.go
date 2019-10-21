@@ -4,6 +4,8 @@ package msgraph
 
 // OnenotePagePreview undocumented
 type OnenotePagePreview struct {
+	// Object is the base model of OnenotePagePreview
+	Object
 	// PreviewText undocumented
 	PreviewText *string `json:"previewText,omitempty"`
 	// Links undocumented

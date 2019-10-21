@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkApp Contains properties and inherited properties for Android for Work (AFW) Apps.
 type AndroidForWorkApp struct {
+	// MobileApp is the base model of AndroidForWorkApp
 	MobileApp
 	// PackageID The package identifier.
 	PackageID *string `json:"packageId,omitempty"`

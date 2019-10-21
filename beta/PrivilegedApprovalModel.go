@@ -6,6 +6,7 @@ import "time"
 
 // PrivilegedApproval undocumented
 type PrivilegedApproval struct {
+	// Entity is the base model of PrivilegedApproval
 	Entity
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`

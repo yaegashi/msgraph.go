@@ -4,6 +4,8 @@ package msgraph
 
 // LabelDetails undocumented
 type LabelDetails struct {
+	// Object is the base model of LabelDetails
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Name undocumented

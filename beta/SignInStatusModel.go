@@ -4,6 +4,8 @@ package msgraph
 
 // SignInStatus undocumented
 type SignInStatus struct {
+	// Object is the base model of SignInStatus
+	Object
 	// ErrorCode undocumented
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// FailureReason undocumented

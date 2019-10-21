@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartGridlinesFormat undocumented
 type WorkbookChartGridlinesFormat struct {
+	// Entity is the base model of WorkbookChartGridlinesFormat
 	Entity
 	// Line undocumented
 	Line *WorkbookChartLineFormat `json:"line,omitempty"`

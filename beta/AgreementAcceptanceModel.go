@@ -6,6 +6,7 @@ import "time"
 
 // AgreementAcceptance undocumented
 type AgreementAcceptance struct {
+	// Entity is the base model of AgreementAcceptance
 	Entity
 	// AgreementID undocumented
 	AgreementID *string `json:"agreementId,omitempty"`

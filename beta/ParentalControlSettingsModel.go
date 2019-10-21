@@ -4,6 +4,8 @@ package msgraph
 
 // ParentalControlSettings undocumented
 type ParentalControlSettings struct {
+	// Object is the base model of ParentalControlSettings
+	Object
 	// CountriesBlockedForMinors undocumented
 	CountriesBlockedForMinors []string `json:"countriesBlockedForMinors,omitempty"`
 	// LegalAgeGroupRule undocumented

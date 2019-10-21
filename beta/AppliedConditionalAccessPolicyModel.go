@@ -4,6 +4,8 @@ package msgraph
 
 // AppliedConditionalAccessPolicy undocumented
 type AppliedConditionalAccessPolicy struct {
+	// Object is the base model of AppliedConditionalAccessPolicy
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented

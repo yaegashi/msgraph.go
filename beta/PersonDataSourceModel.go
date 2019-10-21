@@ -4,6 +4,8 @@ package msgraph
 
 // PersonDataSource undocumented
 type PersonDataSource struct {
+	// Object is the base model of PersonDataSource
+	Object
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementScriptRunSummary Contains properties for the run summary of a device management script.
 type DeviceManagementScriptRunSummary struct {
+	// Entity is the base model of DeviceManagementScriptRunSummary
 	Entity
 	// SuccessDeviceCount Success device count.
 	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`

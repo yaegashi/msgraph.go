@@ -4,6 +4,8 @@ package msgraph
 
 // TeamGuestSettings undocumented
 type TeamGuestSettings struct {
+	// Object is the base model of TeamGuestSettings
+	Object
 	// AllowCreateUpdateChannels undocumented
 	AllowCreateUpdateChannels *bool `json:"allowCreateUpdateChannels,omitempty"`
 	// AllowDeleteChannels undocumented

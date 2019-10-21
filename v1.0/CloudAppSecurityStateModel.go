@@ -4,6 +4,8 @@ package msgraph
 
 // CloudAppSecurityState undocumented
 type CloudAppSecurityState struct {
+	// Object is the base model of CloudAppSecurityState
+	Object
 	// DestinationServiceIP undocumented
 	DestinationServiceIP *string `json:"destinationServiceIp,omitempty"`
 	// DestinationServiceName undocumented

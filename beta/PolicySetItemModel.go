@@ -6,6 +6,7 @@ import "time"
 
 // PolicySetItem A class containing the properties used for PolicySet Item.
 type PolicySetItem struct {
+	// Entity is the base model of PolicySetItem
 	Entity
 	// CreatedDateTime Creation time of the PolicySetItem.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

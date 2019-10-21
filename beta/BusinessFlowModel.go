@@ -4,6 +4,7 @@ package msgraph
 
 // BusinessFlow undocumented
 type BusinessFlow struct {
+	// Entity is the base model of BusinessFlow
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

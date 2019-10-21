@@ -4,6 +4,7 @@ package msgraph
 
 // LicenseDetails undocumented
 type LicenseDetails struct {
+	// Entity is the base model of LicenseDetails
 	Entity
 	// ServicePlans undocumented
 	ServicePlans []ServicePlanInfo `json:"servicePlans,omitempty"`

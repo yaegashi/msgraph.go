@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobAppAssignmentSettings undocumented
 type Win32LobAppAssignmentSettings struct {
+	// MobileAppAssignmentSettings is the base model of Win32LobAppAssignmentSettings
 	MobileAppAssignmentSettings
 	// Notifications The notification status for this app assignment.
 	Notifications *Win32LobAppNotification `json:"notifications,omitempty"`

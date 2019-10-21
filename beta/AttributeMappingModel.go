@@ -4,6 +4,8 @@ package msgraph
 
 // AttributeMapping undocumented
 type AttributeMapping struct {
+	// Object is the base model of AttributeMapping
+	Object
 	// DefaultValue undocumented
 	DefaultValue *string `json:"defaultValue,omitempty"`
 	// ExportMissingReferences undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // EnrollmentRestrictionsConfigurationPolicySetItem A class containing the properties used for enrollment restriction PolicySetItem.
 type EnrollmentRestrictionsConfigurationPolicySetItem struct {
+	// PolicySetItem is the base model of EnrollmentRestrictionsConfigurationPolicySetItem
 	PolicySetItem
 	// Priority Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
 	Priority *int `json:"priority,omitempty"`

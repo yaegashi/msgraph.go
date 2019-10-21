@@ -6,6 +6,7 @@ import "time"
 
 // PrivilegedRoleAssignmentRequestObject undocumented
 type PrivilegedRoleAssignmentRequestObject struct {
+	// Entity is the base model of PrivilegedRoleAssignmentRequestObject
 	Entity
 	// Schedule undocumented
 	Schedule *GovernanceSchedule `json:"schedule,omitempty"`

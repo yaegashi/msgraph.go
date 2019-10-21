@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobAppProductCodeDetection undocumented
 type Win32LobAppProductCodeDetection struct {
+	// Win32LobAppDetection is the base model of Win32LobAppProductCodeDetection
 	Win32LobAppDetection
 	// ProductCode The product code of Win32 Line of Business (LoB) app.
 	ProductCode *string `json:"productCode,omitempty"`

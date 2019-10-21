@@ -4,4 +4,6 @@ package msgraph
 
 // BooleanColumn undocumented
 type BooleanColumn struct {
+	// Object is the base model of BooleanColumn
+	Object
 }

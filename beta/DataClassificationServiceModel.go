@@ -4,6 +4,7 @@ package msgraph
 
 // DataClassificationService undocumented
 type DataClassificationService struct {
+	// Entity is the base model of DataClassificationService
 	Entity
 	// ExactMatchDataStores undocumented
 	ExactMatchDataStores []ExactMatchDataStore `json:"exactMatchDataStores,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // FileHash undocumented
 type FileHash struct {
+	// Object is the base model of FileHash
+	Object
 	// HashType undocumented
 	HashType *FileHashType `json:"hashType,omitempty"`
 	// HashValue undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // MeetingActivityStatistics undocumented
 type MeetingActivityStatistics struct {
+	// ActivityStatistics is the base model of MeetingActivityStatistics
 	ActivityStatistics
 	// AfterHours undocumented
 	AfterHours *time.Duration `json:"afterHours,omitempty"`

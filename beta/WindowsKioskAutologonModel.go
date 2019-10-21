@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsKioskAutologon undocumented
 type WindowsKioskAutologon struct {
+	// WindowsKioskUser is the base model of WindowsKioskAutologon
 	WindowsKioskUser
 }

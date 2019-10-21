@@ -4,6 +4,7 @@ package msgraph
 
 // ListItemVersion undocumented
 type ListItemVersion struct {
+	// BaseItemVersion is the base model of ListItemVersion
 	BaseItemVersion
 	// Fields undocumented
 	Fields *FieldValueSet `json:"fields,omitempty"`

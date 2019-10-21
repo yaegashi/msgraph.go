@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsInformationProtection Policy for Windows information protection to configure detailed management settings
 type WindowsInformationProtection struct {
+	// ManagedAppPolicy is the base model of WindowsInformationProtection
 	ManagedAppPolicy
 	// EnforcementLevel WIP enforcement level.See the Enum definition for supported values
 	EnforcementLevel *WindowsInformationProtectionEnforcementLevel `json:"enforcementLevel,omitempty"`

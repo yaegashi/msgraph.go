@@ -3,17 +3,12 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
-)
 
-// PolicySetCollectionGetPolicySetsRequestParameter undocumented
-type PolicySetCollectionGetPolicySetsRequestParameter struct {
-	// PolicySetIDs undocumented
-	PolicySetIDs []string `json:"policySetIds,omitempty"`
-}
+	"github.com/yaegashi/msgraph.go/jsonx"
+)
 
 // PolicySetUpdateRequestParameter undocumented
 type PolicySetUpdateRequestParameter struct {
@@ -25,6 +20,12 @@ type PolicySetUpdateRequestParameter struct {
 	DeletedPolicySetItems []string `json:"deletedPolicySetItems,omitempty"`
 	// Assignments undocumented
 	Assignments []PolicySetAssignment `json:"assignments,omitempty"`
+}
+
+// PolicySetCollectionGetPolicySetsRequestParameter undocumented
+type PolicySetCollectionGetPolicySetsRequestParameter struct {
+	// PolicySetIDs undocumented
+	PolicySetIDs []string `json:"policySetIds,omitempty"`
 }
 
 //
@@ -106,11 +107,11 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(method, path string, ob
 			paging Paging
 			value  [][]PolicySet
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

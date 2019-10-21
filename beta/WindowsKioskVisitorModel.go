@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsKioskVisitor undocumented
 type WindowsKioskVisitor struct {
+	// WindowsKioskUser is the base model of WindowsKioskVisitor
 	WindowsKioskUser
 }

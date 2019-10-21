@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPrivacyDataAccessControlItem Specify access control level per privacy data category
 type WindowsPrivacyDataAccessControlItem struct {
+	// Entity is the base model of WindowsPrivacyDataAccessControlItem
 	Entity
 	// AccessLevel This indicates an access level for the privacy data category to which the specified application will be given to.
 	AccessLevel *WindowsPrivacyDataAccessLevel `json:"accessLevel,omitempty"`

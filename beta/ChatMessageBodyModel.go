@@ -4,6 +4,8 @@ package msgraph
 
 // ChatMessageBody undocumented
 type ChatMessageBody struct {
+	// Object is the base model of ChatMessageBody
+	Object
 	// Content undocumented
 	Content *string `json:"content,omitempty"`
 	// ContentType undocumented

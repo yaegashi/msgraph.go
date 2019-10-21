@@ -4,6 +4,7 @@ package msgraph
 
 // ActiveDirectoryWindowsAutopilotDeploymentProfile Windows Autopilot Deployment Profile
 type ActiveDirectoryWindowsAutopilotDeploymentProfile struct {
+	// WindowsAutopilotDeploymentProfile is the base model of ActiveDirectoryWindowsAutopilotDeploymentProfile
 	WindowsAutopilotDeploymentProfile
 	// DomainJoinConfiguration undocumented
 	DomainJoinConfiguration *WindowsDomainJoinConfiguration `json:"domainJoinConfiguration,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ResponsibleSensitiveType undocumented
 type ResponsibleSensitiveType struct {
+	// Object is the base model of ResponsibleSensitiveType
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Name undocumented

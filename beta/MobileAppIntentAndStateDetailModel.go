@@ -4,6 +4,8 @@ package msgraph
 
 // MobileAppIntentAndStateDetail undocumented
 type MobileAppIntentAndStateDetail struct {
+	// Object is the base model of MobileAppIntentAndStateDetail
+	Object
 	// ApplicationID MobieApp identifier.
 	ApplicationID *string `json:"applicationId,omitempty"`
 	// DisplayName The admin provided or imported title of the app.

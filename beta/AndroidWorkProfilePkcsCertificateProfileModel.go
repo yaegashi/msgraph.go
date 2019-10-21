@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidWorkProfilePkcsCertificateProfile Android Work Profile PKCS certificate profile
 type AndroidWorkProfilePkcsCertificateProfile struct {
+	// AndroidWorkProfileCertificateProfileBase is the base model of AndroidWorkProfilePkcsCertificateProfile
 	AndroidWorkProfileCertificateProfileBase
 	// CertificationAuthority PKCS Certification Authority
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // OnlineMeeting undocumented
 type OnlineMeeting struct {
+	// Entity is the base model of OnlineMeeting
 	Entity
 	// CreationDateTime undocumented
 	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`

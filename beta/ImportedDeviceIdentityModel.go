@@ -6,6 +6,7 @@ import "time"
 
 // ImportedDeviceIdentity The importedDeviceIdentity resource represents a unique hardware identity of a device that has been pre-staged for pre-enrollment configuration.
 type ImportedDeviceIdentity struct {
+	// Entity is the base model of ImportedDeviceIdentity
 	Entity
 	// ImportedDeviceIdentifier Imported Device Identifier
 	ImportedDeviceIdentifier *string `json:"importedDeviceIdentifier,omitempty"`

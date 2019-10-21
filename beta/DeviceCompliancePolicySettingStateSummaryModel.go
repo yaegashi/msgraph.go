@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceCompliancePolicySettingStateSummary Device Compilance Policy Setting State summary across the account.
 type DeviceCompliancePolicySettingStateSummary struct {
+	// Entity is the base model of DeviceCompliancePolicySettingStateSummary
 	Entity
 	// Setting The setting class name and property name.
 	Setting *string `json:"setting,omitempty"`

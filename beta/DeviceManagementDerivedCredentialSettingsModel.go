@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementDerivedCredentialSettings Entity that describes tenant level settings for derived credentials
 type DeviceManagementDerivedCredentialSettings struct {
+	// Entity is the base model of DeviceManagementDerivedCredentialSettings
 	Entity
 	// HelpURL The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
 	HelpURL *string `json:"helpUrl,omitempty"`

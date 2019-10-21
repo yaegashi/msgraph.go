@@ -4,6 +4,7 @@ package msgraph
 
 // EducationRubricOutcome undocumented
 type EducationRubricOutcome struct {
+	// EducationOutcome is the base model of EducationRubricOutcome
 	EducationOutcome
 	// RubricQualityFeedback undocumented
 	RubricQualityFeedback []RubricQualityFeedbackModel `json:"rubricQualityFeedback,omitempty"`

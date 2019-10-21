@@ -4,6 +4,7 @@ package msgraph
 
 // ProtectGroup undocumented
 type ProtectGroup struct {
+	// LabelActionBase is the base model of ProtectGroup
 	LabelActionBase
 	// AllowEmailFromGuestUsers undocumented
 	AllowEmailFromGuestUsers *bool `json:"allowEmailFromGuestUsers,omitempty"`

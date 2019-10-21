@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidWorkProfileNineWorkEasConfiguration By providing configurations in this profile you can instruct the Nine Work email client on Android Work Profile devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
 type AndroidWorkProfileNineWorkEasConfiguration struct {
+	// AndroidWorkProfileEasEmailProfileBase is the base model of AndroidWorkProfileNineWorkEasConfiguration
 	AndroidWorkProfileEasEmailProfileBase
 	// SyncCalendar Toggles syncing the calendar. If set to false the calendar is turned off on the device.
 	SyncCalendar *bool `json:"syncCalendar,omitempty"`

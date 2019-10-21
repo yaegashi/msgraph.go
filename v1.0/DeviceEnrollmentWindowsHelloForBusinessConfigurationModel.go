@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceEnrollmentWindowsHelloForBusinessConfiguration undocumented
 type DeviceEnrollmentWindowsHelloForBusinessConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentWindowsHelloForBusinessConfiguration
 	DeviceEnrollmentConfiguration
 	// PinMinimumLength undocumented
 	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`

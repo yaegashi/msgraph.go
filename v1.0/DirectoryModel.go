@@ -4,6 +4,7 @@ package msgraph
 
 // Directory undocumented
 type Directory struct {
+	// Entity is the base model of Directory
 	Entity
 	// DeletedItems undocumented
 	DeletedItems []DirectoryObject `json:"deletedItems,omitempty"`

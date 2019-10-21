@@ -4,6 +4,8 @@ package msgraph
 
 // CertificationControl undocumented
 type CertificationControl struct {
+	// Object is the base model of CertificationControl
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// URL undocumented

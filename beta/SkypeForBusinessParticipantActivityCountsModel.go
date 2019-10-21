@@ -6,6 +6,7 @@ import "time"
 
 // SkypeForBusinessParticipantActivityCounts undocumented
 type SkypeForBusinessParticipantActivityCounts struct {
+	// Entity is the base model of SkypeForBusinessParticipantActivityCounts
 	Entity
 	// Im undocumented
 	Im *int `json:"im,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // DeviceConfigurationTargetedUserAndDevice undocumented
 type DeviceConfigurationTargetedUserAndDevice struct {
+	// Object is the base model of DeviceConfigurationTargetedUserAndDevice
+	Object
 	// DeviceID The id of the device in the checkin.
 	DeviceID *string `json:"deviceId,omitempty"`
 	// DeviceName The name of the device in the checkin.

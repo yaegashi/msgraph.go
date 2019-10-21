@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkVpnConfiguration By providing the configurations in this profile you can instruct the Android device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type AndroidForWorkVpnConfiguration struct {
+	// DeviceConfiguration is the base model of AndroidForWorkVpnConfiguration
 	DeviceConfiguration
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`

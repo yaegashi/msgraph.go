@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementSettingInstance Base type for a setting instance
 type DeviceManagementSettingInstance struct {
+	// Entity is the base model of DeviceManagementSettingInstance
 	Entity
 	// DefinitionID The ID of the setting definition for this instance
 	DefinitionID *string `json:"definitionId,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // TargetedManagedAppPolicyAssignment The type for deployment of groups or apps.
 type TargetedManagedAppPolicyAssignment struct {
+	// Entity is the base model of TargetedManagedAppPolicyAssignment
 	Entity
 	// Target Identifier for deployment of a group or app
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

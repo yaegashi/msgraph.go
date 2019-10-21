@@ -4,6 +4,8 @@ package msgraph
 
 // ChoiceColumn undocumented
 type ChoiceColumn struct {
+	// Object is the base model of ChoiceColumn
+	Object
 	// AllowTextEntry undocumented
 	AllowTextEntry *bool `json:"allowTextEntry,omitempty"`
 	// Choices undocumented

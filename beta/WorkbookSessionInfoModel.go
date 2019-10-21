@@ -4,6 +4,8 @@ package msgraph
 
 // WorkbookSessionInfo undocumented
 type WorkbookSessionInfo struct {
+	// Object is the base model of WorkbookSessionInfo
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// PersistChanges undocumented

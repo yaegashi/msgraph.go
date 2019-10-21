@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsAutopilotDeploymentProfilePolicySetItem A class containing the properties used for windows autopilot deployment profile PolicySetItem.
 type WindowsAutopilotDeploymentProfilePolicySetItem struct {
+	// PolicySetItem is the base model of WindowsAutopilotDeploymentProfilePolicySetItem
 	PolicySetItem
 }

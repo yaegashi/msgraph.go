@@ -6,6 +6,7 @@ import "time"
 
 // Currency undocumented
 type Currency struct {
+	// Entity is the base model of Currency
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

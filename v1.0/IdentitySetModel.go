@@ -4,6 +4,8 @@ package msgraph
 
 // IdentitySet undocumented
 type IdentitySet struct {
+	// Object is the base model of IdentitySet
+	Object
 	// Application undocumented
 	Application *Identity `json:"application,omitempty"`
 	// Device undocumented

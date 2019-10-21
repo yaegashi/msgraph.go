@@ -4,6 +4,7 @@ package msgraph
 
 // ItemAttachment undocumented
 type ItemAttachment struct {
+	// Attachment is the base model of ItemAttachment
 	Attachment
 	// Item undocumented
 	Item *OutlookItem `json:"item,omitempty"`

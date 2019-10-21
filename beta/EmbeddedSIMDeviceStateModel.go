@@ -6,6 +6,7 @@ import "time"
 
 // EmbeddedSIMDeviceState Describes the embedded SIM activation code deployment state in relation to a device.
 type EmbeddedSIMDeviceState struct {
+	// Entity is the base model of EmbeddedSIMDeviceState
 	Entity
 	// CreatedDateTime The time the embedded SIM device status was created. Generated service side.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

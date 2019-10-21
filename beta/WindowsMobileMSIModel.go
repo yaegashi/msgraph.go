@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsMobileMSI Contains properties and inherited properties for Windows Mobile MSI Line Of Business apps.
 type WindowsMobileMSI struct {
+	// MobileLobApp is the base model of WindowsMobileMSI
 	MobileLobApp
 	// CommandLine The command line.
 	CommandLine *string `json:"commandLine,omitempty"`

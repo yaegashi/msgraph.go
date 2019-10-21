@@ -4,6 +4,8 @@ package msgraph
 
 // ItemPreviewInfo undocumented
 type ItemPreviewInfo struct {
+	// Object is the base model of ItemPreviewInfo
+	Object
 	// GetURL undocumented
 	GetURL *string `json:"getUrl,omitempty"`
 	// PostParameters undocumented

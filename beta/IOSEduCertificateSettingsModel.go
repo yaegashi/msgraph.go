@@ -4,6 +4,8 @@ package msgraph
 
 // IOSEduCertificateSettings undocumented
 type IOSEduCertificateSettings struct {
+	// Object is the base model of IOSEduCertificateSettings
+	Object
 	// TrustedRootCertificate Trusted Root Certificate.
 	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.

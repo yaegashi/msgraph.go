@@ -6,6 +6,7 @@ import "time"
 
 // UserCredentialUsageDetails undocumented
 type UserCredentialUsageDetails struct {
+	// Entity is the base model of UserCredentialUsageDetails
 	Entity
 	// Feature undocumented
 	Feature *FeatureType `json:"feature,omitempty"`

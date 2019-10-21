@@ -6,6 +6,7 @@ import "time"
 
 // ManagedDeviceMobileAppConfiguration An abstract class for Mobile app configuration for enrolled devices.
 type ManagedDeviceMobileAppConfiguration struct {
+	// Entity is the base model of ManagedDeviceMobileAppConfiguration
 	Entity
 	// TargetedMobileApps the associated app.
 	TargetedMobileApps []string `json:"targetedMobileApps,omitempty"`

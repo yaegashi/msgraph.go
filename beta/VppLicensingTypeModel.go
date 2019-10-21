@@ -4,6 +4,8 @@ package msgraph
 
 // VppLicensingType undocumented
 type VppLicensingType struct {
+	// Object is the base model of VppLicensingType
+	Object
 	// SupportUserLicensing Whether the program supports the user licensing type.
 	SupportUserLicensing *bool `json:"supportUserLicensing,omitempty"`
 	// SupportDeviceLicensing Whether the program supports the device licensing type.

@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidWorkProfileEasEmailProfileBase Base for Android Work Profile EAS Email profiles
 type AndroidWorkProfileEasEmailProfileBase struct {
+	// DeviceConfiguration is the base model of AndroidWorkProfileEasEmailProfileBase
 	DeviceConfiguration
 	// AuthenticationMethod Authentication method for Exchange ActiveSync.
 	AuthenticationMethod *EasAuthenticationMethod `json:"authenticationMethod,omitempty"`

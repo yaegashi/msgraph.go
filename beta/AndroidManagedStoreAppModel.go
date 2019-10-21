@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidManagedStoreApp Contains properties and inherited properties for Android Managed Store Apps.
 type AndroidManagedStoreApp struct {
+	// MobileApp is the base model of AndroidManagedStoreApp
 	MobileApp
 	// PackageID The package identifier.
 	PackageID *string `json:"packageId,omitempty"`

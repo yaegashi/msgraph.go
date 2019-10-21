@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDeviceAzureADAccount undocumented
 type WindowsDeviceAzureADAccount struct {
+	// WindowsDeviceAccount is the base model of WindowsDeviceAzureADAccount
 	WindowsDeviceAccount
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`

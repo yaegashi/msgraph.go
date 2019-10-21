@@ -4,6 +4,8 @@ package msgraph
 
 // SecurityProviderStatus undocumented
 type SecurityProviderStatus struct {
+	// Object is the base model of SecurityProviderStatus
+	Object
 	// Enabled undocumented
 	Enabled *bool `json:"enabled,omitempty"`
 	// Endpoint undocumented

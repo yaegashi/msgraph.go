@@ -4,6 +4,8 @@ package msgraph
 
 // TeamClassSettings undocumented
 type TeamClassSettings struct {
+	// Object is the base model of TeamClassSettings
+	Object
 	// NotifyGuardiansAboutAssignments undocumented
 	NotifyGuardiansAboutAssignments *bool `json:"notifyGuardiansAboutAssignments,omitempty"`
 }

@@ -6,6 +6,7 @@ import "time"
 
 // ManagedAppProtection Policy used to configure detailed management settings for a specified set of apps
 type ManagedAppProtection struct {
+	// ManagedAppPolicy is the base model of ManagedAppProtection
 	ManagedAppPolicy
 	// PeriodOfflineBeforeAccessCheck The period after which access is checked when the device is not connected to the internet.
 	PeriodOfflineBeforeAccessCheck *time.Duration `json:"periodOfflineBeforeAccessCheck,omitempty"`

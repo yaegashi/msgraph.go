@@ -4,6 +4,7 @@ package msgraph
 
 // Program undocumented
 type Program struct {
+	// Entity is the base model of Program
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

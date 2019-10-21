@@ -4,6 +4,8 @@ package msgraph
 
 // Settings undocumented
 type Settings struct {
+	// Object is the base model of Settings
+	Object
 	// HasLicense undocumented
 	HasLicense *bool `json:"hasLicense,omitempty"`
 	// HasOptedOut undocumented

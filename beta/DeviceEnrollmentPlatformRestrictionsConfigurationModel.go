@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceEnrollmentPlatformRestrictionsConfiguration Device Enrollment Configuration that restricts the types of devices a user can enroll
 type DeviceEnrollmentPlatformRestrictionsConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentPlatformRestrictionsConfiguration
 	DeviceEnrollmentConfiguration
 	// IOSRestriction Ios restrictions based on platform, platform operating system version, and device ownership
 	IOSRestriction *DeviceEnrollmentPlatformRestriction `json:"iosRestriction,omitempty"`

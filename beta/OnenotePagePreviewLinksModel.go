@@ -4,6 +4,8 @@ package msgraph
 
 // OnenotePagePreviewLinks undocumented
 type OnenotePagePreviewLinks struct {
+	// Object is the base model of OnenotePagePreviewLinks
+	Object
 	// PreviewImageURL undocumented
 	PreviewImageURL *ExternalLink `json:"previewImageUrl,omitempty"`
 }

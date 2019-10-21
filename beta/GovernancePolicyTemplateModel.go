@@ -4,6 +4,7 @@ package msgraph
 
 // GovernancePolicyTemplate undocumented
 type GovernancePolicyTemplate struct {
+	// Entity is the base model of GovernancePolicyTemplate
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

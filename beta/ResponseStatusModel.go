@@ -6,6 +6,8 @@ import "time"
 
 // ResponseStatus undocumented
 type ResponseStatus struct {
+	// Object is the base model of ResponseStatus
+	Object
 	// Response undocumented
 	Response *ResponseType `json:"response,omitempty"`
 	// Time undocumented

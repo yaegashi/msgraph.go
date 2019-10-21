@@ -4,6 +4,7 @@ package msgraph
 
 // ChatThread undocumented
 type ChatThread struct {
+	// Entity is the base model of ChatThread
 	Entity
 	// RootMessage undocumented
 	RootMessage *ChatMessage `json:"rootMessage,omitempty"`

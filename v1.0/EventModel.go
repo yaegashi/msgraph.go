@@ -6,6 +6,7 @@ import "time"
 
 // Event undocumented
 type Event struct {
+	// OutlookItem is the base model of Event
 	OutlookItem
 	// OriginalStartTimeZone undocumented
 	OriginalStartTimeZone *string `json:"originalStartTimeZone,omitempty"`

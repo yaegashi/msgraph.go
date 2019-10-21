@@ -6,6 +6,7 @@ import "time"
 
 // MobileThreatDefenseConnector Entity which represents a connection to Mobile threat defense partner.
 type MobileThreatDefenseConnector struct {
+	// Entity is the base model of MobileThreatDefenseConnector
 	Entity
 	// LastHeartbeatDateTime DateTime of last Heartbeat recieved from the Data Sync Partner
 	LastHeartbeatDateTime *time.Time `json:"lastHeartbeatDateTime,omitempty"`

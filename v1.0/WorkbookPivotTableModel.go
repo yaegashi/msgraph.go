@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookPivotTable undocumented
 type WorkbookPivotTable struct {
+	// Entity is the base model of WorkbookPivotTable
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // OMASettingInteger undocumented
 type OMASettingInteger struct {
+	// OMASetting is the base model of OMASettingInteger
 	OMASetting
 	// Value Value.
 	Value *int `json:"value,omitempty"`

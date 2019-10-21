@@ -4,6 +4,7 @@ package msgraph
 
 // TimeOff undocumented
 type TimeOff struct {
+	// ChangeTrackedEntity is the base model of TimeOff
 	ChangeTrackedEntity
 	// SharedTimeOff undocumented
 	SharedTimeOff *TimeOffItem `json:"sharedTimeOff,omitempty"`

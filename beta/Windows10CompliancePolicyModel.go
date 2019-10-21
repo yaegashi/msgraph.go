@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10CompliancePolicy This class contains compliance settings for Windows 10.
 type Windows10CompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of Windows10CompliancePolicy
 	DeviceCompliancePolicy
 	// PasswordRequired Require a password to unlock Windows device.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`

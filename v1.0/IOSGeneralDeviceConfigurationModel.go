@@ -4,6 +4,7 @@ package msgraph
 
 // IOSGeneralDeviceConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the iosGeneralDeviceConfiguration resource.
 type IOSGeneralDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of IOSGeneralDeviceConfiguration
 	DeviceConfiguration
 	// AccountBlockModification Indicates whether or not to allow account modification when the device is in supervised mode.
 	AccountBlockModification *bool `json:"accountBlockModification,omitempty"`

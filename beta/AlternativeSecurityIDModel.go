@@ -4,6 +4,8 @@ package msgraph
 
 // AlternativeSecurityID undocumented
 type AlternativeSecurityID struct {
+	// Object is the base model of AlternativeSecurityID
+	Object
 	// Type undocumented
 	Type *int `json:"type,omitempty"`
 	// IdentityProvider undocumented

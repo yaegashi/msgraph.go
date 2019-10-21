@@ -6,6 +6,7 @@ import "time"
 
 // ChatMessage undocumented
 type ChatMessage struct {
+	// Entity is the base model of ChatMessage
 	Entity
 	// ReplyToID undocumented
 	ReplyToID *string `json:"replyToId,omitempty"`

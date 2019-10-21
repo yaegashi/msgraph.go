@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsMinimumOperatingSystem undocumented
 type WindowsMinimumOperatingSystem struct {
+	// Object is the base model of WindowsMinimumOperatingSystem
+	Object
 	// V8_0 Windows version 8.0 or later.
 	V8_0 *bool `json:"v8_0,omitempty"`
 	// V8_1 Windows version 8.1 or later.

@@ -4,6 +4,7 @@ package msgraph
 
 // AppleVpnConfiguration Apple VPN configuration profile.
 type AppleVpnConfiguration struct {
+	// DeviceConfiguration is the base model of AppleVpnConfiguration
 	DeviceConfiguration
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`

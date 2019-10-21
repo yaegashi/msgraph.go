@@ -4,6 +4,8 @@ package msgraph
 
 // ToneInfo undocumented
 type ToneInfo struct {
+	// Object is the base model of ToneInfo
+	Object
 	// SequenceID undocumented
 	SequenceID *int `json:"sequenceId,omitempty"`
 	// Tone undocumented

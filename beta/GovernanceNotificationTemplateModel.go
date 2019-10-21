@@ -4,6 +4,8 @@ package msgraph
 
 // GovernanceNotificationTemplate undocumented
 type GovernanceNotificationTemplate struct {
+	// Object is the base model of GovernanceNotificationTemplate
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Type undocumented

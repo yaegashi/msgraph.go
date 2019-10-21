@@ -6,6 +6,7 @@ import "time"
 
 // SkypeForBusinessDeviceUsageUserDetail undocumented
 type SkypeForBusinessDeviceUsageUserDetail struct {
+	// Entity is the base model of SkypeForBusinessDeviceUsageUserDetail
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

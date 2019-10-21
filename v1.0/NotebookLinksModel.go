@@ -4,6 +4,8 @@ package msgraph
 
 // NotebookLinks undocumented
 type NotebookLinks struct {
+	// Object is the base model of NotebookLinks
+	Object
 	// OneNoteClientURL undocumented
 	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
 	// OneNoteWebURL undocumented

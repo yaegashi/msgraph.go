@@ -4,6 +4,7 @@ package msgraph
 
 // EducationPowerSchoolDataProvider undocumented
 type EducationPowerSchoolDataProvider struct {
+	// EducationSynchronizationDataProvider is the base model of EducationPowerSchoolDataProvider
 	EducationSynchronizationDataProvider
 	// ConnectionURL undocumented
 	ConnectionURL *string `json:"connectionUrl,omitempty"`

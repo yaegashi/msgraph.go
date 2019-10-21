@@ -4,6 +4,8 @@ package msgraph
 
 // OpeningHoursSpecification undocumented
 type OpeningHoursSpecification struct {
+	// Object is the base model of OpeningHoursSpecification
+	Object
 	// DayOfWeek undocumented
 	DayOfWeek *string `json:"dayOfWeek,omitempty"`
 	// Opens undocumented

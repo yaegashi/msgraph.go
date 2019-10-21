@@ -4,6 +4,8 @@ package msgraph
 
 // ReputationCategory undocumented
 type ReputationCategory struct {
+	// Object is the base model of ReputationCategory
+	Object
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// Name undocumented

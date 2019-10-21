@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsAppXAppAssignmentSettings undocumented
 type WindowsAppXAppAssignmentSettings struct {
+	// MobileAppAssignmentSettings is the base model of WindowsAppXAppAssignmentSettings
 	MobileAppAssignmentSettings
 	// UseDeviceContext Whether or not to use device execution context for Windows AppX mobile app.
 	UseDeviceContext *bool `json:"useDeviceContext,omitempty"`

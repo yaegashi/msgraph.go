@@ -6,6 +6,7 @@ import "time"
 
 // PlannerTask undocumented
 type PlannerTask struct {
+	// PlannerDelta is the base model of PlannerTask
 	PlannerDelta
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`

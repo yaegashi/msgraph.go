@@ -6,6 +6,7 @@ import "time"
 
 // TeamsUserActivityCounts undocumented
 type TeamsUserActivityCounts struct {
+	// Entity is the base model of TeamsUserActivityCounts
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

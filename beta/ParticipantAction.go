@@ -2,12 +2,6 @@
 
 package msgraph
 
-// ParticipantMuteRequestParameter undocumented
-type ParticipantMuteRequestParameter struct {
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
 // ParticipantCollectionInviteRequestParameter undocumented
 type ParticipantCollectionInviteRequestParameter struct {
 	// Participants undocumented
@@ -20,6 +14,12 @@ type ParticipantCollectionInviteRequestParameter struct {
 type ParticipantCollectionMuteAllRequestParameter struct {
 	// Participants undocumented
 	Participants []string `json:"participants,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// ParticipantMuteRequestParameter undocumented
+type ParticipantMuteRequestParameter struct {
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
 }

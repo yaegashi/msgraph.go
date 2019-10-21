@@ -4,6 +4,7 @@ package msgraph
 
 // WorkforceIntegration undocumented
 type WorkforceIntegration struct {
+	// ChangeTrackedEntity is the base model of WorkforceIntegration
 	ChangeTrackedEntity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

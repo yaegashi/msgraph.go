@@ -4,6 +4,7 @@ package msgraph
 
 // UnifiedRoleAssignment undocumented
 type UnifiedRoleAssignment struct {
+	// Entity is the base model of UnifiedRoleAssignment
 	Entity
 	// PrincipalID undocumented
 	PrincipalID *string `json:"principalId,omitempty"`

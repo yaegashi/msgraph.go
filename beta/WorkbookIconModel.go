@@ -4,6 +4,8 @@ package msgraph
 
 // WorkbookIcon undocumented
 type WorkbookIcon struct {
+	// Object is the base model of WorkbookIcon
+	Object
 	// Index undocumented
 	Index *int `json:"index,omitempty"`
 	// Set undocumented

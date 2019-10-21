@@ -6,6 +6,7 @@ import "time"
 
 // WindowsProtectionState Device protection status entity.
 type WindowsProtectionState struct {
+	// Entity is the base model of WindowsProtectionState
 	Entity
 	// MalwareProtectionEnabled Anti malware is enabled or not
 	MalwareProtectionEnabled *bool `json:"malwareProtectionEnabled,omitempty"`

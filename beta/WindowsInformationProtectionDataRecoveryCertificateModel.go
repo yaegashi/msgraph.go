@@ -6,6 +6,8 @@ import "time"
 
 // WindowsInformationProtectionDataRecoveryCertificate undocumented
 type WindowsInformationProtectionDataRecoveryCertificate struct {
+	// Object is the base model of WindowsInformationProtectionDataRecoveryCertificate
+	Object
 	// SubjectName Data recovery Certificate subject name
 	SubjectName *string `json:"subjectName,omitempty"`
 	// Description Data recovery Certificate description

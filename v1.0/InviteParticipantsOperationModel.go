@@ -4,6 +4,7 @@ package msgraph
 
 // InviteParticipantsOperation undocumented
 type InviteParticipantsOperation struct {
+	// CommsOperation is the base model of InviteParticipantsOperation
 	CommsOperation
 	// Participants undocumented
 	Participants []InvitationParticipantInfo `json:"participants,omitempty"`

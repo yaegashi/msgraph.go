@@ -6,6 +6,8 @@ import "time"
 
 // IdentityUserRisk undocumented
 type IdentityUserRisk struct {
+	// Object is the base model of IdentityUserRisk
+	Object
 	// Level undocumented
 	Level *UserRiskLevel `json:"level,omitempty"`
 	// LastChangedDateTime undocumented

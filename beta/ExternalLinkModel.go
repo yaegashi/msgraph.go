@@ -4,6 +4,8 @@ package msgraph
 
 // ExternalLink undocumented
 type ExternalLink struct {
+	// Object is the base model of ExternalLink
+	Object
 	// Href undocumented
 	Href *string `json:"href,omitempty"`
 }

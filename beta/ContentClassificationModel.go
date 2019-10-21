@@ -4,6 +4,8 @@ package msgraph
 
 // ContentClassification undocumented
 type ContentClassification struct {
+	// Object is the base model of ContentClassification
+	Object
 	// SensitiveTypeID undocumented
 	SensitiveTypeID *string `json:"sensitiveTypeId,omitempty"`
 	// UniqueCount undocumented

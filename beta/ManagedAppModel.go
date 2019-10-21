@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedApp Abstract class that contains properties and inherited properties for apps that you can manage with an Intune app protection policy.
 type ManagedApp struct {
+	// MobileApp is the base model of ManagedApp
 	MobileApp
 	// AppAvailability The Application's availability.
 	AppAvailability *ManagedAppAvailability `json:"appAvailability,omitempty"`

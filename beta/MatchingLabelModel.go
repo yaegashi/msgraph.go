@@ -4,6 +4,8 @@ package msgraph
 
 // MatchingLabel undocumented
 type MatchingLabel struct {
+	// Object is the base model of MatchingLabel
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Name undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // InformationProtection undocumented
 type InformationProtection struct {
+	// Entity is the base model of InformationProtection
 	Entity
 	// Policy undocumented
 	Policy *InformationProtectionPolicy `json:"policy,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // StandardTimeZoneOffset undocumented
 type StandardTimeZoneOffset struct {
+	// Object is the base model of StandardTimeZoneOffset
+	Object
 	// Time undocumented
 	Time *time.Time `json:"time,omitempty"`
 	// DayOccurrence undocumented

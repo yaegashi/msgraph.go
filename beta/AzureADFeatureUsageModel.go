@@ -6,6 +6,7 @@ import "time"
 
 // AzureADFeatureUsage undocumented
 type AzureADFeatureUsage struct {
+	// Entity is the base model of AzureADFeatureUsage
 	Entity
 	// SnapshotDateTime undocumented
 	SnapshotDateTime *time.Time `json:"snapshotDateTime,omitempty"`

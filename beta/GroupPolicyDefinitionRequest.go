@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // GroupPolicyDefinitionRequestBuilder is request builder for GroupPolicyDefinition
@@ -108,11 +109,11 @@ func (r *GroupPolicyDefinitionPresentationsCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []GroupPolicyPresentation
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

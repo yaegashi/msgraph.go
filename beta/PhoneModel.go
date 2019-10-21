@@ -4,6 +4,8 @@ package msgraph
 
 // Phone undocumented
 type Phone struct {
+	// Object is the base model of Phone
+	Object
 	// Type undocumented
 	Type *PhoneType `json:"type,omitempty"`
 	// Number undocumented

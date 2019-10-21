@@ -6,6 +6,8 @@ import "time"
 
 // WorkingHours undocumented
 type WorkingHours struct {
+	// Object is the base model of WorkingHours
+	Object
 	// DaysOfWeek undocumented
 	DaysOfWeek []DayOfWeek `json:"daysOfWeek,omitempty"`
 	// StartTime undocumented

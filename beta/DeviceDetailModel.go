@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceDetail undocumented
 type DeviceDetail struct {
+	// Object is the base model of DeviceDetail
+	Object
 	// DeviceID undocumented
 	DeviceID *string `json:"deviceId,omitempty"`
 	// DisplayName undocumented

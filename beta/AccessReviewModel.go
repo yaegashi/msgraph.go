@@ -6,6 +6,7 @@ import "time"
 
 // AccessReview undocumented
 type AccessReview struct {
+	// Entity is the base model of AccessReview
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

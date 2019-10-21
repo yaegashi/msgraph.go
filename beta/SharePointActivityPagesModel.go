@@ -6,6 +6,7 @@ import "time"
 
 // SharePointActivityPages undocumented
 type SharePointActivityPages struct {
+	// Entity is the base model of SharePointActivityPages
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

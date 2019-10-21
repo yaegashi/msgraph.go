@@ -6,6 +6,7 @@ import "time"
 
 // DeviceInstallState Contains properties for the installation state for a device.
 type DeviceInstallState struct {
+	// Entity is the base model of DeviceInstallState
 	Entity
 	// DeviceName Device name.
 	DeviceName *string `json:"deviceName,omitempty"`

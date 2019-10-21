@@ -4,6 +4,7 @@ package msgraph
 
 // Policy undocumented
 type Policy struct {
+	// DirectoryObject is the base model of Policy
 	DirectoryObject
 	// AlternativeIdentifier undocumented
 	AlternativeIdentifier *string `json:"alternativeIdentifier,omitempty"`

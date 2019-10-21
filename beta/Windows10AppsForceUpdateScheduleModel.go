@@ -6,6 +6,8 @@ import "time"
 
 // Windows10AppsForceUpdateSchedule undocumented
 type Windows10AppsForceUpdateSchedule struct {
+	// Object is the base model of Windows10AppsForceUpdateSchedule
+	Object
 	// StartDateTime The start time for the force restart.
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// Recurrence Recurrence schedule.

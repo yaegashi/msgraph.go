@@ -6,6 +6,7 @@ import "time"
 
 // AzureADUserFeatureUsage undocumented
 type AzureADUserFeatureUsage struct {
+	// Entity is the base model of AzureADUserFeatureUsage
 	Entity
 	// LastUpdatedDateTime undocumented
 	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`

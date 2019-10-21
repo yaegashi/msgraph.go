@@ -6,6 +6,7 @@ import "time"
 
 // AccessPackageResourceRoleScope undocumented
 type AccessPackageResourceRoleScope struct {
+	// Entity is the base model of AccessPackageResourceRoleScope
 	Entity
 	// CreatedBy undocumented
 	CreatedBy *string `json:"createdBy,omitempty"`

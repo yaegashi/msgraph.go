@@ -4,6 +4,8 @@ package msgraph
 
 // ResultInfo undocumented
 type ResultInfo struct {
+	// Object is the base model of ResultInfo
+	Object
 	// Code undocumented
 	Code *int `json:"code,omitempty"`
 	// Subcode undocumented

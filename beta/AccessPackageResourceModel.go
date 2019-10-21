@@ -6,6 +6,7 @@ import "time"
 
 // AccessPackageResource undocumented
 type AccessPackageResource struct {
+	// Entity is the base model of AccessPackageResource
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

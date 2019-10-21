@@ -4,6 +4,7 @@ package msgraph
 
 // WebApp Contains properties and inherited properties for web apps.
 type WebApp struct {
+	// MobileApp is the base model of WebApp
 	MobileApp
 	// AppURL The web app URL.
 	AppURL *string `json:"appUrl,omitempty"`

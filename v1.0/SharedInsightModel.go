@@ -4,6 +4,7 @@ package msgraph
 
 // SharedInsight undocumented
 type SharedInsight struct {
+	// Entity is the base model of SharedInsight
 	Entity
 	// LastShared undocumented
 	LastShared *SharingDetail `json:"lastShared,omitempty"`

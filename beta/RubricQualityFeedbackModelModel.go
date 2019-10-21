@@ -4,6 +4,8 @@ package msgraph
 
 // RubricQualityFeedbackModel undocumented
 type RubricQualityFeedbackModel struct {
+	// Object is the base model of RubricQualityFeedbackModel
+	Object
 	// QualityID undocumented
 	QualityID *string `json:"qualityId,omitempty"`
 	// Feedback undocumented

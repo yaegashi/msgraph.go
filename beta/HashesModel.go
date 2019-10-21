@@ -4,6 +4,8 @@ package msgraph
 
 // Hashes undocumented
 type Hashes struct {
+	// Object is the base model of Hashes
+	Object
 	// Crc32Hash undocumented
 	Crc32Hash *string `json:"crc32Hash,omitempty"`
 	// QuickXorHash undocumented

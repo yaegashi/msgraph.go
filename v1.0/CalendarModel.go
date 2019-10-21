@@ -4,6 +4,7 @@ package msgraph
 
 // Calendar undocumented
 type Calendar struct {
+	// Entity is the base model of Calendar
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

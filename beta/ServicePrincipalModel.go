@@ -4,6 +4,7 @@ package msgraph
 
 // ServicePrincipal undocumented
 type ServicePrincipal struct {
+	// DirectoryObject is the base model of ServicePrincipal
 	DirectoryObject
 	// AccountEnabled undocumented
 	AccountEnabled *bool `json:"accountEnabled,omitempty"`

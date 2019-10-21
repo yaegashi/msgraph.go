@@ -4,4 +4,6 @@ package msgraph
 
 // RestoreAction undocumented
 type RestoreAction struct {
+	// Object is the base model of RestoreAction
+	Object
 }

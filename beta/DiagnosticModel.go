@@ -4,6 +4,8 @@ package msgraph
 
 // Diagnostic undocumented
 type Diagnostic struct {
+	// Object is the base model of Diagnostic
+	Object
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
 	// URL undocumented

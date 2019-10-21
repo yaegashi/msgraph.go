@@ -6,6 +6,7 @@ import "time"
 
 // AuditEvent A class containing the properties for Audit Event.
 type AuditEvent struct {
+	// Entity is the base model of AuditEvent
 	Entity
 	// DisplayName Event display name.
 	DisplayName *string `json:"displayName,omitempty"`

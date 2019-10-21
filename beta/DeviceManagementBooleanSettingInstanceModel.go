@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementBooleanSettingInstance A setting instance representing a boolean value
 type DeviceManagementBooleanSettingInstance struct {
+	// DeviceManagementSettingInstance is the base model of DeviceManagementBooleanSettingInstance
 	DeviceManagementSettingInstance
 	// Value The boolean value
 	Value *bool `json:"value,omitempty"`

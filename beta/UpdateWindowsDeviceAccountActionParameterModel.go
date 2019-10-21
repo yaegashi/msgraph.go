@@ -4,6 +4,8 @@ package msgraph
 
 // UpdateWindowsDeviceAccountActionParameter undocumented
 type UpdateWindowsDeviceAccountActionParameter struct {
+	// Object is the base model of UpdateWindowsDeviceAccountActionParameter
+	Object
 	// DeviceAccount undocumented
 	DeviceAccount *WindowsDeviceAccount `json:"deviceAccount,omitempty"`
 	// PasswordRotationEnabled undocumented

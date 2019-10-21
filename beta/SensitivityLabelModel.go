@@ -4,6 +4,7 @@ package msgraph
 
 // SensitivityLabel undocumented
 type SensitivityLabel struct {
+	// Entity is the base model of SensitivityLabel
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementSettingComparison undocumented
 type DeviceManagementSettingComparison struct {
+	// Object is the base model of DeviceManagementSettingComparison
+	Object
 	// ID The setting ID
 	ID *string `json:"id,omitempty"`
 	// DisplayName The setting's display name

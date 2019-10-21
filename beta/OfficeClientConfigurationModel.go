@@ -4,6 +4,7 @@ package msgraph
 
 // OfficeClientConfiguration undocumented
 type OfficeClientConfiguration struct {
+	// Entity is the base model of OfficeClientConfiguration
 	Entity
 	// UserPreferencePayload undocumented
 	UserPreferencePayload *Stream `json:"userPreferencePayload,omitempty"`

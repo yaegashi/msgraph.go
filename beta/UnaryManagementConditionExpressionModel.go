@@ -4,6 +4,7 @@ package msgraph
 
 // UnaryManagementConditionExpression undocumented
 type UnaryManagementConditionExpression struct {
+	// ManagementConditionExpressionModel is the base model of UnaryManagementConditionExpression
 	ManagementConditionExpressionModel
 	// Operator The operator used in the evaluation of the unary operation.
 	Operator *UnaryManagementConditionExpressionOperatorType `json:"operator,omitempty"`

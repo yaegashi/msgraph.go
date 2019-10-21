@@ -4,6 +4,8 @@ package msgraph
 
 // FilterClause undocumented
 type FilterClause struct {
+	// Object is the base model of FilterClause
+	Object
 	// OperatorName undocumented
 	OperatorName *string `json:"operatorName,omitempty"`
 	// SourceOperandName undocumented

@@ -6,6 +6,8 @@ import "time"
 
 // AuthenticationDetail undocumented
 type AuthenticationDetail struct {
+	// Object is the base model of AuthenticationDetail
+	Object
 	// AuthenticationStepDateTime undocumented
 	AuthenticationStepDateTime *time.Time `json:"authenticationStepDateTime,omitempty"`
 	// AuthenticationMethod undocumented

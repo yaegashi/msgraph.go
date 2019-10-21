@@ -4,6 +4,8 @@ package msgraph
 
 // CallRoute undocumented
 type CallRoute struct {
+	// Object is the base model of CallRoute
+	Object
 	// RoutingType undocumented
 	RoutingType *RoutingType `json:"routingType,omitempty"`
 	// Original undocumented

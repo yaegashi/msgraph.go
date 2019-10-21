@@ -4,6 +4,7 @@ package msgraph
 
 // AllowedDataLocation undocumented
 type AllowedDataLocation struct {
+	// Entity is the base model of AllowedDataLocation
 	Entity
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`

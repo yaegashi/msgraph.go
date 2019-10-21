@@ -4,6 +4,8 @@ package msgraph
 
 // ResourceSpecificPermission undocumented
 type ResourceSpecificPermission struct {
+	// Object is the base model of ResourceSpecificPermission
+	Object
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented

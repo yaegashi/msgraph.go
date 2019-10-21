@@ -4,6 +4,7 @@ package msgraph
 
 // ImportedDeviceIdentityResult The importedDeviceIdentityResult resource represents the result of attempting to import a device identity.
 type ImportedDeviceIdentityResult struct {
+	// ImportedDeviceIdentity is the base model of ImportedDeviceIdentityResult
 	ImportedDeviceIdentity
 	// Status Status of imported device identity
 	Status *bool `json:"status,omitempty"`

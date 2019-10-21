@@ -4,6 +4,7 @@ package msgraph
 
 // SingleValueLegacyExtendedProperty undocumented
 type SingleValueLegacyExtendedProperty struct {
+	// Entity is the base model of SingleValueLegacyExtendedProperty
 	Entity
 	// Value undocumented
 	Value *string `json:"value,omitempty"`

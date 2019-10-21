@@ -4,6 +4,8 @@ package msgraph
 
 // StatusBase undocumented
 type StatusBase struct {
+	// Object is the base model of StatusBase
+	Object
 	// Status undocumented
 	Status *ProvisioningResult `json:"status,omitempty"`
 }

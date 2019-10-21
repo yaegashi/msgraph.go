@@ -4,6 +4,7 @@ package msgraph
 
 // ServiceHostedMediaConfig undocumented
 type ServiceHostedMediaConfig struct {
+	// MediaConfig is the base model of ServiceHostedMediaConfig
 	MediaConfig
 	// PreFetchMedia undocumented
 	PreFetchMedia []MediaInfo `json:"preFetchMedia,omitempty"`

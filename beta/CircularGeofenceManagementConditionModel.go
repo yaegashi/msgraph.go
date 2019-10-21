@@ -4,6 +4,7 @@ package msgraph
 
 // CircularGeofenceManagementCondition Contains the information to define a circular geo-fence management condition, an area of interest, to monitor.
 type CircularGeofenceManagementCondition struct {
+	// LocationManagementCondition is the base model of CircularGeofenceManagementCondition
 	LocationManagementCondition
 	// Latitude Latitude in degrees, between -90 and +90 inclusive.
 	Latitude *float64 `json:"latitude,omitempty"`

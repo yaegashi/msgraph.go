@@ -4,5 +4,6 @@ package msgraph
 
 // MdmWindowsInformationProtectionPolicyPolicySetItem A class containing the properties used for mdm windows information protection policy PolicySetItem.
 type MdmWindowsInformationProtectionPolicyPolicySetItem struct {
+	// PolicySetItem is the base model of MdmWindowsInformationProtectionPolicyPolicySetItem
 	PolicySetItem
 }

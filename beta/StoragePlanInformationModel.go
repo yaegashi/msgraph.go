@@ -4,6 +4,8 @@ package msgraph
 
 // StoragePlanInformation undocumented
 type StoragePlanInformation struct {
+	// Object is the base model of StoragePlanInformation
+	Object
 	// UpgradeAvailable undocumented
 	UpgradeAvailable *bool `json:"upgradeAvailable,omitempty"`
 }

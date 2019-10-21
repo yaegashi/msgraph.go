@@ -17,38 +17,6 @@ type ParticipantCollectionInviteRequestParameter struct {
 }
 
 //
-type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
-
-// Invite action undocumented
-func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
-	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/invite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantCollectionInviteRequest struct{ BaseRequest }
-
-//
-func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
-	return &ParticipantCollectionInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
 type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
 
 // Mute action undocumented
@@ -77,5 +45,37 @@ func (r *ParticipantMuteRequest) Do(method, path string, reqObj interface{}) (re
 
 //
 func (r *ParticipantMuteRequest) Post() (*MuteParticipantOperation, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
+type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
+
+// Invite action undocumented
+func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
+	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/invite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ParticipantCollectionInviteRequest struct{ BaseRequest }
+
+//
+func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
+	return &ParticipantCollectionInviteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
+	err = r.JSONRequest(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
 	return r.Do("POST", "", r.requestObject)
 }

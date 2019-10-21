@@ -6,6 +6,7 @@ import "time"
 
 // SecureScore undocumented
 type SecureScore struct {
+	// Entity is the base model of SecureScore
 	Entity
 	// ActiveUserCount undocumented
 	ActiveUserCount *int `json:"activeUserCount,omitempty"`

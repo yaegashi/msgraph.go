@@ -4,6 +4,7 @@ package msgraph
 
 // DeliveryOptimizationMaxCacheSizeAbsolute undocumented
 type DeliveryOptimizationMaxCacheSizeAbsolute struct {
+	// DeliveryOptimizationMaxCacheSize is the base model of DeliveryOptimizationMaxCacheSizeAbsolute
 	DeliveryOptimizationMaxCacheSize
 	// MaximumCacheSizeInGigabytes Specifies the maximum size in GB of Delivery Optimization cache. Valid values 0 to 4294967295
 	MaximumCacheSizeInGigabytes *int `json:"maximumCacheSizeInGigabytes,omitempty"`

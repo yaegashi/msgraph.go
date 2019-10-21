@@ -4,6 +4,8 @@ package msgraph
 
 // ScheduleItem undocumented
 type ScheduleItem struct {
+	// Object is the base model of ScheduleItem
+	Object
 	// Start undocumented
 	Start *DateTimeTimeZone `json:"start,omitempty"`
 	// End undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // Quota undocumented
 type Quota struct {
+	// Object is the base model of Quota
+	Object
 	// Deleted undocumented
 	Deleted *int `json:"deleted,omitempty"`
 	// Remaining undocumented

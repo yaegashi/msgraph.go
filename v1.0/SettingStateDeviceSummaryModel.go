@@ -4,6 +4,7 @@ package msgraph
 
 // SettingStateDeviceSummary Device Compilance Policy and Configuration for a Setting State summary
 type SettingStateDeviceSummary struct {
+	// Entity is the base model of SettingStateDeviceSummary
 	Entity
 	// SettingName Name of the setting
 	SettingName *string `json:"settingName,omitempty"`

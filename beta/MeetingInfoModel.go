@@ -4,6 +4,8 @@ package msgraph
 
 // MeetingInfo undocumented
 type MeetingInfo struct {
+	// Object is the base model of MeetingInfo
+	Object
 	// AllowConversationWithoutHost undocumented
 	AllowConversationWithoutHost *bool `json:"allowConversationWithoutHost,omitempty"`
 }

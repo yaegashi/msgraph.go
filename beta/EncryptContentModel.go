@@ -4,6 +4,7 @@ package msgraph
 
 // EncryptContent undocumented
 type EncryptContent struct {
+	// LabelActionBase is the base model of EncryptContent
 	LabelActionBase
 	// EncryptWith undocumented
 	EncryptWith *EncryptWith `json:"encryptWith,omitempty"`

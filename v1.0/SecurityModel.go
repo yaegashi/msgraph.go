@@ -4,6 +4,7 @@ package msgraph
 
 // Security undocumented
 type Security struct {
+	// Entity is the base model of Security
 	Entity
 	// Alerts undocumented
 	Alerts []Alert `json:"alerts,omitempty"`

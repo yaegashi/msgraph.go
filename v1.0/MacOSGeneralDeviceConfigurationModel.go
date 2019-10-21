@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSGeneralDeviceConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSGeneralDeviceConfiguration resource.
 type MacOSGeneralDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of MacOSGeneralDeviceConfiguration
 	DeviceConfiguration
 	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
 	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`

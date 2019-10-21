@@ -4,6 +4,7 @@ package msgraph
 
 // Channel undocumented
 type Channel struct {
+	// Entity is the base model of Channel
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

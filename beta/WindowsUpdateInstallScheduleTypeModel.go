@@ -4,4 +4,6 @@ package msgraph
 
 // WindowsUpdateInstallScheduleType undocumented
 type WindowsUpdateInstallScheduleType struct {
+	// Object is the base model of WindowsUpdateInstallScheduleType
+	Object
 }

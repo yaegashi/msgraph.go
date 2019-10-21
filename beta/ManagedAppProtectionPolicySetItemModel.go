@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedAppProtectionPolicySetItem A class containing the properties used for managed app protection PolicySetItem.
 type ManagedAppProtectionPolicySetItem struct {
+	// PolicySetItem is the base model of ManagedAppProtectionPolicySetItem
 	PolicySetItem
 	// TargetedAppManagementLevels TargetedAppManagementLevels of the ManagedAppPolicySetItem.
 	TargetedAppManagementLevels *string `json:"targetedAppManagementLevels,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ContentInfo undocumented
 type ContentInfo struct {
+	// Object is the base model of ContentInfo
+	Object
 	// Format undocumented
 	Format *ContentFormat `json:"format,omitempty"`
 	// State undocumented

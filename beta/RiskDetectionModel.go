@@ -6,6 +6,7 @@ import "time"
 
 // RiskDetection undocumented
 type RiskDetection struct {
+	// Entity is the base model of RiskDetection
 	Entity
 	// RequestID undocumented
 	RequestID *string `json:"requestId,omitempty"`

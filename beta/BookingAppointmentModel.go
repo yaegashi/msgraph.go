@@ -6,6 +6,7 @@ import "time"
 
 // BookingAppointment Represents a booked appointment of a service by a customer in a business.
 type BookingAppointment struct {
+	// Entity is the base model of BookingAppointment
 	Entity
 	// SelfServiceAppointmentID undocumented
 	SelfServiceAppointmentID *string `json:"selfServiceAppointmentId,omitempty"`

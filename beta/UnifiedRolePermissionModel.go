@@ -4,6 +4,8 @@ package msgraph
 
 // UnifiedRolePermission undocumented
 type UnifiedRolePermission struct {
+	// Object is the base model of UnifiedRolePermission
+	Object
 	// AllowedResourceActions undocumented
 	AllowedResourceActions []string `json:"allowedResourceActions,omitempty"`
 	// Condition undocumented

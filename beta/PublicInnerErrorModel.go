@@ -4,6 +4,8 @@ package msgraph
 
 // PublicInnerError undocumented
 type PublicInnerError struct {
+	// Object is the base model of PublicInnerError
+	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// Details undocumented

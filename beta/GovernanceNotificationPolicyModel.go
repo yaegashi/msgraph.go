@@ -4,6 +4,8 @@ package msgraph
 
 // GovernanceNotificationPolicy undocumented
 type GovernanceNotificationPolicy struct {
+	// Object is the base model of GovernanceNotificationPolicy
+	Object
 	// NotificationTemplates undocumented
 	NotificationTemplates []GovernanceNotificationTemplate `json:"notificationTemplates,omitempty"`
 	// EnabledTemplateTypes undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // ModifiedProperty undocumented
 type ModifiedProperty struct {
+	// Object is the base model of ModifiedProperty
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// OldValue undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // SynchronizationError undocumented
 type SynchronizationError struct {
+	// Object is the base model of SynchronizationError
+	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// Message undocumented

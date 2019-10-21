@@ -6,6 +6,7 @@ import "time"
 
 // Account undocumented
 type Account struct {
+	// Entity is the base model of Account
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

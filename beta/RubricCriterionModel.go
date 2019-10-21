@@ -4,6 +4,8 @@ package msgraph
 
 // RubricCriterion undocumented
 type RubricCriterion struct {
+	// Object is the base model of RubricCriterion
+	Object
 	// Description undocumented
 	Description *EducationItemBody `json:"description,omitempty"`
 }

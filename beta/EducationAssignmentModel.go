@@ -6,6 +6,7 @@ import "time"
 
 // EducationAssignment undocumented
 type EducationAssignment struct {
+	// Entity is the base model of EducationAssignment
 	Entity
 	// ClassID undocumented
 	ClassID *string `json:"classId,omitempty"`

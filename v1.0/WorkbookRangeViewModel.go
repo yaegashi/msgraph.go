@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookRangeView undocumented
 type WorkbookRangeView struct {
+	// Entity is the base model of WorkbookRangeView
 	Entity
 	// CellAddresses undocumented
 	CellAddresses json.RawMessage `json:"cellAddresses,omitempty"`

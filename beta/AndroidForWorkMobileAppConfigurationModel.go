@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkMobileAppConfiguration Contains properties, inherited properties and actions for AFW mobile app configurations.
 type AndroidForWorkMobileAppConfiguration struct {
+	// ManagedDeviceMobileAppConfiguration is the base model of AndroidForWorkMobileAppConfiguration
 	ManagedDeviceMobileAppConfiguration
 	// PackageID Android For Work app configuration package id.
 	PackageID *string `json:"packageId,omitempty"`

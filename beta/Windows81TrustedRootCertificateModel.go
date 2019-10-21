@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81TrustedRootCertificate Windows 8.1 Trusted Certificate configuration profile
 type Windows81TrustedRootCertificate struct {
+	// DeviceConfiguration is the base model of Windows81TrustedRootCertificate
 	DeviceConfiguration
 	// TrustedRootCertificate Trusted Root Certificate
 	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`

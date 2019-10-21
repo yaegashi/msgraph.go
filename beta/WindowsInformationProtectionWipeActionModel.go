@@ -6,6 +6,7 @@ import "time"
 
 // WindowsInformationProtectionWipeAction Represents wipe requests issued by tenant admin for Bring-Your-Own-Device(BYOD) Windows devices.
 type WindowsInformationProtectionWipeAction struct {
+	// Entity is the base model of WindowsInformationProtectionWipeAction
 	Entity
 	// Status Wipe action status.
 	Status *ActionState `json:"status,omitempty"`

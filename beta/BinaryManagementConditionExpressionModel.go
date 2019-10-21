@@ -4,6 +4,7 @@ package msgraph
 
 // BinaryManagementConditionExpression undocumented
 type BinaryManagementConditionExpression struct {
+	// ManagementConditionExpressionModel is the base model of BinaryManagementConditionExpression
 	ManagementConditionExpressionModel
 	// Operator The operator used in the evaluation of the binary operation.
 	Operator *BinaryManagementConditionExpressionOperatorType `json:"operator,omitempty"`

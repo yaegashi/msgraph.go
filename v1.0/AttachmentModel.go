@@ -6,6 +6,7 @@ import "time"
 
 // Attachment undocumented
 type Attachment struct {
+	// Entity is the base model of Attachment
 	Entity
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`

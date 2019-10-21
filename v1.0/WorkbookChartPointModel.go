@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookChartPoint undocumented
 type WorkbookChartPoint struct {
+	// Entity is the base model of WorkbookChartPoint
 	Entity
 	// Value undocumented
 	Value json.RawMessage `json:"value,omitempty"`

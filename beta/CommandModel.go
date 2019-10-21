@@ -4,6 +4,7 @@ package msgraph
 
 // Command undocumented
 type Command struct {
+	// Entity is the base model of Command
 	Entity
 	// Status undocumented
 	Status *string `json:"Status,omitempty"`

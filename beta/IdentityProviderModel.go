@@ -4,6 +4,7 @@ package msgraph
 
 // IdentityProvider undocumented
 type IdentityProvider struct {
+	// Entity is the base model of IdentityProvider
 	Entity
 	// Type undocumented
 	Type *string `json:"type,omitempty"`

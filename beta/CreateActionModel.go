@@ -4,4 +4,6 @@ package msgraph
 
 // CreateAction undocumented
 type CreateAction struct {
+	// Object is the base model of CreateAction
+	Object
 }

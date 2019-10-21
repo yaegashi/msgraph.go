@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobAppFileSystemDetection undocumented
 type Win32LobAppFileSystemDetection struct {
+	// Win32LobAppDetection is the base model of Win32LobAppFileSystemDetection
 	Win32LobAppDetection
 	// Path The file or folder path to detect Win32 Line of Business (LoB) app
 	Path *string `json:"path,omitempty"`

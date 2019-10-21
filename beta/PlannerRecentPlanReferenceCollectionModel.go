@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerRecentPlanReferenceCollection undocumented
 type PlannerRecentPlanReferenceCollection struct {
+	// Object is the base model of PlannerRecentPlanReferenceCollection
+	Object
 }

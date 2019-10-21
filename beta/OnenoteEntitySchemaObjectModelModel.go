@@ -6,6 +6,7 @@ import "time"
 
 // OnenoteEntitySchemaObjectModel undocumented
 type OnenoteEntitySchemaObjectModel struct {
+	// OnenoteEntityBaseModel is the base model of OnenoteEntitySchemaObjectModel
 	OnenoteEntityBaseModel
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

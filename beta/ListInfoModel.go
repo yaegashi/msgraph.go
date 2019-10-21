@@ -4,6 +4,8 @@ package msgraph
 
 // ListInfo undocumented
 type ListInfo struct {
+	// Object is the base model of ListInfo
+	Object
 	// ContentTypesEnabled undocumented
 	ContentTypesEnabled *bool `json:"contentTypesEnabled,omitempty"`
 	// Hidden undocumented

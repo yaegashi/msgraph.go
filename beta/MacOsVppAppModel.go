@@ -6,6 +6,7 @@ import "time"
 
 // MacOsVppApp Contains properties and inherited properties for MacOS Volume-Purchased Program (VPP) Apps.
 type MacOsVppApp struct {
+	// MobileApp is the base model of MacOsVppApp
 	MobileApp
 	// UsedLicenseCount The number of VPP licenses in use.
 	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`

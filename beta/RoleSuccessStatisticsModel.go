@@ -4,6 +4,8 @@ package msgraph
 
 // RoleSuccessStatistics undocumented
 type RoleSuccessStatistics struct {
+	// Object is the base model of RoleSuccessStatistics
+	Object
 	// RoleID undocumented
 	RoleID *string `json:"roleId,omitempty"`
 	// RoleName undocumented

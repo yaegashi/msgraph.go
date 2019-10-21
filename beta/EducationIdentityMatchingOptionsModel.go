@@ -4,6 +4,8 @@ package msgraph
 
 // EducationIdentityMatchingOptions undocumented
 type EducationIdentityMatchingOptions struct {
+	// Object is the base model of EducationIdentityMatchingOptions
+	Object
 	// AppliesTo undocumented
 	AppliesTo *EducationUserRole `json:"appliesTo,omitempty"`
 	// SourcePropertyName undocumented

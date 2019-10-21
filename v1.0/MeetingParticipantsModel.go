@@ -4,6 +4,8 @@ package msgraph
 
 // MeetingParticipants undocumented
 type MeetingParticipants struct {
+	// Object is the base model of MeetingParticipants
+	Object
 	// Organizer undocumented
 	Organizer *MeetingParticipantInfo `json:"organizer,omitempty"`
 	// Attendees undocumented

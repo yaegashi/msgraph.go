@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidDeviceComplianceLocalActionLockDeviceWithPasscode Local Action Lock Device with Passcode Configuration
 type AndroidDeviceComplianceLocalActionLockDeviceWithPasscode struct {
+	// AndroidDeviceComplianceLocalActionBase is the base model of AndroidDeviceComplianceLocalActionLockDeviceWithPasscode
 	AndroidDeviceComplianceLocalActionBase
 	// Passcode Passcode to reset to Android device. This property is read-only.
 	Passcode *string `json:"passcode,omitempty"`

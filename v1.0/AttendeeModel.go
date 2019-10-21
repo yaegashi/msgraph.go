@@ -4,6 +4,7 @@ package msgraph
 
 // Attendee undocumented
 type Attendee struct {
+	// AttendeeBase is the base model of Attendee
 	AttendeeBase
 	// Status undocumented
 	Status *ResponseStatus `json:"status,omitempty"`

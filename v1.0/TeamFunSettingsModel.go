@@ -4,6 +4,8 @@ package msgraph
 
 // TeamFunSettings undocumented
 type TeamFunSettings struct {
+	// Object is the base model of TeamFunSettings
+	Object
 	// AllowGiphy undocumented
 	AllowGiphy *bool `json:"allowGiphy,omitempty"`
 	// GiphyContentRating undocumented

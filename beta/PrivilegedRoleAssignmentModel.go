@@ -6,6 +6,7 @@ import "time"
 
 // PrivilegedRoleAssignment undocumented
 type PrivilegedRoleAssignment struct {
+	// Entity is the base model of PrivilegedRoleAssignment
 	Entity
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`

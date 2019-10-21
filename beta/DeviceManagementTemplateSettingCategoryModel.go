@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementTemplateSettingCategory Entity representing a template setting category
 type DeviceManagementTemplateSettingCategory struct {
+	// DeviceManagementSettingCategory is the base model of DeviceManagementTemplateSettingCategory
 	DeviceManagementSettingCategory
 	// RecommendedSettings undocumented
 	RecommendedSettings []DeviceManagementSettingInstance `json:"recommendedSettings,omitempty"`

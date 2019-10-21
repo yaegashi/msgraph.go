@@ -4,6 +4,7 @@ package msgraph
 
 // MuteParticipantsOperation undocumented
 type MuteParticipantsOperation struct {
+	// CommsOperation is the base model of MuteParticipantsOperation
 	CommsOperation
 	// Participants undocumented
 	Participants []string `json:"participants,omitempty"`

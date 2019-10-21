@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkAppConfigurationSchema Schema describing an Android for Work application's custom configurations.
 type AndroidForWorkAppConfigurationSchema struct {
+	// Entity is the base model of AndroidForWorkAppConfigurationSchema
 	Entity
 	// ExampleJSON UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
 	ExampleJSON *Binary `json:"exampleJson,omitempty"`

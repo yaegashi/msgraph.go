@@ -6,6 +6,8 @@ import "time"
 
 // DeviceActionResult undocumented
 type DeviceActionResult struct {
+	// Object is the base model of DeviceActionResult
+	Object
 	// ActionName Action name
 	ActionName *string `json:"actionName,omitempty"`
 	// ActionState State of the action

@@ -6,6 +6,7 @@ import "time"
 
 // Item undocumented
 type Item struct {
+	// Entity is the base model of Item
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

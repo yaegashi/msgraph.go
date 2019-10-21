@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedAndroidStoreApp Contains properties and inherited properties for Android store apps that you can manage with an Intune app protection policy.
 type ManagedAndroidStoreApp struct {
+	// ManagedApp is the base model of ManagedAndroidStoreApp
 	ManagedApp
 	// PackageID The app's package ID.
 	PackageID *string `json:"packageId,omitempty"`

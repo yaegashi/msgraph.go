@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskLocalGroup undocumented
 type WindowsKioskLocalGroup struct {
+	// WindowsKioskUser is the base model of WindowsKioskLocalGroup
 	WindowsKioskUser
 	// GroupName The name of the local group that will be locked to this kiosk configuration
 	GroupName *string `json:"groupName,omitempty"`

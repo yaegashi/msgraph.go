@@ -6,6 +6,7 @@ import "time"
 
 // Subscription undocumented
 type Subscription struct {
+	// Entity is the base model of Subscription
 	Entity
 	// Resource undocumented
 	Resource *string `json:"resource,omitempty"`

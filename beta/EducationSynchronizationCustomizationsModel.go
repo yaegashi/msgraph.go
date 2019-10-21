@@ -4,6 +4,7 @@ package msgraph
 
 // EducationSynchronizationCustomizations undocumented
 type EducationSynchronizationCustomizations struct {
+	// EducationSynchronizationCustomizationsBase is the base model of EducationSynchronizationCustomizations
 	EducationSynchronizationCustomizationsBase
 	// School undocumented
 	School *EducationSynchronizationCustomization `json:"school,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // LogonUser undocumented
 type LogonUser struct {
+	// Object is the base model of LogonUser
+	Object
 	// AccountDomain undocumented
 	AccountDomain *string `json:"accountDomain,omitempty"`
 	// AccountName undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSEndpointProtectionConfiguration MacOS endpoint protection configuration profile.
 type MacOSEndpointProtectionConfiguration struct {
+	// DeviceConfiguration is the base model of MacOSEndpointProtectionConfiguration
 	DeviceConfiguration
 	// GatekeeperAllowedAppSource System and Privacy setting that determines which download locations apps can be run from on a macOS device.
 	GatekeeperAllowedAppSource *MacOSGatekeeperAppSources `json:"gatekeeperAllowedAppSource,omitempty"`

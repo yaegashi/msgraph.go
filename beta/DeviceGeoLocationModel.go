@@ -6,6 +6,8 @@ import "time"
 
 // DeviceGeoLocation undocumented
 type DeviceGeoLocation struct {
+	// Object is the base model of DeviceGeoLocation
+	Object
 	// LastCollectedDateTimeUtc Time at which location was recorded, relative to UTC
 	LastCollectedDateTimeUtc *time.Time `json:"lastCollectedDateTimeUtc,omitempty"`
 	// LastCollectedDateTime Time at which location was recorded, relative to UTC

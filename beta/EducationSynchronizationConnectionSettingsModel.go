@@ -4,6 +4,8 @@ package msgraph
 
 // EducationSynchronizationConnectionSettings undocumented
 type EducationSynchronizationConnectionSettings struct {
+	// Object is the base model of EducationSynchronizationConnectionSettings
+	Object
 	// ClientID undocumented
 	ClientID *string `json:"clientId,omitempty"`
 	// ClientSecret undocumented

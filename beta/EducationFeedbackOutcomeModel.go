@@ -4,6 +4,7 @@ package msgraph
 
 // EducationFeedbackOutcome undocumented
 type EducationFeedbackOutcome struct {
+	// EducationOutcome is the base model of EducationFeedbackOutcome
 	EducationOutcome
 	// Feedback undocumented
 	Feedback *EducationFeedback `json:"feedback,omitempty"`

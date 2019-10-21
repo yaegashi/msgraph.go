@@ -6,6 +6,7 @@ import "time"
 
 // DataPolicyOperation undocumented
 type DataPolicyOperation struct {
+	// Entity is the base model of DataPolicyOperation
 	Entity
 	// CompletedDateTime undocumented
 	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`

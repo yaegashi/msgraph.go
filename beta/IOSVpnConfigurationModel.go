@@ -4,6 +4,7 @@ package msgraph
 
 // IOSVpnConfiguration By providing the configurations in this profile you can instruct the iOS device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type IOSVpnConfiguration struct {
+	// AppleVpnConfiguration is the base model of IOSVpnConfiguration
 	AppleVpnConfiguration
 	// ProviderType Provider type for per-app VPN.
 	ProviderType *VpnProviderType `json:"providerType,omitempty"`

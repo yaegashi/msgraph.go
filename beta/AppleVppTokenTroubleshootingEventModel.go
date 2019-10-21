@@ -4,6 +4,7 @@ package msgraph
 
 // AppleVppTokenTroubleshootingEvent Event representing an Apple Vpp Token Troubleshooting Event.
 type AppleVppTokenTroubleshootingEvent struct {
+	// DeviceManagementTroubleshootingEvent is the base model of AppleVppTokenTroubleshootingEvent
 	DeviceManagementTroubleshootingEvent
 	// TokenID Apple Volume Purchase Program Token Identifier.
 	TokenID *string `json:"tokenId,omitempty"`

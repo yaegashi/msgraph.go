@@ -6,6 +6,7 @@ import "time"
 
 // UserExperienceAnalyticsBaseline The user experience analytics baseline entity contains baseline values against which to compare the user experience analytics scores.
 type UserExperienceAnalyticsBaseline struct {
+	// Entity is the base model of UserExperienceAnalyticsBaseline
 	Entity
 	// DisplayName The name of the user experience analytics baseline.
 	DisplayName *string `json:"displayName,omitempty"`

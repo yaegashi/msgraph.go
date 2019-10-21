@@ -6,6 +6,7 @@ import "time"
 
 // CompanyInformation undocumented
 type CompanyInformation struct {
+	// Entity is the base model of CompanyInformation
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

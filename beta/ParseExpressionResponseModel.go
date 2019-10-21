@@ -4,6 +4,8 @@ package msgraph
 
 // ParseExpressionResponse undocumented
 type ParseExpressionResponse struct {
+	// Object is the base model of ParseExpressionResponse
+	Object
 	// Error undocumented
 	Error *PublicError `json:"error,omitempty"`
 	// EvaluationSucceeded undocumented

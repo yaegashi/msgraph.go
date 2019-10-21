@@ -4,6 +4,8 @@ package msgraph
 
 // ChatInfo undocumented
 type ChatInfo struct {
+	// Object is the base model of ChatInfo
+	Object
 	// ThreadID undocumented
 	ThreadID *string `json:"threadId,omitempty"`
 	// MessageID undocumented

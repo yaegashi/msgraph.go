@@ -6,6 +6,7 @@ import "time"
 
 // AndroidDeviceOwnerEnrollmentProfile Enrollment Profile used to enroll COSU devices using Google's Cloud Management.
 type AndroidDeviceOwnerEnrollmentProfile struct {
+	// Entity is the base model of AndroidDeviceOwnerEnrollmentProfile
 	Entity
 	// AccountID Tenant GUID the enrollment profile belongs to.
 	AccountID *string `json:"accountId,omitempty"`

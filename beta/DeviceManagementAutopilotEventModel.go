@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementAutopilotEvent Represents an Autopilot flow event.
 type DeviceManagementAutopilotEvent struct {
+	// Entity is the base model of DeviceManagementAutopilotEvent
 	Entity
 	// EventDateTime Time when the event occurred .
 	EventDateTime *time.Time `json:"eventDateTime,omitempty"`

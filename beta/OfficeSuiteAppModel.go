@@ -4,6 +4,7 @@ package msgraph
 
 // OfficeSuiteApp Contains properties and inherited properties for the Office365 Suite App.
 type OfficeSuiteApp struct {
+	// MobileApp is the base model of OfficeSuiteApp
 	MobileApp
 	// AutoAcceptEula The value to accept the EULA automatically on the enduser's device.
 	AutoAcceptEula *bool `json:"autoAcceptEula,omitempty"`

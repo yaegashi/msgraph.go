@@ -4,6 +4,7 @@ package msgraph
 
 // IPv6Range undocumented
 type IPv6Range struct {
+	// IPRange is the base model of IPv6Range
 	IPRange
 	// LowerAddress Lower address
 	LowerAddress *string `json:"lowerAddress,omitempty"`

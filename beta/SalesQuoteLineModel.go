@@ -4,6 +4,7 @@ package msgraph
 
 // SalesQuoteLine undocumented
 type SalesQuoteLine struct {
+	// Entity is the base model of SalesQuoteLine
 	Entity
 	// DocumentID undocumented
 	DocumentID *UUID `json:"documentId,omitempty"`

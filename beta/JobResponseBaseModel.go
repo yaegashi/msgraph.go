@@ -6,6 +6,7 @@ import "time"
 
 // JobResponseBase undocumented
 type JobResponseBase struct {
+	// Entity is the base model of JobResponseBase
 	Entity
 	// Type undocumented
 	Type *string `json:"type,omitempty"`

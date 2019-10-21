@@ -4,5 +4,6 @@ package msgraph
 
 // GroupPolicyPresentationText Represents an ADMX text element.
 type GroupPolicyPresentationText struct {
+	// GroupPolicyPresentation is the base model of GroupPolicyPresentationText
 	GroupPolicyPresentation
 }

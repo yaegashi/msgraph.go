@@ -4,6 +4,8 @@ package msgraph
 
 // VersionAction undocumented
 type VersionAction struct {
+	// Object is the base model of VersionAction
+	Object
 	// NewVersion undocumented
 	NewVersion *string `json:"newVersion,omitempty"`
 }

@@ -6,6 +6,7 @@ import "time"
 
 // ManagedAllDeviceCertificateState undocumented
 type ManagedAllDeviceCertificateState struct {
+	// Entity is the base model of ManagedAllDeviceCertificateState
 	Entity
 	// CertificateRevokeStatus Revoke status
 	CertificateRevokeStatus *CertificateRevocationStatus `json:"certificateRevokeStatus,omitempty"`

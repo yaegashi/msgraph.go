@@ -4,6 +4,7 @@ package msgraph
 
 // Synchronization undocumented
 type Synchronization struct {
+	// Entity is the base model of Synchronization
 	Entity
 	// Secrets undocumented
 	Secrets []SynchronizationSecretKeyStringValuePair `json:"secrets,omitempty"`

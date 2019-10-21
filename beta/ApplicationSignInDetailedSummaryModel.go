@@ -6,6 +6,7 @@ import "time"
 
 // ApplicationSignInDetailedSummary undocumented
 type ApplicationSignInDetailedSummary struct {
+	// Entity is the base model of ApplicationSignInDetailedSummary
 	Entity
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`

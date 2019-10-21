@@ -6,6 +6,7 @@ import "time"
 
 // ManagementConditionStatement A management condition statement is a group of management conditions that enable/disable device/application configurations when all contained management conditions are met.
 type ManagementConditionStatement struct {
+	// Entity is the base model of ManagementConditionStatement
 	Entity
 	// DisplayName The admin defined name of the management condition statement.
 	DisplayName *string `json:"displayName,omitempty"`

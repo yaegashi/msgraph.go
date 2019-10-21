@@ -4,6 +4,8 @@ package msgraph
 
 // ParticipantInfo undocumented
 type ParticipantInfo struct {
+	// Object is the base model of ParticipantInfo
+	Object
 	// Identity undocumented
 	Identity *IdentitySet `json:"identity,omitempty"`
 	// Region undocumented

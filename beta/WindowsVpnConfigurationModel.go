@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsVpnConfiguration Windows VPN configuration profile.
 type WindowsVpnConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsVpnConfiguration
 	DeviceConfiguration
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`

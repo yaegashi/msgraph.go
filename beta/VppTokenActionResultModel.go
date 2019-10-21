@@ -6,6 +6,8 @@ import "time"
 
 // VppTokenActionResult undocumented
 type VppTokenActionResult struct {
+	// Object is the base model of VppTokenActionResult
+	Object
 	// ActionName Action name
 	ActionName *string `json:"actionName,omitempty"`
 	// ActionState State of the action

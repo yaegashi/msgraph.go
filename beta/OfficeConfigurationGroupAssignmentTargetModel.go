@@ -4,6 +4,7 @@ package msgraph
 
 // OfficeConfigurationGroupAssignmentTarget undocumented
 type OfficeConfigurationGroupAssignmentTarget struct {
+	// OfficeConfigurationAssignmentTarget is the base model of OfficeConfigurationGroupAssignmentTarget
 	OfficeConfigurationAssignmentTarget
 	// GroupID undocumented
 	GroupID *string `json:"groupId,omitempty"`

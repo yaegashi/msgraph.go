@@ -4,6 +4,7 @@ package msgraph
 
 // GroupMembershipGovernanceCriteria undocumented
 type GroupMembershipGovernanceCriteria struct {
+	// GovernanceCriteria is the base model of GroupMembershipGovernanceCriteria
 	GovernanceCriteria
 	// GroupID undocumented
 	GroupID *string `json:"groupId,omitempty"`

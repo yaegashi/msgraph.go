@@ -4,6 +4,8 @@ package msgraph
 
 // TeamDiscoverySettings undocumented
 type TeamDiscoverySettings struct {
+	// Object is the base model of TeamDiscoverySettings
+	Object
 	// ShowInTeamsSearchAndSuggestions undocumented
 	ShowInTeamsSearchAndSuggestions *bool `json:"showInTeamsSearchAndSuggestions,omitempty"`
 }

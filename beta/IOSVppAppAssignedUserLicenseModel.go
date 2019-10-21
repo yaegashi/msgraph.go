@@ -4,5 +4,6 @@ package msgraph
 
 // IOSVppAppAssignedUserLicense iOS Volume Purchase Program user license assignment. This class does not support Create, Delete, or Update.
 type IOSVppAppAssignedUserLicense struct {
+	// IOSVppAppAssignedLicense is the base model of IOSVppAppAssignedUserLicense
 	IOSVppAppAssignedLicense
 }

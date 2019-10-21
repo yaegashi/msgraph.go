@@ -4,6 +4,7 @@ package msgraph
 
 // AgreementFile undocumented
 type AgreementFile struct {
+	// Entity is the base model of AgreementFile
 	Entity
 	// Language undocumented
 	Language *string `json:"language,omitempty"`

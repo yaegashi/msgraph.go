@@ -4,6 +4,8 @@ package msgraph
 
 // OperationError undocumented
 type OperationError struct {
+	// Object is the base model of OperationError
+	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// Message undocumented

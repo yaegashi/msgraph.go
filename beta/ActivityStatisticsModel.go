@@ -6,6 +6,7 @@ import "time"
 
 // ActivityStatistics undocumented
 type ActivityStatistics struct {
+	// Entity is the base model of ActivityStatistics
 	Entity
 	// Activity undocumented
 	Activity *AnalyticsActivityType `json:"activity,omitempty"`

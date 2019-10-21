@@ -4,4 +4,6 @@ package msgraph
 
 // MediaConfig undocumented
 type MediaConfig struct {
+	// Object is the base model of MediaConfig
+	Object
 }

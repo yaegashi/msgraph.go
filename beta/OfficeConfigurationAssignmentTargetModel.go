@@ -4,4 +4,6 @@ package msgraph
 
 // OfficeConfigurationAssignmentTarget undocumented
 type OfficeConfigurationAssignmentTarget struct {
+	// Object is the base model of OfficeConfigurationAssignmentTarget
+	Object
 }

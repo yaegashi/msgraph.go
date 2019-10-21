@@ -4,6 +4,7 @@ package msgraph
 
 // CustomAction undocumented
 type CustomAction struct {
+	// InformationProtectionAction is the base model of CustomAction
 	InformationProtectionAction
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

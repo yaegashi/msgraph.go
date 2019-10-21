@@ -6,6 +6,7 @@ import "time"
 
 // EmailActivityStatistics undocumented
 type EmailActivityStatistics struct {
+	// ActivityStatistics is the base model of EmailActivityStatistics
 	ActivityStatistics
 	// AfterHours undocumented
 	AfterHours *time.Duration `json:"afterHours,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ItemReference undocumented
 type ItemReference struct {
+	// Object is the base model of ItemReference
+	Object
 	// DriveID undocumented
 	DriveID *string `json:"driveId,omitempty"`
 	// DriveType undocumented

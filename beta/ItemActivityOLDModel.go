@@ -4,6 +4,7 @@ package msgraph
 
 // ItemActivityOLD undocumented
 type ItemActivityOLD struct {
+	// Entity is the base model of ItemActivityOLD
 	Entity
 	// Action undocumented
 	Action *ItemActionSet `json:"action,omitempty"`

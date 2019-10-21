@@ -4,4 +4,6 @@ package msgraph
 
 // PayloadRequestObject undocumented
 type PayloadRequestObject struct {
+	// Object is the base model of PayloadRequestObject
+	Object
 }

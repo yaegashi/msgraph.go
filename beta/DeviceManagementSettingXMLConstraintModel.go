@@ -4,5 +4,6 @@ package msgraph
 
 // DeviceManagementSettingXMLConstraint undocumented
 type DeviceManagementSettingXMLConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingXMLConstraint
 	DeviceManagementConstraint
 }

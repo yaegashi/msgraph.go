@@ -4,6 +4,7 @@ package msgraph
 
 // Contract undocumented
 type Contract struct {
+	// DirectoryObject is the base model of Contract
 	DirectoryObject
 	// ContractType undocumented
 	ContractType *string `json:"contractType,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookRangeBorder undocumented
 type WorkbookRangeBorder struct {
+	// Entity is the base model of WorkbookRangeBorder
 	Entity
 	// Color undocumented
 	Color *string `json:"color,omitempty"`

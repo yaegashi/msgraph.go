@@ -4,6 +4,8 @@ package msgraph
 
 // AndroidMinimumOperatingSystem undocumented
 type AndroidMinimumOperatingSystem struct {
+	// Object is the base model of AndroidMinimumOperatingSystem
+	Object
 	// V4_0 Version 4.0 or later.
 	V4_0 *bool `json:"v4_0,omitempty"`
 	// V4_0_3 Version 4.0.3 or later.

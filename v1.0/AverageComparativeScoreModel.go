@@ -4,6 +4,8 @@ package msgraph
 
 // AverageComparativeScore undocumented
 type AverageComparativeScore struct {
+	// Object is the base model of AverageComparativeScore
+	Object
 	// AverageScore undocumented
 	AverageScore *float64 `json:"averageScore,omitempty"`
 	// Basis undocumented

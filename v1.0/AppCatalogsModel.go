@@ -4,6 +4,7 @@ package msgraph
 
 // AppCatalogs undocumented
 type AppCatalogs struct {
+	// Entity is the base model of AppCatalogs
 	Entity
 	// TeamsApps undocumented
 	TeamsApps []TeamsApp `json:"teamsApps,omitempty"`

@@ -4,4 +4,6 @@ package msgraph
 
 // DeviceManagementConstraint undocumented
 type DeviceManagementConstraint struct {
+	// Object is the base model of DeviceManagementConstraint
+	Object
 }

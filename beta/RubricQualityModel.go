@@ -4,6 +4,8 @@ package msgraph
 
 // RubricQuality undocumented
 type RubricQuality struct {
+	// Object is the base model of RubricQuality
+	Object
 	// QualityID undocumented
 	QualityID *string `json:"qualityId,omitempty"`
 	// DisplayName undocumented

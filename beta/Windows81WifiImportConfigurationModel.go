@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81WifiImportConfiguration Windows 8.1+ Wi-Fi import configuration. By configuring this profile you can instruct Windows 8.1 (and later) devices to connect to desired Wi-Fi endpoint. Connect a Windows 8.1 device to the desired Wi-Fi network and extract the XML from that device to later embed into this Wi-Fi profile.
 type Windows81WifiImportConfiguration struct {
+	// DeviceConfiguration is the base model of Windows81WifiImportConfiguration
 	DeviceConfiguration
 	// PayloadFileName Payload file name (*.xml).
 	PayloadFileName *string `json:"payloadFileName,omitempty"`

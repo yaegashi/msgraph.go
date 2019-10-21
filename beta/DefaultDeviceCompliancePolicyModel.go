@@ -4,5 +4,6 @@ package msgraph
 
 // DefaultDeviceCompliancePolicy Default device compliance policy rules that are enforced account wide.
 type DefaultDeviceCompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of DefaultDeviceCompliancePolicy
 	DeviceCompliancePolicy
 }

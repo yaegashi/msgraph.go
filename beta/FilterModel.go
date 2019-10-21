@@ -4,6 +4,8 @@ package msgraph
 
 // Filter undocumented
 type Filter struct {
+	// Object is the base model of Filter
+	Object
 	// Groups undocumented
 	Groups []FilterGroup `json:"groups,omitempty"`
 	// InputFilterGroups undocumented

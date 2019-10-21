@@ -4,6 +4,8 @@ package msgraph
 
 // File undocumented
 type File struct {
+	// Object is the base model of File
+	Object
 	// Hashes undocumented
 	Hashes *Hashes `json:"hashes,omitempty"`
 	// MimeType undocumented

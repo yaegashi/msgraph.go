@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // CertificateBasedAuthConfiguration returns request builder for CertificateBasedAuthConfiguration collection
@@ -63,11 +64,11 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(
 			paging Paging
 			value  []CertificateBasedAuthConfiguration
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -150,11 +151,11 @@ func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj
 			paging Paging
 			value  []Contract
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -237,11 +238,11 @@ func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path 
 			paging Paging
 			value  []DataPolicyOperation
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -324,11 +325,11 @@ func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj i
 			paging Paging
 			value  []Device
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -411,11 +412,11 @@ func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path stri
 			paging Paging
 			value  []DirectoryObject
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -498,11 +499,11 @@ func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []DirectoryRoleTemplate
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -585,11 +586,11 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string
 			paging Paging
 			value  []DirectoryRole
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -672,11 +673,11 @@ func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path stri
 			paging Paging
 			value  []DomainDNSRecord
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -759,11 +760,11 @@ func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj i
 			paging Paging
 			value  []Domain
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -846,11 +847,11 @@ func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj in
 			paging Paging
 			value  []Drive
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -933,11 +934,11 @@ func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []GroupLifecyclePolicy
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1020,11 +1021,11 @@ func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(method, path
 			paging Paging
 			value  []GroupSettingTemplate
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1107,11 +1108,11 @@ func (r *GraphServiceGroupSettingsCollectionRequest) Paging(method, path string,
 			paging Paging
 			value  []GroupSetting
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1194,11 +1195,11 @@ func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj in
 			paging Paging
 			value  []Group
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1281,11 +1282,11 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path str
 			paging Paging
 			value  []IdentityProvider
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1368,11 +1369,11 @@ func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, o
 			paging Paging
 			value  []Invitation
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1455,11 +1456,11 @@ func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, 
 			paging Paging
 			value  []Organization
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1542,11 +1543,11 @@ func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path stri
 			paging Paging
 			value  []SchemaExtension
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1629,11 +1630,11 @@ func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj in
 			paging Paging
 			value  []SharedDriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1716,11 +1717,11 @@ func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj int
 			paging Paging
 			value  []Site
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1803,11 +1804,11 @@ func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string
 			paging Paging
 			value  []SubscribedSKU
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1890,11 +1891,11 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string,
 			paging Paging
 			value  []Subscription
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1977,11 +1978,11 @@ func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj int
 			paging Paging
 			value  []Team
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -2064,11 +2065,11 @@ func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj int
 			paging Paging
 			value  []User
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -2151,11 +2152,11 @@ func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj
 			paging Paging
 			value  []DriveItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

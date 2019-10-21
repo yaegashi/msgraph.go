@@ -6,6 +6,7 @@ import "time"
 
 // EducationUser undocumented
 type EducationUser struct {
+	// Entity is the base model of EducationUser
 	Entity
 	// PrimaryRole undocumented
 	PrimaryRole *EducationUserRole `json:"primaryRole,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // SecurityBaselineState Security baseline state for a device.
 type SecurityBaselineState struct {
+	// Entity is the base model of SecurityBaselineState
 	Entity
 	// SecurityBaselineTemplateID The security baseline template id
 	SecurityBaselineTemplateID *string `json:"securityBaselineTemplateId,omitempty"`

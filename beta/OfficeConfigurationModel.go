@@ -4,6 +4,7 @@ package msgraph
 
 // OfficeConfiguration undocumented
 type OfficeConfiguration struct {
+	// Entity is the base model of OfficeConfiguration
 	Entity
 	// TenantCheckinStatuses undocumented
 	TenantCheckinStatuses []OfficeClientCheckinStatus `json:"tenantCheckinStatuses,omitempty"`

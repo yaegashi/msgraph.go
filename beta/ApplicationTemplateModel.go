@@ -4,6 +4,7 @@ package msgraph
 
 // ApplicationTemplate undocumented
 type ApplicationTemplate struct {
+	// Entity is the base model of ApplicationTemplate
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

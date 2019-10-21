@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementIntentDeviceState Entity that represents device state for an intent
 type DeviceManagementIntentDeviceState struct {
+	// Entity is the base model of DeviceManagementIntentDeviceState
 	Entity
 	// UserPrincipalName The user principal name that is being reported on a device
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`

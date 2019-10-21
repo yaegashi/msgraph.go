@@ -6,6 +6,8 @@ import "time"
 
 // UserSecurityState undocumented
 type UserSecurityState struct {
+	// Object is the base model of UserSecurityState
+	Object
 	// AadUserID undocumented
 	AadUserID *string `json:"aadUserId,omitempty"`
 	// AccountName undocumented

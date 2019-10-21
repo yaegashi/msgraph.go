@@ -6,6 +6,7 @@ import "time"
 
 // ManagedIOSLobApp Contains properties and inherited properties for Managed iOS Line Of Business apps.
 type ManagedIOSLobApp struct {
+	// ManagedMobileLobApp is the base model of ManagedIOSLobApp
 	ManagedMobileLobApp
 	// BundleID The Identity Name.
 	BundleID *string `json:"bundleId,omitempty"`

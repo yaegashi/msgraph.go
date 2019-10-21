@@ -4,4 +4,6 @@ package msgraph
 
 // IOSWebContentFilterBase undocumented
 type IOSWebContentFilterBase struct {
+	// Object is the base model of IOSWebContentFilterBase
+	Object
 }

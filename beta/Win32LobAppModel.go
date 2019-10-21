@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobApp Contains properties and inherited properties for Win32 apps.
 type Win32LobApp struct {
+	// MobileLobApp is the base model of Win32LobApp
 	MobileLobApp
 	// InstallCommandLine The command line to install this app
 	InstallCommandLine *string `json:"installCommandLine,omitempty"`

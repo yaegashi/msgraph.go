@@ -3,22 +3,23 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
-)
 
-// RoleScopeTagCollectionGetRoleScopeTagsByIDRequestParameter undocumented
-type RoleScopeTagCollectionGetRoleScopeTagsByIDRequestParameter struct {
-	// RoleScopeTagIDs undocumented
-	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
-}
+	"github.com/yaegashi/msgraph.go/jsonx"
+)
 
 // RoleScopeTagAssignRequestParameter undocumented
 type RoleScopeTagAssignRequestParameter struct {
 	// Assignments undocumented
 	Assignments []RoleScopeTagAutoAssignment `json:"assignments,omitempty"`
+}
+
+// RoleScopeTagCollectionGetRoleScopeTagsByIDRequestParameter undocumented
+type RoleScopeTagCollectionGetRoleScopeTagsByIDRequestParameter struct {
+	// RoleScopeTagIDs undocumented
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 }
 
 //
@@ -77,11 +78,11 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(method, path 
 			paging Paging
 			value  [][]RoleScopeTag
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -153,11 +154,11 @@ func (r *RoleScopeTagAssignRequest) Paging(method, path string, obj interface{})
 			paging Paging
 			value  [][]RoleScopeTagAutoAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

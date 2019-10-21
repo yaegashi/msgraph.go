@@ -4,6 +4,7 @@ package msgraph
 
 // OMASettingFloatingPoint undocumented
 type OMASettingFloatingPoint struct {
+	// OMASetting is the base model of OMASettingFloatingPoint
 	OMASetting
 	// Value Value.
 	Value *float64 `json:"value,omitempty"`

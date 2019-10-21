@@ -4,6 +4,7 @@ package msgraph
 
 // RoleScopeTag Role Scope Tag
 type RoleScopeTag struct {
+	// Entity is the base model of RoleScopeTag
 	Entity
 	// DisplayName The display or friendly name of the Role Scope Tag.
 	DisplayName *string `json:"displayName,omitempty"`

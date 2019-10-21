@@ -6,6 +6,7 @@ import "time"
 
 // ManagedAppOperation Represents an operation applied against an app registration.
 type ManagedAppOperation struct {
+	// Entity is the base model of ManagedAppOperation
 	Entity
 	// DisplayName The operation name.
 	DisplayName *string `json:"displayName,omitempty"`

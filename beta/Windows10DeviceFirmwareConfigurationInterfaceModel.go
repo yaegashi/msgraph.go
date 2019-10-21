@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10DeviceFirmwareConfigurationInterface Graph properties for Device Firmware Configuration Interface
 type Windows10DeviceFirmwareConfigurationInterface struct {
+	// DeviceConfiguration is the base model of Windows10DeviceFirmwareConfigurationInterface
 	DeviceConfiguration
 	// ChangeUefiSettingsPermission Defines the permission level granted to users to change UEFI settings.
 	ChangeUefiSettingsPermission *ChangeUefiSettingsPermission `json:"changeUefiSettingsPermission,omitempty"`

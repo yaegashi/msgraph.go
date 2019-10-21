@@ -4,6 +4,8 @@ package msgraph
 
 // ApplicationServicePrincipal undocumented
 type ApplicationServicePrincipal struct {
+	// Object is the base model of ApplicationServicePrincipal
+	Object
 	// Application undocumented
 	Application *Application `json:"application,omitempty"`
 	// ServicePrincipal undocumented

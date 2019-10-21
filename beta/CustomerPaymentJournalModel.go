@@ -6,6 +6,7 @@ import "time"
 
 // CustomerPaymentJournal undocumented
 type CustomerPaymentJournal struct {
+	// Entity is the base model of CustomerPaymentJournal
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

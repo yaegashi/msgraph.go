@@ -6,6 +6,8 @@ import "time"
 
 // ShiftActivity undocumented
 type ShiftActivity struct {
+	// Object is the base model of ShiftActivity
+	Object
 	// IsPaid undocumented
 	IsPaid *bool `json:"isPaid,omitempty"`
 	// StartDateTime undocumented

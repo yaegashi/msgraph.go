@@ -4,6 +4,8 @@ package msgraph
 
 // DeleteAction undocumented
 type DeleteAction struct {
+	// Object is the base model of DeleteAction
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// ObjectType undocumented

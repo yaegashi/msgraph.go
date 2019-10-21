@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsPackageInformation undocumented
 type WindowsPackageInformation struct {
+	// Object is the base model of WindowsPackageInformation
+	Object
 	// ApplicableArchitecture The Windows architecture for which this app can run on.
 	ApplicableArchitecture *WindowsArchitecture `json:"applicableArchitecture,omitempty"`
 	// DisplayName The Display Name.

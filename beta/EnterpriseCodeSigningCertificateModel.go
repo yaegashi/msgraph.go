@@ -6,6 +6,7 @@ import "time"
 
 // EnterpriseCodeSigningCertificate undocumented
 type EnterpriseCodeSigningCertificate struct {
+	// Entity is the base model of EnterpriseCodeSigningCertificate
 	Entity
 	// Content The Windows Enterprise Code-Signing Certificate in the raw data format.
 	Content *Binary `json:"content,omitempty"`

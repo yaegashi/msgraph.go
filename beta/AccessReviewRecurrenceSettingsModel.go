@@ -4,6 +4,8 @@ package msgraph
 
 // AccessReviewRecurrenceSettings undocumented
 type AccessReviewRecurrenceSettings struct {
+	// Object is the base model of AccessReviewRecurrenceSettings
+	Object
 	// RecurrenceType undocumented
 	RecurrenceType *string `json:"recurrenceType,omitempty"`
 	// RecurrenceEndType undocumented

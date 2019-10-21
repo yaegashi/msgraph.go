@@ -4,6 +4,7 @@ package msgraph
 
 // Onenote undocumented
 type Onenote struct {
+	// Entity is the base model of Onenote
 	Entity
 	// Notebooks undocumented
 	Notebooks []Notebook `json:"notebooks,omitempty"`

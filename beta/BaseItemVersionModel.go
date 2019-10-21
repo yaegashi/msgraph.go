@@ -6,6 +6,7 @@ import "time"
 
 // BaseItemVersion undocumented
 type BaseItemVersion struct {
+	// Entity is the base model of BaseItemVersion
 	Entity
 	// LastModifiedBy undocumented
 	LastModifiedBy *IdentitySet `json:"lastModifiedBy,omitempty"`

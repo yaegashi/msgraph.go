@@ -4,6 +4,8 @@ package msgraph
 
 // BitLockerSystemDrivePolicy undocumented
 type BitLockerSystemDrivePolicy struct {
+	// Object is the base model of BitLockerSystemDrivePolicy
+	Object
 	// EncryptionMethod Select the encryption method for operating system drives.
 	EncryptionMethod *BitLockerEncryptionMethod `json:"encryptionMethod,omitempty"`
 	// StartupAuthenticationRequired Require additional authentication at startup.

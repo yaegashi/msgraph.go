@@ -6,6 +6,7 @@ import "time"
 
 // SiteActivitySummary undocumented
 type SiteActivitySummary struct {
+	// Entity is the base model of SiteActivitySummary
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // Planner undocumented
 type Planner struct {
+	// Entity is the base model of Planner
 	Entity
 	// Tasks undocumented
 	Tasks []PlannerTask `json:"tasks,omitempty"`

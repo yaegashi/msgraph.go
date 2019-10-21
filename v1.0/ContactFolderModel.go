@@ -4,6 +4,7 @@ package msgraph
 
 // ContactFolder undocumented
 type ContactFolder struct {
+	// Entity is the base model of ContactFolder
 	Entity
 	// ParentFolderID undocumented
 	ParentFolderID *string `json:"parentFolderId,omitempty"`

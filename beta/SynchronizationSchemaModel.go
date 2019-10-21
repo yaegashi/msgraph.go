@@ -4,6 +4,7 @@ package msgraph
 
 // SynchronizationSchema undocumented
 type SynchronizationSchema struct {
+	// Entity is the base model of SynchronizationSchema
 	Entity
 	// ProvisioningTaskIdentifier undocumented
 	ProvisioningTaskIdentifier *string `json:"provisioningTaskIdentifier,omitempty"`

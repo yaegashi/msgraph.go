@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementSettingStringLengthConstraint undocumented
 type DeviceManagementSettingStringLengthConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingStringLengthConstraint
 	DeviceManagementConstraint
 	// MinimumLength The minimum permitted string length
 	MinimumLength *int `json:"minimumLength,omitempty"`

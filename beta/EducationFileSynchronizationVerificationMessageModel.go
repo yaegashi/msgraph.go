@@ -4,6 +4,8 @@ package msgraph
 
 // EducationFileSynchronizationVerificationMessage undocumented
 type EducationFileSynchronizationVerificationMessage struct {
+	// Object is the base model of EducationFileSynchronizationVerificationMessage
+	Object
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
 	// FileName undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // ManagedDeviceReportedApp undocumented
 type ManagedDeviceReportedApp struct {
+	// Object is the base model of ManagedDeviceReportedApp
+	Object
 	// AppID The application or bundle identifier of the application
 	AppID *string `json:"appId,omitempty"`
 }

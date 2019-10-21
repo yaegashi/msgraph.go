@@ -6,6 +6,8 @@ import "time"
 
 // MobileAppRelationshipState undocumented
 type MobileAppRelationshipState struct {
+	// Object is the base model of MobileAppRelationshipState
+	Object
 	// SourceIDs The collection of source mobile app's ids.
 	SourceIDs []string `json:"sourceIds,omitempty"`
 	// TargetID The related target app's id.

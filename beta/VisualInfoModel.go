@@ -6,6 +6,8 @@ import "encoding/json"
 
 // VisualInfo undocumented
 type VisualInfo struct {
+	// Object is the base model of VisualInfo
+	Object
 	// Attribution undocumented
 	Attribution *ImageInfo `json:"attribution,omitempty"`
 	// BackgroundColor undocumented

@@ -4,5 +4,6 @@ package msgraph
 
 // MacOSKerberosSingleSignOnExtension undocumented
 type MacOSKerberosSingleSignOnExtension struct {
+	// KerberosSingleSignOnExtension is the base model of MacOSKerberosSingleSignOnExtension
 	KerberosSingleSignOnExtension
 }

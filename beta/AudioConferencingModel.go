@@ -4,6 +4,8 @@ package msgraph
 
 // AudioConferencing undocumented
 type AudioConferencing struct {
+	// Object is the base model of AudioConferencing
+	Object
 	// ConferenceID undocumented
 	ConferenceID *string `json:"conferenceId,omitempty"`
 	// TollNumber undocumented

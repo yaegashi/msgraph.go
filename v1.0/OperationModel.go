@@ -6,6 +6,7 @@ import "time"
 
 // Operation undocumented
 type Operation struct {
+	// Entity is the base model of Operation
 	Entity
 	// Status undocumented
 	Status *OperationStatus `json:"status,omitempty"`

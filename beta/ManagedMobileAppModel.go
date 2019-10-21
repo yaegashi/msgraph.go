@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedMobileApp The identifier for the deployment an app.
 type ManagedMobileApp struct {
+	// Entity is the base model of ManagedMobileApp
 	Entity
 	// MobileAppIdentifier The identifier for an app with it's operating system type.
 	MobileAppIdentifier *MobileAppIdentifier `json:"mobileAppIdentifier,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartTitleFormat undocumented
 type WorkbookChartTitleFormat struct {
+	// Entity is the base model of WorkbookChartTitleFormat
 	Entity
 	// Fill undocumented
 	Fill *WorkbookChartFill `json:"fill,omitempty"`

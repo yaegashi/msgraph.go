@@ -4,5 +4,6 @@ package msgraph
 
 // ProtectAdhocAction undocumented
 type ProtectAdhocAction struct {
+	// InformationProtectionAction is the base model of ProtectAdhocAction
 	InformationProtectionAction
 }

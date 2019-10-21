@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementScript Intune will provide customer the ability to run their Powershell scripts on the enrolled windows 10 Azure Active Directory joined devices. The script can be run once or periodically.
 type DeviceManagementScript struct {
+	// Entity is the base model of DeviceManagementScript
 	Entity
 	// DisplayName Name of the device management script.
 	DisplayName *string `json:"displayName,omitempty"`

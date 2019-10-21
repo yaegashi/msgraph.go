@@ -4,6 +4,8 @@ package msgraph
 
 // ObjectMapping undocumented
 type ObjectMapping struct {
+	// Object is the base model of ObjectMapping
+	Object
 	// AttributeMappings undocumented
 	AttributeMappings []AttributeMapping `json:"attributeMappings,omitempty"`
 	// Enabled undocumented

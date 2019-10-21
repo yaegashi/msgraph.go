@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementEnumConstraint undocumented
 type DeviceManagementEnumConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementEnumConstraint
 	DeviceManagementConstraint
 	// Values List of valid values for this string
 	Values []DeviceManagementEnumValue `json:"values,omitempty"`

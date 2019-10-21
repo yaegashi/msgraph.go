@@ -4,6 +4,8 @@ package msgraph
 
 // FollowupFlag undocumented
 type FollowupFlag struct {
+	// Object is the base model of FollowupFlag
+	Object
 	// CompletedDateTime undocumented
 	CompletedDateTime *DateTimeTimeZone `json:"completedDateTime,omitempty"`
 	// DueDateTime undocumented

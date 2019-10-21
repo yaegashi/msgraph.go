@@ -6,6 +6,7 @@ import "time"
 
 // EmbeddedSIMActivationCodePool A pool represents a group of embedded SIM activation codes.
 type EmbeddedSIMActivationCodePool struct {
+	// Entity is the base model of EmbeddedSIMActivationCodePool
 	Entity
 	// DisplayName The admin defined name of the embedded SIM activation code pool.
 	DisplayName *string `json:"displayName,omitempty"`

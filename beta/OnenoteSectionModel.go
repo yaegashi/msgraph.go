@@ -4,6 +4,7 @@ package msgraph
 
 // OnenoteSection undocumented
 type OnenoteSection struct {
+	// OnenoteEntityHierarchyModel is the base model of OnenoteSection
 	OnenoteEntityHierarchyModel
 	// IsDefault undocumented
 	IsDefault *bool `json:"isDefault,omitempty"`

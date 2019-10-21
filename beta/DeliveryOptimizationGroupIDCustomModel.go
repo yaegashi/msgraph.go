@@ -4,6 +4,7 @@ package msgraph
 
 // DeliveryOptimizationGroupIDCustom undocumented
 type DeliveryOptimizationGroupIDCustom struct {
+	// DeliveryOptimizationGroupIDSource is the base model of DeliveryOptimizationGroupIDCustom
 	DeliveryOptimizationGroupIDSource
 	// GroupIDCustom Specifies an arbitrary group ID that the device belongs to
 	GroupIDCustom *string `json:"groupIdCustom,omitempty"`

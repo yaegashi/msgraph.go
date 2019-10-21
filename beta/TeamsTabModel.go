@@ -4,6 +4,7 @@ package msgraph
 
 // TeamsTab undocumented
 type TeamsTab struct {
+	// Entity is the base model of TeamsTab
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

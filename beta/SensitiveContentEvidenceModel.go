@@ -4,6 +4,8 @@ package msgraph
 
 // SensitiveContentEvidence undocumented
 type SensitiveContentEvidence struct {
+	// Object is the base model of SensitiveContentEvidence
+	Object
 	// Match undocumented
 	Match *string `json:"match,omitempty"`
 	// Offset undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // PreAuthorizedApplication undocumented
 type PreAuthorizedApplication struct {
+	// Object is the base model of PreAuthorizedApplication
+	Object
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`
 	// PermissionIDs undocumented

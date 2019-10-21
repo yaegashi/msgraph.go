@@ -6,6 +6,7 @@ import "time"
 
 // ExactMatchSession undocumented
 type ExactMatchSession struct {
+	// ExactMatchJobBase is the base model of ExactMatchSession
 	ExactMatchJobBase
 	// DatastoreID undocumented
 	DatastoreID *string `json:"datastoreId,omitempty"`

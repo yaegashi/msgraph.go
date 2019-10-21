@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsHealthMonitoringConfiguration Windows device health monitoring configuration
 type WindowsHealthMonitoringConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsHealthMonitoringConfiguration
 	DeviceConfiguration
 	// AllowDeviceHealthMonitoring Enables device health monitoring on the device
 	AllowDeviceHealthMonitoring *Enablement `json:"allowDeviceHealthMonitoring,omitempty"`

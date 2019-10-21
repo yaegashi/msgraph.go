@@ -6,6 +6,7 @@ import "time"
 
 // OnenoteEntityHierarchyModel undocumented
 type OnenoteEntityHierarchyModel struct {
+	// OnenoteEntitySchemaObjectModel is the base model of OnenoteEntityHierarchyModel
 	OnenoteEntitySchemaObjectModel
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

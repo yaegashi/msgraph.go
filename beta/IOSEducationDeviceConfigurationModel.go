@@ -4,5 +4,6 @@ package msgraph
 
 // IOSEducationDeviceConfiguration iOS Education configuration profile
 type IOSEducationDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of IOSEducationDeviceConfiguration
 	DeviceConfiguration
 }

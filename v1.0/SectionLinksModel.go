@@ -4,6 +4,8 @@ package msgraph
 
 // SectionLinks undocumented
 type SectionLinks struct {
+	// Object is the base model of SectionLinks
+	Object
 	// OneNoteClientURL undocumented
 	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
 	// OneNoteWebURL undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // OutlookTask undocumented
 type OutlookTask struct {
+	// OutlookItem is the base model of OutlookTask
 	OutlookItem
 	// AssignedTo undocumented
 	AssignedTo *string `json:"assignedTo,omitempty"`

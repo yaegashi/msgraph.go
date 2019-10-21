@@ -4,6 +4,8 @@ package msgraph
 
 // AlertTrigger undocumented
 type AlertTrigger struct {
+	// Object is the base model of AlertTrigger
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Type undocumented

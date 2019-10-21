@@ -4,6 +4,7 @@ package msgraph
 
 // SynchronizationJob undocumented
 type SynchronizationJob struct {
+	// Entity is the base model of SynchronizationJob
 	Entity
 	// TemplateID undocumented
 	TemplateID *string `json:"templateId,omitempty"`

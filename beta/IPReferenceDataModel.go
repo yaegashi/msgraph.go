@@ -4,6 +4,8 @@ package msgraph
 
 // IPReferenceData undocumented
 type IPReferenceData struct {
+	// Object is the base model of IPReferenceData
+	Object
 	// Asn undocumented
 	Asn *int `json:"asn,omitempty"`
 	// City undocumented

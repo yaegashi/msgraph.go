@@ -4,6 +4,8 @@ package msgraph
 
 // EvaluateLabelJobResult undocumented
 type EvaluateLabelJobResult struct {
+	// Object is the base model of EvaluateLabelJobResult
+	Object
 	// SensitivityLabel undocumented
 	SensitivityLabel *MatchingLabel `json:"sensitivityLabel,omitempty"`
 	// ResponsibleSensitiveTypes undocumented

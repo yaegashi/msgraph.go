@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementTroubleshootingErrorResource undocumented
 type DeviceManagementTroubleshootingErrorResource struct {
+	// Object is the base model of DeviceManagementTroubleshootingErrorResource
+	Object
 	// Text undocumented
 	Text *string `json:"text,omitempty"`
 	// Link The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}

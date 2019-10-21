@@ -4,5 +4,6 @@ package msgraph
 
 // MobileContainedApp An abstract class that represents a contained app in a mobileApp acting as a package.
 type MobileContainedApp struct {
+	// Entity is the base model of MobileContainedApp
 	Entity
 }

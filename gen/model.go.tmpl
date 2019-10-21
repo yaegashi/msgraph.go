@@ -3,7 +3,11 @@
 // {{$x.Sym}} {{$x.Description}}
 type {{$x.Sym}} struct {
 {{- if ne $x.Base "" }}
-{{$.SymBaseType $x.Base}}
+    // {{$.SymBaseType $x.Base}} is the base model of {{$x.Sym}}
+    {{$.SymBaseType $x.Base}}
+{{- else }}
+    // Object is the base model of {{$x.Sym}}
+    Object
 {{- end }}
 {{- range $y := .X.Members }}
 {{- $yTypeType := $.TypeFromType $y.Type }}

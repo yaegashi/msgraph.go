@@ -4,6 +4,7 @@ package msgraph
 
 // Security undocumented
 type Security struct {
+	// Entity is the base model of Security
 	Entity
 	// ProviderStatus undocumented
 	ProviderStatus []SecurityProviderStatus `json:"providerStatus,omitempty"`

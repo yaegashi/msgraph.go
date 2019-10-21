@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementIntentDeviceStateSummary Entity that represents device state summary for an intent
 type DeviceManagementIntentDeviceStateSummary struct {
+	// Entity is the base model of DeviceManagementIntentDeviceStateSummary
 	Entity
 	// ConflictCount Number of devices in conflict
 	ConflictCount *int `json:"conflictCount,omitempty"`

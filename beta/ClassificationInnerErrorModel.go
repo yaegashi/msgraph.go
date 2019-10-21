@@ -6,6 +6,8 @@ import "time"
 
 // ClassificationInnerError undocumented
 type ClassificationInnerError struct {
+	// Object is the base model of ClassificationInnerError
+	Object
 	// ErrorDateTime undocumented
 	ErrorDateTime *time.Time `json:"errorDateTime,omitempty"`
 	// Code undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // ExactMatchUploadAgent undocumented
 type ExactMatchUploadAgent struct {
+	// Entity is the base model of ExactMatchUploadAgent
 	Entity
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

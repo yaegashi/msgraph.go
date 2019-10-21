@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerProgressTaskBoardTaskFormat undocumented
 type PlannerProgressTaskBoardTaskFormat struct {
+	// Entity is the base model of PlannerProgressTaskBoardTaskFormat
 	Entity
 	// OrderHint undocumented
 	OrderHint *string `json:"orderHint,omitempty"`

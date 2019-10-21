@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10ImportedPFXCertificateProfile Windows 10 Desktop and Mobile PFX Import certificate profile
 type Windows10ImportedPFXCertificateProfile struct {
+	// WindowsCertificateProfileBase is the base model of Windows10ImportedPFXCertificateProfile
 	WindowsCertificateProfileBase
 	// IntendedPurpose undocumented
 	IntendedPurpose *IntendedPurpose `json:"intendedPurpose,omitempty"`

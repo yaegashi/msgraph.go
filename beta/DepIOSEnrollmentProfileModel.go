@@ -4,6 +4,7 @@ package msgraph
 
 // DepIOSEnrollmentProfile The DepIOSEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile specific to iOS configuration. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
 type DepIOSEnrollmentProfile struct {
+	// DepEnrollmentBaseProfile is the base model of DepIOSEnrollmentProfile
 	DepEnrollmentBaseProfile
 	// ITunesPairingMode Indicates the iTunes pairing mode
 	ITunesPairingMode *ITunesPairingMode `json:"iTunesPairingMode,omitempty"`

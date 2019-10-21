@@ -6,6 +6,7 @@ import "time"
 
 // JournalLine undocumented
 type JournalLine struct {
+	// Entity is the base model of JournalLine
 	Entity
 	// JournalDisplayName undocumented
 	JournalDisplayName *string `json:"journalDisplayName,omitempty"`

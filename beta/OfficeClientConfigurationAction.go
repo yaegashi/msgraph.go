@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter undocumented
@@ -21,37 +22,6 @@ type OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter struct 
 type OfficeClientConfigurationAssignRequestParameter struct {
 	// OfficeConfigurationAssignments undocumented
 	OfficeConfigurationAssignments []OfficeClientConfigurationAssignment `json:"officeConfigurationAssignments,omitempty"`
-}
-
-//
-type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdatePriorities action undocumented
-func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) UpdatePriorities(reqObj *OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter) *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder {
-	bb := &OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updatePriorities"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequest }
-
-//
-func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
-	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
-func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -102,11 +72,11 @@ func (r *OfficeClientConfigurationAssignRequest) Paging(method, path string, obj
 			paging Paging
 			value  [][]OfficeClientConfigurationAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -128,4 +98,35 @@ func (r *OfficeClientConfigurationAssignRequest) Get() ([][]OfficeClientConfigur
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
+}
+
+//
+type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdatePriorities action undocumented
+func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) UpdatePriorities(reqObj *OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter) *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder {
+	bb := &OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updatePriorities"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequest }
+
+//
+func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
+	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
 }

@@ -4,6 +4,8 @@ package msgraph
 
 // IOSHomeScreenPage undocumented
 type IOSHomeScreenPage struct {
+	// Object is the base model of IOSHomeScreenPage
+	Object
 	// DisplayName Name of the page
 	DisplayName *string `json:"displayName,omitempty"`
 	// Icons A list of apps and folders to appear on a page. This collection can contain a maximum of 500 elements.

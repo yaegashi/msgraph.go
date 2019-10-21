@@ -4,6 +4,8 @@ package msgraph
 
 // Bundle undocumented
 type Bundle struct {
+	// Object is the base model of Bundle
+	Object
 	// ChildCount undocumented
 	ChildCount *int `json:"childCount,omitempty"`
 	// Album undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // EducationRubric undocumented
 type EducationRubric struct {
+	// Entity is the base model of EducationRubric
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

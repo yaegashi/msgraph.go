@@ -6,6 +6,7 @@ import "time"
 
 // Application undocumented
 type Application struct {
+	// DirectoryObject is the base model of Application
 	DirectoryObject
 	// API undocumented
 	API *APIApplication `json:"api,omitempty"`

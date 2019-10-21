@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10MobileCompliancePolicy This class contains compliance settings for Windows 10 Mobile.
 type Windows10MobileCompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of Windows10MobileCompliancePolicy
 	DeviceCompliancePolicy
 	// PasswordRequired Require a password to unlock Windows Phone device.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`

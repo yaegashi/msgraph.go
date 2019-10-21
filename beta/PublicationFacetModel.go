@@ -4,6 +4,8 @@ package msgraph
 
 // PublicationFacet undocumented
 type PublicationFacet struct {
+	// Object is the base model of PublicationFacet
+	Object
 	// Level undocumented
 	Level *string `json:"level,omitempty"`
 	// VersionID undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceConfigurationState Device Configuration State for a given device.
 type DeviceConfigurationState struct {
+	// Entity is the base model of DeviceConfigurationState
 	Entity
 	// SettingStates undocumented
 	SettingStates []DeviceConfigurationSettingState `json:"settingStates,omitempty"`

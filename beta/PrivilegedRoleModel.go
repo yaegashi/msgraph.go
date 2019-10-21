@@ -4,6 +4,7 @@ package msgraph
 
 // PrivilegedRole undocumented
 type PrivilegedRole struct {
+	// Entity is the base model of PrivilegedRole
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // SensitiveType undocumented
 type SensitiveType struct {
+	// Entity is the base model of SensitiveType
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

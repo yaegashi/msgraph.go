@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskConfiguration This entity provides descriptions of the declared methods, properties and relationships exposed by the kiosk resource.
 type WindowsKioskConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsKioskConfiguration
 	DeviceConfiguration
 	// KioskProfiles This policy setting allows to define a list of Kiosk profiles for a Kiosk configuration. This collection can contain a maximum of 3 elements.
 	KioskProfiles []WindowsKioskProfile `json:"kioskProfiles,omitempty"`

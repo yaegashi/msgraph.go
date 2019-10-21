@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsOfficeClientSecurityConfiguration undocumented
 type WindowsOfficeClientSecurityConfiguration struct {
+	// OfficeClientConfiguration is the base model of WindowsOfficeClientSecurityConfiguration
 	OfficeClientConfiguration
 }

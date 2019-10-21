@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDeliveryOptimizationConfiguration Windows Delivery Optimization configuration
 type WindowsDeliveryOptimizationConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsDeliveryOptimizationConfiguration
 	DeviceConfiguration
 	// DeliveryOptimizationMode Specifies the download method that delivery optimization can use to manage network bandwidth consumption for large content distribution scenarios.
 	DeliveryOptimizationMode *WindowsDeliveryOptimizationMode `json:"deliveryOptimizationMode,omitempty"`

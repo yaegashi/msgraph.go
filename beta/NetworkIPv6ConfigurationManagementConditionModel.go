@@ -4,6 +4,7 @@ package msgraph
 
 // NetworkIPv6ConfigurationManagementCondition IPv6 configuration-based management conditions may be defined that will trigger when a device detects certain IP network settings. An IP config management condition will only be considered TRUE when the network connection is active.
 type NetworkIPv6ConfigurationManagementCondition struct {
+	// NetworkManagementCondition is the base model of NetworkIPv6ConfigurationManagementCondition
 	NetworkManagementCondition
 	// IPV6Prefix The IPv6 subnet to be connected to. e.g. 2001:db8::/32
 	IPV6Prefix *string `json:"ipV6Prefix,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // VpnRoute undocumented
 type VpnRoute struct {
+	// Object is the base model of VpnRoute
+	Object
 	// DestinationPrefix Destination prefix (IPv4/v6 address).
 	DestinationPrefix *string `json:"destinationPrefix,omitempty"`
 	// PrefixSize Prefix size. (1-32). Valid values 1 to 32

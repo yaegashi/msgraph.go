@@ -4,6 +4,8 @@ package msgraph
 
 // FreeBusyError undocumented
 type FreeBusyError struct {
+	// Object is the base model of FreeBusyError
+	Object
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
 	// ResponseCode undocumented

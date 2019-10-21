@@ -4,6 +4,8 @@ package msgraph
 
 // PrivacyProfile undocumented
 type PrivacyProfile struct {
+	// Object is the base model of PrivacyProfile
+	Object
 	// ContactEmail undocumented
 	ContactEmail *string `json:"contactEmail,omitempty"`
 	// StatementURL undocumented

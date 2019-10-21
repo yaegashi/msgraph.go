@@ -4,6 +4,8 @@ package msgraph
 
 // ComplianceInformation undocumented
 type ComplianceInformation struct {
+	// Object is the base model of ComplianceInformation
+	Object
 	// CertificationControls undocumented
 	CertificationControls []CertificationControl `json:"certificationControls,omitempty"`
 	// CertificationName undocumented

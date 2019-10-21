@@ -4,6 +4,8 @@ package msgraph
 
 // IOSDeviceType undocumented
 type IOSDeviceType struct {
+	// Object is the base model of IOSDeviceType
+	Object
 	// IPad Whether the app should run on iPads.
 	IPad *bool `json:"iPad,omitempty"`
 	// IPhoneAndIPod Whether the app should run on iPhones and iPods.

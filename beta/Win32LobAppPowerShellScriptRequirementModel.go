@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobAppPowerShellScriptRequirement undocumented
 type Win32LobAppPowerShellScriptRequirement struct {
+	// Win32LobAppRequirement is the base model of Win32LobAppPowerShellScriptRequirement
 	Win32LobAppRequirement
 	// DisplayName The unique display name for this rule
 	DisplayName *string `json:"displayName,omitempty"`

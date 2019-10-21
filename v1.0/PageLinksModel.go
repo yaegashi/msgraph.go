@@ -4,6 +4,8 @@ package msgraph
 
 // PageLinks undocumented
 type PageLinks struct {
+	// Object is the base model of PageLinks
+	Object
 	// OneNoteClientURL undocumented
 	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
 	// OneNoteWebURL undocumented

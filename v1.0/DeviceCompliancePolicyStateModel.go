@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceCompliancePolicyState Device Compliance Policy State for a given device.
 type DeviceCompliancePolicyState struct {
+	// Entity is the base model of DeviceCompliancePolicyState
 	Entity
 	// SettingStates undocumented
 	SettingStates []DeviceCompliancePolicySettingState `json:"settingStates,omitempty"`

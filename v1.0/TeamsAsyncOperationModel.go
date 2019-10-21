@@ -6,6 +6,7 @@ import "time"
 
 // TeamsAsyncOperation undocumented
 type TeamsAsyncOperation struct {
+	// Entity is the base model of TeamsAsyncOperation
 	Entity
 	// OperationType undocumented
 	OperationType *TeamsAsyncOperationType `json:"operationType,omitempty"`

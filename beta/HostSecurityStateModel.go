@@ -4,6 +4,8 @@ package msgraph
 
 // HostSecurityState undocumented
 type HostSecurityState struct {
+	// Object is the base model of HostSecurityState
+	Object
 	// Fqdn undocumented
 	Fqdn *string `json:"fqdn,omitempty"`
 	// IsAzureAdJoined undocumented

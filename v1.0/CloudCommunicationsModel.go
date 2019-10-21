@@ -4,6 +4,7 @@ package msgraph
 
 // CloudCommunications undocumented
 type CloudCommunications struct {
+	// Entity is the base model of CloudCommunications
 	Entity
 	// Calls undocumented
 	Calls []Call `json:"calls,omitempty"`

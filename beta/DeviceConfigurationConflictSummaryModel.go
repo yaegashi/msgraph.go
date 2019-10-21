@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceConfigurationConflictSummary Conflict summary for a set of device configuration policies.
 type DeviceConfigurationConflictSummary struct {
+	// Entity is the base model of DeviceConfigurationConflictSummary
 	Entity
 	// ConflictingDeviceConfigurations The set of policies in conflict with the given setting
 	ConflictingDeviceConfigurations []SettingSource `json:"conflictingDeviceConfigurations,omitempty"`

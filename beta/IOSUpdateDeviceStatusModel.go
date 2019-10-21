@@ -6,6 +6,7 @@ import "time"
 
 // IOSUpdateDeviceStatus undocumented
 type IOSUpdateDeviceStatus struct {
+	// Entity is the base model of IOSUpdateDeviceStatus
 	Entity
 	// InstallStatus The installation status of the policy report.
 	InstallStatus *IOSUpdatesInstallStatus `json:"installStatus,omitempty"`

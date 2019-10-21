@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsInformationProtectionResourceCollection undocumented
 type WindowsInformationProtectionResourceCollection struct {
+	// Object is the base model of WindowsInformationProtectionResourceCollection
+	Object
 	// DisplayName Display name
 	DisplayName *string `json:"displayName,omitempty"`
 	// Resources Collection of resources

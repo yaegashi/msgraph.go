@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10SecureAssessmentConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the secureAssessment resource.
 type Windows10SecureAssessmentConfiguration struct {
+	// DeviceConfiguration is the base model of Windows10SecureAssessmentConfiguration
 	DeviceConfiguration
 	// LaunchURI Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
 	LaunchURI *string `json:"launchUri,omitempty"`

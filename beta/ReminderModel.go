@@ -4,6 +4,8 @@ package msgraph
 
 // Reminder undocumented
 type Reminder struct {
+	// Object is the base model of Reminder
+	Object
 	// EventID undocumented
 	EventID *string `json:"eventId,omitempty"`
 	// EventStartTime undocumented

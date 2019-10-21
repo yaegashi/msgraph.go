@@ -4,6 +4,7 @@ package msgraph
 
 // EducationRoot undocumented
 type EducationRoot struct {
+	// Entity is the base model of EducationRoot
 	Entity
 	// SynchronizationProfiles undocumented
 	SynchronizationProfiles []EducationSynchronizationProfile `json:"synchronizationProfiles,omitempty"`

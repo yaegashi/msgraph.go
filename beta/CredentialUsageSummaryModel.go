@@ -4,6 +4,7 @@ package msgraph
 
 // CredentialUsageSummary undocumented
 type CredentialUsageSummary struct {
+	// Entity is the base model of CredentialUsageSummary
 	Entity
 	// Feature undocumented
 	Feature *FeatureType `json:"feature,omitempty"`

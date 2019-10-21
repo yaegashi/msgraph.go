@@ -4,6 +4,7 @@ package msgraph
 
 // MicrosoftStoreForBusinessApp Microsoft Store for Business Apps. This class does not support Create, Delete, or Update.
 type MicrosoftStoreForBusinessApp struct {
+	// MobileApp is the base model of MicrosoftStoreForBusinessApp
 	MobileApp
 	// UsedLicenseCount The number of Microsoft Store for Business licenses in use.
 	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`

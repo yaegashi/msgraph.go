@@ -6,6 +6,7 @@ import "time"
 
 // AzureADLicenseUsage undocumented
 type AzureADLicenseUsage struct {
+	// Entity is the base model of AzureADLicenseUsage
 	Entity
 	// SnapshotDateTime undocumented
 	SnapshotDateTime *time.Time `json:"snapshotDateTime,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // EducationTerm undocumented
 type EducationTerm struct {
+	// Object is the base model of EducationTerm
+	Object
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`
 	// StartDate undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookApplication undocumented
 type WorkbookApplication struct {
+	// Entity is the base model of WorkbookApplication
 	Entity
 	// CalculationMode undocumented
 	CalculationMode *string `json:"calculationMode,omitempty"`

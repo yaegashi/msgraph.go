@@ -4,6 +4,8 @@ package msgraph
 
 // WorkbookRangeReference undocumented
 type WorkbookRangeReference struct {
+	// Object is the base model of WorkbookRangeReference
+	Object
 	// Address undocumented
 	Address *string `json:"address,omitempty"`
 }

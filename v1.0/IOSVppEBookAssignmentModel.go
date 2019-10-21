@@ -4,5 +4,6 @@ package msgraph
 
 // IOSVppEBookAssignment Contains properties used to assign an iOS VPP EBook to a group.
 type IOSVppEBookAssignment struct {
+	// ManagedEBookAssignment is the base model of IOSVppEBookAssignment
 	ManagedEBookAssignment
 }

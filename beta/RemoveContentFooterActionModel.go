@@ -4,6 +4,7 @@ package msgraph
 
 // RemoveContentFooterAction undocumented
 type RemoveContentFooterAction struct {
+	// InformationProtectionAction is the base model of RemoveContentFooterAction
 	InformationProtectionAction
 	// UIElementNames undocumented
 	UIElementNames []string `json:"uiElementNames,omitempty"`

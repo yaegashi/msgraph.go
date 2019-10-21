@@ -6,6 +6,7 @@ import "time"
 
 // GroupPolicyPresentation The base entity for the display presentation of any of the additional options in a group policy definition.
 type GroupPolicyPresentation struct {
+	// Entity is the base model of GroupPolicyPresentation
 	Entity
 	// Label Localized text label for any presentation entity. The default value is empty.
 	Label *string `json:"label,omitempty"`

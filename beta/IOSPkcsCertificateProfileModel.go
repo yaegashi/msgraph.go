@@ -4,6 +4,7 @@ package msgraph
 
 // IOSPkcsCertificateProfile iOS PKCS certificate profile.
 type IOSPkcsCertificateProfile struct {
+	// IOSCertificateProfileBase is the base model of IOSPkcsCertificateProfile
 	IOSCertificateProfileBase
 	// CertificationAuthority PKCS Certification Authority.
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // LabelActionBase undocumented
 type LabelActionBase struct {
+	// Object is the base model of LabelActionBase
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 }

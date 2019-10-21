@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceExchangeAccessStateSummary undocumented
 type DeviceExchangeAccessStateSummary struct {
+	// Object is the base model of DeviceExchangeAccessStateSummary
+	Object
 	// AllowedDeviceCount Total count of devices with Exchange Access State: Allowed.
 	AllowedDeviceCount *int `json:"allowedDeviceCount,omitempty"`
 	// BlockedDeviceCount Total count of devices with Exchange Access State: Blocked.

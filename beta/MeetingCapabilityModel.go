@@ -4,6 +4,8 @@ package msgraph
 
 // MeetingCapability undocumented
 type MeetingCapability struct {
+	// Object is the base model of MeetingCapability
+	Object
 	// AllowAnonymousUsersToDialOut undocumented
 	AllowAnonymousUsersToDialOut *bool `json:"allowAnonymousUsersToDialOut,omitempty"`
 	// AutoAdmittedUsers undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidWorkProfileGeneralDeviceConfiguration Android Work Profile general device configuration.
 type AndroidWorkProfileGeneralDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of AndroidWorkProfileGeneralDeviceConfiguration
 	DeviceConfiguration
 	// PasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock.
 	PasswordBlockFingerprintUnlock *bool `json:"passwordBlockFingerprintUnlock,omitempty"`

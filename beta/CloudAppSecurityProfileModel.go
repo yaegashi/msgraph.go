@@ -6,6 +6,7 @@ import "time"
 
 // CloudAppSecurityProfile undocumented
 type CloudAppSecurityProfile struct {
+	// Entity is the base model of CloudAppSecurityProfile
 	Entity
 	// AzureSubscriptionID undocumented
 	AzureSubscriptionID *string `json:"azureSubscriptionId,omitempty"`

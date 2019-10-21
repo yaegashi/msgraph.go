@@ -4,6 +4,8 @@ package msgraph
 
 // RiskUserActivity undocumented
 type RiskUserActivity struct {
+	// Object is the base model of RiskUserActivity
+	Object
 	// EventTypes undocumented
 	EventTypes []RiskEventType `json:"eventTypes,omitempty"`
 	// Detail undocumented

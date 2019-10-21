@@ -4,4 +4,6 @@ package msgraph
 
 // MobileAppIdentifier undocumented
 type MobileAppIdentifier struct {
+	// Object is the base model of MobileAppIdentifier
+	Object
 }

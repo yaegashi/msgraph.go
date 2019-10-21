@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppContent Contains content properties for a specific app version. Each mobileAppContent can have multiple mobileAppContentFile.
 type MobileAppContent struct {
+	// Entity is the base model of MobileAppContent
 	Entity
 	// Files undocumented
 	Files []MobileAppContentFile `json:"files,omitempty"`

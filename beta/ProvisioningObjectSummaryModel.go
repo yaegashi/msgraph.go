@@ -6,6 +6,7 @@ import "time"
 
 // ProvisioningObjectSummary undocumented
 type ProvisioningObjectSummary struct {
+	// Entity is the base model of ProvisioningObjectSummary
 	Entity
 	// ActivityDateTime undocumented
 	ActivityDateTime *time.Time `json:"activityDateTime,omitempty"`

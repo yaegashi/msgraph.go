@@ -6,6 +6,7 @@ import "time"
 
 // Organization The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
 type Organization struct {
+	// DirectoryObject is the base model of Organization
 	DirectoryObject
 	// AssignedPlans undocumented
 	AssignedPlans []AssignedPlan `json:"assignedPlans,omitempty"`

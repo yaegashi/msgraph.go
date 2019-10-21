@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsAutopilotDeploymentProfileAssignment An assignment of a Windows Autopilot deployment profile to an AAD group.
 type WindowsAutopilotDeploymentProfileAssignment struct {
+	// Entity is the base model of WindowsAutopilotDeploymentProfileAssignment
 	Entity
 	// Target The assignment target for the Windows Autopilot deployment profile.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

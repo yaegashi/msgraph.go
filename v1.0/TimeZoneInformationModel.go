@@ -4,6 +4,8 @@ package msgraph
 
 // TimeZoneInformation undocumented
 type TimeZoneInformation struct {
+	// Object is the base model of TimeZoneInformation
+	Object
 	// Alias undocumented
 	Alias *string `json:"alias,omitempty"`
 	// DisplayName undocumented

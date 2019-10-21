@@ -4,6 +4,7 @@ package msgraph
 
 // ScopedRoleMembership undocumented
 type ScopedRoleMembership struct {
+	// Entity is the base model of ScopedRoleMembership
 	Entity
 	// RoleID undocumented
 	RoleID *string `json:"roleId,omitempty"`

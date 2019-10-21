@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskDesktopApp undocumented
 type WindowsKioskDesktopApp struct {
+	// WindowsKioskAppBase is the base model of WindowsKioskDesktopApp
 	WindowsKioskAppBase
 	// Path Define the path of a desktop app
 	Path *string `json:"path,omitempty"`

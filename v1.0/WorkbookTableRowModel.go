@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookTableRow undocumented
 type WorkbookTableRow struct {
+	// Entity is the base model of WorkbookTableRow
 	Entity
 	// Index undocumented
 	Index *int `json:"index,omitempty"`

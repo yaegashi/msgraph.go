@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerUser undocumented
 type PlannerUser struct {
+	// PlannerDelta is the base model of PlannerUser
 	PlannerDelta
 	// FavoritePlanReferences undocumented
 	FavoritePlanReferences *PlannerFavoritePlanReferenceCollection `json:"favoritePlanReferences,omitempty"`

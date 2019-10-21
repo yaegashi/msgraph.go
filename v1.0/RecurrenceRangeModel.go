@@ -6,6 +6,8 @@ import "time"
 
 // RecurrenceRange undocumented
 type RecurrenceRange struct {
+	// Object is the base model of RecurrenceRange
+	Object
 	// Type undocumented
 	Type *RecurrenceRangeType `json:"type,omitempty"`
 	// StartDate undocumented

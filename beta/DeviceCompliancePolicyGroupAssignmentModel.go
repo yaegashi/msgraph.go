@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceCompliancePolicyGroupAssignment Device compliance policy group assignment.
 type DeviceCompliancePolicyGroupAssignment struct {
+	// Entity is the base model of DeviceCompliancePolicyGroupAssignment
 	Entity
 	// TargetGroupID The Id of the AAD group we are targeting the device compliance policy to.
 	TargetGroupID *string `json:"targetGroupId,omitempty"`

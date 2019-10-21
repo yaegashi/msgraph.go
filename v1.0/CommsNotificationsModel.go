@@ -4,6 +4,8 @@ package msgraph
 
 // CommsNotifications undocumented
 type CommsNotifications struct {
+	// Object is the base model of CommsNotifications
+	Object
 	// Value undocumented
 	Value []CommsNotification `json:"value,omitempty"`
 }

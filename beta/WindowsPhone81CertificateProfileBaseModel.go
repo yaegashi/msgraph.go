@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhone81CertificateProfileBase Base Windows Phone 8.1+ certificate profile.
 type WindowsPhone81CertificateProfileBase struct {
+	// DeviceConfiguration is the base model of WindowsPhone81CertificateProfileBase
 	DeviceConfiguration
 	// RenewalThresholdPercentage Certificate renewal threshold percentage.
 	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`

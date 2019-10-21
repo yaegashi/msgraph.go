@@ -6,6 +6,7 @@ import "time"
 
 // WindowsAutopilotDeviceIdentity The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device.
 type WindowsAutopilotDeviceIdentity struct {
+	// Entity is the base model of WindowsAutopilotDeviceIdentity
 	Entity
 	// DeploymentProfileAssignmentStatus Profile assignment status of the Windows autopilot device.
 	DeploymentProfileAssignmentStatus *WindowsAutopilotProfileAssignmentStatus `json:"deploymentProfileAssignmentStatus,omitempty"`

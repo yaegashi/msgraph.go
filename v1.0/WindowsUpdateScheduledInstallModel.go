@@ -6,6 +6,7 @@ import "time"
 
 // WindowsUpdateScheduledInstall undocumented
 type WindowsUpdateScheduledInstall struct {
+	// WindowsUpdateInstallScheduleType is the base model of WindowsUpdateScheduledInstall
 	WindowsUpdateInstallScheduleType
 	// ScheduledInstallDay Scheduled Install Day in week
 	ScheduledInstallDay *WeeklySchedule `json:"scheduledInstallDay,omitempty"`

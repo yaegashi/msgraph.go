@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // SecurityBaselineTemplateRequestBuilder is request builder for SecurityBaselineTemplate
@@ -101,11 +102,11 @@ func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) 
 			paging Paging
 			value  []SecurityBaselineCategoryStateSummary
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -195,11 +196,11 @@ func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(method, p
 			paging Paging
 			value  []SecurityBaselineDeviceState
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

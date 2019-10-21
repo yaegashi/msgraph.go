@@ -4,6 +4,7 @@ package msgraph
 
 // GovernanceRoleDefinition undocumented
 type GovernanceRoleDefinition struct {
+	// Entity is the base model of GovernanceRoleDefinition
 	Entity
 	// ResourceID undocumented
 	ResourceID *string `json:"resourceId,omitempty"`

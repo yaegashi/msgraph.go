@@ -4,6 +4,8 @@ package msgraph
 
 // AppleOwnerTypeEnrollmentType undocumented
 type AppleOwnerTypeEnrollmentType struct {
+	// Object is the base model of AppleOwnerTypeEnrollmentType
+	Object
 	// OwnerType The owner type.
 	OwnerType *ManagedDeviceOwnerType `json:"ownerType,omitempty"`
 	// EnrollmentType The enrollment type.

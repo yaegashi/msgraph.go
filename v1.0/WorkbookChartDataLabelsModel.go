@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartDataLabels undocumented
 type WorkbookChartDataLabels struct {
+	// Entity is the base model of WorkbookChartDataLabels
 	Entity
 	// Position undocumented
 	Position *string `json:"position,omitempty"`

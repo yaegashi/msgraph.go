@@ -6,6 +6,7 @@ import "time"
 
 // ImpossibleTravelRiskEvent undocumented
 type ImpossibleTravelRiskEvent struct {
+	// LocatedRiskEvent is the base model of ImpossibleTravelRiskEvent
 	LocatedRiskEvent
 	// UserAgent undocumented
 	UserAgent *string `json:"userAgent,omitempty"`

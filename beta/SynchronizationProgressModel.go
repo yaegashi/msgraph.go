@@ -6,6 +6,8 @@ import "time"
 
 // SynchronizationProgress undocumented
 type SynchronizationProgress struct {
+	// Object is the base model of SynchronizationProgress
+	Object
 	// CompletedUnits undocumented
 	CompletedUnits *int `json:"completedUnits,omitempty"`
 	// ProgressObservationDateTime undocumented

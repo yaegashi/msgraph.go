@@ -4,6 +4,7 @@ package msgraph
 
 // AddWatermarkAction undocumented
 type AddWatermarkAction struct {
+	// InformationProtectionAction is the base model of AddWatermarkAction
 	InformationProtectionAction
 	// UIElementName undocumented
 	UIElementName *string `json:"uiElementName,omitempty"`

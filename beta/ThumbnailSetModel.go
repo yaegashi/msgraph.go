@@ -4,6 +4,7 @@ package msgraph
 
 // ThumbnailSet undocumented
 type ThumbnailSet struct {
+	// Entity is the base model of ThumbnailSet
 	Entity
 	// Large undocumented
 	Large *Thumbnail `json:"large,omitempty"`

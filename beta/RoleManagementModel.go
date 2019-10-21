@@ -4,6 +4,7 @@ package msgraph
 
 // RoleManagement undocumented
 type RoleManagement struct {
+	// Entity is the base model of RoleManagement
 	Entity
 	// Directory undocumented
 	Directory *RbacApplication `json:"directory,omitempty"`

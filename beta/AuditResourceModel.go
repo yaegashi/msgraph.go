@@ -4,6 +4,8 @@ package msgraph
 
 // AuditResource undocumented
 type AuditResource struct {
+	// Object is the base model of AuditResource
+	Object
 	// DisplayName Display name.
 	DisplayName *string `json:"displayName,omitempty"`
 	// ModifiedProperties List of modified properties.

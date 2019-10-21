@@ -4,6 +4,8 @@ package msgraph
 
 // InvitedUserMessageInfo undocumented
 type InvitedUserMessageInfo struct {
+	// Object is the base model of InvitedUserMessageInfo
+	Object
 	// CcRecipients undocumented
 	CcRecipients []Recipient `json:"ccRecipients,omitempty"`
 	// MessageLanguage undocumented

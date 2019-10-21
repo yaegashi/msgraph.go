@@ -4,5 +4,6 @@ package msgraph
 
 // NetworkManagementCondition Contains the information to define a network management condition.
 type NetworkManagementCondition struct {
+	// ManagementCondition is the base model of NetworkManagementCondition
 	ManagementCondition
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookTableSort undocumented
 type WorkbookTableSort struct {
+	// Entity is the base model of WorkbookTableSort
 	Entity
 	// Fields undocumented
 	Fields []WorkbookSortField `json:"fields,omitempty"`

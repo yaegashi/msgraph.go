@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10VpnConfiguration By providing the configurations in this profile you can instruct the Windows 10 device (desktop or mobile) to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type Windows10VpnConfiguration struct {
+	// WindowsVpnConfiguration is the base model of Windows10VpnConfiguration
 	WindowsVpnConfiguration
 	// ProfileTarget Profile target type.
 	ProfileTarget *Windows10VpnProfileTarget `json:"profileTarget,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ContentTypeOrder undocumented
 type ContentTypeOrder struct {
+	// Object is the base model of ContentTypeOrder
+	Object
 	// Default undocumented
 	Default *bool `json:"default,omitempty"`
 	// Position undocumented

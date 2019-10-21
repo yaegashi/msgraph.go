@@ -6,6 +6,7 @@ import "time"
 
 // DeviceConfiguration Device Configuration.
 type DeviceConfiguration struct {
+	// Entity is the base model of DeviceConfiguration
 	Entity
 	// LastModifiedDateTime DateTime the object was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`

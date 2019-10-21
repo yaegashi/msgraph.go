@@ -4,6 +4,7 @@ package msgraph
 
 // IOSMobileAppConfiguration Contains properties, inherited properties and actions for iOS mobile app configurations.
 type IOSMobileAppConfiguration struct {
+	// ManagedDeviceMobileAppConfiguration is the base model of IOSMobileAppConfiguration
 	ManagedDeviceMobileAppConfiguration
 	// EncodedSettingXML mdm app configuration Base64 binary.
 	EncodedSettingXML *Binary `json:"encodedSettingXml,omitempty"`

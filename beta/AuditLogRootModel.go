@@ -4,6 +4,7 @@ package msgraph
 
 // AuditLogRoot undocumented
 type AuditLogRoot struct {
+	// Entity is the base model of AuditLogRoot
 	Entity
 	// SignIns undocumented
 	SignIns []SignIn `json:"signIns,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // RenameAction undocumented
 type RenameAction struct {
+	// Object is the base model of RenameAction
+	Object
 	// NewName undocumented
 	NewName *string `json:"newName,omitempty"`
 	// OldName undocumented

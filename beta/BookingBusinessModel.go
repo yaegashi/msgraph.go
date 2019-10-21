@@ -4,6 +4,7 @@ package msgraph
 
 // BookingBusiness Represents a Microsot Bookings Business.
 type BookingBusiness struct {
+	// BookingNamedEntity is the base model of BookingBusiness
 	BookingNamedEntity
 	// BusinessType undocumented
 	BusinessType *string `json:"businessType,omitempty"`

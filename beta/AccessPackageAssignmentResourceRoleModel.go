@@ -4,6 +4,7 @@ package msgraph
 
 // AccessPackageAssignmentResourceRole undocumented
 type AccessPackageAssignmentResourceRole struct {
+	// Entity is the base model of AccessPackageAssignmentResourceRole
 	Entity
 	// OriginID undocumented
 	OriginID *string `json:"originId,omitempty"`

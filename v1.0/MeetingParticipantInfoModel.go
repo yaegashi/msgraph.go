@@ -4,6 +4,8 @@ package msgraph
 
 // MeetingParticipantInfo undocumented
 type MeetingParticipantInfo struct {
+	// Object is the base model of MeetingParticipantInfo
+	Object
 	// Identity undocumented
 	Identity *IdentitySet `json:"identity,omitempty"`
 	// Upn undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // GovernanceResource undocumented
 type GovernanceResource struct {
+	// Entity is the base model of GovernanceResource
 	Entity
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`

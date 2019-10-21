@@ -4,6 +4,7 @@ package msgraph
 
 // IOSMobileAppIdentifier undocumented
 type IOSMobileAppIdentifier struct {
+	// MobileAppIdentifier is the base model of IOSMobileAppIdentifier
 	MobileAppIdentifier
 	// BundleID The identifier for an app, as specified in the app store.
 	BundleID *string `json:"bundleId,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // CredentialUserRegistrationDetails undocumented
 type CredentialUserRegistrationDetails struct {
+	// Entity is the base model of CredentialUserRegistrationDetails
 	Entity
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`

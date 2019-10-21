@@ -4,6 +4,7 @@ package msgraph
 
 // EvaluateLabelJobResponse undocumented
 type EvaluateLabelJobResponse struct {
+	// JobResponseBase is the base model of EvaluateLabelJobResponse
 	JobResponseBase
 	// Result undocumented
 	Result *EvaluateLabelJobResultGroup `json:"result,omitempty"`

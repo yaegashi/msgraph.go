@@ -6,6 +6,7 @@ import "time"
 
 // UserSecurityProfile undocumented
 type UserSecurityProfile struct {
+	// Entity is the base model of UserSecurityProfile
 	Entity
 	// Accounts undocumented
 	Accounts []UserAccount `json:"accounts,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ProvisionedPlan undocumented
 type ProvisionedPlan struct {
+	// Object is the base model of ProvisionedPlan
+	Object
 	// CapabilityStatus undocumented
 	CapabilityStatus *string `json:"capabilityStatus,omitempty"`
 	// ProvisioningStatus undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhoneEASEmailProfileConfiguration By providing configurations in this profile you can instruct the native email client on Windows Phone to communicate with an Exchange server and get email, contacts, calendar, and tasks. Furthermore, you can also specify how much email to sync and how often the device should sync.
 type WindowsPhoneEASEmailProfileConfiguration struct {
+	// EasEmailProfileConfigurationBase is the base model of WindowsPhoneEASEmailProfileConfiguration
 	EasEmailProfileConfigurationBase
 	// AccountName Account name.
 	AccountName *string `json:"accountName,omitempty"`

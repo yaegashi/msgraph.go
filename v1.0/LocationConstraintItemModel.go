@@ -4,6 +4,7 @@ package msgraph
 
 // LocationConstraintItem undocumented
 type LocationConstraintItem struct {
+	// Location is the base model of LocationConstraintItem
 	Location
 	// ResolveAvailability undocumented
 	ResolveAvailability *bool `json:"resolveAvailability,omitempty"`

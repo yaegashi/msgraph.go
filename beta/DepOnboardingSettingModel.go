@@ -6,6 +6,7 @@ import "time"
 
 // DepOnboardingSetting The depOnboardingSetting represents an instance of the Apple DEP service being onboarded to Intune. The onboarded service instance manages an Apple Token used to synchronize data between Apple and Intune.
 type DepOnboardingSetting struct {
+	// Entity is the base model of DepOnboardingSetting
 	Entity
 	// AppleIdentifier The Apple ID used to obtain the current token.
 	AppleIdentifier *string `json:"appleIdentifier,omitempty"`

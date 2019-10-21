@@ -4,6 +4,7 @@ package msgraph
 
 // ResourceSpecificPermissionGrant undocumented
 type ResourceSpecificPermissionGrant struct {
+	// DirectoryObject is the base model of ResourceSpecificPermissionGrant
 	DirectoryObject
 	// ClientID undocumented
 	ClientID *string `json:"clientId,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSExtensionsConfiguration MacOS extensions configuration profile.
 type MacOSExtensionsConfiguration struct {
+	// DeviceConfiguration is the base model of MacOSExtensionsConfiguration
 	DeviceConfiguration
 	// KernelExtensionOverridesAllowed If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
 	KernelExtensionOverridesAllowed *bool `json:"kernelExtensionOverridesAllowed,omitempty"`

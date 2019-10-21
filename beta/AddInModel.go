@@ -4,6 +4,8 @@ package msgraph
 
 // AddIn undocumented
 type AddIn struct {
+	// Object is the base model of AddIn
+	Object
 	// ID undocumented
 	ID *UUID `json:"id,omitempty"`
 	// Type undocumented

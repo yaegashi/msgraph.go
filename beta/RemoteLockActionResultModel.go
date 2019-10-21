@@ -4,6 +4,7 @@ package msgraph
 
 // RemoteLockActionResult undocumented
 type RemoteLockActionResult struct {
+	// DeviceActionResult is the base model of RemoteLockActionResult
 	DeviceActionResult
 	// UnlockPin Pin to unlock the client
 	UnlockPin *string `json:"unlockPin,omitempty"`

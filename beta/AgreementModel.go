@@ -4,6 +4,7 @@ package msgraph
 
 // Agreement undocumented
 type Agreement struct {
+	// Entity is the base model of Agreement
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

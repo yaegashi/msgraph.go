@@ -6,6 +6,7 @@ import "time"
 
 // ConversationThread undocumented
 type ConversationThread struct {
+	// Entity is the base model of ConversationThread
 	Entity
 	// ToRecipients undocumented
 	ToRecipients []Recipient `json:"toRecipients,omitempty"`

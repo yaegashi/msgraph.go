@@ -42,8 +42,6 @@ var reservedTypeTable = map[string]string{
 	"microsoft.graph.Json": "json.RawMessage",
 }
 
-var symTypeTable = map[string]string{}
-
 type Const struct {
 	Name, Value, Type string
 }

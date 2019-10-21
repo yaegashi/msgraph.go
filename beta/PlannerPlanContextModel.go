@@ -6,6 +6,8 @@ import "time"
 
 // PlannerPlanContext undocumented
 type PlannerPlanContext struct {
+	// Object is the base model of PlannerPlanContext
+	Object
 	// AssociationType undocumented
 	AssociationType *string `json:"associationType,omitempty"`
 	// CreatedDateTime undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // SharedPCConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the sharedPCConfiguration resource.
 type SharedPCConfiguration struct {
+	// DeviceConfiguration is the base model of SharedPCConfiguration
 	DeviceConfiguration
 	// AccountManagerPolicy Specifies how accounts are managed on a shared PC. Only applies when disableAccountManager is false.
 	AccountManagerPolicy *SharedPCAccountManagerPolicy `json:"accountManagerPolicy,omitempty"`

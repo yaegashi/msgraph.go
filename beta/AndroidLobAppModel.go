@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidLobApp Contains properties and inherited properties for Android Line Of Business apps.
 type AndroidLobApp struct {
+	// MobileLobApp is the base model of AndroidLobApp
 	MobileLobApp
 	// PackageID The package identifier.
 	PackageID *string `json:"packageId,omitempty"`

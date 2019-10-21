@@ -4,6 +4,8 @@ package msgraph
 
 // OutOfBoxExperienceSettings undocumented
 type OutOfBoxExperienceSettings struct {
+	// Object is the base model of OutOfBoxExperienceSettings
+	Object
 	// HidePrivacySettings Show or hide privacy settings to user
 	HidePrivacySettings *bool `json:"hidePrivacySettings,omitempty"`
 	// HideEULA Show or hide EULA to user

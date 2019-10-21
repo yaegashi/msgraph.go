@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // DeviceManagementRequestBuilder is request builder for DeviceManagement
@@ -115,11 +116,11 @@ func (r *DeviceManagementDetectedAppsCollectionRequest) Paging(method, path stri
 			paging Paging
 			value  []DetectedApp
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -202,11 +203,11 @@ func (r *DeviceManagementDeviceCategoriesCollectionRequest) Paging(method, path 
 			paging Paging
 			value  []DeviceCategory
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -289,11 +290,11 @@ func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Paging(metho
 			paging Paging
 			value  []DeviceCompliancePolicy
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -383,11 +384,11 @@ func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRe
 			paging Paging
 			value  []DeviceCompliancePolicySettingStateSummary
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -477,11 +478,11 @@ func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Paging(method, p
 			paging Paging
 			value  []DeviceConfiguration
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -564,11 +565,11 @@ func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Paging
 			paging Paging
 			value  []DeviceEnrollmentConfiguration
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -651,11 +652,11 @@ func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Paging(metho
 			paging Paging
 			value  []DeviceManagementPartner
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -738,11 +739,11 @@ func (r *DeviceManagementExchangeConnectorsCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []DeviceManagementExchangeConnector
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -825,11 +826,11 @@ func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Paging(method, path
 			paging Paging
 			value  []IOSUpdateDeviceStatus
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -919,11 +920,11 @@ func (r *DeviceManagementManagedDevicesCollectionRequest) Paging(method, path st
 			paging Paging
 			value  []ManagedDevice
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1006,11 +1007,11 @@ func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Paging(
 			paging Paging
 			value  []MobileThreatDefenseConnector
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1093,11 +1094,11 @@ func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Paging(m
 			paging Paging
 			value  []NotificationMessageTemplate
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1180,11 +1181,11 @@ func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Paging(metho
 			paging Paging
 			value  []RemoteAssistancePartner
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1267,11 +1268,11 @@ func (r *DeviceManagementResourceOperationsCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []ResourceOperation
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1354,11 +1355,11 @@ func (r *DeviceManagementRoleAssignmentsCollectionRequest) Paging(method, path s
 			paging Paging
 			value  []DeviceAndAppManagementRoleAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1441,11 +1442,11 @@ func (r *DeviceManagementRoleDefinitionsCollectionRequest) Paging(method, path s
 			paging Paging
 			value  []RoleDefinition
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1535,11 +1536,11 @@ func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Pagi
 			paging Paging
 			value  []TelecomExpenseManagementPartner
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1622,11 +1623,11 @@ func (r *DeviceManagementTermsAndConditionsCollectionRequest) Paging(method, pat
 			paging Paging
 			value  []TermsAndConditions
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1709,11 +1710,11 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Paging(method, 
 			paging Paging
 			value  []DeviceManagementTroubleshootingEvent
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1796,11 +1797,11 @@ func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollect
 			paging Paging
 			value  []WindowsInformationProtectionAppLearningSummary
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -1883,11 +1884,11 @@ func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCol
 			paging Paging
 			value  []WindowsInformationProtectionNetworkLearningSummary
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

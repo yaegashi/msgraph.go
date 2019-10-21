@@ -4,4 +4,6 @@ package msgraph
 
 // WindowsKioskAppConfiguration undocumented
 type WindowsKioskAppConfiguration struct {
+	// Object is the base model of WindowsKioskAppConfiguration
+	Object
 }

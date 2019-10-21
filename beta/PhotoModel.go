@@ -6,6 +6,8 @@ import "time"
 
 // Photo undocumented
 type Photo struct {
+	// Object is the base model of Photo
+	Object
 	// CameraMake undocumented
 	CameraMake *string `json:"cameraMake,omitempty"`
 	// CameraModel undocumented

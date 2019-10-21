@@ -4,6 +4,8 @@ package msgraph
 
 // AuditProperty undocumented
 type AuditProperty struct {
+	// Object is the base model of AuditProperty
+	Object
 	// DisplayName Display name.
 	DisplayName *string `json:"displayName,omitempty"`
 	// OldValue Old value.

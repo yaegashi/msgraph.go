@@ -6,6 +6,7 @@ import "time"
 
 // Trending undocumented
 type Trending struct {
+	// Entity is the base model of Trending
 	Entity
 	// Weight undocumented
 	Weight *float64 `json:"weight,omitempty"`

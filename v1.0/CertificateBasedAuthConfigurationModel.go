@@ -4,6 +4,7 @@ package msgraph
 
 // CertificateBasedAuthConfiguration undocumented
 type CertificateBasedAuthConfiguration struct {
+	// Entity is the base model of CertificateBasedAuthConfiguration
 	Entity
 	// CertificateAuthorities undocumented
 	CertificateAuthorities []CertificateAuthority `json:"certificateAuthorities,omitempty"`

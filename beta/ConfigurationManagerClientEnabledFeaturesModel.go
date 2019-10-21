@@ -4,6 +4,8 @@ package msgraph
 
 // ConfigurationManagerClientEnabledFeatures undocumented
 type ConfigurationManagerClientEnabledFeatures struct {
+	// Object is the base model of ConfigurationManagerClientEnabledFeatures
+	Object
 	// Inventory Whether inventory is managed by Intune
 	Inventory *bool `json:"inventory,omitempty"`
 	// ModernApps Whether modern application is managed by Intune

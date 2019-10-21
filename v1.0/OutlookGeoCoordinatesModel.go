@@ -4,6 +4,8 @@ package msgraph
 
 // OutlookGeoCoordinates undocumented
 type OutlookGeoCoordinates struct {
+	// Object is the base model of OutlookGeoCoordinates
+	Object
 	// Latitude undocumented
 	Latitude *float64 `json:"latitude,omitempty"`
 	// Longitude undocumented

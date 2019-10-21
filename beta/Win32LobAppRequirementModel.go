@@ -4,6 +4,8 @@ package msgraph
 
 // Win32LobAppRequirement undocumented
 type Win32LobAppRequirement struct {
+	// Object is the base model of Win32LobAppRequirement
+	Object
 	// Operator The operator for detection
 	Operator *Win32LobAppDetectionOperator `json:"operator,omitempty"`
 	// DetectionValue The detection value

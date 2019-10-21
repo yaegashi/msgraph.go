@@ -4,5 +4,6 @@ package msgraph
 
 // ProtectDoNotForwardAction undocumented
 type ProtectDoNotForwardAction struct {
+	// InformationProtectionAction is the base model of ProtectDoNotForwardAction
 	InformationProtectionAction
 }

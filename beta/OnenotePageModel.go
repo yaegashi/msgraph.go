@@ -6,6 +6,7 @@ import "time"
 
 // OnenotePage undocumented
 type OnenotePage struct {
+	// OnenoteEntitySchemaObjectModel is the base model of OnenotePage
 	OnenoteEntitySchemaObjectModel
 	// Title undocumented
 	Title *string `json:"title,omitempty"`

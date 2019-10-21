@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementScriptDeviceState Contains properties for device run state of the device management script.
 type DeviceManagementScriptDeviceState struct {
+	// Entity is the base model of DeviceManagementScriptDeviceState
 	Entity
 	// RunState State of latest run of the device management script.
 	RunState *RunState `json:"runState,omitempty"`

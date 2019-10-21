@@ -4,6 +4,7 @@ package msgraph
 
 // IOSStoreAppAssignmentSettings undocumented
 type IOSStoreAppAssignmentSettings struct {
+	// MobileAppAssignmentSettings is the base model of IOSStoreAppAssignmentSettings
 	MobileAppAssignmentSettings
 	// VpnConfigurationID The VPN Configuration Id to apply for this app.
 	VpnConfigurationID *string `json:"vpnConfigurationId,omitempty"`

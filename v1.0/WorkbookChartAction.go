@@ -31,6 +31,38 @@ type WorkbookChartSetPositionRequestParameter struct {
 }
 
 //
+type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+// Add action undocumented
+func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
+	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartCollectionAddRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
+	return &WorkbookChartCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
+	err = r.JSONRequest(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
 type WorkbookChartSetDataRequestBuilder struct{ BaseRequestBuilder }
 
 // SetData action undocumented
@@ -89,37 +121,5 @@ func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interfa
 
 //
 func (r *WorkbookChartSetPositionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
-type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-// Add action undocumented
-func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
-	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartCollectionAddRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
-	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
 	return r.Do("POST", "", r.requestObject)
 }

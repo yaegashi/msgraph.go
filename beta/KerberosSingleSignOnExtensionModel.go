@@ -4,6 +4,7 @@ package msgraph
 
 // KerberosSingleSignOnExtension undocumented
 type KerberosSingleSignOnExtension struct {
+	// SingleSignOnExtension is the base model of KerberosSingleSignOnExtension
 	SingleSignOnExtension
 	// Realm Gets or sets the case-sensitive realm name for this profile.
 	Realm *string `json:"realm,omitempty"`

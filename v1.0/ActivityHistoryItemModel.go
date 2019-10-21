@@ -6,6 +6,7 @@ import "time"
 
 // ActivityHistoryItem undocumented
 type ActivityHistoryItem struct {
+	// Entity is the base model of ActivityHistoryItem
 	Entity
 	// Status undocumented
 	Status *Status `json:"status,omitempty"`

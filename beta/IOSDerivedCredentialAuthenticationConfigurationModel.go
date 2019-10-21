@@ -4,6 +4,7 @@ package msgraph
 
 // IOSDerivedCredentialAuthenticationConfiguration iOS Derived Credential profile.
 type IOSDerivedCredentialAuthenticationConfiguration struct {
+	// DeviceConfiguration is the base model of IOSDerivedCredentialAuthenticationConfiguration
 	DeviceConfiguration
 	// DerivedCredentialSettings undocumented
 	DerivedCredentialSettings *DeviceManagementDerivedCredentialSettings `json:"derivedCredentialSettings,omitempty"`

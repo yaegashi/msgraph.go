@@ -4,6 +4,8 @@ package msgraph
 
 // NetworkInterface undocumented
 type NetworkInterface struct {
+	// Object is the base model of NetworkInterface
+	Object
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// IPV4Address undocumented

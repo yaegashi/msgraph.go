@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementSettingIntegerConstraint undocumented
 type DeviceManagementSettingIntegerConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingIntegerConstraint
 	DeviceManagementConstraint
 	// MinimumValue The minimum permitted value
 	MinimumValue *int `json:"minimumValue,omitempty"`

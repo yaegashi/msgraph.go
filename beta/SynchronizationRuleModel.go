@@ -4,6 +4,8 @@ package msgraph
 
 // SynchronizationRule undocumented
 type SynchronizationRule struct {
+	// Object is the base model of SynchronizationRule
+	Object
 	// Editable undocumented
 	Editable *bool `json:"editable,omitempty"`
 	// ID undocumented

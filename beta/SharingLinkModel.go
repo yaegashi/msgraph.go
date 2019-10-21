@@ -4,6 +4,8 @@ package msgraph
 
 // SharingLink undocumented
 type SharingLink struct {
+	// Object is the base model of SharingLink
+	Object
 	// Application undocumented
 	Application *Identity `json:"application,omitempty"`
 	// PreventsDownload undocumented

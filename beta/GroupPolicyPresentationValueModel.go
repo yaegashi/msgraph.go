@@ -6,6 +6,7 @@ import "time"
 
 // GroupPolicyPresentationValue The base presentation value entity that stores the value for a single group policy presentation.
 type GroupPolicyPresentationValue struct {
+	// Entity is the base model of GroupPolicyPresentationValue
 	Entity
 	// LastModifiedDateTime The date and time the object was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`

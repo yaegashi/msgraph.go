@@ -4,6 +4,8 @@ package msgraph
 
 // PayloadTypes undocumented
 type PayloadTypes struct {
+	// Object is the base model of PayloadTypes
+	Object
 	// RawContent undocumented
 	RawContent *string `json:"rawContent,omitempty"`
 	// VisualContent undocumented

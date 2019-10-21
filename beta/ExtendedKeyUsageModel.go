@@ -4,6 +4,8 @@ package msgraph
 
 // ExtendedKeyUsage undocumented
 type ExtendedKeyUsage struct {
+	// Object is the base model of ExtendedKeyUsage
+	Object
 	// Name Extended Key Usage Name
 	Name *string `json:"name,omitempty"`
 	// ObjectIdentifier Extended Key Usage Object Identifier

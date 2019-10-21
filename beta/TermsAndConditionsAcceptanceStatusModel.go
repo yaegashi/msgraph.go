@@ -6,6 +6,7 @@ import "time"
 
 // TermsAndConditionsAcceptanceStatus A termsAndConditionsAcceptanceStatus entity represents the acceptance status of a given Terms and Conditions (T&C) policy by a given user. Users must accept the most up-to-date version of the terms in order to retain access to the Company Portal.
 type TermsAndConditionsAcceptanceStatus struct {
+	// Entity is the base model of TermsAndConditionsAcceptanceStatus
 	Entity
 	// UserDisplayName Display name of the user whose acceptance the entity represents.
 	UserDisplayName *string `json:"userDisplayName,omitempty"`

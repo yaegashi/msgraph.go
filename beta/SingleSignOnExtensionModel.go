@@ -4,4 +4,6 @@ package msgraph
 
 // SingleSignOnExtension undocumented
 type SingleSignOnExtension struct {
+	// Object is the base model of SingleSignOnExtension
+	Object
 }

@@ -4,6 +4,8 @@ package msgraph
 
 // TeamsTabConfiguration undocumented
 type TeamsTabConfiguration struct {
+	// Object is the base model of TeamsTabConfiguration
+	Object
 	// EntityID undocumented
 	EntityID *string `json:"entityId,omitempty"`
 	// ContentURL undocumented

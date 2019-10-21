@@ -4,6 +4,8 @@ package msgraph
 
 // RubricQualitySelectedColumnModel undocumented
 type RubricQualitySelectedColumnModel struct {
+	// Object is the base model of RubricQualitySelectedColumnModel
+	Object
 	// QualityID undocumented
 	QualityID *string `json:"qualityId,omitempty"`
 	// ColumnID undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookWorksheetProtection undocumented
 type WorkbookWorksheetProtection struct {
+	// Entity is the base model of WorkbookWorksheetProtection
 	Entity
 	// Options undocumented
 	Options *WorkbookWorksheetProtectionOptions `json:"options,omitempty"`

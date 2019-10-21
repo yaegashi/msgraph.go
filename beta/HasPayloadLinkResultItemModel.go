@@ -4,6 +4,8 @@ package msgraph
 
 // HasPayloadLinkResultItem undocumented
 type HasPayloadLinkResultItem struct {
+	// Object is the base model of HasPayloadLinkResultItem
+	Object
 	// PayloadID Key of the Payload, In the format of Guid.
 	PayloadID *string `json:"payloadId,omitempty"`
 	// HasLink Indicate whether a payload has any link or not.

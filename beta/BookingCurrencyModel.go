@@ -4,6 +4,7 @@ package msgraph
 
 // BookingCurrency undocumented
 type BookingCurrency struct {
+	// Entity is the base model of BookingCurrency
 	Entity
 	// Symbol undocumented
 	Symbol *string `json:"symbol,omitempty"`

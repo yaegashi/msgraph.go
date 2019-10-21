@@ -4,6 +4,7 @@ package msgraph
 
 // DetectedApp A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned.
 type DetectedApp struct {
+	// Entity is the base model of DetectedApp
 	Entity
 	// DisplayName Name of the discovered application. Read-only
 	DisplayName *string `json:"displayName,omitempty"`

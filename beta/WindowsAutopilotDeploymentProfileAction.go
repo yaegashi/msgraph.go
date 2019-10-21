@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequestParameter undocumented
@@ -19,6 +20,37 @@ type WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequestParameter 
 type WindowsAutopilotDeploymentProfileAssignRequestParameter struct {
 	// DeviceIDs undocumented
 	DeviceIDs []string `json:"deviceIds,omitempty"`
+}
+
+//
+type WindowsAutopilotDeploymentProfileAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Assign(reqObj *WindowsAutopilotDeploymentProfileAssignRequestParameter) *WindowsAutopilotDeploymentProfileAssignRequestBuilder {
+	bb := &WindowsAutopilotDeploymentProfileAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WindowsAutopilotDeploymentProfileAssignRequest struct{ BaseRequest }
+
+//
+func (b *WindowsAutopilotDeploymentProfileAssignRequestBuilder) Request() *WindowsAutopilotDeploymentProfileAssignRequest {
+	return &WindowsAutopilotDeploymentProfileAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WindowsAutopilotDeploymentProfileAssignRequest) Do(method, path string, reqObj interface{}) error {
+	return r.JSONRequest(method, path, reqObj, nil)
+}
+
+//
+func (r *WindowsAutopilotDeploymentProfileAssignRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -69,11 +101,11 @@ func (r *WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequest) Pagi
 			paging Paging
 			value  [][]HasPayloadLinkResultItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -95,35 +127,4 @@ func (r *WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequest) Get(
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type WindowsAutopilotDeploymentProfileAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Assign(reqObj *WindowsAutopilotDeploymentProfileAssignRequestParameter) *WindowsAutopilotDeploymentProfileAssignRequestBuilder {
-	bb := &WindowsAutopilotDeploymentProfileAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WindowsAutopilotDeploymentProfileAssignRequest struct{ BaseRequest }
-
-//
-func (b *WindowsAutopilotDeploymentProfileAssignRequestBuilder) Request() *WindowsAutopilotDeploymentProfileAssignRequest {
-	return &WindowsAutopilotDeploymentProfileAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WindowsAutopilotDeploymentProfileAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
-func (r *WindowsAutopilotDeploymentProfileAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
 }

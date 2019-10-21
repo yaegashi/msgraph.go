@@ -6,6 +6,8 @@ import "time"
 
 // UserActivationCounts undocumented
 type UserActivationCounts struct {
+	// Object is the base model of UserActivationCounts
+	Object
 	// ProductType undocumented
 	ProductType *string `json:"productType,omitempty"`
 	// LastActivatedDate undocumented

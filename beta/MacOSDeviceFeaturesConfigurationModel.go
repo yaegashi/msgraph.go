@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSDeviceFeaturesConfiguration MacOS device features configuration profile.
 type MacOSDeviceFeaturesConfiguration struct {
+	// AppleDeviceFeaturesConfigurationBase is the base model of MacOSDeviceFeaturesConfiguration
 	AppleDeviceFeaturesConfigurationBase
 	// AutoLaunchItems List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
 	AutoLaunchItems []MacOSLaunchItem `json:"autoLaunchItems,omitempty"`

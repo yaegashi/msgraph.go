@@ -6,6 +6,7 @@ import "time"
 
 // Permission undocumented
 type Permission struct {
+	// Entity is the base model of Permission
 	Entity
 	// ExpirationDateTime undocumented
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`

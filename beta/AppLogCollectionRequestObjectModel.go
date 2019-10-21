@@ -6,6 +6,7 @@ import "time"
 
 // AppLogCollectionRequestObject AppLogCollectionRequest Entity.
 type AppLogCollectionRequestObject struct {
+	// Entity is the base model of AppLogCollectionRequestObject
 	Entity
 	// Status Log upload status
 	Status *AppLogUploadState `json:"status,omitempty"`

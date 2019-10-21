@@ -4,6 +4,8 @@ package msgraph
 
 // VerifiedDomain undocumented
 type VerifiedDomain struct {
+	// Object is the base model of VerifiedDomain
+	Object
 	// Capabilities undocumented
 	Capabilities *string `json:"capabilities,omitempty"`
 	// IsDefault undocumented

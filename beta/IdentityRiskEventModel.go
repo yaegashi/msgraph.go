@@ -6,6 +6,7 @@ import "time"
 
 // IdentityRiskEvent undocumented
 type IdentityRiskEvent struct {
+	// Entity is the base model of IdentityRiskEvent
 	Entity
 	// UserDisplayName undocumented
 	UserDisplayName *string `json:"userDisplayName,omitempty"`

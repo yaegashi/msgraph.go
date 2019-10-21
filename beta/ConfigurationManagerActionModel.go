@@ -4,6 +4,8 @@ package msgraph
 
 // ConfigurationManagerAction undocumented
 type ConfigurationManagerAction struct {
+	// Object is the base model of ConfigurationManagerAction
+	Object
 	// Action The action type to trigger on Configuration Manager client
 	Action *ConfigurationManagerActionType `json:"action,omitempty"`
 }

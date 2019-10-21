@@ -4,6 +4,7 @@ package msgraph
 
 // Domain undocumented
 type Domain struct {
+	// Entity is the base model of Domain
 	Entity
 	// AuthenticationType undocumented
 	AuthenticationType *string `json:"authenticationType,omitempty"`

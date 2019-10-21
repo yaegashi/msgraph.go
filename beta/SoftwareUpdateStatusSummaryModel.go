@@ -4,6 +4,7 @@ package msgraph
 
 // SoftwareUpdateStatusSummary undocumented
 type SoftwareUpdateStatusSummary struct {
+	// Entity is the base model of SoftwareUpdateStatusSummary
 	Entity
 	// DisplayName The name of the policy.
 	DisplayName *string `json:"displayName,omitempty"`

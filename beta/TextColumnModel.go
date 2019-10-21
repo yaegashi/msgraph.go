@@ -4,6 +4,8 @@ package msgraph
 
 // TextColumn undocumented
 type TextColumn struct {
+	// Object is the base model of TextColumn
+	Object
 	// AllowMultipleLines undocumented
 	AllowMultipleLines *bool `json:"allowMultipleLines,omitempty"`
 	// AppendChangesToExistingText undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // EducationRoot undocumented
 type EducationRoot struct {
+	// Entity is the base model of EducationRoot
 	Entity
 	// Classes undocumented
 	Classes []EducationClass `json:"classes,omitempty"`

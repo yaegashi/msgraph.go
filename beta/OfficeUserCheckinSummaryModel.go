@@ -4,6 +4,8 @@ package msgraph
 
 // OfficeUserCheckinSummary undocumented
 type OfficeUserCheckinSummary struct {
+	// Object is the base model of OfficeUserCheckinSummary
+	Object
 	// SucceededUserCount undocumented
 	SucceededUserCount *int `json:"succeededUserCount,omitempty"`
 	// FailedUserCount undocumented

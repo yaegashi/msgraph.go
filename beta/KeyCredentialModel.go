@@ -6,6 +6,8 @@ import "time"
 
 // KeyCredential undocumented
 type KeyCredential struct {
+	// Object is the base model of KeyCredential
+	Object
 	// CustomKeyIdentifier undocumented
 	CustomKeyIdentifier *Binary `json:"customKeyIdentifier,omitempty"`
 	// EndDateTime undocumented

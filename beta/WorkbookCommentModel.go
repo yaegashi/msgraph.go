@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookComment undocumented
 type WorkbookComment struct {
+	// Entity is the base model of WorkbookComment
 	Entity
 	// Content undocumented
 	Content *string `json:"content,omitempty"`

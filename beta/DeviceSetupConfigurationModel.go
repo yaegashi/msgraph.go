@@ -6,6 +6,7 @@ import "time"
 
 // DeviceSetupConfiguration This is the base class for Setup Configuration. Setup configurations are platform specific and individual per-platform setup configurations inherit from here.
 type DeviceSetupConfiguration struct {
+	// Entity is the base model of DeviceSetupConfiguration
 	Entity
 	// CreatedDateTime DateTime the object was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

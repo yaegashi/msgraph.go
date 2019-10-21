@@ -4,6 +4,8 @@ package msgraph
 
 // UserRegistrationCount undocumented
 type UserRegistrationCount struct {
+	// Object is the base model of UserRegistrationCount
+	Object
 	// RegistrationStatus undocumented
 	RegistrationStatus *RegistrationStatusType `json:"registrationStatus,omitempty"`
 	// RegistrationCount undocumented

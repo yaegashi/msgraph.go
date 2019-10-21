@@ -6,6 +6,7 @@ import "time"
 
 // TaxArea undocumented
 type TaxArea struct {
+	// Entity is the base model of TaxArea
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

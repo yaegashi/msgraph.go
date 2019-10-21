@@ -4,6 +4,7 @@ package msgraph
 
 // MailSearchFolder undocumented
 type MailSearchFolder struct {
+	// MailFolder is the base model of MailSearchFolder
 	MailFolder
 	// IsSupported undocumented
 	IsSupported *bool `json:"isSupported,omitempty"`

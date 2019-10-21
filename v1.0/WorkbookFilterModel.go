@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookFilter undocumented
 type WorkbookFilter struct {
+	// Entity is the base model of WorkbookFilter
 	Entity
 	// Criteria undocumented
 	Criteria *WorkbookFilterCriteria `json:"criteria,omitempty"`

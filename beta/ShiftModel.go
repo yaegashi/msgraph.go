@@ -4,6 +4,7 @@ package msgraph
 
 // Shift undocumented
 type Shift struct {
+	// ChangeTrackedEntity is the base model of Shift
 	ChangeTrackedEntity
 	// SharedShift undocumented
 	SharedShift *ShiftItem `json:"sharedShift,omitempty"`

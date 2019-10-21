@@ -6,6 +6,7 @@ import "time"
 
 // PrivilegedOperationEvent undocumented
 type PrivilegedOperationEvent struct {
+	// Entity is the base model of PrivilegedOperationEvent
 	Entity
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`

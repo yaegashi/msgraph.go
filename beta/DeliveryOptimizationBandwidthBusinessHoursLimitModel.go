@@ -4,6 +4,8 @@ package msgraph
 
 // DeliveryOptimizationBandwidthBusinessHoursLimit undocumented
 type DeliveryOptimizationBandwidthBusinessHoursLimit struct {
+	// Object is the base model of DeliveryOptimizationBandwidthBusinessHoursLimit
+	Object
 	// BandwidthBeginBusinessHours Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
 	BandwidthBeginBusinessHours *int `json:"bandwidthBeginBusinessHours,omitempty"`
 	// BandwidthEndBusinessHours Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23

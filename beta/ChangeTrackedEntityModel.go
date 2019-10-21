@@ -6,6 +6,7 @@ import "time"
 
 // ChangeTrackedEntity undocumented
 type ChangeTrackedEntity struct {
+	// Entity is the base model of ChangeTrackedEntity
 	Entity
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

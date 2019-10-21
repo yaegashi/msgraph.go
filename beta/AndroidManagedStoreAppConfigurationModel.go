@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidManagedStoreAppConfiguration Contains properties, inherited properties and actions for Android Enterprise mobile app configurations.
 type AndroidManagedStoreAppConfiguration struct {
+	// ManagedDeviceMobileAppConfiguration is the base model of AndroidManagedStoreAppConfiguration
 	ManagedDeviceMobileAppConfiguration
 	// PackageID Android Enterprise app configuration package id.
 	PackageID *string `json:"packageId,omitempty"`

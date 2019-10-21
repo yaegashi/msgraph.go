@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementIntentUserStateSummary Entity that represents user state summary for an intent
 type DeviceManagementIntentUserStateSummary struct {
+	// Entity is the base model of DeviceManagementIntentUserStateSummary
 	Entity
 	// ConflictCount Number of users in conflict
 	ConflictCount *int `json:"conflictCount,omitempty"`

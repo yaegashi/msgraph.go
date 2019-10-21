@@ -6,6 +6,7 @@ import "time"
 
 // RemoteActionAudit Report of remote actions initiated on the devices belonging to a certain tenant.
 type RemoteActionAudit struct {
+	// Entity is the base model of RemoteActionAudit
 	Entity
 	// DeviceDisplayName Intune device name.
 	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`

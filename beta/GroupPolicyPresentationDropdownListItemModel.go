@@ -4,6 +4,8 @@ package msgraph
 
 // GroupPolicyPresentationDropdownListItem undocumented
 type GroupPolicyPresentationDropdownListItem struct {
+	// Object is the base model of GroupPolicyPresentationDropdownListItem
+	Object
 	// DisplayName Localized display name for the drop-down list item.
 	DisplayName *string `json:"displayName,omitempty"`
 	// Value Associated value for the drop-down list item

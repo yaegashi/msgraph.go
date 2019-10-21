@@ -4,6 +4,7 @@ package msgraph
 
 // UnifiedRoleDefinition undocumented
 type UnifiedRoleDefinition struct {
+	// Entity is the base model of UnifiedRoleDefinition
 	Entity
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

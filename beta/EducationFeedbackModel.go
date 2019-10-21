@@ -6,6 +6,8 @@ import "time"
 
 // EducationFeedback undocumented
 type EducationFeedback struct {
+	// Object is the base model of EducationFeedback
+	Object
 	// Text undocumented
 	Text *EducationItemBody `json:"text,omitempty"`
 	// FeedbackDateTime undocumented

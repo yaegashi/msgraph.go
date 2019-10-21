@@ -4,6 +4,7 @@ package msgraph
 
 // AccessPackageResourceRole undocumented
 type AccessPackageResourceRole struct {
+	// Entity is the base model of AccessPackageResourceRole
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

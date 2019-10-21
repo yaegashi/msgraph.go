@@ -4,6 +4,7 @@ package msgraph
 
 // TermsAndConditionsGroupAssignment A termsAndConditionsGroupAssignment entity represents the assignment of a given Terms and Conditions (T&C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune.
 type TermsAndConditionsGroupAssignment struct {
+	// Entity is the base model of TermsAndConditionsGroupAssignment
 	Entity
 	// TargetGroupID Unique identifier of a group that the T&C policy is assigned to.
 	TargetGroupID *string `json:"targetGroupId,omitempty"`

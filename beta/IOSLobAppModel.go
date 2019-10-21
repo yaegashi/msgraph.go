@@ -6,6 +6,7 @@ import "time"
 
 // IOSLobApp Contains properties and inherited properties for iOS Line Of Business apps.
 type IOSLobApp struct {
+	// MobileLobApp is the base model of IOSLobApp
 	MobileLobApp
 	// BundleID The Identity Name.
 	BundleID *string `json:"bundleId,omitempty"`

@@ -4,4 +4,6 @@ package msgraph
 
 // EntitySetNames undocumented
 type EntitySetNames struct {
+	// Object is the base model of EntitySetNames
+	Object
 }

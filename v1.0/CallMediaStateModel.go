@@ -4,6 +4,8 @@ package msgraph
 
 // CallMediaState undocumented
 type CallMediaState struct {
+	// Object is the base model of CallMediaState
+	Object
 	// Audio undocumented
 	Audio *MediaState `json:"audio,omitempty"`
 }

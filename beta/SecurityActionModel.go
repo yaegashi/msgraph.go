@@ -6,6 +6,7 @@ import "time"
 
 // SecurityAction undocumented
 type SecurityAction struct {
+	// Entity is the base model of SecurityAction
 	Entity
 	// ActionReason undocumented
 	ActionReason *string `json:"actionReason,omitempty"`

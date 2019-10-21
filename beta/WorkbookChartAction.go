@@ -4,16 +4,6 @@ package msgraph
 
 import "encoding/json"
 
-// WorkbookChartCollectionAddRequestParameter undocumented
-type WorkbookChartCollectionAddRequestParameter struct {
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// SourceData undocumented
-	SourceData json.RawMessage `json:"sourceData,omitempty"`
-	// SeriesBy undocumented
-	SeriesBy *string `json:"seriesBy,omitempty"`
-}
-
 // WorkbookChartSetDataRequestParameter undocumented
 type WorkbookChartSetDataRequestParameter struct {
 	// SourceData undocumented
@@ -30,36 +20,14 @@ type WorkbookChartSetPositionRequestParameter struct {
 	EndCell json.RawMessage `json:"endCell,omitempty"`
 }
 
-//
-type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-// Add action undocumented
-func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
-	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartCollectionAddRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
-	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
-	return r.Do("POST", "", r.requestObject)
+// WorkbookChartCollectionAddRequestParameter undocumented
+type WorkbookChartCollectionAddRequestParameter struct {
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// SourceData undocumented
+	SourceData json.RawMessage `json:"sourceData,omitempty"`
+	// SeriesBy undocumented
+	SeriesBy *string `json:"seriesBy,omitempty"`
 }
 
 //
@@ -121,5 +89,37 @@ func (r *WorkbookChartSetPositionRequest) Do(method, path string, reqObj interfa
 
 //
 func (r *WorkbookChartSetPositionRequest) Post() error {
+	return r.Do("POST", "", r.requestObject)
+}
+
+//
+type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+// Add action undocumented
+func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
+	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartCollectionAddRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
+	return &WorkbookChartCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
+	err = r.JSONRequest(method, path, reqObj, &resObj)
+	return
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Post() (*WorkbookChart, error) {
 	return r.Do("POST", "", r.requestObject)
 }

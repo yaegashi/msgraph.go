@@ -6,6 +6,7 @@ import "time"
 
 // IOSUpdateConfiguration IOS Update Configuration, allows you to configure time window within week to install iOS updates
 type IOSUpdateConfiguration struct {
+	// DeviceConfiguration is the base model of IOSUpdateConfiguration
 	DeviceConfiguration
 	// ActiveHoursStart Active Hours Start (active hours mean the time window when updates install should not happen)
 	ActiveHoursStart *time.Time `json:"activeHoursStart,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10EnrollmentCompletionPageConfiguration Windows 10 Enrollment Status Page Configuration
 type Windows10EnrollmentCompletionPageConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of Windows10EnrollmentCompletionPageConfiguration
 	DeviceEnrollmentConfiguration
 	// ShowInstallationProgress Show or hide installation progress to user
 	ShowInstallationProgress *bool `json:"showInstallationProgress,omitempty"`

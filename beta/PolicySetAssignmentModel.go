@@ -6,6 +6,7 @@ import "time"
 
 // PolicySetAssignment A class containing the properties used for PolicySet Assignment.
 type PolicySetAssignment struct {
+	// Entity is the base model of PolicySetAssignment
 	Entity
 	// LastModifiedDateTime Last modified time of the PolicySetAssignment.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`

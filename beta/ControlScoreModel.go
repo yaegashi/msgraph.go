@@ -4,6 +4,8 @@ package msgraph
 
 // ControlScore undocumented
 type ControlScore struct {
+	// Object is the base model of ControlScore
+	Object
 	// ControlCategory undocumented
 	ControlCategory *string `json:"controlCategory,omitempty"`
 	// ControlName undocumented

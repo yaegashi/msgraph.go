@@ -6,6 +6,7 @@ import "time"
 
 // ManagedDeviceMobileAppConfigurationUserSummary Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary.
 type ManagedDeviceMobileAppConfigurationUserSummary struct {
+	// Entity is the base model of ManagedDeviceMobileAppConfigurationUserSummary
 	Entity
 	// PendingCount Number of pending Users
 	PendingCount *int `json:"pendingCount,omitempty"`

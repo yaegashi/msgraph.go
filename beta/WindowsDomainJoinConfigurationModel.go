@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDomainJoinConfiguration Windows Domain Join device configuration.
 type WindowsDomainJoinConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsDomainJoinConfiguration
 	DeviceConfiguration
 	// ComputerNameStaticPrefix Fixed prefix to be used for computer name.
 	ComputerNameStaticPrefix *string `json:"computerNameStaticPrefix,omitempty"`

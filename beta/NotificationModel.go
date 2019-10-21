@@ -6,6 +6,7 @@ import "time"
 
 // Notification undocumented
 type Notification struct {
+	// Entity is the base model of Notification
 	Entity
 	// TargetHostName undocumented
 	TargetHostName *string `json:"targetHostName,omitempty"`

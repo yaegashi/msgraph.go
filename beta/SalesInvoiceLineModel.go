@@ -6,6 +6,7 @@ import "time"
 
 // SalesInvoiceLine undocumented
 type SalesInvoiceLine struct {
+	// Entity is the base model of SalesInvoiceLine
 	Entity
 	// DocumentID undocumented
 	DocumentID *UUID `json:"documentId,omitempty"`

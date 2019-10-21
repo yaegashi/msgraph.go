@@ -4,6 +4,8 @@ package msgraph
 
 // AutomaticRepliesMailTips undocumented
 type AutomaticRepliesMailTips struct {
+	// Object is the base model of AutomaticRepliesMailTips
+	Object
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
 	// MessageLanguage undocumented

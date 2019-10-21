@@ -4,5 +4,6 @@ package msgraph
 
 // UnfamiliarLocationRiskEvent undocumented
 type UnfamiliarLocationRiskEvent struct {
+	// LocatedRiskEvent is the base model of UnfamiliarLocationRiskEvent
 	LocatedRiskEvent
 }

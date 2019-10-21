@@ -6,6 +6,7 @@ import "time"
 
 // MobileApp An abstract class containing the base properties for Intune mobile apps.
 type MobileApp struct {
+	// Entity is the base model of MobileApp
 	Entity
 	// DisplayName The admin provided or imported title of the app.
 	DisplayName *string `json:"displayName,omitempty"`

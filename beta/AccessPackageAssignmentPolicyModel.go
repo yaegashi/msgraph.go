@@ -6,6 +6,7 @@ import "time"
 
 // AccessPackageAssignmentPolicy undocumented
 type AccessPackageAssignmentPolicy struct {
+	// Entity is the base model of AccessPackageAssignmentPolicy
 	Entity
 	// UserType undocumented
 	UserType *string `json:"userType,omitempty"`

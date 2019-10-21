@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerExternalReferences undocumented
 type PlannerExternalReferences struct {
+	// Object is the base model of PlannerExternalReferences
+	Object
 }

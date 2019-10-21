@@ -4,6 +4,8 @@ package msgraph
 
 // PhysicalAddress undocumented
 type PhysicalAddress struct {
+	// Object is the base model of PhysicalAddress
+	Object
 	// Type undocumented
 	Type *PhysicalAddressType `json:"type,omitempty"`
 	// PostOfficeBox undocumented

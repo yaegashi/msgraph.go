@@ -6,6 +6,7 @@ import "time"
 
 // TelecomExpenseManagementPartner telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off.
 type TelecomExpenseManagementPartner struct {
+	// Entity is the base model of TelecomExpenseManagementPartner
 	Entity
 	// DisplayName Display name of the TEM partner.
 	DisplayName *string `json:"displayName,omitempty"`

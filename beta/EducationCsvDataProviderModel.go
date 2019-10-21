@@ -4,6 +4,7 @@ package msgraph
 
 // EducationCsvDataProvider undocumented
 type EducationCsvDataProvider struct {
+	// EducationSynchronizationDataProvider is the base model of EducationCsvDataProvider
 	EducationSynchronizationDataProvider
 	// Customizations undocumented
 	Customizations *EducationSynchronizationCustomizations `json:"customizations,omitempty"`

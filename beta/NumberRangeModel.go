@@ -4,6 +4,8 @@ package msgraph
 
 // NumberRange undocumented
 type NumberRange struct {
+	// Object is the base model of NumberRange
+	Object
 	// LowerNumber Lower number.
 	LowerNumber *int `json:"lowerNumber,omitempty"`
 	// UpperNumber Upper number.

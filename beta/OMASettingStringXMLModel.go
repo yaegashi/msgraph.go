@@ -4,6 +4,7 @@ package msgraph
 
 // OMASettingStringXML undocumented
 type OMASettingStringXML struct {
+	// OMASetting is the base model of OMASettingStringXML
 	OMASetting
 	// FileName File name associated with the Value property (*.xml).
 	FileName *string `json:"fileName,omitempty"`

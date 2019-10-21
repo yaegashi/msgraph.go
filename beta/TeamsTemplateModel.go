@@ -4,5 +4,6 @@ package msgraph
 
 // TeamsTemplate undocumented
 type TeamsTemplate struct {
+	// Entity is the base model of TeamsTemplate
 	Entity
 }

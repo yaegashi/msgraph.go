@@ -6,6 +6,8 @@ import "time"
 
 // OnPremisesProvisioningError undocumented
 type OnPremisesProvisioningError struct {
+	// Object is the base model of OnPremisesProvisioningError
+	Object
 	// Value undocumented
 	Value *string `json:"value,omitempty"`
 	// Category undocumented

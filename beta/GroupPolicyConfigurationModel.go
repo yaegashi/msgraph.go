@@ -6,6 +6,7 @@ import "time"
 
 // GroupPolicyConfiguration The group policy configuration entity contains the configured values for one or more group policy definitions.
 type GroupPolicyConfiguration struct {
+	// Entity is the base model of GroupPolicyConfiguration
 	Entity
 	// CreatedDateTime The date and time the object was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

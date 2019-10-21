@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppTroubleshootingAppTargetHistory undocumented
 type MobileAppTroubleshootingAppTargetHistory struct {
+	// MobileAppTroubleshootingHistoryItem is the base model of MobileAppTroubleshootingAppTargetHistory
 	MobileAppTroubleshootingHistoryItem
 	// SecurityGroupID AAD security group id to which it was targeted.
 	SecurityGroupID *string `json:"securityGroupId,omitempty"`

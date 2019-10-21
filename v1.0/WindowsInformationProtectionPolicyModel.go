@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsInformationProtectionPolicy Policy for Windows information protection without MDM
 type WindowsInformationProtectionPolicy struct {
+	// WindowsInformationProtection is the base model of WindowsInformationProtectionPolicy
 	WindowsInformationProtection
 	// RevokeOnMdmHandoffDisabled New property in RS2, pending documentation
 	RevokeOnMdmHandoffDisabled *bool `json:"revokeOnMdmHandoffDisabled,omitempty"`

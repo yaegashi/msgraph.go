@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsEnrollmentStatusScreenSettings undocumented
 type WindowsEnrollmentStatusScreenSettings struct {
+	// Object is the base model of WindowsEnrollmentStatusScreenSettings
+	Object
 	// HideInstallationProgress Show or hide installation progress to user
 	HideInstallationProgress *bool `json:"hideInstallationProgress,omitempty"`
 	// AllowDeviceUseBeforeProfileAndAppInstallComplete Allow or block user to use device before profile and app installation complete

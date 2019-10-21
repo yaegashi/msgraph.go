@@ -4,6 +4,8 @@ package msgraph
 
 // BitLockerRemovableDrivePolicy undocumented
 type BitLockerRemovableDrivePolicy struct {
+	// Object is the base model of BitLockerRemovableDrivePolicy
+	Object
 	// EncryptionMethod Select the encryption method for removable  drives.
 	EncryptionMethod *BitLockerEncryptionMethod `json:"encryptionMethod,omitempty"`
 	// RequireEncryptionForWriteAccess Indicates whether to block write access to devices configured in another organization.  If requireEncryptionForWriteAccess is false, this value does not affect.

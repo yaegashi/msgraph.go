@@ -6,6 +6,7 @@ import "time"
 
 // Group undocumented
 type Group struct {
+	// DirectoryObject is the base model of Group
 	DirectoryObject
 	// AssignedLabels undocumented
 	AssignedLabels []AssignedLabel `json:"assignedLabels,omitempty"`

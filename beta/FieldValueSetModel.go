@@ -4,5 +4,6 @@ package msgraph
 
 // FieldValueSet undocumented
 type FieldValueSet struct {
+	// Entity is the base model of FieldValueSet
 	Entity
 }

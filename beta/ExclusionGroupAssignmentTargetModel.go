@@ -4,5 +4,6 @@ package msgraph
 
 // ExclusionGroupAssignmentTarget undocumented
 type ExclusionGroupAssignmentTarget struct {
+	// GroupAssignmentTarget is the base model of ExclusionGroupAssignmentTarget
 	GroupAssignmentTarget
 }

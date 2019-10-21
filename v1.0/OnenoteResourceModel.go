@@ -4,6 +4,7 @@ package msgraph
 
 // OnenoteResource undocumented
 type OnenoteResource struct {
+	// OnenoteEntityBaseModel is the base model of OnenoteResource
 	OnenoteEntityBaseModel
 	// Content undocumented
 	Content *Stream `json:"content,omitempty"`

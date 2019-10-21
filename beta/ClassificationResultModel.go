@@ -4,6 +4,8 @@ package msgraph
 
 // ClassificationResult undocumented
 type ClassificationResult struct {
+	// Object is the base model of ClassificationResult
+	Object
 	// SensitiveTypeID undocumented
 	SensitiveTypeID *UUID `json:"sensitiveTypeId,omitempty"`
 	// Count undocumented

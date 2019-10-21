@@ -4,5 +4,6 @@ package msgraph
 
 // TrustFrameworkPolicy undocumented
 type TrustFrameworkPolicy struct {
+	// Entity is the base model of TrustFrameworkPolicy
 	Entity
 }

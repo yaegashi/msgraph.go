@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedIOSStoreApp Contains properties and inherited properties for an iOS store app that you can manage with an Intune app protection policy.
 type ManagedIOSStoreApp struct {
+	// ManagedApp is the base model of ManagedIOSStoreApp
 	ManagedApp
 	// BundleID The app's Bundle ID.
 	BundleID *string `json:"bundleId,omitempty"`

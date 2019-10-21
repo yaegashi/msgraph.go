@@ -4,6 +4,8 @@ package msgraph
 
 // DetectedSensitiveContentWrapper undocumented
 type DetectedSensitiveContentWrapper struct {
+	// Object is the base model of DetectedSensitiveContentWrapper
+	Object
 	// Classification undocumented
 	Classification []DetectedSensitiveContent `json:"classification,omitempty"`
 }

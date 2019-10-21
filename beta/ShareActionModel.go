@@ -4,6 +4,8 @@ package msgraph
 
 // ShareAction undocumented
 type ShareAction struct {
+	// Object is the base model of ShareAction
+	Object
 	// Recipients undocumented
 	Recipients []IdentitySet `json:"recipients,omitempty"`
 }

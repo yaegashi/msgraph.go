@@ -4,6 +4,8 @@ package msgraph
 
 // ObjectIdentity undocumented
 type ObjectIdentity struct {
+	// Object is the base model of ObjectIdentity
+	Object
 	// SignInType undocumented
 	SignInType *string `json:"signInType,omitempty"`
 	// Issuer undocumented

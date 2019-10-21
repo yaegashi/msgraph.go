@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81VpnProxyServer undocumented
 type Windows81VpnProxyServer struct {
+	// VpnProxyServer is the base model of Windows81VpnProxyServer
 	VpnProxyServer
 	// AutomaticallyDetectProxySettings Automatically detect proxy settings.
 	AutomaticallyDetectProxySettings *bool `json:"automaticallyDetectProxySettings,omitempty"`

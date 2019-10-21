@@ -4,6 +4,7 @@ package msgraph
 
 // DirectorySetting undocumented
 type DirectorySetting struct {
+	// Entity is the base model of DirectorySetting
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

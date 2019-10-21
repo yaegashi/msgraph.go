@@ -6,6 +6,8 @@ import "time"
 
 // WindowsKioskForceUpdateSchedule undocumented
 type WindowsKioskForceUpdateSchedule struct {
+	// Object is the base model of WindowsKioskForceUpdateSchedule
+	Object
 	// StartDateTime The start time for the force restart.
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// Recurrence Recurrence schedule.

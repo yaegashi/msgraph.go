@@ -6,6 +6,7 @@ import "time"
 
 // Windows10GeneralConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10GeneralConfiguration resource.
 type Windows10GeneralConfiguration struct {
+	// DeviceConfiguration is the base model of Windows10GeneralConfiguration
 	DeviceConfiguration
 	// TaskManagerBlockEndTask Specify whether non-administrators can use Task Manager to end tasks.
 	TaskManagerBlockEndTask *bool `json:"taskManagerBlockEndTask,omitempty"`

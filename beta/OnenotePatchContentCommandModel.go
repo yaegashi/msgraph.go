@@ -4,6 +4,8 @@ package msgraph
 
 // OnenotePatchContentCommand undocumented
 type OnenotePatchContentCommand struct {
+	// Object is the base model of OnenotePatchContentCommand
+	Object
 	// Action undocumented
 	Action *OnenotePatchActionType `json:"action,omitempty"`
 	// Target undocumented

@@ -6,6 +6,8 @@ import "time"
 
 // PlannerRecentPlanReference undocumented
 type PlannerRecentPlanReference struct {
+	// Object is the base model of PlannerRecentPlanReference
+	Object
 	// LastAccessedDateTime undocumented
 	LastAccessedDateTime *time.Time `json:"lastAccessedDateTime,omitempty"`
 	// PlanTitle undocumented

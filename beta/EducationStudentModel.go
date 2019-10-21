@@ -6,6 +6,8 @@ import "time"
 
 // EducationStudent undocumented
 type EducationStudent struct {
+	// Object is the base model of EducationStudent
+	Object
 	// GraduationYear undocumented
 	GraduationYear *string `json:"graduationYear,omitempty"`
 	// Grade undocumented

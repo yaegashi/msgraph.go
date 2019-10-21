@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceCompliancePolicyDeviceStateSummary undocumented
 type DeviceCompliancePolicyDeviceStateSummary struct {
+	// Entity is the base model of DeviceCompliancePolicyDeviceStateSummary
 	Entity
 	// InGracePeriodCount Number of devices that are in grace period
 	InGracePeriodCount *int `json:"inGracePeriodCount,omitempty"`

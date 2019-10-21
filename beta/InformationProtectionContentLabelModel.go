@@ -6,6 +6,8 @@ import "time"
 
 // InformationProtectionContentLabel undocumented
 type InformationProtectionContentLabel struct {
+	// Object is the base model of InformationProtectionContentLabel
+	Object
 	// CreationDateTime undocumented
 	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
 	// AssignmentMethod undocumented

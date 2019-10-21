@@ -4,6 +4,7 @@ package msgraph
 
 // VppTokenRevokeLicensesActionResult undocumented
 type VppTokenRevokeLicensesActionResult struct {
+	// VppTokenActionResult is the base model of VppTokenRevokeLicensesActionResult
 	VppTokenActionResult
 	// TotalLicensesCount A count of the number of licenses that were attempted to revoke.
 	TotalLicensesCount *int `json:"totalLicensesCount,omitempty"`

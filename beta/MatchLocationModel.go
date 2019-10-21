@@ -4,6 +4,8 @@ package msgraph
 
 // MatchLocation undocumented
 type MatchLocation struct {
+	// Object is the base model of MatchLocation
+	Object
 	// Length undocumented
 	Length *int `json:"length,omitempty"`
 	// Offset undocumented

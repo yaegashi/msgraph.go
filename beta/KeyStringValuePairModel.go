@@ -4,6 +4,7 @@ package msgraph
 
 // KeyStringValuePair undocumented
 type KeyStringValuePair struct {
+	// KeyTypedValuePair is the base model of KeyStringValuePair
 	KeyTypedValuePair
 	// Value The string value of the key-value pair.
 	Value *string `json:"value,omitempty"`

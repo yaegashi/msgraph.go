@@ -6,6 +6,7 @@ import "time"
 
 // DeviceEnrollmentConfiguration The Base Class of Device Enrollment Configuration
 type DeviceEnrollmentConfiguration struct {
+	// Entity is the base model of DeviceEnrollmentConfiguration
 	Entity
 	// DisplayName The display name of the device enrollment configuration
 	DisplayName *string `json:"displayName,omitempty"`

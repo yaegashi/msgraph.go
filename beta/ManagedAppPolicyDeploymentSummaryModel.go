@@ -6,6 +6,7 @@ import "time"
 
 // ManagedAppPolicyDeploymentSummary The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
 type ManagedAppPolicyDeploymentSummary struct {
+	// Entity is the base model of ManagedAppPolicyDeploymentSummary
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

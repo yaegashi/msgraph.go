@@ -6,6 +6,7 @@ import "time"
 
 // ImportedAppleDeviceIdentity The importedAppleDeviceIdentity resource represents the imported device identity of an Apple device .
 type ImportedAppleDeviceIdentity struct {
+	// Entity is the base model of ImportedAppleDeviceIdentity
 	Entity
 	// SerialNumber Device serial number
 	SerialNumber *string `json:"serialNumber,omitempty"`

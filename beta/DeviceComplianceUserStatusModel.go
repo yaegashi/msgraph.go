@@ -6,6 +6,7 @@ import "time"
 
 // DeviceComplianceUserStatus undocumented
 type DeviceComplianceUserStatus struct {
+	// Entity is the base model of DeviceComplianceUserStatus
 	Entity
 	// UserDisplayName User name of the DevicePolicyStatus.
 	UserDisplayName *string `json:"userDisplayName,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // MessageRulePredicates undocumented
 type MessageRulePredicates struct {
+	// Object is the base model of MessageRulePredicates
+	Object
 	// Categories undocumented
 	Categories []string `json:"categories,omitempty"`
 	// SubjectContains undocumented

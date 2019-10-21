@@ -4,5 +4,6 @@ package msgraph
 
 // MacManagedAppProtection undocumented
 type MacManagedAppProtection struct {
+	// Entity is the base model of MacManagedAppProtection
 	Entity
 }

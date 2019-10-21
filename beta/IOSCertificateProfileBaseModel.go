@@ -4,6 +4,7 @@ package msgraph
 
 // IOSCertificateProfileBase iOS certificate profile base.
 type IOSCertificateProfileBase struct {
+	// IOSCertificateProfile is the base model of IOSCertificateProfileBase
 	IOSCertificateProfile
 	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
 	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`

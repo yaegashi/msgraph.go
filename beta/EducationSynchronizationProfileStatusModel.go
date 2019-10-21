@@ -6,6 +6,7 @@ import "time"
 
 // EducationSynchronizationProfileStatus undocumented
 type EducationSynchronizationProfileStatus struct {
+	// Entity is the base model of EducationSynchronizationProfileStatus
 	Entity
 	// Status undocumented
 	Status *EducationSynchronizationStatus `json:"status,omitempty"`

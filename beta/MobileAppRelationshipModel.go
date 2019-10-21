@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppRelationship Describes the relationship for a child mobile app to its parent mobile app.
 type MobileAppRelationship struct {
+	// Entity is the base model of MobileAppRelationship
 	Entity
 	// TargetID The target child mobile app's app id.
 	TargetID *string `json:"targetId,omitempty"`

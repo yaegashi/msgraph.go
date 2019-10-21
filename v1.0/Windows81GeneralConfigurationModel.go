@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81GeneralConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the windows81GeneralConfiguration resource.
 type Windows81GeneralConfiguration struct {
+	// DeviceConfiguration is the base model of Windows81GeneralConfiguration
 	DeviceConfiguration
 	// AccountsBlockAddingNonMicrosoftAccountEmail Indicates whether or not to Block the user from adding email accounts to the device that are not associated with a Microsoft account.
 	AccountsBlockAddingNonMicrosoftAccountEmail *bool `json:"accountsBlockAddingNonMicrosoftAccountEmail,omitempty"`

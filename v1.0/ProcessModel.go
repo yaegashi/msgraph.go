@@ -6,6 +6,8 @@ import "time"
 
 // Process undocumented
 type Process struct {
+	// Object is the base model of Process
+	Object
 	// AccountName undocumented
 	AccountName *string `json:"accountName,omitempty"`
 	// CommandLine undocumented

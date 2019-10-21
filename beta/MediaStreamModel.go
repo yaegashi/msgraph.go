@@ -4,6 +4,8 @@ package msgraph
 
 // MediaStream undocumented
 type MediaStream struct {
+	// Object is the base model of MediaStream
+	Object
 	// MediaType undocumented
 	MediaType *Modality `json:"mediaType,omitempty"`
 	// Label undocumented

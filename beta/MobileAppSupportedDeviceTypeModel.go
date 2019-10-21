@@ -4,6 +4,8 @@ package msgraph
 
 // MobileAppSupportedDeviceType undocumented
 type MobileAppSupportedDeviceType struct {
+	// Object is the base model of MobileAppSupportedDeviceType
+	Object
 	// Type Device type
 	Type *DeviceType `json:"type,omitempty"`
 	// MinimumOperatingSystemVersion Minimum OS version

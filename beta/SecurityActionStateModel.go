@@ -6,6 +6,8 @@ import "time"
 
 // SecurityActionState undocumented
 type SecurityActionState struct {
+	// Object is the base model of SecurityActionState
+	Object
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`
 	// Status undocumented

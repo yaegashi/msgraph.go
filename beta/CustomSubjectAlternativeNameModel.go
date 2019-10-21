@@ -4,6 +4,8 @@ package msgraph
 
 // CustomSubjectAlternativeName undocumented
 type CustomSubjectAlternativeName struct {
+	// Object is the base model of CustomSubjectAlternativeName
+	Object
 	// SanType Custom SAN Type.
 	SanType *SubjectAlternativeNameType `json:"sanType,omitempty"`
 	// Name Custom SAN Name

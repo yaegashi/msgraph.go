@@ -6,6 +6,7 @@ import "time"
 
 // Vendor undocumented
 type Vendor struct {
+	// Entity is the base model of Vendor
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

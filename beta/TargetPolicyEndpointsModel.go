@@ -4,6 +4,8 @@ package msgraph
 
 // TargetPolicyEndpoints undocumented
 type TargetPolicyEndpoints struct {
+	// Object is the base model of TargetPolicyEndpoints
+	Object
 	// PlatformTypes undocumented
 	PlatformTypes []string `json:"platformTypes,omitempty"`
 }

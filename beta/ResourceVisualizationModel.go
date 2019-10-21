@@ -4,6 +4,8 @@ package msgraph
 
 // ResourceVisualization undocumented
 type ResourceVisualization struct {
+	// Object is the base model of ResourceVisualization
+	Object
 	// Title undocumented
 	Title *string `json:"title,omitempty"`
 	// Type undocumented

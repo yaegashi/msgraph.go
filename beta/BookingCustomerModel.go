@@ -4,5 +4,6 @@ package msgraph
 
 // BookingCustomer Represents a customer of the business.
 type BookingCustomer struct {
+	// BookingPerson is the base model of BookingCustomer
 	BookingPerson
 }

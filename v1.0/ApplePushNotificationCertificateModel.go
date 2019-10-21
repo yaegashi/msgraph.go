@@ -6,6 +6,7 @@ import "time"
 
 // ApplePushNotificationCertificate Apple push notification certificate.
 type ApplePushNotificationCertificate struct {
+	// Entity is the base model of ApplePushNotificationCertificate
 	Entity
 	// AppleIdentifier Apple Id of the account used to create the MDM push certificate.
 	AppleIdentifier *string `json:"appleIdentifier,omitempty"`

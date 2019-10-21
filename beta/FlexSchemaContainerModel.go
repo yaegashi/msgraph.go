@@ -4,4 +4,6 @@ package msgraph
 
 // FlexSchemaContainer undocumented
 type FlexSchemaContainer struct {
+	// Object is the base model of FlexSchemaContainer
+	Object
 }

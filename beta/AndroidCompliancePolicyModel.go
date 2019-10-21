@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidCompliancePolicy This class contains compliance settings for Android.
 type AndroidCompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of AndroidCompliancePolicy
 	DeviceCompliancePolicy
 	// PasswordRequired Require a password to unlock device.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // PlannerChecklistItem undocumented
 type PlannerChecklistItem struct {
+	// Object is the base model of PlannerChecklistItem
+	Object
 	// IsChecked undocumented
 	IsChecked *bool `json:"isChecked,omitempty"`
 	// Title undocumented

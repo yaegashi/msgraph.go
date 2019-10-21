@@ -4,6 +4,7 @@ package msgraph
 
 // ClassificationError undocumented
 type ClassificationError struct {
+	// ClassifcationErrorBase is the base model of ClassificationError
 	ClassifcationErrorBase
 	// Details undocumented
 	Details []ClassifcationErrorBase `json:"details,omitempty"`

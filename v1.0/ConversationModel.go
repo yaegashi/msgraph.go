@@ -6,6 +6,7 @@ import "time"
 
 // Conversation undocumented
 type Conversation struct {
+	// Entity is the base model of Conversation
 	Entity
 	// Topic undocumented
 	Topic *string `json:"topic,omitempty"`

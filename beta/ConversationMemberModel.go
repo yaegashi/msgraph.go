@@ -4,6 +4,7 @@ package msgraph
 
 // ConversationMember undocumented
 type ConversationMember struct {
+	// Entity is the base model of ConversationMember
 	Entity
 	// Roles undocumented
 	Roles []string `json:"roles,omitempty"`

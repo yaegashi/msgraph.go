@@ -6,6 +6,7 @@ import "time"
 
 // ManagedDeviceMobileAppConfigurationUserStatus Contains properties, inherited properties and actions for an MDM mobile app configuration status for a user.
 type ManagedDeviceMobileAppConfigurationUserStatus struct {
+	// Entity is the base model of ManagedDeviceMobileAppConfigurationUserStatus
 	Entity
 	// UserDisplayName User name of the DevicePolicyStatus.
 	UserDisplayName *string `json:"userDisplayName,omitempty"`

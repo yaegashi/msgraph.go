@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementApplicabilityRuleOsEdition undocumented
 type DeviceManagementApplicabilityRuleOsEdition struct {
+	// Object is the base model of DeviceManagementApplicabilityRuleOsEdition
+	Object
 	// OsEditionTypes Applicability rule OS edition type.
 	OsEditionTypes []Windows10EditionType `json:"osEditionTypes,omitempty"`
 	// Name Name for object.

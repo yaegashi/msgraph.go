@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementAbstractComplexSettingInstance A setting instance representing a complex value for an abstract setting
 type DeviceManagementAbstractComplexSettingInstance struct {
+	// DeviceManagementSettingInstance is the base model of DeviceManagementAbstractComplexSettingInstance
 	DeviceManagementSettingInstance
 	// ImplementationID The definition ID for the chosen implementation of this complex setting
 	ImplementationID *string `json:"implementationId,omitempty"`

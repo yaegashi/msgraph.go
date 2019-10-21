@@ -4,6 +4,7 @@ package msgraph
 
 // EducationOneNoteResource undocumented
 type EducationOneNoteResource struct {
+	// EducationResource is the base model of EducationOneNoteResource
 	EducationResource
 	// SectionName undocumented
 	SectionName *string `json:"sectionName,omitempty"`

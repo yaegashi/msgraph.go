@@ -4,6 +4,8 @@ package msgraph
 
 // DateTimeTimeZone undocumented
 type DateTimeTimeZone struct {
+	// Object is the base model of DateTimeTimeZone
+	Object
 	// DateTime undocumented
 	DateTime *string `json:"dateTime,omitempty"`
 	// TimeZone undocumented

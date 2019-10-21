@@ -4,4 +4,6 @@ package msgraph
 
 // Root undocumented
 type Root struct {
+	// Object is the base model of Root
+	Object
 }

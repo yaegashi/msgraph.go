@@ -4,6 +4,8 @@ package msgraph
 
 // IOSNetworkUsageRule undocumented
 type IOSNetworkUsageRule struct {
+	// Object is the base model of IOSNetworkUsageRule
+	Object
 	// ManagedApps Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
 	ManagedApps []AppListItem `json:"managedApps,omitempty"`
 	// CellularDataBlockWhenRoaming If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.

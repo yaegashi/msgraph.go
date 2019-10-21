@@ -4,6 +4,8 @@ package msgraph
 
 // PlannerPlanContextDetails undocumented
 type PlannerPlanContextDetails struct {
+	// Object is the base model of PlannerPlanContextDetails
+	Object
 	// URL undocumented
 	URL *string `json:"url,omitempty"`
 }

@@ -6,6 +6,7 @@ import "time"
 
 // Device undocumented
 type Device struct {
+	// DirectoryObject is the base model of Device
 	DirectoryObject
 	// AccountEnabled undocumented
 	AccountEnabled *bool `json:"accountEnabled,omitempty"`

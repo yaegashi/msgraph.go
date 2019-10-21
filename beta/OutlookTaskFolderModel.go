@@ -4,6 +4,7 @@ package msgraph
 
 // OutlookTaskFolder undocumented
 type OutlookTaskFolder struct {
+	// Entity is the base model of OutlookTaskFolder
 	Entity
 	// ChangeKey undocumented
 	ChangeKey *string `json:"changeKey,omitempty"`

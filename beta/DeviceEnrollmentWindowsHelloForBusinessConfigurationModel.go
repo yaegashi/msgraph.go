@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceEnrollmentWindowsHelloForBusinessConfiguration Windows Hello for Business settings lets users access their devices using a gesture, such as biometric authentication, or a PIN. Configure settings for enrolled Windows 10, Windows 10 Mobile and later.
 type DeviceEnrollmentWindowsHelloForBusinessConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentWindowsHelloForBusinessConfiguration
 	DeviceEnrollmentConfiguration
 	// PinMinimumLength Controls the minimum number of characters required for the Windows Hello for Business PIN.  This value must be between 4 and 127, inclusive, and less than or equal to the value set for the maximum PIN.
 	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`

@@ -4,4 +4,6 @@ package msgraph
 
 // ManagementConditionExpression undocumented
 type ManagementConditionExpression struct {
+	// Object is the base model of ManagementConditionExpression
+	Object
 }

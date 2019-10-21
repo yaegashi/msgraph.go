@@ -6,6 +6,8 @@ import "time"
 
 // SynchronizationStatus undocumented
 type SynchronizationStatus struct {
+	// Object is the base model of SynchronizationStatus
+	Object
 	// CountSuccessiveCompleteFailures undocumented
 	CountSuccessiveCompleteFailures *int `json:"countSuccessiveCompleteFailures,omitempty"`
 	// EscrowsPruned undocumented

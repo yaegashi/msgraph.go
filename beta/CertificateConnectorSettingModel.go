@@ -6,6 +6,8 @@ import "time"
 
 // CertificateConnectorSetting undocumented
 type CertificateConnectorSetting struct {
+	// Object is the base model of CertificateConnectorSetting
+	Object
 	// Status Certificate connector status
 	Status *int `json:"status,omitempty"`
 	// CertExpiryTime Certificate expire time

@@ -4,6 +4,8 @@ package msgraph
 
 // LicenseUnitsDetail undocumented
 type LicenseUnitsDetail struct {
+	// Object is the base model of LicenseUnitsDetail
+	Object
 	// Enabled undocumented
 	Enabled *int `json:"enabled,omitempty"`
 	// Suspended undocumented

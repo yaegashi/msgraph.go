@@ -6,6 +6,7 @@ import "time"
 
 // ManagedDevice Devices that are managed or pre-enrolled through Intune
 type ManagedDevice struct {
+	// Entity is the base model of ManagedDevice
 	Entity
 	// UserID Unique Identifier for the user associated with the device. This property is read-only.
 	UserID *string `json:"userId,omitempty"`

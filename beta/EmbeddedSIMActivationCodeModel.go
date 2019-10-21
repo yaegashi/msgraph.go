@@ -4,6 +4,8 @@ package msgraph
 
 // EmbeddedSIMActivationCode undocumented
 type EmbeddedSIMActivationCode struct {
+	// Object is the base model of EmbeddedSIMActivationCode
+	Object
 	// IntegratedCircuitCardIdentifier The Integrated Circuit Card Identifier (ICCID) for this embedded SIM activation code as provided by the mobile operator.
 	IntegratedCircuitCardIdentifier *string `json:"integratedCircuitCardIdentifier,omitempty"`
 	// MatchingIdentifier The MatchingIdentifier (MatchingID) as specified in the GSMA Association SGP.22 RSP Technical Specification section 4.1.

@@ -6,6 +6,8 @@ import "time"
 
 // HybridAgentUpdaterConfiguration undocumented
 type HybridAgentUpdaterConfiguration struct {
+	// Object is the base model of HybridAgentUpdaterConfiguration
+	Object
 	// DeferUpdateDateTime undocumented
 	DeferUpdateDateTime *time.Time `json:"deferUpdateDateTime,omitempty"`
 	// UpdateWindow undocumented

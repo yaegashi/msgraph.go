@@ -4,6 +4,7 @@ package msgraph
 
 // IOSWebContentFilterSpecificWebsitesAccess undocumented
 type IOSWebContentFilterSpecificWebsitesAccess struct {
+	// IOSWebContentFilterBase is the base model of IOSWebContentFilterSpecificWebsitesAccess
 	IOSWebContentFilterBase
 	// SpecificWebsitesOnly URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
 	SpecificWebsitesOnly []IOSBookmark `json:"specificWebsitesOnly,omitempty"`

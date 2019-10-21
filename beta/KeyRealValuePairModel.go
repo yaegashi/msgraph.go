@@ -4,6 +4,7 @@ package msgraph
 
 // KeyRealValuePair undocumented
 type KeyRealValuePair struct {
+	// KeyTypedValuePair is the base model of KeyRealValuePair
 	KeyTypedValuePair
 	// Value The real (floating-point) value of the key-value pair.
 	Value *float64 `json:"value,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // EventMessage undocumented
 type EventMessage struct {
+	// Message is the base model of EventMessage
 	Message
 	// MeetingMessageType undocumented
 	MeetingMessageType *MeetingMessageType `json:"meetingMessageType,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerPlanDetails undocumented
 type PlannerPlanDetails struct {
+	// PlannerDelta is the base model of PlannerPlanDetails
 	PlannerDelta
 	// SharedWith undocumented
 	SharedWith *PlannerUserIDs `json:"sharedWith,omitempty"`

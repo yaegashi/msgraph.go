@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10PFXImportCertificateProfile Deprecated
 type Windows10PFXImportCertificateProfile struct {
+	// DeviceConfiguration is the base model of Windows10PFXImportCertificateProfile
 	DeviceConfiguration
 	// KeyStorageProvider undocumented
 	KeyStorageProvider *KeyStorageProviderOption `json:"keyStorageProvider,omitempty"`

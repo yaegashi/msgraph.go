@@ -4,6 +4,7 @@ package msgraph
 
 // CredentialUserRegistrationCount undocumented
 type CredentialUserRegistrationCount struct {
+	// Entity is the base model of CredentialUserRegistrationCount
 	Entity
 	// TotalUserCount undocumented
 	TotalUserCount *int `json:"totalUserCount,omitempty"`

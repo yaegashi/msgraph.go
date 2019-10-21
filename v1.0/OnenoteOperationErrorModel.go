@@ -4,6 +4,8 @@ package msgraph
 
 // OnenoteOperationError undocumented
 type OnenoteOperationError struct {
+	// Object is the base model of OnenoteOperationError
+	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// Message undocumented

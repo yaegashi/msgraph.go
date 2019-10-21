@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementCollectionSettingInstance A setting instance representing a collection of values
 type DeviceManagementCollectionSettingInstance struct {
+	// DeviceManagementSettingInstance is the base model of DeviceManagementCollectionSettingInstance
 	DeviceManagementSettingInstance
 	// Value undocumented
 	Value []DeviceManagementSettingInstance `json:"value,omitempty"`

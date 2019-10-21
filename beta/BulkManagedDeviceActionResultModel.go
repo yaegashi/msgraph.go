@@ -4,6 +4,8 @@ package msgraph
 
 // BulkManagedDeviceActionResult undocumented
 type BulkManagedDeviceActionResult struct {
+	// Object is the base model of BulkManagedDeviceActionResult
+	Object
 	// SuccessfulDeviceIDs Successful devices
 	SuccessfulDeviceIDs []string `json:"successfulDeviceIds,omitempty"`
 	// FailedDeviceIDs Failed devices

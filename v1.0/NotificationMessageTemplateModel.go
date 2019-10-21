@@ -6,6 +6,7 @@ import "time"
 
 // NotificationMessageTemplate Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance.
 type NotificationMessageTemplate struct {
+	// Entity is the base model of NotificationMessageTemplate
 	Entity
 	// LastModifiedDateTime DateTime the object was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`

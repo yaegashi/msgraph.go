@@ -4,6 +4,8 @@ package msgraph
 
 // LearnedLocationModel undocumented
 type LearnedLocationModel struct {
+	// Object is the base model of LearnedLocationModel
+	Object
 	// Address undocumented
 	Address *PhysicalAddress `json:"address,omitempty"`
 	// Coordinates undocumented

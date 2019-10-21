@@ -4,6 +4,8 @@ package msgraph
 
 // AppConfigurationSettingItem undocumented
 type AppConfigurationSettingItem struct {
+	// Object is the base model of AppConfigurationSettingItem
+	Object
 	// AppConfigKey app configuration key.
 	AppConfigKey *string `json:"appConfigKey,omitempty"`
 	// AppConfigKeyType app configuration key type.

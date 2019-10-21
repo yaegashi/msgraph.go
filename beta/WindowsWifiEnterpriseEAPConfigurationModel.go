@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsWifiEnterpriseEAPConfiguration This entity provides descriptions of the declared methods, properties and relationships exposed by the Wifi CSP.
 type WindowsWifiEnterpriseEAPConfiguration struct {
+	// WindowsWifiConfiguration is the base model of WindowsWifiEnterpriseEAPConfiguration
 	WindowsWifiConfiguration
 	// NetworkSingleSignOn Specify the network single sign on type.
 	NetworkSingleSignOn *NetworkSingleSignOnType `json:"networkSingleSignOn,omitempty"`

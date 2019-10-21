@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskMultipleApps undocumented
 type WindowsKioskMultipleApps struct {
+	// WindowsKioskAppConfiguration is the base model of WindowsKioskMultipleApps
 	WindowsKioskAppConfiguration
 	// Apps These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
 	Apps []WindowsKioskAppBase `json:"apps,omitempty"`

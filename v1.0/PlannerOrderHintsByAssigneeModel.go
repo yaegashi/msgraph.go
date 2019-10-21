@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerOrderHintsByAssignee undocumented
 type PlannerOrderHintsByAssignee struct {
+	// Object is the base model of PlannerOrderHintsByAssignee
+	Object
 }

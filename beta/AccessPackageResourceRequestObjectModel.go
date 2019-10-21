@@ -6,6 +6,7 @@ import "time"
 
 // AccessPackageResourceRequestObject undocumented
 type AccessPackageResourceRequestObject struct {
+	// Entity is the base model of AccessPackageResourceRequestObject
 	Entity
 	// CatalogID undocumented
 	CatalogID *string `json:"catalogId,omitempty"`

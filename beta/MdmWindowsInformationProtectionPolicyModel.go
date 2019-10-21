@@ -4,5 +4,6 @@ package msgraph
 
 // MdmWindowsInformationProtectionPolicy Policy for Windows information protection with MDM
 type MdmWindowsInformationProtectionPolicy struct {
+	// WindowsInformationProtection is the base model of MdmWindowsInformationProtectionPolicy
 	WindowsInformationProtection
 }

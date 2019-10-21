@@ -4,6 +4,7 @@ package msgraph
 
 // BookingStaffMember Represents a staff member who provides services in a business.
 type BookingStaffMember struct {
+	// BookingPerson is the base model of BookingStaffMember
 	BookingPerson
 	// AvailabilityIsAffectedByPersonalCalendar undocumented
 	AvailabilityIsAffectedByPersonalCalendar *bool `json:"availabilityIsAffectedByPersonalCalendar,omitempty"`

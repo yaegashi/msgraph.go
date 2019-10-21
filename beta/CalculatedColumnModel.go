@@ -4,6 +4,8 @@ package msgraph
 
 // CalculatedColumn undocumented
 type CalculatedColumn struct {
+	// Object is the base model of CalculatedColumn
+	Object
 	// Format undocumented
 	Format *string `json:"format,omitempty"`
 	// Formula undocumented

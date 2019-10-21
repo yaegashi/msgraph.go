@@ -4,6 +4,7 @@ package msgraph
 
 // PrivilegedSignupStatus undocumented
 type PrivilegedSignupStatus struct {
+	// Entity is the base model of PrivilegedSignupStatus
 	Entity
 	// IsRegistered undocumented
 	IsRegistered *bool `json:"isRegistered,omitempty"`

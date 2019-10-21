@@ -6,6 +6,7 @@ import "time"
 
 // TaxGroup undocumented
 type TaxGroup struct {
+	// Entity is the base model of TaxGroup
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

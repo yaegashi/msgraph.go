@@ -6,6 +6,7 @@ import "time"
 
 // ShipmentMethod undocumented
 type ShipmentMethod struct {
+	// Entity is the base model of ShipmentMethod
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

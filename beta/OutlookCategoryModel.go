@@ -4,6 +4,7 @@ package msgraph
 
 // OutlookCategory undocumented
 type OutlookCategory struct {
+	// Entity is the base model of OutlookCategory
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // SignIn undocumented
 type SignIn struct {
+	// Entity is the base model of SignIn
 	Entity
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

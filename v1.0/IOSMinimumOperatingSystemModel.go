@@ -4,6 +4,8 @@ package msgraph
 
 // IOSMinimumOperatingSystem undocumented
 type IOSMinimumOperatingSystem struct {
+	// Object is the base model of IOSMinimumOperatingSystem
+	Object
 	// V8_0 Version 8.0 or later.
 	V8_0 *bool `json:"v8_0,omitempty"`
 	// V9_0 Version 9.0 or later.

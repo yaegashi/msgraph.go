@@ -6,6 +6,7 @@ import "time"
 
 // WindowsUpdateForBusinessConfiguration Windows Update for business configuration.
 type WindowsUpdateForBusinessConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsUpdateForBusinessConfiguration
 	DeviceConfiguration
 	// DeliveryOptimizationMode Delivery Optimization Mode
 	DeliveryOptimizationMode *WindowsDeliveryOptimizationMode `json:"deliveryOptimizationMode,omitempty"`

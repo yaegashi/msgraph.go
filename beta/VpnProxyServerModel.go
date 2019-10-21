@@ -4,6 +4,8 @@ package msgraph
 
 // VpnProxyServer undocumented
 type VpnProxyServer struct {
+	// Object is the base model of VpnProxyServer
+	Object
 	// AutomaticConfigurationScriptURL Proxy's automatic configuration script url.
 	AutomaticConfigurationScriptURL *string `json:"automaticConfigurationScriptUrl,omitempty"`
 	// Address Address.

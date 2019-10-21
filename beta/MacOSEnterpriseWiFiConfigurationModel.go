@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSEnterpriseWiFiConfiguration MacOS Wi-Fi WPA-Enterprise/WPA2-Enterprise configuration profile.
 type MacOSEnterpriseWiFiConfiguration struct {
+	// MacOSWiFiConfiguration is the base model of MacOSEnterpriseWiFiConfiguration
 	MacOSWiFiConfiguration
 	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
 	EapType *EapType `json:"eapType,omitempty"`

@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookRange undocumented
 type WorkbookRange struct {
+	// Entity is the base model of WorkbookRange
 	Entity
 	// Address undocumented
 	Address *string `json:"address,omitempty"`

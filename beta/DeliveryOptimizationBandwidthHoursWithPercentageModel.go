@@ -4,6 +4,7 @@ package msgraph
 
 // DeliveryOptimizationBandwidthHoursWithPercentage undocumented
 type DeliveryOptimizationBandwidthHoursWithPercentage struct {
+	// DeliveryOptimizationBandwidth is the base model of DeliveryOptimizationBandwidthHoursWithPercentage
 	DeliveryOptimizationBandwidth
 	// BandwidthBackgroundPercentageHours Background download percentage hours.
 	BandwidthBackgroundPercentageHours *DeliveryOptimizationBandwidthBusinessHoursLimit `json:"bandwidthBackgroundPercentageHours,omitempty"`

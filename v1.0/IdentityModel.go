@@ -4,6 +4,8 @@ package msgraph
 
 // Identity undocumented
 type Identity struct {
+	// Object is the base model of Identity
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// ID undocumented

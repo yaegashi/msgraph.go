@@ -6,6 +6,7 @@ import "time"
 
 // PaymentTerm undocumented
 type PaymentTerm struct {
+	// Entity is the base model of PaymentTerm
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

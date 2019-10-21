@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookRangeFormat undocumented
 type WorkbookRangeFormat struct {
+	// Entity is the base model of WorkbookRangeFormat
 	Entity
 	// ColumnWidth undocumented
 	ColumnWidth *float64 `json:"columnWidth,omitempty"`

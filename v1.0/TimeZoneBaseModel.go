@@ -4,6 +4,8 @@ package msgraph
 
 // TimeZoneBase undocumented
 type TimeZoneBase struct {
+	// Object is the base model of TimeZoneBase
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 }

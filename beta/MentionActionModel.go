@@ -4,6 +4,8 @@ package msgraph
 
 // MentionAction undocumented
 type MentionAction struct {
+	// Object is the base model of MentionAction
+	Object
 	// Mentionees undocumented
 	Mentionees []IdentitySet `json:"mentionees,omitempty"`
 }

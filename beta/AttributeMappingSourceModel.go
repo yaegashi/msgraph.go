@@ -4,6 +4,8 @@ package msgraph
 
 // AttributeMappingSource undocumented
 type AttributeMappingSource struct {
+	// Object is the base model of AttributeMappingSource
+	Object
 	// Expression undocumented
 	Expression *string `json:"expression,omitempty"`
 	// Name undocumented

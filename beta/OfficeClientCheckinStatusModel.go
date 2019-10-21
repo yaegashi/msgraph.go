@@ -6,6 +6,8 @@ import "time"
 
 // OfficeClientCheckinStatus undocumented
 type OfficeClientCheckinStatus struct {
+	// Object is the base model of OfficeClientCheckinStatus
+	Object
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DeviceName undocumented

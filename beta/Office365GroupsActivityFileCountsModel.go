@@ -6,6 +6,7 @@ import "time"
 
 // Office365GroupsActivityFileCounts undocumented
 type Office365GroupsActivityFileCounts struct {
+	// Entity is the base model of Office365GroupsActivityFileCounts
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

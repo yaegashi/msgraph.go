@@ -4,5 +4,6 @@ package msgraph
 
 // ChatMessageHostedContent undocumented
 type ChatMessageHostedContent struct {
+	// Entity is the base model of ChatMessageHostedContent
 	Entity
 }

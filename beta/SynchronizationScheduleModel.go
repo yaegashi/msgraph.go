@@ -6,6 +6,8 @@ import "time"
 
 // SynchronizationSchedule undocumented
 type SynchronizationSchedule struct {
+	// Object is the base model of SynchronizationSchedule
+	Object
 	// Expiration undocumented
 	Expiration *time.Time `json:"expiration,omitempty"`
 	// Interval undocumented

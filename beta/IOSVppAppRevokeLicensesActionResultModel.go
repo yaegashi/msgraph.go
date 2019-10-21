@@ -6,6 +6,8 @@ import "time"
 
 // IOSVppAppRevokeLicensesActionResult undocumented
 type IOSVppAppRevokeLicensesActionResult struct {
+	// Object is the base model of IOSVppAppRevokeLicensesActionResult
+	Object
 	// UserID UserId associated with the action.
 	UserID *string `json:"userId,omitempty"`
 	// ManagedDeviceID DeviceId associated with the action.

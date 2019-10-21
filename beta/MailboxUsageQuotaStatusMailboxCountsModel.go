@@ -6,6 +6,7 @@ import "time"
 
 // MailboxUsageQuotaStatusMailboxCounts undocumented
 type MailboxUsageQuotaStatusMailboxCounts struct {
+	// Entity is the base model of MailboxUsageQuotaStatusMailboxCounts
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // StringKeyAttributeMappingSourceValuePair undocumented
 type StringKeyAttributeMappingSourceValuePair struct {
+	// Object is the base model of StringKeyAttributeMappingSourceValuePair
+	Object
 	// Key undocumented
 	Key *string `json:"key,omitempty"`
 	// Value undocumented

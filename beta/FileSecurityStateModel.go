@@ -4,6 +4,8 @@ package msgraph
 
 // FileSecurityState undocumented
 type FileSecurityState struct {
+	// Object is the base model of FileSecurityState
+	Object
 	// FileHash undocumented
 	FileHash *FileHash `json:"fileHash,omitempty"`
 	// Name undocumented

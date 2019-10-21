@@ -6,6 +6,7 @@ import "time"
 
 // UserPFXCertificate Entity that encapsulates all information required for a user's PFX certificates.
 type UserPFXCertificate struct {
+	// Entity is the base model of UserPFXCertificate
 	Entity
 	// Thumbprint SHA-1 thumbprint of the PFX certificate.
 	Thumbprint *string `json:"thumbprint,omitempty"`

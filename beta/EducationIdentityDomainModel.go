@@ -4,6 +4,8 @@ package msgraph
 
 // EducationIdentityDomain undocumented
 type EducationIdentityDomain struct {
+	// Object is the base model of EducationIdentityDomain
+	Object
 	// AppliesTo undocumented
 	AppliesTo *EducationUserRole `json:"appliesTo,omitempty"`
 	// Name undocumented

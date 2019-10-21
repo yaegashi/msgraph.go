@@ -6,6 +6,7 @@ import "time"
 
 // ItemActivity undocumented
 type ItemActivity struct {
+	// Entity is the base model of ItemActivity
 	Entity
 	// Access undocumented
 	Access *AccessAction `json:"access,omitempty"`

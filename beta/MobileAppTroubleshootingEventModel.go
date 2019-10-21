@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppTroubleshootingEvent Event representing a users device application install status.
 type MobileAppTroubleshootingEvent struct {
+	// DeviceManagementTroubleshootingEvent is the base model of MobileAppTroubleshootingEvent
 	DeviceManagementTroubleshootingEvent
 	// ManagedDeviceIdentifier Device identifier created or collected by Intune.
 	ManagedDeviceIdentifier *string `json:"managedDeviceIdentifier,omitempty"`

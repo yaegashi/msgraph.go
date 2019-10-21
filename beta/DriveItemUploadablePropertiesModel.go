@@ -4,6 +4,8 @@ package msgraph
 
 // DriveItemUploadableProperties undocumented
 type DriveItemUploadableProperties struct {
+	// Object is the base model of DriveItemUploadableProperties
+	Object
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// FileSystemInfo undocumented

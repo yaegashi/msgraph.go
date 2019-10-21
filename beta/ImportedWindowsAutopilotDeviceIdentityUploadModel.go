@@ -6,6 +6,7 @@ import "time"
 
 // ImportedWindowsAutopilotDeviceIdentityUpload Import windows autopilot devices using upload.
 type ImportedWindowsAutopilotDeviceIdentityUpload struct {
+	// Entity is the base model of ImportedWindowsAutopilotDeviceIdentityUpload
 	Entity
 	// CreatedDateTimeUtc DateTime when the entity is created.
 	CreatedDateTimeUtc *time.Time `json:"createdDateTimeUtc,omitempty"`

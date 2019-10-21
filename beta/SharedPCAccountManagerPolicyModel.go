@@ -4,6 +4,8 @@ package msgraph
 
 // SharedPCAccountManagerPolicy undocumented
 type SharedPCAccountManagerPolicy struct {
+	// Object is the base model of SharedPCAccountManagerPolicy
+	Object
 	// AccountDeletionPolicy Configures when accounts are deleted.
 	AccountDeletionPolicy *SharedPCAccountDeletionPolicyType `json:"accountDeletionPolicy,omitempty"`
 	// CacheAccountsAboveDiskFreePercentage Sets the percentage of available disk space a PC should have before it stops deleting cached shared PC accounts. Only applies when AccountDeletionPolicy is DiskSpaceThreshold or DiskSpaceThresholdOrInactiveThreshold. Valid values 0 to 100

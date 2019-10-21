@@ -6,6 +6,7 @@ import "time"
 
 // ProgramControl undocumented
 type ProgramControl struct {
+	// Entity is the base model of ProgramControl
 	Entity
 	// ControlID undocumented
 	ControlID *string `json:"controlId,omitempty"`

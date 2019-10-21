@@ -4,6 +4,8 @@ package msgraph
 
 // TargetResource undocumented
 type TargetResource struct {
+	// Object is the base model of TargetResource
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented

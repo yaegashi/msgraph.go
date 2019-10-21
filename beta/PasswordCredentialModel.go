@@ -6,6 +6,8 @@ import "time"
 
 // PasswordCredential undocumented
 type PasswordCredential struct {
+	// Object is the base model of PasswordCredential
+	Object
 	// CustomKeyIdentifier undocumented
 	CustomKeyIdentifier *Binary `json:"customKeyIdentifier,omitempty"`
 	// EndDateTime undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceComplianceActionItem Scheduled Action Configuration
 type DeviceComplianceActionItem struct {
+	// Entity is the base model of DeviceComplianceActionItem
 	Entity
 	// GracePeriodHours Number of hours to wait till the action will be enforced. Valid values 0 to 8760
 	GracePeriodHours *int `json:"gracePeriodHours,omitempty"`

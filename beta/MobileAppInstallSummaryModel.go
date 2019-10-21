@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppInstallSummary Contains properties for the installation summary of a mobile app.
 type MobileAppInstallSummary struct {
+	// Entity is the base model of MobileAppInstallSummary
 	Entity
 	// InstalledDeviceCount Number of Devices that have successfully installed this app.
 	InstalledDeviceCount *int `json:"installedDeviceCount,omitempty"`

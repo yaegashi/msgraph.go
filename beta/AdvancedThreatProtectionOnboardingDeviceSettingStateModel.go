@@ -6,6 +6,7 @@ import "time"
 
 // AdvancedThreatProtectionOnboardingDeviceSettingState ATP onboarding State for a given device.
 type AdvancedThreatProtectionOnboardingDeviceSettingState struct {
+	// Entity is the base model of AdvancedThreatProtectionOnboardingDeviceSettingState
 	Entity
 	// PlatformType Device platform type
 	PlatformType *DeviceType `json:"platformType,omitempty"`

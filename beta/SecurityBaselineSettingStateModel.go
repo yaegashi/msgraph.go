@@ -4,6 +4,7 @@ package msgraph
 
 // SecurityBaselineSettingState The security baseline compliance state of a setting for a device
 type SecurityBaselineSettingState struct {
+	// Entity is the base model of SecurityBaselineSettingState
 	Entity
 	// SettingName The setting name that is being reported
 	SettingName *string `json:"settingName,omitempty"`

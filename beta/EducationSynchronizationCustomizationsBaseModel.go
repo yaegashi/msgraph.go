@@ -4,4 +4,6 @@ package msgraph
 
 // EducationSynchronizationCustomizationsBase undocumented
 type EducationSynchronizationCustomizationsBase struct {
+	// Object is the base model of EducationSynchronizationCustomizationsBase
+	Object
 }

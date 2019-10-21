@@ -4,6 +4,7 @@ package msgraph
 
 // ExactMatchLookupJob undocumented
 type ExactMatchLookupJob struct {
+	// ExactMatchJobBase is the base model of ExactMatchLookupJob
 	ExactMatchJobBase
 	// State undocumented
 	State *string `json:"state,omitempty"`

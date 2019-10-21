@@ -6,6 +6,7 @@ import "time"
 
 // SalesInvoice undocumented
 type SalesInvoice struct {
+	// Entity is the base model of SalesInvoice
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

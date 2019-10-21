@@ -4,6 +4,7 @@ package msgraph
 
 // RiskyUserHistoryItem undocumented
 type RiskyUserHistoryItem struct {
+	// RiskyUser is the base model of RiskyUserHistoryItem
 	RiskyUser
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`

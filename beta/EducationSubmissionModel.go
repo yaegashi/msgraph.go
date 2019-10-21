@@ -6,6 +6,7 @@ import "time"
 
 // EducationSubmission undocumented
 type EducationSubmission struct {
+	// Entity is the base model of EducationSubmission
 	Entity
 	// Recipient undocumented
 	Recipient *EducationSubmissionRecipient `json:"recipient,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // ChatMessageReaction undocumented
 type ChatMessageReaction struct {
+	// Object is the base model of ChatMessageReaction
+	Object
 	// ReactionType undocumented
 	ReactionType *string `json:"reactionType,omitempty"`
 	// CreatedDateTime undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsDeviceAccount undocumented
 type WindowsDeviceAccount struct {
+	// Object is the base model of WindowsDeviceAccount
+	Object
 	// Password undocumented
 	Password *string `json:"password,omitempty"`
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // AccessReviewReviewer undocumented
 type AccessReviewReviewer struct {
+	// Entity is the base model of AccessReviewReviewer
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

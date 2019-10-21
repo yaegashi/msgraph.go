@@ -6,6 +6,7 @@ import "time"
 
 // IntuneBrandingProfile This entity contains data which is used in customizing the tenant level appearance of the Company Portal applications as well as the end user web portal.
 type IntuneBrandingProfile struct {
+	// Entity is the base model of IntuneBrandingProfile
 	Entity
 	// ProfileName Name of the profile
 	ProfileName *string `json:"profileName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // Notebook undocumented
 type Notebook struct {
+	// OnenoteEntityHierarchyModel is the base model of Notebook
 	OnenoteEntityHierarchyModel
 	// IsDefault undocumented
 	IsDefault *bool `json:"isDefault,omitempty"`

@@ -6,6 +6,8 @@ import "time"
 
 // BookingWorkTimeSlot undocumented
 type BookingWorkTimeSlot struct {
+	// Object is the base model of BookingWorkTimeSlot
+	Object
 	// Start undocumented
 	Start *time.Time `json:"start,omitempty"`
 	// End undocumented

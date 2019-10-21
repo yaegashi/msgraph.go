@@ -4,6 +4,8 @@ package msgraph
 
 // Location undocumented
 type Location struct {
+	// Object is the base model of Location
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// LocationEmailAddress undocumented

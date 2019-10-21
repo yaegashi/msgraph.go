@@ -4,6 +4,8 @@ package msgraph
 
 // SensitiveContentLocation undocumented
 type SensitiveContentLocation struct {
+	// Object is the base model of SensitiveContentLocation
+	Object
 	// IDMatch undocumented
 	IDMatch *string `json:"idMatch,omitempty"`
 	// Offset undocumented

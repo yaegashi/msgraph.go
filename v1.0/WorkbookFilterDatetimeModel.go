@@ -4,6 +4,8 @@ package msgraph
 
 // WorkbookFilterDatetime undocumented
 type WorkbookFilterDatetime struct {
+	// Object is the base model of WorkbookFilterDatetime
+	Object
 	// Date undocumented
 	Date *string `json:"date,omitempty"`
 	// Specificity undocumented

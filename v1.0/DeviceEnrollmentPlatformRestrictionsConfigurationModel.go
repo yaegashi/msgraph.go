@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceEnrollmentPlatformRestrictionsConfiguration undocumented
 type DeviceEnrollmentPlatformRestrictionsConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentPlatformRestrictionsConfiguration
 	DeviceEnrollmentConfiguration
 	// IOSRestriction undocumented
 	IOSRestriction *DeviceEnrollmentPlatformRestriction `json:"iosRestriction,omitempty"`

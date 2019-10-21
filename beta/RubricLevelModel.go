@@ -4,6 +4,8 @@ package msgraph
 
 // RubricLevel undocumented
 type RubricLevel struct {
+	// Object is the base model of RubricLevel
+	Object
 	// LevelID undocumented
 	LevelID *string `json:"levelId,omitempty"`
 	// DisplayName undocumented

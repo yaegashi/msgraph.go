@@ -4,6 +4,7 @@ package msgraph
 
 // ColumnLink undocumented
 type ColumnLink struct {
+	// Entity is the base model of ColumnLink
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

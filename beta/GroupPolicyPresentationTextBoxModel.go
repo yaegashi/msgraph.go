@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationTextBox Represents an ADMX textBox element and an ADMX text element.
 type GroupPolicyPresentationTextBox struct {
+	// GroupPolicyPresentation is the base model of GroupPolicyPresentationTextBox
 	GroupPolicyPresentation
 	// DefaultValue Localized default string displayed in the text box. The default value is empty.
 	DefaultValue *string `json:"defaultValue,omitempty"`

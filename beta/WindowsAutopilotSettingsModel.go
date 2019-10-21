@@ -6,6 +6,7 @@ import "time"
 
 // WindowsAutopilotSettings The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
 type WindowsAutopilotSettings struct {
+	// Entity is the base model of WindowsAutopilotSettings
 	Entity
 	// LastSyncDateTime Last data sync date time with DDS service.
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`

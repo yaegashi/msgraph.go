@@ -6,6 +6,7 @@ import "time"
 
 // AgedAccountsReceivable undocumented
 type AgedAccountsReceivable struct {
+	// Entity is the base model of AgedAccountsReceivable
 	Entity
 	// CustomerNumber undocumented
 	CustomerNumber *string `json:"customerNumber,omitempty"`

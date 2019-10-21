@@ -4,6 +4,8 @@ package msgraph
 
 // ErrorDetail undocumented
 type ErrorDetail struct {
+	// Object is the base model of ErrorDetail
+	Object
 	// ErrorCode undocumented
 	ErrorCode *string `json:"errorCode,omitempty"`
 	// Message undocumented

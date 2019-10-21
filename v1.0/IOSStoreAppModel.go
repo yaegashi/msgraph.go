@@ -4,6 +4,7 @@ package msgraph
 
 // IOSStoreApp Contains properties and inherited properties for iOS store apps.
 type IOSStoreApp struct {
+	// MobileApp is the base model of IOSStoreApp
 	MobileApp
 	// BundleID The Identity Name.
 	BundleID *string `json:"bundleId,omitempty"`

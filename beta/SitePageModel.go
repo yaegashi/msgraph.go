@@ -4,6 +4,7 @@ package msgraph
 
 // SitePage undocumented
 type SitePage struct {
+	// BaseItem is the base model of SitePage
 	BaseItem
 	// Title undocumented
 	Title *string `json:"title,omitempty"`

@@ -4,5 +4,6 @@ package msgraph
 
 // AndroidManagedStoreWebApp Contains properties and inherited properties for web apps configured to be distributed via the managed Android app store.
 type AndroidManagedStoreWebApp struct {
+	// AndroidManagedStoreApp is the base model of AndroidManagedStoreWebApp
 	AndroidManagedStoreApp
 }

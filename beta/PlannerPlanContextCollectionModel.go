@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerPlanContextCollection undocumented
 type PlannerPlanContextCollection struct {
+	// Object is the base model of PlannerPlanContextCollection
+	Object
 }

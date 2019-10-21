@@ -4,6 +4,8 @@ package msgraph
 
 // ChatMessagePolicyViolation undocumented
 type ChatMessagePolicyViolation struct {
+	// Object is the base model of ChatMessagePolicyViolation
+	Object
 	// DlpAction undocumented
 	DlpAction *ChatMessagePolicyViolationDlpActionTypes `json:"dlpAction,omitempty"`
 	// JustificationText undocumented

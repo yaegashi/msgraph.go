@@ -4,6 +4,7 @@ package msgraph
 
 // BookingPerson Represents a booking customer or staff member.
 type BookingPerson struct {
+	// BookingNamedEntity is the base model of BookingPerson
 	BookingNamedEntity
 	// EmailAddress The e-mail address of this person.
 	EmailAddress *string `json:"emailAddress,omitempty"`

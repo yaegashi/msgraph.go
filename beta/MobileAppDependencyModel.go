@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppDependency Describes a dependency type between two mobile apps.
 type MobileAppDependency struct {
+	// MobileAppRelationship is the base model of MobileAppDependency
 	MobileAppRelationship
 	// DependencyType The type of dependency relationship between the parent and child apps.
 	DependencyType *MobileAppDependencyType `json:"dependencyType,omitempty"`

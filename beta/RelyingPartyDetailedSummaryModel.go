@@ -4,6 +4,7 @@ package msgraph
 
 // RelyingPartyDetailedSummary undocumented
 type RelyingPartyDetailedSummary struct {
+	// Entity is the base model of RelyingPartyDetailedSummary
 	Entity
 	// RelyingPartyID undocumented
 	RelyingPartyID *string `json:"relyingPartyId,omitempty"`

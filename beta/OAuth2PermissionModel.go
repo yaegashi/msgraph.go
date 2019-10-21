@@ -4,6 +4,8 @@ package msgraph
 
 // OAuth2Permission undocumented
 type OAuth2Permission struct {
+	// Object is the base model of OAuth2Permission
+	Object
 	// AdminConsentDescription undocumented
 	AdminConsentDescription *string `json:"adminConsentDescription,omitempty"`
 	// AdminConsentDisplayName undocumented

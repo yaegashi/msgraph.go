@@ -4,6 +4,8 @@ package msgraph
 
 // RecordingInfo undocumented
 type RecordingInfo struct {
+	// Object is the base model of RecordingInfo
+	Object
 	// Status undocumented
 	Status *RecordingStatus `json:"status,omitempty"`
 	// InitiatedBy undocumented

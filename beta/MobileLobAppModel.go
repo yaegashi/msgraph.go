@@ -4,6 +4,7 @@ package msgraph
 
 // MobileLobApp An abstract base class containing properties for all mobile line of business apps.
 type MobileLobApp struct {
+	// MobileApp is the base model of MobileLobApp
 	MobileApp
 	// CommittedContentVersion The internal committed content version.
 	CommittedContentVersion *string `json:"committedContentVersion,omitempty"`

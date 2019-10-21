@@ -4,4 +4,6 @@ package msgraph
 
 // EdgeHomeButtonConfiguration undocumented
 type EdgeHomeButtonConfiguration struct {
+	// Object is the base model of EdgeHomeButtonConfiguration
+	Object
 }

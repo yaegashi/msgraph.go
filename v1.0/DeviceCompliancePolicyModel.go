@@ -6,6 +6,7 @@ import "time"
 
 // DeviceCompliancePolicy This is the base class for Compliance policy. Compliance policies are platform specific and individual per-platform compliance policies inherit from here.
 type DeviceCompliancePolicy struct {
+	// Entity is the base model of DeviceCompliancePolicy
 	Entity
 	// CreatedDateTime DateTime the object was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

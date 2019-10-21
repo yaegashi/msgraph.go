@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedEBookAssignment Contains properties used to assign a eBook to a group.
 type ManagedEBookAssignment struct {
+	// Entity is the base model of ManagedEBookAssignment
 	Entity
 	// Target The assignment target for eBook.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

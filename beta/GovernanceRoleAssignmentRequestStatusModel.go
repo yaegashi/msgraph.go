@@ -4,6 +4,8 @@ package msgraph
 
 // GovernanceRoleAssignmentRequestStatus undocumented
 type GovernanceRoleAssignmentRequestStatus struct {
+	// Object is the base model of GovernanceRoleAssignmentRequestStatus
+	Object
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
 	// SubStatus undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // OnPremisesExtensionAttributes undocumented
 type OnPremisesExtensionAttributes struct {
+	// Object is the base model of OnPremisesExtensionAttributes
+	Object
 	// ExtensionAttribute1 undocumented
 	ExtensionAttribute1 *string `json:"extensionAttribute1,omitempty"`
 	// ExtensionAttribute2 undocumented

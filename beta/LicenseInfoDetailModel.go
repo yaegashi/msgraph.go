@@ -4,6 +4,8 @@ package msgraph
 
 // LicenseInfoDetail undocumented
 type LicenseInfoDetail struct {
+	// Object is the base model of LicenseInfoDetail
+	Object
 	// LicenseType undocumented
 	LicenseType *AzureADLicenseType `json:"licenseType,omitempty"`
 	// TotalLicenseCount undocumented

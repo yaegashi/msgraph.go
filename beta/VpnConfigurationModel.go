@@ -4,6 +4,7 @@ package msgraph
 
 // VpnConfiguration Base VPN Configuration profile.
 type VpnConfiguration struct {
+	// DeviceConfiguration is the base model of VpnConfiguration
 	DeviceConfiguration
 	// AuthenticationMethod Authentication method.
 	AuthenticationMethod *VpnAuthenticationMethod `json:"authenticationMethod,omitempty"`

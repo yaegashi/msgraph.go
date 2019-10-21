@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerTaskDetails undocumented
 type PlannerTaskDetails struct {
+	// PlannerDelta is the base model of PlannerTaskDetails
 	PlannerDelta
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

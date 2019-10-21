@@ -4,6 +4,8 @@ package msgraph
 
 // VpnOnDemandRule undocumented
 type VpnOnDemandRule struct {
+	// Object is the base model of VpnOnDemandRule
+	Object
 	// Ssids Network Service Set Identifiers (SSIDs).
 	Ssids []string `json:"ssids,omitempty"`
 	// DNSSearchDomains DNS Search Domains.

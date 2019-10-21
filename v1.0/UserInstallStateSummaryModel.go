@@ -4,6 +4,7 @@ package msgraph
 
 // UserInstallStateSummary Contains properties for the installation state summary for a user.
 type UserInstallStateSummary struct {
+	// Entity is the base model of UserInstallStateSummary
 	Entity
 	// UserName User name.
 	UserName *string `json:"userName,omitempty"`

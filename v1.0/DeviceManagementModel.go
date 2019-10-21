@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagement Singleton entity that acts as a container for all device management functionality.
 type DeviceManagement struct {
+	// Entity is the base model of DeviceManagement
 	Entity
 	// Settings Account level settings.
 	Settings *DeviceManagementSettings `json:"settings,omitempty"`

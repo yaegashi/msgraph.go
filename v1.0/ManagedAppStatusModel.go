@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedAppStatus Represents app protection and configuration status for the organization.
 type ManagedAppStatus struct {
+	// Entity is the base model of ManagedAppStatus
 	Entity
 	// DisplayName Friendly name of the status report.
 	DisplayName *string `json:"displayName,omitempty"`

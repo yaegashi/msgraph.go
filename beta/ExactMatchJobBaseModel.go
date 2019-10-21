@@ -6,6 +6,7 @@ import "time"
 
 // ExactMatchJobBase undocumented
 type ExactMatchJobBase struct {
+	// Entity is the base model of ExactMatchJobBase
 	Entity
 	// CreationDateTime undocumented
 	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`

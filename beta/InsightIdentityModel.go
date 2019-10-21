@@ -4,6 +4,8 @@ package msgraph
 
 // InsightIdentity undocumented
 type InsightIdentity struct {
+	// Object is the base model of InsightIdentity
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// ID undocumented

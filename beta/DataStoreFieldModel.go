@@ -4,6 +4,8 @@ package msgraph
 
 // DataStoreField undocumented
 type DataStoreField struct {
+	// Object is the base model of DataStoreField
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Unique undocumented

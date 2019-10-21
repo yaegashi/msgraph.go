@@ -4,6 +4,7 @@ package msgraph
 
 // DirectoryRole undocumented
 type DirectoryRole struct {
+	// DirectoryObject is the base model of DirectoryRole
 	DirectoryObject
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

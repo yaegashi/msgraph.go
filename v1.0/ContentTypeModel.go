@@ -4,6 +4,7 @@ package msgraph
 
 // ContentType undocumented
 type ContentType struct {
+	// Entity is the base model of ContentType
 	Entity
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

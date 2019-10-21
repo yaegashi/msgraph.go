@@ -4,6 +4,7 @@ package msgraph
 
 // FilterOperatorSchema undocumented
 type FilterOperatorSchema struct {
+	// Entity is the base model of FilterOperatorSchema
 	Entity
 	// Arity undocumented
 	Arity *ScopeOperatorType `json:"arity,omitempty"`

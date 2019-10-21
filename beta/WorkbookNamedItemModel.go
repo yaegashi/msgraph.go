@@ -6,6 +6,7 @@ import "encoding/json"
 
 // WorkbookNamedItem undocumented
 type WorkbookNamedItem struct {
+	// Entity is the base model of WorkbookNamedItem
 	Entity
 	// Comment undocumented
 	Comment *string `json:"comment,omitempty"`

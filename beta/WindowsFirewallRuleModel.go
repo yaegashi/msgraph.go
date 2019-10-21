@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsFirewallRule undocumented
 type WindowsFirewallRule struct {
+	// Object is the base model of WindowsFirewallRule
+	Object
 	// DisplayName The display name of the rule. Does not need to be unique.
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description The description of the rule.

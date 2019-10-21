@@ -6,6 +6,8 @@ import "time"
 
 // UsageDetails undocumented
 type UsageDetails struct {
+	// Object is the base model of UsageDetails
+	Object
 	// LastAccessedDateTime undocumented
 	LastAccessedDateTime *time.Time `json:"lastAccessedDateTime,omitempty"`
 	// LastModifiedDateTime undocumented

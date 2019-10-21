@@ -6,6 +6,8 @@ import "time"
 
 // PlannerAssignment undocumented
 type PlannerAssignment struct {
+	// Object is the base model of PlannerAssignment
+	Object
 	// AssignedBy undocumented
 	AssignedBy *IdentitySet `json:"assignedBy,omitempty"`
 	// AssignedDateTime undocumented

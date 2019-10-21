@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementSettingDependency undocumented
 type DeviceManagementSettingDependency struct {
+	// Object is the base model of DeviceManagementSettingDependency
+	Object
 	// DefinitionID The setting definition ID of the setting depended on
 	DefinitionID *string `json:"definitionId,omitempty"`
 	// Constraints Collection of constraints for the dependency setting value

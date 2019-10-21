@@ -4,6 +4,7 @@ package msgraph
 
 // UserConfiguration undocumented
 type UserConfiguration struct {
+	// Entity is the base model of UserConfiguration
 	Entity
 	// BinaryData undocumented
 	BinaryData *Binary `json:"binaryData,omitempty"`

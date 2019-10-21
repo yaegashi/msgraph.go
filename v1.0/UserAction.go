@@ -3,11 +3,12 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // UserAssignLicenseRequestParameter undocumented
@@ -298,11 +299,11 @@ func (r *UserGetMailTipsRequest) Paging(method, path string, obj interface{}) ([
 			paging Paging
 			value  [][]MailTips
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -374,11 +375,11 @@ func (r *UserTranslateExchangeIDsRequest) Paging(method, path string, obj interf
 			paging Paging
 			value  [][]ConvertIDResult
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

@@ -6,6 +6,7 @@ import "time"
 
 // ManagedDeviceOverview Summary data for managed devices
 type ManagedDeviceOverview struct {
+	// Entity is the base model of ManagedDeviceOverview
 	Entity
 	// EnrolledDeviceCount Total enrolled device count. Does not include PC devices managed via Intune PC Agent
 	EnrolledDeviceCount *int `json:"enrolledDeviceCount,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // MacOSMinimumOperatingSystem undocumented
 type MacOSMinimumOperatingSystem struct {
+	// Object is the base model of MacOSMinimumOperatingSystem
+	Object
 	// V10_7 Mac OS 10.7 or later.
 	V10_7 *bool `json:"v10_7,omitempty"`
 	// V10_8 Mac OS 10.8 or later.

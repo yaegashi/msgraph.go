@@ -6,6 +6,8 @@ import "time"
 
 // SynchronizationTaskExecution undocumented
 type SynchronizationTaskExecution struct {
+	// Object is the base model of SynchronizationTaskExecution
+	Object
 	// ActivityIdentifier undocumented
 	ActivityIdentifier *string `json:"activityIdentifier,omitempty"`
 	// CountEntitled undocumented

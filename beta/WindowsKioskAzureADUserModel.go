@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskAzureADUser undocumented
 type WindowsKioskAzureADUser struct {
+	// WindowsKioskUser is the base model of WindowsKioskAzureADUser
 	WindowsKioskUser
 	// UserID The ID of the AzureAD user that will be locked to this kiosk configuration
 	UserID *string `json:"userId,omitempty"`

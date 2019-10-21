@@ -6,6 +6,7 @@ import "time"
 
 // DeviceEnrollmentConfiguration undocumented
 type DeviceEnrollmentConfiguration struct {
+	// Entity is the base model of DeviceEnrollmentConfiguration
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

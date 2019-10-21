@@ -6,6 +6,7 @@ import "time"
 
 // ManagedAppRegistration The ManagedAppEntity is the base entity type for all other entity types under app management workflow.
 type ManagedAppRegistration struct {
+	// Entity is the base model of ManagedAppRegistration
 	Entity
 	// CreatedDateTime Date and time of creation
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

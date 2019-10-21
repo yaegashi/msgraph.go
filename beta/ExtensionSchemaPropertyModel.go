@@ -4,6 +4,8 @@ package msgraph
 
 // ExtensionSchemaProperty undocumented
 type ExtensionSchemaProperty struct {
+	// Object is the base model of ExtensionSchemaProperty
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Type undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // AssignedLicense undocumented
 type AssignedLicense struct {
+	// Object is the base model of AssignedLicense
+	Object
 	// DisabledPlans undocumented
 	DisabledPlans []UUID `json:"disabledPlans,omitempty"`
 	// SKUID undocumented

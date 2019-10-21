@@ -4,6 +4,7 @@ package msgraph
 
 // GroupSettingTemplate undocumented
 type GroupSettingTemplate struct {
+	// DirectoryObject is the base model of GroupSettingTemplate
 	DirectoryObject
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

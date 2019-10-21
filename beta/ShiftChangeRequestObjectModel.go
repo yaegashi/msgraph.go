@@ -6,6 +6,7 @@ import "time"
 
 // ShiftChangeRequestObject undocumented
 type ShiftChangeRequestObject struct {
+	// ScheduleChangeRequestObject is the base model of ShiftChangeRequestObject
 	ScheduleChangeRequestObject
 	// RecipientActionMessage undocumented
 	RecipientActionMessage *string `json:"recipientActionMessage,omitempty"`

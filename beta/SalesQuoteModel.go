@@ -6,6 +6,7 @@ import "time"
 
 // SalesQuote undocumented
 type SalesQuote struct {
+	// Entity is the base model of SalesQuote
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

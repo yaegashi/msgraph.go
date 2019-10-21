@@ -4,6 +4,8 @@ package msgraph
 
 // InformationalURL undocumented
 type InformationalURL struct {
+	// Object is the base model of InformationalURL
+	Object
 	// LogoURL undocumented
 	LogoURL *string `json:"logoUrl,omitempty"`
 	// MarketingURL undocumented

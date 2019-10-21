@@ -4,6 +4,8 @@ package msgraph
 
 // Win32LobAppReturnCode undocumented
 type Win32LobAppReturnCode struct {
+	// Object is the base model of Win32LobAppReturnCode
+	Object
 	// ReturnCode Return code.
 	ReturnCode *int `json:"returnCode,omitempty"`
 	// Type The type of return code.

@@ -6,6 +6,7 @@ import "time"
 
 // OrgContact undocumented
 type OrgContact struct {
+	// DirectoryObject is the base model of OrgContact
 	DirectoryObject
 	// Addresses undocumented
 	Addresses []PhysicalOfficeAddress `json:"addresses,omitempty"`

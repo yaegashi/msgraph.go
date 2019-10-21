@@ -4,6 +4,7 @@ package msgraph
 
 // OnPremisesPublishingProfile undocumented
 type OnPremisesPublishingProfile struct {
+	// Entity is the base model of OnPremisesPublishingProfile
 	Entity
 	// HybridAgentUpdaterConfiguration undocumented
 	HybridAgentUpdaterConfiguration *HybridAgentUpdaterConfiguration `json:"hybridAgentUpdaterConfiguration,omitempty"`

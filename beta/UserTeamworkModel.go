@@ -4,6 +4,7 @@ package msgraph
 
 // UserTeamwork undocumented
 type UserTeamwork struct {
+	// Entity is the base model of UserTeamwork
 	Entity
 	// InstalledApps undocumented
 	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`

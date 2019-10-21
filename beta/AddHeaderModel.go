@@ -4,6 +4,7 @@ package msgraph
 
 // AddHeader undocumented
 type AddHeader struct {
+	// MarkContent is the base model of AddHeader
 	MarkContent
 	// Margin undocumented
 	Margin *int `json:"margin,omitempty"`

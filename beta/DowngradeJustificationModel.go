@@ -4,6 +4,8 @@ package msgraph
 
 // DowngradeJustification undocumented
 type DowngradeJustification struct {
+	// Object is the base model of DowngradeJustification
+	Object
 	// JustificationMessage undocumented
 	JustificationMessage *string `json:"justificationMessage,omitempty"`
 	// IsDowngradeJustified undocumented

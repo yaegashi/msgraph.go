@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedMobileLobApp An abstract base class containing properties for all managed mobile line of business apps.
 type ManagedMobileLobApp struct {
+	// ManagedApp is the base model of ManagedMobileLobApp
 	ManagedApp
 	// CommittedContentVersion The internal committed content version.
 	CommittedContentVersion *string `json:"committedContentVersion,omitempty"`

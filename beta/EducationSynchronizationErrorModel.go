@@ -6,6 +6,7 @@ import "time"
 
 // EducationSynchronizationError undocumented
 type EducationSynchronizationError struct {
+	// Entity is the base model of EducationSynchronizationError
 	Entity
 	// EntryType undocumented
 	EntryType *string `json:"entryType,omitempty"`

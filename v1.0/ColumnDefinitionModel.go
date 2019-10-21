@@ -4,6 +4,7 @@ package msgraph
 
 // ColumnDefinition undocumented
 type ColumnDefinition struct {
+	// Entity is the base model of ColumnDefinition
 	Entity
 	// Boolean undocumented
 	Boolean *BooleanColumn `json:"boolean,omitempty"`

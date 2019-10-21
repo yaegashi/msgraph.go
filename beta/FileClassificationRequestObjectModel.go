@@ -4,6 +4,7 @@ package msgraph
 
 // FileClassificationRequestObject undocumented
 type FileClassificationRequestObject struct {
+	// Entity is the base model of FileClassificationRequestObject
 	Entity
 	// File undocumented
 	File *Stream `json:"file,omitempty"`

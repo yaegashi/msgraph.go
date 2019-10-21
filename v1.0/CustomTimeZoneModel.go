@@ -4,6 +4,7 @@ package msgraph
 
 // CustomTimeZone undocumented
 type CustomTimeZone struct {
+	// TimeZoneBase is the base model of CustomTimeZone
 	TimeZoneBase
 	// Bias undocumented
 	Bias *int `json:"bias,omitempty"`

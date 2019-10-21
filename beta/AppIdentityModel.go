@@ -4,6 +4,8 @@ package msgraph
 
 // AppIdentity undocumented
 type AppIdentity struct {
+	// Object is the base model of AppIdentity
+	Object
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`
 	// DisplayName undocumented

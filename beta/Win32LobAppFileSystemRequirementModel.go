@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobAppFileSystemRequirement undocumented
 type Win32LobAppFileSystemRequirement struct {
+	// Win32LobAppRequirement is the base model of Win32LobAppFileSystemRequirement
 	Win32LobAppRequirement
 	// Path The file or folder path to detect Win32 Line of Business (LoB) app
 	Path *string `json:"path,omitempty"`

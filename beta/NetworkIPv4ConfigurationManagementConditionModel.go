@@ -4,6 +4,7 @@ package msgraph
 
 // NetworkIPv4ConfigurationManagementCondition IPv4 configuration-based management conditions may be defined that will trigger when a device detects certain IP network settings. An IP config management conditions will only be considered TRUE when the network connection is active.
 type NetworkIPv4ConfigurationManagementCondition struct {
+	// NetworkManagementCondition is the base model of NetworkIPv4ConfigurationManagementCondition
 	NetworkManagementCondition
 	// IPV4Prefix The IPv4 subnet to be connected to. e.g. 10.0.0.0/8
 	IPV4Prefix *string `json:"ipV4Prefix,omitempty"`

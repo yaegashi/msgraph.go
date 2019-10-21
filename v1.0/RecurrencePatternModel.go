@@ -4,6 +4,8 @@ package msgraph
 
 // RecurrencePattern undocumented
 type RecurrencePattern struct {
+	// Object is the base model of RecurrencePattern
+	Object
 	// Type undocumented
 	Type *RecurrencePatternType `json:"type,omitempty"`
 	// Interval undocumented

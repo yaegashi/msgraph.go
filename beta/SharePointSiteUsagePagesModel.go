@@ -6,6 +6,7 @@ import "time"
 
 // SharePointSiteUsagePages undocumented
 type SharePointSiteUsagePages struct {
+	// Entity is the base model of SharePointSiteUsagePages
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

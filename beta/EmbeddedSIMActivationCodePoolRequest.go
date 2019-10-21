@@ -3,10 +3,11 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
 // EmbeddedSIMActivationCodePoolRequestBuilder is request builder for EmbeddedSIMActivationCodePool
@@ -101,11 +102,11 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(metho
 			paging Paging
 			value  []EmbeddedSIMActivationCodePoolAssignment
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}
@@ -188,11 +189,11 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(meth
 			paging Paging
 			value  []EmbeddedSIMDeviceState
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

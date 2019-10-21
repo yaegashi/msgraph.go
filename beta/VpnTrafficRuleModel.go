@@ -4,6 +4,8 @@ package msgraph
 
 // VpnTrafficRule undocumented
 type VpnTrafficRule struct {
+	// Object is the base model of VpnTrafficRule
+	Object
 	// Name Name.
 	Name *string `json:"name,omitempty"`
 	// Protocols Protocols (0-255). Valid values 0 to 255

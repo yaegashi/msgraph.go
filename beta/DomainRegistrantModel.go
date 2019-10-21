@@ -4,6 +4,8 @@ package msgraph
 
 // DomainRegistrant undocumented
 type DomainRegistrant struct {
+	// Object is the base model of DomainRegistrant
+	Object
 	// CountryOrRegionCode undocumented
 	CountryOrRegionCode *string `json:"countryOrRegionCode,omitempty"`
 	// Organization undocumented

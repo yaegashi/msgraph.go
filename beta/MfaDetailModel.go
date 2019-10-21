@@ -4,6 +4,8 @@ package msgraph
 
 // MfaDetail undocumented
 type MfaDetail struct {
+	// Object is the base model of MfaDetail
+	Object
 	// AuthMethod undocumented
 	AuthMethod *string `json:"authMethod,omitempty"`
 	// AuthDetail undocumented

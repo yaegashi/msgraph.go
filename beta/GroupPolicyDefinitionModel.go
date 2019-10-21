@@ -6,6 +6,7 @@ import "time"
 
 // GroupPolicyDefinition The entity describes all of the information about a single group policy.
 type GroupPolicyDefinition struct {
+	// Entity is the base model of GroupPolicyDefinition
 	Entity
 	// ClassType Identifies the type of groups the policy can be applied to.
 	ClassType *GroupPolicyDefinitionClassType `json:"classType,omitempty"`

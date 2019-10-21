@@ -4,6 +4,7 @@ package msgraph
 
 // OMASettingString undocumented
 type OMASettingString struct {
+	// OMASetting is the base model of OMASettingString
 	OMASetting
 	// Value Value.
 	Value *string `json:"value,omitempty"`

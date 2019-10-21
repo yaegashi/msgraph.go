@@ -4,6 +4,8 @@ package msgraph
 
 // EncryptionReportPolicyDetails undocumented
 type EncryptionReportPolicyDetails struct {
+	// Object is the base model of EncryptionReportPolicyDetails
+	Object
 	// PolicyID Policy Id for Encryption Report
 	PolicyID *string `json:"policyId,omitempty"`
 	// PolicyName Policy Name for Encryption Report

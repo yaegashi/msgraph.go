@@ -4,6 +4,7 @@ package msgraph
 
 // GroupSetting undocumented
 type GroupSetting struct {
+	// Entity is the base model of GroupSetting
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

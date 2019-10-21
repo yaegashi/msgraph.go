@@ -4,6 +4,8 @@ package msgraph
 
 // DateTimeColumn undocumented
 type DateTimeColumn struct {
+	// Object is the base model of DateTimeColumn
+	Object
 	// DisplayAs undocumented
 	DisplayAs *string `json:"displayAs,omitempty"`
 	// Format undocumented

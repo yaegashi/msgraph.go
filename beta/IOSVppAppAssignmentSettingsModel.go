@@ -4,6 +4,7 @@ package msgraph
 
 // IOSVppAppAssignmentSettings undocumented
 type IOSVppAppAssignmentSettings struct {
+	// MobileAppAssignmentSettings is the base model of IOSVppAppAssignmentSettings
 	MobileAppAssignmentSettings
 	// UseDeviceLicensing Whether or not to use device licensing.
 	UseDeviceLicensing *bool `json:"useDeviceLicensing,omitempty"`

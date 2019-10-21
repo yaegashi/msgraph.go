@@ -6,6 +6,7 @@ import "time"
 
 // GroupPolicyDefinitionValue The definition value entity stores the value for a single group policy definition.
 type GroupPolicyDefinitionValue struct {
+	// Entity is the base model of GroupPolicyDefinitionValue
 	Entity
 	// CreatedDateTime The date and time the object was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

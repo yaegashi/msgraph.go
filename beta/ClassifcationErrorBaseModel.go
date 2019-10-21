@@ -4,6 +4,8 @@ package msgraph
 
 // ClassifcationErrorBase undocumented
 type ClassifcationErrorBase struct {
+	// Object is the base model of ClassifcationErrorBase
+	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// Message undocumented

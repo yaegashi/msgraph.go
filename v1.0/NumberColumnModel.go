@@ -4,6 +4,8 @@ package msgraph
 
 // NumberColumn undocumented
 type NumberColumn struct {
+	// Object is the base model of NumberColumn
+	Object
 	// DecimalPlaces undocumented
 	DecimalPlaces *string `json:"decimalPlaces,omitempty"`
 	// DisplayAs undocumented

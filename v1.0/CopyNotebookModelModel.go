@@ -6,6 +6,8 @@ import "time"
 
 // CopyNotebookModel undocumented
 type CopyNotebookModel struct {
+	// Object is the base model of CopyNotebookModel
+	Object
 	// IsDefault undocumented
 	IsDefault *bool `json:"isDefault,omitempty"`
 	// UserRole undocumented

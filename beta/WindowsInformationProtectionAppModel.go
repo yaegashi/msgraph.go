@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsInformationProtectionApp undocumented
 type WindowsInformationProtectionApp struct {
+	// Object is the base model of WindowsInformationProtectionApp
+	Object
 	// DisplayName App display name.
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description The app's description.

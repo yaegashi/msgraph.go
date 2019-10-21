@@ -4,6 +4,8 @@ package msgraph
 
 // WorkbookSortField undocumented
 type WorkbookSortField struct {
+	// Object is the base model of WorkbookSortField
+	Object
 	// Ascending undocumented
 	Ascending *bool `json:"ascending,omitempty"`
 	// Color undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // SettingTemplateValue undocumented
 type SettingTemplateValue struct {
+	// Object is the base model of SettingTemplateValue
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Type undocumented

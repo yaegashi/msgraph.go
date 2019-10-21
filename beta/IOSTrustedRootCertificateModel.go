@@ -4,6 +4,7 @@ package msgraph
 
 // IOSTrustedRootCertificate iOS Trusted Root Certificate configuration profile.
 type IOSTrustedRootCertificate struct {
+	// DeviceConfiguration is the base model of IOSTrustedRootCertificate
 	DeviceConfiguration
 	// TrustedRootCertificate Trusted Root Certificate.
 	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`

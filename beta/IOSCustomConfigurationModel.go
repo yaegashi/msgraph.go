@@ -4,6 +4,7 @@ package msgraph
 
 // IOSCustomConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the iosCustomConfiguration resource.
 type IOSCustomConfiguration struct {
+	// DeviceConfiguration is the base model of IOSCustomConfiguration
 	DeviceConfiguration
 	// PayloadName Name that is displayed to the user.
 	PayloadName *string `json:"payloadName,omitempty"`

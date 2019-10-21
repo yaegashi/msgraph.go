@@ -4,6 +4,7 @@ package msgraph
 
 // IOSCompliancePolicy This class contains compliance settings for IOS.
 type IOSCompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of IOSCompliancePolicy
 	DeviceCompliancePolicy
 	// PasscodeBlockSimple Indicates whether or not to block simple passcodes.
 	PasscodeBlockSimple *bool `json:"passcodeBlockSimple,omitempty"`

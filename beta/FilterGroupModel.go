@@ -4,6 +4,8 @@ package msgraph
 
 // FilterGroup undocumented
 type FilterGroup struct {
+	// Object is the base model of FilterGroup
+	Object
 	// Clauses undocumented
 	Clauses []FilterClause `json:"clauses,omitempty"`
 	// Name undocumented

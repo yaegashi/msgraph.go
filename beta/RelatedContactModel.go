@@ -4,6 +4,8 @@ package msgraph
 
 // RelatedContact undocumented
 type RelatedContact struct {
+	// Object is the base model of RelatedContact
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented

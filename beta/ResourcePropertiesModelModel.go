@@ -4,6 +4,8 @@ package msgraph
 
 // ResourcePropertiesModel undocumented
 type ResourcePropertiesModel struct {
+	// Object is the base model of ResourcePropertiesModel
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Label undocumented

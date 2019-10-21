@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidDeviceOwnerScepCertificateProfile Android Device Owner SCEP certificate profile
 type AndroidDeviceOwnerScepCertificateProfile struct {
+	// AndroidDeviceOwnerCertificateProfileBase is the base model of AndroidDeviceOwnerScepCertificateProfile
 	AndroidDeviceOwnerCertificateProfileBase
 	// ScepServerUrls SCEP Server Url(s)
 	ScepServerUrls []string `json:"scepServerUrls,omitempty"`

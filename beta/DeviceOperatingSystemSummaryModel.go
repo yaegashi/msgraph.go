@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceOperatingSystemSummary undocumented
 type DeviceOperatingSystemSummary struct {
+	// Object is the base model of DeviceOperatingSystemSummary
+	Object
 	// AndroidCount Number of android device count.
 	AndroidCount *int `json:"androidCount,omitempty"`
 	// IOSCount Number of iOS device count.

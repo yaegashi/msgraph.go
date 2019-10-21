@@ -4,6 +4,8 @@ package msgraph
 
 // SizeRange undocumented
 type SizeRange struct {
+	// Object is the base model of SizeRange
+	Object
 	// MinimumSize undocumented
 	MinimumSize *int `json:"minimumSize,omitempty"`
 	// MaximumSize undocumented

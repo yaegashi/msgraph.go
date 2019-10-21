@@ -4,6 +4,8 @@ package msgraph
 
 // BitLockerFixedDrivePolicy undocumented
 type BitLockerFixedDrivePolicy struct {
+	// Object is the base model of BitLockerFixedDrivePolicy
+	Object
 	// EncryptionMethod Select the encryption method for fixed drives.
 	EncryptionMethod *BitLockerEncryptionMethod `json:"encryptionMethod,omitempty"`
 	// RequireEncryptionForWriteAccess This policy setting determines whether BitLocker protection is required for fixed data drives to be writable on a computer.

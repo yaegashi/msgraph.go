@@ -4,6 +4,8 @@ package msgraph
 
 // OMASetting undocumented
 type OMASetting struct {
+	// Object is the base model of OMASetting
+	Object
 	// DisplayName Display Name.
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description.

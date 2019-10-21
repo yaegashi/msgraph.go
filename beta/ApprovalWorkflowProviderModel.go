@@ -4,6 +4,7 @@ package msgraph
 
 // ApprovalWorkflowProvider undocumented
 type ApprovalWorkflowProvider struct {
+	// Entity is the base model of ApprovalWorkflowProvider
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

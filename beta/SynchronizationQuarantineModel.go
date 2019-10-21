@@ -6,6 +6,8 @@ import "time"
 
 // SynchronizationQuarantine undocumented
 type SynchronizationQuarantine struct {
+	// Object is the base model of SynchronizationQuarantine
+	Object
 	// CurrentBegan undocumented
 	CurrentBegan *time.Time `json:"currentBegan,omitempty"`
 	// NextAttempt undocumented

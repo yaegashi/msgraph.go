@@ -6,6 +6,7 @@ import "time"
 
 // DeviceAppManagement Device app management singleton entity.
 type DeviceAppManagement struct {
+	// Entity is the base model of DeviceAppManagement
 	Entity
 	// MicrosoftStoreForBusinessLastSuccessfulSyncDateTime The last time the apps from the Microsoft Store for Business were synced successfully for the account.
 	MicrosoftStoreForBusinessLastSuccessfulSyncDateTime *time.Time `json:"microsoftStoreForBusinessLastSuccessfulSyncDateTime,omitempty"`

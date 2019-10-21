@@ -4,6 +4,7 @@ package msgraph
 
 // EducationOneRosterAPIDataProvider undocumented
 type EducationOneRosterAPIDataProvider struct {
+	// EducationSynchronizationDataProvider is the base model of EducationOneRosterAPIDataProvider
 	EducationSynchronizationDataProvider
 	// ConnectionURL undocumented
 	ConnectionURL *string `json:"connectionUrl,omitempty"`

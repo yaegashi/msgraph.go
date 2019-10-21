@@ -6,6 +6,7 @@ import "time"
 
 // LocalizedNotificationMessage The text content of a Notification Message Template for the specified locale.
 type LocalizedNotificationMessage struct {
+	// Entity is the base model of LocalizedNotificationMessage
 	Entity
 	// LastModifiedDateTime DateTime the object was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`

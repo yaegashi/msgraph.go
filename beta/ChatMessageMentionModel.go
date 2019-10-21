@@ -4,6 +4,8 @@ package msgraph
 
 // ChatMessageMention undocumented
 type ChatMessageMention struct {
+	// Object is the base model of ChatMessageMention
+	Object
 	// ID undocumented
 	ID *int `json:"id,omitempty"`
 	// MentionText undocumented

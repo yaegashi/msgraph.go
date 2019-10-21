@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerAssignments undocumented
 type PlannerAssignments struct {
+	// Object is the base model of PlannerAssignments
+	Object
 }

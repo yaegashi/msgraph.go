@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceEnrollmentLimitConfiguration undocumented
 type DeviceEnrollmentLimitConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentLimitConfiguration
 	DeviceEnrollmentConfiguration
 	// Limit undocumented
 	Limit *int `json:"limit,omitempty"`

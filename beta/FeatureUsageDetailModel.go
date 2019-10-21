@@ -6,6 +6,8 @@ import "time"
 
 // FeatureUsageDetail undocumented
 type FeatureUsageDetail struct {
+	// Object is the base model of FeatureUsageDetail
+	Object
 	// FeatureName undocumented
 	FeatureName *string `json:"featureName,omitempty"`
 	// LicenseRequired undocumented

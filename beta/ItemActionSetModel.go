@@ -4,6 +4,8 @@ package msgraph
 
 // ItemActionSet undocumented
 type ItemActionSet struct {
+	// Object is the base model of ItemActionSet
+	Object
 	// Comment undocumented
 	Comment *CommentAction `json:"comment,omitempty"`
 	// Create undocumented

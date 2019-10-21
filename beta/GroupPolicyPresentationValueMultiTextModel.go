@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationValueMultiText The entity represents a string value of a multi-line text box presentation on a policy definition.
 type GroupPolicyPresentationValueMultiText struct {
+	// GroupPolicyPresentationValue is the base model of GroupPolicyPresentationValueMultiText
 	GroupPolicyPresentationValue
 	// Values A collection of non-empty strings for the associated presentation.
 	Values []string `json:"values,omitempty"`

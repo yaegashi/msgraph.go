@@ -4,5 +4,6 @@ package msgraph
 
 // MacOSOfficeSuiteApp Contains properties and inherited properties for the MacOS Office Suite App.
 type MacOSOfficeSuiteApp struct {
+	// MobileApp is the base model of MacOSOfficeSuiteApp
 	MobileApp
 }

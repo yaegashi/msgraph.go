@@ -4,6 +4,7 @@ package msgraph
 
 // Picture undocumented
 type Picture struct {
+	// Entity is the base model of Picture
 	Entity
 	// Width undocumented
 	Width *int `json:"width,omitempty"`

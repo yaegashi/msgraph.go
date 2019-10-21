@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationDropdownList Represents an ADMX dropdownList element and an ADMX enum element.
 type GroupPolicyPresentationDropdownList struct {
+	// GroupPolicyPresentation is the base model of GroupPolicyPresentationDropdownList
 	GroupPolicyPresentation
 	// DefaultItem Localized string value identifying the default choice of the list of items.
 	DefaultItem *GroupPolicyPresentationDropdownListItem `json:"defaultItem,omitempty"`

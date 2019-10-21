@@ -4,6 +4,7 @@ package msgraph
 
 // ItemAnalytics undocumented
 type ItemAnalytics struct {
+	// Entity is the base model of ItemAnalytics
 	Entity
 	// ItemActivityStats undocumented
 	ItemActivityStats []ItemActivityStat `json:"itemActivityStats,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ManagementCertificateWithThumbprint undocumented
 type ManagementCertificateWithThumbprint struct {
+	// Object is the base model of ManagementCertificateWithThumbprint
+	Object
 	// Thumbprint The thumbprint of the management certificate
 	Thumbprint *string `json:"thumbprint,omitempty"`
 	// Certificate The Base 64 encoded management certificate

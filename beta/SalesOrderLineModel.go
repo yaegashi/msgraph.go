@@ -6,6 +6,7 @@ import "time"
 
 // SalesOrderLine undocumented
 type SalesOrderLine struct {
+	// Entity is the base model of SalesOrderLine
 	Entity
 	// DocumentID undocumented
 	DocumentID *UUID `json:"documentId,omitempty"`

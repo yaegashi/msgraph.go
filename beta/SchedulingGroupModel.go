@@ -4,6 +4,7 @@ package msgraph
 
 // SchedulingGroup undocumented
 type SchedulingGroup struct {
+	// ChangeTrackedEntity is the base model of SchedulingGroup
 	ChangeTrackedEntity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

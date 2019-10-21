@@ -4,6 +4,7 @@ package msgraph
 
 // ShiftItem undocumented
 type ShiftItem struct {
+	// ScheduleEntity is the base model of ShiftItem
 	ScheduleEntity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

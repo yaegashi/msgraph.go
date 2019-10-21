@@ -4,6 +4,8 @@ package msgraph
 
 // PasswordProfile undocumented
 type PasswordProfile struct {
+	// Object is the base model of PasswordProfile
+	Object
 	// Password undocumented
 	Password *string `json:"password,omitempty"`
 	// ForceChangePasswordNextSignIn undocumented

@@ -6,6 +6,7 @@ import "time"
 
 // SalesCreditMemo undocumented
 type SalesCreditMemo struct {
+	// Entity is the base model of SalesCreditMemo
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // PhysicalOfficeAddress undocumented
 type PhysicalOfficeAddress struct {
+	// Object is the base model of PhysicalOfficeAddress
+	Object
 	// City undocumented
 	City *string `json:"city,omitempty"`
 	// CountryOrRegion undocumented

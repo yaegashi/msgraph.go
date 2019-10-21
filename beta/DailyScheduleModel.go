@@ -4,6 +4,7 @@ package msgraph
 
 // DailySchedule undocumented
 type DailySchedule struct {
+	// RunSchedule is the base model of DailySchedule
 	RunSchedule
 	// Interval Interval in number of days
 	Interval *int `json:"interval,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // CartToClassAssociation CartToClassAssociation for associating device carts with classrooms.
 type CartToClassAssociation struct {
+	// Entity is the base model of CartToClassAssociation
 	Entity
 	// CreatedDateTime DateTime the object was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

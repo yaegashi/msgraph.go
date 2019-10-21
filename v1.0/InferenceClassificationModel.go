@@ -4,6 +4,7 @@ package msgraph
 
 // InferenceClassification undocumented
 type InferenceClassification struct {
+	// Entity is the base model of InferenceClassification
 	Entity
 	// Overrides undocumented
 	Overrides []InferenceClassificationOverride `json:"overrides,omitempty"`

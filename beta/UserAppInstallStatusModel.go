@@ -4,6 +4,7 @@ package msgraph
 
 // UserAppInstallStatus Contains properties for the installation status for a user.
 type UserAppInstallStatus struct {
+	// Entity is the base model of UserAppInstallStatus
 	Entity
 	// UserName User name.
 	UserName *string `json:"userName,omitempty"`

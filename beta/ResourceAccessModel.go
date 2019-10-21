@@ -4,6 +4,8 @@ package msgraph
 
 // ResourceAccess undocumented
 type ResourceAccess struct {
+	// Object is the base model of ResourceAccess
+	Object
 	// ID undocumented
 	ID *UUID `json:"id,omitempty"`
 	// Type undocumented

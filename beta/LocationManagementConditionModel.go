@@ -4,5 +4,6 @@ package msgraph
 
 // LocationManagementCondition Contains the information to define a location management condition, an area of interest, to monitor.
 type LocationManagementCondition struct {
+	// ManagementCondition is the base model of LocationManagementCondition
 	ManagementCondition
 }

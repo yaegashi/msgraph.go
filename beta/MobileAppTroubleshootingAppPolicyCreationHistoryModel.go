@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppTroubleshootingAppPolicyCreationHistory undocumented
 type MobileAppTroubleshootingAppPolicyCreationHistory struct {
+	// MobileAppTroubleshootingHistoryItem is the base model of MobileAppTroubleshootingAppPolicyCreationHistory
 	MobileAppTroubleshootingHistoryItem
 	// RunState Status of the item.
 	RunState *RunState `json:"runState,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ChatMessageAttachment undocumented
 type ChatMessageAttachment struct {
+	// Object is the base model of ChatMessageAttachment
+	Object
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// ContentType undocumented

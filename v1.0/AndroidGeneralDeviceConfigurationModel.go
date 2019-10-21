@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidGeneralDeviceConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the androidGeneralDeviceConfiguration resource.
 type AndroidGeneralDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of AndroidGeneralDeviceConfiguration
 	DeviceConfiguration
 	// AppsBlockClipboardSharing Indicates whether or not to block clipboard sharing to copy and paste between applications.
 	AppsBlockClipboardSharing *bool `json:"appsBlockClipboardSharing,omitempty"`

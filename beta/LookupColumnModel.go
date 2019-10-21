@@ -4,6 +4,8 @@ package msgraph
 
 // LookupColumn undocumented
 type LookupColumn struct {
+	// Object is the base model of LookupColumn
+	Object
 	// AllowMultipleValues undocumented
 	AllowMultipleValues *bool `json:"allowMultipleValues,omitempty"`
 	// AllowUnlimitedLength undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // MailboxSettings undocumented
 type MailboxSettings struct {
+	// Object is the base model of MailboxSettings
+	Object
 	// AutomaticRepliesSetting undocumented
 	AutomaticRepliesSetting *AutomaticRepliesSetting `json:"automaticRepliesSetting,omitempty"`
 	// ArchiveFolder undocumented

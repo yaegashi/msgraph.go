@@ -4,6 +4,8 @@ package msgraph
 
 // VppTokenLicenseSummary undocumented
 type VppTokenLicenseSummary struct {
+	// Object is the base model of VppTokenLicenseSummary
+	Object
 	// VppTokenID Identifier of the VPP token.
 	VppTokenID *string `json:"vppTokenId,omitempty"`
 	// AppleID The Apple Id associated with the given Apple Volume Purchase Program Token.

@@ -4,6 +4,7 @@ package msgraph
 
 // Presence undocumented
 type Presence struct {
+	// Entity is the base model of Presence
 	Entity
 	// Availability undocumented
 	Availability *string `json:"availability,omitempty"`

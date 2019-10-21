@@ -6,6 +6,7 @@ import "time"
 
 // OneDriveUsageAccountDetail undocumented
 type OneDriveUsageAccountDetail struct {
+	// Entity is the base model of OneDriveUsageAccountDetail
 	Entity
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`

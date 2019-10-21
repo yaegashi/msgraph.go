@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceComplianceScheduledActionForRule Scheduled Action for Rule
 type DeviceComplianceScheduledActionForRule struct {
+	// Entity is the base model of DeviceComplianceScheduledActionForRule
 	Entity
 	// RuleName Name of the rule which this scheduled action applies to.
 	RuleName *string `json:"ruleName,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // NetworkLocationDetail undocumented
 type NetworkLocationDetail struct {
+	// Object is the base model of NetworkLocationDetail
+	Object
 	// NetworkType undocumented
 	NetworkType *NetworkType `json:"networkType,omitempty"`
 	// NetworkNames undocumented

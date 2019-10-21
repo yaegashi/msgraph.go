@@ -6,6 +6,7 @@ import "time"
 
 // SecurityBaselineDeviceState The security baseline compliance state summary of the security baseline for a device.
 type SecurityBaselineDeviceState struct {
+	// Entity is the base model of SecurityBaselineDeviceState
 	Entity
 	// ManagedDeviceID Intune device id
 	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`

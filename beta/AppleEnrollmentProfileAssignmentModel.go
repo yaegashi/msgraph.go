@@ -4,6 +4,7 @@ package msgraph
 
 // AppleEnrollmentProfileAssignment An assignment of an Apple profile.
 type AppleEnrollmentProfileAssignment struct {
+	// Entity is the base model of AppleEnrollmentProfileAssignment
 	Entity
 	// Target The assignment target for the Apple user initiated deployment profile.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

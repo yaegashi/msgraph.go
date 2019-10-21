@@ -4,6 +4,8 @@ package msgraph
 
 // InstanceResourceAccess undocumented
 type InstanceResourceAccess struct {
+	// Object is the base model of InstanceResourceAccess
+	Object
 	// ResourceAppID undocumented
 	ResourceAppID *string `json:"resourceAppId,omitempty"`
 	// Permissions undocumented

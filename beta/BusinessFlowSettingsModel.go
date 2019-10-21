@@ -4,6 +4,7 @@ package msgraph
 
 // BusinessFlowSettings undocumented
 type BusinessFlowSettings struct {
+	// AccessReviewSettings is the base model of BusinessFlowSettings
 	AccessReviewSettings
 	// DurationInDays undocumented
 	DurationInDays *int `json:"durationInDays,omitempty"`

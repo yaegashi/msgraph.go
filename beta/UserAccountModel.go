@@ -6,6 +6,8 @@ import "time"
 
 // UserAccount undocumented
 type UserAccount struct {
+	// Object is the base model of UserAccount
+	Object
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// LastSeenDateTime undocumented

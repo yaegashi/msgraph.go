@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsInformationProtectionAppLockerFile Windows Information Protection AppLocker File
 type WindowsInformationProtectionAppLockerFile struct {
+	// Entity is the base model of WindowsInformationProtectionAppLockerFile
 	Entity
 	// DisplayName The friendly name
 	DisplayName *string `json:"displayName,omitempty"`

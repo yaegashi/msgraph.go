@@ -4,6 +4,8 @@ package msgraph
 
 // ExcludedApps undocumented
 type ExcludedApps struct {
+	// Object is the base model of ExcludedApps
+	Object
 	// Access The value for if MS Office Access should be excluded or not.
 	Access *bool `json:"access,omitempty"`
 	// Excel The value for if MS Office Excel should be excluded or not.

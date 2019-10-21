@@ -6,6 +6,7 @@ import "time"
 
 // RiskyUser undocumented
 type RiskyUser struct {
+	// Entity is the base model of RiskyUser
 	Entity
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`

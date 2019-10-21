@@ -4,6 +4,8 @@ package msgraph
 
 // BookingWorkHours undocumented
 type BookingWorkHours struct {
+	// Object is the base model of BookingWorkHours
+	Object
 	// Day The day of the week represented by this instance.
 	Day *DayOfWeek `json:"day,omitempty"`
 	// TimeSlots A list of start/end times during a day.

@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkCertificateProfileBase Android For Work certificate profile base.
 type AndroidForWorkCertificateProfileBase struct {
+	// DeviceConfiguration is the base model of AndroidForWorkCertificateProfileBase
 	DeviceConfiguration
 	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
 	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`

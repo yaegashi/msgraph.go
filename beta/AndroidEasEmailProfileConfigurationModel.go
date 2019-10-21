@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidEasEmailProfileConfiguration By providing configurations in this profile you can instruct the native email client on KNOX devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
 type AndroidEasEmailProfileConfiguration struct {
+	// DeviceConfiguration is the base model of AndroidEasEmailProfileConfiguration
 	DeviceConfiguration
 	// AccountName Exchange ActiveSync account name, displayed to users as name of EAS (this) profile.
 	AccountName *string `json:"accountName,omitempty"`

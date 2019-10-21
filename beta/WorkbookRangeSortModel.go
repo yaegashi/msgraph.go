@@ -4,5 +4,6 @@ package msgraph
 
 // WorkbookRangeSort undocumented
 type WorkbookRangeSort struct {
+	// Entity is the base model of WorkbookRangeSort
 	Entity
 }

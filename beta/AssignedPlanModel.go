@@ -6,6 +6,8 @@ import "time"
 
 // AssignedPlan undocumented
 type AssignedPlan struct {
+	// Object is the base model of AssignedPlan
+	Object
 	// AssignedDateTime undocumented
 	AssignedDateTime *time.Time `json:"assignedDateTime,omitempty"`
 	// CapabilityStatus undocumented

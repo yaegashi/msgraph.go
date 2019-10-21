@@ -4,5 +4,6 @@ package msgraph
 
 // JustifyAction undocumented
 type JustifyAction struct {
+	// InformationProtectionAction is the base model of JustifyAction
 	InformationProtectionAction
 }

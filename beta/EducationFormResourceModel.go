@@ -4,6 +4,7 @@ package msgraph
 
 // EducationFormResource undocumented
 type EducationFormResource struct {
+	// EducationResource is the base model of EducationFormResource
 	EducationResource
 	// OriginalFormID undocumented
 	OriginalFormID *string `json:"originalFormId,omitempty"`

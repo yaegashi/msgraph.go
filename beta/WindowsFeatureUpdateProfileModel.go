@@ -6,6 +6,7 @@ import "time"
 
 // WindowsFeatureUpdateProfile Windows Feature Update Profile
 type WindowsFeatureUpdateProfile struct {
+	// Entity is the base model of WindowsFeatureUpdateProfile
 	Entity
 	// DisplayName The display name of the profile.
 	DisplayName *string `json:"displayName,omitempty"`

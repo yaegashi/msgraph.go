@@ -4,6 +4,8 @@ package msgraph
 
 // AgreementFileData undocumented
 type AgreementFileData struct {
+	// Object is the base model of AgreementFileData
+	Object
 	// Data undocumented
 	Data *Binary `json:"data,omitempty"`
 }

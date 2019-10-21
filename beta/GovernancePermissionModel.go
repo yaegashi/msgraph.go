@@ -4,6 +4,8 @@ package msgraph
 
 // GovernancePermission undocumented
 type GovernancePermission struct {
+	// Object is the base model of GovernancePermission
+	Object
 	// AccessLevel undocumented
 	AccessLevel *string `json:"accessLevel,omitempty"`
 	// IsActive undocumented

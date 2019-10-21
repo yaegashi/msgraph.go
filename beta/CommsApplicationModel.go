@@ -4,6 +4,7 @@ package msgraph
 
 // CommsApplication undocumented
 type CommsApplication struct {
+	// Entity is the base model of CommsApplication
 	Entity
 	// Calls undocumented
 	Calls []Call `json:"calls,omitempty"`

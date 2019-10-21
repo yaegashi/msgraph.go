@@ -6,6 +6,8 @@ import "time"
 
 // UpdateWindow undocumented
 type UpdateWindow struct {
+	// Object is the base model of UpdateWindow
+	Object
 	// UpdateWindowStartTime undocumented
 	UpdateWindowStartTime *time.Time `json:"updateWindowStartTime,omitempty"`
 	// UpdateWindowEndTime undocumented

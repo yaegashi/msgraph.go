@@ -4,4 +4,6 @@ package msgraph
 
 // PlannerChecklistItems undocumented
 type PlannerChecklistItems struct {
+	// Object is the base model of PlannerChecklistItems
+	Object
 }

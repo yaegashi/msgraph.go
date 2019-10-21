@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceCompliancePolicySettingState undocumented
 type DeviceCompliancePolicySettingState struct {
+	// Object is the base model of DeviceCompliancePolicySettingState
+	Object
 	// Setting The setting that is being reported
 	Setting *string `json:"setting,omitempty"`
 	// SettingName Localized/user friendly setting name that is being reported

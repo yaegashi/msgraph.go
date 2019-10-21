@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsIdentityProtectionConfiguration This entity provides descriptions of the declared methods, properties and relationships exposed by Windows Hello for Business.
 type WindowsIdentityProtectionConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsIdentityProtectionConfiguration
 	DeviceConfiguration
 	// UseSecurityKeyForSignin Boolean value used to enable the Windows Hello security key as a logon credential.
 	UseSecurityKeyForSignin *bool `json:"useSecurityKeyForSignin,omitempty"`

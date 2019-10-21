@@ -4,6 +4,7 @@ package msgraph
 
 // Teamwork undocumented
 type Teamwork struct {
+	// Entity is the base model of Teamwork
 	Entity
 	// WorkforceIntegrations undocumented
 	WorkforceIntegrations []WorkforceIntegration `json:"workforceIntegrations,omitempty"`

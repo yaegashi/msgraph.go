@@ -6,6 +6,7 @@ import "time"
 
 // ManagedDeviceCertificateState undocumented
 type ManagedDeviceCertificateState struct {
+	// Entity is the base model of ManagedDeviceCertificateState
 	Entity
 	// DevicePlatform Device platform
 	DevicePlatform *DevicePlatformType `json:"devicePlatform,omitempty"`

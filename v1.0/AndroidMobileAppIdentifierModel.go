@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidMobileAppIdentifier undocumented
 type AndroidMobileAppIdentifier struct {
+	// MobileAppIdentifier is the base model of AndroidMobileAppIdentifier
 	MobileAppIdentifier
 	// PackageID The identifier for an app, as specified in the play store.
 	PackageID *string `json:"packageId,omitempty"`

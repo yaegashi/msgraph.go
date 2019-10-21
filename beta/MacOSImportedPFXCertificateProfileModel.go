@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSImportedPFXCertificateProfile MacOS PFX Import certificate profile
 type MacOSImportedPFXCertificateProfile struct {
+	// MacOSCertificateProfileBase is the base model of MacOSImportedPFXCertificateProfile
 	MacOSCertificateProfileBase
 	// IntendedPurpose undocumented
 	IntendedPurpose *IntendedPurpose `json:"intendedPurpose,omitempty"`

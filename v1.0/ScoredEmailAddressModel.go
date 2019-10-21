@@ -4,6 +4,8 @@ package msgraph
 
 // ScoredEmailAddress undocumented
 type ScoredEmailAddress struct {
+	// Object is the base model of ScoredEmailAddress
+	Object
 	// Address undocumented
 	Address *string `json:"address,omitempty"`
 	// RelevanceScore undocumented

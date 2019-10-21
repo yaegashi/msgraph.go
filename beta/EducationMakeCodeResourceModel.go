@@ -4,6 +4,7 @@ package msgraph
 
 // EducationMakeCodeResource undocumented
 type EducationMakeCodeResource struct {
+	// EducationResource is the base model of EducationMakeCodeResource
 	EducationResource
 	// HostWebURL undocumented
 	HostWebURL *string `json:"hostWebUrl,omitempty"`

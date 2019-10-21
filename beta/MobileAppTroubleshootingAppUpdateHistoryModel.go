@@ -4,5 +4,6 @@ package msgraph
 
 // MobileAppTroubleshootingAppUpdateHistory undocumented
 type MobileAppTroubleshootingAppUpdateHistory struct {
+	// MobileAppTroubleshootingHistoryItem is the base model of MobileAppTroubleshootingAppUpdateHistory
 	MobileAppTroubleshootingHistoryItem
 }

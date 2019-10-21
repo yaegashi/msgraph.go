@@ -4,6 +4,7 @@ package msgraph
 
 // InsightValueInt undocumented
 type InsightValueInt struct {
+	// UserExperienceAnalyticsInsightValue is the base model of InsightValueInt
 	UserExperienceAnalyticsInsightValue
 	// Value undocumented
 	Value *int `json:"value,omitempty"`

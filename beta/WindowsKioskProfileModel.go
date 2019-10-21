@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsKioskProfile undocumented
 type WindowsKioskProfile struct {
+	// Object is the base model of WindowsKioskProfile
+	Object
 	// ProfileID Key of the entity.
 	ProfileID *string `json:"profileId,omitempty"`
 	// ProfileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.

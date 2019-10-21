@@ -4,6 +4,7 @@ package msgraph
 
 // AppHostedMediaConfig undocumented
 type AppHostedMediaConfig struct {
+	// MediaConfig is the base model of AppHostedMediaConfig
 	MediaConfig
 	// Blob undocumented
 	Blob *string `json:"blob,omitempty"`

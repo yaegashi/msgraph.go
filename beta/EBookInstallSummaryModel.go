@@ -4,6 +4,7 @@ package msgraph
 
 // EBookInstallSummary Contains properties for the installation summary of a book for a device.
 type EBookInstallSummary struct {
+	// Entity is the base model of EBookInstallSummary
 	Entity
 	// InstalledDeviceCount Number of Devices that have successfully installed this book.
 	InstalledDeviceCount *int `json:"installedDeviceCount,omitempty"`

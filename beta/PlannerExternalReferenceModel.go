@@ -6,6 +6,8 @@ import "time"
 
 // PlannerExternalReference undocumented
 type PlannerExternalReference struct {
+	// Object is the base model of PlannerExternalReference
+	Object
 	// Alias undocumented
 	Alias *string `json:"alias,omitempty"`
 	// Type undocumented

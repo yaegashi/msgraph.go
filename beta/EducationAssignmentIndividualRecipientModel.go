@@ -4,6 +4,7 @@ package msgraph
 
 // EducationAssignmentIndividualRecipient undocumented
 type EducationAssignmentIndividualRecipient struct {
+	// EducationAssignmentRecipient is the base model of EducationAssignmentIndividualRecipient
 	EducationAssignmentRecipient
 	// Recipients undocumented
 	Recipients []string `json:"recipients,omitempty"`

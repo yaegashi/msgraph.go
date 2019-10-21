@@ -4,6 +4,7 @@ package msgraph
 
 // LocatedRiskEvent undocumented
 type LocatedRiskEvent struct {
+	// IdentityRiskEvent is the base model of LocatedRiskEvent
 	IdentityRiskEvent
 	// Location undocumented
 	Location *SignInLocation `json:"location,omitempty"`

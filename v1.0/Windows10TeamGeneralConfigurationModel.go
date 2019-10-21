@@ -6,6 +6,7 @@ import "time"
 
 // Windows10TeamGeneralConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10TeamGeneralConfiguration resource.
 type Windows10TeamGeneralConfiguration struct {
+	// DeviceConfiguration is the base model of Windows10TeamGeneralConfiguration
 	DeviceConfiguration
 	// AzureOperationalInsightsBlockTelemetry Indicates whether or not to Block Azure Operational Insights.
 	AzureOperationalInsightsBlockTelemetry *bool `json:"azureOperationalInsightsBlockTelemetry,omitempty"`

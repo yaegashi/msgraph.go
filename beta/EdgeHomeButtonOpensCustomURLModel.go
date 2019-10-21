@@ -4,6 +4,7 @@ package msgraph
 
 // EdgeHomeButtonOpensCustomURL undocumented
 type EdgeHomeButtonOpensCustomURL struct {
+	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonOpensCustomURL
 	EdgeHomeButtonConfiguration
 	// HomeButtonCustomURL The specific URL to load.
 	HomeButtonCustomURL *string `json:"homeButtonCustomURL,omitempty"`

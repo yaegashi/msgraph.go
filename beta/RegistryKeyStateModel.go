@@ -4,6 +4,8 @@ package msgraph
 
 // RegistryKeyState undocumented
 type RegistryKeyState struct {
+	// Object is the base model of RegistryKeyState
+	Object
 	// Hive undocumented
 	Hive *RegistryHive `json:"hive,omitempty"`
 	// Key undocumented

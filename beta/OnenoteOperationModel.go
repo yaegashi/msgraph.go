@@ -4,6 +4,7 @@ package msgraph
 
 // OnenoteOperation undocumented
 type OnenoteOperation struct {
+	// Operation is the base model of OnenoteOperation
 	Operation
 	// ResourceLocation undocumented
 	ResourceLocation *string `json:"resourceLocation,omitempty"`

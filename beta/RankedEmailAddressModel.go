@@ -4,6 +4,8 @@ package msgraph
 
 // RankedEmailAddress undocumented
 type RankedEmailAddress struct {
+	// Object is the base model of RankedEmailAddress
+	Object
 	// Address undocumented
 	Address *string `json:"address,omitempty"`
 	// Rank undocumented

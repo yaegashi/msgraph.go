@@ -4,6 +4,7 @@ package msgraph
 
 // Schedule undocumented
 type Schedule struct {
+	// Entity is the base model of Schedule
 	Entity
 	// Enabled undocumented
 	Enabled *bool `json:"enabled,omitempty"`

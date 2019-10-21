@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementIntentDeviceSettingStateSummary Entity that represents device setting state summary for an intent
 type DeviceManagementIntentDeviceSettingStateSummary struct {
+	// Entity is the base model of DeviceManagementIntentDeviceSettingStateSummary
 	Entity
 	// SettingName Name of a setting
 	SettingName *string `json:"settingName,omitempty"`

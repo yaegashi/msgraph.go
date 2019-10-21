@@ -4,5 +4,6 @@ package msgraph
 
 // SubscribeToToneOperation undocumented
 type SubscribeToToneOperation struct {
+	// CommsOperation is the base model of SubscribeToToneOperation
 	CommsOperation
 }

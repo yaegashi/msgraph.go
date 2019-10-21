@@ -6,6 +6,8 @@ import "time"
 
 // BookingSchedulingPolicy undocumented
 type BookingSchedulingPolicy struct {
+	// Object is the base model of BookingSchedulingPolicy
+	Object
 	// TimeSlotInterval Duration of each time slot.
 	TimeSlotInterval *time.Duration `json:"timeSlotInterval,omitempty"`
 	// MinimumLeadTime Minimum lead time for bookings and cancellations.

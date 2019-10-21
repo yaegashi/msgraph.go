@@ -4,6 +4,7 @@ package msgraph
 
 // IOSScepCertificateProfile iOS SCEP certificate profile.
 type IOSScepCertificateProfile struct {
+	// IOSCertificateProfileBase is the base model of IOSScepCertificateProfile
 	IOSCertificateProfileBase
 	// ScepServerUrls SCEP Server Url(s).
 	ScepServerUrls []string `json:"scepServerUrls,omitempty"`

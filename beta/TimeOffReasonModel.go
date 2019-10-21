@@ -4,6 +4,7 @@ package msgraph
 
 // TimeOffReason undocumented
 type TimeOffReason struct {
+	// ChangeTrackedEntity is the base model of TimeOffReason
 	ChangeTrackedEntity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

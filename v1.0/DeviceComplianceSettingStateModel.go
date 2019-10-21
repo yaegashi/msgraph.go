@@ -6,6 +6,7 @@ import "time"
 
 // DeviceComplianceSettingState Device compliance setting State for a given device.
 type DeviceComplianceSettingState struct {
+	// Entity is the base model of DeviceComplianceSettingState
 	Entity
 	// Setting The setting class name and property name.
 	Setting *string `json:"setting,omitempty"`

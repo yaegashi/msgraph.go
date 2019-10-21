@@ -6,6 +6,7 @@ import "time"
 
 // MobileAppCategory Contains properties for a single Intune app category.
 type MobileAppCategory struct {
+	// Entity is the base model of MobileAppCategory
 	Entity
 	// DisplayName The name of the app category.
 	DisplayName *string `json:"displayName,omitempty"`

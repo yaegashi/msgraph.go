@@ -4,6 +4,8 @@ package msgraph
 
 // MacOSLobChildApp undocumented
 type MacOSLobChildApp struct {
+	// Object is the base model of MacOSLobChildApp
+	Object
 	// BundleID The Identity Name.
 	BundleID *string `json:"bundleId,omitempty"`
 	// BuildNumber The build number of MacOS Line of Business (LoB) app.

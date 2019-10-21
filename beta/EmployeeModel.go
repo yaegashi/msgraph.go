@@ -6,6 +6,7 @@ import "time"
 
 // Employee undocumented
 type Employee struct {
+	// Entity is the base model of Employee
 	Entity
 	// Number undocumented
 	Number *string `json:"number,omitempty"`

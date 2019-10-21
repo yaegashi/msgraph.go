@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookTable undocumented
 type WorkbookTable struct {
+	// Entity is the base model of WorkbookTable
 	Entity
 	// HighlightFirstColumn undocumented
 	HighlightFirstColumn *bool `json:"highlightFirstColumn,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // OutlookItem undocumented
 type OutlookItem struct {
+	// Entity is the base model of OutlookItem
 	Entity
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`

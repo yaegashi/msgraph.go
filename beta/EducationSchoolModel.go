@@ -4,6 +4,7 @@ package msgraph
 
 // EducationSchool undocumented
 type EducationSchool struct {
+	// EducationOrganization is the base model of EducationSchool
 	EducationOrganization
 	// PrincipalEmail undocumented
 	PrincipalEmail *string `json:"principalEmail,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // ScheduleChangeRequestObject undocumented
 type ScheduleChangeRequestObject struct {
+	// ChangeTrackedEntity is the base model of ScheduleChangeRequestObject
 	ChangeTrackedEntity
 	// AssignedTo undocumented
 	AssignedTo *ScheduleChangeRequestActor `json:"assignedTo,omitempty"`

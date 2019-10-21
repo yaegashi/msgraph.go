@@ -6,6 +6,7 @@ import "time"
 
 // DeviceComplianceDeviceOverview undocumented
 type DeviceComplianceDeviceOverview struct {
+	// Entity is the base model of DeviceComplianceDeviceOverview
 	Entity
 	// PendingCount Number of pending devices
 	PendingCount *int `json:"pendingCount,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81SCEPCertificateProfile Windows 8.1+ SCEP certificate profile
 type Windows81SCEPCertificateProfile struct {
+	// Windows81CertificateProfileBase is the base model of Windows81SCEPCertificateProfile
 	Windows81CertificateProfileBase
 	// ScepServerUrls SCEP Server Url(s).
 	ScepServerUrls []string `json:"scepServerUrls,omitempty"`

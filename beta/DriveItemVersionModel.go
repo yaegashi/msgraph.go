@@ -4,6 +4,7 @@ package msgraph
 
 // DriveItemVersion undocumented
 type DriveItemVersion struct {
+	// BaseItemVersion is the base model of DriveItemVersion
 	BaseItemVersion
 	// Content undocumented
 	Content *Stream `json:"content,omitempty"`

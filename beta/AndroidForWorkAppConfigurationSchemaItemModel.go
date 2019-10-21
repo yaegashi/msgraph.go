@@ -4,6 +4,8 @@ package msgraph
 
 // AndroidForWorkAppConfigurationSchemaItem undocumented
 type AndroidForWorkAppConfigurationSchemaItem struct {
+	// Object is the base model of AndroidForWorkAppConfigurationSchemaItem
+	Object
 	// SchemaItemKey Unique key the application uses to identify the item
 	SchemaItemKey *string `json:"schemaItemKey,omitempty"`
 	// DisplayName Human readable name

@@ -4,6 +4,7 @@ package msgraph
 
 // DomainDNSSrvRecord undocumented
 type DomainDNSSrvRecord struct {
+	// DomainDNSRecord is the base model of DomainDNSSrvRecord
 	DomainDNSRecord
 	// NameTarget undocumented
 	NameTarget *string `json:"nameTarget,omitempty"`

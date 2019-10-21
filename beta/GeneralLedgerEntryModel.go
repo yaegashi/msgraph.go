@@ -6,6 +6,7 @@ import "time"
 
 // GeneralLedgerEntry undocumented
 type GeneralLedgerEntry struct {
+	// Entity is the base model of GeneralLedgerEntry
 	Entity
 	// PostingDate undocumented
 	PostingDate *time.Time `json:"postingDate,omitempty"`

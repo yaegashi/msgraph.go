@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartSeries undocumented
 type WorkbookChartSeries struct {
+	// Entity is the base model of WorkbookChartSeries
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

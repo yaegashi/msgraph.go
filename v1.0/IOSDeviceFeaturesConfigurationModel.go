@@ -4,6 +4,7 @@ package msgraph
 
 // IOSDeviceFeaturesConfiguration iOS Device Features Configuration Profile.
 type IOSDeviceFeaturesConfiguration struct {
+	// AppleDeviceFeaturesConfigurationBase is the base model of IOSDeviceFeaturesConfiguration
 	AppleDeviceFeaturesConfigurationBase
 	// AssetTagTemplate Asset tag information for the device, displayed on the login window and lock screen.
 	AssetTagTemplate *string `json:"assetTagTemplate,omitempty"`

@@ -4,5 +4,6 @@ package msgraph
 
 // AnonymousIPRiskEvent undocumented
 type AnonymousIPRiskEvent struct {
+	// LocatedRiskEvent is the base model of AnonymousIPRiskEvent
 	LocatedRiskEvent
 }

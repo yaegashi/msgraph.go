@@ -2,18 +2,6 @@
 
 package msgraph
 
-// SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
-type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
-	// ApplicationIdentifier undocumented
-	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
-	// TemplateID undocumented
-	TemplateID *string `json:"templateId,omitempty"`
-	// UseSavedCredentials undocumented
-	UseSavedCredentials *bool `json:"useSavedCredentials,omitempty"`
-	// Credentials undocumented
-	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
-}
-
 // SynchronizationJobPauseRequestParameter undocumented
 type SynchronizationJobPauseRequestParameter struct {
 }
@@ -44,6 +32,18 @@ type SynchronizationJobRestartRequestParameter struct {
 
 // SynchronizationJobValidateCredentialsRequestParameter undocumented
 type SynchronizationJobValidateCredentialsRequestParameter struct {
+	// ApplicationIdentifier undocumented
+	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
+	// UseSavedCredentials undocumented
+	UseSavedCredentials *bool `json:"useSavedCredentials,omitempty"`
+	// Credentials undocumented
+	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
+}
+
+// SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
+type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
 	// ApplicationIdentifier undocumented
 	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
 	// TemplateID undocumented

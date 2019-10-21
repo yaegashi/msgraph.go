@@ -6,6 +6,7 @@ import "time"
 
 // Mention undocumented
 type Mention struct {
+	// Entity is the base model of Mention
 	Entity
 	// Mentioned undocumented
 	Mentioned *EmailAddress `json:"mentioned,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // BookingService Represents a particular service offered by a booking business.
 type BookingService struct {
+	// BookingNamedEntity is the base model of BookingService
 	BookingNamedEntity
 	// DefaultDuration undocumented
 	DefaultDuration *time.Duration `json:"defaultDuration,omitempty"`

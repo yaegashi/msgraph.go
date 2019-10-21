@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementApplicabilityRuleOsVersion undocumented
 type DeviceManagementApplicabilityRuleOsVersion struct {
+	// Object is the base model of DeviceManagementApplicabilityRuleOsVersion
+	Object
 	// MinOSVersion Min OS version for Applicability Rule.
 	MinOSVersion *string `json:"minOSVersion,omitempty"`
 	// MaxOSVersion Max OS version for Applicability Rule.

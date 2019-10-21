@@ -6,6 +6,7 @@ import "time"
 
 // NdesConnector Entity which represents an OnPrem Ndes connector.
 type NdesConnector struct {
+	// Entity is the base model of NdesConnector
 	Entity
 	// LastConnectionDateTime Last connection time for the Ndes Connector
 	LastConnectionDateTime *time.Time `json:"lastConnectionDateTime,omitempty"`

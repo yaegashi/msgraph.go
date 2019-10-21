@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidManagedStoreAppConfigurationSchema Schema describing an Android application's custom configurations.
 type AndroidManagedStoreAppConfigurationSchema struct {
+	// Entity is the base model of AndroidManagedStoreAppConfigurationSchema
 	Entity
 	// ExampleJSON UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
 	ExampleJSON *Binary `json:"exampleJson,omitempty"`

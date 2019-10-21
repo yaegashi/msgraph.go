@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedDeviceEncryptionState Encryption report per device
 type ManagedDeviceEncryptionState struct {
+	// Entity is the base model of ManagedDeviceEncryptionState
 	Entity
 	// UserPrincipalName User name
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // EnrollmentConfigurationAssignment Enrollment Configuration Assignment
 type EnrollmentConfigurationAssignment struct {
+	// Entity is the base model of EnrollmentConfigurationAssignment
 	Entity
 	// Target Represents an assignment to managed devices in the tenant
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidDeviceOwnerCertificateProfileBase Android Device Owner certificate profile base.
 type AndroidDeviceOwnerCertificateProfileBase struct {
+	// DeviceConfiguration is the base model of AndroidDeviceOwnerCertificateProfileBase
 	DeviceConfiguration
 	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
 	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`

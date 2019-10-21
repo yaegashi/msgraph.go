@@ -4,6 +4,8 @@ package msgraph
 
 // ExactMatchClassificationResult undocumented
 type ExactMatchClassificationResult struct {
+	// Object is the base model of ExactMatchClassificationResult
+	Object
 	// Classification undocumented
 	Classification []DetectedSensitiveContent `json:"classification,omitempty"`
 	// Errors undocumented

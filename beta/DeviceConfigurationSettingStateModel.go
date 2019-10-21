@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceConfigurationSettingState undocumented
 type DeviceConfigurationSettingState struct {
+	// Object is the base model of DeviceConfigurationSettingState
+	Object
 	// Setting The setting that is being reported
 	Setting *string `json:"setting,omitempty"`
 	// SettingName Localized/user friendly setting name that is being reported

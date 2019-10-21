@@ -9,6 +9,7 @@ import (
 
 // UserActivity undocumented
 type UserActivity struct {
+	// Entity is the base model of UserActivity
 	Entity
 	// VisualElements undocumented
 	VisualElements *VisualInfo `json:"visualElements,omitempty"`

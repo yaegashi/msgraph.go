@@ -4,6 +4,8 @@ package msgraph
 
 // BitLockerRecoveryOptions undocumented
 type BitLockerRecoveryOptions struct {
+	// Object is the base model of BitLockerRecoveryOptions
+	Object
 	// BlockDataRecoveryAgent Indicates whether to block certificate-based data recovery agent.
 	BlockDataRecoveryAgent *bool `json:"blockDataRecoveryAgent,omitempty"`
 	// RecoveryPasswordUsage Indicates whether users are allowed or required to generate a 48-digit recovery password for fixed or system disk.

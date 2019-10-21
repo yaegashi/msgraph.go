@@ -4,6 +4,7 @@ package msgraph
 
 // SecurityBaselineTemplate The security baseline template of the account
 type SecurityBaselineTemplate struct {
+	// DeviceManagementTemplate is the base model of SecurityBaselineTemplate
 	DeviceManagementTemplate
 	// DeviceStateSummary undocumented
 	DeviceStateSummary *SecurityBaselineStateSummary `json:"deviceStateSummary,omitempty"`

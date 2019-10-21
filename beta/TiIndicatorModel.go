@@ -6,6 +6,7 @@ import "time"
 
 // TiIndicator undocumented
 type TiIndicator struct {
+	// Entity is the base model of TiIndicator
 	Entity
 	// Action undocumented
 	Action *TiAction `json:"action,omitempty"`

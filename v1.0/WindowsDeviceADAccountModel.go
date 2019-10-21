@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDeviceADAccount undocumented
 type WindowsDeviceADAccount struct {
+	// WindowsDeviceAccount is the base model of WindowsDeviceADAccount
 	WindowsDeviceAccount
 	// DomainName undocumented
 	DomainName *string `json:"domainName,omitempty"`

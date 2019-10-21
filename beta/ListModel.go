@@ -4,6 +4,7 @@ package msgraph
 
 // List undocumented
 type List struct {
+	// BaseItem is the base model of List
 	BaseItem
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

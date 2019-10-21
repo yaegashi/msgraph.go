@@ -4,6 +4,7 @@ package msgraph
 
 // MetadataAction undocumented
 type MetadataAction struct {
+	// InformationProtectionAction is the base model of MetadataAction
 	InformationProtectionAction
 	// MetadataToRemove undocumented
 	MetadataToRemove []string `json:"metadataToRemove,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ItemBody undocumented
 type ItemBody struct {
+	// Object is the base model of ItemBody
+	Object
 	// ContentType undocumented
 	ContentType *BodyType `json:"contentType,omitempty"`
 	// Content undocumented

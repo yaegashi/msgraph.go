@@ -4,6 +4,7 @@ package msgraph
 
 // UsedInsight undocumented
 type UsedInsight struct {
+	// Entity is the base model of UsedInsight
 	Entity
 	// LastUsed undocumented
 	LastUsed *UsageDetails `json:"lastUsed,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // IOSSingleSignOnSettings undocumented
 type IOSSingleSignOnSettings struct {
+	// Object is the base model of IOSSingleSignOnSettings
+	Object
 	// AllowedAppsList List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.
 	AllowedAppsList []AppListItem `json:"allowedAppsList,omitempty"`
 	// AllowedUrls List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 or later, a wildcard characters may be used.

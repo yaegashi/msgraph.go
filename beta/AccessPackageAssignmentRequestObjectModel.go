@@ -6,6 +6,7 @@ import "time"
 
 // AccessPackageAssignmentRequestObject undocumented
 type AccessPackageAssignmentRequestObject struct {
+	// Entity is the base model of AccessPackageAssignmentRequestObject
 	Entity
 	// RequestType undocumented
 	RequestType *string `json:"requestType,omitempty"`

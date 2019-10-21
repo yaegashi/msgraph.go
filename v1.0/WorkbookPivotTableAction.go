@@ -2,12 +2,12 @@
 
 package msgraph
 
-// WorkbookPivotTableRefreshRequestParameter undocumented
-type WorkbookPivotTableRefreshRequestParameter struct {
-}
-
 // WorkbookPivotTableCollectionRefreshAllRequestParameter undocumented
 type WorkbookPivotTableCollectionRefreshAllRequestParameter struct {
+}
+
+// WorkbookPivotTableRefreshRequestParameter undocumented
+type WorkbookPivotTableRefreshRequestParameter struct {
 }
 
 //

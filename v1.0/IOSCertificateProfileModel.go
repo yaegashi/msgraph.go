@@ -4,5 +4,6 @@ package msgraph
 
 // IOSCertificateProfile Device Configuration.
 type IOSCertificateProfile struct {
+	// DeviceConfiguration is the base model of IOSCertificateProfile
 	DeviceConfiguration
 }

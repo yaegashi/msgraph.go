@@ -4,5 +4,6 @@ package msgraph
 
 // LeakedCredentialsRiskEvent undocumented
 type LeakedCredentialsRiskEvent struct {
+	// IdentityRiskEvent is the base model of LeakedCredentialsRiskEvent
 	IdentityRiskEvent
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskActiveDirectoryGroup undocumented
 type WindowsKioskActiveDirectoryGroup struct {
+	// WindowsKioskUser is the base model of WindowsKioskActiveDirectoryGroup
 	WindowsKioskUser
 	// GroupName The name of the AD group that will be locked to this kiosk configuration
 	GroupName *string `json:"groupName,omitempty"`

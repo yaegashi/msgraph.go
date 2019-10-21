@@ -6,6 +6,8 @@ import "time"
 
 // AlertHistoryState undocumented
 type AlertHistoryState struct {
+	// Object is the base model of AlertHistoryState
+	Object
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`
 	// AssignedTo undocumented

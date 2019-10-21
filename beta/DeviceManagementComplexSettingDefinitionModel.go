@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementComplexSettingDefinition Entity representing the defintion for a complex setting
 type DeviceManagementComplexSettingDefinition struct {
+	// DeviceManagementSettingDefinition is the base model of DeviceManagementComplexSettingDefinition
 	DeviceManagementSettingDefinition
 	// PropertyDefinitionIDs The definitions of each property of the complex setting
 	PropertyDefinitionIDs []string `json:"propertyDefinitionIds,omitempty"`

@@ -4,4 +4,6 @@ package msgraph
 
 // IPRange undocumented
 type IPRange struct {
+	// Object is the base model of IPRange
+	Object
 }

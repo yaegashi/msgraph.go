@@ -4,6 +4,7 @@ package msgraph
 
 // AddContentHeaderAction undocumented
 type AddContentHeaderAction struct {
+	// InformationProtectionAction is the base model of AddContentHeaderAction
 	InformationProtectionAction
 	// UIElementName undocumented
 	UIElementName *string `json:"uiElementName,omitempty"`

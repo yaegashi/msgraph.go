@@ -4,6 +4,7 @@ package msgraph
 
 // ExtensionProperty undocumented
 type ExtensionProperty struct {
+	// DirectoryObject is the base model of ExtensionProperty
 	DirectoryObject
 	// AppDisplayName undocumented
 	AppDisplayName *string `json:"appDisplayName,omitempty"`

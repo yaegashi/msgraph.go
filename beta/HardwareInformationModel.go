@@ -4,6 +4,8 @@ package msgraph
 
 // HardwareInformation undocumented
 type HardwareInformation struct {
+	// Object is the base model of HardwareInformation
+	Object
 	// SerialNumber Serial number.
 	SerialNumber *string `json:"serialNumber,omitempty"`
 	// TotalStorageSpace Total storage space of the device.

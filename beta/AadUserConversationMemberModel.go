@@ -4,6 +4,7 @@ package msgraph
 
 // AadUserConversationMember undocumented
 type AadUserConversationMember struct {
+	// ConversationMember is the base model of AadUserConversationMember
 	ConversationMember
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`

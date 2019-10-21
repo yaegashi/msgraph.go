@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerGroup undocumented
 type PlannerGroup struct {
+	// Entity is the base model of PlannerGroup
 	Entity
 	// Plans undocumented
 	Plans []PlannerPlan `json:"plans,omitempty"`

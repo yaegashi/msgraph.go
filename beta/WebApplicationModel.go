@@ -4,6 +4,8 @@ package msgraph
 
 // WebApplication undocumented
 type WebApplication struct {
+	// Object is the base model of WebApplication
+	Object
 	// HomePageURL undocumented
 	HomePageURL *string `json:"homePageUrl,omitempty"`
 	// RedirectUris undocumented

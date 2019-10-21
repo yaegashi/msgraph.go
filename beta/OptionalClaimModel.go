@@ -4,6 +4,8 @@ package msgraph
 
 // OptionalClaim undocumented
 type OptionalClaim struct {
+	// Object is the base model of OptionalClaim
+	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Source undocumented

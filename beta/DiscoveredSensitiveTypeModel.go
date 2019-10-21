@@ -4,6 +4,8 @@ package msgraph
 
 // DiscoveredSensitiveType undocumented
 type DiscoveredSensitiveType struct {
+	// Object is the base model of DiscoveredSensitiveType
+	Object
 	// ID undocumented
 	ID *UUID `json:"id,omitempty"`
 	// Count undocumented

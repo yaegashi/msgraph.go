@@ -4,6 +4,7 @@ package msgraph
 
 // RecommendLabelAction undocumented
 type RecommendLabelAction struct {
+	// InformationProtectionAction is the base model of RecommendLabelAction
 	InformationProtectionAction
 	// Label undocumented
 	Label *LabelDetails `json:"label,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // WindowsAutopilotDeploymentProfile Windows Autopilot Deployment Profile
 type WindowsAutopilotDeploymentProfile struct {
+	// Entity is the base model of WindowsAutopilotDeploymentProfile
 	Entity
 	// DisplayName Name of the profile
 	DisplayName *string `json:"displayName,omitempty"`

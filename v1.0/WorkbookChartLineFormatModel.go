@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartLineFormat undocumented
 type WorkbookChartLineFormat struct {
+	// Entity is the base model of WorkbookChartLineFormat
 	Entity
 	// Color undocumented
 	Color *string `json:"color,omitempty"`

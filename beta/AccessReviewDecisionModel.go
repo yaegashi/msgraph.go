@@ -6,6 +6,7 @@ import "time"
 
 // AccessReviewDecision undocumented
 type AccessReviewDecision struct {
+	// Entity is the base model of AccessReviewDecision
 	Entity
 	// AccessReviewID undocumented
 	AccessReviewID *string `json:"accessReviewId,omitempty"`

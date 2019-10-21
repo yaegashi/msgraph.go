@@ -4,6 +4,8 @@ package msgraph
 
 // MediaInfo undocumented
 type MediaInfo struct {
+	// Object is the base model of MediaInfo
+	Object
 	// URI undocumented
 	URI *string `json:"uri,omitempty"`
 	// ResourceID undocumented

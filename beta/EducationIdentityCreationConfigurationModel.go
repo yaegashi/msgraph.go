@@ -4,6 +4,7 @@ package msgraph
 
 // EducationIdentityCreationConfiguration undocumented
 type EducationIdentityCreationConfiguration struct {
+	// EducationIdentitySynchronizationConfiguration is the base model of EducationIdentityCreationConfiguration
 	EducationIdentitySynchronizationConfiguration
 	// UserDomains undocumented
 	UserDomains []EducationIdentityDomain `json:"userDomains,omitempty"`

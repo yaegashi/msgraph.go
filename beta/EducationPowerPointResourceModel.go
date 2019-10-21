@@ -4,6 +4,7 @@ package msgraph
 
 // EducationPowerPointResource undocumented
 type EducationPowerPointResource struct {
+	// EducationResource is the base model of EducationPowerPointResource
 	EducationResource
 	// FileURL undocumented
 	FileURL *string `json:"fileUrl,omitempty"`

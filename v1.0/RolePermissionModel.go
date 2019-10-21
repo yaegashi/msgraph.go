@@ -4,6 +4,8 @@ package msgraph
 
 // RolePermission undocumented
 type RolePermission struct {
+	// Object is the base model of RolePermission
+	Object
 	// ResourceActions Actions
 	ResourceActions []ResourceAction `json:"resourceActions,omitempty"`
 }

@@ -4,6 +4,8 @@ package msgraph
 
 // GovernanceRuleSetting undocumented
 type GovernanceRuleSetting struct {
+	// Object is the base model of GovernanceRuleSetting
+	Object
 	// RuleIdentifier undocumented
 	RuleIdentifier *string `json:"ruleIdentifier,omitempty"`
 	// Setting undocumented

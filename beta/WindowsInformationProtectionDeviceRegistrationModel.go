@@ -6,6 +6,7 @@ import "time"
 
 // WindowsInformationProtectionDeviceRegistration Represents device registration records for Bring-Your-Own-Device(BYOD) Windows devices.
 type WindowsInformationProtectionDeviceRegistration struct {
+	// Entity is the base model of WindowsInformationProtectionDeviceRegistration
 	Entity
 	// UserID UserId associated with this device registration record.
 	UserID *string `json:"userId,omitempty"`

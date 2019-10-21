@@ -4,6 +4,7 @@ package msgraph
 
 // AudioRoutingGroup undocumented
 type AudioRoutingGroup struct {
+	// Entity is the base model of AudioRoutingGroup
 	Entity
 	// RoutingMode undocumented
 	RoutingMode *RoutingMode `json:"routingMode,omitempty"`

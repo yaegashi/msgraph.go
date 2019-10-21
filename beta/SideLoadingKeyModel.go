@@ -4,6 +4,7 @@ package msgraph
 
 // SideLoadingKey SideLoadingKey entity is required for Windows 8 and 8.1 devices to intall Line Of Business Apps for a tenant.
 type SideLoadingKey struct {
+	// Entity is the base model of SideLoadingKey
 	Entity
 	// Value Side Loading Key Value, it is 5x5 value, seperated by hiphens.
 	Value *string `json:"value,omitempty"`

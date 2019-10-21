@@ -6,6 +6,7 @@ import "time"
 
 // ManagedEBook An abstract class containing the base properties for Managed eBook.
 type ManagedEBook struct {
+	// Entity is the base model of ManagedEBook
 	Entity
 	// DisplayName Name of the eBook.
 	DisplayName *string `json:"displayName,omitempty"`

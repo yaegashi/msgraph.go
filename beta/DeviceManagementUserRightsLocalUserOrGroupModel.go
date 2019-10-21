@@ -4,6 +4,8 @@ package msgraph
 
 // DeviceManagementUserRightsLocalUserOrGroup undocumented
 type DeviceManagementUserRightsLocalUserOrGroup struct {
+	// Object is the base model of DeviceManagementUserRightsLocalUserOrGroup
+	Object
 	// Name The name of this local user or group.
 	Name *string `json:"name,omitempty"`
 	// Description Admin’s description of this local user or group.

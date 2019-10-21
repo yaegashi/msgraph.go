@@ -6,6 +6,8 @@ import "time"
 
 // NetworkConnection undocumented
 type NetworkConnection struct {
+	// Object is the base model of NetworkConnection
+	Object
 	// ApplicationName undocumented
 	ApplicationName *string `json:"applicationName,omitempty"`
 	// DestinationAddress undocumented

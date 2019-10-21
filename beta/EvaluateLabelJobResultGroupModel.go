@@ -4,6 +4,8 @@ package msgraph
 
 // EvaluateLabelJobResultGroup undocumented
 type EvaluateLabelJobResultGroup struct {
+	// Object is the base model of EvaluateLabelJobResultGroup
+	Object
 	// Automatic undocumented
 	Automatic *EvaluateLabelJobResult `json:"automatic,omitempty"`
 	// Recommended undocumented

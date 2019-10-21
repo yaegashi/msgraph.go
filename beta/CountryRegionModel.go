@@ -6,6 +6,7 @@ import "time"
 
 // CountryRegion undocumented
 type CountryRegion struct {
+	// Entity is the base model of CountryRegion
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

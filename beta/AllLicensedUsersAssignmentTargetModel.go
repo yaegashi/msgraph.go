@@ -4,5 +4,6 @@ package msgraph
 
 // AllLicensedUsersAssignmentTarget undocumented
 type AllLicensedUsersAssignmentTarget struct {
+	// DeviceAndAppManagementAssignmentTarget is the base model of AllLicensedUsersAssignmentTarget
 	DeviceAndAppManagementAssignmentTarget
 }

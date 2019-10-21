@@ -4,6 +4,7 @@ package msgraph
 
 // AddFooter undocumented
 type AddFooter struct {
+	// MarkContent is the base model of AddFooter
 	MarkContent
 	// Margin undocumented
 	Margin *int `json:"margin,omitempty"`

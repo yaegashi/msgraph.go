@@ -6,6 +6,8 @@ import "time"
 
 // FileSystemInfo undocumented
 type FileSystemInfo struct {
+	// Object is the base model of FileSystemInfo
+	Object
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// LastAccessedDateTime undocumented

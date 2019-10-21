@@ -4,4 +4,6 @@ package msgraph
 
 // Prompt undocumented
 type Prompt struct {
+	// Object is the base model of Prompt
+	Object
 }

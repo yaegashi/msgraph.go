@@ -6,6 +6,8 @@ import "encoding/json"
 
 // WorkbookFilterCriteria undocumented
 type WorkbookFilterCriteria struct {
+	// Object is the base model of WorkbookFilterCriteria
+	Object
 	// Color undocumented
 	Color *string `json:"color,omitempty"`
 	// Criterion1 undocumented

@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhone81CompliancePolicy This class contains compliance settings for Windows 8.1 Mobile.
 type WindowsPhone81CompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of WindowsPhone81CompliancePolicy
 	DeviceCompliancePolicy
 	// PasswordBlockSimple Whether or not to block syncing the calendar.
 	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`

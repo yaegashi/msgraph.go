@@ -4,6 +4,7 @@ package msgraph
 
 // CommsOperation undocumented
 type CommsOperation struct {
+	// Entity is the base model of CommsOperation
 	Entity
 	// Status undocumented
 	Status *OperationStatus `json:"status,omitempty"`

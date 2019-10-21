@@ -4,6 +4,7 @@ package msgraph
 
 // Participant undocumented
 type Participant struct {
+	// Entity is the base model of Participant
 	Entity
 	// Info undocumented
 	Info *ParticipantInfo `json:"info,omitempty"`

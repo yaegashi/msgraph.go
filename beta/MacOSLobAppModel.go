@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSLobApp Contains properties and inherited properties for the MacOS LOB App.
 type MacOSLobApp struct {
+	// MobileLobApp is the base model of MacOSLobApp
 	MobileLobApp
 	// BundleID The bundle id.
 	BundleID *string `json:"bundleId,omitempty"`

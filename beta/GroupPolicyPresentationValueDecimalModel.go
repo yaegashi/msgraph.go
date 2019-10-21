@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationValueDecimal The entity represents an unsigned integer value of a decimal text box presentation on a policy definition.
 type GroupPolicyPresentationValueDecimal struct {
+	// GroupPolicyPresentationValue is the base model of GroupPolicyPresentationValueDecimal
 	GroupPolicyPresentationValue
 	// Value An unsigned integer value for the associated presentation.
 	Value *int `json:"value,omitempty"`

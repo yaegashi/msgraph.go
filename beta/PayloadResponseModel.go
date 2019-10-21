@@ -4,5 +4,6 @@ package msgraph
 
 // PayloadResponse undocumented
 type PayloadResponse struct {
+	// Entity is the base model of PayloadResponse
 	Entity
 }

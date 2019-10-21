@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsDefenderAdvancedThreatProtectionConfiguration Windows Defender AdvancedThreatProtection Configuration.
 type WindowsDefenderAdvancedThreatProtectionConfiguration struct {
+	// DeviceConfiguration is the base model of WindowsDefenderAdvancedThreatProtectionConfiguration
 	DeviceConfiguration
 	// AdvancedThreatProtectionOnboardingBlob Windows Defender AdvancedThreatProtection Onboarding Blob.
 	AdvancedThreatProtectionOnboardingBlob *string `json:"advancedThreatProtectionOnboardingBlob,omitempty"`

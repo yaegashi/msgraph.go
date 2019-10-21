@@ -6,6 +6,7 @@ import "time"
 
 // BaseItem undocumented
 type BaseItem struct {
+	// Entity is the base model of BaseItem
 	Entity
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`

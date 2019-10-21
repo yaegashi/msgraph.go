@@ -4,6 +4,7 @@ package msgraph
 
 // EducationSubmissionResource undocumented
 type EducationSubmissionResource struct {
+	// Entity is the base model of EducationSubmissionResource
 	Entity
 	// Resource undocumented
 	Resource *EducationResource `json:"resource,omitempty"`

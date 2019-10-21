@@ -4,6 +4,7 @@ package msgraph
 
 // ReferenceAttachment undocumented
 type ReferenceAttachment struct {
+	// Attachment is the base model of ReferenceAttachment
 	Attachment
 	// SourceURL undocumented
 	SourceURL *string `json:"sourceUrl,omitempty"`

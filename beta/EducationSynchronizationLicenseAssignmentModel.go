@@ -4,6 +4,8 @@ package msgraph
 
 // EducationSynchronizationLicenseAssignment undocumented
 type EducationSynchronizationLicenseAssignment struct {
+	// Object is the base model of EducationSynchronizationLicenseAssignment
+	Object
 	// AppliesTo undocumented
 	AppliesTo *EducationUserRole `json:"appliesTo,omitempty"`
 	// SKUIDs undocumented

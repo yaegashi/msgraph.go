@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsNetworkIsolationPolicy undocumented
 type WindowsNetworkIsolationPolicy struct {
+	// Object is the base model of WindowsNetworkIsolationPolicy
+	Object
 	// EnterpriseNetworkDomainNames This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected. These locations will be considered a safe destination for enterprise data to be shared to.
 	EnterpriseNetworkDomainNames []string `json:"enterpriseNetworkDomainNames,omitempty"`
 	// EnterpriseCloudResources Contains a list of enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy. This collection can contain a maximum of 500 elements.

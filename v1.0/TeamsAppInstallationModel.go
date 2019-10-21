@@ -4,6 +4,7 @@ package msgraph
 
 // TeamsAppInstallation undocumented
 type TeamsAppInstallation struct {
+	// Entity is the base model of TeamsAppInstallation
 	Entity
 	// TeamsApp undocumented
 	TeamsApp *TeamsApp `json:"teamsApp,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // DirectoryDefinition undocumented
 type DirectoryDefinition struct {
+	// Entity is the base model of DirectoryDefinition
 	Entity
 	// DiscoveryDateTime undocumented
 	DiscoveryDateTime *time.Time `json:"discoveryDateTime,omitempty"`

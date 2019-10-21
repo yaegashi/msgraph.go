@@ -4,4 +4,6 @@ package msgraph
 
 // DeliveryOptimizationGroupIDSource undocumented
 type DeliveryOptimizationGroupIDSource struct {
+	// Object is the base model of DeliveryOptimizationGroupIDSource
+	Object
 }

@@ -4,6 +4,7 @@ package msgraph
 
 // Win32LobAppPowerShellScriptDetection undocumented
 type Win32LobAppPowerShellScriptDetection struct {
+	// Win32LobAppDetection is the base model of Win32LobAppPowerShellScriptDetection
 	Win32LobAppDetection
 	// EnforceSignatureCheck A value indicating whether signature check is enforced
 	EnforceSignatureCheck *bool `json:"enforceSignatureCheck,omitempty"`

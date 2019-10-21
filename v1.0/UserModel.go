@@ -6,6 +6,7 @@ import "time"
 
 // User Represents an Azure Active Directory user object.
 type User struct {
+	// DirectoryObject is the base model of User
 	DirectoryObject
 	// AccountEnabled undocumented
 	AccountEnabled *bool `json:"accountEnabled,omitempty"`

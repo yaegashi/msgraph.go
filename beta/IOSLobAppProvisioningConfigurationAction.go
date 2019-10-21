@@ -3,17 +3,12 @@
 package msgraph
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
-)
 
-// IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
+	"github.com/yaegashi/msgraph.go/jsonx"
+)
 
 // IOSLobAppProvisioningConfigurationAssignRequestParameter undocumented
 type IOSLobAppProvisioningConfigurationAssignRequestParameter struct {
@@ -21,6 +16,12 @@ type IOSLobAppProvisioningConfigurationAssignRequestParameter struct {
 	AppProvisioningConfigurationGroupAssignments []MobileAppProvisioningConfigGroupAssignment `json:"appProvisioningConfigurationGroupAssignments,omitempty"`
 	// IOSLobAppProvisioningConfigAssignments undocumented
 	IOSLobAppProvisioningConfigAssignments []IOSLobAppProvisioningConfigurationAssignment `json:"iOSLobAppProvisioningConfigAssignments,omitempty"`
+}
+
+// IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
 //
@@ -71,11 +72,11 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 			paging Paging
 			value  [][]HasPayloadLinkResultItem
 		)
-		err := json.NewDecoder(res.Body).Decode(&paging)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
 			return nil, err
 		}
-		err = json.Unmarshal(paging.Value, &value)
+		err = jsonx.Unmarshal(paging.Value, &value)
 		if err != nil {
 			return nil, err
 		}

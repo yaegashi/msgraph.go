@@ -4,6 +4,7 @@ package msgraph
 
 // SectionGroup undocumented
 type SectionGroup struct {
+	// OnenoteEntityHierarchyModel is the base model of SectionGroup
 	OnenoteEntityHierarchyModel
 	// SectionsURL undocumented
 	SectionsURL *string `json:"sectionsUrl,omitempty"`

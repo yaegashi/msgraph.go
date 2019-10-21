@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSCustomConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
 type MacOSCustomConfiguration struct {
+	// DeviceConfiguration is the base model of MacOSCustomConfiguration
 	DeviceConfiguration
 	// PayloadName Name that is displayed to the user.
 	PayloadName *string `json:"payloadName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // ProgramControlType undocumented
 type ProgramControlType struct {
+	// Entity is the base model of ProgramControlType
 	Entity
 	// ControlTypeGroupID undocumented
 	ControlTypeGroupID *string `json:"controlTypeGroupId,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // MobileAppAssignment A class containing the properties used for Group Assignment of a Mobile App.
 type MobileAppAssignment struct {
+	// Entity is the base model of MobileAppAssignment
 	Entity
 	// Intent The install intent defined by the admin.
 	Intent *InstallIntent `json:"intent,omitempty"`

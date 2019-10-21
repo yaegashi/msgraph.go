@@ -4,6 +4,7 @@ package msgraph
 
 // PrivilegedAccess undocumented
 type PrivilegedAccess struct {
+	// Entity is the base model of PrivilegedAccess
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

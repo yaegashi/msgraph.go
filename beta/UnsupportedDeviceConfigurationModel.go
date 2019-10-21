@@ -4,6 +4,7 @@ package msgraph
 
 // UnsupportedDeviceConfiguration UnsupportedDeviceConfiguration is used when an entity cannot be mapped to another model-compliant subtype of deviceConfiguration.
 type UnsupportedDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of UnsupportedDeviceConfiguration
 	DeviceConfiguration
 	// OriginalEntityTypeName The type of entity that would be returned otherwise.
 	OriginalEntityTypeName *string `json:"originalEntityTypeName,omitempty"`

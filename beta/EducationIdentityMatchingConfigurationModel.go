@@ -4,6 +4,7 @@ package msgraph
 
 // EducationIdentityMatchingConfiguration undocumented
 type EducationIdentityMatchingConfiguration struct {
+	// EducationIdentitySynchronizationConfiguration is the base model of EducationIdentityMatchingConfiguration
 	EducationIdentitySynchronizationConfiguration
 	// MatchingOptions undocumented
 	MatchingOptions []EducationIdentityMatchingOptions `json:"matchingOptions,omitempty"`

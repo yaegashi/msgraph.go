@@ -4,6 +4,8 @@ package msgraph
 
 // Win32LobAppMsiInformation undocumented
 type Win32LobAppMsiInformation struct {
+	// Object is the base model of Win32LobAppMsiInformation
+	Object
 	// ProductCode The MSI product code.
 	ProductCode *string `json:"productCode,omitempty"`
 	// ProductVersion The MSI product version.

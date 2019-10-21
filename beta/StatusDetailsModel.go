@@ -4,6 +4,7 @@ package msgraph
 
 // StatusDetails undocumented
 type StatusDetails struct {
+	// StatusBase is the base model of StatusDetails
 	StatusBase
 	// ErrorCode undocumented
 	ErrorCode *string `json:"errorCode,omitempty"`

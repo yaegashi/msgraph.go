@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsKioskAzureADGroup undocumented
 type WindowsKioskAzureADGroup struct {
+	// WindowsKioskUser is the base model of WindowsKioskAzureADGroup
 	WindowsKioskUser
 	// DisplayName The display name of the AzureAD group that will be locked to this kiosk configuration
 	DisplayName *string `json:"displayName,omitempty"`

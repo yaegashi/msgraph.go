@@ -4,6 +4,8 @@ package msgraph
 
 // AuditActivityInitiator undocumented
 type AuditActivityInitiator struct {
+	// Object is the base model of AuditActivityInitiator
+	Object
 	// User undocumented
 	User *UserIdentity `json:"user,omitempty"`
 	// App undocumented

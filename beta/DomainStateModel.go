@@ -6,6 +6,8 @@ import "time"
 
 // DomainState undocumented
 type DomainState struct {
+	// Object is the base model of DomainState
+	Object
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
 	// Operation undocumented

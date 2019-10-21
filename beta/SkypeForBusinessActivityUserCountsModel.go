@@ -6,6 +6,7 @@ import "time"
 
 // SkypeForBusinessActivityUserCounts undocumented
 type SkypeForBusinessActivityUserCounts struct {
+	// Entity is the base model of SkypeForBusinessActivityUserCounts
 	Entity
 	// PeerToPeer undocumented
 	PeerToPeer *int `json:"peerToPeer,omitempty"`

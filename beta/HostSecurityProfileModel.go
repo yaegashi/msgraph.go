@@ -6,6 +6,7 @@ import "time"
 
 // HostSecurityProfile undocumented
 type HostSecurityProfile struct {
+	// Entity is the base model of HostSecurityProfile
 	Entity
 	// AzureSubscriptionID undocumented
 	AzureSubscriptionID *string `json:"azureSubscriptionId,omitempty"`

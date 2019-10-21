@@ -4,5 +4,6 @@ package msgraph
 
 // WindowsInformationProtectionStoreApp undocumented
 type WindowsInformationProtectionStoreApp struct {
+	// WindowsInformationProtectionApp is the base model of WindowsInformationProtectionStoreApp
 	WindowsInformationProtectionApp
 }

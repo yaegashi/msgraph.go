@@ -6,6 +6,8 @@ import "time"
 
 // RemoteItem undocumented
 type RemoteItem struct {
+	// Object is the base model of RemoteItem
+	Object
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
 	// CreatedDateTime undocumented

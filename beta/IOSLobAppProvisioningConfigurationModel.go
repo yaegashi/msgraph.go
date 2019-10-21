@@ -6,6 +6,7 @@ import "time"
 
 // IOSLobAppProvisioningConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the iOS Lob App Provisioning Configuration resource.
 type IOSLobAppProvisioningConfiguration struct {
+	// Entity is the base model of IOSLobAppProvisioningConfiguration
 	Entity
 	// ExpirationDateTime Optional profile expiration date and time.
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`

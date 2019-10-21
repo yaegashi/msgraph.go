@@ -4,6 +4,7 @@ package msgraph
 
 // DepEnrollmentProfile The depEnrollmentProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
 type DepEnrollmentProfile struct {
+	// EnrollmentProfile is the base model of DepEnrollmentProfile
 	EnrollmentProfile
 	// IsDefault Indicates if this is the default profile
 	IsDefault *bool `json:"isDefault,omitempty"`

@@ -4,5 +4,6 @@ package msgraph
 
 // EdgeHomeButtonOpensNewTab undocumented
 type EdgeHomeButtonOpensNewTab struct {
+	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonOpensNewTab
 	EdgeHomeButtonConfiguration
 }

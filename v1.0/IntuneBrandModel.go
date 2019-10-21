@@ -4,6 +4,8 @@ package msgraph
 
 // IntuneBrand undocumented
 type IntuneBrand struct {
+	// Object is the base model of IntuneBrand
+	Object
 	// DisplayName Company/organization name that is displayed to end users.
 	DisplayName *string `json:"displayName,omitempty"`
 	// ContactITName Name of the person/organization responsible for IT support.

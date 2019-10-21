@@ -6,6 +6,7 @@ import "time"
 
 // AndroidForWorkSettings Settings for Android For Work.
 type AndroidForWorkSettings struct {
+	// Entity is the base model of AndroidForWorkSettings
 	Entity
 	// BindStatus Bind status of the tenant with the Google EMM API
 	BindStatus *AndroidForWorkBindStatus `json:"bindStatus,omitempty"`

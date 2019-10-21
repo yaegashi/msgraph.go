@@ -4,6 +4,8 @@ package msgraph
 
 // ConvertIDResult undocumented
 type ConvertIDResult struct {
+	// Object is the base model of ConvertIDResult
+	Object
 	// SourceID undocumented
 	SourceID *string `json:"sourceId,omitempty"`
 	// TargetID undocumented

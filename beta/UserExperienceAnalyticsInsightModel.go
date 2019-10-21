@@ -4,6 +4,8 @@ package msgraph
 
 // UserExperienceAnalyticsInsight undocumented
 type UserExperienceAnalyticsInsight struct {
+	// Object is the base model of UserExperienceAnalyticsInsight
+	Object
 	// UserExperienceAnalyticsMetricID The unique identifier of the user experience analytics insight.
 	UserExperienceAnalyticsMetricID *string `json:"userExperienceAnalyticsMetricId,omitempty"`
 	// InsightID The unique identifier of the user experience analytics insight.

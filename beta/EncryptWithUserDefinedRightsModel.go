@@ -4,6 +4,7 @@ package msgraph
 
 // EncryptWithUserDefinedRights undocumented
 type EncryptWithUserDefinedRights struct {
+	// EncryptContent is the base model of EncryptWithUserDefinedRights
 	EncryptContent
 	// DecryptionRightsManagementTemplateID undocumented
 	DecryptionRightsManagementTemplateID *string `json:"decryptionRightsManagementTemplateId,omitempty"`

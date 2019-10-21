@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidForWorkEnterpriseWiFiConfiguration By providing the configurations in this profile you can instruct the Android for Work device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
 type AndroidForWorkEnterpriseWiFiConfiguration struct {
+	// AndroidForWorkWiFiConfiguration is the base model of AndroidForWorkEnterpriseWiFiConfiguration
 	AndroidForWorkWiFiConfiguration
 	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
 	EapType *AndroidEapType `json:"eapType,omitempty"`

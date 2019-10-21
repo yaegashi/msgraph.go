@@ -4,6 +4,8 @@ package msgraph
 
 // SharedAppleDeviceUser undocumented
 type SharedAppleDeviceUser struct {
+	// Object is the base model of SharedAppleDeviceUser
+	Object
 	// UserPrincipalName User name
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DataToSync Data to sync

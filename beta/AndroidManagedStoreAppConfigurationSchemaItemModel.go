@@ -4,6 +4,8 @@ package msgraph
 
 // AndroidManagedStoreAppConfigurationSchemaItem undocumented
 type AndroidManagedStoreAppConfigurationSchemaItem struct {
+	// Object is the base model of AndroidManagedStoreAppConfigurationSchemaItem
+	Object
 	// Index Unique index the application uses to maintain nested schema items
 	Index *int `json:"index,omitempty"`
 	// ParentIndex Index of parent schema item to track nested schema items

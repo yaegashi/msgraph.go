@@ -4,6 +4,7 @@ package msgraph
 
 // AndroidDeviceOwnerTrustedRootCertificate Android Device Owner Trusted Root Certificate configuration profile
 type AndroidDeviceOwnerTrustedRootCertificate struct {
+	// DeviceConfiguration is the base model of AndroidDeviceOwnerTrustedRootCertificate
 	DeviceConfiguration
 	// TrustedRootCertificate Trusted Root Certificate
 	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // WindowsUpdateActiveHoursInstall undocumented
 type WindowsUpdateActiveHoursInstall struct {
+	// WindowsUpdateInstallScheduleType is the base model of WindowsUpdateActiveHoursInstall
 	WindowsUpdateInstallScheduleType
 	// ActiveHoursStart Active Hours Start
 	ActiveHoursStart *time.Time `json:"activeHoursStart,omitempty"`

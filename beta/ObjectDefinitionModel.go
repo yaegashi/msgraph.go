@@ -4,6 +4,8 @@ package msgraph
 
 // ObjectDefinition undocumented
 type ObjectDefinition struct {
+	// Object is the base model of ObjectDefinition
+	Object
 	// Attributes undocumented
 	Attributes []AttributeDefinition `json:"attributes,omitempty"`
 	// Metadata undocumented

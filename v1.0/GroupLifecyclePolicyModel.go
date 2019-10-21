@@ -4,6 +4,7 @@ package msgraph
 
 // GroupLifecyclePolicy undocumented
 type GroupLifecyclePolicy struct {
+	// Entity is the base model of GroupLifecyclePolicy
 	Entity
 	// GroupLifetimeInDays undocumented
 	GroupLifetimeInDays *int `json:"groupLifetimeInDays,omitempty"`

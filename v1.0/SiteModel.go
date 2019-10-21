@@ -4,6 +4,7 @@ package msgraph
 
 // Site undocumented
 type Site struct {
+	// BaseItem is the base model of Site
 	BaseItem
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementExchangeOnPremisesPolicy Singleton entity which represents the Exchange OnPremises policy configured for a tenant.
 type DeviceManagementExchangeOnPremisesPolicy struct {
+	// Entity is the base model of DeviceManagementExchangeOnPremisesPolicy
 	Entity
 	// NotificationContent Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
 	NotificationContent *Binary `json:"notificationContent,omitempty"`

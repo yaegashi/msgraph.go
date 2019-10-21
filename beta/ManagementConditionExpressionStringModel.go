@@ -4,6 +4,7 @@ package msgraph
 
 // ManagementConditionExpressionString undocumented
 type ManagementConditionExpressionString struct {
+	// ManagementConditionExpression is the base model of ManagementConditionExpressionString
 	ManagementConditionExpression
 	// Value The management condition statement expression string value.
 	Value *string `json:"value,omitempty"`

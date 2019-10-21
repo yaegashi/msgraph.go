@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedDeviceMobileAppConfigurationState Managed Device Mobile App Configuration State for a given device.
 type ManagedDeviceMobileAppConfigurationState struct {
+	// Entity is the base model of ManagedDeviceMobileAppConfigurationState
 	Entity
 	// DisplayName The name of the policy for this policyBase
 	DisplayName *string `json:"displayName,omitempty"`

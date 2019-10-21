@@ -4,6 +4,8 @@ package msgraph
 
 // ScheduleInformation undocumented
 type ScheduleInformation struct {
+	// Object is the base model of ScheduleInformation
+	Object
 	// ScheduleID undocumented
 	ScheduleID *string `json:"scheduleId,omitempty"`
 	// ScheduleItems undocumented

@@ -4,6 +4,8 @@ package msgraph
 
 // AppRole undocumented
 type AppRole struct {
+	// Object is the base model of AppRole
+	Object
 	// AllowedMemberTypes undocumented
 	AllowedMemberTypes []string `json:"allowedMemberTypes,omitempty"`
 	// Description undocumented

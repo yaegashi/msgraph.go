@@ -4,6 +4,7 @@ package msgraph
 
 // RevokeAppleVppLicensesActionResult undocumented
 type RevokeAppleVppLicensesActionResult struct {
+	// DeviceActionResult is the base model of RevokeAppleVppLicensesActionResult
 	DeviceActionResult
 	// TotalLicensesCount Total number of Apple Vpp licenses associated
 	TotalLicensesCount *int `json:"totalLicensesCount,omitempty"`

@@ -4,4 +4,6 @@ package msgraph
 
 // GovernanceCriteria undocumented
 type GovernanceCriteria struct {
+	// Object is the base model of GovernanceCriteria
+	Object
 }

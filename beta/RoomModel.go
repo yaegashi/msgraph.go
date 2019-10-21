@@ -4,6 +4,7 @@ package msgraph
 
 // Room undocumented
 type Room struct {
+	// Place is the base model of Room
 	Place
 	// EmailAddress undocumented
 	EmailAddress *string `json:"emailAddress,omitempty"`

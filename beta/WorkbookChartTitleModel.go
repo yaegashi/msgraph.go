@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartTitle undocumented
 type WorkbookChartTitle struct {
+	// Entity is the base model of WorkbookChartTitle
 	Entity
 	// Overlay undocumented
 	Overlay *bool `json:"overlay,omitempty"`

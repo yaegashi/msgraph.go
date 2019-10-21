@@ -4,6 +4,7 @@ package msgraph
 
 // SynchronizationTemplate undocumented
 type SynchronizationTemplate struct {
+	// Entity is the base model of SynchronizationTemplate
 	Entity
 	// ApplicationID undocumented
 	ApplicationID *UUID `json:"applicationId,omitempty"`

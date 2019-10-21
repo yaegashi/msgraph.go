@@ -4,6 +4,7 @@ package msgraph
 
 // IOSEduDeviceConfiguration iOS Education device configuration
 type IOSEduDeviceConfiguration struct {
+	// DeviceConfiguration is the base model of IOSEduDeviceConfiguration
 	DeviceConfiguration
 	// TeacherCertificateSettings The Trusted Root and PFX certificates for Teacher
 	TeacherCertificateSettings *IOSEduCertificateSettings `json:"teacherCertificateSettings,omitempty"`

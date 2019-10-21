@@ -6,6 +6,7 @@ import "time"
 
 // ManagementCondition Management conditions are events that can be triggered dynamically such as geo-fences, time-fences, and network-fences.
 type ManagementCondition struct {
+	// Entity is the base model of ManagementCondition
 	Entity
 	// UniqueName Unique name for the management condition. Used in management condition expressions.
 	UniqueName *string `json:"uniqueName,omitempty"`

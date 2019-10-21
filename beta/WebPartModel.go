@@ -4,6 +4,8 @@ package msgraph
 
 // WebPart undocumented
 type WebPart struct {
+	// Object is the base model of WebPart
+	Object
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
 	// Data undocumented

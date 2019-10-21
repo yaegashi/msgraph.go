@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsInformationProtectionAppLearningSummary Windows Information Protection AppLearning Summary entity.
 type WindowsInformationProtectionAppLearningSummary struct {
+	// Entity is the base model of WindowsInformationProtectionAppLearningSummary
 	Entity
 	// ApplicationName Application Name
 	ApplicationName *string `json:"applicationName,omitempty"`

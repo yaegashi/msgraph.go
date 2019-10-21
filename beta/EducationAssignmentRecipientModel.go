@@ -4,4 +4,6 @@ package msgraph
 
 // EducationAssignmentRecipient undocumented
 type EducationAssignmentRecipient struct {
+	// Object is the base model of EducationAssignmentRecipient
+	Object
 }

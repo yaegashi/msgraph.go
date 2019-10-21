@@ -4,6 +4,7 @@ package msgraph
 
 // ListItem undocumented
 type ListItem struct {
+	// BaseItem is the base model of ListItem
 	BaseItem
 	// ContentType undocumented
 	ContentType *ContentTypeInfo `json:"contentType,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81CompliancePolicy This class contains compliance settings for Windows 8.1.
 type Windows81CompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of Windows81CompliancePolicy
 	DeviceCompliancePolicy
 	// PasswordRequired Require a password to unlock Windows device.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`

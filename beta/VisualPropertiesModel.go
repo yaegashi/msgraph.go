@@ -4,6 +4,8 @@ package msgraph
 
 // VisualProperties undocumented
 type VisualProperties struct {
+	// Object is the base model of VisualProperties
+	Object
 	// Title undocumented
 	Title *string `json:"title,omitempty"`
 	// Body undocumented

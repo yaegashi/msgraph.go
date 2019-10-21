@@ -4,6 +4,8 @@ package msgraph
 
 // IOSVpnSecurityAssociationParameters undocumented
 type IOSVpnSecurityAssociationParameters struct {
+	// Object is the base model of IOSVpnSecurityAssociationParameters
+	Object
 	// SecurityEncryptionAlgorithm Encryption algorithm
 	SecurityEncryptionAlgorithm *VpnEncryptionAlgorithmType `json:"securityEncryptionAlgorithm,omitempty"`
 	// SecurityIntegrityAlgorithm Integrity algorithm

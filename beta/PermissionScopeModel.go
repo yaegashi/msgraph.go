@@ -4,6 +4,8 @@ package msgraph
 
 // PermissionScope undocumented
 type PermissionScope struct {
+	// Object is the base model of PermissionScope
+	Object
 	// AdminConsentDescription undocumented
 	AdminConsentDescription *string `json:"adminConsentDescription,omitempty"`
 	// AdminConsentDisplayName undocumented

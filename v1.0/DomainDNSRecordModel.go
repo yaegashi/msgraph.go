@@ -4,6 +4,7 @@ package msgraph
 
 // DomainDNSRecord undocumented
 type DomainDNSRecord struct {
+	// Entity is the base model of DomainDNSRecord
 	Entity
 	// IsOptional undocumented
 	IsOptional *bool `json:"isOptional,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // GovernancePolicy undocumented
 type GovernancePolicy struct {
+	// Object is the base model of GovernancePolicy
+	Object
 	// DecisionMakerCriteria undocumented
 	DecisionMakerCriteria []GovernanceCriteria `json:"decisionMakerCriteria,omitempty"`
 	// NotificationPolicy undocumented

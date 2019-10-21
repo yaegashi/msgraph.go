@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementAbstractComplexSettingDefinition Entity representing the defintion for an abstract complex setting
 type DeviceManagementAbstractComplexSettingDefinition struct {
+	// DeviceManagementSettingDefinition is the base model of DeviceManagementAbstractComplexSettingDefinition
 	DeviceManagementSettingDefinition
 	// Implementations List of definition IDs for all possible implementations of this abstract complex setting
 	Implementations []string `json:"implementations,omitempty"`

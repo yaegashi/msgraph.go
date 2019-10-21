@@ -4,6 +4,8 @@ package msgraph
 
 // PlannerCategoryDescriptions undocumented
 type PlannerCategoryDescriptions struct {
+	// Object is the base model of PlannerCategoryDescriptions
+	Object
 	// Category1 undocumented
 	Category1 *string `json:"category1,omitempty"`
 	// Category2 undocumented

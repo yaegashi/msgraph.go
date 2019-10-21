@@ -4,6 +4,7 @@ package msgraph
 
 // Team undocumented
 type Team struct {
+	// Entity is the base model of Team
 	Entity
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`

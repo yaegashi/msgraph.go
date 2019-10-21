@@ -4,4 +4,6 @@ package msgraph
 
 // RunSchedule undocumented
 type RunSchedule struct {
+	// Object is the base model of RunSchedule
+	Object
 }

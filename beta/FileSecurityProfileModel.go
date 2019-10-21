@@ -6,6 +6,7 @@ import "time"
 
 // FileSecurityProfile undocumented
 type FileSecurityProfile struct {
+	// Entity is the base model of FileSecurityProfile
 	Entity
 	// ActivityGroupNames undocumented
 	ActivityGroupNames []string `json:"activityGroupNames,omitempty"`

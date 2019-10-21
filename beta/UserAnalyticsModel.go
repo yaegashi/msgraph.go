@@ -4,6 +4,7 @@ package msgraph
 
 // UserAnalytics undocumented
 type UserAnalytics struct {
+	// Entity is the base model of UserAnalytics
 	Entity
 	// Settings undocumented
 	Settings *Settings `json:"settings,omitempty"`

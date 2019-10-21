@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsStoreApp Contains properties and inherited properties for Windows Store apps.
 type WindowsStoreApp struct {
+	// MobileApp is the base model of WindowsStoreApp
 	MobileApp
 	// AppStoreURL The Windows app store URL.
 	AppStoreURL *string `json:"appStoreUrl,omitempty"`

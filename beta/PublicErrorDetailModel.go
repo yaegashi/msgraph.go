@@ -4,6 +4,8 @@ package msgraph
 
 // PublicErrorDetail undocumented
 type PublicErrorDetail struct {
+	// Object is the base model of PublicErrorDetail
+	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// Message undocumented

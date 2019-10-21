@@ -4,6 +4,8 @@ package msgraph
 
 // WorkbookWorksheetProtectionOptions undocumented
 type WorkbookWorksheetProtectionOptions struct {
+	// Object is the base model of WorkbookWorksheetProtectionOptions
+	Object
 	// AllowAutoFilter undocumented
 	AllowAutoFilter *bool `json:"allowAutoFilter,omitempty"`
 	// AllowDeleteColumns undocumented

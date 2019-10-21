@@ -6,6 +6,7 @@ import "time"
 
 // EducationUser undocumented
 type EducationUser struct {
+	// Entity is the base model of EducationUser
 	Entity
 	// RelatedContacts undocumented
 	RelatedContacts []RelatedContact `json:"relatedContacts,omitempty"`

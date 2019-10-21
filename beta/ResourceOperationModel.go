@@ -4,6 +4,7 @@ package msgraph
 
 // ResourceOperation Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC).
 type ResourceOperation struct {
+	// Entity is the base model of ResourceOperation
 	Entity
 	// Resource Resource category to which this Operation belongs.
 	Resource *string `json:"resource,omitempty"`

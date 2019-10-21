@@ -4,4 +4,6 @@ package msgraph
 
 // GeolocationColumn undocumented
 type GeolocationColumn struct {
+	// Object is the base model of GeolocationColumn
+	Object
 }

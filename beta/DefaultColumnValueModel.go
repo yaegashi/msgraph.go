@@ -4,6 +4,8 @@ package msgraph
 
 // DefaultColumnValue undocumented
 type DefaultColumnValue struct {
+	// Object is the base model of DefaultColumnValue
+	Object
 	// Formula undocumented
 	Formula *string `json:"formula,omitempty"`
 	// Value undocumented

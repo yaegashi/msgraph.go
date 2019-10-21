@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementSettingBooleanConstraint undocumented
 type DeviceManagementSettingBooleanConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingBooleanConstraint
 	DeviceManagementConstraint
 	// Value The boolean value to compare against
 	Value *bool `json:"value,omitempty"`

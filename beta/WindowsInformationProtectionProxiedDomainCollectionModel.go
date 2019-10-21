@@ -4,6 +4,8 @@ package msgraph
 
 // WindowsInformationProtectionProxiedDomainCollection undocumented
 type WindowsInformationProtectionProxiedDomainCollection struct {
+	// Object is the base model of WindowsInformationProtectionProxiedDomainCollection
+	Object
 	// DisplayName Display name
 	DisplayName *string `json:"displayName,omitempty"`
 	// ProxiedDomains Collection of proxied domains

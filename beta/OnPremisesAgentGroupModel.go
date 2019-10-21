@@ -4,6 +4,7 @@ package msgraph
 
 // OnPremisesAgentGroup undocumented
 type OnPremisesAgentGroup struct {
+	// Entity is the base model of OnPremisesAgentGroup
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`

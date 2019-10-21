@@ -4,5 +4,6 @@ package msgraph
 
 // MacOSDeviceFeaturesConfiguration MacOS device features configuration profile.
 type MacOSDeviceFeaturesConfiguration struct {
+	// AppleDeviceFeaturesConfigurationBase is the base model of MacOSDeviceFeaturesConfiguration
 	AppleDeviceFeaturesConfigurationBase
 }

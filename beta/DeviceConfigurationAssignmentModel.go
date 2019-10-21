@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceConfigurationAssignment The device configuration assignment entity assigns an AAD group to a specific device configuration.
 type DeviceConfigurationAssignment struct {
+	// Entity is the base model of DeviceConfigurationAssignment
 	Entity
 	// Target The assignment target for the device configuration.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`

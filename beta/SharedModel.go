@@ -6,6 +6,8 @@ import "time"
 
 // Shared undocumented
 type Shared struct {
+	// Object is the base model of Shared
+	Object
 	// Owner undocumented
 	Owner *IdentitySet `json:"owner,omitempty"`
 	// Scope undocumented

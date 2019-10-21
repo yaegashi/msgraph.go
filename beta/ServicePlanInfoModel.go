@@ -4,6 +4,8 @@ package msgraph
 
 // ServicePlanInfo undocumented
 type ServicePlanInfo struct {
+	// Object is the base model of ServicePlanInfo
+	Object
 	// ServicePlanID undocumented
 	ServicePlanID *UUID `json:"servicePlanId,omitempty"`
 	// ServicePlanName undocumented

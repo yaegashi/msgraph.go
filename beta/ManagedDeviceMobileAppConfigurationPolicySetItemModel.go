@@ -4,5 +4,6 @@ package msgraph
 
 // ManagedDeviceMobileAppConfigurationPolicySetItem A class containing the properties used for managed device mobile app configuration PolicySetItem.
 type ManagedDeviceMobileAppConfigurationPolicySetItem struct {
+	// PolicySetItem is the base model of ManagedDeviceMobileAppConfigurationPolicySetItem
 	PolicySetItem
 }

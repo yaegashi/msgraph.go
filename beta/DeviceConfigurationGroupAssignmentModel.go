@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceConfigurationGroupAssignment Device configuration group assignment.
 type DeviceConfigurationGroupAssignment struct {
+	// Entity is the base model of DeviceConfigurationGroupAssignment
 	Entity
 	// TargetGroupID The Id of the AAD group we are targeting the device configuration to.
 	TargetGroupID *string `json:"targetGroupId,omitempty"`

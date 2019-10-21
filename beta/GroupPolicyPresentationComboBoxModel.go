@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationComboBox Represents an ADMX comboBox element and an ADMX text element.
 type GroupPolicyPresentationComboBox struct {
+	// GroupPolicyPresentation is the base model of GroupPolicyPresentationComboBox
 	GroupPolicyPresentation
 	// DefaultValue Localized default string displayed in the combo box. The default value is empty.
 	DefaultValue *string `json:"defaultValue,omitempty"`

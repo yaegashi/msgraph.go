@@ -4,6 +4,7 @@ package msgraph
 
 // InformationProtectionLabel undocumented
 type InformationProtectionLabel struct {
+	// Entity is the base model of InformationProtectionLabel
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`

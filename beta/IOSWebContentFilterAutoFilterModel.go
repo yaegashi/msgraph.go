@@ -4,6 +4,7 @@ package msgraph
 
 // IOSWebContentFilterAutoFilter undocumented
 type IOSWebContentFilterAutoFilter struct {
+	// IOSWebContentFilterBase is the base model of IOSWebContentFilterAutoFilter
 	IOSWebContentFilterBase
 	// AllowedUrls Additional URLs allowed for access
 	AllowedUrls []string `json:"allowedUrls,omitempty"`

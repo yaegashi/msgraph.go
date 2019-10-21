@@ -6,6 +6,7 @@ import "time"
 
 // PrivilegedRoleSettings undocumented
 type PrivilegedRoleSettings struct {
+	// Entity is the base model of PrivilegedRoleSettings
 	Entity
 	// ApproverIDs undocumented
 	ApproverIDs []string `json:"approverIds,omitempty"`

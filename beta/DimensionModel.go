@@ -6,6 +6,7 @@ import "time"
 
 // Dimension undocumented
 type Dimension struct {
+	// Entity is the base model of Dimension
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

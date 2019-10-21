@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementTemplate Entity that represents a defined collection of device settings
 type DeviceManagementTemplate struct {
+	// Entity is the base model of DeviceManagementTemplate
 	Entity
 	// DisplayName The template's display name
 	DisplayName *string `json:"displayName,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // OrganizationalBranding undocumented
 type OrganizationalBranding struct {
+	// Entity is the base model of OrganizationalBranding
 	Entity
 	// BackgroundColor undocumented
 	BackgroundColor *string `json:"backgroundColor,omitempty"`

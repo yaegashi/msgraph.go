@@ -4,6 +4,7 @@ package msgraph
 
 // Windows10VpnProxyServer undocumented
 type Windows10VpnProxyServer struct {
+	// VpnProxyServer is the base model of Windows10VpnProxyServer
 	VpnProxyServer
 	// BypassProxyServerForLocalAddress Bypass proxy server for local address.
 	BypassProxyServerForLocalAddress *bool `json:"bypassProxyServerForLocalAddress,omitempty"`

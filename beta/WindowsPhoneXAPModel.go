@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsPhoneXAP Contains properties and inherited properties for Windows Phone XAP Line Of Business apps.
 type WindowsPhoneXAP struct {
+	// MobileLobApp is the base model of WindowsPhoneXAP
 	MobileLobApp
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *WindowsMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`

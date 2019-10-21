@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookRangeFont undocumented
 type WorkbookRangeFont struct {
+	// Entity is the base model of WorkbookRangeFont
 	Entity
 	// Bold undocumented
 	Bold *bool `json:"bold,omitempty"`

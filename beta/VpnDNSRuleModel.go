@@ -4,6 +4,8 @@ package msgraph
 
 // VpnDNSRule undocumented
 type VpnDNSRule struct {
+	// Object is the base model of VpnDNSRule
+	Object
 	// Name Name.
 	Name *string `json:"name,omitempty"`
 	// Servers Servers.

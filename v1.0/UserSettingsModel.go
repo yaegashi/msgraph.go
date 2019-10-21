@@ -4,6 +4,7 @@ package msgraph
 
 // UserSettings undocumented
 type UserSettings struct {
+	// Entity is the base model of UserSettings
 	Entity
 	// ContributionToContentDiscoveryDisabled undocumented
 	ContributionToContentDiscoveryDisabled *bool `json:"contributionToContentDiscoveryDisabled,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // DirectoryObjectPartnerReference undocumented
 type DirectoryObjectPartnerReference struct {
+	// DirectoryObject is the base model of DirectoryObjectPartnerReference
 	DirectoryObject
 	// Description undocumented
 	Description *string `json:"description,omitempty"`

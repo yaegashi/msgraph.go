@@ -4,6 +4,8 @@ package msgraph
 
 // RecentNotebookLinks undocumented
 type RecentNotebookLinks struct {
+	// Object is the base model of RecentNotebookLinks
+	Object
 	// OneNoteClientURL undocumented
 	OneNoteClientURL *ExternalLink `json:"oneNoteClientUrl,omitempty"`
 	// OneNoteWebURL undocumented

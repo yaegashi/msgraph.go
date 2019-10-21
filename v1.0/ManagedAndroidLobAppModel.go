@@ -4,6 +4,7 @@ package msgraph
 
 // ManagedAndroidLobApp Contains properties and inherited properties for Managed Android Line Of Business apps.
 type ManagedAndroidLobApp struct {
+	// ManagedMobileLobApp is the base model of ManagedAndroidLobApp
 	ManagedMobileLobApp
 	// PackageID The package identifier.
 	PackageID *string `json:"packageId,omitempty"`

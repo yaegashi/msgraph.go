@@ -4,6 +4,7 @@ package msgraph
 
 // Windows81CertificateProfileBase Device Configuration.
 type Windows81CertificateProfileBase struct {
+	// WindowsCertificateProfileBase is the base model of Windows81CertificateProfileBase
 	WindowsCertificateProfileBase
 	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
 	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`

@@ -4,6 +4,7 @@ package msgraph
 
 // GroupPolicyPresentationMultiTextBox Represents an ADMX multiTextBox element and an ADMX multiText element.
 type GroupPolicyPresentationMultiTextBox struct {
+	// GroupPolicyPresentation is the base model of GroupPolicyPresentationMultiTextBox
 	GroupPolicyPresentation
 	// Required Requirement to enter a value in the text box. Default value is false.
 	Required *bool `json:"required,omitempty"`

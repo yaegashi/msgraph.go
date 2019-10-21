@@ -4,6 +4,8 @@ package msgraph
 
 // AttributeDefinition undocumented
 type AttributeDefinition struct {
+	// Object is the base model of AttributeDefinition
+	Object
 	// Anchor undocumented
 	Anchor *bool `json:"anchor,omitempty"`
 	// APIExpressions undocumented

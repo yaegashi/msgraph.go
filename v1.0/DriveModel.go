@@ -4,6 +4,7 @@ package msgraph
 
 // Drive undocumented
 type Drive struct {
+	// BaseItem is the base model of Drive
 	BaseItem
 	// DriveType undocumented
 	DriveType *string `json:"driveType,omitempty"`

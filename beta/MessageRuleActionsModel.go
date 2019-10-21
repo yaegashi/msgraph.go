@@ -4,6 +4,8 @@ package msgraph
 
 // MessageRuleActions undocumented
 type MessageRuleActions struct {
+	// Object is the base model of MessageRuleActions
+	Object
 	// MoveToFolder undocumented
 	MoveToFolder *string `json:"moveToFolder,omitempty"`
 	// CopyToFolder undocumented

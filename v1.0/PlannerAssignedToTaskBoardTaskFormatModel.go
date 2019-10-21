@@ -4,6 +4,7 @@ package msgraph
 
 // PlannerAssignedToTaskBoardTaskFormat undocumented
 type PlannerAssignedToTaskBoardTaskFormat struct {
+	// Entity is the base model of PlannerAssignedToTaskBoardTaskFormat
 	Entity
 	// UnassignedOrderHint undocumented
 	UnassignedOrderHint *string `json:"unassignedOrderHint,omitempty"`

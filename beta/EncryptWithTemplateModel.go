@@ -4,6 +4,7 @@ package msgraph
 
 // EncryptWithTemplate undocumented
 type EncryptWithTemplate struct {
+	// EncryptContent is the base model of EncryptWithTemplate
 	EncryptContent
 	// TemplateID undocumented
 	TemplateID *string `json:"templateId,omitempty"`

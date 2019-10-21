@@ -6,6 +6,8 @@ import "time"
 
 // EducationSynchronizationCustomization undocumented
 type EducationSynchronizationCustomization struct {
+	// Object is the base model of EducationSynchronizationCustomization
+	Object
 	// OptionalPropertiesToSync undocumented
 	OptionalPropertiesToSync []string `json:"optionalPropertiesToSync,omitempty"`
 	// SynchronizationStartDate undocumented

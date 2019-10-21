@@ -4,6 +4,7 @@ package msgraph
 
 // DeviceManagementSettingDefinition Entity representing the defintion for a given setting
 type DeviceManagementSettingDefinition struct {
+	// Entity is the base model of DeviceManagementSettingDefinition
 	Entity
 	// ValueType The data type of the value
 	ValueType *DeviceManangementIntentValueType `json:"valueType,omitempty"`

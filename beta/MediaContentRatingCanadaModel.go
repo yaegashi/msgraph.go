@@ -4,6 +4,8 @@ package msgraph
 
 // MediaContentRatingCanada undocumented
 type MediaContentRatingCanada struct {
+	// Object is the base model of MediaContentRatingCanada
+	Object
 	// MovieRating Movies rating selected for Canada
 	MovieRating *RatingCanadaMoviesType `json:"movieRating,omitempty"`
 	// TvRating TV rating selected for Canada

@@ -4,6 +4,7 @@ package msgraph
 
 // SharedDriveItem undocumented
 type SharedDriveItem struct {
+	// BaseItem is the base model of SharedDriveItem
 	BaseItem
 	// Owner undocumented
 	Owner *IdentitySet `json:"owner,omitempty"`

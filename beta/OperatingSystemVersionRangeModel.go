@@ -4,6 +4,8 @@ package msgraph
 
 // OperatingSystemVersionRange undocumented
 type OperatingSystemVersionRange struct {
+	// Object is the base model of OperatingSystemVersionRange
+	Object
 	// Description The description of this range (e.g. Valid 1702 builds)
 	Description *string `json:"description,omitempty"`
 	// LowestVersion The lowest inclusive version that this range contains.

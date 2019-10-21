@@ -6,6 +6,7 @@ import "time"
 
 // ItemActivityStat undocumented
 type ItemActivityStat struct {
+	// Entity is the base model of ItemActivityStat
 	Entity
 	// StartDateTime undocumented
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`

@@ -6,6 +6,7 @@ import "time"
 
 // SymantecCodeSigningCertificate undocumented
 type SymantecCodeSigningCertificate struct {
+	// Entity is the base model of SymantecCodeSigningCertificate
 	Entity
 	// Content The Windows Symantec Code-Signing Certificate in the raw data format.
 	Content *Binary `json:"content,omitempty"`

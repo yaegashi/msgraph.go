@@ -6,6 +6,8 @@ import "time"
 
 // SecureScoreControlStateUpdate undocumented
 type SecureScoreControlStateUpdate struct {
+	// Object is the base model of SecureScoreControlStateUpdate
+	Object
 	// AssignedTo undocumented
 	AssignedTo *string `json:"assignedTo,omitempty"`
 	// Comment undocumented

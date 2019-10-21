@@ -4,6 +4,7 @@ package msgraph
 
 // MacOSCompliancePolicy This class contains compliance settings for Mac OS.
 type MacOSCompliancePolicy struct {
+	// DeviceCompliancePolicy is the base model of MacOSCompliancePolicy
 	DeviceCompliancePolicy
 	// PasswordRequired Whether or not to require a password.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`

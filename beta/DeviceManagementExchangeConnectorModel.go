@@ -6,6 +6,7 @@ import "time"
 
 // DeviceManagementExchangeConnector Entity which represents a connection to an Exchange environment.
 type DeviceManagementExchangeConnector struct {
+	// Entity is the base model of DeviceManagementExchangeConnector
 	Entity
 	// LastSyncDateTime Last sync time for the Exchange Connector
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`

@@ -4,6 +4,8 @@ package msgraph
 
 // ExactMatchClassificationRequestObject undocumented
 type ExactMatchClassificationRequestObject struct {
+	// Object is the base model of ExactMatchClassificationRequestObject
+	Object
 	// SensitiveTypeIDs undocumented
 	SensitiveTypeIDs []string `json:"sensitiveTypeIds,omitempty"`
 	// Text undocumented

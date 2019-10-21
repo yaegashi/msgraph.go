@@ -4,6 +4,8 @@ package msgraph
 
 // Thumbnail undocumented
 type Thumbnail struct {
+	// Object is the base model of Thumbnail
+	Object
 	// Content undocumented
 	Content *Stream `json:"content,omitempty"`
 	// Height undocumented

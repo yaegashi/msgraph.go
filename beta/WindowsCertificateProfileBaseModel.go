@@ -4,6 +4,7 @@ package msgraph
 
 // WindowsCertificateProfileBase Device Configuration.
 type WindowsCertificateProfileBase struct {
+	// DeviceConfiguration is the base model of WindowsCertificateProfileBase
 	DeviceConfiguration
 	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
 	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`

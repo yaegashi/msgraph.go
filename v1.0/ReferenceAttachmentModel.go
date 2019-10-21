@@ -4,5 +4,6 @@ package msgraph
 
 // ReferenceAttachment undocumented
 type ReferenceAttachment struct {
+	// Attachment is the base model of ReferenceAttachment
 	Attachment
 }

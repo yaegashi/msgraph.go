@@ -6,6 +6,8 @@ import "time"
 
 // LoggedOnUser undocumented
 type LoggedOnUser struct {
+	// Object is the base model of LoggedOnUser
+	Object
 	// UserID User id
 	UserID *string `json:"userId,omitempty"`
 	// LastLogOnDateTime Date time when user logs on

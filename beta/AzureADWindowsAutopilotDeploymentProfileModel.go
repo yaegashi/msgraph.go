@@ -4,5 +4,6 @@ package msgraph
 
 // AzureADWindowsAutopilotDeploymentProfile Windows Autopilot Deployment Profile
 type AzureADWindowsAutopilotDeploymentProfile struct {
+	// WindowsAutopilotDeploymentProfile is the base model of AzureADWindowsAutopilotDeploymentProfile
 	WindowsAutopilotDeploymentProfile
 }

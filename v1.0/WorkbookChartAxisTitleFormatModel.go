@@ -4,6 +4,7 @@ package msgraph
 
 // WorkbookChartAxisTitleFormat undocumented
 type WorkbookChartAxisTitleFormat struct {
+	// Entity is the base model of WorkbookChartAxisTitleFormat
 	Entity
 	// Font undocumented
 	Font *WorkbookChartFont `json:"font,omitempty"`

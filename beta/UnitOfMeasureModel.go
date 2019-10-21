@@ -6,6 +6,7 @@ import "time"
 
 // UnitOfMeasure undocumented
 type UnitOfMeasure struct {
+	// Entity is the base model of UnitOfMeasure
 	Entity
 	// Code undocumented
 	Code *string `json:"code,omitempty"`

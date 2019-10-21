@@ -4,6 +4,7 @@ package msgraph
 
 // AddContentFooterAction undocumented
 type AddContentFooterAction struct {
+	// InformationProtectionAction is the base model of AddContentFooterAction
 	InformationProtectionAction
 	// UIElementName undocumented
 	UIElementName *string `json:"uiElementName,omitempty"`

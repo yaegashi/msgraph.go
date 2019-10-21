@@ -6,6 +6,7 @@ import "time"
 
 // RemoteAssistancePartner RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service.
 type RemoteAssistancePartner struct {
+	// Entity is the base model of RemoteAssistancePartner
 	Entity
 	// DisplayName Display name of the partner.
 	DisplayName *string `json:"displayName,omitempty"`

@@ -6,6 +6,7 @@ import "encoding/json"
 
 // ManagedAppStatusRaw Represents an un-typed status report about organizations app protection and configuration.
 type ManagedAppStatusRaw struct {
+	// ManagedAppStatus is the base model of ManagedAppStatusRaw
 	ManagedAppStatus
 	// Content Status report content.
 	Content json.RawMessage `json:"content,omitempty"`

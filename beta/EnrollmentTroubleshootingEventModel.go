@@ -4,6 +4,7 @@ package msgraph
 
 // EnrollmentTroubleshootingEvent Event representing an enrollment failure.
 type EnrollmentTroubleshootingEvent struct {
+	// DeviceManagementTroubleshootingEvent is the base model of EnrollmentTroubleshootingEvent
 	DeviceManagementTroubleshootingEvent
 	// ManagedDeviceIdentifier Device identifier created or collected by Intune.
 	ManagedDeviceIdentifier *string `json:"managedDeviceIdentifier,omitempty"`

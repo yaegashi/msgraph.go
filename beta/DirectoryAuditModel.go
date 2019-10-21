@@ -6,6 +6,7 @@ import "time"
 
 // DirectoryAudit undocumented
 type DirectoryAudit struct {
+	// Entity is the base model of DirectoryAudit
 	Entity
 	// Category undocumented
 	Category *string `json:"category,omitempty"`
