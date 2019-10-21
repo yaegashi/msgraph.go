@@ -714,7 +714,7 @@ func (d *decodeState) object(v reflect.Value) error {
 		return nil
 	}
 
-	var mapElem reflect.Value
+	var mapElem, extraMapElem reflect.Value
 	origErrorContext := d.errorContext
 
 	for {
@@ -738,7 +738,7 @@ func (d *decodeState) object(v reflect.Value) error {
 		}
 
 		// Figure out field corresponding to key.
-		var subv reflect.Value
+		var subv, mapv reflect.Value
 		destring := false // whether the value is wrapped in a string to be decoded first
 
 		if v.Kind() == reflect.Map {
@@ -749,8 +749,9 @@ func (d *decodeState) object(v reflect.Value) error {
 				mapElem.Set(reflect.Zero(elemType))
 			}
 			subv = mapElem
+			mapv = v
 		} else {
-			var f *field
+			var f, extraf *field
 			if i, ok := fields.nameIndex[string(key)]; ok {
 				// Found an exact name match.
 				f = &fields.list[i]
@@ -763,7 +764,13 @@ func (d *decodeState) object(v reflect.Value) error {
 						f = ff
 						break
 					}
+					if ff.extra && extraf == nil {
+						extraf = ff
+					}
 				}
+			}
+			if f == nil {
+				f = extraf
 			}
 			if f != nil {
 				subv = v
@@ -789,6 +796,20 @@ func (d *decodeState) object(v reflect.Value) error {
 						subv = subv.Elem()
 					}
 					subv = subv.Field(i)
+				}
+				if f == extraf {
+					// subv is extra map
+					mapv = subv
+					if mapv.IsNil() {
+						mapv.Set(reflect.MakeMap(mapv.Type()))
+					}
+					elemType := mapv.Type().Elem()
+					if !extraMapElem.IsValid() {
+						extraMapElem = reflect.New(elemType).Elem()
+					} else {
+						extraMapElem.Set(reflect.Zero(elemType))
+					}
+					subv = extraMapElem
 				}
 				d.errorContext.FieldStack = append(d.errorContext.FieldStack, f.name)
 				d.errorContext.Struct = t
@@ -827,8 +848,8 @@ func (d *decodeState) object(v reflect.Value) error {
 
 		// Write value back to map;
 		// if using struct, subv points into struct already.
-		if v.Kind() == reflect.Map {
-			kt := t.Key()
+		if mapv.IsValid() {
+			kt := mapv.Type().Key()
 			var kv reflect.Value
 			switch {
 			case kt.Kind() == reflect.String:
@@ -862,7 +883,7 @@ func (d *decodeState) object(v reflect.Value) error {
 				}
 			}
 			if kv.IsValid() {
-				v.SetMapIndex(kv, subv)
+				mapv.SetMapIndex(kv, subv)
 			}
 		}
 

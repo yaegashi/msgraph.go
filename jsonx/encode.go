@@ -653,6 +653,26 @@ FieldLoop:
 		if f.omitEmpty && isEmptyValue(fv) {
 			continue
 		}
+		if f.extra {
+			keys := fv.MapKeys()
+			sv := make([]reflectWithString, len(keys))
+			for i, v := range keys {
+				sv[i].v = v
+				if err := sv[i].resolve(); err != nil {
+					e.error(&MarshalerError{v.Type(), err})
+				}
+			}
+			sort.Slice(sv, func(i, j int) bool { return sv[i].s < sv[j].s })
+			elemEnc := typeEncoder(fv.Type().Elem())
+			for _, kv := range sv {
+				e.WriteByte(next)
+				next = ','
+				e.string(kv.s, opts.escapeHTML)
+				e.WriteByte(':')
+				elemEnc(e, fv.MapIndex(kv.v), opts)
+			}
+			continue
+		}
 		e.WriteByte(next)
 		next = ','
 		if opts.escapeHTML {
@@ -1044,6 +1064,7 @@ type field struct {
 	index     []int
 	typ       reflect.Type
 	omitEmpty bool
+	extra     bool
 	quoted    bool
 
 	encoder encoderFunc
@@ -1118,8 +1139,12 @@ func typeFields(t reflect.Type) structFields {
 					continue
 				}
 				tag := sf.Tag.Get("json")
-				if tag == "-" {
+				tagx := sf.Tag.Get("jsonx")
+				if tag == "-" && tagx == "" {
 					continue
+				}
+				if tagx != "" {
+					tag = ""
 				}
 				name, opts := parseTag(tag)
 				if !isValidTag(name) {
@@ -1133,6 +1158,17 @@ func typeFields(t reflect.Type) structFields {
 				if ft.Name() == "" && ft.Kind() == reflect.Ptr {
 					// Follow pointer.
 					ft = ft.Elem()
+				}
+
+				// Only maps can be extra.
+				extra := false
+				if tagx != "" {
+					switch ft.Kind() {
+					case reflect.Map:
+						extra = true
+					default:
+						continue
+					}
 				}
 
 				// Only strings, floats, integers, and booleans can be quoted.
@@ -1160,6 +1196,7 @@ func typeFields(t reflect.Type) structFields {
 						index:     index,
 						typ:       ft,
 						omitEmpty: opts.Contains("omitempty"),
+						extra:     extra,
 						quoted:    quoted,
 					}
 					field.nameBytes = []byte(field.name)
