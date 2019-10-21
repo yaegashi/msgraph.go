@@ -50,18 +50,48 @@ You can authenticate yourself with your personal (Microsoft) or organizational (
 ```console
 $ go get ./cmd/msgraph-me
 $ msgraph-me
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code H8AYAEUCS to authenticate.
-2019/10/14 02:55:02 GET https://graph.microsoft.com/v1.0/me
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code GQYZ5KM5H to authenticate.
+2019/10/22 01:17:51 Get current logged in user information
+2019/10/22 01:17:51 GET https://graph.microsoft.com/v1.0/me
 {
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
   "id": "126871095554adb4",
   "displayName": "八重樫 剛史",
   "givenName": "剛史",
   "surname": "八重樫",
   "userPrincipalName": "yaegashi@live.jp"
 }
-2019/10/14 02:55:03 GET https://graph.microsoft.com/v1.0/me/drive/root/children?%24filter=file+ne+null&%24select=name%2Cfile%2Csize%2CwebUrl
+2019/10/22 01:17:52 Get files in the root folder of user's drive
+2019/10/22 01:17:52 GET https://graph.microsoft.com/v1.0/me/drive/root/children?%24filter=file+ne+null&%24select=id%2Cname%2Cfile%2Csize%2CwebUrl
 [
   {
+    "id": "126871095554ADB4!1425",
+    "name": "ブック.xlsx",
+    "webUrl": "https://1drv.ms/x/s!ALStVFUJcWgSixE",
+    "file": {
+      "hashes": {
+        "quickXorHash": "",
+        "sha1Hash": "54665588E155AE30FB0D2CA4FC7201A39ACCBE5C"
+      },
+      "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    "size": 7990
+  },
+  {
+    "id": "126871095554ADB4!1428",
+    "name": "プレゼンテーション.pptx",
+    "webUrl": "https://1drv.ms/p/s!ALStVFUJcWgSixQ",
+    "file": {
+      "hashes": {
+        "quickXorHash": "5GWMST7DLJqxYS28Avo794YgGOQ=",
+        "sha1Hash": "B4E607C06DDEF71C3C523E9993DCA761C85AA5B6"
+      },
+      "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    },
+    "size": 29313
+  },
+  {
+    "id": "126871095554ADB4!1333",
     "name": "文書.docx",
     "webUrl": "https://1drv.ms/w/s!ALStVFUJcWgSijU",
     "file": {
@@ -74,6 +104,12 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
     "size": 11393
   }
 ]
+2019/10/22 01:17:52 GET https://graph.microsoft.com/v1.0/me/drive/items/126871095554ADB4!1425
+2019/10/22 01:17:53 Download to "ブック.xlsx" (7990 bytes)
+2019/10/22 01:17:54 GET https://graph.microsoft.com/v1.0/me/drive/items/126871095554ADB4!1428
+2019/10/22 01:17:55 Download to "プレゼンテーション.pptx" (29313 bytes)
+2019/10/22 01:17:55 GET https://graph.microsoft.com/v1.0/me/drive/items/126871095554ADB4!1333
+2019/10/22 01:17:56 Download to "文書.docx" (11393 bytes)
 ```
 
 It saves auth tokens in `token_store.json` in the current directory.
@@ -84,7 +120,7 @@ You won't be asked for authentication again until tokens in this file expires.
 - [x] Save indented metadata.xml
 - [x] Support Action elements in metadata
 - [ ] Support Function elements in metadata
-- [ ] Access to additional properties like `@odata.type` `@odata.id`
+- [x] Access to additional properties like `@odata.type` `@odata.id`
 - [x] Split output into multiple files
 - [x] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
 - [x] Provide easy way to generate pointers to literals
