@@ -18,19 +18,6 @@ heavily relying on C# and non-portable .NET Framework.
 
 ## Usage
 
-Use `go generate` to download the metadata and generate library code from it:
-
-```console
-$ rm gen/*.xml
-$ go generate ./gen
-2019/10/14 02:53:40 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata-v1.0.xml
-2019/10/14 02:53:41 Downloading https://graph.microsoft.com/beta/$metadata to metadata-beta.xml
-2019/10/14 02:53:42 Creating ../v1.0/msgraph.go
-2019/10/14 02:53:43 Formatting ../v1.0/msgraph.go
-2019/10/14 02:53:44 Creating ../beta/msgraph.go
-2019/10/14 02:53:45 Formatting ../beta/msgraph.go
-```
-
 You can choose API version when importing `msgraph` package:
 
 ```go
@@ -43,7 +30,7 @@ import msgraph "github.com/yaegashi/msgraph.go/beta"
 
 ## Example
 
-[cmd/msgraph-me/main.go](cmd/msgraph-me/main.go) shows simple usage example.
+[cmd/msgraph-me/main.go](cmd/msgraph-me/main.go) shows a simple example.
 It contains [Azure AD v2 device code flow](https://docs.microsoft.com/ja-jp/azure/active-directory/develop/v2-oauth2-device-code) for the user authentication.
 You can authenticate yourself with your personal (Microsoft) or organizational (Azure AD) account.
 
@@ -115,17 +102,43 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 It saves auth tokens in `token_store.json` in the current directory.
 You won't be asked for authentication again until tokens in this file expires.
 
+## Code generation
+
+Use `go generate` to download the metadata and generate library code from it.
+You need `goimports` to format outputs and fix imports of them.
+
+```console
+$ go get golang.org/x/tools/cmd/goimports
+$ rm gen/*.xml
+$ go generate ./gen
+2019/10/23 03:56:06 Downloading https://graph.microsoft.com/v1.0/$metadata to metadata-v1.0.xml
+2019/10/23 03:56:07 Downloading https://graph.microsoft.com/beta/$metadata to metadata-beta.xml
+2019/10/23 03:56:07 Creating directory ../v1.0
+2019/10/23 03:56:07 Removing ../v1.0/InstallIntentEnum.go
+2019/10/23 03:56:07 Removing ../v1.0/EditionUpgradeConfigurationModel.go
+2019/10/23 03:56:07 Removing ../v1.0/AssignedPlanModel.go
+...
+2019/10/23 03:56:07 Creating ../v1.0/msgraph.go
+2019/10/23 03:56:07 Creating ../v1.0/ActionStateEnum.go
+2019/10/23 03:56:07 Creating ../v1.0/ActivityDomainEnum.go
+...
+2019/10/23 03:56:10 Formatting ../v1.0/ContentTypeModel.go ../v1.0/AuditLogRootRequest.go ../v1.0/DeviceComplianceScheduledActionForRuleRequest.go ...
+```
+
 ## Todo
 
 - [x] Save indented metadata.xml
 - [x] Support Action elements in metadata
 - [ ] Support Function elements in metadata
+- [ ] Support batch requests
 - [x] Access to additional properties like `@odata.type` `@odata.id`
 - [x] Split output into multiple files
 - [x] Generate camel cases in golang manner (`IpAddress` -> `IPAddress`)
 - [x] Provide easy way to generate pointers to literals
 - [x] Provide easy way to generate pointers to constants
+- [x] Provide easy way to add queries like `$expand` `$select` `$filter`
 - [ ] Online API docs (the output is too big for godoc.org to handle)
+- [ ] Unit tests
 - [x] Persist OAuth2 tokens in file
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
