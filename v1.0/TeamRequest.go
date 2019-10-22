@@ -23,24 +23,19 @@ func (b *TeamRequestBuilder) Request() *TeamRequest {
 // TeamRequest is request for Team
 type TeamRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Team
-func (r *TeamRequest) Do(method, path string, reqObj interface{}) (resObj *Team, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Team
-func (r *TeamRequest) Get() (*Team, error) {
+func (r *TeamRequest) Get() (resObj *Team, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Team
-func (r *TeamRequest) Update(reqObj *Team) (*Team, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TeamRequest) Update(reqObj *Team) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Team
@@ -74,12 +69,6 @@ func (b *TeamChannelsCollectionRequestBuilder) ID(id string) *ChannelRequestBuil
 
 // TeamChannelsCollectionRequest is request for Channel collection
 type TeamChannelsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Channel collection
-func (r *TeamChannelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Channel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Channel collection
 func (r *TeamChannelsCollectionRequest) Paging(method, path string, obj interface{}) ([]Channel, error) {
@@ -131,8 +120,9 @@ func (r *TeamChannelsCollectionRequest) Get() ([]Channel, error) {
 }
 
 // Add performs POST request for Channel collection
-func (r *TeamChannelsCollectionRequest) Add(reqObj *Channel) (*Channel, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TeamChannelsCollectionRequest) Add(reqObj *Channel) (resObj *Channel, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // InstalledApps returns request builder for TeamsAppInstallation collection
@@ -161,12 +151,6 @@ func (b *TeamInstalledAppsCollectionRequestBuilder) ID(id string) *TeamsAppInsta
 
 // TeamInstalledAppsCollectionRequest is request for TeamsAppInstallation collection
 type TeamInstalledAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsAppInstallation collection
-func (r *TeamInstalledAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
 func (r *TeamInstalledAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
@@ -218,8 +202,9 @@ func (r *TeamInstalledAppsCollectionRequest) Get() ([]TeamsAppInstallation, erro
 }
 
 // Add performs POST request for TeamsAppInstallation collection
-func (r *TeamInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (*TeamsAppInstallation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TeamInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (resObj *TeamsAppInstallation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Operations returns request builder for TeamsAsyncOperation collection
@@ -248,12 +233,6 @@ func (b *TeamOperationsCollectionRequestBuilder) ID(id string) *TeamsAsyncOperat
 
 // TeamOperationsCollectionRequest is request for TeamsAsyncOperation collection
 type TeamOperationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsAsyncOperation collection
-func (r *TeamOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAsyncOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsAsyncOperation collection
 func (r *TeamOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAsyncOperation, error) {
@@ -305,6 +284,7 @@ func (r *TeamOperationsCollectionRequest) Get() ([]TeamsAsyncOperation, error) {
 }
 
 // Add performs POST request for TeamsAsyncOperation collection
-func (r *TeamOperationsCollectionRequest) Add(reqObj *TeamsAsyncOperation) (*TeamsAsyncOperation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TeamOperationsCollectionRequest) Add(reqObj *TeamsAsyncOperation) (resObj *TeamsAsyncOperation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

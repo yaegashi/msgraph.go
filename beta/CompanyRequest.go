@@ -23,24 +23,19 @@ func (b *CompanyRequestBuilder) Request() *CompanyRequest {
 // CompanyRequest is request for Company
 type CompanyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Company
-func (r *CompanyRequest) Do(method, path string, reqObj interface{}) (resObj *Company, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Company
-func (r *CompanyRequest) Get() (*Company, error) {
+func (r *CompanyRequest) Get() (resObj *Company, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Company
-func (r *CompanyRequest) Update(reqObj *Company) (*Company, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CompanyRequest) Update(reqObj *Company) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Company
@@ -74,12 +69,6 @@ func (b *CompanyAccountsCollectionRequestBuilder) ID(id string) *AccountRequestB
 
 // CompanyAccountsCollectionRequest is request for Account collection
 type CompanyAccountsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Account collection
-func (r *CompanyAccountsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Account, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Account collection
 func (r *CompanyAccountsCollectionRequest) Paging(method, path string, obj interface{}) ([]Account, error) {
@@ -131,8 +120,9 @@ func (r *CompanyAccountsCollectionRequest) Get() ([]Account, error) {
 }
 
 // Add performs POST request for Account collection
-func (r *CompanyAccountsCollectionRequest) Add(reqObj *Account) (*Account, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyAccountsCollectionRequest) Add(reqObj *Account) (resObj *Account, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AgedAccountsPayable returns request builder for AgedAccountsPayable collection
@@ -161,12 +151,6 @@ func (b *CompanyAgedAccountsPayableCollectionRequestBuilder) ID(id string) *Aged
 
 // CompanyAgedAccountsPayableCollectionRequest is request for AgedAccountsPayable collection
 type CompanyAgedAccountsPayableCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AgedAccountsPayable collection
-func (r *CompanyAgedAccountsPayableCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgedAccountsPayable, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AgedAccountsPayable collection
 func (r *CompanyAgedAccountsPayableCollectionRequest) Paging(method, path string, obj interface{}) ([]AgedAccountsPayable, error) {
@@ -218,8 +202,9 @@ func (r *CompanyAgedAccountsPayableCollectionRequest) Get() ([]AgedAccountsPayab
 }
 
 // Add performs POST request for AgedAccountsPayable collection
-func (r *CompanyAgedAccountsPayableCollectionRequest) Add(reqObj *AgedAccountsPayable) (*AgedAccountsPayable, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyAgedAccountsPayableCollectionRequest) Add(reqObj *AgedAccountsPayable) (resObj *AgedAccountsPayable, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AgedAccountsReceivable returns request builder for AgedAccountsReceivable collection
@@ -248,12 +233,6 @@ func (b *CompanyAgedAccountsReceivableCollectionRequestBuilder) ID(id string) *A
 
 // CompanyAgedAccountsReceivableCollectionRequest is request for AgedAccountsReceivable collection
 type CompanyAgedAccountsReceivableCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AgedAccountsReceivable collection
-func (r *CompanyAgedAccountsReceivableCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgedAccountsReceivable, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AgedAccountsReceivable collection
 func (r *CompanyAgedAccountsReceivableCollectionRequest) Paging(method, path string, obj interface{}) ([]AgedAccountsReceivable, error) {
@@ -305,8 +284,9 @@ func (r *CompanyAgedAccountsReceivableCollectionRequest) Get() ([]AgedAccountsRe
 }
 
 // Add performs POST request for AgedAccountsReceivable collection
-func (r *CompanyAgedAccountsReceivableCollectionRequest) Add(reqObj *AgedAccountsReceivable) (*AgedAccountsReceivable, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyAgedAccountsReceivableCollectionRequest) Add(reqObj *AgedAccountsReceivable) (resObj *AgedAccountsReceivable, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CompanyInformation returns request builder for CompanyInformation collection
@@ -335,12 +315,6 @@ func (b *CompanyCompanyInformationCollectionRequestBuilder) ID(id string) *Compa
 
 // CompanyCompanyInformationCollectionRequest is request for CompanyInformation collection
 type CompanyCompanyInformationCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CompanyInformation collection
-func (r *CompanyCompanyInformationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CompanyInformation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CompanyInformation collection
 func (r *CompanyCompanyInformationCollectionRequest) Paging(method, path string, obj interface{}) ([]CompanyInformation, error) {
@@ -392,8 +366,9 @@ func (r *CompanyCompanyInformationCollectionRequest) Get() ([]CompanyInformation
 }
 
 // Add performs POST request for CompanyInformation collection
-func (r *CompanyCompanyInformationCollectionRequest) Add(reqObj *CompanyInformation) (*CompanyInformation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyCompanyInformationCollectionRequest) Add(reqObj *CompanyInformation) (resObj *CompanyInformation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CountriesRegions returns request builder for CountryRegion collection
@@ -422,12 +397,6 @@ func (b *CompanyCountriesRegionsCollectionRequestBuilder) ID(id string) *Country
 
 // CompanyCountriesRegionsCollectionRequest is request for CountryRegion collection
 type CompanyCountriesRegionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CountryRegion collection
-func (r *CompanyCountriesRegionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CountryRegion, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CountryRegion collection
 func (r *CompanyCountriesRegionsCollectionRequest) Paging(method, path string, obj interface{}) ([]CountryRegion, error) {
@@ -479,8 +448,9 @@ func (r *CompanyCountriesRegionsCollectionRequest) Get() ([]CountryRegion, error
 }
 
 // Add performs POST request for CountryRegion collection
-func (r *CompanyCountriesRegionsCollectionRequest) Add(reqObj *CountryRegion) (*CountryRegion, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyCountriesRegionsCollectionRequest) Add(reqObj *CountryRegion) (resObj *CountryRegion, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Currencies returns request builder for Currency collection
@@ -509,12 +479,6 @@ func (b *CompanyCurrenciesCollectionRequestBuilder) ID(id string) *CurrencyReque
 
 // CompanyCurrenciesCollectionRequest is request for Currency collection
 type CompanyCurrenciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Currency collection
-func (r *CompanyCurrenciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Currency, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Currency collection
 func (r *CompanyCurrenciesCollectionRequest) Paging(method, path string, obj interface{}) ([]Currency, error) {
@@ -566,8 +530,9 @@ func (r *CompanyCurrenciesCollectionRequest) Get() ([]Currency, error) {
 }
 
 // Add performs POST request for Currency collection
-func (r *CompanyCurrenciesCollectionRequest) Add(reqObj *Currency) (*Currency, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyCurrenciesCollectionRequest) Add(reqObj *Currency) (resObj *Currency, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CustomerPaymentJournals returns request builder for CustomerPaymentJournal collection
@@ -596,12 +561,6 @@ func (b *CompanyCustomerPaymentJournalsCollectionRequestBuilder) ID(id string) *
 
 // CompanyCustomerPaymentJournalsCollectionRequest is request for CustomerPaymentJournal collection
 type CompanyCustomerPaymentJournalsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CustomerPaymentJournal collection
-func (r *CompanyCustomerPaymentJournalsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPaymentJournal, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CustomerPaymentJournal collection
 func (r *CompanyCustomerPaymentJournalsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPaymentJournal, error) {
@@ -653,8 +612,9 @@ func (r *CompanyCustomerPaymentJournalsCollectionRequest) Get() ([]CustomerPayme
 }
 
 // Add performs POST request for CustomerPaymentJournal collection
-func (r *CompanyCustomerPaymentJournalsCollectionRequest) Add(reqObj *CustomerPaymentJournal) (*CustomerPaymentJournal, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyCustomerPaymentJournalsCollectionRequest) Add(reqObj *CustomerPaymentJournal) (resObj *CustomerPaymentJournal, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CustomerPayments returns request builder for CustomerPayment collection
@@ -683,12 +643,6 @@ func (b *CompanyCustomerPaymentsCollectionRequestBuilder) ID(id string) *Custome
 
 // CompanyCustomerPaymentsCollectionRequest is request for CustomerPayment collection
 type CompanyCustomerPaymentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CustomerPayment collection
-func (r *CompanyCustomerPaymentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CustomerPayment collection
 func (r *CompanyCustomerPaymentsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPayment, error) {
@@ -740,8 +694,9 @@ func (r *CompanyCustomerPaymentsCollectionRequest) Get() ([]CustomerPayment, err
 }
 
 // Add performs POST request for CustomerPayment collection
-func (r *CompanyCustomerPaymentsCollectionRequest) Add(reqObj *CustomerPayment) (*CustomerPayment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyCustomerPaymentsCollectionRequest) Add(reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Customers returns request builder for Customer collection
@@ -770,12 +725,6 @@ func (b *CompanyCustomersCollectionRequestBuilder) ID(id string) *CustomerReques
 
 // CompanyCustomersCollectionRequest is request for Customer collection
 type CompanyCustomersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Customer collection
-func (r *CompanyCustomersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Customer, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Customer collection
 func (r *CompanyCustomersCollectionRequest) Paging(method, path string, obj interface{}) ([]Customer, error) {
@@ -827,8 +776,9 @@ func (r *CompanyCustomersCollectionRequest) Get() ([]Customer, error) {
 }
 
 // Add performs POST request for Customer collection
-func (r *CompanyCustomersCollectionRequest) Add(reqObj *Customer) (*Customer, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyCustomersCollectionRequest) Add(reqObj *Customer) (resObj *Customer, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DimensionValues returns request builder for DimensionValue collection
@@ -857,12 +807,6 @@ func (b *CompanyDimensionValuesCollectionRequestBuilder) ID(id string) *Dimensio
 
 // CompanyDimensionValuesCollectionRequest is request for DimensionValue collection
 type CompanyDimensionValuesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DimensionValue collection
-func (r *CompanyDimensionValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DimensionValue, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DimensionValue collection
 func (r *CompanyDimensionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]DimensionValue, error) {
@@ -914,8 +858,9 @@ func (r *CompanyDimensionValuesCollectionRequest) Get() ([]DimensionValue, error
 }
 
 // Add performs POST request for DimensionValue collection
-func (r *CompanyDimensionValuesCollectionRequest) Add(reqObj *DimensionValue) (*DimensionValue, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyDimensionValuesCollectionRequest) Add(reqObj *DimensionValue) (resObj *DimensionValue, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Dimensions returns request builder for Dimension collection
@@ -944,12 +889,6 @@ func (b *CompanyDimensionsCollectionRequestBuilder) ID(id string) *DimensionRequ
 
 // CompanyDimensionsCollectionRequest is request for Dimension collection
 type CompanyDimensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Dimension collection
-func (r *CompanyDimensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Dimension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Dimension collection
 func (r *CompanyDimensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Dimension, error) {
@@ -1001,8 +940,9 @@ func (r *CompanyDimensionsCollectionRequest) Get() ([]Dimension, error) {
 }
 
 // Add performs POST request for Dimension collection
-func (r *CompanyDimensionsCollectionRequest) Add(reqObj *Dimension) (*Dimension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyDimensionsCollectionRequest) Add(reqObj *Dimension) (resObj *Dimension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Employees returns request builder for Employee collection
@@ -1031,12 +971,6 @@ func (b *CompanyEmployeesCollectionRequestBuilder) ID(id string) *EmployeeReques
 
 // CompanyEmployeesCollectionRequest is request for Employee collection
 type CompanyEmployeesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Employee collection
-func (r *CompanyEmployeesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Employee, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Employee collection
 func (r *CompanyEmployeesCollectionRequest) Paging(method, path string, obj interface{}) ([]Employee, error) {
@@ -1088,8 +1022,9 @@ func (r *CompanyEmployeesCollectionRequest) Get() ([]Employee, error) {
 }
 
 // Add performs POST request for Employee collection
-func (r *CompanyEmployeesCollectionRequest) Add(reqObj *Employee) (*Employee, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyEmployeesCollectionRequest) Add(reqObj *Employee) (resObj *Employee, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GeneralLedgerEntries returns request builder for GeneralLedgerEntry collection
@@ -1118,12 +1053,6 @@ func (b *CompanyGeneralLedgerEntriesCollectionRequestBuilder) ID(id string) *Gen
 
 // CompanyGeneralLedgerEntriesCollectionRequest is request for GeneralLedgerEntry collection
 type CompanyGeneralLedgerEntriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GeneralLedgerEntry collection
-func (r *CompanyGeneralLedgerEntriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GeneralLedgerEntry, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GeneralLedgerEntry collection
 func (r *CompanyGeneralLedgerEntriesCollectionRequest) Paging(method, path string, obj interface{}) ([]GeneralLedgerEntry, error) {
@@ -1175,8 +1104,9 @@ func (r *CompanyGeneralLedgerEntriesCollectionRequest) Get() ([]GeneralLedgerEnt
 }
 
 // Add performs POST request for GeneralLedgerEntry collection
-func (r *CompanyGeneralLedgerEntriesCollectionRequest) Add(reqObj *GeneralLedgerEntry) (*GeneralLedgerEntry, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyGeneralLedgerEntriesCollectionRequest) Add(reqObj *GeneralLedgerEntry) (resObj *GeneralLedgerEntry, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ItemCategories returns request builder for ItemCategory collection
@@ -1205,12 +1135,6 @@ func (b *CompanyItemCategoriesCollectionRequestBuilder) ID(id string) *ItemCateg
 
 // CompanyItemCategoriesCollectionRequest is request for ItemCategory collection
 type CompanyItemCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ItemCategory collection
-func (r *CompanyItemCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ItemCategory collection
 func (r *CompanyItemCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemCategory, error) {
@@ -1262,8 +1186,9 @@ func (r *CompanyItemCategoriesCollectionRequest) Get() ([]ItemCategory, error) {
 }
 
 // Add performs POST request for ItemCategory collection
-func (r *CompanyItemCategoriesCollectionRequest) Add(reqObj *ItemCategory) (*ItemCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyItemCategoriesCollectionRequest) Add(reqObj *ItemCategory) (resObj *ItemCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Items returns request builder for Item collection
@@ -1292,12 +1217,6 @@ func (b *CompanyItemsCollectionRequestBuilder) ID(id string) *ItemRequestBuilder
 
 // CompanyItemsCollectionRequest is request for Item collection
 type CompanyItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Item collection
-func (r *CompanyItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Item, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Item collection
 func (r *CompanyItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]Item, error) {
@@ -1349,8 +1268,9 @@ func (r *CompanyItemsCollectionRequest) Get() ([]Item, error) {
 }
 
 // Add performs POST request for Item collection
-func (r *CompanyItemsCollectionRequest) Add(reqObj *Item) (*Item, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyItemsCollectionRequest) Add(reqObj *Item) (resObj *Item, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // JournalLines returns request builder for JournalLine collection
@@ -1379,12 +1299,6 @@ func (b *CompanyJournalLinesCollectionRequestBuilder) ID(id string) *JournalLine
 
 // CompanyJournalLinesCollectionRequest is request for JournalLine collection
 type CompanyJournalLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for JournalLine collection
-func (r *CompanyJournalLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JournalLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for JournalLine collection
 func (r *CompanyJournalLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]JournalLine, error) {
@@ -1436,8 +1350,9 @@ func (r *CompanyJournalLinesCollectionRequest) Get() ([]JournalLine, error) {
 }
 
 // Add performs POST request for JournalLine collection
-func (r *CompanyJournalLinesCollectionRequest) Add(reqObj *JournalLine) (*JournalLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyJournalLinesCollectionRequest) Add(reqObj *JournalLine) (resObj *JournalLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Journals returns request builder for Journal collection
@@ -1466,12 +1381,6 @@ func (b *CompanyJournalsCollectionRequestBuilder) ID(id string) *JournalRequestB
 
 // CompanyJournalsCollectionRequest is request for Journal collection
 type CompanyJournalsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Journal collection
-func (r *CompanyJournalsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Journal, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Journal collection
 func (r *CompanyJournalsCollectionRequest) Paging(method, path string, obj interface{}) ([]Journal, error) {
@@ -1523,8 +1432,9 @@ func (r *CompanyJournalsCollectionRequest) Get() ([]Journal, error) {
 }
 
 // Add performs POST request for Journal collection
-func (r *CompanyJournalsCollectionRequest) Add(reqObj *Journal) (*Journal, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyJournalsCollectionRequest) Add(reqObj *Journal) (resObj *Journal, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // PaymentMethods returns request builder for PaymentMethod collection
@@ -1553,12 +1463,6 @@ func (b *CompanyPaymentMethodsCollectionRequestBuilder) ID(id string) *PaymentMe
 
 // CompanyPaymentMethodsCollectionRequest is request for PaymentMethod collection
 type CompanyPaymentMethodsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PaymentMethod collection
-func (r *CompanyPaymentMethodsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PaymentMethod, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PaymentMethod collection
 func (r *CompanyPaymentMethodsCollectionRequest) Paging(method, path string, obj interface{}) ([]PaymentMethod, error) {
@@ -1610,8 +1514,9 @@ func (r *CompanyPaymentMethodsCollectionRequest) Get() ([]PaymentMethod, error) 
 }
 
 // Add performs POST request for PaymentMethod collection
-func (r *CompanyPaymentMethodsCollectionRequest) Add(reqObj *PaymentMethod) (*PaymentMethod, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyPaymentMethodsCollectionRequest) Add(reqObj *PaymentMethod) (resObj *PaymentMethod, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // PaymentTerms returns request builder for PaymentTerm collection
@@ -1640,12 +1545,6 @@ func (b *CompanyPaymentTermsCollectionRequestBuilder) ID(id string) *PaymentTerm
 
 // CompanyPaymentTermsCollectionRequest is request for PaymentTerm collection
 type CompanyPaymentTermsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PaymentTerm collection
-func (r *CompanyPaymentTermsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PaymentTerm, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PaymentTerm collection
 func (r *CompanyPaymentTermsCollectionRequest) Paging(method, path string, obj interface{}) ([]PaymentTerm, error) {
@@ -1697,8 +1596,9 @@ func (r *CompanyPaymentTermsCollectionRequest) Get() ([]PaymentTerm, error) {
 }
 
 // Add performs POST request for PaymentTerm collection
-func (r *CompanyPaymentTermsCollectionRequest) Add(reqObj *PaymentTerm) (*PaymentTerm, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyPaymentTermsCollectionRequest) Add(reqObj *PaymentTerm) (resObj *PaymentTerm, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Picture returns request builder for Picture collection
@@ -1727,12 +1627,6 @@ func (b *CompanyPictureCollectionRequestBuilder) ID(id string) *PictureRequestBu
 
 // CompanyPictureCollectionRequest is request for Picture collection
 type CompanyPictureCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Picture collection
-func (r *CompanyPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Picture collection
 func (r *CompanyPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
@@ -1784,8 +1678,9 @@ func (r *CompanyPictureCollectionRequest) Get() ([]Picture, error) {
 }
 
 // Add performs POST request for Picture collection
-func (r *CompanyPictureCollectionRequest) Add(reqObj *Picture) (*Picture, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyPictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // PurchaseInvoiceLines returns request builder for PurchaseInvoiceLine collection
@@ -1814,12 +1709,6 @@ func (b *CompanyPurchaseInvoiceLinesCollectionRequestBuilder) ID(id string) *Pur
 
 // CompanyPurchaseInvoiceLinesCollectionRequest is request for PurchaseInvoiceLine collection
 type CompanyPurchaseInvoiceLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PurchaseInvoiceLine collection
-func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoiceLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PurchaseInvoiceLine collection
 func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoiceLine, error) {
@@ -1871,8 +1760,9 @@ func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Get() ([]PurchaseInvoiceL
 }
 
 // Add performs POST request for PurchaseInvoiceLine collection
-func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Add(reqObj *PurchaseInvoiceLine) (*PurchaseInvoiceLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Add(reqObj *PurchaseInvoiceLine) (resObj *PurchaseInvoiceLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // PurchaseInvoices returns request builder for PurchaseInvoice collection
@@ -1901,12 +1791,6 @@ func (b *CompanyPurchaseInvoicesCollectionRequestBuilder) ID(id string) *Purchas
 
 // CompanyPurchaseInvoicesCollectionRequest is request for PurchaseInvoice collection
 type CompanyPurchaseInvoicesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PurchaseInvoice collection
-func (r *CompanyPurchaseInvoicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PurchaseInvoice collection
 func (r *CompanyPurchaseInvoicesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoice, error) {
@@ -1958,8 +1842,9 @@ func (r *CompanyPurchaseInvoicesCollectionRequest) Get() ([]PurchaseInvoice, err
 }
 
 // Add performs POST request for PurchaseInvoice collection
-func (r *CompanyPurchaseInvoicesCollectionRequest) Add(reqObj *PurchaseInvoice) (*PurchaseInvoice, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyPurchaseInvoicesCollectionRequest) Add(reqObj *PurchaseInvoice) (resObj *PurchaseInvoice, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesCreditMemoLines returns request builder for SalesCreditMemoLine collection
@@ -1988,12 +1873,6 @@ func (b *CompanySalesCreditMemoLinesCollectionRequestBuilder) ID(id string) *Sal
 
 // CompanySalesCreditMemoLinesCollectionRequest is request for SalesCreditMemoLine collection
 type CompanySalesCreditMemoLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesCreditMemoLine collection
-func (r *CompanySalesCreditMemoLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesCreditMemoLine collection
 func (r *CompanySalesCreditMemoLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
@@ -2045,8 +1924,9 @@ func (r *CompanySalesCreditMemoLinesCollectionRequest) Get() ([]SalesCreditMemoL
 }
 
 // Add performs POST request for SalesCreditMemoLine collection
-func (r *CompanySalesCreditMemoLinesCollectionRequest) Add(reqObj *SalesCreditMemoLine) (*SalesCreditMemoLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesCreditMemoLinesCollectionRequest) Add(reqObj *SalesCreditMemoLine) (resObj *SalesCreditMemoLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesCreditMemos returns request builder for SalesCreditMemo collection
@@ -2075,12 +1955,6 @@ func (b *CompanySalesCreditMemosCollectionRequestBuilder) ID(id string) *SalesCr
 
 // CompanySalesCreditMemosCollectionRequest is request for SalesCreditMemo collection
 type CompanySalesCreditMemosCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesCreditMemo collection
-func (r *CompanySalesCreditMemosCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesCreditMemo collection
 func (r *CompanySalesCreditMemosCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemo, error) {
@@ -2132,8 +2006,9 @@ func (r *CompanySalesCreditMemosCollectionRequest) Get() ([]SalesCreditMemo, err
 }
 
 // Add performs POST request for SalesCreditMemo collection
-func (r *CompanySalesCreditMemosCollectionRequest) Add(reqObj *SalesCreditMemo) (*SalesCreditMemo, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesCreditMemosCollectionRequest) Add(reqObj *SalesCreditMemo) (resObj *SalesCreditMemo, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesInvoiceLines returns request builder for SalesInvoiceLine collection
@@ -2162,12 +2037,6 @@ func (b *CompanySalesInvoiceLinesCollectionRequestBuilder) ID(id string) *SalesI
 
 // CompanySalesInvoiceLinesCollectionRequest is request for SalesInvoiceLine collection
 type CompanySalesInvoiceLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesInvoiceLine collection
-func (r *CompanySalesInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesInvoiceLine collection
 func (r *CompanySalesInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
@@ -2219,8 +2088,9 @@ func (r *CompanySalesInvoiceLinesCollectionRequest) Get() ([]SalesInvoiceLine, e
 }
 
 // Add performs POST request for SalesInvoiceLine collection
-func (r *CompanySalesInvoiceLinesCollectionRequest) Add(reqObj *SalesInvoiceLine) (*SalesInvoiceLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesInvoiceLinesCollectionRequest) Add(reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesInvoices returns request builder for SalesInvoice collection
@@ -2249,12 +2119,6 @@ func (b *CompanySalesInvoicesCollectionRequestBuilder) ID(id string) *SalesInvoi
 
 // CompanySalesInvoicesCollectionRequest is request for SalesInvoice collection
 type CompanySalesInvoicesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesInvoice collection
-func (r *CompanySalesInvoicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesInvoice collection
 func (r *CompanySalesInvoicesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoice, error) {
@@ -2306,8 +2170,9 @@ func (r *CompanySalesInvoicesCollectionRequest) Get() ([]SalesInvoice, error) {
 }
 
 // Add performs POST request for SalesInvoice collection
-func (r *CompanySalesInvoicesCollectionRequest) Add(reqObj *SalesInvoice) (*SalesInvoice, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesInvoicesCollectionRequest) Add(reqObj *SalesInvoice) (resObj *SalesInvoice, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesOrderLines returns request builder for SalesOrderLine collection
@@ -2336,12 +2201,6 @@ func (b *CompanySalesOrderLinesCollectionRequestBuilder) ID(id string) *SalesOrd
 
 // CompanySalesOrderLinesCollectionRequest is request for SalesOrderLine collection
 type CompanySalesOrderLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesOrderLine collection
-func (r *CompanySalesOrderLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrderLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesOrderLine collection
 func (r *CompanySalesOrderLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrderLine, error) {
@@ -2393,8 +2252,9 @@ func (r *CompanySalesOrderLinesCollectionRequest) Get() ([]SalesOrderLine, error
 }
 
 // Add performs POST request for SalesOrderLine collection
-func (r *CompanySalesOrderLinesCollectionRequest) Add(reqObj *SalesOrderLine) (*SalesOrderLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesOrderLinesCollectionRequest) Add(reqObj *SalesOrderLine) (resObj *SalesOrderLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesOrders returns request builder for SalesOrder collection
@@ -2423,12 +2283,6 @@ func (b *CompanySalesOrdersCollectionRequestBuilder) ID(id string) *SalesOrderRe
 
 // CompanySalesOrdersCollectionRequest is request for SalesOrder collection
 type CompanySalesOrdersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesOrder collection
-func (r *CompanySalesOrdersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesOrder collection
 func (r *CompanySalesOrdersCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrder, error) {
@@ -2480,8 +2334,9 @@ func (r *CompanySalesOrdersCollectionRequest) Get() ([]SalesOrder, error) {
 }
 
 // Add performs POST request for SalesOrder collection
-func (r *CompanySalesOrdersCollectionRequest) Add(reqObj *SalesOrder) (*SalesOrder, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesOrdersCollectionRequest) Add(reqObj *SalesOrder) (resObj *SalesOrder, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesQuoteLines returns request builder for SalesQuoteLine collection
@@ -2510,12 +2365,6 @@ func (b *CompanySalesQuoteLinesCollectionRequestBuilder) ID(id string) *SalesQuo
 
 // CompanySalesQuoteLinesCollectionRequest is request for SalesQuoteLine collection
 type CompanySalesQuoteLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesQuoteLine collection
-func (r *CompanySalesQuoteLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuoteLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesQuoteLine collection
 func (r *CompanySalesQuoteLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuoteLine, error) {
@@ -2567,8 +2416,9 @@ func (r *CompanySalesQuoteLinesCollectionRequest) Get() ([]SalesQuoteLine, error
 }
 
 // Add performs POST request for SalesQuoteLine collection
-func (r *CompanySalesQuoteLinesCollectionRequest) Add(reqObj *SalesQuoteLine) (*SalesQuoteLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesQuoteLinesCollectionRequest) Add(reqObj *SalesQuoteLine) (resObj *SalesQuoteLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SalesQuotes returns request builder for SalesQuote collection
@@ -2597,12 +2447,6 @@ func (b *CompanySalesQuotesCollectionRequestBuilder) ID(id string) *SalesQuoteRe
 
 // CompanySalesQuotesCollectionRequest is request for SalesQuote collection
 type CompanySalesQuotesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SalesQuote collection
-func (r *CompanySalesQuotesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuote, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SalesQuote collection
 func (r *CompanySalesQuotesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuote, error) {
@@ -2654,8 +2498,9 @@ func (r *CompanySalesQuotesCollectionRequest) Get() ([]SalesQuote, error) {
 }
 
 // Add performs POST request for SalesQuote collection
-func (r *CompanySalesQuotesCollectionRequest) Add(reqObj *SalesQuote) (*SalesQuote, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanySalesQuotesCollectionRequest) Add(reqObj *SalesQuote) (resObj *SalesQuote, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ShipmentMethods returns request builder for ShipmentMethod collection
@@ -2684,12 +2529,6 @@ func (b *CompanyShipmentMethodsCollectionRequestBuilder) ID(id string) *Shipment
 
 // CompanyShipmentMethodsCollectionRequest is request for ShipmentMethod collection
 type CompanyShipmentMethodsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ShipmentMethod collection
-func (r *CompanyShipmentMethodsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ShipmentMethod, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ShipmentMethod collection
 func (r *CompanyShipmentMethodsCollectionRequest) Paging(method, path string, obj interface{}) ([]ShipmentMethod, error) {
@@ -2741,8 +2580,9 @@ func (r *CompanyShipmentMethodsCollectionRequest) Get() ([]ShipmentMethod, error
 }
 
 // Add performs POST request for ShipmentMethod collection
-func (r *CompanyShipmentMethodsCollectionRequest) Add(reqObj *ShipmentMethod) (*ShipmentMethod, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyShipmentMethodsCollectionRequest) Add(reqObj *ShipmentMethod) (resObj *ShipmentMethod, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TaxAreas returns request builder for TaxArea collection
@@ -2771,12 +2611,6 @@ func (b *CompanyTaxAreasCollectionRequestBuilder) ID(id string) *TaxAreaRequestB
 
 // CompanyTaxAreasCollectionRequest is request for TaxArea collection
 type CompanyTaxAreasCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TaxArea collection
-func (r *CompanyTaxAreasCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TaxArea, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TaxArea collection
 func (r *CompanyTaxAreasCollectionRequest) Paging(method, path string, obj interface{}) ([]TaxArea, error) {
@@ -2828,8 +2662,9 @@ func (r *CompanyTaxAreasCollectionRequest) Get() ([]TaxArea, error) {
 }
 
 // Add performs POST request for TaxArea collection
-func (r *CompanyTaxAreasCollectionRequest) Add(reqObj *TaxArea) (*TaxArea, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyTaxAreasCollectionRequest) Add(reqObj *TaxArea) (resObj *TaxArea, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TaxGroups returns request builder for TaxGroup collection
@@ -2858,12 +2693,6 @@ func (b *CompanyTaxGroupsCollectionRequestBuilder) ID(id string) *TaxGroupReques
 
 // CompanyTaxGroupsCollectionRequest is request for TaxGroup collection
 type CompanyTaxGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TaxGroup collection
-func (r *CompanyTaxGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TaxGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TaxGroup collection
 func (r *CompanyTaxGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]TaxGroup, error) {
@@ -2915,8 +2744,9 @@ func (r *CompanyTaxGroupsCollectionRequest) Get() ([]TaxGroup, error) {
 }
 
 // Add performs POST request for TaxGroup collection
-func (r *CompanyTaxGroupsCollectionRequest) Add(reqObj *TaxGroup) (*TaxGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyTaxGroupsCollectionRequest) Add(reqObj *TaxGroup) (resObj *TaxGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UnitsOfMeasure returns request builder for UnitOfMeasure collection
@@ -2945,12 +2775,6 @@ func (b *CompanyUnitsOfMeasureCollectionRequestBuilder) ID(id string) *UnitOfMea
 
 // CompanyUnitsOfMeasureCollectionRequest is request for UnitOfMeasure collection
 type CompanyUnitsOfMeasureCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UnitOfMeasure collection
-func (r *CompanyUnitsOfMeasureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnitOfMeasure, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UnitOfMeasure collection
 func (r *CompanyUnitsOfMeasureCollectionRequest) Paging(method, path string, obj interface{}) ([]UnitOfMeasure, error) {
@@ -3002,8 +2826,9 @@ func (r *CompanyUnitsOfMeasureCollectionRequest) Get() ([]UnitOfMeasure, error) 
 }
 
 // Add performs POST request for UnitOfMeasure collection
-func (r *CompanyUnitsOfMeasureCollectionRequest) Add(reqObj *UnitOfMeasure) (*UnitOfMeasure, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyUnitsOfMeasureCollectionRequest) Add(reqObj *UnitOfMeasure) (resObj *UnitOfMeasure, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Vendors returns request builder for Vendor collection
@@ -3032,12 +2857,6 @@ func (b *CompanyVendorsCollectionRequestBuilder) ID(id string) *VendorRequestBui
 
 // CompanyVendorsCollectionRequest is request for Vendor collection
 type CompanyVendorsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Vendor collection
-func (r *CompanyVendorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Vendor, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Vendor collection
 func (r *CompanyVendorsCollectionRequest) Paging(method, path string, obj interface{}) ([]Vendor, error) {
@@ -3089,6 +2908,7 @@ func (r *CompanyVendorsCollectionRequest) Get() ([]Vendor, error) {
 }
 
 // Add performs POST request for Vendor collection
-func (r *CompanyVendorsCollectionRequest) Add(reqObj *Vendor) (*Vendor, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CompanyVendorsCollectionRequest) Add(reqObj *Vendor) (resObj *Vendor, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

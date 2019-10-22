@@ -15,24 +15,19 @@ func (b *IdentityRiskEventRequestBuilder) Request() *IdentityRiskEventRequest {
 // IdentityRiskEventRequest is request for IdentityRiskEvent
 type IdentityRiskEventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IdentityRiskEvent
-func (r *IdentityRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityRiskEvent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IdentityRiskEvent
-func (r *IdentityRiskEventRequest) Get() (*IdentityRiskEvent, error) {
+func (r *IdentityRiskEventRequest) Get() (resObj *IdentityRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IdentityRiskEvent
-func (r *IdentityRiskEventRequest) Update(reqObj *IdentityRiskEvent) (*IdentityRiskEvent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IdentityRiskEventRequest) Update(reqObj *IdentityRiskEvent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IdentityRiskEvent

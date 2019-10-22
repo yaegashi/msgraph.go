@@ -23,24 +23,19 @@ func (b *PlannerGroupRequestBuilder) Request() *PlannerGroupRequest {
 // PlannerGroupRequest is request for PlannerGroup
 type PlannerGroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PlannerGroup
-func (r *PlannerGroupRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PlannerGroup
-func (r *PlannerGroupRequest) Get() (*PlannerGroup, error) {
+func (r *PlannerGroupRequest) Get() (resObj *PlannerGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PlannerGroup
-func (r *PlannerGroupRequest) Update(reqObj *PlannerGroup) (*PlannerGroup, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PlannerGroupRequest) Update(reqObj *PlannerGroup) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerGroup
@@ -74,12 +69,6 @@ func (b *PlannerGroupPlansCollectionRequestBuilder) ID(id string) *PlannerPlanRe
 
 // PlannerGroupPlansCollectionRequest is request for PlannerPlan collection
 type PlannerGroupPlansCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PlannerPlan collection
-func (r *PlannerGroupPlansCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerPlan, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PlannerPlan collection
 func (r *PlannerGroupPlansCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerPlan, error) {
@@ -131,6 +120,7 @@ func (r *PlannerGroupPlansCollectionRequest) Get() ([]PlannerPlan, error) {
 }
 
 // Add performs POST request for PlannerPlan collection
-func (r *PlannerGroupPlansCollectionRequest) Add(reqObj *PlannerPlan) (*PlannerPlan, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PlannerGroupPlansCollectionRequest) Add(reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

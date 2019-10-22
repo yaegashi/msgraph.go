@@ -15,24 +15,19 @@ func (b *EducationSynchronizationErrorRequestBuilder) Request() *EducationSynchr
 // EducationSynchronizationErrorRequest is request for EducationSynchronizationError
 type EducationSynchronizationErrorRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationSynchronizationError
-func (r *EducationSynchronizationErrorRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationError, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationSynchronizationError
-func (r *EducationSynchronizationErrorRequest) Get() (*EducationSynchronizationError, error) {
+func (r *EducationSynchronizationErrorRequest) Get() (resObj *EducationSynchronizationError, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationSynchronizationError
-func (r *EducationSynchronizationErrorRequest) Update(reqObj *EducationSynchronizationError) (*EducationSynchronizationError, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationSynchronizationErrorRequest) Update(reqObj *EducationSynchronizationError) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSynchronizationError

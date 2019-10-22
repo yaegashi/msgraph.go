@@ -15,24 +15,19 @@ func (b *ImpossibleTravelRiskEventRequestBuilder) Request() *ImpossibleTravelRis
 // ImpossibleTravelRiskEventRequest is request for ImpossibleTravelRiskEvent
 type ImpossibleTravelRiskEventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ImpossibleTravelRiskEvent
-func (r *ImpossibleTravelRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *ImpossibleTravelRiskEvent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ImpossibleTravelRiskEvent
-func (r *ImpossibleTravelRiskEventRequest) Get() (*ImpossibleTravelRiskEvent, error) {
+func (r *ImpossibleTravelRiskEventRequest) Get() (resObj *ImpossibleTravelRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ImpossibleTravelRiskEvent
-func (r *ImpossibleTravelRiskEventRequest) Update(reqObj *ImpossibleTravelRiskEvent) (*ImpossibleTravelRiskEvent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ImpossibleTravelRiskEventRequest) Update(reqObj *ImpossibleTravelRiskEvent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImpossibleTravelRiskEvent

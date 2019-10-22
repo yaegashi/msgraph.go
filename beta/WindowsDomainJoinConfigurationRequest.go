@@ -23,24 +23,19 @@ func (b *WindowsDomainJoinConfigurationRequestBuilder) Request() *WindowsDomainJ
 // WindowsDomainJoinConfigurationRequest is request for WindowsDomainJoinConfiguration
 type WindowsDomainJoinConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsDomainJoinConfiguration
-func (r *WindowsDomainJoinConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsDomainJoinConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsDomainJoinConfiguration
-func (r *WindowsDomainJoinConfigurationRequest) Get() (*WindowsDomainJoinConfiguration, error) {
+func (r *WindowsDomainJoinConfigurationRequest) Get() (resObj *WindowsDomainJoinConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsDomainJoinConfiguration
-func (r *WindowsDomainJoinConfigurationRequest) Update(reqObj *WindowsDomainJoinConfiguration) (*WindowsDomainJoinConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsDomainJoinConfigurationRequest) Update(reqObj *WindowsDomainJoinConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsDomainJoinConfiguration
@@ -74,12 +69,6 @@ func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 
 // WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest is request for DeviceConfiguration collection
 type WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceConfiguration collection
 func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfiguration, error) {
@@ -131,6 +120,7 @@ func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 }
 
 // Add performs POST request for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Add(reqObj *DeviceConfiguration) (*DeviceConfiguration, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Add(reqObj *DeviceConfiguration) (resObj *DeviceConfiguration, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

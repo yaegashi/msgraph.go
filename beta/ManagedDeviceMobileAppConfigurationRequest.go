@@ -23,24 +23,19 @@ func (b *ManagedDeviceMobileAppConfigurationRequestBuilder) Request() *ManagedDe
 // ManagedDeviceMobileAppConfigurationRequest is request for ManagedDeviceMobileAppConfiguration
 type ManagedDeviceMobileAppConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedDeviceMobileAppConfiguration
-func (r *ManagedDeviceMobileAppConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedDeviceMobileAppConfiguration
-func (r *ManagedDeviceMobileAppConfigurationRequest) Get() (*ManagedDeviceMobileAppConfiguration, error) {
+func (r *ManagedDeviceMobileAppConfigurationRequest) Get() (resObj *ManagedDeviceMobileAppConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedDeviceMobileAppConfiguration
-func (r *ManagedDeviceMobileAppConfigurationRequest) Update(reqObj *ManagedDeviceMobileAppConfiguration) (*ManagedDeviceMobileAppConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedDeviceMobileAppConfigurationRequest) Update(reqObj *ManagedDeviceMobileAppConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceMobileAppConfiguration
@@ -74,12 +69,6 @@ func (b *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequestBuilder)
 
 // ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest is request for ManagedDeviceMobileAppConfigurationAssignment collection
 type ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceMobileAppConfigurationAssignment collection
-func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationAssignment collection
 func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationAssignment, error) {
@@ -131,8 +120,9 @@ func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Get() 
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationAssignment collection
-func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationAssignment) (*ManagedDeviceMobileAppConfigurationAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedDeviceMobileAppConfigurationAssignmentsCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationAssignment) (resObj *ManagedDeviceMobileAppConfigurationAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStatusSummary is navigation property
@@ -168,12 +158,6 @@ func (b *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequestBuild
 
 // ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest is request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 type ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
@@ -225,8 +209,9 @@ func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Get
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UserStatusSummary is navigation property
@@ -262,12 +247,6 @@ func (b *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequestBuilder
 
 // ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest is request for ManagedDeviceMobileAppConfigurationUserStatus collection
 type ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationUserStatus collection
 func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
@@ -319,6 +298,7 @@ func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Get()
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationUserStatus) (*ManagedDeviceMobileAppConfigurationUserStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedDeviceMobileAppConfigurationUserStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationUserStatus) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

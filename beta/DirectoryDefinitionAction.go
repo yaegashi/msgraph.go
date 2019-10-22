@@ -28,12 +28,7 @@ func (b *DirectoryDefinitionDiscoverRequestBuilder) Request() *DirectoryDefiniti
 }
 
 //
-func (r *DirectoryDefinitionDiscoverRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DirectoryDefinitionDiscoverRequest) Post() (resObj *DirectoryDefinition, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DirectoryDefinitionDiscoverRequest) Post() (*DirectoryDefinition, error) {
-	return r.Do("POST", "", r.requestObject)
 }

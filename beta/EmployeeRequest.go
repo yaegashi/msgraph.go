@@ -23,24 +23,19 @@ func (b *EmployeeRequestBuilder) Request() *EmployeeRequest {
 // EmployeeRequest is request for Employee
 type EmployeeRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Employee
-func (r *EmployeeRequest) Do(method, path string, reqObj interface{}) (resObj *Employee, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Employee
-func (r *EmployeeRequest) Get() (*Employee, error) {
+func (r *EmployeeRequest) Get() (resObj *Employee, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Employee
-func (r *EmployeeRequest) Update(reqObj *Employee) (*Employee, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EmployeeRequest) Update(reqObj *Employee) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Employee
@@ -74,12 +69,6 @@ func (b *EmployeePictureCollectionRequestBuilder) ID(id string) *PictureRequestB
 
 // EmployeePictureCollectionRequest is request for Picture collection
 type EmployeePictureCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Picture collection
-func (r *EmployeePictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Picture collection
 func (r *EmployeePictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
@@ -131,6 +120,7 @@ func (r *EmployeePictureCollectionRequest) Get() ([]Picture, error) {
 }
 
 // Add performs POST request for Picture collection
-func (r *EmployeePictureCollectionRequest) Add(reqObj *Picture) (*Picture, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EmployeePictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

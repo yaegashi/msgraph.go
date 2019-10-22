@@ -15,24 +15,19 @@ func (b *DataPolicyOperationRequestBuilder) Request() *DataPolicyOperationReques
 // DataPolicyOperationRequest is request for DataPolicyOperation
 type DataPolicyOperationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DataPolicyOperation
-func (r *DataPolicyOperationRequest) Do(method, path string, reqObj interface{}) (resObj *DataPolicyOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DataPolicyOperation
-func (r *DataPolicyOperationRequest) Get() (*DataPolicyOperation, error) {
+func (r *DataPolicyOperationRequest) Get() (resObj *DataPolicyOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DataPolicyOperation
-func (r *DataPolicyOperationRequest) Update(reqObj *DataPolicyOperation) (*DataPolicyOperation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DataPolicyOperationRequest) Update(reqObj *DataPolicyOperation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DataPolicyOperation

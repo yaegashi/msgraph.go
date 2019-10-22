@@ -23,24 +23,19 @@ func (b *ExactMatchLookupJobRequestBuilder) Request() *ExactMatchLookupJobReques
 // ExactMatchLookupJobRequest is request for ExactMatchLookupJob
 type ExactMatchLookupJobRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ExactMatchLookupJob
-func (r *ExactMatchLookupJobRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchLookupJob, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ExactMatchLookupJob
-func (r *ExactMatchLookupJobRequest) Get() (*ExactMatchLookupJob, error) {
+func (r *ExactMatchLookupJobRequest) Get() (resObj *ExactMatchLookupJob, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ExactMatchLookupJob
-func (r *ExactMatchLookupJobRequest) Update(reqObj *ExactMatchLookupJob) (*ExactMatchLookupJob, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ExactMatchLookupJobRequest) Update(reqObj *ExactMatchLookupJob) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ExactMatchLookupJob
@@ -74,12 +69,6 @@ func (b *ExactMatchLookupJobMatchingRowsCollectionRequestBuilder) ID(id string) 
 
 // ExactMatchLookupJobMatchingRowsCollectionRequest is request for LookupResultRow collection
 type ExactMatchLookupJobMatchingRowsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *LookupResultRow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for LookupResultRow collection
 func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(method, path string, obj interface{}) ([]LookupResultRow, error) {
@@ -131,6 +120,7 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Get() ([]LookupResult
 }
 
 // Add performs POST request for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Add(reqObj *LookupResultRow) (*LookupResultRow, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Add(reqObj *LookupResultRow) (resObj *LookupResultRow, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

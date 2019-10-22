@@ -15,24 +15,19 @@ func (b *WorkbookApplicationRequestBuilder) Request() *WorkbookApplicationReques
 // WorkbookApplicationRequest is request for WorkbookApplication
 type WorkbookApplicationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookApplication
-func (r *WorkbookApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookApplication, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookApplication
-func (r *WorkbookApplicationRequest) Get() (*WorkbookApplication, error) {
+func (r *WorkbookApplicationRequest) Get() (resObj *WorkbookApplication, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookApplication
-func (r *WorkbookApplicationRequest) Update(reqObj *WorkbookApplication) (*WorkbookApplication, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookApplicationRequest) Update(reqObj *WorkbookApplication) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookApplication

@@ -23,24 +23,19 @@ func (b *SalesCreditMemoRequestBuilder) Request() *SalesCreditMemoRequest {
 // SalesCreditMemoRequest is request for SalesCreditMemo
 type SalesCreditMemoRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesCreditMemo
-func (r *SalesCreditMemoRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesCreditMemo
-func (r *SalesCreditMemoRequest) Get() (*SalesCreditMemo, error) {
+func (r *SalesCreditMemoRequest) Get() (resObj *SalesCreditMemo, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesCreditMemo
-func (r *SalesCreditMemoRequest) Update(reqObj *SalesCreditMemo) (*SalesCreditMemo, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesCreditMemoRequest) Update(reqObj *SalesCreditMemo) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesCreditMemo
@@ -96,12 +91,6 @@ func (b *SalesCreditMemoSalesCreditMemoLinesCollectionRequestBuilder) ID(id stri
 // SalesCreditMemoSalesCreditMemoLinesCollectionRequest is request for SalesCreditMemoLine collection
 type SalesCreditMemoSalesCreditMemoLinesCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for SalesCreditMemoLine collection
 func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,6 +141,7 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Get() ([]SalesCre
 }
 
 // Add performs POST request for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Add(reqObj *SalesCreditMemoLine) (*SalesCreditMemoLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Add(reqObj *SalesCreditMemoLine) (resObj *SalesCreditMemoLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

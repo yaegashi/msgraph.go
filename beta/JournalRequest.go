@@ -23,24 +23,19 @@ func (b *JournalRequestBuilder) Request() *JournalRequest {
 // JournalRequest is request for Journal
 type JournalRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Journal
-func (r *JournalRequest) Do(method, path string, reqObj interface{}) (resObj *Journal, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Journal
-func (r *JournalRequest) Get() (*Journal, error) {
+func (r *JournalRequest) Get() (resObj *Journal, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Journal
-func (r *JournalRequest) Update(reqObj *Journal) (*Journal, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *JournalRequest) Update(reqObj *Journal) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Journal
@@ -81,12 +76,6 @@ func (b *JournalJournalLinesCollectionRequestBuilder) ID(id string) *JournalLine
 
 // JournalJournalLinesCollectionRequest is request for JournalLine collection
 type JournalJournalLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for JournalLine collection
-func (r *JournalJournalLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JournalLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for JournalLine collection
 func (r *JournalJournalLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]JournalLine, error) {
@@ -138,6 +127,7 @@ func (r *JournalJournalLinesCollectionRequest) Get() ([]JournalLine, error) {
 }
 
 // Add performs POST request for JournalLine collection
-func (r *JournalJournalLinesCollectionRequest) Add(reqObj *JournalLine) (*JournalLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *JournalJournalLinesCollectionRequest) Add(reqObj *JournalLine) (resObj *JournalLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *PolicySetItemRequestBuilder) Request() *PolicySetItemRequest {
 // PolicySetItemRequest is request for PolicySetItem
 type PolicySetItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PolicySetItem
-func (r *PolicySetItemRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySetItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PolicySetItem
-func (r *PolicySetItemRequest) Get() (*PolicySetItem, error) {
+func (r *PolicySetItemRequest) Get() (resObj *PolicySetItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PolicySetItem
-func (r *PolicySetItemRequest) Update(reqObj *PolicySetItem) (*PolicySetItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PolicySetItemRequest) Update(reqObj *PolicySetItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PolicySetItem

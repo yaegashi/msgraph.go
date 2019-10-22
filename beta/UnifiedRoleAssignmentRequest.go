@@ -15,24 +15,19 @@ func (b *UnifiedRoleAssignmentRequestBuilder) Request() *UnifiedRoleAssignmentRe
 // UnifiedRoleAssignmentRequest is request for UnifiedRoleAssignment
 type UnifiedRoleAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UnifiedRoleAssignment
-func (r *UnifiedRoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *UnifiedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UnifiedRoleAssignment
-func (r *UnifiedRoleAssignmentRequest) Get() (*UnifiedRoleAssignment, error) {
+func (r *UnifiedRoleAssignmentRequest) Get() (resObj *UnifiedRoleAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UnifiedRoleAssignment
-func (r *UnifiedRoleAssignmentRequest) Update(reqObj *UnifiedRoleAssignment) (*UnifiedRoleAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UnifiedRoleAssignmentRequest) Update(reqObj *UnifiedRoleAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UnifiedRoleAssignment

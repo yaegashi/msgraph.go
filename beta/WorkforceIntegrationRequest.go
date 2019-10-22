@@ -15,24 +15,19 @@ func (b *WorkforceIntegrationRequestBuilder) Request() *WorkforceIntegrationRequ
 // WorkforceIntegrationRequest is request for WorkforceIntegration
 type WorkforceIntegrationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkforceIntegration
-func (r *WorkforceIntegrationRequest) Do(method, path string, reqObj interface{}) (resObj *WorkforceIntegration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkforceIntegration
-func (r *WorkforceIntegrationRequest) Get() (*WorkforceIntegration, error) {
+func (r *WorkforceIntegrationRequest) Get() (resObj *WorkforceIntegration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkforceIntegration
-func (r *WorkforceIntegrationRequest) Update(reqObj *WorkforceIntegration) (*WorkforceIntegration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkforceIntegrationRequest) Update(reqObj *WorkforceIntegration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkforceIntegration

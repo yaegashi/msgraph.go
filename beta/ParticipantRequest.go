@@ -15,24 +15,19 @@ func (b *ParticipantRequestBuilder) Request() *ParticipantRequest {
 // ParticipantRequest is request for Participant
 type ParticipantRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Participant
-func (r *ParticipantRequest) Do(method, path string, reqObj interface{}) (resObj *Participant, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Participant
-func (r *ParticipantRequest) Get() (*Participant, error) {
+func (r *ParticipantRequest) Get() (resObj *Participant, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Participant
-func (r *ParticipantRequest) Update(reqObj *Participant) (*Participant, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ParticipantRequest) Update(reqObj *Participant) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Participant

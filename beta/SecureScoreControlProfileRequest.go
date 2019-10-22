@@ -15,24 +15,19 @@ func (b *SecureScoreControlProfileRequestBuilder) Request() *SecureScoreControlP
 // SecureScoreControlProfileRequest is request for SecureScoreControlProfile
 type SecureScoreControlProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecureScoreControlProfile
-func (r *SecureScoreControlProfileRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScoreControlProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecureScoreControlProfile
-func (r *SecureScoreControlProfileRequest) Get() (*SecureScoreControlProfile, error) {
+func (r *SecureScoreControlProfileRequest) Get() (resObj *SecureScoreControlProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecureScoreControlProfile
-func (r *SecureScoreControlProfileRequest) Update(reqObj *SecureScoreControlProfile) (*SecureScoreControlProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecureScoreControlProfileRequest) Update(reqObj *SecureScoreControlProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecureScoreControlProfile

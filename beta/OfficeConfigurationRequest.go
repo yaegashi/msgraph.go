@@ -23,24 +23,19 @@ func (b *OfficeConfigurationRequestBuilder) Request() *OfficeConfigurationReques
 // OfficeConfigurationRequest is request for OfficeConfiguration
 type OfficeConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OfficeConfiguration
-func (r *OfficeConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OfficeConfiguration
-func (r *OfficeConfigurationRequest) Get() (*OfficeConfiguration, error) {
+func (r *OfficeConfigurationRequest) Get() (resObj *OfficeConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OfficeConfiguration
-func (r *OfficeConfigurationRequest) Update(reqObj *OfficeConfiguration) (*OfficeConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OfficeConfigurationRequest) Update(reqObj *OfficeConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OfficeConfiguration
@@ -74,12 +69,6 @@ func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) ID(id 
 
 // OfficeConfigurationClientConfigurationsCollectionRequest is request for OfficeClientConfiguration collection
 type OfficeConfigurationClientConfigurationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeClientConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OfficeClientConfiguration collection
 func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]OfficeClientConfiguration, error) {
@@ -131,6 +120,7 @@ func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Get() ([]Offi
 }
 
 // Add performs POST request for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Add(reqObj *OfficeClientConfiguration) (*OfficeClientConfiguration, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Add(reqObj *OfficeClientConfiguration) (resObj *OfficeClientConfiguration, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -23,24 +23,19 @@ func (b *CustomerRequestBuilder) Request() *CustomerRequest {
 // CustomerRequest is request for Customer
 type CustomerRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Customer
-func (r *CustomerRequest) Do(method, path string, reqObj interface{}) (resObj *Customer, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Customer
-func (r *CustomerRequest) Get() (*Customer, error) {
+func (r *CustomerRequest) Get() (resObj *Customer, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Customer
-func (r *CustomerRequest) Update(reqObj *Customer) (*Customer, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CustomerRequest) Update(reqObj *Customer) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Customer
@@ -96,12 +91,6 @@ func (b *CustomerPictureCollectionRequestBuilder) ID(id string) *PictureRequestB
 // CustomerPictureCollectionRequest is request for Picture collection
 type CustomerPictureCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Picture collection
-func (r *CustomerPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for Picture collection
 func (r *CustomerPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,8 +141,9 @@ func (r *CustomerPictureCollectionRequest) Get() ([]Picture, error) {
 }
 
 // Add performs POST request for Picture collection
-func (r *CustomerPictureCollectionRequest) Add(reqObj *Picture) (*Picture, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CustomerPictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ShipmentMethod is navigation property

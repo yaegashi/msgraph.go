@@ -23,24 +23,19 @@ func (b *AccessPackageRequestBuilder) Request() *AccessPackageRequest {
 // AccessPackageRequest is request for AccessPackage
 type AccessPackageRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackage
-func (r *AccessPackageRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackage
-func (r *AccessPackageRequest) Get() (*AccessPackage, error) {
+func (r *AccessPackageRequest) Get() (resObj *AccessPackage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackage
-func (r *AccessPackageRequest) Update(reqObj *AccessPackage) (*AccessPackage, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageRequest) Update(reqObj *AccessPackage) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackage
@@ -74,12 +69,6 @@ func (b *AccessPackageAccessPackageAssignmentPoliciesCollectionRequestBuilder) I
 
 // AccessPackageAccessPackageAssignmentPoliciesCollectionRequest is request for AccessPackageAssignmentPolicy collection
 type AccessPackageAccessPackageAssignmentPoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageAssignmentPolicy collection
-func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageAssignmentPolicy collection
 func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentPolicy, error) {
@@ -131,8 +120,9 @@ func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Get() ([
 }
 
 // Add performs POST request for AccessPackageAssignmentPolicy collection
-func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Add(reqObj *AccessPackageAssignmentPolicy) (*AccessPackageAssignmentPolicy, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Add(reqObj *AccessPackageAssignmentPolicy) (resObj *AccessPackageAssignmentPolicy, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AccessPackageCatalog is navigation property
@@ -168,12 +158,6 @@ func (b *AccessPackageAccessPackageResourceRoleScopesCollectionRequestBuilder) I
 
 // AccessPackageAccessPackageResourceRoleScopesCollectionRequest is request for AccessPackageResourceRoleScope collection
 type AccessPackageAccessPackageResourceRoleScopesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageResourceRoleScope collection
-func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRoleScope, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageResourceRoleScope collection
 func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceRoleScope, error) {
@@ -225,6 +209,7 @@ func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Get() ([
 }
 
 // Add performs POST request for AccessPackageResourceRoleScope collection
-func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Add(reqObj *AccessPackageResourceRoleScope) (*AccessPackageResourceRoleScope, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Add(reqObj *AccessPackageResourceRoleScope) (resObj *AccessPackageResourceRoleScope, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *IdentityProviderRequestBuilder) Request() *IdentityProviderRequest {
 // IdentityProviderRequest is request for IdentityProvider
 type IdentityProviderRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IdentityProvider
-func (r *IdentityProviderRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityProvider, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IdentityProvider
-func (r *IdentityProviderRequest) Get() (*IdentityProvider, error) {
+func (r *IdentityProviderRequest) Get() (resObj *IdentityProvider, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IdentityProvider
-func (r *IdentityProviderRequest) Update(reqObj *IdentityProvider) (*IdentityProvider, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IdentityProviderRequest) Update(reqObj *IdentityProvider) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IdentityProvider

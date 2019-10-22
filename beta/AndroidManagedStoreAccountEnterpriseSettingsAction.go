@@ -56,14 +56,9 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestBuil
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Do(method, path string, reqObj interface{}) (resObj *string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Post() (resObj *string, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Post() (*string, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -88,13 +83,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestBuilde
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -119,13 +109,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestBuilder) Req
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -150,13 +135,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestBuilder) Reque
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -181,14 +161,9 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenReq
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) Do(method, path string, reqObj interface{}) (resObj *string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) Post() (resObj *string, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) Post() (*string, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -213,11 +188,6 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyM
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

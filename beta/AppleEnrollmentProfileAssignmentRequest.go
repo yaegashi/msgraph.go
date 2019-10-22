@@ -15,24 +15,19 @@ func (b *AppleEnrollmentProfileAssignmentRequestBuilder) Request() *AppleEnrollm
 // AppleEnrollmentProfileAssignmentRequest is request for AppleEnrollmentProfileAssignment
 type AppleEnrollmentProfileAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AppleEnrollmentProfileAssignment
-func (r *AppleEnrollmentProfileAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *AppleEnrollmentProfileAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AppleEnrollmentProfileAssignment
-func (r *AppleEnrollmentProfileAssignmentRequest) Get() (*AppleEnrollmentProfileAssignment, error) {
+func (r *AppleEnrollmentProfileAssignmentRequest) Get() (resObj *AppleEnrollmentProfileAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AppleEnrollmentProfileAssignment
-func (r *AppleEnrollmentProfileAssignmentRequest) Update(reqObj *AppleEnrollmentProfileAssignment) (*AppleEnrollmentProfileAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AppleEnrollmentProfileAssignmentRequest) Update(reqObj *AppleEnrollmentProfileAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppleEnrollmentProfileAssignment

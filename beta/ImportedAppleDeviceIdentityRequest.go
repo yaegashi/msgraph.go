@@ -15,24 +15,19 @@ func (b *ImportedAppleDeviceIdentityRequestBuilder) Request() *ImportedAppleDevi
 // ImportedAppleDeviceIdentityRequest is request for ImportedAppleDeviceIdentity
 type ImportedAppleDeviceIdentityRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ImportedAppleDeviceIdentity
-func (r *ImportedAppleDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedAppleDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ImportedAppleDeviceIdentity
-func (r *ImportedAppleDeviceIdentityRequest) Get() (*ImportedAppleDeviceIdentity, error) {
+func (r *ImportedAppleDeviceIdentityRequest) Get() (resObj *ImportedAppleDeviceIdentity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ImportedAppleDeviceIdentity
-func (r *ImportedAppleDeviceIdentityRequest) Update(reqObj *ImportedAppleDeviceIdentity) (*ImportedAppleDeviceIdentity, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ImportedAppleDeviceIdentityRequest) Update(reqObj *ImportedAppleDeviceIdentity) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImportedAppleDeviceIdentity

@@ -23,24 +23,19 @@ func (b *TargetedManagedAppConfigurationRequestBuilder) Request() *TargetedManag
 // TargetedManagedAppConfigurationRequest is request for TargetedManagedAppConfiguration
 type TargetedManagedAppConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TargetedManagedAppConfiguration
-func (r *TargetedManagedAppConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TargetedManagedAppConfiguration
-func (r *TargetedManagedAppConfigurationRequest) Get() (*TargetedManagedAppConfiguration, error) {
+func (r *TargetedManagedAppConfigurationRequest) Get() (resObj *TargetedManagedAppConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TargetedManagedAppConfiguration
-func (r *TargetedManagedAppConfigurationRequest) Update(reqObj *TargetedManagedAppConfiguration) (*TargetedManagedAppConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TargetedManagedAppConfigurationRequest) Update(reqObj *TargetedManagedAppConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TargetedManagedAppConfiguration
@@ -74,12 +69,6 @@ func (b *TargetedManagedAppConfigurationAppsCollectionRequestBuilder) ID(id stri
 
 // TargetedManagedAppConfigurationAppsCollectionRequest is request for ManagedMobileApp collection
 type TargetedManagedAppConfigurationAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedMobileApp collection
 func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
@@ -131,8 +120,9 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Get() ([]ManagedM
 }
 
 // Add performs POST request for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (*ManagedMobileApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection
@@ -161,12 +151,6 @@ func (b *TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder) ID(
 
 // TargetedManagedAppConfigurationAssignmentsCollectionRequest is request for TargetedManagedAppPolicyAssignment collection
 type TargetedManagedAppConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
 func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
@@ -218,8 +202,9 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Get() ([]T
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (*TargetedManagedAppPolicyAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeploymentSummary is navigation property

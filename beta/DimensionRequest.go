@@ -23,24 +23,19 @@ func (b *DimensionRequestBuilder) Request() *DimensionRequest {
 // DimensionRequest is request for Dimension
 type DimensionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Dimension
-func (r *DimensionRequest) Do(method, path string, reqObj interface{}) (resObj *Dimension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Dimension
-func (r *DimensionRequest) Get() (*Dimension, error) {
+func (r *DimensionRequest) Get() (resObj *Dimension, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Dimension
-func (r *DimensionRequest) Update(reqObj *Dimension) (*Dimension, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DimensionRequest) Update(reqObj *Dimension) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Dimension
@@ -74,12 +69,6 @@ func (b *DimensionDimensionValuesCollectionRequestBuilder) ID(id string) *Dimens
 
 // DimensionDimensionValuesCollectionRequest is request for DimensionValue collection
 type DimensionDimensionValuesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DimensionValue, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DimensionValue collection
 func (r *DimensionDimensionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]DimensionValue, error) {
@@ -131,6 +120,7 @@ func (r *DimensionDimensionValuesCollectionRequest) Get() ([]DimensionValue, err
 }
 
 // Add performs POST request for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Add(reqObj *DimensionValue) (*DimensionValue, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DimensionDimensionValuesCollectionRequest) Add(reqObj *DimensionValue) (resObj *DimensionValue, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

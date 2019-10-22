@@ -15,24 +15,19 @@ func (b *AadUserConversationMemberRequestBuilder) Request() *AadUserConversation
 // AadUserConversationMemberRequest is request for AadUserConversationMember
 type AadUserConversationMemberRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AadUserConversationMember
-func (r *AadUserConversationMemberRequest) Do(method, path string, reqObj interface{}) (resObj *AadUserConversationMember, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AadUserConversationMember
-func (r *AadUserConversationMemberRequest) Get() (*AadUserConversationMember, error) {
+func (r *AadUserConversationMemberRequest) Get() (resObj *AadUserConversationMember, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AadUserConversationMember
-func (r *AadUserConversationMemberRequest) Update(reqObj *AadUserConversationMember) (*AadUserConversationMember, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AadUserConversationMemberRequest) Update(reqObj *AadUserConversationMember) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AadUserConversationMember

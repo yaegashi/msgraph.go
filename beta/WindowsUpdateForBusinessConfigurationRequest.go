@@ -23,24 +23,19 @@ func (b *WindowsUpdateForBusinessConfigurationRequestBuilder) Request() *Windows
 // WindowsUpdateForBusinessConfigurationRequest is request for WindowsUpdateForBusinessConfiguration
 type WindowsUpdateForBusinessConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsUpdateForBusinessConfiguration
-func (r *WindowsUpdateForBusinessConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateForBusinessConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsUpdateForBusinessConfiguration
-func (r *WindowsUpdateForBusinessConfigurationRequest) Get() (*WindowsUpdateForBusinessConfiguration, error) {
+func (r *WindowsUpdateForBusinessConfigurationRequest) Get() (resObj *WindowsUpdateForBusinessConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsUpdateForBusinessConfiguration
-func (r *WindowsUpdateForBusinessConfigurationRequest) Update(reqObj *WindowsUpdateForBusinessConfiguration) (*WindowsUpdateForBusinessConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsUpdateForBusinessConfigurationRequest) Update(reqObj *WindowsUpdateForBusinessConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsUpdateForBusinessConfiguration
@@ -74,12 +69,6 @@ func (b *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 
 // WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest is request for WindowsUpdateState collection
 type WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsUpdateState collection
 func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsUpdateState, error) {
@@ -131,6 +120,7 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 }
 
 // Add performs POST request for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Add(reqObj *WindowsUpdateState) (*WindowsUpdateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Add(reqObj *WindowsUpdateState) (resObj *WindowsUpdateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

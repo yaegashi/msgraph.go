@@ -50,13 +50,8 @@ func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
 }
 
 //
-func (r *TeamCloneRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *TeamCloneRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -81,13 +76,8 @@ func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
 }
 
 //
-func (r *TeamArchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *TeamArchiveRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -112,11 +102,6 @@ func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
 }
 
 //
-func (r *TeamUnarchiveRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *TeamUnarchiveRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

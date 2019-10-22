@@ -38,12 +38,6 @@ func (b *IOSManagedAppProtectionCollectionHasPayloadLinksRequestBuilder) Request
 }
 
 //
-func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

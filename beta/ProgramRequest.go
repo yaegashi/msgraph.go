@@ -23,24 +23,19 @@ func (b *ProgramRequestBuilder) Request() *ProgramRequest {
 // ProgramRequest is request for Program
 type ProgramRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Program
-func (r *ProgramRequest) Do(method, path string, reqObj interface{}) (resObj *Program, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Program
-func (r *ProgramRequest) Get() (*Program, error) {
+func (r *ProgramRequest) Get() (resObj *Program, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Program
-func (r *ProgramRequest) Update(reqObj *Program) (*Program, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ProgramRequest) Update(reqObj *Program) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Program
@@ -74,12 +69,6 @@ func (b *ProgramControlsCollectionRequestBuilder) ID(id string) *ProgramControlR
 
 // ProgramControlsCollectionRequest is request for ProgramControl collection
 type ProgramControlsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ProgramControl collection
-func (r *ProgramControlsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ProgramControl, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ProgramControl collection
 func (r *ProgramControlsCollectionRequest) Paging(method, path string, obj interface{}) ([]ProgramControl, error) {
@@ -131,6 +120,7 @@ func (r *ProgramControlsCollectionRequest) Get() ([]ProgramControl, error) {
 }
 
 // Add performs POST request for ProgramControl collection
-func (r *ProgramControlsCollectionRequest) Add(reqObj *ProgramControl) (*ProgramControl, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ProgramControlsCollectionRequest) Add(reqObj *ProgramControl) (resObj *ProgramControl, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

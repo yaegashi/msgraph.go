@@ -15,24 +15,19 @@ func (b *WorkbookCommentReplyRequestBuilder) Request() *WorkbookCommentReplyRequ
 // WorkbookCommentReplyRequest is request for WorkbookCommentReply
 type WorkbookCommentReplyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookCommentReply
-func (r *WorkbookCommentReplyRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookCommentReply, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookCommentReply
-func (r *WorkbookCommentReplyRequest) Get() (*WorkbookCommentReply, error) {
+func (r *WorkbookCommentReplyRequest) Get() (resObj *WorkbookCommentReply, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookCommentReply
-func (r *WorkbookCommentReplyRequest) Update(reqObj *WorkbookCommentReply) (*WorkbookCommentReply, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookCommentReplyRequest) Update(reqObj *WorkbookCommentReply) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookCommentReply

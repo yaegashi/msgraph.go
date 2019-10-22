@@ -23,24 +23,19 @@ func (b *InformationProtectionRequestBuilder) Request() *InformationProtectionRe
 // InformationProtectionRequest is request for InformationProtection
 type InformationProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for InformationProtection
-func (r *InformationProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for InformationProtection
-func (r *InformationProtectionRequest) Get() (*InformationProtection, error) {
+func (r *InformationProtectionRequest) Get() (resObj *InformationProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for InformationProtection
-func (r *InformationProtectionRequest) Update(reqObj *InformationProtection) (*InformationProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *InformationProtectionRequest) Update(reqObj *InformationProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InformationProtection
@@ -81,12 +76,6 @@ func (b *InformationProtectionSensitivityLabelsCollectionRequestBuilder) ID(id s
 
 // InformationProtectionSensitivityLabelsCollectionRequest is request for SensitivityLabel collection
 type InformationProtectionSensitivityLabelsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SensitivityLabel collection
 func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
@@ -138,8 +127,9 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Get() ([]Sensi
 }
 
 // Add performs POST request for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Add(reqObj *SensitivityLabel) (*SensitivityLabel, error) {
-	return r.Do("POST", "", reqObj)
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) Add(reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SensitivityPolicySettings is navigation property

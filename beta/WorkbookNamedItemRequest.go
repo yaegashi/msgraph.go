@@ -15,24 +15,19 @@ func (b *WorkbookNamedItemRequestBuilder) Request() *WorkbookNamedItemRequest {
 // WorkbookNamedItemRequest is request for WorkbookNamedItem
 type WorkbookNamedItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookNamedItem
-func (r *WorkbookNamedItemRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookNamedItem
-func (r *WorkbookNamedItemRequest) Get() (*WorkbookNamedItem, error) {
+func (r *WorkbookNamedItemRequest) Get() (resObj *WorkbookNamedItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookNamedItem
-func (r *WorkbookNamedItemRequest) Update(reqObj *WorkbookNamedItem) (*WorkbookNamedItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookNamedItemRequest) Update(reqObj *WorkbookNamedItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookNamedItem

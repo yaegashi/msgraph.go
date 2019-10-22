@@ -28,11 +28,6 @@ func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLin
 }
 
 //
-func (r *WorkbookChartLineFormatClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookChartLineFormatClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

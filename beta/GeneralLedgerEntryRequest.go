@@ -15,24 +15,19 @@ func (b *GeneralLedgerEntryRequestBuilder) Request() *GeneralLedgerEntryRequest 
 // GeneralLedgerEntryRequest is request for GeneralLedgerEntry
 type GeneralLedgerEntryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GeneralLedgerEntry
-func (r *GeneralLedgerEntryRequest) Do(method, path string, reqObj interface{}) (resObj *GeneralLedgerEntry, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GeneralLedgerEntry
-func (r *GeneralLedgerEntryRequest) Get() (*GeneralLedgerEntry, error) {
+func (r *GeneralLedgerEntryRequest) Get() (resObj *GeneralLedgerEntry, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GeneralLedgerEntry
-func (r *GeneralLedgerEntryRequest) Update(reqObj *GeneralLedgerEntry) (*GeneralLedgerEntry, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GeneralLedgerEntryRequest) Update(reqObj *GeneralLedgerEntry) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GeneralLedgerEntry

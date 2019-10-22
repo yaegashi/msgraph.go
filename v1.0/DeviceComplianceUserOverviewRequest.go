@@ -15,24 +15,19 @@ func (b *DeviceComplianceUserOverviewRequestBuilder) Request() *DeviceCompliance
 // DeviceComplianceUserOverviewRequest is request for DeviceComplianceUserOverview
 type DeviceComplianceUserOverviewRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceComplianceUserOverview
-func (r *DeviceComplianceUserOverviewRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceUserOverview, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceComplianceUserOverview
-func (r *DeviceComplianceUserOverviewRequest) Get() (*DeviceComplianceUserOverview, error) {
+func (r *DeviceComplianceUserOverviewRequest) Get() (resObj *DeviceComplianceUserOverview, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceComplianceUserOverview
-func (r *DeviceComplianceUserOverviewRequest) Update(reqObj *DeviceComplianceUserOverview) (*DeviceComplianceUserOverview, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceComplianceUserOverviewRequest) Update(reqObj *DeviceComplianceUserOverview) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceUserOverview

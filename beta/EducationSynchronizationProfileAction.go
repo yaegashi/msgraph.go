@@ -48,13 +48,8 @@ func (b *EducationSynchronizationProfileResumeRequestBuilder) Request() *Educati
 }
 
 //
-func (r *EducationSynchronizationProfileResumeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EducationSynchronizationProfileResumeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -79,13 +74,8 @@ func (b *EducationSynchronizationProfilePauseRequestBuilder) Request() *Educatio
 }
 
 //
-func (r *EducationSynchronizationProfilePauseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EducationSynchronizationProfilePauseRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -110,13 +100,8 @@ func (b *EducationSynchronizationProfileResetRequestBuilder) Request() *Educatio
 }
 
 //
-func (r *EducationSynchronizationProfileResetRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EducationSynchronizationProfileResetRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -138,12 +123,6 @@ func (b *EducationSynchronizationProfileStartRequestBuilder) Request() *Educatio
 	return &EducationSynchronizationProfileStartRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *EducationSynchronizationProfileStartRequest) Do(method, path string, reqObj interface{}) (resObj *[]EducationFileSynchronizationVerificationMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //

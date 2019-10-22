@@ -15,24 +15,19 @@ func (b *AndroidDeviceOwnerEnrollmentProfileRequestBuilder) Request() *AndroidDe
 // AndroidDeviceOwnerEnrollmentProfileRequest is request for AndroidDeviceOwnerEnrollmentProfile
 type AndroidDeviceOwnerEnrollmentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidDeviceOwnerEnrollmentProfile
-func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidDeviceOwnerEnrollmentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidDeviceOwnerEnrollmentProfile
-func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Get() (*AndroidDeviceOwnerEnrollmentProfile, error) {
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Get() (resObj *AndroidDeviceOwnerEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidDeviceOwnerEnrollmentProfile
-func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Update(reqObj *AndroidDeviceOwnerEnrollmentProfile) (*AndroidDeviceOwnerEnrollmentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Update(reqObj *AndroidDeviceOwnerEnrollmentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidDeviceOwnerEnrollmentProfile

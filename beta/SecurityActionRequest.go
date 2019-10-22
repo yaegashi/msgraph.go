@@ -15,24 +15,19 @@ func (b *SecurityActionRequestBuilder) Request() *SecurityActionRequest {
 // SecurityActionRequest is request for SecurityAction
 type SecurityActionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecurityAction
-func (r *SecurityActionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityAction, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecurityAction
-func (r *SecurityActionRequest) Get() (*SecurityAction, error) {
+func (r *SecurityActionRequest) Get() (resObj *SecurityAction, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecurityAction
-func (r *SecurityActionRequest) Update(reqObj *SecurityAction) (*SecurityAction, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityActionRequest) Update(reqObj *SecurityAction) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityAction

@@ -15,24 +15,19 @@ func (b *DeviceConfigurationDeviceStatusRequestBuilder) Request() *DeviceConfigu
 // DeviceConfigurationDeviceStatusRequest is request for DeviceConfigurationDeviceStatus
 type DeviceConfigurationDeviceStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceConfigurationDeviceStatus
-func (r *DeviceConfigurationDeviceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationDeviceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceConfigurationDeviceStatus
-func (r *DeviceConfigurationDeviceStatusRequest) Get() (*DeviceConfigurationDeviceStatus, error) {
+func (r *DeviceConfigurationDeviceStatusRequest) Get() (resObj *DeviceConfigurationDeviceStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceConfigurationDeviceStatus
-func (r *DeviceConfigurationDeviceStatusRequest) Update(reqObj *DeviceConfigurationDeviceStatus) (*DeviceConfigurationDeviceStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceConfigurationDeviceStatusRequest) Update(reqObj *DeviceConfigurationDeviceStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceConfigurationDeviceStatus

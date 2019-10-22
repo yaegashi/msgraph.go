@@ -23,24 +23,19 @@ func (b *DriveRequestBuilder) Request() *DriveRequest {
 // DriveRequest is request for Drive
 type DriveRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Drive
-func (r *DriveRequest) Do(method, path string, reqObj interface{}) (resObj *Drive, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Drive
-func (r *DriveRequest) Get() (*Drive, error) {
+func (r *DriveRequest) Get() (resObj *Drive, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Drive
-func (r *DriveRequest) Update(reqObj *Drive) (*Drive, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DriveRequest) Update(reqObj *Drive) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Drive
@@ -74,12 +69,6 @@ func (b *DriveActivitiesCollectionRequestBuilder) ID(id string) *ItemActivityOLD
 
 // DriveActivitiesCollectionRequest is request for ItemActivityOLD collection
 type DriveActivitiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ItemActivityOLD collection
-func (r *DriveActivitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityOLD, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ItemActivityOLD collection
 func (r *DriveActivitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemActivityOLD, error) {
@@ -131,8 +120,9 @@ func (r *DriveActivitiesCollectionRequest) Get() ([]ItemActivityOLD, error) {
 }
 
 // Add performs POST request for ItemActivityOLD collection
-func (r *DriveActivitiesCollectionRequest) Add(reqObj *ItemActivityOLD) (*ItemActivityOLD, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveActivitiesCollectionRequest) Add(reqObj *ItemActivityOLD) (resObj *ItemActivityOLD, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Bundles returns request builder for DriveItem collection
@@ -161,12 +151,6 @@ func (b *DriveBundlesCollectionRequestBuilder) ID(id string) *DriveItemRequestBu
 
 // DriveBundlesCollectionRequest is request for DriveItem collection
 type DriveBundlesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *DriveBundlesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *DriveBundlesCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -218,8 +202,9 @@ func (r *DriveBundlesCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *DriveBundlesCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveBundlesCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Following returns request builder for DriveItem collection
@@ -248,12 +233,6 @@ func (b *DriveFollowingCollectionRequestBuilder) ID(id string) *DriveItemRequest
 
 // DriveFollowingCollectionRequest is request for DriveItem collection
 type DriveFollowingCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *DriveFollowingCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *DriveFollowingCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -305,8 +284,9 @@ func (r *DriveFollowingCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *DriveFollowingCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveFollowingCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Items returns request builder for DriveItem collection
@@ -335,12 +315,6 @@ func (b *DriveItemsCollectionRequestBuilder) ID(id string) *DriveItemRequestBuil
 
 // DriveItemsCollectionRequest is request for DriveItem collection
 type DriveItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *DriveItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *DriveItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -392,8 +366,9 @@ func (r *DriveItemsCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *DriveItemsCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemsCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // List is navigation property
@@ -436,12 +411,6 @@ func (b *DriveSpecialCollectionRequestBuilder) ID(id string) *DriveItemRequestBu
 
 // DriveSpecialCollectionRequest is request for DriveItem collection
 type DriveSpecialCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *DriveSpecialCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *DriveSpecialCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -493,6 +462,7 @@ func (r *DriveSpecialCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *DriveSpecialCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveSpecialCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

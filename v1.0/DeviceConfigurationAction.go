@@ -38,12 +38,6 @@ func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfiguration
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

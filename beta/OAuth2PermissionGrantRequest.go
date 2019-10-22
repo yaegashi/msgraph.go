@@ -15,24 +15,19 @@ func (b *OAuth2PermissionGrantRequestBuilder) Request() *OAuth2PermissionGrantRe
 // OAuth2PermissionGrantRequest is request for OAuth2PermissionGrant
 type OAuth2PermissionGrantRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OAuth2PermissionGrant
-func (r *OAuth2PermissionGrantRequest) Do(method, path string, reqObj interface{}) (resObj *OAuth2PermissionGrant, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OAuth2PermissionGrant
-func (r *OAuth2PermissionGrantRequest) Get() (*OAuth2PermissionGrant, error) {
+func (r *OAuth2PermissionGrantRequest) Get() (resObj *OAuth2PermissionGrant, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OAuth2PermissionGrant
-func (r *OAuth2PermissionGrantRequest) Update(reqObj *OAuth2PermissionGrant) (*OAuth2PermissionGrant, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OAuth2PermissionGrantRequest) Update(reqObj *OAuth2PermissionGrant) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OAuth2PermissionGrant

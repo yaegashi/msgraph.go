@@ -15,24 +15,19 @@ func (b *DataSharingConsentRequestBuilder) Request() *DataSharingConsentRequest 
 // DataSharingConsentRequest is request for DataSharingConsent
 type DataSharingConsentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DataSharingConsent
-func (r *DataSharingConsentRequest) Do(method, path string, reqObj interface{}) (resObj *DataSharingConsent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DataSharingConsent
-func (r *DataSharingConsentRequest) Get() (*DataSharingConsent, error) {
+func (r *DataSharingConsentRequest) Get() (resObj *DataSharingConsent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DataSharingConsent
-func (r *DataSharingConsentRequest) Update(reqObj *DataSharingConsent) (*DataSharingConsent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DataSharingConsentRequest) Update(reqObj *DataSharingConsent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DataSharingConsent

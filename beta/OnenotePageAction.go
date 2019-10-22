@@ -42,13 +42,8 @@ func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOne
 }
 
 //
-func (r *OnenotePageOnenotePatchContentRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *OnenotePageOnenotePatchContentRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -73,12 +68,7 @@ func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSec
 }
 
 //
-func (r *OnenotePageCopyToSectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *OnenotePageCopyToSectionRequest) Post() (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *OnenotePageCopyToSectionRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }

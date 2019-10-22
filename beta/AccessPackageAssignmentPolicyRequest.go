@@ -23,24 +23,19 @@ func (b *AccessPackageAssignmentPolicyRequestBuilder) Request() *AccessPackageAs
 // AccessPackageAssignmentPolicyRequest is request for AccessPackageAssignmentPolicy
 type AccessPackageAssignmentPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageAssignmentPolicy
-func (r *AccessPackageAssignmentPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageAssignmentPolicy
-func (r *AccessPackageAssignmentPolicyRequest) Get() (*AccessPackageAssignmentPolicy, error) {
+func (r *AccessPackageAssignmentPolicyRequest) Get() (resObj *AccessPackageAssignmentPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageAssignmentPolicy
-func (r *AccessPackageAssignmentPolicyRequest) Update(reqObj *AccessPackageAssignmentPolicy) (*AccessPackageAssignmentPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageAssignmentPolicyRequest) Update(reqObj *AccessPackageAssignmentPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageAssignmentPolicy
@@ -88,12 +83,6 @@ func (b *AccessPackageAssignmentPolicyApproversCollectionRequestBuilder) ID(id s
 
 // AccessPackageAssignmentPolicyApproversCollectionRequest is request for AccessPackageSubject collection
 type AccessPackageAssignmentPolicyApproversCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageSubject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageSubject collection
 func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageSubject, error) {
@@ -145,8 +134,9 @@ func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Get() ([]Acces
 }
 
 // Add performs POST request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Add(reqObj *AccessPackageSubject) (*AccessPackageSubject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Add(reqObj *AccessPackageSubject) (resObj *AccessPackageSubject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SubjectsScope returns request builder for AccessPackageSubject collection
@@ -175,12 +165,6 @@ func (b *AccessPackageAssignmentPolicySubjectsScopeCollectionRequestBuilder) ID(
 
 // AccessPackageAssignmentPolicySubjectsScopeCollectionRequest is request for AccessPackageSubject collection
 type AccessPackageAssignmentPolicySubjectsScopeCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageSubject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageSubject collection
 func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageSubject, error) {
@@ -232,6 +216,7 @@ func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Get() ([]A
 }
 
 // Add performs POST request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Add(reqObj *AccessPackageSubject) (*AccessPackageSubject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Add(reqObj *AccessPackageSubject) (resObj *AccessPackageSubject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -58,13 +58,8 @@ func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequ
 }
 
 //
-func (r *EventDismissReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventDismissReminderRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -89,13 +84,8 @@ func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderReques
 }
 
 //
-func (r *EventSnoozeReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventSnoozeReminderRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -120,13 +110,8 @@ func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
 }
 
 //
-func (r *EventAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -151,13 +136,8 @@ func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
 }
 
 //
-func (r *EventDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventDeclineRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -182,11 +162,6 @@ func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAccept
 }
 
 //
-func (r *EventTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventTentativelyAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

@@ -23,24 +23,19 @@ func (b *PolicyRequestBuilder) Request() *PolicyRequest {
 // PolicyRequest is request for Policy
 type PolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Policy
-func (r *PolicyRequest) Do(method, path string, reqObj interface{}) (resObj *Policy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Policy
-func (r *PolicyRequest) Get() (*Policy, error) {
+func (r *PolicyRequest) Get() (resObj *Policy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Policy
-func (r *PolicyRequest) Update(reqObj *Policy) (*Policy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PolicyRequest) Update(reqObj *Policy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Policy
@@ -74,12 +69,6 @@ func (b *PolicyAppliesToCollectionRequestBuilder) ID(id string) *DirectoryObject
 
 // PolicyAppliesToCollectionRequest is request for DirectoryObject collection
 type PolicyAppliesToCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *PolicyAppliesToCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *PolicyAppliesToCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,6 +120,7 @@ func (r *PolicyAppliesToCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *PolicyAppliesToCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PolicyAppliesToCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

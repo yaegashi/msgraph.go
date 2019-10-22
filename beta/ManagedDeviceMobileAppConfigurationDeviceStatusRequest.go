@@ -15,24 +15,19 @@ func (b *ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder) Request(
 // ManagedDeviceMobileAppConfigurationDeviceStatusRequest is request for ManagedDeviceMobileAppConfigurationDeviceStatus
 type ManagedDeviceMobileAppConfigurationDeviceStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedDeviceMobileAppConfigurationDeviceStatus
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedDeviceMobileAppConfigurationDeviceStatus
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Get() (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Get() (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedDeviceMobileAppConfigurationDeviceStatus
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Update(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Update(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationDeviceStatus

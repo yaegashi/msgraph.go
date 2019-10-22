@@ -15,24 +15,19 @@ func (b *DeviceCompliancePolicyGroupAssignmentRequestBuilder) Request() *DeviceC
 // DeviceCompliancePolicyGroupAssignmentRequest is request for DeviceCompliancePolicyGroupAssignment
 type DeviceCompliancePolicyGroupAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceCompliancePolicyGroupAssignment
-func (r *DeviceCompliancePolicyGroupAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicyGroupAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceCompliancePolicyGroupAssignment
-func (r *DeviceCompliancePolicyGroupAssignmentRequest) Get() (*DeviceCompliancePolicyGroupAssignment, error) {
+func (r *DeviceCompliancePolicyGroupAssignmentRequest) Get() (resObj *DeviceCompliancePolicyGroupAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceCompliancePolicyGroupAssignment
-func (r *DeviceCompliancePolicyGroupAssignmentRequest) Update(reqObj *DeviceCompliancePolicyGroupAssignment) (*DeviceCompliancePolicyGroupAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceCompliancePolicyGroupAssignmentRequest) Update(reqObj *DeviceCompliancePolicyGroupAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceCompliancePolicyGroupAssignment

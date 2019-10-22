@@ -15,24 +15,19 @@ func (b *TimeOffRequestObjectRequestBuilder) Request() *TimeOffRequestObjectRequ
 // TimeOffRequestObjectRequest is request for TimeOffRequestObject
 type TimeOffRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Get() (*TimeOffRequestObject, error) {
+func (r *TimeOffRequestObjectRequest) Get() (resObj *TimeOffRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Update(reqObj *TimeOffRequestObject) (*TimeOffRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TimeOffRequestObjectRequest) Update(reqObj *TimeOffRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TimeOffRequestObject

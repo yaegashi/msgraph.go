@@ -23,24 +23,19 @@ func (b *UserTeamworkRequestBuilder) Request() *UserTeamworkRequest {
 // UserTeamworkRequest is request for UserTeamwork
 type UserTeamworkRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserTeamwork
-func (r *UserTeamworkRequest) Do(method, path string, reqObj interface{}) (resObj *UserTeamwork, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserTeamwork
-func (r *UserTeamworkRequest) Get() (*UserTeamwork, error) {
+func (r *UserTeamworkRequest) Get() (resObj *UserTeamwork, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserTeamwork
-func (r *UserTeamworkRequest) Update(reqObj *UserTeamwork) (*UserTeamwork, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserTeamworkRequest) Update(reqObj *UserTeamwork) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserTeamwork
@@ -74,12 +69,6 @@ func (b *UserTeamworkInstalledAppsCollectionRequestBuilder) ID(id string) *Teams
 
 // UserTeamworkInstalledAppsCollectionRequest is request for TeamsAppInstallation collection
 type UserTeamworkInstalledAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsAppInstallation collection
-func (r *UserTeamworkInstalledAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
 func (r *UserTeamworkInstalledAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
@@ -131,6 +120,7 @@ func (r *UserTeamworkInstalledAppsCollectionRequest) Get() ([]TeamsAppInstallati
 }
 
 // Add performs POST request for TeamsAppInstallation collection
-func (r *UserTeamworkInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (*TeamsAppInstallation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *UserTeamworkInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (resObj *TeamsAppInstallation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *MobileContainedAppRequestBuilder) Request() *MobileContainedAppRequest 
 // MobileContainedAppRequest is request for MobileContainedApp
 type MobileContainedAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileContainedApp
-func (r *MobileContainedAppRequest) Do(method, path string, reqObj interface{}) (resObj *MobileContainedApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileContainedApp
-func (r *MobileContainedAppRequest) Get() (*MobileContainedApp, error) {
+func (r *MobileContainedAppRequest) Get() (resObj *MobileContainedApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileContainedApp
-func (r *MobileContainedAppRequest) Update(reqObj *MobileContainedApp) (*MobileContainedApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileContainedAppRequest) Update(reqObj *MobileContainedApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileContainedApp

@@ -15,24 +15,19 @@ func (b *UserExperienceAnalyticsOverviewRequestBuilder) Request() *UserExperienc
 // UserExperienceAnalyticsOverviewRequest is request for UserExperienceAnalyticsOverview
 type UserExperienceAnalyticsOverviewRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserExperienceAnalyticsOverview
-func (r *UserExperienceAnalyticsOverviewRequest) Do(method, path string, reqObj interface{}) (resObj *UserExperienceAnalyticsOverview, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserExperienceAnalyticsOverview
-func (r *UserExperienceAnalyticsOverviewRequest) Get() (*UserExperienceAnalyticsOverview, error) {
+func (r *UserExperienceAnalyticsOverviewRequest) Get() (resObj *UserExperienceAnalyticsOverview, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserExperienceAnalyticsOverview
-func (r *UserExperienceAnalyticsOverviewRequest) Update(reqObj *UserExperienceAnalyticsOverview) (*UserExperienceAnalyticsOverview, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserExperienceAnalyticsOverviewRequest) Update(reqObj *UserExperienceAnalyticsOverview) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserExperienceAnalyticsOverview

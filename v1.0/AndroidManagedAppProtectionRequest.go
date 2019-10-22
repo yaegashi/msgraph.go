@@ -23,24 +23,19 @@ func (b *AndroidManagedAppProtectionRequestBuilder) Request() *AndroidManagedApp
 // AndroidManagedAppProtectionRequest is request for AndroidManagedAppProtection
 type AndroidManagedAppProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidManagedAppProtection
-func (r *AndroidManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidManagedAppProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidManagedAppProtection
-func (r *AndroidManagedAppProtectionRequest) Get() (*AndroidManagedAppProtection, error) {
+func (r *AndroidManagedAppProtectionRequest) Get() (resObj *AndroidManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidManagedAppProtection
-func (r *AndroidManagedAppProtectionRequest) Update(reqObj *AndroidManagedAppProtection) (*AndroidManagedAppProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidManagedAppProtectionRequest) Update(reqObj *AndroidManagedAppProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidManagedAppProtection
@@ -74,12 +69,6 @@ func (b *AndroidManagedAppProtectionAppsCollectionRequestBuilder) ID(id string) 
 
 // AndroidManagedAppProtectionAppsCollectionRequest is request for ManagedMobileApp collection
 type AndroidManagedAppProtectionAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedMobileApp collection
-func (r *AndroidManagedAppProtectionAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedMobileApp collection
 func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
@@ -131,8 +120,9 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Get() ([]ManagedMobil
 }
 
 // Add performs POST request for ManagedMobileApp collection
-func (r *AndroidManagedAppProtectionAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (*ManagedMobileApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeploymentSummary is navigation property

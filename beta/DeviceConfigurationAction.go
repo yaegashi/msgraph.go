@@ -72,12 +72,6 @@ func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -156,12 +150,6 @@ func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) 
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationTargetedUserAndDevice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -229,12 +217,6 @@ func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfiguration
 	return &DeviceConfigurationAssignRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -308,13 +290,8 @@ func (b *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder) Request(
 }
 
 //
-func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -339,11 +316,6 @@ func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Reque
 }
 
 //
-func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

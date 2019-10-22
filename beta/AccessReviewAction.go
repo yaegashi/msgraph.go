@@ -40,13 +40,8 @@ func (b *AccessReviewStopRequestBuilder) Request() *AccessReviewStopRequest {
 }
 
 //
-func (r *AccessReviewStopRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AccessReviewStopRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -71,13 +66,8 @@ func (b *AccessReviewSendReminderRequestBuilder) Request() *AccessReviewSendRemi
 }
 
 //
-func (r *AccessReviewSendReminderRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AccessReviewSendReminderRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -102,13 +92,8 @@ func (b *AccessReviewResetDecisionsRequestBuilder) Request() *AccessReviewResetD
 }
 
 //
-func (r *AccessReviewResetDecisionsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AccessReviewResetDecisionsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -133,11 +118,6 @@ func (b *AccessReviewApplyDecisionsRequestBuilder) Request() *AccessReviewApplyD
 }
 
 //
-func (r *AccessReviewApplyDecisionsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AccessReviewApplyDecisionsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

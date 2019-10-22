@@ -34,13 +34,8 @@ func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWo
 }
 
 //
-func (r *WorkbookWorksheetProtectionProtectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookWorksheetProtectionProtectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -65,11 +60,6 @@ func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *Workbook
 }
 
 //
-func (r *WorkbookWorksheetProtectionUnprotectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookWorksheetProtectionUnprotectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

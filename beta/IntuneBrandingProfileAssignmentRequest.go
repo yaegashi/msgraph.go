@@ -15,24 +15,19 @@ func (b *IntuneBrandingProfileAssignmentRequestBuilder) Request() *IntuneBrandin
 // IntuneBrandingProfileAssignmentRequest is request for IntuneBrandingProfileAssignment
 type IntuneBrandingProfileAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IntuneBrandingProfileAssignment
-func (r *IntuneBrandingProfileAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *IntuneBrandingProfileAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IntuneBrandingProfileAssignment
-func (r *IntuneBrandingProfileAssignmentRequest) Get() (*IntuneBrandingProfileAssignment, error) {
+func (r *IntuneBrandingProfileAssignmentRequest) Get() (resObj *IntuneBrandingProfileAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IntuneBrandingProfileAssignment
-func (r *IntuneBrandingProfileAssignmentRequest) Update(reqObj *IntuneBrandingProfileAssignment) (*IntuneBrandingProfileAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IntuneBrandingProfileAssignmentRequest) Update(reqObj *IntuneBrandingProfileAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IntuneBrandingProfileAssignment

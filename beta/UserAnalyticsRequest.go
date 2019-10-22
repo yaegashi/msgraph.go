@@ -23,24 +23,19 @@ func (b *UserAnalyticsRequestBuilder) Request() *UserAnalyticsRequest {
 // UserAnalyticsRequest is request for UserAnalytics
 type UserAnalyticsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserAnalytics
-func (r *UserAnalyticsRequest) Do(method, path string, reqObj interface{}) (resObj *UserAnalytics, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserAnalytics
-func (r *UserAnalyticsRequest) Get() (*UserAnalytics, error) {
+func (r *UserAnalyticsRequest) Get() (resObj *UserAnalytics, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserAnalytics
-func (r *UserAnalyticsRequest) Update(reqObj *UserAnalytics) (*UserAnalytics, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserAnalyticsRequest) Update(reqObj *UserAnalytics) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserAnalytics
@@ -74,12 +69,6 @@ func (b *UserAnalyticsActivityStatisticsCollectionRequestBuilder) ID(id string) 
 
 // UserAnalyticsActivityStatisticsCollectionRequest is request for ActivityStatistics collection
 type UserAnalyticsActivityStatisticsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ActivityStatistics collection
-func (r *UserAnalyticsActivityStatisticsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityStatistics, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ActivityStatistics collection
 func (r *UserAnalyticsActivityStatisticsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityStatistics, error) {
@@ -131,6 +120,7 @@ func (r *UserAnalyticsActivityStatisticsCollectionRequest) Get() ([]ActivityStat
 }
 
 // Add performs POST request for ActivityStatistics collection
-func (r *UserAnalyticsActivityStatisticsCollectionRequest) Add(reqObj *ActivityStatistics) (*ActivityStatistics, error) {
-	return r.Do("POST", "", reqObj)
+func (r *UserAnalyticsActivityStatisticsCollectionRequest) Add(reqObj *ActivityStatistics) (resObj *ActivityStatistics, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

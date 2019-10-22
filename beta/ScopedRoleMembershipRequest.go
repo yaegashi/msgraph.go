@@ -15,24 +15,19 @@ func (b *ScopedRoleMembershipRequestBuilder) Request() *ScopedRoleMembershipRequ
 // ScopedRoleMembershipRequest is request for ScopedRoleMembership
 type ScopedRoleMembershipRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ScopedRoleMembership
-func (r *ScopedRoleMembershipRequest) Do(method, path string, reqObj interface{}) (resObj *ScopedRoleMembership, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ScopedRoleMembership
-func (r *ScopedRoleMembershipRequest) Get() (*ScopedRoleMembership, error) {
+func (r *ScopedRoleMembershipRequest) Get() (resObj *ScopedRoleMembership, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ScopedRoleMembership
-func (r *ScopedRoleMembershipRequest) Update(reqObj *ScopedRoleMembership) (*ScopedRoleMembership, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ScopedRoleMembershipRequest) Update(reqObj *ScopedRoleMembership) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ScopedRoleMembership

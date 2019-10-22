@@ -15,24 +15,19 @@ func (b *CustomerPaymentRequestBuilder) Request() *CustomerPaymentRequest {
 // CustomerPaymentRequest is request for CustomerPayment
 type CustomerPaymentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CustomerPayment
-func (r *CustomerPaymentRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CustomerPayment
-func (r *CustomerPaymentRequest) Get() (*CustomerPayment, error) {
+func (r *CustomerPaymentRequest) Get() (resObj *CustomerPayment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CustomerPayment
-func (r *CustomerPaymentRequest) Update(reqObj *CustomerPayment) (*CustomerPayment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CustomerPaymentRequest) Update(reqObj *CustomerPayment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CustomerPayment

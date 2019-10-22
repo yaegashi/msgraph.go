@@ -32,13 +32,8 @@ func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRan
 }
 
 //
-func (r *WorkbookRangeFormatAutofitColumnsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeFormatAutofitColumnsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -63,11 +58,6 @@ func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeF
 }
 
 //
-func (r *WorkbookRangeFormatAutofitRowsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeFormatAutofitRowsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

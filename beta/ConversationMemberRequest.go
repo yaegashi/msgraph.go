@@ -15,24 +15,19 @@ func (b *ConversationMemberRequestBuilder) Request() *ConversationMemberRequest 
 // ConversationMemberRequest is request for ConversationMember
 type ConversationMemberRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ConversationMember
-func (r *ConversationMemberRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationMember, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ConversationMember
-func (r *ConversationMemberRequest) Get() (*ConversationMember, error) {
+func (r *ConversationMemberRequest) Get() (resObj *ConversationMember, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ConversationMember
-func (r *ConversationMemberRequest) Update(reqObj *ConversationMember) (*ConversationMember, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ConversationMemberRequest) Update(reqObj *ConversationMember) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ConversationMember

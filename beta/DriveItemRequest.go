@@ -23,24 +23,19 @@ func (b *DriveItemRequestBuilder) Request() *DriveItemRequest {
 // DriveItemRequest is request for DriveItem
 type DriveItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DriveItem
-func (r *DriveItemRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DriveItem
-func (r *DriveItemRequest) Get() (*DriveItem, error) {
+func (r *DriveItemRequest) Get() (resObj *DriveItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DriveItem
-func (r *DriveItemRequest) Update(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DriveItemRequest) Update(reqObj *DriveItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DriveItem
@@ -74,12 +69,6 @@ func (b *DriveItemActivitiesCollectionRequestBuilder) ID(id string) *ItemActivit
 
 // DriveItemActivitiesCollectionRequest is request for ItemActivityOLD collection
 type DriveItemActivitiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ItemActivityOLD collection
-func (r *DriveItemActivitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityOLD, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ItemActivityOLD collection
 func (r *DriveItemActivitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemActivityOLD, error) {
@@ -131,8 +120,9 @@ func (r *DriveItemActivitiesCollectionRequest) Get() ([]ItemActivityOLD, error) 
 }
 
 // Add performs POST request for ItemActivityOLD collection
-func (r *DriveItemActivitiesCollectionRequest) Add(reqObj *ItemActivityOLD) (*ItemActivityOLD, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemActivitiesCollectionRequest) Add(reqObj *ItemActivityOLD) (resObj *ItemActivityOLD, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Analytics is navigation property
@@ -168,12 +158,6 @@ func (b *DriveItemChildrenCollectionRequestBuilder) ID(id string) *DriveItemRequ
 
 // DriveItemChildrenCollectionRequest is request for DriveItem collection
 type DriveItemChildrenCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *DriveItemChildrenCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *DriveItemChildrenCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -225,8 +209,9 @@ func (r *DriveItemChildrenCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *DriveItemChildrenCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemChildrenCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ListItem is navigation property
@@ -262,12 +247,6 @@ func (b *DriveItemPermissionsCollectionRequestBuilder) ID(id string) *Permission
 
 // DriveItemPermissionsCollectionRequest is request for Permission collection
 type DriveItemPermissionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Permission collection
-func (r *DriveItemPermissionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Permission collection
 func (r *DriveItemPermissionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Permission, error) {
@@ -319,8 +298,9 @@ func (r *DriveItemPermissionsCollectionRequest) Get() ([]Permission, error) {
 }
 
 // Add performs POST request for Permission collection
-func (r *DriveItemPermissionsCollectionRequest) Add(reqObj *Permission) (*Permission, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemPermissionsCollectionRequest) Add(reqObj *Permission) (resObj *Permission, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Subscriptions returns request builder for Subscription collection
@@ -349,12 +329,6 @@ func (b *DriveItemSubscriptionsCollectionRequestBuilder) ID(id string) *Subscrip
 
 // DriveItemSubscriptionsCollectionRequest is request for Subscription collection
 type DriveItemSubscriptionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Subscription collection
-func (r *DriveItemSubscriptionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Subscription, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Subscription collection
 func (r *DriveItemSubscriptionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Subscription, error) {
@@ -406,8 +380,9 @@ func (r *DriveItemSubscriptionsCollectionRequest) Get() ([]Subscription, error) 
 }
 
 // Add performs POST request for Subscription collection
-func (r *DriveItemSubscriptionsCollectionRequest) Add(reqObj *Subscription) (*Subscription, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemSubscriptionsCollectionRequest) Add(reqObj *Subscription) (resObj *Subscription, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Thumbnails returns request builder for ThumbnailSet collection
@@ -436,12 +411,6 @@ func (b *DriveItemThumbnailsCollectionRequestBuilder) ID(id string) *ThumbnailSe
 
 // DriveItemThumbnailsCollectionRequest is request for ThumbnailSet collection
 type DriveItemThumbnailsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ThumbnailSet collection
-func (r *DriveItemThumbnailsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ThumbnailSet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ThumbnailSet collection
 func (r *DriveItemThumbnailsCollectionRequest) Paging(method, path string, obj interface{}) ([]ThumbnailSet, error) {
@@ -493,8 +462,9 @@ func (r *DriveItemThumbnailsCollectionRequest) Get() ([]ThumbnailSet, error) {
 }
 
 // Add performs POST request for ThumbnailSet collection
-func (r *DriveItemThumbnailsCollectionRequest) Add(reqObj *ThumbnailSet) (*ThumbnailSet, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemThumbnailsCollectionRequest) Add(reqObj *ThumbnailSet) (resObj *ThumbnailSet, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Versions returns request builder for DriveItemVersion collection
@@ -523,12 +493,6 @@ func (b *DriveItemVersionsCollectionRequestBuilder) ID(id string) *DriveItemVers
 
 // DriveItemVersionsCollectionRequest is request for DriveItemVersion collection
 type DriveItemVersionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItemVersion collection
-func (r *DriveItemVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItemVersion, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItemVersion collection
 func (r *DriveItemVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItemVersion, error) {
@@ -580,8 +544,9 @@ func (r *DriveItemVersionsCollectionRequest) Get() ([]DriveItemVersion, error) {
 }
 
 // Add performs POST request for DriveItemVersion collection
-func (r *DriveItemVersionsCollectionRequest) Add(reqObj *DriveItemVersion) (*DriveItemVersion, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DriveItemVersionsCollectionRequest) Add(reqObj *DriveItemVersion) (resObj *DriveItemVersion, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Workbook is navigation property

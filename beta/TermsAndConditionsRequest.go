@@ -23,24 +23,19 @@ func (b *TermsAndConditionsRequestBuilder) Request() *TermsAndConditionsRequest 
 // TermsAndConditionsRequest is request for TermsAndConditions
 type TermsAndConditionsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TermsAndConditions
-func (r *TermsAndConditionsRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditions, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TermsAndConditions
-func (r *TermsAndConditionsRequest) Get() (*TermsAndConditions, error) {
+func (r *TermsAndConditionsRequest) Get() (resObj *TermsAndConditions, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TermsAndConditions
-func (r *TermsAndConditionsRequest) Update(reqObj *TermsAndConditions) (*TermsAndConditions, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TermsAndConditionsRequest) Update(reqObj *TermsAndConditions) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TermsAndConditions
@@ -74,12 +69,6 @@ func (b *TermsAndConditionsAcceptanceStatusesCollectionRequestBuilder) ID(id str
 
 // TermsAndConditionsAcceptanceStatusesCollectionRequest is request for TermsAndConditionsAcceptanceStatus collection
 type TermsAndConditionsAcceptanceStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsAcceptanceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TermsAndConditionsAcceptanceStatus collection
 func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsAcceptanceStatus, error) {
@@ -131,8 +120,9 @@ func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Get() ([]TermsAn
 }
 
 // Add performs POST request for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Add(reqObj *TermsAndConditionsAcceptanceStatus) (*TermsAndConditionsAcceptanceStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Add(reqObj *TermsAndConditionsAcceptanceStatus) (resObj *TermsAndConditionsAcceptanceStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Assignments returns request builder for TermsAndConditionsAssignment collection
@@ -161,12 +151,6 @@ func (b *TermsAndConditionsAssignmentsCollectionRequestBuilder) ID(id string) *T
 
 // TermsAndConditionsAssignmentsCollectionRequest is request for TermsAndConditionsAssignment collection
 type TermsAndConditionsAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TermsAndConditionsAssignment collection
 func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsAssignment, error) {
@@ -218,8 +202,9 @@ func (r *TermsAndConditionsAssignmentsCollectionRequest) Get() ([]TermsAndCondit
 }
 
 // Add performs POST request for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Add(reqObj *TermsAndConditionsAssignment) (*TermsAndConditionsAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TermsAndConditionsAssignmentsCollectionRequest) Add(reqObj *TermsAndConditionsAssignment) (resObj *TermsAndConditionsAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupAssignments returns request builder for TermsAndConditionsGroupAssignment collection
@@ -248,12 +233,6 @@ func (b *TermsAndConditionsGroupAssignmentsCollectionRequestBuilder) ID(id strin
 
 // TermsAndConditionsGroupAssignmentsCollectionRequest is request for TermsAndConditionsGroupAssignment collection
 type TermsAndConditionsGroupAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsGroupAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TermsAndConditionsGroupAssignment collection
 func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsGroupAssignment, error) {
@@ -305,6 +284,7 @@ func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Get() ([]TermsAndC
 }
 
 // Add performs POST request for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Add(reqObj *TermsAndConditionsGroupAssignment) (*TermsAndConditionsGroupAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Add(reqObj *TermsAndConditionsGroupAssignment) (resObj *TermsAndConditionsGroupAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

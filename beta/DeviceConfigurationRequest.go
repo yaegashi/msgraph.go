@@ -23,24 +23,19 @@ func (b *DeviceConfigurationRequestBuilder) Request() *DeviceConfigurationReques
 // DeviceConfigurationRequest is request for DeviceConfiguration
 type DeviceConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceConfiguration
-func (r *DeviceConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceConfiguration
-func (r *DeviceConfigurationRequest) Get() (*DeviceConfiguration, error) {
+func (r *DeviceConfigurationRequest) Get() (resObj *DeviceConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceConfiguration
-func (r *DeviceConfigurationRequest) Update(reqObj *DeviceConfiguration) (*DeviceConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceConfigurationRequest) Update(reqObj *DeviceConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceConfiguration
@@ -74,12 +69,6 @@ func (b *DeviceConfigurationAssignmentsCollectionRequestBuilder) ID(id string) *
 
 // DeviceConfigurationAssignmentsCollectionRequest is request for DeviceConfigurationAssignment collection
 type DeviceConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceConfigurationAssignment collection
-func (r *DeviceConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceConfigurationAssignment collection
 func (r *DeviceConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationAssignment, error) {
@@ -131,8 +120,9 @@ func (r *DeviceConfigurationAssignmentsCollectionRequest) Get() ([]DeviceConfigu
 }
 
 // Add performs POST request for DeviceConfigurationAssignment collection
-func (r *DeviceConfigurationAssignmentsCollectionRequest) Add(reqObj *DeviceConfigurationAssignment) (*DeviceConfigurationAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceConfigurationAssignmentsCollectionRequest) Add(reqObj *DeviceConfigurationAssignment) (resObj *DeviceConfigurationAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceSettingStateSummaries returns request builder for SettingStateDeviceSummary collection
@@ -161,12 +151,6 @@ func (b *DeviceConfigurationDeviceSettingStateSummariesCollectionRequestBuilder)
 
 // DeviceConfigurationDeviceSettingStateSummariesCollectionRequest is request for SettingStateDeviceSummary collection
 type DeviceConfigurationDeviceSettingStateSummariesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SettingStateDeviceSummary collection
-func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SettingStateDeviceSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SettingStateDeviceSummary collection
 func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SettingStateDeviceSummary, error) {
@@ -218,8 +202,9 @@ func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Get() 
 }
 
 // Add performs POST request for SettingStateDeviceSummary collection
-func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Add(reqObj *SettingStateDeviceSummary) (*SettingStateDeviceSummary, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceConfigurationDeviceSettingStateSummariesCollectionRequest) Add(reqObj *SettingStateDeviceSummary) (resObj *SettingStateDeviceSummary, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStatusOverview is navigation property
@@ -255,12 +240,6 @@ func (b *DeviceConfigurationDeviceStatusesCollectionRequestBuilder) ID(id string
 
 // DeviceConfigurationDeviceStatusesCollectionRequest is request for DeviceConfigurationDeviceStatus collection
 type DeviceConfigurationDeviceStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceConfigurationDeviceStatus collection
-func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationDeviceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceConfigurationDeviceStatus collection
 func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationDeviceStatus, error) {
@@ -312,8 +291,9 @@ func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Get() ([]DeviceConf
 }
 
 // Add performs POST request for DeviceConfigurationDeviceStatus collection
-func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Add(reqObj *DeviceConfigurationDeviceStatus) (*DeviceConfigurationDeviceStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceConfigurationDeviceStatusesCollectionRequest) Add(reqObj *DeviceConfigurationDeviceStatus) (resObj *DeviceConfigurationDeviceStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupAssignments returns request builder for DeviceConfigurationGroupAssignment collection
@@ -342,12 +322,6 @@ func (b *DeviceConfigurationGroupAssignmentsCollectionRequestBuilder) ID(id stri
 
 // DeviceConfigurationGroupAssignmentsCollectionRequest is request for DeviceConfigurationGroupAssignment collection
 type DeviceConfigurationGroupAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceConfigurationGroupAssignment collection
-func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationGroupAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceConfigurationGroupAssignment collection
 func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationGroupAssignment, error) {
@@ -399,8 +373,9 @@ func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Get() ([]DeviceCo
 }
 
 // Add performs POST request for DeviceConfigurationGroupAssignment collection
-func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Add(reqObj *DeviceConfigurationGroupAssignment) (*DeviceConfigurationGroupAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceConfigurationGroupAssignmentsCollectionRequest) Add(reqObj *DeviceConfigurationGroupAssignment) (resObj *DeviceConfigurationGroupAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UserStatusOverview is navigation property
@@ -436,12 +411,6 @@ func (b *DeviceConfigurationUserStatusesCollectionRequestBuilder) ID(id string) 
 
 // DeviceConfigurationUserStatusesCollectionRequest is request for DeviceConfigurationUserStatus collection
 type DeviceConfigurationUserStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceConfigurationUserStatus collection
-func (r *DeviceConfigurationUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationUserStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceConfigurationUserStatus collection
 func (r *DeviceConfigurationUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationUserStatus, error) {
@@ -493,6 +462,7 @@ func (r *DeviceConfigurationUserStatusesCollectionRequest) Get() ([]DeviceConfig
 }
 
 // Add performs POST request for DeviceConfigurationUserStatus collection
-func (r *DeviceConfigurationUserStatusesCollectionRequest) Add(reqObj *DeviceConfigurationUserStatus) (*DeviceConfigurationUserStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceConfigurationUserStatusesCollectionRequest) Add(reqObj *DeviceConfigurationUserStatus) (resObj *DeviceConfigurationUserStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

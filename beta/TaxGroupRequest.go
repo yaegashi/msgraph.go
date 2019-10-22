@@ -15,24 +15,19 @@ func (b *TaxGroupRequestBuilder) Request() *TaxGroupRequest {
 // TaxGroupRequest is request for TaxGroup
 type TaxGroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TaxGroup
-func (r *TaxGroupRequest) Do(method, path string, reqObj interface{}) (resObj *TaxGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TaxGroup
-func (r *TaxGroupRequest) Get() (*TaxGroup, error) {
+func (r *TaxGroupRequest) Get() (resObj *TaxGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TaxGroup
-func (r *TaxGroupRequest) Update(reqObj *TaxGroup) (*TaxGroup, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TaxGroupRequest) Update(reqObj *TaxGroup) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TaxGroup

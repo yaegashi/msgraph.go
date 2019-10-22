@@ -15,24 +15,19 @@ func (b *LicenseDetailsRequestBuilder) Request() *LicenseDetailsRequest {
 // LicenseDetailsRequest is request for LicenseDetails
 type LicenseDetailsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for LicenseDetails
-func (r *LicenseDetailsRequest) Do(method, path string, reqObj interface{}) (resObj *LicenseDetails, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for LicenseDetails
-func (r *LicenseDetailsRequest) Get() (*LicenseDetails, error) {
+func (r *LicenseDetailsRequest) Get() (resObj *LicenseDetails, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for LicenseDetails
-func (r *LicenseDetailsRequest) Update(reqObj *LicenseDetails) (*LicenseDetails, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *LicenseDetailsRequest) Update(reqObj *LicenseDetails) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for LicenseDetails

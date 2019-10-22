@@ -46,12 +46,7 @@ func (b *SensitivityLabelCollectionEvaluateRequestBuilder) Request() *Sensitivit
 }
 
 //
-func (r *SensitivityLabelCollectionEvaluateRequest) Do(method, path string, reqObj interface{}) (resObj *EvaluateLabelJobResponse, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *SensitivityLabelCollectionEvaluateRequest) Post() (resObj *EvaluateLabelJobResponse, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *SensitivityLabelCollectionEvaluateRequest) Post() (*EvaluateLabelJobResponse, error) {
-	return r.Do("POST", "", r.requestObject)
 }

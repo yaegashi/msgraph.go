@@ -15,24 +15,19 @@ func (b *WorkbookChartAxesRequestBuilder) Request() *WorkbookChartAxesRequest {
 // WorkbookChartAxesRequest is request for WorkbookChartAxes
 type WorkbookChartAxesRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartAxes
-func (r *WorkbookChartAxesRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartAxes, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartAxes
-func (r *WorkbookChartAxesRequest) Get() (*WorkbookChartAxes, error) {
+func (r *WorkbookChartAxesRequest) Get() (resObj *WorkbookChartAxes, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartAxes
-func (r *WorkbookChartAxesRequest) Update(reqObj *WorkbookChartAxes) (*WorkbookChartAxes, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartAxesRequest) Update(reqObj *WorkbookChartAxes) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartAxes

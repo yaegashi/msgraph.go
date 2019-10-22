@@ -15,24 +15,19 @@ func (b *AndroidCertificateProfileBaseRequestBuilder) Request() *AndroidCertific
 // AndroidCertificateProfileBaseRequest is request for AndroidCertificateProfileBase
 type AndroidCertificateProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidCertificateProfileBase
-func (r *AndroidCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidCertificateProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidCertificateProfileBase
-func (r *AndroidCertificateProfileBaseRequest) Get() (*AndroidCertificateProfileBase, error) {
+func (r *AndroidCertificateProfileBaseRequest) Get() (resObj *AndroidCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidCertificateProfileBase
-func (r *AndroidCertificateProfileBaseRequest) Update(reqObj *AndroidCertificateProfileBase) (*AndroidCertificateProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidCertificateProfileBaseRequest) Update(reqObj *AndroidCertificateProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidCertificateProfileBase

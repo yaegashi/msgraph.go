@@ -10,6 +10,26 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
+type DirectoryObjectCollectionGetByIDsRequestParameter struct {
+	// IDs undocumented
+	IDs []string `json:"ids,omitempty"`
+	// Types undocumented
+	Types []string `json:"types,omitempty"`
+}
+
+// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
+type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
+	// EntityType undocumented
+	EntityType *string `json:"entityType,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
 // DirectoryObjectCheckMemberGroupsRequestParameter undocumented
 type DirectoryObjectCheckMemberGroupsRequestParameter struct {
 	// GroupIDs undocumented
@@ -36,26 +56,6 @@ type DirectoryObjectGetMemberObjectsRequestParameter struct {
 
 // DirectoryObjectRestoreRequestParameter undocumented
 type DirectoryObjectRestoreRequestParameter struct {
-}
-
-// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
-type DirectoryObjectCollectionGetByIDsRequestParameter struct {
-	// IDs undocumented
-	IDs []string `json:"ids,omitempty"`
-	// Types undocumented
-	Types []string `json:"types,omitempty"`
-}
-
-// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
-type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
-	// EntityType undocumented
-	EntityType *string `json:"entityType,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserID undocumented
-	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
 }
 
 //
@@ -245,12 +245,6 @@ func (b *DirectoryObjectCollectionGetByIDsRequestBuilder) Request() *DirectoryOb
 	return &DirectoryObjectCollectionGetByIDsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *DirectoryObjectCollectionGetByIDsRequest) Do(method, path string, reqObj interface{}) (resObj *[]DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -492,13 +486,8 @@ func (b *DirectoryObjectCollectionValidatePropertiesRequestBuilder) Request() *D
 }
 
 //
-func (r *DirectoryObjectCollectionValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DirectoryObjectCollectionValidatePropertiesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -520,12 +509,6 @@ func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObj
 	return &DirectoryObjectCheckMemberGroupsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -599,12 +582,6 @@ func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryOb
 }
 
 //
-func (r *DirectoryObjectCheckMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -672,12 +649,6 @@ func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjec
 	return &DirectoryObjectGetMemberGroupsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -751,12 +722,6 @@ func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObje
 }
 
 //
-func (r *DirectoryObjectGetMemberObjectsRequest) Do(method, path string, reqObj interface{}) (resObj *[]string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -827,12 +792,7 @@ func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestore
 }
 
 //
-func (r *DirectoryObjectRestoreRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DirectoryObjectRestoreRequest) Post() (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DirectoryObjectRestoreRequest) Post() (*DirectoryObject, error) {
-	return r.Do("POST", "", r.requestObject)
 }

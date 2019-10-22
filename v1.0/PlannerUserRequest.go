@@ -23,24 +23,19 @@ func (b *PlannerUserRequestBuilder) Request() *PlannerUserRequest {
 // PlannerUserRequest is request for PlannerUser
 type PlannerUserRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PlannerUser
-func (r *PlannerUserRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerUser, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PlannerUser
-func (r *PlannerUserRequest) Get() (*PlannerUser, error) {
+func (r *PlannerUserRequest) Get() (resObj *PlannerUser, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PlannerUser
-func (r *PlannerUserRequest) Update(reqObj *PlannerUser) (*PlannerUser, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PlannerUserRequest) Update(reqObj *PlannerUser) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerUser
@@ -74,12 +69,6 @@ func (b *PlannerUserPlansCollectionRequestBuilder) ID(id string) *PlannerPlanReq
 
 // PlannerUserPlansCollectionRequest is request for PlannerPlan collection
 type PlannerUserPlansCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PlannerPlan collection
-func (r *PlannerUserPlansCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerPlan, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PlannerPlan collection
 func (r *PlannerUserPlansCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerPlan, error) {
@@ -131,8 +120,9 @@ func (r *PlannerUserPlansCollectionRequest) Get() ([]PlannerPlan, error) {
 }
 
 // Add performs POST request for PlannerPlan collection
-func (r *PlannerUserPlansCollectionRequest) Add(reqObj *PlannerPlan) (*PlannerPlan, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PlannerUserPlansCollectionRequest) Add(reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Tasks returns request builder for PlannerTask collection
@@ -161,12 +151,6 @@ func (b *PlannerUserTasksCollectionRequestBuilder) ID(id string) *PlannerTaskReq
 
 // PlannerUserTasksCollectionRequest is request for PlannerTask collection
 type PlannerUserTasksCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PlannerTask collection
-func (r *PlannerUserTasksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerTask, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PlannerTask collection
 func (r *PlannerUserTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerTask, error) {
@@ -218,6 +202,7 @@ func (r *PlannerUserTasksCollectionRequest) Get() ([]PlannerTask, error) {
 }
 
 // Add performs POST request for PlannerTask collection
-func (r *PlannerUserTasksCollectionRequest) Add(reqObj *PlannerTask) (*PlannerTask, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PlannerUserTasksCollectionRequest) Add(reqObj *PlannerTask) (resObj *PlannerTask, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

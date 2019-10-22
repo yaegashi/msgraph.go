@@ -15,24 +15,19 @@ func (b *EBookInstallSummaryRequestBuilder) Request() *EBookInstallSummaryReques
 // EBookInstallSummaryRequest is request for EBookInstallSummary
 type EBookInstallSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EBookInstallSummary
-func (r *EBookInstallSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *EBookInstallSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EBookInstallSummary
-func (r *EBookInstallSummaryRequest) Get() (*EBookInstallSummary, error) {
+func (r *EBookInstallSummaryRequest) Get() (resObj *EBookInstallSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EBookInstallSummary
-func (r *EBookInstallSummaryRequest) Update(reqObj *EBookInstallSummary) (*EBookInstallSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EBookInstallSummaryRequest) Update(reqObj *EBookInstallSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EBookInstallSummary

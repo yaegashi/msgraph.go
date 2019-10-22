@@ -23,24 +23,19 @@ func (b *SectionGroupRequestBuilder) Request() *SectionGroupRequest {
 // SectionGroupRequest is request for SectionGroup
 type SectionGroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SectionGroup
-func (r *SectionGroupRequest) Do(method, path string, reqObj interface{}) (resObj *SectionGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SectionGroup
-func (r *SectionGroupRequest) Get() (*SectionGroup, error) {
+func (r *SectionGroupRequest) Get() (resObj *SectionGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SectionGroup
-func (r *SectionGroupRequest) Update(reqObj *SectionGroup) (*SectionGroup, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SectionGroupRequest) Update(reqObj *SectionGroup) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SectionGroup
@@ -88,12 +83,6 @@ func (b *SectionGroupSectionGroupsCollectionRequestBuilder) ID(id string) *Secti
 
 // SectionGroupSectionGroupsCollectionRequest is request for SectionGroup collection
 type SectionGroupSectionGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SectionGroup collection
-func (r *SectionGroupSectionGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SectionGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SectionGroup collection
 func (r *SectionGroupSectionGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SectionGroup, error) {
@@ -145,8 +134,9 @@ func (r *SectionGroupSectionGroupsCollectionRequest) Get() ([]SectionGroup, erro
 }
 
 // Add performs POST request for SectionGroup collection
-func (r *SectionGroupSectionGroupsCollectionRequest) Add(reqObj *SectionGroup) (*SectionGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SectionGroupSectionGroupsCollectionRequest) Add(reqObj *SectionGroup) (resObj *SectionGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Sections returns request builder for OnenoteSection collection
@@ -175,12 +165,6 @@ func (b *SectionGroupSectionsCollectionRequestBuilder) ID(id string) *OnenoteSec
 
 // SectionGroupSectionsCollectionRequest is request for OnenoteSection collection
 type SectionGroupSectionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnenoteSection collection
-func (r *SectionGroupSectionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteSection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnenoteSection collection
 func (r *SectionGroupSectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteSection, error) {
@@ -232,6 +216,7 @@ func (r *SectionGroupSectionsCollectionRequest) Get() ([]OnenoteSection, error) 
 }
 
 // Add performs POST request for OnenoteSection collection
-func (r *SectionGroupSectionsCollectionRequest) Add(reqObj *OnenoteSection) (*OnenoteSection, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SectionGroupSectionsCollectionRequest) Add(reqObj *OnenoteSection) (resObj *OnenoteSection, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

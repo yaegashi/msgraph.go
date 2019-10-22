@@ -15,24 +15,19 @@ func (b *ChatMessageHostedContentRequestBuilder) Request() *ChatMessageHostedCon
 // ChatMessageHostedContentRequest is request for ChatMessageHostedContent
 type ChatMessageHostedContentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ChatMessageHostedContent
-func (r *ChatMessageHostedContentRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessageHostedContent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ChatMessageHostedContent
-func (r *ChatMessageHostedContentRequest) Get() (*ChatMessageHostedContent, error) {
+func (r *ChatMessageHostedContentRequest) Get() (resObj *ChatMessageHostedContent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ChatMessageHostedContent
-func (r *ChatMessageHostedContentRequest) Update(reqObj *ChatMessageHostedContent) (*ChatMessageHostedContent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ChatMessageHostedContentRequest) Update(reqObj *ChatMessageHostedContent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ChatMessageHostedContent

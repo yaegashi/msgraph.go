@@ -15,24 +15,19 @@ func (b *SalesOrderLineRequestBuilder) Request() *SalesOrderLineRequest {
 // SalesOrderLineRequest is request for SalesOrderLine
 type SalesOrderLineRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesOrderLine
-func (r *SalesOrderLineRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrderLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesOrderLine
-func (r *SalesOrderLineRequest) Get() (*SalesOrderLine, error) {
+func (r *SalesOrderLineRequest) Get() (resObj *SalesOrderLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesOrderLine
-func (r *SalesOrderLineRequest) Update(reqObj *SalesOrderLine) (*SalesOrderLine, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesOrderLineRequest) Update(reqObj *SalesOrderLine) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesOrderLine

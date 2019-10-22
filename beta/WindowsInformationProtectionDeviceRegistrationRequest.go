@@ -15,24 +15,19 @@ func (b *WindowsInformationProtectionDeviceRegistrationRequestBuilder) Request()
 // WindowsInformationProtectionDeviceRegistrationRequest is request for WindowsInformationProtectionDeviceRegistration
 type WindowsInformationProtectionDeviceRegistrationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsInformationProtectionDeviceRegistration
-func (r *WindowsInformationProtectionDeviceRegistrationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsInformationProtectionDeviceRegistration
-func (r *WindowsInformationProtectionDeviceRegistrationRequest) Get() (*WindowsInformationProtectionDeviceRegistration, error) {
+func (r *WindowsInformationProtectionDeviceRegistrationRequest) Get() (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionDeviceRegistration
-func (r *WindowsInformationProtectionDeviceRegistrationRequest) Update(reqObj *WindowsInformationProtectionDeviceRegistration) (*WindowsInformationProtectionDeviceRegistration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsInformationProtectionDeviceRegistrationRequest) Update(reqObj *WindowsInformationProtectionDeviceRegistration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionDeviceRegistration

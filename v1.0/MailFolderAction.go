@@ -36,14 +36,9 @@ func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
 }
 
 //
-func (r *MailFolderCopyRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MailFolderCopyRequest) Post() (resObj *MailFolder, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MailFolderCopyRequest) Post() (*MailFolder, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -68,12 +63,7 @@ func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
 }
 
 //
-func (r *MailFolderMoveRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MailFolderMoveRequest) Post() (resObj *MailFolder, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MailFolderMoveRequest) Post() (*MailFolder, error) {
-	return r.Do("POST", "", r.requestObject)
 }

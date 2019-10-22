@@ -15,24 +15,19 @@ func (b *WorkbookChartAreaFormatRequestBuilder) Request() *WorkbookChartAreaForm
 // WorkbookChartAreaFormatRequest is request for WorkbookChartAreaFormat
 type WorkbookChartAreaFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartAreaFormat
-func (r *WorkbookChartAreaFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartAreaFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartAreaFormat
-func (r *WorkbookChartAreaFormatRequest) Get() (*WorkbookChartAreaFormat, error) {
+func (r *WorkbookChartAreaFormatRequest) Get() (resObj *WorkbookChartAreaFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartAreaFormat
-func (r *WorkbookChartAreaFormatRequest) Update(reqObj *WorkbookChartAreaFormat) (*WorkbookChartAreaFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartAreaFormatRequest) Update(reqObj *WorkbookChartAreaFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartAreaFormat

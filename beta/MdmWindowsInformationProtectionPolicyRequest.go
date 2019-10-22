@@ -15,24 +15,19 @@ func (b *MdmWindowsInformationProtectionPolicyRequestBuilder) Request() *MdmWind
 // MdmWindowsInformationProtectionPolicyRequest is request for MdmWindowsInformationProtectionPolicy
 type MdmWindowsInformationProtectionPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MdmWindowsInformationProtectionPolicy
-func (r *MdmWindowsInformationProtectionPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *MdmWindowsInformationProtectionPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MdmWindowsInformationProtectionPolicy
-func (r *MdmWindowsInformationProtectionPolicyRequest) Get() (*MdmWindowsInformationProtectionPolicy, error) {
+func (r *MdmWindowsInformationProtectionPolicyRequest) Get() (resObj *MdmWindowsInformationProtectionPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MdmWindowsInformationProtectionPolicy
-func (r *MdmWindowsInformationProtectionPolicyRequest) Update(reqObj *MdmWindowsInformationProtectionPolicy) (*MdmWindowsInformationProtectionPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MdmWindowsInformationProtectionPolicyRequest) Update(reqObj *MdmWindowsInformationProtectionPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MdmWindowsInformationProtectionPolicy

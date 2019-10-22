@@ -23,24 +23,19 @@ func (b *SharedDriveItemRequestBuilder) Request() *SharedDriveItemRequest {
 // SharedDriveItemRequest is request for SharedDriveItem
 type SharedDriveItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SharedDriveItem
-func (r *SharedDriveItemRequest) Do(method, path string, reqObj interface{}) (resObj *SharedDriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SharedDriveItem
-func (r *SharedDriveItemRequest) Get() (*SharedDriveItem, error) {
+func (r *SharedDriveItemRequest) Get() (resObj *SharedDriveItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SharedDriveItem
-func (r *SharedDriveItemRequest) Update(reqObj *SharedDriveItem) (*SharedDriveItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SharedDriveItemRequest) Update(reqObj *SharedDriveItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SharedDriveItem
@@ -81,12 +76,6 @@ func (b *SharedDriveItemItemsCollectionRequestBuilder) ID(id string) *DriveItemR
 
 // SharedDriveItemItemsCollectionRequest is request for DriveItem collection
 type SharedDriveItemItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *SharedDriveItemItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *SharedDriveItemItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -138,8 +127,9 @@ func (r *SharedDriveItemItemsCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *SharedDriveItemItemsCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SharedDriveItemItemsCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // List is navigation property

@@ -23,24 +23,19 @@ func (b *UserExperienceAnalyticsCategoryRequestBuilder) Request() *UserExperienc
 // UserExperienceAnalyticsCategoryRequest is request for UserExperienceAnalyticsCategory
 type UserExperienceAnalyticsCategoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserExperienceAnalyticsCategory
-func (r *UserExperienceAnalyticsCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *UserExperienceAnalyticsCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserExperienceAnalyticsCategory
-func (r *UserExperienceAnalyticsCategoryRequest) Get() (*UserExperienceAnalyticsCategory, error) {
+func (r *UserExperienceAnalyticsCategoryRequest) Get() (resObj *UserExperienceAnalyticsCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserExperienceAnalyticsCategory
-func (r *UserExperienceAnalyticsCategoryRequest) Update(reqObj *UserExperienceAnalyticsCategory) (*UserExperienceAnalyticsCategory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserExperienceAnalyticsCategoryRequest) Update(reqObj *UserExperienceAnalyticsCategory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserExperienceAnalyticsCategory
@@ -74,12 +69,6 @@ func (b *UserExperienceAnalyticsCategoryMetricValuesCollectionRequestBuilder) ID
 
 // UserExperienceAnalyticsCategoryMetricValuesCollectionRequest is request for UserExperienceAnalyticsMetric collection
 type UserExperienceAnalyticsCategoryMetricValuesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UserExperienceAnalyticsMetric collection
-func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserExperienceAnalyticsMetric, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UserExperienceAnalyticsMetric collection
 func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserExperienceAnalyticsMetric, error) {
@@ -131,6 +120,7 @@ func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Get() ([]
 }
 
 // Add performs POST request for UserExperienceAnalyticsMetric collection
-func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Add(reqObj *UserExperienceAnalyticsMetric) (*UserExperienceAnalyticsMetric, error) {
-	return r.Do("POST", "", reqObj)
+func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Add(reqObj *UserExperienceAnalyticsMetric) (resObj *UserExperienceAnalyticsMetric, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -40,12 +40,6 @@ func (b *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
-func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Do(method, path string, reqObj interface{}) (resObj *[]ImportedAppleDeviceIdentityResult, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Paging(method, path string, obj interface{}) ([][]ImportedAppleDeviceIdentityResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

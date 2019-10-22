@@ -15,24 +15,19 @@ func (b *ManagedAppProtectionRequestBuilder) Request() *ManagedAppProtectionRequ
 // ManagedAppProtectionRequest is request for ManagedAppProtection
 type ManagedAppProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedAppProtection
-func (r *ManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedAppProtection
-func (r *ManagedAppProtectionRequest) Get() (*ManagedAppProtection, error) {
+func (r *ManagedAppProtectionRequest) Get() (resObj *ManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedAppProtection
-func (r *ManagedAppProtectionRequest) Update(reqObj *ManagedAppProtection) (*ManagedAppProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedAppProtectionRequest) Update(reqObj *ManagedAppProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppProtection

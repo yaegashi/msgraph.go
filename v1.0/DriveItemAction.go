@@ -88,13 +88,8 @@ func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
 }
 
 //
-func (r *DriveItemCheckinRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DriveItemCheckinRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -119,13 +114,8 @@ func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
 }
 
 //
-func (r *DriveItemCheckoutRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DriveItemCheckoutRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -150,14 +140,9 @@ func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
 }
 
 //
-func (r *DriveItemCopyRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DriveItemCopyRequest) Post() (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DriveItemCopyRequest) Post() (*DriveItem, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -182,14 +167,9 @@ func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkReques
 }
 
 //
-func (r *DriveItemCreateLinkRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DriveItemCreateLinkRequest) Post() (resObj *Permission, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DriveItemCreateLinkRequest) Post() (*Permission, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -214,14 +194,9 @@ func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateU
 }
 
 //
-func (r *DriveItemCreateUploadSessionRequest) Do(method, path string, reqObj interface{}) (resObj *UploadSession, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DriveItemCreateUploadSessionRequest) Post() (resObj *UploadSession, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DriveItemCreateUploadSessionRequest) Post() (*UploadSession, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -243,12 +218,6 @@ func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
 	return &DriveItemInviteRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *DriveItemInviteRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -322,12 +291,7 @@ func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
 }
 
 //
-func (r *DriveItemPreviewRequest) Do(method, path string, reqObj interface{}) (resObj *ItemPreviewInfo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DriveItemPreviewRequest) Post() (resObj *ItemPreviewInfo, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DriveItemPreviewRequest) Post() (*ItemPreviewInfo, error) {
-	return r.Do("POST", "", r.requestObject)
 }

@@ -15,24 +15,19 @@ func (b *TeamsAppDefinitionRequestBuilder) Request() *TeamsAppDefinitionRequest 
 // TeamsAppDefinitionRequest is request for TeamsAppDefinition
 type TeamsAppDefinitionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TeamsAppDefinition
-func (r *TeamsAppDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TeamsAppDefinition
-func (r *TeamsAppDefinitionRequest) Get() (*TeamsAppDefinition, error) {
+func (r *TeamsAppDefinitionRequest) Get() (resObj *TeamsAppDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TeamsAppDefinition
-func (r *TeamsAppDefinitionRequest) Update(reqObj *TeamsAppDefinition) (*TeamsAppDefinition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TeamsAppDefinitionRequest) Update(reqObj *TeamsAppDefinition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsAppDefinition

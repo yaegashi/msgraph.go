@@ -15,24 +15,19 @@ func (b *FileClassificationRequestObjectRequestBuilder) Request() *FileClassific
 // FileClassificationRequestObjectRequest is request for FileClassificationRequestObject
 type FileClassificationRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for FileClassificationRequestObject
-func (r *FileClassificationRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *FileClassificationRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for FileClassificationRequestObject
-func (r *FileClassificationRequestObjectRequest) Get() (*FileClassificationRequestObject, error) {
+func (r *FileClassificationRequestObjectRequest) Get() (resObj *FileClassificationRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for FileClassificationRequestObject
-func (r *FileClassificationRequestObjectRequest) Update(reqObj *FileClassificationRequestObject) (*FileClassificationRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *FileClassificationRequestObjectRequest) Update(reqObj *FileClassificationRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FileClassificationRequestObject

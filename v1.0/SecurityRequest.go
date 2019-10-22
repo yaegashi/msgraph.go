@@ -23,24 +23,19 @@ func (b *SecurityRequestBuilder) Request() *SecurityRequest {
 // SecurityRequest is request for Security
 type SecurityRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Security
-func (r *SecurityRequest) Do(method, path string, reqObj interface{}) (resObj *Security, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Security
-func (r *SecurityRequest) Get() (*Security, error) {
+func (r *SecurityRequest) Get() (resObj *Security, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Security
-func (r *SecurityRequest) Update(reqObj *Security) (*Security, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityRequest) Update(reqObj *Security) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Security
@@ -74,12 +69,6 @@ func (b *SecurityAlertsCollectionRequestBuilder) ID(id string) *AlertRequestBuil
 
 // SecurityAlertsCollectionRequest is request for Alert collection
 type SecurityAlertsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Alert collection
-func (r *SecurityAlertsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Alert, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Alert collection
 func (r *SecurityAlertsCollectionRequest) Paging(method, path string, obj interface{}) ([]Alert, error) {
@@ -131,8 +120,9 @@ func (r *SecurityAlertsCollectionRequest) Get() ([]Alert, error) {
 }
 
 // Add performs POST request for Alert collection
-func (r *SecurityAlertsCollectionRequest) Add(reqObj *Alert) (*Alert, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SecurityAlertsCollectionRequest) Add(reqObj *Alert) (resObj *Alert, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SecureScoreControlProfiles returns request builder for SecureScoreControlProfile collection
@@ -161,12 +151,6 @@ func (b *SecuritySecureScoreControlProfilesCollectionRequestBuilder) ID(id strin
 
 // SecuritySecureScoreControlProfilesCollectionRequest is request for SecureScoreControlProfile collection
 type SecuritySecureScoreControlProfilesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SecureScoreControlProfile collection
-func (r *SecuritySecureScoreControlProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScoreControlProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SecureScoreControlProfile collection
 func (r *SecuritySecureScoreControlProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecureScoreControlProfile, error) {
@@ -218,8 +202,9 @@ func (r *SecuritySecureScoreControlProfilesCollectionRequest) Get() ([]SecureSco
 }
 
 // Add performs POST request for SecureScoreControlProfile collection
-func (r *SecuritySecureScoreControlProfilesCollectionRequest) Add(reqObj *SecureScoreControlProfile) (*SecureScoreControlProfile, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SecuritySecureScoreControlProfilesCollectionRequest) Add(reqObj *SecureScoreControlProfile) (resObj *SecureScoreControlProfile, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SecureScores returns request builder for SecureScore collection
@@ -248,12 +233,6 @@ func (b *SecuritySecureScoresCollectionRequestBuilder) ID(id string) *SecureScor
 
 // SecuritySecureScoresCollectionRequest is request for SecureScore collection
 type SecuritySecureScoresCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SecureScore collection
-func (r *SecuritySecureScoresCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecureScore, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SecureScore collection
 func (r *SecuritySecureScoresCollectionRequest) Paging(method, path string, obj interface{}) ([]SecureScore, error) {
@@ -305,6 +284,7 @@ func (r *SecuritySecureScoresCollectionRequest) Get() ([]SecureScore, error) {
 }
 
 // Add performs POST request for SecureScore collection
-func (r *SecuritySecureScoresCollectionRequest) Add(reqObj *SecureScore) (*SecureScore, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SecuritySecureScoresCollectionRequest) Add(reqObj *SecureScore) (resObj *SecureScore, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

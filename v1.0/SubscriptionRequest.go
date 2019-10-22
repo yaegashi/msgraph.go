@@ -15,24 +15,19 @@ func (b *SubscriptionRequestBuilder) Request() *SubscriptionRequest {
 // SubscriptionRequest is request for Subscription
 type SubscriptionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Subscription
-func (r *SubscriptionRequest) Do(method, path string, reqObj interface{}) (resObj *Subscription, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Subscription
-func (r *SubscriptionRequest) Get() (*Subscription, error) {
+func (r *SubscriptionRequest) Get() (resObj *Subscription, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Subscription
-func (r *SubscriptionRequest) Update(reqObj *Subscription) (*Subscription, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SubscriptionRequest) Update(reqObj *Subscription) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Subscription

@@ -23,24 +23,19 @@ func (b *IOSManagedAppProtectionRequestBuilder) Request() *IOSManagedAppProtecti
 // IOSManagedAppProtectionRequest is request for IOSManagedAppProtection
 type IOSManagedAppProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSManagedAppProtection
-func (r *IOSManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *IOSManagedAppProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSManagedAppProtection
-func (r *IOSManagedAppProtectionRequest) Get() (*IOSManagedAppProtection, error) {
+func (r *IOSManagedAppProtectionRequest) Get() (resObj *IOSManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSManagedAppProtection
-func (r *IOSManagedAppProtectionRequest) Update(reqObj *IOSManagedAppProtection) (*IOSManagedAppProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSManagedAppProtectionRequest) Update(reqObj *IOSManagedAppProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSManagedAppProtection
@@ -74,12 +69,6 @@ func (b *IOSManagedAppProtectionAppsCollectionRequestBuilder) ID(id string) *Man
 
 // IOSManagedAppProtectionAppsCollectionRequest is request for ManagedMobileApp collection
 type IOSManagedAppProtectionAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedMobileApp collection
-func (r *IOSManagedAppProtectionAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedMobileApp collection
 func (r *IOSManagedAppProtectionAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
@@ -131,8 +120,9 @@ func (r *IOSManagedAppProtectionAppsCollectionRequest) Get() ([]ManagedMobileApp
 }
 
 // Add performs POST request for ManagedMobileApp collection
-func (r *IOSManagedAppProtectionAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (*ManagedMobileApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSManagedAppProtectionAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeploymentSummary is navigation property

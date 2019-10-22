@@ -23,24 +23,19 @@ func (b *ItemActivityStatRequestBuilder) Request() *ItemActivityStatRequest {
 // ItemActivityStatRequest is request for ItemActivityStat
 type ItemActivityStatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ItemActivityStat
-func (r *ItemActivityStatRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityStat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ItemActivityStat
-func (r *ItemActivityStatRequest) Get() (*ItemActivityStat, error) {
+func (r *ItemActivityStatRequest) Get() (resObj *ItemActivityStat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ItemActivityStat
-func (r *ItemActivityStatRequest) Update(reqObj *ItemActivityStat) (*ItemActivityStat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ItemActivityStatRequest) Update(reqObj *ItemActivityStat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemActivityStat
@@ -74,12 +69,6 @@ func (b *ItemActivityStatActivitiesCollectionRequestBuilder) ID(id string) *Item
 
 // ItemActivityStatActivitiesCollectionRequest is request for ItemActivity collection
 type ItemActivityStatActivitiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ItemActivity collection
-func (r *ItemActivityStatActivitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ItemActivity collection
 func (r *ItemActivityStatActivitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemActivity, error) {
@@ -131,6 +120,7 @@ func (r *ItemActivityStatActivitiesCollectionRequest) Get() ([]ItemActivity, err
 }
 
 // Add performs POST request for ItemActivity collection
-func (r *ItemActivityStatActivitiesCollectionRequest) Add(reqObj *ItemActivity) (*ItemActivity, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ItemActivityStatActivitiesCollectionRequest) Add(reqObj *ItemActivity) (resObj *ItemActivity, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

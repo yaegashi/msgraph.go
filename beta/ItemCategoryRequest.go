@@ -15,24 +15,19 @@ func (b *ItemCategoryRequestBuilder) Request() *ItemCategoryRequest {
 // ItemCategoryRequest is request for ItemCategory
 type ItemCategoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ItemCategory
-func (r *ItemCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *ItemCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ItemCategory
-func (r *ItemCategoryRequest) Get() (*ItemCategory, error) {
+func (r *ItemCategoryRequest) Get() (resObj *ItemCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ItemCategory
-func (r *ItemCategoryRequest) Update(reqObj *ItemCategory) (*ItemCategory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ItemCategoryRequest) Update(reqObj *ItemCategory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemCategory

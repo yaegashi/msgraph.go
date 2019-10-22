@@ -23,24 +23,19 @@ func (b *DeviceRequestBuilder) Request() *DeviceRequest {
 // DeviceRequest is request for Device
 type DeviceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Device
-func (r *DeviceRequest) Do(method, path string, reqObj interface{}) (resObj *Device, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Device
-func (r *DeviceRequest) Get() (*Device, error) {
+func (r *DeviceRequest) Get() (resObj *Device, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Device
-func (r *DeviceRequest) Update(reqObj *Device) (*Device, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceRequest) Update(reqObj *Device) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Device
@@ -74,12 +69,6 @@ func (b *DeviceExtensionsCollectionRequestBuilder) ID(id string) *ExtensionReque
 
 // DeviceExtensionsCollectionRequest is request for Extension collection
 type DeviceExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Extension collection
-func (r *DeviceExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Extension collection
 func (r *DeviceExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
@@ -131,8 +120,9 @@ func (r *DeviceExtensionsCollectionRequest) Get() ([]Extension, error) {
 }
 
 // Add performs POST request for Extension collection
-func (r *DeviceExtensionsCollectionRequest) Add(reqObj *Extension) (*Extension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MemberOf returns request builder for DirectoryObject collection
@@ -161,12 +151,6 @@ func (b *DeviceMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObjectR
 
 // DeviceMemberOfCollectionRequest is request for DirectoryObject collection
 type DeviceMemberOfCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DeviceMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DeviceMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -218,8 +202,9 @@ func (r *DeviceMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DeviceMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RegisteredOwners returns request builder for DirectoryObject collection
@@ -248,12 +233,6 @@ func (b *DeviceRegisteredOwnersCollectionRequestBuilder) ID(id string) *Director
 
 // DeviceRegisteredOwnersCollectionRequest is request for DirectoryObject collection
 type DeviceRegisteredOwnersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DeviceRegisteredOwnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DeviceRegisteredOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -305,8 +284,9 @@ func (r *DeviceRegisteredOwnersCollectionRequest) Get() ([]DirectoryObject, erro
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DeviceRegisteredOwnersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceRegisteredOwnersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RegisteredUsers returns request builder for DirectoryObject collection
@@ -335,12 +315,6 @@ func (b *DeviceRegisteredUsersCollectionRequestBuilder) ID(id string) *Directory
 
 // DeviceRegisteredUsersCollectionRequest is request for DirectoryObject collection
 type DeviceRegisteredUsersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DeviceRegisteredUsersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DeviceRegisteredUsersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -392,8 +366,9 @@ func (r *DeviceRegisteredUsersCollectionRequest) Get() ([]DirectoryObject, error
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DeviceRegisteredUsersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceRegisteredUsersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TransitiveMemberOf returns request builder for DirectoryObject collection
@@ -422,12 +397,6 @@ func (b *DeviceTransitiveMemberOfCollectionRequestBuilder) ID(id string) *Direct
 
 // DeviceTransitiveMemberOfCollectionRequest is request for DirectoryObject collection
 type DeviceTransitiveMemberOfCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DeviceTransitiveMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DeviceTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -479,6 +448,7 @@ func (r *DeviceTransitiveMemberOfCollectionRequest) Get() ([]DirectoryObject, er
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DeviceTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

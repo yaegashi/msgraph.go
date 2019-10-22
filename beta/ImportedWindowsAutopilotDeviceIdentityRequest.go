@@ -15,24 +15,19 @@ func (b *ImportedWindowsAutopilotDeviceIdentityRequestBuilder) Request() *Import
 // ImportedWindowsAutopilotDeviceIdentityRequest is request for ImportedWindowsAutopilotDeviceIdentity
 type ImportedWindowsAutopilotDeviceIdentityRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ImportedWindowsAutopilotDeviceIdentity
-func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ImportedWindowsAutopilotDeviceIdentity
-func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Get() (*ImportedWindowsAutopilotDeviceIdentity, error) {
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Get() (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ImportedWindowsAutopilotDeviceIdentity
-func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Update(reqObj *ImportedWindowsAutopilotDeviceIdentity) (*ImportedWindowsAutopilotDeviceIdentity, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Update(reqObj *ImportedWindowsAutopilotDeviceIdentity) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImportedWindowsAutopilotDeviceIdentity

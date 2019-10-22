@@ -15,24 +15,19 @@ func (b *UsedInsightRequestBuilder) Request() *UsedInsightRequest {
 // UsedInsightRequest is request for UsedInsight
 type UsedInsightRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UsedInsight
-func (r *UsedInsightRequest) Do(method, path string, reqObj interface{}) (resObj *UsedInsight, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UsedInsight
-func (r *UsedInsightRequest) Get() (*UsedInsight, error) {
+func (r *UsedInsightRequest) Get() (resObj *UsedInsight, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UsedInsight
-func (r *UsedInsightRequest) Update(reqObj *UsedInsight) (*UsedInsight, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UsedInsightRequest) Update(reqObj *UsedInsight) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UsedInsight

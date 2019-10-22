@@ -44,12 +44,6 @@ func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleReques
 }
 
 //
-func (r *CalendarGetScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *[]ScheduleInformation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *CalendarGetScheduleRequest) Paging(method, path string, obj interface{}) ([][]ScheduleInformation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

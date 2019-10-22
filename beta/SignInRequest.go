@@ -15,24 +15,19 @@ func (b *SignInRequestBuilder) Request() *SignInRequest {
 // SignInRequest is request for SignIn
 type SignInRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SignIn
-func (r *SignInRequest) Do(method, path string, reqObj interface{}) (resObj *SignIn, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SignIn
-func (r *SignInRequest) Get() (*SignIn, error) {
+func (r *SignInRequest) Get() (resObj *SignIn, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SignIn
-func (r *SignInRequest) Update(reqObj *SignIn) (*SignIn, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SignInRequest) Update(reqObj *SignIn) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SignIn

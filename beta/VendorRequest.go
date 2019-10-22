@@ -23,24 +23,19 @@ func (b *VendorRequestBuilder) Request() *VendorRequest {
 // VendorRequest is request for Vendor
 type VendorRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Vendor
-func (r *VendorRequest) Do(method, path string, reqObj interface{}) (resObj *Vendor, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Vendor
-func (r *VendorRequest) Get() (*Vendor, error) {
+func (r *VendorRequest) Get() (resObj *Vendor, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Vendor
-func (r *VendorRequest) Update(reqObj *Vendor) (*Vendor, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *VendorRequest) Update(reqObj *Vendor) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Vendor
@@ -96,12 +91,6 @@ func (b *VendorPictureCollectionRequestBuilder) ID(id string) *PictureRequestBui
 // VendorPictureCollectionRequest is request for Picture collection
 type VendorPictureCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Picture collection
-func (r *VendorPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for Picture collection
 func (r *VendorPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,6 +141,7 @@ func (r *VendorPictureCollectionRequest) Get() ([]Picture, error) {
 }
 
 // Add performs POST request for Picture collection
-func (r *VendorPictureCollectionRequest) Add(reqObj *Picture) (*Picture, error) {
-	return r.Do("POST", "", reqObj)
+func (r *VendorPictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

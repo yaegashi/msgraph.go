@@ -23,24 +23,19 @@ func (b *OutlookTaskGroupRequestBuilder) Request() *OutlookTaskGroupRequest {
 // OutlookTaskGroupRequest is request for OutlookTaskGroup
 type OutlookTaskGroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OutlookTaskGroup
-func (r *OutlookTaskGroupRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OutlookTaskGroup
-func (r *OutlookTaskGroupRequest) Get() (*OutlookTaskGroup, error) {
+func (r *OutlookTaskGroupRequest) Get() (resObj *OutlookTaskGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OutlookTaskGroup
-func (r *OutlookTaskGroupRequest) Update(reqObj *OutlookTaskGroup) (*OutlookTaskGroup, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OutlookTaskGroupRequest) Update(reqObj *OutlookTaskGroup) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OutlookTaskGroup
@@ -74,12 +69,6 @@ func (b *OutlookTaskGroupTaskFoldersCollectionRequestBuilder) ID(id string) *Out
 
 // OutlookTaskGroupTaskFoldersCollectionRequest is request for OutlookTaskFolder collection
 type OutlookTaskGroupTaskFoldersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OutlookTaskFolder collection
-func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OutlookTaskFolder collection
 func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookTaskFolder, error) {
@@ -131,6 +120,7 @@ func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Get() ([]OutlookTaskFolde
 }
 
 // Add performs POST request for OutlookTaskFolder collection
-func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Add(reqObj *OutlookTaskFolder) (*OutlookTaskFolder, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Add(reqObj *OutlookTaskFolder) (resObj *OutlookTaskFolder, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

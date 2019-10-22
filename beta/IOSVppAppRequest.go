@@ -23,24 +23,19 @@ func (b *IOSVppAppRequestBuilder) Request() *IOSVppAppRequest {
 // IOSVppAppRequest is request for IOSVppApp
 type IOSVppAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSVppApp
-func (r *IOSVppAppRequest) Do(method, path string, reqObj interface{}) (resObj *IOSVppApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSVppApp
-func (r *IOSVppAppRequest) Get() (*IOSVppApp, error) {
+func (r *IOSVppAppRequest) Get() (resObj *IOSVppApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSVppApp
-func (r *IOSVppAppRequest) Update(reqObj *IOSVppApp) (*IOSVppApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSVppAppRequest) Update(reqObj *IOSVppApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSVppApp
@@ -74,12 +69,6 @@ func (b *IOSVppAppAssignedLicensesCollectionRequestBuilder) ID(id string) *IOSVp
 
 // IOSVppAppAssignedLicensesCollectionRequest is request for IOSVppAppAssignedLicense collection
 type IOSVppAppAssignedLicensesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for IOSVppAppAssignedLicense collection
-func (r *IOSVppAppAssignedLicensesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IOSVppAppAssignedLicense, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for IOSVppAppAssignedLicense collection
 func (r *IOSVppAppAssignedLicensesCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSVppAppAssignedLicense, error) {
@@ -131,6 +120,7 @@ func (r *IOSVppAppAssignedLicensesCollectionRequest) Get() ([]IOSVppAppAssignedL
 }
 
 // Add performs POST request for IOSVppAppAssignedLicense collection
-func (r *IOSVppAppAssignedLicensesCollectionRequest) Add(reqObj *IOSVppAppAssignedLicense) (*IOSVppAppAssignedLicense, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSVppAppAssignedLicensesCollectionRequest) Add(reqObj *IOSVppAppAssignedLicense) (resObj *IOSVppAppAssignedLicense, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

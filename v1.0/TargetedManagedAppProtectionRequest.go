@@ -23,24 +23,19 @@ func (b *TargetedManagedAppProtectionRequestBuilder) Request() *TargetedManagedA
 // TargetedManagedAppProtectionRequest is request for TargetedManagedAppProtection
 type TargetedManagedAppProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TargetedManagedAppProtection
-func (r *TargetedManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TargetedManagedAppProtection
-func (r *TargetedManagedAppProtectionRequest) Get() (*TargetedManagedAppProtection, error) {
+func (r *TargetedManagedAppProtectionRequest) Get() (resObj *TargetedManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TargetedManagedAppProtection
-func (r *TargetedManagedAppProtectionRequest) Update(reqObj *TargetedManagedAppProtection) (*TargetedManagedAppProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TargetedManagedAppProtectionRequest) Update(reqObj *TargetedManagedAppProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TargetedManagedAppProtection
@@ -74,12 +69,6 @@ func (b *TargetedManagedAppProtectionAssignmentsCollectionRequestBuilder) ID(id 
 
 // TargetedManagedAppProtectionAssignmentsCollectionRequest is request for TargetedManagedAppPolicyAssignment collection
 type TargetedManagedAppProtectionAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
 func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
@@ -131,6 +120,7 @@ func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Get() ([]Targ
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (*TargetedManagedAppPolicyAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -23,24 +23,19 @@ func (b *PublishedResourceRequestBuilder) Request() *PublishedResourceRequest {
 // PublishedResourceRequest is request for PublishedResource
 type PublishedResourceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PublishedResource
-func (r *PublishedResourceRequest) Do(method, path string, reqObj interface{}) (resObj *PublishedResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PublishedResource
-func (r *PublishedResourceRequest) Get() (*PublishedResource, error) {
+func (r *PublishedResourceRequest) Get() (resObj *PublishedResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PublishedResource
-func (r *PublishedResourceRequest) Update(reqObj *PublishedResource) (*PublishedResource, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PublishedResourceRequest) Update(reqObj *PublishedResource) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PublishedResource
@@ -74,12 +69,6 @@ func (b *PublishedResourceAgentGroupsCollectionRequestBuilder) ID(id string) *On
 
 // PublishedResourceAgentGroupsCollectionRequest is request for OnPremisesAgentGroup collection
 type PublishedResourceAgentGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnPremisesAgentGroup collection
-func (r *PublishedResourceAgentGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgentGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
 func (r *PublishedResourceAgentGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
@@ -131,6 +120,7 @@ func (r *PublishedResourceAgentGroupsCollectionRequest) Get() ([]OnPremisesAgent
 }
 
 // Add performs POST request for OnPremisesAgentGroup collection
-func (r *PublishedResourceAgentGroupsCollectionRequest) Add(reqObj *OnPremisesAgentGroup) (*OnPremisesAgentGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PublishedResourceAgentGroupsCollectionRequest) Add(reqObj *OnPremisesAgentGroup) (resObj *OnPremisesAgentGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

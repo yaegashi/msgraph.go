@@ -15,24 +15,19 @@ func (b *DomainSecurityProfileRequestBuilder) Request() *DomainSecurityProfileRe
 // DomainSecurityProfileRequest is request for DomainSecurityProfile
 type DomainSecurityProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DomainSecurityProfile
-func (r *DomainSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *DomainSecurityProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DomainSecurityProfile
-func (r *DomainSecurityProfileRequest) Get() (*DomainSecurityProfile, error) {
+func (r *DomainSecurityProfileRequest) Get() (resObj *DomainSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DomainSecurityProfile
-func (r *DomainSecurityProfileRequest) Update(reqObj *DomainSecurityProfile) (*DomainSecurityProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DomainSecurityProfileRequest) Update(reqObj *DomainSecurityProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DomainSecurityProfile

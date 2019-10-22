@@ -15,24 +15,19 @@ func (b *RoleAssignmentRequestBuilder) Request() *RoleAssignmentRequest {
 // RoleAssignmentRequest is request for RoleAssignment
 type RoleAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RoleAssignment
-func (r *RoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *RoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RoleAssignment
-func (r *RoleAssignmentRequest) Get() (*RoleAssignment, error) {
+func (r *RoleAssignmentRequest) Get() (resObj *RoleAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RoleAssignment
-func (r *RoleAssignmentRequest) Update(reqObj *RoleAssignment) (*RoleAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoleAssignmentRequest) Update(reqObj *RoleAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleAssignment

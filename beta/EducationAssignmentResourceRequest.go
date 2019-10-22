@@ -15,24 +15,19 @@ func (b *EducationAssignmentResourceRequestBuilder) Request() *EducationAssignme
 // EducationAssignmentResourceRequest is request for EducationAssignmentResource
 type EducationAssignmentResourceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationAssignmentResource
-func (r *EducationAssignmentResourceRequest) Do(method, path string, reqObj interface{}) (resObj *EducationAssignmentResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationAssignmentResource
-func (r *EducationAssignmentResourceRequest) Get() (*EducationAssignmentResource, error) {
+func (r *EducationAssignmentResourceRequest) Get() (resObj *EducationAssignmentResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationAssignmentResource
-func (r *EducationAssignmentResourceRequest) Update(reqObj *EducationAssignmentResource) (*EducationAssignmentResource, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationAssignmentResourceRequest) Update(reqObj *EducationAssignmentResource) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationAssignmentResource

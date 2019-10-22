@@ -23,24 +23,19 @@ func (b *ChannelRequestBuilder) Request() *ChannelRequest {
 // ChannelRequest is request for Channel
 type ChannelRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Channel
-func (r *ChannelRequest) Do(method, path string, reqObj interface{}) (resObj *Channel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Channel
-func (r *ChannelRequest) Get() (*Channel, error) {
+func (r *ChannelRequest) Get() (resObj *Channel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Channel
-func (r *ChannelRequest) Update(reqObj *Channel) (*Channel, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ChannelRequest) Update(reqObj *Channel) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Channel
@@ -74,12 +69,6 @@ func (b *ChannelChatThreadsCollectionRequestBuilder) ID(id string) *ChatThreadRe
 
 // ChannelChatThreadsCollectionRequest is request for ChatThread collection
 type ChannelChatThreadsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ChatThread collection
-func (r *ChannelChatThreadsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatThread, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ChatThread collection
 func (r *ChannelChatThreadsCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatThread, error) {
@@ -131,8 +120,9 @@ func (r *ChannelChatThreadsCollectionRequest) Get() ([]ChatThread, error) {
 }
 
 // Add performs POST request for ChatThread collection
-func (r *ChannelChatThreadsCollectionRequest) Add(reqObj *ChatThread) (*ChatThread, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChannelChatThreadsCollectionRequest) Add(reqObj *ChatThread) (resObj *ChatThread, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // FilesFolder is navigation property
@@ -168,12 +158,6 @@ func (b *ChannelMembersCollectionRequestBuilder) ID(id string) *ConversationMemb
 
 // ChannelMembersCollectionRequest is request for ConversationMember collection
 type ChannelMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ConversationMember collection
-func (r *ChannelMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationMember, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ConversationMember collection
 func (r *ChannelMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationMember, error) {
@@ -225,8 +209,9 @@ func (r *ChannelMembersCollectionRequest) Get() ([]ConversationMember, error) {
 }
 
 // Add performs POST request for ConversationMember collection
-func (r *ChannelMembersCollectionRequest) Add(reqObj *ConversationMember) (*ConversationMember, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChannelMembersCollectionRequest) Add(reqObj *ConversationMember) (resObj *ConversationMember, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Messages returns request builder for ChatMessage collection
@@ -255,12 +240,6 @@ func (b *ChannelMessagesCollectionRequestBuilder) ID(id string) *ChatMessageRequ
 
 // ChannelMessagesCollectionRequest is request for ChatMessage collection
 type ChannelMessagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ChatMessage collection
-func (r *ChannelMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ChatMessage collection
 func (r *ChannelMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
@@ -312,8 +291,9 @@ func (r *ChannelMessagesCollectionRequest) Get() ([]ChatMessage, error) {
 }
 
 // Add performs POST request for ChatMessage collection
-func (r *ChannelMessagesCollectionRequest) Add(reqObj *ChatMessage) (*ChatMessage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChannelMessagesCollectionRequest) Add(reqObj *ChatMessage) (resObj *ChatMessage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Tabs returns request builder for TeamsTab collection
@@ -342,12 +322,6 @@ func (b *ChannelTabsCollectionRequestBuilder) ID(id string) *TeamsTabRequestBuil
 
 // ChannelTabsCollectionRequest is request for TeamsTab collection
 type ChannelTabsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTab, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsTab collection
 func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsTab, error) {
@@ -399,6 +373,7 @@ func (r *ChannelTabsCollectionRequest) Get() ([]TeamsTab, error) {
 }
 
 // Add performs POST request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Add(reqObj *TeamsTab) (*TeamsTab, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChannelTabsCollectionRequest) Add(reqObj *TeamsTab) (resObj *TeamsTab, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

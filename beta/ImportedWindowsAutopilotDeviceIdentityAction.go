@@ -46,12 +46,6 @@ func (b *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequestBuilder) R
 }
 
 //
-func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Do(method, path string, reqObj interface{}) (resObj *[]ImportedWindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(method, path string, obj interface{}) ([][]ImportedWindowsAutopilotDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

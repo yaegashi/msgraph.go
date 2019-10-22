@@ -15,24 +15,19 @@ func (b *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder) Request() 
 // AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest is request for AndroidDeviceOwnerEnterpriseWiFiConfiguration
 type AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidDeviceOwnerEnterpriseWiFiConfiguration
-func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidDeviceOwnerEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidDeviceOwnerEnterpriseWiFiConfiguration
-func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Get() (*AndroidDeviceOwnerEnterpriseWiFiConfiguration, error) {
+func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Get() (resObj *AndroidDeviceOwnerEnterpriseWiFiConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidDeviceOwnerEnterpriseWiFiConfiguration
-func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Update(reqObj *AndroidDeviceOwnerEnterpriseWiFiConfiguration) (*AndroidDeviceOwnerEnterpriseWiFiConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequest) Update(reqObj *AndroidDeviceOwnerEnterpriseWiFiConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidDeviceOwnerEnterpriseWiFiConfiguration

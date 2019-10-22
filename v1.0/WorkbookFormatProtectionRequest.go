@@ -15,24 +15,19 @@ func (b *WorkbookFormatProtectionRequestBuilder) Request() *WorkbookFormatProtec
 // WorkbookFormatProtectionRequest is request for WorkbookFormatProtection
 type WorkbookFormatProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookFormatProtection
-func (r *WorkbookFormatProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookFormatProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookFormatProtection
-func (r *WorkbookFormatProtectionRequest) Get() (*WorkbookFormatProtection, error) {
+func (r *WorkbookFormatProtectionRequest) Get() (resObj *WorkbookFormatProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookFormatProtection
-func (r *WorkbookFormatProtectionRequest) Update(reqObj *WorkbookFormatProtection) (*WorkbookFormatProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookFormatProtectionRequest) Update(reqObj *WorkbookFormatProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookFormatProtection

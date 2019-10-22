@@ -23,24 +23,19 @@ func (b *DirectoryRoleRequestBuilder) Request() *DirectoryRoleRequest {
 // DirectoryRoleRequest is request for DirectoryRole
 type DirectoryRoleRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DirectoryRole
-func (r *DirectoryRoleRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DirectoryRole
-func (r *DirectoryRoleRequest) Get() (*DirectoryRole, error) {
+func (r *DirectoryRoleRequest) Get() (resObj *DirectoryRole, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DirectoryRole
-func (r *DirectoryRoleRequest) Update(reqObj *DirectoryRole) (*DirectoryRole, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DirectoryRoleRequest) Update(reqObj *DirectoryRole) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryRole
@@ -74,12 +69,6 @@ func (b *DirectoryRoleMembersCollectionRequestBuilder) ID(id string) *DirectoryO
 
 // DirectoryRoleMembersCollectionRequest is request for DirectoryObject collection
 type DirectoryRoleMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DirectoryRoleMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,6 +120,7 @@ func (r *DirectoryRoleMembersCollectionRequest) Get() ([]DirectoryObject, error)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DirectoryRoleMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

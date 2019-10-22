@@ -23,24 +23,19 @@ func (b *SiteRequestBuilder) Request() *SiteRequest {
 // SiteRequest is request for Site
 type SiteRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Site
-func (r *SiteRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Site
-func (r *SiteRequest) Get() (*Site, error) {
+func (r *SiteRequest) Get() (resObj *Site, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Site
-func (r *SiteRequest) Update(reqObj *Site) (*Site, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SiteRequest) Update(reqObj *Site) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Site
@@ -81,12 +76,6 @@ func (b *SiteColumnsCollectionRequestBuilder) ID(id string) *ColumnDefinitionReq
 
 // SiteColumnsCollectionRequest is request for ColumnDefinition collection
 type SiteColumnsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ColumnDefinition collection
-func (r *SiteColumnsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ColumnDefinition collection
 func (r *SiteColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnDefinition, error) {
@@ -138,8 +127,9 @@ func (r *SiteColumnsCollectionRequest) Get() ([]ColumnDefinition, error) {
 }
 
 // Add performs POST request for ColumnDefinition collection
-func (r *SiteColumnsCollectionRequest) Add(reqObj *ColumnDefinition) (*ColumnDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SiteColumnsCollectionRequest) Add(reqObj *ColumnDefinition) (resObj *ColumnDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ContentTypes returns request builder for ContentType collection
@@ -168,12 +158,6 @@ func (b *SiteContentTypesCollectionRequestBuilder) ID(id string) *ContentTypeReq
 
 // SiteContentTypesCollectionRequest is request for ContentType collection
 type SiteContentTypesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ContentType collection
-func (r *SiteContentTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ContentType, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ContentType collection
 func (r *SiteContentTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]ContentType, error) {
@@ -225,8 +209,9 @@ func (r *SiteContentTypesCollectionRequest) Get() ([]ContentType, error) {
 }
 
 // Add performs POST request for ContentType collection
-func (r *SiteContentTypesCollectionRequest) Add(reqObj *ContentType) (*ContentType, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SiteContentTypesCollectionRequest) Add(reqObj *ContentType) (resObj *ContentType, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Drive is navigation property
@@ -262,12 +247,6 @@ func (b *SiteDrivesCollectionRequestBuilder) ID(id string) *DriveRequestBuilder 
 
 // SiteDrivesCollectionRequest is request for Drive collection
 type SiteDrivesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Drive collection
-func (r *SiteDrivesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Drive, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Drive collection
 func (r *SiteDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
@@ -319,8 +298,9 @@ func (r *SiteDrivesCollectionRequest) Get() ([]Drive, error) {
 }
 
 // Add performs POST request for Drive collection
-func (r *SiteDrivesCollectionRequest) Add(reqObj *Drive) (*Drive, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SiteDrivesCollectionRequest) Add(reqObj *Drive) (resObj *Drive, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Items returns request builder for BaseItem collection
@@ -349,12 +329,6 @@ func (b *SiteItemsCollectionRequestBuilder) ID(id string) *BaseItemRequestBuilde
 
 // SiteItemsCollectionRequest is request for BaseItem collection
 type SiteItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BaseItem collection
-func (r *SiteItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BaseItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BaseItem collection
 func (r *SiteItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]BaseItem, error) {
@@ -406,8 +380,9 @@ func (r *SiteItemsCollectionRequest) Get() ([]BaseItem, error) {
 }
 
 // Add performs POST request for BaseItem collection
-func (r *SiteItemsCollectionRequest) Add(reqObj *BaseItem) (*BaseItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SiteItemsCollectionRequest) Add(reqObj *BaseItem) (resObj *BaseItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Lists returns request builder for List collection
@@ -436,12 +411,6 @@ func (b *SiteListsCollectionRequestBuilder) ID(id string) *ListRequestBuilder {
 
 // SiteListsCollectionRequest is request for List collection
 type SiteListsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for List collection
-func (r *SiteListsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *List, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for List collection
 func (r *SiteListsCollectionRequest) Paging(method, path string, obj interface{}) ([]List, error) {
@@ -493,8 +462,9 @@ func (r *SiteListsCollectionRequest) Get() ([]List, error) {
 }
 
 // Add performs POST request for List collection
-func (r *SiteListsCollectionRequest) Add(reqObj *List) (*List, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SiteListsCollectionRequest) Add(reqObj *List) (resObj *List, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Onenote is navigation property
@@ -530,12 +500,6 @@ func (b *SiteSitesCollectionRequestBuilder) ID(id string) *SiteRequestBuilder {
 
 // SiteSitesCollectionRequest is request for Site collection
 type SiteSitesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Site collection
-func (r *SiteSitesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Site collection
 func (r *SiteSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
@@ -587,6 +551,7 @@ func (r *SiteSitesCollectionRequest) Get() ([]Site, error) {
 }
 
 // Add performs POST request for Site collection
-func (r *SiteSitesCollectionRequest) Add(reqObj *Site) (*Site, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SiteSitesCollectionRequest) Add(reqObj *Site) (resObj *Site, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

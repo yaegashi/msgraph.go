@@ -23,24 +23,19 @@ func (b *ImportedWindowsAutopilotDeviceIdentityUploadRequestBuilder) Request() *
 // ImportedWindowsAutopilotDeviceIdentityUploadRequest is request for ImportedWindowsAutopilotDeviceIdentityUpload
 type ImportedWindowsAutopilotDeviceIdentityUploadRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ImportedWindowsAutopilotDeviceIdentityUpload
-func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedWindowsAutopilotDeviceIdentityUpload, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ImportedWindowsAutopilotDeviceIdentityUpload
-func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Get() (*ImportedWindowsAutopilotDeviceIdentityUpload, error) {
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Get() (resObj *ImportedWindowsAutopilotDeviceIdentityUpload, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ImportedWindowsAutopilotDeviceIdentityUpload
-func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Update(reqObj *ImportedWindowsAutopilotDeviceIdentityUpload) (*ImportedWindowsAutopilotDeviceIdentityUpload, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadRequest) Update(reqObj *ImportedWindowsAutopilotDeviceIdentityUpload) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImportedWindowsAutopilotDeviceIdentityUpload
@@ -74,12 +69,6 @@ func (b *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionR
 
 // ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest is request for ImportedWindowsAutopilotDeviceIdentity collection
 type ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ImportedWindowsAutopilotDeviceIdentity collection
-func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ImportedWindowsAutopilotDeviceIdentity collection
 func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
@@ -131,6 +120,7 @@ func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionR
 }
 
 // Add performs POST request for ImportedWindowsAutopilotDeviceIdentity collection
-func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) Add(reqObj *ImportedWindowsAutopilotDeviceIdentity) (*ImportedWindowsAutopilotDeviceIdentity, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ImportedWindowsAutopilotDeviceIdentityUploadDeviceIdentitiesCollectionRequest) Add(reqObj *ImportedWindowsAutopilotDeviceIdentity) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

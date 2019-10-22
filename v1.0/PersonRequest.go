@@ -15,24 +15,19 @@ func (b *PersonRequestBuilder) Request() *PersonRequest {
 // PersonRequest is request for Person
 type PersonRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Person
-func (r *PersonRequest) Do(method, path string, reqObj interface{}) (resObj *Person, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Person
-func (r *PersonRequest) Get() (*Person, error) {
+func (r *PersonRequest) Get() (resObj *Person, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Person
-func (r *PersonRequest) Update(reqObj *Person) (*Person, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PersonRequest) Update(reqObj *Person) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Person

@@ -36,13 +36,8 @@ func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *Devi
 }
 
 //
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -67,11 +62,6 @@ func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnr
 }
 
 //
-func (r *DeviceEnrollmentConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

@@ -23,24 +23,19 @@ func (b *MobileAppRequestBuilder) Request() *MobileAppRequest {
 // MobileAppRequest is request for MobileApp
 type MobileAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileApp
-func (r *MobileAppRequest) Do(method, path string, reqObj interface{}) (resObj *MobileApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileApp
-func (r *MobileAppRequest) Get() (*MobileApp, error) {
+func (r *MobileAppRequest) Get() (resObj *MobileApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileApp
-func (r *MobileAppRequest) Update(reqObj *MobileApp) (*MobileApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppRequest) Update(reqObj *MobileApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileApp
@@ -74,12 +69,6 @@ func (b *MobileAppAssignmentsCollectionRequestBuilder) ID(id string) *MobileAppA
 
 // MobileAppAssignmentsCollectionRequest is request for MobileAppAssignment collection
 type MobileAppAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppAssignment collection
-func (r *MobileAppAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppAssignment collection
 func (r *MobileAppAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppAssignment, error) {
@@ -131,8 +120,9 @@ func (r *MobileAppAssignmentsCollectionRequest) Get() ([]MobileAppAssignment, er
 }
 
 // Add performs POST request for MobileAppAssignment collection
-func (r *MobileAppAssignmentsCollectionRequest) Add(reqObj *MobileAppAssignment) (*MobileAppAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppAssignmentsCollectionRequest) Add(reqObj *MobileAppAssignment) (resObj *MobileAppAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Categories returns request builder for MobileAppCategory collection
@@ -161,12 +151,6 @@ func (b *MobileAppCategoriesCollectionRequestBuilder) ID(id string) *MobileAppCa
 
 // MobileAppCategoriesCollectionRequest is request for MobileAppCategory collection
 type MobileAppCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppCategory collection
-func (r *MobileAppCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppCategory collection
 func (r *MobileAppCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppCategory, error) {
@@ -218,6 +202,7 @@ func (r *MobileAppCategoriesCollectionRequest) Get() ([]MobileAppCategory, error
 }
 
 // Add performs POST request for MobileAppCategory collection
-func (r *MobileAppCategoriesCollectionRequest) Add(reqObj *MobileAppCategory) (*MobileAppCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppCategoriesCollectionRequest) Add(reqObj *MobileAppCategory) (resObj *MobileAppCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

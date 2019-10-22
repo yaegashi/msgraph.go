@@ -15,24 +15,19 @@ func (b *AgreementFileRequestBuilder) Request() *AgreementFileRequest {
 // AgreementFileRequest is request for AgreementFile
 type AgreementFileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AgreementFile
-func (r *AgreementFileRequest) Do(method, path string, reqObj interface{}) (resObj *AgreementFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AgreementFile
-func (r *AgreementFileRequest) Get() (*AgreementFile, error) {
+func (r *AgreementFileRequest) Get() (resObj *AgreementFile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AgreementFile
-func (r *AgreementFileRequest) Update(reqObj *AgreementFile) (*AgreementFile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AgreementFileRequest) Update(reqObj *AgreementFile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AgreementFile

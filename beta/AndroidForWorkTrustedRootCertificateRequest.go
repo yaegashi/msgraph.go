@@ -15,24 +15,19 @@ func (b *AndroidForWorkTrustedRootCertificateRequestBuilder) Request() *AndroidF
 // AndroidForWorkTrustedRootCertificateRequest is request for AndroidForWorkTrustedRootCertificate
 type AndroidForWorkTrustedRootCertificateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidForWorkTrustedRootCertificate
-func (r *AndroidForWorkTrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkTrustedRootCertificate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidForWorkTrustedRootCertificate
-func (r *AndroidForWorkTrustedRootCertificateRequest) Get() (*AndroidForWorkTrustedRootCertificate, error) {
+func (r *AndroidForWorkTrustedRootCertificateRequest) Get() (resObj *AndroidForWorkTrustedRootCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidForWorkTrustedRootCertificate
-func (r *AndroidForWorkTrustedRootCertificateRequest) Update(reqObj *AndroidForWorkTrustedRootCertificate) (*AndroidForWorkTrustedRootCertificate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidForWorkTrustedRootCertificateRequest) Update(reqObj *AndroidForWorkTrustedRootCertificate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkTrustedRootCertificate

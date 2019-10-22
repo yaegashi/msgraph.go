@@ -56,12 +56,6 @@ func (b *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Do(method, path string, reqObj interface{}) (resObj *[]TiIndicator, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(method, path string, obj interface{}) ([][]TiIndicator, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -129,12 +123,6 @@ func (b *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder) Request() *TiInd
 	return &TiIndicatorCollectionUpdateTiIndicatorsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Do(method, path string, reqObj interface{}) (resObj *[]TiIndicator, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -208,12 +196,6 @@ func (b *TiIndicatorCollectionDeleteTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Do(method, path string, reqObj interface{}) (resObj *[]ResultInfo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(method, path string, obj interface{}) ([][]ResultInfo, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -281,12 +263,6 @@ func (b *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequestBuilder) Requ
 	return &TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Do(method, path string, reqObj interface{}) (resObj *[]ResultInfo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //

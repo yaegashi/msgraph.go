@@ -15,24 +15,19 @@ func (b *WindowsUpdateStateRequestBuilder) Request() *WindowsUpdateStateRequest 
 // WindowsUpdateStateRequest is request for WindowsUpdateState
 type WindowsUpdateStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsUpdateState
-func (r *WindowsUpdateStateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsUpdateState
-func (r *WindowsUpdateStateRequest) Get() (*WindowsUpdateState, error) {
+func (r *WindowsUpdateStateRequest) Get() (resObj *WindowsUpdateState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsUpdateState
-func (r *WindowsUpdateStateRequest) Update(reqObj *WindowsUpdateState) (*WindowsUpdateState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsUpdateStateRequest) Update(reqObj *WindowsUpdateState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsUpdateState

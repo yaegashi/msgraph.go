@@ -15,24 +15,19 @@ func (b *PermissionRequestBuilder) Request() *PermissionRequest {
 // PermissionRequest is request for Permission
 type PermissionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Permission
-func (r *PermissionRequest) Do(method, path string, reqObj interface{}) (resObj *Permission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Permission
-func (r *PermissionRequest) Get() (*Permission, error) {
+func (r *PermissionRequest) Get() (resObj *Permission, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Permission
-func (r *PermissionRequest) Update(reqObj *Permission) (*Permission, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PermissionRequest) Update(reqObj *Permission) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Permission

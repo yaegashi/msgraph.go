@@ -15,24 +15,19 @@ func (b *RoleManagementRequestBuilder) Request() *RoleManagementRequest {
 // RoleManagementRequest is request for RoleManagement
 type RoleManagementRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RoleManagement
-func (r *RoleManagementRequest) Do(method, path string, reqObj interface{}) (resObj *RoleManagement, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RoleManagement
-func (r *RoleManagementRequest) Get() (*RoleManagement, error) {
+func (r *RoleManagementRequest) Get() (resObj *RoleManagement, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RoleManagement
-func (r *RoleManagementRequest) Update(reqObj *RoleManagement) (*RoleManagement, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoleManagementRequest) Update(reqObj *RoleManagement) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleManagement

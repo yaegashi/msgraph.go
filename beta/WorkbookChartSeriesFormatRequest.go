@@ -15,24 +15,19 @@ func (b *WorkbookChartSeriesFormatRequestBuilder) Request() *WorkbookChartSeries
 // WorkbookChartSeriesFormatRequest is request for WorkbookChartSeriesFormat
 type WorkbookChartSeriesFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartSeriesFormat
-func (r *WorkbookChartSeriesFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartSeriesFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartSeriesFormat
-func (r *WorkbookChartSeriesFormatRequest) Get() (*WorkbookChartSeriesFormat, error) {
+func (r *WorkbookChartSeriesFormatRequest) Get() (resObj *WorkbookChartSeriesFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartSeriesFormat
-func (r *WorkbookChartSeriesFormatRequest) Update(reqObj *WorkbookChartSeriesFormat) (*WorkbookChartSeriesFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartSeriesFormatRequest) Update(reqObj *WorkbookChartSeriesFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartSeriesFormat

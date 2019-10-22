@@ -15,24 +15,19 @@ func (b *ApplicationSignInDetailedSummaryRequestBuilder) Request() *ApplicationS
 // ApplicationSignInDetailedSummaryRequest is request for ApplicationSignInDetailedSummary
 type ApplicationSignInDetailedSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ApplicationSignInDetailedSummary
-func (r *ApplicationSignInDetailedSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationSignInDetailedSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ApplicationSignInDetailedSummary
-func (r *ApplicationSignInDetailedSummaryRequest) Get() (*ApplicationSignInDetailedSummary, error) {
+func (r *ApplicationSignInDetailedSummaryRequest) Get() (resObj *ApplicationSignInDetailedSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ApplicationSignInDetailedSummary
-func (r *ApplicationSignInDetailedSummaryRequest) Update(reqObj *ApplicationSignInDetailedSummary) (*ApplicationSignInDetailedSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ApplicationSignInDetailedSummaryRequest) Update(reqObj *ApplicationSignInDetailedSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ApplicationSignInDetailedSummary

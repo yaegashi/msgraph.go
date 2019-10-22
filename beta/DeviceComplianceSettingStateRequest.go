@@ -15,24 +15,19 @@ func (b *DeviceComplianceSettingStateRequestBuilder) Request() *DeviceCompliance
 // DeviceComplianceSettingStateRequest is request for DeviceComplianceSettingState
 type DeviceComplianceSettingStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceComplianceSettingState
-func (r *DeviceComplianceSettingStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceSettingState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceComplianceSettingState
-func (r *DeviceComplianceSettingStateRequest) Get() (*DeviceComplianceSettingState, error) {
+func (r *DeviceComplianceSettingStateRequest) Get() (resObj *DeviceComplianceSettingState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceComplianceSettingState
-func (r *DeviceComplianceSettingStateRequest) Update(reqObj *DeviceComplianceSettingState) (*DeviceComplianceSettingState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceComplianceSettingStateRequest) Update(reqObj *DeviceComplianceSettingState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceSettingState

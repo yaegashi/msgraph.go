@@ -15,24 +15,19 @@ func (b *AndroidWorkProfileVpnConfigurationRequestBuilder) Request() *AndroidWor
 // AndroidWorkProfileVpnConfigurationRequest is request for AndroidWorkProfileVpnConfiguration
 type AndroidWorkProfileVpnConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidWorkProfileVpnConfiguration
-func (r *AndroidWorkProfileVpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidWorkProfileVpnConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidWorkProfileVpnConfiguration
-func (r *AndroidWorkProfileVpnConfigurationRequest) Get() (*AndroidWorkProfileVpnConfiguration, error) {
+func (r *AndroidWorkProfileVpnConfigurationRequest) Get() (resObj *AndroidWorkProfileVpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidWorkProfileVpnConfiguration
-func (r *AndroidWorkProfileVpnConfigurationRequest) Update(reqObj *AndroidWorkProfileVpnConfiguration) (*AndroidWorkProfileVpnConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidWorkProfileVpnConfigurationRequest) Update(reqObj *AndroidWorkProfileVpnConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidWorkProfileVpnConfiguration

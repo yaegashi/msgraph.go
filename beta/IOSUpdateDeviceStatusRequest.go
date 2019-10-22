@@ -15,24 +15,19 @@ func (b *IOSUpdateDeviceStatusRequestBuilder) Request() *IOSUpdateDeviceStatusRe
 // IOSUpdateDeviceStatusRequest is request for IOSUpdateDeviceStatus
 type IOSUpdateDeviceStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSUpdateDeviceStatus
-func (r *IOSUpdateDeviceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *IOSUpdateDeviceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSUpdateDeviceStatus
-func (r *IOSUpdateDeviceStatusRequest) Get() (*IOSUpdateDeviceStatus, error) {
+func (r *IOSUpdateDeviceStatusRequest) Get() (resObj *IOSUpdateDeviceStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSUpdateDeviceStatus
-func (r *IOSUpdateDeviceStatusRequest) Update(reqObj *IOSUpdateDeviceStatus) (*IOSUpdateDeviceStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSUpdateDeviceStatusRequest) Update(reqObj *IOSUpdateDeviceStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSUpdateDeviceStatus

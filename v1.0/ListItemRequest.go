@@ -23,24 +23,19 @@ func (b *ListItemRequestBuilder) Request() *ListItemRequest {
 // ListItemRequest is request for ListItem
 type ListItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ListItem
-func (r *ListItemRequest) Do(method, path string, reqObj interface{}) (resObj *ListItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ListItem
-func (r *ListItemRequest) Get() (*ListItem, error) {
+func (r *ListItemRequest) Get() (resObj *ListItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ListItem
-func (r *ListItemRequest) Update(reqObj *ListItem) (*ListItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ListItemRequest) Update(reqObj *ListItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ListItem
@@ -96,12 +91,6 @@ func (b *ListItemVersionsCollectionRequestBuilder) ID(id string) *ListItemVersio
 // ListItemVersionsCollectionRequest is request for ListItemVersion collection
 type ListItemVersionsCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ListItemVersion collection
-func (r *ListItemVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ListItemVersion, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for ListItemVersion collection
 func (r *ListItemVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]ListItemVersion, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,6 +141,7 @@ func (r *ListItemVersionsCollectionRequest) Get() ([]ListItemVersion, error) {
 }
 
 // Add performs POST request for ListItemVersion collection
-func (r *ListItemVersionsCollectionRequest) Add(reqObj *ListItemVersion) (*ListItemVersion, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ListItemVersionsCollectionRequest) Add(reqObj *ListItemVersion) (resObj *ListItemVersion, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

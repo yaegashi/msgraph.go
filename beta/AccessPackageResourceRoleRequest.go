@@ -15,24 +15,19 @@ func (b *AccessPackageResourceRoleRequestBuilder) Request() *AccessPackageResour
 // AccessPackageResourceRoleRequest is request for AccessPackageResourceRole
 type AccessPackageResourceRoleRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageResourceRole
-func (r *AccessPackageResourceRoleRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageResourceRole
-func (r *AccessPackageResourceRoleRequest) Get() (*AccessPackageResourceRole, error) {
+func (r *AccessPackageResourceRoleRequest) Get() (resObj *AccessPackageResourceRole, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageResourceRole
-func (r *AccessPackageResourceRoleRequest) Update(reqObj *AccessPackageResourceRole) (*AccessPackageResourceRole, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageResourceRoleRequest) Update(reqObj *AccessPackageResourceRole) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageResourceRole

@@ -15,24 +15,19 @@ func (b *DeviceConfigurationDeviceStateSummaryRequestBuilder) Request() *DeviceC
 // DeviceConfigurationDeviceStateSummaryRequest is request for DeviceConfigurationDeviceStateSummary
 type DeviceConfigurationDeviceStateSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceConfigurationDeviceStateSummary
-func (r *DeviceConfigurationDeviceStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationDeviceStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceConfigurationDeviceStateSummary
-func (r *DeviceConfigurationDeviceStateSummaryRequest) Get() (*DeviceConfigurationDeviceStateSummary, error) {
+func (r *DeviceConfigurationDeviceStateSummaryRequest) Get() (resObj *DeviceConfigurationDeviceStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceConfigurationDeviceStateSummary
-func (r *DeviceConfigurationDeviceStateSummaryRequest) Update(reqObj *DeviceConfigurationDeviceStateSummary) (*DeviceConfigurationDeviceStateSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceConfigurationDeviceStateSummaryRequest) Update(reqObj *DeviceConfigurationDeviceStateSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceConfigurationDeviceStateSummary

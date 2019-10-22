@@ -15,24 +15,19 @@ func (b *ProviderTenantSettingRequestBuilder) Request() *ProviderTenantSettingRe
 // ProviderTenantSettingRequest is request for ProviderTenantSetting
 type ProviderTenantSettingRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ProviderTenantSetting
-func (r *ProviderTenantSettingRequest) Do(method, path string, reqObj interface{}) (resObj *ProviderTenantSetting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ProviderTenantSetting
-func (r *ProviderTenantSettingRequest) Get() (*ProviderTenantSetting, error) {
+func (r *ProviderTenantSettingRequest) Get() (resObj *ProviderTenantSetting, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ProviderTenantSetting
-func (r *ProviderTenantSettingRequest) Update(reqObj *ProviderTenantSetting) (*ProviderTenantSetting, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ProviderTenantSettingRequest) Update(reqObj *ProviderTenantSetting) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ProviderTenantSetting

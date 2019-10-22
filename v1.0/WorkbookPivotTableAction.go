@@ -32,13 +32,8 @@ func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *Workbo
 }
 
 //
-func (r *WorkbookPivotTableCollectionRefreshAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -63,11 +58,6 @@ func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableR
 }
 
 //
-func (r *WorkbookPivotTableRefreshRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookPivotTableRefreshRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

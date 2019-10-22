@@ -15,24 +15,19 @@ func (b *TimeOffReasonRequestBuilder) Request() *TimeOffReasonRequest {
 // TimeOffReasonRequest is request for TimeOffReason
 type TimeOffReasonRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TimeOffReason
-func (r *TimeOffReasonRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffReason, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TimeOffReason
-func (r *TimeOffReasonRequest) Get() (*TimeOffReason, error) {
+func (r *TimeOffReasonRequest) Get() (resObj *TimeOffReason, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TimeOffReason
-func (r *TimeOffReasonRequest) Update(reqObj *TimeOffReason) (*TimeOffReason, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TimeOffReasonRequest) Update(reqObj *TimeOffReason) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TimeOffReason

@@ -15,24 +15,19 @@ func (b *EducationSynchronizationProfileStatusRequestBuilder) Request() *Educati
 // EducationSynchronizationProfileStatusRequest is request for EducationSynchronizationProfileStatus
 type EducationSynchronizationProfileStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationSynchronizationProfileStatus
-func (r *EducationSynchronizationProfileStatusRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationProfileStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationSynchronizationProfileStatus
-func (r *EducationSynchronizationProfileStatusRequest) Get() (*EducationSynchronizationProfileStatus, error) {
+func (r *EducationSynchronizationProfileStatusRequest) Get() (resObj *EducationSynchronizationProfileStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationSynchronizationProfileStatus
-func (r *EducationSynchronizationProfileStatusRequest) Update(reqObj *EducationSynchronizationProfileStatus) (*EducationSynchronizationProfileStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationSynchronizationProfileStatusRequest) Update(reqObj *EducationSynchronizationProfileStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSynchronizationProfileStatus

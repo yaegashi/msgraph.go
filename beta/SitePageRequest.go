@@ -15,24 +15,19 @@ func (b *SitePageRequestBuilder) Request() *SitePageRequest {
 // SitePageRequest is request for SitePage
 type SitePageRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SitePage
-func (r *SitePageRequest) Do(method, path string, reqObj interface{}) (resObj *SitePage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SitePage
-func (r *SitePageRequest) Get() (*SitePage, error) {
+func (r *SitePageRequest) Get() (resObj *SitePage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SitePage
-func (r *SitePageRequest) Update(reqObj *SitePage) (*SitePage, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SitePageRequest) Update(reqObj *SitePage) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SitePage

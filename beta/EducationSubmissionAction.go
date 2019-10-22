@@ -36,14 +36,9 @@ func (b *EducationSubmissionReturnRequestBuilder) Request() *EducationSubmission
 }
 
 //
-func (r *EducationSubmissionReturnRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *EducationSubmissionReturnRequest) Post() (resObj *EducationSubmission, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *EducationSubmissionReturnRequest) Post() (*EducationSubmission, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -68,14 +63,9 @@ func (b *EducationSubmissionSubmitRequestBuilder) Request() *EducationSubmission
 }
 
 //
-func (r *EducationSubmissionSubmitRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *EducationSubmissionSubmitRequest) Post() (resObj *EducationSubmission, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *EducationSubmissionSubmitRequest) Post() (*EducationSubmission, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -100,12 +90,7 @@ func (b *EducationSubmissionUnsubmitRequestBuilder) Request() *EducationSubmissi
 }
 
 //
-func (r *EducationSubmissionUnsubmitRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *EducationSubmissionUnsubmitRequest) Post() (resObj *EducationSubmission, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *EducationSubmissionUnsubmitRequest) Post() (*EducationSubmission, error) {
-	return r.Do("POST", "", r.requestObject)
 }

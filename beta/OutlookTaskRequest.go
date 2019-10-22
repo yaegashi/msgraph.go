@@ -23,24 +23,19 @@ func (b *OutlookTaskRequestBuilder) Request() *OutlookTaskRequest {
 // OutlookTaskRequest is request for OutlookTask
 type OutlookTaskRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OutlookTask
-func (r *OutlookTaskRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTask, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OutlookTask
-func (r *OutlookTaskRequest) Get() (*OutlookTask, error) {
+func (r *OutlookTaskRequest) Get() (resObj *OutlookTask, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OutlookTask
-func (r *OutlookTaskRequest) Update(reqObj *OutlookTask) (*OutlookTask, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OutlookTaskRequest) Update(reqObj *OutlookTask) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OutlookTask
@@ -74,12 +69,6 @@ func (b *OutlookTaskAttachmentsCollectionRequestBuilder) ID(id string) *Attachme
 
 // OutlookTaskAttachmentsCollectionRequest is request for Attachment collection
 type OutlookTaskAttachmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Attachment collection
-func (r *OutlookTaskAttachmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Attachment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Attachment collection
 func (r *OutlookTaskAttachmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]Attachment, error) {
@@ -131,8 +120,9 @@ func (r *OutlookTaskAttachmentsCollectionRequest) Get() ([]Attachment, error) {
 }
 
 // Add performs POST request for Attachment collection
-func (r *OutlookTaskAttachmentsCollectionRequest) Add(reqObj *Attachment) (*Attachment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskAttachmentsCollectionRequest) Add(reqObj *Attachment) (resObj *Attachment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -161,12 +151,6 @@ func (b *OutlookTaskMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id 
 
 // OutlookTaskMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type OutlookTaskMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -218,8 +202,9 @@ func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Get() ([]Mult
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -248,12 +233,6 @@ func (b *OutlookTaskSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id
 
 // OutlookTaskSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type OutlookTaskSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -305,6 +284,7 @@ func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Get() ([]Sin
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *PayloadResponseRequestBuilder) Request() *PayloadResponseRequest {
 // PayloadResponseRequest is request for PayloadResponse
 type PayloadResponseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PayloadResponse
-func (r *PayloadResponseRequest) Do(method, path string, reqObj interface{}) (resObj *PayloadResponse, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PayloadResponse
-func (r *PayloadResponseRequest) Get() (*PayloadResponse, error) {
+func (r *PayloadResponseRequest) Get() (resObj *PayloadResponse, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PayloadResponse
-func (r *PayloadResponseRequest) Update(reqObj *PayloadResponse) (*PayloadResponse, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PayloadResponseRequest) Update(reqObj *PayloadResponse) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PayloadResponse

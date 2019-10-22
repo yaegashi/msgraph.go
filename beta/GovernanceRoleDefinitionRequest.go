@@ -15,24 +15,19 @@ func (b *GovernanceRoleDefinitionRequestBuilder) Request() *GovernanceRoleDefini
 // GovernanceRoleDefinitionRequest is request for GovernanceRoleDefinition
 type GovernanceRoleDefinitionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GovernanceRoleDefinition
-func (r *GovernanceRoleDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GovernanceRoleDefinition
-func (r *GovernanceRoleDefinitionRequest) Get() (*GovernanceRoleDefinition, error) {
+func (r *GovernanceRoleDefinitionRequest) Get() (resObj *GovernanceRoleDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GovernanceRoleDefinition
-func (r *GovernanceRoleDefinitionRequest) Update(reqObj *GovernanceRoleDefinition) (*GovernanceRoleDefinition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GovernanceRoleDefinitionRequest) Update(reqObj *GovernanceRoleDefinition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernanceRoleDefinition

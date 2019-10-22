@@ -52,13 +52,8 @@ func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest 
 }
 
 //
-func (r *WorkbookRangeClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -83,13 +78,8 @@ func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteReques
 }
 
 //
-func (r *WorkbookRangeDeleteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeDeleteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -114,14 +104,9 @@ func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertReques
 }
 
 //
-func (r *WorkbookRangeInsertRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookRangeInsertRequest) Post() (resObj *WorkbookRange, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookRangeInsertRequest) Post() (*WorkbookRange, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -146,13 +131,8 @@ func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest 
 }
 
 //
-func (r *WorkbookRangeMergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeMergeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -177,11 +157,6 @@ func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequ
 }
 
 //
-func (r *WorkbookRangeUnmergeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeUnmergeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

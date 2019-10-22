@@ -44,14 +44,9 @@ func (b *AndroidForWorkSettingsRequestSignupURLRequestBuilder) Request() *Androi
 }
 
 //
-func (r *AndroidForWorkSettingsRequestSignupURLRequest) Do(method, path string, reqObj interface{}) (resObj *string, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *AndroidForWorkSettingsRequestSignupURLRequest) Post() (resObj *string, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *AndroidForWorkSettingsRequestSignupURLRequest) Post() (*string, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -76,13 +71,8 @@ func (b *AndroidForWorkSettingsCompleteSignupRequestBuilder) Request() *AndroidF
 }
 
 //
-func (r *AndroidForWorkSettingsCompleteSignupRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidForWorkSettingsCompleteSignupRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -107,13 +97,8 @@ func (b *AndroidForWorkSettingsSyncAppsRequestBuilder) Request() *AndroidForWork
 }
 
 //
-func (r *AndroidForWorkSettingsSyncAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidForWorkSettingsSyncAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -138,11 +123,6 @@ func (b *AndroidForWorkSettingsUnbindRequestBuilder) Request() *AndroidForWorkSe
 }
 
 //
-func (r *AndroidForWorkSettingsUnbindRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidForWorkSettingsUnbindRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

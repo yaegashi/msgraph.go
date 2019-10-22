@@ -15,24 +15,19 @@ func (b *EndpointRequestBuilder) Request() *EndpointRequest {
 // EndpointRequest is request for Endpoint
 type EndpointRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Endpoint
-func (r *EndpointRequest) Do(method, path string, reqObj interface{}) (resObj *Endpoint, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Endpoint
-func (r *EndpointRequest) Get() (*Endpoint, error) {
+func (r *EndpointRequest) Get() (resObj *Endpoint, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Endpoint
-func (r *EndpointRequest) Update(reqObj *Endpoint) (*Endpoint, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EndpointRequest) Update(reqObj *Endpoint) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Endpoint

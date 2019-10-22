@@ -15,24 +15,19 @@ func (b *ProgramControlRequestBuilder) Request() *ProgramControlRequest {
 // ProgramControlRequest is request for ProgramControl
 type ProgramControlRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ProgramControl
-func (r *ProgramControlRequest) Do(method, path string, reqObj interface{}) (resObj *ProgramControl, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ProgramControl
-func (r *ProgramControlRequest) Get() (*ProgramControl, error) {
+func (r *ProgramControlRequest) Get() (resObj *ProgramControl, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ProgramControl
-func (r *ProgramControlRequest) Update(reqObj *ProgramControl) (*ProgramControl, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ProgramControlRequest) Update(reqObj *ProgramControl) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ProgramControl

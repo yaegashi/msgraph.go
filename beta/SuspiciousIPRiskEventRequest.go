@@ -15,24 +15,19 @@ func (b *SuspiciousIPRiskEventRequestBuilder) Request() *SuspiciousIPRiskEventRe
 // SuspiciousIPRiskEventRequest is request for SuspiciousIPRiskEvent
 type SuspiciousIPRiskEventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SuspiciousIPRiskEvent
-func (r *SuspiciousIPRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *SuspiciousIPRiskEvent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SuspiciousIPRiskEvent
-func (r *SuspiciousIPRiskEventRequest) Get() (*SuspiciousIPRiskEvent, error) {
+func (r *SuspiciousIPRiskEventRequest) Get() (resObj *SuspiciousIPRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SuspiciousIPRiskEvent
-func (r *SuspiciousIPRiskEventRequest) Update(reqObj *SuspiciousIPRiskEvent) (*SuspiciousIPRiskEvent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SuspiciousIPRiskEventRequest) Update(reqObj *SuspiciousIPRiskEvent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SuspiciousIPRiskEvent

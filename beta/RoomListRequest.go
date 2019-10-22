@@ -23,24 +23,19 @@ func (b *RoomListRequestBuilder) Request() *RoomListRequest {
 // RoomListRequest is request for RoomList
 type RoomListRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RoomList
-func (r *RoomListRequest) Do(method, path string, reqObj interface{}) (resObj *RoomList, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RoomList
-func (r *RoomListRequest) Get() (*RoomList, error) {
+func (r *RoomListRequest) Get() (resObj *RoomList, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RoomList
-func (r *RoomListRequest) Update(reqObj *RoomList) (*RoomList, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoomListRequest) Update(reqObj *RoomList) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoomList
@@ -74,12 +69,6 @@ func (b *RoomListRoomsCollectionRequestBuilder) ID(id string) *RoomRequestBuilde
 
 // RoomListRoomsCollectionRequest is request for Room collection
 type RoomListRoomsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Room collection
-func (r *RoomListRoomsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Room, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Room collection
 func (r *RoomListRoomsCollectionRequest) Paging(method, path string, obj interface{}) ([]Room, error) {
@@ -131,6 +120,7 @@ func (r *RoomListRoomsCollectionRequest) Get() ([]Room, error) {
 }
 
 // Add performs POST request for Room collection
-func (r *RoomListRoomsCollectionRequest) Add(reqObj *Room) (*Room, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RoomListRoomsCollectionRequest) Add(reqObj *Room) (resObj *Room, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

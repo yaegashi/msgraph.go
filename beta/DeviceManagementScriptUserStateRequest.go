@@ -23,24 +23,19 @@ func (b *DeviceManagementScriptUserStateRequestBuilder) Request() *DeviceManagem
 // DeviceManagementScriptUserStateRequest is request for DeviceManagementScriptUserState
 type DeviceManagementScriptUserStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementScriptUserState
-func (r *DeviceManagementScriptUserStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptUserState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementScriptUserState
-func (r *DeviceManagementScriptUserStateRequest) Get() (*DeviceManagementScriptUserState, error) {
+func (r *DeviceManagementScriptUserStateRequest) Get() (resObj *DeviceManagementScriptUserState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementScriptUserState
-func (r *DeviceManagementScriptUserStateRequest) Update(reqObj *DeviceManagementScriptUserState) (*DeviceManagementScriptUserState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementScriptUserStateRequest) Update(reqObj *DeviceManagementScriptUserState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementScriptUserState
@@ -74,12 +69,6 @@ func (b *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequestBuilder)
 
 // DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest is request for DeviceManagementScriptDeviceState collection
 type DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
 func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptDeviceState, error) {
@@ -131,6 +120,7 @@ func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Get() 
 }
 
 // Add performs POST request for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptDeviceState) (*DeviceManagementScriptDeviceState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptDeviceState) (resObj *DeviceManagementScriptDeviceState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

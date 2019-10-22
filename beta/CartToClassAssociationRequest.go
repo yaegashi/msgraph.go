@@ -15,24 +15,19 @@ func (b *CartToClassAssociationRequestBuilder) Request() *CartToClassAssociation
 // CartToClassAssociationRequest is request for CartToClassAssociation
 type CartToClassAssociationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CartToClassAssociation
-func (r *CartToClassAssociationRequest) Do(method, path string, reqObj interface{}) (resObj *CartToClassAssociation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CartToClassAssociation
-func (r *CartToClassAssociationRequest) Get() (*CartToClassAssociation, error) {
+func (r *CartToClassAssociationRequest) Get() (resObj *CartToClassAssociation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CartToClassAssociation
-func (r *CartToClassAssociationRequest) Update(reqObj *CartToClassAssociation) (*CartToClassAssociation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CartToClassAssociationRequest) Update(reqObj *CartToClassAssociation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CartToClassAssociation

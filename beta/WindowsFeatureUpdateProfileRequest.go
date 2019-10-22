@@ -23,24 +23,19 @@ func (b *WindowsFeatureUpdateProfileRequestBuilder) Request() *WindowsFeatureUpd
 // WindowsFeatureUpdateProfileRequest is request for WindowsFeatureUpdateProfile
 type WindowsFeatureUpdateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsFeatureUpdateProfile
-func (r *WindowsFeatureUpdateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsFeatureUpdateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsFeatureUpdateProfile
-func (r *WindowsFeatureUpdateProfileRequest) Get() (*WindowsFeatureUpdateProfile, error) {
+func (r *WindowsFeatureUpdateProfileRequest) Get() (resObj *WindowsFeatureUpdateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsFeatureUpdateProfile
-func (r *WindowsFeatureUpdateProfileRequest) Update(reqObj *WindowsFeatureUpdateProfile) (*WindowsFeatureUpdateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsFeatureUpdateProfileRequest) Update(reqObj *WindowsFeatureUpdateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsFeatureUpdateProfile
@@ -74,12 +69,6 @@ func (b *WindowsFeatureUpdateProfileAssignmentsCollectionRequestBuilder) ID(id s
 
 // WindowsFeatureUpdateProfileAssignmentsCollectionRequest is request for WindowsFeatureUpdateProfileAssignment collection
 type WindowsFeatureUpdateProfileAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsFeatureUpdateProfileAssignment collection
-func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsFeatureUpdateProfileAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsFeatureUpdateProfileAssignment collection
 func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsFeatureUpdateProfileAssignment, error) {
@@ -131,8 +120,9 @@ func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Get() ([]Windo
 }
 
 // Add performs POST request for WindowsFeatureUpdateProfileAssignment collection
-func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Add(reqObj *WindowsFeatureUpdateProfileAssignment) (*WindowsFeatureUpdateProfileAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Add(reqObj *WindowsFeatureUpdateProfileAssignment) (resObj *WindowsFeatureUpdateProfileAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceUpdateStates returns request builder for WindowsUpdateState collection
@@ -161,12 +151,6 @@ func (b *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequestBuilder) 
 
 // WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest is request for WindowsUpdateState collection
 type WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsUpdateState collection
-func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsUpdateState collection
 func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsUpdateState, error) {
@@ -218,6 +202,7 @@ func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Get() (
 }
 
 // Add performs POST request for WindowsUpdateState collection
-func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Add(reqObj *WindowsUpdateState) (*WindowsUpdateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Add(reqObj *WindowsUpdateState) (resObj *WindowsUpdateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

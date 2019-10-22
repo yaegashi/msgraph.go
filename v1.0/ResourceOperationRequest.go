@@ -15,24 +15,19 @@ func (b *ResourceOperationRequestBuilder) Request() *ResourceOperationRequest {
 // ResourceOperationRequest is request for ResourceOperation
 type ResourceOperationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ResourceOperation
-func (r *ResourceOperationRequest) Do(method, path string, reqObj interface{}) (resObj *ResourceOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ResourceOperation
-func (r *ResourceOperationRequest) Get() (*ResourceOperation, error) {
+func (r *ResourceOperationRequest) Get() (resObj *ResourceOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ResourceOperation
-func (r *ResourceOperationRequest) Update(reqObj *ResourceOperation) (*ResourceOperation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ResourceOperationRequest) Update(reqObj *ResourceOperation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ResourceOperation

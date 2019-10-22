@@ -15,24 +15,19 @@ func (b *DimensionValueRequestBuilder) Request() *DimensionValueRequest {
 // DimensionValueRequest is request for DimensionValue
 type DimensionValueRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DimensionValue
-func (r *DimensionValueRequest) Do(method, path string, reqObj interface{}) (resObj *DimensionValue, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DimensionValue
-func (r *DimensionValueRequest) Get() (*DimensionValue, error) {
+func (r *DimensionValueRequest) Get() (resObj *DimensionValue, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DimensionValue
-func (r *DimensionValueRequest) Update(reqObj *DimensionValue) (*DimensionValue, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DimensionValueRequest) Update(reqObj *DimensionValue) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DimensionValue

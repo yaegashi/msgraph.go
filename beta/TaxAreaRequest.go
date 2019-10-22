@@ -15,24 +15,19 @@ func (b *TaxAreaRequestBuilder) Request() *TaxAreaRequest {
 // TaxAreaRequest is request for TaxArea
 type TaxAreaRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TaxArea
-func (r *TaxAreaRequest) Do(method, path string, reqObj interface{}) (resObj *TaxArea, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TaxArea
-func (r *TaxAreaRequest) Get() (*TaxArea, error) {
+func (r *TaxAreaRequest) Get() (resObj *TaxArea, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TaxArea
-func (r *TaxAreaRequest) Update(reqObj *TaxArea) (*TaxArea, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TaxAreaRequest) Update(reqObj *TaxArea) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TaxArea

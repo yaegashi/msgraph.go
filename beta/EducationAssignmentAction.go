@@ -28,12 +28,7 @@ func (b *EducationAssignmentPublishRequestBuilder) Request() *EducationAssignmen
 }
 
 //
-func (r *EducationAssignmentPublishRequest) Do(method, path string, reqObj interface{}) (resObj *EducationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *EducationAssignmentPublishRequest) Post() (resObj *EducationAssignment, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *EducationAssignmentPublishRequest) Post() (*EducationAssignment, error) {
-	return r.Do("POST", "", r.requestObject)
 }

@@ -15,24 +15,19 @@ func (b *WorkbookTableRowRequestBuilder) Request() *WorkbookTableRowRequest {
 // WorkbookTableRowRequest is request for WorkbookTableRow
 type WorkbookTableRowRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookTableRow
-func (r *WorkbookTableRowRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookTableRow
-func (r *WorkbookTableRowRequest) Get() (*WorkbookTableRow, error) {
+func (r *WorkbookTableRowRequest) Get() (resObj *WorkbookTableRow, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookTableRow
-func (r *WorkbookTableRowRequest) Update(reqObj *WorkbookTableRow) (*WorkbookTableRow, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookTableRowRequest) Update(reqObj *WorkbookTableRow) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookTableRow

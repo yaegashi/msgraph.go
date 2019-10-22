@@ -23,24 +23,19 @@ func (b *AccessPackageAssignmentResourceRoleRequestBuilder) Request() *AccessPac
 // AccessPackageAssignmentResourceRoleRequest is request for AccessPackageAssignmentResourceRole
 type AccessPackageAssignmentResourceRoleRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageAssignmentResourceRole
-func (r *AccessPackageAssignmentResourceRoleRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentResourceRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageAssignmentResourceRole
-func (r *AccessPackageAssignmentResourceRoleRequest) Get() (*AccessPackageAssignmentResourceRole, error) {
+func (r *AccessPackageAssignmentResourceRoleRequest) Get() (resObj *AccessPackageAssignmentResourceRole, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageAssignmentResourceRole
-func (r *AccessPackageAssignmentResourceRoleRequest) Update(reqObj *AccessPackageAssignmentResourceRole) (*AccessPackageAssignmentResourceRole, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageAssignmentResourceRoleRequest) Update(reqObj *AccessPackageAssignmentResourceRole) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageAssignmentResourceRole
@@ -74,12 +69,6 @@ func (b *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 
 // AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest is request for AccessPackageAssignment collection
 type AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageAssignment collection
 func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignment, error) {
@@ -131,8 +120,9 @@ func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 }
 
 // Add performs POST request for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Add(reqObj *AccessPackageAssignment) (*AccessPackageAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Add(reqObj *AccessPackageAssignment) (resObj *AccessPackageAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AccessPackageResourceRole is navigation property

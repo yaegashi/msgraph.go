@@ -15,24 +15,19 @@ func (b *PlannerTaskRequestBuilder) Request() *PlannerTaskRequest {
 // PlannerTaskRequest is request for PlannerTask
 type PlannerTaskRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PlannerTask
-func (r *PlannerTaskRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerTask, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PlannerTask
-func (r *PlannerTaskRequest) Get() (*PlannerTask, error) {
+func (r *PlannerTaskRequest) Get() (resObj *PlannerTask, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PlannerTask
-func (r *PlannerTaskRequest) Update(reqObj *PlannerTask) (*PlannerTask, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PlannerTaskRequest) Update(reqObj *PlannerTask) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerTask

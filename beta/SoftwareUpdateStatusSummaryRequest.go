@@ -15,24 +15,19 @@ func (b *SoftwareUpdateStatusSummaryRequestBuilder) Request() *SoftwareUpdateSta
 // SoftwareUpdateStatusSummaryRequest is request for SoftwareUpdateStatusSummary
 type SoftwareUpdateStatusSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SoftwareUpdateStatusSummary
-func (r *SoftwareUpdateStatusSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *SoftwareUpdateStatusSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SoftwareUpdateStatusSummary
-func (r *SoftwareUpdateStatusSummaryRequest) Get() (*SoftwareUpdateStatusSummary, error) {
+func (r *SoftwareUpdateStatusSummaryRequest) Get() (resObj *SoftwareUpdateStatusSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SoftwareUpdateStatusSummary
-func (r *SoftwareUpdateStatusSummaryRequest) Update(reqObj *SoftwareUpdateStatusSummary) (*SoftwareUpdateStatusSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SoftwareUpdateStatusSummaryRequest) Update(reqObj *SoftwareUpdateStatusSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SoftwareUpdateStatusSummary

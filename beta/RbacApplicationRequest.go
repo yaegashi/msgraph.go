@@ -23,24 +23,19 @@ func (b *RbacApplicationRequestBuilder) Request() *RbacApplicationRequest {
 // RbacApplicationRequest is request for RbacApplication
 type RbacApplicationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RbacApplication
-func (r *RbacApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *RbacApplication, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RbacApplication
-func (r *RbacApplicationRequest) Get() (*RbacApplication, error) {
+func (r *RbacApplicationRequest) Get() (resObj *RbacApplication, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RbacApplication
-func (r *RbacApplicationRequest) Update(reqObj *RbacApplication) (*RbacApplication, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RbacApplicationRequest) Update(reqObj *RbacApplication) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RbacApplication
@@ -74,12 +69,6 @@ func (b *RbacApplicationRoleAssignmentsCollectionRequestBuilder) ID(id string) *
 
 // RbacApplicationRoleAssignmentsCollectionRequest is request for UnifiedRoleAssignment collection
 type RbacApplicationRoleAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UnifiedRoleAssignment collection
-func (r *RbacApplicationRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnifiedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UnifiedRoleAssignment collection
 func (r *RbacApplicationRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]UnifiedRoleAssignment, error) {
@@ -131,8 +120,9 @@ func (r *RbacApplicationRoleAssignmentsCollectionRequest) Get() ([]UnifiedRoleAs
 }
 
 // Add performs POST request for UnifiedRoleAssignment collection
-func (r *RbacApplicationRoleAssignmentsCollectionRequest) Add(reqObj *UnifiedRoleAssignment) (*UnifiedRoleAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RbacApplicationRoleAssignmentsCollectionRequest) Add(reqObj *UnifiedRoleAssignment) (resObj *UnifiedRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RoleDefinitions returns request builder for UnifiedRoleDefinition collection
@@ -161,12 +151,6 @@ func (b *RbacApplicationRoleDefinitionsCollectionRequestBuilder) ID(id string) *
 
 // RbacApplicationRoleDefinitionsCollectionRequest is request for UnifiedRoleDefinition collection
 type RbacApplicationRoleDefinitionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UnifiedRoleDefinition collection
-func (r *RbacApplicationRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UnifiedRoleDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UnifiedRoleDefinition collection
 func (r *RbacApplicationRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]UnifiedRoleDefinition, error) {
@@ -218,6 +202,7 @@ func (r *RbacApplicationRoleDefinitionsCollectionRequest) Get() ([]UnifiedRoleDe
 }
 
 // Add performs POST request for UnifiedRoleDefinition collection
-func (r *RbacApplicationRoleDefinitionsCollectionRequest) Add(reqObj *UnifiedRoleDefinition) (*UnifiedRoleDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RbacApplicationRoleDefinitionsCollectionRequest) Add(reqObj *UnifiedRoleDefinition) (resObj *UnifiedRoleDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

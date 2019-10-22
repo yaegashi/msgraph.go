@@ -15,24 +15,19 @@ func (b *TeamsCatalogAppRequestBuilder) Request() *TeamsCatalogAppRequest {
 // TeamsCatalogAppRequest is request for TeamsCatalogApp
 type TeamsCatalogAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsCatalogApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Get() (*TeamsCatalogApp, error) {
+func (r *TeamsCatalogAppRequest) Get() (resObj *TeamsCatalogApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Update(reqObj *TeamsCatalogApp) (*TeamsCatalogApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TeamsCatalogAppRequest) Update(reqObj *TeamsCatalogApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsCatalogApp

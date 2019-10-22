@@ -23,24 +23,19 @@ func (b *ManagedEBookRequestBuilder) Request() *ManagedEBookRequest {
 // ManagedEBookRequest is request for ManagedEBook
 type ManagedEBookRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedEBook
-func (r *ManagedEBookRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBook, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedEBook
-func (r *ManagedEBookRequest) Get() (*ManagedEBook, error) {
+func (r *ManagedEBookRequest) Get() (resObj *ManagedEBook, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedEBook
-func (r *ManagedEBookRequest) Update(reqObj *ManagedEBook) (*ManagedEBook, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedEBookRequest) Update(reqObj *ManagedEBook) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedEBook
@@ -74,12 +69,6 @@ func (b *ManagedEBookAssignmentsCollectionRequestBuilder) ID(id string) *Managed
 
 // ManagedEBookAssignmentsCollectionRequest is request for ManagedEBookAssignment collection
 type ManagedEBookAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedEBookAssignment collection
-func (r *ManagedEBookAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedEBookAssignment collection
 func (r *ManagedEBookAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedEBookAssignment, error) {
@@ -131,8 +120,9 @@ func (r *ManagedEBookAssignmentsCollectionRequest) Get() ([]ManagedEBookAssignme
 }
 
 // Add performs POST request for ManagedEBookAssignment collection
-func (r *ManagedEBookAssignmentsCollectionRequest) Add(reqObj *ManagedEBookAssignment) (*ManagedEBookAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedEBookAssignmentsCollectionRequest) Add(reqObj *ManagedEBookAssignment) (resObj *ManagedEBookAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Categories returns request builder for ManagedEBookCategory collection
@@ -161,12 +151,6 @@ func (b *ManagedEBookCategoriesCollectionRequestBuilder) ID(id string) *ManagedE
 
 // ManagedEBookCategoriesCollectionRequest is request for ManagedEBookCategory collection
 type ManagedEBookCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedEBookCategory collection
-func (r *ManagedEBookCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedEBookCategory collection
 func (r *ManagedEBookCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedEBookCategory, error) {
@@ -218,8 +202,9 @@ func (r *ManagedEBookCategoriesCollectionRequest) Get() ([]ManagedEBookCategory,
 }
 
 // Add performs POST request for ManagedEBookCategory collection
-func (r *ManagedEBookCategoriesCollectionRequest) Add(reqObj *ManagedEBookCategory) (*ManagedEBookCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedEBookCategoriesCollectionRequest) Add(reqObj *ManagedEBookCategory) (resObj *ManagedEBookCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStates returns request builder for DeviceInstallState collection
@@ -248,12 +233,6 @@ func (b *ManagedEBookDeviceStatesCollectionRequestBuilder) ID(id string) *Device
 
 // ManagedEBookDeviceStatesCollectionRequest is request for DeviceInstallState collection
 type ManagedEBookDeviceStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceInstallState collection
-func (r *ManagedEBookDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceInstallState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceInstallState collection
 func (r *ManagedEBookDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceInstallState, error) {
@@ -305,8 +284,9 @@ func (r *ManagedEBookDeviceStatesCollectionRequest) Get() ([]DeviceInstallState,
 }
 
 // Add performs POST request for DeviceInstallState collection
-func (r *ManagedEBookDeviceStatesCollectionRequest) Add(reqObj *DeviceInstallState) (*DeviceInstallState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedEBookDeviceStatesCollectionRequest) Add(reqObj *DeviceInstallState) (resObj *DeviceInstallState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // InstallSummary is navigation property
@@ -342,12 +322,6 @@ func (b *ManagedEBookUserStateSummaryCollectionRequestBuilder) ID(id string) *Us
 
 // ManagedEBookUserStateSummaryCollectionRequest is request for UserInstallStateSummary collection
 type ManagedEBookUserStateSummaryCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UserInstallStateSummary collection
-func (r *ManagedEBookUserStateSummaryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserInstallStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UserInstallStateSummary collection
 func (r *ManagedEBookUserStateSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]UserInstallStateSummary, error) {
@@ -399,6 +373,7 @@ func (r *ManagedEBookUserStateSummaryCollectionRequest) Get() ([]UserInstallStat
 }
 
 // Add performs POST request for UserInstallStateSummary collection
-func (r *ManagedEBookUserStateSummaryCollectionRequest) Add(reqObj *UserInstallStateSummary) (*UserInstallStateSummary, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedEBookUserStateSummaryCollectionRequest) Add(reqObj *UserInstallStateSummary) (resObj *UserInstallStateSummary, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

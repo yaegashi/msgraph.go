@@ -15,24 +15,19 @@ func (b *EducationOutcomeRequestBuilder) Request() *EducationOutcomeRequest {
 // EducationOutcomeRequest is request for EducationOutcome
 type EducationOutcomeRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationOutcome
-func (r *EducationOutcomeRequest) Do(method, path string, reqObj interface{}) (resObj *EducationOutcome, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationOutcome
-func (r *EducationOutcomeRequest) Get() (*EducationOutcome, error) {
+func (r *EducationOutcomeRequest) Get() (resObj *EducationOutcome, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationOutcome
-func (r *EducationOutcomeRequest) Update(reqObj *EducationOutcome) (*EducationOutcome, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationOutcomeRequest) Update(reqObj *EducationOutcome) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationOutcome

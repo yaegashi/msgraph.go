@@ -15,24 +15,19 @@ func (b *ManagedEBookCategoryRequestBuilder) Request() *ManagedEBookCategoryRequ
 // ManagedEBookCategoryRequest is request for ManagedEBookCategory
 type ManagedEBookCategoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedEBookCategory
-func (r *ManagedEBookCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedEBookCategory
-func (r *ManagedEBookCategoryRequest) Get() (*ManagedEBookCategory, error) {
+func (r *ManagedEBookCategoryRequest) Get() (resObj *ManagedEBookCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedEBookCategory
-func (r *ManagedEBookCategoryRequest) Update(reqObj *ManagedEBookCategory) (*ManagedEBookCategory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedEBookCategoryRequest) Update(reqObj *ManagedEBookCategory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedEBookCategory

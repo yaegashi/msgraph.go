@@ -23,24 +23,19 @@ func (b *DeviceManagementTemplateRequestBuilder) Request() *DeviceManagementTemp
 // DeviceManagementTemplateRequest is request for DeviceManagementTemplate
 type DeviceManagementTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementTemplate
-func (r *DeviceManagementTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementTemplate
-func (r *DeviceManagementTemplateRequest) Get() (*DeviceManagementTemplate, error) {
+func (r *DeviceManagementTemplateRequest) Get() (resObj *DeviceManagementTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementTemplate
-func (r *DeviceManagementTemplateRequest) Update(reqObj *DeviceManagementTemplate) (*DeviceManagementTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementTemplateRequest) Update(reqObj *DeviceManagementTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementTemplate
@@ -74,12 +69,6 @@ func (b *DeviceManagementTemplateCategoriesCollectionRequestBuilder) ID(id strin
 
 // DeviceManagementTemplateCategoriesCollectionRequest is request for DeviceManagementTemplateSettingCategory collection
 type DeviceManagementTemplateCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementTemplateSettingCategory collection
-func (r *DeviceManagementTemplateCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplateSettingCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementTemplateSettingCategory collection
 func (r *DeviceManagementTemplateCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplateSettingCategory, error) {
@@ -131,8 +120,9 @@ func (r *DeviceManagementTemplateCategoriesCollectionRequest) Get() ([]DeviceMan
 }
 
 // Add performs POST request for DeviceManagementTemplateSettingCategory collection
-func (r *DeviceManagementTemplateCategoriesCollectionRequest) Add(reqObj *DeviceManagementTemplateSettingCategory) (*DeviceManagementTemplateSettingCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementTemplateCategoriesCollectionRequest) Add(reqObj *DeviceManagementTemplateSettingCategory) (resObj *DeviceManagementTemplateSettingCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MigratableTo returns request builder for DeviceManagementTemplate collection
@@ -161,12 +151,6 @@ func (b *DeviceManagementTemplateMigratableToCollectionRequestBuilder) ID(id str
 
 // DeviceManagementTemplateMigratableToCollectionRequest is request for DeviceManagementTemplate collection
 type DeviceManagementTemplateMigratableToCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementTemplate collection
-func (r *DeviceManagementTemplateMigratableToCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementTemplate collection
 func (r *DeviceManagementTemplateMigratableToCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplate, error) {
@@ -218,8 +202,9 @@ func (r *DeviceManagementTemplateMigratableToCollectionRequest) Get() ([]DeviceM
 }
 
 // Add performs POST request for DeviceManagementTemplate collection
-func (r *DeviceManagementTemplateMigratableToCollectionRequest) Add(reqObj *DeviceManagementTemplate) (*DeviceManagementTemplate, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementTemplateMigratableToCollectionRequest) Add(reqObj *DeviceManagementTemplate) (resObj *DeviceManagementTemplate, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Settings returns request builder for DeviceManagementSettingInstance collection
@@ -248,12 +233,6 @@ func (b *DeviceManagementTemplateSettingsCollectionRequestBuilder) ID(id string)
 
 // DeviceManagementTemplateSettingsCollectionRequest is request for DeviceManagementSettingInstance collection
 type DeviceManagementTemplateSettingsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
 func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
@@ -305,6 +284,7 @@ func (r *DeviceManagementTemplateSettingsCollectionRequest) Get() ([]DeviceManag
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (*DeviceManagementSettingInstance, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

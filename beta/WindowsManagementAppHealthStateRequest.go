@@ -15,24 +15,19 @@ func (b *WindowsManagementAppHealthStateRequestBuilder) Request() *WindowsManage
 // WindowsManagementAppHealthStateRequest is request for WindowsManagementAppHealthState
 type WindowsManagementAppHealthStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsManagementAppHealthState
-func (r *WindowsManagementAppHealthStateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsManagementAppHealthState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsManagementAppHealthState
-func (r *WindowsManagementAppHealthStateRequest) Get() (*WindowsManagementAppHealthState, error) {
+func (r *WindowsManagementAppHealthStateRequest) Get() (resObj *WindowsManagementAppHealthState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsManagementAppHealthState
-func (r *WindowsManagementAppHealthStateRequest) Update(reqObj *WindowsManagementAppHealthState) (*WindowsManagementAppHealthState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsManagementAppHealthStateRequest) Update(reqObj *WindowsManagementAppHealthState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsManagementAppHealthState

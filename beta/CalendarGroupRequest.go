@@ -23,24 +23,19 @@ func (b *CalendarGroupRequestBuilder) Request() *CalendarGroupRequest {
 // CalendarGroupRequest is request for CalendarGroup
 type CalendarGroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CalendarGroup
-func (r *CalendarGroupRequest) Do(method, path string, reqObj interface{}) (resObj *CalendarGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CalendarGroup
-func (r *CalendarGroupRequest) Get() (*CalendarGroup, error) {
+func (r *CalendarGroupRequest) Get() (resObj *CalendarGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CalendarGroup
-func (r *CalendarGroupRequest) Update(reqObj *CalendarGroup) (*CalendarGroup, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CalendarGroupRequest) Update(reqObj *CalendarGroup) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CalendarGroup
@@ -74,12 +69,6 @@ func (b *CalendarGroupCalendarsCollectionRequestBuilder) ID(id string) *Calendar
 
 // CalendarGroupCalendarsCollectionRequest is request for Calendar collection
 type CalendarGroupCalendarsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Calendar collection
-func (r *CalendarGroupCalendarsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Calendar, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Calendar collection
 func (r *CalendarGroupCalendarsCollectionRequest) Paging(method, path string, obj interface{}) ([]Calendar, error) {
@@ -131,6 +120,7 @@ func (r *CalendarGroupCalendarsCollectionRequest) Get() ([]Calendar, error) {
 }
 
 // Add performs POST request for Calendar collection
-func (r *CalendarGroupCalendarsCollectionRequest) Add(reqObj *Calendar) (*Calendar, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CalendarGroupCalendarsCollectionRequest) Add(reqObj *Calendar) (resObj *Calendar, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

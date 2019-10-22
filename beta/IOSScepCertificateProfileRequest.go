@@ -23,24 +23,19 @@ func (b *IOSScepCertificateProfileRequestBuilder) Request() *IOSScepCertificateP
 // IOSScepCertificateProfileRequest is request for IOSScepCertificateProfile
 type IOSScepCertificateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSScepCertificateProfile
-func (r *IOSScepCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *IOSScepCertificateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSScepCertificateProfile
-func (r *IOSScepCertificateProfileRequest) Get() (*IOSScepCertificateProfile, error) {
+func (r *IOSScepCertificateProfileRequest) Get() (resObj *IOSScepCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSScepCertificateProfile
-func (r *IOSScepCertificateProfileRequest) Update(reqObj *IOSScepCertificateProfile) (*IOSScepCertificateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSScepCertificateProfileRequest) Update(reqObj *IOSScepCertificateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSScepCertificateProfile
@@ -74,12 +69,6 @@ func (b *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionReques
 
 // IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
 type IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceCertificateState collection
-func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
@@ -131,8 +120,9 @@ func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionReques
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (*ManagedDeviceCertificateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RootCertificate is navigation property

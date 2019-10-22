@@ -23,24 +23,19 @@ func (b *GroupPolicyDefinitionFileRequestBuilder) Request() *GroupPolicyDefiniti
 // GroupPolicyDefinitionFileRequest is request for GroupPolicyDefinitionFile
 type GroupPolicyDefinitionFileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GroupPolicyDefinitionFile
-func (r *GroupPolicyDefinitionFileRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinitionFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GroupPolicyDefinitionFile
-func (r *GroupPolicyDefinitionFileRequest) Get() (*GroupPolicyDefinitionFile, error) {
+func (r *GroupPolicyDefinitionFileRequest) Get() (resObj *GroupPolicyDefinitionFile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GroupPolicyDefinitionFile
-func (r *GroupPolicyDefinitionFileRequest) Update(reqObj *GroupPolicyDefinitionFile) (*GroupPolicyDefinitionFile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GroupPolicyDefinitionFileRequest) Update(reqObj *GroupPolicyDefinitionFile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyDefinitionFile
@@ -74,12 +69,6 @@ func (b *GroupPolicyDefinitionFileDefinitionsCollectionRequestBuilder) ID(id str
 
 // GroupPolicyDefinitionFileDefinitionsCollectionRequest is request for GroupPolicyDefinition collection
 type GroupPolicyDefinitionFileDefinitionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupPolicyDefinition collection
-func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupPolicyDefinition collection
 func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyDefinition, error) {
@@ -131,6 +120,7 @@ func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Get() ([]GroupPo
 }
 
 // Add performs POST request for GroupPolicyDefinition collection
-func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Add(reqObj *GroupPolicyDefinition) (*GroupPolicyDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupPolicyDefinitionFileDefinitionsCollectionRequest) Add(reqObj *GroupPolicyDefinition) (resObj *GroupPolicyDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

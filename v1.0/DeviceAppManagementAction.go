@@ -28,11 +28,6 @@ func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Req
 }
 
 //
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

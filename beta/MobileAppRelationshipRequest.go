@@ -15,24 +15,19 @@ func (b *MobileAppRelationshipRequestBuilder) Request() *MobileAppRelationshipRe
 // MobileAppRelationshipRequest is request for MobileAppRelationship
 type MobileAppRelationshipRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppRelationship
-func (r *MobileAppRelationshipRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppRelationship, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppRelationship
-func (r *MobileAppRelationshipRequest) Get() (*MobileAppRelationship, error) {
+func (r *MobileAppRelationshipRequest) Get() (resObj *MobileAppRelationship, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppRelationship
-func (r *MobileAppRelationshipRequest) Update(reqObj *MobileAppRelationship) (*MobileAppRelationship, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppRelationshipRequest) Update(reqObj *MobileAppRelationship) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppRelationship

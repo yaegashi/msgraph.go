@@ -46,12 +46,6 @@ func (b *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequestBuilder)
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Do(method, path string, reqObj interface{}) (resObj *[]ImportedDeviceIdentityResult, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging(method, path string, obj interface{}) ([][]ImportedDeviceIdentityResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -119,12 +113,6 @@ func (b *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequestBuilder)
 	return &ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Do(method, path string, reqObj interface{}) (resObj *[]ImportedDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //

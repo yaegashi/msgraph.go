@@ -15,24 +15,19 @@ func (b *WorkbookChartAxisTitleFormatRequestBuilder) Request() *WorkbookChartAxi
 // WorkbookChartAxisTitleFormatRequest is request for WorkbookChartAxisTitleFormat
 type WorkbookChartAxisTitleFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartAxisTitleFormat
-func (r *WorkbookChartAxisTitleFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartAxisTitleFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartAxisTitleFormat
-func (r *WorkbookChartAxisTitleFormatRequest) Get() (*WorkbookChartAxisTitleFormat, error) {
+func (r *WorkbookChartAxisTitleFormatRequest) Get() (resObj *WorkbookChartAxisTitleFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartAxisTitleFormat
-func (r *WorkbookChartAxisTitleFormatRequest) Update(reqObj *WorkbookChartAxisTitleFormat) (*WorkbookChartAxisTitleFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartAxisTitleFormatRequest) Update(reqObj *WorkbookChartAxisTitleFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartAxisTitleFormat

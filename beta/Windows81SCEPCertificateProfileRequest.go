@@ -23,24 +23,19 @@ func (b *Windows81SCEPCertificateProfileRequestBuilder) Request() *Windows81SCEP
 // Windows81SCEPCertificateProfileRequest is request for Windows81SCEPCertificateProfile
 type Windows81SCEPCertificateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Windows81SCEPCertificateProfile
-func (r *Windows81SCEPCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *Windows81SCEPCertificateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Windows81SCEPCertificateProfile
-func (r *Windows81SCEPCertificateProfileRequest) Get() (*Windows81SCEPCertificateProfile, error) {
+func (r *Windows81SCEPCertificateProfileRequest) Get() (resObj *Windows81SCEPCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Windows81SCEPCertificateProfile
-func (r *Windows81SCEPCertificateProfileRequest) Update(reqObj *Windows81SCEPCertificateProfile) (*Windows81SCEPCertificateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *Windows81SCEPCertificateProfileRequest) Update(reqObj *Windows81SCEPCertificateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Windows81SCEPCertificateProfile
@@ -74,12 +69,6 @@ func (b *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollection
 
 // Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
 type Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceCertificateState collection
-func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
@@ -131,8 +120,9 @@ func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollection
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (*ManagedDeviceCertificateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *Windows81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RootCertificate is navigation property

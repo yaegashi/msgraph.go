@@ -23,24 +23,19 @@ func (b *CalendarRequestBuilder) Request() *CalendarRequest {
 // CalendarRequest is request for Calendar
 type CalendarRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Calendar
-func (r *CalendarRequest) Do(method, path string, reqObj interface{}) (resObj *Calendar, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Calendar
-func (r *CalendarRequest) Get() (*Calendar, error) {
+func (r *CalendarRequest) Get() (resObj *Calendar, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Calendar
-func (r *CalendarRequest) Update(reqObj *Calendar) (*Calendar, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CalendarRequest) Update(reqObj *Calendar) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Calendar
@@ -74,12 +69,6 @@ func (b *CalendarCalendarViewCollectionRequestBuilder) ID(id string) *EventReque
 
 // CalendarCalendarViewCollectionRequest is request for Event collection
 type CalendarCalendarViewCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Event collection
-func (r *CalendarCalendarViewCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Event collection
 func (r *CalendarCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
@@ -131,8 +120,9 @@ func (r *CalendarCalendarViewCollectionRequest) Get() ([]Event, error) {
 }
 
 // Add performs POST request for Event collection
-func (r *CalendarCalendarViewCollectionRequest) Add(reqObj *Event) (*Event, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CalendarCalendarViewCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Events returns request builder for Event collection
@@ -161,12 +151,6 @@ func (b *CalendarEventsCollectionRequestBuilder) ID(id string) *EventRequestBuil
 
 // CalendarEventsCollectionRequest is request for Event collection
 type CalendarEventsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Event collection
-func (r *CalendarEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Event collection
 func (r *CalendarEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
@@ -218,8 +202,9 @@ func (r *CalendarEventsCollectionRequest) Get() ([]Event, error) {
 }
 
 // Add performs POST request for Event collection
-func (r *CalendarEventsCollectionRequest) Add(reqObj *Event) (*Event, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CalendarEventsCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -248,12 +233,6 @@ func (b *CalendarMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id str
 
 // CalendarMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type CalendarMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -305,8 +284,9 @@ func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Get() ([]MultiVa
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -335,12 +315,6 @@ func (b *CalendarSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id st
 
 // CalendarSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type CalendarSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -392,6 +366,7 @@ func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Get() ([]Single
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

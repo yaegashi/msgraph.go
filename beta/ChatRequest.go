@@ -23,24 +23,19 @@ func (b *ChatRequestBuilder) Request() *ChatRequest {
 // ChatRequest is request for Chat
 type ChatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Chat
-func (r *ChatRequest) Do(method, path string, reqObj interface{}) (resObj *Chat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Chat
-func (r *ChatRequest) Get() (*Chat, error) {
+func (r *ChatRequest) Get() (resObj *Chat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Chat
-func (r *ChatRequest) Update(reqObj *Chat) (*Chat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ChatRequest) Update(reqObj *Chat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Chat
@@ -74,12 +69,6 @@ func (b *ChatInstalledAppsCollectionRequestBuilder) ID(id string) *TeamsAppInsta
 
 // ChatInstalledAppsCollectionRequest is request for TeamsAppInstallation collection
 type ChatInstalledAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsAppInstallation collection
-func (r *ChatInstalledAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
 func (r *ChatInstalledAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
@@ -131,8 +120,9 @@ func (r *ChatInstalledAppsCollectionRequest) Get() ([]TeamsAppInstallation, erro
 }
 
 // Add performs POST request for TeamsAppInstallation collection
-func (r *ChatInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (*TeamsAppInstallation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChatInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (resObj *TeamsAppInstallation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Members returns request builder for ConversationMember collection
@@ -161,12 +151,6 @@ func (b *ChatMembersCollectionRequestBuilder) ID(id string) *ConversationMemberR
 
 // ChatMembersCollectionRequest is request for ConversationMember collection
 type ChatMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ConversationMember collection
-func (r *ChatMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationMember, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ConversationMember collection
 func (r *ChatMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationMember, error) {
@@ -218,8 +202,9 @@ func (r *ChatMembersCollectionRequest) Get() ([]ConversationMember, error) {
 }
 
 // Add performs POST request for ConversationMember collection
-func (r *ChatMembersCollectionRequest) Add(reqObj *ConversationMember) (*ConversationMember, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChatMembersCollectionRequest) Add(reqObj *ConversationMember) (resObj *ConversationMember, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Messages returns request builder for ChatMessage collection
@@ -248,12 +233,6 @@ func (b *ChatMessagesCollectionRequestBuilder) ID(id string) *ChatMessageRequest
 
 // ChatMessagesCollectionRequest is request for ChatMessage collection
 type ChatMessagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ChatMessage collection
-func (r *ChatMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ChatMessage collection
 func (r *ChatMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
@@ -305,6 +284,7 @@ func (r *ChatMessagesCollectionRequest) Get() ([]ChatMessage, error) {
 }
 
 // Add performs POST request for ChatMessage collection
-func (r *ChatMessagesCollectionRequest) Add(reqObj *ChatMessage) (*ChatMessage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChatMessagesCollectionRequest) Add(reqObj *ChatMessage) (resObj *ChatMessage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

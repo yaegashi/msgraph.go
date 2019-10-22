@@ -15,24 +15,19 @@ func (b *WorkbookTableSortRequestBuilder) Request() *WorkbookTableSortRequest {
 // WorkbookTableSortRequest is request for WorkbookTableSort
 type WorkbookTableSortRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookTableSort
-func (r *WorkbookTableSortRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableSort, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookTableSort
-func (r *WorkbookTableSortRequest) Get() (*WorkbookTableSort, error) {
+func (r *WorkbookTableSortRequest) Get() (resObj *WorkbookTableSort, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookTableSort
-func (r *WorkbookTableSortRequest) Update(reqObj *WorkbookTableSort) (*WorkbookTableSort, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookTableSortRequest) Update(reqObj *WorkbookTableSort) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookTableSort

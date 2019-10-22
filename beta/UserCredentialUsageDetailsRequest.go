@@ -15,24 +15,19 @@ func (b *UserCredentialUsageDetailsRequestBuilder) Request() *UserCredentialUsag
 // UserCredentialUsageDetailsRequest is request for UserCredentialUsageDetails
 type UserCredentialUsageDetailsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserCredentialUsageDetails
-func (r *UserCredentialUsageDetailsRequest) Do(method, path string, reqObj interface{}) (resObj *UserCredentialUsageDetails, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserCredentialUsageDetails
-func (r *UserCredentialUsageDetailsRequest) Get() (*UserCredentialUsageDetails, error) {
+func (r *UserCredentialUsageDetailsRequest) Get() (resObj *UserCredentialUsageDetails, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserCredentialUsageDetails
-func (r *UserCredentialUsageDetailsRequest) Update(reqObj *UserCredentialUsageDetails) (*UserCredentialUsageDetails, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserCredentialUsageDetailsRequest) Update(reqObj *UserCredentialUsageDetails) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserCredentialUsageDetails

@@ -23,24 +23,19 @@ func (b *AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder) Request()
 // AdvancedThreatProtectionOnboardingStateSummaryRequest is request for AdvancedThreatProtectionOnboardingStateSummary
 type AdvancedThreatProtectionOnboardingStateSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AdvancedThreatProtectionOnboardingStateSummary
-func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *AdvancedThreatProtectionOnboardingStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AdvancedThreatProtectionOnboardingStateSummary
-func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Get() (*AdvancedThreatProtectionOnboardingStateSummary, error) {
+func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Get() (resObj *AdvancedThreatProtectionOnboardingStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AdvancedThreatProtectionOnboardingStateSummary
-func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Update(reqObj *AdvancedThreatProtectionOnboardingStateSummary) (*AdvancedThreatProtectionOnboardingStateSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AdvancedThreatProtectionOnboardingStateSummaryRequest) Update(reqObj *AdvancedThreatProtectionOnboardingStateSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AdvancedThreatProtectionOnboardingStateSummary
@@ -74,12 +69,6 @@ func (b *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionO
 
 // AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest is request for AdvancedThreatProtectionOnboardingDeviceSettingState collection
 type AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AdvancedThreatProtectionOnboardingDeviceSettingState collection
-func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AdvancedThreatProtectionOnboardingDeviceSettingState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AdvancedThreatProtectionOnboardingDeviceSettingState collection
 func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]AdvancedThreatProtectionOnboardingDeviceSettingState, error) {
@@ -131,6 +120,7 @@ func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionO
 }
 
 // Add performs POST request for AdvancedThreatProtectionOnboardingDeviceSettingState collection
-func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Add(reqObj *AdvancedThreatProtectionOnboardingDeviceSettingState) (*AdvancedThreatProtectionOnboardingDeviceSettingState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AdvancedThreatProtectionOnboardingStateSummaryAdvancedThreatProtectionOnboardingDeviceSettingStatesCollectionRequest) Add(reqObj *AdvancedThreatProtectionOnboardingDeviceSettingState) (resObj *AdvancedThreatProtectionOnboardingDeviceSettingState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

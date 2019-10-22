@@ -23,24 +23,19 @@ func (b *DirectoryRequestBuilder) Request() *DirectoryRequest {
 // DirectoryRequest is request for Directory
 type DirectoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Directory
-func (r *DirectoryRequest) Do(method, path string, reqObj interface{}) (resObj *Directory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Directory
-func (r *DirectoryRequest) Get() (*Directory, error) {
+func (r *DirectoryRequest) Get() (resObj *Directory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Directory
-func (r *DirectoryRequest) Update(reqObj *Directory) (*Directory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DirectoryRequest) Update(reqObj *Directory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Directory
@@ -74,12 +69,6 @@ func (b *DirectoryDeletedItemsCollectionRequestBuilder) ID(id string) *Directory
 
 // DirectoryDeletedItemsCollectionRequest is request for DirectoryObject collection
 type DirectoryDeletedItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DirectoryDeletedItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DirectoryDeletedItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,6 +120,7 @@ func (r *DirectoryDeletedItemsCollectionRequest) Get() ([]DirectoryObject, error
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DirectoryDeletedItemsCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DirectoryDeletedItemsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

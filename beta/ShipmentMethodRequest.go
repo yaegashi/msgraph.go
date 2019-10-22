@@ -15,24 +15,19 @@ func (b *ShipmentMethodRequestBuilder) Request() *ShipmentMethodRequest {
 // ShipmentMethodRequest is request for ShipmentMethod
 type ShipmentMethodRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ShipmentMethod
-func (r *ShipmentMethodRequest) Do(method, path string, reqObj interface{}) (resObj *ShipmentMethod, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ShipmentMethod
-func (r *ShipmentMethodRequest) Get() (*ShipmentMethod, error) {
+func (r *ShipmentMethodRequest) Get() (resObj *ShipmentMethod, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ShipmentMethod
-func (r *ShipmentMethodRequest) Update(reqObj *ShipmentMethod) (*ShipmentMethod, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ShipmentMethodRequest) Update(reqObj *ShipmentMethod) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ShipmentMethod

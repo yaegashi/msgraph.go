@@ -15,24 +15,19 @@ func (b *DirectoryObjectRequestBuilder) Request() *DirectoryObjectRequest {
 // DirectoryObjectRequest is request for DirectoryObject
 type DirectoryObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DirectoryObject
-func (r *DirectoryObjectRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DirectoryObject
-func (r *DirectoryObjectRequest) Get() (*DirectoryObject, error) {
+func (r *DirectoryObjectRequest) Get() (resObj *DirectoryObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DirectoryObject
-func (r *DirectoryObjectRequest) Update(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DirectoryObjectRequest) Update(reqObj *DirectoryObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryObject

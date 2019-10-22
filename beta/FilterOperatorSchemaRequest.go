@@ -15,24 +15,19 @@ func (b *FilterOperatorSchemaRequestBuilder) Request() *FilterOperatorSchemaRequ
 // FilterOperatorSchemaRequest is request for FilterOperatorSchema
 type FilterOperatorSchemaRequest struct{ BaseRequest }
 
-// Do performs HTTP request for FilterOperatorSchema
-func (r *FilterOperatorSchemaRequest) Do(method, path string, reqObj interface{}) (resObj *FilterOperatorSchema, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for FilterOperatorSchema
-func (r *FilterOperatorSchemaRequest) Get() (*FilterOperatorSchema, error) {
+func (r *FilterOperatorSchemaRequest) Get() (resObj *FilterOperatorSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for FilterOperatorSchema
-func (r *FilterOperatorSchemaRequest) Update(reqObj *FilterOperatorSchema) (*FilterOperatorSchema, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *FilterOperatorSchemaRequest) Update(reqObj *FilterOperatorSchema) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FilterOperatorSchema

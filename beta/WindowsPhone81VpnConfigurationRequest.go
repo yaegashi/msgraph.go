@@ -15,24 +15,19 @@ func (b *WindowsPhone81VpnConfigurationRequestBuilder) Request() *WindowsPhone81
 // WindowsPhone81VpnConfigurationRequest is request for WindowsPhone81VpnConfiguration
 type WindowsPhone81VpnConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsPhone81VpnConfiguration
-func (r *WindowsPhone81VpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81VpnConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsPhone81VpnConfiguration
-func (r *WindowsPhone81VpnConfigurationRequest) Get() (*WindowsPhone81VpnConfiguration, error) {
+func (r *WindowsPhone81VpnConfigurationRequest) Get() (resObj *WindowsPhone81VpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsPhone81VpnConfiguration
-func (r *WindowsPhone81VpnConfigurationRequest) Update(reqObj *WindowsPhone81VpnConfiguration) (*WindowsPhone81VpnConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsPhone81VpnConfigurationRequest) Update(reqObj *WindowsPhone81VpnConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPhone81VpnConfiguration

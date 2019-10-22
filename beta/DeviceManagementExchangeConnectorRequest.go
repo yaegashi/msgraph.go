@@ -15,24 +15,19 @@ func (b *DeviceManagementExchangeConnectorRequestBuilder) Request() *DeviceManag
 // DeviceManagementExchangeConnectorRequest is request for DeviceManagementExchangeConnector
 type DeviceManagementExchangeConnectorRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementExchangeConnector
-func (r *DeviceManagementExchangeConnectorRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementExchangeConnector, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementExchangeConnector
-func (r *DeviceManagementExchangeConnectorRequest) Get() (*DeviceManagementExchangeConnector, error) {
+func (r *DeviceManagementExchangeConnectorRequest) Get() (resObj *DeviceManagementExchangeConnector, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementExchangeConnector
-func (r *DeviceManagementExchangeConnectorRequest) Update(reqObj *DeviceManagementExchangeConnector) (*DeviceManagementExchangeConnector, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementExchangeConnectorRequest) Update(reqObj *DeviceManagementExchangeConnector) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementExchangeConnector

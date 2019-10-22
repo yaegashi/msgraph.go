@@ -23,24 +23,19 @@ func (b *AuditLogRootRequestBuilder) Request() *AuditLogRootRequest {
 // AuditLogRootRequest is request for AuditLogRoot
 type AuditLogRootRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AuditLogRoot
-func (r *AuditLogRootRequest) Do(method, path string, reqObj interface{}) (resObj *AuditLogRoot, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AuditLogRoot
-func (r *AuditLogRootRequest) Get() (*AuditLogRoot, error) {
+func (r *AuditLogRootRequest) Get() (resObj *AuditLogRoot, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AuditLogRoot
-func (r *AuditLogRootRequest) Update(reqObj *AuditLogRoot) (*AuditLogRoot, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AuditLogRootRequest) Update(reqObj *AuditLogRoot) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AuditLogRoot
@@ -74,12 +69,6 @@ func (b *AuditLogRootDirectoryAuditsCollectionRequestBuilder) ID(id string) *Dir
 
 // AuditLogRootDirectoryAuditsCollectionRequest is request for DirectoryAudit collection
 type AuditLogRootDirectoryAuditsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryAudit collection
-func (r *AuditLogRootDirectoryAuditsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryAudit, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryAudit collection
 func (r *AuditLogRootDirectoryAuditsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryAudit, error) {
@@ -131,8 +120,9 @@ func (r *AuditLogRootDirectoryAuditsCollectionRequest) Get() ([]DirectoryAudit, 
 }
 
 // Add performs POST request for DirectoryAudit collection
-func (r *AuditLogRootDirectoryAuditsCollectionRequest) Add(reqObj *DirectoryAudit) (*DirectoryAudit, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AuditLogRootDirectoryAuditsCollectionRequest) Add(reqObj *DirectoryAudit) (resObj *DirectoryAudit, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RestrictedSignIns returns request builder for RestrictedSignIn collection
@@ -161,12 +151,6 @@ func (b *AuditLogRootRestrictedSignInsCollectionRequestBuilder) ID(id string) *R
 
 // AuditLogRootRestrictedSignInsCollectionRequest is request for RestrictedSignIn collection
 type AuditLogRootRestrictedSignInsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for RestrictedSignIn collection
-func (r *AuditLogRootRestrictedSignInsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RestrictedSignIn, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for RestrictedSignIn collection
 func (r *AuditLogRootRestrictedSignInsCollectionRequest) Paging(method, path string, obj interface{}) ([]RestrictedSignIn, error) {
@@ -218,8 +202,9 @@ func (r *AuditLogRootRestrictedSignInsCollectionRequest) Get() ([]RestrictedSign
 }
 
 // Add performs POST request for RestrictedSignIn collection
-func (r *AuditLogRootRestrictedSignInsCollectionRequest) Add(reqObj *RestrictedSignIn) (*RestrictedSignIn, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AuditLogRootRestrictedSignInsCollectionRequest) Add(reqObj *RestrictedSignIn) (resObj *RestrictedSignIn, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SignIns returns request builder for SignIn collection
@@ -248,12 +233,6 @@ func (b *AuditLogRootSignInsCollectionRequestBuilder) ID(id string) *SignInReque
 
 // AuditLogRootSignInsCollectionRequest is request for SignIn collection
 type AuditLogRootSignInsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SignIn collection
-func (r *AuditLogRootSignInsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SignIn, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SignIn collection
 func (r *AuditLogRootSignInsCollectionRequest) Paging(method, path string, obj interface{}) ([]SignIn, error) {
@@ -305,6 +284,7 @@ func (r *AuditLogRootSignInsCollectionRequest) Get() ([]SignIn, error) {
 }
 
 // Add performs POST request for SignIn collection
-func (r *AuditLogRootSignInsCollectionRequest) Add(reqObj *SignIn) (*SignIn, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AuditLogRootSignInsCollectionRequest) Add(reqObj *SignIn) (resObj *SignIn, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

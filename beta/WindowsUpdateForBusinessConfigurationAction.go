@@ -32,13 +32,8 @@ func (b *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestBu
 }
 
 //
-func (r *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -63,11 +58,6 @@ func (b *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequestBu
 }
 
 //
-func (r *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

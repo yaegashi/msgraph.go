@@ -23,24 +23,19 @@ func (b *RoleScopeTagRequestBuilder) Request() *RoleScopeTagRequest {
 // RoleScopeTagRequest is request for RoleScopeTag
 type RoleScopeTagRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RoleScopeTag
-func (r *RoleScopeTagRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTag, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RoleScopeTag
-func (r *RoleScopeTagRequest) Get() (*RoleScopeTag, error) {
+func (r *RoleScopeTagRequest) Get() (resObj *RoleScopeTag, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RoleScopeTag
-func (r *RoleScopeTagRequest) Update(reqObj *RoleScopeTag) (*RoleScopeTag, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoleScopeTagRequest) Update(reqObj *RoleScopeTag) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleScopeTag
@@ -74,12 +69,6 @@ func (b *RoleScopeTagAssignmentsCollectionRequestBuilder) ID(id string) *RoleSco
 
 // RoleScopeTagAssignmentsCollectionRequest is request for RoleScopeTagAutoAssignment collection
 type RoleScopeTagAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTagAutoAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for RoleScopeTagAutoAssignment collection
 func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
@@ -131,6 +120,7 @@ func (r *RoleScopeTagAssignmentsCollectionRequest) Get() ([]RoleScopeTagAutoAssi
 }
 
 // Add performs POST request for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Add(reqObj *RoleScopeTagAutoAssignment) (*RoleScopeTagAutoAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RoleScopeTagAssignmentsCollectionRequest) Add(reqObj *RoleScopeTagAutoAssignment) (resObj *RoleScopeTagAutoAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

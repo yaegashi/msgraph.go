@@ -30,12 +30,7 @@ func (b *ApplicationTemplateInstantiateRequestBuilder) Request() *ApplicationTem
 }
 
 //
-func (r *ApplicationTemplateInstantiateRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationServicePrincipal, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *ApplicationTemplateInstantiateRequest) Post() (resObj *ApplicationServicePrincipal, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *ApplicationTemplateInstantiateRequest) Post() (*ApplicationServicePrincipal, error) {
-	return r.Do("POST", "", r.requestObject)
 }

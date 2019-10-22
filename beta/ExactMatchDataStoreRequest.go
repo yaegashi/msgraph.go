@@ -23,24 +23,19 @@ func (b *ExactMatchDataStoreRequestBuilder) Request() *ExactMatchDataStoreReques
 // ExactMatchDataStoreRequest is request for ExactMatchDataStore
 type ExactMatchDataStoreRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ExactMatchDataStore
-func (r *ExactMatchDataStoreRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchDataStore, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ExactMatchDataStore
-func (r *ExactMatchDataStoreRequest) Get() (*ExactMatchDataStore, error) {
+func (r *ExactMatchDataStoreRequest) Get() (resObj *ExactMatchDataStore, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ExactMatchDataStore
-func (r *ExactMatchDataStoreRequest) Update(reqObj *ExactMatchDataStore) (*ExactMatchDataStore, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ExactMatchDataStoreRequest) Update(reqObj *ExactMatchDataStore) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ExactMatchDataStore
@@ -74,12 +69,6 @@ func (b *ExactMatchDataStoreSessionsCollectionRequestBuilder) ID(id string) *Exa
 
 // ExactMatchDataStoreSessionsCollectionRequest is request for ExactMatchSession collection
 type ExactMatchDataStoreSessionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ExactMatchSession collection
 func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchSession, error) {
@@ -131,6 +120,7 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Get() ([]ExactMatchSessio
 }
 
 // Add performs POST request for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Add(reqObj *ExactMatchSession) (*ExactMatchSession, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ExactMatchDataStoreSessionsCollectionRequest) Add(reqObj *ExactMatchSession) (resObj *ExactMatchSession, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

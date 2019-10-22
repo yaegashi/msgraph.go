@@ -15,24 +15,19 @@ func (b *DirectorySettingRequestBuilder) Request() *DirectorySettingRequest {
 // DirectorySettingRequest is request for DirectorySetting
 type DirectorySettingRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DirectorySetting
-func (r *DirectorySettingRequest) Do(method, path string, reqObj interface{}) (resObj *DirectorySetting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DirectorySetting
-func (r *DirectorySettingRequest) Get() (*DirectorySetting, error) {
+func (r *DirectorySettingRequest) Get() (resObj *DirectorySetting, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DirectorySetting
-func (r *DirectorySettingRequest) Update(reqObj *DirectorySetting) (*DirectorySetting, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DirectorySettingRequest) Update(reqObj *DirectorySetting) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectorySetting

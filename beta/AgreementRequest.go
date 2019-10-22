@@ -23,24 +23,19 @@ func (b *AgreementRequestBuilder) Request() *AgreementRequest {
 // AgreementRequest is request for Agreement
 type AgreementRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Agreement
-func (r *AgreementRequest) Do(method, path string, reqObj interface{}) (resObj *Agreement, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Agreement
-func (r *AgreementRequest) Get() (*Agreement, error) {
+func (r *AgreementRequest) Get() (resObj *Agreement, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Agreement
-func (r *AgreementRequest) Update(reqObj *Agreement) (*Agreement, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AgreementRequest) Update(reqObj *Agreement) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Agreement
@@ -74,12 +69,6 @@ func (b *AgreementFilesCollectionRequestBuilder) ID(id string) *AgreementFileReq
 
 // AgreementFilesCollectionRequest is request for AgreementFile collection
 type AgreementFilesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AgreementFile collection
-func (r *AgreementFilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AgreementFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AgreementFile collection
 func (r *AgreementFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]AgreementFile, error) {
@@ -131,6 +120,7 @@ func (r *AgreementFilesCollectionRequest) Get() ([]AgreementFile, error) {
 }
 
 // Add performs POST request for AgreementFile collection
-func (r *AgreementFilesCollectionRequest) Add(reqObj *AgreementFile) (*AgreementFile, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AgreementFilesCollectionRequest) Add(reqObj *AgreementFile) (resObj *AgreementFile, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

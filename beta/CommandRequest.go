@@ -15,24 +15,19 @@ func (b *CommandRequestBuilder) Request() *CommandRequest {
 // CommandRequest is request for Command
 type CommandRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Command
-func (r *CommandRequest) Do(method, path string, reqObj interface{}) (resObj *Command, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Command
-func (r *CommandRequest) Get() (*Command, error) {
+func (r *CommandRequest) Get() (resObj *Command, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Command
-func (r *CommandRequest) Update(reqObj *Command) (*Command, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CommandRequest) Update(reqObj *Command) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Command

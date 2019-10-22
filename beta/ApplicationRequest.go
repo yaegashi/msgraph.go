@@ -23,24 +23,19 @@ func (b *ApplicationRequestBuilder) Request() *ApplicationRequest {
 // ApplicationRequest is request for Application
 type ApplicationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Application
-func (r *ApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *Application, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Application
-func (r *ApplicationRequest) Get() (*Application, error) {
+func (r *ApplicationRequest) Get() (resObj *Application, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Application
-func (r *ApplicationRequest) Update(reqObj *Application) (*Application, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ApplicationRequest) Update(reqObj *Application) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Application
@@ -81,12 +76,6 @@ func (b *ApplicationExtensionPropertiesCollectionRequestBuilder) ID(id string) *
 
 // ApplicationExtensionPropertiesCollectionRequest is request for ExtensionProperty collection
 type ApplicationExtensionPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ExtensionProperty collection
-func (r *ApplicationExtensionPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExtensionProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ExtensionProperty collection
 func (r *ApplicationExtensionPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ExtensionProperty, error) {
@@ -138,8 +127,9 @@ func (r *ApplicationExtensionPropertiesCollectionRequest) Get() ([]ExtensionProp
 }
 
 // Add performs POST request for ExtensionProperty collection
-func (r *ApplicationExtensionPropertiesCollectionRequest) Add(reqObj *ExtensionProperty) (*ExtensionProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApplicationExtensionPropertiesCollectionRequest) Add(reqObj *ExtensionProperty) (resObj *ExtensionProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Owners returns request builder for DirectoryObject collection
@@ -168,12 +158,6 @@ func (b *ApplicationOwnersCollectionRequestBuilder) ID(id string) *DirectoryObje
 
 // ApplicationOwnersCollectionRequest is request for DirectoryObject collection
 type ApplicationOwnersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *ApplicationOwnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *ApplicationOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -225,8 +209,9 @@ func (r *ApplicationOwnersCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ApplicationOwnersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApplicationOwnersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Policies returns request builder for DirectoryObject collection
@@ -255,12 +240,6 @@ func (b *ApplicationPoliciesCollectionRequestBuilder) ID(id string) *DirectoryOb
 
 // ApplicationPoliciesCollectionRequest is request for DirectoryObject collection
 type ApplicationPoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *ApplicationPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *ApplicationPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -312,8 +291,9 @@ func (r *ApplicationPoliciesCollectionRequest) Get() ([]DirectoryObject, error) 
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ApplicationPoliciesCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApplicationPoliciesCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Synchronization is navigation property

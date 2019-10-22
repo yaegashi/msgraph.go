@@ -2,12 +2,6 @@
 
 package msgraph
 
-// GroupLifecyclePolicyCollectionRenewGroupRequestParameter undocumented
-type GroupLifecyclePolicyCollectionRenewGroupRequestParameter struct {
-	// GroupID undocumented
-	GroupID *string `json:"groupId,omitempty"`
-}
-
 // GroupLifecyclePolicyAddGroupRequestParameter undocumented
 type GroupLifecyclePolicyAddGroupRequestParameter struct {
 	// GroupID undocumented
@@ -16,6 +10,12 @@ type GroupLifecyclePolicyAddGroupRequestParameter struct {
 
 // GroupLifecyclePolicyRemoveGroupRequestParameter undocumented
 type GroupLifecyclePolicyRemoveGroupRequestParameter struct {
+	// GroupID undocumented
+	GroupID *string `json:"groupId,omitempty"`
+}
+
+// GroupLifecyclePolicyCollectionRenewGroupRequestParameter undocumented
+type GroupLifecyclePolicyCollectionRenewGroupRequestParameter struct {
 	// GroupID undocumented
 	GroupID *string `json:"groupId,omitempty"`
 }
@@ -42,14 +42,9 @@ func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePo
 }
 
 //
-func (r *GroupLifecyclePolicyAddGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *GroupLifecyclePolicyAddGroupRequest) Post() (resObj *bool, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *GroupLifecyclePolicyAddGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -74,14 +69,9 @@ func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecycl
 }
 
 //
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (resObj *bool, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -106,12 +96,7 @@ func (b *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder) Request() *Grou
 }
 
 //
-func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post() (resObj *bool, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
 }

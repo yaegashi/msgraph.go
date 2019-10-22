@@ -15,24 +15,19 @@ func (b *WindowsPhone81TrustedRootCertificateRequestBuilder) Request() *WindowsP
 // WindowsPhone81TrustedRootCertificateRequest is request for WindowsPhone81TrustedRootCertificate
 type WindowsPhone81TrustedRootCertificateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsPhone81TrustedRootCertificate
-func (r *WindowsPhone81TrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81TrustedRootCertificate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsPhone81TrustedRootCertificate
-func (r *WindowsPhone81TrustedRootCertificateRequest) Get() (*WindowsPhone81TrustedRootCertificate, error) {
+func (r *WindowsPhone81TrustedRootCertificateRequest) Get() (resObj *WindowsPhone81TrustedRootCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsPhone81TrustedRootCertificate
-func (r *WindowsPhone81TrustedRootCertificateRequest) Update(reqObj *WindowsPhone81TrustedRootCertificate) (*WindowsPhone81TrustedRootCertificate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsPhone81TrustedRootCertificateRequest) Update(reqObj *WindowsPhone81TrustedRootCertificate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPhone81TrustedRootCertificate

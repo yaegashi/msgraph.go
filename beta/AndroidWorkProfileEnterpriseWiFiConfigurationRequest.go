@@ -15,24 +15,19 @@ func (b *AndroidWorkProfileEnterpriseWiFiConfigurationRequestBuilder) Request() 
 // AndroidWorkProfileEnterpriseWiFiConfigurationRequest is request for AndroidWorkProfileEnterpriseWiFiConfiguration
 type AndroidWorkProfileEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidWorkProfileEnterpriseWiFiConfiguration
-func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidWorkProfileEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidWorkProfileEnterpriseWiFiConfiguration
-func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) Get() (*AndroidWorkProfileEnterpriseWiFiConfiguration, error) {
+func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) Get() (resObj *AndroidWorkProfileEnterpriseWiFiConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidWorkProfileEnterpriseWiFiConfiguration
-func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) Update(reqObj *AndroidWorkProfileEnterpriseWiFiConfiguration) (*AndroidWorkProfileEnterpriseWiFiConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidWorkProfileEnterpriseWiFiConfigurationRequest) Update(reqObj *AndroidWorkProfileEnterpriseWiFiConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidWorkProfileEnterpriseWiFiConfiguration

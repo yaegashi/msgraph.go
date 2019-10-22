@@ -15,24 +15,19 @@ func (b *ItemAttachmentRequestBuilder) Request() *ItemAttachmentRequest {
 // ItemAttachmentRequest is request for ItemAttachment
 type ItemAttachmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ItemAttachment
-func (r *ItemAttachmentRequest) Do(method, path string, reqObj interface{}) (resObj *ItemAttachment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ItemAttachment
-func (r *ItemAttachmentRequest) Get() (*ItemAttachment, error) {
+func (r *ItemAttachmentRequest) Get() (resObj *ItemAttachment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ItemAttachment
-func (r *ItemAttachmentRequest) Update(reqObj *ItemAttachment) (*ItemAttachment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ItemAttachmentRequest) Update(reqObj *ItemAttachment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemAttachment

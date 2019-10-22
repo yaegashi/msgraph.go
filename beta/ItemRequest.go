@@ -23,24 +23,19 @@ func (b *ItemRequestBuilder) Request() *ItemRequest {
 // ItemRequest is request for Item
 type ItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Item
-func (r *ItemRequest) Do(method, path string, reqObj interface{}) (resObj *Item, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Item
-func (r *ItemRequest) Get() (*Item, error) {
+func (r *ItemRequest) Get() (resObj *Item, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Item
-func (r *ItemRequest) Update(reqObj *Item) (*Item, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ItemRequest) Update(reqObj *Item) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Item
@@ -81,12 +76,6 @@ func (b *ItemPictureCollectionRequestBuilder) ID(id string) *PictureRequestBuild
 
 // ItemPictureCollectionRequest is request for Picture collection
 type ItemPictureCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Picture collection
-func (r *ItemPictureCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Picture, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Picture collection
 func (r *ItemPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
@@ -138,6 +127,7 @@ func (r *ItemPictureCollectionRequest) Get() ([]Picture, error) {
 }
 
 // Add performs POST request for Picture collection
-func (r *ItemPictureCollectionRequest) Add(reqObj *Picture) (*Picture, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ItemPictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

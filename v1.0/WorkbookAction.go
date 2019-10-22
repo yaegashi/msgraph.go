@@ -38,14 +38,9 @@ func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRe
 }
 
 //
-func (r *WorkbookCreateSessionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookSessionInfo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookCreateSessionRequest) Post() (resObj *WorkbookSessionInfo, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookCreateSessionRequest) Post() (*WorkbookSessionInfo, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -70,13 +65,8 @@ func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequ
 }
 
 //
-func (r *WorkbookCloseSessionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookCloseSessionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -101,11 +91,6 @@ func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSession
 }
 
 //
-func (r *WorkbookRefreshSessionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRefreshSessionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

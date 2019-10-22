@@ -38,12 +38,6 @@ func (b *GroupPolicyConfigurationAssignRequestBuilder) Request() *GroupPolicyCon
 }
 
 //
-func (r *GroupPolicyConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]GroupPolicyConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *GroupPolicyConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]GroupPolicyConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

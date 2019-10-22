@@ -23,24 +23,19 @@ func (b *MicrosoftStoreForBusinessAppRequestBuilder) Request() *MicrosoftStoreFo
 // MicrosoftStoreForBusinessAppRequest is request for MicrosoftStoreForBusinessApp
 type MicrosoftStoreForBusinessAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MicrosoftStoreForBusinessApp
-func (r *MicrosoftStoreForBusinessAppRequest) Do(method, path string, reqObj interface{}) (resObj *MicrosoftStoreForBusinessApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MicrosoftStoreForBusinessApp
-func (r *MicrosoftStoreForBusinessAppRequest) Get() (*MicrosoftStoreForBusinessApp, error) {
+func (r *MicrosoftStoreForBusinessAppRequest) Get() (resObj *MicrosoftStoreForBusinessApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MicrosoftStoreForBusinessApp
-func (r *MicrosoftStoreForBusinessAppRequest) Update(reqObj *MicrosoftStoreForBusinessApp) (*MicrosoftStoreForBusinessApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MicrosoftStoreForBusinessAppRequest) Update(reqObj *MicrosoftStoreForBusinessApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MicrosoftStoreForBusinessApp
@@ -74,12 +69,6 @@ func (b *MicrosoftStoreForBusinessAppContainedAppsCollectionRequestBuilder) ID(i
 
 // MicrosoftStoreForBusinessAppContainedAppsCollectionRequest is request for MobileContainedApp collection
 type MicrosoftStoreForBusinessAppContainedAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileContainedApp collection
-func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileContainedApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileContainedApp collection
 func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileContainedApp, error) {
@@ -131,6 +120,7 @@ func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Get() ([]Mo
 }
 
 // Add performs POST request for MobileContainedApp collection
-func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Add(reqObj *MobileContainedApp) (*MobileContainedApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MicrosoftStoreForBusinessAppContainedAppsCollectionRequest) Add(reqObj *MobileContainedApp) (resObj *MobileContainedApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

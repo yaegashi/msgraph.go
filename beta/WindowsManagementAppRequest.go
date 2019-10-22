@@ -23,24 +23,19 @@ func (b *WindowsManagementAppRequestBuilder) Request() *WindowsManagementAppRequ
 // WindowsManagementAppRequest is request for WindowsManagementApp
 type WindowsManagementAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsManagementApp
-func (r *WindowsManagementAppRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsManagementApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsManagementApp
-func (r *WindowsManagementAppRequest) Get() (*WindowsManagementApp, error) {
+func (r *WindowsManagementAppRequest) Get() (resObj *WindowsManagementApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsManagementApp
-func (r *WindowsManagementAppRequest) Update(reqObj *WindowsManagementApp) (*WindowsManagementApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsManagementAppRequest) Update(reqObj *WindowsManagementApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsManagementApp
@@ -74,12 +69,6 @@ func (b *WindowsManagementAppHealthStatesCollectionRequestBuilder) ID(id string)
 
 // WindowsManagementAppHealthStatesCollectionRequest is request for WindowsManagementAppHealthState collection
 type WindowsManagementAppHealthStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsManagementAppHealthState collection
-func (r *WindowsManagementAppHealthStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsManagementAppHealthState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsManagementAppHealthState collection
 func (r *WindowsManagementAppHealthStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsManagementAppHealthState, error) {
@@ -131,6 +120,7 @@ func (r *WindowsManagementAppHealthStatesCollectionRequest) Get() ([]WindowsMana
 }
 
 // Add performs POST request for WindowsManagementAppHealthState collection
-func (r *WindowsManagementAppHealthStatesCollectionRequest) Add(reqObj *WindowsManagementAppHealthState) (*WindowsManagementAppHealthState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsManagementAppHealthStatesCollectionRequest) Add(reqObj *WindowsManagementAppHealthState) (resObj *WindowsManagementAppHealthState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

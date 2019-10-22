@@ -15,24 +15,19 @@ func (b *OrganizationalBrandingRequestBuilder) Request() *OrganizationalBranding
 // OrganizationalBrandingRequest is request for OrganizationalBranding
 type OrganizationalBrandingRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OrganizationalBranding
-func (r *OrganizationalBrandingRequest) Do(method, path string, reqObj interface{}) (resObj *OrganizationalBranding, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OrganizationalBranding
-func (r *OrganizationalBrandingRequest) Get() (*OrganizationalBranding, error) {
+func (r *OrganizationalBrandingRequest) Get() (resObj *OrganizationalBranding, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OrganizationalBranding
-func (r *OrganizationalBrandingRequest) Update(reqObj *OrganizationalBranding) (*OrganizationalBranding, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OrganizationalBrandingRequest) Update(reqObj *OrganizationalBranding) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OrganizationalBranding

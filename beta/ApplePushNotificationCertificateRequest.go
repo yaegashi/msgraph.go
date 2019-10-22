@@ -15,24 +15,19 @@ func (b *ApplePushNotificationCertificateRequestBuilder) Request() *ApplePushNot
 // ApplePushNotificationCertificateRequest is request for ApplePushNotificationCertificate
 type ApplePushNotificationCertificateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ApplePushNotificationCertificate
-func (r *ApplePushNotificationCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *ApplePushNotificationCertificate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ApplePushNotificationCertificate
-func (r *ApplePushNotificationCertificateRequest) Get() (*ApplePushNotificationCertificate, error) {
+func (r *ApplePushNotificationCertificateRequest) Get() (resObj *ApplePushNotificationCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ApplePushNotificationCertificate
-func (r *ApplePushNotificationCertificateRequest) Update(reqObj *ApplePushNotificationCertificate) (*ApplePushNotificationCertificate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ApplePushNotificationCertificateRequest) Update(reqObj *ApplePushNotificationCertificate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ApplePushNotificationCertificate

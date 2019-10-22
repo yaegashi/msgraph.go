@@ -23,24 +23,19 @@ func (b *DepOnboardingSettingRequestBuilder) Request() *DepOnboardingSettingRequ
 // DepOnboardingSettingRequest is request for DepOnboardingSetting
 type DepOnboardingSettingRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DepOnboardingSetting
-func (r *DepOnboardingSettingRequest) Do(method, path string, reqObj interface{}) (resObj *DepOnboardingSetting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DepOnboardingSetting
-func (r *DepOnboardingSettingRequest) Get() (*DepOnboardingSetting, error) {
+func (r *DepOnboardingSettingRequest) Get() (resObj *DepOnboardingSetting, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DepOnboardingSetting
-func (r *DepOnboardingSettingRequest) Update(reqObj *DepOnboardingSetting) (*DepOnboardingSetting, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DepOnboardingSettingRequest) Update(reqObj *DepOnboardingSetting) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DepOnboardingSetting
@@ -88,12 +83,6 @@ func (b *DepOnboardingSettingEnrollmentProfilesCollectionRequestBuilder) ID(id s
 
 // DepOnboardingSettingEnrollmentProfilesCollectionRequest is request for EnrollmentProfile collection
 type DepOnboardingSettingEnrollmentProfilesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EnrollmentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EnrollmentProfile collection
 func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]EnrollmentProfile, error) {
@@ -145,8 +134,9 @@ func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Get() ([]Enrol
 }
 
 // Add performs POST request for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Add(reqObj *EnrollmentProfile) (*EnrollmentProfile, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Add(reqObj *EnrollmentProfile) (resObj *EnrollmentProfile, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ImportedAppleDeviceIdentities returns request builder for ImportedAppleDeviceIdentity collection
@@ -175,12 +165,6 @@ func (b *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequestBuild
 
 // DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest is request for ImportedAppleDeviceIdentity collection
 type DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedAppleDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ImportedAppleDeviceIdentity collection
 func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ImportedAppleDeviceIdentity, error) {
@@ -232,6 +216,7 @@ func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Get
 }
 
 // Add performs POST request for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Add(reqObj *ImportedAppleDeviceIdentity) (*ImportedAppleDeviceIdentity, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Add(reqObj *ImportedAppleDeviceIdentity) (resObj *ImportedAppleDeviceIdentity, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

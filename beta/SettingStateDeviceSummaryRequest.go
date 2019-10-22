@@ -15,24 +15,19 @@ func (b *SettingStateDeviceSummaryRequestBuilder) Request() *SettingStateDeviceS
 // SettingStateDeviceSummaryRequest is request for SettingStateDeviceSummary
 type SettingStateDeviceSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SettingStateDeviceSummary
-func (r *SettingStateDeviceSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *SettingStateDeviceSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SettingStateDeviceSummary
-func (r *SettingStateDeviceSummaryRequest) Get() (*SettingStateDeviceSummary, error) {
+func (r *SettingStateDeviceSummaryRequest) Get() (resObj *SettingStateDeviceSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SettingStateDeviceSummary
-func (r *SettingStateDeviceSummaryRequest) Update(reqObj *SettingStateDeviceSummary) (*SettingStateDeviceSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SettingStateDeviceSummaryRequest) Update(reqObj *SettingStateDeviceSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SettingStateDeviceSummary

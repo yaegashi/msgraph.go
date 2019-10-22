@@ -129,14 +129,9 @@ func (b *UserAssignLicenseRequestBuilder) Request() *UserAssignLicenseRequest {
 }
 
 //
-func (r *UserAssignLicenseRequest) Do(method, path string, reqObj interface{}) (resObj *User, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *UserAssignLicenseRequest) Post() (resObj *User, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *UserAssignLicenseRequest) Post() (*User, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -161,13 +156,8 @@ func (b *UserChangePasswordRequestBuilder) Request() *UserChangePasswordRequest 
 }
 
 //
-func (r *UserChangePasswordRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *UserChangePasswordRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -192,14 +182,9 @@ func (b *UserInvalidateAllRefreshTokensRequestBuilder) Request() *UserInvalidate
 }
 
 //
-func (r *UserInvalidateAllRefreshTokensRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *UserInvalidateAllRefreshTokensRequest) Post() (resObj *bool, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *UserInvalidateAllRefreshTokensRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -224,14 +209,9 @@ func (b *UserRevokeSignInSessionsRequestBuilder) Request() *UserRevokeSignInSess
 }
 
 //
-func (r *UserRevokeSignInSessionsRequest) Do(method, path string, reqObj interface{}) (resObj *bool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *UserRevokeSignInSessionsRequest) Post() (resObj *bool, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *UserRevokeSignInSessionsRequest) Post() (*bool, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -256,14 +236,9 @@ func (b *UserReprocessLicenseAssignmentRequestBuilder) Request() *UserReprocessL
 }
 
 //
-func (r *UserReprocessLicenseAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *User, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *UserReprocessLicenseAssignmentRequest) Post() (resObj *User, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *UserReprocessLicenseAssignmentRequest) Post() (*User, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -288,14 +263,9 @@ func (b *UserFindMeetingTimesRequestBuilder) Request() *UserFindMeetingTimesRequ
 }
 
 //
-func (r *UserFindMeetingTimesRequest) Do(method, path string, reqObj interface{}) (resObj *MeetingTimeSuggestionsResult, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *UserFindMeetingTimesRequest) Post() (resObj *MeetingTimeSuggestionsResult, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *UserFindMeetingTimesRequest) Post() (*MeetingTimeSuggestionsResult, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -320,13 +290,8 @@ func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
 }
 
 //
-func (r *UserSendMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *UserSendMailRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -348,12 +313,6 @@ func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
 	return &UserGetMailTipsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *UserGetMailTipsRequest) Do(method, path string, reqObj interface{}) (resObj *[]MailTips, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -427,12 +386,6 @@ func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchang
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Do(method, path string, reqObj interface{}) (resObj *[]ConvertIDResult, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *UserTranslateExchangeIDsRequest) Paging(method, path string, obj interface{}) ([][]ConvertIDResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -503,13 +456,8 @@ func (b *UserRemoveAllDevicesFromManagementRequestBuilder) Request() *UserRemove
 }
 
 //
-func (r *UserRemoveAllDevicesFromManagementRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *UserRemoveAllDevicesFromManagementRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -534,13 +482,8 @@ func (b *UserWipeManagedAppRegistrationByDeviceTagRequestBuilder) Request() *Use
 }
 
 //
-func (r *UserWipeManagedAppRegistrationByDeviceTagRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *UserWipeManagedAppRegistrationByDeviceTagRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -565,13 +508,8 @@ func (b *UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder) Request() *Us
 }
 
 //
-func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -596,11 +534,6 @@ func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalData
 }
 
 //
-func (r *UserExportPersonalDataRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *UserExportPersonalDataRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

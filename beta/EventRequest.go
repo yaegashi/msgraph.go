@@ -23,24 +23,19 @@ func (b *EventRequestBuilder) Request() *EventRequest {
 // EventRequest is request for Event
 type EventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Event
-func (r *EventRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Event
-func (r *EventRequest) Get() (*Event, error) {
+func (r *EventRequest) Get() (resObj *Event, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Event
-func (r *EventRequest) Update(reqObj *Event) (*Event, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EventRequest) Update(reqObj *Event) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Event
@@ -74,12 +69,6 @@ func (b *EventAttachmentsCollectionRequestBuilder) ID(id string) *AttachmentRequ
 
 // EventAttachmentsCollectionRequest is request for Attachment collection
 type EventAttachmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Attachment collection
-func (r *EventAttachmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Attachment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Attachment collection
 func (r *EventAttachmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]Attachment, error) {
@@ -131,8 +120,9 @@ func (r *EventAttachmentsCollectionRequest) Get() ([]Attachment, error) {
 }
 
 // Add performs POST request for Attachment collection
-func (r *EventAttachmentsCollectionRequest) Add(reqObj *Attachment) (*Attachment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EventAttachmentsCollectionRequest) Add(reqObj *Attachment) (resObj *Attachment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Calendar is navigation property
@@ -168,12 +158,6 @@ func (b *EventExtensionsCollectionRequestBuilder) ID(id string) *ExtensionReques
 
 // EventExtensionsCollectionRequest is request for Extension collection
 type EventExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Extension collection
-func (r *EventExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Extension collection
 func (r *EventExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
@@ -225,8 +209,9 @@ func (r *EventExtensionsCollectionRequest) Get() ([]Extension, error) {
 }
 
 // Add performs POST request for Extension collection
-func (r *EventExtensionsCollectionRequest) Add(reqObj *Extension) (*Extension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EventExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Instances returns request builder for Event collection
@@ -255,12 +240,6 @@ func (b *EventInstancesCollectionRequestBuilder) ID(id string) *EventRequestBuil
 
 // EventInstancesCollectionRequest is request for Event collection
 type EventInstancesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Event collection
-func (r *EventInstancesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Event collection
 func (r *EventInstancesCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
@@ -312,8 +291,9 @@ func (r *EventInstancesCollectionRequest) Get() ([]Event, error) {
 }
 
 // Add performs POST request for Event collection
-func (r *EventInstancesCollectionRequest) Add(reqObj *Event) (*Event, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EventInstancesCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -342,12 +322,6 @@ func (b *EventMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id string
 
 // EventMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type EventMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *EventMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *EventMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -399,8 +373,9 @@ func (r *EventMultiValueExtendedPropertiesCollectionRequest) Get() ([]MultiValue
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *EventMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EventMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -429,12 +404,6 @@ func (b *EventSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id strin
 
 // EventSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type EventSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *EventSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *EventSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -486,6 +455,7 @@ func (r *EventSingleValueExtendedPropertiesCollectionRequest) Get() ([]SingleVal
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *EventSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EventSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

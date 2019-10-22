@@ -50,13 +50,8 @@ func (b *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestBuilder) Request
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -81,13 +76,8 @@ func (b *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestBuilder) Req
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -112,13 +102,8 @@ func (b *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestBuild
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -143,11 +128,6 @@ func (b *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestB
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

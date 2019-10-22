@@ -15,24 +15,19 @@ func (b *IOSTrustedRootCertificateRequestBuilder) Request() *IOSTrustedRootCerti
 // IOSTrustedRootCertificateRequest is request for IOSTrustedRootCertificate
 type IOSTrustedRootCertificateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSTrustedRootCertificate
-func (r *IOSTrustedRootCertificateRequest) Do(method, path string, reqObj interface{}) (resObj *IOSTrustedRootCertificate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSTrustedRootCertificate
-func (r *IOSTrustedRootCertificateRequest) Get() (*IOSTrustedRootCertificate, error) {
+func (r *IOSTrustedRootCertificateRequest) Get() (resObj *IOSTrustedRootCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSTrustedRootCertificate
-func (r *IOSTrustedRootCertificateRequest) Update(reqObj *IOSTrustedRootCertificate) (*IOSTrustedRootCertificate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSTrustedRootCertificateRequest) Update(reqObj *IOSTrustedRootCertificate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSTrustedRootCertificate

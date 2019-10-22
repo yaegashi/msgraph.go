@@ -15,24 +15,19 @@ func (b *WorkbookChartLegendFormatRequestBuilder) Request() *WorkbookChartLegend
 // WorkbookChartLegendFormatRequest is request for WorkbookChartLegendFormat
 type WorkbookChartLegendFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartLegendFormat
-func (r *WorkbookChartLegendFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartLegendFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartLegendFormat
-func (r *WorkbookChartLegendFormatRequest) Get() (*WorkbookChartLegendFormat, error) {
+func (r *WorkbookChartLegendFormatRequest) Get() (resObj *WorkbookChartLegendFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartLegendFormat
-func (r *WorkbookChartLegendFormatRequest) Update(reqObj *WorkbookChartLegendFormat) (*WorkbookChartLegendFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartLegendFormatRequest) Update(reqObj *WorkbookChartLegendFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartLegendFormat

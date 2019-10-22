@@ -23,24 +23,19 @@ func (b *DomainRequestBuilder) Request() *DomainRequest {
 // DomainRequest is request for Domain
 type DomainRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Domain
-func (r *DomainRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Domain
-func (r *DomainRequest) Get() (*Domain, error) {
+func (r *DomainRequest) Get() (resObj *Domain, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Domain
-func (r *DomainRequest) Update(reqObj *Domain) (*Domain, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DomainRequest) Update(reqObj *Domain) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Domain
@@ -74,12 +69,6 @@ func (b *DomainDomainNameReferencesCollectionRequestBuilder) ID(id string) *Dire
 
 // DomainDomainNameReferencesCollectionRequest is request for DirectoryObject collection
 type DomainDomainNameReferencesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *DomainDomainNameReferencesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *DomainDomainNameReferencesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,8 +120,9 @@ func (r *DomainDomainNameReferencesCollectionRequest) Get() ([]DirectoryObject, 
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DomainDomainNameReferencesCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DomainDomainNameReferencesCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ServiceConfigurationRecords returns request builder for DomainDNSRecord collection
@@ -161,12 +151,6 @@ func (b *DomainServiceConfigurationRecordsCollectionRequestBuilder) ID(id string
 
 // DomainServiceConfigurationRecordsCollectionRequest is request for DomainDNSRecord collection
 type DomainServiceConfigurationRecordsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DomainDNSRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DomainDNSRecord collection
 func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
@@ -218,8 +202,9 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Get() ([]DomainDNSR
 }
 
 // Add performs POST request for DomainDNSRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // VerificationDNSRecords returns request builder for DomainDNSRecord collection
@@ -248,12 +233,6 @@ func (b *DomainVerificationDNSRecordsCollectionRequestBuilder) ID(id string) *Do
 
 // DomainVerificationDNSRecordsCollectionRequest is request for DomainDNSRecord collection
 type DomainVerificationDNSRecordsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DomainDNSRecord collection
-func (r *DomainVerificationDNSRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DomainDNSRecord collection
 func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
@@ -305,6 +284,7 @@ func (r *DomainVerificationDNSRecordsCollectionRequest) Get() ([]DomainDNSRecord
 }
 
 // Add performs POST request for DomainDNSRecord collection
-func (r *DomainVerificationDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DomainVerificationDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

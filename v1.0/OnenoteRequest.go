@@ -23,24 +23,19 @@ func (b *OnenoteRequestBuilder) Request() *OnenoteRequest {
 // OnenoteRequest is request for Onenote
 type OnenoteRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Onenote
-func (r *OnenoteRequest) Do(method, path string, reqObj interface{}) (resObj *Onenote, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Onenote
-func (r *OnenoteRequest) Get() (*Onenote, error) {
+func (r *OnenoteRequest) Get() (resObj *Onenote, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Onenote
-func (r *OnenoteRequest) Update(reqObj *Onenote) (*Onenote, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OnenoteRequest) Update(reqObj *Onenote) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Onenote
@@ -74,12 +69,6 @@ func (b *OnenoteNotebooksCollectionRequestBuilder) ID(id string) *NotebookReques
 
 // OnenoteNotebooksCollectionRequest is request for Notebook collection
 type OnenoteNotebooksCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Notebook collection
-func (r *OnenoteNotebooksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Notebook, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Notebook collection
 func (r *OnenoteNotebooksCollectionRequest) Paging(method, path string, obj interface{}) ([]Notebook, error) {
@@ -131,8 +120,9 @@ func (r *OnenoteNotebooksCollectionRequest) Get() ([]Notebook, error) {
 }
 
 // Add performs POST request for Notebook collection
-func (r *OnenoteNotebooksCollectionRequest) Add(reqObj *Notebook) (*Notebook, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenoteNotebooksCollectionRequest) Add(reqObj *Notebook) (resObj *Notebook, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Operations returns request builder for OnenoteOperation collection
@@ -161,12 +151,6 @@ func (b *OnenoteOperationsCollectionRequestBuilder) ID(id string) *OnenoteOperat
 
 // OnenoteOperationsCollectionRequest is request for OnenoteOperation collection
 type OnenoteOperationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnenoteOperation collection
-func (r *OnenoteOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnenoteOperation collection
 func (r *OnenoteOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteOperation, error) {
@@ -218,8 +202,9 @@ func (r *OnenoteOperationsCollectionRequest) Get() ([]OnenoteOperation, error) {
 }
 
 // Add performs POST request for OnenoteOperation collection
-func (r *OnenoteOperationsCollectionRequest) Add(reqObj *OnenoteOperation) (*OnenoteOperation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenoteOperationsCollectionRequest) Add(reqObj *OnenoteOperation) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Pages returns request builder for OnenotePage collection
@@ -248,12 +233,6 @@ func (b *OnenotePagesCollectionRequestBuilder) ID(id string) *OnenotePageRequest
 
 // OnenotePagesCollectionRequest is request for OnenotePage collection
 type OnenotePagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnenotePage collection
-func (r *OnenotePagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenotePage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnenotePage collection
 func (r *OnenotePagesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenotePage, error) {
@@ -305,8 +284,9 @@ func (r *OnenotePagesCollectionRequest) Get() ([]OnenotePage, error) {
 }
 
 // Add performs POST request for OnenotePage collection
-func (r *OnenotePagesCollectionRequest) Add(reqObj *OnenotePage) (*OnenotePage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenotePagesCollectionRequest) Add(reqObj *OnenotePage) (resObj *OnenotePage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Resources returns request builder for OnenoteResource collection
@@ -335,12 +315,6 @@ func (b *OnenoteResourcesCollectionRequestBuilder) ID(id string) *OnenoteResourc
 
 // OnenoteResourcesCollectionRequest is request for OnenoteResource collection
 type OnenoteResourcesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnenoteResource collection
-func (r *OnenoteResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnenoteResource collection
 func (r *OnenoteResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteResource, error) {
@@ -392,8 +366,9 @@ func (r *OnenoteResourcesCollectionRequest) Get() ([]OnenoteResource, error) {
 }
 
 // Add performs POST request for OnenoteResource collection
-func (r *OnenoteResourcesCollectionRequest) Add(reqObj *OnenoteResource) (*OnenoteResource, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenoteResourcesCollectionRequest) Add(reqObj *OnenoteResource) (resObj *OnenoteResource, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SectionGroups returns request builder for SectionGroup collection
@@ -422,12 +397,6 @@ func (b *OnenoteSectionGroupsCollectionRequestBuilder) ID(id string) *SectionGro
 
 // OnenoteSectionGroupsCollectionRequest is request for SectionGroup collection
 type OnenoteSectionGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SectionGroup collection
-func (r *OnenoteSectionGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SectionGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SectionGroup collection
 func (r *OnenoteSectionGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SectionGroup, error) {
@@ -479,8 +448,9 @@ func (r *OnenoteSectionGroupsCollectionRequest) Get() ([]SectionGroup, error) {
 }
 
 // Add performs POST request for SectionGroup collection
-func (r *OnenoteSectionGroupsCollectionRequest) Add(reqObj *SectionGroup) (*SectionGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenoteSectionGroupsCollectionRequest) Add(reqObj *SectionGroup) (resObj *SectionGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Sections returns request builder for OnenoteSection collection
@@ -509,12 +479,6 @@ func (b *OnenoteSectionsCollectionRequestBuilder) ID(id string) *OnenoteSectionR
 
 // OnenoteSectionsCollectionRequest is request for OnenoteSection collection
 type OnenoteSectionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnenoteSection collection
-func (r *OnenoteSectionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteSection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnenoteSection collection
 func (r *OnenoteSectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteSection, error) {
@@ -566,6 +530,7 @@ func (r *OnenoteSectionsCollectionRequest) Get() ([]OnenoteSection, error) {
 }
 
 // Add performs POST request for OnenoteSection collection
-func (r *OnenoteSectionsCollectionRequest) Add(reqObj *OnenoteSection) (*OnenoteSection, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenoteSectionsCollectionRequest) Add(reqObj *OnenoteSection) (resObj *OnenoteSection, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

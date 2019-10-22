@@ -15,24 +15,19 @@ func (b *MobileAppInstallSummaryRequestBuilder) Request() *MobileAppInstallSumma
 // MobileAppInstallSummaryRequest is request for MobileAppInstallSummary
 type MobileAppInstallSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppInstallSummary
-func (r *MobileAppInstallSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppInstallSummary
-func (r *MobileAppInstallSummaryRequest) Get() (*MobileAppInstallSummary, error) {
+func (r *MobileAppInstallSummaryRequest) Get() (resObj *MobileAppInstallSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppInstallSummary
-func (r *MobileAppInstallSummaryRequest) Update(reqObj *MobileAppInstallSummary) (*MobileAppInstallSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppInstallSummaryRequest) Update(reqObj *MobileAppInstallSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppInstallSummary

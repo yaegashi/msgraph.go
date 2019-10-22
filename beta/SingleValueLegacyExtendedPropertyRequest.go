@@ -15,24 +15,19 @@ func (b *SingleValueLegacyExtendedPropertyRequestBuilder) Request() *SingleValue
 // SingleValueLegacyExtendedPropertyRequest is request for SingleValueLegacyExtendedProperty
 type SingleValueLegacyExtendedPropertyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SingleValueLegacyExtendedProperty
-func (r *SingleValueLegacyExtendedPropertyRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SingleValueLegacyExtendedProperty
-func (r *SingleValueLegacyExtendedPropertyRequest) Get() (*SingleValueLegacyExtendedProperty, error) {
+func (r *SingleValueLegacyExtendedPropertyRequest) Get() (resObj *SingleValueLegacyExtendedProperty, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SingleValueLegacyExtendedProperty
-func (r *SingleValueLegacyExtendedPropertyRequest) Update(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SingleValueLegacyExtendedPropertyRequest) Update(reqObj *SingleValueLegacyExtendedProperty) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SingleValueLegacyExtendedProperty

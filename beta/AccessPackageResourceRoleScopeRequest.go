@@ -15,24 +15,19 @@ func (b *AccessPackageResourceRoleScopeRequestBuilder) Request() *AccessPackageR
 // AccessPackageResourceRoleScopeRequest is request for AccessPackageResourceRoleScope
 type AccessPackageResourceRoleScopeRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageResourceRoleScope
-func (r *AccessPackageResourceRoleScopeRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRoleScope, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageResourceRoleScope
-func (r *AccessPackageResourceRoleScopeRequest) Get() (*AccessPackageResourceRoleScope, error) {
+func (r *AccessPackageResourceRoleScopeRequest) Get() (resObj *AccessPackageResourceRoleScope, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageResourceRoleScope
-func (r *AccessPackageResourceRoleScopeRequest) Update(reqObj *AccessPackageResourceRoleScope) (*AccessPackageResourceRoleScope, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageResourceRoleScopeRequest) Update(reqObj *AccessPackageResourceRoleScope) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageResourceRoleScope

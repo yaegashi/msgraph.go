@@ -23,24 +23,19 @@ func (b *SynchronizationSchemaRequestBuilder) Request() *SynchronizationSchemaRe
 // SynchronizationSchemaRequest is request for SynchronizationSchema
 type SynchronizationSchemaRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SynchronizationSchema
-func (r *SynchronizationSchemaRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationSchema, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SynchronizationSchema
-func (r *SynchronizationSchemaRequest) Get() (*SynchronizationSchema, error) {
+func (r *SynchronizationSchemaRequest) Get() (resObj *SynchronizationSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SynchronizationSchema
-func (r *SynchronizationSchemaRequest) Update(reqObj *SynchronizationSchema) (*SynchronizationSchema, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SynchronizationSchemaRequest) Update(reqObj *SynchronizationSchema) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SynchronizationSchema
@@ -74,12 +69,6 @@ func (b *SynchronizationSchemaDirectoriesCollectionRequestBuilder) ID(id string)
 
 // SynchronizationSchemaDirectoriesCollectionRequest is request for DirectoryDefinition collection
 type SynchronizationSchemaDirectoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryDefinition collection
 func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryDefinition, error) {
@@ -131,6 +120,7 @@ func (r *SynchronizationSchemaDirectoriesCollectionRequest) Get() ([]DirectoryDe
 }
 
 // Add performs POST request for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Add(reqObj *DirectoryDefinition) (*DirectoryDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) Add(reqObj *DirectoryDefinition) (resObj *DirectoryDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

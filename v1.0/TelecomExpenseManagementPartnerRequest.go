@@ -15,24 +15,19 @@ func (b *TelecomExpenseManagementPartnerRequestBuilder) Request() *TelecomExpens
 // TelecomExpenseManagementPartnerRequest is request for TelecomExpenseManagementPartner
 type TelecomExpenseManagementPartnerRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TelecomExpenseManagementPartner
-func (r *TelecomExpenseManagementPartnerRequest) Do(method, path string, reqObj interface{}) (resObj *TelecomExpenseManagementPartner, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TelecomExpenseManagementPartner
-func (r *TelecomExpenseManagementPartnerRequest) Get() (*TelecomExpenseManagementPartner, error) {
+func (r *TelecomExpenseManagementPartnerRequest) Get() (resObj *TelecomExpenseManagementPartner, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TelecomExpenseManagementPartner
-func (r *TelecomExpenseManagementPartnerRequest) Update(reqObj *TelecomExpenseManagementPartner) (*TelecomExpenseManagementPartner, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TelecomExpenseManagementPartnerRequest) Update(reqObj *TelecomExpenseManagementPartner) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TelecomExpenseManagementPartner

@@ -15,24 +15,19 @@ func (b *WorkbookChartFontRequestBuilder) Request() *WorkbookChartFontRequest {
 // WorkbookChartFontRequest is request for WorkbookChartFont
 type WorkbookChartFontRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartFont
-func (r *WorkbookChartFontRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartFont, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartFont
-func (r *WorkbookChartFontRequest) Get() (*WorkbookChartFont, error) {
+func (r *WorkbookChartFontRequest) Get() (resObj *WorkbookChartFont, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartFont
-func (r *WorkbookChartFontRequest) Update(reqObj *WorkbookChartFont) (*WorkbookChartFont, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartFontRequest) Update(reqObj *WorkbookChartFont) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartFont

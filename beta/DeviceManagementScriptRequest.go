@@ -23,24 +23,19 @@ func (b *DeviceManagementScriptRequestBuilder) Request() *DeviceManagementScript
 // DeviceManagementScriptRequest is request for DeviceManagementScript
 type DeviceManagementScriptRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementScript
-func (r *DeviceManagementScriptRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScript, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementScript
-func (r *DeviceManagementScriptRequest) Get() (*DeviceManagementScript, error) {
+func (r *DeviceManagementScriptRequest) Get() (resObj *DeviceManagementScript, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementScript
-func (r *DeviceManagementScriptRequest) Update(reqObj *DeviceManagementScript) (*DeviceManagementScript, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementScriptRequest) Update(reqObj *DeviceManagementScript) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementScript
@@ -74,12 +69,6 @@ func (b *DeviceManagementScriptAssignmentsCollectionRequestBuilder) ID(id string
 
 // DeviceManagementScriptAssignmentsCollectionRequest is request for DeviceManagementScriptAssignment collection
 type DeviceManagementScriptAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementScriptAssignment collection
-func (r *DeviceManagementScriptAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementScriptAssignment collection
 func (r *DeviceManagementScriptAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptAssignment, error) {
@@ -131,8 +120,9 @@ func (r *DeviceManagementScriptAssignmentsCollectionRequest) Get() ([]DeviceMana
 }
 
 // Add performs POST request for DeviceManagementScriptAssignment collection
-func (r *DeviceManagementScriptAssignmentsCollectionRequest) Add(reqObj *DeviceManagementScriptAssignment) (*DeviceManagementScriptAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementScriptAssignmentsCollectionRequest) Add(reqObj *DeviceManagementScriptAssignment) (resObj *DeviceManagementScriptAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceRunStates returns request builder for DeviceManagementScriptDeviceState collection
@@ -161,12 +151,6 @@ func (b *DeviceManagementScriptDeviceRunStatesCollectionRequestBuilder) ID(id st
 
 // DeviceManagementScriptDeviceRunStatesCollectionRequest is request for DeviceManagementScriptDeviceState collection
 type DeviceManagementScriptDeviceRunStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
 func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptDeviceState, error) {
@@ -218,8 +202,9 @@ func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Get() ([]Device
 }
 
 // Add performs POST request for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptDeviceState) (*DeviceManagementScriptDeviceState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementScriptDeviceRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptDeviceState) (resObj *DeviceManagementScriptDeviceState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupAssignments returns request builder for DeviceManagementScriptGroupAssignment collection
@@ -248,12 +233,6 @@ func (b *DeviceManagementScriptGroupAssignmentsCollectionRequestBuilder) ID(id s
 
 // DeviceManagementScriptGroupAssignmentsCollectionRequest is request for DeviceManagementScriptGroupAssignment collection
 type DeviceManagementScriptGroupAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementScriptGroupAssignment collection
-func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptGroupAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementScriptGroupAssignment collection
 func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptGroupAssignment, error) {
@@ -305,8 +284,9 @@ func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Get() ([]Devic
 }
 
 // Add performs POST request for DeviceManagementScriptGroupAssignment collection
-func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Add(reqObj *DeviceManagementScriptGroupAssignment) (*DeviceManagementScriptGroupAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementScriptGroupAssignmentsCollectionRequest) Add(reqObj *DeviceManagementScriptGroupAssignment) (resObj *DeviceManagementScriptGroupAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RunSummary is navigation property
@@ -342,12 +322,6 @@ func (b *DeviceManagementScriptUserRunStatesCollectionRequestBuilder) ID(id stri
 
 // DeviceManagementScriptUserRunStatesCollectionRequest is request for DeviceManagementScriptUserState collection
 type DeviceManagementScriptUserRunStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementScriptUserState collection
-func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptUserState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementScriptUserState collection
 func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptUserState, error) {
@@ -399,6 +373,7 @@ func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Get() ([]DeviceMa
 }
 
 // Add performs POST request for DeviceManagementScriptUserState collection
-func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptUserState) (*DeviceManagementScriptUserState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementScriptUserRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptUserState) (resObj *DeviceManagementScriptUserState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

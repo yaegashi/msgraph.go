@@ -15,24 +15,19 @@ func (b *RemoteActionAuditRequestBuilder) Request() *RemoteActionAuditRequest {
 // RemoteActionAuditRequest is request for RemoteActionAudit
 type RemoteActionAuditRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RemoteActionAudit
-func (r *RemoteActionAuditRequest) Do(method, path string, reqObj interface{}) (resObj *RemoteActionAudit, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RemoteActionAudit
-func (r *RemoteActionAuditRequest) Get() (*RemoteActionAudit, error) {
+func (r *RemoteActionAuditRequest) Get() (resObj *RemoteActionAudit, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RemoteActionAudit
-func (r *RemoteActionAuditRequest) Update(reqObj *RemoteActionAudit) (*RemoteActionAudit, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RemoteActionAuditRequest) Update(reqObj *RemoteActionAudit) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RemoteActionAudit

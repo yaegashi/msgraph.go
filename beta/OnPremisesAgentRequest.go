@@ -23,24 +23,19 @@ func (b *OnPremisesAgentRequestBuilder) Request() *OnPremisesAgentRequest {
 // OnPremisesAgentRequest is request for OnPremisesAgent
 type OnPremisesAgentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OnPremisesAgent
-func (r *OnPremisesAgentRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OnPremisesAgent
-func (r *OnPremisesAgentRequest) Get() (*OnPremisesAgent, error) {
+func (r *OnPremisesAgentRequest) Get() (resObj *OnPremisesAgent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OnPremisesAgent
-func (r *OnPremisesAgentRequest) Update(reqObj *OnPremisesAgent) (*OnPremisesAgent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OnPremisesAgentRequest) Update(reqObj *OnPremisesAgent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnPremisesAgent
@@ -74,12 +69,6 @@ func (b *OnPremisesAgentAgentGroupsCollectionRequestBuilder) ID(id string) *OnPr
 
 // OnPremisesAgentAgentGroupsCollectionRequest is request for OnPremisesAgentGroup collection
 type OnPremisesAgentAgentGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnPremisesAgentGroup collection
-func (r *OnPremisesAgentAgentGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgentGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
 func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
@@ -131,6 +120,7 @@ func (r *OnPremisesAgentAgentGroupsCollectionRequest) Get() ([]OnPremisesAgentGr
 }
 
 // Add performs POST request for OnPremisesAgentGroup collection
-func (r *OnPremisesAgentAgentGroupsCollectionRequest) Add(reqObj *OnPremisesAgentGroup) (*OnPremisesAgentGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) Add(reqObj *OnPremisesAgentGroup) (resObj *OnPremisesAgentGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

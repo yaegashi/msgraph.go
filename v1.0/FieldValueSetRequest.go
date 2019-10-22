@@ -15,24 +15,19 @@ func (b *FieldValueSetRequestBuilder) Request() *FieldValueSetRequest {
 // FieldValueSetRequest is request for FieldValueSet
 type FieldValueSetRequest struct{ BaseRequest }
 
-// Do performs HTTP request for FieldValueSet
-func (r *FieldValueSetRequest) Do(method, path string, reqObj interface{}) (resObj *FieldValueSet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for FieldValueSet
-func (r *FieldValueSetRequest) Get() (*FieldValueSet, error) {
+func (r *FieldValueSetRequest) Get() (resObj *FieldValueSet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for FieldValueSet
-func (r *FieldValueSetRequest) Update(reqObj *FieldValueSet) (*FieldValueSet, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *FieldValueSetRequest) Update(reqObj *FieldValueSet) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FieldValueSet

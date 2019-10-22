@@ -28,11 +28,6 @@ func (b *JournalPostRequestBuilder) Request() *JournalPostRequest {
 }
 
 //
-func (r *JournalPostRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *JournalPostRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

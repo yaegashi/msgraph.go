@@ -23,24 +23,19 @@ func (b *OutlookUserRequestBuilder) Request() *OutlookUserRequest {
 // OutlookUserRequest is request for OutlookUser
 type OutlookUserRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OutlookUser
-func (r *OutlookUserRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookUser, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OutlookUser
-func (r *OutlookUserRequest) Get() (*OutlookUser, error) {
+func (r *OutlookUserRequest) Get() (resObj *OutlookUser, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OutlookUser
-func (r *OutlookUserRequest) Update(reqObj *OutlookUser) (*OutlookUser, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OutlookUserRequest) Update(reqObj *OutlookUser) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OutlookUser
@@ -74,12 +69,6 @@ func (b *OutlookUserMasterCategoriesCollectionRequestBuilder) ID(id string) *Out
 
 // OutlookUserMasterCategoriesCollectionRequest is request for OutlookCategory collection
 type OutlookUserMasterCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OutlookCategory collection
-func (r *OutlookUserMasterCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OutlookCategory collection
 func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookCategory, error) {
@@ -131,6 +120,7 @@ func (r *OutlookUserMasterCategoriesCollectionRequest) Get() ([]OutlookCategory,
 }
 
 // Add performs POST request for OutlookCategory collection
-func (r *OutlookUserMasterCategoriesCollectionRequest) Add(reqObj *OutlookCategory) (*OutlookCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookUserMasterCategoriesCollectionRequest) Add(reqObj *OutlookCategory) (resObj *OutlookCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

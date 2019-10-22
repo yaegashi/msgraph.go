@@ -15,24 +15,19 @@ func (b *MentionRequestBuilder) Request() *MentionRequest {
 // MentionRequest is request for Mention
 type MentionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Mention
-func (r *MentionRequest) Do(method, path string, reqObj interface{}) (resObj *Mention, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Mention
-func (r *MentionRequest) Get() (*Mention, error) {
+func (r *MentionRequest) Get() (resObj *Mention, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Mention
-func (r *MentionRequest) Update(reqObj *Mention) (*Mention, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MentionRequest) Update(reqObj *Mention) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Mention

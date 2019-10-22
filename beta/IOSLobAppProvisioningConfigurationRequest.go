@@ -23,24 +23,19 @@ func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Request() *IOSLobAppP
 // IOSLobAppProvisioningConfigurationRequest is request for IOSLobAppProvisioningConfiguration
 type IOSLobAppProvisioningConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSLobAppProvisioningConfiguration
-func (r *IOSLobAppProvisioningConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSLobAppProvisioningConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSLobAppProvisioningConfiguration
-func (r *IOSLobAppProvisioningConfigurationRequest) Get() (*IOSLobAppProvisioningConfiguration, error) {
+func (r *IOSLobAppProvisioningConfigurationRequest) Get() (resObj *IOSLobAppProvisioningConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSLobAppProvisioningConfiguration
-func (r *IOSLobAppProvisioningConfigurationRequest) Update(reqObj *IOSLobAppProvisioningConfiguration) (*IOSLobAppProvisioningConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSLobAppProvisioningConfigurationRequest) Update(reqObj *IOSLobAppProvisioningConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSLobAppProvisioningConfiguration
@@ -74,12 +69,6 @@ func (b *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequestBuilder) 
 
 // IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest is request for IOSLobAppProvisioningConfigurationAssignment collection
 type IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for IOSLobAppProvisioningConfigurationAssignment collection
-func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for IOSLobAppProvisioningConfigurationAssignment collection
 func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSLobAppProvisioningConfigurationAssignment, error) {
@@ -131,8 +120,9 @@ func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Get() (
 }
 
 // Add performs POST request for IOSLobAppProvisioningConfigurationAssignment collection
-func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Add(reqObj *IOSLobAppProvisioningConfigurationAssignment) (*IOSLobAppProvisioningConfigurationAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Add(reqObj *IOSLobAppProvisioningConfigurationAssignment) (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStatuses returns request builder for ManagedDeviceMobileAppConfigurationDeviceStatus collection
@@ -161,12 +151,6 @@ func (b *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequestBuilde
 
 // IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest is request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 type IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationDeviceStatus collection
 func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
@@ -218,8 +202,9 @@ func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Get(
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (*ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupAssignments returns request builder for MobileAppProvisioningConfigGroupAssignment collection
@@ -248,12 +233,6 @@ func (b *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequestBuil
 
 // IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest is request for MobileAppProvisioningConfigGroupAssignment collection
 type IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppProvisioningConfigGroupAssignment collection
-func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppProvisioningConfigGroupAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppProvisioningConfigGroupAssignment collection
 func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppProvisioningConfigGroupAssignment, error) {
@@ -305,8 +284,9 @@ func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Ge
 }
 
 // Add performs POST request for MobileAppProvisioningConfigGroupAssignment collection
-func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Add(reqObj *MobileAppProvisioningConfigGroupAssignment) (*MobileAppProvisioningConfigGroupAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Add(reqObj *MobileAppProvisioningConfigGroupAssignment) (resObj *MobileAppProvisioningConfigGroupAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UserStatuses returns request builder for ManagedDeviceMobileAppConfigurationUserStatus collection
@@ -335,12 +315,6 @@ func (b *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequestBuilder)
 
 // IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest is request for ManagedDeviceMobileAppConfigurationUserStatus collection
 type IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationUserStatus collection
 func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
@@ -392,6 +366,7 @@ func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Get() 
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationUserStatus) (*ManagedDeviceMobileAppConfigurationUserStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationUserStatus) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

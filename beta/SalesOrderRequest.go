@@ -23,24 +23,19 @@ func (b *SalesOrderRequestBuilder) Request() *SalesOrderRequest {
 // SalesOrderRequest is request for SalesOrder
 type SalesOrderRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesOrder
-func (r *SalesOrderRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesOrder
-func (r *SalesOrderRequest) Get() (*SalesOrder, error) {
+func (r *SalesOrderRequest) Get() (resObj *SalesOrder, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesOrder
-func (r *SalesOrderRequest) Update(reqObj *SalesOrder) (*SalesOrder, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesOrderRequest) Update(reqObj *SalesOrder) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesOrder
@@ -96,12 +91,6 @@ func (b *SalesOrderSalesOrderLinesCollectionRequestBuilder) ID(id string) *Sales
 // SalesOrderSalesOrderLinesCollectionRequest is request for SalesOrderLine collection
 type SalesOrderSalesOrderLinesCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesOrderLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for SalesOrderLine collection
 func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrderLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,6 +141,7 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Get() ([]SalesOrderLine, er
 }
 
 // Add performs POST request for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Add(reqObj *SalesOrderLine) (*SalesOrderLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SalesOrderSalesOrderLinesCollectionRequest) Add(reqObj *SalesOrderLine) (resObj *SalesOrderLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

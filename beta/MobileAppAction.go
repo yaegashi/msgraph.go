@@ -50,12 +50,6 @@ func (b *MobileAppCollectionHasPayloadLinksRequestBuilder) Request() *MobileAppC
 }
 
 //
-func (r *MobileAppCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -126,13 +120,8 @@ func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
 }
 
 //
-func (r *MobileAppAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *MobileAppAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -157,11 +146,6 @@ func (b *MobileAppUpdateRelationshipsRequestBuilder) Request() *MobileAppUpdateR
 }
 
 //
-func (r *MobileAppUpdateRelationshipsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *MobileAppUpdateRelationshipsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

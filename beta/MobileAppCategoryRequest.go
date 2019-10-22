@@ -15,24 +15,19 @@ func (b *MobileAppCategoryRequestBuilder) Request() *MobileAppCategoryRequest {
 // MobileAppCategoryRequest is request for MobileAppCategory
 type MobileAppCategoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppCategory
-func (r *MobileAppCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppCategory
-func (r *MobileAppCategoryRequest) Get() (*MobileAppCategory, error) {
+func (r *MobileAppCategoryRequest) Get() (resObj *MobileAppCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppCategory
-func (r *MobileAppCategoryRequest) Update(reqObj *MobileAppCategory) (*MobileAppCategory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppCategoryRequest) Update(reqObj *MobileAppCategory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppCategory

@@ -23,24 +23,19 @@ func (b *ReportRootRequestBuilder) Request() *ReportRootRequest {
 // ReportRootRequest is request for ReportRoot
 type ReportRootRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ReportRoot
-func (r *ReportRootRequest) Do(method, path string, reqObj interface{}) (resObj *ReportRoot, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ReportRoot
-func (r *ReportRootRequest) Get() (*ReportRoot, error) {
+func (r *ReportRootRequest) Get() (resObj *ReportRoot, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ReportRoot
-func (r *ReportRootRequest) Update(reqObj *ReportRoot) (*ReportRoot, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ReportRootRequest) Update(reqObj *ReportRoot) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ReportRoot
@@ -74,12 +69,6 @@ func (b *ReportRootApplicationSignInDetailedSummaryCollectionRequestBuilder) ID(
 
 // ReportRootApplicationSignInDetailedSummaryCollectionRequest is request for ApplicationSignInDetailedSummary collection
 type ReportRootApplicationSignInDetailedSummaryCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationSignInDetailedSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ApplicationSignInDetailedSummary collection
 func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]ApplicationSignInDetailedSummary, error) {
@@ -131,8 +120,9 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Get() ([]A
 }
 
 // Add performs POST request for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Add(reqObj *ApplicationSignInDetailedSummary) (*ApplicationSignInDetailedSummary, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Add(reqObj *ApplicationSignInDetailedSummary) (resObj *ApplicationSignInDetailedSummary, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CredentialUserRegistrationDetails returns request builder for CredentialUserRegistrationDetails collection
@@ -161,12 +151,6 @@ func (b *ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder) ID
 
 // ReportRootCredentialUserRegistrationDetailsCollectionRequest is request for CredentialUserRegistrationDetails collection
 type ReportRootCredentialUserRegistrationDetailsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CredentialUserRegistrationDetails, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CredentialUserRegistrationDetails collection
 func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]CredentialUserRegistrationDetails, error) {
@@ -218,8 +202,9 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Get() ([]
 }
 
 // Add performs POST request for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Add(reqObj *CredentialUserRegistrationDetails) (*CredentialUserRegistrationDetails, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Add(reqObj *CredentialUserRegistrationDetails) (resObj *CredentialUserRegistrationDetails, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UserCredentialUsageDetails returns request builder for UserCredentialUsageDetails collection
@@ -248,12 +233,6 @@ func (b *ReportRootUserCredentialUsageDetailsCollectionRequestBuilder) ID(id str
 
 // ReportRootUserCredentialUsageDetailsCollectionRequest is request for UserCredentialUsageDetails collection
 type ReportRootUserCredentialUsageDetailsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserCredentialUsageDetails, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UserCredentialUsageDetails collection
 func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]UserCredentialUsageDetails, error) {
@@ -305,6 +284,7 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Get() ([]UserCre
 }
 
 // Add performs POST request for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Add(reqObj *UserCredentialUsageDetails) (*UserCredentialUsageDetails, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Add(reqObj *UserCredentialUsageDetails) (resObj *UserCredentialUsageDetails, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

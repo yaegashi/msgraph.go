@@ -15,24 +15,19 @@ func (b *ChatThreadRequestBuilder) Request() *ChatThreadRequest {
 // ChatThreadRequest is request for ChatThread
 type ChatThreadRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ChatThread
-func (r *ChatThreadRequest) Do(method, path string, reqObj interface{}) (resObj *ChatThread, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ChatThread
-func (r *ChatThreadRequest) Get() (*ChatThread, error) {
+func (r *ChatThreadRequest) Get() (resObj *ChatThread, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ChatThread
-func (r *ChatThreadRequest) Update(reqObj *ChatThread) (*ChatThread, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ChatThreadRequest) Update(reqObj *ChatThread) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ChatThread

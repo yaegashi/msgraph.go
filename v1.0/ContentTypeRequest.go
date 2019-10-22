@@ -23,24 +23,19 @@ func (b *ContentTypeRequestBuilder) Request() *ContentTypeRequest {
 // ContentTypeRequest is request for ContentType
 type ContentTypeRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ContentType
-func (r *ContentTypeRequest) Do(method, path string, reqObj interface{}) (resObj *ContentType, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ContentType
-func (r *ContentTypeRequest) Get() (*ContentType, error) {
+func (r *ContentTypeRequest) Get() (resObj *ContentType, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ContentType
-func (r *ContentTypeRequest) Update(reqObj *ContentType) (*ContentType, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ContentTypeRequest) Update(reqObj *ContentType) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ContentType
@@ -74,12 +69,6 @@ func (b *ContentTypeColumnLinksCollectionRequestBuilder) ID(id string) *ColumnLi
 
 // ContentTypeColumnLinksCollectionRequest is request for ColumnLink collection
 type ContentTypeColumnLinksCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ColumnLink collection
-func (r *ContentTypeColumnLinksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnLink, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ColumnLink collection
 func (r *ContentTypeColumnLinksCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnLink, error) {
@@ -131,6 +120,7 @@ func (r *ContentTypeColumnLinksCollectionRequest) Get() ([]ColumnLink, error) {
 }
 
 // Add performs POST request for ColumnLink collection
-func (r *ContentTypeColumnLinksCollectionRequest) Add(reqObj *ColumnLink) (*ColumnLink, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ContentTypeColumnLinksCollectionRequest) Add(reqObj *ColumnLink) (resObj *ColumnLink, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

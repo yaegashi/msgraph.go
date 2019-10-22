@@ -23,24 +23,19 @@ func (b *OfficeGraphInsightsRequestBuilder) Request() *OfficeGraphInsightsReques
 // OfficeGraphInsightsRequest is request for OfficeGraphInsights
 type OfficeGraphInsightsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OfficeGraphInsights
-func (r *OfficeGraphInsightsRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeGraphInsights, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OfficeGraphInsights
-func (r *OfficeGraphInsightsRequest) Get() (*OfficeGraphInsights, error) {
+func (r *OfficeGraphInsightsRequest) Get() (resObj *OfficeGraphInsights, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OfficeGraphInsights
-func (r *OfficeGraphInsightsRequest) Update(reqObj *OfficeGraphInsights) (*OfficeGraphInsights, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OfficeGraphInsightsRequest) Update(reqObj *OfficeGraphInsights) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OfficeGraphInsights
@@ -74,12 +69,6 @@ func (b *OfficeGraphInsightsSharedCollectionRequestBuilder) ID(id string) *Share
 
 // OfficeGraphInsightsSharedCollectionRequest is request for SharedInsight collection
 type OfficeGraphInsightsSharedCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SharedInsight, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SharedInsight collection
 func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(method, path string, obj interface{}) ([]SharedInsight, error) {
@@ -131,8 +120,9 @@ func (r *OfficeGraphInsightsSharedCollectionRequest) Get() ([]SharedInsight, err
 }
 
 // Add performs POST request for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Add(reqObj *SharedInsight) (*SharedInsight, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OfficeGraphInsightsSharedCollectionRequest) Add(reqObj *SharedInsight) (resObj *SharedInsight, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Trending returns request builder for Trending collection
@@ -161,12 +151,6 @@ func (b *OfficeGraphInsightsTrendingCollectionRequestBuilder) ID(id string) *Tre
 
 // OfficeGraphInsightsTrendingCollectionRequest is request for Trending collection
 type OfficeGraphInsightsTrendingCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Trending, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Trending collection
 func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(method, path string, obj interface{}) ([]Trending, error) {
@@ -218,8 +202,9 @@ func (r *OfficeGraphInsightsTrendingCollectionRequest) Get() ([]Trending, error)
 }
 
 // Add performs POST request for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Add(reqObj *Trending) (*Trending, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OfficeGraphInsightsTrendingCollectionRequest) Add(reqObj *Trending) (resObj *Trending, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Used returns request builder for UsedInsight collection
@@ -248,12 +233,6 @@ func (b *OfficeGraphInsightsUsedCollectionRequestBuilder) ID(id string) *UsedIns
 
 // OfficeGraphInsightsUsedCollectionRequest is request for UsedInsight collection
 type OfficeGraphInsightsUsedCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UsedInsight, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UsedInsight collection
 func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(method, path string, obj interface{}) ([]UsedInsight, error) {
@@ -305,6 +284,7 @@ func (r *OfficeGraphInsightsUsedCollectionRequest) Get() ([]UsedInsight, error) 
 }
 
 // Add performs POST request for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Add(reqObj *UsedInsight) (*UsedInsight, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OfficeGraphInsightsUsedCollectionRequest) Add(reqObj *UsedInsight) (resObj *UsedInsight, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

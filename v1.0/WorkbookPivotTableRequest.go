@@ -15,24 +15,19 @@ func (b *WorkbookPivotTableRequestBuilder) Request() *WorkbookPivotTableRequest 
 // WorkbookPivotTableRequest is request for WorkbookPivotTable
 type WorkbookPivotTableRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookPivotTable
-func (r *WorkbookPivotTableRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookPivotTable, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookPivotTable
-func (r *WorkbookPivotTableRequest) Get() (*WorkbookPivotTable, error) {
+func (r *WorkbookPivotTableRequest) Get() (resObj *WorkbookPivotTable, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookPivotTable
-func (r *WorkbookPivotTableRequest) Update(reqObj *WorkbookPivotTable) (*WorkbookPivotTable, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookPivotTableRequest) Update(reqObj *WorkbookPivotTable) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookPivotTable

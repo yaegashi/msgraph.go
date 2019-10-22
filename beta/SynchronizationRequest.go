@@ -23,24 +23,19 @@ func (b *SynchronizationRequestBuilder) Request() *SynchronizationRequest {
 // SynchronizationRequest is request for Synchronization
 type SynchronizationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Synchronization
-func (r *SynchronizationRequest) Do(method, path string, reqObj interface{}) (resObj *Synchronization, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Synchronization
-func (r *SynchronizationRequest) Get() (*Synchronization, error) {
+func (r *SynchronizationRequest) Get() (resObj *Synchronization, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Synchronization
-func (r *SynchronizationRequest) Update(reqObj *Synchronization) (*Synchronization, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SynchronizationRequest) Update(reqObj *Synchronization) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Synchronization
@@ -74,12 +69,6 @@ func (b *SynchronizationJobsCollectionRequestBuilder) ID(id string) *Synchroniza
 
 // SynchronizationJobsCollectionRequest is request for SynchronizationJob collection
 type SynchronizationJobsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationJob, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SynchronizationJob collection
 func (r *SynchronizationJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]SynchronizationJob, error) {
@@ -131,8 +120,9 @@ func (r *SynchronizationJobsCollectionRequest) Get() ([]SynchronizationJob, erro
 }
 
 // Add performs POST request for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Add(reqObj *SynchronizationJob) (*SynchronizationJob, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SynchronizationJobsCollectionRequest) Add(reqObj *SynchronizationJob) (resObj *SynchronizationJob, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Templates returns request builder for SynchronizationTemplate collection
@@ -161,12 +151,6 @@ func (b *SynchronizationTemplatesCollectionRequestBuilder) ID(id string) *Synchr
 
 // SynchronizationTemplatesCollectionRequest is request for SynchronizationTemplate collection
 type SynchronizationTemplatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SynchronizationTemplate collection
 func (r *SynchronizationTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SynchronizationTemplate, error) {
@@ -218,6 +202,7 @@ func (r *SynchronizationTemplatesCollectionRequest) Get() ([]SynchronizationTemp
 }
 
 // Add performs POST request for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Add(reqObj *SynchronizationTemplate) (*SynchronizationTemplate, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SynchronizationTemplatesCollectionRequest) Add(reqObj *SynchronizationTemplate) (resObj *SynchronizationTemplate, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

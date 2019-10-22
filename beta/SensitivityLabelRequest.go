@@ -23,24 +23,19 @@ func (b *SensitivityLabelRequestBuilder) Request() *SensitivityLabelRequest {
 // SensitivityLabelRequest is request for SensitivityLabel
 type SensitivityLabelRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SensitivityLabel
-func (r *SensitivityLabelRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SensitivityLabel
-func (r *SensitivityLabelRequest) Get() (*SensitivityLabel, error) {
+func (r *SensitivityLabelRequest) Get() (resObj *SensitivityLabel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SensitivityLabel
-func (r *SensitivityLabelRequest) Update(reqObj *SensitivityLabel) (*SensitivityLabel, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SensitivityLabelRequest) Update(reqObj *SensitivityLabel) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SensitivityLabel
@@ -74,12 +69,6 @@ func (b *SensitivityLabelSublabelsCollectionRequestBuilder) ID(id string) *Sensi
 
 // SensitivityLabelSublabelsCollectionRequest is request for SensitivityLabel collection
 type SensitivityLabelSublabelsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SensitivityLabel collection
-func (r *SensitivityLabelSublabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SensitivityLabel collection
 func (r *SensitivityLabelSublabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
@@ -131,6 +120,7 @@ func (r *SensitivityLabelSublabelsCollectionRequest) Get() ([]SensitivityLabel, 
 }
 
 // Add performs POST request for SensitivityLabel collection
-func (r *SensitivityLabelSublabelsCollectionRequest) Add(reqObj *SensitivityLabel) (*SensitivityLabel, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SensitivityLabelSublabelsCollectionRequest) Add(reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

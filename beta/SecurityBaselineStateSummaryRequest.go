@@ -15,24 +15,19 @@ func (b *SecurityBaselineStateSummaryRequestBuilder) Request() *SecurityBaseline
 // SecurityBaselineStateSummaryRequest is request for SecurityBaselineStateSummary
 type SecurityBaselineStateSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecurityBaselineStateSummary
-func (r *SecurityBaselineStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecurityBaselineStateSummary
-func (r *SecurityBaselineStateSummaryRequest) Get() (*SecurityBaselineStateSummary, error) {
+func (r *SecurityBaselineStateSummaryRequest) Get() (resObj *SecurityBaselineStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecurityBaselineStateSummary
-func (r *SecurityBaselineStateSummaryRequest) Update(reqObj *SecurityBaselineStateSummary) (*SecurityBaselineStateSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityBaselineStateSummaryRequest) Update(reqObj *SecurityBaselineStateSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineStateSummary

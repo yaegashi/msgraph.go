@@ -15,24 +15,19 @@ func (b *GroupPolicyPresentationRequestBuilder) Request() *GroupPolicyPresentati
 // GroupPolicyPresentationRequest is request for GroupPolicyPresentation
 type GroupPolicyPresentationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GroupPolicyPresentation
-func (r *GroupPolicyPresentationRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyPresentation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GroupPolicyPresentation
-func (r *GroupPolicyPresentationRequest) Get() (*GroupPolicyPresentation, error) {
+func (r *GroupPolicyPresentationRequest) Get() (resObj *GroupPolicyPresentation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GroupPolicyPresentation
-func (r *GroupPolicyPresentationRequest) Update(reqObj *GroupPolicyPresentation) (*GroupPolicyPresentation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GroupPolicyPresentationRequest) Update(reqObj *GroupPolicyPresentation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyPresentation

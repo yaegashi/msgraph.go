@@ -23,24 +23,19 @@ func (b *CustomerPaymentJournalRequestBuilder) Request() *CustomerPaymentJournal
 // CustomerPaymentJournalRequest is request for CustomerPaymentJournal
 type CustomerPaymentJournalRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CustomerPaymentJournal
-func (r *CustomerPaymentJournalRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPaymentJournal, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CustomerPaymentJournal
-func (r *CustomerPaymentJournalRequest) Get() (*CustomerPaymentJournal, error) {
+func (r *CustomerPaymentJournalRequest) Get() (resObj *CustomerPaymentJournal, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CustomerPaymentJournal
-func (r *CustomerPaymentJournalRequest) Update(reqObj *CustomerPaymentJournal) (*CustomerPaymentJournal, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CustomerPaymentJournalRequest) Update(reqObj *CustomerPaymentJournal) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CustomerPaymentJournal
@@ -81,12 +76,6 @@ func (b *CustomerPaymentJournalCustomerPaymentsCollectionRequestBuilder) ID(id s
 
 // CustomerPaymentJournalCustomerPaymentsCollectionRequest is request for CustomerPayment collection
 type CustomerPaymentJournalCustomerPaymentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CustomerPayment collection
 func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPayment, error) {
@@ -138,6 +127,7 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Get() ([]Custo
 }
 
 // Add performs POST request for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Add(reqObj *CustomerPayment) (*CustomerPayment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Add(reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

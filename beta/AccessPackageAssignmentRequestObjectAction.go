@@ -28,11 +28,6 @@ func (b *AccessPackageAssignmentRequestObjectCancelRequestBuilder) Request() *Ac
 }
 
 //
-func (r *AccessPackageAssignmentRequestObjectCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AccessPackageAssignmentRequestObjectCancelRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

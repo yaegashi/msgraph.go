@@ -15,24 +15,19 @@ func (b *SynchronizationTemplateRequestBuilder) Request() *SynchronizationTempla
 // SynchronizationTemplateRequest is request for SynchronizationTemplate
 type SynchronizationTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SynchronizationTemplate
-func (r *SynchronizationTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SynchronizationTemplate
-func (r *SynchronizationTemplateRequest) Get() (*SynchronizationTemplate, error) {
+func (r *SynchronizationTemplateRequest) Get() (resObj *SynchronizationTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SynchronizationTemplate
-func (r *SynchronizationTemplateRequest) Update(reqObj *SynchronizationTemplate) (*SynchronizationTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SynchronizationTemplateRequest) Update(reqObj *SynchronizationTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SynchronizationTemplate

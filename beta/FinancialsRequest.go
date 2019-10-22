@@ -23,24 +23,19 @@ func (b *FinancialsRequestBuilder) Request() *FinancialsRequest {
 // FinancialsRequest is request for Financials
 type FinancialsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Financials
-func (r *FinancialsRequest) Do(method, path string, reqObj interface{}) (resObj *Financials, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Financials
-func (r *FinancialsRequest) Get() (*Financials, error) {
+func (r *FinancialsRequest) Get() (resObj *Financials, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Financials
-func (r *FinancialsRequest) Update(reqObj *Financials) (*Financials, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *FinancialsRequest) Update(reqObj *Financials) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Financials
@@ -74,12 +69,6 @@ func (b *FinancialsCompaniesCollectionRequestBuilder) ID(id string) *CompanyRequ
 
 // FinancialsCompaniesCollectionRequest is request for Company collection
 type FinancialsCompaniesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Company, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Company collection
 func (r *FinancialsCompaniesCollectionRequest) Paging(method, path string, obj interface{}) ([]Company, error) {
@@ -131,6 +120,7 @@ func (r *FinancialsCompaniesCollectionRequest) Get() ([]Company, error) {
 }
 
 // Add performs POST request for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Add(reqObj *Company) (*Company, error) {
-	return r.Do("POST", "", reqObj)
+func (r *FinancialsCompaniesCollectionRequest) Add(reqObj *Company) (resObj *Company, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

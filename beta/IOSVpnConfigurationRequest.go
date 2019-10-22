@@ -15,24 +15,19 @@ func (b *IOSVpnConfigurationRequestBuilder) Request() *IOSVpnConfigurationReques
 // IOSVpnConfigurationRequest is request for IOSVpnConfiguration
 type IOSVpnConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSVpnConfiguration
-func (r *IOSVpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSVpnConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSVpnConfiguration
-func (r *IOSVpnConfigurationRequest) Get() (*IOSVpnConfiguration, error) {
+func (r *IOSVpnConfigurationRequest) Get() (resObj *IOSVpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSVpnConfiguration
-func (r *IOSVpnConfigurationRequest) Update(reqObj *IOSVpnConfiguration) (*IOSVpnConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSVpnConfigurationRequest) Update(reqObj *IOSVpnConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSVpnConfiguration

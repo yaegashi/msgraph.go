@@ -180,13 +180,8 @@ func (b *ManagedDeviceOverrideComplianceStateRequestBuilder) Request() *ManagedD
 }
 
 //
-func (r *ManagedDeviceOverrideComplianceStateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceOverrideComplianceStateRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -211,13 +206,8 @@ func (b *ManagedDeviceEnableLostModeRequestBuilder) Request() *ManagedDeviceEnab
 }
 
 //
-func (r *ManagedDeviceEnableLostModeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceEnableLostModeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -242,13 +232,8 @@ func (b *ManagedDevicePlayLostModeSoundRequestBuilder) Request() *ManagedDeviceP
 }
 
 //
-func (r *ManagedDevicePlayLostModeSoundRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDevicePlayLostModeSoundRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -273,13 +258,8 @@ func (b *ManagedDeviceSetDeviceNameRequestBuilder) Request() *ManagedDeviceSetDe
 }
 
 //
-func (r *ManagedDeviceSetDeviceNameRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceSetDeviceNameRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -304,13 +284,8 @@ func (b *ManagedDeviceRotateFileVaultKeyRequestBuilder) Request() *ManagedDevice
 }
 
 //
-func (r *ManagedDeviceRotateFileVaultKeyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRotateFileVaultKeyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -335,13 +310,8 @@ func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireReques
 }
 
 //
-func (r *ManagedDeviceRetireRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRetireRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -366,13 +336,8 @@ func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
 }
 
 //
-func (r *ManagedDeviceWipeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceWipeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -397,13 +362,8 @@ func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceReset
 }
 
 //
-func (r *ManagedDeviceResetPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceResetPasscodeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -428,13 +388,8 @@ func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLo
 }
 
 //
-func (r *ManagedDeviceRemoteLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRemoteLockRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -459,13 +414,8 @@ func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedD
 }
 
 //
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -490,13 +440,8 @@ func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDis
 }
 
 //
-func (r *ManagedDeviceDisableLostModeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceDisableLostModeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -521,13 +466,8 @@ func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocate
 }
 
 //
-func (r *ManagedDeviceLocateDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceLocateDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -552,13 +492,8 @@ func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDevi
 }
 
 //
-func (r *ManagedDeviceBypassActivationLockRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceBypassActivationLockRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -583,13 +518,8 @@ func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNow
 }
 
 //
-func (r *ManagedDeviceRebootNowRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRebootNowRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -614,13 +544,8 @@ func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRe
 }
 
 //
-func (r *ManagedDeviceShutDownRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceShutDownRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -645,13 +570,8 @@ func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRec
 }
 
 //
-func (r *ManagedDeviceRecoverPasscodeRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRecoverPasscodeRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -676,13 +596,8 @@ func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDevice
 }
 
 //
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceCleanWindowsDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -707,13 +622,8 @@ func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request()
 }
 
 //
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -738,13 +648,8 @@ func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *
 }
 
 //
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -769,13 +674,8 @@ func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDevi
 }
 
 //
-func (r *ManagedDeviceSyncDeviceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceSyncDeviceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -800,13 +700,8 @@ func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDevic
 }
 
 //
-func (r *ManagedDeviceWindowsDefenderScanRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceWindowsDefenderScanRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -831,13 +726,8 @@ func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *
 }
 
 //
-func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -862,13 +752,8 @@ func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *Manag
 }
 
 //
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -893,13 +778,8 @@ func (b *ManagedDeviceRevokeAppleVppLicensesRequestBuilder) Request() *ManagedDe
 }
 
 //
-func (r *ManagedDeviceRevokeAppleVppLicensesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRevokeAppleVppLicensesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -924,13 +804,8 @@ func (b *ManagedDeviceRotateBitLockerKeysRequestBuilder) Request() *ManagedDevic
 }
 
 //
-func (r *ManagedDeviceRotateBitLockerKeysRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceRotateBitLockerKeysRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -955,13 +830,8 @@ func (b *ManagedDeviceSendCustomNotificationToCompanyPortalRequestBuilder) Reque
 }
 
 //
-func (r *ManagedDeviceSendCustomNotificationToCompanyPortalRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceSendCustomNotificationToCompanyPortalRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -986,13 +856,8 @@ func (b *ManagedDeviceTriggerConfigurationManagerActionRequestBuilder) Request()
 }
 
 //
-func (r *ManagedDeviceTriggerConfigurationManagerActionRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedDeviceTriggerConfigurationManagerActionRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -1033,12 +898,7 @@ func (b *ManagedDeviceCollectionExecuteActionRequestBuilder) Request() *ManagedD
 }
 
 //
-func (r *ManagedDeviceCollectionExecuteActionRequest) Do(method, path string, reqObj interface{}) (resObj *BulkManagedDeviceActionResult, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *ManagedDeviceCollectionExecuteActionRequest) Post() (resObj *BulkManagedDeviceActionResult, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *ManagedDeviceCollectionExecuteActionRequest) Post() (*BulkManagedDeviceActionResult, error) {
-	return r.Do("POST", "", r.requestObject)
 }

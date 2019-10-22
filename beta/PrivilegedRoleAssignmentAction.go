@@ -38,14 +38,9 @@ func (b *PrivilegedRoleAssignmentMakePermanentRequestBuilder) Request() *Privile
 }
 
 //
-func (r *PrivilegedRoleAssignmentMakePermanentRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *PrivilegedRoleAssignmentMakePermanentRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *PrivilegedRoleAssignmentMakePermanentRequest) Post() (*PrivilegedRoleAssignment, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -70,12 +65,7 @@ func (b *PrivilegedRoleAssignmentMakeEligibleRequestBuilder) Request() *Privileg
 }
 
 //
-func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Post() (*PrivilegedRoleAssignment, error) {
-	return r.Do("POST", "", r.requestObject)
 }

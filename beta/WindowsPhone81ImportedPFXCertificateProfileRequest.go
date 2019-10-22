@@ -23,24 +23,19 @@ func (b *WindowsPhone81ImportedPFXCertificateProfileRequestBuilder) Request() *W
 // WindowsPhone81ImportedPFXCertificateProfileRequest is request for WindowsPhone81ImportedPFXCertificateProfile
 type WindowsPhone81ImportedPFXCertificateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsPhone81ImportedPFXCertificateProfile
-func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81ImportedPFXCertificateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsPhone81ImportedPFXCertificateProfile
-func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Get() (*WindowsPhone81ImportedPFXCertificateProfile, error) {
+func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Get() (resObj *WindowsPhone81ImportedPFXCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsPhone81ImportedPFXCertificateProfile
-func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Update(reqObj *WindowsPhone81ImportedPFXCertificateProfile) (*WindowsPhone81ImportedPFXCertificateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsPhone81ImportedPFXCertificateProfileRequest) Update(reqObj *WindowsPhone81ImportedPFXCertificateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPhone81ImportedPFXCertificateProfile
@@ -74,12 +69,6 @@ func (b *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStat
 
 // WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
 type WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceCertificateState collection
-func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
@@ -131,6 +120,7 @@ func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStat
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (*ManagedDeviceCertificateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

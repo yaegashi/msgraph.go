@@ -30,11 +30,6 @@ func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest 
 }
 
 //
-func (r *ManagedEBookAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ManagedEBookAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

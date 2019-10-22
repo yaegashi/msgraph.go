@@ -44,12 +44,6 @@ func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliance
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]DeviceCompliancePolicyAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -120,11 +114,6 @@ func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() 
 }
 
 //
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

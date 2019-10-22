@@ -15,24 +15,19 @@ func (b *NdesConnectorRequestBuilder) Request() *NdesConnectorRequest {
 // NdesConnectorRequest is request for NdesConnector
 type NdesConnectorRequest struct{ BaseRequest }
 
-// Do performs HTTP request for NdesConnector
-func (r *NdesConnectorRequest) Do(method, path string, reqObj interface{}) (resObj *NdesConnector, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for NdesConnector
-func (r *NdesConnectorRequest) Get() (*NdesConnector, error) {
+func (r *NdesConnectorRequest) Get() (resObj *NdesConnector, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for NdesConnector
-func (r *NdesConnectorRequest) Update(reqObj *NdesConnector) (*NdesConnector, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *NdesConnectorRequest) Update(reqObj *NdesConnector) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for NdesConnector

@@ -23,24 +23,19 @@ func (b *ContactFolderRequestBuilder) Request() *ContactFolderRequest {
 // ContactFolderRequest is request for ContactFolder
 type ContactFolderRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ContactFolder
-func (r *ContactFolderRequest) Do(method, path string, reqObj interface{}) (resObj *ContactFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ContactFolder
-func (r *ContactFolderRequest) Get() (*ContactFolder, error) {
+func (r *ContactFolderRequest) Get() (resObj *ContactFolder, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ContactFolder
-func (r *ContactFolderRequest) Update(reqObj *ContactFolder) (*ContactFolder, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ContactFolderRequest) Update(reqObj *ContactFolder) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ContactFolder
@@ -74,12 +69,6 @@ func (b *ContactFolderChildFoldersCollectionRequestBuilder) ID(id string) *Conta
 
 // ContactFolderChildFoldersCollectionRequest is request for ContactFolder collection
 type ContactFolderChildFoldersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ContactFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ContactFolder collection
 func (r *ContactFolderChildFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]ContactFolder, error) {
@@ -131,8 +120,9 @@ func (r *ContactFolderChildFoldersCollectionRequest) Get() ([]ContactFolder, err
 }
 
 // Add performs POST request for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Add(reqObj *ContactFolder) (*ContactFolder, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ContactFolderChildFoldersCollectionRequest) Add(reqObj *ContactFolder) (resObj *ContactFolder, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Contacts returns request builder for Contact collection
@@ -161,12 +151,6 @@ func (b *ContactFolderContactsCollectionRequestBuilder) ID(id string) *ContactRe
 
 // ContactFolderContactsCollectionRequest is request for Contact collection
 type ContactFolderContactsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Contact, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Contact collection
 func (r *ContactFolderContactsCollectionRequest) Paging(method, path string, obj interface{}) ([]Contact, error) {
@@ -218,8 +202,9 @@ func (r *ContactFolderContactsCollectionRequest) Get() ([]Contact, error) {
 }
 
 // Add performs POST request for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Add(reqObj *Contact) (*Contact, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ContactFolderContactsCollectionRequest) Add(reqObj *Contact) (resObj *Contact, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -248,12 +233,6 @@ func (b *ContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder) ID(i
 
 // ContactFolderMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type ContactFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -305,8 +284,9 @@ func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Get() ([]Mu
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -335,12 +315,6 @@ func (b *ContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder) ID(
 
 // ContactFolderSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type ContactFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -392,6 +366,7 @@ func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Get() ([]S
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

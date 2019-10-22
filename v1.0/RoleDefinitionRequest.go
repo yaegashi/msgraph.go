@@ -23,24 +23,19 @@ func (b *RoleDefinitionRequestBuilder) Request() *RoleDefinitionRequest {
 // RoleDefinitionRequest is request for RoleDefinition
 type RoleDefinitionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RoleDefinition
-func (r *RoleDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RoleDefinition
-func (r *RoleDefinitionRequest) Get() (*RoleDefinition, error) {
+func (r *RoleDefinitionRequest) Get() (resObj *RoleDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RoleDefinition
-func (r *RoleDefinitionRequest) Update(reqObj *RoleDefinition) (*RoleDefinition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoleDefinitionRequest) Update(reqObj *RoleDefinition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleDefinition
@@ -74,12 +69,6 @@ func (b *RoleDefinitionRoleAssignmentsCollectionRequestBuilder) ID(id string) *R
 
 // RoleDefinitionRoleAssignmentsCollectionRequest is request for RoleAssignment collection
 type RoleDefinitionRoleAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for RoleAssignment collection
-func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for RoleAssignment collection
 func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleAssignment, error) {
@@ -131,6 +120,7 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Get() ([]RoleAssignment
 }
 
 // Add performs POST request for RoleAssignment collection
-func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Add(reqObj *RoleAssignment) (*RoleAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Add(reqObj *RoleAssignment) (resObj *RoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

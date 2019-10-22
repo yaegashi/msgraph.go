@@ -23,24 +23,19 @@ func (b *DeviceManagementIntentRequestBuilder) Request() *DeviceManagementIntent
 // DeviceManagementIntentRequest is request for DeviceManagementIntent
 type DeviceManagementIntentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementIntent
-func (r *DeviceManagementIntentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementIntent
-func (r *DeviceManagementIntentRequest) Get() (*DeviceManagementIntent, error) {
+func (r *DeviceManagementIntentRequest) Get() (resObj *DeviceManagementIntent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementIntent
-func (r *DeviceManagementIntentRequest) Update(reqObj *DeviceManagementIntent) (*DeviceManagementIntent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementIntentRequest) Update(reqObj *DeviceManagementIntent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntent
@@ -74,12 +69,6 @@ func (b *DeviceManagementIntentAssignmentsCollectionRequestBuilder) ID(id string
 
 // DeviceManagementIntentAssignmentsCollectionRequest is request for DeviceManagementIntentAssignment collection
 type DeviceManagementIntentAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementIntentAssignment collection
-func (r *DeviceManagementIntentAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementIntentAssignment collection
 func (r *DeviceManagementIntentAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentAssignment, error) {
@@ -131,8 +120,9 @@ func (r *DeviceManagementIntentAssignmentsCollectionRequest) Get() ([]DeviceMana
 }
 
 // Add performs POST request for DeviceManagementIntentAssignment collection
-func (r *DeviceManagementIntentAssignmentsCollectionRequest) Add(reqObj *DeviceManagementIntentAssignment) (*DeviceManagementIntentAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementIntentAssignmentsCollectionRequest) Add(reqObj *DeviceManagementIntentAssignment) (resObj *DeviceManagementIntentAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Categories returns request builder for DeviceManagementIntentSettingCategory collection
@@ -161,12 +151,6 @@ func (b *DeviceManagementIntentCategoriesCollectionRequestBuilder) ID(id string)
 
 // DeviceManagementIntentCategoriesCollectionRequest is request for DeviceManagementIntentSettingCategory collection
 type DeviceManagementIntentCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementIntentSettingCategory collection
-func (r *DeviceManagementIntentCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentSettingCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementIntentSettingCategory collection
 func (r *DeviceManagementIntentCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentSettingCategory, error) {
@@ -218,8 +202,9 @@ func (r *DeviceManagementIntentCategoriesCollectionRequest) Get() ([]DeviceManag
 }
 
 // Add performs POST request for DeviceManagementIntentSettingCategory collection
-func (r *DeviceManagementIntentCategoriesCollectionRequest) Add(reqObj *DeviceManagementIntentSettingCategory) (*DeviceManagementIntentSettingCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementIntentCategoriesCollectionRequest) Add(reqObj *DeviceManagementIntentSettingCategory) (resObj *DeviceManagementIntentSettingCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceSettingStateSummaries returns request builder for DeviceManagementIntentDeviceSettingStateSummary collection
@@ -248,12 +233,6 @@ func (b *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequestBuild
 
 // DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest is request for DeviceManagementIntentDeviceSettingStateSummary collection
 type DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementIntentDeviceSettingStateSummary collection
-func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentDeviceSettingStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementIntentDeviceSettingStateSummary collection
 func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentDeviceSettingStateSummary, error) {
@@ -305,8 +284,9 @@ func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Get
 }
 
 // Add performs POST request for DeviceManagementIntentDeviceSettingStateSummary collection
-func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Add(reqObj *DeviceManagementIntentDeviceSettingStateSummary) (*DeviceManagementIntentDeviceSettingStateSummary, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Add(reqObj *DeviceManagementIntentDeviceSettingStateSummary) (resObj *DeviceManagementIntentDeviceSettingStateSummary, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStateSummary is navigation property
@@ -342,12 +322,6 @@ func (b *DeviceManagementIntentDeviceStatesCollectionRequestBuilder) ID(id strin
 
 // DeviceManagementIntentDeviceStatesCollectionRequest is request for DeviceManagementIntentDeviceState collection
 type DeviceManagementIntentDeviceStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementIntentDeviceState collection
-func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementIntentDeviceState collection
 func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentDeviceState, error) {
@@ -399,8 +373,9 @@ func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Get() ([]DeviceMan
 }
 
 // Add performs POST request for DeviceManagementIntentDeviceState collection
-func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Add(reqObj *DeviceManagementIntentDeviceState) (*DeviceManagementIntentDeviceState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Add(reqObj *DeviceManagementIntentDeviceState) (resObj *DeviceManagementIntentDeviceState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Settings returns request builder for DeviceManagementSettingInstance collection
@@ -429,12 +404,6 @@ func (b *DeviceManagementIntentSettingsCollectionRequestBuilder) ID(id string) *
 
 // DeviceManagementIntentSettingsCollectionRequest is request for DeviceManagementSettingInstance collection
 type DeviceManagementIntentSettingsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
 func (r *DeviceManagementIntentSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
@@ -486,8 +455,9 @@ func (r *DeviceManagementIntentSettingsCollectionRequest) Get() ([]DeviceManagem
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (*DeviceManagementSettingInstance, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementIntentSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UserStateSummary is navigation property
@@ -523,12 +493,6 @@ func (b *DeviceManagementIntentUserStatesCollectionRequestBuilder) ID(id string)
 
 // DeviceManagementIntentUserStatesCollectionRequest is request for DeviceManagementIntentUserState collection
 type DeviceManagementIntentUserStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementIntentUserState collection
-func (r *DeviceManagementIntentUserStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentUserState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementIntentUserState collection
 func (r *DeviceManagementIntentUserStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentUserState, error) {
@@ -580,6 +544,7 @@ func (r *DeviceManagementIntentUserStatesCollectionRequest) Get() ([]DeviceManag
 }
 
 // Add performs POST request for DeviceManagementIntentUserState collection
-func (r *DeviceManagementIntentUserStatesCollectionRequest) Add(reqObj *DeviceManagementIntentUserState) (*DeviceManagementIntentUserState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementIntentUserStatesCollectionRequest) Add(reqObj *DeviceManagementIntentUserState) (resObj *DeviceManagementIntentUserState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

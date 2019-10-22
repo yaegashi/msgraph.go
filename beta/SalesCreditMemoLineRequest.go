@@ -15,24 +15,19 @@ func (b *SalesCreditMemoLineRequestBuilder) Request() *SalesCreditMemoLineReques
 // SalesCreditMemoLineRequest is request for SalesCreditMemoLine
 type SalesCreditMemoLineRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesCreditMemoLine
-func (r *SalesCreditMemoLineRequest) Do(method, path string, reqObj interface{}) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesCreditMemoLine
-func (r *SalesCreditMemoLineRequest) Get() (*SalesCreditMemoLine, error) {
+func (r *SalesCreditMemoLineRequest) Get() (resObj *SalesCreditMemoLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesCreditMemoLine
-func (r *SalesCreditMemoLineRequest) Update(reqObj *SalesCreditMemoLine) (*SalesCreditMemoLine, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesCreditMemoLineRequest) Update(reqObj *SalesCreditMemoLine) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesCreditMemoLine

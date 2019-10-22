@@ -15,24 +15,19 @@ func (b *TeamsTemplateRequestBuilder) Request() *TeamsTemplateRequest {
 // TeamsTemplateRequest is request for TeamsTemplate
 type TeamsTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TeamsTemplate
-func (r *TeamsTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TeamsTemplate
-func (r *TeamsTemplateRequest) Get() (*TeamsTemplate, error) {
+func (r *TeamsTemplateRequest) Get() (resObj *TeamsTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TeamsTemplate
-func (r *TeamsTemplateRequest) Update(reqObj *TeamsTemplate) (*TeamsTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TeamsTemplateRequest) Update(reqObj *TeamsTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsTemplate

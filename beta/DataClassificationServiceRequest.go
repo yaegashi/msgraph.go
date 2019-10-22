@@ -23,24 +23,19 @@ func (b *DataClassificationServiceRequestBuilder) Request() *DataClassificationS
 // DataClassificationServiceRequest is request for DataClassificationService
 type DataClassificationServiceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DataClassificationService
-func (r *DataClassificationServiceRequest) Do(method, path string, reqObj interface{}) (resObj *DataClassificationService, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DataClassificationService
-func (r *DataClassificationServiceRequest) Get() (*DataClassificationService, error) {
+func (r *DataClassificationServiceRequest) Get() (resObj *DataClassificationService, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DataClassificationService
-func (r *DataClassificationServiceRequest) Update(reqObj *DataClassificationService) (*DataClassificationService, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DataClassificationServiceRequest) Update(reqObj *DataClassificationService) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DataClassificationService
@@ -74,12 +69,6 @@ func (b *DataClassificationServiceClassifyFileCollectionRequestBuilder) ID(id st
 
 // DataClassificationServiceClassifyFileCollectionRequest is request for FileClassificationRequestObject collection
 type DataClassificationServiceClassifyFileCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *FileClassificationRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for FileClassificationRequestObject collection
 func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(method, path string, obj interface{}) ([]FileClassificationRequestObject, error) {
@@ -131,8 +120,9 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Get() ([]FileCl
 }
 
 // Add performs POST request for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Add(reqObj *FileClassificationRequestObject) (*FileClassificationRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceClassifyFileCollectionRequest) Add(reqObj *FileClassificationRequestObject) (resObj *FileClassificationRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ClassifyFileJobs returns request builder for JobResponseBase collection
@@ -161,12 +151,6 @@ func (b *DataClassificationServiceClassifyFileJobsCollectionRequestBuilder) ID(i
 
 // DataClassificationServiceClassifyFileJobsCollectionRequest is request for JobResponseBase collection
 type DataClassificationServiceClassifyFileJobsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for JobResponseBase collection
-func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
@@ -218,8 +202,9 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Get() ([]Jo
 }
 
 // Add performs POST request for JobResponseBase collection
-func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Add(reqObj *JobResponseBase) (*JobResponseBase, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Add(reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ClassifyText returns request builder for TextClassificationRequestObject collection
@@ -248,12 +233,6 @@ func (b *DataClassificationServiceClassifyTextCollectionRequestBuilder) ID(id st
 
 // DataClassificationServiceClassifyTextCollectionRequest is request for TextClassificationRequestObject collection
 type DataClassificationServiceClassifyTextCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TextClassificationRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TextClassificationRequestObject collection
 func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(method, path string, obj interface{}) ([]TextClassificationRequestObject, error) {
@@ -305,8 +284,9 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Get() ([]TextCl
 }
 
 // Add performs POST request for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Add(reqObj *TextClassificationRequestObject) (*TextClassificationRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceClassifyTextCollectionRequest) Add(reqObj *TextClassificationRequestObject) (resObj *TextClassificationRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ClassifyTextJobs returns request builder for JobResponseBase collection
@@ -335,12 +315,6 @@ func (b *DataClassificationServiceClassifyTextJobsCollectionRequestBuilder) ID(i
 
 // DataClassificationServiceClassifyTextJobsCollectionRequest is request for JobResponseBase collection
 type DataClassificationServiceClassifyTextJobsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for JobResponseBase collection
-func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
@@ -392,8 +366,9 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Get() ([]Jo
 }
 
 // Add performs POST request for JobResponseBase collection
-func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Add(reqObj *JobResponseBase) (*JobResponseBase, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Add(reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // EvaluateLabelJobs returns request builder for JobResponseBase collection
@@ -422,12 +397,6 @@ func (b *DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder) ID(
 
 // DataClassificationServiceEvaluateLabelJobsCollectionRequest is request for JobResponseBase collection
 type DataClassificationServiceEvaluateLabelJobsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for JobResponseBase collection
-func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
@@ -479,8 +448,9 @@ func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Get() ([]J
 }
 
 // Add performs POST request for JobResponseBase collection
-func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Add(reqObj *JobResponseBase) (*JobResponseBase, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Add(reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ExactMatchDataStores returns request builder for ExactMatchDataStore collection
@@ -509,12 +479,6 @@ func (b *DataClassificationServiceExactMatchDataStoresCollectionRequestBuilder) 
 
 // DataClassificationServiceExactMatchDataStoresCollectionRequest is request for ExactMatchDataStore collection
 type DataClassificationServiceExactMatchDataStoresCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ExactMatchDataStore collection
-func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchDataStore, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ExactMatchDataStore collection
 func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchDataStore, error) {
@@ -566,8 +530,9 @@ func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Get() (
 }
 
 // Add performs POST request for ExactMatchDataStore collection
-func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Add(reqObj *ExactMatchDataStore) (*ExactMatchDataStore, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Add(reqObj *ExactMatchDataStore) (resObj *ExactMatchDataStore, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ExactMatchUploadAgents returns request builder for ExactMatchUploadAgent collection
@@ -596,12 +561,6 @@ func (b *DataClassificationServiceExactMatchUploadAgentsCollectionRequestBuilder
 
 // DataClassificationServiceExactMatchUploadAgentsCollectionRequest is request for ExactMatchUploadAgent collection
 type DataClassificationServiceExactMatchUploadAgentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ExactMatchUploadAgent collection
-func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchUploadAgent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ExactMatchUploadAgent collection
 func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchUploadAgent, error) {
@@ -653,8 +612,9 @@ func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Get()
 }
 
 // Add performs POST request for ExactMatchUploadAgent collection
-func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Add(reqObj *ExactMatchUploadAgent) (*ExactMatchUploadAgent, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Add(reqObj *ExactMatchUploadAgent) (resObj *ExactMatchUploadAgent, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Jobs returns request builder for JobResponseBase collection
@@ -683,12 +643,6 @@ func (b *DataClassificationServiceJobsCollectionRequestBuilder) ID(id string) *J
 
 // DataClassificationServiceJobsCollectionRequest is request for JobResponseBase collection
 type DataClassificationServiceJobsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for JobResponseBase collection
-func (r *DataClassificationServiceJobsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for JobResponseBase collection
 func (r *DataClassificationServiceJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]JobResponseBase, error) {
@@ -740,8 +694,9 @@ func (r *DataClassificationServiceJobsCollectionRequest) Get() ([]JobResponseBas
 }
 
 // Add performs POST request for JobResponseBase collection
-func (r *DataClassificationServiceJobsCollectionRequest) Add(reqObj *JobResponseBase) (*JobResponseBase, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceJobsCollectionRequest) Add(reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SensitiveTypes returns request builder for SensitiveType collection
@@ -770,12 +725,6 @@ func (b *DataClassificationServiceSensitiveTypesCollectionRequestBuilder) ID(id 
 
 // DataClassificationServiceSensitiveTypesCollectionRequest is request for SensitiveType collection
 type DataClassificationServiceSensitiveTypesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SensitiveType collection
-func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitiveType, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SensitiveType collection
 func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitiveType, error) {
@@ -827,8 +776,9 @@ func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Get() ([]Sens
 }
 
 // Add performs POST request for SensitiveType collection
-func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Add(reqObj *SensitiveType) (*SensitiveType, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Add(reqObj *SensitiveType) (resObj *SensitiveType, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SensitivityLabels returns request builder for SensitivityLabel collection
@@ -857,12 +807,6 @@ func (b *DataClassificationServiceSensitivityLabelsCollectionRequestBuilder) ID(
 
 // DataClassificationServiceSensitivityLabelsCollectionRequest is request for SensitivityLabel collection
 type DataClassificationServiceSensitivityLabelsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SensitivityLabel collection
-func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SensitivityLabel collection
 func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
@@ -914,6 +858,7 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Get() ([]S
 }
 
 // Add performs POST request for SensitivityLabel collection
-func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Add(reqObj *SensitivityLabel) (*SensitivityLabel, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Add(reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

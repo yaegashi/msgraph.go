@@ -15,24 +15,19 @@ func (b *DeviceCategoryRequestBuilder) Request() *DeviceCategoryRequest {
 // DeviceCategoryRequest is request for DeviceCategory
 type DeviceCategoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceCategory
-func (r *DeviceCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceCategory
-func (r *DeviceCategoryRequest) Get() (*DeviceCategory, error) {
+func (r *DeviceCategoryRequest) Get() (resObj *DeviceCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceCategory
-func (r *DeviceCategoryRequest) Update(reqObj *DeviceCategory) (*DeviceCategory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceCategoryRequest) Update(reqObj *DeviceCategory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceCategory

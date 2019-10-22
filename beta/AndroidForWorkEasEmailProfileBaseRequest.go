@@ -15,24 +15,19 @@ func (b *AndroidForWorkEasEmailProfileBaseRequestBuilder) Request() *AndroidForW
 // AndroidForWorkEasEmailProfileBaseRequest is request for AndroidForWorkEasEmailProfileBase
 type AndroidForWorkEasEmailProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidForWorkEasEmailProfileBase
-func (r *AndroidForWorkEasEmailProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkEasEmailProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidForWorkEasEmailProfileBase
-func (r *AndroidForWorkEasEmailProfileBaseRequest) Get() (*AndroidForWorkEasEmailProfileBase, error) {
+func (r *AndroidForWorkEasEmailProfileBaseRequest) Get() (resObj *AndroidForWorkEasEmailProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidForWorkEasEmailProfileBase
-func (r *AndroidForWorkEasEmailProfileBaseRequest) Update(reqObj *AndroidForWorkEasEmailProfileBase) (*AndroidForWorkEasEmailProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidForWorkEasEmailProfileBaseRequest) Update(reqObj *AndroidForWorkEasEmailProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkEasEmailProfileBase

@@ -15,24 +15,19 @@ func (b *ManagedDeviceEncryptionStateRequestBuilder) Request() *ManagedDeviceEnc
 // ManagedDeviceEncryptionStateRequest is request for ManagedDeviceEncryptionState
 type ManagedDeviceEncryptionStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedDeviceEncryptionState
-func (r *ManagedDeviceEncryptionStateRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceEncryptionState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedDeviceEncryptionState
-func (r *ManagedDeviceEncryptionStateRequest) Get() (*ManagedDeviceEncryptionState, error) {
+func (r *ManagedDeviceEncryptionStateRequest) Get() (resObj *ManagedDeviceEncryptionState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedDeviceEncryptionState
-func (r *ManagedDeviceEncryptionStateRequest) Update(reqObj *ManagedDeviceEncryptionState) (*ManagedDeviceEncryptionState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedDeviceEncryptionStateRequest) Update(reqObj *ManagedDeviceEncryptionState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceEncryptionState

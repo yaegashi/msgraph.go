@@ -15,24 +15,19 @@ func (b *OutlookItemRequestBuilder) Request() *OutlookItemRequest {
 // OutlookItemRequest is request for OutlookItem
 type OutlookItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OutlookItem
-func (r *OutlookItemRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OutlookItem
-func (r *OutlookItemRequest) Get() (*OutlookItem, error) {
+func (r *OutlookItemRequest) Get() (resObj *OutlookItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OutlookItem
-func (r *OutlookItemRequest) Update(reqObj *OutlookItem) (*OutlookItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OutlookItemRequest) Update(reqObj *OutlookItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OutlookItem

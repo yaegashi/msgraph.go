@@ -11,24 +11,19 @@ func (b *{{.X}}RequestBuilder) Request() *{{.X}}Request {
 // {{.X}}Request is request for {{.X}}
 type {{.X}}Request struct{ BaseRequest }
 
-// Do performs HTTP request for {{.X}}
-func (r *{{.X}}Request) Do(method, path string, reqObj interface{}) (resObj *{{.X}}, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for {{.X}}
-func (r *{{.X}}Request) Get() (*{{.X}}, error) {
+func (r *{{.X}}Request) Get() (resObj *{{.X}}, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for {{.X}}
-func (r *{{.X}}Request) Update(reqObj *{{.X}}) (*{{.X}}, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *{{.X}}Request) Update(reqObj *{{.X}}) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for {{.X}}

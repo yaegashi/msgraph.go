@@ -15,24 +15,19 @@ func (b *DeviceManagementScriptDeviceStateRequestBuilder) Request() *DeviceManag
 // DeviceManagementScriptDeviceStateRequest is request for DeviceManagementScriptDeviceState
 type DeviceManagementScriptDeviceStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementScriptDeviceState
-func (r *DeviceManagementScriptDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementScriptDeviceState
-func (r *DeviceManagementScriptDeviceStateRequest) Get() (*DeviceManagementScriptDeviceState, error) {
+func (r *DeviceManagementScriptDeviceStateRequest) Get() (resObj *DeviceManagementScriptDeviceState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementScriptDeviceState
-func (r *DeviceManagementScriptDeviceStateRequest) Update(reqObj *DeviceManagementScriptDeviceState) (*DeviceManagementScriptDeviceState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementScriptDeviceStateRequest) Update(reqObj *DeviceManagementScriptDeviceState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementScriptDeviceState

@@ -15,24 +15,19 @@ func (b *ContractRequestBuilder) Request() *ContractRequest {
 // ContractRequest is request for Contract
 type ContractRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Contract
-func (r *ContractRequest) Do(method, path string, reqObj interface{}) (resObj *Contract, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Contract
-func (r *ContractRequest) Get() (*Contract, error) {
+func (r *ContractRequest) Get() (resObj *Contract, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Contract
-func (r *ContractRequest) Update(reqObj *Contract) (*Contract, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ContractRequest) Update(reqObj *Contract) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Contract

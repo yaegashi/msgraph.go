@@ -15,24 +15,19 @@ func (b *BaseItemRequestBuilder) Request() *BaseItemRequest {
 // BaseItemRequest is request for BaseItem
 type BaseItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for BaseItem
-func (r *BaseItemRequest) Do(method, path string, reqObj interface{}) (resObj *BaseItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for BaseItem
-func (r *BaseItemRequest) Get() (*BaseItem, error) {
+func (r *BaseItemRequest) Get() (resObj *BaseItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for BaseItem
-func (r *BaseItemRequest) Update(reqObj *BaseItem) (*BaseItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *BaseItemRequest) Update(reqObj *BaseItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BaseItem

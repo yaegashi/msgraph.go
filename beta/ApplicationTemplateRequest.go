@@ -15,24 +15,19 @@ func (b *ApplicationTemplateRequestBuilder) Request() *ApplicationTemplateReques
 // ApplicationTemplateRequest is request for ApplicationTemplate
 type ApplicationTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ApplicationTemplate
-func (r *ApplicationTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *ApplicationTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ApplicationTemplate
-func (r *ApplicationTemplateRequest) Get() (*ApplicationTemplate, error) {
+func (r *ApplicationTemplateRequest) Get() (resObj *ApplicationTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ApplicationTemplate
-func (r *ApplicationTemplateRequest) Update(reqObj *ApplicationTemplate) (*ApplicationTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ApplicationTemplateRequest) Update(reqObj *ApplicationTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ApplicationTemplate

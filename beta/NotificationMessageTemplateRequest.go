@@ -23,24 +23,19 @@ func (b *NotificationMessageTemplateRequestBuilder) Request() *NotificationMessa
 // NotificationMessageTemplateRequest is request for NotificationMessageTemplate
 type NotificationMessageTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for NotificationMessageTemplate
-func (r *NotificationMessageTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *NotificationMessageTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for NotificationMessageTemplate
-func (r *NotificationMessageTemplateRequest) Get() (*NotificationMessageTemplate, error) {
+func (r *NotificationMessageTemplateRequest) Get() (resObj *NotificationMessageTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for NotificationMessageTemplate
-func (r *NotificationMessageTemplateRequest) Update(reqObj *NotificationMessageTemplate) (*NotificationMessageTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *NotificationMessageTemplateRequest) Update(reqObj *NotificationMessageTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for NotificationMessageTemplate
@@ -74,12 +69,6 @@ func (b *NotificationMessageTemplateLocalizedNotificationMessagesCollectionReque
 
 // NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest is request for LocalizedNotificationMessage collection
 type NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for LocalizedNotificationMessage collection
-func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *LocalizedNotificationMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for LocalizedNotificationMessage collection
 func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]LocalizedNotificationMessage, error) {
@@ -131,6 +120,7 @@ func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionReque
 }
 
 // Add performs POST request for LocalizedNotificationMessage collection
-func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Add(reqObj *LocalizedNotificationMessage) (*LocalizedNotificationMessage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Add(reqObj *LocalizedNotificationMessage) (resObj *LocalizedNotificationMessage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

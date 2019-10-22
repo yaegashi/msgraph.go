@@ -15,24 +15,19 @@ func (b *PrivilegedRoleAssignmentRequestObjectRequestBuilder) Request() *Privile
 // PrivilegedRoleAssignmentRequestObjectRequest is request for PrivilegedRoleAssignmentRequestObject
 type PrivilegedRoleAssignmentRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PrivilegedRoleAssignmentRequestObject
-func (r *PrivilegedRoleAssignmentRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PrivilegedRoleAssignmentRequestObject
-func (r *PrivilegedRoleAssignmentRequestObjectRequest) Get() (*PrivilegedRoleAssignmentRequestObject, error) {
+func (r *PrivilegedRoleAssignmentRequestObjectRequest) Get() (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PrivilegedRoleAssignmentRequestObject
-func (r *PrivilegedRoleAssignmentRequestObjectRequest) Update(reqObj *PrivilegedRoleAssignmentRequestObject) (*PrivilegedRoleAssignmentRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PrivilegedRoleAssignmentRequestObjectRequest) Update(reqObj *PrivilegedRoleAssignmentRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedRoleAssignmentRequestObject

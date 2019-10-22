@@ -15,24 +15,19 @@ func (b *MacOSEnterpriseWiFiConfigurationRequestBuilder) Request() *MacOSEnterpr
 // MacOSEnterpriseWiFiConfigurationRequest is request for MacOSEnterpriseWiFiConfiguration
 type MacOSEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MacOSEnterpriseWiFiConfiguration
-func (r *MacOSEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *MacOSEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MacOSEnterpriseWiFiConfiguration
-func (r *MacOSEnterpriseWiFiConfigurationRequest) Get() (*MacOSEnterpriseWiFiConfiguration, error) {
+func (r *MacOSEnterpriseWiFiConfigurationRequest) Get() (resObj *MacOSEnterpriseWiFiConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MacOSEnterpriseWiFiConfiguration
-func (r *MacOSEnterpriseWiFiConfigurationRequest) Update(reqObj *MacOSEnterpriseWiFiConfiguration) (*MacOSEnterpriseWiFiConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MacOSEnterpriseWiFiConfigurationRequest) Update(reqObj *MacOSEnterpriseWiFiConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSEnterpriseWiFiConfiguration

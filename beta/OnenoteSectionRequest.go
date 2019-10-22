@@ -23,24 +23,19 @@ func (b *OnenoteSectionRequestBuilder) Request() *OnenoteSectionRequest {
 // OnenoteSectionRequest is request for OnenoteSection
 type OnenoteSectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OnenoteSection
-func (r *OnenoteSectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteSection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OnenoteSection
-func (r *OnenoteSectionRequest) Get() (*OnenoteSection, error) {
+func (r *OnenoteSectionRequest) Get() (resObj *OnenoteSection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OnenoteSection
-func (r *OnenoteSectionRequest) Update(reqObj *OnenoteSection) (*OnenoteSection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OnenoteSectionRequest) Update(reqObj *OnenoteSection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnenoteSection
@@ -74,12 +69,6 @@ func (b *OnenoteSectionPagesCollectionRequestBuilder) ID(id string) *OnenotePage
 
 // OnenoteSectionPagesCollectionRequest is request for OnenotePage collection
 type OnenoteSectionPagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnenotePage collection
-func (r *OnenoteSectionPagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnenotePage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnenotePage collection
 func (r *OnenoteSectionPagesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenotePage, error) {
@@ -131,8 +120,9 @@ func (r *OnenoteSectionPagesCollectionRequest) Get() ([]OnenotePage, error) {
 }
 
 // Add performs POST request for OnenotePage collection
-func (r *OnenoteSectionPagesCollectionRequest) Add(reqObj *OnenotePage) (*OnenotePage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnenoteSectionPagesCollectionRequest) Add(reqObj *OnenotePage) (resObj *OnenotePage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ParentNotebook is navigation property

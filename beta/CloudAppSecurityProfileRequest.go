@@ -15,24 +15,19 @@ func (b *CloudAppSecurityProfileRequestBuilder) Request() *CloudAppSecurityProfi
 // CloudAppSecurityProfileRequest is request for CloudAppSecurityProfile
 type CloudAppSecurityProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CloudAppSecurityProfile
-func (r *CloudAppSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *CloudAppSecurityProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CloudAppSecurityProfile
-func (r *CloudAppSecurityProfileRequest) Get() (*CloudAppSecurityProfile, error) {
+func (r *CloudAppSecurityProfileRequest) Get() (resObj *CloudAppSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CloudAppSecurityProfile
-func (r *CloudAppSecurityProfileRequest) Update(reqObj *CloudAppSecurityProfile) (*CloudAppSecurityProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CloudAppSecurityProfileRequest) Update(reqObj *CloudAppSecurityProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CloudAppSecurityProfile

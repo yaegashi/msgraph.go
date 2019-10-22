@@ -46,12 +46,6 @@ func (b *OfficeClientConfigurationAssignRequestBuilder) Request() *OfficeClientC
 }
 
 //
-func (r *OfficeClientConfigurationAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]OfficeClientConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *OfficeClientConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]OfficeClientConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -122,11 +116,6 @@ func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Requ
 }
 
 //
-func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

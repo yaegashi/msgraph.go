@@ -15,24 +15,19 @@ func (b *OnenoteResourceRequestBuilder) Request() *OnenoteResourceRequest {
 // OnenoteResourceRequest is request for OnenoteResource
 type OnenoteResourceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OnenoteResource
-func (r *OnenoteResourceRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OnenoteResource
-func (r *OnenoteResourceRequest) Get() (*OnenoteResource, error) {
+func (r *OnenoteResourceRequest) Get() (resObj *OnenoteResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OnenoteResource
-func (r *OnenoteResourceRequest) Update(reqObj *OnenoteResource) (*OnenoteResource, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OnenoteResourceRequest) Update(reqObj *OnenoteResource) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnenoteResource

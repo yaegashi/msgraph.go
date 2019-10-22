@@ -15,24 +15,19 @@ func (b *WorkbookRangeSortRequestBuilder) Request() *WorkbookRangeSortRequest {
 // WorkbookRangeSortRequest is request for WorkbookRangeSort
 type WorkbookRangeSortRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookRangeSort
-func (r *WorkbookRangeSortRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeSort, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookRangeSort
-func (r *WorkbookRangeSortRequest) Get() (*WorkbookRangeSort, error) {
+func (r *WorkbookRangeSortRequest) Get() (resObj *WorkbookRangeSort, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookRangeSort
-func (r *WorkbookRangeSortRequest) Update(reqObj *WorkbookRangeSort) (*WorkbookRangeSort, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookRangeSortRequest) Update(reqObj *WorkbookRangeSort) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookRangeSort

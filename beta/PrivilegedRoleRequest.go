@@ -23,24 +23,19 @@ func (b *PrivilegedRoleRequestBuilder) Request() *PrivilegedRoleRequest {
 // PrivilegedRoleRequest is request for PrivilegedRole
 type PrivilegedRoleRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PrivilegedRole
-func (r *PrivilegedRoleRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PrivilegedRole
-func (r *PrivilegedRoleRequest) Get() (*PrivilegedRole, error) {
+func (r *PrivilegedRoleRequest) Get() (resObj *PrivilegedRole, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PrivilegedRole
-func (r *PrivilegedRoleRequest) Update(reqObj *PrivilegedRole) (*PrivilegedRole, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PrivilegedRoleRequest) Update(reqObj *PrivilegedRole) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedRole
@@ -74,12 +69,6 @@ func (b *PrivilegedRoleAssignmentsCollectionRequestBuilder) ID(id string) *Privi
 
 // PrivilegedRoleAssignmentsCollectionRequest is request for PrivilegedRoleAssignment collection
 type PrivilegedRoleAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PrivilegedRoleAssignment collection
-func (r *PrivilegedRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PrivilegedRoleAssignment collection
 func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]PrivilegedRoleAssignment, error) {
@@ -131,8 +120,9 @@ func (r *PrivilegedRoleAssignmentsCollectionRequest) Get() ([]PrivilegedRoleAssi
 }
 
 // Add performs POST request for PrivilegedRoleAssignment collection
-func (r *PrivilegedRoleAssignmentsCollectionRequest) Add(reqObj *PrivilegedRoleAssignment) (*PrivilegedRoleAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PrivilegedRoleAssignmentsCollectionRequest) Add(reqObj *PrivilegedRoleAssignment) (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Settings is navigation property

@@ -23,24 +23,19 @@ func (b *IntuneBrandingProfileRequestBuilder) Request() *IntuneBrandingProfileRe
 // IntuneBrandingProfileRequest is request for IntuneBrandingProfile
 type IntuneBrandingProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IntuneBrandingProfile
-func (r *IntuneBrandingProfileRequest) Do(method, path string, reqObj interface{}) (resObj *IntuneBrandingProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IntuneBrandingProfile
-func (r *IntuneBrandingProfileRequest) Get() (*IntuneBrandingProfile, error) {
+func (r *IntuneBrandingProfileRequest) Get() (resObj *IntuneBrandingProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IntuneBrandingProfile
-func (r *IntuneBrandingProfileRequest) Update(reqObj *IntuneBrandingProfile) (*IntuneBrandingProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IntuneBrandingProfileRequest) Update(reqObj *IntuneBrandingProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IntuneBrandingProfile
@@ -74,12 +69,6 @@ func (b *IntuneBrandingProfileAssignmentsCollectionRequestBuilder) ID(id string)
 
 // IntuneBrandingProfileAssignmentsCollectionRequest is request for IntuneBrandingProfileAssignment collection
 type IntuneBrandingProfileAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IntuneBrandingProfileAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for IntuneBrandingProfileAssignment collection
 func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]IntuneBrandingProfileAssignment, error) {
@@ -131,6 +120,7 @@ func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Get() ([]IntuneBrand
 }
 
 // Add performs POST request for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Add(reqObj *IntuneBrandingProfileAssignment) (*IntuneBrandingProfileAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Add(reqObj *IntuneBrandingProfileAssignment) (resObj *IntuneBrandingProfileAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

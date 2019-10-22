@@ -15,24 +15,19 @@ func (b *SynchronizationJobRequestBuilder) Request() *SynchronizationJobRequest 
 // SynchronizationJobRequest is request for SynchronizationJob
 type SynchronizationJobRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SynchronizationJob
-func (r *SynchronizationJobRequest) Do(method, path string, reqObj interface{}) (resObj *SynchronizationJob, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SynchronizationJob
-func (r *SynchronizationJobRequest) Get() (*SynchronizationJob, error) {
+func (r *SynchronizationJobRequest) Get() (resObj *SynchronizationJob, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SynchronizationJob
-func (r *SynchronizationJobRequest) Update(reqObj *SynchronizationJob) (*SynchronizationJob, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SynchronizationJobRequest) Update(reqObj *SynchronizationJob) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SynchronizationJob

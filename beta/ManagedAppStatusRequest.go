@@ -15,24 +15,19 @@ func (b *ManagedAppStatusRequestBuilder) Request() *ManagedAppStatusRequest {
 // ManagedAppStatusRequest is request for ManagedAppStatus
 type ManagedAppStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedAppStatus
-func (r *ManagedAppStatusRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedAppStatus
-func (r *ManagedAppStatusRequest) Get() (*ManagedAppStatus, error) {
+func (r *ManagedAppStatusRequest) Get() (resObj *ManagedAppStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedAppStatus
-func (r *ManagedAppStatusRequest) Update(reqObj *ManagedAppStatus) (*ManagedAppStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedAppStatusRequest) Update(reqObj *ManagedAppStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppStatus

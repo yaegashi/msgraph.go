@@ -15,24 +15,19 @@ func (b *UnitOfMeasureRequestBuilder) Request() *UnitOfMeasureRequest {
 // UnitOfMeasureRequest is request for UnitOfMeasure
 type UnitOfMeasureRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UnitOfMeasure
-func (r *UnitOfMeasureRequest) Do(method, path string, reqObj interface{}) (resObj *UnitOfMeasure, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UnitOfMeasure
-func (r *UnitOfMeasureRequest) Get() (*UnitOfMeasure, error) {
+func (r *UnitOfMeasureRequest) Get() (resObj *UnitOfMeasure, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UnitOfMeasure
-func (r *UnitOfMeasureRequest) Update(reqObj *UnitOfMeasure) (*UnitOfMeasure, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UnitOfMeasureRequest) Update(reqObj *UnitOfMeasure) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UnitOfMeasure

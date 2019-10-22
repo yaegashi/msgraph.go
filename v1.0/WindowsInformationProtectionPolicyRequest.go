@@ -15,24 +15,19 @@ func (b *WindowsInformationProtectionPolicyRequestBuilder) Request() *WindowsInf
 // WindowsInformationProtectionPolicyRequest is request for WindowsInformationProtectionPolicy
 type WindowsInformationProtectionPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsInformationProtectionPolicy
-func (r *WindowsInformationProtectionPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsInformationProtectionPolicy
-func (r *WindowsInformationProtectionPolicyRequest) Get() (*WindowsInformationProtectionPolicy, error) {
+func (r *WindowsInformationProtectionPolicyRequest) Get() (resObj *WindowsInformationProtectionPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionPolicy
-func (r *WindowsInformationProtectionPolicyRequest) Update(reqObj *WindowsInformationProtectionPolicy) (*WindowsInformationProtectionPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsInformationProtectionPolicyRequest) Update(reqObj *WindowsInformationProtectionPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionPolicy

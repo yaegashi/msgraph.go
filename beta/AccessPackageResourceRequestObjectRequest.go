@@ -15,24 +15,19 @@ func (b *AccessPackageResourceRequestObjectRequestBuilder) Request() *AccessPack
 // AccessPackageResourceRequestObjectRequest is request for AccessPackageResourceRequestObject
 type AccessPackageResourceRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageResourceRequestObject
-func (r *AccessPackageResourceRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageResourceRequestObject
-func (r *AccessPackageResourceRequestObjectRequest) Get() (*AccessPackageResourceRequestObject, error) {
+func (r *AccessPackageResourceRequestObjectRequest) Get() (resObj *AccessPackageResourceRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageResourceRequestObject
-func (r *AccessPackageResourceRequestObjectRequest) Update(reqObj *AccessPackageResourceRequestObject) (*AccessPackageResourceRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageResourceRequestObjectRequest) Update(reqObj *AccessPackageResourceRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageResourceRequestObject

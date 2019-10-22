@@ -54,14 +54,9 @@ func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedI
 }
 
 //
-func (r *WorkbookNamedItemCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookNamedItemCollectionAddRequest) Post() (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookNamedItemCollectionAddRequest) Post() (*WorkbookNamedItem, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -94,12 +89,7 @@ func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *Wo
 }
 
 //
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (*WorkbookNamedItem, error) {
-	return r.Do("POST", "", r.requestObject)
 }

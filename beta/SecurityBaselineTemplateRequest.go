@@ -23,24 +23,19 @@ func (b *SecurityBaselineTemplateRequestBuilder) Request() *SecurityBaselineTemp
 // SecurityBaselineTemplateRequest is request for SecurityBaselineTemplate
 type SecurityBaselineTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecurityBaselineTemplate
-func (r *SecurityBaselineTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecurityBaselineTemplate
-func (r *SecurityBaselineTemplateRequest) Get() (*SecurityBaselineTemplate, error) {
+func (r *SecurityBaselineTemplateRequest) Get() (resObj *SecurityBaselineTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecurityBaselineTemplate
-func (r *SecurityBaselineTemplateRequest) Update(reqObj *SecurityBaselineTemplate) (*SecurityBaselineTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityBaselineTemplateRequest) Update(reqObj *SecurityBaselineTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineTemplate
@@ -74,12 +69,6 @@ func (b *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequestBu
 
 // SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest is request for SecurityBaselineCategoryStateSummary collection
 type SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SecurityBaselineCategoryStateSummary collection
-func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineCategoryStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SecurityBaselineCategoryStateSummary collection
 func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineCategoryStateSummary, error) {
@@ -131,8 +120,9 @@ func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) 
 }
 
 // Add performs POST request for SecurityBaselineCategoryStateSummary collection
-func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Add(reqObj *SecurityBaselineCategoryStateSummary) (*SecurityBaselineCategoryStateSummary, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Add(reqObj *SecurityBaselineCategoryStateSummary) (resObj *SecurityBaselineCategoryStateSummary, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStateSummary is navigation property
@@ -168,12 +158,6 @@ func (b *SecurityBaselineTemplateDeviceStatesCollectionRequestBuilder) ID(id str
 
 // SecurityBaselineTemplateDeviceStatesCollectionRequest is request for SecurityBaselineDeviceState collection
 type SecurityBaselineTemplateDeviceStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SecurityBaselineDeviceState collection
-func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SecurityBaselineDeviceState collection
 func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineDeviceState, error) {
@@ -225,6 +209,7 @@ func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Get() ([]Securit
 }
 
 // Add performs POST request for SecurityBaselineDeviceState collection
-func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Add(reqObj *SecurityBaselineDeviceState) (*SecurityBaselineDeviceState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Add(reqObj *SecurityBaselineDeviceState) (resObj *SecurityBaselineDeviceState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

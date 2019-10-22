@@ -15,24 +15,19 @@ func (b *UserSettingsRequestBuilder) Request() *UserSettingsRequest {
 // UserSettingsRequest is request for UserSettings
 type UserSettingsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserSettings
-func (r *UserSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *UserSettings, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserSettings
-func (r *UserSettingsRequest) Get() (*UserSettings, error) {
+func (r *UserSettingsRequest) Get() (resObj *UserSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserSettings
-func (r *UserSettingsRequest) Update(reqObj *UserSettings) (*UserSettings, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserSettingsRequest) Update(reqObj *UserSettings) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserSettings

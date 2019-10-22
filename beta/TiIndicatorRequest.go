@@ -15,24 +15,19 @@ func (b *TiIndicatorRequestBuilder) Request() *TiIndicatorRequest {
 // TiIndicatorRequest is request for TiIndicator
 type TiIndicatorRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TiIndicator
-func (r *TiIndicatorRequest) Do(method, path string, reqObj interface{}) (resObj *TiIndicator, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TiIndicator
-func (r *TiIndicatorRequest) Get() (*TiIndicator, error) {
+func (r *TiIndicatorRequest) Get() (resObj *TiIndicator, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TiIndicator
-func (r *TiIndicatorRequest) Update(reqObj *TiIndicator) (*TiIndicator, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TiIndicatorRequest) Update(reqObj *TiIndicator) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TiIndicator

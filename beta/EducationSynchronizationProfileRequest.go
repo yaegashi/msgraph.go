@@ -23,24 +23,19 @@ func (b *EducationSynchronizationProfileRequestBuilder) Request() *EducationSync
 // EducationSynchronizationProfileRequest is request for EducationSynchronizationProfile
 type EducationSynchronizationProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationSynchronizationProfile
-func (r *EducationSynchronizationProfileRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationSynchronizationProfile
-func (r *EducationSynchronizationProfileRequest) Get() (*EducationSynchronizationProfile, error) {
+func (r *EducationSynchronizationProfileRequest) Get() (resObj *EducationSynchronizationProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationSynchronizationProfile
-func (r *EducationSynchronizationProfileRequest) Update(reqObj *EducationSynchronizationProfile) (*EducationSynchronizationProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationSynchronizationProfileRequest) Update(reqObj *EducationSynchronizationProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSynchronizationProfile
@@ -74,12 +69,6 @@ func (b *EducationSynchronizationProfileErrorsCollectionRequestBuilder) ID(id st
 
 // EducationSynchronizationProfileErrorsCollectionRequest is request for EducationSynchronizationError collection
 type EducationSynchronizationProfileErrorsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EducationSynchronizationError collection
-func (r *EducationSynchronizationProfileErrorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSynchronizationError, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EducationSynchronizationError collection
 func (r *EducationSynchronizationProfileErrorsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationSynchronizationError, error) {
@@ -131,8 +120,9 @@ func (r *EducationSynchronizationProfileErrorsCollectionRequest) Get() ([]Educat
 }
 
 // Add performs POST request for EducationSynchronizationError collection
-func (r *EducationSynchronizationProfileErrorsCollectionRequest) Add(reqObj *EducationSynchronizationError) (*EducationSynchronizationError, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EducationSynchronizationProfileErrorsCollectionRequest) Add(reqObj *EducationSynchronizationError) (resObj *EducationSynchronizationError, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ProfileStatus is navigation property

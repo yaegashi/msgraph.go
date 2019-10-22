@@ -15,24 +15,19 @@ func (b *MultiValueLegacyExtendedPropertyRequestBuilder) Request() *MultiValueLe
 // MultiValueLegacyExtendedPropertyRequest is request for MultiValueLegacyExtendedProperty
 type MultiValueLegacyExtendedPropertyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MultiValueLegacyExtendedProperty
-func (r *MultiValueLegacyExtendedPropertyRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MultiValueLegacyExtendedProperty
-func (r *MultiValueLegacyExtendedPropertyRequest) Get() (*MultiValueLegacyExtendedProperty, error) {
+func (r *MultiValueLegacyExtendedPropertyRequest) Get() (resObj *MultiValueLegacyExtendedProperty, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MultiValueLegacyExtendedProperty
-func (r *MultiValueLegacyExtendedPropertyRequest) Update(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MultiValueLegacyExtendedPropertyRequest) Update(reqObj *MultiValueLegacyExtendedProperty) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MultiValueLegacyExtendedProperty

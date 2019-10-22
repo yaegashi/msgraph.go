@@ -15,24 +15,19 @@ func (b *GovernanceSubjectRequestBuilder) Request() *GovernanceSubjectRequest {
 // GovernanceSubjectRequest is request for GovernanceSubject
 type GovernanceSubjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GovernanceSubject
-func (r *GovernanceSubjectRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceSubject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GovernanceSubject
-func (r *GovernanceSubjectRequest) Get() (*GovernanceSubject, error) {
+func (r *GovernanceSubjectRequest) Get() (resObj *GovernanceSubject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GovernanceSubject
-func (r *GovernanceSubjectRequest) Update(reqObj *GovernanceSubject) (*GovernanceSubject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GovernanceSubjectRequest) Update(reqObj *GovernanceSubject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernanceSubject

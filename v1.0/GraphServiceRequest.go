@@ -37,12 +37,6 @@ func (b *GraphServiceCertificateBasedAuthConfigurationCollectionRequestBuilder) 
 // GraphServiceCertificateBasedAuthConfigurationCollectionRequest is request for CertificateBasedAuthConfiguration collection
 type GraphServiceCertificateBasedAuthConfigurationCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CertificateBasedAuthConfiguration collection
-func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CertificateBasedAuthConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for CertificateBasedAuthConfiguration collection
 func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -93,8 +87,9 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Get() (
 }
 
 // Add performs POST request for CertificateBasedAuthConfiguration collection
-func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Add(reqObj *CertificateBasedAuthConfiguration) (*CertificateBasedAuthConfiguration, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Add(reqObj *CertificateBasedAuthConfiguration) (resObj *CertificateBasedAuthConfiguration, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Contracts returns request builder for Contract collection
@@ -123,12 +118,6 @@ func (b *GraphServiceContractsCollectionRequestBuilder) ID(id string) *ContractR
 
 // GraphServiceContractsCollectionRequest is request for Contract collection
 type GraphServiceContractsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Contract collection
-func (r *GraphServiceContractsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Contract, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Contract collection
 func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj interface{}) ([]Contract, error) {
@@ -180,8 +169,9 @@ func (r *GraphServiceContractsCollectionRequest) Get() ([]Contract, error) {
 }
 
 // Add performs POST request for Contract collection
-func (r *GraphServiceContractsCollectionRequest) Add(reqObj *Contract) (*Contract, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceContractsCollectionRequest) Add(reqObj *Contract) (resObj *Contract, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DataPolicyOperations returns request builder for DataPolicyOperation collection
@@ -210,12 +200,6 @@ func (b *GraphServiceDataPolicyOperationsCollectionRequestBuilder) ID(id string)
 
 // GraphServiceDataPolicyOperationsCollectionRequest is request for DataPolicyOperation collection
 type GraphServiceDataPolicyOperationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DataPolicyOperation collection
-func (r *GraphServiceDataPolicyOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DataPolicyOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DataPolicyOperation collection
 func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DataPolicyOperation, error) {
@@ -267,8 +251,9 @@ func (r *GraphServiceDataPolicyOperationsCollectionRequest) Get() ([]DataPolicyO
 }
 
 // Add performs POST request for DataPolicyOperation collection
-func (r *GraphServiceDataPolicyOperationsCollectionRequest) Add(reqObj *DataPolicyOperation) (*DataPolicyOperation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDataPolicyOperationsCollectionRequest) Add(reqObj *DataPolicyOperation) (resObj *DataPolicyOperation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Devices returns request builder for Device collection
@@ -297,12 +282,6 @@ func (b *GraphServiceDevicesCollectionRequestBuilder) ID(id string) *DeviceReque
 
 // GraphServiceDevicesCollectionRequest is request for Device collection
 type GraphServiceDevicesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Device collection
-func (r *GraphServiceDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Device, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Device collection
 func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]Device, error) {
@@ -354,8 +333,9 @@ func (r *GraphServiceDevicesCollectionRequest) Get() ([]Device, error) {
 }
 
 // Add performs POST request for Device collection
-func (r *GraphServiceDevicesCollectionRequest) Add(reqObj *Device) (*Device, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDevicesCollectionRequest) Add(reqObj *Device) (resObj *Device, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DirectoryObjects returns request builder for DirectoryObject collection
@@ -384,12 +364,6 @@ func (b *GraphServiceDirectoryObjectsCollectionRequestBuilder) ID(id string) *Di
 
 // GraphServiceDirectoryObjectsCollectionRequest is request for DirectoryObject collection
 type GraphServiceDirectoryObjectsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GraphServiceDirectoryObjectsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -441,8 +415,9 @@ func (r *GraphServiceDirectoryObjectsCollectionRequest) Get() ([]DirectoryObject
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GraphServiceDirectoryObjectsCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDirectoryObjectsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DirectoryRoleTemplates returns request builder for DirectoryRoleTemplate collection
@@ -471,12 +446,6 @@ func (b *GraphServiceDirectoryRoleTemplatesCollectionRequestBuilder) ID(id strin
 
 // GraphServiceDirectoryRoleTemplatesCollectionRequest is request for DirectoryRoleTemplate collection
 type GraphServiceDirectoryRoleTemplatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryRoleTemplate collection
-func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRoleTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryRoleTemplate collection
 func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryRoleTemplate, error) {
@@ -528,8 +497,9 @@ func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Get() ([]Directory
 }
 
 // Add performs POST request for DirectoryRoleTemplate collection
-func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Add(reqObj *DirectoryRoleTemplate) (*DirectoryRoleTemplate, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Add(reqObj *DirectoryRoleTemplate) (resObj *DirectoryRoleTemplate, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DirectoryRoles returns request builder for DirectoryRole collection
@@ -558,12 +528,6 @@ func (b *GraphServiceDirectoryRolesCollectionRequestBuilder) ID(id string) *Dire
 
 // GraphServiceDirectoryRolesCollectionRequest is request for DirectoryRole collection
 type GraphServiceDirectoryRolesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryRole collection
-func (r *GraphServiceDirectoryRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryRole collection
 func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryRole, error) {
@@ -615,8 +579,9 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Get() ([]DirectoryRole, er
 }
 
 // Add performs POST request for DirectoryRole collection
-func (r *GraphServiceDirectoryRolesCollectionRequest) Add(reqObj *DirectoryRole) (*DirectoryRole, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDirectoryRolesCollectionRequest) Add(reqObj *DirectoryRole) (resObj *DirectoryRole, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DomainDNSRecords returns request builder for DomainDNSRecord collection
@@ -645,12 +610,6 @@ func (b *GraphServiceDomainDNSRecordsCollectionRequestBuilder) ID(id string) *Do
 
 // GraphServiceDomainDNSRecordsCollectionRequest is request for DomainDNSRecord collection
 type GraphServiceDomainDNSRecordsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DomainDNSRecord collection
-func (r *GraphServiceDomainDNSRecordsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DomainDNSRecord collection
 func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
@@ -702,8 +661,9 @@ func (r *GraphServiceDomainDNSRecordsCollectionRequest) Get() ([]DomainDNSRecord
 }
 
 // Add performs POST request for DomainDNSRecord collection
-func (r *GraphServiceDomainDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (*DomainDNSRecord, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Domains returns request builder for Domain collection
@@ -732,12 +692,6 @@ func (b *GraphServiceDomainsCollectionRequestBuilder) ID(id string) *DomainReque
 
 // GraphServiceDomainsCollectionRequest is request for Domain collection
 type GraphServiceDomainsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Domain collection
-func (r *GraphServiceDomainsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Domain, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Domain collection
 func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj interface{}) ([]Domain, error) {
@@ -789,8 +743,9 @@ func (r *GraphServiceDomainsCollectionRequest) Get() ([]Domain, error) {
 }
 
 // Add performs POST request for Domain collection
-func (r *GraphServiceDomainsCollectionRequest) Add(reqObj *Domain) (*Domain, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDomainsCollectionRequest) Add(reqObj *Domain) (resObj *Domain, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Drives returns request builder for Drive collection
@@ -819,12 +774,6 @@ func (b *GraphServiceDrivesCollectionRequestBuilder) ID(id string) *DriveRequest
 
 // GraphServiceDrivesCollectionRequest is request for Drive collection
 type GraphServiceDrivesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Drive collection
-func (r *GraphServiceDrivesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Drive, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Drive collection
 func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
@@ -876,8 +825,9 @@ func (r *GraphServiceDrivesCollectionRequest) Get() ([]Drive, error) {
 }
 
 // Add performs POST request for Drive collection
-func (r *GraphServiceDrivesCollectionRequest) Add(reqObj *Drive) (*Drive, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceDrivesCollectionRequest) Add(reqObj *Drive) (resObj *Drive, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupLifecyclePolicies returns request builder for GroupLifecyclePolicy collection
@@ -906,12 +856,6 @@ func (b *GraphServiceGroupLifecyclePoliciesCollectionRequestBuilder) ID(id strin
 
 // GraphServiceGroupLifecyclePoliciesCollectionRequest is request for GroupLifecyclePolicy collection
 type GraphServiceGroupLifecyclePoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupLifecyclePolicy collection
-func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupLifecyclePolicy collection
 func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
@@ -963,8 +907,9 @@ func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Get() ([]GroupLife
 }
 
 // Add performs POST request for GroupLifecyclePolicy collection
-func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Add(reqObj *GroupLifecyclePolicy) (*GroupLifecyclePolicy, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Add(reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupSettingTemplates returns request builder for GroupSettingTemplate collection
@@ -993,12 +938,6 @@ func (b *GraphServiceGroupSettingTemplatesCollectionRequestBuilder) ID(id string
 
 // GraphServiceGroupSettingTemplatesCollectionRequest is request for GroupSettingTemplate collection
 type GraphServiceGroupSettingTemplatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupSettingTemplate collection
-func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupSettingTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupSettingTemplate collection
 func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupSettingTemplate, error) {
@@ -1050,8 +989,9 @@ func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Get() ([]GroupSetti
 }
 
 // Add performs POST request for GroupSettingTemplate collection
-func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Add(reqObj *GroupSettingTemplate) (*GroupSettingTemplate, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Add(reqObj *GroupSettingTemplate) (resObj *GroupSettingTemplate, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupSettings returns request builder for GroupSetting collection
@@ -1080,12 +1020,6 @@ func (b *GraphServiceGroupSettingsCollectionRequestBuilder) ID(id string) *Group
 
 // GraphServiceGroupSettingsCollectionRequest is request for GroupSetting collection
 type GraphServiceGroupSettingsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupSetting collection
-func (r *GraphServiceGroupSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupSetting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupSetting collection
 func (r *GraphServiceGroupSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupSetting, error) {
@@ -1137,8 +1071,9 @@ func (r *GraphServiceGroupSettingsCollectionRequest) Get() ([]GroupSetting, erro
 }
 
 // Add performs POST request for GroupSetting collection
-func (r *GraphServiceGroupSettingsCollectionRequest) Add(reqObj *GroupSetting) (*GroupSetting, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceGroupSettingsCollectionRequest) Add(reqObj *GroupSetting) (resObj *GroupSetting, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Groups returns request builder for Group collection
@@ -1167,12 +1102,6 @@ func (b *GraphServiceGroupsCollectionRequestBuilder) ID(id string) *GroupRequest
 
 // GraphServiceGroupsCollectionRequest is request for Group collection
 type GraphServiceGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Group collection
-func (r *GraphServiceGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Group, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Group collection
 func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]Group, error) {
@@ -1224,8 +1153,9 @@ func (r *GraphServiceGroupsCollectionRequest) Get() ([]Group, error) {
 }
 
 // Add performs POST request for Group collection
-func (r *GraphServiceGroupsCollectionRequest) Add(reqObj *Group) (*Group, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceGroupsCollectionRequest) Add(reqObj *Group) (resObj *Group, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // IdentityProviders returns request builder for IdentityProvider collection
@@ -1254,12 +1184,6 @@ func (b *GraphServiceIdentityProvidersCollectionRequestBuilder) ID(id string) *I
 
 // GraphServiceIdentityProvidersCollectionRequest is request for IdentityProvider collection
 type GraphServiceIdentityProvidersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for IdentityProvider collection
-func (r *GraphServiceIdentityProvidersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IdentityProvider, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for IdentityProvider collection
 func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path string, obj interface{}) ([]IdentityProvider, error) {
@@ -1311,8 +1235,9 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Get() ([]IdentityProvid
 }
 
 // Add performs POST request for IdentityProvider collection
-func (r *GraphServiceIdentityProvidersCollectionRequest) Add(reqObj *IdentityProvider) (*IdentityProvider, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceIdentityProvidersCollectionRequest) Add(reqObj *IdentityProvider) (resObj *IdentityProvider, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Invitations returns request builder for Invitation collection
@@ -1341,12 +1266,6 @@ func (b *GraphServiceInvitationsCollectionRequestBuilder) ID(id string) *Invitat
 
 // GraphServiceInvitationsCollectionRequest is request for Invitation collection
 type GraphServiceInvitationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Invitation collection
-func (r *GraphServiceInvitationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Invitation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Invitation collection
 func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, obj interface{}) ([]Invitation, error) {
@@ -1398,8 +1317,9 @@ func (r *GraphServiceInvitationsCollectionRequest) Get() ([]Invitation, error) {
 }
 
 // Add performs POST request for Invitation collection
-func (r *GraphServiceInvitationsCollectionRequest) Add(reqObj *Invitation) (*Invitation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceInvitationsCollectionRequest) Add(reqObj *Invitation) (resObj *Invitation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Organization returns request builder for Organization collection
@@ -1428,12 +1348,6 @@ func (b *GraphServiceOrganizationCollectionRequestBuilder) ID(id string) *Organi
 
 // GraphServiceOrganizationCollectionRequest is request for Organization collection
 type GraphServiceOrganizationCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Organization collection
-func (r *GraphServiceOrganizationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Organization, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Organization collection
 func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, obj interface{}) ([]Organization, error) {
@@ -1485,8 +1399,9 @@ func (r *GraphServiceOrganizationCollectionRequest) Get() ([]Organization, error
 }
 
 // Add performs POST request for Organization collection
-func (r *GraphServiceOrganizationCollectionRequest) Add(reqObj *Organization) (*Organization, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceOrganizationCollectionRequest) Add(reqObj *Organization) (resObj *Organization, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SchemaExtensions returns request builder for SchemaExtension collection
@@ -1515,12 +1430,6 @@ func (b *GraphServiceSchemaExtensionsCollectionRequestBuilder) ID(id string) *Sc
 
 // GraphServiceSchemaExtensionsCollectionRequest is request for SchemaExtension collection
 type GraphServiceSchemaExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SchemaExtension collection
-func (r *GraphServiceSchemaExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SchemaExtension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SchemaExtension collection
 func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]SchemaExtension, error) {
@@ -1572,8 +1481,9 @@ func (r *GraphServiceSchemaExtensionsCollectionRequest) Get() ([]SchemaExtension
 }
 
 // Add performs POST request for SchemaExtension collection
-func (r *GraphServiceSchemaExtensionsCollectionRequest) Add(reqObj *SchemaExtension) (*SchemaExtension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceSchemaExtensionsCollectionRequest) Add(reqObj *SchemaExtension) (resObj *SchemaExtension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Shares returns request builder for SharedDriveItem collection
@@ -1602,12 +1512,6 @@ func (b *GraphServiceSharesCollectionRequestBuilder) ID(id string) *SharedDriveI
 
 // GraphServiceSharesCollectionRequest is request for SharedDriveItem collection
 type GraphServiceSharesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SharedDriveItem collection
-func (r *GraphServiceSharesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SharedDriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SharedDriveItem collection
 func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj interface{}) ([]SharedDriveItem, error) {
@@ -1659,8 +1563,9 @@ func (r *GraphServiceSharesCollectionRequest) Get() ([]SharedDriveItem, error) {
 }
 
 // Add performs POST request for SharedDriveItem collection
-func (r *GraphServiceSharesCollectionRequest) Add(reqObj *SharedDriveItem) (*SharedDriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceSharesCollectionRequest) Add(reqObj *SharedDriveItem) (resObj *SharedDriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Sites returns request builder for Site collection
@@ -1689,12 +1594,6 @@ func (b *GraphServiceSitesCollectionRequestBuilder) ID(id string) *SiteRequestBu
 
 // GraphServiceSitesCollectionRequest is request for Site collection
 type GraphServiceSitesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Site collection
-func (r *GraphServiceSitesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Site collection
 func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
@@ -1746,8 +1645,9 @@ func (r *GraphServiceSitesCollectionRequest) Get() ([]Site, error) {
 }
 
 // Add performs POST request for Site collection
-func (r *GraphServiceSitesCollectionRequest) Add(reqObj *Site) (*Site, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceSitesCollectionRequest) Add(reqObj *Site) (resObj *Site, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SubscribedSKUs returns request builder for SubscribedSKU collection
@@ -1776,12 +1676,6 @@ func (b *GraphServiceSubscribedSKUsCollectionRequestBuilder) ID(id string) *Subs
 
 // GraphServiceSubscribedSKUsCollectionRequest is request for SubscribedSKU collection
 type GraphServiceSubscribedSKUsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SubscribedSKU collection
-func (r *GraphServiceSubscribedSKUsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribedSKU, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SubscribedSKU collection
 func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string, obj interface{}) ([]SubscribedSKU, error) {
@@ -1833,8 +1727,9 @@ func (r *GraphServiceSubscribedSKUsCollectionRequest) Get() ([]SubscribedSKU, er
 }
 
 // Add performs POST request for SubscribedSKU collection
-func (r *GraphServiceSubscribedSKUsCollectionRequest) Add(reqObj *SubscribedSKU) (*SubscribedSKU, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceSubscribedSKUsCollectionRequest) Add(reqObj *SubscribedSKU) (resObj *SubscribedSKU, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Subscriptions returns request builder for Subscription collection
@@ -1863,12 +1758,6 @@ func (b *GraphServiceSubscriptionsCollectionRequestBuilder) ID(id string) *Subsc
 
 // GraphServiceSubscriptionsCollectionRequest is request for Subscription collection
 type GraphServiceSubscriptionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Subscription collection
-func (r *GraphServiceSubscriptionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Subscription, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Subscription collection
 func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Subscription, error) {
@@ -1920,8 +1809,9 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Get() ([]Subscription, erro
 }
 
 // Add performs POST request for Subscription collection
-func (r *GraphServiceSubscriptionsCollectionRequest) Add(reqObj *Subscription) (*Subscription, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceSubscriptionsCollectionRequest) Add(reqObj *Subscription) (resObj *Subscription, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Teams returns request builder for Team collection
@@ -1950,12 +1840,6 @@ func (b *GraphServiceTeamsCollectionRequestBuilder) ID(id string) *TeamRequestBu
 
 // GraphServiceTeamsCollectionRequest is request for Team collection
 type GraphServiceTeamsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Team collection
-func (r *GraphServiceTeamsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Team, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Team collection
 func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj interface{}) ([]Team, error) {
@@ -2007,8 +1891,9 @@ func (r *GraphServiceTeamsCollectionRequest) Get() ([]Team, error) {
 }
 
 // Add performs POST request for Team collection
-func (r *GraphServiceTeamsCollectionRequest) Add(reqObj *Team) (*Team, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceTeamsCollectionRequest) Add(reqObj *Team) (resObj *Team, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Users returns request builder for User collection
@@ -2037,12 +1922,6 @@ func (b *GraphServiceUsersCollectionRequestBuilder) ID(id string) *UserRequestBu
 
 // GraphServiceUsersCollectionRequest is request for User collection
 type GraphServiceUsersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for User collection
-func (r *GraphServiceUsersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *User, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for User collection
 func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj interface{}) ([]User, error) {
@@ -2094,8 +1973,9 @@ func (r *GraphServiceUsersCollectionRequest) Get() ([]User, error) {
 }
 
 // Add performs POST request for User collection
-func (r *GraphServiceUsersCollectionRequest) Add(reqObj *User) (*User, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceUsersCollectionRequest) Add(reqObj *User) (resObj *User, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Workbooks returns request builder for DriveItem collection
@@ -2124,12 +2004,6 @@ func (b *GraphServiceWorkbooksCollectionRequestBuilder) ID(id string) *DriveItem
 
 // GraphServiceWorkbooksCollectionRequest is request for DriveItem collection
 type GraphServiceWorkbooksCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DriveItem collection
-func (r *GraphServiceWorkbooksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DriveItem collection
 func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
@@ -2181,8 +2055,9 @@ func (r *GraphServiceWorkbooksCollectionRequest) Get() ([]DriveItem, error) {
 }
 
 // Add performs POST request for DriveItem collection
-func (r *GraphServiceWorkbooksCollectionRequest) Add(reqObj *DriveItem) (*DriveItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GraphServiceWorkbooksCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Security is navigation property

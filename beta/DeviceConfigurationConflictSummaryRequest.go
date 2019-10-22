@@ -15,24 +15,19 @@ func (b *DeviceConfigurationConflictSummaryRequestBuilder) Request() *DeviceConf
 // DeviceConfigurationConflictSummaryRequest is request for DeviceConfigurationConflictSummary
 type DeviceConfigurationConflictSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceConfigurationConflictSummary
-func (r *DeviceConfigurationConflictSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationConflictSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceConfigurationConflictSummary
-func (r *DeviceConfigurationConflictSummaryRequest) Get() (*DeviceConfigurationConflictSummary, error) {
+func (r *DeviceConfigurationConflictSummaryRequest) Get() (resObj *DeviceConfigurationConflictSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceConfigurationConflictSummary
-func (r *DeviceConfigurationConflictSummaryRequest) Update(reqObj *DeviceConfigurationConflictSummary) (*DeviceConfigurationConflictSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceConfigurationConflictSummaryRequest) Update(reqObj *DeviceConfigurationConflictSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceConfigurationConflictSummary

@@ -15,24 +15,19 @@ func (b *WorkbookFunctionsRequestBuilder) Request() *WorkbookFunctionsRequest {
 // WorkbookFunctionsRequest is request for WorkbookFunctions
 type WorkbookFunctionsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookFunctions
-func (r *WorkbookFunctionsRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookFunctions, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookFunctions
-func (r *WorkbookFunctionsRequest) Get() (*WorkbookFunctions, error) {
+func (r *WorkbookFunctionsRequest) Get() (resObj *WorkbookFunctions, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookFunctions
-func (r *WorkbookFunctionsRequest) Update(reqObj *WorkbookFunctions) (*WorkbookFunctions, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookFunctionsRequest) Update(reqObj *WorkbookFunctions) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookFunctions

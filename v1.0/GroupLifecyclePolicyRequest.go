@@ -15,24 +15,19 @@ func (b *GroupLifecyclePolicyRequestBuilder) Request() *GroupLifecyclePolicyRequ
 // GroupLifecyclePolicyRequest is request for GroupLifecyclePolicy
 type GroupLifecyclePolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GroupLifecyclePolicy
-func (r *GroupLifecyclePolicyRequest) Do(method, path string, reqObj interface{}) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GroupLifecyclePolicy
-func (r *GroupLifecyclePolicyRequest) Get() (*GroupLifecyclePolicy, error) {
+func (r *GroupLifecyclePolicyRequest) Get() (resObj *GroupLifecyclePolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GroupLifecyclePolicy
-func (r *GroupLifecyclePolicyRequest) Update(reqObj *GroupLifecyclePolicy) (*GroupLifecyclePolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GroupLifecyclePolicyRequest) Update(reqObj *GroupLifecyclePolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupLifecyclePolicy

@@ -15,24 +15,19 @@ func (b *ListItemVersionRequestBuilder) Request() *ListItemVersionRequest {
 // ListItemVersionRequest is request for ListItemVersion
 type ListItemVersionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ListItemVersion
-func (r *ListItemVersionRequest) Do(method, path string, reqObj interface{}) (resObj *ListItemVersion, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ListItemVersion
-func (r *ListItemVersionRequest) Get() (*ListItemVersion, error) {
+func (r *ListItemVersionRequest) Get() (resObj *ListItemVersion, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ListItemVersion
-func (r *ListItemVersionRequest) Update(reqObj *ListItemVersion) (*ListItemVersion, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ListItemVersionRequest) Update(reqObj *ListItemVersion) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ListItemVersion

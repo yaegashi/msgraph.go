@@ -23,24 +23,19 @@ func (b *AdministrativeUnitRequestBuilder) Request() *AdministrativeUnitRequest 
 // AdministrativeUnitRequest is request for AdministrativeUnit
 type AdministrativeUnitRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AdministrativeUnit
-func (r *AdministrativeUnitRequest) Do(method, path string, reqObj interface{}) (resObj *AdministrativeUnit, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AdministrativeUnit
-func (r *AdministrativeUnitRequest) Get() (*AdministrativeUnit, error) {
+func (r *AdministrativeUnitRequest) Get() (resObj *AdministrativeUnit, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AdministrativeUnit
-func (r *AdministrativeUnitRequest) Update(reqObj *AdministrativeUnit) (*AdministrativeUnit, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AdministrativeUnitRequest) Update(reqObj *AdministrativeUnit) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AdministrativeUnit
@@ -74,12 +69,6 @@ func (b *AdministrativeUnitExtensionsCollectionRequestBuilder) ID(id string) *Ex
 
 // AdministrativeUnitExtensionsCollectionRequest is request for Extension collection
 type AdministrativeUnitExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Extension collection
-func (r *AdministrativeUnitExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Extension collection
 func (r *AdministrativeUnitExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
@@ -131,8 +120,9 @@ func (r *AdministrativeUnitExtensionsCollectionRequest) Get() ([]Extension, erro
 }
 
 // Add performs POST request for Extension collection
-func (r *AdministrativeUnitExtensionsCollectionRequest) Add(reqObj *Extension) (*Extension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AdministrativeUnitExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Members returns request builder for DirectoryObject collection
@@ -161,12 +151,6 @@ func (b *AdministrativeUnitMembersCollectionRequestBuilder) ID(id string) *Direc
 
 // AdministrativeUnitMembersCollectionRequest is request for DirectoryObject collection
 type AdministrativeUnitMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *AdministrativeUnitMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *AdministrativeUnitMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -218,8 +202,9 @@ func (r *AdministrativeUnitMembersCollectionRequest) Get() ([]DirectoryObject, e
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *AdministrativeUnitMembersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AdministrativeUnitMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ScopedRoleMembers returns request builder for ScopedRoleMembership collection
@@ -248,12 +233,6 @@ func (b *AdministrativeUnitScopedRoleMembersCollectionRequestBuilder) ID(id stri
 
 // AdministrativeUnitScopedRoleMembersCollectionRequest is request for ScopedRoleMembership collection
 type AdministrativeUnitScopedRoleMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ScopedRoleMembership collection
-func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ScopedRoleMembership, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ScopedRoleMembership collection
 func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
@@ -305,6 +284,7 @@ func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Get() ([]ScopedRo
 }
 
 // Add performs POST request for ScopedRoleMembership collection
-func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Add(reqObj *ScopedRoleMembership) (*ScopedRoleMembership, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Add(reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

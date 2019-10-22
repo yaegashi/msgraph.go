@@ -15,24 +15,19 @@ func (b *EventMessageRequestBuilder) Request() *EventMessageRequest {
 // EventMessageRequest is request for EventMessage
 type EventMessageRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EventMessage
-func (r *EventMessageRequest) Do(method, path string, reqObj interface{}) (resObj *EventMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EventMessage
-func (r *EventMessageRequest) Get() (*EventMessage, error) {
+func (r *EventMessageRequest) Get() (resObj *EventMessage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EventMessage
-func (r *EventMessageRequest) Update(reqObj *EventMessage) (*EventMessage, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EventMessageRequest) Update(reqObj *EventMessage) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EventMessage

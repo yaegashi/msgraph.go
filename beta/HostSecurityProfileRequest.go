@@ -15,24 +15,19 @@ func (b *HostSecurityProfileRequestBuilder) Request() *HostSecurityProfileReques
 // HostSecurityProfileRequest is request for HostSecurityProfile
 type HostSecurityProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for HostSecurityProfile
-func (r *HostSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *HostSecurityProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for HostSecurityProfile
-func (r *HostSecurityProfileRequest) Get() (*HostSecurityProfile, error) {
+func (r *HostSecurityProfileRequest) Get() (resObj *HostSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for HostSecurityProfile
-func (r *HostSecurityProfileRequest) Update(reqObj *HostSecurityProfile) (*HostSecurityProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *HostSecurityProfileRequest) Update(reqObj *HostSecurityProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for HostSecurityProfile

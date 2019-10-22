@@ -23,24 +23,19 @@ func (b *ConversationRequestBuilder) Request() *ConversationRequest {
 // ConversationRequest is request for Conversation
 type ConversationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Conversation
-func (r *ConversationRequest) Do(method, path string, reqObj interface{}) (resObj *Conversation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Conversation
-func (r *ConversationRequest) Get() (*Conversation, error) {
+func (r *ConversationRequest) Get() (resObj *Conversation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Conversation
-func (r *ConversationRequest) Update(reqObj *Conversation) (*Conversation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ConversationRequest) Update(reqObj *Conversation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Conversation
@@ -74,12 +69,6 @@ func (b *ConversationThreadsCollectionRequestBuilder) ID(id string) *Conversatio
 
 // ConversationThreadsCollectionRequest is request for ConversationThread collection
 type ConversationThreadsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ConversationThread collection
-func (r *ConversationThreadsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationThread, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ConversationThread collection
 func (r *ConversationThreadsCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationThread, error) {
@@ -131,6 +120,7 @@ func (r *ConversationThreadsCollectionRequest) Get() ([]ConversationThread, erro
 }
 
 // Add performs POST request for ConversationThread collection
-func (r *ConversationThreadsCollectionRequest) Add(reqObj *ConversationThread) (*ConversationThread, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ConversationThreadsCollectionRequest) Add(reqObj *ConversationThread) (resObj *ConversationThread, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *SalesQuoteLineRequestBuilder) Request() *SalesQuoteLineRequest {
 // SalesQuoteLineRequest is request for SalesQuoteLine
 type SalesQuoteLineRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesQuoteLine
-func (r *SalesQuoteLineRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuoteLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesQuoteLine
-func (r *SalesQuoteLineRequest) Get() (*SalesQuoteLine, error) {
+func (r *SalesQuoteLineRequest) Get() (resObj *SalesQuoteLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesQuoteLine
-func (r *SalesQuoteLineRequest) Update(reqObj *SalesQuoteLine) (*SalesQuoteLine, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesQuoteLineRequest) Update(reqObj *SalesQuoteLine) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesQuoteLine

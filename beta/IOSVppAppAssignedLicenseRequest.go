@@ -15,24 +15,19 @@ func (b *IOSVppAppAssignedLicenseRequestBuilder) Request() *IOSVppAppAssignedLic
 // IOSVppAppAssignedLicenseRequest is request for IOSVppAppAssignedLicense
 type IOSVppAppAssignedLicenseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSVppAppAssignedLicense
-func (r *IOSVppAppAssignedLicenseRequest) Do(method, path string, reqObj interface{}) (resObj *IOSVppAppAssignedLicense, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSVppAppAssignedLicense
-func (r *IOSVppAppAssignedLicenseRequest) Get() (*IOSVppAppAssignedLicense, error) {
+func (r *IOSVppAppAssignedLicenseRequest) Get() (resObj *IOSVppAppAssignedLicense, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSVppAppAssignedLicense
-func (r *IOSVppAppAssignedLicenseRequest) Update(reqObj *IOSVppAppAssignedLicense) (*IOSVppAppAssignedLicense, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSVppAppAssignedLicenseRequest) Update(reqObj *IOSVppAppAssignedLicense) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSVppAppAssignedLicense

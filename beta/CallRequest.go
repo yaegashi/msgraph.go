@@ -23,24 +23,19 @@ func (b *CallRequestBuilder) Request() *CallRequest {
 // CallRequest is request for Call
 type CallRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Call
-func (r *CallRequest) Do(method, path string, reqObj interface{}) (resObj *Call, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Call
-func (r *CallRequest) Get() (*Call, error) {
+func (r *CallRequest) Get() (resObj *Call, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Call
-func (r *CallRequest) Update(reqObj *Call) (*Call, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CallRequest) Update(reqObj *Call) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Call
@@ -74,12 +69,6 @@ func (b *CallAudioRoutingGroupsCollectionRequestBuilder) ID(id string) *AudioRou
 
 // CallAudioRoutingGroupsCollectionRequest is request for AudioRoutingGroup collection
 type CallAudioRoutingGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AudioRoutingGroup collection
-func (r *CallAudioRoutingGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AudioRoutingGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AudioRoutingGroup collection
 func (r *CallAudioRoutingGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]AudioRoutingGroup, error) {
@@ -131,8 +120,9 @@ func (r *CallAudioRoutingGroupsCollectionRequest) Get() ([]AudioRoutingGroup, er
 }
 
 // Add performs POST request for AudioRoutingGroup collection
-func (r *CallAudioRoutingGroupsCollectionRequest) Add(reqObj *AudioRoutingGroup) (*AudioRoutingGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CallAudioRoutingGroupsCollectionRequest) Add(reqObj *AudioRoutingGroup) (resObj *AudioRoutingGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Operations returns request builder for CommsOperation collection
@@ -161,12 +151,6 @@ func (b *CallOperationsCollectionRequestBuilder) ID(id string) *CommsOperationRe
 
 // CallOperationsCollectionRequest is request for CommsOperation collection
 type CallOperationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CommsOperation collection
-func (r *CallOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CommsOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CommsOperation collection
 func (r *CallOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]CommsOperation, error) {
@@ -218,8 +202,9 @@ func (r *CallOperationsCollectionRequest) Get() ([]CommsOperation, error) {
 }
 
 // Add performs POST request for CommsOperation collection
-func (r *CallOperationsCollectionRequest) Add(reqObj *CommsOperation) (*CommsOperation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CallOperationsCollectionRequest) Add(reqObj *CommsOperation) (resObj *CommsOperation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Participants returns request builder for Participant collection
@@ -248,12 +233,6 @@ func (b *CallParticipantsCollectionRequestBuilder) ID(id string) *ParticipantReq
 
 // CallParticipantsCollectionRequest is request for Participant collection
 type CallParticipantsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Participant collection
-func (r *CallParticipantsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Participant, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Participant collection
 func (r *CallParticipantsCollectionRequest) Paging(method, path string, obj interface{}) ([]Participant, error) {
@@ -305,6 +284,7 @@ func (r *CallParticipantsCollectionRequest) Get() ([]Participant, error) {
 }
 
 // Add performs POST request for Participant collection
-func (r *CallParticipantsCollectionRequest) Add(reqObj *Participant) (*Participant, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CallParticipantsCollectionRequest) Add(reqObj *Participant) (resObj *Participant, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

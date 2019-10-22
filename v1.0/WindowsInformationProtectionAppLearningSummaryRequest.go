@@ -15,24 +15,19 @@ func (b *WindowsInformationProtectionAppLearningSummaryRequestBuilder) Request()
 // WindowsInformationProtectionAppLearningSummaryRequest is request for WindowsInformationProtectionAppLearningSummary
 type WindowsInformationProtectionAppLearningSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsInformationProtectionAppLearningSummary
-func (r *WindowsInformationProtectionAppLearningSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionAppLearningSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsInformationProtectionAppLearningSummary
-func (r *WindowsInformationProtectionAppLearningSummaryRequest) Get() (*WindowsInformationProtectionAppLearningSummary, error) {
+func (r *WindowsInformationProtectionAppLearningSummaryRequest) Get() (resObj *WindowsInformationProtectionAppLearningSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionAppLearningSummary
-func (r *WindowsInformationProtectionAppLearningSummaryRequest) Update(reqObj *WindowsInformationProtectionAppLearningSummary) (*WindowsInformationProtectionAppLearningSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsInformationProtectionAppLearningSummaryRequest) Update(reqObj *WindowsInformationProtectionAppLearningSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionAppLearningSummary

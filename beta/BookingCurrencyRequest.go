@@ -15,24 +15,19 @@ func (b *BookingCurrencyRequestBuilder) Request() *BookingCurrencyRequest {
 // BookingCurrencyRequest is request for BookingCurrency
 type BookingCurrencyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for BookingCurrency
-func (r *BookingCurrencyRequest) Do(method, path string, reqObj interface{}) (resObj *BookingCurrency, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for BookingCurrency
-func (r *BookingCurrencyRequest) Get() (*BookingCurrency, error) {
+func (r *BookingCurrencyRequest) Get() (resObj *BookingCurrency, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for BookingCurrency
-func (r *BookingCurrencyRequest) Update(reqObj *BookingCurrency) (*BookingCurrency, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *BookingCurrencyRequest) Update(reqObj *BookingCurrency) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BookingCurrency

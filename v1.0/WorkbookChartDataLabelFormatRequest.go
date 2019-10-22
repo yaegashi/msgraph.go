@@ -15,24 +15,19 @@ func (b *WorkbookChartDataLabelFormatRequestBuilder) Request() *WorkbookChartDat
 // WorkbookChartDataLabelFormatRequest is request for WorkbookChartDataLabelFormat
 type WorkbookChartDataLabelFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartDataLabelFormat
-func (r *WorkbookChartDataLabelFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartDataLabelFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartDataLabelFormat
-func (r *WorkbookChartDataLabelFormatRequest) Get() (*WorkbookChartDataLabelFormat, error) {
+func (r *WorkbookChartDataLabelFormatRequest) Get() (resObj *WorkbookChartDataLabelFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartDataLabelFormat
-func (r *WorkbookChartDataLabelFormatRequest) Update(reqObj *WorkbookChartDataLabelFormat) (*WorkbookChartDataLabelFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartDataLabelFormatRequest) Update(reqObj *WorkbookChartDataLabelFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartDataLabelFormat

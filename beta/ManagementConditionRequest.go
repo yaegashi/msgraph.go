@@ -23,24 +23,19 @@ func (b *ManagementConditionRequestBuilder) Request() *ManagementConditionReques
 // ManagementConditionRequest is request for ManagementCondition
 type ManagementConditionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagementCondition
-func (r *ManagementConditionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagementCondition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagementCondition
-func (r *ManagementConditionRequest) Get() (*ManagementCondition, error) {
+func (r *ManagementConditionRequest) Get() (resObj *ManagementCondition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagementCondition
-func (r *ManagementConditionRequest) Update(reqObj *ManagementCondition) (*ManagementCondition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagementConditionRequest) Update(reqObj *ManagementCondition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagementCondition
@@ -74,12 +69,6 @@ func (b *ManagementConditionManagementConditionStatementsCollectionRequestBuilde
 
 // ManagementConditionManagementConditionStatementsCollectionRequest is request for ManagementConditionStatement collection
 type ManagementConditionManagementConditionStatementsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagementConditionStatement collection
-func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagementConditionStatement, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagementConditionStatement collection
 func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagementConditionStatement, error) {
@@ -131,6 +120,7 @@ func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Get(
 }
 
 // Add performs POST request for ManagementConditionStatement collection
-func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Add(reqObj *ManagementConditionStatement) (*ManagementConditionStatement, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Add(reqObj *ManagementConditionStatement) (resObj *ManagementConditionStatement, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

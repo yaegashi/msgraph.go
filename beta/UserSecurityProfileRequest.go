@@ -15,24 +15,19 @@ func (b *UserSecurityProfileRequestBuilder) Request() *UserSecurityProfileReques
 // UserSecurityProfileRequest is request for UserSecurityProfile
 type UserSecurityProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserSecurityProfile
-func (r *UserSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *UserSecurityProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserSecurityProfile
-func (r *UserSecurityProfileRequest) Get() (*UserSecurityProfile, error) {
+func (r *UserSecurityProfileRequest) Get() (resObj *UserSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserSecurityProfile
-func (r *UserSecurityProfileRequest) Update(reqObj *UserSecurityProfile) (*UserSecurityProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserSecurityProfileRequest) Update(reqObj *UserSecurityProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserSecurityProfile

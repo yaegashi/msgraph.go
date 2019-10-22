@@ -23,24 +23,19 @@ func (b *DeviceComplianceScheduledActionForRuleRequestBuilder) Request() *Device
 // DeviceComplianceScheduledActionForRuleRequest is request for DeviceComplianceScheduledActionForRule
 type DeviceComplianceScheduledActionForRuleRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceComplianceScheduledActionForRule
-func (r *DeviceComplianceScheduledActionForRuleRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceScheduledActionForRule, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceComplianceScheduledActionForRule
-func (r *DeviceComplianceScheduledActionForRuleRequest) Get() (*DeviceComplianceScheduledActionForRule, error) {
+func (r *DeviceComplianceScheduledActionForRuleRequest) Get() (resObj *DeviceComplianceScheduledActionForRule, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceComplianceScheduledActionForRule
-func (r *DeviceComplianceScheduledActionForRuleRequest) Update(reqObj *DeviceComplianceScheduledActionForRule) (*DeviceComplianceScheduledActionForRule, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceComplianceScheduledActionForRuleRequest) Update(reqObj *DeviceComplianceScheduledActionForRule) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceScheduledActionForRule
@@ -74,12 +69,6 @@ func (b *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 
 // DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest is request for DeviceComplianceActionItem collection
 type DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceComplianceActionItem collection
-func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceActionItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceComplianceActionItem collection
 func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceActionItem, error) {
@@ -131,6 +120,7 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 }
 
 // Add performs POST request for DeviceComplianceActionItem collection
-func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Add(reqObj *DeviceComplianceActionItem) (*DeviceComplianceActionItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Add(reqObj *DeviceComplianceActionItem) (resObj *DeviceComplianceActionItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

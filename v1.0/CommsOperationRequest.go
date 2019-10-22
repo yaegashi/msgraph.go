@@ -15,24 +15,19 @@ func (b *CommsOperationRequestBuilder) Request() *CommsOperationRequest {
 // CommsOperationRequest is request for CommsOperation
 type CommsOperationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CommsOperation
-func (r *CommsOperationRequest) Do(method, path string, reqObj interface{}) (resObj *CommsOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CommsOperation
-func (r *CommsOperationRequest) Get() (*CommsOperation, error) {
+func (r *CommsOperationRequest) Get() (resObj *CommsOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CommsOperation
-func (r *CommsOperationRequest) Update(reqObj *CommsOperation) (*CommsOperation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CommsOperationRequest) Update(reqObj *CommsOperation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CommsOperation

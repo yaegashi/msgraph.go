@@ -50,13 +50,8 @@ func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *Targete
 }
 
 //
-func (r *TargetedManagedAppConfigurationAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -81,13 +76,8 @@ func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *Tar
 }
 
 //
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -109,12 +99,6 @@ func (b *TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestBuilder)
 	return &TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //

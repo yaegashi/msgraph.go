@@ -23,24 +23,19 @@ func (b *TeamsAppRequestBuilder) Request() *TeamsAppRequest {
 // TeamsAppRequest is request for TeamsApp
 type TeamsAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TeamsApp
-func (r *TeamsAppRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TeamsApp
-func (r *TeamsAppRequest) Get() (*TeamsApp, error) {
+func (r *TeamsAppRequest) Get() (resObj *TeamsApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TeamsApp
-func (r *TeamsAppRequest) Update(reqObj *TeamsApp) (*TeamsApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TeamsAppRequest) Update(reqObj *TeamsApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsApp
@@ -74,12 +69,6 @@ func (b *TeamsAppAppDefinitionsCollectionRequestBuilder) ID(id string) *TeamsApp
 
 // TeamsAppAppDefinitionsCollectionRequest is request for TeamsAppDefinition collection
 type TeamsAppAppDefinitionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsAppDefinition collection
-func (r *TeamsAppAppDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsAppDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsAppDefinition collection
 func (r *TeamsAppAppDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppDefinition, error) {
@@ -131,6 +120,7 @@ func (r *TeamsAppAppDefinitionsCollectionRequest) Get() ([]TeamsAppDefinition, e
 }
 
 // Add performs POST request for TeamsAppDefinition collection
-func (r *TeamsAppAppDefinitionsCollectionRequest) Add(reqObj *TeamsAppDefinition) (*TeamsAppDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TeamsAppAppDefinitionsCollectionRequest) Add(reqObj *TeamsAppDefinition) (resObj *TeamsAppDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

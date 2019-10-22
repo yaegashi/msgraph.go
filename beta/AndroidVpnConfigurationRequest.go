@@ -15,24 +15,19 @@ func (b *AndroidVpnConfigurationRequestBuilder) Request() *AndroidVpnConfigurati
 // AndroidVpnConfigurationRequest is request for AndroidVpnConfiguration
 type AndroidVpnConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidVpnConfiguration
-func (r *AndroidVpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidVpnConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidVpnConfiguration
-func (r *AndroidVpnConfigurationRequest) Get() (*AndroidVpnConfiguration, error) {
+func (r *AndroidVpnConfigurationRequest) Get() (resObj *AndroidVpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidVpnConfiguration
-func (r *AndroidVpnConfigurationRequest) Update(reqObj *AndroidVpnConfiguration) (*AndroidVpnConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidVpnConfigurationRequest) Update(reqObj *AndroidVpnConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidVpnConfiguration

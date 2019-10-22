@@ -15,24 +15,19 @@ func (b *MobileAppIntentAndStateRequestBuilder) Request() *MobileAppIntentAndSta
 // MobileAppIntentAndStateRequest is request for MobileAppIntentAndState
 type MobileAppIntentAndStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppIntentAndState
-func (r *MobileAppIntentAndStateRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppIntentAndState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppIntentAndState
-func (r *MobileAppIntentAndStateRequest) Get() (*MobileAppIntentAndState, error) {
+func (r *MobileAppIntentAndStateRequest) Get() (resObj *MobileAppIntentAndState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppIntentAndState
-func (r *MobileAppIntentAndStateRequest) Update(reqObj *MobileAppIntentAndState) (*MobileAppIntentAndState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppIntentAndStateRequest) Update(reqObj *MobileAppIntentAndState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppIntentAndState

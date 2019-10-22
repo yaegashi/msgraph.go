@@ -15,24 +15,19 @@ func (b *DirectoryDefinitionRequestBuilder) Request() *DirectoryDefinitionReques
 // DirectoryDefinitionRequest is request for DirectoryDefinition
 type DirectoryDefinitionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DirectoryDefinition
-func (r *DirectoryDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DirectoryDefinition
-func (r *DirectoryDefinitionRequest) Get() (*DirectoryDefinition, error) {
+func (r *DirectoryDefinitionRequest) Get() (resObj *DirectoryDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DirectoryDefinition
-func (r *DirectoryDefinitionRequest) Update(reqObj *DirectoryDefinition) (*DirectoryDefinition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DirectoryDefinitionRequest) Update(reqObj *DirectoryDefinition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryDefinition

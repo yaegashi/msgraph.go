@@ -38,11 +38,6 @@ func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApply
 }
 
 //
-func (r *WorkbookRangeSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookRangeSortApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

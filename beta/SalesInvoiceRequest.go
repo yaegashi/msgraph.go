@@ -23,24 +23,19 @@ func (b *SalesInvoiceRequestBuilder) Request() *SalesInvoiceRequest {
 // SalesInvoiceRequest is request for SalesInvoice
 type SalesInvoiceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesInvoice
-func (r *SalesInvoiceRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesInvoice
-func (r *SalesInvoiceRequest) Get() (*SalesInvoice, error) {
+func (r *SalesInvoiceRequest) Get() (resObj *SalesInvoice, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesInvoice
-func (r *SalesInvoiceRequest) Update(reqObj *SalesInvoice) (*SalesInvoice, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesInvoiceRequest) Update(reqObj *SalesInvoice) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesInvoice
@@ -96,12 +91,6 @@ func (b *SalesInvoiceSalesInvoiceLinesCollectionRequestBuilder) ID(id string) *S
 // SalesInvoiceSalesInvoiceLinesCollectionRequest is request for SalesInvoiceLine collection
 type SalesInvoiceSalesInvoiceLinesCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for SalesInvoiceLine collection
 func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,8 +141,9 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Get() ([]SalesInvoiceLi
 }
 
 // Add performs POST request for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Add(reqObj *SalesInvoiceLine) (*SalesInvoiceLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Add(reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ShipmentMethod is navigation property

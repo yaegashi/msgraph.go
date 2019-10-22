@@ -15,24 +15,19 @@ func (b *ReportRootRequestBuilder) Request() *ReportRootRequest {
 // ReportRootRequest is request for ReportRoot
 type ReportRootRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ReportRoot
-func (r *ReportRootRequest) Do(method, path string, reqObj interface{}) (resObj *ReportRoot, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ReportRoot
-func (r *ReportRootRequest) Get() (*ReportRoot, error) {
+func (r *ReportRootRequest) Get() (resObj *ReportRoot, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ReportRoot
-func (r *ReportRootRequest) Update(reqObj *ReportRoot) (*ReportRoot, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ReportRootRequest) Update(reqObj *ReportRoot) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ReportRoot

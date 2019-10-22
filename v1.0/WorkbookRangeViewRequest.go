@@ -23,24 +23,19 @@ func (b *WorkbookRangeViewRequestBuilder) Request() *WorkbookRangeViewRequest {
 // WorkbookRangeViewRequest is request for WorkbookRangeView
 type WorkbookRangeViewRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookRangeView
-func (r *WorkbookRangeViewRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeView, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookRangeView
-func (r *WorkbookRangeViewRequest) Get() (*WorkbookRangeView, error) {
+func (r *WorkbookRangeViewRequest) Get() (resObj *WorkbookRangeView, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookRangeView
-func (r *WorkbookRangeViewRequest) Update(reqObj *WorkbookRangeView) (*WorkbookRangeView, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookRangeViewRequest) Update(reqObj *WorkbookRangeView) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookRangeView
@@ -74,12 +69,6 @@ func (b *WorkbookRangeViewRowsCollectionRequestBuilder) ID(id string) *WorkbookR
 
 // WorkbookRangeViewRowsCollectionRequest is request for WorkbookRangeView collection
 type WorkbookRangeViewRowsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkbookRangeView collection
-func (r *WorkbookRangeViewRowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeView, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkbookRangeView collection
 func (r *WorkbookRangeViewRowsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookRangeView, error) {
@@ -131,6 +120,7 @@ func (r *WorkbookRangeViewRowsCollectionRequest) Get() ([]WorkbookRangeView, err
 }
 
 // Add performs POST request for WorkbookRangeView collection
-func (r *WorkbookRangeViewRowsCollectionRequest) Add(reqObj *WorkbookRangeView) (*WorkbookRangeView, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookRangeViewRowsCollectionRequest) Add(reqObj *WorkbookRangeView) (resObj *WorkbookRangeView, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

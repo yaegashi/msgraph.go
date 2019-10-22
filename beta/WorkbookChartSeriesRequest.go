@@ -23,24 +23,19 @@ func (b *WorkbookChartSeriesRequestBuilder) Request() *WorkbookChartSeriesReques
 // WorkbookChartSeriesRequest is request for WorkbookChartSeries
 type WorkbookChartSeriesRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartSeries
-func (r *WorkbookChartSeriesRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartSeries, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartSeries
-func (r *WorkbookChartSeriesRequest) Get() (*WorkbookChartSeries, error) {
+func (r *WorkbookChartSeriesRequest) Get() (resObj *WorkbookChartSeries, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartSeries
-func (r *WorkbookChartSeriesRequest) Update(reqObj *WorkbookChartSeries) (*WorkbookChartSeries, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartSeriesRequest) Update(reqObj *WorkbookChartSeries) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartSeries
@@ -81,12 +76,6 @@ func (b *WorkbookChartSeriesPointsCollectionRequestBuilder) ID(id string) *Workb
 
 // WorkbookChartSeriesPointsCollectionRequest is request for WorkbookChartPoint collection
 type WorkbookChartSeriesPointsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkbookChartPoint collection
-func (r *WorkbookChartSeriesPointsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartPoint, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkbookChartPoint collection
 func (r *WorkbookChartSeriesPointsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookChartPoint, error) {
@@ -138,6 +127,7 @@ func (r *WorkbookChartSeriesPointsCollectionRequest) Get() ([]WorkbookChartPoint
 }
 
 // Add performs POST request for WorkbookChartPoint collection
-func (r *WorkbookChartSeriesPointsCollectionRequest) Add(reqObj *WorkbookChartPoint) (*WorkbookChartPoint, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookChartSeriesPointsCollectionRequest) Add(reqObj *WorkbookChartPoint) (resObj *WorkbookChartPoint, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

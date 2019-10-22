@@ -52,14 +52,9 @@ func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableColle
 }
 
 //
-func (r *WorkbookTableCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTable, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookTableCollectionAddRequest) Post() (resObj *WorkbookTable, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookTableCollectionAddRequest) Post() (*WorkbookTable, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -84,13 +79,8 @@ func (b *WorkbookTableClearFiltersRequestBuilder) Request() *WorkbookTableClearF
 }
 
 //
-func (r *WorkbookTableClearFiltersRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookTableClearFiltersRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -115,14 +105,9 @@ func (b *WorkbookTableConvertToRangeRequestBuilder) Request() *WorkbookTableConv
 }
 
 //
-func (r *WorkbookTableConvertToRangeRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookTableConvertToRangeRequest) Post() (resObj *WorkbookRange, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookTableConvertToRangeRequest) Post() (*WorkbookRange, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -147,11 +132,6 @@ func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReap
 }
 
 //
-func (r *WorkbookTableReapplyFiltersRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookTableReapplyFiltersRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

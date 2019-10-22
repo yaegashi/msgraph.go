@@ -15,24 +15,19 @@ func (b *GovernanceRoleAssignmentRequestBuilder) Request() *GovernanceRoleAssign
 // GovernanceRoleAssignmentRequest is request for GovernanceRoleAssignment
 type GovernanceRoleAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GovernanceRoleAssignment
-func (r *GovernanceRoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GovernanceRoleAssignment
-func (r *GovernanceRoleAssignmentRequest) Get() (*GovernanceRoleAssignment, error) {
+func (r *GovernanceRoleAssignmentRequest) Get() (resObj *GovernanceRoleAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GovernanceRoleAssignment
-func (r *GovernanceRoleAssignmentRequest) Update(reqObj *GovernanceRoleAssignment) (*GovernanceRoleAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GovernanceRoleAssignmentRequest) Update(reqObj *GovernanceRoleAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernanceRoleAssignment

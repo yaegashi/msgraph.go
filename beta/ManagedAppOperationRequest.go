@@ -15,24 +15,19 @@ func (b *ManagedAppOperationRequestBuilder) Request() *ManagedAppOperationReques
 // ManagedAppOperationRequest is request for ManagedAppOperation
 type ManagedAppOperationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedAppOperation
-func (r *ManagedAppOperationRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedAppOperation
-func (r *ManagedAppOperationRequest) Get() (*ManagedAppOperation, error) {
+func (r *ManagedAppOperationRequest) Get() (resObj *ManagedAppOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedAppOperation
-func (r *ManagedAppOperationRequest) Update(reqObj *ManagedAppOperation) (*ManagedAppOperation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedAppOperationRequest) Update(reqObj *ManagedAppOperation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppOperation

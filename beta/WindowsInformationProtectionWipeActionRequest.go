@@ -15,24 +15,19 @@ func (b *WindowsInformationProtectionWipeActionRequestBuilder) Request() *Window
 // WindowsInformationProtectionWipeActionRequest is request for WindowsInformationProtectionWipeAction
 type WindowsInformationProtectionWipeActionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsInformationProtectionWipeAction
-func (r *WindowsInformationProtectionWipeActionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionWipeAction, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsInformationProtectionWipeAction
-func (r *WindowsInformationProtectionWipeActionRequest) Get() (*WindowsInformationProtectionWipeAction, error) {
+func (r *WindowsInformationProtectionWipeActionRequest) Get() (resObj *WindowsInformationProtectionWipeAction, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionWipeAction
-func (r *WindowsInformationProtectionWipeActionRequest) Update(reqObj *WindowsInformationProtectionWipeAction) (*WindowsInformationProtectionWipeAction, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsInformationProtectionWipeActionRequest) Update(reqObj *WindowsInformationProtectionWipeAction) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionWipeAction

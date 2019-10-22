@@ -15,24 +15,19 @@ func (b *DeviceManagementTroubleshootingEventRequestBuilder) Request() *DeviceMa
 // DeviceManagementTroubleshootingEventRequest is request for DeviceManagementTroubleshootingEvent
 type DeviceManagementTroubleshootingEventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementTroubleshootingEvent
-func (r *DeviceManagementTroubleshootingEventRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementTroubleshootingEvent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementTroubleshootingEvent
-func (r *DeviceManagementTroubleshootingEventRequest) Get() (*DeviceManagementTroubleshootingEvent, error) {
+func (r *DeviceManagementTroubleshootingEventRequest) Get() (resObj *DeviceManagementTroubleshootingEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementTroubleshootingEvent
-func (r *DeviceManagementTroubleshootingEventRequest) Update(reqObj *DeviceManagementTroubleshootingEvent) (*DeviceManagementTroubleshootingEvent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementTroubleshootingEventRequest) Update(reqObj *DeviceManagementTroubleshootingEvent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementTroubleshootingEvent

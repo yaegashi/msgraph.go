@@ -15,24 +15,19 @@ func (b *ManagedAppPolicyRequestBuilder) Request() *ManagedAppPolicyRequest {
 // ManagedAppPolicyRequest is request for ManagedAppPolicy
 type ManagedAppPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedAppPolicy
-func (r *ManagedAppPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedAppPolicy
-func (r *ManagedAppPolicyRequest) Get() (*ManagedAppPolicy, error) {
+func (r *ManagedAppPolicyRequest) Get() (resObj *ManagedAppPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedAppPolicy
-func (r *ManagedAppPolicyRequest) Update(reqObj *ManagedAppPolicy) (*ManagedAppPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedAppPolicyRequest) Update(reqObj *ManagedAppPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppPolicy

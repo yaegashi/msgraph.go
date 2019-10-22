@@ -15,24 +15,19 @@ func (b *UnifiedRoleDefinitionRequestBuilder) Request() *UnifiedRoleDefinitionRe
 // UnifiedRoleDefinitionRequest is request for UnifiedRoleDefinition
 type UnifiedRoleDefinitionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UnifiedRoleDefinition
-func (r *UnifiedRoleDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *UnifiedRoleDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UnifiedRoleDefinition
-func (r *UnifiedRoleDefinitionRequest) Get() (*UnifiedRoleDefinition, error) {
+func (r *UnifiedRoleDefinitionRequest) Get() (resObj *UnifiedRoleDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UnifiedRoleDefinition
-func (r *UnifiedRoleDefinitionRequest) Update(reqObj *UnifiedRoleDefinition) (*UnifiedRoleDefinition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UnifiedRoleDefinitionRequest) Update(reqObj *UnifiedRoleDefinition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UnifiedRoleDefinition

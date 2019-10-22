@@ -62,14 +62,9 @@ func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request
 }
 
 //
-func (r *InformationProtectionLabelCollectionExtractLabelRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionContentLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post() (resObj *InformationProtectionContentLabel, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post() (*InformationProtectionContentLabel, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -91,12 +86,6 @@ func (b *InformationProtectionLabelCollectionEvaluateApplicationRequestBuilder) 
 	return &InformationProtectionLabelCollectionEvaluateApplicationRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Do(method, path string, reqObj interface{}) (resObj *[]InformationProtectionAction, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -170,12 +159,6 @@ func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Requ
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Do(method, path string, reqObj interface{}) (resObj *[]InformationProtectionAction, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
@@ -243,12 +226,6 @@ func (b *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 	return &InformationProtectionLabelCollectionEvaluateClassificationResultsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Do(method, path string, reqObj interface{}) (resObj *[]InformationProtectionAction, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //

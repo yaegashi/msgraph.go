@@ -15,24 +15,19 @@ func (b *ColumnLinkRequestBuilder) Request() *ColumnLinkRequest {
 // ColumnLinkRequest is request for ColumnLink
 type ColumnLinkRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ColumnLink
-func (r *ColumnLinkRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnLink, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ColumnLink
-func (r *ColumnLinkRequest) Get() (*ColumnLink, error) {
+func (r *ColumnLinkRequest) Get() (resObj *ColumnLink, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ColumnLink
-func (r *ColumnLinkRequest) Update(reqObj *ColumnLink) (*ColumnLink, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ColumnLinkRequest) Update(reqObj *ColumnLink) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ColumnLink

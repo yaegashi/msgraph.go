@@ -23,24 +23,19 @@ func (b *AndroidForWorkScepCertificateProfileRequestBuilder) Request() *AndroidF
 // AndroidForWorkScepCertificateProfileRequest is request for AndroidForWorkScepCertificateProfile
 type AndroidForWorkScepCertificateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidForWorkScepCertificateProfile
-func (r *AndroidForWorkScepCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkScepCertificateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidForWorkScepCertificateProfile
-func (r *AndroidForWorkScepCertificateProfileRequest) Get() (*AndroidForWorkScepCertificateProfile, error) {
+func (r *AndroidForWorkScepCertificateProfileRequest) Get() (resObj *AndroidForWorkScepCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidForWorkScepCertificateProfile
-func (r *AndroidForWorkScepCertificateProfileRequest) Update(reqObj *AndroidForWorkScepCertificateProfile) (*AndroidForWorkScepCertificateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidForWorkScepCertificateProfileRequest) Update(reqObj *AndroidForWorkScepCertificateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkScepCertificateProfile
@@ -74,12 +69,6 @@ func (b *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 
 // AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
 type AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
@@ -131,6 +120,7 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (*ManagedDeviceCertificateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

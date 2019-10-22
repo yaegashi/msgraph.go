@@ -23,24 +23,19 @@ func (b *CloudCommunicationsRequestBuilder) Request() *CloudCommunicationsReques
 // CloudCommunicationsRequest is request for CloudCommunications
 type CloudCommunicationsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CloudCommunications
-func (r *CloudCommunicationsRequest) Do(method, path string, reqObj interface{}) (resObj *CloudCommunications, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CloudCommunications
-func (r *CloudCommunicationsRequest) Get() (*CloudCommunications, error) {
+func (r *CloudCommunicationsRequest) Get() (resObj *CloudCommunications, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CloudCommunications
-func (r *CloudCommunicationsRequest) Update(reqObj *CloudCommunications) (*CloudCommunications, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CloudCommunicationsRequest) Update(reqObj *CloudCommunications) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CloudCommunications
@@ -74,12 +69,6 @@ func (b *CloudCommunicationsCallsCollectionRequestBuilder) ID(id string) *CallRe
 
 // CloudCommunicationsCallsCollectionRequest is request for Call collection
 type CloudCommunicationsCallsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Call collection
-func (r *CloudCommunicationsCallsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Call, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Call collection
 func (r *CloudCommunicationsCallsCollectionRequest) Paging(method, path string, obj interface{}) ([]Call, error) {
@@ -131,8 +120,9 @@ func (r *CloudCommunicationsCallsCollectionRequest) Get() ([]Call, error) {
 }
 
 // Add performs POST request for Call collection
-func (r *CloudCommunicationsCallsCollectionRequest) Add(reqObj *Call) (*Call, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CloudCommunicationsCallsCollectionRequest) Add(reqObj *Call) (resObj *Call, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // OnlineMeetings returns request builder for OnlineMeeting collection
@@ -161,12 +151,6 @@ func (b *CloudCommunicationsOnlineMeetingsCollectionRequestBuilder) ID(id string
 
 // CloudCommunicationsOnlineMeetingsCollectionRequest is request for OnlineMeeting collection
 type CloudCommunicationsOnlineMeetingsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnlineMeeting collection
-func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnlineMeeting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnlineMeeting collection
 func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnlineMeeting, error) {
@@ -218,6 +202,7 @@ func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Get() ([]OnlineMeet
 }
 
 // Add performs POST request for OnlineMeeting collection
-func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Add(reqObj *OnlineMeeting) (*OnlineMeeting, error) {
-	return r.Do("POST", "", reqObj)
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Add(reqObj *OnlineMeeting) (resObj *OnlineMeeting, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

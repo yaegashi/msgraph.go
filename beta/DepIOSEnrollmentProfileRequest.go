@@ -15,24 +15,19 @@ func (b *DepIOSEnrollmentProfileRequestBuilder) Request() *DepIOSEnrollmentProfi
 // DepIOSEnrollmentProfileRequest is request for DepIOSEnrollmentProfile
 type DepIOSEnrollmentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DepIOSEnrollmentProfile
-func (r *DepIOSEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *DepIOSEnrollmentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DepIOSEnrollmentProfile
-func (r *DepIOSEnrollmentProfileRequest) Get() (*DepIOSEnrollmentProfile, error) {
+func (r *DepIOSEnrollmentProfileRequest) Get() (resObj *DepIOSEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DepIOSEnrollmentProfile
-func (r *DepIOSEnrollmentProfileRequest) Update(reqObj *DepIOSEnrollmentProfile) (*DepIOSEnrollmentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DepIOSEnrollmentProfileRequest) Update(reqObj *DepIOSEnrollmentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DepIOSEnrollmentProfile

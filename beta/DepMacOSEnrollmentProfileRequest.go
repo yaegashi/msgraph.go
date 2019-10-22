@@ -15,24 +15,19 @@ func (b *DepMacOSEnrollmentProfileRequestBuilder) Request() *DepMacOSEnrollmentP
 // DepMacOSEnrollmentProfileRequest is request for DepMacOSEnrollmentProfile
 type DepMacOSEnrollmentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DepMacOSEnrollmentProfile
-func (r *DepMacOSEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *DepMacOSEnrollmentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DepMacOSEnrollmentProfile
-func (r *DepMacOSEnrollmentProfileRequest) Get() (*DepMacOSEnrollmentProfile, error) {
+func (r *DepMacOSEnrollmentProfileRequest) Get() (resObj *DepMacOSEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DepMacOSEnrollmentProfile
-func (r *DepMacOSEnrollmentProfileRequest) Update(reqObj *DepMacOSEnrollmentProfile) (*DepMacOSEnrollmentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DepMacOSEnrollmentProfileRequest) Update(reqObj *DepMacOSEnrollmentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DepMacOSEnrollmentProfile

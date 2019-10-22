@@ -44,13 +44,8 @@ func (b *DeviceManagementIntentUpdateSettingsRequestBuilder) Request() *DeviceMa
 }
 
 //
-func (r *DeviceManagementIntentUpdateSettingsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceManagementIntentUpdateSettingsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -75,13 +70,8 @@ func (b *DeviceManagementIntentMigrateToTemplateRequestBuilder) Request() *Devic
 }
 
 //
-func (r *DeviceManagementIntentMigrateToTemplateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceManagementIntentMigrateToTemplateRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -106,11 +96,6 @@ func (b *DeviceManagementIntentAssignRequestBuilder) Request() *DeviceManagement
 }
 
 //
-func (r *DeviceManagementIntentAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceManagementIntentAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

@@ -15,24 +15,19 @@ func (b *WorkbookWorksheetProtectionRequestBuilder) Request() *WorkbookWorksheet
 // WorkbookWorksheetProtectionRequest is request for WorkbookWorksheetProtection
 type WorkbookWorksheetProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookWorksheetProtection
-func (r *WorkbookWorksheetProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheetProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookWorksheetProtection
-func (r *WorkbookWorksheetProtectionRequest) Get() (*WorkbookWorksheetProtection, error) {
+func (r *WorkbookWorksheetProtectionRequest) Get() (resObj *WorkbookWorksheetProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookWorksheetProtection
-func (r *WorkbookWorksheetProtectionRequest) Update(reqObj *WorkbookWorksheetProtection) (*WorkbookWorksheetProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookWorksheetProtectionRequest) Update(reqObj *WorkbookWorksheetProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookWorksheetProtection

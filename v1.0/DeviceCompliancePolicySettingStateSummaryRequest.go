@@ -23,24 +23,19 @@ func (b *DeviceCompliancePolicySettingStateSummaryRequestBuilder) Request() *Dev
 // DeviceCompliancePolicySettingStateSummaryRequest is request for DeviceCompliancePolicySettingStateSummary
 type DeviceCompliancePolicySettingStateSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceCompliancePolicySettingStateSummary
-func (r *DeviceCompliancePolicySettingStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceCompliancePolicySettingStateSummary
-func (r *DeviceCompliancePolicySettingStateSummaryRequest) Get() (*DeviceCompliancePolicySettingStateSummary, error) {
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) Get() (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceCompliancePolicySettingStateSummary
-func (r *DeviceCompliancePolicySettingStateSummaryRequest) Update(reqObj *DeviceCompliancePolicySettingStateSummary) (*DeviceCompliancePolicySettingStateSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) Update(reqObj *DeviceCompliancePolicySettingStateSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceCompliancePolicySettingStateSummary
@@ -74,12 +69,6 @@ func (b *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 
 // DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest is request for DeviceComplianceSettingState collection
 type DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceSettingState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceComplianceSettingState collection
 func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceSettingState, error) {
@@ -131,6 +120,7 @@ func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 }
 
 // Add performs POST request for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Add(reqObj *DeviceComplianceSettingState) (*DeviceComplianceSettingState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Add(reqObj *DeviceComplianceSettingState) (resObj *DeviceComplianceSettingState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

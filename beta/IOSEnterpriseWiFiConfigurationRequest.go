@@ -23,24 +23,19 @@ func (b *IOSEnterpriseWiFiConfigurationRequestBuilder) Request() *IOSEnterpriseW
 // IOSEnterpriseWiFiConfigurationRequest is request for IOSEnterpriseWiFiConfiguration
 type IOSEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSEnterpriseWiFiConfiguration
-func (r *IOSEnterpriseWiFiConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSEnterpriseWiFiConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSEnterpriseWiFiConfiguration
-func (r *IOSEnterpriseWiFiConfigurationRequest) Get() (*IOSEnterpriseWiFiConfiguration, error) {
+func (r *IOSEnterpriseWiFiConfigurationRequest) Get() (resObj *IOSEnterpriseWiFiConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSEnterpriseWiFiConfiguration
-func (r *IOSEnterpriseWiFiConfigurationRequest) Update(reqObj *IOSEnterpriseWiFiConfiguration) (*IOSEnterpriseWiFiConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSEnterpriseWiFiConfigurationRequest) Update(reqObj *IOSEnterpriseWiFiConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSEnterpriseWiFiConfiguration
@@ -88,12 +83,6 @@ func (b *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollec
 
 // IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest is request for IOSTrustedRootCertificate collection
 type IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for IOSTrustedRootCertificate collection
-func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *IOSTrustedRootCertificate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for IOSTrustedRootCertificate collection
 func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSTrustedRootCertificate, error) {
@@ -145,6 +134,7 @@ func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollec
 }
 
 // Add performs POST request for IOSTrustedRootCertificate collection
-func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Add(reqObj *IOSTrustedRootCertificate) (*IOSTrustedRootCertificate, error) {
-	return r.Do("POST", "", reqObj)
+func (r *IOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Add(reqObj *IOSTrustedRootCertificate) (resObj *IOSTrustedRootCertificate, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

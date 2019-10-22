@@ -23,24 +23,19 @@ func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Request() *WindowsAuto
 // WindowsAutopilotDeploymentProfileRequest is request for WindowsAutopilotDeploymentProfile
 type WindowsAutopilotDeploymentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsAutopilotDeploymentProfile
-func (r *WindowsAutopilotDeploymentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeploymentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsAutopilotDeploymentProfile
-func (r *WindowsAutopilotDeploymentProfileRequest) Get() (*WindowsAutopilotDeploymentProfile, error) {
+func (r *WindowsAutopilotDeploymentProfileRequest) Get() (resObj *WindowsAutopilotDeploymentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsAutopilotDeploymentProfile
-func (r *WindowsAutopilotDeploymentProfileRequest) Update(reqObj *WindowsAutopilotDeploymentProfile) (*WindowsAutopilotDeploymentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsAutopilotDeploymentProfileRequest) Update(reqObj *WindowsAutopilotDeploymentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsAutopilotDeploymentProfile
@@ -74,12 +69,6 @@ func (b *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequestBuilde
 
 // WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest is request for WindowsAutopilotDeviceIdentity collection
 type WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsAutopilotDeviceIdentity collection
 func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeviceIdentity, error) {
@@ -131,8 +120,9 @@ func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Get(
 }
 
 // Add performs POST request for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Add(reqObj *WindowsAutopilotDeviceIdentity) (*WindowsAutopilotDeviceIdentity, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Add(reqObj *WindowsAutopilotDeviceIdentity) (resObj *WindowsAutopilotDeviceIdentity, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Assignments returns request builder for WindowsAutopilotDeploymentProfileAssignment collection
@@ -161,12 +151,6 @@ func (b *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequestBuilder) I
 
 // WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest is request for WindowsAutopilotDeploymentProfileAssignment collection
 type WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsAutopilotDeploymentProfileAssignment collection
 func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
@@ -218,6 +202,7 @@ func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Get() ([
 }
 
 // Add performs POST request for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Add(reqObj *WindowsAutopilotDeploymentProfileAssignment) (*WindowsAutopilotDeploymentProfileAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Add(reqObj *WindowsAutopilotDeploymentProfileAssignment) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

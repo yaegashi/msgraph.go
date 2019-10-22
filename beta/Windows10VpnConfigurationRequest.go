@@ -15,24 +15,19 @@ func (b *Windows10VpnConfigurationRequestBuilder) Request() *Windows10VpnConfigu
 // Windows10VpnConfigurationRequest is request for Windows10VpnConfiguration
 type Windows10VpnConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Windows10VpnConfiguration
-func (r *Windows10VpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *Windows10VpnConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Windows10VpnConfiguration
-func (r *Windows10VpnConfigurationRequest) Get() (*Windows10VpnConfiguration, error) {
+func (r *Windows10VpnConfigurationRequest) Get() (resObj *Windows10VpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Windows10VpnConfiguration
-func (r *Windows10VpnConfigurationRequest) Update(reqObj *Windows10VpnConfiguration) (*Windows10VpnConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *Windows10VpnConfigurationRequest) Update(reqObj *Windows10VpnConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Windows10VpnConfiguration

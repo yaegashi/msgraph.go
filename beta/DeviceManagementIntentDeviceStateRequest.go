@@ -15,24 +15,19 @@ func (b *DeviceManagementIntentDeviceStateRequestBuilder) Request() *DeviceManag
 // DeviceManagementIntentDeviceStateRequest is request for DeviceManagementIntentDeviceState
 type DeviceManagementIntentDeviceStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementIntentDeviceState
-func (r *DeviceManagementIntentDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementIntentDeviceState
-func (r *DeviceManagementIntentDeviceStateRequest) Get() (*DeviceManagementIntentDeviceState, error) {
+func (r *DeviceManagementIntentDeviceStateRequest) Get() (resObj *DeviceManagementIntentDeviceState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementIntentDeviceState
-func (r *DeviceManagementIntentDeviceStateRequest) Update(reqObj *DeviceManagementIntentDeviceState) (*DeviceManagementIntentDeviceState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementIntentDeviceStateRequest) Update(reqObj *DeviceManagementIntentDeviceState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntentDeviceState

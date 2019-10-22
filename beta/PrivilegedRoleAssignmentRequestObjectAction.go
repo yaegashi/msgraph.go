@@ -28,12 +28,7 @@ func (b *PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder) Request() *P
 }
 
 //
-func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Post() (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Post() (*PrivilegedRoleAssignmentRequestObject, error) {
-	return r.Do("POST", "", r.requestObject)
 }

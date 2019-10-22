@@ -15,24 +15,19 @@ func (b *ResourceSpecificPermissionGrantRequestBuilder) Request() *ResourceSpeci
 // ResourceSpecificPermissionGrantRequest is request for ResourceSpecificPermissionGrant
 type ResourceSpecificPermissionGrantRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ResourceSpecificPermissionGrant
-func (r *ResourceSpecificPermissionGrantRequest) Do(method, path string, reqObj interface{}) (resObj *ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ResourceSpecificPermissionGrant
-func (r *ResourceSpecificPermissionGrantRequest) Get() (*ResourceSpecificPermissionGrant, error) {
+func (r *ResourceSpecificPermissionGrantRequest) Get() (resObj *ResourceSpecificPermissionGrant, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ResourceSpecificPermissionGrant
-func (r *ResourceSpecificPermissionGrantRequest) Update(reqObj *ResourceSpecificPermissionGrant) (*ResourceSpecificPermissionGrant, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ResourceSpecificPermissionGrantRequest) Update(reqObj *ResourceSpecificPermissionGrant) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ResourceSpecificPermissionGrant

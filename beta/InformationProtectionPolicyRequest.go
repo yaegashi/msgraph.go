@@ -23,24 +23,19 @@ func (b *InformationProtectionPolicyRequestBuilder) Request() *InformationProtec
 // InformationProtectionPolicyRequest is request for InformationProtectionPolicy
 type InformationProtectionPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for InformationProtectionPolicy
-func (r *InformationProtectionPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for InformationProtectionPolicy
-func (r *InformationProtectionPolicyRequest) Get() (*InformationProtectionPolicy, error) {
+func (r *InformationProtectionPolicyRequest) Get() (resObj *InformationProtectionPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for InformationProtectionPolicy
-func (r *InformationProtectionPolicyRequest) Update(reqObj *InformationProtectionPolicy) (*InformationProtectionPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *InformationProtectionPolicyRequest) Update(reqObj *InformationProtectionPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InformationProtectionPolicy
@@ -74,12 +69,6 @@ func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) ID(id string
 
 // InformationProtectionPolicyLabelsCollectionRequest is request for InformationProtectionLabel collection
 type InformationProtectionPolicyLabelsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for InformationProtectionLabel collection
-func (r *InformationProtectionPolicyLabelsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for InformationProtectionLabel collection
 func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]InformationProtectionLabel, error) {
@@ -131,6 +120,7 @@ func (r *InformationProtectionPolicyLabelsCollectionRequest) Get() ([]Informatio
 }
 
 // Add performs POST request for InformationProtectionLabel collection
-func (r *InformationProtectionPolicyLabelsCollectionRequest) Add(reqObj *InformationProtectionLabel) (*InformationProtectionLabel, error) {
-	return r.Do("POST", "", reqObj)
+func (r *InformationProtectionPolicyLabelsCollectionRequest) Add(reqObj *InformationProtectionLabel) (resObj *InformationProtectionLabel, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *ManagedAllDeviceCertificateStateRequestBuilder) Request() *ManagedAllDe
 // ManagedAllDeviceCertificateStateRequest is request for ManagedAllDeviceCertificateState
 type ManagedAllDeviceCertificateStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedAllDeviceCertificateState
-func (r *ManagedAllDeviceCertificateStateRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAllDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedAllDeviceCertificateState
-func (r *ManagedAllDeviceCertificateStateRequest) Get() (*ManagedAllDeviceCertificateState, error) {
+func (r *ManagedAllDeviceCertificateStateRequest) Get() (resObj *ManagedAllDeviceCertificateState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedAllDeviceCertificateState
-func (r *ManagedAllDeviceCertificateStateRequest) Update(reqObj *ManagedAllDeviceCertificateState) (*ManagedAllDeviceCertificateState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedAllDeviceCertificateStateRequest) Update(reqObj *ManagedAllDeviceCertificateState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAllDeviceCertificateState

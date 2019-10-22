@@ -23,24 +23,19 @@ func (b *PolicySetRequestBuilder) Request() *PolicySetRequest {
 // PolicySetRequest is request for PolicySet
 type PolicySetRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PolicySet
-func (r *PolicySetRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PolicySet
-func (r *PolicySetRequest) Get() (*PolicySet, error) {
+func (r *PolicySetRequest) Get() (resObj *PolicySet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PolicySet
-func (r *PolicySetRequest) Update(reqObj *PolicySet) (*PolicySet, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PolicySetRequest) Update(reqObj *PolicySet) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PolicySet
@@ -74,12 +69,6 @@ func (b *PolicySetAssignmentsCollectionRequestBuilder) ID(id string) *PolicySetA
 
 // PolicySetAssignmentsCollectionRequest is request for PolicySetAssignment collection
 type PolicySetAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySetAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PolicySetAssignment collection
 func (r *PolicySetAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySetAssignment, error) {
@@ -131,8 +120,9 @@ func (r *PolicySetAssignmentsCollectionRequest) Get() ([]PolicySetAssignment, er
 }
 
 // Add performs POST request for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Add(reqObj *PolicySetAssignment) (*PolicySetAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PolicySetAssignmentsCollectionRequest) Add(reqObj *PolicySetAssignment) (resObj *PolicySetAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Items returns request builder for PolicySetItem collection
@@ -161,12 +151,6 @@ func (b *PolicySetItemsCollectionRequestBuilder) ID(id string) *PolicySetItemReq
 
 // PolicySetItemsCollectionRequest is request for PolicySetItem collection
 type PolicySetItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PolicySetItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PolicySetItem collection
 func (r *PolicySetItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySetItem, error) {
@@ -218,6 +202,7 @@ func (r *PolicySetItemsCollectionRequest) Get() ([]PolicySetItem, error) {
 }
 
 // Add performs POST request for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Add(reqObj *PolicySetItem) (*PolicySetItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PolicySetItemsCollectionRequest) Add(reqObj *PolicySetItem) (resObj *PolicySetItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

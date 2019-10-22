@@ -23,24 +23,19 @@ func (b *ChannelRequestBuilder) Request() *ChannelRequest {
 // ChannelRequest is request for Channel
 type ChannelRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Channel
-func (r *ChannelRequest) Do(method, path string, reqObj interface{}) (resObj *Channel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Channel
-func (r *ChannelRequest) Get() (*Channel, error) {
+func (r *ChannelRequest) Get() (resObj *Channel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Channel
-func (r *ChannelRequest) Update(reqObj *Channel) (*Channel, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ChannelRequest) Update(reqObj *Channel) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Channel
@@ -74,12 +69,6 @@ func (b *ChannelTabsCollectionRequestBuilder) ID(id string) *TeamsTabRequestBuil
 
 // ChannelTabsCollectionRequest is request for TeamsTab collection
 type ChannelTabsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsTab, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsTab collection
 func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsTab, error) {
@@ -131,6 +120,7 @@ func (r *ChannelTabsCollectionRequest) Get() ([]TeamsTab, error) {
 }
 
 // Add performs POST request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Add(reqObj *TeamsTab) (*TeamsTab, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChannelTabsCollectionRequest) Add(reqObj *TeamsTab) (resObj *TeamsTab, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -23,24 +23,19 @@ func (b *WindowsInformationProtectionRequestBuilder) Request() *WindowsInformati
 // WindowsInformationProtectionRequest is request for WindowsInformationProtection
 type WindowsInformationProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsInformationProtection
-func (r *WindowsInformationProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsInformationProtection
-func (r *WindowsInformationProtectionRequest) Get() (*WindowsInformationProtection, error) {
+func (r *WindowsInformationProtectionRequest) Get() (resObj *WindowsInformationProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsInformationProtection
-func (r *WindowsInformationProtectionRequest) Update(reqObj *WindowsInformationProtection) (*WindowsInformationProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsInformationProtectionRequest) Update(reqObj *WindowsInformationProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtection
@@ -74,12 +69,6 @@ func (b *WindowsInformationProtectionAssignmentsCollectionRequestBuilder) ID(id 
 
 // WindowsInformationProtectionAssignmentsCollectionRequest is request for TargetedManagedAppPolicyAssignment collection
 type WindowsInformationProtectionAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
 func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
@@ -131,8 +120,9 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Get() ([]Targ
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (*TargetedManagedAppPolicyAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ExemptAppLockerFiles returns request builder for WindowsInformationProtectionAppLockerFile collection
@@ -161,12 +151,6 @@ func (b *WindowsInformationProtectionExemptAppLockerFilesCollectionRequestBuilde
 
 // WindowsInformationProtectionExemptAppLockerFilesCollectionRequest is request for WindowsInformationProtectionAppLockerFile collection
 type WindowsInformationProtectionExemptAppLockerFilesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLockerFile collection
 func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
@@ -218,8 +202,9 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Get(
 }
 
 // Add performs POST request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Add(reqObj *WindowsInformationProtectionAppLockerFile) (*WindowsInformationProtectionAppLockerFile, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Add(reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ProtectedAppLockerFiles returns request builder for WindowsInformationProtectionAppLockerFile collection
@@ -248,12 +233,6 @@ func (b *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBui
 
 // WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest is request for WindowsInformationProtectionAppLockerFile collection
 type WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLockerFile collection
 func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
@@ -305,6 +284,7 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) G
 }
 
 // Add performs POST request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Add(reqObj *WindowsInformationProtectionAppLockerFile) (*WindowsInformationProtectionAppLockerFile, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Add(reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

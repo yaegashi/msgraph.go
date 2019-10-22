@@ -15,24 +15,19 @@ func (b *RestrictedSignInRequestBuilder) Request() *RestrictedSignInRequest {
 // RestrictedSignInRequest is request for RestrictedSignIn
 type RestrictedSignInRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RestrictedSignIn
-func (r *RestrictedSignInRequest) Do(method, path string, reqObj interface{}) (resObj *RestrictedSignIn, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RestrictedSignIn
-func (r *RestrictedSignInRequest) Get() (*RestrictedSignIn, error) {
+func (r *RestrictedSignInRequest) Get() (resObj *RestrictedSignIn, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RestrictedSignIn
-func (r *RestrictedSignInRequest) Update(reqObj *RestrictedSignIn) (*RestrictedSignIn, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RestrictedSignInRequest) Update(reqObj *RestrictedSignIn) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RestrictedSignIn

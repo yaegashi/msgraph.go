@@ -23,24 +23,19 @@ func (b *OrgContactRequestBuilder) Request() *OrgContactRequest {
 // OrgContactRequest is request for OrgContact
 type OrgContactRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OrgContact
-func (r *OrgContactRequest) Do(method, path string, reqObj interface{}) (resObj *OrgContact, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OrgContact
-func (r *OrgContactRequest) Get() (*OrgContact, error) {
+func (r *OrgContactRequest) Get() (resObj *OrgContact, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OrgContact
-func (r *OrgContactRequest) Update(reqObj *OrgContact) (*OrgContact, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OrgContactRequest) Update(reqObj *OrgContact) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OrgContact
@@ -74,12 +69,6 @@ func (b *OrgContactDirectReportsCollectionRequestBuilder) ID(id string) *Directo
 
 // OrgContactDirectReportsCollectionRequest is request for DirectoryObject collection
 type OrgContactDirectReportsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *OrgContactDirectReportsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *OrgContactDirectReportsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,8 +120,9 @@ func (r *OrgContactDirectReportsCollectionRequest) Get() ([]DirectoryObject, err
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *OrgContactDirectReportsCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OrgContactDirectReportsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Manager is navigation property
@@ -168,12 +158,6 @@ func (b *OrgContactMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObj
 
 // OrgContactMemberOfCollectionRequest is request for DirectoryObject collection
 type OrgContactMemberOfCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *OrgContactMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *OrgContactMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -225,8 +209,9 @@ func (r *OrgContactMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *OrgContactMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OrgContactMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TransitiveMemberOf returns request builder for DirectoryObject collection
@@ -255,12 +240,6 @@ func (b *OrgContactTransitiveMemberOfCollectionRequestBuilder) ID(id string) *Di
 
 // OrgContactTransitiveMemberOfCollectionRequest is request for DirectoryObject collection
 type OrgContactTransitiveMemberOfCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *OrgContactTransitiveMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *OrgContactTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -312,6 +291,7 @@ func (r *OrgContactTransitiveMemberOfCollectionRequest) Get() ([]DirectoryObject
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *OrgContactTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OrgContactTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

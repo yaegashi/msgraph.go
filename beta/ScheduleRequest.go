@@ -23,24 +23,19 @@ func (b *ScheduleRequestBuilder) Request() *ScheduleRequest {
 // ScheduleRequest is request for Schedule
 type ScheduleRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Schedule
-func (r *ScheduleRequest) Do(method, path string, reqObj interface{}) (resObj *Schedule, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Schedule
-func (r *ScheduleRequest) Get() (*Schedule, error) {
+func (r *ScheduleRequest) Get() (resObj *Schedule, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Schedule
-func (r *ScheduleRequest) Update(reqObj *Schedule) (*Schedule, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ScheduleRequest) Update(reqObj *Schedule) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Schedule
@@ -74,12 +69,6 @@ func (b *ScheduleSchedulingGroupsCollectionRequestBuilder) ID(id string) *Schedu
 
 // ScheduleSchedulingGroupsCollectionRequest is request for SchedulingGroup collection
 type ScheduleSchedulingGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SchedulingGroup collection
-func (r *ScheduleSchedulingGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SchedulingGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SchedulingGroup collection
 func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SchedulingGroup, error) {
@@ -131,8 +120,9 @@ func (r *ScheduleSchedulingGroupsCollectionRequest) Get() ([]SchedulingGroup, er
 }
 
 // Add performs POST request for SchedulingGroup collection
-func (r *ScheduleSchedulingGroupsCollectionRequest) Add(reqObj *SchedulingGroup) (*SchedulingGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ScheduleSchedulingGroupsCollectionRequest) Add(reqObj *SchedulingGroup) (resObj *SchedulingGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Shifts returns request builder for Shift collection
@@ -161,12 +151,6 @@ func (b *ScheduleShiftsCollectionRequestBuilder) ID(id string) *ShiftRequestBuil
 
 // ScheduleShiftsCollectionRequest is request for Shift collection
 type ScheduleShiftsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Shift collection
-func (r *ScheduleShiftsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Shift, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Shift collection
 func (r *ScheduleShiftsCollectionRequest) Paging(method, path string, obj interface{}) ([]Shift, error) {
@@ -218,8 +202,9 @@ func (r *ScheduleShiftsCollectionRequest) Get() ([]Shift, error) {
 }
 
 // Add performs POST request for Shift collection
-func (r *ScheduleShiftsCollectionRequest) Add(reqObj *Shift) (*Shift, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ScheduleShiftsCollectionRequest) Add(reqObj *Shift) (resObj *Shift, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SwapShiftsChangeRequests returns request builder for SwapShiftsChangeRequestObject collection
@@ -248,12 +233,6 @@ func (b *ScheduleSwapShiftsChangeRequestsCollectionRequestBuilder) ID(id string)
 
 // ScheduleSwapShiftsChangeRequestsCollectionRequest is request for SwapShiftsChangeRequestObject collection
 type ScheduleSwapShiftsChangeRequestsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SwapShiftsChangeRequestObject collection
-func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SwapShiftsChangeRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SwapShiftsChangeRequestObject collection
 func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]SwapShiftsChangeRequestObject, error) {
@@ -305,8 +284,9 @@ func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Get() ([]SwapShiftsC
 }
 
 // Add performs POST request for SwapShiftsChangeRequestObject collection
-func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Add(reqObj *SwapShiftsChangeRequestObject) (*SwapShiftsChangeRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Add(reqObj *SwapShiftsChangeRequestObject) (resObj *SwapShiftsChangeRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TimeOffReasons returns request builder for TimeOffReason collection
@@ -335,12 +315,6 @@ func (b *ScheduleTimeOffReasonsCollectionRequestBuilder) ID(id string) *TimeOffR
 
 // ScheduleTimeOffReasonsCollectionRequest is request for TimeOffReason collection
 type ScheduleTimeOffReasonsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TimeOffReason collection
-func (r *ScheduleTimeOffReasonsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffReason, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TimeOffReason collection
 func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOffReason, error) {
@@ -392,8 +366,9 @@ func (r *ScheduleTimeOffReasonsCollectionRequest) Get() ([]TimeOffReason, error)
 }
 
 // Add performs POST request for TimeOffReason collection
-func (r *ScheduleTimeOffReasonsCollectionRequest) Add(reqObj *TimeOffReason) (*TimeOffReason, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ScheduleTimeOffReasonsCollectionRequest) Add(reqObj *TimeOffReason) (resObj *TimeOffReason, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TimeOffRequests returns request builder for TimeOffRequestObject collection
@@ -422,12 +397,6 @@ func (b *ScheduleTimeOffRequestsCollectionRequestBuilder) ID(id string) *TimeOff
 
 // ScheduleTimeOffRequestsCollectionRequest is request for TimeOffRequestObject collection
 type ScheduleTimeOffRequestsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TimeOffRequestObject collection
-func (r *ScheduleTimeOffRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOffRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TimeOffRequestObject collection
 func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOffRequestObject, error) {
@@ -479,8 +448,9 @@ func (r *ScheduleTimeOffRequestsCollectionRequest) Get() ([]TimeOffRequestObject
 }
 
 // Add performs POST request for TimeOffRequestObject collection
-func (r *ScheduleTimeOffRequestsCollectionRequest) Add(reqObj *TimeOffRequestObject) (*TimeOffRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ScheduleTimeOffRequestsCollectionRequest) Add(reqObj *TimeOffRequestObject) (resObj *TimeOffRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TimesOff returns request builder for TimeOff collection
@@ -509,12 +479,6 @@ func (b *ScheduleTimesOffCollectionRequestBuilder) ID(id string) *TimeOffRequest
 
 // ScheduleTimesOffCollectionRequest is request for TimeOff collection
 type ScheduleTimesOffCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TimeOff collection
-func (r *ScheduleTimesOffCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TimeOff, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TimeOff collection
 func (r *ScheduleTimesOffCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOff, error) {
@@ -566,6 +530,7 @@ func (r *ScheduleTimesOffCollectionRequest) Get() ([]TimeOff, error) {
 }
 
 // Add performs POST request for TimeOff collection
-func (r *ScheduleTimesOffCollectionRequest) Add(reqObj *TimeOff) (*TimeOff, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ScheduleTimesOffCollectionRequest) Add(reqObj *TimeOff) (resObj *TimeOff, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -34,13 +34,8 @@ func (b *AndroidForWorkEnrollmentProfileRevokeTokenRequestBuilder) Request() *An
 }
 
 //
-func (r *AndroidForWorkEnrollmentProfileRevokeTokenRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidForWorkEnrollmentProfileRevokeTokenRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -65,11 +60,6 @@ func (b *AndroidForWorkEnrollmentProfileCreateTokenRequestBuilder) Request() *An
 }
 
 //
-func (r *AndroidForWorkEnrollmentProfileCreateTokenRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidForWorkEnrollmentProfileCreateTokenRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

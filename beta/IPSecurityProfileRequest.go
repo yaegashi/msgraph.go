@@ -15,24 +15,19 @@ func (b *IPSecurityProfileRequestBuilder) Request() *IPSecurityProfileRequest {
 // IPSecurityProfileRequest is request for IPSecurityProfile
 type IPSecurityProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IPSecurityProfile
-func (r *IPSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *IPSecurityProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IPSecurityProfile
-func (r *IPSecurityProfileRequest) Get() (*IPSecurityProfile, error) {
+func (r *IPSecurityProfileRequest) Get() (resObj *IPSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IPSecurityProfile
-func (r *IPSecurityProfileRequest) Update(reqObj *IPSecurityProfile) (*IPSecurityProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IPSecurityProfileRequest) Update(reqObj *IPSecurityProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IPSecurityProfile

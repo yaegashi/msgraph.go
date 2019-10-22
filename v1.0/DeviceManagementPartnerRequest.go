@@ -15,24 +15,19 @@ func (b *DeviceManagementPartnerRequestBuilder) Request() *DeviceManagementPartn
 // DeviceManagementPartnerRequest is request for DeviceManagementPartner
 type DeviceManagementPartnerRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementPartner
-func (r *DeviceManagementPartnerRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementPartner, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementPartner
-func (r *DeviceManagementPartnerRequest) Get() (*DeviceManagementPartner, error) {
+func (r *DeviceManagementPartnerRequest) Get() (resObj *DeviceManagementPartner, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementPartner
-func (r *DeviceManagementPartnerRequest) Update(reqObj *DeviceManagementPartner) (*DeviceManagementPartner, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementPartnerRequest) Update(reqObj *DeviceManagementPartner) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementPartner

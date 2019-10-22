@@ -15,24 +15,19 @@ func (b *SecurityBaselineDeviceStateRequestBuilder) Request() *SecurityBaselineD
 // SecurityBaselineDeviceStateRequest is request for SecurityBaselineDeviceState
 type SecurityBaselineDeviceStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecurityBaselineDeviceState
-func (r *SecurityBaselineDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecurityBaselineDeviceState
-func (r *SecurityBaselineDeviceStateRequest) Get() (*SecurityBaselineDeviceState, error) {
+func (r *SecurityBaselineDeviceStateRequest) Get() (resObj *SecurityBaselineDeviceState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecurityBaselineDeviceState
-func (r *SecurityBaselineDeviceStateRequest) Update(reqObj *SecurityBaselineDeviceState) (*SecurityBaselineDeviceState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityBaselineDeviceStateRequest) Update(reqObj *SecurityBaselineDeviceState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineDeviceState

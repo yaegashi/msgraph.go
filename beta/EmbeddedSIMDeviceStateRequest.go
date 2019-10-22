@@ -15,24 +15,19 @@ func (b *EmbeddedSIMDeviceStateRequestBuilder) Request() *EmbeddedSIMDeviceState
 // EmbeddedSIMDeviceStateRequest is request for EmbeddedSIMDeviceState
 type EmbeddedSIMDeviceStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EmbeddedSIMDeviceState
-func (r *EmbeddedSIMDeviceStateRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EmbeddedSIMDeviceState
-func (r *EmbeddedSIMDeviceStateRequest) Get() (*EmbeddedSIMDeviceState, error) {
+func (r *EmbeddedSIMDeviceStateRequest) Get() (resObj *EmbeddedSIMDeviceState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EmbeddedSIMDeviceState
-func (r *EmbeddedSIMDeviceStateRequest) Update(reqObj *EmbeddedSIMDeviceState) (*EmbeddedSIMDeviceState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EmbeddedSIMDeviceStateRequest) Update(reqObj *EmbeddedSIMDeviceState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EmbeddedSIMDeviceState

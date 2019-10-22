@@ -15,24 +15,19 @@ func (b *WindowsAutopilotDeviceIdentityRequestBuilder) Request() *WindowsAutopil
 // WindowsAutopilotDeviceIdentityRequest is request for WindowsAutopilotDeviceIdentity
 type WindowsAutopilotDeviceIdentityRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsAutopilotDeviceIdentity
-func (r *WindowsAutopilotDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsAutopilotDeviceIdentity
-func (r *WindowsAutopilotDeviceIdentityRequest) Get() (*WindowsAutopilotDeviceIdentity, error) {
+func (r *WindowsAutopilotDeviceIdentityRequest) Get() (resObj *WindowsAutopilotDeviceIdentity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsAutopilotDeviceIdentity
-func (r *WindowsAutopilotDeviceIdentityRequest) Update(reqObj *WindowsAutopilotDeviceIdentity) (*WindowsAutopilotDeviceIdentity, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsAutopilotDeviceIdentityRequest) Update(reqObj *WindowsAutopilotDeviceIdentity) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsAutopilotDeviceIdentity

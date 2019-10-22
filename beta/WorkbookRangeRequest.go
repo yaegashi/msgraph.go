@@ -15,24 +15,19 @@ func (b *WorkbookRangeRequestBuilder) Request() *WorkbookRangeRequest {
 // WorkbookRangeRequest is request for WorkbookRange
 type WorkbookRangeRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookRange
-func (r *WorkbookRangeRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRange, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookRange
-func (r *WorkbookRangeRequest) Get() (*WorkbookRange, error) {
+func (r *WorkbookRangeRequest) Get() (resObj *WorkbookRange, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookRange
-func (r *WorkbookRangeRequest) Update(reqObj *WorkbookRange) (*WorkbookRange, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookRangeRequest) Update(reqObj *WorkbookRange) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookRange

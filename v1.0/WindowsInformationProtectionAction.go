@@ -30,11 +30,6 @@ func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInf
 }
 
 //
-func (r *WindowsInformationProtectionAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsInformationProtectionAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

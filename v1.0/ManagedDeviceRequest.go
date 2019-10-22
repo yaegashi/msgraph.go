@@ -23,24 +23,19 @@ func (b *ManagedDeviceRequestBuilder) Request() *ManagedDeviceRequest {
 // ManagedDeviceRequest is request for ManagedDevice
 type ManagedDeviceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedDevice
-func (r *ManagedDeviceRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDevice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedDevice
-func (r *ManagedDeviceRequest) Get() (*ManagedDevice, error) {
+func (r *ManagedDeviceRequest) Get() (resObj *ManagedDevice, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedDevice
-func (r *ManagedDeviceRequest) Update(reqObj *ManagedDevice) (*ManagedDevice, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedDeviceRequest) Update(reqObj *ManagedDevice) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDevice
@@ -81,12 +76,6 @@ func (b *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequestBuilder) ID(i
 
 // ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest is request for DeviceCompliancePolicyState collection
 type ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceCompliancePolicyState collection
-func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceCompliancePolicyState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceCompliancePolicyState collection
 func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCompliancePolicyState, error) {
@@ -138,8 +127,9 @@ func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Get() ([]De
 }
 
 // Add performs POST request for DeviceCompliancePolicyState collection
-func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Add(reqObj *DeviceCompliancePolicyState) (*DeviceCompliancePolicyState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedDeviceDeviceCompliancePolicyStatesCollectionRequest) Add(reqObj *DeviceCompliancePolicyState) (resObj *DeviceCompliancePolicyState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceConfigurationStates returns request builder for DeviceConfigurationState collection
@@ -168,12 +158,6 @@ func (b *ManagedDeviceDeviceConfigurationStatesCollectionRequestBuilder) ID(id s
 
 // ManagedDeviceDeviceConfigurationStatesCollectionRequest is request for DeviceConfigurationState collection
 type ManagedDeviceDeviceConfigurationStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceConfigurationState collection
-func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceConfigurationState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceConfigurationState collection
 func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfigurationState, error) {
@@ -225,6 +209,7 @@ func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Get() ([]Devic
 }
 
 // Add performs POST request for DeviceConfigurationState collection
-func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Add(reqObj *DeviceConfigurationState) (*DeviceConfigurationState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Add(reqObj *DeviceConfigurationState) (resObj *DeviceConfigurationState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -34,12 +34,7 @@ func (b *SynchronizationSchemaParseExpressionRequestBuilder) Request() *Synchron
 }
 
 //
-func (r *SynchronizationSchemaParseExpressionRequest) Do(method, path string, reqObj interface{}) (resObj *ParseExpressionResponse, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *SynchronizationSchemaParseExpressionRequest) Post() (resObj *ParseExpressionResponse, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *SynchronizationSchemaParseExpressionRequest) Post() (*ParseExpressionResponse, error) {
-	return r.Do("POST", "", r.requestObject)
 }

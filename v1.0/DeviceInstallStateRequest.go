@@ -15,24 +15,19 @@ func (b *DeviceInstallStateRequestBuilder) Request() *DeviceInstallStateRequest 
 // DeviceInstallStateRequest is request for DeviceInstallState
 type DeviceInstallStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceInstallState
-func (r *DeviceInstallStateRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceInstallState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceInstallState
-func (r *DeviceInstallStateRequest) Get() (*DeviceInstallState, error) {
+func (r *DeviceInstallStateRequest) Get() (resObj *DeviceInstallState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceInstallState
-func (r *DeviceInstallStateRequest) Update(reqObj *DeviceInstallState) (*DeviceInstallState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceInstallStateRequest) Update(reqObj *DeviceInstallState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceInstallState

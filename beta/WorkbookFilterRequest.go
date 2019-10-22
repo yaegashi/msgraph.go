@@ -15,24 +15,19 @@ func (b *WorkbookFilterRequestBuilder) Request() *WorkbookFilterRequest {
 // WorkbookFilterRequest is request for WorkbookFilter
 type WorkbookFilterRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookFilter
-func (r *WorkbookFilterRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookFilter, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookFilter
-func (r *WorkbookFilterRequest) Get() (*WorkbookFilter, error) {
+func (r *WorkbookFilterRequest) Get() (resObj *WorkbookFilter, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookFilter
-func (r *WorkbookFilterRequest) Update(reqObj *WorkbookFilter) (*WorkbookFilter, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookFilterRequest) Update(reqObj *WorkbookFilter) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookFilter

@@ -23,24 +23,19 @@ func (b *SecurityBaselineStateRequestBuilder) Request() *SecurityBaselineStateRe
 // SecurityBaselineStateRequest is request for SecurityBaselineState
 type SecurityBaselineStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecurityBaselineState
-func (r *SecurityBaselineStateRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecurityBaselineState
-func (r *SecurityBaselineStateRequest) Get() (*SecurityBaselineState, error) {
+func (r *SecurityBaselineStateRequest) Get() (resObj *SecurityBaselineState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecurityBaselineState
-func (r *SecurityBaselineStateRequest) Update(reqObj *SecurityBaselineState) (*SecurityBaselineState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityBaselineStateRequest) Update(reqObj *SecurityBaselineState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineState
@@ -74,12 +69,6 @@ func (b *SecurityBaselineStateSettingStatesCollectionRequestBuilder) ID(id strin
 
 // SecurityBaselineStateSettingStatesCollectionRequest is request for SecurityBaselineSettingState collection
 type SecurityBaselineStateSettingStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SecurityBaselineSettingState collection
-func (r *SecurityBaselineStateSettingStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineSettingState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SecurityBaselineSettingState collection
 func (r *SecurityBaselineStateSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineSettingState, error) {
@@ -131,6 +120,7 @@ func (r *SecurityBaselineStateSettingStatesCollectionRequest) Get() ([]SecurityB
 }
 
 // Add performs POST request for SecurityBaselineSettingState collection
-func (r *SecurityBaselineStateSettingStatesCollectionRequest) Add(reqObj *SecurityBaselineSettingState) (*SecurityBaselineSettingState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SecurityBaselineStateSettingStatesCollectionRequest) Add(reqObj *SecurityBaselineSettingState) (resObj *SecurityBaselineSettingState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *WindowsAutopilotSettingsRequestBuilder) Request() *WindowsAutopilotSett
 // WindowsAutopilotSettingsRequest is request for WindowsAutopilotSettings
 type WindowsAutopilotSettingsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsAutopilotSettings
-func (r *WindowsAutopilotSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsAutopilotSettings, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsAutopilotSettings
-func (r *WindowsAutopilotSettingsRequest) Get() (*WindowsAutopilotSettings, error) {
+func (r *WindowsAutopilotSettingsRequest) Get() (resObj *WindowsAutopilotSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsAutopilotSettings
-func (r *WindowsAutopilotSettingsRequest) Update(reqObj *WindowsAutopilotSettings) (*WindowsAutopilotSettings, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsAutopilotSettingsRequest) Update(reqObj *WindowsAutopilotSettings) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsAutopilotSettings

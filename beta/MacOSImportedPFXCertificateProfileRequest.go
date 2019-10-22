@@ -23,24 +23,19 @@ func (b *MacOSImportedPFXCertificateProfileRequestBuilder) Request() *MacOSImpor
 // MacOSImportedPFXCertificateProfileRequest is request for MacOSImportedPFXCertificateProfile
 type MacOSImportedPFXCertificateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MacOSImportedPFXCertificateProfile
-func (r *MacOSImportedPFXCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *MacOSImportedPFXCertificateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MacOSImportedPFXCertificateProfile
-func (r *MacOSImportedPFXCertificateProfileRequest) Get() (*MacOSImportedPFXCertificateProfile, error) {
+func (r *MacOSImportedPFXCertificateProfileRequest) Get() (resObj *MacOSImportedPFXCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MacOSImportedPFXCertificateProfile
-func (r *MacOSImportedPFXCertificateProfileRequest) Update(reqObj *MacOSImportedPFXCertificateProfile) (*MacOSImportedPFXCertificateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MacOSImportedPFXCertificateProfileRequest) Update(reqObj *MacOSImportedPFXCertificateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSImportedPFXCertificateProfile
@@ -74,12 +69,6 @@ func (b *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 
 // MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
 type MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
@@ -131,6 +120,7 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (*ManagedDeviceCertificateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

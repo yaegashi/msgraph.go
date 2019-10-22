@@ -15,24 +15,19 @@ func (b *CompanyInformationRequestBuilder) Request() *CompanyInformationRequest 
 // CompanyInformationRequest is request for CompanyInformation
 type CompanyInformationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for CompanyInformation
-func (r *CompanyInformationRequest) Do(method, path string, reqObj interface{}) (resObj *CompanyInformation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for CompanyInformation
-func (r *CompanyInformationRequest) Get() (*CompanyInformation, error) {
+func (r *CompanyInformationRequest) Get() (resObj *CompanyInformation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for CompanyInformation
-func (r *CompanyInformationRequest) Update(reqObj *CompanyInformation) (*CompanyInformation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *CompanyInformationRequest) Update(reqObj *CompanyInformation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CompanyInformation

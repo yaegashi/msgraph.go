@@ -15,24 +15,19 @@ func (b *MacOSCertificateProfileBaseRequestBuilder) Request() *MacOSCertificateP
 // MacOSCertificateProfileBaseRequest is request for MacOSCertificateProfileBase
 type MacOSCertificateProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MacOSCertificateProfileBase
-func (r *MacOSCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *MacOSCertificateProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MacOSCertificateProfileBase
-func (r *MacOSCertificateProfileBaseRequest) Get() (*MacOSCertificateProfileBase, error) {
+func (r *MacOSCertificateProfileBaseRequest) Get() (resObj *MacOSCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MacOSCertificateProfileBase
-func (r *MacOSCertificateProfileBaseRequest) Update(reqObj *MacOSCertificateProfileBase) (*MacOSCertificateProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MacOSCertificateProfileBaseRequest) Update(reqObj *MacOSCertificateProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSCertificateProfileBase

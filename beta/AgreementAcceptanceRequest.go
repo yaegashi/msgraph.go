@@ -15,24 +15,19 @@ func (b *AgreementAcceptanceRequestBuilder) Request() *AgreementAcceptanceReques
 // AgreementAcceptanceRequest is request for AgreementAcceptance
 type AgreementAcceptanceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AgreementAcceptance
-func (r *AgreementAcceptanceRequest) Do(method, path string, reqObj interface{}) (resObj *AgreementAcceptance, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AgreementAcceptance
-func (r *AgreementAcceptanceRequest) Get() (*AgreementAcceptance, error) {
+func (r *AgreementAcceptanceRequest) Get() (resObj *AgreementAcceptance, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AgreementAcceptance
-func (r *AgreementAcceptanceRequest) Update(reqObj *AgreementAcceptance) (*AgreementAcceptance, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AgreementAcceptanceRequest) Update(reqObj *AgreementAcceptance) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AgreementAcceptance

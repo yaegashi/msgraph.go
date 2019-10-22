@@ -15,24 +15,19 @@ func (b *ScheduleChangeRequestObjectRequestBuilder) Request() *ScheduleChangeReq
 // ScheduleChangeRequestObjectRequest is request for ScheduleChangeRequestObject
 type ScheduleChangeRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ScheduleChangeRequestObject
-func (r *ScheduleChangeRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *ScheduleChangeRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ScheduleChangeRequestObject
-func (r *ScheduleChangeRequestObjectRequest) Get() (*ScheduleChangeRequestObject, error) {
+func (r *ScheduleChangeRequestObjectRequest) Get() (resObj *ScheduleChangeRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ScheduleChangeRequestObject
-func (r *ScheduleChangeRequestObjectRequest) Update(reqObj *ScheduleChangeRequestObject) (*ScheduleChangeRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ScheduleChangeRequestObjectRequest) Update(reqObj *ScheduleChangeRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ScheduleChangeRequestObject

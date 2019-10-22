@@ -15,24 +15,19 @@ func (b *ActivityHistoryItemRequestBuilder) Request() *ActivityHistoryItemReques
 // ActivityHistoryItemRequest is request for ActivityHistoryItem
 type ActivityHistoryItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ActivityHistoryItem
-func (r *ActivityHistoryItemRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityHistoryItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ActivityHistoryItem
-func (r *ActivityHistoryItemRequest) Get() (*ActivityHistoryItem, error) {
+func (r *ActivityHistoryItemRequest) Get() (resObj *ActivityHistoryItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ActivityHistoryItem
-func (r *ActivityHistoryItemRequest) Update(reqObj *ActivityHistoryItem) (*ActivityHistoryItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ActivityHistoryItemRequest) Update(reqObj *ActivityHistoryItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ActivityHistoryItem

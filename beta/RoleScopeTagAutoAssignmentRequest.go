@@ -15,24 +15,19 @@ func (b *RoleScopeTagAutoAssignmentRequestBuilder) Request() *RoleScopeTagAutoAs
 // RoleScopeTagAutoAssignmentRequest is request for RoleScopeTagAutoAssignment
 type RoleScopeTagAutoAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RoleScopeTagAutoAssignment
-func (r *RoleScopeTagAutoAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *RoleScopeTagAutoAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RoleScopeTagAutoAssignment
-func (r *RoleScopeTagAutoAssignmentRequest) Get() (*RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAutoAssignmentRequest) Get() (resObj *RoleScopeTagAutoAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RoleScopeTagAutoAssignment
-func (r *RoleScopeTagAutoAssignmentRequest) Update(reqObj *RoleScopeTagAutoAssignment) (*RoleScopeTagAutoAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoleScopeTagAutoAssignmentRequest) Update(reqObj *RoleScopeTagAutoAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleScopeTagAutoAssignment

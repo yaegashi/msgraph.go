@@ -38,13 +38,8 @@ func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
 }
 
 //
-func (r *PostReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *PostReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -69,11 +64,6 @@ func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
 }
 
 //
-func (r *PostForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *PostForwardRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

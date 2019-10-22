@@ -23,24 +23,19 @@ func (b *PurchaseInvoiceRequestBuilder) Request() *PurchaseInvoiceRequest {
 // PurchaseInvoiceRequest is request for PurchaseInvoice
 type PurchaseInvoiceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PurchaseInvoice
-func (r *PurchaseInvoiceRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PurchaseInvoice
-func (r *PurchaseInvoiceRequest) Get() (*PurchaseInvoice, error) {
+func (r *PurchaseInvoiceRequest) Get() (resObj *PurchaseInvoice, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PurchaseInvoice
-func (r *PurchaseInvoiceRequest) Update(reqObj *PurchaseInvoice) (*PurchaseInvoice, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PurchaseInvoiceRequest) Update(reqObj *PurchaseInvoice) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PurchaseInvoice
@@ -81,12 +76,6 @@ func (b *PurchaseInvoicePurchaseInvoiceLinesCollectionRequestBuilder) ID(id stri
 
 // PurchaseInvoicePurchaseInvoiceLinesCollectionRequest is request for PurchaseInvoiceLine collection
 type PurchaseInvoicePurchaseInvoiceLinesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PurchaseInvoiceLine collection
-func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoiceLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PurchaseInvoiceLine collection
 func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoiceLine, error) {
@@ -138,8 +127,9 @@ func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Get() ([]Purchase
 }
 
 // Add performs POST request for PurchaseInvoiceLine collection
-func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Add(reqObj *PurchaseInvoiceLine) (*PurchaseInvoiceLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PurchaseInvoicePurchaseInvoiceLinesCollectionRequest) Add(reqObj *PurchaseInvoiceLine) (resObj *PurchaseInvoiceLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Vendor is navigation property

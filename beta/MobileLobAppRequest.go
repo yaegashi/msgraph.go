@@ -23,24 +23,19 @@ func (b *MobileLobAppRequestBuilder) Request() *MobileLobAppRequest {
 // MobileLobAppRequest is request for MobileLobApp
 type MobileLobAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileLobApp
-func (r *MobileLobAppRequest) Do(method, path string, reqObj interface{}) (resObj *MobileLobApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileLobApp
-func (r *MobileLobAppRequest) Get() (*MobileLobApp, error) {
+func (r *MobileLobAppRequest) Get() (resObj *MobileLobApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileLobApp
-func (r *MobileLobAppRequest) Update(reqObj *MobileLobApp) (*MobileLobApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileLobAppRequest) Update(reqObj *MobileLobApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileLobApp
@@ -74,12 +69,6 @@ func (b *MobileLobAppContentVersionsCollectionRequestBuilder) ID(id string) *Mob
 
 // MobileLobAppContentVersionsCollectionRequest is request for MobileAppContent collection
 type MobileLobAppContentVersionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppContent collection
 func (r *MobileLobAppContentVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppContent, error) {
@@ -131,6 +120,7 @@ func (r *MobileLobAppContentVersionsCollectionRequest) Get() ([]MobileAppContent
 }
 
 // Add performs POST request for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Add(reqObj *MobileAppContent) (*MobileAppContent, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileLobAppContentVersionsCollectionRequest) Add(reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

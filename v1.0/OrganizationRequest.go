@@ -23,24 +23,19 @@ func (b *OrganizationRequestBuilder) Request() *OrganizationRequest {
 // OrganizationRequest is request for Organization
 type OrganizationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Organization
-func (r *OrganizationRequest) Do(method, path string, reqObj interface{}) (resObj *Organization, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Organization
-func (r *OrganizationRequest) Get() (*Organization, error) {
+func (r *OrganizationRequest) Get() (resObj *Organization, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Organization
-func (r *OrganizationRequest) Update(reqObj *Organization) (*Organization, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OrganizationRequest) Update(reqObj *Organization) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Organization
@@ -74,12 +69,6 @@ func (b *OrganizationCertificateBasedAuthConfigurationCollectionRequestBuilder) 
 
 // OrganizationCertificateBasedAuthConfigurationCollectionRequest is request for CertificateBasedAuthConfiguration collection
 type OrganizationCertificateBasedAuthConfigurationCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for CertificateBasedAuthConfiguration collection
-func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *CertificateBasedAuthConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for CertificateBasedAuthConfiguration collection
 func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Paging(method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
@@ -131,8 +120,9 @@ func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Get() (
 }
 
 // Add performs POST request for CertificateBasedAuthConfiguration collection
-func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Add(reqObj *CertificateBasedAuthConfiguration) (*CertificateBasedAuthConfiguration, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Add(reqObj *CertificateBasedAuthConfiguration) (resObj *CertificateBasedAuthConfiguration, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Extensions returns request builder for Extension collection
@@ -161,12 +151,6 @@ func (b *OrganizationExtensionsCollectionRequestBuilder) ID(id string) *Extensio
 
 // OrganizationExtensionsCollectionRequest is request for Extension collection
 type OrganizationExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Extension collection
-func (r *OrganizationExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Extension collection
 func (r *OrganizationExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
@@ -218,6 +202,7 @@ func (r *OrganizationExtensionsCollectionRequest) Get() ([]Extension, error) {
 }
 
 // Add performs POST request for Extension collection
-func (r *OrganizationExtensionsCollectionRequest) Add(reqObj *Extension) (*Extension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OrganizationExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

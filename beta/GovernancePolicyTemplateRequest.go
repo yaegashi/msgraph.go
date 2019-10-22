@@ -15,24 +15,19 @@ func (b *GovernancePolicyTemplateRequestBuilder) Request() *GovernancePolicyTemp
 // GovernancePolicyTemplateRequest is request for GovernancePolicyTemplate
 type GovernancePolicyTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GovernancePolicyTemplate
-func (r *GovernancePolicyTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *GovernancePolicyTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GovernancePolicyTemplate
-func (r *GovernancePolicyTemplateRequest) Get() (*GovernancePolicyTemplate, error) {
+func (r *GovernancePolicyTemplateRequest) Get() (resObj *GovernancePolicyTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GovernancePolicyTemplate
-func (r *GovernancePolicyTemplateRequest) Update(reqObj *GovernancePolicyTemplate) (*GovernancePolicyTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GovernancePolicyTemplateRequest) Update(reqObj *GovernancePolicyTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernancePolicyTemplate

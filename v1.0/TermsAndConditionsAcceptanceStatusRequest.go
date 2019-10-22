@@ -15,24 +15,19 @@ func (b *TermsAndConditionsAcceptanceStatusRequestBuilder) Request() *TermsAndCo
 // TermsAndConditionsAcceptanceStatusRequest is request for TermsAndConditionsAcceptanceStatus
 type TermsAndConditionsAcceptanceStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TermsAndConditionsAcceptanceStatus
-func (r *TermsAndConditionsAcceptanceStatusRequest) Do(method, path string, reqObj interface{}) (resObj *TermsAndConditionsAcceptanceStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TermsAndConditionsAcceptanceStatus
-func (r *TermsAndConditionsAcceptanceStatusRequest) Get() (*TermsAndConditionsAcceptanceStatus, error) {
+func (r *TermsAndConditionsAcceptanceStatusRequest) Get() (resObj *TermsAndConditionsAcceptanceStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TermsAndConditionsAcceptanceStatus
-func (r *TermsAndConditionsAcceptanceStatusRequest) Update(reqObj *TermsAndConditionsAcceptanceStatus) (*TermsAndConditionsAcceptanceStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TermsAndConditionsAcceptanceStatusRequest) Update(reqObj *TermsAndConditionsAcceptanceStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TermsAndConditionsAcceptanceStatus

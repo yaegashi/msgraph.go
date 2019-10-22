@@ -23,24 +23,19 @@ func (b *FeatureRolloutPolicyRequestBuilder) Request() *FeatureRolloutPolicyRequ
 // FeatureRolloutPolicyRequest is request for FeatureRolloutPolicy
 type FeatureRolloutPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for FeatureRolloutPolicy
-func (r *FeatureRolloutPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *FeatureRolloutPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for FeatureRolloutPolicy
-func (r *FeatureRolloutPolicyRequest) Get() (*FeatureRolloutPolicy, error) {
+func (r *FeatureRolloutPolicyRequest) Get() (resObj *FeatureRolloutPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for FeatureRolloutPolicy
-func (r *FeatureRolloutPolicyRequest) Update(reqObj *FeatureRolloutPolicy) (*FeatureRolloutPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *FeatureRolloutPolicyRequest) Update(reqObj *FeatureRolloutPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FeatureRolloutPolicy
@@ -74,12 +69,6 @@ func (b *FeatureRolloutPolicyAppliesToCollectionRequestBuilder) ID(id string) *D
 
 // FeatureRolloutPolicyAppliesToCollectionRequest is request for DirectoryObject collection
 type FeatureRolloutPolicyAppliesToCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,6 +120,7 @@ func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Get() ([]DirectoryObjec
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -23,24 +23,19 @@ func (b *UserAppInstallStatusRequestBuilder) Request() *UserAppInstallStatusRequ
 // UserAppInstallStatusRequest is request for UserAppInstallStatus
 type UserAppInstallStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserAppInstallStatus
-func (r *UserAppInstallStatusRequest) Do(method, path string, reqObj interface{}) (resObj *UserAppInstallStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserAppInstallStatus
-func (r *UserAppInstallStatusRequest) Get() (*UserAppInstallStatus, error) {
+func (r *UserAppInstallStatusRequest) Get() (resObj *UserAppInstallStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserAppInstallStatus
-func (r *UserAppInstallStatusRequest) Update(reqObj *UserAppInstallStatus) (*UserAppInstallStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserAppInstallStatusRequest) Update(reqObj *UserAppInstallStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserAppInstallStatus
@@ -81,12 +76,6 @@ func (b *UserAppInstallStatusDeviceStatusesCollectionRequestBuilder) ID(id strin
 
 // UserAppInstallStatusDeviceStatusesCollectionRequest is request for MobileAppInstallStatus collection
 type UserAppInstallStatusDeviceStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppInstallStatus collection
-func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppInstallStatus collection
 func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppInstallStatus, error) {
@@ -138,6 +127,7 @@ func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Get() ([]MobileApp
 }
 
 // Add performs POST request for MobileAppInstallStatus collection
-func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Add(reqObj *MobileAppInstallStatus) (*MobileAppInstallStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Add(reqObj *MobileAppInstallStatus) (resObj *MobileAppInstallStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

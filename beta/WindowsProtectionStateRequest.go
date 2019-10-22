@@ -23,24 +23,19 @@ func (b *WindowsProtectionStateRequestBuilder) Request() *WindowsProtectionState
 // WindowsProtectionStateRequest is request for WindowsProtectionState
 type WindowsProtectionStateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsProtectionState
-func (r *WindowsProtectionStateRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsProtectionState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsProtectionState
-func (r *WindowsProtectionStateRequest) Get() (*WindowsProtectionState, error) {
+func (r *WindowsProtectionStateRequest) Get() (resObj *WindowsProtectionState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsProtectionState
-func (r *WindowsProtectionStateRequest) Update(reqObj *WindowsProtectionState) (*WindowsProtectionState, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsProtectionStateRequest) Update(reqObj *WindowsProtectionState) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsProtectionState
@@ -74,12 +69,6 @@ func (b *WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder) ID(
 
 // WindowsProtectionStateDetectedMalwareStateCollectionRequest is request for WindowsDeviceMalwareState collection
 type WindowsProtectionStateDetectedMalwareStateCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsDeviceMalwareState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WindowsDeviceMalwareState collection
 func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsDeviceMalwareState, error) {
@@ -131,6 +120,7 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Get() ([]W
 }
 
 // Add performs POST request for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Add(reqObj *WindowsDeviceMalwareState) (*WindowsDeviceMalwareState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Add(reqObj *WindowsDeviceMalwareState) (resObj *WindowsDeviceMalwareState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

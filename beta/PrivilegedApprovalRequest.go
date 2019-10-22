@@ -15,24 +15,19 @@ func (b *PrivilegedApprovalRequestBuilder) Request() *PrivilegedApprovalRequest 
 // PrivilegedApprovalRequest is request for PrivilegedApproval
 type PrivilegedApprovalRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PrivilegedApproval
-func (r *PrivilegedApprovalRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedApproval, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PrivilegedApproval
-func (r *PrivilegedApprovalRequest) Get() (*PrivilegedApproval, error) {
+func (r *PrivilegedApprovalRequest) Get() (resObj *PrivilegedApproval, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PrivilegedApproval
-func (r *PrivilegedApprovalRequest) Update(reqObj *PrivilegedApproval) (*PrivilegedApproval, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PrivilegedApprovalRequest) Update(reqObj *PrivilegedApproval) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedApproval

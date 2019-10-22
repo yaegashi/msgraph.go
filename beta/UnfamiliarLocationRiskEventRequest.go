@@ -15,24 +15,19 @@ func (b *UnfamiliarLocationRiskEventRequestBuilder) Request() *UnfamiliarLocatio
 // UnfamiliarLocationRiskEventRequest is request for UnfamiliarLocationRiskEvent
 type UnfamiliarLocationRiskEventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UnfamiliarLocationRiskEvent
-func (r *UnfamiliarLocationRiskEventRequest) Do(method, path string, reqObj interface{}) (resObj *UnfamiliarLocationRiskEvent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UnfamiliarLocationRiskEvent
-func (r *UnfamiliarLocationRiskEventRequest) Get() (*UnfamiliarLocationRiskEvent, error) {
+func (r *UnfamiliarLocationRiskEventRequest) Get() (resObj *UnfamiliarLocationRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UnfamiliarLocationRiskEvent
-func (r *UnfamiliarLocationRiskEventRequest) Update(reqObj *UnfamiliarLocationRiskEvent) (*UnfamiliarLocationRiskEvent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UnfamiliarLocationRiskEventRequest) Update(reqObj *UnfamiliarLocationRiskEvent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UnfamiliarLocationRiskEvent

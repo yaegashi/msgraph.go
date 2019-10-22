@@ -15,24 +15,19 @@ func (b *AndroidEasEmailProfileConfigurationRequestBuilder) Request() *AndroidEa
 // AndroidEasEmailProfileConfigurationRequest is request for AndroidEasEmailProfileConfiguration
 type AndroidEasEmailProfileConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidEasEmailProfileConfiguration
-func (r *AndroidEasEmailProfileConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidEasEmailProfileConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidEasEmailProfileConfiguration
-func (r *AndroidEasEmailProfileConfigurationRequest) Get() (*AndroidEasEmailProfileConfiguration, error) {
+func (r *AndroidEasEmailProfileConfigurationRequest) Get() (resObj *AndroidEasEmailProfileConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidEasEmailProfileConfiguration
-func (r *AndroidEasEmailProfileConfigurationRequest) Update(reqObj *AndroidEasEmailProfileConfiguration) (*AndroidEasEmailProfileConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidEasEmailProfileConfigurationRequest) Update(reqObj *AndroidEasEmailProfileConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidEasEmailProfileConfiguration

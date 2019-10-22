@@ -15,24 +15,19 @@ func (b *ItemActivityOLDRequestBuilder) Request() *ItemActivityOLDRequest {
 // ItemActivityOLDRequest is request for ItemActivityOLD
 type ItemActivityOLDRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ItemActivityOLD
-func (r *ItemActivityOLDRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityOLD, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ItemActivityOLD
-func (r *ItemActivityOLDRequest) Get() (*ItemActivityOLD, error) {
+func (r *ItemActivityOLDRequest) Get() (resObj *ItemActivityOLD, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ItemActivityOLD
-func (r *ItemActivityOLDRequest) Update(reqObj *ItemActivityOLD) (*ItemActivityOLD, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ItemActivityOLDRequest) Update(reqObj *ItemActivityOLD) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemActivityOLD

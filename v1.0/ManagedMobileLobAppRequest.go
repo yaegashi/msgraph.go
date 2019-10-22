@@ -23,24 +23,19 @@ func (b *ManagedMobileLobAppRequestBuilder) Request() *ManagedMobileLobAppReques
 // ManagedMobileLobAppRequest is request for ManagedMobileLobApp
 type ManagedMobileLobAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedMobileLobApp
-func (r *ManagedMobileLobAppRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileLobApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedMobileLobApp
-func (r *ManagedMobileLobAppRequest) Get() (*ManagedMobileLobApp, error) {
+func (r *ManagedMobileLobAppRequest) Get() (resObj *ManagedMobileLobApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedMobileLobApp
-func (r *ManagedMobileLobAppRequest) Update(reqObj *ManagedMobileLobApp) (*ManagedMobileLobApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedMobileLobAppRequest) Update(reqObj *ManagedMobileLobApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedMobileLobApp
@@ -74,12 +69,6 @@ func (b *ManagedMobileLobAppContentVersionsCollectionRequestBuilder) ID(id strin
 
 // ManagedMobileLobAppContentVersionsCollectionRequest is request for MobileAppContent collection
 type ManagedMobileLobAppContentVersionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppContent collection
-func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppContent collection
 func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppContent, error) {
@@ -131,6 +120,7 @@ func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Get() ([]MobileApp
 }
 
 // Add performs POST request for MobileAppContent collection
-func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Add(reqObj *MobileAppContent) (*MobileAppContent, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Add(reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

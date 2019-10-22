@@ -23,24 +23,19 @@ func (b *GroupPolicyDefinitionValueRequestBuilder) Request() *GroupPolicyDefinit
 // GroupPolicyDefinitionValueRequest is request for GroupPolicyDefinitionValue
 type GroupPolicyDefinitionValueRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GroupPolicyDefinitionValue
-func (r *GroupPolicyDefinitionValueRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinitionValue, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GroupPolicyDefinitionValue
-func (r *GroupPolicyDefinitionValueRequest) Get() (*GroupPolicyDefinitionValue, error) {
+func (r *GroupPolicyDefinitionValueRequest) Get() (resObj *GroupPolicyDefinitionValue, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GroupPolicyDefinitionValue
-func (r *GroupPolicyDefinitionValueRequest) Update(reqObj *GroupPolicyDefinitionValue) (*GroupPolicyDefinitionValue, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GroupPolicyDefinitionValueRequest) Update(reqObj *GroupPolicyDefinitionValue) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyDefinitionValue
@@ -81,12 +76,6 @@ func (b *GroupPolicyDefinitionValuePresentationValuesCollectionRequestBuilder) I
 
 // GroupPolicyDefinitionValuePresentationValuesCollectionRequest is request for GroupPolicyPresentationValue collection
 type GroupPolicyDefinitionValuePresentationValuesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupPolicyPresentationValue collection
-func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyPresentationValue, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupPolicyPresentationValue collection
 func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyPresentationValue, error) {
@@ -138,6 +127,7 @@ func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Get() ([
 }
 
 // Add performs POST request for GroupPolicyPresentationValue collection
-func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Add(reqObj *GroupPolicyPresentationValue) (*GroupPolicyPresentationValue, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Add(reqObj *GroupPolicyPresentationValue) (resObj *GroupPolicyPresentationValue, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

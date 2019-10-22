@@ -92,14 +92,9 @@ func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest 
 }
 
 //
-func (r *MessageCreateReplyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MessageCreateReplyRequest) Post() (resObj *Message, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MessageCreateReplyRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -124,14 +119,9 @@ func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRe
 }
 
 //
-func (r *MessageCreateReplyAllRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MessageCreateReplyAllRequest) Post() (resObj *Message, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MessageCreateReplyAllRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -156,14 +146,9 @@ func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequ
 }
 
 //
-func (r *MessageCreateForwardRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MessageCreateForwardRequest) Post() (resObj *Message, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MessageCreateForwardRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -188,13 +173,8 @@ func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
 }
 
 //
-func (r *MessageSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *MessageSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -219,14 +199,9 @@ func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
 }
 
 //
-func (r *MessageCopyRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MessageCopyRequest) Post() (resObj *Message, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MessageCopyRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -251,14 +226,9 @@ func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
 }
 
 //
-func (r *MessageMoveRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *MessageMoveRequest) Post() (resObj *Message, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *MessageMoveRequest) Post() (*Message, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -283,13 +253,8 @@ func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
 }
 
 //
-func (r *MessageReplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *MessageReplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -314,13 +279,8 @@ func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
 }
 
 //
-func (r *MessageReplyAllRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *MessageReplyAllRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -345,11 +305,6 @@ func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
 }
 
 //
-func (r *MessageForwardRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *MessageForwardRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

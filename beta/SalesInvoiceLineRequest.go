@@ -15,24 +15,19 @@ func (b *SalesInvoiceLineRequestBuilder) Request() *SalesInvoiceLineRequest {
 // SalesInvoiceLineRequest is request for SalesInvoiceLine
 type SalesInvoiceLineRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesInvoiceLine
-func (r *SalesInvoiceLineRequest) Do(method, path string, reqObj interface{}) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesInvoiceLine
-func (r *SalesInvoiceLineRequest) Get() (*SalesInvoiceLine, error) {
+func (r *SalesInvoiceLineRequest) Get() (resObj *SalesInvoiceLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesInvoiceLine
-func (r *SalesInvoiceLineRequest) Update(reqObj *SalesInvoiceLine) (*SalesInvoiceLine, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesInvoiceLineRequest) Update(reqObj *SalesInvoiceLine) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesInvoiceLine

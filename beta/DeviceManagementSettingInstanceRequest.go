@@ -15,24 +15,19 @@ func (b *DeviceManagementSettingInstanceRequestBuilder) Request() *DeviceManagem
 // DeviceManagementSettingInstanceRequest is request for DeviceManagementSettingInstance
 type DeviceManagementSettingInstanceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementSettingInstance
-func (r *DeviceManagementSettingInstanceRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementSettingInstance
-func (r *DeviceManagementSettingInstanceRequest) Get() (*DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementSettingInstanceRequest) Get() (resObj *DeviceManagementSettingInstance, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementSettingInstance
-func (r *DeviceManagementSettingInstanceRequest) Update(reqObj *DeviceManagementSettingInstance) (*DeviceManagementSettingInstance, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementSettingInstanceRequest) Update(reqObj *DeviceManagementSettingInstance) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementSettingInstance

@@ -44,13 +44,8 @@ func (b *SalesInvoiceCancelAndSendRequestBuilder) Request() *SalesInvoiceCancelA
 }
 
 //
-func (r *SalesInvoiceCancelAndSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesInvoiceCancelAndSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -75,13 +70,8 @@ func (b *SalesInvoiceCancelRequestBuilder) Request() *SalesInvoiceCancelRequest 
 }
 
 //
-func (r *SalesInvoiceCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesInvoiceCancelRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -106,13 +96,8 @@ func (b *SalesInvoicePostAndSendRequestBuilder) Request() *SalesInvoicePostAndSe
 }
 
 //
-func (r *SalesInvoicePostAndSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesInvoicePostAndSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -137,13 +122,8 @@ func (b *SalesInvoicePostRequestBuilder) Request() *SalesInvoicePostRequest {
 }
 
 //
-func (r *SalesInvoicePostRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesInvoicePostRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -168,11 +148,6 @@ func (b *SalesInvoiceSendRequestBuilder) Request() *SalesInvoiceSendRequest {
 }
 
 //
-func (r *SalesInvoiceSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesInvoiceSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

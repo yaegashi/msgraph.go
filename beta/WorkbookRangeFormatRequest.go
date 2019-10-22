@@ -23,24 +23,19 @@ func (b *WorkbookRangeFormatRequestBuilder) Request() *WorkbookRangeFormatReques
 // WorkbookRangeFormatRequest is request for WorkbookRangeFormat
 type WorkbookRangeFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookRangeFormat
-func (r *WorkbookRangeFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookRangeFormat
-func (r *WorkbookRangeFormatRequest) Get() (*WorkbookRangeFormat, error) {
+func (r *WorkbookRangeFormatRequest) Get() (resObj *WorkbookRangeFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookRangeFormat
-func (r *WorkbookRangeFormatRequest) Update(reqObj *WorkbookRangeFormat) (*WorkbookRangeFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookRangeFormatRequest) Update(reqObj *WorkbookRangeFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookRangeFormat
@@ -74,12 +69,6 @@ func (b *WorkbookRangeFormatBordersCollectionRequestBuilder) ID(id string) *Work
 
 // WorkbookRangeFormatBordersCollectionRequest is request for WorkbookRangeBorder collection
 type WorkbookRangeFormatBordersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkbookRangeBorder collection
-func (r *WorkbookRangeFormatBordersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookRangeBorder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkbookRangeBorder collection
 func (r *WorkbookRangeFormatBordersCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookRangeBorder, error) {
@@ -131,8 +120,9 @@ func (r *WorkbookRangeFormatBordersCollectionRequest) Get() ([]WorkbookRangeBord
 }
 
 // Add performs POST request for WorkbookRangeBorder collection
-func (r *WorkbookRangeFormatBordersCollectionRequest) Add(reqObj *WorkbookRangeBorder) (*WorkbookRangeBorder, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookRangeFormatBordersCollectionRequest) Add(reqObj *WorkbookRangeBorder) (resObj *WorkbookRangeBorder, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Fill is navigation property

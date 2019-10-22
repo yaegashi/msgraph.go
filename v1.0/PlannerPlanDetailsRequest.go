@@ -15,24 +15,19 @@ func (b *PlannerPlanDetailsRequestBuilder) Request() *PlannerPlanDetailsRequest 
 // PlannerPlanDetailsRequest is request for PlannerPlanDetails
 type PlannerPlanDetailsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PlannerPlanDetails
-func (r *PlannerPlanDetailsRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerPlanDetails, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PlannerPlanDetails
-func (r *PlannerPlanDetailsRequest) Get() (*PlannerPlanDetails, error) {
+func (r *PlannerPlanDetailsRequest) Get() (resObj *PlannerPlanDetails, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PlannerPlanDetails
-func (r *PlannerPlanDetailsRequest) Update(reqObj *PlannerPlanDetails) (*PlannerPlanDetails, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PlannerPlanDetailsRequest) Update(reqObj *PlannerPlanDetails) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerPlanDetails

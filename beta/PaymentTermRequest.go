@@ -15,24 +15,19 @@ func (b *PaymentTermRequestBuilder) Request() *PaymentTermRequest {
 // PaymentTermRequest is request for PaymentTerm
 type PaymentTermRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PaymentTerm
-func (r *PaymentTermRequest) Do(method, path string, reqObj interface{}) (resObj *PaymentTerm, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PaymentTerm
-func (r *PaymentTermRequest) Get() (*PaymentTerm, error) {
+func (r *PaymentTermRequest) Get() (resObj *PaymentTerm, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PaymentTerm
-func (r *PaymentTermRequest) Update(reqObj *PaymentTerm) (*PaymentTerm, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PaymentTermRequest) Update(reqObj *PaymentTerm) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PaymentTerm

@@ -23,24 +23,19 @@ func (b *PlannerBucketRequestBuilder) Request() *PlannerBucketRequest {
 // PlannerBucketRequest is request for PlannerBucket
 type PlannerBucketRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PlannerBucket
-func (r *PlannerBucketRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerBucket, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PlannerBucket
-func (r *PlannerBucketRequest) Get() (*PlannerBucket, error) {
+func (r *PlannerBucketRequest) Get() (resObj *PlannerBucket, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PlannerBucket
-func (r *PlannerBucketRequest) Update(reqObj *PlannerBucket) (*PlannerBucket, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PlannerBucketRequest) Update(reqObj *PlannerBucket) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerBucket
@@ -74,12 +69,6 @@ func (b *PlannerBucketTasksCollectionRequestBuilder) ID(id string) *PlannerTaskR
 
 // PlannerBucketTasksCollectionRequest is request for PlannerTask collection
 type PlannerBucketTasksCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PlannerTask collection
-func (r *PlannerBucketTasksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerTask, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PlannerTask collection
 func (r *PlannerBucketTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerTask, error) {
@@ -131,6 +120,7 @@ func (r *PlannerBucketTasksCollectionRequest) Get() ([]PlannerTask, error) {
 }
 
 // Add performs POST request for PlannerTask collection
-func (r *PlannerBucketTasksCollectionRequest) Add(reqObj *PlannerTask) (*PlannerTask, error) {
-	return r.Do("POST", "", reqObj)
+func (r *PlannerBucketTasksCollectionRequest) Add(reqObj *PlannerTask) (resObj *PlannerTask, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

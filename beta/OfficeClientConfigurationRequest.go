@@ -23,24 +23,19 @@ func (b *OfficeClientConfigurationRequestBuilder) Request() *OfficeClientConfigu
 // OfficeClientConfigurationRequest is request for OfficeClientConfiguration
 type OfficeClientConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OfficeClientConfiguration
-func (r *OfficeClientConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeClientConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OfficeClientConfiguration
-func (r *OfficeClientConfigurationRequest) Get() (*OfficeClientConfiguration, error) {
+func (r *OfficeClientConfigurationRequest) Get() (resObj *OfficeClientConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OfficeClientConfiguration
-func (r *OfficeClientConfigurationRequest) Update(reqObj *OfficeClientConfiguration) (*OfficeClientConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OfficeClientConfigurationRequest) Update(reqObj *OfficeClientConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OfficeClientConfiguration
@@ -74,12 +69,6 @@ func (b *OfficeClientConfigurationAssignmentsCollectionRequestBuilder) ID(id str
 
 // OfficeClientConfigurationAssignmentsCollectionRequest is request for OfficeClientConfigurationAssignment collection
 type OfficeClientConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OfficeClientConfigurationAssignment collection
-func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OfficeClientConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OfficeClientConfigurationAssignment collection
 func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]OfficeClientConfigurationAssignment, error) {
@@ -131,6 +120,7 @@ func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Get() ([]OfficeC
 }
 
 // Add performs POST request for OfficeClientConfigurationAssignment collection
-func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Add(reqObj *OfficeClientConfigurationAssignment) (*OfficeClientConfigurationAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Add(reqObj *OfficeClientConfigurationAssignment) (resObj *OfficeClientConfigurationAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

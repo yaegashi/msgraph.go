@@ -23,24 +23,19 @@ func (b *WorkbookCommentRequestBuilder) Request() *WorkbookCommentRequest {
 // WorkbookCommentRequest is request for WorkbookComment
 type WorkbookCommentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookComment
-func (r *WorkbookCommentRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookComment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookComment
-func (r *WorkbookCommentRequest) Get() (*WorkbookComment, error) {
+func (r *WorkbookCommentRequest) Get() (resObj *WorkbookComment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookComment
-func (r *WorkbookCommentRequest) Update(reqObj *WorkbookComment) (*WorkbookComment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookCommentRequest) Update(reqObj *WorkbookComment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookComment
@@ -74,12 +69,6 @@ func (b *WorkbookCommentRepliesCollectionRequestBuilder) ID(id string) *Workbook
 
 // WorkbookCommentRepliesCollectionRequest is request for WorkbookCommentReply collection
 type WorkbookCommentRepliesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkbookCommentReply collection
-func (r *WorkbookCommentRepliesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookCommentReply, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkbookCommentReply collection
 func (r *WorkbookCommentRepliesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookCommentReply, error) {
@@ -131,6 +120,7 @@ func (r *WorkbookCommentRepliesCollectionRequest) Get() ([]WorkbookCommentReply,
 }
 
 // Add performs POST request for WorkbookCommentReply collection
-func (r *WorkbookCommentRepliesCollectionRequest) Add(reqObj *WorkbookCommentReply) (*WorkbookCommentReply, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookCommentRepliesCollectionRequest) Add(reqObj *WorkbookCommentReply) (resObj *WorkbookCommentReply, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

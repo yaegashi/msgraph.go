@@ -15,24 +15,19 @@ func (b *IOSDeviceFeaturesConfigurationRequestBuilder) Request() *IOSDeviceFeatu
 // IOSDeviceFeaturesConfigurationRequest is request for IOSDeviceFeaturesConfiguration
 type IOSDeviceFeaturesConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSDeviceFeaturesConfiguration
-func (r *IOSDeviceFeaturesConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSDeviceFeaturesConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSDeviceFeaturesConfiguration
-func (r *IOSDeviceFeaturesConfigurationRequest) Get() (*IOSDeviceFeaturesConfiguration, error) {
+func (r *IOSDeviceFeaturesConfigurationRequest) Get() (resObj *IOSDeviceFeaturesConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSDeviceFeaturesConfiguration
-func (r *IOSDeviceFeaturesConfigurationRequest) Update(reqObj *IOSDeviceFeaturesConfiguration) (*IOSDeviceFeaturesConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSDeviceFeaturesConfigurationRequest) Update(reqObj *IOSDeviceFeaturesConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSDeviceFeaturesConfiguration

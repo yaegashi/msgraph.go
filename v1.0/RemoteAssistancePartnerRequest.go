@@ -15,24 +15,19 @@ func (b *RemoteAssistancePartnerRequestBuilder) Request() *RemoteAssistancePartn
 // RemoteAssistancePartnerRequest is request for RemoteAssistancePartner
 type RemoteAssistancePartnerRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RemoteAssistancePartner
-func (r *RemoteAssistancePartnerRequest) Do(method, path string, reqObj interface{}) (resObj *RemoteAssistancePartner, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RemoteAssistancePartner
-func (r *RemoteAssistancePartnerRequest) Get() (*RemoteAssistancePartner, error) {
+func (r *RemoteAssistancePartnerRequest) Get() (resObj *RemoteAssistancePartner, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RemoteAssistancePartner
-func (r *RemoteAssistancePartnerRequest) Update(reqObj *RemoteAssistancePartner) (*RemoteAssistancePartner, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RemoteAssistancePartnerRequest) Update(reqObj *RemoteAssistancePartner) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RemoteAssistancePartner

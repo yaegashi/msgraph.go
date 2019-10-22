@@ -23,24 +23,19 @@ func (b *BookingBusinessRequestBuilder) Request() *BookingBusinessRequest {
 // BookingBusinessRequest is request for BookingBusiness
 type BookingBusinessRequest struct{ BaseRequest }
 
-// Do performs HTTP request for BookingBusiness
-func (r *BookingBusinessRequest) Do(method, path string, reqObj interface{}) (resObj *BookingBusiness, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for BookingBusiness
-func (r *BookingBusinessRequest) Get() (*BookingBusiness, error) {
+func (r *BookingBusinessRequest) Get() (resObj *BookingBusiness, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for BookingBusiness
-func (r *BookingBusinessRequest) Update(reqObj *BookingBusiness) (*BookingBusiness, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *BookingBusinessRequest) Update(reqObj *BookingBusiness) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BookingBusiness
@@ -74,12 +69,6 @@ func (b *BookingBusinessAppointmentsCollectionRequestBuilder) ID(id string) *Boo
 
 // BookingBusinessAppointmentsCollectionRequest is request for BookingAppointment collection
 type BookingBusinessAppointmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingAppointment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BookingAppointment collection
 func (r *BookingBusinessAppointmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingAppointment, error) {
@@ -131,8 +120,9 @@ func (r *BookingBusinessAppointmentsCollectionRequest) Get() ([]BookingAppointme
 }
 
 // Add performs POST request for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Add(reqObj *BookingAppointment) (*BookingAppointment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *BookingBusinessAppointmentsCollectionRequest) Add(reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CalendarView returns request builder for BookingAppointment collection
@@ -161,12 +151,6 @@ func (b *BookingBusinessCalendarViewCollectionRequestBuilder) ID(id string) *Boo
 
 // BookingBusinessCalendarViewCollectionRequest is request for BookingAppointment collection
 type BookingBusinessCalendarViewCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingAppointment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BookingAppointment collection
 func (r *BookingBusinessCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingAppointment, error) {
@@ -218,8 +202,9 @@ func (r *BookingBusinessCalendarViewCollectionRequest) Get() ([]BookingAppointme
 }
 
 // Add performs POST request for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Add(reqObj *BookingAppointment) (*BookingAppointment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *BookingBusinessCalendarViewCollectionRequest) Add(reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Customers returns request builder for BookingCustomer collection
@@ -248,12 +233,6 @@ func (b *BookingBusinessCustomersCollectionRequestBuilder) ID(id string) *Bookin
 
 // BookingBusinessCustomersCollectionRequest is request for BookingCustomer collection
 type BookingBusinessCustomersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingCustomer, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BookingCustomer collection
 func (r *BookingBusinessCustomersCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingCustomer, error) {
@@ -305,8 +284,9 @@ func (r *BookingBusinessCustomersCollectionRequest) Get() ([]BookingCustomer, er
 }
 
 // Add performs POST request for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Add(reqObj *BookingCustomer) (*BookingCustomer, error) {
-	return r.Do("POST", "", reqObj)
+func (r *BookingBusinessCustomersCollectionRequest) Add(reqObj *BookingCustomer) (resObj *BookingCustomer, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Services returns request builder for BookingService collection
@@ -335,12 +315,6 @@ func (b *BookingBusinessServicesCollectionRequestBuilder) ID(id string) *Booking
 
 // BookingBusinessServicesCollectionRequest is request for BookingService collection
 type BookingBusinessServicesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingService, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BookingService collection
 func (r *BookingBusinessServicesCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingService, error) {
@@ -392,8 +366,9 @@ func (r *BookingBusinessServicesCollectionRequest) Get() ([]BookingService, erro
 }
 
 // Add performs POST request for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Add(reqObj *BookingService) (*BookingService, error) {
-	return r.Do("POST", "", reqObj)
+func (r *BookingBusinessServicesCollectionRequest) Add(reqObj *BookingService) (resObj *BookingService, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // StaffMembers returns request builder for BookingStaffMember collection
@@ -422,12 +397,6 @@ func (b *BookingBusinessStaffMembersCollectionRequestBuilder) ID(id string) *Boo
 
 // BookingBusinessStaffMembersCollectionRequest is request for BookingStaffMember collection
 type BookingBusinessStaffMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BookingStaffMember, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BookingStaffMember collection
 func (r *BookingBusinessStaffMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingStaffMember, error) {
@@ -479,6 +448,7 @@ func (r *BookingBusinessStaffMembersCollectionRequest) Get() ([]BookingStaffMemb
 }
 
 // Add performs POST request for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Add(reqObj *BookingStaffMember) (*BookingStaffMember, error) {
-	return r.Do("POST", "", reqObj)
+func (r *BookingBusinessStaffMembersCollectionRequest) Add(reqObj *BookingStaffMember) (resObj *BookingStaffMember, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *PrivilegedRoleSettingsRequestBuilder) Request() *PrivilegedRoleSettings
 // PrivilegedRoleSettingsRequest is request for PrivilegedRoleSettings
 type PrivilegedRoleSettingsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PrivilegedRoleSettings
-func (r *PrivilegedRoleSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleSettings, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PrivilegedRoleSettings
-func (r *PrivilegedRoleSettingsRequest) Get() (*PrivilegedRoleSettings, error) {
+func (r *PrivilegedRoleSettingsRequest) Get() (resObj *PrivilegedRoleSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PrivilegedRoleSettings
-func (r *PrivilegedRoleSettingsRequest) Update(reqObj *PrivilegedRoleSettings) (*PrivilegedRoleSettings, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PrivilegedRoleSettingsRequest) Update(reqObj *PrivilegedRoleSettings) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedRoleSettings

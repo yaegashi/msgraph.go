@@ -15,24 +15,19 @@ func (b *DeviceComplianceActionItemRequestBuilder) Request() *DeviceComplianceAc
 // DeviceComplianceActionItemRequest is request for DeviceComplianceActionItem
 type DeviceComplianceActionItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceComplianceActionItem
-func (r *DeviceComplianceActionItemRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceComplianceActionItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceComplianceActionItem
-func (r *DeviceComplianceActionItemRequest) Get() (*DeviceComplianceActionItem, error) {
+func (r *DeviceComplianceActionItemRequest) Get() (resObj *DeviceComplianceActionItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceComplianceActionItem
-func (r *DeviceComplianceActionItemRequest) Update(reqObj *DeviceComplianceActionItem) (*DeviceComplianceActionItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceComplianceActionItemRequest) Update(reqObj *DeviceComplianceActionItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceActionItem

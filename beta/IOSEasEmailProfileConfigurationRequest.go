@@ -15,24 +15,19 @@ func (b *IOSEasEmailProfileConfigurationRequestBuilder) Request() *IOSEasEmailPr
 // IOSEasEmailProfileConfigurationRequest is request for IOSEasEmailProfileConfiguration
 type IOSEasEmailProfileConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSEasEmailProfileConfiguration
-func (r *IOSEasEmailProfileConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *IOSEasEmailProfileConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSEasEmailProfileConfiguration
-func (r *IOSEasEmailProfileConfigurationRequest) Get() (*IOSEasEmailProfileConfiguration, error) {
+func (r *IOSEasEmailProfileConfigurationRequest) Get() (resObj *IOSEasEmailProfileConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSEasEmailProfileConfiguration
-func (r *IOSEasEmailProfileConfigurationRequest) Update(reqObj *IOSEasEmailProfileConfiguration) (*IOSEasEmailProfileConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSEasEmailProfileConfigurationRequest) Update(reqObj *IOSEasEmailProfileConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSEasEmailProfileConfiguration

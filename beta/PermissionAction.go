@@ -40,12 +40,6 @@ func (b *PermissionGrantRequestBuilder) Request() *PermissionGrantRequest {
 }
 
 //
-func (r *PermissionGrantRequest) Do(method, path string, reqObj interface{}) (resObj *[]Permission, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *PermissionGrantRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

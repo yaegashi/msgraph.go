@@ -23,24 +23,19 @@ func (b *OutlookTaskFolderRequestBuilder) Request() *OutlookTaskFolderRequest {
 // OutlookTaskFolderRequest is request for OutlookTaskFolder
 type OutlookTaskFolderRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OutlookTaskFolder
-func (r *OutlookTaskFolderRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTaskFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OutlookTaskFolder
-func (r *OutlookTaskFolderRequest) Get() (*OutlookTaskFolder, error) {
+func (r *OutlookTaskFolderRequest) Get() (resObj *OutlookTaskFolder, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OutlookTaskFolder
-func (r *OutlookTaskFolderRequest) Update(reqObj *OutlookTaskFolder) (*OutlookTaskFolder, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OutlookTaskFolderRequest) Update(reqObj *OutlookTaskFolder) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OutlookTaskFolder
@@ -74,12 +69,6 @@ func (b *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequestBuilder) 
 
 // OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -131,8 +120,9 @@ func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Get() (
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -161,12 +151,6 @@ func (b *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequestBuilder)
 
 // OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -218,8 +202,9 @@ func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Get() 
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Tasks returns request builder for OutlookTask collection
@@ -248,12 +233,6 @@ func (b *OutlookTaskFolderTasksCollectionRequestBuilder) ID(id string) *OutlookT
 
 // OutlookTaskFolderTasksCollectionRequest is request for OutlookTask collection
 type OutlookTaskFolderTasksCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OutlookTask collection
-func (r *OutlookTaskFolderTasksCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OutlookTask, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OutlookTask collection
 func (r *OutlookTaskFolderTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]OutlookTask, error) {
@@ -305,6 +284,7 @@ func (r *OutlookTaskFolderTasksCollectionRequest) Get() ([]OutlookTask, error) {
 }
 
 // Add performs POST request for OutlookTask collection
-func (r *OutlookTaskFolderTasksCollectionRequest) Add(reqObj *OutlookTask) (*OutlookTask, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OutlookTaskFolderTasksCollectionRequest) Add(reqObj *OutlookTask) (resObj *OutlookTask, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

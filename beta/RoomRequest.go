@@ -15,24 +15,19 @@ func (b *RoomRequestBuilder) Request() *RoomRequest {
 // RoomRequest is request for Room
 type RoomRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Room
-func (r *RoomRequest) Do(method, path string, reqObj interface{}) (resObj *Room, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Room
-func (r *RoomRequest) Get() (*Room, error) {
+func (r *RoomRequest) Get() (resObj *Room, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Room
-func (r *RoomRequest) Update(reqObj *Room) (*Room, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RoomRequest) Update(reqObj *Room) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Room

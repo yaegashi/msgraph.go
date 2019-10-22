@@ -15,24 +15,19 @@ func (b *DeviceManagementScriptRunSummaryRequestBuilder) Request() *DeviceManage
 // DeviceManagementScriptRunSummaryRequest is request for DeviceManagementScriptRunSummary
 type DeviceManagementScriptRunSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementScriptRunSummary
-func (r *DeviceManagementScriptRunSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptRunSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementScriptRunSummary
-func (r *DeviceManagementScriptRunSummaryRequest) Get() (*DeviceManagementScriptRunSummary, error) {
+func (r *DeviceManagementScriptRunSummaryRequest) Get() (resObj *DeviceManagementScriptRunSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementScriptRunSummary
-func (r *DeviceManagementScriptRunSummaryRequest) Update(reqObj *DeviceManagementScriptRunSummary) (*DeviceManagementScriptRunSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementScriptRunSummaryRequest) Update(reqObj *DeviceManagementScriptRunSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementScriptRunSummary

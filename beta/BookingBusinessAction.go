@@ -32,13 +32,8 @@ func (b *BookingBusinessPublishRequestBuilder) Request() *BookingBusinessPublish
 }
 
 //
-func (r *BookingBusinessPublishRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *BookingBusinessPublishRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -63,11 +58,6 @@ func (b *BookingBusinessUnpublishRequestBuilder) Request() *BookingBusinessUnpub
 }
 
 //
-func (r *BookingBusinessUnpublishRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *BookingBusinessUnpublishRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

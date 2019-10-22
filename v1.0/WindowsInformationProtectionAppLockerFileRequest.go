@@ -15,24 +15,19 @@ func (b *WindowsInformationProtectionAppLockerFileRequestBuilder) Request() *Win
 // WindowsInformationProtectionAppLockerFileRequest is request for WindowsInformationProtectionAppLockerFile
 type WindowsInformationProtectionAppLockerFileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsInformationProtectionAppLockerFile
-func (r *WindowsInformationProtectionAppLockerFileRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsInformationProtectionAppLockerFile
-func (r *WindowsInformationProtectionAppLockerFileRequest) Get() (*WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionAppLockerFileRequest) Get() (resObj *WindowsInformationProtectionAppLockerFile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionAppLockerFile
-func (r *WindowsInformationProtectionAppLockerFileRequest) Update(reqObj *WindowsInformationProtectionAppLockerFile) (*WindowsInformationProtectionAppLockerFile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsInformationProtectionAppLockerFileRequest) Update(reqObj *WindowsInformationProtectionAppLockerFile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionAppLockerFile

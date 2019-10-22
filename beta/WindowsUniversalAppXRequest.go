@@ -23,24 +23,19 @@ func (b *WindowsUniversalAppXRequestBuilder) Request() *WindowsUniversalAppXRequ
 // WindowsUniversalAppXRequest is request for WindowsUniversalAppX
 type WindowsUniversalAppXRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsUniversalAppX
-func (r *WindowsUniversalAppXRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsUniversalAppX, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsUniversalAppX
-func (r *WindowsUniversalAppXRequest) Get() (*WindowsUniversalAppX, error) {
+func (r *WindowsUniversalAppXRequest) Get() (resObj *WindowsUniversalAppX, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsUniversalAppX
-func (r *WindowsUniversalAppXRequest) Update(reqObj *WindowsUniversalAppX) (*WindowsUniversalAppX, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsUniversalAppXRequest) Update(reqObj *WindowsUniversalAppX) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsUniversalAppX
@@ -74,12 +69,6 @@ func (b *WindowsUniversalAppXCommittedContainedAppsCollectionRequestBuilder) ID(
 
 // WindowsUniversalAppXCommittedContainedAppsCollectionRequest is request for MobileContainedApp collection
 type WindowsUniversalAppXCommittedContainedAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileContainedApp collection
-func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileContainedApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileContainedApp collection
 func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileContainedApp, error) {
@@ -131,6 +120,7 @@ func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Get() ([]M
 }
 
 // Add performs POST request for MobileContainedApp collection
-func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Add(reqObj *MobileContainedApp) (*MobileContainedApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Add(reqObj *MobileContainedApp) (resObj *MobileContainedApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

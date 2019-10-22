@@ -30,11 +30,6 @@ func (b *GovernanceResourceCollectionRegisterRequestBuilder) Request() *Governan
 }
 
 //
-func (r *GovernanceResourceCollectionRegisterRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GovernanceResourceCollectionRegisterRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

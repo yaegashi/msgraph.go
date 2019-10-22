@@ -15,24 +15,19 @@ func (b *LocalizedNotificationMessageRequestBuilder) Request() *LocalizedNotific
 // LocalizedNotificationMessageRequest is request for LocalizedNotificationMessage
 type LocalizedNotificationMessageRequest struct{ BaseRequest }
 
-// Do performs HTTP request for LocalizedNotificationMessage
-func (r *LocalizedNotificationMessageRequest) Do(method, path string, reqObj interface{}) (resObj *LocalizedNotificationMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for LocalizedNotificationMessage
-func (r *LocalizedNotificationMessageRequest) Get() (*LocalizedNotificationMessage, error) {
+func (r *LocalizedNotificationMessageRequest) Get() (resObj *LocalizedNotificationMessage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for LocalizedNotificationMessage
-func (r *LocalizedNotificationMessageRequest) Update(reqObj *LocalizedNotificationMessage) (*LocalizedNotificationMessage, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *LocalizedNotificationMessageRequest) Update(reqObj *LocalizedNotificationMessage) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for LocalizedNotificationMessage

@@ -23,24 +23,19 @@ func (b *MessageRequestBuilder) Request() *MessageRequest {
 // MessageRequest is request for Message
 type MessageRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Message
-func (r *MessageRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Message
-func (r *MessageRequest) Get() (*Message, error) {
+func (r *MessageRequest) Get() (resObj *Message, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Message
-func (r *MessageRequest) Update(reqObj *Message) (*Message, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MessageRequest) Update(reqObj *Message) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Message
@@ -74,12 +69,6 @@ func (b *MessageAttachmentsCollectionRequestBuilder) ID(id string) *AttachmentRe
 
 // MessageAttachmentsCollectionRequest is request for Attachment collection
 type MessageAttachmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Attachment collection
-func (r *MessageAttachmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Attachment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Attachment collection
 func (r *MessageAttachmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]Attachment, error) {
@@ -131,8 +120,9 @@ func (r *MessageAttachmentsCollectionRequest) Get() ([]Attachment, error) {
 }
 
 // Add performs POST request for Attachment collection
-func (r *MessageAttachmentsCollectionRequest) Add(reqObj *Attachment) (*Attachment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MessageAttachmentsCollectionRequest) Add(reqObj *Attachment) (resObj *Attachment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Extensions returns request builder for Extension collection
@@ -161,12 +151,6 @@ func (b *MessageExtensionsCollectionRequestBuilder) ID(id string) *ExtensionRequ
 
 // MessageExtensionsCollectionRequest is request for Extension collection
 type MessageExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Extension collection
-func (r *MessageExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Extension collection
 func (r *MessageExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
@@ -218,8 +202,9 @@ func (r *MessageExtensionsCollectionRequest) Get() ([]Extension, error) {
 }
 
 // Add performs POST request for Extension collection
-func (r *MessageExtensionsCollectionRequest) Add(reqObj *Extension) (*Extension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MessageExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -248,12 +233,6 @@ func (b *MessageMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id stri
 
 // MessageMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type MessageMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -305,8 +284,9 @@ func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Get() ([]MultiVal
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MessageMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -335,12 +315,6 @@ func (b *MessageSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id str
 
 // MessageSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type MessageSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -392,6 +366,7 @@ func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Get() ([]SingleV
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MessageSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

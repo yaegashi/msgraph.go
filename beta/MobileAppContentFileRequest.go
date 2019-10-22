@@ -15,24 +15,19 @@ func (b *MobileAppContentFileRequestBuilder) Request() *MobileAppContentFileRequ
 // MobileAppContentFileRequest is request for MobileAppContentFile
 type MobileAppContentFileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppContentFile
-func (r *MobileAppContentFileRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContentFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppContentFile
-func (r *MobileAppContentFileRequest) Get() (*MobileAppContentFile, error) {
+func (r *MobileAppContentFileRequest) Get() (resObj *MobileAppContentFile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppContentFile
-func (r *MobileAppContentFileRequest) Update(reqObj *MobileAppContentFile) (*MobileAppContentFile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppContentFileRequest) Update(reqObj *MobileAppContentFile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppContentFile

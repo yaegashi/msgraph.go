@@ -15,24 +15,19 @@ func (b *ColumnDefinitionRequestBuilder) Request() *ColumnDefinitionRequest {
 // ColumnDefinitionRequest is request for ColumnDefinition
 type ColumnDefinitionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ColumnDefinition
-func (r *ColumnDefinitionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ColumnDefinition
-func (r *ColumnDefinitionRequest) Get() (*ColumnDefinition, error) {
+func (r *ColumnDefinitionRequest) Get() (resObj *ColumnDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ColumnDefinition
-func (r *ColumnDefinitionRequest) Update(reqObj *ColumnDefinition) (*ColumnDefinition, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ColumnDefinitionRequest) Update(reqObj *ColumnDefinition) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ColumnDefinition

@@ -15,24 +15,19 @@ func (b *SchedulingGroupRequestBuilder) Request() *SchedulingGroupRequest {
 // SchedulingGroupRequest is request for SchedulingGroup
 type SchedulingGroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SchedulingGroup
-func (r *SchedulingGroupRequest) Do(method, path string, reqObj interface{}) (resObj *SchedulingGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SchedulingGroup
-func (r *SchedulingGroupRequest) Get() (*SchedulingGroup, error) {
+func (r *SchedulingGroupRequest) Get() (resObj *SchedulingGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SchedulingGroup
-func (r *SchedulingGroupRequest) Update(reqObj *SchedulingGroup) (*SchedulingGroup, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SchedulingGroupRequest) Update(reqObj *SchedulingGroup) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SchedulingGroup

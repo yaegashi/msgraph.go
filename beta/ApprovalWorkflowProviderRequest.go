@@ -23,24 +23,19 @@ func (b *ApprovalWorkflowProviderRequestBuilder) Request() *ApprovalWorkflowProv
 // ApprovalWorkflowProviderRequest is request for ApprovalWorkflowProvider
 type ApprovalWorkflowProviderRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ApprovalWorkflowProvider
-func (r *ApprovalWorkflowProviderRequest) Do(method, path string, reqObj interface{}) (resObj *ApprovalWorkflowProvider, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ApprovalWorkflowProvider
-func (r *ApprovalWorkflowProviderRequest) Get() (*ApprovalWorkflowProvider, error) {
+func (r *ApprovalWorkflowProviderRequest) Get() (resObj *ApprovalWorkflowProvider, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ApprovalWorkflowProvider
-func (r *ApprovalWorkflowProviderRequest) Update(reqObj *ApprovalWorkflowProvider) (*ApprovalWorkflowProvider, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ApprovalWorkflowProviderRequest) Update(reqObj *ApprovalWorkflowProvider) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ApprovalWorkflowProvider
@@ -74,12 +69,6 @@ func (b *ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder) ID(id st
 
 // ApprovalWorkflowProviderBusinessFlowsCollectionRequest is request for BusinessFlow collection
 type ApprovalWorkflowProviderBusinessFlowsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BusinessFlow collection
 func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlow, error) {
@@ -131,8 +120,9 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Get() ([]Busine
 }
 
 // Add performs POST request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Add(reqObj *BusinessFlow) (*BusinessFlow, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Add(reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // BusinessFlowsWithRequestsAwaitingMyDecision returns request builder for BusinessFlow collection
@@ -161,12 +151,6 @@ func (b *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 
 // ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest is request for BusinessFlow collection
 type ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for BusinessFlow collection
 func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlow, error) {
@@ -218,8 +202,9 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 }
 
 // Add performs POST request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Add(reqObj *BusinessFlow) (*BusinessFlow, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Add(reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // PolicyTemplates returns request builder for GovernancePolicyTemplate collection
@@ -248,12 +233,6 @@ func (b *ApprovalWorkflowProviderPolicyTemplatesCollectionRequestBuilder) ID(id 
 
 // ApprovalWorkflowProviderPolicyTemplatesCollectionRequest is request for GovernancePolicyTemplate collection
 type ApprovalWorkflowProviderPolicyTemplatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernancePolicyTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GovernancePolicyTemplate collection
 func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernancePolicyTemplate, error) {
@@ -305,8 +284,9 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Get() ([]Gove
 }
 
 // Add performs POST request for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Add(reqObj *GovernancePolicyTemplate) (*GovernancePolicyTemplate, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Add(reqObj *GovernancePolicyTemplate) (resObj *GovernancePolicyTemplate, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Requests returns request builder for RequestObject collection
@@ -335,12 +315,6 @@ func (b *ApprovalWorkflowProviderRequestsCollectionRequestBuilder) ID(id string)
 
 // ApprovalWorkflowProviderRequestsCollectionRequest is request for RequestObject collection
 type ApprovalWorkflowProviderRequestsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for RequestObject collection
 func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]RequestObject, error) {
@@ -392,8 +366,9 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Get() ([]RequestObje
 }
 
 // Add performs POST request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Add(reqObj *RequestObject) (*RequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Add(reqObj *RequestObject) (resObj *RequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RequestsAwaitingMyDecision returns request builder for RequestObject collection
@@ -422,12 +397,6 @@ func (b *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuil
 
 // ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest is request for RequestObject collection
 type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for RequestObject collection
 func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(method, path string, obj interface{}) ([]RequestObject, error) {
@@ -479,6 +448,7 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Ge
 }
 
 // Add performs POST request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Add(reqObj *RequestObject) (*RequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Add(reqObj *RequestObject) (resObj *RequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

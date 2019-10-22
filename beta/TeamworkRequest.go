@@ -23,24 +23,19 @@ func (b *TeamworkRequestBuilder) Request() *TeamworkRequest {
 // TeamworkRequest is request for Teamwork
 type TeamworkRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Teamwork
-func (r *TeamworkRequest) Do(method, path string, reqObj interface{}) (resObj *Teamwork, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Teamwork
-func (r *TeamworkRequest) Get() (*Teamwork, error) {
+func (r *TeamworkRequest) Get() (resObj *Teamwork, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Teamwork
-func (r *TeamworkRequest) Update(reqObj *Teamwork) (*Teamwork, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TeamworkRequest) Update(reqObj *Teamwork) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Teamwork
@@ -74,12 +69,6 @@ func (b *TeamworkWorkforceIntegrationsCollectionRequestBuilder) ID(id string) *W
 
 // TeamworkWorkforceIntegrationsCollectionRequest is request for WorkforceIntegration collection
 type TeamworkWorkforceIntegrationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkforceIntegration collection
-func (r *TeamworkWorkforceIntegrationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkforceIntegration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkforceIntegration collection
 func (r *TeamworkWorkforceIntegrationsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkforceIntegration, error) {
@@ -131,6 +120,7 @@ func (r *TeamworkWorkforceIntegrationsCollectionRequest) Get() ([]WorkforceInteg
 }
 
 // Add performs POST request for WorkforceIntegration collection
-func (r *TeamworkWorkforceIntegrationsCollectionRequest) Add(reqObj *WorkforceIntegration) (*WorkforceIntegration, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TeamworkWorkforceIntegrationsCollectionRequest) Add(reqObj *WorkforceIntegration) (resObj *WorkforceIntegration, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

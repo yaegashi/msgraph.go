@@ -15,24 +15,19 @@ func (b *AndroidForWorkEnrollmentProfileRequestBuilder) Request() *AndroidForWor
 // AndroidForWorkEnrollmentProfileRequest is request for AndroidForWorkEnrollmentProfile
 type AndroidForWorkEnrollmentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidForWorkEnrollmentProfile
-func (r *AndroidForWorkEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkEnrollmentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidForWorkEnrollmentProfile
-func (r *AndroidForWorkEnrollmentProfileRequest) Get() (*AndroidForWorkEnrollmentProfile, error) {
+func (r *AndroidForWorkEnrollmentProfileRequest) Get() (resObj *AndroidForWorkEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidForWorkEnrollmentProfile
-func (r *AndroidForWorkEnrollmentProfileRequest) Update(reqObj *AndroidForWorkEnrollmentProfile) (*AndroidForWorkEnrollmentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidForWorkEnrollmentProfileRequest) Update(reqObj *AndroidForWorkEnrollmentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkEnrollmentProfile

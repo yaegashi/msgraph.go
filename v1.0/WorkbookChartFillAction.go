@@ -34,13 +34,8 @@ func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClear
 }
 
 //
-func (r *WorkbookChartFillClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookChartFillClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -65,11 +60,6 @@ func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartF
 }
 
 //
-func (r *WorkbookChartFillSetSolidColorRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookChartFillSetSolidColorRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

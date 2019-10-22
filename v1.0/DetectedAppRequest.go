@@ -23,24 +23,19 @@ func (b *DetectedAppRequestBuilder) Request() *DetectedAppRequest {
 // DetectedAppRequest is request for DetectedApp
 type DetectedAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DetectedApp
-func (r *DetectedAppRequest) Do(method, path string, reqObj interface{}) (resObj *DetectedApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DetectedApp
-func (r *DetectedAppRequest) Get() (*DetectedApp, error) {
+func (r *DetectedAppRequest) Get() (resObj *DetectedApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DetectedApp
-func (r *DetectedAppRequest) Update(reqObj *DetectedApp) (*DetectedApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DetectedAppRequest) Update(reqObj *DetectedApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DetectedApp
@@ -74,12 +69,6 @@ func (b *DetectedAppManagedDevicesCollectionRequestBuilder) ID(id string) *Manag
 
 // DetectedAppManagedDevicesCollectionRequest is request for ManagedDevice collection
 type DetectedAppManagedDevicesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDevice collection
-func (r *DetectedAppManagedDevicesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDevice, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDevice collection
 func (r *DetectedAppManagedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDevice, error) {
@@ -131,6 +120,7 @@ func (r *DetectedAppManagedDevicesCollectionRequest) Get() ([]ManagedDevice, err
 }
 
 // Add performs POST request for ManagedDevice collection
-func (r *DetectedAppManagedDevicesCollectionRequest) Add(reqObj *ManagedDevice) (*ManagedDevice, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DetectedAppManagedDevicesCollectionRequest) Add(reqObj *ManagedDevice) (resObj *ManagedDevice, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

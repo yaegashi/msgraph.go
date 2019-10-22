@@ -15,24 +15,19 @@ func (b *ExactMatchSessionRequestBuilder) Request() *ExactMatchSessionRequest {
 // ExactMatchSessionRequest is request for ExactMatchSession
 type ExactMatchSessionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ExactMatchSession
-func (r *ExactMatchSessionRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ExactMatchSession
-func (r *ExactMatchSessionRequest) Get() (*ExactMatchSession, error) {
+func (r *ExactMatchSessionRequest) Get() (resObj *ExactMatchSession, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ExactMatchSession
-func (r *ExactMatchSessionRequest) Update(reqObj *ExactMatchSession) (*ExactMatchSession, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ExactMatchSessionRequest) Update(reqObj *ExactMatchSession) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ExactMatchSession

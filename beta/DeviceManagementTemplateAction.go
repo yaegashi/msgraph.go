@@ -36,12 +36,7 @@ func (b *DeviceManagementTemplateCreateInstanceRequestBuilder) Request() *Device
 }
 
 //
-func (r *DeviceManagementTemplateCreateInstanceRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *DeviceManagementTemplateCreateInstanceRequest) Post() (resObj *DeviceManagementIntent, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *DeviceManagementTemplateCreateInstanceRequest) Post() (*DeviceManagementIntent, error) {
-	return r.Do("POST", "", r.requestObject)
 }

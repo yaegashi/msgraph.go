@@ -15,24 +15,19 @@ func (b *WindowsPhone81CertificateProfileBaseRequestBuilder) Request() *WindowsP
 // WindowsPhone81CertificateProfileBaseRequest is request for WindowsPhone81CertificateProfileBase
 type WindowsPhone81CertificateProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsPhone81CertificateProfileBase
-func (r *WindowsPhone81CertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPhone81CertificateProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsPhone81CertificateProfileBase
-func (r *WindowsPhone81CertificateProfileBaseRequest) Get() (*WindowsPhone81CertificateProfileBase, error) {
+func (r *WindowsPhone81CertificateProfileBaseRequest) Get() (resObj *WindowsPhone81CertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsPhone81CertificateProfileBase
-func (r *WindowsPhone81CertificateProfileBaseRequest) Update(reqObj *WindowsPhone81CertificateProfileBase) (*WindowsPhone81CertificateProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsPhone81CertificateProfileBaseRequest) Update(reqObj *WindowsPhone81CertificateProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPhone81CertificateProfileBase

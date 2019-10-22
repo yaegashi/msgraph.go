@@ -28,12 +28,7 @@ func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequ
 }
 
 //
-func (r *VppTokenSyncLicensesRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *VppTokenSyncLicensesRequest) Post() (resObj *VppToken, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *VppTokenSyncLicensesRequest) Post() (*VppToken, error) {
-	return r.Do("POST", "", r.requestObject)
 }

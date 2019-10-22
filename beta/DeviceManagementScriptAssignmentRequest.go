@@ -15,24 +15,19 @@ func (b *DeviceManagementScriptAssignmentRequestBuilder) Request() *DeviceManage
 // DeviceManagementScriptAssignmentRequest is request for DeviceManagementScriptAssignment
 type DeviceManagementScriptAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementScriptAssignment
-func (r *DeviceManagementScriptAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementScriptAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementScriptAssignment
-func (r *DeviceManagementScriptAssignmentRequest) Get() (*DeviceManagementScriptAssignment, error) {
+func (r *DeviceManagementScriptAssignmentRequest) Get() (resObj *DeviceManagementScriptAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementScriptAssignment
-func (r *DeviceManagementScriptAssignmentRequest) Update(reqObj *DeviceManagementScriptAssignment) (*DeviceManagementScriptAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementScriptAssignmentRequest) Update(reqObj *DeviceManagementScriptAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementScriptAssignment

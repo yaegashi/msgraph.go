@@ -15,24 +15,19 @@ func (b *RiskyUserHistoryItemRequestBuilder) Request() *RiskyUserHistoryItemRequ
 // RiskyUserHistoryItemRequest is request for RiskyUserHistoryItem
 type RiskyUserHistoryItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUserHistoryItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Get() (*RiskyUserHistoryItem, error) {
+func (r *RiskyUserHistoryItemRequest) Get() (resObj *RiskyUserHistoryItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Update(reqObj *RiskyUserHistoryItem) (*RiskyUserHistoryItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RiskyUserHistoryItemRequest) Update(reqObj *RiskyUserHistoryItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RiskyUserHistoryItem

@@ -29,12 +29,6 @@ func (b *{{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder) ID(id string) *{{$ySymTyp
 // {{$x.Sym}}{{$y.Sym}}CollectionRequest is request for {{$ySymType}} collection
 type {{$x.Sym}}{{$y.Sym}}CollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for {{$ySymType}} collection
-func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Do(method, path string, reqObj interface{}) (resObj *{{$ySymType}}, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for {{$ySymType}} collection
 func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(method, path string, obj interface{}) ([]{{$ySymType}}, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -85,6 +79,7 @@ func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Get() ([]{{$ySymType}}, error) {
 }
 
 // Add performs POST request for {{$ySymType}} collection
-func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Add(reqObj *{{$ySymType}}) (*{{$ySymType}}, error) {
-	return r.Do("POST", "", reqObj)
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Add(reqObj *{{$ySymType}}) (resObj *{{$ySymType}}, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

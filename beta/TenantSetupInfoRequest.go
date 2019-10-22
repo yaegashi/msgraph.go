@@ -15,24 +15,19 @@ func (b *TenantSetupInfoRequestBuilder) Request() *TenantSetupInfoRequest {
 // TenantSetupInfoRequest is request for TenantSetupInfo
 type TenantSetupInfoRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TenantSetupInfo
-func (r *TenantSetupInfoRequest) Do(method, path string, reqObj interface{}) (resObj *TenantSetupInfo, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TenantSetupInfo
-func (r *TenantSetupInfoRequest) Get() (*TenantSetupInfo, error) {
+func (r *TenantSetupInfoRequest) Get() (resObj *TenantSetupInfo, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TenantSetupInfo
-func (r *TenantSetupInfoRequest) Update(reqObj *TenantSetupInfo) (*TenantSetupInfo, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TenantSetupInfoRequest) Update(reqObj *TenantSetupInfo) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TenantSetupInfo

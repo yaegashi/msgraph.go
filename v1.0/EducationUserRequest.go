@@ -23,24 +23,19 @@ func (b *EducationUserRequestBuilder) Request() *EducationUserRequest {
 // EducationUserRequest is request for EducationUser
 type EducationUserRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationUser
-func (r *EducationUserRequest) Do(method, path string, reqObj interface{}) (resObj *EducationUser, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationUser
-func (r *EducationUserRequest) Get() (*EducationUser, error) {
+func (r *EducationUserRequest) Get() (resObj *EducationUser, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationUser
-func (r *EducationUserRequest) Update(reqObj *EducationUser) (*EducationUser, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationUserRequest) Update(reqObj *EducationUser) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationUser
@@ -74,12 +69,6 @@ func (b *EducationUserClassesCollectionRequestBuilder) ID(id string) *EducationC
 
 // EducationUserClassesCollectionRequest is request for EducationClass collection
 type EducationUserClassesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EducationClass collection
-func (r *EducationUserClassesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationClass, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EducationClass collection
 func (r *EducationUserClassesCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationClass, error) {
@@ -131,8 +120,9 @@ func (r *EducationUserClassesCollectionRequest) Get() ([]EducationClass, error) 
 }
 
 // Add performs POST request for EducationClass collection
-func (r *EducationUserClassesCollectionRequest) Add(reqObj *EducationClass) (*EducationClass, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EducationUserClassesCollectionRequest) Add(reqObj *EducationClass) (resObj *EducationClass, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Schools returns request builder for EducationSchool collection
@@ -161,12 +151,6 @@ func (b *EducationUserSchoolsCollectionRequestBuilder) ID(id string) *EducationS
 
 // EducationUserSchoolsCollectionRequest is request for EducationSchool collection
 type EducationUserSchoolsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EducationSchool collection
-func (r *EducationUserSchoolsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSchool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EducationSchool collection
 func (r *EducationUserSchoolsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationSchool, error) {
@@ -218,8 +202,9 @@ func (r *EducationUserSchoolsCollectionRequest) Get() ([]EducationSchool, error)
 }
 
 // Add performs POST request for EducationSchool collection
-func (r *EducationUserSchoolsCollectionRequest) Add(reqObj *EducationSchool) (*EducationSchool, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EducationUserSchoolsCollectionRequest) Add(reqObj *EducationSchool) (resObj *EducationSchool, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // User is navigation property

@@ -23,24 +23,19 @@ func (b *DeviceManagementComplexSettingInstanceRequestBuilder) Request() *Device
 // DeviceManagementComplexSettingInstanceRequest is request for DeviceManagementComplexSettingInstance
 type DeviceManagementComplexSettingInstanceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementComplexSettingInstance
-func (r *DeviceManagementComplexSettingInstanceRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementComplexSettingInstance, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementComplexSettingInstance
-func (r *DeviceManagementComplexSettingInstanceRequest) Get() (*DeviceManagementComplexSettingInstance, error) {
+func (r *DeviceManagementComplexSettingInstanceRequest) Get() (resObj *DeviceManagementComplexSettingInstance, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementComplexSettingInstance
-func (r *DeviceManagementComplexSettingInstanceRequest) Update(reqObj *DeviceManagementComplexSettingInstance) (*DeviceManagementComplexSettingInstance, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementComplexSettingInstanceRequest) Update(reqObj *DeviceManagementComplexSettingInstance) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementComplexSettingInstance
@@ -74,12 +69,6 @@ func (b *DeviceManagementComplexSettingInstanceValueCollectionRequestBuilder) ID
 
 // DeviceManagementComplexSettingInstanceValueCollectionRequest is request for DeviceManagementSettingInstance collection
 type DeviceManagementComplexSettingInstanceValueCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
 func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
@@ -131,6 +120,7 @@ func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Get() ([]
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (*DeviceManagementSettingInstance, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

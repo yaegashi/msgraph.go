@@ -36,13 +36,8 @@ func (b *ExactMatchSessionCancelRequestBuilder) Request() *ExactMatchSessionCanc
 }
 
 //
-func (r *ExactMatchSessionCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ExactMatchSessionCancelRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -67,13 +62,8 @@ func (b *ExactMatchSessionCommitRequestBuilder) Request() *ExactMatchSessionComm
 }
 
 //
-func (r *ExactMatchSessionCommitRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *ExactMatchSessionCommitRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -98,12 +88,7 @@ func (b *ExactMatchSessionRenewRequestBuilder) Request() *ExactMatchSessionRenew
 }
 
 //
-func (r *ExactMatchSessionRenewRequest) Do(method, path string, reqObj interface{}) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *ExactMatchSessionRenewRequest) Post() (resObj *ExactMatchSession, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *ExactMatchSessionRenewRequest) Post() (*ExactMatchSession, error) {
-	return r.Do("POST", "", r.requestObject)
 }

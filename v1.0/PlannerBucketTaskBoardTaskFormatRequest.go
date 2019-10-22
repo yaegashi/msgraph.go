@@ -15,24 +15,19 @@ func (b *PlannerBucketTaskBoardTaskFormatRequestBuilder) Request() *PlannerBucke
 // PlannerBucketTaskBoardTaskFormatRequest is request for PlannerBucketTaskBoardTaskFormat
 type PlannerBucketTaskBoardTaskFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PlannerBucketTaskBoardTaskFormat
-func (r *PlannerBucketTaskBoardTaskFormatRequest) Do(method, path string, reqObj interface{}) (resObj *PlannerBucketTaskBoardTaskFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PlannerBucketTaskBoardTaskFormat
-func (r *PlannerBucketTaskBoardTaskFormatRequest) Get() (*PlannerBucketTaskBoardTaskFormat, error) {
+func (r *PlannerBucketTaskBoardTaskFormatRequest) Get() (resObj *PlannerBucketTaskBoardTaskFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PlannerBucketTaskBoardTaskFormat
-func (r *PlannerBucketTaskBoardTaskFormatRequest) Update(reqObj *PlannerBucketTaskBoardTaskFormat) (*PlannerBucketTaskBoardTaskFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PlannerBucketTaskBoardTaskFormatRequest) Update(reqObj *PlannerBucketTaskBoardTaskFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerBucketTaskBoardTaskFormat

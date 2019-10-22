@@ -23,24 +23,19 @@ func (b *TrustFrameworkRequestBuilder) Request() *TrustFrameworkRequest {
 // TrustFrameworkRequest is request for TrustFramework
 type TrustFrameworkRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TrustFramework
-func (r *TrustFrameworkRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFramework, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TrustFramework
-func (r *TrustFrameworkRequest) Get() (*TrustFramework, error) {
+func (r *TrustFrameworkRequest) Get() (resObj *TrustFramework, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TrustFramework
-func (r *TrustFrameworkRequest) Update(reqObj *TrustFramework) (*TrustFramework, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TrustFrameworkRequest) Update(reqObj *TrustFramework) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TrustFramework
@@ -74,12 +69,6 @@ func (b *TrustFrameworkKeySetsCollectionRequestBuilder) ID(id string) *TrustFram
 
 // TrustFrameworkKeySetsCollectionRequest is request for TrustFrameworkKeySet collection
 type TrustFrameworkKeySetsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TrustFrameworkKeySet collection
-func (r *TrustFrameworkKeySetsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkKeySet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TrustFrameworkKeySet collection
 func (r *TrustFrameworkKeySetsCollectionRequest) Paging(method, path string, obj interface{}) ([]TrustFrameworkKeySet, error) {
@@ -131,8 +120,9 @@ func (r *TrustFrameworkKeySetsCollectionRequest) Get() ([]TrustFrameworkKeySet, 
 }
 
 // Add performs POST request for TrustFrameworkKeySet collection
-func (r *TrustFrameworkKeySetsCollectionRequest) Add(reqObj *TrustFrameworkKeySet) (*TrustFrameworkKeySet, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TrustFrameworkKeySetsCollectionRequest) Add(reqObj *TrustFrameworkKeySet) (resObj *TrustFrameworkKeySet, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Policies returns request builder for TrustFrameworkPolicy collection
@@ -161,12 +151,6 @@ func (b *TrustFrameworkPoliciesCollectionRequestBuilder) ID(id string) *TrustFra
 
 // TrustFrameworkPoliciesCollectionRequest is request for TrustFrameworkPolicy collection
 type TrustFrameworkPoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TrustFrameworkPolicy collection
-func (r *TrustFrameworkPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TrustFrameworkPolicy collection
 func (r *TrustFrameworkPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]TrustFrameworkPolicy, error) {
@@ -218,6 +202,7 @@ func (r *TrustFrameworkPoliciesCollectionRequest) Get() ([]TrustFrameworkPolicy,
 }
 
 // Add performs POST request for TrustFrameworkPolicy collection
-func (r *TrustFrameworkPoliciesCollectionRequest) Add(reqObj *TrustFrameworkPolicy) (*TrustFrameworkPolicy, error) {
-	return r.Do("POST", "", reqObj)
+func (r *TrustFrameworkPoliciesCollectionRequest) Add(reqObj *TrustFrameworkPolicy) (resObj *TrustFrameworkPolicy, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

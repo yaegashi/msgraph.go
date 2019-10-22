@@ -15,24 +15,19 @@ func (b *DeviceManagementDerivedCredentialSettingsRequestBuilder) Request() *Dev
 // DeviceManagementDerivedCredentialSettingsRequest is request for DeviceManagementDerivedCredentialSettings
 type DeviceManagementDerivedCredentialSettingsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementDerivedCredentialSettings
-func (r *DeviceManagementDerivedCredentialSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementDerivedCredentialSettings, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementDerivedCredentialSettings
-func (r *DeviceManagementDerivedCredentialSettingsRequest) Get() (*DeviceManagementDerivedCredentialSettings, error) {
+func (r *DeviceManagementDerivedCredentialSettingsRequest) Get() (resObj *DeviceManagementDerivedCredentialSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementDerivedCredentialSettings
-func (r *DeviceManagementDerivedCredentialSettingsRequest) Update(reqObj *DeviceManagementDerivedCredentialSettings) (*DeviceManagementDerivedCredentialSettings, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementDerivedCredentialSettingsRequest) Update(reqObj *DeviceManagementDerivedCredentialSettings) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementDerivedCredentialSettings

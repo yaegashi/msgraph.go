@@ -15,24 +15,19 @@ func (b *ActivityStatisticsRequestBuilder) Request() *ActivityStatisticsRequest 
 // ActivityStatisticsRequest is request for ActivityStatistics
 type ActivityStatisticsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ActivityStatistics
-func (r *ActivityStatisticsRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityStatistics, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ActivityStatistics
-func (r *ActivityStatisticsRequest) Get() (*ActivityStatistics, error) {
+func (r *ActivityStatisticsRequest) Get() (resObj *ActivityStatistics, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ActivityStatistics
-func (r *ActivityStatisticsRequest) Update(reqObj *ActivityStatistics) (*ActivityStatistics, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ActivityStatisticsRequest) Update(reqObj *ActivityStatistics) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ActivityStatistics

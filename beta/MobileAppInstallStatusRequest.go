@@ -15,24 +15,19 @@ func (b *MobileAppInstallStatusRequestBuilder) Request() *MobileAppInstallStatus
 // MobileAppInstallStatusRequest is request for MobileAppInstallStatus
 type MobileAppInstallStatusRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppInstallStatus
-func (r *MobileAppInstallStatusRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppInstallStatus
-func (r *MobileAppInstallStatusRequest) Get() (*MobileAppInstallStatus, error) {
+func (r *MobileAppInstallStatusRequest) Get() (resObj *MobileAppInstallStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppInstallStatus
-func (r *MobileAppInstallStatusRequest) Update(reqObj *MobileAppInstallStatus) (*MobileAppInstallStatus, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppInstallStatusRequest) Update(reqObj *MobileAppInstallStatus) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppInstallStatus

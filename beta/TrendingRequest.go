@@ -15,24 +15,19 @@ func (b *TrendingRequestBuilder) Request() *TrendingRequest {
 // TrendingRequest is request for Trending
 type TrendingRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Trending
-func (r *TrendingRequest) Do(method, path string, reqObj interface{}) (resObj *Trending, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Trending
-func (r *TrendingRequest) Get() (*Trending, error) {
+func (r *TrendingRequest) Get() (resObj *Trending, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Trending
-func (r *TrendingRequest) Update(reqObj *Trending) (*Trending, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TrendingRequest) Update(reqObj *Trending) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Trending

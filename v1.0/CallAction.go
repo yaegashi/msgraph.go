@@ -110,13 +110,8 @@ func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
 }
 
 //
-func (r *CallAnswerRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *CallAnswerRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -141,13 +136,8 @@ func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenS
 }
 
 //
-func (r *CallChangeScreenSharingRoleRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *CallChangeScreenSharingRoleRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -172,14 +162,9 @@ func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
 }
 
 //
-func (r *CallMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *CallMuteRequest) Post() (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *CallMuteRequest) Post() (*MuteParticipantOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -204,14 +189,9 @@ func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
 }
 
 //
-func (r *CallPlayPromptRequest) Do(method, path string, reqObj interface{}) (resObj *PlayPromptOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *CallPlayPromptRequest) Post() (resObj *PlayPromptOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *CallPlayPromptRequest) Post() (*PlayPromptOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -236,14 +216,9 @@ func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
 }
 
 //
-func (r *CallRecordRequest) Do(method, path string, reqObj interface{}) (resObj *RecordOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *CallRecordRequest) Post() (resObj *RecordOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *CallRecordRequest) Post() (*RecordOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -268,13 +243,8 @@ func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
 }
 
 //
-func (r *CallRedirectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *CallRedirectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -299,13 +269,8 @@ func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
 }
 
 //
-func (r *CallRejectRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *CallRejectRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -330,14 +295,9 @@ func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneReques
 }
 
 //
-func (r *CallSubscribeToToneRequest) Do(method, path string, reqObj interface{}) (resObj *SubscribeToToneOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *CallSubscribeToToneRequest) Post() (resObj *SubscribeToToneOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *CallSubscribeToToneRequest) Post() (*SubscribeToToneOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -362,13 +322,8 @@ func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
 }
 
 //
-func (r *CallTransferRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *CallTransferRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -393,12 +348,7 @@ func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
 }
 
 //
-func (r *CallUnmuteRequest) Do(method, path string, reqObj interface{}) (resObj *UnmuteParticipantOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *CallUnmuteRequest) Post() (resObj *UnmuteParticipantOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *CallUnmuteRequest) Post() (*UnmuteParticipantOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }

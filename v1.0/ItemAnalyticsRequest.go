@@ -23,24 +23,19 @@ func (b *ItemAnalyticsRequestBuilder) Request() *ItemAnalyticsRequest {
 // ItemAnalyticsRequest is request for ItemAnalytics
 type ItemAnalyticsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ItemAnalytics
-func (r *ItemAnalyticsRequest) Do(method, path string, reqObj interface{}) (resObj *ItemAnalytics, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ItemAnalytics
-func (r *ItemAnalyticsRequest) Get() (*ItemAnalytics, error) {
+func (r *ItemAnalyticsRequest) Get() (resObj *ItemAnalytics, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ItemAnalytics
-func (r *ItemAnalyticsRequest) Update(reqObj *ItemAnalytics) (*ItemAnalytics, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ItemAnalyticsRequest) Update(reqObj *ItemAnalytics) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemAnalytics
@@ -81,12 +76,6 @@ func (b *ItemAnalyticsItemActivityStatsCollectionRequestBuilder) ID(id string) *
 
 // ItemAnalyticsItemActivityStatsCollectionRequest is request for ItemActivityStat collection
 type ItemAnalyticsItemActivityStatsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ItemActivityStat collection
-func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ItemActivityStat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ItemActivityStat collection
 func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemActivityStat, error) {
@@ -138,8 +127,9 @@ func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Get() ([]ItemActivityS
 }
 
 // Add performs POST request for ItemActivityStat collection
-func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Add(reqObj *ItemActivityStat) (*ItemActivityStat, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Add(reqObj *ItemActivityStat) (resObj *ItemActivityStat, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // LastSevenDays is navigation property

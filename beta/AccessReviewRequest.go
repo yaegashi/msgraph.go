@@ -23,24 +23,19 @@ func (b *AccessReviewRequestBuilder) Request() *AccessReviewRequest {
 // AccessReviewRequest is request for AccessReview
 type AccessReviewRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessReview
-func (r *AccessReviewRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReview, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessReview
-func (r *AccessReviewRequest) Get() (*AccessReview, error) {
+func (r *AccessReviewRequest) Get() (resObj *AccessReview, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessReview
-func (r *AccessReviewRequest) Update(reqObj *AccessReview) (*AccessReview, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessReviewRequest) Update(reqObj *AccessReview) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessReview
@@ -74,12 +69,6 @@ func (b *AccessReviewDecisionsCollectionRequestBuilder) ID(id string) *AccessRev
 
 // AccessReviewDecisionsCollectionRequest is request for AccessReviewDecision collection
 type AccessReviewDecisionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *AccessReviewDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
@@ -131,8 +120,9 @@ func (r *AccessReviewDecisionsCollectionRequest) Get() ([]AccessReviewDecision, 
 }
 
 // Add performs POST request for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (*AccessReviewDecision, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessReviewDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Instances returns request builder for AccessReview collection
@@ -161,12 +151,6 @@ func (b *AccessReviewInstancesCollectionRequestBuilder) ID(id string) *AccessRev
 
 // AccessReviewInstancesCollectionRequest is request for AccessReview collection
 type AccessReviewInstancesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReview, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessReview collection
 func (r *AccessReviewInstancesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReview, error) {
@@ -218,8 +202,9 @@ func (r *AccessReviewInstancesCollectionRequest) Get() ([]AccessReview, error) {
 }
 
 // Add performs POST request for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Add(reqObj *AccessReview) (*AccessReview, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessReviewInstancesCollectionRequest) Add(reqObj *AccessReview) (resObj *AccessReview, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MyDecisions returns request builder for AccessReviewDecision collection
@@ -248,12 +233,6 @@ func (b *AccessReviewMyDecisionsCollectionRequestBuilder) ID(id string) *AccessR
 
 // AccessReviewMyDecisionsCollectionRequest is request for AccessReviewDecision collection
 type AccessReviewMyDecisionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *AccessReviewMyDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
@@ -305,8 +284,9 @@ func (r *AccessReviewMyDecisionsCollectionRequest) Get() ([]AccessReviewDecision
 }
 
 // Add performs POST request for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (*AccessReviewDecision, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessReviewMyDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Reviewers returns request builder for AccessReviewReviewer collection
@@ -335,12 +315,6 @@ func (b *AccessReviewReviewersCollectionRequestBuilder) ID(id string) *AccessRev
 
 // AccessReviewReviewersCollectionRequest is request for AccessReviewReviewer collection
 type AccessReviewReviewersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewReviewer, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessReviewReviewer collection
 func (r *AccessReviewReviewersCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewReviewer, error) {
@@ -392,6 +366,7 @@ func (r *AccessReviewReviewersCollectionRequest) Get() ([]AccessReviewReviewer, 
 }
 
 // Add performs POST request for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Add(reqObj *AccessReviewReviewer) (*AccessReviewReviewer, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessReviewReviewersCollectionRequest) Add(reqObj *AccessReviewReviewer) (resObj *AccessReviewReviewer, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

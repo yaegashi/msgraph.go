@@ -15,24 +15,19 @@ func (b *WindowsCertificateProfileBaseRequestBuilder) Request() *WindowsCertific
 // WindowsCertificateProfileBaseRequest is request for WindowsCertificateProfileBase
 type WindowsCertificateProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsCertificateProfileBase
-func (r *WindowsCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsCertificateProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsCertificateProfileBase
-func (r *WindowsCertificateProfileBaseRequest) Get() (*WindowsCertificateProfileBase, error) {
+func (r *WindowsCertificateProfileBaseRequest) Get() (resObj *WindowsCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsCertificateProfileBase
-func (r *WindowsCertificateProfileBaseRequest) Update(reqObj *WindowsCertificateProfileBase) (*WindowsCertificateProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsCertificateProfileBaseRequest) Update(reqObj *WindowsCertificateProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsCertificateProfileBase

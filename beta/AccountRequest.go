@@ -15,24 +15,19 @@ func (b *AccountRequestBuilder) Request() *AccountRequest {
 // AccountRequest is request for Account
 type AccountRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Account
-func (r *AccountRequest) Do(method, path string, reqObj interface{}) (resObj *Account, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Account
-func (r *AccountRequest) Get() (*Account, error) {
+func (r *AccountRequest) Get() (resObj *Account, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Account
-func (r *AccountRequest) Update(reqObj *Account) (*Account, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccountRequest) Update(reqObj *Account) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Account

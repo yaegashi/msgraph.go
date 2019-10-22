@@ -15,24 +15,19 @@ func (b *RiskDetectionRequestBuilder) Request() *RiskDetectionRequest {
 // RiskDetectionRequest is request for RiskDetection
 type RiskDetectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RiskDetection
-func (r *RiskDetectionRequest) Do(method, path string, reqObj interface{}) (resObj *RiskDetection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RiskDetection
-func (r *RiskDetectionRequest) Get() (*RiskDetection, error) {
+func (r *RiskDetectionRequest) Get() (resObj *RiskDetection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RiskDetection
-func (r *RiskDetectionRequest) Update(reqObj *RiskDetection) (*RiskDetection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RiskDetectionRequest) Update(reqObj *RiskDetection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RiskDetection

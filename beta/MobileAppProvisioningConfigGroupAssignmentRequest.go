@@ -15,24 +15,19 @@ func (b *MobileAppProvisioningConfigGroupAssignmentRequestBuilder) Request() *Mo
 // MobileAppProvisioningConfigGroupAssignmentRequest is request for MobileAppProvisioningConfigGroupAssignment
 type MobileAppProvisioningConfigGroupAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppProvisioningConfigGroupAssignment
-func (r *MobileAppProvisioningConfigGroupAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppProvisioningConfigGroupAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppProvisioningConfigGroupAssignment
-func (r *MobileAppProvisioningConfigGroupAssignmentRequest) Get() (*MobileAppProvisioningConfigGroupAssignment, error) {
+func (r *MobileAppProvisioningConfigGroupAssignmentRequest) Get() (resObj *MobileAppProvisioningConfigGroupAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppProvisioningConfigGroupAssignment
-func (r *MobileAppProvisioningConfigGroupAssignmentRequest) Update(reqObj *MobileAppProvisioningConfigGroupAssignment) (*MobileAppProvisioningConfigGroupAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppProvisioningConfigGroupAssignmentRequest) Update(reqObj *MobileAppProvisioningConfigGroupAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppProvisioningConfigGroupAssignment

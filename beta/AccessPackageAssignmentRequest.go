@@ -23,24 +23,19 @@ func (b *AccessPackageAssignmentRequestBuilder) Request() *AccessPackageAssignme
 // AccessPackageAssignmentRequest is request for AccessPackageAssignment
 type AccessPackageAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageAssignment
-func (r *AccessPackageAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageAssignment
-func (r *AccessPackageAssignmentRequest) Get() (*AccessPackageAssignment, error) {
+func (r *AccessPackageAssignmentRequest) Get() (resObj *AccessPackageAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageAssignment
-func (r *AccessPackageAssignmentRequest) Update(reqObj *AccessPackageAssignment) (*AccessPackageAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageAssignmentRequest) Update(reqObj *AccessPackageAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageAssignment
@@ -88,12 +83,6 @@ func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 
 // AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequestObject collection
 type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
 func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentRequestObject, error) {
@@ -145,8 +134,9 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 }
 
 // Add performs POST request for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Add(reqObj *AccessPackageAssignmentRequestObject) (*AccessPackageAssignmentRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Add(reqObj *AccessPackageAssignmentRequestObject) (resObj *AccessPackageAssignmentRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AccessPackageAssignmentResourceRoles returns request builder for AccessPackageAssignmentResourceRole collection
@@ -175,12 +165,6 @@ func (b *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRe
 
 // AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest is request for AccessPackageAssignmentResourceRole collection
 type AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageAssignmentResourceRole collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentResourceRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageAssignmentResourceRole collection
 func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignmentResourceRole, error) {
@@ -232,8 +216,9 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRe
 }
 
 // Add performs POST request for AccessPackageAssignmentResourceRole collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Add(reqObj *AccessPackageAssignmentResourceRole) (*AccessPackageAssignmentResourceRole, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Add(reqObj *AccessPackageAssignmentResourceRole) (resObj *AccessPackageAssignmentResourceRole, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Target is navigation property

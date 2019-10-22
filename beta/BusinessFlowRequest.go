@@ -15,24 +15,19 @@ func (b *BusinessFlowRequestBuilder) Request() *BusinessFlowRequest {
 // BusinessFlowRequest is request for BusinessFlow
 type BusinessFlowRequest struct{ BaseRequest }
 
-// Do performs HTTP request for BusinessFlow
-func (r *BusinessFlowRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for BusinessFlow
-func (r *BusinessFlowRequest) Get() (*BusinessFlow, error) {
+func (r *BusinessFlowRequest) Get() (resObj *BusinessFlow, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for BusinessFlow
-func (r *BusinessFlowRequest) Update(reqObj *BusinessFlow) (*BusinessFlow, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *BusinessFlowRequest) Update(reqObj *BusinessFlow) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BusinessFlow

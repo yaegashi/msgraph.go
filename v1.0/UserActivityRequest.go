@@ -23,24 +23,19 @@ func (b *UserActivityRequestBuilder) Request() *UserActivityRequest {
 // UserActivityRequest is request for UserActivity
 type UserActivityRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserActivity
-func (r *UserActivityRequest) Do(method, path string, reqObj interface{}) (resObj *UserActivity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserActivity
-func (r *UserActivityRequest) Get() (*UserActivity, error) {
+func (r *UserActivityRequest) Get() (resObj *UserActivity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserActivity
-func (r *UserActivityRequest) Update(reqObj *UserActivity) (*UserActivity, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserActivityRequest) Update(reqObj *UserActivity) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserActivity
@@ -74,12 +69,6 @@ func (b *UserActivityHistoryItemsCollectionRequestBuilder) ID(id string) *Activi
 
 // UserActivityHistoryItemsCollectionRequest is request for ActivityHistoryItem collection
 type UserActivityHistoryItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ActivityHistoryItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ActivityHistoryItem collection
 func (r *UserActivityHistoryItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityHistoryItem, error) {
@@ -131,6 +120,7 @@ func (r *UserActivityHistoryItemsCollectionRequest) Get() ([]ActivityHistoryItem
 }
 
 // Add performs POST request for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Add(reqObj *ActivityHistoryItem) (*ActivityHistoryItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *UserActivityHistoryItemsCollectionRequest) Add(reqObj *ActivityHistoryItem) (resObj *ActivityHistoryItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

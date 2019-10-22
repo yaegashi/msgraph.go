@@ -23,24 +23,19 @@ func (b *WorkbookTableRequestBuilder) Request() *WorkbookTableRequest {
 // WorkbookTableRequest is request for WorkbookTable
 type WorkbookTableRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookTable
-func (r *WorkbookTableRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTable, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookTable
-func (r *WorkbookTableRequest) Get() (*WorkbookTable, error) {
+func (r *WorkbookTableRequest) Get() (resObj *WorkbookTable, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookTable
-func (r *WorkbookTableRequest) Update(reqObj *WorkbookTable) (*WorkbookTable, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookTableRequest) Update(reqObj *WorkbookTable) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookTable
@@ -74,12 +69,6 @@ func (b *WorkbookTableColumnsCollectionRequestBuilder) ID(id string) *WorkbookTa
 
 // WorkbookTableColumnsCollectionRequest is request for WorkbookTableColumn collection
 type WorkbookTableColumnsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkbookTableColumn collection
-func (r *WorkbookTableColumnsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableColumn, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkbookTableColumn collection
 func (r *WorkbookTableColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookTableColumn, error) {
@@ -131,8 +120,9 @@ func (r *WorkbookTableColumnsCollectionRequest) Get() ([]WorkbookTableColumn, er
 }
 
 // Add performs POST request for WorkbookTableColumn collection
-func (r *WorkbookTableColumnsCollectionRequest) Add(reqObj *WorkbookTableColumn) (*WorkbookTableColumn, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookTableColumnsCollectionRequest) Add(reqObj *WorkbookTableColumn) (resObj *WorkbookTableColumn, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Rows returns request builder for WorkbookTableRow collection
@@ -161,12 +151,6 @@ func (b *WorkbookTableRowsCollectionRequestBuilder) ID(id string) *WorkbookTable
 
 // WorkbookTableRowsCollectionRequest is request for WorkbookTableRow collection
 type WorkbookTableRowsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for WorkbookTableRow collection
-func (r *WorkbookTableRowsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookTableRow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for WorkbookTableRow collection
 func (r *WorkbookTableRowsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookTableRow, error) {
@@ -218,8 +202,9 @@ func (r *WorkbookTableRowsCollectionRequest) Get() ([]WorkbookTableRow, error) {
 }
 
 // Add performs POST request for WorkbookTableRow collection
-func (r *WorkbookTableRowsCollectionRequest) Add(reqObj *WorkbookTableRow) (*WorkbookTableRow, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookTableRowsCollectionRequest) Add(reqObj *WorkbookTableRow) (resObj *WorkbookTableRow, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Sort is navigation property

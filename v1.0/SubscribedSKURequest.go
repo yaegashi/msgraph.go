@@ -15,24 +15,19 @@ func (b *SubscribedSKURequestBuilder) Request() *SubscribedSKURequest {
 // SubscribedSKURequest is request for SubscribedSKU
 type SubscribedSKURequest struct{ BaseRequest }
 
-// Do performs HTTP request for SubscribedSKU
-func (r *SubscribedSKURequest) Do(method, path string, reqObj interface{}) (resObj *SubscribedSKU, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SubscribedSKU
-func (r *SubscribedSKURequest) Get() (*SubscribedSKU, error) {
+func (r *SubscribedSKURequest) Get() (resObj *SubscribedSKU, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SubscribedSKU
-func (r *SubscribedSKURequest) Update(reqObj *SubscribedSKU) (*SubscribedSKU, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SubscribedSKURequest) Update(reqObj *SubscribedSKU) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SubscribedSKU

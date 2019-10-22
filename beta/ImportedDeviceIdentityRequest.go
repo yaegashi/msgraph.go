@@ -15,24 +15,19 @@ func (b *ImportedDeviceIdentityRequestBuilder) Request() *ImportedDeviceIdentity
 // ImportedDeviceIdentityRequest is request for ImportedDeviceIdentity
 type ImportedDeviceIdentityRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ImportedDeviceIdentity
-func (r *ImportedDeviceIdentityRequest) Do(method, path string, reqObj interface{}) (resObj *ImportedDeviceIdentity, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ImportedDeviceIdentity
-func (r *ImportedDeviceIdentityRequest) Get() (*ImportedDeviceIdentity, error) {
+func (r *ImportedDeviceIdentityRequest) Get() (resObj *ImportedDeviceIdentity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ImportedDeviceIdentity
-func (r *ImportedDeviceIdentityRequest) Update(reqObj *ImportedDeviceIdentity) (*ImportedDeviceIdentity, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ImportedDeviceIdentityRequest) Update(reqObj *ImportedDeviceIdentity) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImportedDeviceIdentity

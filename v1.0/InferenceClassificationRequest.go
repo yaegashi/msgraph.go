@@ -23,24 +23,19 @@ func (b *InferenceClassificationRequestBuilder) Request() *InferenceClassificati
 // InferenceClassificationRequest is request for InferenceClassification
 type InferenceClassificationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for InferenceClassification
-func (r *InferenceClassificationRequest) Do(method, path string, reqObj interface{}) (resObj *InferenceClassification, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for InferenceClassification
-func (r *InferenceClassificationRequest) Get() (*InferenceClassification, error) {
+func (r *InferenceClassificationRequest) Get() (resObj *InferenceClassification, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for InferenceClassification
-func (r *InferenceClassificationRequest) Update(reqObj *InferenceClassification) (*InferenceClassification, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *InferenceClassificationRequest) Update(reqObj *InferenceClassification) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InferenceClassification
@@ -74,12 +69,6 @@ func (b *InferenceClassificationOverridesCollectionRequestBuilder) ID(id string)
 
 // InferenceClassificationOverridesCollectionRequest is request for InferenceClassificationOverride collection
 type InferenceClassificationOverridesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *InferenceClassificationOverride, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for InferenceClassificationOverride collection
 func (r *InferenceClassificationOverridesCollectionRequest) Paging(method, path string, obj interface{}) ([]InferenceClassificationOverride, error) {
@@ -131,6 +120,7 @@ func (r *InferenceClassificationOverridesCollectionRequest) Get() ([]InferenceCl
 }
 
 // Add performs POST request for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Add(reqObj *InferenceClassificationOverride) (*InferenceClassificationOverride, error) {
-	return r.Do("POST", "", reqObj)
+func (r *InferenceClassificationOverridesCollectionRequest) Add(reqObj *InferenceClassificationOverride) (resObj *InferenceClassificationOverride, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

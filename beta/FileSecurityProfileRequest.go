@@ -15,24 +15,19 @@ func (b *FileSecurityProfileRequestBuilder) Request() *FileSecurityProfileReques
 // FileSecurityProfileRequest is request for FileSecurityProfile
 type FileSecurityProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for FileSecurityProfile
-func (r *FileSecurityProfileRequest) Do(method, path string, reqObj interface{}) (resObj *FileSecurityProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for FileSecurityProfile
-func (r *FileSecurityProfileRequest) Get() (*FileSecurityProfile, error) {
+func (r *FileSecurityProfileRequest) Get() (resObj *FileSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for FileSecurityProfile
-func (r *FileSecurityProfileRequest) Update(reqObj *FileSecurityProfile) (*FileSecurityProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *FileSecurityProfileRequest) Update(reqObj *FileSecurityProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FileSecurityProfile

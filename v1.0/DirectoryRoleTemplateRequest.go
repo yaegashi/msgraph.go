@@ -15,24 +15,19 @@ func (b *DirectoryRoleTemplateRequestBuilder) Request() *DirectoryRoleTemplateRe
 // DirectoryRoleTemplateRequest is request for DirectoryRoleTemplate
 type DirectoryRoleTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DirectoryRoleTemplate
-func (r *DirectoryRoleTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryRoleTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DirectoryRoleTemplate
-func (r *DirectoryRoleTemplateRequest) Get() (*DirectoryRoleTemplate, error) {
+func (r *DirectoryRoleTemplateRequest) Get() (resObj *DirectoryRoleTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DirectoryRoleTemplate
-func (r *DirectoryRoleTemplateRequest) Update(reqObj *DirectoryRoleTemplate) (*DirectoryRoleTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DirectoryRoleTemplateRequest) Update(reqObj *DirectoryRoleTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryRoleTemplate

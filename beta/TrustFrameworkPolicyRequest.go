@@ -15,24 +15,19 @@ func (b *TrustFrameworkPolicyRequestBuilder) Request() *TrustFrameworkPolicyRequ
 // TrustFrameworkPolicyRequest is request for TrustFrameworkPolicy
 type TrustFrameworkPolicyRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TrustFrameworkPolicy
-func (r *TrustFrameworkPolicyRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TrustFrameworkPolicy
-func (r *TrustFrameworkPolicyRequest) Get() (*TrustFrameworkPolicy, error) {
+func (r *TrustFrameworkPolicyRequest) Get() (resObj *TrustFrameworkPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TrustFrameworkPolicy
-func (r *TrustFrameworkPolicyRequest) Update(reqObj *TrustFrameworkPolicy) (*TrustFrameworkPolicy, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TrustFrameworkPolicyRequest) Update(reqObj *TrustFrameworkPolicy) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TrustFrameworkPolicy

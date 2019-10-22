@@ -15,24 +15,19 @@ func (b *AccessPackageAssignmentRequestObjectRequestBuilder) Request() *AccessPa
 // AccessPackageAssignmentRequestObjectRequest is request for AccessPackageAssignmentRequestObject
 type AccessPackageAssignmentRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageAssignmentRequestObject
-func (r *AccessPackageAssignmentRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageAssignmentRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageAssignmentRequestObject
-func (r *AccessPackageAssignmentRequestObjectRequest) Get() (*AccessPackageAssignmentRequestObject, error) {
+func (r *AccessPackageAssignmentRequestObjectRequest) Get() (resObj *AccessPackageAssignmentRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageAssignmentRequestObject
-func (r *AccessPackageAssignmentRequestObjectRequest) Update(reqObj *AccessPackageAssignmentRequestObject) (*AccessPackageAssignmentRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageAssignmentRequestObjectRequest) Update(reqObj *AccessPackageAssignmentRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageAssignmentRequestObject

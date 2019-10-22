@@ -15,24 +15,19 @@ func (b *InferenceClassificationOverrideRequestBuilder) Request() *InferenceClas
 // InferenceClassificationOverrideRequest is request for InferenceClassificationOverride
 type InferenceClassificationOverrideRequest struct{ BaseRequest }
 
-// Do performs HTTP request for InferenceClassificationOverride
-func (r *InferenceClassificationOverrideRequest) Do(method, path string, reqObj interface{}) (resObj *InferenceClassificationOverride, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for InferenceClassificationOverride
-func (r *InferenceClassificationOverrideRequest) Get() (*InferenceClassificationOverride, error) {
+func (r *InferenceClassificationOverrideRequest) Get() (resObj *InferenceClassificationOverride, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for InferenceClassificationOverride
-func (r *InferenceClassificationOverrideRequest) Update(reqObj *InferenceClassificationOverride) (*InferenceClassificationOverride, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *InferenceClassificationOverrideRequest) Update(reqObj *InferenceClassificationOverride) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InferenceClassificationOverride

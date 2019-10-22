@@ -23,24 +23,19 @@ func (b *RiskyUserRequestBuilder) Request() *RiskyUserRequest {
 // RiskyUserRequest is request for RiskyUser
 type RiskyUserRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RiskyUser
-func (r *RiskyUserRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUser, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RiskyUser
-func (r *RiskyUserRequest) Get() (*RiskyUser, error) {
+func (r *RiskyUserRequest) Get() (resObj *RiskyUser, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RiskyUser
-func (r *RiskyUserRequest) Update(reqObj *RiskyUser) (*RiskyUser, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RiskyUserRequest) Update(reqObj *RiskyUser) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RiskyUser
@@ -74,12 +69,6 @@ func (b *RiskyUserHistoryCollectionRequestBuilder) ID(id string) *RiskyUserHisto
 
 // RiskyUserHistoryCollectionRequest is request for RiskyUserHistoryItem collection
 type RiskyUserHistoryCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for RiskyUserHistoryItem collection
-func (r *RiskyUserHistoryCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *RiskyUserHistoryItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for RiskyUserHistoryItem collection
 func (r *RiskyUserHistoryCollectionRequest) Paging(method, path string, obj interface{}) ([]RiskyUserHistoryItem, error) {
@@ -131,6 +120,7 @@ func (r *RiskyUserHistoryCollectionRequest) Get() ([]RiskyUserHistoryItem, error
 }
 
 // Add performs POST request for RiskyUserHistoryItem collection
-func (r *RiskyUserHistoryCollectionRequest) Add(reqObj *RiskyUserHistoryItem) (*RiskyUserHistoryItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RiskyUserHistoryCollectionRequest) Add(reqObj *RiskyUserHistoryItem) (resObj *RiskyUserHistoryItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

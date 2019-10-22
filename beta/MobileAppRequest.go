@@ -23,24 +23,19 @@ func (b *MobileAppRequestBuilder) Request() *MobileAppRequest {
 // MobileAppRequest is request for MobileApp
 type MobileAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileApp
-func (r *MobileAppRequest) Do(method, path string, reqObj interface{}) (resObj *MobileApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileApp
-func (r *MobileAppRequest) Get() (*MobileApp, error) {
+func (r *MobileAppRequest) Get() (resObj *MobileApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileApp
-func (r *MobileAppRequest) Update(reqObj *MobileApp) (*MobileApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppRequest) Update(reqObj *MobileApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileApp
@@ -74,12 +69,6 @@ func (b *MobileAppAssignmentsCollectionRequestBuilder) ID(id string) *MobileAppA
 
 // MobileAppAssignmentsCollectionRequest is request for MobileAppAssignment collection
 type MobileAppAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppAssignment collection
-func (r *MobileAppAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppAssignment collection
 func (r *MobileAppAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppAssignment, error) {
@@ -131,8 +120,9 @@ func (r *MobileAppAssignmentsCollectionRequest) Get() ([]MobileAppAssignment, er
 }
 
 // Add performs POST request for MobileAppAssignment collection
-func (r *MobileAppAssignmentsCollectionRequest) Add(reqObj *MobileAppAssignment) (*MobileAppAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppAssignmentsCollectionRequest) Add(reqObj *MobileAppAssignment) (resObj *MobileAppAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Categories returns request builder for MobileAppCategory collection
@@ -161,12 +151,6 @@ func (b *MobileAppCategoriesCollectionRequestBuilder) ID(id string) *MobileAppCa
 
 // MobileAppCategoriesCollectionRequest is request for MobileAppCategory collection
 type MobileAppCategoriesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppCategory collection
-func (r *MobileAppCategoriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppCategory collection
 func (r *MobileAppCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppCategory, error) {
@@ -218,8 +202,9 @@ func (r *MobileAppCategoriesCollectionRequest) Get() ([]MobileAppCategory, error
 }
 
 // Add performs POST request for MobileAppCategory collection
-func (r *MobileAppCategoriesCollectionRequest) Add(reqObj *MobileAppCategory) (*MobileAppCategory, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppCategoriesCollectionRequest) Add(reqObj *MobileAppCategory) (resObj *MobileAppCategory, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStatuses returns request builder for MobileAppInstallStatus collection
@@ -248,12 +233,6 @@ func (b *MobileAppDeviceStatusesCollectionRequestBuilder) ID(id string) *MobileA
 
 // MobileAppDeviceStatusesCollectionRequest is request for MobileAppInstallStatus collection
 type MobileAppDeviceStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppInstallStatus collection
-func (r *MobileAppDeviceStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppInstallStatus collection
 func (r *MobileAppDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppInstallStatus, error) {
@@ -305,8 +284,9 @@ func (r *MobileAppDeviceStatusesCollectionRequest) Get() ([]MobileAppInstallStat
 }
 
 // Add performs POST request for MobileAppInstallStatus collection
-func (r *MobileAppDeviceStatusesCollectionRequest) Add(reqObj *MobileAppInstallStatus) (*MobileAppInstallStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppDeviceStatusesCollectionRequest) Add(reqObj *MobileAppInstallStatus) (resObj *MobileAppInstallStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // InstallSummary is navigation property
@@ -342,12 +322,6 @@ func (b *MobileAppRelationshipsCollectionRequestBuilder) ID(id string) *MobileAp
 
 // MobileAppRelationshipsCollectionRequest is request for MobileAppRelationship collection
 type MobileAppRelationshipsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppRelationship collection
-func (r *MobileAppRelationshipsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppRelationship, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppRelationship collection
 func (r *MobileAppRelationshipsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppRelationship, error) {
@@ -399,8 +373,9 @@ func (r *MobileAppRelationshipsCollectionRequest) Get() ([]MobileAppRelationship
 }
 
 // Add performs POST request for MobileAppRelationship collection
-func (r *MobileAppRelationshipsCollectionRequest) Add(reqObj *MobileAppRelationship) (*MobileAppRelationship, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppRelationshipsCollectionRequest) Add(reqObj *MobileAppRelationship) (resObj *MobileAppRelationship, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // UserStatuses returns request builder for UserAppInstallStatus collection
@@ -429,12 +404,6 @@ func (b *MobileAppUserStatusesCollectionRequestBuilder) ID(id string) *UserAppIn
 
 // MobileAppUserStatusesCollectionRequest is request for UserAppInstallStatus collection
 type MobileAppUserStatusesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for UserAppInstallStatus collection
-func (r *MobileAppUserStatusesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *UserAppInstallStatus, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for UserAppInstallStatus collection
 func (r *MobileAppUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserAppInstallStatus, error) {
@@ -486,6 +455,7 @@ func (r *MobileAppUserStatusesCollectionRequest) Get() ([]UserAppInstallStatus, 
 }
 
 // Add performs POST request for UserAppInstallStatus collection
-func (r *MobileAppUserStatusesCollectionRequest) Add(reqObj *UserAppInstallStatus) (*UserAppInstallStatus, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppUserStatusesCollectionRequest) Add(reqObj *UserAppInstallStatus) (resObj *UserAppInstallStatus, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

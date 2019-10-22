@@ -23,24 +23,19 @@ func (b *MobileAppTroubleshootingEventRequestBuilder) Request() *MobileAppTroubl
 // MobileAppTroubleshootingEventRequest is request for MobileAppTroubleshootingEvent
 type MobileAppTroubleshootingEventRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppTroubleshootingEvent
-func (r *MobileAppTroubleshootingEventRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppTroubleshootingEvent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppTroubleshootingEvent
-func (r *MobileAppTroubleshootingEventRequest) Get() (*MobileAppTroubleshootingEvent, error) {
+func (r *MobileAppTroubleshootingEventRequest) Get() (resObj *MobileAppTroubleshootingEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppTroubleshootingEvent
-func (r *MobileAppTroubleshootingEventRequest) Update(reqObj *MobileAppTroubleshootingEvent) (*MobileAppTroubleshootingEvent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppTroubleshootingEventRequest) Update(reqObj *MobileAppTroubleshootingEvent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppTroubleshootingEvent
@@ -74,12 +69,6 @@ func (b *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestB
 
 // MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest is request for AppLogCollectionRequestObject collection
 type MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AppLogCollectionRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AppLogCollectionRequestObject collection
 func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppLogCollectionRequestObject, error) {
@@ -131,6 +120,7 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 }
 
 // Add performs POST request for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Add(reqObj *AppLogCollectionRequestObject) (*AppLogCollectionRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Add(reqObj *AppLogCollectionRequestObject) (resObj *AppLogCollectionRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

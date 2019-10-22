@@ -42,13 +42,8 @@ func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApply
 }
 
 //
-func (r *WorkbookTableSortApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookTableSortApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -73,13 +68,8 @@ func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClear
 }
 
 //
-func (r *WorkbookTableSortClearRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookTableSortClearRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -104,11 +94,6 @@ func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortRea
 }
 
 //
-func (r *WorkbookTableSortReapplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WorkbookTableSortReapplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

@@ -30,12 +30,7 @@ func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksh
 }
 
 //
-func (r *WorkbookWorksheetCollectionAddRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookWorksheet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *WorkbookWorksheetCollectionAddRequest) Post() (resObj *WorkbookWorksheet, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *WorkbookWorksheetCollectionAddRequest) Post() (*WorkbookWorksheet, error) {
-	return r.Do("POST", "", r.requestObject)
 }

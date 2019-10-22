@@ -15,24 +15,19 @@ func (b *WorkbookChartDataLabelsRequestBuilder) Request() *WorkbookChartDataLabe
 // WorkbookChartDataLabelsRequest is request for WorkbookChartDataLabels
 type WorkbookChartDataLabelsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartDataLabels
-func (r *WorkbookChartDataLabelsRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartDataLabels, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartDataLabels
-func (r *WorkbookChartDataLabelsRequest) Get() (*WorkbookChartDataLabels, error) {
+func (r *WorkbookChartDataLabelsRequest) Get() (resObj *WorkbookChartDataLabels, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartDataLabels
-func (r *WorkbookChartDataLabelsRequest) Update(reqObj *WorkbookChartDataLabels) (*WorkbookChartDataLabels, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartDataLabelsRequest) Update(reqObj *WorkbookChartDataLabels) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartDataLabels

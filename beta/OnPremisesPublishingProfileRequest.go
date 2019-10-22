@@ -23,24 +23,19 @@ func (b *OnPremisesPublishingProfileRequestBuilder) Request() *OnPremisesPublish
 // OnPremisesPublishingProfileRequest is request for OnPremisesPublishingProfile
 type OnPremisesPublishingProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OnPremisesPublishingProfile
-func (r *OnPremisesPublishingProfileRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesPublishingProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OnPremisesPublishingProfile
-func (r *OnPremisesPublishingProfileRequest) Get() (*OnPremisesPublishingProfile, error) {
+func (r *OnPremisesPublishingProfileRequest) Get() (resObj *OnPremisesPublishingProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OnPremisesPublishingProfile
-func (r *OnPremisesPublishingProfileRequest) Update(reqObj *OnPremisesPublishingProfile) (*OnPremisesPublishingProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OnPremisesPublishingProfileRequest) Update(reqObj *OnPremisesPublishingProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnPremisesPublishingProfile
@@ -74,12 +69,6 @@ func (b *OnPremisesPublishingProfileAgentGroupsCollectionRequestBuilder) ID(id s
 
 // OnPremisesPublishingProfileAgentGroupsCollectionRequest is request for OnPremisesAgentGroup collection
 type OnPremisesPublishingProfileAgentGroupsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnPremisesAgentGroup collection
-func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgentGroup, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
 func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
@@ -131,8 +120,9 @@ func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Get() ([]OnPre
 }
 
 // Add performs POST request for OnPremisesAgentGroup collection
-func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Add(reqObj *OnPremisesAgentGroup) (*OnPremisesAgentGroup, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Add(reqObj *OnPremisesAgentGroup) (resObj *OnPremisesAgentGroup, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Agents returns request builder for OnPremisesAgent collection
@@ -161,12 +151,6 @@ func (b *OnPremisesPublishingProfileAgentsCollectionRequestBuilder) ID(id string
 
 // OnPremisesPublishingProfileAgentsCollectionRequest is request for OnPremisesAgent collection
 type OnPremisesPublishingProfileAgentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for OnPremisesAgent collection
-func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *OnPremisesAgent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for OnPremisesAgent collection
 func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnPremisesAgent, error) {
@@ -218,8 +202,9 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Get() ([]OnPremises
 }
 
 // Add performs POST request for OnPremisesAgent collection
-func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Add(reqObj *OnPremisesAgent) (*OnPremisesAgent, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Add(reqObj *OnPremisesAgent) (resObj *OnPremisesAgent, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // PublishedResources returns request builder for PublishedResource collection
@@ -248,12 +233,6 @@ func (b *OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder) 
 
 // OnPremisesPublishingProfilePublishedResourcesCollectionRequest is request for PublishedResource collection
 type OnPremisesPublishingProfilePublishedResourcesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for PublishedResource collection
-func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *PublishedResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for PublishedResource collection
 func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]PublishedResource, error) {
@@ -305,6 +284,7 @@ func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Get() (
 }
 
 // Add performs POST request for PublishedResource collection
-func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Add(reqObj *PublishedResource) (*PublishedResource, error) {
-	return r.Do("POST", "", reqObj)
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Add(reqObj *PublishedResource) (resObj *PublishedResource, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

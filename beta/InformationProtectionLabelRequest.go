@@ -15,24 +15,19 @@ func (b *InformationProtectionLabelRequestBuilder) Request() *InformationProtect
 // InformationProtectionLabelRequest is request for InformationProtectionLabel
 type InformationProtectionLabelRequest struct{ BaseRequest }
 
-// Do performs HTTP request for InformationProtectionLabel
-func (r *InformationProtectionLabelRequest) Do(method, path string, reqObj interface{}) (resObj *InformationProtectionLabel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for InformationProtectionLabel
-func (r *InformationProtectionLabelRequest) Get() (*InformationProtectionLabel, error) {
+func (r *InformationProtectionLabelRequest) Get() (resObj *InformationProtectionLabel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for InformationProtectionLabel
-func (r *InformationProtectionLabelRequest) Update(reqObj *InformationProtectionLabel) (*InformationProtectionLabel, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *InformationProtectionLabelRequest) Update(reqObj *InformationProtectionLabel) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InformationProtectionLabel

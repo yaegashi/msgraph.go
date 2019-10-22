@@ -15,24 +15,19 @@ func (b *WorkbookChartGridlinesFormatRequestBuilder) Request() *WorkbookChartGri
 // WorkbookChartGridlinesFormatRequest is request for WorkbookChartGridlinesFormat
 type WorkbookChartGridlinesFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartGridlinesFormat
-func (r *WorkbookChartGridlinesFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartGridlinesFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartGridlinesFormat
-func (r *WorkbookChartGridlinesFormatRequest) Get() (*WorkbookChartGridlinesFormat, error) {
+func (r *WorkbookChartGridlinesFormatRequest) Get() (resObj *WorkbookChartGridlinesFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartGridlinesFormat
-func (r *WorkbookChartGridlinesFormatRequest) Update(reqObj *WorkbookChartGridlinesFormat) (*WorkbookChartGridlinesFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartGridlinesFormatRequest) Update(reqObj *WorkbookChartGridlinesFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartGridlinesFormat

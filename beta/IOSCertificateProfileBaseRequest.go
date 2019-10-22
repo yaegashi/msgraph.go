@@ -15,24 +15,19 @@ func (b *IOSCertificateProfileBaseRequestBuilder) Request() *IOSCertificateProfi
 // IOSCertificateProfileBaseRequest is request for IOSCertificateProfileBase
 type IOSCertificateProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for IOSCertificateProfileBase
-func (r *IOSCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *IOSCertificateProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for IOSCertificateProfileBase
-func (r *IOSCertificateProfileBaseRequest) Get() (*IOSCertificateProfileBase, error) {
+func (r *IOSCertificateProfileBaseRequest) Get() (resObj *IOSCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for IOSCertificateProfileBase
-func (r *IOSCertificateProfileBaseRequest) Update(reqObj *IOSCertificateProfileBase) (*IOSCertificateProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *IOSCertificateProfileBaseRequest) Update(reqObj *IOSCertificateProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSCertificateProfileBase

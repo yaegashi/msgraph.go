@@ -15,24 +15,19 @@ func (b *BusinessFlowTemplateRequestBuilder) Request() *BusinessFlowTemplateRequ
 // BusinessFlowTemplateRequest is request for BusinessFlowTemplate
 type BusinessFlowTemplateRequest struct{ BaseRequest }
 
-// Do performs HTTP request for BusinessFlowTemplate
-func (r *BusinessFlowTemplateRequest) Do(method, path string, reqObj interface{}) (resObj *BusinessFlowTemplate, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for BusinessFlowTemplate
-func (r *BusinessFlowTemplateRequest) Get() (*BusinessFlowTemplate, error) {
+func (r *BusinessFlowTemplateRequest) Get() (resObj *BusinessFlowTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for BusinessFlowTemplate
-func (r *BusinessFlowTemplateRequest) Update(reqObj *BusinessFlowTemplate) (*BusinessFlowTemplate, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *BusinessFlowTemplateRequest) Update(reqObj *BusinessFlowTemplate) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BusinessFlowTemplate

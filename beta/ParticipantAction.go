@@ -2,6 +2,12 @@
 
 package msgraph
 
+// ParticipantMuteRequestParameter undocumented
+type ParticipantMuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
 // ParticipantCollectionInviteRequestParameter undocumented
 type ParticipantCollectionInviteRequestParameter struct {
 	// Participants undocumented
@@ -14,12 +20,6 @@ type ParticipantCollectionInviteRequestParameter struct {
 type ParticipantCollectionMuteAllRequestParameter struct {
 	// Participants undocumented
 	Participants []string `json:"participants,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// ParticipantMuteRequestParameter undocumented
-type ParticipantMuteRequestParameter struct {
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
 }
@@ -46,14 +46,9 @@ func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollec
 }
 
 //
-func (r *ParticipantCollectionInviteRequest) Do(method, path string, reqObj interface{}) (resObj *InviteParticipantsOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *ParticipantCollectionInviteRequest) Post() (resObj *InviteParticipantsOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *ParticipantCollectionInviteRequest) Post() (*InviteParticipantsOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -78,14 +73,9 @@ func (b *ParticipantCollectionMuteAllRequestBuilder) Request() *ParticipantColle
 }
 
 //
-func (r *ParticipantCollectionMuteAllRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantsOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *ParticipantCollectionMuteAllRequest) Post() (resObj *MuteParticipantsOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *ParticipantCollectionMuteAllRequest) Post() (*MuteParticipantsOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -110,12 +100,7 @@ func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
 }
 
 //
-func (r *ParticipantMuteRequest) Do(method, path string, reqObj interface{}) (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *ParticipantMuteRequest) Post() (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *ParticipantMuteRequest) Post() (*MuteParticipantOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }

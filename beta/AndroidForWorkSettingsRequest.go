@@ -15,24 +15,19 @@ func (b *AndroidForWorkSettingsRequestBuilder) Request() *AndroidForWorkSettings
 // AndroidForWorkSettingsRequest is request for AndroidForWorkSettings
 type AndroidForWorkSettingsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidForWorkSettings
-func (r *AndroidForWorkSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkSettings, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidForWorkSettings
-func (r *AndroidForWorkSettingsRequest) Get() (*AndroidForWorkSettings, error) {
+func (r *AndroidForWorkSettingsRequest) Get() (resObj *AndroidForWorkSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidForWorkSettings
-func (r *AndroidForWorkSettingsRequest) Update(reqObj *AndroidForWorkSettings) (*AndroidForWorkSettings, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidForWorkSettingsRequest) Update(reqObj *AndroidForWorkSettings) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkSettings

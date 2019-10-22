@@ -36,12 +36,6 @@ func (b *OutlookTaskCompleteRequestBuilder) Request() *OutlookTaskCompleteReques
 }
 
 //
-func (r *OutlookTaskCompleteRequest) Do(method, path string, reqObj interface{}) (resObj *[]OutlookTask, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *OutlookTaskCompleteRequest) Paging(method, path string, obj interface{}) ([][]OutlookTask, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

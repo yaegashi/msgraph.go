@@ -2,6 +2,18 @@
 
 package msgraph
 
+// SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
+type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
+	// ApplicationIdentifier undocumented
+	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
+	// UseSavedCredentials undocumented
+	UseSavedCredentials *bool `json:"useSavedCredentials,omitempty"`
+	// Credentials undocumented
+	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
+}
+
 // SynchronizationJobPauseRequestParameter undocumented
 type SynchronizationJobPauseRequestParameter struct {
 }
@@ -42,18 +54,6 @@ type SynchronizationJobValidateCredentialsRequestParameter struct {
 	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
 }
 
-// SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
-type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
-	// ApplicationIdentifier undocumented
-	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
-	// TemplateID undocumented
-	TemplateID *string `json:"templateId,omitempty"`
-	// UseSavedCredentials undocumented
-	UseSavedCredentials *bool `json:"useSavedCredentials,omitempty"`
-	// Credentials undocumented
-	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
-}
-
 //
 type SynchronizationJobCollectionValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -76,13 +76,8 @@ func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request(
 }
 
 //
-func (r *SynchronizationJobCollectionValidateCredentialsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -107,13 +102,8 @@ func (b *SynchronizationJobPauseRequestBuilder) Request() *SynchronizationJobPau
 }
 
 //
-func (r *SynchronizationJobPauseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobPauseRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -138,13 +128,8 @@ func (b *SynchronizationJobStartRequestBuilder) Request() *SynchronizationJobSta
 }
 
 //
-func (r *SynchronizationJobStartRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobStartRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -169,13 +154,8 @@ func (b *SynchronizationJobStopRequestBuilder) Request() *SynchronizationJobStop
 }
 
 //
-func (r *SynchronizationJobStopRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobStopRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -200,13 +180,8 @@ func (b *SynchronizationJobApplyRequestBuilder) Request() *SynchronizationJobApp
 }
 
 //
-func (r *SynchronizationJobApplyRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobApplyRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -231,13 +206,8 @@ func (b *SynchronizationJobRestartRequestBuilder) Request() *SynchronizationJobR
 }
 
 //
-func (r *SynchronizationJobRestartRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobRestartRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -262,11 +232,6 @@ func (b *SynchronizationJobValidateCredentialsRequestBuilder) Request() *Synchro
 }
 
 //
-func (r *SynchronizationJobValidateCredentialsRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SynchronizationJobValidateCredentialsRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

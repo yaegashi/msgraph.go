@@ -23,24 +23,19 @@ func (b *GroupRequestBuilder) Request() *GroupRequest {
 // GroupRequest is request for Group
 type GroupRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Group
-func (r *GroupRequest) Do(method, path string, reqObj interface{}) (resObj *Group, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Group
-func (r *GroupRequest) Get() (*Group, error) {
+func (r *GroupRequest) Get() (resObj *Group, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Group
-func (r *GroupRequest) Update(reqObj *Group) (*Group, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GroupRequest) Update(reqObj *Group) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Group
@@ -74,12 +69,6 @@ func (b *GroupAcceptedSendersCollectionRequestBuilder) ID(id string) *DirectoryO
 
 // GroupAcceptedSendersCollectionRequest is request for DirectoryObject collection
 type GroupAcceptedSendersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupAcceptedSendersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -131,8 +120,9 @@ func (r *GroupAcceptedSendersCollectionRequest) Get() ([]DirectoryObject, error)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupAcceptedSendersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Calendar is navigation property
@@ -168,12 +158,6 @@ func (b *GroupCalendarViewCollectionRequestBuilder) ID(id string) *EventRequestB
 
 // GroupCalendarViewCollectionRequest is request for Event collection
 type GroupCalendarViewCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Event collection
-func (r *GroupCalendarViewCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Event collection
 func (r *GroupCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
@@ -225,8 +209,9 @@ func (r *GroupCalendarViewCollectionRequest) Get() ([]Event, error) {
 }
 
 // Add performs POST request for Event collection
-func (r *GroupCalendarViewCollectionRequest) Add(reqObj *Event) (*Event, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupCalendarViewCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Conversations returns request builder for Conversation collection
@@ -255,12 +240,6 @@ func (b *GroupConversationsCollectionRequestBuilder) ID(id string) *Conversation
 
 // GroupConversationsCollectionRequest is request for Conversation collection
 type GroupConversationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Conversation collection
-func (r *GroupConversationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Conversation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Conversation collection
 func (r *GroupConversationsCollectionRequest) Paging(method, path string, obj interface{}) ([]Conversation, error) {
@@ -312,8 +291,9 @@ func (r *GroupConversationsCollectionRequest) Get() ([]Conversation, error) {
 }
 
 // Add performs POST request for Conversation collection
-func (r *GroupConversationsCollectionRequest) Add(reqObj *Conversation) (*Conversation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupConversationsCollectionRequest) Add(reqObj *Conversation) (resObj *Conversation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // CreatedOnBehalfOf is navigation property
@@ -356,12 +336,6 @@ func (b *GroupDrivesCollectionRequestBuilder) ID(id string) *DriveRequestBuilder
 
 // GroupDrivesCollectionRequest is request for Drive collection
 type GroupDrivesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Drive collection
-func (r *GroupDrivesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Drive, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Drive collection
 func (r *GroupDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
@@ -413,8 +387,9 @@ func (r *GroupDrivesCollectionRequest) Get() ([]Drive, error) {
 }
 
 // Add performs POST request for Drive collection
-func (r *GroupDrivesCollectionRequest) Add(reqObj *Drive) (*Drive, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupDrivesCollectionRequest) Add(reqObj *Drive) (resObj *Drive, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Events returns request builder for Event collection
@@ -443,12 +418,6 @@ func (b *GroupEventsCollectionRequestBuilder) ID(id string) *EventRequestBuilder
 
 // GroupEventsCollectionRequest is request for Event collection
 type GroupEventsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Event collection
-func (r *GroupEventsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Event, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Event collection
 func (r *GroupEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
@@ -500,8 +469,9 @@ func (r *GroupEventsCollectionRequest) Get() ([]Event, error) {
 }
 
 // Add performs POST request for Event collection
-func (r *GroupEventsCollectionRequest) Add(reqObj *Event) (*Event, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupEventsCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Extensions returns request builder for Extension collection
@@ -530,12 +500,6 @@ func (b *GroupExtensionsCollectionRequestBuilder) ID(id string) *ExtensionReques
 
 // GroupExtensionsCollectionRequest is request for Extension collection
 type GroupExtensionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Extension collection
-func (r *GroupExtensionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Extension collection
 func (r *GroupExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
@@ -587,8 +551,9 @@ func (r *GroupExtensionsCollectionRequest) Get() ([]Extension, error) {
 }
 
 // Add performs POST request for Extension collection
-func (r *GroupExtensionsCollectionRequest) Add(reqObj *Extension) (*Extension, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // GroupLifecyclePolicies returns request builder for GroupLifecyclePolicy collection
@@ -617,12 +582,6 @@ func (b *GroupGroupLifecyclePoliciesCollectionRequestBuilder) ID(id string) *Gro
 
 // GroupGroupLifecyclePoliciesCollectionRequest is request for GroupLifecyclePolicy collection
 type GroupGroupLifecyclePoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupLifecyclePolicy collection
 func (r *GroupGroupLifecyclePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
@@ -674,8 +633,9 @@ func (r *GroupGroupLifecyclePoliciesCollectionRequest) Get() ([]GroupLifecyclePo
 }
 
 // Add performs POST request for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Add(reqObj *GroupLifecyclePolicy) (*GroupLifecyclePolicy, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupGroupLifecyclePoliciesCollectionRequest) Add(reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MemberOf returns request builder for DirectoryObject collection
@@ -704,12 +664,6 @@ func (b *GroupMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObjectRe
 
 // GroupMemberOfCollectionRequest is request for DirectoryObject collection
 type GroupMemberOfCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -761,8 +715,9 @@ func (r *GroupMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Members returns request builder for DirectoryObject collection
@@ -791,12 +746,6 @@ func (b *GroupMembersCollectionRequestBuilder) ID(id string) *DirectoryObjectReq
 
 // GroupMembersCollectionRequest is request for DirectoryObject collection
 type GroupMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -848,8 +797,9 @@ func (r *GroupMembersCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MembersWithLicenseErrors returns request builder for DirectoryObject collection
@@ -878,12 +828,6 @@ func (b *GroupMembersWithLicenseErrorsCollectionRequestBuilder) ID(id string) *D
 
 // GroupMembersWithLicenseErrorsCollectionRequest is request for DirectoryObject collection
 type GroupMembersWithLicenseErrorsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupMembersWithLicenseErrorsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -935,8 +879,9 @@ func (r *GroupMembersWithLicenseErrorsCollectionRequest) Get() ([]DirectoryObjec
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupMembersWithLicenseErrorsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Onenote is navigation property
@@ -972,12 +917,6 @@ func (b *GroupOwnersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequ
 
 // GroupOwnersCollectionRequest is request for DirectoryObject collection
 type GroupOwnersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -1029,8 +968,9 @@ func (r *GroupOwnersCollectionRequest) Get() ([]DirectoryObject, error) {
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupOwnersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Photo is navigation property
@@ -1066,12 +1006,6 @@ func (b *GroupPhotosCollectionRequestBuilder) ID(id string) *ProfilePhotoRequest
 
 // GroupPhotosCollectionRequest is request for ProfilePhoto collection
 type GroupPhotosCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ProfilePhoto, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ProfilePhoto collection
 func (r *GroupPhotosCollectionRequest) Paging(method, path string, obj interface{}) ([]ProfilePhoto, error) {
@@ -1123,8 +1057,9 @@ func (r *GroupPhotosCollectionRequest) Get() ([]ProfilePhoto, error) {
 }
 
 // Add performs POST request for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Add(reqObj *ProfilePhoto) (*ProfilePhoto, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupPhotosCollectionRequest) Add(reqObj *ProfilePhoto) (resObj *ProfilePhoto, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Planner is navigation property
@@ -1160,12 +1095,6 @@ func (b *GroupRejectedSendersCollectionRequestBuilder) ID(id string) *DirectoryO
 
 // GroupRejectedSendersCollectionRequest is request for DirectoryObject collection
 type GroupRejectedSendersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupRejectedSendersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -1217,8 +1146,9 @@ func (r *GroupRejectedSendersCollectionRequest) Get() ([]DirectoryObject, error)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupRejectedSendersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Settings returns request builder for GroupSetting collection
@@ -1247,12 +1177,6 @@ func (b *GroupSettingsCollectionRequestBuilder) ID(id string) *GroupSettingReque
 
 // GroupSettingsCollectionRequest is request for GroupSetting collection
 type GroupSettingsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupSetting collection
-func (r *GroupSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupSetting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupSetting collection
 func (r *GroupSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupSetting, error) {
@@ -1304,8 +1228,9 @@ func (r *GroupSettingsCollectionRequest) Get() ([]GroupSetting, error) {
 }
 
 // Add performs POST request for GroupSetting collection
-func (r *GroupSettingsCollectionRequest) Add(reqObj *GroupSetting) (*GroupSetting, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupSettingsCollectionRequest) Add(reqObj *GroupSetting) (resObj *GroupSetting, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Sites returns request builder for Site collection
@@ -1334,12 +1259,6 @@ func (b *GroupSitesCollectionRequestBuilder) ID(id string) *SiteRequestBuilder {
 
 // GroupSitesCollectionRequest is request for Site collection
 type GroupSitesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Site collection
-func (r *GroupSitesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Site, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Site collection
 func (r *GroupSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
@@ -1391,8 +1310,9 @@ func (r *GroupSitesCollectionRequest) Get() ([]Site, error) {
 }
 
 // Add performs POST request for Site collection
-func (r *GroupSitesCollectionRequest) Add(reqObj *Site) (*Site, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupSitesCollectionRequest) Add(reqObj *Site) (resObj *Site, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Team is navigation property
@@ -1428,12 +1348,6 @@ func (b *GroupThreadsCollectionRequestBuilder) ID(id string) *ConversationThread
 
 // GroupThreadsCollectionRequest is request for ConversationThread collection
 type GroupThreadsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ConversationThread, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ConversationThread collection
 func (r *GroupThreadsCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationThread, error) {
@@ -1485,8 +1399,9 @@ func (r *GroupThreadsCollectionRequest) Get() ([]ConversationThread, error) {
 }
 
 // Add performs POST request for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Add(reqObj *ConversationThread) (*ConversationThread, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupThreadsCollectionRequest) Add(reqObj *ConversationThread) (resObj *ConversationThread, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TransitiveMemberOf returns request builder for DirectoryObject collection
@@ -1515,12 +1430,6 @@ func (b *GroupTransitiveMemberOfCollectionRequestBuilder) ID(id string) *Directo
 
 // GroupTransitiveMemberOfCollectionRequest is request for DirectoryObject collection
 type GroupTransitiveMemberOfCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -1572,8 +1481,9 @@ func (r *GroupTransitiveMemberOfCollectionRequest) Get() ([]DirectoryObject, err
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // TransitiveMembers returns request builder for DirectoryObject collection
@@ -1602,12 +1512,6 @@ func (b *GroupTransitiveMembersCollectionRequestBuilder) ID(id string) *Director
 
 // GroupTransitiveMembersCollectionRequest is request for DirectoryObject collection
 type GroupTransitiveMembersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DirectoryObject collection
 func (r *GroupTransitiveMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
@@ -1659,6 +1563,7 @@ func (r *GroupTransitiveMembersCollectionRequest) Get() ([]DirectoryObject, erro
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Add(reqObj *DirectoryObject) (*DirectoryObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupTransitiveMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

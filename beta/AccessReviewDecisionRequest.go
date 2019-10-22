@@ -15,24 +15,19 @@ func (b *AccessReviewDecisionRequestBuilder) Request() *AccessReviewDecisionRequ
 // AccessReviewDecisionRequest is request for AccessReviewDecision
 type AccessReviewDecisionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessReviewDecision
-func (r *AccessReviewDecisionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessReviewDecision
-func (r *AccessReviewDecisionRequest) Get() (*AccessReviewDecision, error) {
+func (r *AccessReviewDecisionRequest) Get() (resObj *AccessReviewDecision, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessReviewDecision
-func (r *AccessReviewDecisionRequest) Update(reqObj *AccessReviewDecision) (*AccessReviewDecision, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessReviewDecisionRequest) Update(reqObj *AccessReviewDecision) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessReviewDecision

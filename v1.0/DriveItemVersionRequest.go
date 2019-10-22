@@ -15,24 +15,19 @@ func (b *DriveItemVersionRequestBuilder) Request() *DriveItemVersionRequest {
 // DriveItemVersionRequest is request for DriveItemVersion
 type DriveItemVersionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DriveItemVersion
-func (r *DriveItemVersionRequest) Do(method, path string, reqObj interface{}) (resObj *DriveItemVersion, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DriveItemVersion
-func (r *DriveItemVersionRequest) Get() (*DriveItemVersion, error) {
+func (r *DriveItemVersionRequest) Get() (resObj *DriveItemVersion, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DriveItemVersion
-func (r *DriveItemVersionRequest) Update(reqObj *DriveItemVersion) (*DriveItemVersion, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DriveItemVersionRequest) Update(reqObj *DriveItemVersion) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DriveItemVersion

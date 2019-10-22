@@ -15,24 +15,19 @@ func (b *ManagedDeviceOverviewRequestBuilder) Request() *ManagedDeviceOverviewRe
 // ManagedDeviceOverviewRequest is request for ManagedDeviceOverview
 type ManagedDeviceOverviewRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedDeviceOverview
-func (r *ManagedDeviceOverviewRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceOverview, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedDeviceOverview
-func (r *ManagedDeviceOverviewRequest) Get() (*ManagedDeviceOverview, error) {
+func (r *ManagedDeviceOverviewRequest) Get() (resObj *ManagedDeviceOverview, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedDeviceOverview
-func (r *ManagedDeviceOverviewRequest) Update(reqObj *ManagedDeviceOverview) (*ManagedDeviceOverview, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedDeviceOverviewRequest) Update(reqObj *ManagedDeviceOverview) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceOverview

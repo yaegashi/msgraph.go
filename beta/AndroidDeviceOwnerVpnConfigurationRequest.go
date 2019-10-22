@@ -15,24 +15,19 @@ func (b *AndroidDeviceOwnerVpnConfigurationRequestBuilder) Request() *AndroidDev
 // AndroidDeviceOwnerVpnConfigurationRequest is request for AndroidDeviceOwnerVpnConfiguration
 type AndroidDeviceOwnerVpnConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidDeviceOwnerVpnConfiguration
-func (r *AndroidDeviceOwnerVpnConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidDeviceOwnerVpnConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidDeviceOwnerVpnConfiguration
-func (r *AndroidDeviceOwnerVpnConfigurationRequest) Get() (*AndroidDeviceOwnerVpnConfiguration, error) {
+func (r *AndroidDeviceOwnerVpnConfigurationRequest) Get() (resObj *AndroidDeviceOwnerVpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidDeviceOwnerVpnConfiguration
-func (r *AndroidDeviceOwnerVpnConfigurationRequest) Update(reqObj *AndroidDeviceOwnerVpnConfiguration) (*AndroidDeviceOwnerVpnConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidDeviceOwnerVpnConfigurationRequest) Update(reqObj *AndroidDeviceOwnerVpnConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidDeviceOwnerVpnConfiguration

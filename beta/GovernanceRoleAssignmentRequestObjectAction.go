@@ -40,13 +40,8 @@ func (b *GovernanceRoleAssignmentRequestObjectCancelRequestBuilder) Request() *G
 }
 
 //
-func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -71,12 +66,7 @@ func (b *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder)
 }
 
 //
-func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Post() (resObj *GovernanceRoleAssignmentRequestObject, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Post() (*GovernanceRoleAssignmentRequestObject, error) {
-	return r.Do("POST", "", r.requestObject)
 }

@@ -15,24 +15,19 @@ func (b *WorkbookChartPointFormatRequestBuilder) Request() *WorkbookChartPointFo
 // WorkbookChartPointFormatRequest is request for WorkbookChartPointFormat
 type WorkbookChartPointFormatRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartPointFormat
-func (r *WorkbookChartPointFormatRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartPointFormat, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChartPointFormat
-func (r *WorkbookChartPointFormatRequest) Get() (*WorkbookChartPointFormat, error) {
+func (r *WorkbookChartPointFormatRequest) Get() (resObj *WorkbookChartPointFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChartPointFormat
-func (r *WorkbookChartPointFormatRequest) Update(reqObj *WorkbookChartPointFormat) (*WorkbookChartPointFormat, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartPointFormatRequest) Update(reqObj *WorkbookChartPointFormat) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartPointFormat

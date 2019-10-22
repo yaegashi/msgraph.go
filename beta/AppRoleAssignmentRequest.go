@@ -15,24 +15,19 @@ func (b *AppRoleAssignmentRequestBuilder) Request() *AppRoleAssignmentRequest {
 // AppRoleAssignmentRequest is request for AppRoleAssignment
 type AppRoleAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AppRoleAssignment
-func (r *AppRoleAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *AppRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AppRoleAssignment
-func (r *AppRoleAssignmentRequest) Get() (*AppRoleAssignment, error) {
+func (r *AppRoleAssignmentRequest) Get() (resObj *AppRoleAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AppRoleAssignment
-func (r *AppRoleAssignmentRequest) Update(reqObj *AppRoleAssignment) (*AppRoleAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AppRoleAssignmentRequest) Update(reqObj *AppRoleAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppRoleAssignment

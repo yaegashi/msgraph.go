@@ -15,24 +15,19 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder) Request() *
 // AndroidManagedStoreAccountEnterpriseSettingsRequest is request for AndroidManagedStoreAccountEnterpriseSettings
 type AndroidManagedStoreAccountEnterpriseSettingsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidManagedStoreAccountEnterpriseSettings
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidManagedStoreAccountEnterpriseSettings, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidManagedStoreAccountEnterpriseSettings
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Get() (*AndroidManagedStoreAccountEnterpriseSettings, error) {
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Get() (resObj *AndroidManagedStoreAccountEnterpriseSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidManagedStoreAccountEnterpriseSettings
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Update(reqObj *AndroidManagedStoreAccountEnterpriseSettings) (*AndroidManagedStoreAccountEnterpriseSettings, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Update(reqObj *AndroidManagedStoreAccountEnterpriseSettings) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidManagedStoreAccountEnterpriseSettings

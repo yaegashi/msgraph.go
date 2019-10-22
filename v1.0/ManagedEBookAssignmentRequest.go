@@ -15,24 +15,19 @@ func (b *ManagedEBookAssignmentRequestBuilder) Request() *ManagedEBookAssignment
 // ManagedEBookAssignmentRequest is request for ManagedEBookAssignment
 type ManagedEBookAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedEBookAssignment
-func (r *ManagedEBookAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedEBookAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedEBookAssignment
-func (r *ManagedEBookAssignmentRequest) Get() (*ManagedEBookAssignment, error) {
+func (r *ManagedEBookAssignmentRequest) Get() (resObj *ManagedEBookAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedEBookAssignment
-func (r *ManagedEBookAssignmentRequest) Update(reqObj *ManagedEBookAssignment) (*ManagedEBookAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedEBookAssignmentRequest) Update(reqObj *ManagedEBookAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedEBookAssignment

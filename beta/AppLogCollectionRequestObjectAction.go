@@ -28,12 +28,7 @@ func (b *AppLogCollectionRequestObjectCreateDownloadURLRequestBuilder) Request()
 }
 
 //
-func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) Do(method, path string, reqObj interface{}) (resObj *AppLogCollectionDownloadDetails, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) Post() (resObj *AppLogCollectionDownloadDetails, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) Post() (*AppLogCollectionDownloadDetails, error) {
-	return r.Do("POST", "", r.requestObject)
 }

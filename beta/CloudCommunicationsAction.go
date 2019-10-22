@@ -38,12 +38,6 @@ func (b *CloudCommunicationsGetPresencesByUserIDRequestBuilder) Request() *Cloud
 }
 
 //
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) Do(method, path string, reqObj interface{}) (resObj *[]Presence, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(method, path string, obj interface{}) ([][]Presence, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

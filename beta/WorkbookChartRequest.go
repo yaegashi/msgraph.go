@@ -23,24 +23,19 @@ func (b *WorkbookChartRequestBuilder) Request() *WorkbookChartRequest {
 // WorkbookChartRequest is request for WorkbookChart
 type WorkbookChartRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChart
-func (r *WorkbookChartRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WorkbookChart
-func (r *WorkbookChartRequest) Get() (*WorkbookChart, error) {
+func (r *WorkbookChartRequest) Get() (resObj *WorkbookChart, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WorkbookChart
-func (r *WorkbookChartRequest) Update(reqObj *WorkbookChart) (*WorkbookChart, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WorkbookChartRequest) Update(reqObj *WorkbookChart) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChart
@@ -103,12 +98,6 @@ func (b *WorkbookChartSeriesCollectionRequestBuilder) ID(id string) *WorkbookCha
 // WorkbookChartSeriesCollectionRequest is request for WorkbookChartSeries collection
 type WorkbookChartSeriesCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WorkbookChartSeries collection
-func (r *WorkbookChartSeriesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *WorkbookChartSeries, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for WorkbookChartSeries collection
 func (r *WorkbookChartSeriesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookChartSeries, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -159,8 +148,9 @@ func (r *WorkbookChartSeriesCollectionRequest) Get() ([]WorkbookChartSeries, err
 }
 
 // Add performs POST request for WorkbookChartSeries collection
-func (r *WorkbookChartSeriesCollectionRequest) Add(reqObj *WorkbookChartSeries) (*WorkbookChartSeries, error) {
-	return r.Do("POST", "", reqObj)
+func (r *WorkbookChartSeriesCollectionRequest) Add(reqObj *WorkbookChartSeries) (resObj *WorkbookChartSeries, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Title is navigation property

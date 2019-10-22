@@ -23,24 +23,19 @@ func (b *AccessPackageCatalogRequestBuilder) Request() *AccessPackageCatalogRequ
 // AccessPackageCatalogRequest is request for AccessPackageCatalog
 type AccessPackageCatalogRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AccessPackageCatalog
-func (r *AccessPackageCatalogRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageCatalog, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AccessPackageCatalog
-func (r *AccessPackageCatalogRequest) Get() (*AccessPackageCatalog, error) {
+func (r *AccessPackageCatalogRequest) Get() (resObj *AccessPackageCatalog, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AccessPackageCatalog
-func (r *AccessPackageCatalogRequest) Update(reqObj *AccessPackageCatalog) (*AccessPackageCatalog, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AccessPackageCatalogRequest) Update(reqObj *AccessPackageCatalog) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageCatalog
@@ -74,12 +69,6 @@ func (b *AccessPackageCatalogAccessPackageResourceRolesCollectionRequestBuilder)
 
 // AccessPackageCatalogAccessPackageResourceRolesCollectionRequest is request for AccessPackageResourceRole collection
 type AccessPackageCatalogAccessPackageResourceRolesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageResourceRole collection
-func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceRole, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageResourceRole collection
 func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceRole, error) {
@@ -131,8 +120,9 @@ func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Get() 
 }
 
 // Add performs POST request for AccessPackageResourceRole collection
-func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Add(reqObj *AccessPackageResourceRole) (*AccessPackageResourceRole, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Add(reqObj *AccessPackageResourceRole) (resObj *AccessPackageResourceRole, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AccessPackageResourceScopes returns request builder for AccessPackageResourceScope collection
@@ -161,12 +151,6 @@ func (b *AccessPackageCatalogAccessPackageResourceScopesCollectionRequestBuilder
 
 // AccessPackageCatalogAccessPackageResourceScopesCollectionRequest is request for AccessPackageResourceScope collection
 type AccessPackageCatalogAccessPackageResourceScopesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageResourceScope collection
-func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResourceScope, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageResourceScope collection
 func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceScope, error) {
@@ -218,8 +202,9 @@ func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Get()
 }
 
 // Add performs POST request for AccessPackageResourceScope collection
-func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Add(reqObj *AccessPackageResourceScope) (*AccessPackageResourceScope, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Add(reqObj *AccessPackageResourceScope) (resObj *AccessPackageResourceScope, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AccessPackageResources returns request builder for AccessPackageResource collection
@@ -248,12 +233,6 @@ func (b *AccessPackageCatalogAccessPackageResourcesCollectionRequestBuilder) ID(
 
 // AccessPackageCatalogAccessPackageResourcesCollectionRequest is request for AccessPackageResource collection
 type AccessPackageCatalogAccessPackageResourcesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackageResource collection
-func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackageResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackageResource collection
 func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResource, error) {
@@ -305,8 +284,9 @@ func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Get() ([]A
 }
 
 // Add performs POST request for AccessPackageResource collection
-func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Add(reqObj *AccessPackageResource) (*AccessPackageResource, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Add(reqObj *AccessPackageResource) (resObj *AccessPackageResource, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // AccessPackages returns request builder for AccessPackage collection
@@ -335,12 +315,6 @@ func (b *AccessPackageCatalogAccessPackagesCollectionRequestBuilder) ID(id strin
 
 // AccessPackageCatalogAccessPackagesCollectionRequest is request for AccessPackage collection
 type AccessPackageCatalogAccessPackagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessPackage collection
-func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessPackage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessPackage collection
 func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackage, error) {
@@ -392,6 +366,7 @@ func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Get() ([]AccessPac
 }
 
 // Add performs POST request for AccessPackage collection
-func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Add(reqObj *AccessPackage) (*AccessPackage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Add(reqObj *AccessPackage) (resObj *AccessPackage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

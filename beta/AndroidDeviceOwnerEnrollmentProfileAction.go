@@ -34,13 +34,8 @@ func (b *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestBuilder) Request()
 }
 
 //
-func (r *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -65,11 +60,6 @@ func (b *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequestBuilder) Request()
 }
 
 //
-func (r *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

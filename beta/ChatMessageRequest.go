@@ -23,24 +23,19 @@ func (b *ChatMessageRequestBuilder) Request() *ChatMessageRequest {
 // ChatMessageRequest is request for ChatMessage
 type ChatMessageRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ChatMessage
-func (r *ChatMessageRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ChatMessage
-func (r *ChatMessageRequest) Get() (*ChatMessage, error) {
+func (r *ChatMessageRequest) Get() (resObj *ChatMessage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ChatMessage
-func (r *ChatMessageRequest) Update(reqObj *ChatMessage) (*ChatMessage, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ChatMessageRequest) Update(reqObj *ChatMessage) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ChatMessage
@@ -74,12 +69,6 @@ func (b *ChatMessageHostedContentsCollectionRequestBuilder) ID(id string) *ChatM
 
 // ChatMessageHostedContentsCollectionRequest is request for ChatMessageHostedContent collection
 type ChatMessageHostedContentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessageHostedContent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ChatMessageHostedContent collection
 func (r *ChatMessageHostedContentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessageHostedContent, error) {
@@ -131,8 +120,9 @@ func (r *ChatMessageHostedContentsCollectionRequest) Get() ([]ChatMessageHostedC
 }
 
 // Add performs POST request for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Add(reqObj *ChatMessageHostedContent) (*ChatMessageHostedContent, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChatMessageHostedContentsCollectionRequest) Add(reqObj *ChatMessageHostedContent) (resObj *ChatMessageHostedContent, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Replies returns request builder for ChatMessage collection
@@ -161,12 +151,6 @@ func (b *ChatMessageRepliesCollectionRequestBuilder) ID(id string) *ChatMessageR
 
 // ChatMessageRepliesCollectionRequest is request for ChatMessage collection
 type ChatMessageRepliesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ChatMessage, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ChatMessage collection
 func (r *ChatMessageRepliesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
@@ -218,6 +202,7 @@ func (r *ChatMessageRepliesCollectionRequest) Get() ([]ChatMessage, error) {
 }
 
 // Add performs POST request for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Add(reqObj *ChatMessage) (*ChatMessage, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ChatMessageRepliesCollectionRequest) Add(reqObj *ChatMessage) (resObj *ChatMessage, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *ActiveDirectoryWindowsAutopilotDeploymentProfileRequestBuilder) Request
 // ActiveDirectoryWindowsAutopilotDeploymentProfileRequest is request for ActiveDirectoryWindowsAutopilotDeploymentProfile
 type ActiveDirectoryWindowsAutopilotDeploymentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ActiveDirectoryWindowsAutopilotDeploymentProfile
-func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *ActiveDirectoryWindowsAutopilotDeploymentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ActiveDirectoryWindowsAutopilotDeploymentProfile
-func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Get() (*ActiveDirectoryWindowsAutopilotDeploymentProfile, error) {
+func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Get() (resObj *ActiveDirectoryWindowsAutopilotDeploymentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ActiveDirectoryWindowsAutopilotDeploymentProfile
-func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Update(reqObj *ActiveDirectoryWindowsAutopilotDeploymentProfile) (*ActiveDirectoryWindowsAutopilotDeploymentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ActiveDirectoryWindowsAutopilotDeploymentProfileRequest) Update(reqObj *ActiveDirectoryWindowsAutopilotDeploymentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ActiveDirectoryWindowsAutopilotDeploymentProfile

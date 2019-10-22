@@ -38,12 +38,6 @@ func (b *EmbeddedSIMActivationCodePoolAssignRequestBuilder) Request() *EmbeddedS
 }
 
 //
-func (r *EmbeddedSIMActivationCodePoolAssignRequest) Do(method, path string, reqObj interface{}) (resObj *[]EmbeddedSIMActivationCodePoolAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
 func (r *EmbeddedSIMActivationCodePoolAssignRequest) Paging(method, path string, obj interface{}) ([][]EmbeddedSIMActivationCodePoolAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {

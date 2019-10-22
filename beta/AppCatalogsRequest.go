@@ -23,24 +23,19 @@ func (b *AppCatalogsRequestBuilder) Request() *AppCatalogsRequest {
 // AppCatalogsRequest is request for AppCatalogs
 type AppCatalogsRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AppCatalogs
-func (r *AppCatalogsRequest) Do(method, path string, reqObj interface{}) (resObj *AppCatalogs, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AppCatalogs
-func (r *AppCatalogsRequest) Get() (*AppCatalogs, error) {
+func (r *AppCatalogsRequest) Get() (resObj *AppCatalogs, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AppCatalogs
-func (r *AppCatalogsRequest) Update(reqObj *AppCatalogs) (*AppCatalogs, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AppCatalogsRequest) Update(reqObj *AppCatalogs) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppCatalogs
@@ -74,12 +69,6 @@ func (b *AppCatalogsTeamsAppsCollectionRequestBuilder) ID(id string) *TeamsAppRe
 
 // AppCatalogsTeamsAppsCollectionRequest is request for TeamsApp collection
 type AppCatalogsTeamsAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *TeamsApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for TeamsApp collection
 func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsApp, error) {
@@ -131,6 +120,7 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Get() ([]TeamsApp, error) {
 }
 
 // Add performs POST request for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Add(reqObj *TeamsApp) (*TeamsApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AppCatalogsTeamsAppsCollectionRequest) Add(reqObj *TeamsApp) (resObj *TeamsApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

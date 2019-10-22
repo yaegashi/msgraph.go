@@ -15,24 +15,19 @@ func (b *MacManagedAppProtectionRequestBuilder) Request() *MacManagedAppProtecti
 // MacManagedAppProtectionRequest is request for MacManagedAppProtection
 type MacManagedAppProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MacManagedAppProtection
-func (r *MacManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *MacManagedAppProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MacManagedAppProtection
-func (r *MacManagedAppProtectionRequest) Get() (*MacManagedAppProtection, error) {
+func (r *MacManagedAppProtectionRequest) Get() (resObj *MacManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MacManagedAppProtection
-func (r *MacManagedAppProtectionRequest) Update(reqObj *MacManagedAppProtection) (*MacManagedAppProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MacManagedAppProtectionRequest) Update(reqObj *MacManagedAppProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacManagedAppProtection

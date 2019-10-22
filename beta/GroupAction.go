@@ -78,13 +78,8 @@ func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidateProperti
 }
 
 //
-func (r *GroupValidatePropertiesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupValidatePropertiesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -106,12 +101,6 @@ func (b *GroupCheckGrantedPermissionsForAppRequestBuilder) Request() *GroupCheck
 	return &GroupCheckGrantedPermissionsForAppRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *GroupCheckGrantedPermissionsForAppRequest) Do(method, path string, reqObj interface{}) (resObj *[]ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -185,14 +174,9 @@ func (b *GroupAssignLicenseRequestBuilder) Request() *GroupAssignLicenseRequest 
 }
 
 //
-func (r *GroupAssignLicenseRequest) Do(method, path string, reqObj interface{}) (resObj *Group, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *GroupAssignLicenseRequest) Post() (resObj *Group, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *GroupAssignLicenseRequest) Post() (*Group, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -217,13 +201,8 @@ func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequ
 }
 
 //
-func (r *GroupSubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupSubscribeByMailRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -248,13 +227,8 @@ func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMail
 }
 
 //
-func (r *GroupUnsubscribeByMailRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupUnsubscribeByMailRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -279,13 +253,8 @@ func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 }
 
 //
-func (r *GroupAddFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupAddFavoriteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -310,13 +279,8 @@ func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteReques
 }
 
 //
-func (r *GroupRemoveFavoriteRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupRemoveFavoriteRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -341,13 +305,8 @@ func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRe
 }
 
 //
-func (r *GroupResetUnseenCountRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupResetUnseenCountRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -372,11 +331,6 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 }
 
 //
-func (r *GroupRenewRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *GroupRenewRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

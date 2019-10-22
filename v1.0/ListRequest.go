@@ -23,24 +23,19 @@ func (b *ListRequestBuilder) Request() *ListRequest {
 // ListRequest is request for List
 type ListRequest struct{ BaseRequest }
 
-// Do performs HTTP request for List
-func (r *ListRequest) Do(method, path string, reqObj interface{}) (resObj *List, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for List
-func (r *ListRequest) Get() (*List, error) {
+func (r *ListRequest) Get() (resObj *List, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for List
-func (r *ListRequest) Update(reqObj *List) (*List, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ListRequest) Update(reqObj *List) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for List
@@ -74,12 +69,6 @@ func (b *ListColumnsCollectionRequestBuilder) ID(id string) *ColumnDefinitionReq
 
 // ListColumnsCollectionRequest is request for ColumnDefinition collection
 type ListColumnsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ColumnDefinition collection
-func (r *ListColumnsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ColumnDefinition collection
 func (r *ListColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnDefinition, error) {
@@ -131,8 +120,9 @@ func (r *ListColumnsCollectionRequest) Get() ([]ColumnDefinition, error) {
 }
 
 // Add performs POST request for ColumnDefinition collection
-func (r *ListColumnsCollectionRequest) Add(reqObj *ColumnDefinition) (*ColumnDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ListColumnsCollectionRequest) Add(reqObj *ColumnDefinition) (resObj *ColumnDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ContentTypes returns request builder for ContentType collection
@@ -161,12 +151,6 @@ func (b *ListContentTypesCollectionRequestBuilder) ID(id string) *ContentTypeReq
 
 // ListContentTypesCollectionRequest is request for ContentType collection
 type ListContentTypesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ContentType collection
-func (r *ListContentTypesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ContentType, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ContentType collection
 func (r *ListContentTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]ContentType, error) {
@@ -218,8 +202,9 @@ func (r *ListContentTypesCollectionRequest) Get() ([]ContentType, error) {
 }
 
 // Add performs POST request for ContentType collection
-func (r *ListContentTypesCollectionRequest) Add(reqObj *ContentType) (*ContentType, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ListContentTypesCollectionRequest) Add(reqObj *ContentType) (resObj *ContentType, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Drive is navigation property
@@ -255,12 +240,6 @@ func (b *ListItemsCollectionRequestBuilder) ID(id string) *ListItemRequestBuilde
 
 // ListItemsCollectionRequest is request for ListItem collection
 type ListItemsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ListItem collection
-func (r *ListItemsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ListItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ListItem collection
 func (r *ListItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]ListItem, error) {
@@ -312,6 +291,7 @@ func (r *ListItemsCollectionRequest) Get() ([]ListItem, error) {
 }
 
 // Add performs POST request for ListItem collection
-func (r *ListItemsCollectionRequest) Add(reqObj *ListItem) (*ListItem, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ListItemsCollectionRequest) Add(reqObj *ListItem) (resObj *ListItem, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

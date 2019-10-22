@@ -23,24 +23,19 @@ func (b *MobileAppContentRequestBuilder) Request() *MobileAppContentRequest {
 // MobileAppContentRequest is request for MobileAppContent
 type MobileAppContentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MobileAppContent
-func (r *MobileAppContentRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContent, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MobileAppContent
-func (r *MobileAppContentRequest) Get() (*MobileAppContent, error) {
+func (r *MobileAppContentRequest) Get() (resObj *MobileAppContent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MobileAppContent
-func (r *MobileAppContentRequest) Update(reqObj *MobileAppContent) (*MobileAppContent, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MobileAppContentRequest) Update(reqObj *MobileAppContent) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppContent
@@ -74,12 +69,6 @@ func (b *MobileAppContentFilesCollectionRequestBuilder) ID(id string) *MobileApp
 
 // MobileAppContentFilesCollectionRequest is request for MobileAppContentFile collection
 type MobileAppContentFilesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MobileAppContentFile collection
-func (r *MobileAppContentFilesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MobileAppContentFile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MobileAppContentFile collection
 func (r *MobileAppContentFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppContentFile, error) {
@@ -131,6 +120,7 @@ func (r *MobileAppContentFilesCollectionRequest) Get() ([]MobileAppContentFile, 
 }
 
 // Add performs POST request for MobileAppContentFile collection
-func (r *MobileAppContentFilesCollectionRequest) Add(reqObj *MobileAppContentFile) (*MobileAppContentFile, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MobileAppContentFilesCollectionRequest) Add(reqObj *MobileAppContentFile) (resObj *MobileAppContentFile, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

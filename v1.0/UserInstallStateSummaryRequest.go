@@ -23,24 +23,19 @@ func (b *UserInstallStateSummaryRequestBuilder) Request() *UserInstallStateSumma
 // UserInstallStateSummaryRequest is request for UserInstallStateSummary
 type UserInstallStateSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for UserInstallStateSummary
-func (r *UserInstallStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *UserInstallStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for UserInstallStateSummary
-func (r *UserInstallStateSummaryRequest) Get() (*UserInstallStateSummary, error) {
+func (r *UserInstallStateSummaryRequest) Get() (resObj *UserInstallStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for UserInstallStateSummary
-func (r *UserInstallStateSummaryRequest) Update(reqObj *UserInstallStateSummary) (*UserInstallStateSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *UserInstallStateSummaryRequest) Update(reqObj *UserInstallStateSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserInstallStateSummary
@@ -74,12 +69,6 @@ func (b *UserInstallStateSummaryDeviceStatesCollectionRequestBuilder) ID(id stri
 
 // UserInstallStateSummaryDeviceStatesCollectionRequest is request for DeviceInstallState collection
 type UserInstallStateSummaryDeviceStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for DeviceInstallState collection
-func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceInstallState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for DeviceInstallState collection
 func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceInstallState, error) {
@@ -131,6 +120,7 @@ func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Get() ([]DeviceIn
 }
 
 // Add performs POST request for DeviceInstallState collection
-func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Add(reqObj *DeviceInstallState) (*DeviceInstallState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Add(reqObj *DeviceInstallState) (resObj *DeviceInstallState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

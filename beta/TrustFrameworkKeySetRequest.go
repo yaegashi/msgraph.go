@@ -15,24 +15,19 @@ func (b *TrustFrameworkKeySetRequestBuilder) Request() *TrustFrameworkKeySetRequ
 // TrustFrameworkKeySetRequest is request for TrustFrameworkKeySet
 type TrustFrameworkKeySetRequest struct{ BaseRequest }
 
-// Do performs HTTP request for TrustFrameworkKeySet
-func (r *TrustFrameworkKeySetRequest) Do(method, path string, reqObj interface{}) (resObj *TrustFrameworkKeySet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for TrustFrameworkKeySet
-func (r *TrustFrameworkKeySetRequest) Get() (*TrustFrameworkKeySet, error) {
+func (r *TrustFrameworkKeySetRequest) Get() (resObj *TrustFrameworkKeySet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for TrustFrameworkKeySet
-func (r *TrustFrameworkKeySetRequest) Update(reqObj *TrustFrameworkKeySet) (*TrustFrameworkKeySet, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *TrustFrameworkKeySetRequest) Update(reqObj *TrustFrameworkKeySet) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TrustFrameworkKeySet

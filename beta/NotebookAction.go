@@ -2,6 +2,12 @@
 
 package msgraph
 
+// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
+type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+}
+
 // NotebookCopyNotebookRequestParameter undocumented
 type NotebookCopyNotebookRequestParameter struct {
 	// GroupID undocumented
@@ -14,44 +20,6 @@ type NotebookCopyNotebookRequestParameter struct {
 	SiteCollectionID *string `json:"siteCollectionId,omitempty"`
 	// SiteID undocumented
 	SiteID *string `json:"siteId,omitempty"`
-}
-
-// NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
-type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
-	// WebURL undocumented
-	WebURL *string `json:"webUrl,omitempty"`
-}
-
-//
-type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
-
-// CopyNotebook action undocumented
-func (b *NotebookRequestBuilder) CopyNotebook(reqObj *NotebookCopyNotebookRequestParameter) *NotebookCopyNotebookRequestBuilder {
-	bb := &NotebookCopyNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/copyNotebook"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type NotebookCopyNotebookRequest struct{ BaseRequest }
-
-//
-func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
-	return &NotebookCopyNotebookRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *NotebookCopyNotebookRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
-//
-func (r *NotebookCopyNotebookRequest) Post() (*OnenoteOperation, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -76,12 +44,34 @@ func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *Noteb
 }
 
 //
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Do(method, path string, reqObj interface{}) (resObj *CopyNotebookModel, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (resObj *CopyNotebookModel, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
 }
 
 //
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (*CopyNotebookModel, error) {
-	return r.Do("POST", "", r.requestObject)
+type NotebookCopyNotebookRequestBuilder struct{ BaseRequestBuilder }
+
+// CopyNotebook action undocumented
+func (b *NotebookRequestBuilder) CopyNotebook(reqObj *NotebookCopyNotebookRequestParameter) *NotebookCopyNotebookRequestBuilder {
+	bb := &NotebookCopyNotebookRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/copyNotebook"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type NotebookCopyNotebookRequest struct{ BaseRequest }
+
+//
+func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequest {
+	return &NotebookCopyNotebookRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *NotebookCopyNotebookRequest) Post() (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
 }

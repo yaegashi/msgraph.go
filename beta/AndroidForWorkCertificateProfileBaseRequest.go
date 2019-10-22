@@ -15,24 +15,19 @@ func (b *AndroidForWorkCertificateProfileBaseRequestBuilder) Request() *AndroidF
 // AndroidForWorkCertificateProfileBaseRequest is request for AndroidForWorkCertificateProfileBase
 type AndroidForWorkCertificateProfileBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AndroidForWorkCertificateProfileBase
-func (r *AndroidForWorkCertificateProfileBaseRequest) Do(method, path string, reqObj interface{}) (resObj *AndroidForWorkCertificateProfileBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AndroidForWorkCertificateProfileBase
-func (r *AndroidForWorkCertificateProfileBaseRequest) Get() (*AndroidForWorkCertificateProfileBase, error) {
+func (r *AndroidForWorkCertificateProfileBaseRequest) Get() (resObj *AndroidForWorkCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AndroidForWorkCertificateProfileBase
-func (r *AndroidForWorkCertificateProfileBaseRequest) Update(reqObj *AndroidForWorkCertificateProfileBase) (*AndroidForWorkCertificateProfileBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AndroidForWorkCertificateProfileBaseRequest) Update(reqObj *AndroidForWorkCertificateProfileBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkCertificateProfileBase

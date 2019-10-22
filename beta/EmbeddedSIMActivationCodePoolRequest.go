@@ -23,24 +23,19 @@ func (b *EmbeddedSIMActivationCodePoolRequestBuilder) Request() *EmbeddedSIMActi
 // EmbeddedSIMActivationCodePoolRequest is request for EmbeddedSIMActivationCodePool
 type EmbeddedSIMActivationCodePoolRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EmbeddedSIMActivationCodePool
-func (r *EmbeddedSIMActivationCodePoolRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePool, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EmbeddedSIMActivationCodePool
-func (r *EmbeddedSIMActivationCodePoolRequest) Get() (*EmbeddedSIMActivationCodePool, error) {
+func (r *EmbeddedSIMActivationCodePoolRequest) Get() (resObj *EmbeddedSIMActivationCodePool, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EmbeddedSIMActivationCodePool
-func (r *EmbeddedSIMActivationCodePoolRequest) Update(reqObj *EmbeddedSIMActivationCodePool) (*EmbeddedSIMActivationCodePool, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EmbeddedSIMActivationCodePoolRequest) Update(reqObj *EmbeddedSIMActivationCodePool) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EmbeddedSIMActivationCodePool
@@ -74,12 +69,6 @@ func (b *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequestBuilder) ID(id
 
 // EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest is request for EmbeddedSIMActivationCodePoolAssignment collection
 type EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EmbeddedSIMActivationCodePoolAssignment collection
 func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
@@ -131,8 +120,9 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Get() ([]Emb
 }
 
 // Add performs POST request for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Add(reqObj *EmbeddedSIMActivationCodePoolAssignment) (*EmbeddedSIMActivationCodePoolAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Add(reqObj *EmbeddedSIMActivationCodePoolAssignment) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeviceStates returns request builder for EmbeddedSIMDeviceState collection
@@ -161,12 +151,6 @@ func (b *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder) ID(i
 
 // EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest is request for EmbeddedSIMDeviceState collection
 type EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMDeviceState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EmbeddedSIMDeviceState collection
 func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMDeviceState, error) {
@@ -218,6 +202,7 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Get() ([]Em
 }
 
 // Add performs POST request for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Add(reqObj *EmbeddedSIMDeviceState) (*EmbeddedSIMDeviceState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Add(reqObj *EmbeddedSIMDeviceState) (resObj *EmbeddedSIMDeviceState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

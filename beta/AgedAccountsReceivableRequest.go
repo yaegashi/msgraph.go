@@ -15,24 +15,19 @@ func (b *AgedAccountsReceivableRequestBuilder) Request() *AgedAccountsReceivable
 // AgedAccountsReceivableRequest is request for AgedAccountsReceivable
 type AgedAccountsReceivableRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AgedAccountsReceivable
-func (r *AgedAccountsReceivableRequest) Do(method, path string, reqObj interface{}) (resObj *AgedAccountsReceivable, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AgedAccountsReceivable
-func (r *AgedAccountsReceivableRequest) Get() (*AgedAccountsReceivable, error) {
+func (r *AgedAccountsReceivableRequest) Get() (resObj *AgedAccountsReceivable, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AgedAccountsReceivable
-func (r *AgedAccountsReceivableRequest) Update(reqObj *AgedAccountsReceivable) (*AgedAccountsReceivable, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AgedAccountsReceivableRequest) Update(reqObj *AgedAccountsReceivable) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AgedAccountsReceivable

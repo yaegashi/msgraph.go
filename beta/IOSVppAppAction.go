@@ -46,13 +46,8 @@ func (b *IOSVppAppRevokeAllLicensesRequestBuilder) Request() *IOSVppAppRevokeAll
 }
 
 //
-func (r *IOSVppAppRevokeAllLicensesRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *IOSVppAppRevokeAllLicensesRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -77,13 +72,8 @@ func (b *IOSVppAppRevokeUserLicenseRequestBuilder) Request() *IOSVppAppRevokeUse
 }
 
 //
-func (r *IOSVppAppRevokeUserLicenseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *IOSVppAppRevokeUserLicenseRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -108,11 +98,6 @@ func (b *IOSVppAppRevokeDeviceLicenseRequestBuilder) Request() *IOSVppAppRevokeD
 }
 
 //
-func (r *IOSVppAppRevokeDeviceLicenseRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *IOSVppAppRevokeDeviceLicenseRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

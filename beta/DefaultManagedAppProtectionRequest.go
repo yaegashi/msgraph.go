@@ -23,24 +23,19 @@ func (b *DefaultManagedAppProtectionRequestBuilder) Request() *DefaultManagedApp
 // DefaultManagedAppProtectionRequest is request for DefaultManagedAppProtection
 type DefaultManagedAppProtectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DefaultManagedAppProtection
-func (r *DefaultManagedAppProtectionRequest) Do(method, path string, reqObj interface{}) (resObj *DefaultManagedAppProtection, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DefaultManagedAppProtection
-func (r *DefaultManagedAppProtectionRequest) Get() (*DefaultManagedAppProtection, error) {
+func (r *DefaultManagedAppProtectionRequest) Get() (resObj *DefaultManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DefaultManagedAppProtection
-func (r *DefaultManagedAppProtectionRequest) Update(reqObj *DefaultManagedAppProtection) (*DefaultManagedAppProtection, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DefaultManagedAppProtectionRequest) Update(reqObj *DefaultManagedAppProtection) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DefaultManagedAppProtection
@@ -74,12 +69,6 @@ func (b *DefaultManagedAppProtectionAppsCollectionRequestBuilder) ID(id string) 
 
 // DefaultManagedAppProtectionAppsCollectionRequest is request for ManagedMobileApp collection
 type DefaultManagedAppProtectionAppsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedMobileApp collection
-func (r *DefaultManagedAppProtectionAppsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedMobileApp collection
 func (r *DefaultManagedAppProtectionAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
@@ -131,8 +120,9 @@ func (r *DefaultManagedAppProtectionAppsCollectionRequest) Get() ([]ManagedMobil
 }
 
 // Add performs POST request for ManagedMobileApp collection
-func (r *DefaultManagedAppProtectionAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (*ManagedMobileApp, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DefaultManagedAppProtectionAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DeploymentSummary is navigation property

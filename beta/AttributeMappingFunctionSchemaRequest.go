@@ -15,24 +15,19 @@ func (b *AttributeMappingFunctionSchemaRequestBuilder) Request() *AttributeMappi
 // AttributeMappingFunctionSchemaRequest is request for AttributeMappingFunctionSchema
 type AttributeMappingFunctionSchemaRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AttributeMappingFunctionSchema
-func (r *AttributeMappingFunctionSchemaRequest) Do(method, path string, reqObj interface{}) (resObj *AttributeMappingFunctionSchema, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AttributeMappingFunctionSchema
-func (r *AttributeMappingFunctionSchemaRequest) Get() (*AttributeMappingFunctionSchema, error) {
+func (r *AttributeMappingFunctionSchemaRequest) Get() (resObj *AttributeMappingFunctionSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AttributeMappingFunctionSchema
-func (r *AttributeMappingFunctionSchemaRequest) Update(reqObj *AttributeMappingFunctionSchema) (*AttributeMappingFunctionSchema, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AttributeMappingFunctionSchemaRequest) Update(reqObj *AttributeMappingFunctionSchema) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AttributeMappingFunctionSchema

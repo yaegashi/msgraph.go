@@ -15,24 +15,19 @@ func (b *SecurityBaselineCategoryStateSummaryRequestBuilder) Request() *Security
 // SecurityBaselineCategoryStateSummaryRequest is request for SecurityBaselineCategoryStateSummary
 type SecurityBaselineCategoryStateSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SecurityBaselineCategoryStateSummary
-func (r *SecurityBaselineCategoryStateSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *SecurityBaselineCategoryStateSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SecurityBaselineCategoryStateSummary
-func (r *SecurityBaselineCategoryStateSummaryRequest) Get() (*SecurityBaselineCategoryStateSummary, error) {
+func (r *SecurityBaselineCategoryStateSummaryRequest) Get() (resObj *SecurityBaselineCategoryStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SecurityBaselineCategoryStateSummary
-func (r *SecurityBaselineCategoryStateSummaryRequest) Update(reqObj *SecurityBaselineCategoryStateSummary) (*SecurityBaselineCategoryStateSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SecurityBaselineCategoryStateSummaryRequest) Update(reqObj *SecurityBaselineCategoryStateSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineCategoryStateSummary

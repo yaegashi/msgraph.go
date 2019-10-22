@@ -15,24 +15,19 @@ func (b *WindowsPrivacyDataAccessControlItemRequestBuilder) Request() *WindowsPr
 // WindowsPrivacyDataAccessControlItemRequest is request for WindowsPrivacyDataAccessControlItem
 type WindowsPrivacyDataAccessControlItemRequest struct{ BaseRequest }
 
-// Do performs HTTP request for WindowsPrivacyDataAccessControlItem
-func (r *WindowsPrivacyDataAccessControlItemRequest) Do(method, path string, reqObj interface{}) (resObj *WindowsPrivacyDataAccessControlItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for WindowsPrivacyDataAccessControlItem
-func (r *WindowsPrivacyDataAccessControlItemRequest) Get() (*WindowsPrivacyDataAccessControlItem, error) {
+func (r *WindowsPrivacyDataAccessControlItemRequest) Get() (resObj *WindowsPrivacyDataAccessControlItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for WindowsPrivacyDataAccessControlItem
-func (r *WindowsPrivacyDataAccessControlItemRequest) Update(reqObj *WindowsPrivacyDataAccessControlItem) (*WindowsPrivacyDataAccessControlItem, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *WindowsPrivacyDataAccessControlItemRequest) Update(reqObj *WindowsPrivacyDataAccessControlItem) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPrivacyDataAccessControlItem

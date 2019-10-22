@@ -15,24 +15,19 @@ func (b *LookupResultRowRequestBuilder) Request() *LookupResultRowRequest {
 // LookupResultRowRequest is request for LookupResultRow
 type LookupResultRowRequest struct{ BaseRequest }
 
-// Do performs HTTP request for LookupResultRow
-func (r *LookupResultRowRequest) Do(method, path string, reqObj interface{}) (resObj *LookupResultRow, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for LookupResultRow
-func (r *LookupResultRowRequest) Get() (*LookupResultRow, error) {
+func (r *LookupResultRowRequest) Get() (resObj *LookupResultRow, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for LookupResultRow
-func (r *LookupResultRowRequest) Update(reqObj *LookupResultRow) (*LookupResultRow, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *LookupResultRowRequest) Update(reqObj *LookupResultRow) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for LookupResultRow

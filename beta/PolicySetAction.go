@@ -29,37 +29,6 @@ type PolicySetCollectionGetPolicySetsRequestParameter struct {
 }
 
 //
-type PolicySetUpdateRequestBuilder struct{ BaseRequestBuilder }
-
-// Update action undocumented
-func (b *PolicySetRequestBuilder) Update(reqObj *PolicySetUpdateRequestParameter) *PolicySetUpdateRequestBuilder {
-	bb := &PolicySetUpdateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/update"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PolicySetUpdateRequest struct{ BaseRequest }
-
-//
-func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
-	return &PolicySetUpdateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PolicySetUpdateRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
-func (r *PolicySetUpdateRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
-}
-
-//
 type PolicySetCollectionGetPolicySetsRequestBuilder struct{ BaseRequestBuilder }
 
 // GetPolicySets action undocumented
@@ -78,12 +47,6 @@ func (b *PolicySetCollectionGetPolicySetsRequestBuilder) Request() *PolicySetCol
 	return &PolicySetCollectionGetPolicySetsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *PolicySetCollectionGetPolicySetsRequest) Do(method, path string, reqObj interface{}) (resObj *[]PolicySet, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -133,4 +96,30 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Get() ([][]PolicySet, error) {
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
+}
+
+//
+type PolicySetUpdateRequestBuilder struct{ BaseRequestBuilder }
+
+// Update action undocumented
+func (b *PolicySetRequestBuilder) Update(reqObj *PolicySetUpdateRequestParameter) *PolicySetUpdateRequestBuilder {
+	bb := &PolicySetUpdateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/update"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type PolicySetUpdateRequest struct{ BaseRequest }
+
+//
+func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
+	return &PolicySetUpdateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *PolicySetUpdateRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

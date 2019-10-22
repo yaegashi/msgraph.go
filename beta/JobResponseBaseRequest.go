@@ -15,24 +15,19 @@ func (b *JobResponseBaseRequestBuilder) Request() *JobResponseBaseRequest {
 // JobResponseBaseRequest is request for JobResponseBase
 type JobResponseBaseRequest struct{ BaseRequest }
 
-// Do performs HTTP request for JobResponseBase
-func (r *JobResponseBaseRequest) Do(method, path string, reqObj interface{}) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for JobResponseBase
-func (r *JobResponseBaseRequest) Get() (*JobResponseBase, error) {
+func (r *JobResponseBaseRequest) Get() (resObj *JobResponseBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for JobResponseBase
-func (r *JobResponseBaseRequest) Update(reqObj *JobResponseBase) (*JobResponseBase, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *JobResponseBaseRequest) Update(reqObj *JobResponseBase) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for JobResponseBase

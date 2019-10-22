@@ -32,13 +32,8 @@ func (b *SalesQuoteMakeInvoiceRequestBuilder) Request() *SalesQuoteMakeInvoiceRe
 }
 
 //
-func (r *SalesQuoteMakeInvoiceRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesQuoteMakeInvoiceRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -63,11 +58,6 @@ func (b *SalesQuoteSendRequestBuilder) Request() *SalesQuoteSendRequest {
 }
 
 //
-func (r *SalesQuoteSendRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *SalesQuoteSendRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

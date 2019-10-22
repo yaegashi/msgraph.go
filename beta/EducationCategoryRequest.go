@@ -15,24 +15,19 @@ func (b *EducationCategoryRequestBuilder) Request() *EducationCategoryRequest {
 // EducationCategoryRequest is request for EducationCategory
 type EducationCategoryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationCategory
-func (r *EducationCategoryRequest) Do(method, path string, reqObj interface{}) (resObj *EducationCategory, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationCategory
-func (r *EducationCategoryRequest) Get() (*EducationCategory, error) {
+func (r *EducationCategoryRequest) Get() (resObj *EducationCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationCategory
-func (r *EducationCategoryRequest) Update(reqObj *EducationCategory) (*EducationCategory, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationCategoryRequest) Update(reqObj *EducationCategory) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationCategory

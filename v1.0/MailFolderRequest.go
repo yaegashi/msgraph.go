@@ -23,24 +23,19 @@ func (b *MailFolderRequestBuilder) Request() *MailFolderRequest {
 // MailFolderRequest is request for MailFolder
 type MailFolderRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MailFolder
-func (r *MailFolderRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MailFolder
-func (r *MailFolderRequest) Get() (*MailFolder, error) {
+func (r *MailFolderRequest) Get() (resObj *MailFolder, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MailFolder
-func (r *MailFolderRequest) Update(reqObj *MailFolder) (*MailFolder, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MailFolderRequest) Update(reqObj *MailFolder) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MailFolder
@@ -74,12 +69,6 @@ func (b *MailFolderChildFoldersCollectionRequestBuilder) ID(id string) *MailFold
 
 // MailFolderChildFoldersCollectionRequest is request for MailFolder collection
 type MailFolderChildFoldersCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MailFolder collection
-func (r *MailFolderChildFoldersCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MailFolder, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MailFolder collection
 func (r *MailFolderChildFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]MailFolder, error) {
@@ -131,8 +120,9 @@ func (r *MailFolderChildFoldersCollectionRequest) Get() ([]MailFolder, error) {
 }
 
 // Add performs POST request for MailFolder collection
-func (r *MailFolderChildFoldersCollectionRequest) Add(reqObj *MailFolder) (*MailFolder, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MailFolderChildFoldersCollectionRequest) Add(reqObj *MailFolder) (resObj *MailFolder, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MessageRules returns request builder for MessageRule collection
@@ -161,12 +151,6 @@ func (b *MailFolderMessageRulesCollectionRequestBuilder) ID(id string) *MessageR
 
 // MailFolderMessageRulesCollectionRequest is request for MessageRule collection
 type MailFolderMessageRulesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MessageRule collection
-func (r *MailFolderMessageRulesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MessageRule, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MessageRule collection
 func (r *MailFolderMessageRulesCollectionRequest) Paging(method, path string, obj interface{}) ([]MessageRule, error) {
@@ -218,8 +202,9 @@ func (r *MailFolderMessageRulesCollectionRequest) Get() ([]MessageRule, error) {
 }
 
 // Add performs POST request for MessageRule collection
-func (r *MailFolderMessageRulesCollectionRequest) Add(reqObj *MessageRule) (*MessageRule, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MailFolderMessageRulesCollectionRequest) Add(reqObj *MessageRule) (resObj *MessageRule, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Messages returns request builder for Message collection
@@ -248,12 +233,6 @@ func (b *MailFolderMessagesCollectionRequestBuilder) ID(id string) *MessageReque
 
 // MailFolderMessagesCollectionRequest is request for Message collection
 type MailFolderMessagesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for Message collection
-func (r *MailFolderMessagesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *Message, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for Message collection
 func (r *MailFolderMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]Message, error) {
@@ -305,8 +284,9 @@ func (r *MailFolderMessagesCollectionRequest) Get() ([]Message, error) {
 }
 
 // Add performs POST request for Message collection
-func (r *MailFolderMessagesCollectionRequest) Add(reqObj *Message) (*Message, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MailFolderMessagesCollectionRequest) Add(reqObj *Message) (resObj *Message, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MultiValueExtendedProperties returns request builder for MultiValueLegacyExtendedProperty collection
@@ -335,12 +315,6 @@ func (b *MailFolderMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id s
 
 // MailFolderMultiValueExtendedPropertiesCollectionRequest is request for MultiValueLegacyExtendedProperty collection
 type MailFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MultiValueLegacyExtendedProperty collection
-func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
 func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
@@ -392,8 +366,9 @@ func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Get() ([]Multi
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (*MultiValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // SingleValueExtendedProperties returns request builder for SingleValueLegacyExtendedProperty collection
@@ -422,12 +397,6 @@ func (b *MailFolderSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id 
 
 // MailFolderSingleValueExtendedPropertiesCollectionRequest is request for SingleValueLegacyExtendedProperty collection
 type MailFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for SingleValueLegacyExtendedProperty collection
-func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
 func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
@@ -479,6 +448,7 @@ func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Get() ([]Sing
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (*SingleValueLegacyExtendedProperty, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

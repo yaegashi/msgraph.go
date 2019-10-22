@@ -15,24 +15,19 @@ func (b *ExtensionRequestBuilder) Request() *ExtensionRequest {
 // ExtensionRequest is request for Extension
 type ExtensionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Extension
-func (r *ExtensionRequest) Do(method, path string, reqObj interface{}) (resObj *Extension, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Extension
-func (r *ExtensionRequest) Get() (*Extension, error) {
+func (r *ExtensionRequest) Get() (resObj *Extension, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Extension
-func (r *ExtensionRequest) Update(reqObj *Extension) (*Extension, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ExtensionRequest) Update(reqObj *Extension) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Extension

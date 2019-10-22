@@ -48,13 +48,8 @@ func (b *EventMessageRequestObjectAcceptRequestBuilder) Request() *EventMessageR
 }
 
 //
-func (r *EventMessageRequestObjectAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventMessageRequestObjectAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -79,13 +74,8 @@ func (b *EventMessageRequestObjectDeclineRequestBuilder) Request() *EventMessage
 }
 
 //
-func (r *EventMessageRequestObjectDeclineRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventMessageRequestObjectDeclineRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -110,11 +100,6 @@ func (b *EventMessageRequestObjectTentativelyAcceptRequestBuilder) Request() *Ev
 }
 
 //
-func (r *EventMessageRequestObjectTentativelyAcceptRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *EventMessageRequestObjectTentativelyAcceptRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

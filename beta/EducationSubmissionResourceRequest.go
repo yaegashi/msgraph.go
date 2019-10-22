@@ -15,24 +15,19 @@ func (b *EducationSubmissionResourceRequestBuilder) Request() *EducationSubmissi
 // EducationSubmissionResourceRequest is request for EducationSubmissionResource
 type EducationSubmissionResourceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EducationSubmissionResource
-func (r *EducationSubmissionResourceRequest) Do(method, path string, reqObj interface{}) (resObj *EducationSubmissionResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EducationSubmissionResource
-func (r *EducationSubmissionResourceRequest) Get() (*EducationSubmissionResource, error) {
+func (r *EducationSubmissionResourceRequest) Get() (resObj *EducationSubmissionResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EducationSubmissionResource
-func (r *EducationSubmissionResourceRequest) Update(reqObj *EducationSubmissionResource) (*EducationSubmissionResource, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EducationSubmissionResourceRequest) Update(reqObj *EducationSubmissionResource) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSubmissionResource

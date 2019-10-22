@@ -15,24 +15,19 @@ func (b *PrivilegedRoleSummaryRequestBuilder) Request() *PrivilegedRoleSummaryRe
 // PrivilegedRoleSummaryRequest is request for PrivilegedRoleSummary
 type PrivilegedRoleSummaryRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PrivilegedRoleSummary
-func (r *PrivilegedRoleSummaryRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleSummary, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PrivilegedRoleSummary
-func (r *PrivilegedRoleSummaryRequest) Get() (*PrivilegedRoleSummary, error) {
+func (r *PrivilegedRoleSummaryRequest) Get() (resObj *PrivilegedRoleSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PrivilegedRoleSummary
-func (r *PrivilegedRoleSummaryRequest) Update(reqObj *PrivilegedRoleSummary) (*PrivilegedRoleSummary, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PrivilegedRoleSummaryRequest) Update(reqObj *PrivilegedRoleSummary) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedRoleSummary

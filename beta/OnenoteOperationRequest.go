@@ -15,24 +15,19 @@ func (b *OnenoteOperationRequestBuilder) Request() *OnenoteOperationRequest {
 // OnenoteOperationRequest is request for OnenoteOperation
 type OnenoteOperationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for OnenoteOperation
-func (r *OnenoteOperationRequest) Do(method, path string, reqObj interface{}) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for OnenoteOperation
-func (r *OnenoteOperationRequest) Get() (*OnenoteOperation, error) {
+func (r *OnenoteOperationRequest) Get() (resObj *OnenoteOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for OnenoteOperation
-func (r *OnenoteOperationRequest) Update(reqObj *OnenoteOperation) (*OnenoteOperation, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *OnenoteOperationRequest) Update(reqObj *OnenoteOperation) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnenoteOperation

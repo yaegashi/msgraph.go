@@ -23,24 +23,19 @@ func (b *GovernanceResourceRequestBuilder) Request() *GovernanceResourceRequest 
 // GovernanceResourceRequest is request for GovernanceResource
 type GovernanceResourceRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GovernanceResource
-func (r *GovernanceResourceRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceResource, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GovernanceResource
-func (r *GovernanceResourceRequest) Get() (*GovernanceResource, error) {
+func (r *GovernanceResourceRequest) Get() (resObj *GovernanceResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GovernanceResource
-func (r *GovernanceResourceRequest) Update(reqObj *GovernanceResource) (*GovernanceResource, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GovernanceResourceRequest) Update(reqObj *GovernanceResource) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernanceResource
@@ -81,12 +76,6 @@ func (b *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder) ID(id
 
 // GovernanceResourceRoleAssignmentRequestsCollectionRequest is request for GovernanceRoleAssignmentRequestObject collection
 type GovernanceResourceRoleAssignmentRequestsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GovernanceRoleAssignmentRequestObject collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
 func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignmentRequestObject, error) {
@@ -138,8 +127,9 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Get() ([]Gov
 }
 
 // Add performs POST request for GovernanceRoleAssignmentRequestObject collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Add(reqObj *GovernanceRoleAssignmentRequestObject) (*GovernanceRoleAssignmentRequestObject, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Add(reqObj *GovernanceRoleAssignmentRequestObject) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RoleAssignments returns request builder for GovernanceRoleAssignment collection
@@ -168,12 +158,6 @@ func (b *GovernanceResourceRoleAssignmentsCollectionRequestBuilder) ID(id string
 
 // GovernanceResourceRoleAssignmentsCollectionRequest is request for GovernanceRoleAssignment collection
 type GovernanceResourceRoleAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GovernanceRoleAssignment collection
-func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GovernanceRoleAssignment collection
 func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleAssignment, error) {
@@ -225,8 +209,9 @@ func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Get() ([]Governance
 }
 
 // Add performs POST request for GovernanceRoleAssignment collection
-func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Add(reqObj *GovernanceRoleAssignment) (*GovernanceRoleAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Add(reqObj *GovernanceRoleAssignment) (resObj *GovernanceRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RoleDefinitions returns request builder for GovernanceRoleDefinition collection
@@ -255,12 +240,6 @@ func (b *GovernanceResourceRoleDefinitionsCollectionRequestBuilder) ID(id string
 
 // GovernanceResourceRoleDefinitionsCollectionRequest is request for GovernanceRoleDefinition collection
 type GovernanceResourceRoleDefinitionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GovernanceRoleDefinition collection
-func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleDefinition, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GovernanceRoleDefinition collection
 func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleDefinition, error) {
@@ -312,8 +291,9 @@ func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Get() ([]Governance
 }
 
 // Add performs POST request for GovernanceRoleDefinition collection
-func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Add(reqObj *GovernanceRoleDefinition) (*GovernanceRoleDefinition, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Add(reqObj *GovernanceRoleDefinition) (resObj *GovernanceRoleDefinition, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // RoleSettings returns request builder for GovernanceRoleSetting collection
@@ -342,12 +322,6 @@ func (b *GovernanceResourceRoleSettingsCollectionRequestBuilder) ID(id string) *
 
 // GovernanceResourceRoleSettingsCollectionRequest is request for GovernanceRoleSetting collection
 type GovernanceResourceRoleSettingsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GovernanceRoleSetting collection
-func (r *GovernanceResourceRoleSettingsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GovernanceRoleSetting, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GovernanceRoleSetting collection
 func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernanceRoleSetting, error) {
@@ -399,6 +373,7 @@ func (r *GovernanceResourceRoleSettingsCollectionRequest) Get() ([]GovernanceRol
 }
 
 // Add performs POST request for GovernanceRoleSetting collection
-func (r *GovernanceResourceRoleSettingsCollectionRequest) Add(reqObj *GovernanceRoleSetting) (*GovernanceRoleSetting, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GovernanceResourceRoleSettingsCollectionRequest) Add(reqObj *GovernanceRoleSetting) (resObj *GovernanceRoleSetting, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

@@ -15,24 +15,19 @@ func (b *DeviceManagementIntentAssignmentRequestBuilder) Request() *DeviceManage
 // DeviceManagementIntentAssignmentRequest is request for DeviceManagementIntentAssignment
 type DeviceManagementIntentAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceManagementIntentAssignment
-func (r *DeviceManagementIntentAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceManagementIntentAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceManagementIntentAssignment
-func (r *DeviceManagementIntentAssignmentRequest) Get() (*DeviceManagementIntentAssignment, error) {
+func (r *DeviceManagementIntentAssignmentRequest) Get() (resObj *DeviceManagementIntentAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceManagementIntentAssignment
-func (r *DeviceManagementIntentAssignmentRequest) Update(reqObj *DeviceManagementIntentAssignment) (*DeviceManagementIntentAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceManagementIntentAssignmentRequest) Update(reqObj *DeviceManagementIntentAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntentAssignment

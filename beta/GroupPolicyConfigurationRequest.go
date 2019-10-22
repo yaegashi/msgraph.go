@@ -23,24 +23,19 @@ func (b *GroupPolicyConfigurationRequestBuilder) Request() *GroupPolicyConfigura
 // GroupPolicyConfigurationRequest is request for GroupPolicyConfiguration
 type GroupPolicyConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for GroupPolicyConfiguration
-func (r *GroupPolicyConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for GroupPolicyConfiguration
-func (r *GroupPolicyConfigurationRequest) Get() (*GroupPolicyConfiguration, error) {
+func (r *GroupPolicyConfigurationRequest) Get() (resObj *GroupPolicyConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for GroupPolicyConfiguration
-func (r *GroupPolicyConfigurationRequest) Update(reqObj *GroupPolicyConfiguration) (*GroupPolicyConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *GroupPolicyConfigurationRequest) Update(reqObj *GroupPolicyConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyConfiguration
@@ -74,12 +69,6 @@ func (b *GroupPolicyConfigurationAssignmentsCollectionRequestBuilder) ID(id stri
 
 // GroupPolicyConfigurationAssignmentsCollectionRequest is request for GroupPolicyConfigurationAssignment collection
 type GroupPolicyConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupPolicyConfigurationAssignment collection
-func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupPolicyConfigurationAssignment collection
 func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyConfigurationAssignment, error) {
@@ -131,8 +120,9 @@ func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) Get() ([]GroupPol
 }
 
 // Add performs POST request for GroupPolicyConfigurationAssignment collection
-func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) Add(reqObj *GroupPolicyConfigurationAssignment) (*GroupPolicyConfigurationAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupPolicyConfigurationAssignmentsCollectionRequest) Add(reqObj *GroupPolicyConfigurationAssignment) (resObj *GroupPolicyConfigurationAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // DefinitionValues returns request builder for GroupPolicyDefinitionValue collection
@@ -161,12 +151,6 @@ func (b *GroupPolicyConfigurationDefinitionValuesCollectionRequestBuilder) ID(id
 
 // GroupPolicyConfigurationDefinitionValuesCollectionRequest is request for GroupPolicyDefinitionValue collection
 type GroupPolicyConfigurationDefinitionValuesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for GroupPolicyDefinitionValue collection
-func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *GroupPolicyDefinitionValue, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for GroupPolicyDefinitionValue collection
 func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyDefinitionValue, error) {
@@ -218,6 +202,7 @@ func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Get() ([]Gro
 }
 
 // Add performs POST request for GroupPolicyDefinitionValue collection
-func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Add(reqObj *GroupPolicyDefinitionValue) (*GroupPolicyDefinitionValue, error) {
-	return r.Do("POST", "", reqObj)
+func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Add(reqObj *GroupPolicyDefinitionValue) (resObj *GroupPolicyDefinitionValue, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

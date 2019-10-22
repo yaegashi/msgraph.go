@@ -23,24 +23,19 @@ func (b *ManagedAppRegistrationRequestBuilder) Request() *ManagedAppRegistration
 // ManagedAppRegistrationRequest is request for ManagedAppRegistration
 type ManagedAppRegistrationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for ManagedAppRegistration
-func (r *ManagedAppRegistrationRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppRegistration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for ManagedAppRegistration
-func (r *ManagedAppRegistrationRequest) Get() (*ManagedAppRegistration, error) {
+func (r *ManagedAppRegistrationRequest) Get() (resObj *ManagedAppRegistration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for ManagedAppRegistration
-func (r *ManagedAppRegistrationRequest) Update(reqObj *ManagedAppRegistration) (*ManagedAppRegistration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *ManagedAppRegistrationRequest) Update(reqObj *ManagedAppRegistration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppRegistration
@@ -74,12 +69,6 @@ func (b *ManagedAppRegistrationAppliedPoliciesCollectionRequestBuilder) ID(id st
 
 // ManagedAppRegistrationAppliedPoliciesCollectionRequest is request for ManagedAppPolicy collection
 type ManagedAppRegistrationAppliedPoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
 func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
@@ -131,8 +120,9 @@ func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Get() ([]Manage
 }
 
 // Add performs POST request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (*ManagedAppPolicy, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // IntendedPolicies returns request builder for ManagedAppPolicy collection
@@ -161,12 +151,6 @@ func (b *ManagedAppRegistrationIntendedPoliciesCollectionRequestBuilder) ID(id s
 
 // ManagedAppRegistrationIntendedPoliciesCollectionRequest is request for ManagedAppPolicy collection
 type ManagedAppRegistrationIntendedPoliciesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
 func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
@@ -218,8 +202,9 @@ func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Get() ([]Manag
 }
 
 // Add performs POST request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (*ManagedAppPolicy, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // Operations returns request builder for ManagedAppOperation collection
@@ -248,12 +233,6 @@ func (b *ManagedAppRegistrationOperationsCollectionRequestBuilder) ID(id string)
 
 // ManagedAppRegistrationOperationsCollectionRequest is request for ManagedAppOperation collection
 type ManagedAppRegistrationOperationsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedAppOperation collection
-func (r *ManagedAppRegistrationOperationsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedAppOperation, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedAppOperation collection
 func (r *ManagedAppRegistrationOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppOperation, error) {
@@ -305,6 +284,7 @@ func (r *ManagedAppRegistrationOperationsCollectionRequest) Get() ([]ManagedAppO
 }
 
 // Add performs POST request for ManagedAppOperation collection
-func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(reqObj *ManagedAppOperation) (*ManagedAppOperation, error) {
-	return r.Do("POST", "", reqObj)
+func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(reqObj *ManagedAppOperation) (resObj *ManagedAppOperation, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

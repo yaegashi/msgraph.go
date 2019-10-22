@@ -23,24 +23,19 @@ func (b *RequestObjectRequestBuilder) Request() *RequestObjectRequest {
 // RequestObjectRequest is request for RequestObject
 type RequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for RequestObject
-func (r *RequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *RequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for RequestObject
-func (r *RequestObjectRequest) Get() (*RequestObject, error) {
+func (r *RequestObjectRequest) Get() (resObj *RequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for RequestObject
-func (r *RequestObjectRequest) Update(reqObj *RequestObject) (*RequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *RequestObjectRequest) Update(reqObj *RequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RequestObject
@@ -74,12 +69,6 @@ func (b *RequestObjectDecisionsCollectionRequestBuilder) ID(id string) *AccessRe
 
 // RequestObjectDecisionsCollectionRequest is request for AccessReviewDecision collection
 type RequestObjectDecisionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessReviewDecision collection
-func (r *RequestObjectDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *RequestObjectDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
@@ -131,8 +120,9 @@ func (r *RequestObjectDecisionsCollectionRequest) Get() ([]AccessReviewDecision,
 }
 
 // Add performs POST request for AccessReviewDecision collection
-func (r *RequestObjectDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (*AccessReviewDecision, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RequestObjectDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // MyDecisions returns request builder for AccessReviewDecision collection
@@ -161,12 +151,6 @@ func (b *RequestObjectMyDecisionsCollectionRequestBuilder) ID(id string) *Access
 
 // RequestObjectMyDecisionsCollectionRequest is request for AccessReviewDecision collection
 type RequestObjectMyDecisionsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AccessReviewDecision collection
-func (r *RequestObjectMyDecisionsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AccessReviewDecision collection
 func (r *RequestObjectMyDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
@@ -218,6 +202,7 @@ func (r *RequestObjectMyDecisionsCollectionRequest) Get() ([]AccessReviewDecisio
 }
 
 // Add performs POST request for AccessReviewDecision collection
-func (r *RequestObjectMyDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (*AccessReviewDecision, error) {
-	return r.Do("POST", "", reqObj)
+func (r *RequestObjectMyDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

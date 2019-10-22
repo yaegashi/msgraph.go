@@ -23,24 +23,19 @@ func (b *MacOsVppAppRequestBuilder) Request() *MacOsVppAppRequest {
 // MacOsVppAppRequest is request for MacOsVppApp
 type MacOsVppAppRequest struct{ BaseRequest }
 
-// Do performs HTTP request for MacOsVppApp
-func (r *MacOsVppAppRequest) Do(method, path string, reqObj interface{}) (resObj *MacOsVppApp, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for MacOsVppApp
-func (r *MacOsVppAppRequest) Get() (*MacOsVppApp, error) {
+func (r *MacOsVppAppRequest) Get() (resObj *MacOsVppApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for MacOsVppApp
-func (r *MacOsVppAppRequest) Update(reqObj *MacOsVppApp) (*MacOsVppApp, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *MacOsVppAppRequest) Update(reqObj *MacOsVppApp) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOsVppApp
@@ -74,12 +69,6 @@ func (b *MacOsVppAppAssignedLicensesCollectionRequestBuilder) ID(id string) *Mac
 
 // MacOsVppAppAssignedLicensesCollectionRequest is request for MacOsVppAppAssignedLicense collection
 type MacOsVppAppAssignedLicensesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for MacOsVppAppAssignedLicense collection
-func (r *MacOsVppAppAssignedLicensesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *MacOsVppAppAssignedLicense, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for MacOsVppAppAssignedLicense collection
 func (r *MacOsVppAppAssignedLicensesCollectionRequest) Paging(method, path string, obj interface{}) ([]MacOsVppAppAssignedLicense, error) {
@@ -131,6 +120,7 @@ func (r *MacOsVppAppAssignedLicensesCollectionRequest) Get() ([]MacOsVppAppAssig
 }
 
 // Add performs POST request for MacOsVppAppAssignedLicense collection
-func (r *MacOsVppAppAssignedLicensesCollectionRequest) Add(reqObj *MacOsVppAppAssignedLicense) (*MacOsVppAppAssignedLicense, error) {
-	return r.Do("POST", "", reqObj)
+func (r *MacOsVppAppAssignedLicensesCollectionRequest) Add(reqObj *MacOsVppAppAssignedLicense) (resObj *MacOsVppAppAssignedLicense, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

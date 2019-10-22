@@ -15,24 +15,19 @@ func (b *PurchaseInvoiceLineRequestBuilder) Request() *PurchaseInvoiceLineReques
 // PurchaseInvoiceLineRequest is request for PurchaseInvoiceLine
 type PurchaseInvoiceLineRequest struct{ BaseRequest }
 
-// Do performs HTTP request for PurchaseInvoiceLine
-func (r *PurchaseInvoiceLineRequest) Do(method, path string, reqObj interface{}) (resObj *PurchaseInvoiceLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for PurchaseInvoiceLine
-func (r *PurchaseInvoiceLineRequest) Get() (*PurchaseInvoiceLine, error) {
+func (r *PurchaseInvoiceLineRequest) Get() (resObj *PurchaseInvoiceLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for PurchaseInvoiceLine
-func (r *PurchaseInvoiceLineRequest) Update(reqObj *PurchaseInvoiceLine) (*PurchaseInvoiceLine, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *PurchaseInvoiceLineRequest) Update(reqObj *PurchaseInvoiceLine) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PurchaseInvoiceLine

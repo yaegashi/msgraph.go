@@ -40,14 +40,9 @@ func (b *PrivilegedRoleSelfActivateRequestBuilder) Request() *PrivilegedRoleSelf
 }
 
 //
-func (r *PrivilegedRoleSelfActivateRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *PrivilegedRoleSelfActivateRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *PrivilegedRoleSelfActivateRequest) Post() (*PrivilegedRoleAssignment, error) {
-	return r.Do("POST", "", r.requestObject)
 }
 
 //
@@ -72,12 +67,7 @@ func (b *PrivilegedRoleSelfDeactivateRequestBuilder) Request() *PrivilegedRoleSe
 }
 
 //
-func (r *PrivilegedRoleSelfDeactivateRequest) Do(method, path string, reqObj interface{}) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
+func (r *PrivilegedRoleSelfDeactivateRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
-}
-
-//
-func (r *PrivilegedRoleSelfDeactivateRequest) Post() (*PrivilegedRoleAssignment, error) {
-	return r.Do("POST", "", r.requestObject)
 }

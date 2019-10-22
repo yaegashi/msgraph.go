@@ -10,18 +10,18 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DeviceManagementScriptCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceManagementScriptCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
 // DeviceManagementScriptAssignRequestParameter undocumented
 type DeviceManagementScriptAssignRequestParameter struct {
 	// DeviceManagementScriptGroupAssignments undocumented
 	DeviceManagementScriptGroupAssignments []DeviceManagementScriptGroupAssignment `json:"deviceManagementScriptGroupAssignments,omitempty"`
 	// DeviceManagementScriptAssignments undocumented
 	DeviceManagementScriptAssignments []DeviceManagementScriptAssignment `json:"deviceManagementScriptAssignments,omitempty"`
+}
+
+// DeviceManagementScriptCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceManagementScriptCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
 //
@@ -43,12 +43,6 @@ func (b *DeviceManagementScriptCollectionHasPayloadLinksRequestBuilder) Request(
 	return &DeviceManagementScriptCollectionHasPayloadLinksRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-}
-
-//
-func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Do(method, path string, reqObj interface{}) (resObj *[]HasPayloadLinkResultItem, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
 }
 
 //
@@ -122,11 +116,6 @@ func (b *DeviceManagementScriptAssignRequestBuilder) Request() *DeviceManagement
 }
 
 //
-func (r *DeviceManagementScriptAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *DeviceManagementScriptAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

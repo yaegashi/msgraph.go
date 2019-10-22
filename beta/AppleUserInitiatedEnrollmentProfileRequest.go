@@ -23,24 +23,19 @@ func (b *AppleUserInitiatedEnrollmentProfileRequestBuilder) Request() *AppleUser
 // AppleUserInitiatedEnrollmentProfileRequest is request for AppleUserInitiatedEnrollmentProfile
 type AppleUserInitiatedEnrollmentProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for AppleUserInitiatedEnrollmentProfile
-func (r *AppleUserInitiatedEnrollmentProfileRequest) Do(method, path string, reqObj interface{}) (resObj *AppleUserInitiatedEnrollmentProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for AppleUserInitiatedEnrollmentProfile
-func (r *AppleUserInitiatedEnrollmentProfileRequest) Get() (*AppleUserInitiatedEnrollmentProfile, error) {
+func (r *AppleUserInitiatedEnrollmentProfileRequest) Get() (resObj *AppleUserInitiatedEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for AppleUserInitiatedEnrollmentProfile
-func (r *AppleUserInitiatedEnrollmentProfileRequest) Update(reqObj *AppleUserInitiatedEnrollmentProfile) (*AppleUserInitiatedEnrollmentProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *AppleUserInitiatedEnrollmentProfileRequest) Update(reqObj *AppleUserInitiatedEnrollmentProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppleUserInitiatedEnrollmentProfile
@@ -74,12 +69,6 @@ func (b *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequestBuilder)
 
 // AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest is request for AppleEnrollmentProfileAssignment collection
 type AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for AppleEnrollmentProfileAssignment collection
-func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *AppleEnrollmentProfileAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for AppleEnrollmentProfileAssignment collection
 func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppleEnrollmentProfileAssignment, error) {
@@ -131,6 +120,7 @@ func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Get() 
 }
 
 // Add performs POST request for AppleEnrollmentProfileAssignment collection
-func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Add(reqObj *AppleEnrollmentProfileAssignment) (*AppleEnrollmentProfileAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *AppleUserInitiatedEnrollmentProfileAssignmentsCollectionRequest) Add(reqObj *AppleEnrollmentProfileAssignment) (resObj *AppleEnrollmentProfileAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

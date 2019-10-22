@@ -30,11 +30,6 @@ func (b *WindowsFeatureUpdateProfileAssignRequestBuilder) Request() *WindowsFeat
 }
 
 //
-func (r *WindowsFeatureUpdateProfileAssignRequest) Do(method, path string, reqObj interface{}) error {
-	return r.JSONRequest(method, path, reqObj, nil)
-}
-
-//
 func (r *WindowsFeatureUpdateProfileAssignRequest) Post() error {
-	return r.Do("POST", "", r.requestObject)
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

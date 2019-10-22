@@ -15,24 +15,19 @@ func (b *SwapShiftsChangeRequestObjectRequestBuilder) Request() *SwapShiftsChang
 // SwapShiftsChangeRequestObjectRequest is request for SwapShiftsChangeRequestObject
 type SwapShiftsChangeRequestObjectRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SwapShiftsChangeRequestObject
-func (r *SwapShiftsChangeRequestObjectRequest) Do(method, path string, reqObj interface{}) (resObj *SwapShiftsChangeRequestObject, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SwapShiftsChangeRequestObject
-func (r *SwapShiftsChangeRequestObjectRequest) Get() (*SwapShiftsChangeRequestObject, error) {
+func (r *SwapShiftsChangeRequestObjectRequest) Get() (resObj *SwapShiftsChangeRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SwapShiftsChangeRequestObject
-func (r *SwapShiftsChangeRequestObjectRequest) Update(reqObj *SwapShiftsChangeRequestObject) (*SwapShiftsChangeRequestObject, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SwapShiftsChangeRequestObjectRequest) Update(reqObj *SwapShiftsChangeRequestObject) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SwapShiftsChangeRequestObject

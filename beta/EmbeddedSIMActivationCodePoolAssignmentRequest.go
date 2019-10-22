@@ -15,24 +15,19 @@ func (b *EmbeddedSIMActivationCodePoolAssignmentRequestBuilder) Request() *Embed
 // EmbeddedSIMActivationCodePoolAssignmentRequest is request for EmbeddedSIMActivationCodePoolAssignment
 type EmbeddedSIMActivationCodePoolAssignmentRequest struct{ BaseRequest }
 
-// Do performs HTTP request for EmbeddedSIMActivationCodePoolAssignment
-func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Do(method, path string, reqObj interface{}) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for EmbeddedSIMActivationCodePoolAssignment
-func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Get() (*EmbeddedSIMActivationCodePoolAssignment, error) {
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Get() (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for EmbeddedSIMActivationCodePoolAssignment
-func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Update(reqObj *EmbeddedSIMActivationCodePoolAssignment) (*EmbeddedSIMActivationCodePoolAssignment, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Update(reqObj *EmbeddedSIMActivationCodePoolAssignment) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EmbeddedSIMActivationCodePoolAssignment

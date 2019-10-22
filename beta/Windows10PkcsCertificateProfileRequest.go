@@ -23,24 +23,19 @@ func (b *Windows10PkcsCertificateProfileRequestBuilder) Request() *Windows10Pkcs
 // Windows10PkcsCertificateProfileRequest is request for Windows10PkcsCertificateProfile
 type Windows10PkcsCertificateProfileRequest struct{ BaseRequest }
 
-// Do performs HTTP request for Windows10PkcsCertificateProfile
-func (r *Windows10PkcsCertificateProfileRequest) Do(method, path string, reqObj interface{}) (resObj *Windows10PkcsCertificateProfile, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for Windows10PkcsCertificateProfile
-func (r *Windows10PkcsCertificateProfileRequest) Get() (*Windows10PkcsCertificateProfile, error) {
+func (r *Windows10PkcsCertificateProfileRequest) Get() (resObj *Windows10PkcsCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for Windows10PkcsCertificateProfile
-func (r *Windows10PkcsCertificateProfileRequest) Update(reqObj *Windows10PkcsCertificateProfile) (*Windows10PkcsCertificateProfile, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *Windows10PkcsCertificateProfileRequest) Update(reqObj *Windows10PkcsCertificateProfile) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Windows10PkcsCertificateProfile
@@ -74,12 +69,6 @@ func (b *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollection
 
 // Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
 type Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for ManagedDeviceCertificateState collection
-func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
 func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
@@ -131,6 +120,7 @@ func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollection
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (*ManagedDeviceCertificateState, error) {
-	return r.Do("POST", "", reqObj)
+func (r *Windows10PkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

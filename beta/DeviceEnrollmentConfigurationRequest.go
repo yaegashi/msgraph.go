@@ -23,24 +23,19 @@ func (b *DeviceEnrollmentConfigurationRequestBuilder) Request() *DeviceEnrollmen
 // DeviceEnrollmentConfigurationRequest is request for DeviceEnrollmentConfiguration
 type DeviceEnrollmentConfigurationRequest struct{ BaseRequest }
 
-// Do performs HTTP request for DeviceEnrollmentConfiguration
-func (r *DeviceEnrollmentConfigurationRequest) Do(method, path string, reqObj interface{}) (resObj *DeviceEnrollmentConfiguration, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for DeviceEnrollmentConfiguration
-func (r *DeviceEnrollmentConfigurationRequest) Get() (*DeviceEnrollmentConfiguration, error) {
+func (r *DeviceEnrollmentConfigurationRequest) Get() (resObj *DeviceEnrollmentConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for DeviceEnrollmentConfiguration
-func (r *DeviceEnrollmentConfigurationRequest) Update(reqObj *DeviceEnrollmentConfiguration) (*DeviceEnrollmentConfiguration, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *DeviceEnrollmentConfigurationRequest) Update(reqObj *DeviceEnrollmentConfiguration) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceEnrollmentConfiguration
@@ -74,12 +69,6 @@ func (b *DeviceEnrollmentConfigurationAssignmentsCollectionRequestBuilder) ID(id
 
 // DeviceEnrollmentConfigurationAssignmentsCollectionRequest is request for EnrollmentConfigurationAssignment collection
 type DeviceEnrollmentConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Do performs HTTP request for EnrollmentConfigurationAssignment collection
-func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *EnrollmentConfigurationAssignment, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
 
 // Paging perfoms paging operation for EnrollmentConfigurationAssignment collection
 func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EnrollmentConfigurationAssignment, error) {
@@ -131,6 +120,7 @@ func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Get() ([]Enr
 }
 
 // Add performs POST request for EnrollmentConfigurationAssignment collection
-func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Add(reqObj *EnrollmentConfigurationAssignment) (*EnrollmentConfigurationAssignment, error) {
-	return r.Do("POST", "", reqObj)
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Add(reqObj *EnrollmentConfigurationAssignment) (resObj *EnrollmentConfigurationAssignment, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }

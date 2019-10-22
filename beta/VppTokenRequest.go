@@ -15,24 +15,19 @@ func (b *VppTokenRequestBuilder) Request() *VppTokenRequest {
 // VppTokenRequest is request for VppToken
 type VppTokenRequest struct{ BaseRequest }
 
-// Do performs HTTP request for VppToken
-func (r *VppTokenRequest) Do(method, path string, reqObj interface{}) (resObj *VppToken, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for VppToken
-func (r *VppTokenRequest) Get() (*VppToken, error) {
+func (r *VppTokenRequest) Get() (resObj *VppToken, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for VppToken
-func (r *VppTokenRequest) Update(reqObj *VppToken) (*VppToken, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *VppTokenRequest) Update(reqObj *VppToken) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for VppToken

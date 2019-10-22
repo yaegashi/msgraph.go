@@ -23,24 +23,19 @@ func (b *SalesQuoteRequestBuilder) Request() *SalesQuoteRequest {
 // SalesQuoteRequest is request for SalesQuote
 type SalesQuoteRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesQuote
-func (r *SalesQuoteRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuote, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Get performs GET request for SalesQuote
-func (r *SalesQuoteRequest) Get() (*SalesQuote, error) {
+func (r *SalesQuoteRequest) Get() (resObj *SalesQuote, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Do("GET", query, nil)
+	err = r.JSONRequest("GET", query, nil, &resObj)
+	return
 }
 
 // Update performs PATCH request for SalesQuote
-func (r *SalesQuoteRequest) Update(reqObj *SalesQuote) (*SalesQuote, error) {
-	return r.Do("PATCH", "", reqObj)
+func (r *SalesQuoteRequest) Update(reqObj *SalesQuote) error {
+	return r.JSONRequest("PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesQuote
@@ -96,12 +91,6 @@ func (b *SalesQuoteSalesQuoteLinesCollectionRequestBuilder) ID(id string) *Sales
 // SalesQuoteSalesQuoteLinesCollectionRequest is request for SalesQuoteLine collection
 type SalesQuoteSalesQuoteLinesCollectionRequest struct{ BaseRequest }
 
-// Do performs HTTP request for SalesQuoteLine collection
-func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Do(method, path string, reqObj interface{}) (resObj *SalesQuoteLine, err error) {
-	err = r.JSONRequest(method, path, reqObj, &resObj)
-	return
-}
-
 // Paging perfoms paging operation for SalesQuoteLine collection
 func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuoteLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
@@ -152,8 +141,9 @@ func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Get() ([]SalesQuoteLine, er
 }
 
 // Add performs POST request for SalesQuoteLine collection
-func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Add(reqObj *SalesQuoteLine) (*SalesQuoteLine, error) {
-	return r.Do("POST", "", reqObj)
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Add(reqObj *SalesQuoteLine) (resObj *SalesQuoteLine, err error) {
+	err = r.JSONRequest("POST", "", reqObj, &resObj)
+	return
 }
 
 // ShipmentMethod is navigation property
