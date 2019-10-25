@@ -12,8 +12,8 @@ const (
 	RegistrationStatusTypeVEnabled RegistrationStatusType = 1
 	// RegistrationStatusTypeVCapable undocumented
 	RegistrationStatusTypeVCapable RegistrationStatusType = 2
-	// RegistrationStatusTypeVMfaRegistered undocumented
-	RegistrationStatusTypeVMfaRegistered RegistrationStatusType = 3
+	// RegistrationStatusTypeVMFARegistered undocumented
+	RegistrationStatusTypeVMFARegistered RegistrationStatusType = 3
 	// RegistrationStatusTypeVUnknownFutureValue undocumented
 	RegistrationStatusTypeVUnknownFutureValue RegistrationStatusType = 4
 )
@@ -36,9 +36,9 @@ func RegistrationStatusTypePCapable() *RegistrationStatusType {
 	return &v
 }
 
-// RegistrationStatusTypePMfaRegistered returns a pointer to RegistrationStatusTypeVMfaRegistered
-func RegistrationStatusTypePMfaRegistered() *RegistrationStatusType {
-	v := RegistrationStatusTypeVMfaRegistered
+// RegistrationStatusTypePMFARegistered returns a pointer to RegistrationStatusTypeVMFARegistered
+func RegistrationStatusTypePMFARegistered() *RegistrationStatusType {
+	v := RegistrationStatusTypeVMFARegistered
 	return &v
 }
 

@@ -40,8 +40,8 @@ type SignIn struct {
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// Location undocumented
 	Location *SignInLocation `json:"location,omitempty"`
-	// MfaDetail undocumented
-	MfaDetail *MfaDetail `json:"mfaDetail,omitempty"`
+	// MFADetail undocumented
+	MFADetail *MFADetail `json:"mfaDetail,omitempty"`
 	// NetworkLocationDetails undocumented
 	NetworkLocationDetails []NetworkLocationDetail `json:"networkLocationDetails,omitempty"`
 	// OriginalRequestID undocumented

@@ -23,6 +23,32 @@ type WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequestParameter 
 }
 
 //
+type WindowsAutopilotDeploymentProfileAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Assign(reqObj *WindowsAutopilotDeploymentProfileAssignRequestParameter) *WindowsAutopilotDeploymentProfileAssignRequestBuilder {
+	bb := &WindowsAutopilotDeploymentProfileAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WindowsAutopilotDeploymentProfileAssignRequest struct{ BaseRequest }
+
+//
+func (b *WindowsAutopilotDeploymentProfileAssignRequestBuilder) Request() *WindowsAutopilotDeploymentProfileAssignRequest {
+	return &WindowsAutopilotDeploymentProfileAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WindowsAutopilotDeploymentProfileAssignRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
 type WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -90,30 +116,4 @@ func (r *WindowsAutopilotDeploymentProfileCollectionHasPayloadLinksRequest) Get(
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type WindowsAutopilotDeploymentProfileAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Assign(reqObj *WindowsAutopilotDeploymentProfileAssignRequestParameter) *WindowsAutopilotDeploymentProfileAssignRequestBuilder {
-	bb := &WindowsAutopilotDeploymentProfileAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WindowsAutopilotDeploymentProfileAssignRequest struct{ BaseRequest }
-
-//
-func (b *WindowsAutopilotDeploymentProfileAssignRequestBuilder) Request() *WindowsAutopilotDeploymentProfileAssignRequest {
-	return &WindowsAutopilotDeploymentProfileAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WindowsAutopilotDeploymentProfileAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

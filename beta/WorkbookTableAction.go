@@ -23,41 +23,6 @@ type WorkbookTableCollectionAddRequestParameter struct {
 }
 
 //
-type WorkbookTableCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-// Add action undocumented
-func (b *WorkbookTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
-	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// Add action undocumented
-func (b *WorkbookWorksheetTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
-	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookTableCollectionAddRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableCollectionAddRequest {
-	return &WorkbookTableCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookTableCollectionAddRequest) Post() (resObj *WorkbookTable, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
 type WorkbookTableClearFiltersRequestBuilder struct{ BaseRequestBuilder }
 
 // ClearFilters action undocumented
@@ -134,4 +99,39 @@ func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReap
 //
 func (r *WorkbookTableReapplyFiltersRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type WorkbookTableCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+// Add action undocumented
+func (b *WorkbookTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
+	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// Add action undocumented
+func (b *WorkbookWorksheetTablesCollectionRequestBuilder) Add(reqObj *WorkbookTableCollectionAddRequestParameter) *WorkbookTableCollectionAddRequestBuilder {
+	bb := &WorkbookTableCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookTableCollectionAddRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableCollectionAddRequest {
+	return &WorkbookTableCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookTableCollectionAddRequest) Post() (resObj *WorkbookTable, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
 }

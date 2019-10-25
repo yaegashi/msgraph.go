@@ -18,6 +18,6 @@ type CredentialUserRegistrationDetails struct {
 	IsEnabled *bool `json:"isEnabled,omitempty"`
 	// IsCapable undocumented
 	IsCapable *bool `json:"isCapable,omitempty"`
-	// IsMfaRegistered undocumented
-	IsMfaRegistered *bool `json:"isMfaRegistered,omitempty"`
+	// IsMFARegistered undocumented
+	IsMFARegistered *bool `json:"isMfaRegistered,omitempty"`
 }

@@ -11,32 +11,6 @@ type WorkbookPivotTableRefreshRequestParameter struct {
 }
 
 //
-type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
-
-// RefreshAll action undocumented
-func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) RefreshAll(reqObj *WorkbookPivotTableCollectionRefreshAllRequestParameter) *WorkbookPivotTableCollectionRefreshAllRequestBuilder {
-	bb := &WorkbookPivotTableCollectionRefreshAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refreshAll"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
-	return &WorkbookPivotTableCollectionRefreshAllRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
-}
-
-//
 type WorkbookPivotTableRefreshRequestBuilder struct{ BaseRequestBuilder }
 
 // Refresh action undocumented
@@ -59,5 +33,31 @@ func (b *WorkbookPivotTableRefreshRequestBuilder) Request() *WorkbookPivotTableR
 
 //
 func (r *WorkbookPivotTableRefreshRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type WorkbookPivotTableCollectionRefreshAllRequestBuilder struct{ BaseRequestBuilder }
+
+// RefreshAll action undocumented
+func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) RefreshAll(reqObj *WorkbookPivotTableCollectionRefreshAllRequestParameter) *WorkbookPivotTableCollectionRefreshAllRequestBuilder {
+	bb := &WorkbookPivotTableCollectionRefreshAllRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refreshAll"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookPivotTableCollectionRefreshAllRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookPivotTableCollectionRefreshAllRequestBuilder) Request() *WorkbookPivotTableCollectionRefreshAllRequest {
+	return &WorkbookPivotTableCollectionRefreshAllRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookPivotTableCollectionRefreshAllRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

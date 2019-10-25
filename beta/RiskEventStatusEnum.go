@@ -18,8 +18,8 @@ const (
 	RiskEventStatusVDismissedAsIgnore RiskEventStatus = 4
 	// RiskEventStatusVLoginBlocked undocumented
 	RiskEventStatusVLoginBlocked RiskEventStatus = 5
-	// RiskEventStatusVClosedMfaAuto undocumented
-	RiskEventStatusVClosedMfaAuto RiskEventStatus = 6
+	// RiskEventStatusVClosedMFAAuto undocumented
+	RiskEventStatusVClosedMFAAuto RiskEventStatus = 6
 	// RiskEventStatusVClosedMultipleReasons undocumented
 	RiskEventStatusVClosedMultipleReasons RiskEventStatus = 7
 )
@@ -60,9 +60,9 @@ func RiskEventStatusPLoginBlocked() *RiskEventStatus {
 	return &v
 }
 
-// RiskEventStatusPClosedMfaAuto returns a pointer to RiskEventStatusVClosedMfaAuto
-func RiskEventStatusPClosedMfaAuto() *RiskEventStatus {
-	v := RiskEventStatusVClosedMfaAuto
+// RiskEventStatusPClosedMFAAuto returns a pointer to RiskEventStatusVClosedMFAAuto
+func RiskEventStatusPClosedMFAAuto() *RiskEventStatus {
+	v := RiskEventStatusVClosedMFAAuto
 	return &v
 }
 

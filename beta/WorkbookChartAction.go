@@ -31,33 +31,6 @@ type WorkbookChartSetPositionRequestParameter struct {
 }
 
 //
-type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-// Add action undocumented
-func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
-	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartCollectionAddRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
-	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Post() (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
 type WorkbookChartSetDataRequestBuilder struct{ BaseRequestBuilder }
 
 // SetData action undocumented
@@ -107,4 +80,31 @@ func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPosi
 //
 func (r *WorkbookChartSetPositionRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+// Add action undocumented
+func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
+	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartCollectionAddRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
+	return &WorkbookChartCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Post() (resObj *WorkbookChart, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
 }

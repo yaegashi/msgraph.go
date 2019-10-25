@@ -10,86 +10,16 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// RoleScopeTagAssignRequestParameter undocumented
-type RoleScopeTagAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []RoleScopeTagAutoAssignment `json:"assignments,omitempty"`
-}
-
 // RoleScopeTagCollectionGetRoleScopeTagsByIDRequestParameter undocumented
 type RoleScopeTagCollectionGetRoleScopeTagsByIDRequestParameter struct {
 	// RoleScopeTagIDs undocumented
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 }
 
-//
-type RoleScopeTagAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *RoleScopeTagRequestBuilder) Assign(reqObj *RoleScopeTagAssignRequestParameter) *RoleScopeTagAssignRequestBuilder {
-	bb := &RoleScopeTagAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RoleScopeTagAssignRequest struct{ BaseRequest }
-
-//
-func (b *RoleScopeTagAssignRequestBuilder) Request() *RoleScopeTagAssignRequest {
-	return &RoleScopeTagAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *RoleScopeTagAssignRequest) Paging(method, path string, obj interface{}) ([][]RoleScopeTagAutoAssignment, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]RoleScopeTagAutoAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]RoleScopeTagAutoAssignment
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *RoleScopeTagAssignRequest) Get() ([][]RoleScopeTagAutoAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
+// RoleScopeTagAssignRequestParameter undocumented
+type RoleScopeTagAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []RoleScopeTagAutoAssignment `json:"assignments,omitempty"`
 }
 
 //
@@ -163,6 +93,76 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(method, path 
 
 //
 func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Get() ([][]RoleScopeTag, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type RoleScopeTagAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *RoleScopeTagRequestBuilder) Assign(reqObj *RoleScopeTagAssignRequestParameter) *RoleScopeTagAssignRequestBuilder {
+	bb := &RoleScopeTagAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RoleScopeTagAssignRequest struct{ BaseRequest }
+
+//
+func (b *RoleScopeTagAssignRequestBuilder) Request() *RoleScopeTagAssignRequest {
+	return &RoleScopeTagAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *RoleScopeTagAssignRequest) Paging(method, path string, obj interface{}) ([][]RoleScopeTagAutoAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]RoleScopeTagAutoAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		var (
+			paging Paging
+			value  [][]RoleScopeTagAutoAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *RoleScopeTagAssignRequest) Get() ([][]RoleScopeTagAutoAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()

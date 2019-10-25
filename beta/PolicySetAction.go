@@ -10,6 +10,12 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// PolicySetCollectionGetPolicySetsRequestParameter undocumented
+type PolicySetCollectionGetPolicySetsRequestParameter struct {
+	// PolicySetIDs undocumented
+	PolicySetIDs []string `json:"policySetIds,omitempty"`
+}
+
 // PolicySetUpdateRequestParameter undocumented
 type PolicySetUpdateRequestParameter struct {
 	// AddedPolicySetItems undocumented
@@ -20,12 +26,6 @@ type PolicySetUpdateRequestParameter struct {
 	DeletedPolicySetItems []string `json:"deletedPolicySetItems,omitempty"`
 	// Assignments undocumented
 	Assignments []PolicySetAssignment `json:"assignments,omitempty"`
-}
-
-// PolicySetCollectionGetPolicySetsRequestParameter undocumented
-type PolicySetCollectionGetPolicySetsRequestParameter struct {
-	// PolicySetIDs undocumented
-	PolicySetIDs []string `json:"policySetIds,omitempty"`
 }
 
 //

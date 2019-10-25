@@ -2,18 +2,6 @@
 
 package msgraph
 
-// SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
-type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
-	// ApplicationIdentifier undocumented
-	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
-	// TemplateID undocumented
-	TemplateID *string `json:"templateId,omitempty"`
-	// UseSavedCredentials undocumented
-	UseSavedCredentials *bool `json:"useSavedCredentials,omitempty"`
-	// Credentials undocumented
-	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
-}
-
 // SynchronizationJobPauseRequestParameter undocumented
 type SynchronizationJobPauseRequestParameter struct {
 }
@@ -54,30 +42,16 @@ type SynchronizationJobValidateCredentialsRequestParameter struct {
 	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
 }
 
-//
-type SynchronizationJobCollectionValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
-
-// ValidateCredentials action undocumented
-func (b *SynchronizationJobsCollectionRequestBuilder) ValidateCredentials(reqObj *SynchronizationJobCollectionValidateCredentialsRequestParameter) *SynchronizationJobCollectionValidateCredentialsRequestBuilder {
-	bb := &SynchronizationJobCollectionValidateCredentialsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/validateCredentials"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type SynchronizationJobCollectionValidateCredentialsRequest struct{ BaseRequest }
-
-//
-func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request() *SynchronizationJobCollectionValidateCredentialsRequest {
-	return &SynchronizationJobCollectionValidateCredentialsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+// SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
+type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
+	// ApplicationIdentifier undocumented
+	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
+	// UseSavedCredentials undocumented
+	UseSavedCredentials *bool `json:"useSavedCredentials,omitempty"`
+	// Credentials undocumented
+	Credentials []SynchronizationSecretKeyStringValuePair `json:"credentials,omitempty"`
 }
 
 //
@@ -233,5 +207,31 @@ func (b *SynchronizationJobValidateCredentialsRequestBuilder) Request() *Synchro
 
 //
 func (r *SynchronizationJobValidateCredentialsRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type SynchronizationJobCollectionValidateCredentialsRequestBuilder struct{ BaseRequestBuilder }
+
+// ValidateCredentials action undocumented
+func (b *SynchronizationJobsCollectionRequestBuilder) ValidateCredentials(reqObj *SynchronizationJobCollectionValidateCredentialsRequestParameter) *SynchronizationJobCollectionValidateCredentialsRequestBuilder {
+	bb := &SynchronizationJobCollectionValidateCredentialsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/validateCredentials"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type SynchronizationJobCollectionValidateCredentialsRequest struct{ BaseRequest }
+
+//
+func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request() *SynchronizationJobCollectionValidateCredentialsRequest {
+	return &SynchronizationJobCollectionValidateCredentialsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

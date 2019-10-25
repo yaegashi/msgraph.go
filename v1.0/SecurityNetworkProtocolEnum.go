@@ -8,10 +8,10 @@ type SecurityNetworkProtocol int
 const (
 	// SecurityNetworkProtocolVIP undocumented
 	SecurityNetworkProtocolVIP SecurityNetworkProtocol = 0
-	// SecurityNetworkProtocolVIcmp undocumented
-	SecurityNetworkProtocolVIcmp SecurityNetworkProtocol = 1
-	// SecurityNetworkProtocolVIgmp undocumented
-	SecurityNetworkProtocolVIgmp SecurityNetworkProtocol = 2
+	// SecurityNetworkProtocolVICMP undocumented
+	SecurityNetworkProtocolVICMP SecurityNetworkProtocol = 1
+	// SecurityNetworkProtocolVIGMP undocumented
+	SecurityNetworkProtocolVIGMP SecurityNetworkProtocol = 2
 	// SecurityNetworkProtocolVGgp undocumented
 	SecurityNetworkProtocolVGgp SecurityNetworkProtocol = 3
 	// SecurityNetworkProtocolVIpv4 undocumented
@@ -34,8 +34,8 @@ const (
 	SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload SecurityNetworkProtocol = 50
 	// SecurityNetworkProtocolVIPSecAuthenticationHeader undocumented
 	SecurityNetworkProtocolVIPSecAuthenticationHeader SecurityNetworkProtocol = 51
-	// SecurityNetworkProtocolVIcmpV6 undocumented
-	SecurityNetworkProtocolVIcmpV6 SecurityNetworkProtocol = 58
+	// SecurityNetworkProtocolVICMPV6 undocumented
+	SecurityNetworkProtocolVICMPV6 SecurityNetworkProtocol = 58
 	// SecurityNetworkProtocolVIpv6NoNextHeader undocumented
 	SecurityNetworkProtocolVIpv6NoNextHeader SecurityNetworkProtocol = 59
 	// SecurityNetworkProtocolVIpv6DestinationOptions undocumented
@@ -62,15 +62,15 @@ func SecurityNetworkProtocolPIP() *SecurityNetworkProtocol {
 	return &v
 }
 
-// SecurityNetworkProtocolPIcmp returns a pointer to SecurityNetworkProtocolVIcmp
-func SecurityNetworkProtocolPIcmp() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIcmp
+// SecurityNetworkProtocolPICMP returns a pointer to SecurityNetworkProtocolVICMP
+func SecurityNetworkProtocolPICMP() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVICMP
 	return &v
 }
 
-// SecurityNetworkProtocolPIgmp returns a pointer to SecurityNetworkProtocolVIgmp
-func SecurityNetworkProtocolPIgmp() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIgmp
+// SecurityNetworkProtocolPIGMP returns a pointer to SecurityNetworkProtocolVIGMP
+func SecurityNetworkProtocolPIGMP() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVIGMP
 	return &v
 }
 
@@ -140,9 +140,9 @@ func SecurityNetworkProtocolPIPSecAuthenticationHeader() *SecurityNetworkProtoco
 	return &v
 }
 
-// SecurityNetworkProtocolPIcmpV6 returns a pointer to SecurityNetworkProtocolVIcmpV6
-func SecurityNetworkProtocolPIcmpV6() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIcmpV6
+// SecurityNetworkProtocolPICMPV6 returns a pointer to SecurityNetworkProtocolVICMPV6
+func SecurityNetworkProtocolPICMPV6() *SecurityNetworkProtocol {
+	v := SecurityNetworkProtocolVICMPV6
 	return &v
 }
 

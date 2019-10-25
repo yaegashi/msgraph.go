@@ -30,8 +30,8 @@ const (
 	DeviceManagementExchangeAccessStateReasonVNotEnrolled DeviceManagementExchangeAccessStateReason = 10
 	// DeviceManagementExchangeAccessStateReasonVUnknownLocation undocumented
 	DeviceManagementExchangeAccessStateReasonVUnknownLocation DeviceManagementExchangeAccessStateReason = 12
-	// DeviceManagementExchangeAccessStateReasonVMfaRequired undocumented
-	DeviceManagementExchangeAccessStateReasonVMfaRequired DeviceManagementExchangeAccessStateReason = 13
+	// DeviceManagementExchangeAccessStateReasonVMFARequired undocumented
+	DeviceManagementExchangeAccessStateReasonVMFARequired DeviceManagementExchangeAccessStateReason = 13
 	// DeviceManagementExchangeAccessStateReasonVAzureADBlockDueToAccessPolicy undocumented
 	DeviceManagementExchangeAccessStateReasonVAzureADBlockDueToAccessPolicy DeviceManagementExchangeAccessStateReason = 14
 	// DeviceManagementExchangeAccessStateReasonVCompromisedPassword undocumented
@@ -112,9 +112,9 @@ func DeviceManagementExchangeAccessStateReasonPUnknownLocation() *DeviceManageme
 	return &v
 }
 
-// DeviceManagementExchangeAccessStateReasonPMfaRequired returns a pointer to DeviceManagementExchangeAccessStateReasonVMfaRequired
-func DeviceManagementExchangeAccessStateReasonPMfaRequired() *DeviceManagementExchangeAccessStateReason {
-	v := DeviceManagementExchangeAccessStateReasonVMfaRequired
+// DeviceManagementExchangeAccessStateReasonPMFARequired returns a pointer to DeviceManagementExchangeAccessStateReasonVMFARequired
+func DeviceManagementExchangeAccessStateReasonPMFARequired() *DeviceManagementExchangeAccessStateReason {
+	v := DeviceManagementExchangeAccessStateReasonVMFARequired
 	return &v
 }
 

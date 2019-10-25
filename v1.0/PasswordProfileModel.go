@@ -10,6 +10,6 @@ type PasswordProfile struct {
 	Password *string `json:"password,omitempty"`
 	// ForceChangePasswordNextSignIn undocumented
 	ForceChangePasswordNextSignIn *bool `json:"forceChangePasswordNextSignIn,omitempty"`
-	// ForceChangePasswordNextSignInWithMfa undocumented
-	ForceChangePasswordNextSignInWithMfa *bool `json:"forceChangePasswordNextSignInWithMfa,omitempty"`
+	// ForceChangePasswordNextSignInWithMFA undocumented
+	ForceChangePasswordNextSignInWithMFA *bool `json:"forceChangePasswordNextSignInWithMfa,omitempty"`
 }

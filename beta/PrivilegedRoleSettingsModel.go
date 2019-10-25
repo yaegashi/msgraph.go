@@ -20,12 +20,12 @@ type PrivilegedRoleSettings struct {
 	NotificationToUserOnElevation *bool `json:"notificationToUserOnElevation,omitempty"`
 	// TicketingInfoOnElevation undocumented
 	TicketingInfoOnElevation *bool `json:"ticketingInfoOnElevation,omitempty"`
-	// MfaOnElevation undocumented
-	MfaOnElevation *bool `json:"mfaOnElevation,omitempty"`
+	// MFAOnElevation undocumented
+	MFAOnElevation *bool `json:"mfaOnElevation,omitempty"`
 	// LastGlobalAdmin undocumented
 	LastGlobalAdmin *bool `json:"lastGlobalAdmin,omitempty"`
-	// IsMfaOnElevationConfigurable undocumented
-	IsMfaOnElevationConfigurable *bool `json:"isMfaOnElevationConfigurable,omitempty"`
+	// IsMFAOnElevationConfigurable undocumented
+	IsMFAOnElevationConfigurable *bool `json:"isMfaOnElevationConfigurable,omitempty"`
 	// ApprovalOnElevation undocumented
 	ApprovalOnElevation *bool `json:"approvalOnElevation,omitempty"`
 }

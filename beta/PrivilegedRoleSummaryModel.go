@@ -14,6 +14,6 @@ type PrivilegedRoleSummary struct {
 	ManagedCount *int `json:"managedCount,omitempty"`
 	// ElevatedCount undocumented
 	ElevatedCount *int `json:"elevatedCount,omitempty"`
-	// MfaEnabled undocumented
-	MfaEnabled *bool `json:"mfaEnabled,omitempty"`
+	// MFAEnabled undocumented
+	MFAEnabled *bool `json:"mfaEnabled,omitempty"`
 }

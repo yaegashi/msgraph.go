@@ -10,18 +10,18 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
 // IOSLobAppProvisioningConfigurationAssignRequestParameter undocumented
 type IOSLobAppProvisioningConfigurationAssignRequestParameter struct {
 	// AppProvisioningConfigurationGroupAssignments undocumented
 	AppProvisioningConfigurationGroupAssignments []MobileAppProvisioningConfigGroupAssignment `json:"appProvisioningConfigurationGroupAssignments,omitempty"`
 	// IOSLobAppProvisioningConfigAssignments undocumented
 	IOSLobAppProvisioningConfigAssignments []IOSLobAppProvisioningConfigurationAssignment `json:"iOSLobAppProvisioningConfigAssignments,omitempty"`
+}
+
+// IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
 //

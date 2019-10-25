@@ -10,12 +10,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
 // DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
 type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
 	// Priority undocumented
@@ -26,6 +20,12 @@ type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
 type DeviceEnrollmentConfigurationAssignRequestParameter struct {
 	// EnrollmentConfigurationAssignments undocumented
 	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
+}
+
+// DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
 //
