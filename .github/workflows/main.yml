@@ -1,0 +1,18 @@
+---
+name: go generate test
+on: [push]
+
+jobs:
+  go-generate-test:
+    name: go generate test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-go@v1
+        with:
+          go-version: 1.12
+      - run: echo "::add-path::$HOME/go/bin"
+      - run: go get golang.org/x/tools/cmd/goimports
+      - run: go generate ./gen
+      - run: go get ./cmd/msgraph-me
+      - run: go get ./cmd/msgraph-usergroup

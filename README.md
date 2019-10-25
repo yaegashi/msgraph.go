@@ -4,6 +4,8 @@
 |---|---|
 |[![GoDoc](https://godoc.org/github.com/yaegashi/msgraph.go/v1.0?status.svg)](https://godoc.org/github.com/yaegashi/msgraph.go/v1.0)|[![GoDoc](https://godoc.org/github.com/yaegashi/msgraph.go/beta?status.svg)](https://godoc.org/github.com/yaegashi/msgraph.go/beta)|
 
+[![](https://github.com/yaegashi/msgraph.go/workflows/go%20generate%20test/badge.svg?branch=master)](https://github.com/yaegashi/msgraph.go/actions)
+
 ## Introduction 
 
 [Microsoft Graph] client library for Go.  Still in PoC or pre-alpha stage.
@@ -139,6 +141,7 @@ $ go generate ./gen
 - [x] Provide easy way to add queries like `$expand` `$select` `$filter`
 - [ ] Online API docs (the output is too big for godoc.org to handle)
 - [ ] Unit tests
+- [x] CI
 - [x] Persist OAuth2 tokens in file
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
