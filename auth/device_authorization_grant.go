@@ -45,9 +45,13 @@ func (m *TokenManager) DeviceAuthorizationGrant(tenantID, clientID, scope string
 	if err != nil {
 		return nil, err
 	}
-	err = callback(dc)
-	if err != nil {
-		return nil, err
+	if callback != nil {
+		err = callback(dc)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		fmt.Println(dc.Message)
 	}
 	values := url.Values{
 		"client_id":   {clientID},

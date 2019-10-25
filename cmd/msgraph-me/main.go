@@ -36,11 +36,7 @@ func main() {
 
 	m := auth.NewTokenManager()
 	m.Load(tokenStorePath)
-	callback := func(dc *auth.DeviceCode) error {
-		fmt.Println(dc.Message)
-		return nil
-	}
-	dt, err := m.DeviceAuthorizationGrant(tenantID, clientID, defaultScope, callback)
+	dt, err := m.DeviceAuthorizationGrant(tenantID, clientID, defaultScope, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
