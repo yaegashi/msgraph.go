@@ -52,7 +52,12 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -134,7 +139,12 @@ func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -216,7 +226,12 @@ func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path 
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -298,7 +313,12 @@ func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj i
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -380,7 +400,12 @@ func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path stri
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -462,7 +487,12 @@ func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, pat
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -544,7 +574,12 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -626,7 +661,12 @@ func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path stri
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -708,7 +748,12 @@ func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj i
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -790,7 +835,12 @@ func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj in
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -872,7 +922,12 @@ func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, pat
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -954,7 +1009,12 @@ func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(method, path
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1036,7 +1096,12 @@ func (r *GraphServiceGroupSettingsCollectionRequest) Paging(method, path string,
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1118,7 +1183,12 @@ func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj in
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1200,7 +1270,12 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path str
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1282,7 +1357,12 @@ func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, o
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1364,7 +1444,12 @@ func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, 
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1446,7 +1531,12 @@ func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path stri
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1528,7 +1618,12 @@ func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj in
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1610,7 +1705,12 @@ func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj int
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1692,7 +1792,12 @@ func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1774,7 +1879,12 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string,
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1856,7 +1966,12 @@ func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj int
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1938,7 +2053,12 @@ func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj int
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -2020,7 +2140,12 @@ func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging

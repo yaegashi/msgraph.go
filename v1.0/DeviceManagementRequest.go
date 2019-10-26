@@ -99,7 +99,12 @@ func (r *DeviceManagementDetectedAppsCollectionRequest) Paging(method, path stri
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -181,7 +186,12 @@ func (r *DeviceManagementDeviceCategoriesCollectionRequest) Paging(method, path 
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -263,7 +273,12 @@ func (r *DeviceManagementDeviceCompliancePoliciesCollectionRequest) Paging(metho
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -352,7 +367,12 @@ func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRe
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -441,7 +461,12 @@ func (r *DeviceManagementDeviceConfigurationsCollectionRequest) Paging(method, p
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -523,7 +548,12 @@ func (r *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequest) Paging
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -605,7 +635,12 @@ func (r *DeviceManagementDeviceManagementPartnersCollectionRequest) Paging(metho
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -687,7 +722,12 @@ func (r *DeviceManagementExchangeConnectorsCollectionRequest) Paging(method, pat
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -769,7 +809,12 @@ func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Paging(method, path
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -858,7 +903,12 @@ func (r *DeviceManagementManagedDevicesCollectionRequest) Paging(method, path st
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -940,7 +990,12 @@ func (r *DeviceManagementMobileThreatDefenseConnectorsCollectionRequest) Paging(
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1022,7 +1077,12 @@ func (r *DeviceManagementNotificationMessageTemplatesCollectionRequest) Paging(m
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1104,7 +1164,12 @@ func (r *DeviceManagementRemoteAssistancePartnersCollectionRequest) Paging(metho
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1186,7 +1251,12 @@ func (r *DeviceManagementResourceOperationsCollectionRequest) Paging(method, pat
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1268,7 +1338,12 @@ func (r *DeviceManagementRoleAssignmentsCollectionRequest) Paging(method, path s
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1350,7 +1425,12 @@ func (r *DeviceManagementRoleDefinitionsCollectionRequest) Paging(method, path s
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1439,7 +1519,12 @@ func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Pagi
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1521,7 +1606,12 @@ func (r *DeviceManagementTermsAndConditionsCollectionRequest) Paging(method, pat
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1603,7 +1693,12 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Paging(method, 
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1685,7 +1780,12 @@ func (r *DeviceManagementWindowsInformationProtectionAppLearningSummariesCollect
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -1767,7 +1867,12 @@ func (r *DeviceManagementWindowsInformationProtectionNetworkLearningSummariesCol
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging

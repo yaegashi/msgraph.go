@@ -2,6 +2,22 @@
 
 package msgraph
 
+// ManagedDeviceCollectionExecuteActionRequestParameter undocumented
+type ManagedDeviceCollectionExecuteActionRequestParameter struct {
+	// ActionName undocumented
+	ActionName *ManagedDeviceRemoteAction `json:"actionName,omitempty"`
+	// KeepEnrollmentData undocumented
+	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+	// DeviceIDs undocumented
+	DeviceIDs []string `json:"deviceIds,omitempty"`
+	// NotificationTitle undocumented
+	NotificationTitle *string `json:"notificationTitle,omitempty"`
+	// NotificationBody undocumented
+	NotificationBody *string `json:"notificationBody,omitempty"`
+}
+
 // ManagedDeviceOverrideComplianceStateRequestParameter undocumented
 type ManagedDeviceOverrideComplianceStateRequestParameter struct {
 	// ComplianceState undocumented
@@ -142,20 +158,47 @@ type ManagedDeviceTriggerConfigurationManagerActionRequestParameter struct {
 	ConfigurationManagerAction *ConfigurationManagerAction `json:"configurationManagerAction,omitempty"`
 }
 
-// ManagedDeviceCollectionExecuteActionRequestParameter undocumented
-type ManagedDeviceCollectionExecuteActionRequestParameter struct {
-	// ActionName undocumented
-	ActionName *ManagedDeviceRemoteAction `json:"actionName,omitempty"`
-	// KeepEnrollmentData undocumented
-	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-	// DeviceIDs undocumented
-	DeviceIDs []string `json:"deviceIds,omitempty"`
-	// NotificationTitle undocumented
-	NotificationTitle *string `json:"notificationTitle,omitempty"`
-	// NotificationBody undocumented
-	NotificationBody *string `json:"notificationBody,omitempty"`
+//
+type ManagedDeviceCollectionExecuteActionRequestBuilder struct{ BaseRequestBuilder }
+
+// ExecuteAction action undocumented
+func (b *DetectedAppManagedDevicesCollectionRequestBuilder) ExecuteAction(reqObj *ManagedDeviceCollectionExecuteActionRequestParameter) *ManagedDeviceCollectionExecuteActionRequestBuilder {
+	bb := &ManagedDeviceCollectionExecuteActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/executeAction"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// ExecuteAction action undocumented
+func (b *DeviceManagementManagedDevicesCollectionRequestBuilder) ExecuteAction(reqObj *ManagedDeviceCollectionExecuteActionRequestParameter) *ManagedDeviceCollectionExecuteActionRequestBuilder {
+	bb := &ManagedDeviceCollectionExecuteActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/executeAction"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// ExecuteAction action undocumented
+func (b *UserManagedDevicesCollectionRequestBuilder) ExecuteAction(reqObj *ManagedDeviceCollectionExecuteActionRequestParameter) *ManagedDeviceCollectionExecuteActionRequestBuilder {
+	bb := &ManagedDeviceCollectionExecuteActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/executeAction"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagedDeviceCollectionExecuteActionRequest struct{ BaseRequest }
+
+//
+func (b *ManagedDeviceCollectionExecuteActionRequestBuilder) Request() *ManagedDeviceCollectionExecuteActionRequest {
+	return &ManagedDeviceCollectionExecuteActionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ManagedDeviceCollectionExecuteActionRequest) Post() (resObj *BulkManagedDeviceActionResult, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
 }
 
 //
@@ -858,47 +901,4 @@ func (b *ManagedDeviceTriggerConfigurationManagerActionRequestBuilder) Request()
 //
 func (r *ManagedDeviceTriggerConfigurationManagerActionRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
-}
-
-//
-type ManagedDeviceCollectionExecuteActionRequestBuilder struct{ BaseRequestBuilder }
-
-// ExecuteAction action undocumented
-func (b *DetectedAppManagedDevicesCollectionRequestBuilder) ExecuteAction(reqObj *ManagedDeviceCollectionExecuteActionRequestParameter) *ManagedDeviceCollectionExecuteActionRequestBuilder {
-	bb := &ManagedDeviceCollectionExecuteActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/executeAction"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// ExecuteAction action undocumented
-func (b *DeviceManagementManagedDevicesCollectionRequestBuilder) ExecuteAction(reqObj *ManagedDeviceCollectionExecuteActionRequestParameter) *ManagedDeviceCollectionExecuteActionRequestBuilder {
-	bb := &ManagedDeviceCollectionExecuteActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/executeAction"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// ExecuteAction action undocumented
-func (b *UserManagedDevicesCollectionRequestBuilder) ExecuteAction(reqObj *ManagedDeviceCollectionExecuteActionRequestParameter) *ManagedDeviceCollectionExecuteActionRequestBuilder {
-	bb := &ManagedDeviceCollectionExecuteActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/executeAction"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ManagedDeviceCollectionExecuteActionRequest struct{ BaseRequest }
-
-//
-func (b *ManagedDeviceCollectionExecuteActionRequestBuilder) Request() *ManagedDeviceCollectionExecuteActionRequest {
-	return &ManagedDeviceCollectionExecuteActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ManagedDeviceCollectionExecuteActionRequest) Post() (resObj *BulkManagedDeviceActionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
-	return
 }

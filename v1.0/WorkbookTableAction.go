@@ -2,6 +2,14 @@
 
 package msgraph
 
+// WorkbookTableCollectionAddRequestParameter undocumented
+type WorkbookTableCollectionAddRequestParameter struct {
+	// Address undocumented
+	Address *string `json:"address,omitempty"`
+	// HasHeaders undocumented
+	HasHeaders *bool `json:"hasHeaders,omitempty"`
+}
+
 // WorkbookTableClearFiltersRequestParameter undocumented
 type WorkbookTableClearFiltersRequestParameter struct {
 }
@@ -12,14 +20,6 @@ type WorkbookTableConvertToRangeRequestParameter struct {
 
 // WorkbookTableReapplyFiltersRequestParameter undocumented
 type WorkbookTableReapplyFiltersRequestParameter struct {
-}
-
-// WorkbookTableCollectionAddRequestParameter undocumented
-type WorkbookTableCollectionAddRequestParameter struct {
-	// Address undocumented
-	Address *string `json:"address,omitempty"`
-	// HasHeaders undocumented
-	HasHeaders *bool `json:"hasHeaders,omitempty"`
 }
 
 //

@@ -10,12 +10,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
 // TargetedManagedAppConfigurationAssignRequestParameter undocumented
 type TargetedManagedAppConfigurationAssignRequestParameter struct {
 	// Assignments undocumented
@@ -26,6 +20,12 @@ type TargetedManagedAppConfigurationAssignRequestParameter struct {
 type TargetedManagedAppConfigurationTargetAppsRequestParameter struct {
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
+}
+
+// TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
 //
@@ -116,7 +116,12 @@ func (r *TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest) Paging
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging

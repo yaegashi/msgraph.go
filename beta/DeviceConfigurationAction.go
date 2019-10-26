@@ -10,18 +10,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DeviceConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
-// DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter undocumented
-type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter struct {
-	// DeviceConfigurationIDs undocumented
-	DeviceConfigurationIDs []string `json:"deviceConfigurationIds,omitempty"`
-}
-
 // DeviceConfigurationAssignRequestParameter undocumented
 type DeviceConfigurationAssignRequestParameter struct {
 	// DeviceConfigurationGroupAssignments undocumented
@@ -42,160 +30,16 @@ type DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter struct {
 	AssignedAccessMultiModeProfiles []WindowsAssignedAccessProfile `json:"assignedAccessMultiModeProfiles,omitempty"`
 }
 
-//
-type DeviceConfigurationCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
-
-// HasPayloadLinks action undocumented
-func (b *DeviceManagementDeviceConfigurationsCollectionRequestBuilder) HasPayloadLinks(reqObj *DeviceConfigurationCollectionHasPayloadLinksRequestParameter) *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder {
-	bb := &DeviceConfigurationCollectionHasPayloadLinksRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/hasPayloadLinks"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
+// DeviceConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
-// HasPayloadLinks action undocumented
-func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequestBuilder) HasPayloadLinks(reqObj *DeviceConfigurationCollectionHasPayloadLinksRequestParameter) *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder {
-	bb := &DeviceConfigurationCollectionHasPayloadLinksRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/hasPayloadLinks"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationCollectionHasPayloadLinksRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *DeviceConfigurationCollectionHasPayloadLinksRequest {
-	return &DeviceConfigurationCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]HasPayloadLinkResultItem
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]HasPayloadLinkResultItem
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder struct{ BaseRequestBuilder }
-
-// GetTargetedUsersAndDevices action undocumented
-func (b *DeviceManagementDeviceConfigurationsCollectionRequestBuilder) GetTargetedUsersAndDevices(reqObj *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter) *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder {
-	bb := &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getTargetedUsersAndDevices"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// GetTargetedUsersAndDevices action undocumented
-func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequestBuilder) GetTargetedUsersAndDevices(reqObj *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter) *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder {
-	bb := &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getTargetedUsersAndDevices"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) Request() *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest {
-	return &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceConfigurationTargetedUserAndDevice
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]DeviceConfigurationTargetedUserAndDevice
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Get() ([][]DeviceConfigurationTargetedUserAndDevice, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
+// DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter undocumented
+type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter struct {
+	// DeviceConfigurationIDs undocumented
+	DeviceConfigurationIDs []string `json:"deviceConfigurationIds,omitempty"`
 }
 
 //
@@ -234,7 +78,12 @@ func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj inter
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -318,4 +167,170 @@ func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Reque
 //
 func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceConfigurationCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
+
+// HasPayloadLinks action undocumented
+func (b *DeviceManagementDeviceConfigurationsCollectionRequestBuilder) HasPayloadLinks(reqObj *DeviceConfigurationCollectionHasPayloadLinksRequestParameter) *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder {
+	bb := &DeviceConfigurationCollectionHasPayloadLinksRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/hasPayloadLinks"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// HasPayloadLinks action undocumented
+func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequestBuilder) HasPayloadLinks(reqObj *DeviceConfigurationCollectionHasPayloadLinksRequestParameter) *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder {
+	bb := &DeviceConfigurationCollectionHasPayloadLinksRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/hasPayloadLinks"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceConfigurationCollectionHasPayloadLinksRequest struct{ BaseRequest }
+
+//
+func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *DeviceConfigurationCollectionHasPayloadLinksRequest {
+	return &DeviceConfigurationCollectionHasPayloadLinksRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]HasPayloadLinkResultItem
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]HasPayloadLinkResultItem
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder struct{ BaseRequestBuilder }
+
+// GetTargetedUsersAndDevices action undocumented
+func (b *DeviceManagementDeviceConfigurationsCollectionRequestBuilder) GetTargetedUsersAndDevices(reqObj *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter) *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder {
+	bb := &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getTargetedUsersAndDevices"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// GetTargetedUsersAndDevices action undocumented
+func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequestBuilder) GetTargetedUsersAndDevices(reqObj *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestParameter) *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder {
+	bb := &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getTargetedUsersAndDevices"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest struct{ BaseRequest }
+
+//
+func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) Request() *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest {
+	return &DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceConfigurationTargetedUserAndDevice
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]DeviceConfigurationTargetedUserAndDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Get() ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
 }

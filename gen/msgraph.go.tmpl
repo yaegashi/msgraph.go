@@ -48,6 +48,42 @@ func (o *Object) GetAdditionalData(key string) (interface{}, bool) {
 	}
 }
 
+// ErrorObject is common error object
+type ErrorObject struct {
+	Code    string `json:"code"`
+	Message string `json:"message"`
+	Object
+}
+
+// ErrorResponse is common error response
+type ErrorResponse struct {
+	ErrorObject ErrorObject    `json:"error"`
+	Response    *http.Response `json:"-"`
+	Object
+}
+
+// Error implements error interface
+func (r *ErrorResponse) Error() string {
+	b, _ := jsonx.Marshal(r)
+	return fmt.Sprintf("%s: %s", r.Status(), string(b))
+}
+
+// Status returns status, "000 Unknown" if response is nil
+func (r *ErrorResponse) Status() string {
+	if r.Response == nil {
+		return "000 Unknown"
+	}
+	return r.Response.Status
+}
+
+// StatusCode returns status code, 0 if response is nil
+func (r *ErrorResponse) StatusCode() int {
+	if r.Response == nil {
+		return 0
+	}
+	return r.Response.StatusCode
+}
+
 // Paging is sturct returned to paging requests
 type Paging struct {
 	NextLink string          `json:"@odata.nextLink"`
@@ -180,7 +216,12 @@ func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) er
 		return nil
 	default:
 		b, _ := ioutil.ReadAll(res.Body)
-		return fmt.Errorf("%s: %s", res.Status, string(b))
+		errRes := &ErrorResponse{Response: res}
+		err := jsonx.Unmarshal(b, errRes)
+		if err != nil {
+			return fmt.Errorf("%s: %s", res.Status, string(b))
+		}
+		return errRes
 	}
 }
 

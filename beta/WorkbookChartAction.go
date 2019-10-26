@@ -4,16 +4,6 @@ package msgraph
 
 import "encoding/json"
 
-// WorkbookChartCollectionAddRequestParameter undocumented
-type WorkbookChartCollectionAddRequestParameter struct {
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// SourceData undocumented
-	SourceData json.RawMessage `json:"sourceData,omitempty"`
-	// SeriesBy undocumented
-	SeriesBy *string `json:"seriesBy,omitempty"`
-}
-
 // WorkbookChartSetDataRequestParameter undocumented
 type WorkbookChartSetDataRequestParameter struct {
 	// SourceData undocumented
@@ -28,6 +18,43 @@ type WorkbookChartSetPositionRequestParameter struct {
 	StartCell json.RawMessage `json:"startCell,omitempty"`
 	// EndCell undocumented
 	EndCell json.RawMessage `json:"endCell,omitempty"`
+}
+
+// WorkbookChartCollectionAddRequestParameter undocumented
+type WorkbookChartCollectionAddRequestParameter struct {
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// SourceData undocumented
+	SourceData json.RawMessage `json:"sourceData,omitempty"`
+	// SeriesBy undocumented
+	SeriesBy *string `json:"seriesBy,omitempty"`
+}
+
+//
+type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
+
+// Add action undocumented
+func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
+	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/add"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WorkbookChartCollectionAddRequest struct{ BaseRequest }
+
+//
+func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
+	return &WorkbookChartCollectionAddRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WorkbookChartCollectionAddRequest) Post() (resObj *WorkbookChart, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
 }
 
 //
@@ -80,31 +107,4 @@ func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPosi
 //
 func (r *WorkbookChartSetPositionRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
-}
-
-//
-type WorkbookChartCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-// Add action undocumented
-func (b *WorkbookWorksheetChartsCollectionRequestBuilder) Add(reqObj *WorkbookChartCollectionAddRequestParameter) *WorkbookChartCollectionAddRequestBuilder {
-	bb := &WorkbookChartCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type WorkbookChartCollectionAddRequest struct{ BaseRequest }
-
-//
-func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartCollectionAddRequest {
-	return &WorkbookChartCollectionAddRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *WorkbookChartCollectionAddRequest) Post() (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
-	return
 }

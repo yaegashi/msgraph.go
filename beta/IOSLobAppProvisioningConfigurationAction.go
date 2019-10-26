@@ -25,6 +25,32 @@ type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter
 }
 
 //
+type IOSLobAppProvisioningConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Assign(reqObj *IOSLobAppProvisioningConfigurationAssignRequestParameter) *IOSLobAppProvisioningConfigurationAssignRequestBuilder {
+	bb := &IOSLobAppProvisioningConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type IOSLobAppProvisioningConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (b *IOSLobAppProvisioningConfigurationAssignRequestBuilder) Request() *IOSLobAppProvisioningConfigurationAssignRequest {
+	return &IOSLobAppProvisioningConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *IOSLobAppProvisioningConfigurationAssignRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
 type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -60,7 +86,12 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -92,30 +123,4 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Get
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type IOSLobAppProvisioningConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Assign(reqObj *IOSLobAppProvisioningConfigurationAssignRequestParameter) *IOSLobAppProvisioningConfigurationAssignRequestBuilder {
-	bb := &IOSLobAppProvisioningConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type IOSLobAppProvisioningConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *IOSLobAppProvisioningConfigurationAssignRequestBuilder) Request() *IOSLobAppProvisioningConfigurationAssignRequest {
-	return &IOSLobAppProvisioningConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *IOSLobAppProvisioningConfigurationAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

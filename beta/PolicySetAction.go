@@ -10,12 +10,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// PolicySetCollectionGetPolicySetsRequestParameter undocumented
-type PolicySetCollectionGetPolicySetsRequestParameter struct {
-	// PolicySetIDs undocumented
-	PolicySetIDs []string `json:"policySetIds,omitempty"`
-}
-
 // PolicySetUpdateRequestParameter undocumented
 type PolicySetUpdateRequestParameter struct {
 	// AddedPolicySetItems undocumented
@@ -26,6 +20,38 @@ type PolicySetUpdateRequestParameter struct {
 	DeletedPolicySetItems []string `json:"deletedPolicySetItems,omitempty"`
 	// Assignments undocumented
 	Assignments []PolicySetAssignment `json:"assignments,omitempty"`
+}
+
+// PolicySetCollectionGetPolicySetsRequestParameter undocumented
+type PolicySetCollectionGetPolicySetsRequestParameter struct {
+	// PolicySetIDs undocumented
+	PolicySetIDs []string `json:"policySetIds,omitempty"`
+}
+
+//
+type PolicySetUpdateRequestBuilder struct{ BaseRequestBuilder }
+
+// Update action undocumented
+func (b *PolicySetRequestBuilder) Update(reqObj *PolicySetUpdateRequestParameter) *PolicySetUpdateRequestBuilder {
+	bb := &PolicySetUpdateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/update"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type PolicySetUpdateRequest struct{ BaseRequest }
+
+//
+func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
+	return &PolicySetUpdateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *PolicySetUpdateRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -64,7 +90,12 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(method, path string, ob
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -96,30 +127,4 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Get() ([][]PolicySet, error) {
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type PolicySetUpdateRequestBuilder struct{ BaseRequestBuilder }
-
-// Update action undocumented
-func (b *PolicySetRequestBuilder) Update(reqObj *PolicySetUpdateRequestParameter) *PolicySetUpdateRequestBuilder {
-	bb := &PolicySetUpdateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/update"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PolicySetUpdateRequest struct{ BaseRequest }
-
-//
-func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
-	return &PolicySetUpdateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PolicySetUpdateRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

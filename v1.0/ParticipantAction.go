@@ -2,45 +2,18 @@
 
 package msgraph
 
-// ParticipantCollectionInviteRequestParameter undocumented
-type ParticipantCollectionInviteRequestParameter struct {
-	// Participants undocumented
-	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
-	// ClientContext undocumented
-	ClientContext *string `json:"clientContext,omitempty"`
-}
-
 // ParticipantMuteRequestParameter undocumented
 type ParticipantMuteRequestParameter struct {
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
 }
 
-//
-type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
-
-// Invite action undocumented
-func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
-	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/invite"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantCollectionInviteRequest struct{ BaseRequest }
-
-//
-func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
-	return &ParticipantCollectionInviteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ParticipantCollectionInviteRequest) Post() (resObj *InviteParticipantsOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
-	return
+// ParticipantCollectionInviteRequestParameter undocumented
+type ParticipantCollectionInviteRequestParameter struct {
+	// Participants undocumented
+	Participants []InvitationParticipantInfo `json:"participants,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
 }
 
 //
@@ -66,6 +39,33 @@ func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
 
 //
 func (r *ParticipantMuteRequest) Post() (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
+type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
+
+// Invite action undocumented
+func (b *CallParticipantsCollectionRequestBuilder) Invite(reqObj *ParticipantCollectionInviteRequestParameter) *ParticipantCollectionInviteRequestBuilder {
+	bb := &ParticipantCollectionInviteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/invite"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ParticipantCollectionInviteRequest struct{ BaseRequest }
+
+//
+func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollectionInviteRequest {
+	return &ParticipantCollectionInviteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ParticipantCollectionInviteRequest) Post() (resObj *InviteParticipantsOperation, err error) {
 	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
 	return
 }

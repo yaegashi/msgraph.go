@@ -10,16 +10,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
-// DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter undocumented
-type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter struct {
-}
-
 // DeviceCompliancePolicyAssignRequestParameter undocumented
 type DeviceCompliancePolicyAssignRequestParameter struct {
 	// Assignments undocumented
@@ -32,100 +22,14 @@ type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
 	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
 }
 
-//
-type DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
-
-// HasPayloadLinks action undocumented
-func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) HasPayloadLinks(reqObj *DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter) *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder {
-	bb := &DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/hasPayloadLinks"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
+// DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
-//
-type DeviceCompliancePolicyCollectionHasPayloadLinksRequest struct{ BaseRequest }
-
-//
-func (b *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder) Request() *DeviceCompliancePolicyCollectionHasPayloadLinksRequest {
-	return &DeviceCompliancePolicyCollectionHasPayloadLinksRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]HasPayloadLinkResultItem
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-		}
-		var (
-			paging Paging
-			value  [][]HasPayloadLinkResultItem
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder struct{ BaseRequestBuilder }
-
-// RefreshDeviceComplianceReportSummarization action undocumented
-func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) RefreshDeviceComplianceReportSummarization(reqObj *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter) *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder {
-	bb := &DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/refreshDeviceComplianceReportSummarization"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest struct{ BaseRequest }
-
-//
-func (b *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder) Request() *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest {
-	return &DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+// DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter undocumented
+type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter struct {
 }
 
 //
@@ -164,7 +68,12 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj in
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
-			return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
 		}
 		var (
 			paging Paging
@@ -221,5 +130,106 @@ func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() 
 
 //
 func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
+
+// HasPayloadLinks action undocumented
+func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) HasPayloadLinks(reqObj *DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter) *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder {
+	bb := &DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/hasPayloadLinks"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyCollectionHasPayloadLinksRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder) Request() *DeviceCompliancePolicyCollectionHasPayloadLinksRequest {
+	return &DeviceCompliancePolicyCollectionHasPayloadLinksRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]HasPayloadLinkResultItem
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]HasPayloadLinkResultItem
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder struct{ BaseRequestBuilder }
+
+// RefreshDeviceComplianceReportSummarization action undocumented
+func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) RefreshDeviceComplianceReportSummarization(reqObj *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter) *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder {
+	bb := &DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/refreshDeviceComplianceReportSummarization"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder) Request() *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest {
+	return &DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
