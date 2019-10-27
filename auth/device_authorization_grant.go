@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"time"
 )
 
@@ -51,7 +52,7 @@ func (m *TokenManager) DeviceAuthorizationGrant(tenantID, clientID, scope string
 			return nil, err
 		}
 	} else {
-		fmt.Println(dc.Message)
+		fmt.Fprintln(os.Stderr, dc.Message)
 	}
 	values := url.Values{
 		"client_id":   {clientID},
