@@ -17,3 +17,4 @@ jobs:
       - run: go get ./cmd/msgraph-me
       - run: go get ./cmd/msgraph-usergroup
       - run: go get ./cmd/msgraph-sshpubkey
+      - run: go get ./cmd/msgraph-spoget
