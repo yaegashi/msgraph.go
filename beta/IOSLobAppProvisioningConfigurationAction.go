@@ -10,44 +10,18 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// IOSLobAppProvisioningConfigurationAssignRequestParameter undocumented
-type IOSLobAppProvisioningConfigurationAssignRequestParameter struct {
-	// AppProvisioningConfigurationGroupAssignments undocumented
-	AppProvisioningConfigurationGroupAssignments []MobileAppProvisioningConfigGroupAssignment `json:"appProvisioningConfigurationGroupAssignments,omitempty"`
-	// IOSLobAppProvisioningConfigAssignments undocumented
-	IOSLobAppProvisioningConfigAssignments []IOSLobAppProvisioningConfigurationAssignment `json:"iOSLobAppProvisioningConfigAssignments,omitempty"`
-}
-
 // IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter undocumented
 type IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestParameter struct {
 	// PayloadIDs undocumented
 	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
-//
-type IOSLobAppProvisioningConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Assign(reqObj *IOSLobAppProvisioningConfigurationAssignRequestParameter) *IOSLobAppProvisioningConfigurationAssignRequestBuilder {
-	bb := &IOSLobAppProvisioningConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type IOSLobAppProvisioningConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *IOSLobAppProvisioningConfigurationAssignRequestBuilder) Request() *IOSLobAppProvisioningConfigurationAssignRequest {
-	return &IOSLobAppProvisioningConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *IOSLobAppProvisioningConfigurationAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+// IOSLobAppProvisioningConfigurationAssignRequestParameter undocumented
+type IOSLobAppProvisioningConfigurationAssignRequestParameter struct {
+	// AppProvisioningConfigurationGroupAssignments undocumented
+	AppProvisioningConfigurationGroupAssignments []MobileAppProvisioningConfigGroupAssignment `json:"appProvisioningConfigurationGroupAssignments,omitempty"`
+	// IOSLobAppProvisioningConfigAssignments undocumented
+	IOSLobAppProvisioningConfigAssignments []IOSLobAppProvisioningConfigurationAssignment `json:"iOSLobAppProvisioningConfigAssignments,omitempty"`
 }
 
 //
@@ -123,4 +97,30 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Get
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
+}
+
+//
+type IOSLobAppProvisioningConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Assign(reqObj *IOSLobAppProvisioningConfigurationAssignRequestParameter) *IOSLobAppProvisioningConfigurationAssignRequestBuilder {
+	bb := &IOSLobAppProvisioningConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type IOSLobAppProvisioningConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (b *IOSLobAppProvisioningConfigurationAssignRequestBuilder) Request() *IOSLobAppProvisioningConfigurationAssignRequest {
+	return &IOSLobAppProvisioningConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *IOSLobAppProvisioningConfigurationAssignRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

@@ -4,6 +4,16 @@ package msgraph
 
 import "encoding/json"
 
+// WorkbookChartCollectionAddRequestParameter undocumented
+type WorkbookChartCollectionAddRequestParameter struct {
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// SourceData undocumented
+	SourceData json.RawMessage `json:"sourceData,omitempty"`
+	// SeriesBy undocumented
+	SeriesBy *string `json:"seriesBy,omitempty"`
+}
+
 // WorkbookChartSetDataRequestParameter undocumented
 type WorkbookChartSetDataRequestParameter struct {
 	// SourceData undocumented
@@ -18,16 +28,6 @@ type WorkbookChartSetPositionRequestParameter struct {
 	StartCell json.RawMessage `json:"startCell,omitempty"`
 	// EndCell undocumented
 	EndCell json.RawMessage `json:"endCell,omitempty"`
-}
-
-// WorkbookChartCollectionAddRequestParameter undocumented
-type WorkbookChartCollectionAddRequestParameter struct {
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// SourceData undocumented
-	SourceData json.RawMessage `json:"sourceData,omitempty"`
-	// SeriesBy undocumented
-	SeriesBy *string `json:"seriesBy,omitempty"`
 }
 
 //

@@ -10,18 +10,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DeviceCompliancePolicyAssignRequestParameter undocumented
-type DeviceCompliancePolicyAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
-}
-
-// DeviceCompliancePolicyScheduleActionsForRulesRequestParameter undocumented
-type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
-	// DeviceComplianceScheduledActionForRules undocumented
-	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
-}
-
 // DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter undocumented
 type DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter struct {
 	// PayloadIDs undocumented
@@ -32,105 +20,16 @@ type DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter struct {
 type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter struct {
 }
 
-//
-type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
-	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
+// DeviceCompliancePolicyAssignRequestParameter undocumented
+type DeviceCompliancePolicyAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
 }
 
-//
-type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
-	return &DeviceCompliancePolicyAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]DeviceCompliancePolicyAssignment
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  [][]DeviceCompliancePolicyAssignment
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
-
-// ScheduleActionsForRules action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
-	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
-
-//
-func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
-	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+// DeviceCompliancePolicyScheduleActionsForRulesRequestParameter undocumented
+type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
+	// DeviceComplianceScheduledActionForRules undocumented
+	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
 }
 
 //
@@ -231,5 +130,106 @@ func (b *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizat
 
 //
 func (r *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
+	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
+	return &DeviceCompliancePolicyAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]DeviceCompliancePolicyAssignment
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]DeviceCompliancePolicyAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
+
+// ScheduleActionsForRules action undocumented
+func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
+	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
+	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

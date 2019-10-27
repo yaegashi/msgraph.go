@@ -10,18 +10,44 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// OfficeClientConfigurationAssignRequestParameter undocumented
-type OfficeClientConfigurationAssignRequestParameter struct {
-	// OfficeConfigurationAssignments undocumented
-	OfficeConfigurationAssignments []OfficeClientConfigurationAssignment `json:"officeConfigurationAssignments,omitempty"`
-}
-
 // OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter undocumented
 type OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter struct {
 	// OfficeConfigurationPolicyIDs undocumented
 	OfficeConfigurationPolicyIDs []string `json:"officeConfigurationPolicyIds,omitempty"`
 	// OfficeConfigurationPriorities undocumented
 	OfficeConfigurationPriorities []int `json:"officeConfigurationPriorities,omitempty"`
+}
+
+// OfficeClientConfigurationAssignRequestParameter undocumented
+type OfficeClientConfigurationAssignRequestParameter struct {
+	// OfficeConfigurationAssignments undocumented
+	OfficeConfigurationAssignments []OfficeClientConfigurationAssignment `json:"officeConfigurationAssignments,omitempty"`
+}
+
+//
+type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdatePriorities action undocumented
+func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) UpdatePriorities(reqObj *OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter) *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder {
+	bb := &OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updatePriorities"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequest }
+
+//
+func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
+	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -97,30 +123,4 @@ func (r *OfficeClientConfigurationAssignRequest) Get() ([][]OfficeClientConfigur
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
-}
-
-//
-type OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdatePriorities action undocumented
-func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) UpdatePriorities(reqObj *OfficeClientConfigurationCollectionUpdatePrioritiesRequestParameter) *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder {
-	bb := &OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updatePriorities"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type OfficeClientConfigurationCollectionUpdatePrioritiesRequest struct{ BaseRequest }
-
-//
-func (b *OfficeClientConfigurationCollectionUpdatePrioritiesRequestBuilder) Request() *OfficeClientConfigurationCollectionUpdatePrioritiesRequest {
-	return &OfficeClientConfigurationCollectionUpdatePrioritiesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *OfficeClientConfigurationCollectionUpdatePrioritiesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

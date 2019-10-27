@@ -10,6 +10,26 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
+type DirectoryObjectCollectionGetByIDsRequestParameter struct {
+	// IDs undocumented
+	IDs []string `json:"ids,omitempty"`
+	// Types undocumented
+	Types []string `json:"types,omitempty"`
+}
+
+// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
+type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
+	// EntityType undocumented
+	EntityType *string `json:"entityType,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
 // DirectoryObjectCheckMemberGroupsRequestParameter undocumented
 type DirectoryObjectCheckMemberGroupsRequestParameter struct {
 	// GroupIDs undocumented
@@ -36,353 +56,6 @@ type DirectoryObjectGetMemberObjectsRequestParameter struct {
 
 // DirectoryObjectRestoreRequestParameter undocumented
 type DirectoryObjectRestoreRequestParameter struct {
-}
-
-// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
-type DirectoryObjectCollectionGetByIDsRequestParameter struct {
-	// IDs undocumented
-	IDs []string `json:"ids,omitempty"`
-	// Types undocumented
-	Types []string `json:"types,omitempty"`
-}
-
-// DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
-type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
-	// EntityType undocumented
-	EntityType *string `json:"entityType,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserID undocumented
-	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-//
-type DirectoryObjectCheckMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
-
-// CheckMemberGroups action undocumented
-func (b *DirectoryObjectRequestBuilder) CheckMemberGroups(reqObj *DirectoryObjectCheckMemberGroupsRequestParameter) *DirectoryObjectCheckMemberGroupsRequestBuilder {
-	bb := &DirectoryObjectCheckMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkMemberGroups"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
-
-//
-func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
-	return &DirectoryObjectCheckMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberGroupsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
-
-// CheckMemberObjects action undocumented
-func (b *DirectoryObjectRequestBuilder) CheckMemberObjects(reqObj *DirectoryObjectCheckMemberObjectsRequestParameter) *DirectoryObjectCheckMemberObjectsRequestBuilder {
-	bb := &DirectoryObjectCheckMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/checkMemberObjects"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
-
-//
-func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
-	return &DirectoryObjectCheckMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectCheckMemberObjectsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DirectoryObjectGetMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
-
-// GetMemberGroups action undocumented
-func (b *DirectoryObjectRequestBuilder) GetMemberGroups(reqObj *DirectoryObjectGetMemberGroupsRequestParameter) *DirectoryObjectGetMemberGroupsRequestBuilder {
-	bb := &DirectoryObjectGetMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMemberGroups"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
-
-//
-func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
-	return &DirectoryObjectGetMemberGroupsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberGroupsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
-
-// GetMemberObjects action undocumented
-func (b *DirectoryObjectRequestBuilder) GetMemberObjects(reqObj *DirectoryObjectGetMemberObjectsRequestParameter) *DirectoryObjectGetMemberObjectsRequestBuilder {
-	bb := &DirectoryObjectGetMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMemberObjects"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
-
-//
-func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
-	return &DirectoryObjectGetMemberObjectsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values [][]string
-	for {
-		defer res.Body.Close()
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  [][]string
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		res, err = r.client.Get(paging.NextLink)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DirectoryObjectGetMemberObjectsRequest) Get() ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging("GET", query, nil)
-}
-
-//
-type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
-
-// Restore action undocumented
-func (b *DirectoryObjectRequestBuilder) Restore(reqObj *DirectoryObjectRestoreRequestParameter) *DirectoryObjectRestoreRequestBuilder {
-	bb := &DirectoryObjectRestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/restore"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DirectoryObjectRestoreRequest struct{ BaseRequest }
-
-//
-func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
-	return &DirectoryObjectRestoreRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DirectoryObjectRestoreRequest) Post() (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
-	return
 }
 
 //
@@ -820,4 +493,331 @@ func (b *DirectoryObjectCollectionValidatePropertiesRequestBuilder) Request() *D
 //
 func (r *DirectoryObjectCollectionValidatePropertiesRequest) Post() error {
 	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type DirectoryObjectCheckMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
+
+// CheckMemberGroups action undocumented
+func (b *DirectoryObjectRequestBuilder) CheckMemberGroups(reqObj *DirectoryObjectCheckMemberGroupsRequestParameter) *DirectoryObjectCheckMemberGroupsRequestBuilder {
+	bb := &DirectoryObjectCheckMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkMemberGroups"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectCheckMemberGroupsRequest struct{ BaseRequest }
+
+//
+func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObjectCheckMemberGroupsRequest {
+	return &DirectoryObjectCheckMemberGroupsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberGroupsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DirectoryObjectCheckMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
+
+// CheckMemberObjects action undocumented
+func (b *DirectoryObjectRequestBuilder) CheckMemberObjects(reqObj *DirectoryObjectCheckMemberObjectsRequestParameter) *DirectoryObjectCheckMemberObjectsRequestBuilder {
+	bb := &DirectoryObjectCheckMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/checkMemberObjects"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectCheckMemberObjectsRequest struct{ BaseRequest }
+
+//
+func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryObjectCheckMemberObjectsRequest {
+	return &DirectoryObjectCheckMemberObjectsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectCheckMemberObjectsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DirectoryObjectGetMemberGroupsRequestBuilder struct{ BaseRequestBuilder }
+
+// GetMemberGroups action undocumented
+func (b *DirectoryObjectRequestBuilder) GetMemberGroups(reqObj *DirectoryObjectGetMemberGroupsRequestParameter) *DirectoryObjectGetMemberGroupsRequestBuilder {
+	bb := &DirectoryObjectGetMemberGroupsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getMemberGroups"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectGetMemberGroupsRequest struct{ BaseRequest }
+
+//
+func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjectGetMemberGroupsRequest {
+	return &DirectoryObjectGetMemberGroupsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberGroupsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DirectoryObjectGetMemberObjectsRequestBuilder struct{ BaseRequestBuilder }
+
+// GetMemberObjects action undocumented
+func (b *DirectoryObjectRequestBuilder) GetMemberObjects(reqObj *DirectoryObjectGetMemberObjectsRequestParameter) *DirectoryObjectGetMemberObjectsRequestBuilder {
+	bb := &DirectoryObjectGetMemberObjectsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getMemberObjects"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectGetMemberObjectsRequest struct{ BaseRequest }
+
+//
+func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObjectGetMemberObjectsRequest {
+	return &DirectoryObjectGetMemberObjectsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Paging(method, path string, obj interface{}) ([][]string, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values [][]string
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  [][]string
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		res, err = r.client.Get(paging.NextLink)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DirectoryObjectGetMemberObjectsRequest) Get() ([][]string, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging("GET", query, nil)
+}
+
+//
+type DirectoryObjectRestoreRequestBuilder struct{ BaseRequestBuilder }
+
+// Restore action undocumented
+func (b *DirectoryObjectRequestBuilder) Restore(reqObj *DirectoryObjectRestoreRequestParameter) *DirectoryObjectRestoreRequestBuilder {
+	bb := &DirectoryObjectRestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/restore"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DirectoryObjectRestoreRequest struct{ BaseRequest }
+
+//
+func (b *DirectoryObjectRestoreRequestBuilder) Request() *DirectoryObjectRestoreRequest {
+	return &DirectoryObjectRestoreRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DirectoryObjectRestoreRequest) Post() (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+	return
 }

@@ -10,6 +10,12 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter undocumented
+type TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
+}
+
 // TargetedManagedAppConfigurationAssignRequestParameter undocumented
 type TargetedManagedAppConfigurationAssignRequestParameter struct {
 	// Assignments undocumented
@@ -20,64 +26,6 @@ type TargetedManagedAppConfigurationAssignRequestParameter struct {
 type TargetedManagedAppConfigurationTargetAppsRequestParameter struct {
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
-}
-
-// TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter undocumented
-type TargetedManagedAppConfigurationCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
-//
-type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *TargetedManagedAppConfigurationRequestBuilder) Assign(reqObj *TargetedManagedAppConfigurationAssignRequestParameter) *TargetedManagedAppConfigurationAssignRequestBuilder {
-	bb := &TargetedManagedAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
-	return &TargetedManagedAppConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
-}
-
-//
-type TargetedManagedAppConfigurationTargetAppsRequestBuilder struct{ BaseRequestBuilder }
-
-// TargetApps action undocumented
-func (b *TargetedManagedAppConfigurationRequestBuilder) TargetApps(reqObj *TargetedManagedAppConfigurationTargetAppsRequestParameter) *TargetedManagedAppConfigurationTargetAppsRequestBuilder {
-	bb := &TargetedManagedAppConfigurationTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/targetApps"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
-
-//
-func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
-	return &TargetedManagedAppConfigurationTargetAppsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
 }
 
 //
@@ -153,4 +101,56 @@ func (r *TargetedManagedAppConfigurationCollectionHasPayloadLinksRequest) Get() 
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging("GET", query, nil)
+}
+
+//
+type TargetedManagedAppConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
+
+// Assign action undocumented
+func (b *TargetedManagedAppConfigurationRequestBuilder) Assign(reqObj *TargetedManagedAppConfigurationAssignRequestParameter) *TargetedManagedAppConfigurationAssignRequestBuilder {
+	bb := &TargetedManagedAppConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/assign"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppConfigurationAssignRequest struct{ BaseRequest }
+
+//
+func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *TargetedManagedAppConfigurationAssignRequest {
+	return &TargetedManagedAppConfigurationAssignRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
+}
+
+//
+type TargetedManagedAppConfigurationTargetAppsRequestBuilder struct{ BaseRequestBuilder }
+
+// TargetApps action undocumented
+func (b *TargetedManagedAppConfigurationRequestBuilder) TargetApps(reqObj *TargetedManagedAppConfigurationTargetAppsRequestParameter) *TargetedManagedAppConfigurationTargetAppsRequestBuilder {
+	bb := &TargetedManagedAppConfigurationTargetAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/targetApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TargetedManagedAppConfigurationTargetAppsRequest struct{ BaseRequest }
+
+//
+func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *TargetedManagedAppConfigurationTargetAppsRequest {
+	return &TargetedManagedAppConfigurationTargetAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
+	return r.JSONRequest("POST", "", r.requestObject, nil)
 }

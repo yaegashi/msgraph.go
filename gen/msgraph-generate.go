@@ -442,15 +442,19 @@ func (g *Generator) Generate() error {
 		}
 	}
 
-	out, err := g.Create("msgraph.go")
-	if err != nil {
-		return err
+	var out io.WriteCloser
+
+	for _, path := range []string{"msgraph.go", "extensions.go"} {
+		out, err = g.Create(path)
+		if err != nil {
+			return err
+		}
+		err = tmpl.ExecuteTemplate(out, path+".tmpl", g)
+		if err != nil {
+			return err
+		}
+		out.Close()
 	}
-	err = tmpl.ExecuteTemplate(out, "msgraph.go.tmpl", g)
-	if err != nil {
-		return err
-	}
-	out.Close()
 
 	keys := []string{}
 	for x, _ := range enumTypeMap {
@@ -490,10 +494,16 @@ func (g *Generator) Generate() error {
 		out.Close()
 	}
 
-	for a, x := range actionTypeMap {
+	keys = nil
+	for x, _ := range actionTypeMap {
+		keys = append(keys, x)
+	}
+	sort.Strings(keys)
+	for _, a := range keys {
 		if _, ok := reservedTypeTable[a]; ok {
 			continue
 		}
+		x := actionTypeMap[a]
 		out, err = g.Create(g.SymBaseType(a) + "Action.go")
 		if err != nil {
 			return err
@@ -610,7 +620,13 @@ func (g *Generator) Generate() error {
 		out.Close()
 	}
 
-	for a, x := range actionTypeMap {
+	keys = nil
+	for x, _ := range actionTypeMap {
+		keys = append(keys, x)
+	}
+	sort.Strings(keys)
+	for _, a := range keys {
+		x := actionTypeMap[a]
 		if _, ok := reservedTypeTable[a]; ok {
 			continue
 		}

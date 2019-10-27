@@ -10,18 +10,18 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// DeviceManagementScriptCollectionHasPayloadLinksRequestParameter undocumented
+type DeviceManagementScriptCollectionHasPayloadLinksRequestParameter struct {
+	// PayloadIDs undocumented
+	PayloadIDs []string `json:"payloadIds,omitempty"`
+}
+
 // DeviceManagementScriptAssignRequestParameter undocumented
 type DeviceManagementScriptAssignRequestParameter struct {
 	// DeviceManagementScriptGroupAssignments undocumented
 	DeviceManagementScriptGroupAssignments []DeviceManagementScriptGroupAssignment `json:"deviceManagementScriptGroupAssignments,omitempty"`
 	// DeviceManagementScriptAssignments undocumented
 	DeviceManagementScriptAssignments []DeviceManagementScriptAssignment `json:"deviceManagementScriptAssignments,omitempty"`
-}
-
-// DeviceManagementScriptCollectionHasPayloadLinksRequestParameter undocumented
-type DeviceManagementScriptCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
 //
