@@ -16,3 +16,4 @@ jobs:
       - run: go generate ./gen
       - run: go get ./cmd/msgraph-me
       - run: go get ./cmd/msgraph-usergroup
+      - run: go get ./cmd/msgraph-sshpubkey
