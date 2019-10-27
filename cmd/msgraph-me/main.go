@@ -36,19 +36,19 @@ func main() {
 
 	m := auth.NewTokenManager()
 	m.Load(tokenStorePath)
-	dt, err := m.DeviceAuthorizationGrant(tenantID, clientID, defaultScope, nil)
+	t, err := m.DeviceAuthorizationGrant(tenantID, clientID, defaultScope, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
 	m.Save(tokenStorePath)
 
 	ctx := context.Background()
-	cli := dt.Client(ctx)
-	serv := msgraph.NewClient(cli)
+	httpClient := t.Client(ctx)
+	graphClient := msgraph.NewClient(httpClient)
 
 	{
 		log.Printf("Get current logged in user information")
-		r := serv.Me().Request()
+		r := graphClient.Me().Request()
 		log.Printf("GET %s", r.URL())
 		x, err := r.Get()
 		if err == nil {
@@ -61,28 +61,24 @@ func main() {
 	var items []msgraph.DriveItem
 	{
 		log.Printf("Get files in the root folder of user's drive")
-		r := serv.Me().Drive().Root().Children().Request()
-		r.Filter("file ne null")
-		r.Select("id,name,file,size,webUrl")
+		r := graphClient.Me().Drive().Root().Children().Request()
+		// This filter is not supported by OneDrive for Business or SharePoint Online
+		// https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/filtering-results?#filterable-properties
+		// r.Filter("file ne null")
 		log.Printf("GET %s", r.URL())
 		items, err = r.Get()
-		if err == nil {
-			dump(items)
-		} else {
+		if err != nil {
 			log.Println(err)
 		}
 	}
 
 	for _, item := range items {
+		if item.File == nil {
+			continue
+		}
 		err := func() error {
-			r := serv.Me().Drive().Items().ID(*item.ID).Request()
-			log.Printf("GET %s", r.URL())
-			x, err := r.Get()
-			if err != nil {
-				return err
-			}
 			log.Printf("Download to %#v (%d bytes)", *item.Name, *item.Size)
-			if url, ok := x.GetAdditionalData("@microsoft.graph.downloadUrl"); ok {
+			if url, ok := item.GetAdditionalData("@microsoft.graph.downloadUrl"); ok {
 				res, err := http.Get(url.(string))
 				if err != nil {
 					return err
@@ -92,7 +88,7 @@ func main() {
 					b, _ := ioutil.ReadAll(res.Body)
 					return fmt.Errorf("%s: %s", res.Status, string(b))
 				}
-				f, err := os.Create(*x.Name)
+				f, err := os.Create(*item.Name)
 				if err != nil {
 					return err
 				}
