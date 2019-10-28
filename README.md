@@ -32,13 +32,19 @@ import msgraph "github.com/yaegashi/msgraph.go/v1.0"
 import msgraph "github.com/yaegashi/msgraph.go/beta"
 ```
 
-## Examples
+You could benefit from better IDE assisted coding experience
+because Graph API specs are completely translated to Go codes by msgraph.go.
+
+![](assets/msgraph.go-vscode.gif)
+
+Code examples in the repository:
 
 - [cmd/msgraph-me](cmd/msgraph-me): Show the profile of signed in user (me) and download files in the root folder of their drive
 - [cmd/msgraph-usergroup](cmd/msgraph-usergroup): Graph user/group manipulation example
 - [cmd/msgraph-sshpubkey](cmd/msgraph-sshpubkey): Manage SSH public keys in the open extension of graph user resources
+- [cmd/msgraph-spoget](cmd/msgraph-spoget): Download a file with SharePoint Online URL
 
-## Hacks
+## Hacking
 
 Run `go generate ./gen` to download the metadata and generate library code from it.
 
@@ -89,9 +95,13 @@ $ go generate ./gen
 - [Microsoft Graph SDKs - Requirements and Design]
 - [Microsoft Graph SDK Code Generator]
 - [GitHub repository search for msgraph in Go]
+- [Microsoft Graph API Library for Go] (presentation in Japanese)
+- [msgraph.go demo - SharePoint Online + Microsoft Flow + GitLab CI] (screencast in YouTube)
 
 [Microsoft Graph]: https://developer.microsoft.com/en-us/graph
 [Microsoft Graph REST API reference]: https://docs.microsoft.com/en-us/graph/api/overview
 [Microsoft Graph SDKs - Requirements and Design]: https://microsoftgraph.github.io/msgraph-sdk-design/
 [Microsoft Graph SDK Code Generator]: https://github.com/microsoftgraph/MSGraph-SDK-Code-Generator
 [GitHub repository search for msgraph in Go]: https://github.com/search?l=Go&q=msgraph&type=Repositories
+[Microsoft Graph API Library for Go]: https://www.slideshare.net/yaegashi/microsoft-graph-api-library-for-go
+[msgraph.go demo - SharePoint Online + Microsoft Flow + GitLab CI]: https://www.youtube.com/watch?v=DwKk405XyF4
