@@ -50,7 +50,7 @@ func main() {
 		log.Printf("Get current logged in user information")
 		r := graphClient.Me().Request()
 		log.Printf("GET %s", r.URL())
-		x, err := r.Get()
+		x, err := r.Get(ctx)
 		if err == nil {
 			dump(x)
 		} else {
@@ -66,7 +66,7 @@ func main() {
 		// https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/filtering-results?#filterable-properties
 		// r.Filter("file ne null")
 		log.Printf("GET %s", r.URL())
-		items, err = r.Get()
+		items, err = r.Get(ctx)
 		if err != nil {
 			log.Println(err)
 		}

@@ -58,7 +58,7 @@ func (app *App) User() *msgraph.UserRequestBuilder {
 }
 
 // Authenticate performs OAuth2 authentication
-func (app *App) Authenticate() error {
+func (app *App) Authenticate(ctx context.Context) error {
 	var err error
 	m := auth.NewTokenManager()
 	if app.ClientSecret == "" {
@@ -82,13 +82,13 @@ func (app *App) Authenticate() error {
 			return err
 		}
 	}
-	app.GraphClient = msgraph.NewClient(app.Token.Client(context.Background()))
+	app.GraphClient = msgraph.NewClient(app.Token.Client(ctx))
 	return nil
 }
 
 // Set performs set operation on user's extension
-func (app *App) Set() error {
-	err := app.Authenticate()
+func (app *App) Set(ctx context.Context) error {
+	err := app.Authenticate(ctx)
 	if err != nil {
 		return err
 	}
@@ -104,11 +104,11 @@ func (app *App) Set() error {
 	newExt := &msgraph.Extension{}
 	newExt.SetAdditionalData("extensionName", app.ExtensionName)
 	newExt.SetAdditionalData("value", string(in))
-	_, err = app.User().Extensions().Request().Add(newExt)
+	_, err = app.User().Extensions().Request().Add(ctx, newExt)
 	if err != nil {
 		if errRes, ok := err.(*msgraph.ErrorResponse); ok {
 			if errRes.StatusCode() == http.StatusConflict {
-				err = app.User().Extensions().ID(app.ExtensionName).Request().Update(newExt)
+				err = app.User().Extensions().ID(app.ExtensionName).Request().Update(ctx, newExt)
 			}
 		}
 	}
@@ -116,15 +116,15 @@ func (app *App) Set() error {
 }
 
 // Get performs get operation on user's extensions
-func (app *App) Get() error {
-	err := app.Authenticate()
+func (app *App) Get(ctx context.Context) error {
+	err := app.Authenticate(ctx)
 	if err != nil {
 		return err
 	}
 	r := app.User().Request()
 	r.Select("id")
 	r.Expand("extensions")
-	user, err := r.Get()
+	user, err := r.Get(ctx)
 	if err != nil {
 		return err
 	}
@@ -146,12 +146,12 @@ func (app *App) Get() error {
 }
 
 // Delete performs delete operation on user's extension
-func (app *App) Delete() error {
-	err := app.Authenticate()
+func (app *App) Delete(ctx context.Context) error {
+	err := app.Authenticate(ctx)
 	if err != nil {
 		return err
 	}
-	return app.User().Extensions().ID(app.ExtensionName).Request().Delete()
+	return app.User().Extensions().ID(app.ExtensionName).Request().Delete(ctx)
 }
 
 func main() {
@@ -202,13 +202,14 @@ func main() {
 	app.LoginMap = cfg.LoginMap
 
 	var err error
+	ctx := context.Background()
 	switch strings.ToLower(app.Op) {
 	case "set":
-		err = app.Set()
+		err = app.Set(ctx)
 	case "get":
-		err = app.Get()
+		err = app.Get(ctx)
 	case "delete":
-		err = app.Delete()
+		err = app.Delete(ctx)
 	default:
 		flag.CommandLine.SetOutput(os.Stderr)
 		flag.Usage()

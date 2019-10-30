@@ -38,7 +38,7 @@ type App struct {
 }
 
 // Authenticate performs OAuth2 authentication
-func (app *App) Authenticate() error {
+func (app *App) Authenticate(ctx context.Context) error {
 	var err error
 	m := auth.NewTokenManager()
 	if app.ClientSecret == "" {
@@ -62,26 +62,26 @@ func (app *App) Authenticate() error {
 			return err
 		}
 	}
-	app.GraphClient = msgraph.NewClient(app.Token.Client(context.Background()))
+	app.GraphClient = msgraph.NewClient(app.Token.Client(ctx))
 	return nil
 }
 
 // Main is main routine
-func (app *App) Main() error {
+func (app *App) Main(ctx context.Context) error {
 	if app.URL == "" {
 		return fmt.Errorf("URL not specified")
 	}
-	err := app.Authenticate()
+	err := app.Authenticate(ctx)
 	if err != nil {
 		return err
 	}
-	itemRB, err := app.GraphClient.GetDriveItemByURL(app.URL)
+	itemRB, err := app.GraphClient.GetDriveItemByURL(ctx, app.URL)
 	if err != nil {
 		return err
 	}
 	itemRB.Workbook().Worksheets()
 	app.GraphClient.Workbooks()
-	item, err := itemRB.Request().Get()
+	item, err := itemRB.Request().Get(ctx)
 	if err != nil {
 		return err
 	}
@@ -148,7 +148,8 @@ func main() {
 		app.TokenStore = cfg.TokenStore
 	}
 
-	err := app.Main()
+	ctx := context.Background()
+	err := app.Main(ctx)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
