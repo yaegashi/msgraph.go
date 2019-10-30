@@ -20,6 +20,11 @@ The code generator is written in pure Go,
 in contrast to [the official code generator][Microsoft Graph SDK Code Generator]
 heavily relying on C# and non-portable .NET Framework.
 
+## Changes
+
+- **2019-11-02: Library API breaking changes:** Since #1 gets merged every request method should take a ctx for the first arg.
+You can pass a nil for it to use the default ctx kept in http.Client.
+
 ## Usage
 
 You can choose API version when importing `msgraph` package:
@@ -80,6 +85,7 @@ $ go generate ./gen
 - [x] Provide easy way to generate pointers to literals
 - [x] Provide easy way to generate pointers to constants
 - [x] Provide easy way to add queries like `$expand` `$select` `$filter`
+- [x] Every request method should take a ctx as the first arg for better control
 - [ ] Online API docs (the output is too big for godoc.org to handle)
 - [ ] Unit tests
 - [x] CI
