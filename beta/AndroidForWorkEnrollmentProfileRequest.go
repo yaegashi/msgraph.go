@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkEnrollmentProfileRequestBuilder is request builder for AndroidForWorkEnrollmentProfile
 type AndroidForWorkEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidForWorkEnrollmentProfileRequestBuilder) Request() *AndroidForWor
 type AndroidForWorkEnrollmentProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkEnrollmentProfile
-func (r *AndroidForWorkEnrollmentProfileRequest) Get() (resObj *AndroidForWorkEnrollmentProfile, err error) {
+func (r *AndroidForWorkEnrollmentProfileRequest) Get(ctx context.Context) (resObj *AndroidForWorkEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkEnrollmentProfile
-func (r *AndroidForWorkEnrollmentProfileRequest) Update(reqObj *AndroidForWorkEnrollmentProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkEnrollmentProfileRequest) Update(ctx context.Context, reqObj *AndroidForWorkEnrollmentProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkEnrollmentProfile
-func (r *AndroidForWorkEnrollmentProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkEnrollmentProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

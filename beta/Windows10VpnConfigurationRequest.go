@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // Windows10VpnConfigurationRequestBuilder is request builder for Windows10VpnConfiguration
 type Windows10VpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *Windows10VpnConfigurationRequestBuilder) Request() *Windows10VpnConfigu
 type Windows10VpnConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for Windows10VpnConfiguration
-func (r *Windows10VpnConfigurationRequest) Get() (resObj *Windows10VpnConfiguration, err error) {
+func (r *Windows10VpnConfigurationRequest) Get(ctx context.Context) (resObj *Windows10VpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Windows10VpnConfiguration
-func (r *Windows10VpnConfigurationRequest) Update(reqObj *Windows10VpnConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *Windows10VpnConfigurationRequest) Update(ctx context.Context, reqObj *Windows10VpnConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Windows10VpnConfiguration
-func (r *Windows10VpnConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *Windows10VpnConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

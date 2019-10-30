@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // Windows81TrustedRootCertificateRequestBuilder is request builder for Windows81TrustedRootCertificate
 type Windows81TrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *Windows81TrustedRootCertificateRequestBuilder) Request() *Windows81Trus
 type Windows81TrustedRootCertificateRequest struct{ BaseRequest }
 
 // Get performs GET request for Windows81TrustedRootCertificate
-func (r *Windows81TrustedRootCertificateRequest) Get() (resObj *Windows81TrustedRootCertificate, err error) {
+func (r *Windows81TrustedRootCertificateRequest) Get(ctx context.Context) (resObj *Windows81TrustedRootCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Windows81TrustedRootCertificate
-func (r *Windows81TrustedRootCertificateRequest) Update(reqObj *Windows81TrustedRootCertificate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *Windows81TrustedRootCertificateRequest) Update(ctx context.Context, reqObj *Windows81TrustedRootCertificate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Windows81TrustedRootCertificate
-func (r *Windows81TrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *Windows81TrustedRootCertificateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

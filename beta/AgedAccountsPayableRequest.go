@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AgedAccountsPayableRequestBuilder is request builder for AgedAccountsPayable
 type AgedAccountsPayableRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AgedAccountsPayableRequestBuilder) Request() *AgedAccountsPayableReques
 type AgedAccountsPayableRequest struct{ BaseRequest }
 
 // Get performs GET request for AgedAccountsPayable
-func (r *AgedAccountsPayableRequest) Get() (resObj *AgedAccountsPayable, err error) {
+func (r *AgedAccountsPayableRequest) Get(ctx context.Context) (resObj *AgedAccountsPayable, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AgedAccountsPayable
-func (r *AgedAccountsPayableRequest) Update(reqObj *AgedAccountsPayable) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AgedAccountsPayableRequest) Update(ctx context.Context, reqObj *AgedAccountsPayable) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AgedAccountsPayable
-func (r *AgedAccountsPayableRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AgedAccountsPayableRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

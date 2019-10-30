@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RequestObjectStopRequestParameter undocumented
 type RequestObjectStopRequestParameter struct {
 }
@@ -36,8 +38,8 @@ func (b *RequestObjectStopRequestBuilder) Request() *RequestObjectStopRequest {
 }
 
 //
-func (r *RequestObjectStopRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *RequestObjectStopRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -62,6 +64,6 @@ func (b *RequestObjectRecordDecisionsRequestBuilder) Request() *RequestObjectRec
 }
 
 //
-func (r *RequestObjectRecordDecisionsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *RequestObjectRecordDecisionsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

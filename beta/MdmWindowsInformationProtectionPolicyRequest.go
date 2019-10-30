@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MdmWindowsInformationProtectionPolicyRequestBuilder is request builder for MdmWindowsInformationProtectionPolicy
 type MdmWindowsInformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MdmWindowsInformationProtectionPolicyRequestBuilder) Request() *MdmWind
 type MdmWindowsInformationProtectionPolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for MdmWindowsInformationProtectionPolicy
-func (r *MdmWindowsInformationProtectionPolicyRequest) Get() (resObj *MdmWindowsInformationProtectionPolicy, err error) {
+func (r *MdmWindowsInformationProtectionPolicyRequest) Get(ctx context.Context) (resObj *MdmWindowsInformationProtectionPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MdmWindowsInformationProtectionPolicy
-func (r *MdmWindowsInformationProtectionPolicyRequest) Update(reqObj *MdmWindowsInformationProtectionPolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MdmWindowsInformationProtectionPolicyRequest) Update(ctx context.Context, reqObj *MdmWindowsInformationProtectionPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MdmWindowsInformationProtectionPolicy
-func (r *MdmWindowsInformationProtectionPolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MdmWindowsInformationProtectionPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

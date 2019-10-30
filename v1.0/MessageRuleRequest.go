@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MessageRuleRequestBuilder is request builder for MessageRule
 type MessageRuleRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MessageRuleRequestBuilder) Request() *MessageRuleRequest {
 type MessageRuleRequest struct{ BaseRequest }
 
 // Get performs GET request for MessageRule
-func (r *MessageRuleRequest) Get() (resObj *MessageRule, err error) {
+func (r *MessageRuleRequest) Get(ctx context.Context) (resObj *MessageRule, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MessageRule
-func (r *MessageRuleRequest) Update(reqObj *MessageRule) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MessageRuleRequest) Update(ctx context.Context, reqObj *MessageRule) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MessageRule
-func (r *MessageRuleRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MessageRuleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

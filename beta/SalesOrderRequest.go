@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SalesOrderRequestBuilder) Request() *SalesOrderRequest {
 type SalesOrderRequest struct{ BaseRequest }
 
 // Get performs GET request for SalesOrder
-func (r *SalesOrderRequest) Get() (resObj *SalesOrder, err error) {
+func (r *SalesOrderRequest) Get(ctx context.Context) (resObj *SalesOrder, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SalesOrder
-func (r *SalesOrderRequest) Update(reqObj *SalesOrder) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SalesOrderRequest) Update(ctx context.Context, reqObj *SalesOrder) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesOrder
-func (r *SalesOrderRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SalesOrderRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Currency is navigation property
@@ -92,10 +93,13 @@ func (b *SalesOrderSalesOrderLinesCollectionRequestBuilder) ID(id string) *Sales
 type SalesOrderSalesOrderLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrderLine, error) {
+func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesOrderLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -129,7 +133,11 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -137,16 +145,16 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Get() ([]SalesOrderLine, error) {
+func (r *SalesOrderSalesOrderLinesCollectionRequest) Get(ctx context.Context) ([]SalesOrderLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Add(reqObj *SalesOrderLine) (resObj *SalesOrderLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SalesOrderSalesOrderLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesOrderLine) (resObj *SalesOrderLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

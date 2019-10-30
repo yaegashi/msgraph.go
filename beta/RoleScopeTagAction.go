@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -52,10 +53,13 @@ func (b *RoleScopeTagCollectionGetRoleScopeTagsByIDRequestBuilder) Request() *Ro
 }
 
 //
-func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(method, path string, obj interface{}) ([][]RoleScopeTag, error) {
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]RoleScopeTag, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -89,7 +93,11 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -97,12 +105,12 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(method, path 
 }
 
 //
-func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Get() ([][]RoleScopeTag, error) {
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Get(ctx context.Context) ([][]RoleScopeTag, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -127,10 +135,13 @@ func (b *RoleScopeTagAssignRequestBuilder) Request() *RoleScopeTagAssignRequest 
 }
 
 //
-func (r *RoleScopeTagAssignRequest) Paging(method, path string, obj interface{}) ([][]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]RoleScopeTagAutoAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -164,7 +175,11 @@ func (r *RoleScopeTagAssignRequest) Paging(method, path string, obj interface{})
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -172,10 +187,10 @@ func (r *RoleScopeTagAssignRequest) Paging(method, path string, obj interface{})
 }
 
 //
-func (r *RoleScopeTagAssignRequest) Get() ([][]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignRequest) Get(ctx context.Context) ([][]RoleScopeTagAutoAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

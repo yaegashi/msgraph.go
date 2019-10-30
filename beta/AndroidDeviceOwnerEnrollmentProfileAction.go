@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestParameter undocumented
 type AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestParameter struct {
 }
@@ -34,8 +36,8 @@ func (b *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestBuilder) Request()
 }
 
 //
-func (r *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,6 +62,6 @@ func (b *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequestBuilder) Request()
 }
 
 //
-func (r *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidDeviceOwnerEnrollmentProfileCreateTokenRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

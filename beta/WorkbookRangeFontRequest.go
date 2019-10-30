@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookRangeFontRequestBuilder is request builder for WorkbookRangeFont
 type WorkbookRangeFontRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookRangeFontRequestBuilder) Request() *WorkbookRangeFontRequest {
 type WorkbookRangeFontRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookRangeFont
-func (r *WorkbookRangeFontRequest) Get() (resObj *WorkbookRangeFont, err error) {
+func (r *WorkbookRangeFontRequest) Get(ctx context.Context) (resObj *WorkbookRangeFont, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookRangeFont
-func (r *WorkbookRangeFontRequest) Update(reqObj *WorkbookRangeFont) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookRangeFontRequest) Update(ctx context.Context, reqObj *WorkbookRangeFont) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookRangeFont
-func (r *WorkbookRangeFontRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookRangeFontRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DataPolicyOperationRequestBuilder is request builder for DataPolicyOperation
 type DataPolicyOperationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DataPolicyOperationRequestBuilder) Request() *DataPolicyOperationReques
 type DataPolicyOperationRequest struct{ BaseRequest }
 
 // Get performs GET request for DataPolicyOperation
-func (r *DataPolicyOperationRequest) Get() (resObj *DataPolicyOperation, err error) {
+func (r *DataPolicyOperationRequest) Get(ctx context.Context) (resObj *DataPolicyOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DataPolicyOperation
-func (r *DataPolicyOperationRequest) Update(reqObj *DataPolicyOperation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DataPolicyOperationRequest) Update(ctx context.Context, reqObj *DataPolicyOperation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DataPolicyOperation
-func (r *DataPolicyOperationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DataPolicyOperationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

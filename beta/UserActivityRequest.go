@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *UserActivityRequestBuilder) Request() *UserActivityRequest {
 type UserActivityRequest struct{ BaseRequest }
 
 // Get performs GET request for UserActivity
-func (r *UserActivityRequest) Get() (resObj *UserActivity, err error) {
+func (r *UserActivityRequest) Get(ctx context.Context) (resObj *UserActivity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UserActivity
-func (r *UserActivityRequest) Update(reqObj *UserActivity) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UserActivityRequest) Update(ctx context.Context, reqObj *UserActivity) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserActivity
-func (r *UserActivityRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UserActivityRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // HistoryItems returns request builder for ActivityHistoryItem collection
@@ -71,10 +72,13 @@ func (b *UserActivityHistoryItemsCollectionRequestBuilder) ID(id string) *Activi
 type UserActivityHistoryItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityHistoryItem, error) {
+func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ActivityHistoryItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *UserActivityHistoryItemsCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *UserActivityHistoryItemsCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Get() ([]ActivityHistoryItem, error) {
+func (r *UserActivityHistoryItemsCollectionRequest) Get(ctx context.Context) ([]ActivityHistoryItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Add(reqObj *ActivityHistoryItem) (resObj *ActivityHistoryItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *UserActivityHistoryItemsCollectionRequest) Add(ctx context.Context, reqObj *ActivityHistoryItem) (resObj *ActivityHistoryItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

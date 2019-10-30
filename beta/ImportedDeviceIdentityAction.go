@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -46,10 +47,13 @@ func (b *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequestBuilder)
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging(method, path string, obj interface{}) ([][]ImportedDeviceIdentityResult, error) {
+func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ImportedDeviceIdentityResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -83,7 +87,11 @@ func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -91,12 +99,12 @@ func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Get() ([][]ImportedDeviceIdentityResult, error) {
+func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Get(ctx context.Context) ([][]ImportedDeviceIdentityResult, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -121,10 +129,13 @@ func (b *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequestBuilder)
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging(method, path string, obj interface{}) ([][]ImportedDeviceIdentity, error) {
+func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ImportedDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -158,7 +169,11 @@ func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -166,10 +181,10 @@ func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Get() ([][]ImportedDeviceIdentity, error) {
+func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Get(ctx context.Context) ([][]ImportedDeviceIdentity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

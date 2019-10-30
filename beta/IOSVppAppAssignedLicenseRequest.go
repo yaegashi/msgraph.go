@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IOSVppAppAssignedLicenseRequestBuilder is request builder for IOSVppAppAssignedLicense
 type IOSVppAppAssignedLicenseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *IOSVppAppAssignedLicenseRequestBuilder) Request() *IOSVppAppAssignedLic
 type IOSVppAppAssignedLicenseRequest struct{ BaseRequest }
 
 // Get performs GET request for IOSVppAppAssignedLicense
-func (r *IOSVppAppAssignedLicenseRequest) Get() (resObj *IOSVppAppAssignedLicense, err error) {
+func (r *IOSVppAppAssignedLicenseRequest) Get(ctx context.Context) (resObj *IOSVppAppAssignedLicense, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IOSVppAppAssignedLicense
-func (r *IOSVppAppAssignedLicenseRequest) Update(reqObj *IOSVppAppAssignedLicense) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IOSVppAppAssignedLicenseRequest) Update(ctx context.Context, reqObj *IOSVppAppAssignedLicense) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSVppAppAssignedLicense
-func (r *IOSVppAppAssignedLicenseRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IOSVppAppAssignedLicenseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

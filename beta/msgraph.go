@@ -4,6 +4,7 @@ package msgraph
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -231,10 +232,13 @@ func (r *BaseRequest) DecodeJSONResponse(res *http.Response, obj interface{}) er
 }
 
 // JSONRequest issues HTTP request with JSON payload
-func (r *BaseRequest) JSONRequest(method, path string, reqObj, resObj interface{}) error {
+func (r *BaseRequest) JSONRequest(ctx context.Context, method, path string, reqObj, resObj interface{}) error {
 	req, err := r.NewJSONRequest(method, path, reqObj)
 	if err != nil {
 		return err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {

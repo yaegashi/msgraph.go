@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *Windows10GeneralConfigurationRequestBuilder) Request() *Windows10Genera
 type Windows10GeneralConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for Windows10GeneralConfiguration
-func (r *Windows10GeneralConfigurationRequest) Get() (resObj *Windows10GeneralConfiguration, err error) {
+func (r *Windows10GeneralConfigurationRequest) Get(ctx context.Context) (resObj *Windows10GeneralConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Windows10GeneralConfiguration
-func (r *Windows10GeneralConfigurationRequest) Update(reqObj *Windows10GeneralConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *Windows10GeneralConfigurationRequest) Update(ctx context.Context, reqObj *Windows10GeneralConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Windows10GeneralConfiguration
-func (r *Windows10GeneralConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *Windows10GeneralConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // PrivacyAccessControls returns request builder for WindowsPrivacyDataAccessControlItem collection
@@ -71,10 +72,13 @@ func (b *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequestBuil
 type Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsPrivacyDataAccessControlItem collection
-func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsPrivacyDataAccessControlItem, error) {
+func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsPrivacyDataAccessControlItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Pa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Pa
 }
 
 // Get performs GET request for WindowsPrivacyDataAccessControlItem collection
-func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Get() ([]WindowsPrivacyDataAccessControlItem, error) {
+func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Get(ctx context.Context) ([]WindowsPrivacyDataAccessControlItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsPrivacyDataAccessControlItem collection
-func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Add(reqObj *WindowsPrivacyDataAccessControlItem) (resObj *WindowsPrivacyDataAccessControlItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *Windows10GeneralConfigurationPrivacyAccessControlsCollectionRequest) Add(ctx context.Context, reqObj *WindowsPrivacyDataAccessControlItem) (resObj *WindowsPrivacyDataAccessControlItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

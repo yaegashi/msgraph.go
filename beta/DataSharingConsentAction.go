@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DataSharingConsentConsentToDataSharingRequestParameter undocumented
 type DataSharingConsentConsentToDataSharingRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *DataSharingConsentConsentToDataSharingRequestBuilder) Request() *DataSh
 }
 
 //
-func (r *DataSharingConsentConsentToDataSharingRequest) Post() (resObj *DataSharingConsent, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DataSharingConsentConsentToDataSharingRequest) Post(ctx context.Context) (resObj *DataSharingConsent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

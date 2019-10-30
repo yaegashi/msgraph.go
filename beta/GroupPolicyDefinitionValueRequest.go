@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *GroupPolicyDefinitionValueRequestBuilder) Request() *GroupPolicyDefinit
 type GroupPolicyDefinitionValueRequest struct{ BaseRequest }
 
 // Get performs GET request for GroupPolicyDefinitionValue
-func (r *GroupPolicyDefinitionValueRequest) Get() (resObj *GroupPolicyDefinitionValue, err error) {
+func (r *GroupPolicyDefinitionValueRequest) Get(ctx context.Context) (resObj *GroupPolicyDefinitionValue, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GroupPolicyDefinitionValue
-func (r *GroupPolicyDefinitionValueRequest) Update(reqObj *GroupPolicyDefinitionValue) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupPolicyDefinitionValueRequest) Update(ctx context.Context, reqObj *GroupPolicyDefinitionValue) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyDefinitionValue
-func (r *GroupPolicyDefinitionValueRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupPolicyDefinitionValueRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Definition is navigation property
@@ -78,10 +79,13 @@ func (b *GroupPolicyDefinitionValuePresentationValuesCollectionRequestBuilder) I
 type GroupPolicyDefinitionValuePresentationValuesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GroupPolicyPresentationValue collection
-func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupPolicyPresentationValue, error) {
+func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupPolicyPresentationValue, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Paging(m
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,16 +131,16 @@ func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Paging(m
 }
 
 // Get performs GET request for GroupPolicyPresentationValue collection
-func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Get() ([]GroupPolicyPresentationValue, error) {
+func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Get(ctx context.Context) ([]GroupPolicyPresentationValue, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GroupPolicyPresentationValue collection
-func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Add(reqObj *GroupPolicyPresentationValue) (resObj *GroupPolicyPresentationValue, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupPolicyDefinitionValuePresentationValuesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyPresentationValue) (resObj *GroupPolicyPresentationValue, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DirectoryAuditRequestBuilder is request builder for DirectoryAudit
 type DirectoryAuditRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DirectoryAuditRequestBuilder) Request() *DirectoryAuditRequest {
 type DirectoryAuditRequest struct{ BaseRequest }
 
 // Get performs GET request for DirectoryAudit
-func (r *DirectoryAuditRequest) Get() (resObj *DirectoryAudit, err error) {
+func (r *DirectoryAuditRequest) Get(ctx context.Context) (resObj *DirectoryAudit, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DirectoryAudit
-func (r *DirectoryAuditRequest) Update(reqObj *DirectoryAudit) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DirectoryAuditRequest) Update(ctx context.Context, reqObj *DirectoryAudit) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryAudit
-func (r *DirectoryAuditRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DirectoryAuditRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IdentityProviderRequestBuilder is request builder for IdentityProvider
 type IdentityProviderRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *IdentityProviderRequestBuilder) Request() *IdentityProviderRequest {
 type IdentityProviderRequest struct{ BaseRequest }
 
 // Get performs GET request for IdentityProvider
-func (r *IdentityProviderRequest) Get() (resObj *IdentityProvider, err error) {
+func (r *IdentityProviderRequest) Get(ctx context.Context) (resObj *IdentityProvider, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IdentityProvider
-func (r *IdentityProviderRequest) Update(reqObj *IdentityProvider) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IdentityProviderRequest) Update(ctx context.Context, reqObj *IdentityProvider) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IdentityProvider
-func (r *IdentityProviderRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IdentityProviderRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

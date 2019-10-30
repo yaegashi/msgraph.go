@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookWorksheetProtectionRequestBuilder is request builder for WorkbookWorksheetProtection
 type WorkbookWorksheetProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookWorksheetProtectionRequestBuilder) Request() *WorkbookWorksheet
 type WorkbookWorksheetProtectionRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookWorksheetProtection
-func (r *WorkbookWorksheetProtectionRequest) Get() (resObj *WorkbookWorksheetProtection, err error) {
+func (r *WorkbookWorksheetProtectionRequest) Get(ctx context.Context) (resObj *WorkbookWorksheetProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookWorksheetProtection
-func (r *WorkbookWorksheetProtectionRequest) Update(reqObj *WorkbookWorksheetProtection) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookWorksheetProtectionRequest) Update(ctx context.Context, reqObj *WorkbookWorksheetProtection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookWorksheetProtection
-func (r *WorkbookWorksheetProtectionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookWorksheetProtectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

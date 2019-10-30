@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // BookingBusinessPublishRequestParameter undocumented
 type BookingBusinessPublishRequestParameter struct {
 }
@@ -32,8 +34,8 @@ func (b *BookingBusinessPublishRequestBuilder) Request() *BookingBusinessPublish
 }
 
 //
-func (r *BookingBusinessPublishRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *BookingBusinessPublishRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -58,6 +60,6 @@ func (b *BookingBusinessUnpublishRequestBuilder) Request() *BookingBusinessUnpub
 }
 
 //
-func (r *BookingBusinessUnpublishRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *BookingBusinessUnpublishRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

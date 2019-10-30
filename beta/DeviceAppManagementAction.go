@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter undocumented
 type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Req
 }
 
 //
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

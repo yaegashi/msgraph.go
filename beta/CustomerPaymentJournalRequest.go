@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *CustomerPaymentJournalRequestBuilder) Request() *CustomerPaymentJournal
 type CustomerPaymentJournalRequest struct{ BaseRequest }
 
 // Get performs GET request for CustomerPaymentJournal
-func (r *CustomerPaymentJournalRequest) Get() (resObj *CustomerPaymentJournal, err error) {
+func (r *CustomerPaymentJournalRequest) Get(ctx context.Context) (resObj *CustomerPaymentJournal, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for CustomerPaymentJournal
-func (r *CustomerPaymentJournalRequest) Update(reqObj *CustomerPaymentJournal) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CustomerPaymentJournalRequest) Update(ctx context.Context, reqObj *CustomerPaymentJournal) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CustomerPaymentJournal
-func (r *CustomerPaymentJournalRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CustomerPaymentJournalRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Account is navigation property
@@ -78,10 +79,13 @@ func (b *CustomerPaymentJournalCustomerPaymentsCollectionRequestBuilder) ID(id s
 type CustomerPaymentJournalCustomerPaymentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPayment, error) {
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CustomerPayment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,16 +131,16 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Get() ([]CustomerPayment, error) {
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Get(ctx context.Context) ([]CustomerPayment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Add(reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Add(ctx context.Context, reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

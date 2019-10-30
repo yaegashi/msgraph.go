@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AadUserConversationMemberRequestBuilder is request builder for AadUserConversationMember
 type AadUserConversationMemberRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *AadUserConversationMemberRequestBuilder) Request() *AadUserConversation
 type AadUserConversationMemberRequest struct{ BaseRequest }
 
 // Get performs GET request for AadUserConversationMember
-func (r *AadUserConversationMemberRequest) Get() (resObj *AadUserConversationMember, err error) {
+func (r *AadUserConversationMemberRequest) Get(ctx context.Context) (resObj *AadUserConversationMember, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AadUserConversationMember
-func (r *AadUserConversationMemberRequest) Update(reqObj *AadUserConversationMember) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AadUserConversationMemberRequest) Update(ctx context.Context, reqObj *AadUserConversationMember) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AadUserConversationMember
-func (r *AadUserConversationMemberRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AadUserConversationMemberRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // User is navigation property

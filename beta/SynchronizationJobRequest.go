@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SynchronizationJobRequestBuilder is request builder for SynchronizationJob
 type SynchronizationJobRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *SynchronizationJobRequestBuilder) Request() *SynchronizationJobRequest 
 type SynchronizationJobRequest struct{ BaseRequest }
 
 // Get performs GET request for SynchronizationJob
-func (r *SynchronizationJobRequest) Get() (resObj *SynchronizationJob, err error) {
+func (r *SynchronizationJobRequest) Get(ctx context.Context) (resObj *SynchronizationJob, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SynchronizationJob
-func (r *SynchronizationJobRequest) Update(reqObj *SynchronizationJob) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SynchronizationJobRequest) Update(ctx context.Context, reqObj *SynchronizationJob) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SynchronizationJob
-func (r *SynchronizationJobRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SynchronizationJobRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Schema is navigation property

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookTableColumnRequestBuilder is request builder for WorkbookTableColumn
 type WorkbookTableColumnRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookTableColumnRequestBuilder) Request() *WorkbookTableColumnReques
 type WorkbookTableColumnRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookTableColumn
-func (r *WorkbookTableColumnRequest) Get() (resObj *WorkbookTableColumn, err error) {
+func (r *WorkbookTableColumnRequest) Get(ctx context.Context) (resObj *WorkbookTableColumn, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookTableColumn
-func (r *WorkbookTableColumnRequest) Update(reqObj *WorkbookTableColumn) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookTableColumnRequest) Update(ctx context.Context, reqObj *WorkbookTableColumn) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookTableColumn
-func (r *WorkbookTableColumnRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookTableColumnRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Filter is navigation property

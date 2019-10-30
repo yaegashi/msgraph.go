@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ContactFolderRequestBuilder) Request() *ContactFolderRequest {
 type ContactFolderRequest struct{ BaseRequest }
 
 // Get performs GET request for ContactFolder
-func (r *ContactFolderRequest) Get() (resObj *ContactFolder, err error) {
+func (r *ContactFolderRequest) Get(ctx context.Context) (resObj *ContactFolder, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ContactFolder
-func (r *ContactFolderRequest) Update(reqObj *ContactFolder) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ContactFolderRequest) Update(ctx context.Context, reqObj *ContactFolder) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ContactFolder
-func (r *ContactFolderRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ContactFolderRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ChildFolders returns request builder for ContactFolder collection
@@ -71,10 +72,13 @@ func (b *ContactFolderChildFoldersCollectionRequestBuilder) ID(id string) *Conta
 type ContactFolderChildFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Paging(method, path string, obj interface{}) ([]ContactFolder, error) {
+func (r *ContactFolderChildFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ContactFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ContactFolderChildFoldersCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ContactFolderChildFoldersCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Get() ([]ContactFolder, error) {
+func (r *ContactFolderChildFoldersCollectionRequest) Get(ctx context.Context) ([]ContactFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Add(reqObj *ContactFolder) (resObj *ContactFolder, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ContactFolderChildFoldersCollectionRequest) Add(ctx context.Context, reqObj *ContactFolder) (resObj *ContactFolder, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ContactFolderContactsCollectionRequestBuilder) ID(id string) *ContactRe
 type ContactFolderContactsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Paging(method, path string, obj interface{}) ([]Contact, error) {
+func (r *ContactFolderContactsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Contact, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ContactFolderContactsCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ContactFolderContactsCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Get() ([]Contact, error) {
+func (r *ContactFolderContactsCollectionRequest) Get(ctx context.Context) ([]Contact, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Add(reqObj *Contact) (resObj *Contact, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ContactFolderContactsCollectionRequest) Add(ctx context.Context, reqObj *Contact) (resObj *Contact, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder) ID(i
 type ContactFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(meth
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(meth
 }
 
 // Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Get() ([]MultiValueLegacyExtendedProperty, error) {
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Add(reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *MultiValueLegacyExtendedProperty) (resObj *MultiValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *ContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder) ID(
 type ContactFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,16 +406,16 @@ func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(met
 }
 
 // Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Get() ([]SingleValueLegacyExtendedProperty, error) {
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Add(reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Add(ctx context.Context, reqObj *SingleValueLegacyExtendedProperty) (resObj *SingleValueLegacyExtendedProperty, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

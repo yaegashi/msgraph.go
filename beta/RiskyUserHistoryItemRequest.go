@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RiskyUserHistoryItemRequestBuilder is request builder for RiskyUserHistoryItem
 type RiskyUserHistoryItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *RiskyUserHistoryItemRequestBuilder) Request() *RiskyUserHistoryItemRequ
 type RiskyUserHistoryItemRequest struct{ BaseRequest }
 
 // Get performs GET request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Get() (resObj *RiskyUserHistoryItem, err error) {
+func (r *RiskyUserHistoryItemRequest) Get(ctx context.Context) (resObj *RiskyUserHistoryItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Update(reqObj *RiskyUserHistoryItem) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RiskyUserHistoryItemRequest) Update(ctx context.Context, reqObj *RiskyUserHistoryItem) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RiskyUserHistoryItemRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

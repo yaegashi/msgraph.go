@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartFillClearRequestParameter undocumented
 type WorkbookChartFillClearRequestParameter struct {
 }
@@ -34,8 +36,8 @@ func (b *WorkbookChartFillClearRequestBuilder) Request() *WorkbookChartFillClear
 }
 
 //
-func (r *WorkbookChartFillClearRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookChartFillClearRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,6 +62,6 @@ func (b *WorkbookChartFillSetSolidColorRequestBuilder) Request() *WorkbookChartF
 }
 
 //
-func (r *WorkbookChartFillSetSolidColorRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookChartFillSetSolidColorRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

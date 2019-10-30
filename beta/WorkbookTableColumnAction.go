@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "encoding/json"
+import (
+	"context"
+	"encoding/json"
+)
 
 // WorkbookTableColumnCollectionAddRequestParameter undocumented
 type WorkbookTableColumnCollectionAddRequestParameter struct {
@@ -36,7 +39,7 @@ func (b *WorkbookTableColumnCollectionAddRequestBuilder) Request() *WorkbookTabl
 }
 
 //
-func (r *WorkbookTableColumnCollectionAddRequest) Post() (resObj *WorkbookTableColumn, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookTableColumnCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookTableColumn, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

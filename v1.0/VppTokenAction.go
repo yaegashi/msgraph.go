@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // VppTokenSyncLicensesRequestParameter undocumented
 type VppTokenSyncLicensesRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *VppTokenSyncLicensesRequestBuilder) Request() *VppTokenSyncLicensesRequ
 }
 
 //
-func (r *VppTokenSyncLicensesRequest) Post() (resObj *VppToken, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *VppTokenSyncLicensesRequest) Post(ctx context.Context) (resObj *VppToken, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

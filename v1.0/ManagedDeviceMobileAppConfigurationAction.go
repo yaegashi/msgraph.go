@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
 type ManagedDeviceMobileAppConfigurationAssignRequestParameter struct {
 	// Assignments undocumented
@@ -30,6 +32,6 @@ func (b *ManagedDeviceMobileAppConfigurationAssignRequestBuilder) Request() *Man
 }
 
 //
-func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceMobileAppConfigurationAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

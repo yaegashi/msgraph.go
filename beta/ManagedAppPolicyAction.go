@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedAppPolicyTargetAppsRequestParameter undocumented
 type ManagedAppPolicyTargetAppsRequestParameter struct {
 	// Apps undocumented
@@ -30,6 +32,6 @@ func (b *ManagedAppPolicyTargetAppsRequestBuilder) Request() *ManagedAppPolicyTa
 }
 
 //
-func (r *ManagedAppPolicyTargetAppsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedAppPolicyTargetAppsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

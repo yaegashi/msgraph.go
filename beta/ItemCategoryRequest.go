@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ItemCategoryRequestBuilder is request builder for ItemCategory
 type ItemCategoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ItemCategoryRequestBuilder) Request() *ItemCategoryRequest {
 type ItemCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for ItemCategory
-func (r *ItemCategoryRequest) Get() (resObj *ItemCategory, err error) {
+func (r *ItemCategoryRequest) Get(ctx context.Context) (resObj *ItemCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ItemCategory
-func (r *ItemCategoryRequest) Update(reqObj *ItemCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ItemCategoryRequest) Update(ctx context.Context, reqObj *ItemCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemCategory
-func (r *ItemCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ItemCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ExactMatchDataStoreRequestBuilder) Request() *ExactMatchDataStoreReques
 type ExactMatchDataStoreRequest struct{ BaseRequest }
 
 // Get performs GET request for ExactMatchDataStore
-func (r *ExactMatchDataStoreRequest) Get() (resObj *ExactMatchDataStore, err error) {
+func (r *ExactMatchDataStoreRequest) Get(ctx context.Context) (resObj *ExactMatchDataStore, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ExactMatchDataStore
-func (r *ExactMatchDataStoreRequest) Update(reqObj *ExactMatchDataStore) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ExactMatchDataStoreRequest) Update(ctx context.Context, reqObj *ExactMatchDataStore) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ExactMatchDataStore
-func (r *ExactMatchDataStoreRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ExactMatchDataStoreRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Sessions returns request builder for ExactMatchSession collection
@@ -71,10 +72,13 @@ func (b *ExactMatchDataStoreSessionsCollectionRequestBuilder) ID(id string) *Exa
 type ExactMatchDataStoreSessionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(method, path string, obj interface{}) ([]ExactMatchSession, error) {
+func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExactMatchSession, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Get() ([]ExactMatchSession, error) {
+func (r *ExactMatchDataStoreSessionsCollectionRequest) Get(ctx context.Context) ([]ExactMatchSession, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Add(reqObj *ExactMatchSession) (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ExactMatchDataStoreSessionsCollectionRequest) Add(ctx context.Context, reqObj *ExactMatchSession) (resObj *ExactMatchSession, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

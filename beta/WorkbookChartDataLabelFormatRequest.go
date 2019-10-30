@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartDataLabelFormatRequestBuilder is request builder for WorkbookChartDataLabelFormat
 type WorkbookChartDataLabelFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartDataLabelFormatRequestBuilder) Request() *WorkbookChartDat
 type WorkbookChartDataLabelFormatRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartDataLabelFormat
-func (r *WorkbookChartDataLabelFormatRequest) Get() (resObj *WorkbookChartDataLabelFormat, err error) {
+func (r *WorkbookChartDataLabelFormatRequest) Get(ctx context.Context) (resObj *WorkbookChartDataLabelFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartDataLabelFormat
-func (r *WorkbookChartDataLabelFormatRequest) Update(reqObj *WorkbookChartDataLabelFormat) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartDataLabelFormatRequest) Update(ctx context.Context, reqObj *WorkbookChartDataLabelFormat) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartDataLabelFormat
-func (r *WorkbookChartDataLabelFormatRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartDataLabelFormatRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Fill is navigation property

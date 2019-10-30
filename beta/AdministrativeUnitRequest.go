@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AdministrativeUnitRequestBuilder) Request() *AdministrativeUnitRequest 
 type AdministrativeUnitRequest struct{ BaseRequest }
 
 // Get performs GET request for AdministrativeUnit
-func (r *AdministrativeUnitRequest) Get() (resObj *AdministrativeUnit, err error) {
+func (r *AdministrativeUnitRequest) Get(ctx context.Context) (resObj *AdministrativeUnit, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AdministrativeUnit
-func (r *AdministrativeUnitRequest) Update(reqObj *AdministrativeUnit) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AdministrativeUnitRequest) Update(ctx context.Context, reqObj *AdministrativeUnit) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AdministrativeUnit
-func (r *AdministrativeUnitRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AdministrativeUnitRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Extensions returns request builder for Extension collection
@@ -71,10 +72,13 @@ func (b *AdministrativeUnitExtensionsCollectionRequestBuilder) ID(id string) *Ex
 type AdministrativeUnitExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Extension collection
-func (r *AdministrativeUnitExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
+func (r *AdministrativeUnitExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Extension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AdministrativeUnitExtensionsCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *AdministrativeUnitExtensionsCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for Extension collection
-func (r *AdministrativeUnitExtensionsCollectionRequest) Get() ([]Extension, error) {
+func (r *AdministrativeUnitExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Extension collection
-func (r *AdministrativeUnitExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AdministrativeUnitExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *AdministrativeUnitMembersCollectionRequestBuilder) ID(id string) *Direc
 type AdministrativeUnitMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *AdministrativeUnitMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *AdministrativeUnitMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *AdministrativeUnitMembersCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *AdministrativeUnitMembersCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *AdministrativeUnitMembersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *AdministrativeUnitMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *AdministrativeUnitMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AdministrativeUnitMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *AdministrativeUnitScopedRoleMembersCollectionRequestBuilder) ID(id stri
 type AdministrativeUnitScopedRoleMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ScopedRoleMembership collection
-func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
+func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Paging(method, pa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Paging(method, pa
 }
 
 // Get performs GET request for ScopedRoleMembership collection
-func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Get() ([]ScopedRoleMembership, error) {
+func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Get(ctx context.Context) ([]ScopedRoleMembership, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ScopedRoleMembership collection
-func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Add(reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AdministrativeUnitScopedRoleMembersCollectionRequest) Add(ctx context.Context, reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

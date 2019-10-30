@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ProgramControlTypeRequestBuilder is request builder for ProgramControlType
 type ProgramControlTypeRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ProgramControlTypeRequestBuilder) Request() *ProgramControlTypeRequest 
 type ProgramControlTypeRequest struct{ BaseRequest }
 
 // Get performs GET request for ProgramControlType
-func (r *ProgramControlTypeRequest) Get() (resObj *ProgramControlType, err error) {
+func (r *ProgramControlTypeRequest) Get(ctx context.Context) (resObj *ProgramControlType, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ProgramControlType
-func (r *ProgramControlTypeRequest) Update(reqObj *ProgramControlType) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ProgramControlTypeRequest) Update(ctx context.Context, reqObj *ProgramControlType) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ProgramControlType
-func (r *ProgramControlTypeRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ProgramControlTypeRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

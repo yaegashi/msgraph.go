@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // BookingStaffMemberRequestBuilder is request builder for BookingStaffMember
 type BookingStaffMemberRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *BookingStaffMemberRequestBuilder) Request() *BookingStaffMemberRequest 
 type BookingStaffMemberRequest struct{ BaseRequest }
 
 // Get performs GET request for BookingStaffMember
-func (r *BookingStaffMemberRequest) Get() (resObj *BookingStaffMember, err error) {
+func (r *BookingStaffMemberRequest) Get(ctx context.Context) (resObj *BookingStaffMember, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for BookingStaffMember
-func (r *BookingStaffMemberRequest) Update(reqObj *BookingStaffMember) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *BookingStaffMemberRequest) Update(ctx context.Context, reqObj *BookingStaffMember) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BookingStaffMember
-func (r *BookingStaffMemberRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *BookingStaffMemberRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

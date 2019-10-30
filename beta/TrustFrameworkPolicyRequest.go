@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TrustFrameworkPolicyRequestBuilder is request builder for TrustFrameworkPolicy
 type TrustFrameworkPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TrustFrameworkPolicyRequestBuilder) Request() *TrustFrameworkPolicyRequ
 type TrustFrameworkPolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for TrustFrameworkPolicy
-func (r *TrustFrameworkPolicyRequest) Get() (resObj *TrustFrameworkPolicy, err error) {
+func (r *TrustFrameworkPolicyRequest) Get(ctx context.Context) (resObj *TrustFrameworkPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TrustFrameworkPolicy
-func (r *TrustFrameworkPolicyRequest) Update(reqObj *TrustFrameworkPolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TrustFrameworkPolicyRequest) Update(ctx context.Context, reqObj *TrustFrameworkPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TrustFrameworkPolicy
-func (r *TrustFrameworkPolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TrustFrameworkPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

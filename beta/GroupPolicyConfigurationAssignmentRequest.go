@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupPolicyConfigurationAssignmentRequestBuilder is request builder for GroupPolicyConfigurationAssignment
 type GroupPolicyConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *GroupPolicyConfigurationAssignmentRequestBuilder) Request() *GroupPolic
 type GroupPolicyConfigurationAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for GroupPolicyConfigurationAssignment
-func (r *GroupPolicyConfigurationAssignmentRequest) Get() (resObj *GroupPolicyConfigurationAssignment, err error) {
+func (r *GroupPolicyConfigurationAssignmentRequest) Get(ctx context.Context) (resObj *GroupPolicyConfigurationAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GroupPolicyConfigurationAssignment
-func (r *GroupPolicyConfigurationAssignmentRequest) Update(reqObj *GroupPolicyConfigurationAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupPolicyConfigurationAssignmentRequest) Update(ctx context.Context, reqObj *GroupPolicyConfigurationAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyConfigurationAssignment
-func (r *GroupPolicyConfigurationAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupPolicyConfigurationAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

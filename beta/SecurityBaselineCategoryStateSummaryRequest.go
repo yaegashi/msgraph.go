@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SecurityBaselineCategoryStateSummaryRequestBuilder is request builder for SecurityBaselineCategoryStateSummary
 type SecurityBaselineCategoryStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SecurityBaselineCategoryStateSummaryRequestBuilder) Request() *Security
 type SecurityBaselineCategoryStateSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for SecurityBaselineCategoryStateSummary
-func (r *SecurityBaselineCategoryStateSummaryRequest) Get() (resObj *SecurityBaselineCategoryStateSummary, err error) {
+func (r *SecurityBaselineCategoryStateSummaryRequest) Get(ctx context.Context) (resObj *SecurityBaselineCategoryStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SecurityBaselineCategoryStateSummary
-func (r *SecurityBaselineCategoryStateSummaryRequest) Update(reqObj *SecurityBaselineCategoryStateSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SecurityBaselineCategoryStateSummaryRequest) Update(ctx context.Context, reqObj *SecurityBaselineCategoryStateSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineCategoryStateSummary
-func (r *SecurityBaselineCategoryStateSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SecurityBaselineCategoryStateSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

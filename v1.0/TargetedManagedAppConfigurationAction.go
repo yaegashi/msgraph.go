@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TargetedManagedAppConfigurationAssignRequestParameter undocumented
 type TargetedManagedAppConfigurationAssignRequestParameter struct {
 	// Assignments undocumented
@@ -36,8 +38,8 @@ func (b *TargetedManagedAppConfigurationAssignRequestBuilder) Request() *Targete
 }
 
 //
-func (r *TargetedManagedAppConfigurationAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TargetedManagedAppConfigurationAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -62,6 +64,6 @@ func (b *TargetedManagedAppConfigurationTargetAppsRequestBuilder) Request() *Tar
 }
 
 //
-func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TargetedManagedAppConfigurationTargetAppsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

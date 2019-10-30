@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GovernanceRoleAssignmentRequestObjectCancelRequestParameter undocumented
 type GovernanceRoleAssignmentRequestObjectCancelRequestParameter struct {
 }
@@ -40,8 +42,8 @@ func (b *GovernanceRoleAssignmentRequestObjectCancelRequestBuilder) Request() *G
 }
 
 //
-func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -66,7 +68,7 @@ func (b *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder)
 }
 
 //
-func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Post() (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Post(ctx context.Context) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

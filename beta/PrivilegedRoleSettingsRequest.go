@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedRoleSettingsRequestBuilder is request builder for PrivilegedRoleSettings
 type PrivilegedRoleSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PrivilegedRoleSettingsRequestBuilder) Request() *PrivilegedRoleSettings
 type PrivilegedRoleSettingsRequest struct{ BaseRequest }
 
 // Get performs GET request for PrivilegedRoleSettings
-func (r *PrivilegedRoleSettingsRequest) Get() (resObj *PrivilegedRoleSettings, err error) {
+func (r *PrivilegedRoleSettingsRequest) Get(ctx context.Context) (resObj *PrivilegedRoleSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PrivilegedRoleSettings
-func (r *PrivilegedRoleSettingsRequest) Update(reqObj *PrivilegedRoleSettings) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PrivilegedRoleSettingsRequest) Update(ctx context.Context, reqObj *PrivilegedRoleSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedRoleSettings
-func (r *PrivilegedRoleSettingsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PrivilegedRoleSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

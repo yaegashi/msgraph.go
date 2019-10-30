@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "encoding/json"
+import (
+	"context"
+	"encoding/json"
+)
 
 // WorkbookNamedItemCollectionAddRequestParameter undocumented
 type WorkbookNamedItemCollectionAddRequestParameter struct {
@@ -54,8 +57,8 @@ func (b *WorkbookNamedItemCollectionAddRequestBuilder) Request() *WorkbookNamedI
 }
 
 //
-func (r *WorkbookNamedItemCollectionAddRequest) Post() (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookNamedItemCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -89,7 +92,7 @@ func (b *WorkbookNamedItemCollectionAddFormulaLocalRequestBuilder) Request() *Wo
 }
 
 //
-func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post() (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookNamedItemCollectionAddFormulaLocalRequest) Post(ctx context.Context) (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

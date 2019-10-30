@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GeneralLedgerEntryRequestBuilder is request builder for GeneralLedgerEntry
 type GeneralLedgerEntryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *GeneralLedgerEntryRequestBuilder) Request() *GeneralLedgerEntryRequest 
 type GeneralLedgerEntryRequest struct{ BaseRequest }
 
 // Get performs GET request for GeneralLedgerEntry
-func (r *GeneralLedgerEntryRequest) Get() (resObj *GeneralLedgerEntry, err error) {
+func (r *GeneralLedgerEntryRequest) Get(ctx context.Context) (resObj *GeneralLedgerEntry, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GeneralLedgerEntry
-func (r *GeneralLedgerEntryRequest) Update(reqObj *GeneralLedgerEntry) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GeneralLedgerEntryRequest) Update(ctx context.Context, reqObj *GeneralLedgerEntry) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GeneralLedgerEntry
-func (r *GeneralLedgerEntryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GeneralLedgerEntryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Account is navigation property

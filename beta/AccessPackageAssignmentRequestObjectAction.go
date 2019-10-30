@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AccessPackageAssignmentRequestObjectCancelRequestParameter undocumented
 type AccessPackageAssignmentRequestObjectCancelRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *AccessPackageAssignmentRequestObjectCancelRequestBuilder) Request() *Ac
 }
 
 //
-func (r *AccessPackageAssignmentRequestObjectCancelRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AccessPackageAssignmentRequestObjectCancelRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

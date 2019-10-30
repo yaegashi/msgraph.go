@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PostReplyRequestParameter undocumented
 type PostReplyRequestParameter struct {
 	// Post undocumented
@@ -38,8 +40,8 @@ func (b *PostReplyRequestBuilder) Request() *PostReplyRequest {
 }
 
 //
-func (r *PostReplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *PostReplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -64,6 +66,6 @@ func (b *PostForwardRequestBuilder) Request() *PostForwardRequest {
 }
 
 //
-func (r *PostForwardRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *PostForwardRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

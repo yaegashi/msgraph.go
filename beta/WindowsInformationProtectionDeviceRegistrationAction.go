@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionDeviceRegistrationWipeRequestParameter undocumented
 type WindowsInformationProtectionDeviceRegistrationWipeRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *WindowsInformationProtectionDeviceRegistrationWipeRequestBuilder) Reque
 }
 
 //
-func (r *WindowsInformationProtectionDeviceRegistrationWipeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsInformationProtectionDeviceRegistrationWipeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

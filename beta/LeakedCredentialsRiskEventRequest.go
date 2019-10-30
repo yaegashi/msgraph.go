@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // LeakedCredentialsRiskEventRequestBuilder is request builder for LeakedCredentialsRiskEvent
 type LeakedCredentialsRiskEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *LeakedCredentialsRiskEventRequestBuilder) Request() *LeakedCredentialsR
 type LeakedCredentialsRiskEventRequest struct{ BaseRequest }
 
 // Get performs GET request for LeakedCredentialsRiskEvent
-func (r *LeakedCredentialsRiskEventRequest) Get() (resObj *LeakedCredentialsRiskEvent, err error) {
+func (r *LeakedCredentialsRiskEventRequest) Get(ctx context.Context) (resObj *LeakedCredentialsRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for LeakedCredentialsRiskEvent
-func (r *LeakedCredentialsRiskEventRequest) Update(reqObj *LeakedCredentialsRiskEvent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *LeakedCredentialsRiskEventRequest) Update(ctx context.Context, reqObj *LeakedCredentialsRiskEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for LeakedCredentialsRiskEvent
-func (r *LeakedCredentialsRiskEventRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *LeakedCredentialsRiskEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

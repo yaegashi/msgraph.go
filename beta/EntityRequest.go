@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EntityRequestBuilder is request builder for Entity
 type EntityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EntityRequestBuilder) Request() *EntityRequest {
 type EntityRequest struct{ BaseRequest }
 
 // Get performs GET request for Entity
-func (r *EntityRequest) Get() (resObj *Entity, err error) {
+func (r *EntityRequest) Get(ctx context.Context) (resObj *Entity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Entity
-func (r *EntityRequest) Update(reqObj *Entity) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EntityRequest) Update(ctx context.Context, reqObj *Entity) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Entity
-func (r *EntityRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EntityRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

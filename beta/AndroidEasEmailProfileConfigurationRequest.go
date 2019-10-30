@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidEasEmailProfileConfigurationRequestBuilder is request builder for AndroidEasEmailProfileConfiguration
 type AndroidEasEmailProfileConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *AndroidEasEmailProfileConfigurationRequestBuilder) Request() *AndroidEa
 type AndroidEasEmailProfileConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidEasEmailProfileConfiguration
-func (r *AndroidEasEmailProfileConfigurationRequest) Get() (resObj *AndroidEasEmailProfileConfiguration, err error) {
+func (r *AndroidEasEmailProfileConfigurationRequest) Get(ctx context.Context) (resObj *AndroidEasEmailProfileConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidEasEmailProfileConfiguration
-func (r *AndroidEasEmailProfileConfigurationRequest) Update(reqObj *AndroidEasEmailProfileConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidEasEmailProfileConfigurationRequest) Update(ctx context.Context, reqObj *AndroidEasEmailProfileConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidEasEmailProfileConfiguration
-func (r *AndroidEasEmailProfileConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidEasEmailProfileConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

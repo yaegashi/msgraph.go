@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CommandRequestBuilder is request builder for Command
 type CommandRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *CommandRequestBuilder) Request() *CommandRequest {
 type CommandRequest struct{ BaseRequest }
 
 // Get performs GET request for Command
-func (r *CommandRequest) Get() (resObj *Command, err error) {
+func (r *CommandRequest) Get(ctx context.Context) (resObj *Command, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Command
-func (r *CommandRequest) Update(reqObj *Command) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CommandRequest) Update(ctx context.Context, reqObj *Command) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Command
-func (r *CommandRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CommandRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Responsepayload is navigation property

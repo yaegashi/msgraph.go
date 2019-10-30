@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder is request builder for AndroidForWorkEnterpriseWiFiConfiguration
 type AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *AndroidForWorkEnterpriseWiFiConfigurationRequestBuilder) Request() *And
 type AndroidForWorkEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkEnterpriseWiFiConfiguration
-func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Get() (resObj *AndroidForWorkEnterpriseWiFiConfiguration, err error) {
+func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Get(ctx context.Context) (resObj *AndroidForWorkEnterpriseWiFiConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkEnterpriseWiFiConfiguration
-func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Update(reqObj *AndroidForWorkEnterpriseWiFiConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Update(ctx context.Context, reqObj *AndroidForWorkEnterpriseWiFiConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkEnterpriseWiFiConfiguration
-func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property

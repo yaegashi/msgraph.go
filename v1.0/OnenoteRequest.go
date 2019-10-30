@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *OnenoteRequestBuilder) Request() *OnenoteRequest {
 type OnenoteRequest struct{ BaseRequest }
 
 // Get performs GET request for Onenote
-func (r *OnenoteRequest) Get() (resObj *Onenote, err error) {
+func (r *OnenoteRequest) Get(ctx context.Context) (resObj *Onenote, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Onenote
-func (r *OnenoteRequest) Update(reqObj *Onenote) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OnenoteRequest) Update(ctx context.Context, reqObj *Onenote) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Onenote
-func (r *OnenoteRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OnenoteRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Notebooks returns request builder for Notebook collection
@@ -71,10 +72,13 @@ func (b *OnenoteNotebooksCollectionRequestBuilder) ID(id string) *NotebookReques
 type OnenoteNotebooksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Notebook collection
-func (r *OnenoteNotebooksCollectionRequest) Paging(method, path string, obj interface{}) ([]Notebook, error) {
+func (r *OnenoteNotebooksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Notebook, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *OnenoteNotebooksCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *OnenoteNotebooksCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for Notebook collection
-func (r *OnenoteNotebooksCollectionRequest) Get() ([]Notebook, error) {
+func (r *OnenoteNotebooksCollectionRequest) Get(ctx context.Context) ([]Notebook, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Notebook collection
-func (r *OnenoteNotebooksCollectionRequest) Add(reqObj *Notebook) (resObj *Notebook, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OnenoteNotebooksCollectionRequest) Add(ctx context.Context, reqObj *Notebook) (resObj *Notebook, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *OnenoteOperationsCollectionRequestBuilder) ID(id string) *OnenoteOperat
 type OnenoteOperationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnenoteOperation collection
-func (r *OnenoteOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteOperation, error) {
+func (r *OnenoteOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnenoteOperation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *OnenoteOperationsCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *OnenoteOperationsCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for OnenoteOperation collection
-func (r *OnenoteOperationsCollectionRequest) Get() ([]OnenoteOperation, error) {
+func (r *OnenoteOperationsCollectionRequest) Get(ctx context.Context) ([]OnenoteOperation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for OnenoteOperation collection
-func (r *OnenoteOperationsCollectionRequest) Add(reqObj *OnenoteOperation) (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OnenoteOperationsCollectionRequest) Add(ctx context.Context, reqObj *OnenoteOperation) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *OnenotePagesCollectionRequestBuilder) ID(id string) *OnenotePageRequest
 type OnenotePagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnenotePage collection
-func (r *OnenotePagesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenotePage, error) {
+func (r *OnenotePagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnenotePage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *OnenotePagesCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *OnenotePagesCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for OnenotePage collection
-func (r *OnenotePagesCollectionRequest) Get() ([]OnenotePage, error) {
+func (r *OnenotePagesCollectionRequest) Get(ctx context.Context) ([]OnenotePage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for OnenotePage collection
-func (r *OnenotePagesCollectionRequest) Add(reqObj *OnenotePage) (resObj *OnenotePage, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OnenotePagesCollectionRequest) Add(ctx context.Context, reqObj *OnenotePage) (resObj *OnenotePage, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *OnenoteResourcesCollectionRequestBuilder) ID(id string) *OnenoteResourc
 type OnenoteResourcesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnenoteResource collection
-func (r *OnenoteResourcesCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteResource, error) {
+func (r *OnenoteResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnenoteResource, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *OnenoteResourcesCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *OnenoteResourcesCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for OnenoteResource collection
-func (r *OnenoteResourcesCollectionRequest) Get() ([]OnenoteResource, error) {
+func (r *OnenoteResourcesCollectionRequest) Get(ctx context.Context) ([]OnenoteResource, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for OnenoteResource collection
-func (r *OnenoteResourcesCollectionRequest) Add(reqObj *OnenoteResource) (resObj *OnenoteResource, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OnenoteResourcesCollectionRequest) Add(ctx context.Context, reqObj *OnenoteResource) (resObj *OnenoteResource, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *OnenoteSectionGroupsCollectionRequestBuilder) ID(id string) *SectionGro
 type OnenoteSectionGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SectionGroup collection
-func (r *OnenoteSectionGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SectionGroup, error) {
+func (r *OnenoteSectionGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SectionGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *OnenoteSectionGroupsCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,17 +500,17 @@ func (r *OnenoteSectionGroupsCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for SectionGroup collection
-func (r *OnenoteSectionGroupsCollectionRequest) Get() ([]SectionGroup, error) {
+func (r *OnenoteSectionGroupsCollectionRequest) Get(ctx context.Context) ([]SectionGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SectionGroup collection
-func (r *OnenoteSectionGroupsCollectionRequest) Add(reqObj *SectionGroup) (resObj *SectionGroup, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OnenoteSectionGroupsCollectionRequest) Add(ctx context.Context, reqObj *SectionGroup) (resObj *SectionGroup, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -506,10 +542,13 @@ func (b *OnenoteSectionsCollectionRequestBuilder) ID(id string) *OnenoteSectionR
 type OnenoteSectionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnenoteSection collection
-func (r *OnenoteSectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]OnenoteSection, error) {
+func (r *OnenoteSectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnenoteSection, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -543,7 +582,11 @@ func (r *OnenoteSectionsCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -551,16 +594,16 @@ func (r *OnenoteSectionsCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for OnenoteSection collection
-func (r *OnenoteSectionsCollectionRequest) Get() ([]OnenoteSection, error) {
+func (r *OnenoteSectionsCollectionRequest) Get(ctx context.Context) ([]OnenoteSection, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for OnenoteSection collection
-func (r *OnenoteSectionsCollectionRequest) Add(reqObj *OnenoteSection) (resObj *OnenoteSection, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OnenoteSectionsCollectionRequest) Add(ctx context.Context, reqObj *OnenoteSection) (resObj *OnenoteSection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WindowsInformationProtectionRequestBuilder) Request() *WindowsInformati
 type WindowsInformationProtectionRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsInformationProtection
-func (r *WindowsInformationProtectionRequest) Get() (resObj *WindowsInformationProtection, err error) {
+func (r *WindowsInformationProtectionRequest) Get(ctx context.Context) (resObj *WindowsInformationProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsInformationProtection
-func (r *WindowsInformationProtectionRequest) Update(reqObj *WindowsInformationProtection) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsInformationProtectionRequest) Update(ctx context.Context, reqObj *WindowsInformationProtection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtection
-func (r *WindowsInformationProtectionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsInformationProtectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection
@@ -71,10 +72,13 @@ func (b *WindowsInformationProtectionAssignmentsCollectionRequestBuilder) ID(id 
 type WindowsInformationProtectionAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(method
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(method
 }
 
 // Get performs GET request for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Get() ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *WindowsInformationProtectionExemptAppLockerFilesCollectionRequestBuilde
 type WindowsInformationProtectionExemptAppLockerFilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Pagi
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Pagi
 }
 
 // Get performs GET request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Get() ([]WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionAppLockerFile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Add(reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBui
 type WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) P
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) P
 }
 
 // Get performs GET request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Get() ([]WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionAppLockerFile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Add(reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionAppLockerFile) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

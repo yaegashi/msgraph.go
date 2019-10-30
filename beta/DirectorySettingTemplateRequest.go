@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DirectorySettingTemplateRequestBuilder is request builder for DirectorySettingTemplate
 type DirectorySettingTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DirectorySettingTemplateRequestBuilder) Request() *DirectorySettingTemp
 type DirectorySettingTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for DirectorySettingTemplate
-func (r *DirectorySettingTemplateRequest) Get() (resObj *DirectorySettingTemplate, err error) {
+func (r *DirectorySettingTemplateRequest) Get(ctx context.Context) (resObj *DirectorySettingTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DirectorySettingTemplate
-func (r *DirectorySettingTemplateRequest) Update(reqObj *DirectorySettingTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DirectorySettingTemplateRequest) Update(ctx context.Context, reqObj *DirectorySettingTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectorySettingTemplate
-func (r *DirectorySettingTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DirectorySettingTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

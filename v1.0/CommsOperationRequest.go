@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CommsOperationRequestBuilder is request builder for CommsOperation
 type CommsOperationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *CommsOperationRequestBuilder) Request() *CommsOperationRequest {
 type CommsOperationRequest struct{ BaseRequest }
 
 // Get performs GET request for CommsOperation
-func (r *CommsOperationRequest) Get() (resObj *CommsOperation, err error) {
+func (r *CommsOperationRequest) Get(ctx context.Context) (resObj *CommsOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for CommsOperation
-func (r *CommsOperationRequest) Update(reqObj *CommsOperation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CommsOperationRequest) Update(ctx context.Context, reqObj *CommsOperation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CommsOperation
-func (r *CommsOperationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CommsOperationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

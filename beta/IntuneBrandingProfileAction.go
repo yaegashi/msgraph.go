@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IntuneBrandingProfileAssignRequestParameter undocumented
 type IntuneBrandingProfileAssignRequestParameter struct {
 	// Assignments undocumented
@@ -30,6 +32,6 @@ func (b *IntuneBrandingProfileAssignRequestBuilder) Request() *IntuneBrandingPro
 }
 
 //
-func (r *IntuneBrandingProfileAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *IntuneBrandingProfileAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

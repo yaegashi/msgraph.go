@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ParticipantRequestBuilder is request builder for Participant
 type ParticipantRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ParticipantRequestBuilder) Request() *ParticipantRequest {
 type ParticipantRequest struct{ BaseRequest }
 
 // Get performs GET request for Participant
-func (r *ParticipantRequest) Get() (resObj *Participant, err error) {
+func (r *ParticipantRequest) Get(ctx context.Context) (resObj *Participant, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Participant
-func (r *ParticipantRequest) Update(reqObj *Participant) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ParticipantRequest) Update(ctx context.Context, reqObj *Participant) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Participant
-func (r *ParticipantRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ParticipantRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

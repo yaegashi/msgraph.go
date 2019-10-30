@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -60,10 +61,13 @@ func (b *SiteCollectionAddRequestBuilder) Request() *SiteCollectionAddRequest {
 }
 
 //
-func (r *SiteCollectionAddRequest) Paging(method, path string, obj interface{}) ([][]Site, error) {
+func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -97,7 +101,11 @@ func (r *SiteCollectionAddRequest) Paging(method, path string, obj interface{}) 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -105,12 +113,12 @@ func (r *SiteCollectionAddRequest) Paging(method, path string, obj interface{}) 
 }
 
 //
-func (r *SiteCollectionAddRequest) Get() ([][]Site, error) {
+func (r *SiteCollectionAddRequest) Get(ctx context.Context) ([][]Site, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -151,10 +159,13 @@ func (b *SiteCollectionRemoveRequestBuilder) Request() *SiteCollectionRemoveRequ
 }
 
 //
-func (r *SiteCollectionRemoveRequest) Paging(method, path string, obj interface{}) ([][]Site, error) {
+func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -188,7 +199,11 @@ func (r *SiteCollectionRemoveRequest) Paging(method, path string, obj interface{
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -196,10 +211,10 @@ func (r *SiteCollectionRemoveRequest) Paging(method, path string, obj interface{
 }
 
 //
-func (r *SiteCollectionRemoveRequest) Get() ([][]Site, error) {
+func (r *SiteCollectionRemoveRequest) Get(ctx context.Context) ([][]Site, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

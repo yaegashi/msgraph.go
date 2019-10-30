@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupLifecyclePolicyCollectionRenewGroupRequestParameter undocumented
 type GroupLifecyclePolicyCollectionRenewGroupRequestParameter struct {
 	// GroupID undocumented
@@ -42,8 +44,8 @@ func (b *GroupLifecyclePolicyCollectionRenewGroupRequestBuilder) Request() *Grou
 }
 
 //
-func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post() (resObj *bool, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *GroupLifecyclePolicyCollectionRenewGroupRequest) Post(ctx context.Context) (resObj *bool, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -69,8 +71,8 @@ func (b *GroupLifecyclePolicyAddGroupRequestBuilder) Request() *GroupLifecyclePo
 }
 
 //
-func (r *GroupLifecyclePolicyAddGroupRequest) Post() (resObj *bool, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *GroupLifecyclePolicyAddGroupRequest) Post(ctx context.Context) (resObj *bool, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -96,7 +98,7 @@ func (b *GroupLifecyclePolicyRemoveGroupRequestBuilder) Request() *GroupLifecycl
 }
 
 //
-func (r *GroupLifecyclePolicyRemoveGroupRequest) Post() (resObj *bool, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *GroupLifecyclePolicyRemoveGroupRequest) Post(ctx context.Context) (resObj *bool, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

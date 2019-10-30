@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceManagementTemplateSettingCategoryRequestBuilder) Request() *Devic
 type DeviceManagementTemplateSettingCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementTemplateSettingCategory
-func (r *DeviceManagementTemplateSettingCategoryRequest) Get() (resObj *DeviceManagementTemplateSettingCategory, err error) {
+func (r *DeviceManagementTemplateSettingCategoryRequest) Get(ctx context.Context) (resObj *DeviceManagementTemplateSettingCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementTemplateSettingCategory
-func (r *DeviceManagementTemplateSettingCategoryRequest) Update(reqObj *DeviceManagementTemplateSettingCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementTemplateSettingCategoryRequest) Update(ctx context.Context, reqObj *DeviceManagementTemplateSettingCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementTemplateSettingCategory
-func (r *DeviceManagementTemplateSettingCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementTemplateSettingCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // RecommendedSettings returns request builder for DeviceManagementSettingInstance collection
@@ -71,10 +72,13 @@ func (b *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionReq
 type DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionReq
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionReq
 }
 
 // Get performs GET request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Get() ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementSettingInstance, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

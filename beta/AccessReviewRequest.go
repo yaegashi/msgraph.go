@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AccessReviewRequestBuilder) Request() *AccessReviewRequest {
 type AccessReviewRequest struct{ BaseRequest }
 
 // Get performs GET request for AccessReview
-func (r *AccessReviewRequest) Get() (resObj *AccessReview, err error) {
+func (r *AccessReviewRequest) Get(ctx context.Context) (resObj *AccessReview, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AccessReview
-func (r *AccessReviewRequest) Update(reqObj *AccessReview) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AccessReviewRequest) Update(ctx context.Context, reqObj *AccessReview) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessReview
-func (r *AccessReviewRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AccessReviewRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Decisions returns request builder for AccessReviewDecision collection
@@ -71,10 +72,13 @@ func (b *AccessReviewDecisionsCollectionRequestBuilder) ID(id string) *AccessRev
 type AccessReviewDecisionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
+func (r *AccessReviewDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReviewDecision, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AccessReviewDecisionsCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *AccessReviewDecisionsCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Get() ([]AccessReviewDecision, error) {
+func (r *AccessReviewDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewDecision, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessReviewDecisionsCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *AccessReviewInstancesCollectionRequestBuilder) ID(id string) *AccessRev
 type AccessReviewInstancesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReview, error) {
+func (r *AccessReviewInstancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReview, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *AccessReviewInstancesCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *AccessReviewInstancesCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Get() ([]AccessReview, error) {
+func (r *AccessReviewInstancesCollectionRequest) Get(ctx context.Context) ([]AccessReview, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Add(reqObj *AccessReview) (resObj *AccessReview, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessReviewInstancesCollectionRequest) Add(ctx context.Context, reqObj *AccessReview) (resObj *AccessReview, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *AccessReviewMyDecisionsCollectionRequestBuilder) ID(id string) *AccessR
 type AccessReviewMyDecisionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewDecision, error) {
+func (r *AccessReviewMyDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReviewDecision, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *AccessReviewMyDecisionsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *AccessReviewMyDecisionsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Get() ([]AccessReviewDecision, error) {
+func (r *AccessReviewMyDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewDecision, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Add(reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessReviewMyDecisionsCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewDecision) (resObj *AccessReviewDecision, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *AccessReviewReviewersCollectionRequestBuilder) ID(id string) *AccessRev
 type AccessReviewReviewersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessReviewReviewer, error) {
+func (r *AccessReviewReviewersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReviewReviewer, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *AccessReviewReviewersCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,16 +406,16 @@ func (r *AccessReviewReviewersCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Get() ([]AccessReviewReviewer, error) {
+func (r *AccessReviewReviewersCollectionRequest) Get(ctx context.Context) ([]AccessReviewReviewer, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Add(reqObj *AccessReviewReviewer) (resObj *AccessReviewReviewer, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessReviewReviewersCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewReviewer) (resObj *AccessReviewReviewer, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

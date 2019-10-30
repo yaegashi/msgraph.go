@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IOSLobAppProvisioningConfigurationAssignmentRequestBuilder is request builder for IOSLobAppProvisioningConfigurationAssignment
 type IOSLobAppProvisioningConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *IOSLobAppProvisioningConfigurationAssignmentRequestBuilder) Request() *
 type IOSLobAppProvisioningConfigurationAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for IOSLobAppProvisioningConfigurationAssignment
-func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Get() (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
+func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Get(ctx context.Context) (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IOSLobAppProvisioningConfigurationAssignment
-func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Update(reqObj *IOSLobAppProvisioningConfigurationAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Update(ctx context.Context, reqObj *IOSLobAppProvisioningConfigurationAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSLobAppProvisioningConfigurationAssignment
-func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IOSLobAppProvisioningConfigurationAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

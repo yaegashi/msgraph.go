@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AlertRequestBuilder is request builder for Alert
 type AlertRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AlertRequestBuilder) Request() *AlertRequest {
 type AlertRequest struct{ BaseRequest }
 
 // Get performs GET request for Alert
-func (r *AlertRequest) Get() (resObj *Alert, err error) {
+func (r *AlertRequest) Get(ctx context.Context) (resObj *Alert, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Alert
-func (r *AlertRequest) Update(reqObj *Alert) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AlertRequest) Update(ctx context.Context, reqObj *Alert) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Alert
-func (r *AlertRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AlertRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

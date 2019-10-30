@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartFontRequestBuilder is request builder for WorkbookChartFont
 type WorkbookChartFontRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookChartFontRequestBuilder) Request() *WorkbookChartFontRequest {
 type WorkbookChartFontRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartFont
-func (r *WorkbookChartFontRequest) Get() (resObj *WorkbookChartFont, err error) {
+func (r *WorkbookChartFontRequest) Get(ctx context.Context) (resObj *WorkbookChartFont, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartFont
-func (r *WorkbookChartFontRequest) Update(reqObj *WorkbookChartFont) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartFontRequest) Update(ctx context.Context, reqObj *WorkbookChartFont) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartFont
-func (r *WorkbookChartFontRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartFontRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

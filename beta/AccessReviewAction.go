@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AccessReviewStopRequestParameter undocumented
 type AccessReviewStopRequestParameter struct {
 }
@@ -40,8 +42,8 @@ func (b *AccessReviewStopRequestBuilder) Request() *AccessReviewStopRequest {
 }
 
 //
-func (r *AccessReviewStopRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AccessReviewStopRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -66,8 +68,8 @@ func (b *AccessReviewSendReminderRequestBuilder) Request() *AccessReviewSendRemi
 }
 
 //
-func (r *AccessReviewSendReminderRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AccessReviewSendReminderRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -92,8 +94,8 @@ func (b *AccessReviewResetDecisionsRequestBuilder) Request() *AccessReviewResetD
 }
 
 //
-func (r *AccessReviewResetDecisionsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AccessReviewResetDecisionsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -118,6 +120,6 @@ func (b *AccessReviewApplyDecisionsRequestBuilder) Request() *AccessReviewApplyD
 }
 
 //
-func (r *AccessReviewApplyDecisionsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AccessReviewApplyDecisionsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

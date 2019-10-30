@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "encoding/json"
+import (
+	"context"
+	"encoding/json"
+)
 
 // WorkbookFunctionsAbsRequestParameter undocumented
 type WorkbookFunctionsAbsRequestParameter struct {
@@ -3120,8 +3123,8 @@ func (b *WorkbookFunctionsAbsRequestBuilder) Request() *WorkbookFunctionsAbsRequ
 }
 
 //
-func (r *WorkbookFunctionsAbsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAbsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3147,8 +3150,8 @@ func (b *WorkbookFunctionsAccrIntRequestBuilder) Request() *WorkbookFunctionsAcc
 }
 
 //
-func (r *WorkbookFunctionsAccrIntRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAccrIntRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3174,8 +3177,8 @@ func (b *WorkbookFunctionsAccrIntMRequestBuilder) Request() *WorkbookFunctionsAc
 }
 
 //
-func (r *WorkbookFunctionsAccrIntMRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAccrIntMRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3201,8 +3204,8 @@ func (b *WorkbookFunctionsAcosRequestBuilder) Request() *WorkbookFunctionsAcosRe
 }
 
 //
-func (r *WorkbookFunctionsAcosRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAcosRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3228,8 +3231,8 @@ func (b *WorkbookFunctionsAcoshRequestBuilder) Request() *WorkbookFunctionsAcosh
 }
 
 //
-func (r *WorkbookFunctionsAcoshRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAcoshRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3255,8 +3258,8 @@ func (b *WorkbookFunctionsAcotRequestBuilder) Request() *WorkbookFunctionsAcotRe
 }
 
 //
-func (r *WorkbookFunctionsAcotRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAcotRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3282,8 +3285,8 @@ func (b *WorkbookFunctionsAcothRequestBuilder) Request() *WorkbookFunctionsAcoth
 }
 
 //
-func (r *WorkbookFunctionsAcothRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAcothRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3309,8 +3312,8 @@ func (b *WorkbookFunctionsAmorDegrcRequestBuilder) Request() *WorkbookFunctionsA
 }
 
 //
-func (r *WorkbookFunctionsAmorDegrcRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAmorDegrcRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3336,8 +3339,8 @@ func (b *WorkbookFunctionsAmorLincRequestBuilder) Request() *WorkbookFunctionsAm
 }
 
 //
-func (r *WorkbookFunctionsAmorLincRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAmorLincRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3363,8 +3366,8 @@ func (b *WorkbookFunctionsAndRequestBuilder) Request() *WorkbookFunctionsAndRequ
 }
 
 //
-func (r *WorkbookFunctionsAndRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAndRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3390,8 +3393,8 @@ func (b *WorkbookFunctionsArabicRequestBuilder) Request() *WorkbookFunctionsArab
 }
 
 //
-func (r *WorkbookFunctionsArabicRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsArabicRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3417,8 +3420,8 @@ func (b *WorkbookFunctionsAreasRequestBuilder) Request() *WorkbookFunctionsAreas
 }
 
 //
-func (r *WorkbookFunctionsAreasRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAreasRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3444,8 +3447,8 @@ func (b *WorkbookFunctionsAscRequestBuilder) Request() *WorkbookFunctionsAscRequ
 }
 
 //
-func (r *WorkbookFunctionsAscRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3471,8 +3474,8 @@ func (b *WorkbookFunctionsAsinRequestBuilder) Request() *WorkbookFunctionsAsinRe
 }
 
 //
-func (r *WorkbookFunctionsAsinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAsinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3498,8 +3501,8 @@ func (b *WorkbookFunctionsAsinhRequestBuilder) Request() *WorkbookFunctionsAsinh
 }
 
 //
-func (r *WorkbookFunctionsAsinhRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAsinhRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3525,8 +3528,8 @@ func (b *WorkbookFunctionsAtanRequestBuilder) Request() *WorkbookFunctionsAtanRe
 }
 
 //
-func (r *WorkbookFunctionsAtanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAtanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3552,8 +3555,8 @@ func (b *WorkbookFunctionsAtan2RequestBuilder) Request() *WorkbookFunctionsAtan2
 }
 
 //
-func (r *WorkbookFunctionsAtan2Request) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAtan2Request) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3579,8 +3582,8 @@ func (b *WorkbookFunctionsAtanhRequestBuilder) Request() *WorkbookFunctionsAtanh
 }
 
 //
-func (r *WorkbookFunctionsAtanhRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAtanhRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3606,8 +3609,8 @@ func (b *WorkbookFunctionsAveDevRequestBuilder) Request() *WorkbookFunctionsAveD
 }
 
 //
-func (r *WorkbookFunctionsAveDevRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAveDevRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3633,8 +3636,8 @@ func (b *WorkbookFunctionsAverageRequestBuilder) Request() *WorkbookFunctionsAve
 }
 
 //
-func (r *WorkbookFunctionsAverageRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAverageRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3660,8 +3663,8 @@ func (b *WorkbookFunctionsAverageARequestBuilder) Request() *WorkbookFunctionsAv
 }
 
 //
-func (r *WorkbookFunctionsAverageARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAverageARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3687,8 +3690,8 @@ func (b *WorkbookFunctionsAverageIfRequestBuilder) Request() *WorkbookFunctionsA
 }
 
 //
-func (r *WorkbookFunctionsAverageIfRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAverageIfRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3714,8 +3717,8 @@ func (b *WorkbookFunctionsAverageIfsRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsAverageIfsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsAverageIfsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3741,8 +3744,8 @@ func (b *WorkbookFunctionsBahtTextRequestBuilder) Request() *WorkbookFunctionsBa
 }
 
 //
-func (r *WorkbookFunctionsBahtTextRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBahtTextRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3768,8 +3771,8 @@ func (b *WorkbookFunctionsBaseRequestBuilder) Request() *WorkbookFunctionsBaseRe
 }
 
 //
-func (r *WorkbookFunctionsBaseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBaseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3795,8 +3798,8 @@ func (b *WorkbookFunctionsBesselIRequestBuilder) Request() *WorkbookFunctionsBes
 }
 
 //
-func (r *WorkbookFunctionsBesselIRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBesselIRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3822,8 +3825,8 @@ func (b *WorkbookFunctionsBesselJRequestBuilder) Request() *WorkbookFunctionsBes
 }
 
 //
-func (r *WorkbookFunctionsBesselJRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBesselJRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3849,8 +3852,8 @@ func (b *WorkbookFunctionsBesselKRequestBuilder) Request() *WorkbookFunctionsBes
 }
 
 //
-func (r *WorkbookFunctionsBesselKRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBesselKRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3876,8 +3879,8 @@ func (b *WorkbookFunctionsBesselYRequestBuilder) Request() *WorkbookFunctionsBes
 }
 
 //
-func (r *WorkbookFunctionsBesselYRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBesselYRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3903,8 +3906,8 @@ func (b *WorkbookFunctionsBeta_DistRequestBuilder) Request() *WorkbookFunctionsB
 }
 
 //
-func (r *WorkbookFunctionsBeta_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBeta_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3930,8 +3933,8 @@ func (b *WorkbookFunctionsBeta_InvRequestBuilder) Request() *WorkbookFunctionsBe
 }
 
 //
-func (r *WorkbookFunctionsBeta_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBeta_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3957,8 +3960,8 @@ func (b *WorkbookFunctionsBin2DecRequestBuilder) Request() *WorkbookFunctionsBin
 }
 
 //
-func (r *WorkbookFunctionsBin2DecRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBin2DecRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -3984,8 +3987,8 @@ func (b *WorkbookFunctionsBin2HexRequestBuilder) Request() *WorkbookFunctionsBin
 }
 
 //
-func (r *WorkbookFunctionsBin2HexRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBin2HexRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4011,8 +4014,8 @@ func (b *WorkbookFunctionsBin2OctRequestBuilder) Request() *WorkbookFunctionsBin
 }
 
 //
-func (r *WorkbookFunctionsBin2OctRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBin2OctRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4038,8 +4041,8 @@ func (b *WorkbookFunctionsBinom_DistRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsBinom_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBinom_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4065,8 +4068,8 @@ func (b *WorkbookFunctionsBinom_Dist_RangeRequestBuilder) Request() *WorkbookFun
 }
 
 //
-func (r *WorkbookFunctionsBinom_Dist_RangeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBinom_Dist_RangeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4092,8 +4095,8 @@ func (b *WorkbookFunctionsBinom_InvRequestBuilder) Request() *WorkbookFunctionsB
 }
 
 //
-func (r *WorkbookFunctionsBinom_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBinom_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4119,8 +4122,8 @@ func (b *WorkbookFunctionsBitandRequestBuilder) Request() *WorkbookFunctionsBita
 }
 
 //
-func (r *WorkbookFunctionsBitandRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBitandRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4146,8 +4149,8 @@ func (b *WorkbookFunctionsBitlshiftRequestBuilder) Request() *WorkbookFunctionsB
 }
 
 //
-func (r *WorkbookFunctionsBitlshiftRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBitlshiftRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4173,8 +4176,8 @@ func (b *WorkbookFunctionsBitorRequestBuilder) Request() *WorkbookFunctionsBitor
 }
 
 //
-func (r *WorkbookFunctionsBitorRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBitorRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4200,8 +4203,8 @@ func (b *WorkbookFunctionsBitrshiftRequestBuilder) Request() *WorkbookFunctionsB
 }
 
 //
-func (r *WorkbookFunctionsBitrshiftRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBitrshiftRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4227,8 +4230,8 @@ func (b *WorkbookFunctionsBitxorRequestBuilder) Request() *WorkbookFunctionsBitx
 }
 
 //
-func (r *WorkbookFunctionsBitxorRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsBitxorRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4254,8 +4257,8 @@ func (b *WorkbookFunctionsCeiling_MathRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsCeiling_MathRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCeiling_MathRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4281,8 +4284,8 @@ func (b *WorkbookFunctionsCeiling_PreciseRequestBuilder) Request() *WorkbookFunc
 }
 
 //
-func (r *WorkbookFunctionsCeiling_PreciseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCeiling_PreciseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4308,8 +4311,8 @@ func (b *WorkbookFunctionsCharRequestBuilder) Request() *WorkbookFunctionsCharRe
 }
 
 //
-func (r *WorkbookFunctionsCharRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCharRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4335,8 +4338,8 @@ func (b *WorkbookFunctionsChiSq_DistRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsChiSq_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsChiSq_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4362,8 +4365,8 @@ func (b *WorkbookFunctionsChiSq_Dist_RTRequestBuilder) Request() *WorkbookFuncti
 }
 
 //
-func (r *WorkbookFunctionsChiSq_Dist_RTRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsChiSq_Dist_RTRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4389,8 +4392,8 @@ func (b *WorkbookFunctionsChiSq_InvRequestBuilder) Request() *WorkbookFunctionsC
 }
 
 //
-func (r *WorkbookFunctionsChiSq_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsChiSq_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4416,8 +4419,8 @@ func (b *WorkbookFunctionsChiSq_Inv_RTRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsChiSq_Inv_RTRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsChiSq_Inv_RTRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4443,8 +4446,8 @@ func (b *WorkbookFunctionsChooseRequestBuilder) Request() *WorkbookFunctionsChoo
 }
 
 //
-func (r *WorkbookFunctionsChooseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsChooseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4470,8 +4473,8 @@ func (b *WorkbookFunctionsCleanRequestBuilder) Request() *WorkbookFunctionsClean
 }
 
 //
-func (r *WorkbookFunctionsCleanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCleanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4497,8 +4500,8 @@ func (b *WorkbookFunctionsCodeRequestBuilder) Request() *WorkbookFunctionsCodeRe
 }
 
 //
-func (r *WorkbookFunctionsCodeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCodeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4524,8 +4527,8 @@ func (b *WorkbookFunctionsColumnsRequestBuilder) Request() *WorkbookFunctionsCol
 }
 
 //
-func (r *WorkbookFunctionsColumnsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsColumnsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4551,8 +4554,8 @@ func (b *WorkbookFunctionsCombinRequestBuilder) Request() *WorkbookFunctionsComb
 }
 
 //
-func (r *WorkbookFunctionsCombinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCombinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4578,8 +4581,8 @@ func (b *WorkbookFunctionsCombinaRequestBuilder) Request() *WorkbookFunctionsCom
 }
 
 //
-func (r *WorkbookFunctionsCombinaRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCombinaRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4605,8 +4608,8 @@ func (b *WorkbookFunctionsComplexRequestBuilder) Request() *WorkbookFunctionsCom
 }
 
 //
-func (r *WorkbookFunctionsComplexRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsComplexRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4632,8 +4635,8 @@ func (b *WorkbookFunctionsConcatenateRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsConcatenateRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsConcatenateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4659,8 +4662,8 @@ func (b *WorkbookFunctionsConfidence_NormRequestBuilder) Request() *WorkbookFunc
 }
 
 //
-func (r *WorkbookFunctionsConfidence_NormRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsConfidence_NormRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4686,8 +4689,8 @@ func (b *WorkbookFunctionsConfidence_TRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsConfidence_TRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsConfidence_TRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4713,8 +4716,8 @@ func (b *WorkbookFunctionsConvertRequestBuilder) Request() *WorkbookFunctionsCon
 }
 
 //
-func (r *WorkbookFunctionsConvertRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsConvertRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4740,8 +4743,8 @@ func (b *WorkbookFunctionsCosRequestBuilder) Request() *WorkbookFunctionsCosRequ
 }
 
 //
-func (r *WorkbookFunctionsCosRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCosRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4767,8 +4770,8 @@ func (b *WorkbookFunctionsCoshRequestBuilder) Request() *WorkbookFunctionsCoshRe
 }
 
 //
-func (r *WorkbookFunctionsCoshRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoshRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4794,8 +4797,8 @@ func (b *WorkbookFunctionsCotRequestBuilder) Request() *WorkbookFunctionsCotRequ
 }
 
 //
-func (r *WorkbookFunctionsCotRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCotRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4821,8 +4824,8 @@ func (b *WorkbookFunctionsCothRequestBuilder) Request() *WorkbookFunctionsCothRe
 }
 
 //
-func (r *WorkbookFunctionsCothRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCothRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4848,8 +4851,8 @@ func (b *WorkbookFunctionsCountRequestBuilder) Request() *WorkbookFunctionsCount
 }
 
 //
-func (r *WorkbookFunctionsCountRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCountRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4875,8 +4878,8 @@ func (b *WorkbookFunctionsCountARequestBuilder) Request() *WorkbookFunctionsCoun
 }
 
 //
-func (r *WorkbookFunctionsCountARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCountARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4902,8 +4905,8 @@ func (b *WorkbookFunctionsCountBlankRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsCountBlankRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCountBlankRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4929,8 +4932,8 @@ func (b *WorkbookFunctionsCountIfRequestBuilder) Request() *WorkbookFunctionsCou
 }
 
 //
-func (r *WorkbookFunctionsCountIfRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCountIfRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4956,8 +4959,8 @@ func (b *WorkbookFunctionsCountIfsRequestBuilder) Request() *WorkbookFunctionsCo
 }
 
 //
-func (r *WorkbookFunctionsCountIfsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCountIfsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -4983,8 +4986,8 @@ func (b *WorkbookFunctionsCoupDayBsRequestBuilder) Request() *WorkbookFunctionsC
 }
 
 //
-func (r *WorkbookFunctionsCoupDayBsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoupDayBsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5010,8 +5013,8 @@ func (b *WorkbookFunctionsCoupDaysRequestBuilder) Request() *WorkbookFunctionsCo
 }
 
 //
-func (r *WorkbookFunctionsCoupDaysRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoupDaysRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5037,8 +5040,8 @@ func (b *WorkbookFunctionsCoupDaysNcRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsCoupDaysNcRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoupDaysNcRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5064,8 +5067,8 @@ func (b *WorkbookFunctionsCoupNcdRequestBuilder) Request() *WorkbookFunctionsCou
 }
 
 //
-func (r *WorkbookFunctionsCoupNcdRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoupNcdRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5091,8 +5094,8 @@ func (b *WorkbookFunctionsCoupNumRequestBuilder) Request() *WorkbookFunctionsCou
 }
 
 //
-func (r *WorkbookFunctionsCoupNumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoupNumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5118,8 +5121,8 @@ func (b *WorkbookFunctionsCoupPcdRequestBuilder) Request() *WorkbookFunctionsCou
 }
 
 //
-func (r *WorkbookFunctionsCoupPcdRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCoupPcdRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5145,8 +5148,8 @@ func (b *WorkbookFunctionsCscRequestBuilder) Request() *WorkbookFunctionsCscRequ
 }
 
 //
-func (r *WorkbookFunctionsCscRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5172,8 +5175,8 @@ func (b *WorkbookFunctionsCschRequestBuilder) Request() *WorkbookFunctionsCschRe
 }
 
 //
-func (r *WorkbookFunctionsCschRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCschRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5199,8 +5202,8 @@ func (b *WorkbookFunctionsCumIPmtRequestBuilder) Request() *WorkbookFunctionsCum
 }
 
 //
-func (r *WorkbookFunctionsCumIPmtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCumIPmtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5226,8 +5229,8 @@ func (b *WorkbookFunctionsCumPrincRequestBuilder) Request() *WorkbookFunctionsCu
 }
 
 //
-func (r *WorkbookFunctionsCumPrincRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsCumPrincRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5253,8 +5256,8 @@ func (b *WorkbookFunctionsDaverageRequestBuilder) Request() *WorkbookFunctionsDa
 }
 
 //
-func (r *WorkbookFunctionsDaverageRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDaverageRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5280,8 +5283,8 @@ func (b *WorkbookFunctionsDcountRequestBuilder) Request() *WorkbookFunctionsDcou
 }
 
 //
-func (r *WorkbookFunctionsDcountRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDcountRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5307,8 +5310,8 @@ func (b *WorkbookFunctionsDcountARequestBuilder) Request() *WorkbookFunctionsDco
 }
 
 //
-func (r *WorkbookFunctionsDcountARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDcountARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5334,8 +5337,8 @@ func (b *WorkbookFunctionsDgetRequestBuilder) Request() *WorkbookFunctionsDgetRe
 }
 
 //
-func (r *WorkbookFunctionsDgetRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDgetRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5361,8 +5364,8 @@ func (b *WorkbookFunctionsDmaxRequestBuilder) Request() *WorkbookFunctionsDmaxRe
 }
 
 //
-func (r *WorkbookFunctionsDmaxRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDmaxRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5388,8 +5391,8 @@ func (b *WorkbookFunctionsDminRequestBuilder) Request() *WorkbookFunctionsDminRe
 }
 
 //
-func (r *WorkbookFunctionsDminRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDminRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5415,8 +5418,8 @@ func (b *WorkbookFunctionsDproductRequestBuilder) Request() *WorkbookFunctionsDp
 }
 
 //
-func (r *WorkbookFunctionsDproductRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDproductRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5442,8 +5445,8 @@ func (b *WorkbookFunctionsDstDevRequestBuilder) Request() *WorkbookFunctionsDstD
 }
 
 //
-func (r *WorkbookFunctionsDstDevRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDstDevRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5469,8 +5472,8 @@ func (b *WorkbookFunctionsDstDevPRequestBuilder) Request() *WorkbookFunctionsDst
 }
 
 //
-func (r *WorkbookFunctionsDstDevPRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDstDevPRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5496,8 +5499,8 @@ func (b *WorkbookFunctionsDsumRequestBuilder) Request() *WorkbookFunctionsDsumRe
 }
 
 //
-func (r *WorkbookFunctionsDsumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDsumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5523,8 +5526,8 @@ func (b *WorkbookFunctionsDvarRequestBuilder) Request() *WorkbookFunctionsDvarRe
 }
 
 //
-func (r *WorkbookFunctionsDvarRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDvarRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5550,8 +5553,8 @@ func (b *WorkbookFunctionsDvarPRequestBuilder) Request() *WorkbookFunctionsDvarP
 }
 
 //
-func (r *WorkbookFunctionsDvarPRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDvarPRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5577,8 +5580,8 @@ func (b *WorkbookFunctionsDateRequestBuilder) Request() *WorkbookFunctionsDateRe
 }
 
 //
-func (r *WorkbookFunctionsDateRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5604,8 +5607,8 @@ func (b *WorkbookFunctionsDatevalueRequestBuilder) Request() *WorkbookFunctionsD
 }
 
 //
-func (r *WorkbookFunctionsDatevalueRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDatevalueRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5631,8 +5634,8 @@ func (b *WorkbookFunctionsDayRequestBuilder) Request() *WorkbookFunctionsDayRequ
 }
 
 //
-func (r *WorkbookFunctionsDayRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDayRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5658,8 +5661,8 @@ func (b *WorkbookFunctionsDaysRequestBuilder) Request() *WorkbookFunctionsDaysRe
 }
 
 //
-func (r *WorkbookFunctionsDaysRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDaysRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5685,8 +5688,8 @@ func (b *WorkbookFunctionsDays360RequestBuilder) Request() *WorkbookFunctionsDay
 }
 
 //
-func (r *WorkbookFunctionsDays360Request) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDays360Request) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5712,8 +5715,8 @@ func (b *WorkbookFunctionsDbRequestBuilder) Request() *WorkbookFunctionsDbReques
 }
 
 //
-func (r *WorkbookFunctionsDbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5739,8 +5742,8 @@ func (b *WorkbookFunctionsDbcsRequestBuilder) Request() *WorkbookFunctionsDbcsRe
 }
 
 //
-func (r *WorkbookFunctionsDbcsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDbcsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5766,8 +5769,8 @@ func (b *WorkbookFunctionsDdbRequestBuilder) Request() *WorkbookFunctionsDdbRequ
 }
 
 //
-func (r *WorkbookFunctionsDdbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDdbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5793,8 +5796,8 @@ func (b *WorkbookFunctionsDec2BinRequestBuilder) Request() *WorkbookFunctionsDec
 }
 
 //
-func (r *WorkbookFunctionsDec2BinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDec2BinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5820,8 +5823,8 @@ func (b *WorkbookFunctionsDec2HexRequestBuilder) Request() *WorkbookFunctionsDec
 }
 
 //
-func (r *WorkbookFunctionsDec2HexRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDec2HexRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5847,8 +5850,8 @@ func (b *WorkbookFunctionsDec2OctRequestBuilder) Request() *WorkbookFunctionsDec
 }
 
 //
-func (r *WorkbookFunctionsDec2OctRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDec2OctRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5874,8 +5877,8 @@ func (b *WorkbookFunctionsDecimalRequestBuilder) Request() *WorkbookFunctionsDec
 }
 
 //
-func (r *WorkbookFunctionsDecimalRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDecimalRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5901,8 +5904,8 @@ func (b *WorkbookFunctionsDegreesRequestBuilder) Request() *WorkbookFunctionsDeg
 }
 
 //
-func (r *WorkbookFunctionsDegreesRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDegreesRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5928,8 +5931,8 @@ func (b *WorkbookFunctionsDeltaRequestBuilder) Request() *WorkbookFunctionsDelta
 }
 
 //
-func (r *WorkbookFunctionsDeltaRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDeltaRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5955,8 +5958,8 @@ func (b *WorkbookFunctionsDevSqRequestBuilder) Request() *WorkbookFunctionsDevSq
 }
 
 //
-func (r *WorkbookFunctionsDevSqRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDevSqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -5982,8 +5985,8 @@ func (b *WorkbookFunctionsDiscRequestBuilder) Request() *WorkbookFunctionsDiscRe
 }
 
 //
-func (r *WorkbookFunctionsDiscRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDiscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6009,8 +6012,8 @@ func (b *WorkbookFunctionsDollarRequestBuilder) Request() *WorkbookFunctionsDoll
 }
 
 //
-func (r *WorkbookFunctionsDollarRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDollarRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6036,8 +6039,8 @@ func (b *WorkbookFunctionsDollarDeRequestBuilder) Request() *WorkbookFunctionsDo
 }
 
 //
-func (r *WorkbookFunctionsDollarDeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDollarDeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6063,8 +6066,8 @@ func (b *WorkbookFunctionsDollarFrRequestBuilder) Request() *WorkbookFunctionsDo
 }
 
 //
-func (r *WorkbookFunctionsDollarFrRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDollarFrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6090,8 +6093,8 @@ func (b *WorkbookFunctionsDurationRequestBuilder) Request() *WorkbookFunctionsDu
 }
 
 //
-func (r *WorkbookFunctionsDurationRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsDurationRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6117,8 +6120,8 @@ func (b *WorkbookFunctionsEcma_CeilingRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsEcma_CeilingRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsEcma_CeilingRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6144,8 +6147,8 @@ func (b *WorkbookFunctionsEdateRequestBuilder) Request() *WorkbookFunctionsEdate
 }
 
 //
-func (r *WorkbookFunctionsEdateRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsEdateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6171,8 +6174,8 @@ func (b *WorkbookFunctionsEffectRequestBuilder) Request() *WorkbookFunctionsEffe
 }
 
 //
-func (r *WorkbookFunctionsEffectRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsEffectRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6198,8 +6201,8 @@ func (b *WorkbookFunctionsEoMonthRequestBuilder) Request() *WorkbookFunctionsEoM
 }
 
 //
-func (r *WorkbookFunctionsEoMonthRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsEoMonthRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6225,8 +6228,8 @@ func (b *WorkbookFunctionsErfRequestBuilder) Request() *WorkbookFunctionsErfRequ
 }
 
 //
-func (r *WorkbookFunctionsErfRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsErfRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6252,8 +6255,8 @@ func (b *WorkbookFunctionsErfCRequestBuilder) Request() *WorkbookFunctionsErfCRe
 }
 
 //
-func (r *WorkbookFunctionsErfCRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsErfCRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6279,8 +6282,8 @@ func (b *WorkbookFunctionsErfC_PreciseRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsErfC_PreciseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsErfC_PreciseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6306,8 +6309,8 @@ func (b *WorkbookFunctionsErf_PreciseRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsErf_PreciseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsErf_PreciseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6333,8 +6336,8 @@ func (b *WorkbookFunctionsError_TypeRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsError_TypeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsError_TypeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6360,8 +6363,8 @@ func (b *WorkbookFunctionsEvenRequestBuilder) Request() *WorkbookFunctionsEvenRe
 }
 
 //
-func (r *WorkbookFunctionsEvenRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsEvenRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6387,8 +6390,8 @@ func (b *WorkbookFunctionsExactRequestBuilder) Request() *WorkbookFunctionsExact
 }
 
 //
-func (r *WorkbookFunctionsExactRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsExactRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6414,8 +6417,8 @@ func (b *WorkbookFunctionsExpRequestBuilder) Request() *WorkbookFunctionsExpRequ
 }
 
 //
-func (r *WorkbookFunctionsExpRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsExpRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6441,8 +6444,8 @@ func (b *WorkbookFunctionsExpon_DistRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsExpon_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsExpon_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6468,8 +6471,8 @@ func (b *WorkbookFunctionsFvscheduleRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsFvscheduleRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFvscheduleRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6495,8 +6498,8 @@ func (b *WorkbookFunctionsF_DistRequestBuilder) Request() *WorkbookFunctionsF_Di
 }
 
 //
-func (r *WorkbookFunctionsF_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsF_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6522,8 +6525,8 @@ func (b *WorkbookFunctionsF_Dist_RTRequestBuilder) Request() *WorkbookFunctionsF
 }
 
 //
-func (r *WorkbookFunctionsF_Dist_RTRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsF_Dist_RTRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6549,8 +6552,8 @@ func (b *WorkbookFunctionsF_InvRequestBuilder) Request() *WorkbookFunctionsF_Inv
 }
 
 //
-func (r *WorkbookFunctionsF_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsF_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6576,8 +6579,8 @@ func (b *WorkbookFunctionsF_Inv_RTRequestBuilder) Request() *WorkbookFunctionsF_
 }
 
 //
-func (r *WorkbookFunctionsF_Inv_RTRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsF_Inv_RTRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6603,8 +6606,8 @@ func (b *WorkbookFunctionsFactRequestBuilder) Request() *WorkbookFunctionsFactRe
 }
 
 //
-func (r *WorkbookFunctionsFactRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFactRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6630,8 +6633,8 @@ func (b *WorkbookFunctionsFactDoubleRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsFactDoubleRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFactDoubleRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6657,8 +6660,8 @@ func (b *WorkbookFunctionsFalseRequestBuilder) Request() *WorkbookFunctionsFalse
 }
 
 //
-func (r *WorkbookFunctionsFalseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFalseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6684,8 +6687,8 @@ func (b *WorkbookFunctionsFindRequestBuilder) Request() *WorkbookFunctionsFindRe
 }
 
 //
-func (r *WorkbookFunctionsFindRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFindRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6711,8 +6714,8 @@ func (b *WorkbookFunctionsFindBRequestBuilder) Request() *WorkbookFunctionsFindB
 }
 
 //
-func (r *WorkbookFunctionsFindBRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFindBRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6738,8 +6741,8 @@ func (b *WorkbookFunctionsFisherRequestBuilder) Request() *WorkbookFunctionsFish
 }
 
 //
-func (r *WorkbookFunctionsFisherRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFisherRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6765,8 +6768,8 @@ func (b *WorkbookFunctionsFisherInvRequestBuilder) Request() *WorkbookFunctionsF
 }
 
 //
-func (r *WorkbookFunctionsFisherInvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFisherInvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6792,8 +6795,8 @@ func (b *WorkbookFunctionsFixedRequestBuilder) Request() *WorkbookFunctionsFixed
 }
 
 //
-func (r *WorkbookFunctionsFixedRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFixedRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6819,8 +6822,8 @@ func (b *WorkbookFunctionsFloor_MathRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsFloor_MathRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFloor_MathRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6846,8 +6849,8 @@ func (b *WorkbookFunctionsFloor_PreciseRequestBuilder) Request() *WorkbookFuncti
 }
 
 //
-func (r *WorkbookFunctionsFloor_PreciseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFloor_PreciseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6873,8 +6876,8 @@ func (b *WorkbookFunctionsFvRequestBuilder) Request() *WorkbookFunctionsFvReques
 }
 
 //
-func (r *WorkbookFunctionsFvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsFvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6900,8 +6903,8 @@ func (b *WorkbookFunctionsGammaRequestBuilder) Request() *WorkbookFunctionsGamma
 }
 
 //
-func (r *WorkbookFunctionsGammaRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGammaRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6927,8 +6930,8 @@ func (b *WorkbookFunctionsGammaLnRequestBuilder) Request() *WorkbookFunctionsGam
 }
 
 //
-func (r *WorkbookFunctionsGammaLnRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGammaLnRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6954,8 +6957,8 @@ func (b *WorkbookFunctionsGammaLn_PreciseRequestBuilder) Request() *WorkbookFunc
 }
 
 //
-func (r *WorkbookFunctionsGammaLn_PreciseRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGammaLn_PreciseRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -6981,8 +6984,8 @@ func (b *WorkbookFunctionsGamma_DistRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsGamma_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGamma_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7008,8 +7011,8 @@ func (b *WorkbookFunctionsGamma_InvRequestBuilder) Request() *WorkbookFunctionsG
 }
 
 //
-func (r *WorkbookFunctionsGamma_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGamma_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7035,8 +7038,8 @@ func (b *WorkbookFunctionsGaussRequestBuilder) Request() *WorkbookFunctionsGauss
 }
 
 //
-func (r *WorkbookFunctionsGaussRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGaussRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7062,8 +7065,8 @@ func (b *WorkbookFunctionsGcdRequestBuilder) Request() *WorkbookFunctionsGcdRequ
 }
 
 //
-func (r *WorkbookFunctionsGcdRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGcdRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7089,8 +7092,8 @@ func (b *WorkbookFunctionsGeStepRequestBuilder) Request() *WorkbookFunctionsGeSt
 }
 
 //
-func (r *WorkbookFunctionsGeStepRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGeStepRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7116,8 +7119,8 @@ func (b *WorkbookFunctionsGeoMeanRequestBuilder) Request() *WorkbookFunctionsGeo
 }
 
 //
-func (r *WorkbookFunctionsGeoMeanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsGeoMeanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7143,8 +7146,8 @@ func (b *WorkbookFunctionsHlookupRequestBuilder) Request() *WorkbookFunctionsHlo
 }
 
 //
-func (r *WorkbookFunctionsHlookupRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHlookupRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7170,8 +7173,8 @@ func (b *WorkbookFunctionsHarMeanRequestBuilder) Request() *WorkbookFunctionsHar
 }
 
 //
-func (r *WorkbookFunctionsHarMeanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHarMeanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7197,8 +7200,8 @@ func (b *WorkbookFunctionsHex2BinRequestBuilder) Request() *WorkbookFunctionsHex
 }
 
 //
-func (r *WorkbookFunctionsHex2BinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHex2BinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7224,8 +7227,8 @@ func (b *WorkbookFunctionsHex2DecRequestBuilder) Request() *WorkbookFunctionsHex
 }
 
 //
-func (r *WorkbookFunctionsHex2DecRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHex2DecRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7251,8 +7254,8 @@ func (b *WorkbookFunctionsHex2OctRequestBuilder) Request() *WorkbookFunctionsHex
 }
 
 //
-func (r *WorkbookFunctionsHex2OctRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHex2OctRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7278,8 +7281,8 @@ func (b *WorkbookFunctionsHourRequestBuilder) Request() *WorkbookFunctionsHourRe
 }
 
 //
-func (r *WorkbookFunctionsHourRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHourRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7305,8 +7308,8 @@ func (b *WorkbookFunctionsHypGeom_DistRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsHypGeom_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHypGeom_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7332,8 +7335,8 @@ func (b *WorkbookFunctionsHyperlinkRequestBuilder) Request() *WorkbookFunctionsH
 }
 
 //
-func (r *WorkbookFunctionsHyperlinkRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsHyperlinkRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7359,8 +7362,8 @@ func (b *WorkbookFunctionsIso_CeilingRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsIso_CeilingRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIso_CeilingRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7386,8 +7389,8 @@ func (b *WorkbookFunctionsIfRequestBuilder) Request() *WorkbookFunctionsIfReques
 }
 
 //
-func (r *WorkbookFunctionsIfRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIfRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7413,8 +7416,8 @@ func (b *WorkbookFunctionsImAbsRequestBuilder) Request() *WorkbookFunctionsImAbs
 }
 
 //
-func (r *WorkbookFunctionsImAbsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImAbsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7440,8 +7443,8 @@ func (b *WorkbookFunctionsImArgumentRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsImArgumentRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImArgumentRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7467,8 +7470,8 @@ func (b *WorkbookFunctionsImConjugateRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsImConjugateRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImConjugateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7494,8 +7497,8 @@ func (b *WorkbookFunctionsImCosRequestBuilder) Request() *WorkbookFunctionsImCos
 }
 
 //
-func (r *WorkbookFunctionsImCosRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImCosRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7521,8 +7524,8 @@ func (b *WorkbookFunctionsImCoshRequestBuilder) Request() *WorkbookFunctionsImCo
 }
 
 //
-func (r *WorkbookFunctionsImCoshRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImCoshRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7548,8 +7551,8 @@ func (b *WorkbookFunctionsImCotRequestBuilder) Request() *WorkbookFunctionsImCot
 }
 
 //
-func (r *WorkbookFunctionsImCotRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImCotRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7575,8 +7578,8 @@ func (b *WorkbookFunctionsImCscRequestBuilder) Request() *WorkbookFunctionsImCsc
 }
 
 //
-func (r *WorkbookFunctionsImCscRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImCscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7602,8 +7605,8 @@ func (b *WorkbookFunctionsImCschRequestBuilder) Request() *WorkbookFunctionsImCs
 }
 
 //
-func (r *WorkbookFunctionsImCschRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImCschRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7629,8 +7632,8 @@ func (b *WorkbookFunctionsImDivRequestBuilder) Request() *WorkbookFunctionsImDiv
 }
 
 //
-func (r *WorkbookFunctionsImDivRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImDivRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7656,8 +7659,8 @@ func (b *WorkbookFunctionsImExpRequestBuilder) Request() *WorkbookFunctionsImExp
 }
 
 //
-func (r *WorkbookFunctionsImExpRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImExpRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7683,8 +7686,8 @@ func (b *WorkbookFunctionsImLnRequestBuilder) Request() *WorkbookFunctionsImLnRe
 }
 
 //
-func (r *WorkbookFunctionsImLnRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImLnRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7710,8 +7713,8 @@ func (b *WorkbookFunctionsImLog10RequestBuilder) Request() *WorkbookFunctionsImL
 }
 
 //
-func (r *WorkbookFunctionsImLog10Request) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImLog10Request) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7737,8 +7740,8 @@ func (b *WorkbookFunctionsImLog2RequestBuilder) Request() *WorkbookFunctionsImLo
 }
 
 //
-func (r *WorkbookFunctionsImLog2Request) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImLog2Request) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7764,8 +7767,8 @@ func (b *WorkbookFunctionsImPowerRequestBuilder) Request() *WorkbookFunctionsImP
 }
 
 //
-func (r *WorkbookFunctionsImPowerRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImPowerRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7791,8 +7794,8 @@ func (b *WorkbookFunctionsImProductRequestBuilder) Request() *WorkbookFunctionsI
 }
 
 //
-func (r *WorkbookFunctionsImProductRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImProductRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7818,8 +7821,8 @@ func (b *WorkbookFunctionsImRealRequestBuilder) Request() *WorkbookFunctionsImRe
 }
 
 //
-func (r *WorkbookFunctionsImRealRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImRealRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7845,8 +7848,8 @@ func (b *WorkbookFunctionsImSecRequestBuilder) Request() *WorkbookFunctionsImSec
 }
 
 //
-func (r *WorkbookFunctionsImSecRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSecRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7872,8 +7875,8 @@ func (b *WorkbookFunctionsImSechRequestBuilder) Request() *WorkbookFunctionsImSe
 }
 
 //
-func (r *WorkbookFunctionsImSechRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSechRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7899,8 +7902,8 @@ func (b *WorkbookFunctionsImSinRequestBuilder) Request() *WorkbookFunctionsImSin
 }
 
 //
-func (r *WorkbookFunctionsImSinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7926,8 +7929,8 @@ func (b *WorkbookFunctionsImSinhRequestBuilder) Request() *WorkbookFunctionsImSi
 }
 
 //
-func (r *WorkbookFunctionsImSinhRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSinhRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7953,8 +7956,8 @@ func (b *WorkbookFunctionsImSqrtRequestBuilder) Request() *WorkbookFunctionsImSq
 }
 
 //
-func (r *WorkbookFunctionsImSqrtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSqrtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -7980,8 +7983,8 @@ func (b *WorkbookFunctionsImSubRequestBuilder) Request() *WorkbookFunctionsImSub
 }
 
 //
-func (r *WorkbookFunctionsImSubRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSubRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8007,8 +8010,8 @@ func (b *WorkbookFunctionsImSumRequestBuilder) Request() *WorkbookFunctionsImSum
 }
 
 //
-func (r *WorkbookFunctionsImSumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImSumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8034,8 +8037,8 @@ func (b *WorkbookFunctionsImTanRequestBuilder) Request() *WorkbookFunctionsImTan
 }
 
 //
-func (r *WorkbookFunctionsImTanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImTanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8061,8 +8064,8 @@ func (b *WorkbookFunctionsImaginaryRequestBuilder) Request() *WorkbookFunctionsI
 }
 
 //
-func (r *WorkbookFunctionsImaginaryRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsImaginaryRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8088,8 +8091,8 @@ func (b *WorkbookFunctionsIntRequestBuilder) Request() *WorkbookFunctionsIntRequ
 }
 
 //
-func (r *WorkbookFunctionsIntRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIntRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8115,8 +8118,8 @@ func (b *WorkbookFunctionsIntRateRequestBuilder) Request() *WorkbookFunctionsInt
 }
 
 //
-func (r *WorkbookFunctionsIntRateRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIntRateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8142,8 +8145,8 @@ func (b *WorkbookFunctionsIpmtRequestBuilder) Request() *WorkbookFunctionsIpmtRe
 }
 
 //
-func (r *WorkbookFunctionsIpmtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIpmtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8169,8 +8172,8 @@ func (b *WorkbookFunctionsIrrRequestBuilder) Request() *WorkbookFunctionsIrrRequ
 }
 
 //
-func (r *WorkbookFunctionsIrrRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIrrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8196,8 +8199,8 @@ func (b *WorkbookFunctionsIsErrRequestBuilder) Request() *WorkbookFunctionsIsErr
 }
 
 //
-func (r *WorkbookFunctionsIsErrRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsErrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8223,8 +8226,8 @@ func (b *WorkbookFunctionsIsErrorRequestBuilder) Request() *WorkbookFunctionsIsE
 }
 
 //
-func (r *WorkbookFunctionsIsErrorRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsErrorRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8250,8 +8253,8 @@ func (b *WorkbookFunctionsIsEvenRequestBuilder) Request() *WorkbookFunctionsIsEv
 }
 
 //
-func (r *WorkbookFunctionsIsEvenRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsEvenRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8277,8 +8280,8 @@ func (b *WorkbookFunctionsIsFormulaRequestBuilder) Request() *WorkbookFunctionsI
 }
 
 //
-func (r *WorkbookFunctionsIsFormulaRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsFormulaRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8304,8 +8307,8 @@ func (b *WorkbookFunctionsIsLogicalRequestBuilder) Request() *WorkbookFunctionsI
 }
 
 //
-func (r *WorkbookFunctionsIsLogicalRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsLogicalRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8331,8 +8334,8 @@ func (b *WorkbookFunctionsIsNARequestBuilder) Request() *WorkbookFunctionsIsNARe
 }
 
 //
-func (r *WorkbookFunctionsIsNARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsNARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8358,8 +8361,8 @@ func (b *WorkbookFunctionsIsNonTextRequestBuilder) Request() *WorkbookFunctionsI
 }
 
 //
-func (r *WorkbookFunctionsIsNonTextRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsNonTextRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8385,8 +8388,8 @@ func (b *WorkbookFunctionsIsNumberRequestBuilder) Request() *WorkbookFunctionsIs
 }
 
 //
-func (r *WorkbookFunctionsIsNumberRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsNumberRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8412,8 +8415,8 @@ func (b *WorkbookFunctionsIsOddRequestBuilder) Request() *WorkbookFunctionsIsOdd
 }
 
 //
-func (r *WorkbookFunctionsIsOddRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsOddRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8439,8 +8442,8 @@ func (b *WorkbookFunctionsIsTextRequestBuilder) Request() *WorkbookFunctionsIsTe
 }
 
 //
-func (r *WorkbookFunctionsIsTextRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsTextRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8466,8 +8469,8 @@ func (b *WorkbookFunctionsIsoWeekNumRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsIsoWeekNumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsoWeekNumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8493,8 +8496,8 @@ func (b *WorkbookFunctionsIspmtRequestBuilder) Request() *WorkbookFunctionsIspmt
 }
 
 //
-func (r *WorkbookFunctionsIspmtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIspmtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8520,8 +8523,8 @@ func (b *WorkbookFunctionsIsrefRequestBuilder) Request() *WorkbookFunctionsIsref
 }
 
 //
-func (r *WorkbookFunctionsIsrefRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsIsrefRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8547,8 +8550,8 @@ func (b *WorkbookFunctionsKurtRequestBuilder) Request() *WorkbookFunctionsKurtRe
 }
 
 //
-func (r *WorkbookFunctionsKurtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsKurtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8574,8 +8577,8 @@ func (b *WorkbookFunctionsLargeRequestBuilder) Request() *WorkbookFunctionsLarge
 }
 
 //
-func (r *WorkbookFunctionsLargeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLargeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8601,8 +8604,8 @@ func (b *WorkbookFunctionsLcmRequestBuilder) Request() *WorkbookFunctionsLcmRequ
 }
 
 //
-func (r *WorkbookFunctionsLcmRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLcmRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8628,8 +8631,8 @@ func (b *WorkbookFunctionsLeftRequestBuilder) Request() *WorkbookFunctionsLeftRe
 }
 
 //
-func (r *WorkbookFunctionsLeftRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLeftRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8655,8 +8658,8 @@ func (b *WorkbookFunctionsLeftbRequestBuilder) Request() *WorkbookFunctionsLeftb
 }
 
 //
-func (r *WorkbookFunctionsLeftbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLeftbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8682,8 +8685,8 @@ func (b *WorkbookFunctionsLenRequestBuilder) Request() *WorkbookFunctionsLenRequ
 }
 
 //
-func (r *WorkbookFunctionsLenRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLenRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8709,8 +8712,8 @@ func (b *WorkbookFunctionsLenbRequestBuilder) Request() *WorkbookFunctionsLenbRe
 }
 
 //
-func (r *WorkbookFunctionsLenbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLenbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8736,8 +8739,8 @@ func (b *WorkbookFunctionsLnRequestBuilder) Request() *WorkbookFunctionsLnReques
 }
 
 //
-func (r *WorkbookFunctionsLnRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLnRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8763,8 +8766,8 @@ func (b *WorkbookFunctionsLogRequestBuilder) Request() *WorkbookFunctionsLogRequ
 }
 
 //
-func (r *WorkbookFunctionsLogRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLogRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8790,8 +8793,8 @@ func (b *WorkbookFunctionsLog10RequestBuilder) Request() *WorkbookFunctionsLog10
 }
 
 //
-func (r *WorkbookFunctionsLog10Request) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLog10Request) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8817,8 +8820,8 @@ func (b *WorkbookFunctionsLogNorm_DistRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsLogNorm_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLogNorm_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8844,8 +8847,8 @@ func (b *WorkbookFunctionsLogNorm_InvRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsLogNorm_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLogNorm_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8871,8 +8874,8 @@ func (b *WorkbookFunctionsLookupRequestBuilder) Request() *WorkbookFunctionsLook
 }
 
 //
-func (r *WorkbookFunctionsLookupRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLookupRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8898,8 +8901,8 @@ func (b *WorkbookFunctionsLowerRequestBuilder) Request() *WorkbookFunctionsLower
 }
 
 //
-func (r *WorkbookFunctionsLowerRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsLowerRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8925,8 +8928,8 @@ func (b *WorkbookFunctionsMdurationRequestBuilder) Request() *WorkbookFunctionsM
 }
 
 //
-func (r *WorkbookFunctionsMdurationRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMdurationRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8952,8 +8955,8 @@ func (b *WorkbookFunctionsMirrRequestBuilder) Request() *WorkbookFunctionsMirrRe
 }
 
 //
-func (r *WorkbookFunctionsMirrRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMirrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -8979,8 +8982,8 @@ func (b *WorkbookFunctionsMroundRequestBuilder) Request() *WorkbookFunctionsMrou
 }
 
 //
-func (r *WorkbookFunctionsMroundRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMroundRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9006,8 +9009,8 @@ func (b *WorkbookFunctionsMatchRequestBuilder) Request() *WorkbookFunctionsMatch
 }
 
 //
-func (r *WorkbookFunctionsMatchRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMatchRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9033,8 +9036,8 @@ func (b *WorkbookFunctionsMaxRequestBuilder) Request() *WorkbookFunctionsMaxRequ
 }
 
 //
-func (r *WorkbookFunctionsMaxRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMaxRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9060,8 +9063,8 @@ func (b *WorkbookFunctionsMaxARequestBuilder) Request() *WorkbookFunctionsMaxARe
 }
 
 //
-func (r *WorkbookFunctionsMaxARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMaxARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9087,8 +9090,8 @@ func (b *WorkbookFunctionsMedianRequestBuilder) Request() *WorkbookFunctionsMedi
 }
 
 //
-func (r *WorkbookFunctionsMedianRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMedianRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9114,8 +9117,8 @@ func (b *WorkbookFunctionsMidRequestBuilder) Request() *WorkbookFunctionsMidRequ
 }
 
 //
-func (r *WorkbookFunctionsMidRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMidRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9141,8 +9144,8 @@ func (b *WorkbookFunctionsMidbRequestBuilder) Request() *WorkbookFunctionsMidbRe
 }
 
 //
-func (r *WorkbookFunctionsMidbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMidbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9168,8 +9171,8 @@ func (b *WorkbookFunctionsMinRequestBuilder) Request() *WorkbookFunctionsMinRequ
 }
 
 //
-func (r *WorkbookFunctionsMinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9195,8 +9198,8 @@ func (b *WorkbookFunctionsMinARequestBuilder) Request() *WorkbookFunctionsMinARe
 }
 
 //
-func (r *WorkbookFunctionsMinARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMinARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9222,8 +9225,8 @@ func (b *WorkbookFunctionsMinuteRequestBuilder) Request() *WorkbookFunctionsMinu
 }
 
 //
-func (r *WorkbookFunctionsMinuteRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMinuteRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9249,8 +9252,8 @@ func (b *WorkbookFunctionsModRequestBuilder) Request() *WorkbookFunctionsModRequ
 }
 
 //
-func (r *WorkbookFunctionsModRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsModRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9276,8 +9279,8 @@ func (b *WorkbookFunctionsMonthRequestBuilder) Request() *WorkbookFunctionsMonth
 }
 
 //
-func (r *WorkbookFunctionsMonthRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMonthRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9303,8 +9306,8 @@ func (b *WorkbookFunctionsMultiNomialRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsMultiNomialRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsMultiNomialRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9330,8 +9333,8 @@ func (b *WorkbookFunctionsNRequestBuilder) Request() *WorkbookFunctionsNRequest 
 }
 
 //
-func (r *WorkbookFunctionsNRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9357,8 +9360,8 @@ func (b *WorkbookFunctionsNperRequestBuilder) Request() *WorkbookFunctionsNperRe
 }
 
 //
-func (r *WorkbookFunctionsNperRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNperRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9384,8 +9387,8 @@ func (b *WorkbookFunctionsNaRequestBuilder) Request() *WorkbookFunctionsNaReques
 }
 
 //
-func (r *WorkbookFunctionsNaRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNaRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9411,8 +9414,8 @@ func (b *WorkbookFunctionsNegBinom_DistRequestBuilder) Request() *WorkbookFuncti
 }
 
 //
-func (r *WorkbookFunctionsNegBinom_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNegBinom_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9438,8 +9441,8 @@ func (b *WorkbookFunctionsNetworkDaysRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsNetworkDaysRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNetworkDaysRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9465,8 +9468,8 @@ func (b *WorkbookFunctionsNetworkDays_IntlRequestBuilder) Request() *WorkbookFun
 }
 
 //
-func (r *WorkbookFunctionsNetworkDays_IntlRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNetworkDays_IntlRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9492,8 +9495,8 @@ func (b *WorkbookFunctionsNominalRequestBuilder) Request() *WorkbookFunctionsNom
 }
 
 //
-func (r *WorkbookFunctionsNominalRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNominalRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9519,8 +9522,8 @@ func (b *WorkbookFunctionsNorm_DistRequestBuilder) Request() *WorkbookFunctionsN
 }
 
 //
-func (r *WorkbookFunctionsNorm_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNorm_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9546,8 +9549,8 @@ func (b *WorkbookFunctionsNorm_InvRequestBuilder) Request() *WorkbookFunctionsNo
 }
 
 //
-func (r *WorkbookFunctionsNorm_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNorm_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9573,8 +9576,8 @@ func (b *WorkbookFunctionsNorm_S_DistRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsNorm_S_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNorm_S_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9600,8 +9603,8 @@ func (b *WorkbookFunctionsNorm_S_InvRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsNorm_S_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNorm_S_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9627,8 +9630,8 @@ func (b *WorkbookFunctionsNotRequestBuilder) Request() *WorkbookFunctionsNotRequ
 }
 
 //
-func (r *WorkbookFunctionsNotRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNotRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9654,8 +9657,8 @@ func (b *WorkbookFunctionsNowRequestBuilder) Request() *WorkbookFunctionsNowRequ
 }
 
 //
-func (r *WorkbookFunctionsNowRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNowRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9681,8 +9684,8 @@ func (b *WorkbookFunctionsNpvRequestBuilder) Request() *WorkbookFunctionsNpvRequ
 }
 
 //
-func (r *WorkbookFunctionsNpvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNpvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9708,8 +9711,8 @@ func (b *WorkbookFunctionsNumberValueRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsNumberValueRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsNumberValueRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9735,8 +9738,8 @@ func (b *WorkbookFunctionsOct2BinRequestBuilder) Request() *WorkbookFunctionsOct
 }
 
 //
-func (r *WorkbookFunctionsOct2BinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOct2BinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9762,8 +9765,8 @@ func (b *WorkbookFunctionsOct2DecRequestBuilder) Request() *WorkbookFunctionsOct
 }
 
 //
-func (r *WorkbookFunctionsOct2DecRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOct2DecRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9789,8 +9792,8 @@ func (b *WorkbookFunctionsOct2HexRequestBuilder) Request() *WorkbookFunctionsOct
 }
 
 //
-func (r *WorkbookFunctionsOct2HexRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOct2HexRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9816,8 +9819,8 @@ func (b *WorkbookFunctionsOddRequestBuilder) Request() *WorkbookFunctionsOddRequ
 }
 
 //
-func (r *WorkbookFunctionsOddRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOddRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9843,8 +9846,8 @@ func (b *WorkbookFunctionsOddFPriceRequestBuilder) Request() *WorkbookFunctionsO
 }
 
 //
-func (r *WorkbookFunctionsOddFPriceRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOddFPriceRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9870,8 +9873,8 @@ func (b *WorkbookFunctionsOddFYieldRequestBuilder) Request() *WorkbookFunctionsO
 }
 
 //
-func (r *WorkbookFunctionsOddFYieldRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOddFYieldRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9897,8 +9900,8 @@ func (b *WorkbookFunctionsOddLPriceRequestBuilder) Request() *WorkbookFunctionsO
 }
 
 //
-func (r *WorkbookFunctionsOddLPriceRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOddLPriceRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9924,8 +9927,8 @@ func (b *WorkbookFunctionsOddLYieldRequestBuilder) Request() *WorkbookFunctionsO
 }
 
 //
-func (r *WorkbookFunctionsOddLYieldRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOddLYieldRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9951,8 +9954,8 @@ func (b *WorkbookFunctionsOrRequestBuilder) Request() *WorkbookFunctionsOrReques
 }
 
 //
-func (r *WorkbookFunctionsOrRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsOrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -9978,8 +9981,8 @@ func (b *WorkbookFunctionsPdurationRequestBuilder) Request() *WorkbookFunctionsP
 }
 
 //
-func (r *WorkbookFunctionsPdurationRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPdurationRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10005,8 +10008,8 @@ func (b *WorkbookFunctionsPercentRank_ExcRequestBuilder) Request() *WorkbookFunc
 }
 
 //
-func (r *WorkbookFunctionsPercentRank_ExcRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPercentRank_ExcRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10032,8 +10035,8 @@ func (b *WorkbookFunctionsPercentRank_IncRequestBuilder) Request() *WorkbookFunc
 }
 
 //
-func (r *WorkbookFunctionsPercentRank_IncRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPercentRank_IncRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10059,8 +10062,8 @@ func (b *WorkbookFunctionsPercentile_ExcRequestBuilder) Request() *WorkbookFunct
 }
 
 //
-func (r *WorkbookFunctionsPercentile_ExcRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPercentile_ExcRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10086,8 +10089,8 @@ func (b *WorkbookFunctionsPercentile_IncRequestBuilder) Request() *WorkbookFunct
 }
 
 //
-func (r *WorkbookFunctionsPercentile_IncRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPercentile_IncRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10113,8 +10116,8 @@ func (b *WorkbookFunctionsPermutRequestBuilder) Request() *WorkbookFunctionsPerm
 }
 
 //
-func (r *WorkbookFunctionsPermutRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPermutRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10140,8 +10143,8 @@ func (b *WorkbookFunctionsPermutationaRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsPermutationaRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPermutationaRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10167,8 +10170,8 @@ func (b *WorkbookFunctionsPhiRequestBuilder) Request() *WorkbookFunctionsPhiRequ
 }
 
 //
-func (r *WorkbookFunctionsPhiRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPhiRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10194,8 +10197,8 @@ func (b *WorkbookFunctionsPiRequestBuilder) Request() *WorkbookFunctionsPiReques
 }
 
 //
-func (r *WorkbookFunctionsPiRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPiRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10221,8 +10224,8 @@ func (b *WorkbookFunctionsPmtRequestBuilder) Request() *WorkbookFunctionsPmtRequ
 }
 
 //
-func (r *WorkbookFunctionsPmtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPmtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10248,8 +10251,8 @@ func (b *WorkbookFunctionsPoisson_DistRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsPoisson_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPoisson_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10275,8 +10278,8 @@ func (b *WorkbookFunctionsPowerRequestBuilder) Request() *WorkbookFunctionsPower
 }
 
 //
-func (r *WorkbookFunctionsPowerRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPowerRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10302,8 +10305,8 @@ func (b *WorkbookFunctionsPpmtRequestBuilder) Request() *WorkbookFunctionsPpmtRe
 }
 
 //
-func (r *WorkbookFunctionsPpmtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPpmtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10329,8 +10332,8 @@ func (b *WorkbookFunctionsPriceRequestBuilder) Request() *WorkbookFunctionsPrice
 }
 
 //
-func (r *WorkbookFunctionsPriceRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPriceRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10356,8 +10359,8 @@ func (b *WorkbookFunctionsPriceDiscRequestBuilder) Request() *WorkbookFunctionsP
 }
 
 //
-func (r *WorkbookFunctionsPriceDiscRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPriceDiscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10383,8 +10386,8 @@ func (b *WorkbookFunctionsPriceMatRequestBuilder) Request() *WorkbookFunctionsPr
 }
 
 //
-func (r *WorkbookFunctionsPriceMatRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPriceMatRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10410,8 +10413,8 @@ func (b *WorkbookFunctionsProductRequestBuilder) Request() *WorkbookFunctionsPro
 }
 
 //
-func (r *WorkbookFunctionsProductRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsProductRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10437,8 +10440,8 @@ func (b *WorkbookFunctionsProperRequestBuilder) Request() *WorkbookFunctionsProp
 }
 
 //
-func (r *WorkbookFunctionsProperRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsProperRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10464,8 +10467,8 @@ func (b *WorkbookFunctionsPvRequestBuilder) Request() *WorkbookFunctionsPvReques
 }
 
 //
-func (r *WorkbookFunctionsPvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsPvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10491,8 +10494,8 @@ func (b *WorkbookFunctionsQuartile_ExcRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsQuartile_ExcRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsQuartile_ExcRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10518,8 +10521,8 @@ func (b *WorkbookFunctionsQuartile_IncRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsQuartile_IncRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsQuartile_IncRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10545,8 +10548,8 @@ func (b *WorkbookFunctionsQuotientRequestBuilder) Request() *WorkbookFunctionsQu
 }
 
 //
-func (r *WorkbookFunctionsQuotientRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsQuotientRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10572,8 +10575,8 @@ func (b *WorkbookFunctionsRadiansRequestBuilder) Request() *WorkbookFunctionsRad
 }
 
 //
-func (r *WorkbookFunctionsRadiansRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRadiansRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10599,8 +10602,8 @@ func (b *WorkbookFunctionsRandRequestBuilder) Request() *WorkbookFunctionsRandRe
 }
 
 //
-func (r *WorkbookFunctionsRandRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRandRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10626,8 +10629,8 @@ func (b *WorkbookFunctionsRandBetweenRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsRandBetweenRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRandBetweenRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10653,8 +10656,8 @@ func (b *WorkbookFunctionsRank_AvgRequestBuilder) Request() *WorkbookFunctionsRa
 }
 
 //
-func (r *WorkbookFunctionsRank_AvgRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRank_AvgRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10680,8 +10683,8 @@ func (b *WorkbookFunctionsRank_EqRequestBuilder) Request() *WorkbookFunctionsRan
 }
 
 //
-func (r *WorkbookFunctionsRank_EqRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRank_EqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10707,8 +10710,8 @@ func (b *WorkbookFunctionsRateRequestBuilder) Request() *WorkbookFunctionsRateRe
 }
 
 //
-func (r *WorkbookFunctionsRateRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRateRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10734,8 +10737,8 @@ func (b *WorkbookFunctionsReceivedRequestBuilder) Request() *WorkbookFunctionsRe
 }
 
 //
-func (r *WorkbookFunctionsReceivedRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsReceivedRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10761,8 +10764,8 @@ func (b *WorkbookFunctionsReplaceRequestBuilder) Request() *WorkbookFunctionsRep
 }
 
 //
-func (r *WorkbookFunctionsReplaceRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsReplaceRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10788,8 +10791,8 @@ func (b *WorkbookFunctionsReplaceBRequestBuilder) Request() *WorkbookFunctionsRe
 }
 
 //
-func (r *WorkbookFunctionsReplaceBRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsReplaceBRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10815,8 +10818,8 @@ func (b *WorkbookFunctionsReptRequestBuilder) Request() *WorkbookFunctionsReptRe
 }
 
 //
-func (r *WorkbookFunctionsReptRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsReptRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10842,8 +10845,8 @@ func (b *WorkbookFunctionsRightRequestBuilder) Request() *WorkbookFunctionsRight
 }
 
 //
-func (r *WorkbookFunctionsRightRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRightRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10869,8 +10872,8 @@ func (b *WorkbookFunctionsRightbRequestBuilder) Request() *WorkbookFunctionsRigh
 }
 
 //
-func (r *WorkbookFunctionsRightbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRightbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10896,8 +10899,8 @@ func (b *WorkbookFunctionsRomanRequestBuilder) Request() *WorkbookFunctionsRoman
 }
 
 //
-func (r *WorkbookFunctionsRomanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRomanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10923,8 +10926,8 @@ func (b *WorkbookFunctionsRoundRequestBuilder) Request() *WorkbookFunctionsRound
 }
 
 //
-func (r *WorkbookFunctionsRoundRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRoundRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10950,8 +10953,8 @@ func (b *WorkbookFunctionsRoundDownRequestBuilder) Request() *WorkbookFunctionsR
 }
 
 //
-func (r *WorkbookFunctionsRoundDownRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRoundDownRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -10977,8 +10980,8 @@ func (b *WorkbookFunctionsRoundUpRequestBuilder) Request() *WorkbookFunctionsRou
 }
 
 //
-func (r *WorkbookFunctionsRoundUpRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRoundUpRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11004,8 +11007,8 @@ func (b *WorkbookFunctionsRowsRequestBuilder) Request() *WorkbookFunctionsRowsRe
 }
 
 //
-func (r *WorkbookFunctionsRowsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRowsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11031,8 +11034,8 @@ func (b *WorkbookFunctionsRriRequestBuilder) Request() *WorkbookFunctionsRriRequ
 }
 
 //
-func (r *WorkbookFunctionsRriRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsRriRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11058,8 +11061,8 @@ func (b *WorkbookFunctionsSecRequestBuilder) Request() *WorkbookFunctionsSecRequ
 }
 
 //
-func (r *WorkbookFunctionsSecRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSecRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11085,8 +11088,8 @@ func (b *WorkbookFunctionsSechRequestBuilder) Request() *WorkbookFunctionsSechRe
 }
 
 //
-func (r *WorkbookFunctionsSechRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSechRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11112,8 +11115,8 @@ func (b *WorkbookFunctionsSecondRequestBuilder) Request() *WorkbookFunctionsSeco
 }
 
 //
-func (r *WorkbookFunctionsSecondRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSecondRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11139,8 +11142,8 @@ func (b *WorkbookFunctionsSeriesSumRequestBuilder) Request() *WorkbookFunctionsS
 }
 
 //
-func (r *WorkbookFunctionsSeriesSumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSeriesSumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11166,8 +11169,8 @@ func (b *WorkbookFunctionsSheetRequestBuilder) Request() *WorkbookFunctionsSheet
 }
 
 //
-func (r *WorkbookFunctionsSheetRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSheetRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11193,8 +11196,8 @@ func (b *WorkbookFunctionsSheetsRequestBuilder) Request() *WorkbookFunctionsShee
 }
 
 //
-func (r *WorkbookFunctionsSheetsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSheetsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11220,8 +11223,8 @@ func (b *WorkbookFunctionsSignRequestBuilder) Request() *WorkbookFunctionsSignRe
 }
 
 //
-func (r *WorkbookFunctionsSignRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSignRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11247,8 +11250,8 @@ func (b *WorkbookFunctionsSinRequestBuilder) Request() *WorkbookFunctionsSinRequ
 }
 
 //
-func (r *WorkbookFunctionsSinRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSinRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11274,8 +11277,8 @@ func (b *WorkbookFunctionsSinhRequestBuilder) Request() *WorkbookFunctionsSinhRe
 }
 
 //
-func (r *WorkbookFunctionsSinhRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSinhRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11301,8 +11304,8 @@ func (b *WorkbookFunctionsSkewRequestBuilder) Request() *WorkbookFunctionsSkewRe
 }
 
 //
-func (r *WorkbookFunctionsSkewRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSkewRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11328,8 +11331,8 @@ func (b *WorkbookFunctionsSkew_pRequestBuilder) Request() *WorkbookFunctionsSkew
 }
 
 //
-func (r *WorkbookFunctionsSkew_pRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSkew_pRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11355,8 +11358,8 @@ func (b *WorkbookFunctionsSlnRequestBuilder) Request() *WorkbookFunctionsSlnRequ
 }
 
 //
-func (r *WorkbookFunctionsSlnRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSlnRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11382,8 +11385,8 @@ func (b *WorkbookFunctionsSmallRequestBuilder) Request() *WorkbookFunctionsSmall
 }
 
 //
-func (r *WorkbookFunctionsSmallRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSmallRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11409,8 +11412,8 @@ func (b *WorkbookFunctionsSqrtRequestBuilder) Request() *WorkbookFunctionsSqrtRe
 }
 
 //
-func (r *WorkbookFunctionsSqrtRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSqrtRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11436,8 +11439,8 @@ func (b *WorkbookFunctionsSqrtPiRequestBuilder) Request() *WorkbookFunctionsSqrt
 }
 
 //
-func (r *WorkbookFunctionsSqrtPiRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSqrtPiRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11463,8 +11466,8 @@ func (b *WorkbookFunctionsStDevARequestBuilder) Request() *WorkbookFunctionsStDe
 }
 
 //
-func (r *WorkbookFunctionsStDevARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsStDevARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11490,8 +11493,8 @@ func (b *WorkbookFunctionsStDevPARequestBuilder) Request() *WorkbookFunctionsStD
 }
 
 //
-func (r *WorkbookFunctionsStDevPARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsStDevPARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11517,8 +11520,8 @@ func (b *WorkbookFunctionsStDev_PRequestBuilder) Request() *WorkbookFunctionsStD
 }
 
 //
-func (r *WorkbookFunctionsStDev_PRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsStDev_PRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11544,8 +11547,8 @@ func (b *WorkbookFunctionsStDev_SRequestBuilder) Request() *WorkbookFunctionsStD
 }
 
 //
-func (r *WorkbookFunctionsStDev_SRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsStDev_SRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11571,8 +11574,8 @@ func (b *WorkbookFunctionsStandardizeRequestBuilder) Request() *WorkbookFunction
 }
 
 //
-func (r *WorkbookFunctionsStandardizeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsStandardizeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11598,8 +11601,8 @@ func (b *WorkbookFunctionsSubstituteRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsSubstituteRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSubstituteRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11625,8 +11628,8 @@ func (b *WorkbookFunctionsSubtotalRequestBuilder) Request() *WorkbookFunctionsSu
 }
 
 //
-func (r *WorkbookFunctionsSubtotalRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSubtotalRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11652,8 +11655,8 @@ func (b *WorkbookFunctionsSumRequestBuilder) Request() *WorkbookFunctionsSumRequ
 }
 
 //
-func (r *WorkbookFunctionsSumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11679,8 +11682,8 @@ func (b *WorkbookFunctionsSumIfRequestBuilder) Request() *WorkbookFunctionsSumIf
 }
 
 //
-func (r *WorkbookFunctionsSumIfRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSumIfRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11706,8 +11709,8 @@ func (b *WorkbookFunctionsSumIfsRequestBuilder) Request() *WorkbookFunctionsSumI
 }
 
 //
-func (r *WorkbookFunctionsSumIfsRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSumIfsRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11733,8 +11736,8 @@ func (b *WorkbookFunctionsSumSqRequestBuilder) Request() *WorkbookFunctionsSumSq
 }
 
 //
-func (r *WorkbookFunctionsSumSqRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSumSqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11760,8 +11763,8 @@ func (b *WorkbookFunctionsSydRequestBuilder) Request() *WorkbookFunctionsSydRequ
 }
 
 //
-func (r *WorkbookFunctionsSydRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsSydRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11787,8 +11790,8 @@ func (b *WorkbookFunctionsTRequestBuilder) Request() *WorkbookFunctionsTRequest 
 }
 
 //
-func (r *WorkbookFunctionsTRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11814,8 +11817,8 @@ func (b *WorkbookFunctionsTbillEqRequestBuilder) Request() *WorkbookFunctionsTbi
 }
 
 //
-func (r *WorkbookFunctionsTbillEqRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTbillEqRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11841,8 +11844,8 @@ func (b *WorkbookFunctionsTbillPriceRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsTbillPriceRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTbillPriceRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11868,8 +11871,8 @@ func (b *WorkbookFunctionsTbillYieldRequestBuilder) Request() *WorkbookFunctions
 }
 
 //
-func (r *WorkbookFunctionsTbillYieldRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTbillYieldRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11895,8 +11898,8 @@ func (b *WorkbookFunctionsT_DistRequestBuilder) Request() *WorkbookFunctionsT_Di
 }
 
 //
-func (r *WorkbookFunctionsT_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsT_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11922,8 +11925,8 @@ func (b *WorkbookFunctionsT_Dist_2TRequestBuilder) Request() *WorkbookFunctionsT
 }
 
 //
-func (r *WorkbookFunctionsT_Dist_2TRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsT_Dist_2TRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11949,8 +11952,8 @@ func (b *WorkbookFunctionsT_Dist_RTRequestBuilder) Request() *WorkbookFunctionsT
 }
 
 //
-func (r *WorkbookFunctionsT_Dist_RTRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsT_Dist_RTRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -11976,8 +11979,8 @@ func (b *WorkbookFunctionsT_InvRequestBuilder) Request() *WorkbookFunctionsT_Inv
 }
 
 //
-func (r *WorkbookFunctionsT_InvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsT_InvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12003,8 +12006,8 @@ func (b *WorkbookFunctionsT_Inv_2TRequestBuilder) Request() *WorkbookFunctionsT_
 }
 
 //
-func (r *WorkbookFunctionsT_Inv_2TRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsT_Inv_2TRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12030,8 +12033,8 @@ func (b *WorkbookFunctionsTanRequestBuilder) Request() *WorkbookFunctionsTanRequ
 }
 
 //
-func (r *WorkbookFunctionsTanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12057,8 +12060,8 @@ func (b *WorkbookFunctionsTanhRequestBuilder) Request() *WorkbookFunctionsTanhRe
 }
 
 //
-func (r *WorkbookFunctionsTanhRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTanhRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12084,8 +12087,8 @@ func (b *WorkbookFunctionsTextRequestBuilder) Request() *WorkbookFunctionsTextRe
 }
 
 //
-func (r *WorkbookFunctionsTextRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTextRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12111,8 +12114,8 @@ func (b *WorkbookFunctionsTimeRequestBuilder) Request() *WorkbookFunctionsTimeRe
 }
 
 //
-func (r *WorkbookFunctionsTimeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTimeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12138,8 +12141,8 @@ func (b *WorkbookFunctionsTimevalueRequestBuilder) Request() *WorkbookFunctionsT
 }
 
 //
-func (r *WorkbookFunctionsTimevalueRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTimevalueRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12165,8 +12168,8 @@ func (b *WorkbookFunctionsTodayRequestBuilder) Request() *WorkbookFunctionsToday
 }
 
 //
-func (r *WorkbookFunctionsTodayRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTodayRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12192,8 +12195,8 @@ func (b *WorkbookFunctionsTrimRequestBuilder) Request() *WorkbookFunctionsTrimRe
 }
 
 //
-func (r *WorkbookFunctionsTrimRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTrimRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12219,8 +12222,8 @@ func (b *WorkbookFunctionsTrimMeanRequestBuilder) Request() *WorkbookFunctionsTr
 }
 
 //
-func (r *WorkbookFunctionsTrimMeanRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTrimMeanRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12246,8 +12249,8 @@ func (b *WorkbookFunctionsTrueRequestBuilder) Request() *WorkbookFunctionsTrueRe
 }
 
 //
-func (r *WorkbookFunctionsTrueRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTrueRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12273,8 +12276,8 @@ func (b *WorkbookFunctionsTruncRequestBuilder) Request() *WorkbookFunctionsTrunc
 }
 
 //
-func (r *WorkbookFunctionsTruncRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTruncRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12300,8 +12303,8 @@ func (b *WorkbookFunctionsTypeRequestBuilder) Request() *WorkbookFunctionsTypeRe
 }
 
 //
-func (r *WorkbookFunctionsTypeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsTypeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12327,8 +12330,8 @@ func (b *WorkbookFunctionsUsdollarRequestBuilder) Request() *WorkbookFunctionsUs
 }
 
 //
-func (r *WorkbookFunctionsUsdollarRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsUsdollarRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12354,8 +12357,8 @@ func (b *WorkbookFunctionsUnicharRequestBuilder) Request() *WorkbookFunctionsUni
 }
 
 //
-func (r *WorkbookFunctionsUnicharRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsUnicharRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12381,8 +12384,8 @@ func (b *WorkbookFunctionsUnicodeRequestBuilder) Request() *WorkbookFunctionsUni
 }
 
 //
-func (r *WorkbookFunctionsUnicodeRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsUnicodeRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12408,8 +12411,8 @@ func (b *WorkbookFunctionsUpperRequestBuilder) Request() *WorkbookFunctionsUpper
 }
 
 //
-func (r *WorkbookFunctionsUpperRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsUpperRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12435,8 +12438,8 @@ func (b *WorkbookFunctionsVlookupRequestBuilder) Request() *WorkbookFunctionsVlo
 }
 
 //
-func (r *WorkbookFunctionsVlookupRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsVlookupRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12462,8 +12465,8 @@ func (b *WorkbookFunctionsValueRequestBuilder) Request() *WorkbookFunctionsValue
 }
 
 //
-func (r *WorkbookFunctionsValueRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsValueRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12489,8 +12492,8 @@ func (b *WorkbookFunctionsVarARequestBuilder) Request() *WorkbookFunctionsVarARe
 }
 
 //
-func (r *WorkbookFunctionsVarARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsVarARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12516,8 +12519,8 @@ func (b *WorkbookFunctionsVarPARequestBuilder) Request() *WorkbookFunctionsVarPA
 }
 
 //
-func (r *WorkbookFunctionsVarPARequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsVarPARequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12543,8 +12546,8 @@ func (b *WorkbookFunctionsVar_PRequestBuilder) Request() *WorkbookFunctionsVar_P
 }
 
 //
-func (r *WorkbookFunctionsVar_PRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsVar_PRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12570,8 +12573,8 @@ func (b *WorkbookFunctionsVar_SRequestBuilder) Request() *WorkbookFunctionsVar_S
 }
 
 //
-func (r *WorkbookFunctionsVar_SRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsVar_SRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12597,8 +12600,8 @@ func (b *WorkbookFunctionsVdbRequestBuilder) Request() *WorkbookFunctionsVdbRequ
 }
 
 //
-func (r *WorkbookFunctionsVdbRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsVdbRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12624,8 +12627,8 @@ func (b *WorkbookFunctionsWeekNumRequestBuilder) Request() *WorkbookFunctionsWee
 }
 
 //
-func (r *WorkbookFunctionsWeekNumRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsWeekNumRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12651,8 +12654,8 @@ func (b *WorkbookFunctionsWeekdayRequestBuilder) Request() *WorkbookFunctionsWee
 }
 
 //
-func (r *WorkbookFunctionsWeekdayRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsWeekdayRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12678,8 +12681,8 @@ func (b *WorkbookFunctionsWeibull_DistRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsWeibull_DistRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsWeibull_DistRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12705,8 +12708,8 @@ func (b *WorkbookFunctionsWorkDayRequestBuilder) Request() *WorkbookFunctionsWor
 }
 
 //
-func (r *WorkbookFunctionsWorkDayRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsWorkDayRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12732,8 +12735,8 @@ func (b *WorkbookFunctionsWorkDay_IntlRequestBuilder) Request() *WorkbookFunctio
 }
 
 //
-func (r *WorkbookFunctionsWorkDay_IntlRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsWorkDay_IntlRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12759,8 +12762,8 @@ func (b *WorkbookFunctionsXirrRequestBuilder) Request() *WorkbookFunctionsXirrRe
 }
 
 //
-func (r *WorkbookFunctionsXirrRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsXirrRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12786,8 +12789,8 @@ func (b *WorkbookFunctionsXnpvRequestBuilder) Request() *WorkbookFunctionsXnpvRe
 }
 
 //
-func (r *WorkbookFunctionsXnpvRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsXnpvRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12813,8 +12816,8 @@ func (b *WorkbookFunctionsXorRequestBuilder) Request() *WorkbookFunctionsXorRequ
 }
 
 //
-func (r *WorkbookFunctionsXorRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsXorRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12840,8 +12843,8 @@ func (b *WorkbookFunctionsYearRequestBuilder) Request() *WorkbookFunctionsYearRe
 }
 
 //
-func (r *WorkbookFunctionsYearRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsYearRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12867,8 +12870,8 @@ func (b *WorkbookFunctionsYearFracRequestBuilder) Request() *WorkbookFunctionsYe
 }
 
 //
-func (r *WorkbookFunctionsYearFracRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsYearFracRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12894,8 +12897,8 @@ func (b *WorkbookFunctionsYieldRequestBuilder) Request() *WorkbookFunctionsYield
 }
 
 //
-func (r *WorkbookFunctionsYieldRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsYieldRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12921,8 +12924,8 @@ func (b *WorkbookFunctionsYieldDiscRequestBuilder) Request() *WorkbookFunctionsY
 }
 
 //
-func (r *WorkbookFunctionsYieldDiscRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsYieldDiscRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12948,8 +12951,8 @@ func (b *WorkbookFunctionsYieldMatRequestBuilder) Request() *WorkbookFunctionsYi
 }
 
 //
-func (r *WorkbookFunctionsYieldMatRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsYieldMatRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -12975,7 +12978,7 @@ func (b *WorkbookFunctionsZ_TestRequestBuilder) Request() *WorkbookFunctionsZ_Te
 }
 
 //
-func (r *WorkbookFunctionsZ_TestRequest) Post() (resObj *WorkbookFunctionResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookFunctionsZ_TestRequest) Post(ctx context.Context) (resObj *WorkbookFunctionResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

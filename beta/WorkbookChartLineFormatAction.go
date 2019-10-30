@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartLineFormatClearRequestParameter undocumented
 type WorkbookChartLineFormatClearRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *WorkbookChartLineFormatClearRequestBuilder) Request() *WorkbookChartLin
 }
 
 //
-func (r *WorkbookChartLineFormatClearRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookChartLineFormatClearRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

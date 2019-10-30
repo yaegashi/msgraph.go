@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *FinancialsRequestBuilder) Request() *FinancialsRequest {
 type FinancialsRequest struct{ BaseRequest }
 
 // Get performs GET request for Financials
-func (r *FinancialsRequest) Get() (resObj *Financials, err error) {
+func (r *FinancialsRequest) Get(ctx context.Context) (resObj *Financials, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Financials
-func (r *FinancialsRequest) Update(reqObj *Financials) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *FinancialsRequest) Update(ctx context.Context, reqObj *Financials) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Financials
-func (r *FinancialsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *FinancialsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Companies returns request builder for Company collection
@@ -71,10 +72,13 @@ func (b *FinancialsCompaniesCollectionRequestBuilder) ID(id string) *CompanyRequ
 type FinancialsCompaniesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Paging(method, path string, obj interface{}) ([]Company, error) {
+func (r *FinancialsCompaniesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Company, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *FinancialsCompaniesCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *FinancialsCompaniesCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Get() ([]Company, error) {
+func (r *FinancialsCompaniesCollectionRequest) Get(ctx context.Context) ([]Company, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Add(reqObj *Company) (resObj *Company, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *FinancialsCompaniesCollectionRequest) Add(ctx context.Context, reqObj *Company) (resObj *Company, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

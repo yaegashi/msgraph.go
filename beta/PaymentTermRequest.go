@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PaymentTermRequestBuilder is request builder for PaymentTerm
 type PaymentTermRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PaymentTermRequestBuilder) Request() *PaymentTermRequest {
 type PaymentTermRequest struct{ BaseRequest }
 
 // Get performs GET request for PaymentTerm
-func (r *PaymentTermRequest) Get() (resObj *PaymentTerm, err error) {
+func (r *PaymentTermRequest) Get(ctx context.Context) (resObj *PaymentTerm, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PaymentTerm
-func (r *PaymentTermRequest) Update(reqObj *PaymentTerm) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PaymentTermRequest) Update(ctx context.Context, reqObj *PaymentTerm) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PaymentTerm
-func (r *PaymentTermRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PaymentTermRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

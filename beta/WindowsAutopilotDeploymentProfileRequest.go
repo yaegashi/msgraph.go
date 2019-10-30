@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WindowsAutopilotDeploymentProfileRequestBuilder) Request() *WindowsAuto
 type WindowsAutopilotDeploymentProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsAutopilotDeploymentProfile
-func (r *WindowsAutopilotDeploymentProfileRequest) Get() (resObj *WindowsAutopilotDeploymentProfile, err error) {
+func (r *WindowsAutopilotDeploymentProfileRequest) Get(ctx context.Context) (resObj *WindowsAutopilotDeploymentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsAutopilotDeploymentProfile
-func (r *WindowsAutopilotDeploymentProfileRequest) Update(reqObj *WindowsAutopilotDeploymentProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsAutopilotDeploymentProfileRequest) Update(ctx context.Context, reqObj *WindowsAutopilotDeploymentProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsAutopilotDeploymentProfile
-func (r *WindowsAutopilotDeploymentProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsAutopilotDeploymentProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AssignedDevices returns request builder for WindowsAutopilotDeviceIdentity collection
@@ -71,10 +72,13 @@ func (b *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequestBuilde
 type WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeviceIdentity, error) {
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsAutopilotDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Pagi
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Pagi
 }
 
 // Get performs GET request for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Get() ([]WindowsAutopilotDeviceIdentity, error) {
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeviceIdentity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Add(reqObj *WindowsAutopilotDeviceIdentity) (resObj *WindowsAutopilotDeviceIdentity, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Add(ctx context.Context, reqObj *WindowsAutopilotDeviceIdentity) (resObj *WindowsAutopilotDeviceIdentity, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequestBuilder) I
 type WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(m
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(m
 }
 
 // Get performs GET request for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Get() ([]WindowsAutopilotDeploymentProfileAssignment, error) {
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Add(reqObj *WindowsAutopilotDeploymentProfileAssignment) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *WindowsAutopilotDeploymentProfileAssignment) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

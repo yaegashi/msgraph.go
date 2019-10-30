@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementExchangeConnectorSyncRequestParameter undocumented
 type DeviceManagementExchangeConnectorSyncRequestParameter struct {
 	// SyncType undocumented
@@ -30,6 +32,6 @@ func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceM
 }
 
 //
-func (r *DeviceManagementExchangeConnectorSyncRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementExchangeConnectorSyncRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

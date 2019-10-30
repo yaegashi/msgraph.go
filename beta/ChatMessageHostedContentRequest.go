@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ChatMessageHostedContentRequestBuilder is request builder for ChatMessageHostedContent
 type ChatMessageHostedContentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ChatMessageHostedContentRequestBuilder) Request() *ChatMessageHostedCon
 type ChatMessageHostedContentRequest struct{ BaseRequest }
 
 // Get performs GET request for ChatMessageHostedContent
-func (r *ChatMessageHostedContentRequest) Get() (resObj *ChatMessageHostedContent, err error) {
+func (r *ChatMessageHostedContentRequest) Get(ctx context.Context) (resObj *ChatMessageHostedContent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ChatMessageHostedContent
-func (r *ChatMessageHostedContentRequest) Update(reqObj *ChatMessageHostedContent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ChatMessageHostedContentRequest) Update(ctx context.Context, reqObj *ChatMessageHostedContent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ChatMessageHostedContent
-func (r *ChatMessageHostedContentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ChatMessageHostedContentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

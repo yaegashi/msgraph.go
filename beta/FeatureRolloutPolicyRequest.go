@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *FeatureRolloutPolicyRequestBuilder) Request() *FeatureRolloutPolicyRequ
 type FeatureRolloutPolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for FeatureRolloutPolicy
-func (r *FeatureRolloutPolicyRequest) Get() (resObj *FeatureRolloutPolicy, err error) {
+func (r *FeatureRolloutPolicyRequest) Get(ctx context.Context) (resObj *FeatureRolloutPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for FeatureRolloutPolicy
-func (r *FeatureRolloutPolicyRequest) Update(reqObj *FeatureRolloutPolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *FeatureRolloutPolicyRequest) Update(ctx context.Context, reqObj *FeatureRolloutPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FeatureRolloutPolicy
-func (r *FeatureRolloutPolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *FeatureRolloutPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AppliesTo returns request builder for DirectoryObject collection
@@ -71,10 +72,13 @@ func (b *FeatureRolloutPolicyAppliesToCollectionRequestBuilder) ID(id string) *D
 type FeatureRolloutPolicyAppliesToCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *FeatureRolloutPolicyAppliesToCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

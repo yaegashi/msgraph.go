@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MacOSVpnConfigurationRequestBuilder is request builder for MacOSVpnConfiguration
 type MacOSVpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *MacOSVpnConfigurationRequestBuilder) Request() *MacOSVpnConfigurationRe
 type MacOSVpnConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for MacOSVpnConfiguration
-func (r *MacOSVpnConfigurationRequest) Get() (resObj *MacOSVpnConfiguration, err error) {
+func (r *MacOSVpnConfigurationRequest) Get(ctx context.Context) (resObj *MacOSVpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MacOSVpnConfiguration
-func (r *MacOSVpnConfigurationRequest) Update(reqObj *MacOSVpnConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MacOSVpnConfigurationRequest) Update(ctx context.Context, reqObj *MacOSVpnConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSVpnConfiguration
-func (r *MacOSVpnConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MacOSVpnConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

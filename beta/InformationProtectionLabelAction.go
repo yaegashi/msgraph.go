@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -62,8 +63,8 @@ func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request
 }
 
 //
-func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post() (resObj *InformationProtectionContentLabel, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post(ctx context.Context) (resObj *InformationProtectionContentLabel, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -89,10 +90,13 @@ func (b *InformationProtectionLabelCollectionEvaluateApplicationRequestBuilder) 
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -126,7 +130,11 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -134,12 +142,12 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Get() ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Get(ctx context.Context) ([][]InformationProtectionAction, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -164,10 +172,13 @@ func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Requ
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -201,7 +212,11 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(meth
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -209,12 +224,12 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(meth
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Get() ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Get(ctx context.Context) ([][]InformationProtectionAction, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -239,10 +254,13 @@ func (b *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Paging(method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -276,7 +294,11 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -284,10 +306,10 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Get() ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Get(ctx context.Context) ([][]InformationProtectionAction, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

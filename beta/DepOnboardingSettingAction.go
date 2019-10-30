@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DepOnboardingSettingUploadDepTokenRequestParameter undocumented
 type DepOnboardingSettingUploadDepTokenRequestParameter struct {
 	// AppleID undocumented
@@ -44,8 +46,8 @@ func (b *DepOnboardingSettingUploadDepTokenRequestBuilder) Request() *DepOnboard
 }
 
 //
-func (r *DepOnboardingSettingUploadDepTokenRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DepOnboardingSettingUploadDepTokenRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -70,8 +72,8 @@ func (b *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestBuilder)
 }
 
 //
-func (r *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -96,8 +98,8 @@ func (b *DepOnboardingSettingShareForSchoolDataSyncServiceRequestBuilder) Reques
 }
 
 //
-func (r *DepOnboardingSettingShareForSchoolDataSyncServiceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DepOnboardingSettingShareForSchoolDataSyncServiceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -122,6 +124,6 @@ func (b *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestBuilder) Requ
 }
 
 //
-func (r *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DepOnboardingSettingUnshareForSchoolDataSyncServiceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

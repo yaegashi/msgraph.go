@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SynchronizationJobCollectionValidateCredentialsRequestParameter undocumented
 type SynchronizationJobCollectionValidateCredentialsRequestParameter struct {
 	// ApplicationIdentifier undocumented
@@ -76,8 +78,8 @@ func (b *SynchronizationJobCollectionValidateCredentialsRequestBuilder) Request(
 }
 
 //
-func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobCollectionValidateCredentialsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -102,8 +104,8 @@ func (b *SynchronizationJobPauseRequestBuilder) Request() *SynchronizationJobPau
 }
 
 //
-func (r *SynchronizationJobPauseRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobPauseRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -128,8 +130,8 @@ func (b *SynchronizationJobStartRequestBuilder) Request() *SynchronizationJobSta
 }
 
 //
-func (r *SynchronizationJobStartRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobStartRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -154,8 +156,8 @@ func (b *SynchronizationJobStopRequestBuilder) Request() *SynchronizationJobStop
 }
 
 //
-func (r *SynchronizationJobStopRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobStopRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -180,8 +182,8 @@ func (b *SynchronizationJobApplyRequestBuilder) Request() *SynchronizationJobApp
 }
 
 //
-func (r *SynchronizationJobApplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobApplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -206,8 +208,8 @@ func (b *SynchronizationJobRestartRequestBuilder) Request() *SynchronizationJobR
 }
 
 //
-func (r *SynchronizationJobRestartRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobRestartRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -232,6 +234,6 @@ func (b *SynchronizationJobValidateCredentialsRequestBuilder) Request() *Synchro
 }
 
 //
-func (r *SynchronizationJobValidateCredentialsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SynchronizationJobValidateCredentialsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

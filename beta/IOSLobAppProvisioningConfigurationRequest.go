@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *IOSLobAppProvisioningConfigurationRequestBuilder) Request() *IOSLobAppP
 type IOSLobAppProvisioningConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for IOSLobAppProvisioningConfiguration
-func (r *IOSLobAppProvisioningConfigurationRequest) Get() (resObj *IOSLobAppProvisioningConfiguration, err error) {
+func (r *IOSLobAppProvisioningConfigurationRequest) Get(ctx context.Context) (resObj *IOSLobAppProvisioningConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IOSLobAppProvisioningConfiguration
-func (r *IOSLobAppProvisioningConfigurationRequest) Update(reqObj *IOSLobAppProvisioningConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IOSLobAppProvisioningConfigurationRequest) Update(ctx context.Context, reqObj *IOSLobAppProvisioningConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSLobAppProvisioningConfiguration
-func (r *IOSLobAppProvisioningConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IOSLobAppProvisioningConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for IOSLobAppProvisioningConfigurationAssignment collection
@@ -71,10 +72,13 @@ func (b *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequestBuilder) 
 type IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IOSLobAppProvisioningConfigurationAssignment collection
-func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSLobAppProvisioningConfigurationAssignment, error) {
+func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IOSLobAppProvisioningConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Paging(
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Paging(
 }
 
 // Get performs GET request for IOSLobAppProvisioningConfigurationAssignment collection
-func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Get() ([]IOSLobAppProvisioningConfigurationAssignment, error) {
+func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]IOSLobAppProvisioningConfigurationAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for IOSLobAppProvisioningConfigurationAssignment collection
-func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Add(reqObj *IOSLobAppProvisioningConfigurationAssignment) (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *IOSLobAppProvisioningConfigurationAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *IOSLobAppProvisioningConfigurationAssignment) (resObj *IOSLobAppProvisioningConfigurationAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequestBuilde
 type IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Pagi
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Pagi
 }
 
 // Get performs GET request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Get() ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
+func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceMobileAppConfigurationDeviceStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationDeviceStatus collection
-func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *IOSLobAppProvisioningConfigurationDeviceStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequestBuil
 type IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppProvisioningConfigGroupAssignment collection
-func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppProvisioningConfigGroupAssignment, error) {
+func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppProvisioningConfigGroupAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Pa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Pa
 }
 
 // Get performs GET request for MobileAppProvisioningConfigGroupAssignment collection
-func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Get() ([]MobileAppProvisioningConfigGroupAssignment, error) {
+func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Get(ctx context.Context) ([]MobileAppProvisioningConfigGroupAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MobileAppProvisioningConfigGroupAssignment collection
-func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Add(reqObj *MobileAppProvisioningConfigGroupAssignment) (resObj *MobileAppProvisioningConfigGroupAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *IOSLobAppProvisioningConfigurationGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *MobileAppProvisioningConfigGroupAssignment) (resObj *MobileAppProvisioningConfigGroupAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequestBuilder)
 type IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
+func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Paging
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,16 +406,16 @@ func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Paging
 }
 
 // Get performs GET request for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Get() ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
+func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceMobileAppConfigurationUserStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfigurationUserStatus collection
-func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfigurationUserStatus) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *IOSLobAppProvisioningConfigurationUserStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceMobileAppConfigurationUserStatus) (resObj *ManagedDeviceMobileAppConfigurationUserStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

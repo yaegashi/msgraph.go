@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MacOSEnterpriseWiFiConfigurationRequestBuilder is request builder for MacOSEnterpriseWiFiConfiguration
 type MacOSEnterpriseWiFiConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *MacOSEnterpriseWiFiConfigurationRequestBuilder) Request() *MacOSEnterpr
 type MacOSEnterpriseWiFiConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for MacOSEnterpriseWiFiConfiguration
-func (r *MacOSEnterpriseWiFiConfigurationRequest) Get() (resObj *MacOSEnterpriseWiFiConfiguration, err error) {
+func (r *MacOSEnterpriseWiFiConfigurationRequest) Get(ctx context.Context) (resObj *MacOSEnterpriseWiFiConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MacOSEnterpriseWiFiConfiguration
-func (r *MacOSEnterpriseWiFiConfigurationRequest) Update(reqObj *MacOSEnterpriseWiFiConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MacOSEnterpriseWiFiConfigurationRequest) Update(ctx context.Context, reqObj *MacOSEnterpriseWiFiConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSEnterpriseWiFiConfiguration
-func (r *MacOSEnterpriseWiFiConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MacOSEnterpriseWiFiConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property

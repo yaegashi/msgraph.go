@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookApplicationCalculateRequestParameter undocumented
 type WorkbookApplicationCalculateRequestParameter struct {
 	// CalculationType undocumented
@@ -30,6 +32,6 @@ func (b *WorkbookApplicationCalculateRequestBuilder) Request() *WorkbookApplicat
 }
 
 //
-func (r *WorkbookApplicationCalculateRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookApplicationCalculateRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

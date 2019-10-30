@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationDeviceSummary
 type ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedDeviceMobileAppConfigurationDeviceSummaryRequestBuilder) Request
 type ManagedDeviceMobileAppConfigurationDeviceSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedDeviceMobileAppConfigurationDeviceSummary
-func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Get() (resObj *ManagedDeviceMobileAppConfigurationDeviceSummary, err error) {
+func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Get(ctx context.Context) (resObj *ManagedDeviceMobileAppConfigurationDeviceSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedDeviceMobileAppConfigurationDeviceSummary
-func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Update(reqObj *ManagedDeviceMobileAppConfigurationDeviceSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Update(ctx context.Context, reqObj *ManagedDeviceMobileAppConfigurationDeviceSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationDeviceSummary
-func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedDeviceMobileAppConfigurationDeviceSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

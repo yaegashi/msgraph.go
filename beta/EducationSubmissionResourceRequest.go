@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EducationSubmissionResourceRequestBuilder is request builder for EducationSubmissionResource
 type EducationSubmissionResourceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EducationSubmissionResourceRequestBuilder) Request() *EducationSubmissi
 type EducationSubmissionResourceRequest struct{ BaseRequest }
 
 // Get performs GET request for EducationSubmissionResource
-func (r *EducationSubmissionResourceRequest) Get() (resObj *EducationSubmissionResource, err error) {
+func (r *EducationSubmissionResourceRequest) Get(ctx context.Context) (resObj *EducationSubmissionResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EducationSubmissionResource
-func (r *EducationSubmissionResourceRequest) Update(reqObj *EducationSubmissionResource) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EducationSubmissionResourceRequest) Update(ctx context.Context, reqObj *EducationSubmissionResource) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSubmissionResource
-func (r *EducationSubmissionResourceRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EducationSubmissionResourceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

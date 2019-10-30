@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *UserAppInstallStatusRequestBuilder) Request() *UserAppInstallStatusRequ
 type UserAppInstallStatusRequest struct{ BaseRequest }
 
 // Get performs GET request for UserAppInstallStatus
-func (r *UserAppInstallStatusRequest) Get() (resObj *UserAppInstallStatus, err error) {
+func (r *UserAppInstallStatusRequest) Get(ctx context.Context) (resObj *UserAppInstallStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UserAppInstallStatus
-func (r *UserAppInstallStatusRequest) Update(reqObj *UserAppInstallStatus) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UserAppInstallStatusRequest) Update(ctx context.Context, reqObj *UserAppInstallStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserAppInstallStatus
-func (r *UserAppInstallStatusRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UserAppInstallStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // App is navigation property
@@ -78,10 +79,13 @@ func (b *UserAppInstallStatusDeviceStatusesCollectionRequestBuilder) ID(id strin
 type UserAppInstallStatusDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppInstallStatus collection
-func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppInstallStatus, error) {
+func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppInstallStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,16 +131,16 @@ func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for MobileAppInstallStatus collection
-func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Get() ([]MobileAppInstallStatus, error) {
+func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Get(ctx context.Context) ([]MobileAppInstallStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MobileAppInstallStatus collection
-func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Add(reqObj *MobileAppInstallStatus) (resObj *MobileAppInstallStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *UserAppInstallStatusDeviceStatusesCollectionRequest) Add(ctx context.Context, reqObj *MobileAppInstallStatus) (resObj *MobileAppInstallStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

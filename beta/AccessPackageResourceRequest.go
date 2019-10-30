@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AccessPackageResourceRequestBuilder) Request() *AccessPackageResourceRe
 type AccessPackageResourceRequest struct{ BaseRequest }
 
 // Get performs GET request for AccessPackageResource
-func (r *AccessPackageResourceRequest) Get() (resObj *AccessPackageResource, err error) {
+func (r *AccessPackageResourceRequest) Get(ctx context.Context) (resObj *AccessPackageResource, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AccessPackageResource
-func (r *AccessPackageResourceRequest) Update(reqObj *AccessPackageResource) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AccessPackageResourceRequest) Update(ctx context.Context, reqObj *AccessPackageResource) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageResource
-func (r *AccessPackageResourceRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AccessPackageResourceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AccessPackageResourceRoles returns request builder for AccessPackageResourceRole collection
@@ -71,10 +72,13 @@ func (b *AccessPackageResourceAccessPackageResourceRolesCollectionRequestBuilder
 type AccessPackageResourceAccessPackageResourceRolesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceRole collection
-func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceRole, error) {
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceRole, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Pagin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Pagin
 }
 
 // Get performs GET request for AccessPackageResourceRole collection
-func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Get() ([]AccessPackageResourceRole, error) {
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRole, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessPackageResourceRole collection
-func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Add(reqObj *AccessPackageResourceRole) (resObj *AccessPackageResourceRole, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRole) (resObj *AccessPackageResourceRole, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *AccessPackageResourceAccessPackageResourceScopesCollectionRequestBuilde
 type AccessPackageResourceAccessPackageResourceScopesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceScope collection
-func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageResourceScope, error) {
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceScope, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Pagi
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Pagi
 }
 
 // Get performs GET request for AccessPackageResourceScope collection
-func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Get() ([]AccessPackageResourceScope, error) {
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceScope, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessPackageResourceScope collection
-func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Add(reqObj *AccessPackageResourceScope) (resObj *AccessPackageResourceScope, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceScope) (resObj *AccessPackageResourceScope, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // BookingAppointmentCancelRequestParameter undocumented
 type BookingAppointmentCancelRequestParameter struct {
 	// CancellationMessage undocumented
@@ -30,6 +32,6 @@ func (b *BookingAppointmentCancelRequestBuilder) Request() *BookingAppointmentCa
 }
 
 //
-func (r *BookingAppointmentCancelRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *BookingAppointmentCancelRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

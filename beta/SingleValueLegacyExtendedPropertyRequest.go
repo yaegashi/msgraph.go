@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SingleValueLegacyExtendedPropertyRequestBuilder is request builder for SingleValueLegacyExtendedProperty
 type SingleValueLegacyExtendedPropertyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SingleValueLegacyExtendedPropertyRequestBuilder) Request() *SingleValue
 type SingleValueLegacyExtendedPropertyRequest struct{ BaseRequest }
 
 // Get performs GET request for SingleValueLegacyExtendedProperty
-func (r *SingleValueLegacyExtendedPropertyRequest) Get() (resObj *SingleValueLegacyExtendedProperty, err error) {
+func (r *SingleValueLegacyExtendedPropertyRequest) Get(ctx context.Context) (resObj *SingleValueLegacyExtendedProperty, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SingleValueLegacyExtendedProperty
-func (r *SingleValueLegacyExtendedPropertyRequest) Update(reqObj *SingleValueLegacyExtendedProperty) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SingleValueLegacyExtendedPropertyRequest) Update(ctx context.Context, reqObj *SingleValueLegacyExtendedProperty) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SingleValueLegacyExtendedProperty
-func (r *SingleValueLegacyExtendedPropertyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SingleValueLegacyExtendedPropertyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

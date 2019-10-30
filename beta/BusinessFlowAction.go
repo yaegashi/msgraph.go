@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // BusinessFlowRecordDecisionsRequestParameter undocumented
 type BusinessFlowRecordDecisionsRequestParameter struct {
 	// ReviewResult undocumented
@@ -32,6 +34,6 @@ func (b *BusinessFlowRecordDecisionsRequestBuilder) Request() *BusinessFlowRecor
 }
 
 //
-func (r *BusinessFlowRecordDecisionsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *BusinessFlowRecordDecisionsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

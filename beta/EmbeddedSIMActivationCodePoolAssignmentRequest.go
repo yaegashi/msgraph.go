@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EmbeddedSIMActivationCodePoolAssignmentRequestBuilder is request builder for EmbeddedSIMActivationCodePoolAssignment
 type EmbeddedSIMActivationCodePoolAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EmbeddedSIMActivationCodePoolAssignmentRequestBuilder) Request() *Embed
 type EmbeddedSIMActivationCodePoolAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for EmbeddedSIMActivationCodePoolAssignment
-func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Get() (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Get(ctx context.Context) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EmbeddedSIMActivationCodePoolAssignment
-func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Update(reqObj *EmbeddedSIMActivationCodePoolAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Update(ctx context.Context, reqObj *EmbeddedSIMActivationCodePoolAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EmbeddedSIMActivationCodePoolAssignment
-func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EmbeddedSIMActivationCodePoolAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

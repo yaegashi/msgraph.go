@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookCreateSessionRequestParameter undocumented
 type WorkbookCreateSessionRequestParameter struct {
 	// PersistChanges undocumented
@@ -38,8 +40,8 @@ func (b *WorkbookCreateSessionRequestBuilder) Request() *WorkbookCreateSessionRe
 }
 
 //
-func (r *WorkbookCreateSessionRequest) Post() (resObj *WorkbookSessionInfo, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookCreateSessionRequest) Post(ctx context.Context) (resObj *WorkbookSessionInfo, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -65,8 +67,8 @@ func (b *WorkbookCloseSessionRequestBuilder) Request() *WorkbookCloseSessionRequ
 }
 
 //
-func (r *WorkbookCloseSessionRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookCloseSessionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -91,6 +93,6 @@ func (b *WorkbookRefreshSessionRequestBuilder) Request() *WorkbookRefreshSession
 }
 
 //
-func (r *WorkbookRefreshSessionRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRefreshSessionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

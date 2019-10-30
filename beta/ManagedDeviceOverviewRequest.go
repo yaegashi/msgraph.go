@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedDeviceOverviewRequestBuilder is request builder for ManagedDeviceOverview
 type ManagedDeviceOverviewRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedDeviceOverviewRequestBuilder) Request() *ManagedDeviceOverviewRe
 type ManagedDeviceOverviewRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedDeviceOverview
-func (r *ManagedDeviceOverviewRequest) Get() (resObj *ManagedDeviceOverview, err error) {
+func (r *ManagedDeviceOverviewRequest) Get(ctx context.Context) (resObj *ManagedDeviceOverview, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedDeviceOverview
-func (r *ManagedDeviceOverviewRequest) Update(reqObj *ManagedDeviceOverview) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedDeviceOverviewRequest) Update(ctx context.Context, reqObj *ManagedDeviceOverview) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceOverview
-func (r *ManagedDeviceOverviewRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedDeviceOverviewRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

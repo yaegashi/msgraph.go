@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ListItemVersionRestoreVersionRequestParameter undocumented
 type ListItemVersionRestoreVersionRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *ListItemVersionRestoreVersionRequestBuilder) Request() *ListItemVersion
 }
 
 //
-func (r *ListItemVersionRestoreVersionRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ListItemVersionRestoreVersionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

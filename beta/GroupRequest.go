@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *GroupRequestBuilder) Request() *GroupRequest {
 type GroupRequest struct{ BaseRequest }
 
 // Get performs GET request for Group
-func (r *GroupRequest) Get() (resObj *Group, err error) {
+func (r *GroupRequest) Get(ctx context.Context) (resObj *Group, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Group
-func (r *GroupRequest) Update(reqObj *Group) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupRequest) Update(ctx context.Context, reqObj *Group) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Group
-func (r *GroupRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AcceptedSenders returns request builder for DirectoryObject collection
@@ -71,10 +72,13 @@ func (b *GroupAcceptedSendersCollectionRequestBuilder) ID(id string) *DirectoryO
 type GroupAcceptedSendersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupAcceptedSendersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *GroupAcceptedSendersCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *GroupAcceptedSendersCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupAcceptedSendersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupAcceptedSendersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *GroupAppRoleAssignmentsCollectionRequestBuilder) ID(id string) *AppRole
 type GroupAppRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AppRoleAssignment collection
-func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppRoleAssignment, error) {
+func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AppRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for AppRoleAssignment collection
-func (r *GroupAppRoleAssignmentsCollectionRequest) Get() ([]AppRoleAssignment, error) {
+func (r *GroupAppRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]AppRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AppRoleAssignment collection
-func (r *GroupAppRoleAssignmentsCollectionRequest) Add(reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupAppRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -252,10 +267,13 @@ func (b *GroupCalendarViewCollectionRequestBuilder) ID(id string) *EventRequestB
 type GroupCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *GroupCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
+func (r *GroupCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -289,7 +307,11 @@ func (r *GroupCalendarViewCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -297,17 +319,17 @@ func (r *GroupCalendarViewCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for Event collection
-func (r *GroupCalendarViewCollectionRequest) Get() ([]Event, error) {
+func (r *GroupCalendarViewCollectionRequest) Get(ctx context.Context) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Event collection
-func (r *GroupCalendarViewCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupCalendarViewCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *GroupChannelsCollectionRequestBuilder) ID(id string) *ChannelRequestBui
 type GroupChannelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Channel collection
-func (r *GroupChannelsCollectionRequest) Paging(method, path string, obj interface{}) ([]Channel, error) {
+func (r *GroupChannelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Channel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *GroupChannelsCollectionRequest) Paging(method, path string, obj interfa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,17 +413,17 @@ func (r *GroupChannelsCollectionRequest) Paging(method, path string, obj interfa
 }
 
 // Get performs GET request for Channel collection
-func (r *GroupChannelsCollectionRequest) Get() ([]Channel, error) {
+func (r *GroupChannelsCollectionRequest) Get(ctx context.Context) ([]Channel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Channel collection
-func (r *GroupChannelsCollectionRequest) Add(reqObj *Channel) (resObj *Channel, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupChannelsCollectionRequest) Add(ctx context.Context, reqObj *Channel) (resObj *Channel, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -426,10 +455,13 @@ func (b *GroupConversationsCollectionRequestBuilder) ID(id string) *Conversation
 type GroupConversationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Conversation collection
-func (r *GroupConversationsCollectionRequest) Paging(method, path string, obj interface{}) ([]Conversation, error) {
+func (r *GroupConversationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Conversation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -463,7 +495,11 @@ func (r *GroupConversationsCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -471,17 +507,17 @@ func (r *GroupConversationsCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for Conversation collection
-func (r *GroupConversationsCollectionRequest) Get() ([]Conversation, error) {
+func (r *GroupConversationsCollectionRequest) Get(ctx context.Context) ([]Conversation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Conversation collection
-func (r *GroupConversationsCollectionRequest) Add(reqObj *Conversation) (resObj *Conversation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupConversationsCollectionRequest) Add(ctx context.Context, reqObj *Conversation) (resObj *Conversation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -527,10 +563,13 @@ func (b *GroupDrivesCollectionRequestBuilder) ID(id string) *DriveRequestBuilder
 type GroupDrivesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Drive collection
-func (r *GroupDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
+func (r *GroupDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Drive, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -564,7 +603,11 @@ func (r *GroupDrivesCollectionRequest) Paging(method, path string, obj interface
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -572,17 +615,17 @@ func (r *GroupDrivesCollectionRequest) Paging(method, path string, obj interface
 }
 
 // Get performs GET request for Drive collection
-func (r *GroupDrivesCollectionRequest) Get() ([]Drive, error) {
+func (r *GroupDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Drive collection
-func (r *GroupDrivesCollectionRequest) Add(reqObj *Drive) (resObj *Drive, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (resObj *Drive, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -614,10 +657,13 @@ func (b *GroupEndpointsCollectionRequestBuilder) ID(id string) *EndpointRequestB
 type GroupEndpointsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Endpoint collection
-func (r *GroupEndpointsCollectionRequest) Paging(method, path string, obj interface{}) ([]Endpoint, error) {
+func (r *GroupEndpointsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Endpoint, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -651,7 +697,11 @@ func (r *GroupEndpointsCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -659,17 +709,17 @@ func (r *GroupEndpointsCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for Endpoint collection
-func (r *GroupEndpointsCollectionRequest) Get() ([]Endpoint, error) {
+func (r *GroupEndpointsCollectionRequest) Get(ctx context.Context) ([]Endpoint, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Endpoint collection
-func (r *GroupEndpointsCollectionRequest) Add(reqObj *Endpoint) (resObj *Endpoint, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupEndpointsCollectionRequest) Add(ctx context.Context, reqObj *Endpoint) (resObj *Endpoint, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -701,10 +751,13 @@ func (b *GroupEventsCollectionRequestBuilder) ID(id string) *EventRequestBuilder
 type GroupEventsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *GroupEventsCollectionRequest) Paging(method, path string, obj interface{}) ([]Event, error) {
+func (r *GroupEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -738,7 +791,11 @@ func (r *GroupEventsCollectionRequest) Paging(method, path string, obj interface
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -746,17 +803,17 @@ func (r *GroupEventsCollectionRequest) Paging(method, path string, obj interface
 }
 
 // Get performs GET request for Event collection
-func (r *GroupEventsCollectionRequest) Get() ([]Event, error) {
+func (r *GroupEventsCollectionRequest) Get(ctx context.Context) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Event collection
-func (r *GroupEventsCollectionRequest) Add(reqObj *Event) (resObj *Event, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupEventsCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -788,10 +845,13 @@ func (b *GroupExtensionsCollectionRequestBuilder) ID(id string) *ExtensionReques
 type GroupExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Extension collection
-func (r *GroupExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Extension, error) {
+func (r *GroupExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Extension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -825,7 +885,11 @@ func (r *GroupExtensionsCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -833,17 +897,17 @@ func (r *GroupExtensionsCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for Extension collection
-func (r *GroupExtensionsCollectionRequest) Get() ([]Extension, error) {
+func (r *GroupExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Extension collection
-func (r *GroupExtensionsCollectionRequest) Add(reqObj *Extension) (resObj *Extension, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -875,10 +939,13 @@ func (b *GroupGroupLifecyclePoliciesCollectionRequestBuilder) ID(id string) *Gro
 type GroupGroupLifecyclePoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
+func (r *GroupGroupLifecyclePoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -912,7 +979,11 @@ func (r *GroupGroupLifecyclePoliciesCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -920,17 +991,17 @@ func (r *GroupGroupLifecyclePoliciesCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Get() ([]GroupLifecyclePolicy, error) {
+func (r *GroupGroupLifecyclePoliciesCollectionRequest) Get(ctx context.Context) ([]GroupLifecyclePolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Add(reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupGroupLifecyclePoliciesCollectionRequest) Add(ctx context.Context, reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -962,10 +1033,13 @@ func (b *GroupMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObjectRe
 type GroupMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -999,7 +1073,11 @@ func (r *GroupMemberOfCollectionRequest) Paging(method, path string, obj interfa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1007,17 +1085,17 @@ func (r *GroupMemberOfCollectionRequest) Paging(method, path string, obj interfa
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1049,10 +1127,13 @@ func (b *GroupMembersCollectionRequestBuilder) ID(id string) *DirectoryObjectReq
 type GroupMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1086,7 +1167,11 @@ func (r *GroupMembersCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1094,17 +1179,17 @@ func (r *GroupMembersCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1136,10 +1221,13 @@ func (b *GroupMembersWithLicenseErrorsCollectionRequestBuilder) ID(id string) *D
 type GroupMembersWithLicenseErrorsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupMembersWithLicenseErrorsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1173,7 +1261,11 @@ func (r *GroupMembersWithLicenseErrorsCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1181,17 +1273,17 @@ func (r *GroupMembersWithLicenseErrorsCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupMembersWithLicenseErrorsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupMembersWithLicenseErrorsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1230,10 +1322,13 @@ func (b *GroupOwnersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequ
 type GroupOwnersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupOwnersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1267,7 +1362,11 @@ func (r *GroupOwnersCollectionRequest) Paging(method, path string, obj interface
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1275,17 +1374,17 @@ func (r *GroupOwnersCollectionRequest) Paging(method, path string, obj interface
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupOwnersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupOwnersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1317,10 +1416,13 @@ func (b *GroupPermissionGrantsCollectionRequestBuilder) ID(id string) *ResourceS
 type GroupPermissionGrantsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ResourceSpecificPermissionGrant collection
-func (r *GroupPermissionGrantsCollectionRequest) Paging(method, path string, obj interface{}) ([]ResourceSpecificPermissionGrant, error) {
+func (r *GroupPermissionGrantsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ResourceSpecificPermissionGrant, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1354,7 +1456,11 @@ func (r *GroupPermissionGrantsCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1362,17 +1468,17 @@ func (r *GroupPermissionGrantsCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for ResourceSpecificPermissionGrant collection
-func (r *GroupPermissionGrantsCollectionRequest) Get() ([]ResourceSpecificPermissionGrant, error) {
+func (r *GroupPermissionGrantsCollectionRequest) Get(ctx context.Context) ([]ResourceSpecificPermissionGrant, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ResourceSpecificPermissionGrant collection
-func (r *GroupPermissionGrantsCollectionRequest) Add(reqObj *ResourceSpecificPermissionGrant) (resObj *ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupPermissionGrantsCollectionRequest) Add(ctx context.Context, reqObj *ResourceSpecificPermissionGrant) (resObj *ResourceSpecificPermissionGrant, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1411,10 +1517,13 @@ func (b *GroupPhotosCollectionRequestBuilder) ID(id string) *ProfilePhotoRequest
 type GroupPhotosCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Paging(method, path string, obj interface{}) ([]ProfilePhoto, error) {
+func (r *GroupPhotosCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ProfilePhoto, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1448,7 +1557,11 @@ func (r *GroupPhotosCollectionRequest) Paging(method, path string, obj interface
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1456,17 +1569,17 @@ func (r *GroupPhotosCollectionRequest) Paging(method, path string, obj interface
 }
 
 // Get performs GET request for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Get() ([]ProfilePhoto, error) {
+func (r *GroupPhotosCollectionRequest) Get(ctx context.Context) ([]ProfilePhoto, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Add(reqObj *ProfilePhoto) (resObj *ProfilePhoto, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupPhotosCollectionRequest) Add(ctx context.Context, reqObj *ProfilePhoto) (resObj *ProfilePhoto, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1505,10 +1618,13 @@ func (b *GroupRejectedSendersCollectionRequestBuilder) ID(id string) *DirectoryO
 type GroupRejectedSendersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupRejectedSendersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1542,7 +1658,11 @@ func (r *GroupRejectedSendersCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1550,17 +1670,17 @@ func (r *GroupRejectedSendersCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupRejectedSendersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupRejectedSendersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1592,10 +1712,13 @@ func (b *GroupSettingsCollectionRequestBuilder) ID(id string) *DirectorySettingR
 type GroupSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectorySetting collection
-func (r *GroupSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectorySetting, error) {
+func (r *GroupSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectorySetting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1629,7 +1752,11 @@ func (r *GroupSettingsCollectionRequest) Paging(method, path string, obj interfa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1637,17 +1764,17 @@ func (r *GroupSettingsCollectionRequest) Paging(method, path string, obj interfa
 }
 
 // Get performs GET request for DirectorySetting collection
-func (r *GroupSettingsCollectionRequest) Get() ([]DirectorySetting, error) {
+func (r *GroupSettingsCollectionRequest) Get(ctx context.Context) ([]DirectorySetting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectorySetting collection
-func (r *GroupSettingsCollectionRequest) Add(reqObj *DirectorySetting) (resObj *DirectorySetting, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupSettingsCollectionRequest) Add(ctx context.Context, reqObj *DirectorySetting) (resObj *DirectorySetting, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1679,10 +1806,13 @@ func (b *GroupSitesCollectionRequestBuilder) ID(id string) *SiteRequestBuilder {
 type GroupSitesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Site collection
-func (r *GroupSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
+func (r *GroupSitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1716,7 +1846,11 @@ func (r *GroupSitesCollectionRequest) Paging(method, path string, obj interface{
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1724,17 +1858,17 @@ func (r *GroupSitesCollectionRequest) Paging(method, path string, obj interface{
 }
 
 // Get performs GET request for Site collection
-func (r *GroupSitesCollectionRequest) Get() ([]Site, error) {
+func (r *GroupSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Site collection
-func (r *GroupSitesCollectionRequest) Add(reqObj *Site) (resObj *Site, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1773,10 +1907,13 @@ func (b *GroupThreadsCollectionRequestBuilder) ID(id string) *ConversationThread
 type GroupThreadsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationThread, error) {
+func (r *GroupThreadsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConversationThread, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1810,7 +1947,11 @@ func (r *GroupThreadsCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1818,17 +1959,17 @@ func (r *GroupThreadsCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Get() ([]ConversationThread, error) {
+func (r *GroupThreadsCollectionRequest) Get(ctx context.Context) ([]ConversationThread, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Add(reqObj *ConversationThread) (resObj *ConversationThread, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupThreadsCollectionRequest) Add(ctx context.Context, reqObj *ConversationThread) (resObj *ConversationThread, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1860,10 +2001,13 @@ func (b *GroupTransitiveMemberOfCollectionRequestBuilder) ID(id string) *Directo
 type GroupTransitiveMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1897,7 +2041,11 @@ func (r *GroupTransitiveMemberOfCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1905,17 +2053,17 @@ func (r *GroupTransitiveMemberOfCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1947,10 +2095,13 @@ func (b *GroupTransitiveMembersCollectionRequestBuilder) ID(id string) *Director
 type GroupTransitiveMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GroupTransitiveMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1984,7 +2135,11 @@ func (r *GroupTransitiveMembersCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1992,16 +2147,16 @@ func (r *GroupTransitiveMembersCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GroupTransitiveMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GroupTransitiveMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

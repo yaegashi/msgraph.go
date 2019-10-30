@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedAppProtectionRequestBuilder is request builder for ManagedAppProtection
 type ManagedAppProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedAppProtectionRequestBuilder) Request() *ManagedAppProtectionRequ
 type ManagedAppProtectionRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedAppProtection
-func (r *ManagedAppProtectionRequest) Get() (resObj *ManagedAppProtection, err error) {
+func (r *ManagedAppProtectionRequest) Get(ctx context.Context) (resObj *ManagedAppProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedAppProtection
-func (r *ManagedAppProtectionRequest) Update(reqObj *ManagedAppProtection) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedAppProtectionRequest) Update(ctx context.Context, reqObj *ManagedAppProtection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppProtection
-func (r *ManagedAppProtectionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedAppProtectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

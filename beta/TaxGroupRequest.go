@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TaxGroupRequestBuilder is request builder for TaxGroup
 type TaxGroupRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TaxGroupRequestBuilder) Request() *TaxGroupRequest {
 type TaxGroupRequest struct{ BaseRequest }
 
 // Get performs GET request for TaxGroup
-func (r *TaxGroupRequest) Get() (resObj *TaxGroup, err error) {
+func (r *TaxGroupRequest) Get(ctx context.Context) (resObj *TaxGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TaxGroup
-func (r *TaxGroupRequest) Update(reqObj *TaxGroup) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TaxGroupRequest) Update(ctx context.Context, reqObj *TaxGroup) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TaxGroup
-func (r *TaxGroupRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TaxGroupRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

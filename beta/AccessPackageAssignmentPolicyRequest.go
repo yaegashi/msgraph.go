@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AccessPackageAssignmentPolicyRequestBuilder) Request() *AccessPackageAs
 type AccessPackageAssignmentPolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for AccessPackageAssignmentPolicy
-func (r *AccessPackageAssignmentPolicyRequest) Get() (resObj *AccessPackageAssignmentPolicy, err error) {
+func (r *AccessPackageAssignmentPolicyRequest) Get(ctx context.Context) (resObj *AccessPackageAssignmentPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AccessPackageAssignmentPolicy
-func (r *AccessPackageAssignmentPolicyRequest) Update(reqObj *AccessPackageAssignmentPolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AccessPackageAssignmentPolicyRequest) Update(ctx context.Context, reqObj *AccessPackageAssignmentPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageAssignmentPolicy
-func (r *AccessPackageAssignmentPolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AccessPackageAssignmentPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AccessPackage is navigation property
@@ -85,10 +86,13 @@ func (b *AccessPackageAssignmentPolicyApproversCollectionRequestBuilder) ID(id s
 type AccessPackageAssignmentPolicyApproversCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageSubject, error) {
+func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageSubject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -122,7 +126,11 @@ func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -130,17 +138,17 @@ func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Get() ([]AccessPackageSubject, error) {
+func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Get(ctx context.Context) ([]AccessPackageSubject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Add(reqObj *AccessPackageSubject) (resObj *AccessPackageSubject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessPackageAssignmentPolicyApproversCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageSubject) (resObj *AccessPackageSubject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -172,10 +180,13 @@ func (b *AccessPackageAssignmentPolicySubjectsScopeCollectionRequestBuilder) ID(
 type AccessPackageAssignmentPolicySubjectsScopeCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageSubject, error) {
+func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageSubject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -209,7 +220,11 @@ func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -217,16 +232,16 @@ func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Paging(met
 }
 
 // Get performs GET request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Get() ([]AccessPackageSubject, error) {
+func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Get(ctx context.Context) ([]AccessPackageSubject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessPackageSubject collection
-func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Add(reqObj *AccessPackageSubject) (resObj *AccessPackageSubject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessPackageAssignmentPolicySubjectsScopeCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageSubject) (resObj *AccessPackageSubject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

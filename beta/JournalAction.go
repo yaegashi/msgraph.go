@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // JournalPostRequestParameter undocumented
 type JournalPostRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *JournalPostRequestBuilder) Request() *JournalPostRequest {
 }
 
 //
-func (r *JournalPostRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *JournalPostRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

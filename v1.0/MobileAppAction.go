@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MobileAppAssignRequestParameter undocumented
 type MobileAppAssignRequestParameter struct {
 	// MobileAppAssignments undocumented
@@ -30,6 +32,6 @@ func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
 }
 
 //
-func (r *MobileAppAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MobileAppAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

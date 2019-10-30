@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SalesQuoteMakeInvoiceRequestParameter undocumented
 type SalesQuoteMakeInvoiceRequestParameter struct {
 }
@@ -32,8 +34,8 @@ func (b *SalesQuoteMakeInvoiceRequestBuilder) Request() *SalesQuoteMakeInvoiceRe
 }
 
 //
-func (r *SalesQuoteMakeInvoiceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SalesQuoteMakeInvoiceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -58,6 +60,6 @@ func (b *SalesQuoteSendRequestBuilder) Request() *SalesQuoteSendRequest {
 }
 
 //
-func (r *SalesQuoteSendRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SalesQuoteSendRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

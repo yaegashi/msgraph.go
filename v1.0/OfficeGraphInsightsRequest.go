@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *OfficeGraphInsightsRequestBuilder) Request() *OfficeGraphInsightsReques
 type OfficeGraphInsightsRequest struct{ BaseRequest }
 
 // Get performs GET request for OfficeGraphInsights
-func (r *OfficeGraphInsightsRequest) Get() (resObj *OfficeGraphInsights, err error) {
+func (r *OfficeGraphInsightsRequest) Get(ctx context.Context) (resObj *OfficeGraphInsights, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OfficeGraphInsights
-func (r *OfficeGraphInsightsRequest) Update(reqObj *OfficeGraphInsights) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OfficeGraphInsightsRequest) Update(ctx context.Context, reqObj *OfficeGraphInsights) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OfficeGraphInsights
-func (r *OfficeGraphInsightsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OfficeGraphInsightsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Shared returns request builder for SharedInsight collection
@@ -71,10 +72,13 @@ func (b *OfficeGraphInsightsSharedCollectionRequestBuilder) ID(id string) *Share
 type OfficeGraphInsightsSharedCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(method, path string, obj interface{}) ([]SharedInsight, error) {
+func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SharedInsight, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Get() ([]SharedInsight, error) {
+func (r *OfficeGraphInsightsSharedCollectionRequest) Get(ctx context.Context) ([]SharedInsight, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Add(reqObj *SharedInsight) (resObj *SharedInsight, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OfficeGraphInsightsSharedCollectionRequest) Add(ctx context.Context, reqObj *SharedInsight) (resObj *SharedInsight, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *OfficeGraphInsightsTrendingCollectionRequestBuilder) ID(id string) *Tre
 type OfficeGraphInsightsTrendingCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(method, path string, obj interface{}) ([]Trending, error) {
+func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Trending, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Get() ([]Trending, error) {
+func (r *OfficeGraphInsightsTrendingCollectionRequest) Get(ctx context.Context) ([]Trending, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Add(reqObj *Trending) (resObj *Trending, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OfficeGraphInsightsTrendingCollectionRequest) Add(ctx context.Context, reqObj *Trending) (resObj *Trending, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *OfficeGraphInsightsUsedCollectionRequestBuilder) ID(id string) *UsedIns
 type OfficeGraphInsightsUsedCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(method, path string, obj interface{}) ([]UsedInsight, error) {
+func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UsedInsight, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Get() ([]UsedInsight, error) {
+func (r *OfficeGraphInsightsUsedCollectionRequest) Get(ctx context.Context) ([]UsedInsight, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Add(reqObj *UsedInsight) (resObj *UsedInsight, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OfficeGraphInsightsUsedCollectionRequest) Add(ctx context.Context, reqObj *UsedInsight) (resObj *UsedInsight, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

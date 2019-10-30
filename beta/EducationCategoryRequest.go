@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EducationCategoryRequestBuilder is request builder for EducationCategory
 type EducationCategoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EducationCategoryRequestBuilder) Request() *EducationCategoryRequest {
 type EducationCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for EducationCategory
-func (r *EducationCategoryRequest) Get() (resObj *EducationCategory, err error) {
+func (r *EducationCategoryRequest) Get(ctx context.Context) (resObj *EducationCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EducationCategory
-func (r *EducationCategoryRequest) Update(reqObj *EducationCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EducationCategoryRequest) Update(ctx context.Context, reqObj *EducationCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationCategory
-func (r *EducationCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EducationCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

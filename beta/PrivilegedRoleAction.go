@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedRoleSelfActivateRequestParameter undocumented
 type PrivilegedRoleSelfActivateRequestParameter struct {
 	// Reason undocumented
@@ -40,8 +42,8 @@ func (b *PrivilegedRoleSelfActivateRequestBuilder) Request() *PrivilegedRoleSelf
 }
 
 //
-func (r *PrivilegedRoleSelfActivateRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *PrivilegedRoleSelfActivateRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -67,7 +69,7 @@ func (b *PrivilegedRoleSelfDeactivateRequestBuilder) Request() *PrivilegedRoleSe
 }
 
 //
-func (r *PrivilegedRoleSelfDeactivateRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *PrivilegedRoleSelfDeactivateRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DetectedAppRequestBuilder) Request() *DetectedAppRequest {
 type DetectedAppRequest struct{ BaseRequest }
 
 // Get performs GET request for DetectedApp
-func (r *DetectedAppRequest) Get() (resObj *DetectedApp, err error) {
+func (r *DetectedAppRequest) Get(ctx context.Context) (resObj *DetectedApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DetectedApp
-func (r *DetectedAppRequest) Update(reqObj *DetectedApp) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DetectedAppRequest) Update(ctx context.Context, reqObj *DetectedApp) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DetectedApp
-func (r *DetectedAppRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DetectedAppRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ManagedDevices returns request builder for ManagedDevice collection
@@ -71,10 +72,13 @@ func (b *DetectedAppManagedDevicesCollectionRequestBuilder) ID(id string) *Manag
 type DetectedAppManagedDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDevice collection
-func (r *DetectedAppManagedDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDevice, error) {
+func (r *DetectedAppManagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DetectedAppManagedDevicesCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DetectedAppManagedDevicesCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for ManagedDevice collection
-func (r *DetectedAppManagedDevicesCollectionRequest) Get() ([]ManagedDevice, error) {
+func (r *DetectedAppManagedDevicesCollectionRequest) Get(ctx context.Context) ([]ManagedDevice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDevice collection
-func (r *DetectedAppManagedDevicesCollectionRequest) Add(reqObj *ManagedDevice) (resObj *ManagedDevice, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DetectedAppManagedDevicesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDevice) (resObj *ManagedDevice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

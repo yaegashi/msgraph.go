@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookTableRowRequestBuilder is request builder for WorkbookTableRow
 type WorkbookTableRowRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookTableRowRequestBuilder) Request() *WorkbookTableRowRequest {
 type WorkbookTableRowRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookTableRow
-func (r *WorkbookTableRowRequest) Get() (resObj *WorkbookTableRow, err error) {
+func (r *WorkbookTableRowRequest) Get(ctx context.Context) (resObj *WorkbookTableRow, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookTableRow
-func (r *WorkbookTableRowRequest) Update(reqObj *WorkbookTableRow) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookTableRowRequest) Update(ctx context.Context, reqObj *WorkbookTableRow) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookTableRow
-func (r *WorkbookTableRowRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookTableRowRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

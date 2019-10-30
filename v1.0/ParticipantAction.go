@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ParticipantCollectionInviteRequestParameter undocumented
 type ParticipantCollectionInviteRequestParameter struct {
 	// Participants undocumented
@@ -38,8 +40,8 @@ func (b *ParticipantCollectionInviteRequestBuilder) Request() *ParticipantCollec
 }
 
 //
-func (r *ParticipantCollectionInviteRequest) Post() (resObj *InviteParticipantsOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *ParticipantCollectionInviteRequest) Post(ctx context.Context) (resObj *InviteParticipantsOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -65,7 +67,7 @@ func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
 }
 
 //
-func (r *ParticipantMuteRequest) Post() (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *ParticipantMuteRequest) Post(ctx context.Context) (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

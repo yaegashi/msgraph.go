@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookFormatProtectionRequestBuilder is request builder for WorkbookFormatProtection
 type WorkbookFormatProtectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookFormatProtectionRequestBuilder) Request() *WorkbookFormatProtec
 type WorkbookFormatProtectionRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookFormatProtection
-func (r *WorkbookFormatProtectionRequest) Get() (resObj *WorkbookFormatProtection, err error) {
+func (r *WorkbookFormatProtectionRequest) Get(ctx context.Context) (resObj *WorkbookFormatProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookFormatProtection
-func (r *WorkbookFormatProtectionRequest) Update(reqObj *WorkbookFormatProtection) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookFormatProtectionRequest) Update(ctx context.Context, reqObj *WorkbookFormatProtection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookFormatProtection
-func (r *WorkbookFormatProtectionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookFormatProtectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

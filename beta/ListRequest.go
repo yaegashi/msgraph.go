@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ListRequestBuilder) Request() *ListRequest {
 type ListRequest struct{ BaseRequest }
 
 // Get performs GET request for List
-func (r *ListRequest) Get() (resObj *List, err error) {
+func (r *ListRequest) Get(ctx context.Context) (resObj *List, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for List
-func (r *ListRequest) Update(reqObj *List) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ListRequest) Update(ctx context.Context, reqObj *List) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for List
-func (r *ListRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ListRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Activities returns request builder for ItemActivityOLD collection
@@ -71,10 +72,13 @@ func (b *ListActivitiesCollectionRequestBuilder) ID(id string) *ItemActivityOLDR
 type ListActivitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemActivityOLD collection
-func (r *ListActivitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemActivityOLD, error) {
+func (r *ListActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemActivityOLD, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ListActivitiesCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ListActivitiesCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for ItemActivityOLD collection
-func (r *ListActivitiesCollectionRequest) Get() ([]ItemActivityOLD, error) {
+func (r *ListActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivityOLD, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ItemActivityOLD collection
-func (r *ListActivitiesCollectionRequest) Add(reqObj *ItemActivityOLD) (resObj *ItemActivityOLD, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ListActivitiesCollectionRequest) Add(ctx context.Context, reqObj *ItemActivityOLD) (resObj *ItemActivityOLD, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ListColumnsCollectionRequestBuilder) ID(id string) *ColumnDefinitionReq
 type ListColumnsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ColumnDefinition collection
-func (r *ListColumnsCollectionRequest) Paging(method, path string, obj interface{}) ([]ColumnDefinition, error) {
+func (r *ListColumnsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ColumnDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ListColumnsCollectionRequest) Paging(method, path string, obj interface
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ListColumnsCollectionRequest) Paging(method, path string, obj interface
 }
 
 // Get performs GET request for ColumnDefinition collection
-func (r *ListColumnsCollectionRequest) Get() ([]ColumnDefinition, error) {
+func (r *ListColumnsCollectionRequest) Get(ctx context.Context) ([]ColumnDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ColumnDefinition collection
-func (r *ListColumnsCollectionRequest) Add(reqObj *ColumnDefinition) (resObj *ColumnDefinition, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ListColumnsCollectionRequest) Add(ctx context.Context, reqObj *ColumnDefinition) (resObj *ColumnDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ListContentTypesCollectionRequestBuilder) ID(id string) *ContentTypeReq
 type ListContentTypesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ContentType collection
-func (r *ListContentTypesCollectionRequest) Paging(method, path string, obj interface{}) ([]ContentType, error) {
+func (r *ListContentTypesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ContentType, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ListContentTypesCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *ListContentTypesCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for ContentType collection
-func (r *ListContentTypesCollectionRequest) Get() ([]ContentType, error) {
+func (r *ListContentTypesCollectionRequest) Get(ctx context.Context) ([]ContentType, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ContentType collection
-func (r *ListContentTypesCollectionRequest) Add(reqObj *ContentType) (resObj *ContentType, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ListContentTypesCollectionRequest) Add(ctx context.Context, reqObj *ContentType) (resObj *ContentType, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *ListItemsCollectionRequestBuilder) ID(id string) *ListItemRequestBuilde
 type ListItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ListItem collection
-func (r *ListItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]ListItem, error) {
+func (r *ListItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ListItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *ListItemsCollectionRequest) Paging(method, path string, obj interface{}
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,17 +413,17 @@ func (r *ListItemsCollectionRequest) Paging(method, path string, obj interface{}
 }
 
 // Get performs GET request for ListItem collection
-func (r *ListItemsCollectionRequest) Get() ([]ListItem, error) {
+func (r *ListItemsCollectionRequest) Get(ctx context.Context) ([]ListItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ListItem collection
-func (r *ListItemsCollectionRequest) Add(reqObj *ListItem) (resObj *ListItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ListItemsCollectionRequest) Add(ctx context.Context, reqObj *ListItem) (resObj *ListItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -426,10 +455,13 @@ func (b *ListSubscriptionsCollectionRequestBuilder) ID(id string) *SubscriptionR
 type ListSubscriptionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Subscription collection
-func (r *ListSubscriptionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Subscription, error) {
+func (r *ListSubscriptionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Subscription, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -463,7 +495,11 @@ func (r *ListSubscriptionsCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -471,16 +507,16 @@ func (r *ListSubscriptionsCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for Subscription collection
-func (r *ListSubscriptionsCollectionRequest) Get() ([]Subscription, error) {
+func (r *ListSubscriptionsCollectionRequest) Get(ctx context.Context) ([]Subscription, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Subscription collection
-func (r *ListSubscriptionsCollectionRequest) Add(reqObj *Subscription) (resObj *Subscription, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ListSubscriptionsCollectionRequest) Add(ctx context.Context, reqObj *Subscription) (resObj *Subscription, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

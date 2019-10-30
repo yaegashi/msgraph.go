@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WorkbookChartRequestBuilder) Request() *WorkbookChartRequest {
 type WorkbookChartRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChart
-func (r *WorkbookChartRequest) Get() (resObj *WorkbookChart, err error) {
+func (r *WorkbookChartRequest) Get(ctx context.Context) (resObj *WorkbookChart, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChart
-func (r *WorkbookChartRequest) Update(reqObj *WorkbookChart) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartRequest) Update(ctx context.Context, reqObj *WorkbookChart) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChart
-func (r *WorkbookChartRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Axes is navigation property
@@ -99,10 +100,13 @@ func (b *WorkbookChartSeriesCollectionRequestBuilder) ID(id string) *WorkbookCha
 type WorkbookChartSeriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookChartSeries collection
-func (r *WorkbookChartSeriesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookChartSeries, error) {
+func (r *WorkbookChartSeriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookChartSeries, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -136,7 +140,11 @@ func (r *WorkbookChartSeriesCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -144,17 +152,17 @@ func (r *WorkbookChartSeriesCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for WorkbookChartSeries collection
-func (r *WorkbookChartSeriesCollectionRequest) Get() ([]WorkbookChartSeries, error) {
+func (r *WorkbookChartSeriesCollectionRequest) Get(ctx context.Context) ([]WorkbookChartSeries, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookChartSeries collection
-func (r *WorkbookChartSeriesCollectionRequest) Add(reqObj *WorkbookChartSeries) (resObj *WorkbookChartSeries, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookChartSeriesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookChartSeries) (resObj *WorkbookChartSeries, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookRangeClearRequestParameter undocumented
 type WorkbookRangeClearRequestParameter struct {
 	// ApplyTo undocumented
@@ -52,8 +54,8 @@ func (b *WorkbookRangeClearRequestBuilder) Request() *WorkbookRangeClearRequest 
 }
 
 //
-func (r *WorkbookRangeClearRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeClearRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -78,8 +80,8 @@ func (b *WorkbookRangeDeleteRequestBuilder) Request() *WorkbookRangeDeleteReques
 }
 
 //
-func (r *WorkbookRangeDeleteRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeDeleteRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -104,8 +106,8 @@ func (b *WorkbookRangeInsertRequestBuilder) Request() *WorkbookRangeInsertReques
 }
 
 //
-func (r *WorkbookRangeInsertRequest) Post() (resObj *WorkbookRange, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookRangeInsertRequest) Post(ctx context.Context) (resObj *WorkbookRange, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -131,8 +133,8 @@ func (b *WorkbookRangeMergeRequestBuilder) Request() *WorkbookRangeMergeRequest 
 }
 
 //
-func (r *WorkbookRangeMergeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeMergeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -157,6 +159,6 @@ func (b *WorkbookRangeUnmergeRequestBuilder) Request() *WorkbookRangeUnmergeRequ
 }
 
 //
-func (r *WorkbookRangeUnmergeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeUnmergeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

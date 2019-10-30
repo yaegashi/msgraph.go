@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CustomerPaymentRequestBuilder is request builder for CustomerPayment
 type CustomerPaymentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *CustomerPaymentRequestBuilder) Request() *CustomerPaymentRequest {
 type CustomerPaymentRequest struct{ BaseRequest }
 
 // Get performs GET request for CustomerPayment
-func (r *CustomerPaymentRequest) Get() (resObj *CustomerPayment, err error) {
+func (r *CustomerPaymentRequest) Get(ctx context.Context) (resObj *CustomerPayment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for CustomerPayment
-func (r *CustomerPaymentRequest) Update(reqObj *CustomerPayment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CustomerPaymentRequest) Update(ctx context.Context, reqObj *CustomerPayment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CustomerPayment
-func (r *CustomerPaymentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CustomerPaymentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Customer is navigation property

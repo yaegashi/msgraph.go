@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AppleEnrollmentProfileAssignmentRequestBuilder is request builder for AppleEnrollmentProfileAssignment
 type AppleEnrollmentProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AppleEnrollmentProfileAssignmentRequestBuilder) Request() *AppleEnrollm
 type AppleEnrollmentProfileAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for AppleEnrollmentProfileAssignment
-func (r *AppleEnrollmentProfileAssignmentRequest) Get() (resObj *AppleEnrollmentProfileAssignment, err error) {
+func (r *AppleEnrollmentProfileAssignmentRequest) Get(ctx context.Context) (resObj *AppleEnrollmentProfileAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AppleEnrollmentProfileAssignment
-func (r *AppleEnrollmentProfileAssignmentRequest) Update(reqObj *AppleEnrollmentProfileAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AppleEnrollmentProfileAssignmentRequest) Update(ctx context.Context, reqObj *AppleEnrollmentProfileAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppleEnrollmentProfileAssignment
-func (r *AppleEnrollmentProfileAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AppleEnrollmentProfileAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

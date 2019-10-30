@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // InformationProtectionLabelRequestBuilder is request builder for InformationProtectionLabel
 type InformationProtectionLabelRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *InformationProtectionLabelRequestBuilder) Request() *InformationProtect
 type InformationProtectionLabelRequest struct{ BaseRequest }
 
 // Get performs GET request for InformationProtectionLabel
-func (r *InformationProtectionLabelRequest) Get() (resObj *InformationProtectionLabel, err error) {
+func (r *InformationProtectionLabelRequest) Get(ctx context.Context) (resObj *InformationProtectionLabel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for InformationProtectionLabel
-func (r *InformationProtectionLabelRequest) Update(reqObj *InformationProtectionLabel) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *InformationProtectionLabelRequest) Update(ctx context.Context, reqObj *InformationProtectionLabel) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InformationProtectionLabel
-func (r *InformationProtectionLabelRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *InformationProtectionLabelRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

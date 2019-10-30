@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionDeviceRegistrationRequestBuilder is request builder for WindowsInformationProtectionDeviceRegistration
 type WindowsInformationProtectionDeviceRegistrationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsInformationProtectionDeviceRegistrationRequestBuilder) Request()
 type WindowsInformationProtectionDeviceRegistrationRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsInformationProtectionDeviceRegistration
-func (r *WindowsInformationProtectionDeviceRegistrationRequest) Get() (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
+func (r *WindowsInformationProtectionDeviceRegistrationRequest) Get(ctx context.Context) (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionDeviceRegistration
-func (r *WindowsInformationProtectionDeviceRegistrationRequest) Update(reqObj *WindowsInformationProtectionDeviceRegistration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsInformationProtectionDeviceRegistrationRequest) Update(ctx context.Context, reqObj *WindowsInformationProtectionDeviceRegistration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionDeviceRegistration
-func (r *WindowsInformationProtectionDeviceRegistrationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsInformationProtectionDeviceRegistrationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

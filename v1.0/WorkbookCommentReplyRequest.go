@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookCommentReplyRequestBuilder is request builder for WorkbookCommentReply
 type WorkbookCommentReplyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookCommentReplyRequestBuilder) Request() *WorkbookCommentReplyRequ
 type WorkbookCommentReplyRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookCommentReply
-func (r *WorkbookCommentReplyRequest) Get() (resObj *WorkbookCommentReply, err error) {
+func (r *WorkbookCommentReplyRequest) Get(ctx context.Context) (resObj *WorkbookCommentReply, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookCommentReply
-func (r *WorkbookCommentReplyRequest) Update(reqObj *WorkbookCommentReply) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookCommentReplyRequest) Update(ctx context.Context, reqObj *WorkbookCommentReply) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookCommentReply
-func (r *WorkbookCommentReplyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookCommentReplyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

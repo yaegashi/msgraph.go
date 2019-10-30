@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *MacOSImportedPFXCertificateProfileRequestBuilder) Request() *MacOSImpor
 type MacOSImportedPFXCertificateProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for MacOSImportedPFXCertificateProfile
-func (r *MacOSImportedPFXCertificateProfileRequest) Get() (resObj *MacOSImportedPFXCertificateProfile, err error) {
+func (r *MacOSImportedPFXCertificateProfileRequest) Get(ctx context.Context) (resObj *MacOSImportedPFXCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MacOSImportedPFXCertificateProfile
-func (r *MacOSImportedPFXCertificateProfileRequest) Update(reqObj *MacOSImportedPFXCertificateProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MacOSImportedPFXCertificateProfileRequest) Update(ctx context.Context, reqObj *MacOSImportedPFXCertificateProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSImportedPFXCertificateProfile
-func (r *MacOSImportedPFXCertificateProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MacOSImportedPFXCertificateProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -71,10 +72,13 @@ func (b *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 type MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 }
 
 // Get performs GET request for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get() ([]ManagedDeviceCertificateState, error) {
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

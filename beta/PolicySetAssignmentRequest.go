@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PolicySetAssignmentRequestBuilder is request builder for PolicySetAssignment
 type PolicySetAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PolicySetAssignmentRequestBuilder) Request() *PolicySetAssignmentReques
 type PolicySetAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for PolicySetAssignment
-func (r *PolicySetAssignmentRequest) Get() (resObj *PolicySetAssignment, err error) {
+func (r *PolicySetAssignmentRequest) Get(ctx context.Context) (resObj *PolicySetAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PolicySetAssignment
-func (r *PolicySetAssignmentRequest) Update(reqObj *PolicySetAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PolicySetAssignmentRequest) Update(ctx context.Context, reqObj *PolicySetAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PolicySetAssignment
-func (r *PolicySetAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PolicySetAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

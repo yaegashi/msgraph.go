@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // NotificationRequestBuilder is request builder for Notification
 type NotificationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *NotificationRequestBuilder) Request() *NotificationRequest {
 type NotificationRequest struct{ BaseRequest }
 
 // Get performs GET request for Notification
-func (r *NotificationRequest) Get() (resObj *Notification, err error) {
+func (r *NotificationRequest) Get(ctx context.Context) (resObj *Notification, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Notification
-func (r *NotificationRequest) Update(reqObj *Notification) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *NotificationRequest) Update(ctx context.Context, reqObj *Notification) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Notification
-func (r *NotificationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *NotificationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

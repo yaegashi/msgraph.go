@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GovernancePolicyTemplateRequestBuilder is request builder for GovernancePolicyTemplate
 type GovernancePolicyTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *GovernancePolicyTemplateRequestBuilder) Request() *GovernancePolicyTemp
 type GovernancePolicyTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for GovernancePolicyTemplate
-func (r *GovernancePolicyTemplateRequest) Get() (resObj *GovernancePolicyTemplate, err error) {
+func (r *GovernancePolicyTemplateRequest) Get(ctx context.Context) (resObj *GovernancePolicyTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GovernancePolicyTemplate
-func (r *GovernancePolicyTemplateRequest) Update(reqObj *GovernancePolicyTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GovernancePolicyTemplateRequest) Update(ctx context.Context, reqObj *GovernancePolicyTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernancePolicyTemplate
-func (r *GovernancePolicyTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GovernancePolicyTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

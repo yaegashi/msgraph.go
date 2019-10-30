@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RestrictedSignInRequestBuilder is request builder for RestrictedSignIn
 type RestrictedSignInRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *RestrictedSignInRequestBuilder) Request() *RestrictedSignInRequest {
 type RestrictedSignInRequest struct{ BaseRequest }
 
 // Get performs GET request for RestrictedSignIn
-func (r *RestrictedSignInRequest) Get() (resObj *RestrictedSignIn, err error) {
+func (r *RestrictedSignInRequest) Get(ctx context.Context) (resObj *RestrictedSignIn, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RestrictedSignIn
-func (r *RestrictedSignInRequest) Update(reqObj *RestrictedSignIn) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RestrictedSignInRequest) Update(ctx context.Context, reqObj *RestrictedSignIn) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RestrictedSignIn
-func (r *RestrictedSignInRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RestrictedSignInRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

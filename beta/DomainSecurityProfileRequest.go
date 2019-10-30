@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DomainSecurityProfileRequestBuilder is request builder for DomainSecurityProfile
 type DomainSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DomainSecurityProfileRequestBuilder) Request() *DomainSecurityProfileRe
 type DomainSecurityProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for DomainSecurityProfile
-func (r *DomainSecurityProfileRequest) Get() (resObj *DomainSecurityProfile, err error) {
+func (r *DomainSecurityProfileRequest) Get(ctx context.Context) (resObj *DomainSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DomainSecurityProfile
-func (r *DomainSecurityProfileRequest) Update(reqObj *DomainSecurityProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DomainSecurityProfileRequest) Update(ctx context.Context, reqObj *DomainSecurityProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DomainSecurityProfile
-func (r *DomainSecurityProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DomainSecurityProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

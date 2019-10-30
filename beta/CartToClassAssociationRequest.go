@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CartToClassAssociationRequestBuilder is request builder for CartToClassAssociation
 type CartToClassAssociationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *CartToClassAssociationRequestBuilder) Request() *CartToClassAssociation
 type CartToClassAssociationRequest struct{ BaseRequest }
 
 // Get performs GET request for CartToClassAssociation
-func (r *CartToClassAssociationRequest) Get() (resObj *CartToClassAssociation, err error) {
+func (r *CartToClassAssociationRequest) Get(ctx context.Context) (resObj *CartToClassAssociation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for CartToClassAssociation
-func (r *CartToClassAssociationRequest) Update(reqObj *CartToClassAssociation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CartToClassAssociationRequest) Update(ctx context.Context, reqObj *CartToClassAssociation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CartToClassAssociation
-func (r *CartToClassAssociationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CartToClassAssociationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

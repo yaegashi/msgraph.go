@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PurchaseInvoicePostRequestParameter undocumented
 type PurchaseInvoicePostRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *PurchaseInvoicePostRequestBuilder) Request() *PurchaseInvoicePostReques
 }
 
 //
-func (r *PurchaseInvoicePostRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *PurchaseInvoicePostRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

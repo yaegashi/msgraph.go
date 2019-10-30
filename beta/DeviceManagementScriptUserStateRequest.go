@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceManagementScriptUserStateRequestBuilder) Request() *DeviceManagem
 type DeviceManagementScriptUserStateRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementScriptUserState
-func (r *DeviceManagementScriptUserStateRequest) Get() (resObj *DeviceManagementScriptUserState, err error) {
+func (r *DeviceManagementScriptUserStateRequest) Get(ctx context.Context) (resObj *DeviceManagementScriptUserState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementScriptUserState
-func (r *DeviceManagementScriptUserStateRequest) Update(reqObj *DeviceManagementScriptUserState) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementScriptUserStateRequest) Update(ctx context.Context, reqObj *DeviceManagementScriptUserState) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementScriptUserState
-func (r *DeviceManagementScriptUserStateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementScriptUserStateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DeviceRunStates returns request builder for DeviceManagementScriptDeviceState collection
@@ -71,10 +72,13 @@ func (b *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequestBuilder)
 type DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementScriptDeviceState, error) {
+func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementScriptDeviceState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Paging
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Paging
 }
 
 // Get performs GET request for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Get() ([]DeviceManagementScriptDeviceState, error) {
+func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptDeviceState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementScriptDeviceState collection
-func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Add(reqObj *DeviceManagementScriptDeviceState) (resObj *DeviceManagementScriptDeviceState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementScriptUserStateDeviceRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptDeviceState) (resObj *DeviceManagementScriptDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

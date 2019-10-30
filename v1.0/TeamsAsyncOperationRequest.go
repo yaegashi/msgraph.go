@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TeamsAsyncOperationRequestBuilder is request builder for TeamsAsyncOperation
 type TeamsAsyncOperationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TeamsAsyncOperationRequestBuilder) Request() *TeamsAsyncOperationReques
 type TeamsAsyncOperationRequest struct{ BaseRequest }
 
 // Get performs GET request for TeamsAsyncOperation
-func (r *TeamsAsyncOperationRequest) Get() (resObj *TeamsAsyncOperation, err error) {
+func (r *TeamsAsyncOperationRequest) Get(ctx context.Context) (resObj *TeamsAsyncOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TeamsAsyncOperation
-func (r *TeamsAsyncOperationRequest) Update(reqObj *TeamsAsyncOperation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TeamsAsyncOperationRequest) Update(ctx context.Context, reqObj *TeamsAsyncOperation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsAsyncOperation
-func (r *TeamsAsyncOperationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TeamsAsyncOperationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

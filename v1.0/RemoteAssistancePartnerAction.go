@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RemoteAssistancePartnerBeginOnboardingRequestParameter undocumented
 type RemoteAssistancePartnerBeginOnboardingRequestParameter struct {
 }
@@ -32,8 +34,8 @@ func (b *RemoteAssistancePartnerBeginOnboardingRequestBuilder) Request() *Remote
 }
 
 //
-func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *RemoteAssistancePartnerBeginOnboardingRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -58,6 +60,6 @@ func (b *RemoteAssistancePartnerDisconnectRequestBuilder) Request() *RemoteAssis
 }
 
 //
-func (r *RemoteAssistancePartnerDisconnectRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *RemoteAssistancePartnerDisconnectRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

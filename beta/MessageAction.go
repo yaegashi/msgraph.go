@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MessageCreateReplyRequestParameter undocumented
 type MessageCreateReplyRequestParameter struct {
 	// Message undocumented
@@ -96,8 +98,8 @@ func (b *MessageCreateReplyRequestBuilder) Request() *MessageCreateReplyRequest 
 }
 
 //
-func (r *MessageCreateReplyRequest) Post() (resObj *Message, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MessageCreateReplyRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -123,8 +125,8 @@ func (b *MessageCreateReplyAllRequestBuilder) Request() *MessageCreateReplyAllRe
 }
 
 //
-func (r *MessageCreateReplyAllRequest) Post() (resObj *Message, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MessageCreateReplyAllRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -150,8 +152,8 @@ func (b *MessageCreateForwardRequestBuilder) Request() *MessageCreateForwardRequ
 }
 
 //
-func (r *MessageCreateForwardRequest) Post() (resObj *Message, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MessageCreateForwardRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -177,8 +179,8 @@ func (b *MessageSendRequestBuilder) Request() *MessageSendRequest {
 }
 
 //
-func (r *MessageSendRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MessageSendRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -203,8 +205,8 @@ func (b *MessageCopyRequestBuilder) Request() *MessageCopyRequest {
 }
 
 //
-func (r *MessageCopyRequest) Post() (resObj *Message, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MessageCopyRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -230,8 +232,8 @@ func (b *MessageMoveRequestBuilder) Request() *MessageMoveRequest {
 }
 
 //
-func (r *MessageMoveRequest) Post() (resObj *Message, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MessageMoveRequest) Post(ctx context.Context) (resObj *Message, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -257,8 +259,8 @@ func (b *MessageReplyRequestBuilder) Request() *MessageReplyRequest {
 }
 
 //
-func (r *MessageReplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MessageReplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -283,8 +285,8 @@ func (b *MessageReplyAllRequestBuilder) Request() *MessageReplyAllRequest {
 }
 
 //
-func (r *MessageReplyAllRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MessageReplyAllRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -309,8 +311,8 @@ func (b *MessageForwardRequestBuilder) Request() *MessageForwardRequest {
 }
 
 //
-func (r *MessageForwardRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MessageForwardRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -335,6 +337,6 @@ func (b *MessageUnsubscribeRequestBuilder) Request() *MessageUnsubscribeRequest 
 }
 
 //
-func (r *MessageUnsubscribeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MessageUnsubscribeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

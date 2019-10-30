@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ContractRequestBuilder is request builder for Contract
 type ContractRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ContractRequestBuilder) Request() *ContractRequest {
 type ContractRequest struct{ BaseRequest }
 
 // Get performs GET request for Contract
-func (r *ContractRequest) Get() (resObj *Contract, err error) {
+func (r *ContractRequest) Get(ctx context.Context) (resObj *Contract, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Contract
-func (r *ContractRequest) Update(reqObj *Contract) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ContractRequest) Update(ctx context.Context, reqObj *Contract) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Contract
-func (r *ContractRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ContractRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

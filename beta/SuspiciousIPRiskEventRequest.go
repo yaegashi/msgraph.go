@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SuspiciousIPRiskEventRequestBuilder is request builder for SuspiciousIPRiskEvent
 type SuspiciousIPRiskEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SuspiciousIPRiskEventRequestBuilder) Request() *SuspiciousIPRiskEventRe
 type SuspiciousIPRiskEventRequest struct{ BaseRequest }
 
 // Get performs GET request for SuspiciousIPRiskEvent
-func (r *SuspiciousIPRiskEventRequest) Get() (resObj *SuspiciousIPRiskEvent, err error) {
+func (r *SuspiciousIPRiskEventRequest) Get(ctx context.Context) (resObj *SuspiciousIPRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SuspiciousIPRiskEvent
-func (r *SuspiciousIPRiskEventRequest) Update(reqObj *SuspiciousIPRiskEvent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SuspiciousIPRiskEventRequest) Update(ctx context.Context, reqObj *SuspiciousIPRiskEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SuspiciousIPRiskEvent
-func (r *SuspiciousIPRiskEventRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SuspiciousIPRiskEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupValidatePropertiesRequestParameter undocumented
 type GroupValidatePropertiesRequestParameter struct {
 	// DisplayName undocumented
@@ -58,8 +60,8 @@ func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidateProperti
 }
 
 //
-func (r *GroupValidatePropertiesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupValidatePropertiesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -84,8 +86,8 @@ func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequ
 }
 
 //
-func (r *GroupSubscribeByMailRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupSubscribeByMailRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -110,8 +112,8 @@ func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMail
 }
 
 //
-func (r *GroupUnsubscribeByMailRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupUnsubscribeByMailRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -136,8 +138,8 @@ func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 }
 
 //
-func (r *GroupAddFavoriteRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupAddFavoriteRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -162,8 +164,8 @@ func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteReques
 }
 
 //
-func (r *GroupRemoveFavoriteRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupRemoveFavoriteRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -188,8 +190,8 @@ func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRe
 }
 
 //
-func (r *GroupResetUnseenCountRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupResetUnseenCountRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -214,6 +216,6 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 }
 
 //
-func (r *GroupRenewRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupRenewRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedAppOperationRequestBuilder is request builder for ManagedAppOperation
 type ManagedAppOperationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedAppOperationRequestBuilder) Request() *ManagedAppOperationReques
 type ManagedAppOperationRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedAppOperation
-func (r *ManagedAppOperationRequest) Get() (resObj *ManagedAppOperation, err error) {
+func (r *ManagedAppOperationRequest) Get(ctx context.Context) (resObj *ManagedAppOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedAppOperation
-func (r *ManagedAppOperationRequest) Update(reqObj *ManagedAppOperation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedAppOperationRequest) Update(ctx context.Context, reqObj *ManagedAppOperation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppOperation
-func (r *ManagedAppOperationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedAppOperationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

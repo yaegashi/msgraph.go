@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookTableCollectionAddRequestParameter undocumented
 type WorkbookTableCollectionAddRequestParameter struct {
 	// Address undocumented
@@ -52,8 +54,8 @@ func (b *WorkbookTableCollectionAddRequestBuilder) Request() *WorkbookTableColle
 }
 
 //
-func (r *WorkbookTableCollectionAddRequest) Post() (resObj *WorkbookTable, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookTableCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookTable, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -79,8 +81,8 @@ func (b *WorkbookTableClearFiltersRequestBuilder) Request() *WorkbookTableClearF
 }
 
 //
-func (r *WorkbookTableClearFiltersRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookTableClearFiltersRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -105,8 +107,8 @@ func (b *WorkbookTableConvertToRangeRequestBuilder) Request() *WorkbookTableConv
 }
 
 //
-func (r *WorkbookTableConvertToRangeRequest) Post() (resObj *WorkbookRange, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookTableConvertToRangeRequest) Post(ctx context.Context) (resObj *WorkbookRange, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -132,6 +134,6 @@ func (b *WorkbookTableReapplyFiltersRequestBuilder) Request() *WorkbookTableReap
 }
 
 //
-func (r *WorkbookTableReapplyFiltersRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookTableReapplyFiltersRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

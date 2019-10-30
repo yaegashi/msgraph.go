@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartLegendRequestBuilder is request builder for WorkbookChartLegend
 type WorkbookChartLegendRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartLegendRequestBuilder) Request() *WorkbookChartLegendReques
 type WorkbookChartLegendRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartLegend
-func (r *WorkbookChartLegendRequest) Get() (resObj *WorkbookChartLegend, err error) {
+func (r *WorkbookChartLegendRequest) Get(ctx context.Context) (resObj *WorkbookChartLegend, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartLegend
-func (r *WorkbookChartLegendRequest) Update(reqObj *WorkbookChartLegend) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartLegendRequest) Update(ctx context.Context, reqObj *WorkbookChartLegend) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartLegend
-func (r *WorkbookChartLegendRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartLegendRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Format is navigation property

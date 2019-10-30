@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceComplianceScheduledActionForRuleRequestBuilder) Request() *Device
 type DeviceComplianceScheduledActionForRuleRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceComplianceScheduledActionForRule
-func (r *DeviceComplianceScheduledActionForRuleRequest) Get() (resObj *DeviceComplianceScheduledActionForRule, err error) {
+func (r *DeviceComplianceScheduledActionForRuleRequest) Get(ctx context.Context) (resObj *DeviceComplianceScheduledActionForRule, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceComplianceScheduledActionForRule
-func (r *DeviceComplianceScheduledActionForRuleRequest) Update(reqObj *DeviceComplianceScheduledActionForRule) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceComplianceScheduledActionForRuleRequest) Update(ctx context.Context, reqObj *DeviceComplianceScheduledActionForRule) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceScheduledActionForRule
-func (r *DeviceComplianceScheduledActionForRuleRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceComplianceScheduledActionForRuleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ScheduledActionConfigurations returns request builder for DeviceComplianceActionItem collection
@@ -71,10 +72,13 @@ func (b *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 type DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceComplianceActionItem collection
-func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceActionItem, error) {
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceComplianceActionItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 }
 
 // Get performs GET request for DeviceComplianceActionItem collection
-func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Get() ([]DeviceComplianceActionItem, error) {
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceActionItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceComplianceActionItem collection
-func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Add(reqObj *DeviceComplianceActionItem) (resObj *DeviceComplianceActionItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceActionItem) (resObj *DeviceComplianceActionItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

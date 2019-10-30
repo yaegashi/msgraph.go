@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DirectoryDefinitionDiscoverRequestParameter undocumented
 type DirectoryDefinitionDiscoverRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *DirectoryDefinitionDiscoverRequestBuilder) Request() *DirectoryDefiniti
 }
 
 //
-func (r *DirectoryDefinitionDiscoverRequest) Post() (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DirectoryDefinitionDiscoverRequest) Post(ctx context.Context) (resObj *DirectoryDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

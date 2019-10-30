@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SalesCreditMemoRequestBuilder) Request() *SalesCreditMemoRequest {
 type SalesCreditMemoRequest struct{ BaseRequest }
 
 // Get performs GET request for SalesCreditMemo
-func (r *SalesCreditMemoRequest) Get() (resObj *SalesCreditMemo, err error) {
+func (r *SalesCreditMemoRequest) Get(ctx context.Context) (resObj *SalesCreditMemo, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SalesCreditMemo
-func (r *SalesCreditMemoRequest) Update(reqObj *SalesCreditMemo) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SalesCreditMemoRequest) Update(ctx context.Context, reqObj *SalesCreditMemo) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesCreditMemo
-func (r *SalesCreditMemoRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SalesCreditMemoRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Currency is navigation property
@@ -92,10 +93,13 @@ func (b *SalesCreditMemoSalesCreditMemoLinesCollectionRequestBuilder) ID(id stri
 type SalesCreditMemoSalesCreditMemoLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -129,7 +133,11 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(method, pa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -137,16 +145,16 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(method, pa
 }
 
 // Get performs GET request for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Get() ([]SalesCreditMemoLine, error) {
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Get(ctx context.Context) ([]SalesCreditMemoLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Add(reqObj *SalesCreditMemoLine) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesCreditMemoLine) (resObj *SalesCreditMemoLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

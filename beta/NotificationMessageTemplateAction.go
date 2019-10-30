@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // NotificationMessageTemplateSendTestMessageRequestParameter undocumented
 type NotificationMessageTemplateSendTestMessageRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *NotificationMessageTemplateSendTestMessageRequestBuilder) Request() *No
 }
 
 //
-func (r *NotificationMessageTemplateSendTestMessageRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *NotificationMessageTemplateSendTestMessageRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

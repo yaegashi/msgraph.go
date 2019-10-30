@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WorkbookCommentRequestBuilder) Request() *WorkbookCommentRequest {
 type WorkbookCommentRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookComment
-func (r *WorkbookCommentRequest) Get() (resObj *WorkbookComment, err error) {
+func (r *WorkbookCommentRequest) Get(ctx context.Context) (resObj *WorkbookComment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookComment
-func (r *WorkbookCommentRequest) Update(reqObj *WorkbookComment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookCommentRequest) Update(ctx context.Context, reqObj *WorkbookComment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookComment
-func (r *WorkbookCommentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookCommentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Replies returns request builder for WorkbookCommentReply collection
@@ -71,10 +72,13 @@ func (b *WorkbookCommentRepliesCollectionRequestBuilder) ID(id string) *Workbook
 type WorkbookCommentRepliesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookCommentReply collection
-func (r *WorkbookCommentRepliesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookCommentReply, error) {
+func (r *WorkbookCommentRepliesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookCommentReply, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *WorkbookCommentRepliesCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *WorkbookCommentRepliesCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for WorkbookCommentReply collection
-func (r *WorkbookCommentRepliesCollectionRequest) Get() ([]WorkbookCommentReply, error) {
+func (r *WorkbookCommentRepliesCollectionRequest) Get(ctx context.Context) ([]WorkbookCommentReply, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookCommentReply collection
-func (r *WorkbookCommentRepliesCollectionRequest) Add(reqObj *WorkbookCommentReply) (resObj *WorkbookCommentReply, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookCommentRepliesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookCommentReply) (resObj *WorkbookCommentReply, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

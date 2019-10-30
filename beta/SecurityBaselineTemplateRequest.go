@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SecurityBaselineTemplateRequestBuilder) Request() *SecurityBaselineTemp
 type SecurityBaselineTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for SecurityBaselineTemplate
-func (r *SecurityBaselineTemplateRequest) Get() (resObj *SecurityBaselineTemplate, err error) {
+func (r *SecurityBaselineTemplateRequest) Get(ctx context.Context) (resObj *SecurityBaselineTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SecurityBaselineTemplate
-func (r *SecurityBaselineTemplateRequest) Update(reqObj *SecurityBaselineTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SecurityBaselineTemplateRequest) Update(ctx context.Context, reqObj *SecurityBaselineTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityBaselineTemplate
-func (r *SecurityBaselineTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SecurityBaselineTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // CategoryDeviceStateSummaries returns request builder for SecurityBaselineCategoryStateSummary collection
@@ -71,10 +72,13 @@ func (b *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequestBu
 type SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SecurityBaselineCategoryStateSummary collection
-func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineCategoryStateSummary, error) {
+func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SecurityBaselineCategoryStateSummary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) 
 }
 
 // Get performs GET request for SecurityBaselineCategoryStateSummary collection
-func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Get() ([]SecurityBaselineCategoryStateSummary, error) {
+func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Get(ctx context.Context) ([]SecurityBaselineCategoryStateSummary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SecurityBaselineCategoryStateSummary collection
-func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Add(reqObj *SecurityBaselineCategoryStateSummary) (resObj *SecurityBaselineCategoryStateSummary, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SecurityBaselineTemplateCategoryDeviceStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *SecurityBaselineCategoryStateSummary) (resObj *SecurityBaselineCategoryStateSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -165,10 +173,13 @@ func (b *SecurityBaselineTemplateDeviceStatesCollectionRequestBuilder) ID(id str
 type SecurityBaselineTemplateDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SecurityBaselineDeviceState collection
-func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SecurityBaselineDeviceState, error) {
+func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SecurityBaselineDeviceState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -202,7 +213,11 @@ func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(method, p
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -210,16 +225,16 @@ func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Paging(method, p
 }
 
 // Get performs GET request for SecurityBaselineDeviceState collection
-func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Get() ([]SecurityBaselineDeviceState, error) {
+func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Get(ctx context.Context) ([]SecurityBaselineDeviceState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SecurityBaselineDeviceState collection
-func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Add(reqObj *SecurityBaselineDeviceState) (resObj *SecurityBaselineDeviceState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *SecurityBaselineDeviceState) (resObj *SecurityBaselineDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

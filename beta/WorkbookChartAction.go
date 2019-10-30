@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "encoding/json"
+import (
+	"context"
+	"encoding/json"
+)
 
 // WorkbookChartCollectionAddRequestParameter undocumented
 type WorkbookChartCollectionAddRequestParameter struct {
@@ -52,8 +55,8 @@ func (b *WorkbookChartCollectionAddRequestBuilder) Request() *WorkbookChartColle
 }
 
 //
-func (r *WorkbookChartCollectionAddRequest) Post() (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookChartCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookChart, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -79,8 +82,8 @@ func (b *WorkbookChartSetDataRequestBuilder) Request() *WorkbookChartSetDataRequ
 }
 
 //
-func (r *WorkbookChartSetDataRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookChartSetDataRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -105,6 +108,6 @@ func (b *WorkbookChartSetPositionRequestBuilder) Request() *WorkbookChartSetPosi
 }
 
 //
-func (r *WorkbookChartSetPositionRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookChartSetPositionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

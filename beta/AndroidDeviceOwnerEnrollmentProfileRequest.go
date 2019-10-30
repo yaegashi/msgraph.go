@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidDeviceOwnerEnrollmentProfileRequestBuilder is request builder for AndroidDeviceOwnerEnrollmentProfile
 type AndroidDeviceOwnerEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidDeviceOwnerEnrollmentProfileRequestBuilder) Request() *AndroidDe
 type AndroidDeviceOwnerEnrollmentProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidDeviceOwnerEnrollmentProfile
-func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Get() (resObj *AndroidDeviceOwnerEnrollmentProfile, err error) {
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Get(ctx context.Context) (resObj *AndroidDeviceOwnerEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidDeviceOwnerEnrollmentProfile
-func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Update(reqObj *AndroidDeviceOwnerEnrollmentProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Update(ctx context.Context, reqObj *AndroidDeviceOwnerEnrollmentProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidDeviceOwnerEnrollmentProfile
-func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidDeviceOwnerEnrollmentProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SecurityActionRequestBuilder is request builder for SecurityAction
 type SecurityActionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SecurityActionRequestBuilder) Request() *SecurityActionRequest {
 type SecurityActionRequest struct{ BaseRequest }
 
 // Get performs GET request for SecurityAction
-func (r *SecurityActionRequest) Get() (resObj *SecurityAction, err error) {
+func (r *SecurityActionRequest) Get(ctx context.Context) (resObj *SecurityAction, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SecurityAction
-func (r *SecurityActionRequest) Update(reqObj *SecurityAction) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SecurityActionRequest) Update(ctx context.Context, reqObj *SecurityAction) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecurityAction
-func (r *SecurityActionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SecurityActionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

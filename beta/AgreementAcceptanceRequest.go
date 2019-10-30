@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AgreementAcceptanceRequestBuilder is request builder for AgreementAcceptance
 type AgreementAcceptanceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AgreementAcceptanceRequestBuilder) Request() *AgreementAcceptanceReques
 type AgreementAcceptanceRequest struct{ BaseRequest }
 
 // Get performs GET request for AgreementAcceptance
-func (r *AgreementAcceptanceRequest) Get() (resObj *AgreementAcceptance, err error) {
+func (r *AgreementAcceptanceRequest) Get(ctx context.Context) (resObj *AgreementAcceptance, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AgreementAcceptance
-func (r *AgreementAcceptanceRequest) Update(reqObj *AgreementAcceptance) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AgreementAcceptanceRequest) Update(ctx context.Context, reqObj *AgreementAcceptance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AgreementAcceptance
-func (r *AgreementAcceptanceRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AgreementAcceptanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IdentityRiskEventRequestBuilder is request builder for IdentityRiskEvent
 type IdentityRiskEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *IdentityRiskEventRequestBuilder) Request() *IdentityRiskEventRequest {
 type IdentityRiskEventRequest struct{ BaseRequest }
 
 // Get performs GET request for IdentityRiskEvent
-func (r *IdentityRiskEventRequest) Get() (resObj *IdentityRiskEvent, err error) {
+func (r *IdentityRiskEventRequest) Get(ctx context.Context) (resObj *IdentityRiskEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IdentityRiskEvent
-func (r *IdentityRiskEventRequest) Update(reqObj *IdentityRiskEvent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IdentityRiskEventRequest) Update(ctx context.Context, reqObj *IdentityRiskEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IdentityRiskEvent
-func (r *IdentityRiskEventRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IdentityRiskEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ImpactedUser is navigation property

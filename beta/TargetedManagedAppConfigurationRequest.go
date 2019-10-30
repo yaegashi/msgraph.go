@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *TargetedManagedAppConfigurationRequestBuilder) Request() *TargetedManag
 type TargetedManagedAppConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for TargetedManagedAppConfiguration
-func (r *TargetedManagedAppConfigurationRequest) Get() (resObj *TargetedManagedAppConfiguration, err error) {
+func (r *TargetedManagedAppConfigurationRequest) Get(ctx context.Context) (resObj *TargetedManagedAppConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TargetedManagedAppConfiguration
-func (r *TargetedManagedAppConfigurationRequest) Update(reqObj *TargetedManagedAppConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TargetedManagedAppConfigurationRequest) Update(ctx context.Context, reqObj *TargetedManagedAppConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TargetedManagedAppConfiguration
-func (r *TargetedManagedAppConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TargetedManagedAppConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Apps returns request builder for ManagedMobileApp collection
@@ -71,10 +72,13 @@ func (b *TargetedManagedAppConfigurationAppsCollectionRequestBuilder) ID(id stri
 type TargetedManagedAppConfigurationAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedMobileApp, error) {
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedMobileApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(method, pa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(method, pa
 }
 
 // Get performs GET request for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Get() ([]ManagedMobileApp, error) {
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Add(reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Add(ctx context.Context, reqObj *ManagedMobileApp) (resObj *ManagedMobileApp, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder) ID(
 type TargetedManagedAppConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(met
 }
 
 // Get performs GET request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Get() ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Add(reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TargetedManagedAppPolicyAssignment) (resObj *TargetedManagedAppPolicyAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

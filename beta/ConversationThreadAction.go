@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ConversationThreadReplyRequestParameter undocumented
 type ConversationThreadReplyRequestParameter struct {
 	// Post undocumented
@@ -30,6 +32,6 @@ func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadRep
 }
 
 //
-func (r *ConversationThreadReplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ConversationThreadReplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

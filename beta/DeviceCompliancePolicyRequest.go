@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceCompliancePolicyRequestBuilder) Request() *DeviceCompliancePolicy
 type DeviceCompliancePolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceCompliancePolicy
-func (r *DeviceCompliancePolicyRequest) Get() (resObj *DeviceCompliancePolicy, err error) {
+func (r *DeviceCompliancePolicyRequest) Get(ctx context.Context) (resObj *DeviceCompliancePolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceCompliancePolicy
-func (r *DeviceCompliancePolicyRequest) Update(reqObj *DeviceCompliancePolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceCompliancePolicyRequest) Update(ctx context.Context, reqObj *DeviceCompliancePolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceCompliancePolicy
-func (r *DeviceCompliancePolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceCompliancePolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for DeviceCompliancePolicyAssignment collection
@@ -71,10 +72,13 @@ func (b *DeviceCompliancePolicyAssignmentsCollectionRequestBuilder) ID(id string
 type DeviceCompliancePolicyAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceCompliancePolicyAssignment collection
-func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceCompliancePolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(method, path
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Paging(method, path
 }
 
 // Get performs GET request for DeviceCompliancePolicyAssignment collection
-func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Get() ([]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceCompliancePolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceCompliancePolicyAssignment collection
-func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Add(reqObj *DeviceCompliancePolicyAssignment) (resObj *DeviceCompliancePolicyAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceCompliancePolicyAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceCompliancePolicyAssignment) (resObj *DeviceCompliancePolicyAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequestBuild
 type DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SettingStateDeviceSummary collection
-func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]SettingStateDeviceSummary, error) {
+func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SettingStateDeviceSummary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Pag
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Pag
 }
 
 // Get performs GET request for SettingStateDeviceSummary collection
-func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Get() ([]SettingStateDeviceSummary, error) {
+func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Get(ctx context.Context) ([]SettingStateDeviceSummary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SettingStateDeviceSummary collection
-func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Add(reqObj *SettingStateDeviceSummary) (resObj *SettingStateDeviceSummary, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceCompliancePolicyDeviceSettingStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *SettingStateDeviceSummary) (resObj *SettingStateDeviceSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -252,10 +267,13 @@ func (b *DeviceCompliancePolicyDeviceStatusesCollectionRequestBuilder) ID(id str
 type DeviceCompliancePolicyDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceComplianceDeviceStatus collection
-func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceDeviceStatus, error) {
+func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceComplianceDeviceStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -289,7 +307,11 @@ func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(method, p
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -297,17 +319,17 @@ func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Paging(method, p
 }
 
 // Get performs GET request for DeviceComplianceDeviceStatus collection
-func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Get() ([]DeviceComplianceDeviceStatus, error) {
+func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceDeviceStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceComplianceDeviceStatus collection
-func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Add(reqObj *DeviceComplianceDeviceStatus) (resObj *DeviceComplianceDeviceStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceCompliancePolicyDeviceStatusesCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceDeviceStatus) (resObj *DeviceComplianceDeviceStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequestBuilder) 
 type DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceComplianceScheduledActionForRule collection
-func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceScheduledActionForRule, error) {
+func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceComplianceScheduledActionForRule, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,17 +413,17 @@ func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Paging(
 }
 
 // Get performs GET request for DeviceComplianceScheduledActionForRule collection
-func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Get() ([]DeviceComplianceScheduledActionForRule, error) {
+func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceScheduledActionForRule, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceComplianceScheduledActionForRule collection
-func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Add(reqObj *DeviceComplianceScheduledActionForRule) (resObj *DeviceComplianceScheduledActionForRule, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceCompliancePolicyScheduledActionsForRuleCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceScheduledActionForRule) (resObj *DeviceComplianceScheduledActionForRule, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -433,10 +462,13 @@ func (b *DeviceCompliancePolicyUserStatusesCollectionRequestBuilder) ID(id strin
 type DeviceCompliancePolicyUserStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceComplianceUserStatus collection
-func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceUserStatus, error) {
+func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceComplianceUserStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -470,7 +502,11 @@ func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -478,16 +514,16 @@ func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for DeviceComplianceUserStatus collection
-func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Get() ([]DeviceComplianceUserStatus, error) {
+func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceUserStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceComplianceUserStatus collection
-func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Add(reqObj *DeviceComplianceUserStatus) (resObj *DeviceComplianceUserStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceCompliancePolicyUserStatusesCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceUserStatus) (resObj *DeviceComplianceUserStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

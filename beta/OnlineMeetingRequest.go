@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OnlineMeetingRequestBuilder is request builder for OnlineMeeting
 type OnlineMeetingRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *OnlineMeetingRequestBuilder) Request() *OnlineMeetingRequest {
 type OnlineMeetingRequest struct{ BaseRequest }
 
 // Get performs GET request for OnlineMeeting
-func (r *OnlineMeetingRequest) Get() (resObj *OnlineMeeting, err error) {
+func (r *OnlineMeetingRequest) Get(ctx context.Context) (resObj *OnlineMeeting, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OnlineMeeting
-func (r *OnlineMeetingRequest) Update(reqObj *OnlineMeeting) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OnlineMeetingRequest) Update(ctx context.Context, reqObj *OnlineMeeting) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnlineMeeting
-func (r *OnlineMeetingRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OnlineMeetingRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

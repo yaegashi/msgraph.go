@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OnPremisesConditionalAccessSettingsRequestBuilder is request builder for OnPremisesConditionalAccessSettings
 type OnPremisesConditionalAccessSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *OnPremisesConditionalAccessSettingsRequestBuilder) Request() *OnPremise
 type OnPremisesConditionalAccessSettingsRequest struct{ BaseRequest }
 
 // Get performs GET request for OnPremisesConditionalAccessSettings
-func (r *OnPremisesConditionalAccessSettingsRequest) Get() (resObj *OnPremisesConditionalAccessSettings, err error) {
+func (r *OnPremisesConditionalAccessSettingsRequest) Get(ctx context.Context) (resObj *OnPremisesConditionalAccessSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OnPremisesConditionalAccessSettings
-func (r *OnPremisesConditionalAccessSettingsRequest) Update(reqObj *OnPremisesConditionalAccessSettings) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OnPremisesConditionalAccessSettingsRequest) Update(ctx context.Context, reqObj *OnPremisesConditionalAccessSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnPremisesConditionalAccessSettings
-func (r *OnPremisesConditionalAccessSettingsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OnPremisesConditionalAccessSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

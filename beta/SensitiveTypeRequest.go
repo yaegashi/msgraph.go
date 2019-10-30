@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SensitiveTypeRequestBuilder is request builder for SensitiveType
 type SensitiveTypeRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SensitiveTypeRequestBuilder) Request() *SensitiveTypeRequest {
 type SensitiveTypeRequest struct{ BaseRequest }
 
 // Get performs GET request for SensitiveType
-func (r *SensitiveTypeRequest) Get() (resObj *SensitiveType, err error) {
+func (r *SensitiveTypeRequest) Get(ctx context.Context) (resObj *SensitiveType, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SensitiveType
-func (r *SensitiveTypeRequest) Update(reqObj *SensitiveType) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SensitiveTypeRequest) Update(ctx context.Context, reqObj *SensitiveType) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SensitiveType
-func (r *SensitiveTypeRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SensitiveTypeRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

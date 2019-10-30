@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SharedInsightRequestBuilder is request builder for SharedInsight
 type SharedInsightRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *SharedInsightRequestBuilder) Request() *SharedInsightRequest {
 type SharedInsightRequest struct{ BaseRequest }
 
 // Get performs GET request for SharedInsight
-func (r *SharedInsightRequest) Get() (resObj *SharedInsight, err error) {
+func (r *SharedInsightRequest) Get(ctx context.Context) (resObj *SharedInsight, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SharedInsight
-func (r *SharedInsightRequest) Update(reqObj *SharedInsight) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SharedInsightRequest) Update(ctx context.Context, reqObj *SharedInsight) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SharedInsight
-func (r *SharedInsightRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SharedInsightRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // LastSharedMethod is navigation property

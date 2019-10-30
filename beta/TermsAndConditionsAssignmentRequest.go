@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TermsAndConditionsAssignmentRequestBuilder is request builder for TermsAndConditionsAssignment
 type TermsAndConditionsAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TermsAndConditionsAssignmentRequestBuilder) Request() *TermsAndConditio
 type TermsAndConditionsAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for TermsAndConditionsAssignment
-func (r *TermsAndConditionsAssignmentRequest) Get() (resObj *TermsAndConditionsAssignment, err error) {
+func (r *TermsAndConditionsAssignmentRequest) Get(ctx context.Context) (resObj *TermsAndConditionsAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TermsAndConditionsAssignment
-func (r *TermsAndConditionsAssignmentRequest) Update(reqObj *TermsAndConditionsAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TermsAndConditionsAssignmentRequest) Update(ctx context.Context, reqObj *TermsAndConditionsAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TermsAndConditionsAssignment
-func (r *TermsAndConditionsAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TermsAndConditionsAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupSettingRequestBuilder is request builder for GroupSetting
 type GroupSettingRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *GroupSettingRequestBuilder) Request() *GroupSettingRequest {
 type GroupSettingRequest struct{ BaseRequest }
 
 // Get performs GET request for GroupSetting
-func (r *GroupSettingRequest) Get() (resObj *GroupSetting, err error) {
+func (r *GroupSettingRequest) Get(ctx context.Context) (resObj *GroupSetting, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GroupSetting
-func (r *GroupSettingRequest) Update(reqObj *GroupSetting) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupSettingRequest) Update(ctx context.Context, reqObj *GroupSetting) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupSetting
-func (r *GroupSettingRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupSettingRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

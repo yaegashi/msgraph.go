@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartGridlinesFormatRequestBuilder is request builder for WorkbookChartGridlinesFormat
 type WorkbookChartGridlinesFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartGridlinesFormatRequestBuilder) Request() *WorkbookChartGri
 type WorkbookChartGridlinesFormatRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartGridlinesFormat
-func (r *WorkbookChartGridlinesFormatRequest) Get() (resObj *WorkbookChartGridlinesFormat, err error) {
+func (r *WorkbookChartGridlinesFormatRequest) Get(ctx context.Context) (resObj *WorkbookChartGridlinesFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartGridlinesFormat
-func (r *WorkbookChartGridlinesFormatRequest) Update(reqObj *WorkbookChartGridlinesFormat) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartGridlinesFormatRequest) Update(ctx context.Context, reqObj *WorkbookChartGridlinesFormat) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartGridlinesFormat
-func (r *WorkbookChartGridlinesFormatRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartGridlinesFormatRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Line is navigation property

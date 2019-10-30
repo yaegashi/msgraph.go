@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder is request builder for ManagedDeviceMobileAppConfigurationDeviceStatus
 type ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder) Request(
 type ManagedDeviceMobileAppConfigurationDeviceStatusRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedDeviceMobileAppConfigurationDeviceStatus
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Get() (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Get(ctx context.Context) (resObj *ManagedDeviceMobileAppConfigurationDeviceStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedDeviceMobileAppConfigurationDeviceStatus
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Update(reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Update(ctx context.Context, reqObj *ManagedDeviceMobileAppConfigurationDeviceStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceMobileAppConfigurationDeviceStatus
-func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedDeviceMobileAppConfigurationDeviceStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

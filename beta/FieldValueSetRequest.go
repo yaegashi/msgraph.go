@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // FieldValueSetRequestBuilder is request builder for FieldValueSet
 type FieldValueSetRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *FieldValueSetRequestBuilder) Request() *FieldValueSetRequest {
 type FieldValueSetRequest struct{ BaseRequest }
 
 // Get performs GET request for FieldValueSet
-func (r *FieldValueSetRequest) Get() (resObj *FieldValueSet, err error) {
+func (r *FieldValueSetRequest) Get(ctx context.Context) (resObj *FieldValueSet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for FieldValueSet
-func (r *FieldValueSetRequest) Update(reqObj *FieldValueSet) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *FieldValueSetRequest) Update(ctx context.Context, reqObj *FieldValueSet) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FieldValueSet
-func (r *FieldValueSetRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *FieldValueSetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

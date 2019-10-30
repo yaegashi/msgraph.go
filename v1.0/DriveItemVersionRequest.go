@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DriveItemVersionRequestBuilder is request builder for DriveItemVersion
 type DriveItemVersionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DriveItemVersionRequestBuilder) Request() *DriveItemVersionRequest {
 type DriveItemVersionRequest struct{ BaseRequest }
 
 // Get performs GET request for DriveItemVersion
-func (r *DriveItemVersionRequest) Get() (resObj *DriveItemVersion, err error) {
+func (r *DriveItemVersionRequest) Get(ctx context.Context) (resObj *DriveItemVersion, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DriveItemVersion
-func (r *DriveItemVersionRequest) Update(reqObj *DriveItemVersion) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DriveItemVersionRequest) Update(ctx context.Context, reqObj *DriveItemVersion) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DriveItemVersion
-func (r *DriveItemVersionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DriveItemVersionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

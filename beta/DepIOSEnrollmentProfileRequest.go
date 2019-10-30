@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DepIOSEnrollmentProfileRequestBuilder is request builder for DepIOSEnrollmentProfile
 type DepIOSEnrollmentProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DepIOSEnrollmentProfileRequestBuilder) Request() *DepIOSEnrollmentProfi
 type DepIOSEnrollmentProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for DepIOSEnrollmentProfile
-func (r *DepIOSEnrollmentProfileRequest) Get() (resObj *DepIOSEnrollmentProfile, err error) {
+func (r *DepIOSEnrollmentProfileRequest) Get(ctx context.Context) (resObj *DepIOSEnrollmentProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DepIOSEnrollmentProfile
-func (r *DepIOSEnrollmentProfileRequest) Update(reqObj *DepIOSEnrollmentProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DepIOSEnrollmentProfileRequest) Update(ctx context.Context, reqObj *DepIOSEnrollmentProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DepIOSEnrollmentProfile
-func (r *DepIOSEnrollmentProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DepIOSEnrollmentProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

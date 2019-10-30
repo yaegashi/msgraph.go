@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ScheduleChangeRequestObjectApproveRequestParameter undocumented
 type ScheduleChangeRequestObjectApproveRequestParameter struct {
 	// Message undocumented
@@ -36,8 +38,8 @@ func (b *ScheduleChangeRequestObjectApproveRequestBuilder) Request() *ScheduleCh
 }
 
 //
-func (r *ScheduleChangeRequestObjectApproveRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ScheduleChangeRequestObjectApproveRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -62,6 +64,6 @@ func (b *ScheduleChangeRequestObjectDeclineRequestBuilder) Request() *ScheduleCh
 }
 
 //
-func (r *ScheduleChangeRequestObjectDeclineRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ScheduleChangeRequestObjectDeclineRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

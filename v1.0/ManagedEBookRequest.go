@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ManagedEBookRequestBuilder) Request() *ManagedEBookRequest {
 type ManagedEBookRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedEBook
-func (r *ManagedEBookRequest) Get() (resObj *ManagedEBook, err error) {
+func (r *ManagedEBookRequest) Get(ctx context.Context) (resObj *ManagedEBook, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedEBook
-func (r *ManagedEBookRequest) Update(reqObj *ManagedEBook) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedEBookRequest) Update(ctx context.Context, reqObj *ManagedEBook) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedEBook
-func (r *ManagedEBookRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedEBookRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for ManagedEBookAssignment collection
@@ -71,10 +72,13 @@ func (b *ManagedEBookAssignmentsCollectionRequestBuilder) ID(id string) *Managed
 type ManagedEBookAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedEBookAssignment collection
-func (r *ManagedEBookAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedEBookAssignment, error) {
+func (r *ManagedEBookAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedEBookAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ManagedEBookAssignmentsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ManagedEBookAssignmentsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for ManagedEBookAssignment collection
-func (r *ManagedEBookAssignmentsCollectionRequest) Get() ([]ManagedEBookAssignment, error) {
+func (r *ManagedEBookAssignmentsCollectionRequest) Get(ctx context.Context) ([]ManagedEBookAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedEBookAssignment collection
-func (r *ManagedEBookAssignmentsCollectionRequest) Add(reqObj *ManagedEBookAssignment) (resObj *ManagedEBookAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ManagedEBookAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *ManagedEBookAssignment) (resObj *ManagedEBookAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ManagedEBookDeviceStatesCollectionRequestBuilder) ID(id string) *Device
 type ManagedEBookDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceInstallState collection
-func (r *ManagedEBookDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceInstallState, error) {
+func (r *ManagedEBookDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceInstallState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ManagedEBookDeviceStatesCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ManagedEBookDeviceStatesCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for DeviceInstallState collection
-func (r *ManagedEBookDeviceStatesCollectionRequest) Get() ([]DeviceInstallState, error) {
+func (r *ManagedEBookDeviceStatesCollectionRequest) Get(ctx context.Context) ([]DeviceInstallState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceInstallState collection
-func (r *ManagedEBookDeviceStatesCollectionRequest) Add(reqObj *DeviceInstallState) (resObj *DeviceInstallState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ManagedEBookDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceInstallState) (resObj *DeviceInstallState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -252,10 +267,13 @@ func (b *ManagedEBookUserStateSummaryCollectionRequestBuilder) ID(id string) *Us
 type ManagedEBookUserStateSummaryCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserInstallStateSummary collection
-func (r *ManagedEBookUserStateSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]UserInstallStateSummary, error) {
+func (r *ManagedEBookUserStateSummaryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserInstallStateSummary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -289,7 +307,11 @@ func (r *ManagedEBookUserStateSummaryCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -297,16 +319,16 @@ func (r *ManagedEBookUserStateSummaryCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for UserInstallStateSummary collection
-func (r *ManagedEBookUserStateSummaryCollectionRequest) Get() ([]UserInstallStateSummary, error) {
+func (r *ManagedEBookUserStateSummaryCollectionRequest) Get(ctx context.Context) ([]UserInstallStateSummary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for UserInstallStateSummary collection
-func (r *ManagedEBookUserStateSummaryCollectionRequest) Add(reqObj *UserInstallStateSummary) (resObj *UserInstallStateSummary, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ManagedEBookUserStateSummaryCollectionRequest) Add(ctx context.Context, reqObj *UserInstallStateSummary) (resObj *UserInstallStateSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

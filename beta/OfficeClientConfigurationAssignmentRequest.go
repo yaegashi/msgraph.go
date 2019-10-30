@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OfficeClientConfigurationAssignmentRequestBuilder is request builder for OfficeClientConfigurationAssignment
 type OfficeClientConfigurationAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *OfficeClientConfigurationAssignmentRequestBuilder) Request() *OfficeCli
 type OfficeClientConfigurationAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for OfficeClientConfigurationAssignment
-func (r *OfficeClientConfigurationAssignmentRequest) Get() (resObj *OfficeClientConfigurationAssignment, err error) {
+func (r *OfficeClientConfigurationAssignmentRequest) Get(ctx context.Context) (resObj *OfficeClientConfigurationAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OfficeClientConfigurationAssignment
-func (r *OfficeClientConfigurationAssignmentRequest) Update(reqObj *OfficeClientConfigurationAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OfficeClientConfigurationAssignmentRequest) Update(ctx context.Context, reqObj *OfficeClientConfigurationAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OfficeClientConfigurationAssignment
-func (r *OfficeClientConfigurationAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OfficeClientConfigurationAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

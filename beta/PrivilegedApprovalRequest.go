@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedApprovalRequestBuilder is request builder for PrivilegedApproval
 type PrivilegedApprovalRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *PrivilegedApprovalRequestBuilder) Request() *PrivilegedApprovalRequest 
 type PrivilegedApprovalRequest struct{ BaseRequest }
 
 // Get performs GET request for PrivilegedApproval
-func (r *PrivilegedApprovalRequest) Get() (resObj *PrivilegedApproval, err error) {
+func (r *PrivilegedApprovalRequest) Get(ctx context.Context) (resObj *PrivilegedApproval, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PrivilegedApproval
-func (r *PrivilegedApprovalRequest) Update(reqObj *PrivilegedApproval) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PrivilegedApprovalRequest) Update(ctx context.Context, reqObj *PrivilegedApproval) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedApproval
-func (r *PrivilegedApprovalRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PrivilegedApprovalRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // RequestNavigation is navigation property

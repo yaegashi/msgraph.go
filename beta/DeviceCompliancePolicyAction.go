@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -54,10 +55,13 @@ func (b *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder) Request(
 }
 
 //
-func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -91,7 +95,11 @@ func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(method, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -99,12 +107,12 @@ func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(method, 
 }
 
 //
-func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -129,8 +137,8 @@ func (b *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizat
 }
 
 //
-func (r *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -155,10 +163,13 @@ func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliance
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]DeviceCompliancePolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -192,7 +203,11 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -200,12 +215,12 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(method, path string, obj in
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Get() ([][]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceCompliancePolicyAssignRequest) Get(ctx context.Context) ([][]DeviceCompliancePolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -230,6 +245,6 @@ func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() 
 }
 
 //
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // UserSecurityProfileRequestBuilder is request builder for UserSecurityProfile
 type UserSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *UserSecurityProfileRequestBuilder) Request() *UserSecurityProfileReques
 type UserSecurityProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for UserSecurityProfile
-func (r *UserSecurityProfileRequest) Get() (resObj *UserSecurityProfile, err error) {
+func (r *UserSecurityProfileRequest) Get(ctx context.Context) (resObj *UserSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UserSecurityProfile
-func (r *UserSecurityProfileRequest) Update(reqObj *UserSecurityProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UserSecurityProfileRequest) Update(ctx context.Context, reqObj *UserSecurityProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserSecurityProfile
-func (r *UserSecurityProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UserSecurityProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

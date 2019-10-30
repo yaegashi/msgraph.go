@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RiskDetectionRequestBuilder is request builder for RiskDetection
 type RiskDetectionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *RiskDetectionRequestBuilder) Request() *RiskDetectionRequest {
 type RiskDetectionRequest struct{ BaseRequest }
 
 // Get performs GET request for RiskDetection
-func (r *RiskDetectionRequest) Get() (resObj *RiskDetection, err error) {
+func (r *RiskDetectionRequest) Get(ctx context.Context) (resObj *RiskDetection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RiskDetection
-func (r *RiskDetectionRequest) Update(reqObj *RiskDetection) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RiskDetectionRequest) Update(ctx context.Context, reqObj *RiskDetection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RiskDetection
-func (r *RiskDetectionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RiskDetectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

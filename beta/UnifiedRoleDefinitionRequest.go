@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // UnifiedRoleDefinitionRequestBuilder is request builder for UnifiedRoleDefinition
 type UnifiedRoleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *UnifiedRoleDefinitionRequestBuilder) Request() *UnifiedRoleDefinitionRe
 type UnifiedRoleDefinitionRequest struct{ BaseRequest }
 
 // Get performs GET request for UnifiedRoleDefinition
-func (r *UnifiedRoleDefinitionRequest) Get() (resObj *UnifiedRoleDefinition, err error) {
+func (r *UnifiedRoleDefinitionRequest) Get(ctx context.Context) (resObj *UnifiedRoleDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UnifiedRoleDefinition
-func (r *UnifiedRoleDefinitionRequest) Update(reqObj *UnifiedRoleDefinition) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UnifiedRoleDefinitionRequest) Update(ctx context.Context, reqObj *UnifiedRoleDefinition) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UnifiedRoleDefinition
-func (r *UnifiedRoleDefinitionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UnifiedRoleDefinitionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

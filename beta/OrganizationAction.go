@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
 type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *OrganizationSetMobileDeviceManagementAuthorityRequestBuilder) Request()
 }
 
 //
-func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post() (resObj *int, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *OrganizationSetMobileDeviceManagementAuthorityRequest) Post(ctx context.Context) (resObj *int, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

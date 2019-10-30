@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // JournalLineRequestBuilder is request builder for JournalLine
 type JournalLineRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *JournalLineRequestBuilder) Request() *JournalLineRequest {
 type JournalLineRequest struct{ BaseRequest }
 
 // Get performs GET request for JournalLine
-func (r *JournalLineRequest) Get() (resObj *JournalLine, err error) {
+func (r *JournalLineRequest) Get(ctx context.Context) (resObj *JournalLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for JournalLine
-func (r *JournalLineRequest) Update(reqObj *JournalLine) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *JournalLineRequest) Update(ctx context.Context, reqObj *JournalLine) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for JournalLine
-func (r *JournalLineRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *JournalLineRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Account is navigation property

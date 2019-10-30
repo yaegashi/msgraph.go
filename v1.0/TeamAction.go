@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TeamCloneRequestParameter undocumented
 type TeamCloneRequestParameter struct {
 	// DisplayName undocumented
@@ -50,8 +52,8 @@ func (b *TeamCloneRequestBuilder) Request() *TeamCloneRequest {
 }
 
 //
-func (r *TeamCloneRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TeamCloneRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -76,8 +78,8 @@ func (b *TeamArchiveRequestBuilder) Request() *TeamArchiveRequest {
 }
 
 //
-func (r *TeamArchiveRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TeamArchiveRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -102,6 +104,6 @@ func (b *TeamUnarchiveRequestBuilder) Request() *TeamUnarchiveRequest {
 }
 
 //
-func (r *TeamUnarchiveRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TeamUnarchiveRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionNetworkLearningSummaryRequestBuilder is request builder for WindowsInformationProtectionNetworkLearningSummary
 type WindowsInformationProtectionNetworkLearningSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsInformationProtectionNetworkLearningSummaryRequestBuilder) Reque
 type WindowsInformationProtectionNetworkLearningSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsInformationProtectionNetworkLearningSummary
-func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Get() (resObj *WindowsInformationProtectionNetworkLearningSummary, err error) {
+func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Get(ctx context.Context) (resObj *WindowsInformationProtectionNetworkLearningSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionNetworkLearningSummary
-func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Update(reqObj *WindowsInformationProtectionNetworkLearningSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Update(ctx context.Context, reqObj *WindowsInformationProtectionNetworkLearningSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionNetworkLearningSummary
-func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsInformationProtectionNetworkLearningSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

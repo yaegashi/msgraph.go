@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WindowsWifiEnterpriseEAPConfigurationRequestBuilder) Request() *Windows
 type WindowsWifiEnterpriseEAPConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsWifiEnterpriseEAPConfiguration
-func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Get() (resObj *WindowsWifiEnterpriseEAPConfiguration, err error) {
+func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Get(ctx context.Context) (resObj *WindowsWifiEnterpriseEAPConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsWifiEnterpriseEAPConfiguration
-func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Update(reqObj *WindowsWifiEnterpriseEAPConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Update(ctx context.Context, reqObj *WindowsWifiEnterpriseEAPConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsWifiEnterpriseEAPConfiguration
-func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsWifiEnterpriseEAPConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificateForClientAuthentication is navigation property
@@ -78,10 +79,13 @@ func (b *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 type WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Windows81TrustedRootCertificate collection
-func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(method, path string, obj interface{}) ([]Windows81TrustedRootCertificate, error) {
+func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Windows81TrustedRootCertificate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,16 +131,16 @@ func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 }
 
 // Get performs GET request for Windows81TrustedRootCertificate collection
-func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Get() ([]Windows81TrustedRootCertificate, error) {
+func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Get(ctx context.Context) ([]Windows81TrustedRootCertificate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Windows81TrustedRootCertificate collection
-func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Add(reqObj *Windows81TrustedRootCertificate) (resObj *Windows81TrustedRootCertificate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsWifiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Add(ctx context.Context, reqObj *Windows81TrustedRootCertificate) (resObj *Windows81TrustedRootCertificate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

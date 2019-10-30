@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *MacOsVppAppRequestBuilder) Request() *MacOsVppAppRequest {
 type MacOsVppAppRequest struct{ BaseRequest }
 
 // Get performs GET request for MacOsVppApp
-func (r *MacOsVppAppRequest) Get() (resObj *MacOsVppApp, err error) {
+func (r *MacOsVppAppRequest) Get(ctx context.Context) (resObj *MacOsVppApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MacOsVppApp
-func (r *MacOsVppAppRequest) Update(reqObj *MacOsVppApp) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MacOsVppAppRequest) Update(ctx context.Context, reqObj *MacOsVppApp) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOsVppApp
-func (r *MacOsVppAppRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MacOsVppAppRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AssignedLicenses returns request builder for MacOsVppAppAssignedLicense collection
@@ -71,10 +72,13 @@ func (b *MacOsVppAppAssignedLicensesCollectionRequestBuilder) ID(id string) *Mac
 type MacOsVppAppAssignedLicensesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MacOsVppAppAssignedLicense collection
-func (r *MacOsVppAppAssignedLicensesCollectionRequest) Paging(method, path string, obj interface{}) ([]MacOsVppAppAssignedLicense, error) {
+func (r *MacOsVppAppAssignedLicensesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MacOsVppAppAssignedLicense, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *MacOsVppAppAssignedLicensesCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *MacOsVppAppAssignedLicensesCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for MacOsVppAppAssignedLicense collection
-func (r *MacOsVppAppAssignedLicensesCollectionRequest) Get() ([]MacOsVppAppAssignedLicense, error) {
+func (r *MacOsVppAppAssignedLicensesCollectionRequest) Get(ctx context.Context) ([]MacOsVppAppAssignedLicense, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MacOsVppAppAssignedLicense collection
-func (r *MacOsVppAppAssignedLicensesCollectionRequest) Add(reqObj *MacOsVppAppAssignedLicense) (resObj *MacOsVppAppAssignedLicense, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *MacOsVppAppAssignedLicensesCollectionRequest) Add(ctx context.Context, reqObj *MacOsVppAppAssignedLicense) (resObj *MacOsVppAppAssignedLicense, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EducationRubricRequestBuilder is request builder for EducationRubric
 type EducationRubricRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EducationRubricRequestBuilder) Request() *EducationRubricRequest {
 type EducationRubricRequest struct{ BaseRequest }
 
 // Get performs GET request for EducationRubric
-func (r *EducationRubricRequest) Get() (resObj *EducationRubric, err error) {
+func (r *EducationRubricRequest) Get(ctx context.Context) (resObj *EducationRubric, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EducationRubric
-func (r *EducationRubricRequest) Update(reqObj *EducationRubric) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EducationRubricRequest) Update(ctx context.Context, reqObj *EducationRubric) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationRubric
-func (r *EducationRubricRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EducationRubricRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

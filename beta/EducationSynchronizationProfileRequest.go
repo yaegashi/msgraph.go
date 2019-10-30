@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *EducationSynchronizationProfileRequestBuilder) Request() *EducationSync
 type EducationSynchronizationProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for EducationSynchronizationProfile
-func (r *EducationSynchronizationProfileRequest) Get() (resObj *EducationSynchronizationProfile, err error) {
+func (r *EducationSynchronizationProfileRequest) Get(ctx context.Context) (resObj *EducationSynchronizationProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EducationSynchronizationProfile
-func (r *EducationSynchronizationProfileRequest) Update(reqObj *EducationSynchronizationProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EducationSynchronizationProfileRequest) Update(ctx context.Context, reqObj *EducationSynchronizationProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSynchronizationProfile
-func (r *EducationSynchronizationProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EducationSynchronizationProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Errors returns request builder for EducationSynchronizationError collection
@@ -71,10 +72,13 @@ func (b *EducationSynchronizationProfileErrorsCollectionRequestBuilder) ID(id st
 type EducationSynchronizationProfileErrorsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationSynchronizationError collection
-func (r *EducationSynchronizationProfileErrorsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationSynchronizationError, error) {
+func (r *EducationSynchronizationProfileErrorsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationSynchronizationError, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *EducationSynchronizationProfileErrorsCollectionRequest) Paging(method, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *EducationSynchronizationProfileErrorsCollectionRequest) Paging(method, 
 }
 
 // Get performs GET request for EducationSynchronizationError collection
-func (r *EducationSynchronizationProfileErrorsCollectionRequest) Get() ([]EducationSynchronizationError, error) {
+func (r *EducationSynchronizationProfileErrorsCollectionRequest) Get(ctx context.Context) ([]EducationSynchronizationError, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EducationSynchronizationError collection
-func (r *EducationSynchronizationProfileErrorsCollectionRequest) Add(reqObj *EducationSynchronizationError) (resObj *EducationSynchronizationError, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EducationSynchronizationProfileErrorsCollectionRequest) Add(ctx context.Context, reqObj *EducationSynchronizationError) (resObj *EducationSynchronizationError, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

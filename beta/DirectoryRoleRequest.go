@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DirectoryRoleRequestBuilder) Request() *DirectoryRoleRequest {
 type DirectoryRoleRequest struct{ BaseRequest }
 
 // Get performs GET request for DirectoryRole
-func (r *DirectoryRoleRequest) Get() (resObj *DirectoryRole, err error) {
+func (r *DirectoryRoleRequest) Get(ctx context.Context) (resObj *DirectoryRole, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DirectoryRole
-func (r *DirectoryRoleRequest) Update(reqObj *DirectoryRole) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DirectoryRoleRequest) Update(ctx context.Context, reqObj *DirectoryRole) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryRole
-func (r *DirectoryRoleRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DirectoryRoleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Members returns request builder for DirectoryObject collection
@@ -71,10 +72,13 @@ func (b *DirectoryRoleMembersCollectionRequestBuilder) ID(id string) *DirectoryO
 type DirectoryRoleMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DirectoryRoleMembersCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *DirectoryRoleMembersCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *DirectoryRoleMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DirectoryRoleMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *DirectoryRoleScopedMembersCollectionRequestBuilder) ID(id string) *Scop
 type DirectoryRoleScopedMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ScopedRoleMembership collection
-func (r *DirectoryRoleScopedMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
+func (r *DirectoryRoleScopedMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ScopedRoleMembership, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *DirectoryRoleScopedMembersCollectionRequest) Paging(method, path string
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *DirectoryRoleScopedMembersCollectionRequest) Paging(method, path string
 }
 
 // Get performs GET request for ScopedRoleMembership collection
-func (r *DirectoryRoleScopedMembersCollectionRequest) Get() ([]ScopedRoleMembership, error) {
+func (r *DirectoryRoleScopedMembersCollectionRequest) Get(ctx context.Context) ([]ScopedRoleMembership, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ScopedRoleMembership collection
-func (r *DirectoryRoleScopedMembersCollectionRequest) Add(reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DirectoryRoleScopedMembersCollectionRequest) Add(ctx context.Context, reqObj *ScopedRoleMembership) (resObj *ScopedRoleMembership, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

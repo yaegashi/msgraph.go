@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *MobileLobAppRequestBuilder) Request() *MobileLobAppRequest {
 type MobileLobAppRequest struct{ BaseRequest }
 
 // Get performs GET request for MobileLobApp
-func (r *MobileLobAppRequest) Get() (resObj *MobileLobApp, err error) {
+func (r *MobileLobAppRequest) Get(ctx context.Context) (resObj *MobileLobApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MobileLobApp
-func (r *MobileLobAppRequest) Update(reqObj *MobileLobApp) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MobileLobAppRequest) Update(ctx context.Context, reqObj *MobileLobApp) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileLobApp
-func (r *MobileLobAppRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MobileLobAppRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ContentVersions returns request builder for MobileAppContent collection
@@ -71,10 +72,13 @@ func (b *MobileLobAppContentVersionsCollectionRequestBuilder) ID(id string) *Mob
 type MobileLobAppContentVersionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppContent, error) {
+func (r *MobileLobAppContentVersionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppContent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *MobileLobAppContentVersionsCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *MobileLobAppContentVersionsCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Get() ([]MobileAppContent, error) {
+func (r *MobileLobAppContentVersionsCollectionRequest) Get(ctx context.Context) ([]MobileAppContent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Add(reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *MobileLobAppContentVersionsCollectionRequest) Add(ctx context.Context, reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

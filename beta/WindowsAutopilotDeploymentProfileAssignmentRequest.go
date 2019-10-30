@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsAutopilotDeploymentProfileAssignmentRequestBuilder is request builder for WindowsAutopilotDeploymentProfileAssignment
 type WindowsAutopilotDeploymentProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsAutopilotDeploymentProfileAssignmentRequestBuilder) Request() *W
 type WindowsAutopilotDeploymentProfileAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsAutopilotDeploymentProfileAssignment
-func (r *WindowsAutopilotDeploymentProfileAssignmentRequest) Get() (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
+func (r *WindowsAutopilotDeploymentProfileAssignmentRequest) Get(ctx context.Context) (resObj *WindowsAutopilotDeploymentProfileAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsAutopilotDeploymentProfileAssignment
-func (r *WindowsAutopilotDeploymentProfileAssignmentRequest) Update(reqObj *WindowsAutopilotDeploymentProfileAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsAutopilotDeploymentProfileAssignmentRequest) Update(ctx context.Context, reqObj *WindowsAutopilotDeploymentProfileAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsAutopilotDeploymentProfileAssignment
-func (r *WindowsAutopilotDeploymentProfileAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsAutopilotDeploymentProfileAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

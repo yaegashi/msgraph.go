@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartAreaFormatRequestBuilder is request builder for WorkbookChartAreaFormat
 type WorkbookChartAreaFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartAreaFormatRequestBuilder) Request() *WorkbookChartAreaForm
 type WorkbookChartAreaFormatRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartAreaFormat
-func (r *WorkbookChartAreaFormatRequest) Get() (resObj *WorkbookChartAreaFormat, err error) {
+func (r *WorkbookChartAreaFormatRequest) Get(ctx context.Context) (resObj *WorkbookChartAreaFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartAreaFormat
-func (r *WorkbookChartAreaFormatRequest) Update(reqObj *WorkbookChartAreaFormat) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartAreaFormatRequest) Update(ctx context.Context, reqObj *WorkbookChartAreaFormat) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartAreaFormat
-func (r *WorkbookChartAreaFormatRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartAreaFormatRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Fill is navigation property

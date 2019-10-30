@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookRangeFillClearRequestParameter undocumented
 type WorkbookRangeFillClearRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *WorkbookRangeFillClearRequestBuilder) Request() *WorkbookRangeFillClear
 }
 
 //
-func (r *WorkbookRangeFillClearRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeFillClearRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookRangeFormatAutofitColumnsRequestParameter undocumented
 type WorkbookRangeFormatAutofitColumnsRequestParameter struct {
 }
@@ -32,8 +34,8 @@ func (b *WorkbookRangeFormatAutofitColumnsRequestBuilder) Request() *WorkbookRan
 }
 
 //
-func (r *WorkbookRangeFormatAutofitColumnsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeFormatAutofitColumnsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -58,6 +60,6 @@ func (b *WorkbookRangeFormatAutofitRowsRequestBuilder) Request() *WorkbookRangeF
 }
 
 //
-func (r *WorkbookRangeFormatAutofitRowsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeFormatAutofitRowsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

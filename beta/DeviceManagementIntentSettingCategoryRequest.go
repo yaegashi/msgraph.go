@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceManagementIntentSettingCategoryRequestBuilder) Request() *DeviceM
 type DeviceManagementIntentSettingCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementIntentSettingCategory
-func (r *DeviceManagementIntentSettingCategoryRequest) Get() (resObj *DeviceManagementIntentSettingCategory, err error) {
+func (r *DeviceManagementIntentSettingCategoryRequest) Get(ctx context.Context) (resObj *DeviceManagementIntentSettingCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementIntentSettingCategory
-func (r *DeviceManagementIntentSettingCategoryRequest) Update(reqObj *DeviceManagementIntentSettingCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementIntentSettingCategoryRequest) Update(ctx context.Context, reqObj *DeviceManagementIntentSettingCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntentSettingCategory
-func (r *DeviceManagementIntentSettingCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementIntentSettingCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Settings returns request builder for DeviceManagementSettingInstance collection
@@ -71,10 +72,13 @@ func (b *DeviceManagementIntentSettingCategorySettingsCollectionRequestBuilder) 
 type DeviceManagementIntentSettingCategorySettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Paging(
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Paging(
 }
 
 // Get performs GET request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Get() ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementSettingInstance, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentSettingCategorySettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

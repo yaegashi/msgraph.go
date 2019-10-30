@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedEBookAssignRequestParameter undocumented
 type ManagedEBookAssignRequestParameter struct {
 	// ManagedEBookAssignments undocumented
@@ -30,6 +32,6 @@ func (b *ManagedEBookAssignRequestBuilder) Request() *ManagedEBookAssignRequest 
 }
 
 //
-func (r *ManagedEBookAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedEBookAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

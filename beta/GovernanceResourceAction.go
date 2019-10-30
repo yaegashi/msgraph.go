@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GovernanceResourceCollectionRegisterRequestParameter undocumented
 type GovernanceResourceCollectionRegisterRequestParameter struct {
 	// ExternalID undocumented
@@ -30,6 +32,6 @@ func (b *GovernanceResourceCollectionRegisterRequestBuilder) Request() *Governan
 }
 
 //
-func (r *GovernanceResourceCollectionRegisterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GovernanceResourceCollectionRegisterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

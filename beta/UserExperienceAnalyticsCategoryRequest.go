@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *UserExperienceAnalyticsCategoryRequestBuilder) Request() *UserExperienc
 type UserExperienceAnalyticsCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for UserExperienceAnalyticsCategory
-func (r *UserExperienceAnalyticsCategoryRequest) Get() (resObj *UserExperienceAnalyticsCategory, err error) {
+func (r *UserExperienceAnalyticsCategoryRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UserExperienceAnalyticsCategory
-func (r *UserExperienceAnalyticsCategoryRequest) Update(reqObj *UserExperienceAnalyticsCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UserExperienceAnalyticsCategoryRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserExperienceAnalyticsCategory
-func (r *UserExperienceAnalyticsCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UserExperienceAnalyticsCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // MetricValues returns request builder for UserExperienceAnalyticsMetric collection
@@ -71,10 +72,13 @@ func (b *UserExperienceAnalyticsCategoryMetricValuesCollectionRequestBuilder) ID
 type UserExperienceAnalyticsCategoryMetricValuesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserExperienceAnalyticsMetric collection
-func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]UserExperienceAnalyticsMetric, error) {
+func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserExperienceAnalyticsMetric, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Paging(me
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Paging(me
 }
 
 // Get performs GET request for UserExperienceAnalyticsMetric collection
-func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Get() ([]UserExperienceAnalyticsMetric, error) {
+func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsMetric, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for UserExperienceAnalyticsMetric collection
-func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Add(reqObj *UserExperienceAnalyticsMetric) (resObj *UserExperienceAnalyticsMetric, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *UserExperienceAnalyticsCategoryMetricValuesCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsMetric) (resObj *UserExperienceAnalyticsMetric, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

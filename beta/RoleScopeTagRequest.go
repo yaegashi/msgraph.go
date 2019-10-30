@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *RoleScopeTagRequestBuilder) Request() *RoleScopeTagRequest {
 type RoleScopeTagRequest struct{ BaseRequest }
 
 // Get performs GET request for RoleScopeTag
-func (r *RoleScopeTagRequest) Get() (resObj *RoleScopeTag, err error) {
+func (r *RoleScopeTagRequest) Get(ctx context.Context) (resObj *RoleScopeTag, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RoleScopeTag
-func (r *RoleScopeTagRequest) Update(reqObj *RoleScopeTag) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RoleScopeTagRequest) Update(ctx context.Context, reqObj *RoleScopeTag) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleScopeTag
-func (r *RoleScopeTagRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RoleScopeTagRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for RoleScopeTagAutoAssignment collection
@@ -71,10 +72,13 @@ func (b *RoleScopeTagAssignmentsCollectionRequestBuilder) ID(id string) *RoleSco
 type RoleScopeTagAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Get() ([]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignmentsCollectionRequest) Get(ctx context.Context) ([]RoleScopeTagAutoAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Add(reqObj *RoleScopeTagAutoAssignment) (resObj *RoleScopeTagAutoAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *RoleScopeTagAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *RoleScopeTagAutoAssignment) (resObj *RoleScopeTagAutoAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

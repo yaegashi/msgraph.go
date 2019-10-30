@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementTemplateCreateInstanceRequestParameter undocumented
 type DeviceManagementTemplateCreateInstanceRequestParameter struct {
 	// DisplayName undocumented
@@ -36,7 +38,7 @@ func (b *DeviceManagementTemplateCreateInstanceRequestBuilder) Request() *Device
 }
 
 //
-func (r *DeviceManagementTemplateCreateInstanceRequest) Post() (resObj *DeviceManagementIntent, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DeviceManagementTemplateCreateInstanceRequest) Post(ctx context.Context) (resObj *DeviceManagementIntent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

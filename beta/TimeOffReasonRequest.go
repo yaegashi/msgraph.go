@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TimeOffReasonRequestBuilder is request builder for TimeOffReason
 type TimeOffReasonRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TimeOffReasonRequestBuilder) Request() *TimeOffReasonRequest {
 type TimeOffReasonRequest struct{ BaseRequest }
 
 // Get performs GET request for TimeOffReason
-func (r *TimeOffReasonRequest) Get() (resObj *TimeOffReason, err error) {
+func (r *TimeOffReasonRequest) Get(ctx context.Context) (resObj *TimeOffReason, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TimeOffReason
-func (r *TimeOffReasonRequest) Update(reqObj *TimeOffReason) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TimeOffReasonRequest) Update(ctx context.Context, reqObj *TimeOffReason) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TimeOffReason
-func (r *TimeOffReasonRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TimeOffReasonRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EducationSynchronizationProfileStatusRequestBuilder is request builder for EducationSynchronizationProfileStatus
 type EducationSynchronizationProfileStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EducationSynchronizationProfileStatusRequestBuilder) Request() *Educati
 type EducationSynchronizationProfileStatusRequest struct{ BaseRequest }
 
 // Get performs GET request for EducationSynchronizationProfileStatus
-func (r *EducationSynchronizationProfileStatusRequest) Get() (resObj *EducationSynchronizationProfileStatus, err error) {
+func (r *EducationSynchronizationProfileStatusRequest) Get(ctx context.Context) (resObj *EducationSynchronizationProfileStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EducationSynchronizationProfileStatus
-func (r *EducationSynchronizationProfileStatusRequest) Update(reqObj *EducationSynchronizationProfileStatus) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EducationSynchronizationProfileStatusRequest) Update(ctx context.Context, reqObj *EducationSynchronizationProfileStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationSynchronizationProfileStatus
-func (r *EducationSynchronizationProfileStatusRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EducationSynchronizationProfileStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

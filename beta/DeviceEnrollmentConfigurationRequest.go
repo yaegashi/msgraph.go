@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceEnrollmentConfigurationRequestBuilder) Request() *DeviceEnrollmen
 type DeviceEnrollmentConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceEnrollmentConfiguration
-func (r *DeviceEnrollmentConfigurationRequest) Get() (resObj *DeviceEnrollmentConfiguration, err error) {
+func (r *DeviceEnrollmentConfigurationRequest) Get(ctx context.Context) (resObj *DeviceEnrollmentConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceEnrollmentConfiguration
-func (r *DeviceEnrollmentConfigurationRequest) Update(reqObj *DeviceEnrollmentConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceEnrollmentConfigurationRequest) Update(ctx context.Context, reqObj *DeviceEnrollmentConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceEnrollmentConfiguration
-func (r *DeviceEnrollmentConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceEnrollmentConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for EnrollmentConfigurationAssignment collection
@@ -71,10 +72,13 @@ func (b *DeviceEnrollmentConfigurationAssignmentsCollectionRequestBuilder) ID(id
 type DeviceEnrollmentConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EnrollmentConfigurationAssignment collection
-func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EnrollmentConfigurationAssignment, error) {
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EnrollmentConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(metho
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Paging(metho
 }
 
 // Get performs GET request for EnrollmentConfigurationAssignment collection
-func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Get() ([]EnrollmentConfigurationAssignment, error) {
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]EnrollmentConfigurationAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EnrollmentConfigurationAssignment collection
-func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Add(reqObj *EnrollmentConfigurationAssignment) (resObj *EnrollmentConfigurationAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceEnrollmentConfigurationAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *EnrollmentConfigurationAssignment) (resObj *EnrollmentConfigurationAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
