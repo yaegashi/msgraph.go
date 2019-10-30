@@ -26,7 +26,7 @@ func (b *{{$ySymBindingType}}{{$y.Sym}}RequestBuilder) Request() *{{$ySymBinding
 }
 
 //
-func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Post() (resObj {{$yTypeType}}, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Post(ctx context.Context) (resObj {{$yTypeType}}, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
     return
 }

@@ -28,6 +28,6 @@ func (b *{{$ySymBindingType}}{{$y.Sym}}RequestBuilder) Request() *{{$ySymBinding
 }
 
 //
-func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
