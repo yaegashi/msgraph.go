@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsUpdateStateRequestBuilder is request builder for WindowsUpdateState
 type WindowsUpdateStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsUpdateStateRequestBuilder) Request() *WindowsUpdateStateRequest 
 type WindowsUpdateStateRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsUpdateState
-func (r *WindowsUpdateStateRequest) Get() (resObj *WindowsUpdateState, err error) {
+func (r *WindowsUpdateStateRequest) Get(ctx context.Context) (resObj *WindowsUpdateState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsUpdateState
-func (r *WindowsUpdateStateRequest) Update(reqObj *WindowsUpdateState) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsUpdateStateRequest) Update(ctx context.Context, reqObj *WindowsUpdateState) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsUpdateState
-func (r *WindowsUpdateStateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsUpdateStateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

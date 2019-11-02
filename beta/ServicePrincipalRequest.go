@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ServicePrincipalRequestBuilder) Request() *ServicePrincipalRequest {
 type ServicePrincipalRequest struct{ BaseRequest }
 
 // Get performs GET request for ServicePrincipal
-func (r *ServicePrincipalRequest) Get() (resObj *ServicePrincipal, err error) {
+func (r *ServicePrincipalRequest) Get(ctx context.Context) (resObj *ServicePrincipal, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ServicePrincipal
-func (r *ServicePrincipalRequest) Update(reqObj *ServicePrincipal) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ServicePrincipalRequest) Update(ctx context.Context, reqObj *ServicePrincipal) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ServicePrincipal
-func (r *ServicePrincipalRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ServicePrincipalRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AppRoleAssignedTo returns request builder for AppRoleAssignment collection
@@ -71,10 +72,13 @@ func (b *ServicePrincipalAppRoleAssignedToCollectionRequestBuilder) ID(id string
 type ServicePrincipalAppRoleAssignedToCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AppRoleAssignment collection
-func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Paging(method, path string, obj interface{}) ([]AppRoleAssignment, error) {
+func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AppRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Paging(method, path
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Paging(method, path
 }
 
 // Get performs GET request for AppRoleAssignment collection
-func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Get() ([]AppRoleAssignment, error) {
+func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Get(ctx context.Context) ([]AppRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AppRoleAssignment collection
-func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Add(reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalAppRoleAssignedToCollectionRequest) Add(ctx context.Context, reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ServicePrincipalAppRoleAssignmentsCollectionRequestBuilder) ID(id strin
 type ServicePrincipalAppRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AppRoleAssignment collection
-func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppRoleAssignment, error) {
+func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AppRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for AppRoleAssignment collection
-func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Get() ([]AppRoleAssignment, error) {
+func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]AppRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AppRoleAssignment collection
-func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Add(reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalAppRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ServicePrincipalCreatedObjectsCollectionRequestBuilder) ID(id string) *
 type ServicePrincipalCreatedObjectsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *ServicePrincipalCreatedObjectsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *ServicePrincipalCreatedObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ServicePrincipalCreatedObjectsCollectionRequest) Paging(method, path st
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *ServicePrincipalCreatedObjectsCollectionRequest) Paging(method, path st
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *ServicePrincipalCreatedObjectsCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *ServicePrincipalCreatedObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ServicePrincipalCreatedObjectsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalCreatedObjectsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *ServicePrincipalLicenseDetailsCollectionRequestBuilder) ID(id string) *
 type ServicePrincipalLicenseDetailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for LicenseDetails collection
-func (r *ServicePrincipalLicenseDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]LicenseDetails, error) {
+func (r *ServicePrincipalLicenseDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]LicenseDetails, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *ServicePrincipalLicenseDetailsCollectionRequest) Paging(method, path st
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *ServicePrincipalLicenseDetailsCollectionRequest) Paging(method, path st
 }
 
 // Get performs GET request for LicenseDetails collection
-func (r *ServicePrincipalLicenseDetailsCollectionRequest) Get() ([]LicenseDetails, error) {
+func (r *ServicePrincipalLicenseDetailsCollectionRequest) Get(ctx context.Context) ([]LicenseDetails, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for LicenseDetails collection
-func (r *ServicePrincipalLicenseDetailsCollectionRequest) Add(reqObj *LicenseDetails) (resObj *LicenseDetails, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalLicenseDetailsCollectionRequest) Add(ctx context.Context, reqObj *LicenseDetails) (resObj *LicenseDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *ServicePrincipalMemberOfCollectionRequestBuilder) ID(id string) *Direct
 type ServicePrincipalMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *ServicePrincipalMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *ServicePrincipalMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *ServicePrincipalMemberOfCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,17 +500,17 @@ func (r *ServicePrincipalMemberOfCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *ServicePrincipalMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *ServicePrincipalMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ServicePrincipalMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -506,10 +542,13 @@ func (b *ServicePrincipalOauth2PermissionGrantsCollectionRequestBuilder) ID(id s
 type ServicePrincipalOauth2PermissionGrantsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OAuth2PermissionGrant collection
-func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Paging(method, path string, obj interface{}) ([]OAuth2PermissionGrant, error) {
+func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OAuth2PermissionGrant, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -543,7 +582,11 @@ func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -551,17 +594,17 @@ func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for OAuth2PermissionGrant collection
-func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Get() ([]OAuth2PermissionGrant, error) {
+func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Get(ctx context.Context) ([]OAuth2PermissionGrant, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for OAuth2PermissionGrant collection
-func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Add(reqObj *OAuth2PermissionGrant) (resObj *OAuth2PermissionGrant, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalOauth2PermissionGrantsCollectionRequest) Add(ctx context.Context, reqObj *OAuth2PermissionGrant) (resObj *OAuth2PermissionGrant, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -593,10 +636,13 @@ func (b *ServicePrincipalOwnedObjectsCollectionRequestBuilder) ID(id string) *Di
 type ServicePrincipalOwnedObjectsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *ServicePrincipalOwnedObjectsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *ServicePrincipalOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -630,7 +676,11 @@ func (r *ServicePrincipalOwnedObjectsCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -638,17 +688,17 @@ func (r *ServicePrincipalOwnedObjectsCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *ServicePrincipalOwnedObjectsCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *ServicePrincipalOwnedObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ServicePrincipalOwnedObjectsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalOwnedObjectsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -680,10 +730,13 @@ func (b *ServicePrincipalOwnersCollectionRequestBuilder) ID(id string) *Director
 type ServicePrincipalOwnersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *ServicePrincipalOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *ServicePrincipalOwnersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -717,7 +770,11 @@ func (r *ServicePrincipalOwnersCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -725,17 +782,17 @@ func (r *ServicePrincipalOwnersCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *ServicePrincipalOwnersCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *ServicePrincipalOwnersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ServicePrincipalOwnersCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalOwnersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -767,10 +824,13 @@ func (b *ServicePrincipalPoliciesCollectionRequestBuilder) ID(id string) *Direct
 type ServicePrincipalPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *ServicePrincipalPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *ServicePrincipalPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -804,7 +864,11 @@ func (r *ServicePrincipalPoliciesCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -812,17 +876,17 @@ func (r *ServicePrincipalPoliciesCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *ServicePrincipalPoliciesCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *ServicePrincipalPoliciesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ServicePrincipalPoliciesCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -861,10 +925,13 @@ func (b *ServicePrincipalTransitiveMemberOfCollectionRequestBuilder) ID(id strin
 type ServicePrincipalTransitiveMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -898,7 +965,11 @@ func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -906,16 +977,16 @@ func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ServicePrincipalTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

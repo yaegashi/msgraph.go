@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupLifecyclePolicyRequestBuilder is request builder for GroupLifecyclePolicy
 type GroupLifecyclePolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *GroupLifecyclePolicyRequestBuilder) Request() *GroupLifecyclePolicyRequ
 type GroupLifecyclePolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for GroupLifecyclePolicy
-func (r *GroupLifecyclePolicyRequest) Get() (resObj *GroupLifecyclePolicy, err error) {
+func (r *GroupLifecyclePolicyRequest) Get(ctx context.Context) (resObj *GroupLifecyclePolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GroupLifecyclePolicy
-func (r *GroupLifecyclePolicyRequest) Update(reqObj *GroupLifecyclePolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupLifecyclePolicyRequest) Update(ctx context.Context, reqObj *GroupLifecyclePolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupLifecyclePolicy
-func (r *GroupLifecyclePolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupLifecyclePolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

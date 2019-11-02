@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PlannerTaskDetailsRequestBuilder is request builder for PlannerTaskDetails
 type PlannerTaskDetailsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PlannerTaskDetailsRequestBuilder) Request() *PlannerTaskDetailsRequest 
 type PlannerTaskDetailsRequest struct{ BaseRequest }
 
 // Get performs GET request for PlannerTaskDetails
-func (r *PlannerTaskDetailsRequest) Get() (resObj *PlannerTaskDetails, err error) {
+func (r *PlannerTaskDetailsRequest) Get(ctx context.Context) (resObj *PlannerTaskDetails, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PlannerTaskDetails
-func (r *PlannerTaskDetailsRequest) Update(reqObj *PlannerTaskDetails) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PlannerTaskDetailsRequest) Update(ctx context.Context, reqObj *PlannerTaskDetails) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PlannerTaskDetails
-func (r *PlannerTaskDetailsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PlannerTaskDetailsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

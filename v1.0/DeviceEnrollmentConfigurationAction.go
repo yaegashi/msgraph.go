@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
 type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
 	// Priority undocumented
@@ -36,8 +38,8 @@ func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *Devi
 }
 
 //
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -62,6 +64,6 @@ func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnr
 }
 
 //
-func (r *DeviceEnrollmentConfigurationAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceEnrollmentConfigurationAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

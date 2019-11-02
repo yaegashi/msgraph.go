@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionWipeActionRequestBuilder is request builder for WindowsInformationProtectionWipeAction
 type WindowsInformationProtectionWipeActionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsInformationProtectionWipeActionRequestBuilder) Request() *Window
 type WindowsInformationProtectionWipeActionRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsInformationProtectionWipeAction
-func (r *WindowsInformationProtectionWipeActionRequest) Get() (resObj *WindowsInformationProtectionWipeAction, err error) {
+func (r *WindowsInformationProtectionWipeActionRequest) Get(ctx context.Context) (resObj *WindowsInformationProtectionWipeAction, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionWipeAction
-func (r *WindowsInformationProtectionWipeActionRequest) Update(reqObj *WindowsInformationProtectionWipeAction) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsInformationProtectionWipeActionRequest) Update(ctx context.Context, reqObj *WindowsInformationProtectionWipeAction) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionWipeAction
-func (r *WindowsInformationProtectionWipeActionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsInformationProtectionWipeActionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

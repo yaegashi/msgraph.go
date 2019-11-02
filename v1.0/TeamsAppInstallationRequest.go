@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TeamsAppInstallationRequestBuilder is request builder for TeamsAppInstallation
 type TeamsAppInstallationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *TeamsAppInstallationRequestBuilder) Request() *TeamsAppInstallationRequ
 type TeamsAppInstallationRequest struct{ BaseRequest }
 
 // Get performs GET request for TeamsAppInstallation
-func (r *TeamsAppInstallationRequest) Get() (resObj *TeamsAppInstallation, err error) {
+func (r *TeamsAppInstallationRequest) Get(ctx context.Context) (resObj *TeamsAppInstallation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TeamsAppInstallation
-func (r *TeamsAppInstallationRequest) Update(reqObj *TeamsAppInstallation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TeamsAppInstallationRequest) Update(ctx context.Context, reqObj *TeamsAppInstallation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsAppInstallation
-func (r *TeamsAppInstallationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TeamsAppInstallationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // TeamsApp is navigation property

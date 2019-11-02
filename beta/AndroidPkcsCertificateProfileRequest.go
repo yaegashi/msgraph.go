@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AndroidPkcsCertificateProfileRequestBuilder) Request() *AndroidPkcsCert
 type AndroidPkcsCertificateProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidPkcsCertificateProfile
-func (r *AndroidPkcsCertificateProfileRequest) Get() (resObj *AndroidPkcsCertificateProfile, err error) {
+func (r *AndroidPkcsCertificateProfileRequest) Get(ctx context.Context) (resObj *AndroidPkcsCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidPkcsCertificateProfile
-func (r *AndroidPkcsCertificateProfileRequest) Update(reqObj *AndroidPkcsCertificateProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidPkcsCertificateProfileRequest) Update(ctx context.Context, reqObj *AndroidPkcsCertificateProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidPkcsCertificateProfile
-func (r *AndroidPkcsCertificateProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidPkcsCertificateProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -71,10 +72,13 @@ func (b *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 type AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 }
 
 // Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get() ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

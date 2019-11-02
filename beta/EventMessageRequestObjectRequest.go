@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EventMessageRequestObjectRequestBuilder is request builder for EventMessageRequestObject
 type EventMessageRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EventMessageRequestObjectRequestBuilder) Request() *EventMessageRequest
 type EventMessageRequestObjectRequest struct{ BaseRequest }
 
 // Get performs GET request for EventMessageRequestObject
-func (r *EventMessageRequestObjectRequest) Get() (resObj *EventMessageRequestObject, err error) {
+func (r *EventMessageRequestObjectRequest) Get(ctx context.Context) (resObj *EventMessageRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EventMessageRequestObject
-func (r *EventMessageRequestObjectRequest) Update(reqObj *EventMessageRequestObject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EventMessageRequestObjectRequest) Update(ctx context.Context, reqObj *EventMessageRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EventMessageRequestObject
-func (r *EventMessageRequestObjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EventMessageRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

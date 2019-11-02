@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ItemActivityRequestBuilder is request builder for ItemActivity
 type ItemActivityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *ItemActivityRequestBuilder) Request() *ItemActivityRequest {
 type ItemActivityRequest struct{ BaseRequest }
 
 // Get performs GET request for ItemActivity
-func (r *ItemActivityRequest) Get() (resObj *ItemActivity, err error) {
+func (r *ItemActivityRequest) Get(ctx context.Context) (resObj *ItemActivity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ItemActivity
-func (r *ItemActivityRequest) Update(reqObj *ItemActivity) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ItemActivityRequest) Update(ctx context.Context, reqObj *ItemActivity) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ItemActivity
-func (r *ItemActivityRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ItemActivityRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DriveItem is navigation property

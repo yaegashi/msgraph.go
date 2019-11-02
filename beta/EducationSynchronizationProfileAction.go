@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -48,8 +49,8 @@ func (b *EducationSynchronizationProfileResumeRequestBuilder) Request() *Educati
 }
 
 //
-func (r *EducationSynchronizationProfileResumeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EducationSynchronizationProfileResumeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -74,8 +75,8 @@ func (b *EducationSynchronizationProfilePauseRequestBuilder) Request() *Educatio
 }
 
 //
-func (r *EducationSynchronizationProfilePauseRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EducationSynchronizationProfilePauseRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -100,8 +101,8 @@ func (b *EducationSynchronizationProfileResetRequestBuilder) Request() *Educatio
 }
 
 //
-func (r *EducationSynchronizationProfileResetRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EducationSynchronizationProfileResetRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -126,10 +127,13 @@ func (b *EducationSynchronizationProfileStartRequestBuilder) Request() *Educatio
 }
 
 //
-func (r *EducationSynchronizationProfileStartRequest) Paging(method, path string, obj interface{}) ([][]EducationFileSynchronizationVerificationMessage, error) {
+func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]EducationFileSynchronizationVerificationMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -163,7 +167,11 @@ func (r *EducationSynchronizationProfileStartRequest) Paging(method, path string
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -171,10 +179,10 @@ func (r *EducationSynchronizationProfileStartRequest) Paging(method, path string
 }
 
 //
-func (r *EducationSynchronizationProfileStartRequest) Get() ([][]EducationFileSynchronizationVerificationMessage, error) {
+func (r *EducationSynchronizationProfileStartRequest) Get(ctx context.Context) ([][]EducationFileSynchronizationVerificationMessage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

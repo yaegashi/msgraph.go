@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkSettingsRequestBuilder is request builder for AndroidForWorkSettings
 type AndroidForWorkSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidForWorkSettingsRequestBuilder) Request() *AndroidForWorkSettings
 type AndroidForWorkSettingsRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkSettings
-func (r *AndroidForWorkSettingsRequest) Get() (resObj *AndroidForWorkSettings, err error) {
+func (r *AndroidForWorkSettingsRequest) Get(ctx context.Context) (resObj *AndroidForWorkSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkSettings
-func (r *AndroidForWorkSettingsRequest) Update(reqObj *AndroidForWorkSettings) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkSettingsRequest) Update(ctx context.Context, reqObj *AndroidForWorkSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkSettings
-func (r *AndroidForWorkSettingsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

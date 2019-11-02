@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *PolicySetRequestBuilder) Request() *PolicySetRequest {
 type PolicySetRequest struct{ BaseRequest }
 
 // Get performs GET request for PolicySet
-func (r *PolicySetRequest) Get() (resObj *PolicySet, err error) {
+func (r *PolicySetRequest) Get(ctx context.Context) (resObj *PolicySet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PolicySet
-func (r *PolicySetRequest) Update(reqObj *PolicySet) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PolicySetRequest) Update(ctx context.Context, reqObj *PolicySet) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PolicySet
-func (r *PolicySetRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PolicySetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for PolicySetAssignment collection
@@ -71,10 +72,13 @@ func (b *PolicySetAssignmentsCollectionRequestBuilder) ID(id string) *PolicySetA
 type PolicySetAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySetAssignment, error) {
+func (r *PolicySetAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PolicySetAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *PolicySetAssignmentsCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *PolicySetAssignmentsCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Get() ([]PolicySetAssignment, error) {
+func (r *PolicySetAssignmentsCollectionRequest) Get(ctx context.Context) ([]PolicySetAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Add(reqObj *PolicySetAssignment) (resObj *PolicySetAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *PolicySetAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *PolicySetAssignment) (resObj *PolicySetAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *PolicySetItemsCollectionRequestBuilder) ID(id string) *PolicySetItemReq
 type PolicySetItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySetItem, error) {
+func (r *PolicySetItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PolicySetItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *PolicySetItemsCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *PolicySetItemsCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Get() ([]PolicySetItem, error) {
+func (r *PolicySetItemsCollectionRequest) Get(ctx context.Context) ([]PolicySetItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Add(reqObj *PolicySetItem) (resObj *PolicySetItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *PolicySetItemsCollectionRequest) Add(ctx context.Context, reqObj *PolicySetItem) (resObj *PolicySetItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

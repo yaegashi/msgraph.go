@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *VendorRequestBuilder) Request() *VendorRequest {
 type VendorRequest struct{ BaseRequest }
 
 // Get performs GET request for Vendor
-func (r *VendorRequest) Get() (resObj *Vendor, err error) {
+func (r *VendorRequest) Get(ctx context.Context) (resObj *Vendor, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Vendor
-func (r *VendorRequest) Update(reqObj *Vendor) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *VendorRequest) Update(ctx context.Context, reqObj *Vendor) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Vendor
-func (r *VendorRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *VendorRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Currency is navigation property
@@ -92,10 +93,13 @@ func (b *VendorPictureCollectionRequestBuilder) ID(id string) *PictureRequestBui
 type VendorPictureCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Picture collection
-func (r *VendorPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
+func (r *VendorPictureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Picture, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -129,7 +133,11 @@ func (r *VendorPictureCollectionRequest) Paging(method, path string, obj interfa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -137,16 +145,16 @@ func (r *VendorPictureCollectionRequest) Paging(method, path string, obj interfa
 }
 
 // Get performs GET request for Picture collection
-func (r *VendorPictureCollectionRequest) Get() ([]Picture, error) {
+func (r *VendorPictureCollectionRequest) Get(ctx context.Context) ([]Picture, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Picture collection
-func (r *VendorPictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *VendorPictureCollectionRequest) Add(ctx context.Context, reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

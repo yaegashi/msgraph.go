@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *OfficeConfigurationRequestBuilder) Request() *OfficeConfigurationReques
 type OfficeConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for OfficeConfiguration
-func (r *OfficeConfigurationRequest) Get() (resObj *OfficeConfiguration, err error) {
+func (r *OfficeConfigurationRequest) Get(ctx context.Context) (resObj *OfficeConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OfficeConfiguration
-func (r *OfficeConfigurationRequest) Update(reqObj *OfficeConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OfficeConfigurationRequest) Update(ctx context.Context, reqObj *OfficeConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OfficeConfiguration
-func (r *OfficeConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OfficeConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ClientConfigurations returns request builder for OfficeClientConfiguration collection
@@ -71,10 +72,13 @@ func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) ID(id 
 type OfficeConfigurationClientConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]OfficeClientConfiguration, error) {
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OfficeClientConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(method
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(method
 }
 
 // Get performs GET request for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Get() ([]OfficeClientConfiguration, error) {
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Get(ctx context.Context) ([]OfficeClientConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Add(reqObj *OfficeClientConfiguration) (resObj *OfficeClientConfiguration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *OfficeClientConfiguration) (resObj *OfficeClientConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

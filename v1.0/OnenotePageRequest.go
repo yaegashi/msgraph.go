@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OnenotePageRequestBuilder is request builder for OnenotePage
 type OnenotePageRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *OnenotePageRequestBuilder) Request() *OnenotePageRequest {
 type OnenotePageRequest struct{ BaseRequest }
 
 // Get performs GET request for OnenotePage
-func (r *OnenotePageRequest) Get() (resObj *OnenotePage, err error) {
+func (r *OnenotePageRequest) Get(ctx context.Context) (resObj *OnenotePage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OnenotePage
-func (r *OnenotePageRequest) Update(reqObj *OnenotePage) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OnenotePageRequest) Update(ctx context.Context, reqObj *OnenotePage) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnenotePage
-func (r *OnenotePageRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OnenotePageRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ParentNotebook is navigation property

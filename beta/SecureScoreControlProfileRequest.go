@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SecureScoreControlProfileRequestBuilder is request builder for SecureScoreControlProfile
 type SecureScoreControlProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SecureScoreControlProfileRequestBuilder) Request() *SecureScoreControlP
 type SecureScoreControlProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for SecureScoreControlProfile
-func (r *SecureScoreControlProfileRequest) Get() (resObj *SecureScoreControlProfile, err error) {
+func (r *SecureScoreControlProfileRequest) Get(ctx context.Context) (resObj *SecureScoreControlProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SecureScoreControlProfile
-func (r *SecureScoreControlProfileRequest) Update(reqObj *SecureScoreControlProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SecureScoreControlProfileRequest) Update(ctx context.Context, reqObj *SecureScoreControlProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SecureScoreControlProfile
-func (r *SecureScoreControlProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SecureScoreControlProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

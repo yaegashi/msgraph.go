@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *IOSPkcsCertificateProfileRequestBuilder) Request() *IOSPkcsCertificateP
 type IOSPkcsCertificateProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for IOSPkcsCertificateProfile
-func (r *IOSPkcsCertificateProfileRequest) Get() (resObj *IOSPkcsCertificateProfile, err error) {
+func (r *IOSPkcsCertificateProfileRequest) Get(ctx context.Context) (resObj *IOSPkcsCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IOSPkcsCertificateProfile
-func (r *IOSPkcsCertificateProfileRequest) Update(reqObj *IOSPkcsCertificateProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IOSPkcsCertificateProfileRequest) Update(ctx context.Context, reqObj *IOSPkcsCertificateProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IOSPkcsCertificateProfile
-func (r *IOSPkcsCertificateProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IOSPkcsCertificateProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -71,10 +72,13 @@ func (b *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionReques
 type IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionReques
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionReques
 }
 
 // Get performs GET request for ManagedDeviceCertificateState collection
-func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get() ([]ManagedDeviceCertificateState, error) {
+func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *IOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

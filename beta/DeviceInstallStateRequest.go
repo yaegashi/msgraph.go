@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceInstallStateRequestBuilder is request builder for DeviceInstallState
 type DeviceInstallStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceInstallStateRequestBuilder) Request() *DeviceInstallStateRequest 
 type DeviceInstallStateRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceInstallState
-func (r *DeviceInstallStateRequest) Get() (resObj *DeviceInstallState, err error) {
+func (r *DeviceInstallStateRequest) Get(ctx context.Context) (resObj *DeviceInstallState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceInstallState
-func (r *DeviceInstallStateRequest) Update(reqObj *DeviceInstallState) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceInstallStateRequest) Update(ctx context.Context, reqObj *DeviceInstallState) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceInstallState
-func (r *DeviceInstallStateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceInstallStateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

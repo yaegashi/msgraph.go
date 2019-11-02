@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // BookingAppointmentRequestBuilder is request builder for BookingAppointment
 type BookingAppointmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *BookingAppointmentRequestBuilder) Request() *BookingAppointmentRequest 
 type BookingAppointmentRequest struct{ BaseRequest }
 
 // Get performs GET request for BookingAppointment
-func (r *BookingAppointmentRequest) Get() (resObj *BookingAppointment, err error) {
+func (r *BookingAppointmentRequest) Get(ctx context.Context) (resObj *BookingAppointment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for BookingAppointment
-func (r *BookingAppointmentRequest) Update(reqObj *BookingAppointment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *BookingAppointmentRequest) Update(ctx context.Context, reqObj *BookingAppointment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BookingAppointment
-func (r *BookingAppointmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *BookingAppointmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

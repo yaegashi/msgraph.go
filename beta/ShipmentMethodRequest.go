@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ShipmentMethodRequestBuilder is request builder for ShipmentMethod
 type ShipmentMethodRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ShipmentMethodRequestBuilder) Request() *ShipmentMethodRequest {
 type ShipmentMethodRequest struct{ BaseRequest }
 
 // Get performs GET request for ShipmentMethod
-func (r *ShipmentMethodRequest) Get() (resObj *ShipmentMethod, err error) {
+func (r *ShipmentMethodRequest) Get(ctx context.Context) (resObj *ShipmentMethod, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ShipmentMethod
-func (r *ShipmentMethodRequest) Update(reqObj *ShipmentMethod) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ShipmentMethodRequest) Update(ctx context.Context, reqObj *ShipmentMethod) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ShipmentMethod
-func (r *ShipmentMethodRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ShipmentMethodRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

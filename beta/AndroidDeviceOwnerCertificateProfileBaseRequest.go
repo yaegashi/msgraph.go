@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidDeviceOwnerCertificateProfileBaseRequestBuilder is request builder for AndroidDeviceOwnerCertificateProfileBase
 type AndroidDeviceOwnerCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *AndroidDeviceOwnerCertificateProfileBaseRequestBuilder) Request() *Andr
 type AndroidDeviceOwnerCertificateProfileBaseRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidDeviceOwnerCertificateProfileBase
-func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Get() (resObj *AndroidDeviceOwnerCertificateProfileBase, err error) {
+func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Get(ctx context.Context) (resObj *AndroidDeviceOwnerCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidDeviceOwnerCertificateProfileBase
-func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Update(reqObj *AndroidDeviceOwnerCertificateProfileBase) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Update(ctx context.Context, reqObj *AndroidDeviceOwnerCertificateProfileBase) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidDeviceOwnerCertificateProfileBase
-func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidDeviceOwnerCertificateProfileBaseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // RootCertificate is navigation property

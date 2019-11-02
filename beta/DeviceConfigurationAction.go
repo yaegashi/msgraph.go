@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -72,10 +73,13 @@ func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -109,7 +113,11 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -117,12 +125,12 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(method, pat
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -155,10 +163,13 @@ func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) 
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -192,7 +203,11 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -200,12 +215,12 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Get() ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Get(ctx context.Context) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -230,10 +245,13 @@ func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfiguration
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
+func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -267,7 +285,11 @@ func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -275,12 +297,12 @@ func (r *DeviceConfigurationAssignRequest) Paging(method, path string, obj inter
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Get() ([][]DeviceConfigurationAssignment, error) {
+func (r *DeviceConfigurationAssignRequest) Get(ctx context.Context) ([][]DeviceConfigurationAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -305,8 +327,8 @@ func (b *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder) Request(
 }
 
 //
-func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -331,6 +353,6 @@ func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Reque
 }
 
 //
-func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

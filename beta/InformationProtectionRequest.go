@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *InformationProtectionRequestBuilder) Request() *InformationProtectionRe
 type InformationProtectionRequest struct{ BaseRequest }
 
 // Get performs GET request for InformationProtection
-func (r *InformationProtectionRequest) Get() (resObj *InformationProtection, err error) {
+func (r *InformationProtectionRequest) Get(ctx context.Context) (resObj *InformationProtection, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for InformationProtection
-func (r *InformationProtectionRequest) Update(reqObj *InformationProtection) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *InformationProtectionRequest) Update(ctx context.Context, reqObj *InformationProtection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InformationProtection
-func (r *InformationProtectionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *InformationProtectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Policy is navigation property
@@ -78,10 +79,13 @@ func (b *InformationProtectionSensitivityLabelsCollectionRequestBuilder) ID(id s
 type InformationProtectionSensitivityLabelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SensitivityLabel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,17 +131,17 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Get() ([]SensitivityLabel, error) {
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) Get(ctx context.Context) ([]SensitivityLabel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Add(reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) Add(ctx context.Context, reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

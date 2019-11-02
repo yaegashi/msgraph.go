@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TermsAndConditionsGroupAssignmentRequestBuilder is request builder for TermsAndConditionsGroupAssignment
 type TermsAndConditionsGroupAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *TermsAndConditionsGroupAssignmentRequestBuilder) Request() *TermsAndCon
 type TermsAndConditionsGroupAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for TermsAndConditionsGroupAssignment
-func (r *TermsAndConditionsGroupAssignmentRequest) Get() (resObj *TermsAndConditionsGroupAssignment, err error) {
+func (r *TermsAndConditionsGroupAssignmentRequest) Get(ctx context.Context) (resObj *TermsAndConditionsGroupAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TermsAndConditionsGroupAssignment
-func (r *TermsAndConditionsGroupAssignmentRequest) Update(reqObj *TermsAndConditionsGroupAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TermsAndConditionsGroupAssignmentRequest) Update(ctx context.Context, reqObj *TermsAndConditionsGroupAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TermsAndConditionsGroupAssignment
-func (r *TermsAndConditionsGroupAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TermsAndConditionsGroupAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // TermsAndConditions is navigation property

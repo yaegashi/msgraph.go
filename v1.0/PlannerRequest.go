@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *PlannerRequestBuilder) Request() *PlannerRequest {
 type PlannerRequest struct{ BaseRequest }
 
 // Get performs GET request for Planner
-func (r *PlannerRequest) Get() (resObj *Planner, err error) {
+func (r *PlannerRequest) Get(ctx context.Context) (resObj *Planner, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Planner
-func (r *PlannerRequest) Update(reqObj *Planner) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PlannerRequest) Update(ctx context.Context, reqObj *Planner) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Planner
-func (r *PlannerRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PlannerRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Buckets returns request builder for PlannerBucket collection
@@ -71,10 +72,13 @@ func (b *PlannerBucketsCollectionRequestBuilder) ID(id string) *PlannerBucketReq
 type PlannerBucketsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PlannerBucket collection
-func (r *PlannerBucketsCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerBucket, error) {
+func (r *PlannerBucketsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PlannerBucket, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *PlannerBucketsCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *PlannerBucketsCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for PlannerBucket collection
-func (r *PlannerBucketsCollectionRequest) Get() ([]PlannerBucket, error) {
+func (r *PlannerBucketsCollectionRequest) Get(ctx context.Context) ([]PlannerBucket, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PlannerBucket collection
-func (r *PlannerBucketsCollectionRequest) Add(reqObj *PlannerBucket) (resObj *PlannerBucket, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *PlannerBucketsCollectionRequest) Add(ctx context.Context, reqObj *PlannerBucket) (resObj *PlannerBucket, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *PlannerPlansCollectionRequestBuilder) ID(id string) *PlannerPlanRequest
 type PlannerPlansCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PlannerPlan collection
-func (r *PlannerPlansCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerPlan, error) {
+func (r *PlannerPlansCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PlannerPlan, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *PlannerPlansCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *PlannerPlansCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for PlannerPlan collection
-func (r *PlannerPlansCollectionRequest) Get() ([]PlannerPlan, error) {
+func (r *PlannerPlansCollectionRequest) Get(ctx context.Context) ([]PlannerPlan, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PlannerPlan collection
-func (r *PlannerPlansCollectionRequest) Add(reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *PlannerPlansCollectionRequest) Add(ctx context.Context, reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *PlannerTasksCollectionRequestBuilder) ID(id string) *PlannerTaskRequest
 type PlannerTasksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PlannerTask collection
-func (r *PlannerTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]PlannerTask, error) {
+func (r *PlannerTasksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PlannerTask, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *PlannerTasksCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *PlannerTasksCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for PlannerTask collection
-func (r *PlannerTasksCollectionRequest) Get() ([]PlannerTask, error) {
+func (r *PlannerTasksCollectionRequest) Get(ctx context.Context) ([]PlannerTask, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PlannerTask collection
-func (r *PlannerTasksCollectionRequest) Add(reqObj *PlannerTask) (resObj *PlannerTask, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *PlannerTasksCollectionRequest) Add(ctx context.Context, reqObj *PlannerTask) (resObj *PlannerTask, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OnenotePageOnenotePatchContentRequestParameter undocumented
 type OnenotePageOnenotePatchContentRequestParameter struct {
 	// Commands undocumented
@@ -42,8 +44,8 @@ func (b *OnenotePageOnenotePatchContentRequestBuilder) Request() *OnenotePageOne
 }
 
 //
-func (r *OnenotePageOnenotePatchContentRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *OnenotePageOnenotePatchContentRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -68,7 +70,7 @@ func (b *OnenotePageCopyToSectionRequestBuilder) Request() *OnenotePageCopyToSec
 }
 
 //
-func (r *OnenotePageCopyToSectionRequest) Post() (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *OnenotePageCopyToSectionRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

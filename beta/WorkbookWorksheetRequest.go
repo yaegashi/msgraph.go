@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WorkbookWorksheetRequestBuilder) Request() *WorkbookWorksheetRequest {
 type WorkbookWorksheetRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookWorksheet
-func (r *WorkbookWorksheetRequest) Get() (resObj *WorkbookWorksheet, err error) {
+func (r *WorkbookWorksheetRequest) Get(ctx context.Context) (resObj *WorkbookWorksheet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookWorksheet
-func (r *WorkbookWorksheetRequest) Update(reqObj *WorkbookWorksheet) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookWorksheetRequest) Update(ctx context.Context, reqObj *WorkbookWorksheet) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookWorksheet
-func (r *WorkbookWorksheetRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookWorksheetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Charts returns request builder for WorkbookChart collection
@@ -71,10 +72,13 @@ func (b *WorkbookWorksheetChartsCollectionRequestBuilder) ID(id string) *Workboo
 type WorkbookWorksheetChartsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookChart collection
-func (r *WorkbookWorksheetChartsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookChart, error) {
+func (r *WorkbookWorksheetChartsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookChart, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *WorkbookWorksheetChartsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *WorkbookWorksheetChartsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for WorkbookChart collection
-func (r *WorkbookWorksheetChartsCollectionRequest) Get() ([]WorkbookChart, error) {
+func (r *WorkbookWorksheetChartsCollectionRequest) Get(ctx context.Context) ([]WorkbookChart, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookChart collection
-func (r *WorkbookWorksheetChartsCollectionRequest) Add(reqObj *WorkbookChart) (resObj *WorkbookChart, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookWorksheetChartsCollectionRequest) Add(ctx context.Context, reqObj *WorkbookChart) (resObj *WorkbookChart, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *WorkbookWorksheetNamesCollectionRequestBuilder) ID(id string) *Workbook
 type WorkbookWorksheetNamesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookNamedItem collection
-func (r *WorkbookWorksheetNamesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookNamedItem, error) {
+func (r *WorkbookWorksheetNamesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookNamedItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *WorkbookWorksheetNamesCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *WorkbookWorksheetNamesCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for WorkbookNamedItem collection
-func (r *WorkbookWorksheetNamesCollectionRequest) Get() ([]WorkbookNamedItem, error) {
+func (r *WorkbookWorksheetNamesCollectionRequest) Get(ctx context.Context) ([]WorkbookNamedItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookNamedItem collection
-func (r *WorkbookWorksheetNamesCollectionRequest) Add(reqObj *WorkbookNamedItem) (resObj *WorkbookNamedItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookWorksheetNamesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookNamedItem) (resObj *WorkbookNamedItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *WorkbookWorksheetPivotTablesCollectionRequestBuilder) ID(id string) *Wo
 type WorkbookWorksheetPivotTablesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookPivotTable collection
-func (r *WorkbookWorksheetPivotTablesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookPivotTable, error) {
+func (r *WorkbookWorksheetPivotTablesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookPivotTable, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *WorkbookWorksheetPivotTablesCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *WorkbookWorksheetPivotTablesCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for WorkbookPivotTable collection
-func (r *WorkbookWorksheetPivotTablesCollectionRequest) Get() ([]WorkbookPivotTable, error) {
+func (r *WorkbookWorksheetPivotTablesCollectionRequest) Get(ctx context.Context) ([]WorkbookPivotTable, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookPivotTable collection
-func (r *WorkbookWorksheetPivotTablesCollectionRequest) Add(reqObj *WorkbookPivotTable) (resObj *WorkbookPivotTable, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookWorksheetPivotTablesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookPivotTable) (resObj *WorkbookPivotTable, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *WorkbookWorksheetTablesCollectionRequestBuilder) ID(id string) *Workboo
 type WorkbookWorksheetTablesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookTable collection
-func (r *WorkbookWorksheetTablesCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookTable, error) {
+func (r *WorkbookWorksheetTablesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookTable, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *WorkbookWorksheetTablesCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,16 +413,16 @@ func (r *WorkbookWorksheetTablesCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for WorkbookTable collection
-func (r *WorkbookWorksheetTablesCollectionRequest) Get() ([]WorkbookTable, error) {
+func (r *WorkbookWorksheetTablesCollectionRequest) Get(ctx context.Context) ([]WorkbookTable, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookTable collection
-func (r *WorkbookWorksheetTablesCollectionRequest) Add(reqObj *WorkbookTable) (resObj *WorkbookTable, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookWorksheetTablesCollectionRequest) Add(ctx context.Context, reqObj *WorkbookTable) (resObj *WorkbookTable, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SharedDriveItemRequestBuilder) Request() *SharedDriveItemRequest {
 type SharedDriveItemRequest struct{ BaseRequest }
 
 // Get performs GET request for SharedDriveItem
-func (r *SharedDriveItemRequest) Get() (resObj *SharedDriveItem, err error) {
+func (r *SharedDriveItemRequest) Get(ctx context.Context) (resObj *SharedDriveItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SharedDriveItem
-func (r *SharedDriveItemRequest) Update(reqObj *SharedDriveItem) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SharedDriveItemRequest) Update(ctx context.Context, reqObj *SharedDriveItem) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SharedDriveItem
-func (r *SharedDriveItemRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SharedDriveItemRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DriveItem is navigation property
@@ -78,10 +79,13 @@ func (b *SharedDriveItemItemsCollectionRequestBuilder) ID(id string) *DriveItemR
 type SharedDriveItemItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *SharedDriveItemItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *SharedDriveItemItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *SharedDriveItemItemsCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,17 +131,17 @@ func (r *SharedDriveItemItemsCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for DriveItem collection
-func (r *SharedDriveItemItemsCollectionRequest) Get() ([]DriveItem, error) {
+func (r *SharedDriveItemItemsCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DriveItem collection
-func (r *SharedDriveItemItemsCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SharedDriveItemItemsCollectionRequest) Add(ctx context.Context, reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

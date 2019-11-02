@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SynchronizationTemplateRequestBuilder is request builder for SynchronizationTemplate
 type SynchronizationTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *SynchronizationTemplateRequestBuilder) Request() *SynchronizationTempla
 type SynchronizationTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for SynchronizationTemplate
-func (r *SynchronizationTemplateRequest) Get() (resObj *SynchronizationTemplate, err error) {
+func (r *SynchronizationTemplateRequest) Get(ctx context.Context) (resObj *SynchronizationTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SynchronizationTemplate
-func (r *SynchronizationTemplateRequest) Update(reqObj *SynchronizationTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SynchronizationTemplateRequest) Update(ctx context.Context, reqObj *SynchronizationTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SynchronizationTemplate
-func (r *SynchronizationTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SynchronizationTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Schema is navigation property

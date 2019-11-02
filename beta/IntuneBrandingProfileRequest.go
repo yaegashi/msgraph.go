@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *IntuneBrandingProfileRequestBuilder) Request() *IntuneBrandingProfileRe
 type IntuneBrandingProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for IntuneBrandingProfile
-func (r *IntuneBrandingProfileRequest) Get() (resObj *IntuneBrandingProfile, err error) {
+func (r *IntuneBrandingProfileRequest) Get(ctx context.Context) (resObj *IntuneBrandingProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IntuneBrandingProfile
-func (r *IntuneBrandingProfileRequest) Update(reqObj *IntuneBrandingProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IntuneBrandingProfileRequest) Update(ctx context.Context, reqObj *IntuneBrandingProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IntuneBrandingProfile
-func (r *IntuneBrandingProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IntuneBrandingProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for IntuneBrandingProfileAssignment collection
@@ -71,10 +72,13 @@ func (b *IntuneBrandingProfileAssignmentsCollectionRequestBuilder) ID(id string)
 type IntuneBrandingProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]IntuneBrandingProfileAssignment, error) {
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IntuneBrandingProfileAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Get() ([]IntuneBrandingProfileAssignment, error) {
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]IntuneBrandingProfileAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Add(reqObj *IntuneBrandingProfileAssignment) (resObj *IntuneBrandingProfileAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *IntuneBrandingProfileAssignment) (resObj *IntuneBrandingProfileAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

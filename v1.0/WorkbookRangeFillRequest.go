@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookRangeFillRequestBuilder is request builder for WorkbookRangeFill
 type WorkbookRangeFillRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookRangeFillRequestBuilder) Request() *WorkbookRangeFillRequest {
 type WorkbookRangeFillRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookRangeFill
-func (r *WorkbookRangeFillRequest) Get() (resObj *WorkbookRangeFill, err error) {
+func (r *WorkbookRangeFillRequest) Get(ctx context.Context) (resObj *WorkbookRangeFill, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookRangeFill
-func (r *WorkbookRangeFillRequest) Update(reqObj *WorkbookRangeFill) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookRangeFillRequest) Update(ctx context.Context, reqObj *WorkbookRangeFill) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookRangeFill
-func (r *WorkbookRangeFillRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookRangeFillRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

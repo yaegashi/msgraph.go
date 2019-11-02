@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidManagedStoreAppConfigurationSchemaRequestBuilder is request builder for AndroidManagedStoreAppConfigurationSchema
 type AndroidManagedStoreAppConfigurationSchemaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidManagedStoreAppConfigurationSchemaRequestBuilder) Request() *And
 type AndroidManagedStoreAppConfigurationSchemaRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidManagedStoreAppConfigurationSchema
-func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Get() (resObj *AndroidManagedStoreAppConfigurationSchema, err error) {
+func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Get(ctx context.Context) (resObj *AndroidManagedStoreAppConfigurationSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidManagedStoreAppConfigurationSchema
-func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Update(reqObj *AndroidManagedStoreAppConfigurationSchema) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Update(ctx context.Context, reqObj *AndroidManagedStoreAppConfigurationSchema) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidManagedStoreAppConfigurationSchema
-func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidManagedStoreAppConfigurationSchemaRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

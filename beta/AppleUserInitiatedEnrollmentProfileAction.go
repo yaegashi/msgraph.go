@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AppleUserInitiatedEnrollmentProfileSetPriorityRequestParameter undocumented
 type AppleUserInitiatedEnrollmentProfileSetPriorityRequestParameter struct {
 	// Priority undocumented
@@ -30,6 +32,6 @@ func (b *AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder) Request()
 }
 
 //
-func (r *AppleUserInitiatedEnrollmentProfileSetPriorityRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AppleUserInitiatedEnrollmentProfileSetPriorityRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

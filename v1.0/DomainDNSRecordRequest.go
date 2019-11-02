@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DomainDNSRecordRequestBuilder is request builder for DomainDNSRecord
 type DomainDNSRecordRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DomainDNSRecordRequestBuilder) Request() *DomainDNSRecordRequest {
 type DomainDNSRecordRequest struct{ BaseRequest }
 
 // Get performs GET request for DomainDNSRecord
-func (r *DomainDNSRecordRequest) Get() (resObj *DomainDNSRecord, err error) {
+func (r *DomainDNSRecordRequest) Get(ctx context.Context) (resObj *DomainDNSRecord, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DomainDNSRecord
-func (r *DomainDNSRecordRequest) Update(reqObj *DomainDNSRecord) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DomainDNSRecordRequest) Update(ctx context.Context, reqObj *DomainDNSRecord) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DomainDNSRecord
-func (r *DomainDNSRecordRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DomainDNSRecordRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

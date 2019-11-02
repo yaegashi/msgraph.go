@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ShiftRequestBuilder is request builder for Shift
 type ShiftRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ShiftRequestBuilder) Request() *ShiftRequest {
 type ShiftRequest struct{ BaseRequest }
 
 // Get performs GET request for Shift
-func (r *ShiftRequest) Get() (resObj *Shift, err error) {
+func (r *ShiftRequest) Get(ctx context.Context) (resObj *Shift, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Shift
-func (r *ShiftRequest) Update(reqObj *Shift) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ShiftRequest) Update(ctx context.Context, reqObj *Shift) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Shift
-func (r *ShiftRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ShiftRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

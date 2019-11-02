@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RoomRequestBuilder is request builder for Room
 type RoomRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *RoomRequestBuilder) Request() *RoomRequest {
 type RoomRequest struct{ BaseRequest }
 
 // Get performs GET request for Room
-func (r *RoomRequest) Get() (resObj *Room, err error) {
+func (r *RoomRequest) Get(ctx context.Context) (resObj *Room, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Room
-func (r *RoomRequest) Update(reqObj *Room) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RoomRequest) Update(ctx context.Context, reqObj *Room) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Room
-func (r *RoomRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RoomRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

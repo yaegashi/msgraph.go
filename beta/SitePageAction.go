@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SitePagePublishRequestParameter undocumented
 type SitePagePublishRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *SitePagePublishRequestBuilder) Request() *SitePagePublishRequest {
 }
 
 //
-func (r *SitePagePublishRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *SitePagePublishRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ConversationThreadRequestBuilder) Request() *ConversationThreadRequest 
 type ConversationThreadRequest struct{ BaseRequest }
 
 // Get performs GET request for ConversationThread
-func (r *ConversationThreadRequest) Get() (resObj *ConversationThread, err error) {
+func (r *ConversationThreadRequest) Get(ctx context.Context) (resObj *ConversationThread, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ConversationThread
-func (r *ConversationThreadRequest) Update(reqObj *ConversationThread) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ConversationThreadRequest) Update(ctx context.Context, reqObj *ConversationThread) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ConversationThread
-func (r *ConversationThreadRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ConversationThreadRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Posts returns request builder for Post collection
@@ -71,10 +72,13 @@ func (b *ConversationThreadPostsCollectionRequestBuilder) ID(id string) *PostReq
 type ConversationThreadPostsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Post collection
-func (r *ConversationThreadPostsCollectionRequest) Paging(method, path string, obj interface{}) ([]Post, error) {
+func (r *ConversationThreadPostsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Post, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ConversationThreadPostsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *ConversationThreadPostsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for Post collection
-func (r *ConversationThreadPostsCollectionRequest) Get() ([]Post, error) {
+func (r *ConversationThreadPostsCollectionRequest) Get(ctx context.Context) ([]Post, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Post collection
-func (r *ConversationThreadPostsCollectionRequest) Add(reqObj *Post) (resObj *Post, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ConversationThreadPostsCollectionRequest) Add(ctx context.Context, reqObj *Post) (resObj *Post, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

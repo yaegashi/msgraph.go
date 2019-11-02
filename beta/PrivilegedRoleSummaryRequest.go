@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedRoleSummaryRequestBuilder is request builder for PrivilegedRoleSummary
 type PrivilegedRoleSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PrivilegedRoleSummaryRequestBuilder) Request() *PrivilegedRoleSummaryRe
 type PrivilegedRoleSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for PrivilegedRoleSummary
-func (r *PrivilegedRoleSummaryRequest) Get() (resObj *PrivilegedRoleSummary, err error) {
+func (r *PrivilegedRoleSummaryRequest) Get(ctx context.Context) (resObj *PrivilegedRoleSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PrivilegedRoleSummary
-func (r *PrivilegedRoleSummaryRequest) Update(reqObj *PrivilegedRoleSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PrivilegedRoleSummaryRequest) Update(ctx context.Context, reqObj *PrivilegedRoleSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedRoleSummary
-func (r *PrivilegedRoleSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PrivilegedRoleSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

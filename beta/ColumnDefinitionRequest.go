@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ColumnDefinitionRequestBuilder is request builder for ColumnDefinition
 type ColumnDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ColumnDefinitionRequestBuilder) Request() *ColumnDefinitionRequest {
 type ColumnDefinitionRequest struct{ BaseRequest }
 
 // Get performs GET request for ColumnDefinition
-func (r *ColumnDefinitionRequest) Get() (resObj *ColumnDefinition, err error) {
+func (r *ColumnDefinitionRequest) Get(ctx context.Context) (resObj *ColumnDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ColumnDefinition
-func (r *ColumnDefinitionRequest) Update(reqObj *ColumnDefinition) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ColumnDefinitionRequest) Update(ctx context.Context, reqObj *ColumnDefinition) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ColumnDefinition
-func (r *ColumnDefinitionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ColumnDefinitionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

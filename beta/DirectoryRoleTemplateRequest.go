@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DirectoryRoleTemplateRequestBuilder is request builder for DirectoryRoleTemplate
 type DirectoryRoleTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DirectoryRoleTemplateRequestBuilder) Request() *DirectoryRoleTemplateRe
 type DirectoryRoleTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for DirectoryRoleTemplate
-func (r *DirectoryRoleTemplateRequest) Get() (resObj *DirectoryRoleTemplate, err error) {
+func (r *DirectoryRoleTemplateRequest) Get(ctx context.Context) (resObj *DirectoryRoleTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DirectoryRoleTemplate
-func (r *DirectoryRoleTemplateRequest) Update(reqObj *DirectoryRoleTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DirectoryRoleTemplateRequest) Update(ctx context.Context, reqObj *DirectoryRoleTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryRoleTemplate
-func (r *DirectoryRoleTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DirectoryRoleTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

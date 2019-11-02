@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GovernanceRoleAssignmentRequestBuilder is request builder for GovernanceRoleAssignment
 type GovernanceRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *GovernanceRoleAssignmentRequestBuilder) Request() *GovernanceRoleAssign
 type GovernanceRoleAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for GovernanceRoleAssignment
-func (r *GovernanceRoleAssignmentRequest) Get() (resObj *GovernanceRoleAssignment, err error) {
+func (r *GovernanceRoleAssignmentRequest) Get(ctx context.Context) (resObj *GovernanceRoleAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GovernanceRoleAssignment
-func (r *GovernanceRoleAssignmentRequest) Update(reqObj *GovernanceRoleAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GovernanceRoleAssignmentRequest) Update(ctx context.Context, reqObj *GovernanceRoleAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernanceRoleAssignment
-func (r *GovernanceRoleAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GovernanceRoleAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // LinkedEligibleRoleAssignment is navigation property

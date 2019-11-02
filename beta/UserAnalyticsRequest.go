@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *UserAnalyticsRequestBuilder) Request() *UserAnalyticsRequest {
 type UserAnalyticsRequest struct{ BaseRequest }
 
 // Get performs GET request for UserAnalytics
-func (r *UserAnalyticsRequest) Get() (resObj *UserAnalytics, err error) {
+func (r *UserAnalyticsRequest) Get(ctx context.Context) (resObj *UserAnalytics, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UserAnalytics
-func (r *UserAnalyticsRequest) Update(reqObj *UserAnalytics) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UserAnalyticsRequest) Update(ctx context.Context, reqObj *UserAnalytics) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserAnalytics
-func (r *UserAnalyticsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UserAnalyticsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ActivityStatistics returns request builder for ActivityStatistics collection
@@ -71,10 +72,13 @@ func (b *UserAnalyticsActivityStatisticsCollectionRequestBuilder) ID(id string) 
 type UserAnalyticsActivityStatisticsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ActivityStatistics collection
-func (r *UserAnalyticsActivityStatisticsCollectionRequest) Paging(method, path string, obj interface{}) ([]ActivityStatistics, error) {
+func (r *UserAnalyticsActivityStatisticsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ActivityStatistics, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *UserAnalyticsActivityStatisticsCollectionRequest) Paging(method, path s
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *UserAnalyticsActivityStatisticsCollectionRequest) Paging(method, path s
 }
 
 // Get performs GET request for ActivityStatistics collection
-func (r *UserAnalyticsActivityStatisticsCollectionRequest) Get() ([]ActivityStatistics, error) {
+func (r *UserAnalyticsActivityStatisticsCollectionRequest) Get(ctx context.Context) ([]ActivityStatistics, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ActivityStatistics collection
-func (r *UserAnalyticsActivityStatisticsCollectionRequest) Add(reqObj *ActivityStatistics) (resObj *ActivityStatistics, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *UserAnalyticsActivityStatisticsCollectionRequest) Add(ctx context.Context, reqObj *ActivityStatistics) (resObj *ActivityStatistics, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

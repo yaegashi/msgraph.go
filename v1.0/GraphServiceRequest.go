@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -38,10 +39,13 @@ func (b *GraphServiceCertificateBasedAuthConfigurationCollectionRequestBuilder) 
 type GraphServiceCertificateBasedAuthConfigurationCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CertificateBasedAuthConfiguration collection
-func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
+func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -75,7 +79,11 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -83,17 +91,17 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Paging(
 }
 
 // Get performs GET request for CertificateBasedAuthConfiguration collection
-func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Get() ([]CertificateBasedAuthConfiguration, error) {
+func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Get(ctx context.Context) ([]CertificateBasedAuthConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CertificateBasedAuthConfiguration collection
-func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Add(reqObj *CertificateBasedAuthConfiguration) (resObj *CertificateBasedAuthConfiguration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Add(ctx context.Context, reqObj *CertificateBasedAuthConfiguration) (resObj *CertificateBasedAuthConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -125,10 +133,13 @@ func (b *GraphServiceContractsCollectionRequestBuilder) ID(id string) *ContractR
 type GraphServiceContractsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Contract collection
-func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj interface{}) ([]Contract, error) {
+func (r *GraphServiceContractsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Contract, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -162,7 +173,11 @@ func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -170,17 +185,17 @@ func (r *GraphServiceContractsCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for Contract collection
-func (r *GraphServiceContractsCollectionRequest) Get() ([]Contract, error) {
+func (r *GraphServiceContractsCollectionRequest) Get(ctx context.Context) ([]Contract, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Contract collection
-func (r *GraphServiceContractsCollectionRequest) Add(reqObj *Contract) (resObj *Contract, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceContractsCollectionRequest) Add(ctx context.Context, reqObj *Contract) (resObj *Contract, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -212,10 +227,13 @@ func (b *GraphServiceDataPolicyOperationsCollectionRequestBuilder) ID(id string)
 type GraphServiceDataPolicyOperationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DataPolicyOperation collection
-func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DataPolicyOperation, error) {
+func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DataPolicyOperation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -249,7 +267,11 @@ func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -257,17 +279,17 @@ func (r *GraphServiceDataPolicyOperationsCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for DataPolicyOperation collection
-func (r *GraphServiceDataPolicyOperationsCollectionRequest) Get() ([]DataPolicyOperation, error) {
+func (r *GraphServiceDataPolicyOperationsCollectionRequest) Get(ctx context.Context) ([]DataPolicyOperation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DataPolicyOperation collection
-func (r *GraphServiceDataPolicyOperationsCollectionRequest) Add(reqObj *DataPolicyOperation) (resObj *DataPolicyOperation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDataPolicyOperationsCollectionRequest) Add(ctx context.Context, reqObj *DataPolicyOperation) (resObj *DataPolicyOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -299,10 +321,13 @@ func (b *GraphServiceDevicesCollectionRequestBuilder) ID(id string) *DeviceReque
 type GraphServiceDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Device collection
-func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj interface{}) ([]Device, error) {
+func (r *GraphServiceDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Device, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -336,7 +361,11 @@ func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -344,17 +373,17 @@ func (r *GraphServiceDevicesCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for Device collection
-func (r *GraphServiceDevicesCollectionRequest) Get() ([]Device, error) {
+func (r *GraphServiceDevicesCollectionRequest) Get(ctx context.Context) ([]Device, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Device collection
-func (r *GraphServiceDevicesCollectionRequest) Add(reqObj *Device) (resObj *Device, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDevicesCollectionRequest) Add(ctx context.Context, reqObj *Device) (resObj *Device, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -386,10 +415,13 @@ func (b *GraphServiceDirectoryObjectsCollectionRequestBuilder) ID(id string) *Di
 type GraphServiceDirectoryObjectsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -423,7 +455,11 @@ func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -431,17 +467,17 @@ func (r *GraphServiceDirectoryObjectsCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *GraphServiceDirectoryObjectsCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *GraphServiceDirectoryObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *GraphServiceDirectoryObjectsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDirectoryObjectsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -473,10 +509,13 @@ func (b *GraphServiceDirectoryRoleTemplatesCollectionRequestBuilder) ID(id strin
 type GraphServiceDirectoryRoleTemplatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryRoleTemplate collection
-func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryRoleTemplate, error) {
+func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryRoleTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -510,7 +549,11 @@ func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -518,17 +561,17 @@ func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for DirectoryRoleTemplate collection
-func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Get() ([]DirectoryRoleTemplate, error) {
+func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Get(ctx context.Context) ([]DirectoryRoleTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryRoleTemplate collection
-func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Add(reqObj *DirectoryRoleTemplate) (resObj *DirectoryRoleTemplate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDirectoryRoleTemplatesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryRoleTemplate) (resObj *DirectoryRoleTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -560,10 +603,13 @@ func (b *GraphServiceDirectoryRolesCollectionRequestBuilder) ID(id string) *Dire
 type GraphServiceDirectoryRolesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryRole collection
-func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryRole, error) {
+func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryRole, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -597,7 +643,11 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -605,17 +655,17 @@ func (r *GraphServiceDirectoryRolesCollectionRequest) Paging(method, path string
 }
 
 // Get performs GET request for DirectoryRole collection
-func (r *GraphServiceDirectoryRolesCollectionRequest) Get() ([]DirectoryRole, error) {
+func (r *GraphServiceDirectoryRolesCollectionRequest) Get(ctx context.Context) ([]DirectoryRole, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryRole collection
-func (r *GraphServiceDirectoryRolesCollectionRequest) Add(reqObj *DirectoryRole) (resObj *DirectoryRole, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDirectoryRolesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryRole) (resObj *DirectoryRole, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -647,10 +697,13 @@ func (b *GraphServiceDomainDNSRecordsCollectionRequestBuilder) ID(id string) *Do
 type GraphServiceDomainDNSRecordsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DomainDNSRecord collection
-func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path string, obj interface{}) ([]DomainDNSRecord, error) {
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DomainDNSRecord, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -684,7 +737,11 @@ func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -692,17 +749,17 @@ func (r *GraphServiceDomainDNSRecordsCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for DomainDNSRecord collection
-func (r *GraphServiceDomainDNSRecordsCollectionRequest) Get() ([]DomainDNSRecord, error) {
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Get(ctx context.Context) ([]DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DomainDNSRecord collection
-func (r *GraphServiceDomainDNSRecordsCollectionRequest) Add(reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDomainDNSRecordsCollectionRequest) Add(ctx context.Context, reqObj *DomainDNSRecord) (resObj *DomainDNSRecord, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -734,10 +791,13 @@ func (b *GraphServiceDomainsCollectionRequestBuilder) ID(id string) *DomainReque
 type GraphServiceDomainsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Domain collection
-func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj interface{}) ([]Domain, error) {
+func (r *GraphServiceDomainsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Domain, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -771,7 +831,11 @@ func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -779,17 +843,17 @@ func (r *GraphServiceDomainsCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for Domain collection
-func (r *GraphServiceDomainsCollectionRequest) Get() ([]Domain, error) {
+func (r *GraphServiceDomainsCollectionRequest) Get(ctx context.Context) ([]Domain, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Domain collection
-func (r *GraphServiceDomainsCollectionRequest) Add(reqObj *Domain) (resObj *Domain, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDomainsCollectionRequest) Add(ctx context.Context, reqObj *Domain) (resObj *Domain, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -821,10 +885,13 @@ func (b *GraphServiceDrivesCollectionRequestBuilder) ID(id string) *DriveRequest
 type GraphServiceDrivesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Drive collection
-func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj interface{}) ([]Drive, error) {
+func (r *GraphServiceDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Drive, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -858,7 +925,11 @@ func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -866,17 +937,17 @@ func (r *GraphServiceDrivesCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for Drive collection
-func (r *GraphServiceDrivesCollectionRequest) Get() ([]Drive, error) {
+func (r *GraphServiceDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Drive collection
-func (r *GraphServiceDrivesCollectionRequest) Add(reqObj *Drive) (resObj *Drive, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (resObj *Drive, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -908,10 +979,13 @@ func (b *GraphServiceGroupLifecyclePoliciesCollectionRequestBuilder) ID(id strin
 type GraphServiceGroupLifecyclePoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GroupLifecyclePolicy collection
-func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
+func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupLifecyclePolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -945,7 +1019,11 @@ func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -953,17 +1031,17 @@ func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for GroupLifecyclePolicy collection
-func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Get() ([]GroupLifecyclePolicy, error) {
+func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Get(ctx context.Context) ([]GroupLifecyclePolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GroupLifecyclePolicy collection
-func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Add(reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceGroupLifecyclePoliciesCollectionRequest) Add(ctx context.Context, reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -995,10 +1073,13 @@ func (b *GraphServiceGroupSettingTemplatesCollectionRequestBuilder) ID(id string
 type GraphServiceGroupSettingTemplatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GroupSettingTemplate collection
-func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupSettingTemplate, error) {
+func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupSettingTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1032,7 +1113,11 @@ func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(method, path
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1040,17 +1125,17 @@ func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Paging(method, path
 }
 
 // Get performs GET request for GroupSettingTemplate collection
-func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Get() ([]GroupSettingTemplate, error) {
+func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Get(ctx context.Context) ([]GroupSettingTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GroupSettingTemplate collection
-func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Add(reqObj *GroupSettingTemplate) (resObj *GroupSettingTemplate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceGroupSettingTemplatesCollectionRequest) Add(ctx context.Context, reqObj *GroupSettingTemplate) (resObj *GroupSettingTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1082,10 +1167,13 @@ func (b *GraphServiceGroupSettingsCollectionRequestBuilder) ID(id string) *Group
 type GraphServiceGroupSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GroupSetting collection
-func (r *GraphServiceGroupSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]GroupSetting, error) {
+func (r *GraphServiceGroupSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupSetting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1119,7 +1207,11 @@ func (r *GraphServiceGroupSettingsCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1127,17 +1219,17 @@ func (r *GraphServiceGroupSettingsCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for GroupSetting collection
-func (r *GraphServiceGroupSettingsCollectionRequest) Get() ([]GroupSetting, error) {
+func (r *GraphServiceGroupSettingsCollectionRequest) Get(ctx context.Context) ([]GroupSetting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GroupSetting collection
-func (r *GraphServiceGroupSettingsCollectionRequest) Add(reqObj *GroupSetting) (resObj *GroupSetting, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceGroupSettingsCollectionRequest) Add(ctx context.Context, reqObj *GroupSetting) (resObj *GroupSetting, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1169,10 +1261,13 @@ func (b *GraphServiceGroupsCollectionRequestBuilder) ID(id string) *GroupRequest
 type GraphServiceGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Group collection
-func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]Group, error) {
+func (r *GraphServiceGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Group, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1206,7 +1301,11 @@ func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1214,17 +1313,17 @@ func (r *GraphServiceGroupsCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for Group collection
-func (r *GraphServiceGroupsCollectionRequest) Get() ([]Group, error) {
+func (r *GraphServiceGroupsCollectionRequest) Get(ctx context.Context) ([]Group, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Group collection
-func (r *GraphServiceGroupsCollectionRequest) Add(reqObj *Group) (resObj *Group, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceGroupsCollectionRequest) Add(ctx context.Context, reqObj *Group) (resObj *Group, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1256,10 +1355,13 @@ func (b *GraphServiceIdentityProvidersCollectionRequestBuilder) ID(id string) *I
 type GraphServiceIdentityProvidersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IdentityProvider collection
-func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path string, obj interface{}) ([]IdentityProvider, error) {
+func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IdentityProvider, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1293,7 +1395,11 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1301,17 +1407,17 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for IdentityProvider collection
-func (r *GraphServiceIdentityProvidersCollectionRequest) Get() ([]IdentityProvider, error) {
+func (r *GraphServiceIdentityProvidersCollectionRequest) Get(ctx context.Context) ([]IdentityProvider, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for IdentityProvider collection
-func (r *GraphServiceIdentityProvidersCollectionRequest) Add(reqObj *IdentityProvider) (resObj *IdentityProvider, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceIdentityProvidersCollectionRequest) Add(ctx context.Context, reqObj *IdentityProvider) (resObj *IdentityProvider, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1343,10 +1449,13 @@ func (b *GraphServiceInvitationsCollectionRequestBuilder) ID(id string) *Invitat
 type GraphServiceInvitationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Invitation collection
-func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, obj interface{}) ([]Invitation, error) {
+func (r *GraphServiceInvitationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Invitation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1380,7 +1489,11 @@ func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1388,17 +1501,17 @@ func (r *GraphServiceInvitationsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for Invitation collection
-func (r *GraphServiceInvitationsCollectionRequest) Get() ([]Invitation, error) {
+func (r *GraphServiceInvitationsCollectionRequest) Get(ctx context.Context) ([]Invitation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Invitation collection
-func (r *GraphServiceInvitationsCollectionRequest) Add(reqObj *Invitation) (resObj *Invitation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceInvitationsCollectionRequest) Add(ctx context.Context, reqObj *Invitation) (resObj *Invitation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1430,10 +1543,13 @@ func (b *GraphServiceOrganizationCollectionRequestBuilder) ID(id string) *Organi
 type GraphServiceOrganizationCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Organization collection
-func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, obj interface{}) ([]Organization, error) {
+func (r *GraphServiceOrganizationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Organization, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1467,7 +1583,11 @@ func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1475,17 +1595,17 @@ func (r *GraphServiceOrganizationCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for Organization collection
-func (r *GraphServiceOrganizationCollectionRequest) Get() ([]Organization, error) {
+func (r *GraphServiceOrganizationCollectionRequest) Get(ctx context.Context) ([]Organization, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Organization collection
-func (r *GraphServiceOrganizationCollectionRequest) Add(reqObj *Organization) (resObj *Organization, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceOrganizationCollectionRequest) Add(ctx context.Context, reqObj *Organization) (resObj *Organization, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1517,10 +1637,13 @@ func (b *GraphServiceSchemaExtensionsCollectionRequestBuilder) ID(id string) *Sc
 type GraphServiceSchemaExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SchemaExtension collection
-func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]SchemaExtension, error) {
+func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SchemaExtension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1554,7 +1677,11 @@ func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1562,17 +1689,17 @@ func (r *GraphServiceSchemaExtensionsCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for SchemaExtension collection
-func (r *GraphServiceSchemaExtensionsCollectionRequest) Get() ([]SchemaExtension, error) {
+func (r *GraphServiceSchemaExtensionsCollectionRequest) Get(ctx context.Context) ([]SchemaExtension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SchemaExtension collection
-func (r *GraphServiceSchemaExtensionsCollectionRequest) Add(reqObj *SchemaExtension) (resObj *SchemaExtension, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceSchemaExtensionsCollectionRequest) Add(ctx context.Context, reqObj *SchemaExtension) (resObj *SchemaExtension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1604,10 +1731,13 @@ func (b *GraphServiceSharesCollectionRequestBuilder) ID(id string) *SharedDriveI
 type GraphServiceSharesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SharedDriveItem collection
-func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj interface{}) ([]SharedDriveItem, error) {
+func (r *GraphServiceSharesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SharedDriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1641,7 +1771,11 @@ func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1649,17 +1783,17 @@ func (r *GraphServiceSharesCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for SharedDriveItem collection
-func (r *GraphServiceSharesCollectionRequest) Get() ([]SharedDriveItem, error) {
+func (r *GraphServiceSharesCollectionRequest) Get(ctx context.Context) ([]SharedDriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SharedDriveItem collection
-func (r *GraphServiceSharesCollectionRequest) Add(reqObj *SharedDriveItem) (resObj *SharedDriveItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceSharesCollectionRequest) Add(ctx context.Context, reqObj *SharedDriveItem) (resObj *SharedDriveItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1691,10 +1825,13 @@ func (b *GraphServiceSitesCollectionRequestBuilder) ID(id string) *SiteRequestBu
 type GraphServiceSitesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Site collection
-func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj interface{}) ([]Site, error) {
+func (r *GraphServiceSitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1728,7 +1865,11 @@ func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1736,17 +1877,17 @@ func (r *GraphServiceSitesCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for Site collection
-func (r *GraphServiceSitesCollectionRequest) Get() ([]Site, error) {
+func (r *GraphServiceSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Site collection
-func (r *GraphServiceSitesCollectionRequest) Add(reqObj *Site) (resObj *Site, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1778,10 +1919,13 @@ func (b *GraphServiceSubscribedSKUsCollectionRequestBuilder) ID(id string) *Subs
 type GraphServiceSubscribedSKUsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SubscribedSKU collection
-func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string, obj interface{}) ([]SubscribedSKU, error) {
+func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SubscribedSKU, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1815,7 +1959,11 @@ func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1823,17 +1971,17 @@ func (r *GraphServiceSubscribedSKUsCollectionRequest) Paging(method, path string
 }
 
 // Get performs GET request for SubscribedSKU collection
-func (r *GraphServiceSubscribedSKUsCollectionRequest) Get() ([]SubscribedSKU, error) {
+func (r *GraphServiceSubscribedSKUsCollectionRequest) Get(ctx context.Context) ([]SubscribedSKU, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SubscribedSKU collection
-func (r *GraphServiceSubscribedSKUsCollectionRequest) Add(reqObj *SubscribedSKU) (resObj *SubscribedSKU, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceSubscribedSKUsCollectionRequest) Add(ctx context.Context, reqObj *SubscribedSKU) (resObj *SubscribedSKU, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1865,10 +2013,13 @@ func (b *GraphServiceSubscriptionsCollectionRequestBuilder) ID(id string) *Subsc
 type GraphServiceSubscriptionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Subscription collection
-func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Subscription, error) {
+func (r *GraphServiceSubscriptionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Subscription, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1902,7 +2053,11 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1910,17 +2065,17 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for Subscription collection
-func (r *GraphServiceSubscriptionsCollectionRequest) Get() ([]Subscription, error) {
+func (r *GraphServiceSubscriptionsCollectionRequest) Get(ctx context.Context) ([]Subscription, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Subscription collection
-func (r *GraphServiceSubscriptionsCollectionRequest) Add(reqObj *Subscription) (resObj *Subscription, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceSubscriptionsCollectionRequest) Add(ctx context.Context, reqObj *Subscription) (resObj *Subscription, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1952,10 +2107,13 @@ func (b *GraphServiceTeamsCollectionRequestBuilder) ID(id string) *TeamRequestBu
 type GraphServiceTeamsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Team collection
-func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj interface{}) ([]Team, error) {
+func (r *GraphServiceTeamsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Team, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1989,7 +2147,11 @@ func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1997,17 +2159,17 @@ func (r *GraphServiceTeamsCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for Team collection
-func (r *GraphServiceTeamsCollectionRequest) Get() ([]Team, error) {
+func (r *GraphServiceTeamsCollectionRequest) Get(ctx context.Context) ([]Team, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Team collection
-func (r *GraphServiceTeamsCollectionRequest) Add(reqObj *Team) (resObj *Team, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceTeamsCollectionRequest) Add(ctx context.Context, reqObj *Team) (resObj *Team, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2039,10 +2201,13 @@ func (b *GraphServiceUsersCollectionRequestBuilder) ID(id string) *UserRequestBu
 type GraphServiceUsersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for User collection
-func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj interface{}) ([]User, error) {
+func (r *GraphServiceUsersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]User, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2076,7 +2241,11 @@ func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2084,17 +2253,17 @@ func (r *GraphServiceUsersCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for User collection
-func (r *GraphServiceUsersCollectionRequest) Get() ([]User, error) {
+func (r *GraphServiceUsersCollectionRequest) Get(ctx context.Context) ([]User, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for User collection
-func (r *GraphServiceUsersCollectionRequest) Add(reqObj *User) (resObj *User, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceUsersCollectionRequest) Add(ctx context.Context, reqObj *User) (resObj *User, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2126,10 +2295,13 @@ func (b *GraphServiceWorkbooksCollectionRequestBuilder) ID(id string) *DriveItem
 type GraphServiceWorkbooksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *GraphServiceWorkbooksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2163,7 +2335,11 @@ func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2171,17 +2347,17 @@ func (r *GraphServiceWorkbooksCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for DriveItem collection
-func (r *GraphServiceWorkbooksCollectionRequest) Get() ([]DriveItem, error) {
+func (r *GraphServiceWorkbooksCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DriveItem collection
-func (r *GraphServiceWorkbooksCollectionRequest) Add(reqObj *DriveItem) (resObj *DriveItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *GraphServiceWorkbooksCollectionRequest) Add(ctx context.Context, reqObj *DriveItem) (resObj *DriveItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

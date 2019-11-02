@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GovernanceSubjectRequestBuilder is request builder for GovernanceSubject
 type GovernanceSubjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *GovernanceSubjectRequestBuilder) Request() *GovernanceSubjectRequest {
 type GovernanceSubjectRequest struct{ BaseRequest }
 
 // Get performs GET request for GovernanceSubject
-func (r *GovernanceSubjectRequest) Get() (resObj *GovernanceSubject, err error) {
+func (r *GovernanceSubjectRequest) Get(ctx context.Context) (resObj *GovernanceSubject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GovernanceSubject
-func (r *GovernanceSubjectRequest) Update(reqObj *GovernanceSubject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GovernanceSubjectRequest) Update(ctx context.Context, reqObj *GovernanceSubject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GovernanceSubject
-func (r *GovernanceSubjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GovernanceSubjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

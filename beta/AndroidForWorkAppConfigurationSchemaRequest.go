@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkAppConfigurationSchemaRequestBuilder is request builder for AndroidForWorkAppConfigurationSchema
 type AndroidForWorkAppConfigurationSchemaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidForWorkAppConfigurationSchemaRequestBuilder) Request() *AndroidF
 type AndroidForWorkAppConfigurationSchemaRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkAppConfigurationSchema
-func (r *AndroidForWorkAppConfigurationSchemaRequest) Get() (resObj *AndroidForWorkAppConfigurationSchema, err error) {
+func (r *AndroidForWorkAppConfigurationSchemaRequest) Get(ctx context.Context) (resObj *AndroidForWorkAppConfigurationSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkAppConfigurationSchema
-func (r *AndroidForWorkAppConfigurationSchemaRequest) Update(reqObj *AndroidForWorkAppConfigurationSchema) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkAppConfigurationSchemaRequest) Update(ctx context.Context, reqObj *AndroidForWorkAppConfigurationSchema) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkAppConfigurationSchema
-func (r *AndroidForWorkAppConfigurationSchemaRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkAppConfigurationSchemaRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

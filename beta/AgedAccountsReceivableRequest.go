@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AgedAccountsReceivableRequestBuilder is request builder for AgedAccountsReceivable
 type AgedAccountsReceivableRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AgedAccountsReceivableRequestBuilder) Request() *AgedAccountsReceivable
 type AgedAccountsReceivableRequest struct{ BaseRequest }
 
 // Get performs GET request for AgedAccountsReceivable
-func (r *AgedAccountsReceivableRequest) Get() (resObj *AgedAccountsReceivable, err error) {
+func (r *AgedAccountsReceivableRequest) Get(ctx context.Context) (resObj *AgedAccountsReceivable, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AgedAccountsReceivable
-func (r *AgedAccountsReceivableRequest) Update(reqObj *AgedAccountsReceivable) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AgedAccountsReceivableRequest) Update(ctx context.Context, reqObj *AgedAccountsReceivable) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AgedAccountsReceivable
-func (r *AgedAccountsReceivableRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AgedAccountsReceivableRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

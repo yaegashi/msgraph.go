@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ChatThreadRequestBuilder is request builder for ChatThread
 type ChatThreadRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *ChatThreadRequestBuilder) Request() *ChatThreadRequest {
 type ChatThreadRequest struct{ BaseRequest }
 
 // Get performs GET request for ChatThread
-func (r *ChatThreadRequest) Get() (resObj *ChatThread, err error) {
+func (r *ChatThreadRequest) Get(ctx context.Context) (resObj *ChatThread, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ChatThread
-func (r *ChatThreadRequest) Update(reqObj *ChatThread) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ChatThreadRequest) Update(ctx context.Context, reqObj *ChatThread) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ChatThread
-func (r *ChatThreadRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ChatThreadRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // RootMessage is navigation property

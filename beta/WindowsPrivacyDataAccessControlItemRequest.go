@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsPrivacyDataAccessControlItemRequestBuilder is request builder for WindowsPrivacyDataAccessControlItem
 type WindowsPrivacyDataAccessControlItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsPrivacyDataAccessControlItemRequestBuilder) Request() *WindowsPr
 type WindowsPrivacyDataAccessControlItemRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsPrivacyDataAccessControlItem
-func (r *WindowsPrivacyDataAccessControlItemRequest) Get() (resObj *WindowsPrivacyDataAccessControlItem, err error) {
+func (r *WindowsPrivacyDataAccessControlItemRequest) Get(ctx context.Context) (resObj *WindowsPrivacyDataAccessControlItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsPrivacyDataAccessControlItem
-func (r *WindowsPrivacyDataAccessControlItemRequest) Update(reqObj *WindowsPrivacyDataAccessControlItem) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsPrivacyDataAccessControlItemRequest) Update(ctx context.Context, reqObj *WindowsPrivacyDataAccessControlItem) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPrivacyDataAccessControlItem
-func (r *WindowsPrivacyDataAccessControlItemRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsPrivacyDataAccessControlItemRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *OrgContactRequestBuilder) Request() *OrgContactRequest {
 type OrgContactRequest struct{ BaseRequest }
 
 // Get performs GET request for OrgContact
-func (r *OrgContactRequest) Get() (resObj *OrgContact, err error) {
+func (r *OrgContactRequest) Get(ctx context.Context) (resObj *OrgContact, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OrgContact
-func (r *OrgContactRequest) Update(reqObj *OrgContact) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OrgContactRequest) Update(ctx context.Context, reqObj *OrgContact) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OrgContact
-func (r *OrgContactRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OrgContactRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DirectReports returns request builder for DirectoryObject collection
@@ -71,10 +72,13 @@ func (b *OrgContactDirectReportsCollectionRequestBuilder) ID(id string) *Directo
 type OrgContactDirectReportsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *OrgContactDirectReportsCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *OrgContactDirectReportsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *OrgContactDirectReportsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *OrgContactDirectReportsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *OrgContactDirectReportsCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *OrgContactDirectReportsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *OrgContactDirectReportsCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OrgContactDirectReportsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -165,10 +173,13 @@ func (b *OrgContactMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObj
 type OrgContactMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *OrgContactMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *OrgContactMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -202,7 +213,11 @@ func (r *OrgContactMemberOfCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -210,17 +225,17 @@ func (r *OrgContactMemberOfCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *OrgContactMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *OrgContactMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *OrgContactMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OrgContactMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -252,10 +267,13 @@ func (b *OrgContactTransitiveMemberOfCollectionRequestBuilder) ID(id string) *Di
 type OrgContactTransitiveMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *OrgContactTransitiveMemberOfCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *OrgContactTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -289,7 +307,11 @@ func (r *OrgContactTransitiveMemberOfCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -297,16 +319,16 @@ func (r *OrgContactTransitiveMemberOfCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for DirectoryObject collection
-func (r *OrgContactTransitiveMemberOfCollectionRequest) Get() ([]DirectoryObject, error) {
+func (r *OrgContactTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryObject collection
-func (r *OrgContactTransitiveMemberOfCollectionRequest) Add(reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *OrgContactTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

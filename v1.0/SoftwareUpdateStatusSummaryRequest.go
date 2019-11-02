@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SoftwareUpdateStatusSummaryRequestBuilder is request builder for SoftwareUpdateStatusSummary
 type SoftwareUpdateStatusSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SoftwareUpdateStatusSummaryRequestBuilder) Request() *SoftwareUpdateSta
 type SoftwareUpdateStatusSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for SoftwareUpdateStatusSummary
-func (r *SoftwareUpdateStatusSummaryRequest) Get() (resObj *SoftwareUpdateStatusSummary, err error) {
+func (r *SoftwareUpdateStatusSummaryRequest) Get(ctx context.Context) (resObj *SoftwareUpdateStatusSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SoftwareUpdateStatusSummary
-func (r *SoftwareUpdateStatusSummaryRequest) Update(reqObj *SoftwareUpdateStatusSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SoftwareUpdateStatusSummaryRequest) Update(ctx context.Context, reqObj *SoftwareUpdateStatusSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SoftwareUpdateStatusSummary
-func (r *SoftwareUpdateStatusSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SoftwareUpdateStatusSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

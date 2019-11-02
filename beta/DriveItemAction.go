@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -133,8 +134,8 @@ func (b *DriveItemCheckinRequestBuilder) Request() *DriveItemCheckinRequest {
 }
 
 //
-func (r *DriveItemCheckinRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DriveItemCheckinRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -159,8 +160,8 @@ func (b *DriveItemCheckoutRequestBuilder) Request() *DriveItemCheckoutRequest {
 }
 
 //
-func (r *DriveItemCheckoutRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DriveItemCheckoutRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -185,8 +186,8 @@ func (b *DriveItemCopyRequestBuilder) Request() *DriveItemCopyRequest {
 }
 
 //
-func (r *DriveItemCopyRequest) Post() (resObj *DriveItem, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DriveItemCopyRequest) Post(ctx context.Context) (resObj *DriveItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -212,8 +213,8 @@ func (b *DriveItemCreateLinkRequestBuilder) Request() *DriveItemCreateLinkReques
 }
 
 //
-func (r *DriveItemCreateLinkRequest) Post() (resObj *Permission, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DriveItemCreateLinkRequest) Post(ctx context.Context) (resObj *Permission, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -239,8 +240,8 @@ func (b *DriveItemCreateUploadSessionRequestBuilder) Request() *DriveItemCreateU
 }
 
 //
-func (r *DriveItemCreateUploadSessionRequest) Post() (resObj *UploadSession, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DriveItemCreateUploadSessionRequest) Post(ctx context.Context) (resObj *UploadSession, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -266,8 +267,8 @@ func (b *DriveItemFollowRequestBuilder) Request() *DriveItemFollowRequest {
 }
 
 //
-func (r *DriveItemFollowRequest) Post() (resObj *DriveItem, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DriveItemFollowRequest) Post(ctx context.Context) (resObj *DriveItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -293,8 +294,8 @@ func (b *DriveItemUnfollowRequestBuilder) Request() *DriveItemUnfollowRequest {
 }
 
 //
-func (r *DriveItemUnfollowRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DriveItemUnfollowRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -319,10 +320,13 @@ func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
 }
 
 //
-func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([][]Permission, error) {
+func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Permission, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -356,7 +360,11 @@ func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -364,12 +372,12 @@ func (r *DriveItemInviteRequest) Paging(method, path string, obj interface{}) ([
 }
 
 //
-func (r *DriveItemInviteRequest) Get() ([][]Permission, error) {
+func (r *DriveItemInviteRequest) Get(ctx context.Context) ([][]Permission, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -394,8 +402,8 @@ func (b *DriveItemPreviewRequestBuilder) Request() *DriveItemPreviewRequest {
 }
 
 //
-func (r *DriveItemPreviewRequest) Post() (resObj *ItemPreviewInfo, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DriveItemPreviewRequest) Post(ctx context.Context) (resObj *ItemPreviewInfo, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -421,8 +429,8 @@ func (b *DriveItemRestoreRequestBuilder) Request() *DriveItemRestoreRequest {
 }
 
 //
-func (r *DriveItemRestoreRequest) Post() (resObj *DriveItem, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DriveItemRestoreRequest) Post(ctx context.Context) (resObj *DriveItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -448,6 +456,6 @@ func (b *DriveItemValidatePermissionRequestBuilder) Request() *DriveItemValidate
 }
 
 //
-func (r *DriveItemValidatePermissionRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DriveItemValidatePermissionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

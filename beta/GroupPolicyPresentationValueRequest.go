@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupPolicyPresentationValueRequestBuilder is request builder for GroupPolicyPresentationValue
 type GroupPolicyPresentationValueRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *GroupPolicyPresentationValueRequestBuilder) Request() *GroupPolicyPrese
 type GroupPolicyPresentationValueRequest struct{ BaseRequest }
 
 // Get performs GET request for GroupPolicyPresentationValue
-func (r *GroupPolicyPresentationValueRequest) Get() (resObj *GroupPolicyPresentationValue, err error) {
+func (r *GroupPolicyPresentationValueRequest) Get(ctx context.Context) (resObj *GroupPolicyPresentationValue, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GroupPolicyPresentationValue
-func (r *GroupPolicyPresentationValueRequest) Update(reqObj *GroupPolicyPresentationValue) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupPolicyPresentationValueRequest) Update(ctx context.Context, reqObj *GroupPolicyPresentationValue) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupPolicyPresentationValue
-func (r *GroupPolicyPresentationValueRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupPolicyPresentationValueRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DefinitionValue is navigation property

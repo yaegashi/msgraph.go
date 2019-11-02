@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkEnrollmentProfileRevokeTokenRequestParameter undocumented
 type AndroidForWorkEnrollmentProfileRevokeTokenRequestParameter struct {
 }
@@ -34,8 +36,8 @@ func (b *AndroidForWorkEnrollmentProfileRevokeTokenRequestBuilder) Request() *An
 }
 
 //
-func (r *AndroidForWorkEnrollmentProfileRevokeTokenRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidForWorkEnrollmentProfileRevokeTokenRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,6 +62,6 @@ func (b *AndroidForWorkEnrollmentProfileCreateTokenRequestBuilder) Request() *An
 }
 
 //
-func (r *AndroidForWorkEnrollmentProfileCreateTokenRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidForWorkEnrollmentProfileCreateTokenRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

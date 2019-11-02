@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OutlookCategoryRequestBuilder is request builder for OutlookCategory
 type OutlookCategoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *OutlookCategoryRequestBuilder) Request() *OutlookCategoryRequest {
 type OutlookCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for OutlookCategory
-func (r *OutlookCategoryRequest) Get() (resObj *OutlookCategory, err error) {
+func (r *OutlookCategoryRequest) Get(ctx context.Context) (resObj *OutlookCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OutlookCategory
-func (r *OutlookCategoryRequest) Update(reqObj *OutlookCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OutlookCategoryRequest) Update(ctx context.Context, reqObj *OutlookCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OutlookCategory
-func (r *OutlookCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OutlookCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

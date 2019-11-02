@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // InvitationRequestBuilder is request builder for Invitation
 type InvitationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *InvitationRequestBuilder) Request() *InvitationRequest {
 type InvitationRequest struct{ BaseRequest }
 
 // Get performs GET request for Invitation
-func (r *InvitationRequest) Get() (resObj *Invitation, err error) {
+func (r *InvitationRequest) Get(ctx context.Context) (resObj *Invitation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Invitation
-func (r *InvitationRequest) Update(reqObj *Invitation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *InvitationRequest) Update(ctx context.Context, reqObj *Invitation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Invitation
-func (r *InvitationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *InvitationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // InvitedUser is navigation property

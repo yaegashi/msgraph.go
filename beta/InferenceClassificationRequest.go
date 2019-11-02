@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *InferenceClassificationRequestBuilder) Request() *InferenceClassificati
 type InferenceClassificationRequest struct{ BaseRequest }
 
 // Get performs GET request for InferenceClassification
-func (r *InferenceClassificationRequest) Get() (resObj *InferenceClassification, err error) {
+func (r *InferenceClassificationRequest) Get(ctx context.Context) (resObj *InferenceClassification, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for InferenceClassification
-func (r *InferenceClassificationRequest) Update(reqObj *InferenceClassification) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *InferenceClassificationRequest) Update(ctx context.Context, reqObj *InferenceClassification) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for InferenceClassification
-func (r *InferenceClassificationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *InferenceClassificationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Overrides returns request builder for InferenceClassificationOverride collection
@@ -71,10 +72,13 @@ func (b *InferenceClassificationOverridesCollectionRequestBuilder) ID(id string)
 type InferenceClassificationOverridesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Paging(method, path string, obj interface{}) ([]InferenceClassificationOverride, error) {
+func (r *InferenceClassificationOverridesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]InferenceClassificationOverride, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *InferenceClassificationOverridesCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *InferenceClassificationOverridesCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Get() ([]InferenceClassificationOverride, error) {
+func (r *InferenceClassificationOverridesCollectionRequest) Get(ctx context.Context) ([]InferenceClassificationOverride, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Add(reqObj *InferenceClassificationOverride) (resObj *InferenceClassificationOverride, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *InferenceClassificationOverridesCollectionRequest) Add(ctx context.Context, reqObj *InferenceClassificationOverride) (resObj *InferenceClassificationOverride, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

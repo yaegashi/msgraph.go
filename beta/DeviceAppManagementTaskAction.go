@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceAppManagementTaskUpdateStatusRequestParameter undocumented
 type DeviceAppManagementTaskUpdateStatusRequestParameter struct {
 	// Status undocumented
@@ -32,6 +34,6 @@ func (b *DeviceAppManagementTaskUpdateStatusRequestBuilder) Request() *DeviceApp
 }
 
 //
-func (r *DeviceAppManagementTaskUpdateStatusRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceAppManagementTaskUpdateStatusRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

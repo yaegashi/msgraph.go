@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TargetedManagedAppPolicyAssignmentRequestBuilder is request builder for TargetedManagedAppPolicyAssignment
 type TargetedManagedAppPolicyAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TargetedManagedAppPolicyAssignmentRequestBuilder) Request() *TargetedMa
 type TargetedManagedAppPolicyAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for TargetedManagedAppPolicyAssignment
-func (r *TargetedManagedAppPolicyAssignmentRequest) Get() (resObj *TargetedManagedAppPolicyAssignment, err error) {
+func (r *TargetedManagedAppPolicyAssignmentRequest) Get(ctx context.Context) (resObj *TargetedManagedAppPolicyAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TargetedManagedAppPolicyAssignment
-func (r *TargetedManagedAppPolicyAssignmentRequest) Update(reqObj *TargetedManagedAppPolicyAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TargetedManagedAppPolicyAssignmentRequest) Update(ctx context.Context, reqObj *TargetedManagedAppPolicyAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TargetedManagedAppPolicyAssignment
-func (r *TargetedManagedAppPolicyAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TargetedManagedAppPolicyAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

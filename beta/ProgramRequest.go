@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ProgramRequestBuilder) Request() *ProgramRequest {
 type ProgramRequest struct{ BaseRequest }
 
 // Get performs GET request for Program
-func (r *ProgramRequest) Get() (resObj *Program, err error) {
+func (r *ProgramRequest) Get(ctx context.Context) (resObj *Program, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Program
-func (r *ProgramRequest) Update(reqObj *Program) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ProgramRequest) Update(ctx context.Context, reqObj *Program) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Program
-func (r *ProgramRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ProgramRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Controls returns request builder for ProgramControl collection
@@ -71,10 +72,13 @@ func (b *ProgramControlsCollectionRequestBuilder) ID(id string) *ProgramControlR
 type ProgramControlsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ProgramControl collection
-func (r *ProgramControlsCollectionRequest) Paging(method, path string, obj interface{}) ([]ProgramControl, error) {
+func (r *ProgramControlsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ProgramControl, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ProgramControlsCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *ProgramControlsCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for ProgramControl collection
-func (r *ProgramControlsCollectionRequest) Get() ([]ProgramControl, error) {
+func (r *ProgramControlsCollectionRequest) Get(ctx context.Context) ([]ProgramControl, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ProgramControl collection
-func (r *ProgramControlsCollectionRequest) Add(reqObj *ProgramControl) (resObj *ProgramControl, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ProgramControlsCollectionRequest) Add(ctx context.Context, reqObj *ProgramControl) (resObj *ProgramControl, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

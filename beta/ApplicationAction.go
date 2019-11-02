@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ApplicationAddPasswordRequestParameter undocumented
 type ApplicationAddPasswordRequestParameter struct {
 	// PasswordCredential undocumented
@@ -30,7 +32,7 @@ func (b *ApplicationAddPasswordRequestBuilder) Request() *ApplicationAddPassword
 }
 
 //
-func (r *ApplicationAddPasswordRequest) Post() (resObj *PasswordCredential, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *ApplicationAddPasswordRequest) Post(ctx context.Context) (resObj *PasswordCredential, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

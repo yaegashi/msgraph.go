@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ApplicationTemplateInstantiateRequestParameter undocumented
 type ApplicationTemplateInstantiateRequestParameter struct {
 	// DisplayName undocumented
@@ -30,7 +32,7 @@ func (b *ApplicationTemplateInstantiateRequestBuilder) Request() *ApplicationTem
 }
 
 //
-func (r *ApplicationTemplateInstantiateRequest) Post() (resObj *ApplicationServicePrincipal, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *ApplicationTemplateInstantiateRequest) Post(ctx context.Context) (resObj *ApplicationServicePrincipal, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

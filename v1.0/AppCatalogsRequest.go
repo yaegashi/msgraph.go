@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AppCatalogsRequestBuilder) Request() *AppCatalogsRequest {
 type AppCatalogsRequest struct{ BaseRequest }
 
 // Get performs GET request for AppCatalogs
-func (r *AppCatalogsRequest) Get() (resObj *AppCatalogs, err error) {
+func (r *AppCatalogsRequest) Get(ctx context.Context) (resObj *AppCatalogs, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AppCatalogs
-func (r *AppCatalogsRequest) Update(reqObj *AppCatalogs) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AppCatalogsRequest) Update(ctx context.Context, reqObj *AppCatalogs) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppCatalogs
-func (r *AppCatalogsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AppCatalogsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // TeamsApps returns request builder for TeamsApp collection
@@ -71,10 +72,13 @@ func (b *AppCatalogsTeamsAppsCollectionRequestBuilder) ID(id string) *TeamsAppRe
 type AppCatalogsTeamsAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsApp, error) {
+func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Get() ([]TeamsApp, error) {
+func (r *AppCatalogsTeamsAppsCollectionRequest) Get(ctx context.Context) ([]TeamsApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Add(reqObj *TeamsApp) (resObj *TeamsApp, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AppCatalogsTeamsAppsCollectionRequest) Add(ctx context.Context, reqObj *TeamsApp) (resObj *TeamsApp, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ProvisioningObjectSummaryRequestBuilder is request builder for ProvisioningObjectSummary
 type ProvisioningObjectSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ProvisioningObjectSummaryRequestBuilder) Request() *ProvisioningObjectS
 type ProvisioningObjectSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for ProvisioningObjectSummary
-func (r *ProvisioningObjectSummaryRequest) Get() (resObj *ProvisioningObjectSummary, err error) {
+func (r *ProvisioningObjectSummaryRequest) Get(ctx context.Context) (resObj *ProvisioningObjectSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ProvisioningObjectSummary
-func (r *ProvisioningObjectSummaryRequest) Update(reqObj *ProvisioningObjectSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ProvisioningObjectSummaryRequest) Update(ctx context.Context, reqObj *ProvisioningObjectSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ProvisioningObjectSummary
-func (r *ProvisioningObjectSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ProvisioningObjectSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

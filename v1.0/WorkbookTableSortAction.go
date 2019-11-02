@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookTableSortApplyRequestParameter undocumented
 type WorkbookTableSortApplyRequestParameter struct {
 	// Fields undocumented
@@ -42,8 +44,8 @@ func (b *WorkbookTableSortApplyRequestBuilder) Request() *WorkbookTableSortApply
 }
 
 //
-func (r *WorkbookTableSortApplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookTableSortApplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -68,8 +70,8 @@ func (b *WorkbookTableSortClearRequestBuilder) Request() *WorkbookTableSortClear
 }
 
 //
-func (r *WorkbookTableSortClearRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookTableSortClearRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -94,6 +96,6 @@ func (b *WorkbookTableSortReapplyRequestBuilder) Request() *WorkbookTableSortRea
 }
 
 //
-func (r *WorkbookTableSortReapplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookTableSortReapplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ChatMessageRequestBuilder) Request() *ChatMessageRequest {
 type ChatMessageRequest struct{ BaseRequest }
 
 // Get performs GET request for ChatMessage
-func (r *ChatMessageRequest) Get() (resObj *ChatMessage, err error) {
+func (r *ChatMessageRequest) Get(ctx context.Context) (resObj *ChatMessage, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ChatMessage
-func (r *ChatMessageRequest) Update(reqObj *ChatMessage) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ChatMessageRequest) Update(ctx context.Context, reqObj *ChatMessage) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ChatMessage
-func (r *ChatMessageRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ChatMessageRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // HostedContents returns request builder for ChatMessageHostedContent collection
@@ -71,10 +72,13 @@ func (b *ChatMessageHostedContentsCollectionRequestBuilder) ID(id string) *ChatM
 type ChatMessageHostedContentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessageHostedContent, error) {
+func (r *ChatMessageHostedContentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatMessageHostedContent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ChatMessageHostedContentsCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ChatMessageHostedContentsCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Get() ([]ChatMessageHostedContent, error) {
+func (r *ChatMessageHostedContentsCollectionRequest) Get(ctx context.Context) ([]ChatMessageHostedContent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Add(reqObj *ChatMessageHostedContent) (resObj *ChatMessageHostedContent, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ChatMessageHostedContentsCollectionRequest) Add(ctx context.Context, reqObj *ChatMessageHostedContent) (resObj *ChatMessageHostedContent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ChatMessageRepliesCollectionRequestBuilder) ID(id string) *ChatMessageR
 type ChatMessageRepliesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
+func (r *ChatMessageRepliesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ChatMessageRepliesCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *ChatMessageRepliesCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Get() ([]ChatMessage, error) {
+func (r *ChatMessageRepliesCollectionRequest) Get(ctx context.Context) ([]ChatMessage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Add(reqObj *ChatMessage) (resObj *ChatMessage, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ChatMessageRepliesCollectionRequest) Add(ctx context.Context, reqObj *ChatMessage) (resObj *ChatMessage, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SensitivityLabelRequestBuilder) Request() *SensitivityLabelRequest {
 type SensitivityLabelRequest struct{ BaseRequest }
 
 // Get performs GET request for SensitivityLabel
-func (r *SensitivityLabelRequest) Get() (resObj *SensitivityLabel, err error) {
+func (r *SensitivityLabelRequest) Get(ctx context.Context) (resObj *SensitivityLabel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SensitivityLabel
-func (r *SensitivityLabelRequest) Update(reqObj *SensitivityLabel) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SensitivityLabelRequest) Update(ctx context.Context, reqObj *SensitivityLabel) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SensitivityLabel
-func (r *SensitivityLabelRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SensitivityLabelRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Sublabels returns request builder for SensitivityLabel collection
@@ -71,10 +72,13 @@ func (b *SensitivityLabelSublabelsCollectionRequestBuilder) ID(id string) *Sensi
 type SensitivityLabelSublabelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SensitivityLabel collection
-func (r *SensitivityLabelSublabelsCollectionRequest) Paging(method, path string, obj interface{}) ([]SensitivityLabel, error) {
+func (r *SensitivityLabelSublabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SensitivityLabel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *SensitivityLabelSublabelsCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *SensitivityLabelSublabelsCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for SensitivityLabel collection
-func (r *SensitivityLabelSublabelsCollectionRequest) Get() ([]SensitivityLabel, error) {
+func (r *SensitivityLabelSublabelsCollectionRequest) Get(ctx context.Context) ([]SensitivityLabel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SensitivityLabel collection
-func (r *SensitivityLabelSublabelsCollectionRequest) Add(reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SensitivityLabelSublabelsCollectionRequest) Add(ctx context.Context, reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartPointRequestBuilder is request builder for WorkbookChartPoint
 type WorkbookChartPointRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartPointRequestBuilder) Request() *WorkbookChartPointRequest 
 type WorkbookChartPointRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartPoint
-func (r *WorkbookChartPointRequest) Get() (resObj *WorkbookChartPoint, err error) {
+func (r *WorkbookChartPointRequest) Get(ctx context.Context) (resObj *WorkbookChartPoint, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartPoint
-func (r *WorkbookChartPointRequest) Update(reqObj *WorkbookChartPoint) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartPointRequest) Update(ctx context.Context, reqObj *WorkbookChartPoint) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartPoint
-func (r *WorkbookChartPointRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartPointRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Format is navigation property

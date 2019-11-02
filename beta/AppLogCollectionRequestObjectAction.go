@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AppLogCollectionRequestObjectCreateDownloadURLRequestParameter undocumented
 type AppLogCollectionRequestObjectCreateDownloadURLRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *AppLogCollectionRequestObjectCreateDownloadURLRequestBuilder) Request()
 }
 
 //
-func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) Post() (resObj *AppLogCollectionDownloadDetails, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *AppLogCollectionRequestObjectCreateDownloadURLRequest) Post(ctx context.Context) (resObj *AppLogCollectionDownloadDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

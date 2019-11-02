@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SalesInvoiceRequestBuilder) Request() *SalesInvoiceRequest {
 type SalesInvoiceRequest struct{ BaseRequest }
 
 // Get performs GET request for SalesInvoice
-func (r *SalesInvoiceRequest) Get() (resObj *SalesInvoice, err error) {
+func (r *SalesInvoiceRequest) Get(ctx context.Context) (resObj *SalesInvoice, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SalesInvoice
-func (r *SalesInvoiceRequest) Update(reqObj *SalesInvoice) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SalesInvoiceRequest) Update(ctx context.Context, reqObj *SalesInvoice) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesInvoice
-func (r *SalesInvoiceRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SalesInvoiceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Currency is navigation property
@@ -92,10 +93,13 @@ func (b *SalesInvoiceSalesInvoiceLinesCollectionRequestBuilder) ID(id string) *S
 type SalesInvoiceSalesInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -129,7 +133,11 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -137,17 +145,17 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Get() ([]SalesInvoiceLine, error) {
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Get(ctx context.Context) ([]SalesInvoiceLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Add(reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

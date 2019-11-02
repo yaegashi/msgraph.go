@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DirectoryObjectRequestBuilder is request builder for DirectoryObject
 type DirectoryObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DirectoryObjectRequestBuilder) Request() *DirectoryObjectRequest {
 type DirectoryObjectRequest struct{ BaseRequest }
 
 // Get performs GET request for DirectoryObject
-func (r *DirectoryObjectRequest) Get() (resObj *DirectoryObject, err error) {
+func (r *DirectoryObjectRequest) Get(ctx context.Context) (resObj *DirectoryObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DirectoryObject
-func (r *DirectoryObjectRequest) Update(reqObj *DirectoryObject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DirectoryObjectRequest) Update(ctx context.Context, reqObj *DirectoryObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DirectoryObject
-func (r *DirectoryObjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DirectoryObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

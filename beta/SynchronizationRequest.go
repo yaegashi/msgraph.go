@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SynchronizationRequestBuilder) Request() *SynchronizationRequest {
 type SynchronizationRequest struct{ BaseRequest }
 
 // Get performs GET request for Synchronization
-func (r *SynchronizationRequest) Get() (resObj *Synchronization, err error) {
+func (r *SynchronizationRequest) Get(ctx context.Context) (resObj *Synchronization, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Synchronization
-func (r *SynchronizationRequest) Update(reqObj *Synchronization) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SynchronizationRequest) Update(ctx context.Context, reqObj *Synchronization) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Synchronization
-func (r *SynchronizationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SynchronizationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Jobs returns request builder for SynchronizationJob collection
@@ -71,10 +72,13 @@ func (b *SynchronizationJobsCollectionRequestBuilder) ID(id string) *Synchroniza
 type SynchronizationJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Paging(method, path string, obj interface{}) ([]SynchronizationJob, error) {
+func (r *SynchronizationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SynchronizationJob, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *SynchronizationJobsCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *SynchronizationJobsCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Get() ([]SynchronizationJob, error) {
+func (r *SynchronizationJobsCollectionRequest) Get(ctx context.Context) ([]SynchronizationJob, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Add(reqObj *SynchronizationJob) (resObj *SynchronizationJob, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SynchronizationJobsCollectionRequest) Add(ctx context.Context, reqObj *SynchronizationJob) (resObj *SynchronizationJob, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *SynchronizationTemplatesCollectionRequestBuilder) ID(id string) *Synchr
 type SynchronizationTemplatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]SynchronizationTemplate, error) {
+func (r *SynchronizationTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SynchronizationTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *SynchronizationTemplatesCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *SynchronizationTemplatesCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Get() ([]SynchronizationTemplate, error) {
+func (r *SynchronizationTemplatesCollectionRequest) Get(ctx context.Context) ([]SynchronizationTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Add(reqObj *SynchronizationTemplate) (resObj *SynchronizationTemplate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SynchronizationTemplatesCollectionRequest) Add(ctx context.Context, reqObj *SynchronizationTemplate) (resObj *SynchronizationTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

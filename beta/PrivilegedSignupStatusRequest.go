@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedSignupStatusRequestBuilder is request builder for PrivilegedSignupStatus
 type PrivilegedSignupStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PrivilegedSignupStatusRequestBuilder) Request() *PrivilegedSignupStatus
 type PrivilegedSignupStatusRequest struct{ BaseRequest }
 
 // Get performs GET request for PrivilegedSignupStatus
-func (r *PrivilegedSignupStatusRequest) Get() (resObj *PrivilegedSignupStatus, err error) {
+func (r *PrivilegedSignupStatusRequest) Get(ctx context.Context) (resObj *PrivilegedSignupStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for PrivilegedSignupStatus
-func (r *PrivilegedSignupStatusRequest) Update(reqObj *PrivilegedSignupStatus) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PrivilegedSignupStatusRequest) Update(ctx context.Context, reqObj *PrivilegedSignupStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for PrivilegedSignupStatus
-func (r *PrivilegedSignupStatusRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PrivilegedSignupStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

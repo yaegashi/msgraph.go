@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookRangeSortApplyRequestParameter undocumented
 type WorkbookRangeSortApplyRequestParameter struct {
 	// Fields undocumented
@@ -38,6 +40,6 @@ func (b *WorkbookRangeSortApplyRequestBuilder) Request() *WorkbookRangeSortApply
 }
 
 //
-func (r *WorkbookRangeSortApplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookRangeSortApplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TextClassificationRequestObjectRequestBuilder is request builder for TextClassificationRequestObject
 type TextClassificationRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TextClassificationRequestObjectRequestBuilder) Request() *TextClassific
 type TextClassificationRequestObjectRequest struct{ BaseRequest }
 
 // Get performs GET request for TextClassificationRequestObject
-func (r *TextClassificationRequestObjectRequest) Get() (resObj *TextClassificationRequestObject, err error) {
+func (r *TextClassificationRequestObjectRequest) Get(ctx context.Context) (resObj *TextClassificationRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TextClassificationRequestObject
-func (r *TextClassificationRequestObjectRequest) Update(reqObj *TextClassificationRequestObject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TextClassificationRequestObjectRequest) Update(ctx context.Context, reqObj *TextClassificationRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TextClassificationRequestObject
-func (r *TextClassificationRequestObjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TextClassificationRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

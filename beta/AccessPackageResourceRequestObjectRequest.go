@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AccessPackageResourceRequestObjectRequestBuilder is request builder for AccessPackageResourceRequestObject
 type AccessPackageResourceRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *AccessPackageResourceRequestObjectRequestBuilder) Request() *AccessPack
 type AccessPackageResourceRequestObjectRequest struct{ BaseRequest }
 
 // Get performs GET request for AccessPackageResourceRequestObject
-func (r *AccessPackageResourceRequestObjectRequest) Get() (resObj *AccessPackageResourceRequestObject, err error) {
+func (r *AccessPackageResourceRequestObjectRequest) Get(ctx context.Context) (resObj *AccessPackageResourceRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AccessPackageResourceRequestObject
-func (r *AccessPackageResourceRequestObjectRequest) Update(reqObj *AccessPackageResourceRequestObject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AccessPackageResourceRequestObjectRequest) Update(ctx context.Context, reqObj *AccessPackageResourceRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageResourceRequestObject
-func (r *AccessPackageResourceRequestObjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AccessPackageResourceRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AccessPackageResource is navigation property

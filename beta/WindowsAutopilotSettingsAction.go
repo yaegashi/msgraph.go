@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsAutopilotSettingsSyncRequestParameter undocumented
 type WindowsAutopilotSettingsSyncRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *WindowsAutopilotSettingsSyncRequestBuilder) Request() *WindowsAutopilot
 }
 
 //
-func (r *WindowsAutopilotSettingsSyncRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsAutopilotSettingsSyncRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ThumbnailSetRequestBuilder is request builder for ThumbnailSet
 type ThumbnailSetRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ThumbnailSetRequestBuilder) Request() *ThumbnailSetRequest {
 type ThumbnailSetRequest struct{ BaseRequest }
 
 // Get performs GET request for ThumbnailSet
-func (r *ThumbnailSetRequest) Get() (resObj *ThumbnailSet, err error) {
+func (r *ThumbnailSetRequest) Get(ctx context.Context) (resObj *ThumbnailSet, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ThumbnailSet
-func (r *ThumbnailSetRequest) Update(reqObj *ThumbnailSet) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ThumbnailSetRequest) Update(ctx context.Context, reqObj *ThumbnailSet) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ThumbnailSet
-func (r *ThumbnailSetRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ThumbnailSetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

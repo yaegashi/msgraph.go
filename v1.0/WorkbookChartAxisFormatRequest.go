@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartAxisFormatRequestBuilder is request builder for WorkbookChartAxisFormat
 type WorkbookChartAxisFormatRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartAxisFormatRequestBuilder) Request() *WorkbookChartAxisForm
 type WorkbookChartAxisFormatRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartAxisFormat
-func (r *WorkbookChartAxisFormatRequest) Get() (resObj *WorkbookChartAxisFormat, err error) {
+func (r *WorkbookChartAxisFormatRequest) Get(ctx context.Context) (resObj *WorkbookChartAxisFormat, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartAxisFormat
-func (r *WorkbookChartAxisFormatRequest) Update(reqObj *WorkbookChartAxisFormat) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartAxisFormatRequest) Update(ctx context.Context, reqObj *WorkbookChartAxisFormat) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartAxisFormat
-func (r *WorkbookChartAxisFormatRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartAxisFormatRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Font is navigation property

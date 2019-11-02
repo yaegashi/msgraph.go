@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ManagedAppRegistrationRequestBuilder) Request() *ManagedAppRegistration
 type ManagedAppRegistrationRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedAppRegistration
-func (r *ManagedAppRegistrationRequest) Get() (resObj *ManagedAppRegistration, err error) {
+func (r *ManagedAppRegistrationRequest) Get(ctx context.Context) (resObj *ManagedAppRegistration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedAppRegistration
-func (r *ManagedAppRegistrationRequest) Update(reqObj *ManagedAppRegistration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedAppRegistrationRequest) Update(ctx context.Context, reqObj *ManagedAppRegistration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedAppRegistration
-func (r *ManagedAppRegistrationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedAppRegistrationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AppliedPolicies returns request builder for ManagedAppPolicy collection
@@ -71,10 +72,13 @@ func (b *ManagedAppRegistrationAppliedPoliciesCollectionRequestBuilder) ID(id st
 type ManagedAppRegistrationAppliedPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
+func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Paging(method, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Paging(method, 
 }
 
 // Get performs GET request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Get() ([]ManagedAppPolicy, error) {
+func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Get(ctx context.Context) ([]ManagedAppPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ManagedAppRegistrationAppliedPoliciesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ManagedAppRegistrationIntendedPoliciesCollectionRequestBuilder) ID(id s
 type ManagedAppRegistrationIntendedPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
+func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Get() ([]ManagedAppPolicy, error) {
+func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Get(ctx context.Context) ([]ManagedAppPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedAppPolicy collection
-func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ManagedAppRegistrationIntendedPoliciesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ManagedAppRegistrationOperationsCollectionRequestBuilder) ID(id string)
 type ManagedAppRegistrationOperationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppOperation collection
-func (r *ManagedAppRegistrationOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppOperation, error) {
+func (r *ManagedAppRegistrationOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppOperation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ManagedAppRegistrationOperationsCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *ManagedAppRegistrationOperationsCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for ManagedAppOperation collection
-func (r *ManagedAppRegistrationOperationsCollectionRequest) Get() ([]ManagedAppOperation, error) {
+func (r *ManagedAppRegistrationOperationsCollectionRequest) Get(ctx context.Context) ([]ManagedAppOperation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedAppOperation collection
-func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(reqObj *ManagedAppOperation) (resObj *ManagedAppOperation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppOperation) (resObj *ManagedAppOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

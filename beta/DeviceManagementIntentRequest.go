@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceManagementIntentRequestBuilder) Request() *DeviceManagementIntent
 type DeviceManagementIntentRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementIntent
-func (r *DeviceManagementIntentRequest) Get() (resObj *DeviceManagementIntent, err error) {
+func (r *DeviceManagementIntentRequest) Get(ctx context.Context) (resObj *DeviceManagementIntent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementIntent
-func (r *DeviceManagementIntentRequest) Update(reqObj *DeviceManagementIntent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementIntentRequest) Update(ctx context.Context, reqObj *DeviceManagementIntent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntent
-func (r *DeviceManagementIntentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementIntentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for DeviceManagementIntentAssignment collection
@@ -71,10 +72,13 @@ func (b *DeviceManagementIntentAssignmentsCollectionRequestBuilder) ID(id string
 type DeviceManagementIntentAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementIntentAssignment collection
-func (r *DeviceManagementIntentAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentAssignment, error) {
+func (r *DeviceManagementIntentAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementIntentAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceManagementIntentAssignmentsCollectionRequest) Paging(method, path
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *DeviceManagementIntentAssignmentsCollectionRequest) Paging(method, path
 }
 
 // Get performs GET request for DeviceManagementIntentAssignment collection
-func (r *DeviceManagementIntentAssignmentsCollectionRequest) Get() ([]DeviceManagementIntentAssignment, error) {
+func (r *DeviceManagementIntentAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementIntentAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementIntentAssignment collection
-func (r *DeviceManagementIntentAssignmentsCollectionRequest) Add(reqObj *DeviceManagementIntentAssignment) (resObj *DeviceManagementIntentAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementIntentAssignment) (resObj *DeviceManagementIntentAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *DeviceManagementIntentCategoriesCollectionRequestBuilder) ID(id string)
 type DeviceManagementIntentCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementIntentSettingCategory collection
-func (r *DeviceManagementIntentCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentSettingCategory, error) {
+func (r *DeviceManagementIntentCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementIntentSettingCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *DeviceManagementIntentCategoriesCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *DeviceManagementIntentCategoriesCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for DeviceManagementIntentSettingCategory collection
-func (r *DeviceManagementIntentCategoriesCollectionRequest) Get() ([]DeviceManagementIntentSettingCategory, error) {
+func (r *DeviceManagementIntentCategoriesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementIntentSettingCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementIntentSettingCategory collection
-func (r *DeviceManagementIntentCategoriesCollectionRequest) Add(reqObj *DeviceManagementIntentSettingCategory) (resObj *DeviceManagementIntentSettingCategory, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentCategoriesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementIntentSettingCategory) (resObj *DeviceManagementIntentSettingCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequestBuild
 type DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementIntentDeviceSettingStateSummary collection
-func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentDeviceSettingStateSummary, error) {
+func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementIntentDeviceSettingStateSummary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Pag
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Pag
 }
 
 // Get performs GET request for DeviceManagementIntentDeviceSettingStateSummary collection
-func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Get() ([]DeviceManagementIntentDeviceSettingStateSummary, error) {
+func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementIntentDeviceSettingStateSummary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementIntentDeviceSettingStateSummary collection
-func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Add(reqObj *DeviceManagementIntentDeviceSettingStateSummary) (resObj *DeviceManagementIntentDeviceSettingStateSummary, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentDeviceSettingStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementIntentDeviceSettingStateSummary) (resObj *DeviceManagementIntentDeviceSettingStateSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *DeviceManagementIntentDeviceStatesCollectionRequestBuilder) ID(id strin
 type DeviceManagementIntentDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementIntentDeviceState collection
-func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentDeviceState, error) {
+func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementIntentDeviceState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,17 +413,17 @@ func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for DeviceManagementIntentDeviceState collection
-func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Get() ([]DeviceManagementIntentDeviceState, error) {
+func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementIntentDeviceState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementIntentDeviceState collection
-func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Add(reqObj *DeviceManagementIntentDeviceState) (resObj *DeviceManagementIntentDeviceState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementIntentDeviceState) (resObj *DeviceManagementIntentDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -426,10 +455,13 @@ func (b *DeviceManagementIntentSettingsCollectionRequestBuilder) ID(id string) *
 type DeviceManagementIntentSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementIntentSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -463,7 +495,11 @@ func (r *DeviceManagementIntentSettingsCollectionRequest) Paging(method, path st
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -471,17 +507,17 @@ func (r *DeviceManagementIntentSettingsCollectionRequest) Paging(method, path st
 }
 
 // Get performs GET request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingsCollectionRequest) Get() ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementIntentSettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementSettingInstance, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementIntentSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -520,10 +556,13 @@ func (b *DeviceManagementIntentUserStatesCollectionRequestBuilder) ID(id string)
 type DeviceManagementIntentUserStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementIntentUserState collection
-func (r *DeviceManagementIntentUserStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementIntentUserState, error) {
+func (r *DeviceManagementIntentUserStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementIntentUserState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -557,7 +596,11 @@ func (r *DeviceManagementIntentUserStatesCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -565,16 +608,16 @@ func (r *DeviceManagementIntentUserStatesCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for DeviceManagementIntentUserState collection
-func (r *DeviceManagementIntentUserStatesCollectionRequest) Get() ([]DeviceManagementIntentUserState, error) {
+func (r *DeviceManagementIntentUserStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementIntentUserState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementIntentUserState collection
-func (r *DeviceManagementIntentUserStatesCollectionRequest) Add(reqObj *DeviceManagementIntentUserState) (resObj *DeviceManagementIntentUserState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementIntentUserStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementIntentUserState) (resObj *DeviceManagementIntentUserState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

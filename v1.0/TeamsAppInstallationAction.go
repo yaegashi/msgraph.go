@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TeamsAppInstallationUpgradeRequestParameter undocumented
 type TeamsAppInstallationUpgradeRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallat
 }
 
 //
-func (r *TeamsAppInstallationUpgradeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TeamsAppInstallationUpgradeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

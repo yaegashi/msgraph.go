@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MobileAppInstallStatusRequestBuilder is request builder for MobileAppInstallStatus
 type MobileAppInstallStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *MobileAppInstallStatusRequestBuilder) Request() *MobileAppInstallStatus
 type MobileAppInstallStatusRequest struct{ BaseRequest }
 
 // Get performs GET request for MobileAppInstallStatus
-func (r *MobileAppInstallStatusRequest) Get() (resObj *MobileAppInstallStatus, err error) {
+func (r *MobileAppInstallStatusRequest) Get(ctx context.Context) (resObj *MobileAppInstallStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MobileAppInstallStatus
-func (r *MobileAppInstallStatusRequest) Update(reqObj *MobileAppInstallStatus) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MobileAppInstallStatusRequest) Update(ctx context.Context, reqObj *MobileAppInstallStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppInstallStatus
-func (r *MobileAppInstallStatusRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MobileAppInstallStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // App is navigation property

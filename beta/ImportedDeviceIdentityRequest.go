@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ImportedDeviceIdentityRequestBuilder is request builder for ImportedDeviceIdentity
 type ImportedDeviceIdentityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ImportedDeviceIdentityRequestBuilder) Request() *ImportedDeviceIdentity
 type ImportedDeviceIdentityRequest struct{ BaseRequest }
 
 // Get performs GET request for ImportedDeviceIdentity
-func (r *ImportedDeviceIdentityRequest) Get() (resObj *ImportedDeviceIdentity, err error) {
+func (r *ImportedDeviceIdentityRequest) Get(ctx context.Context) (resObj *ImportedDeviceIdentity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ImportedDeviceIdentity
-func (r *ImportedDeviceIdentityRequest) Update(reqObj *ImportedDeviceIdentity) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ImportedDeviceIdentityRequest) Update(ctx context.Context, reqObj *ImportedDeviceIdentity) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImportedDeviceIdentity
-func (r *ImportedDeviceIdentityRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ImportedDeviceIdentityRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

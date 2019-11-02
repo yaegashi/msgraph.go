@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter undocumented
 type WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter struct {
 	// UserPrincipalName undocumented
@@ -50,8 +52,8 @@ func (b *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestBuilder) Request
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsAutopilotDeviceIdentityAssignUserToDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -76,8 +78,8 @@ func (b *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestBuilder) Req
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -102,8 +104,8 @@ func (b *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestBuild
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -128,6 +130,6 @@ func (b *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestB
 }
 
 //
-func (r *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

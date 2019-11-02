@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter undocumented
 type AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter struct {
 	// HostName undocumented
@@ -56,8 +58,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestBuil
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Post() (resObj *string, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequest) Post(ctx context.Context) (resObj *string, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -83,8 +85,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestBuilde
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -109,8 +111,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestBuilder) Req
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -135,8 +137,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestBuilder) Reque
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsUnbindRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -161,8 +163,8 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenReq
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) Post() (resObj *string, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest) Post(ctx context.Context) (resObj *string, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -188,6 +190,6 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyM
 }
 
 //
-func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

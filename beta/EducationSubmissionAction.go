@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EducationSubmissionReturnRequestParameter undocumented
 type EducationSubmissionReturnRequestParameter struct {
 }
@@ -36,8 +38,8 @@ func (b *EducationSubmissionReturnRequestBuilder) Request() *EducationSubmission
 }
 
 //
-func (r *EducationSubmissionReturnRequest) Post() (resObj *EducationSubmission, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *EducationSubmissionReturnRequest) Post(ctx context.Context) (resObj *EducationSubmission, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -63,8 +65,8 @@ func (b *EducationSubmissionSubmitRequestBuilder) Request() *EducationSubmission
 }
 
 //
-func (r *EducationSubmissionSubmitRequest) Post() (resObj *EducationSubmission, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *EducationSubmissionSubmitRequest) Post(ctx context.Context) (resObj *EducationSubmission, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -90,7 +92,7 @@ func (b *EducationSubmissionUnsubmitRequestBuilder) Request() *EducationSubmissi
 }
 
 //
-func (r *EducationSubmissionUnsubmitRequest) Post() (resObj *EducationSubmission, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *EducationSubmissionUnsubmitRequest) Post(ctx context.Context) (resObj *EducationSubmission, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

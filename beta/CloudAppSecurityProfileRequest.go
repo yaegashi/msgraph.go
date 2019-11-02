@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CloudAppSecurityProfileRequestBuilder is request builder for CloudAppSecurityProfile
 type CloudAppSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *CloudAppSecurityProfileRequestBuilder) Request() *CloudAppSecurityProfi
 type CloudAppSecurityProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for CloudAppSecurityProfile
-func (r *CloudAppSecurityProfileRequest) Get() (resObj *CloudAppSecurityProfile, err error) {
+func (r *CloudAppSecurityProfileRequest) Get(ctx context.Context) (resObj *CloudAppSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for CloudAppSecurityProfile
-func (r *CloudAppSecurityProfileRequest) Update(reqObj *CloudAppSecurityProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CloudAppSecurityProfileRequest) Update(ctx context.Context, reqObj *CloudAppSecurityProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CloudAppSecurityProfile
-func (r *CloudAppSecurityProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CloudAppSecurityProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

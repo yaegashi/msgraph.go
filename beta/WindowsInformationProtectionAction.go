@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionAssignRequestParameter undocumented
 type WindowsInformationProtectionAssignRequestParameter struct {
 	// Assignments undocumented
@@ -30,6 +32,6 @@ func (b *WindowsInformationProtectionAssignRequestBuilder) Request() *WindowsInf
 }
 
 //
-func (r *WindowsInformationProtectionAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsInformationProtectionAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

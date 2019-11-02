@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedDeviceRetireRequestParameter undocumented
 type ManagedDeviceRetireRequestParameter struct {
 }
@@ -110,8 +112,8 @@ func (b *ManagedDeviceRetireRequestBuilder) Request() *ManagedDeviceRetireReques
 }
 
 //
-func (r *ManagedDeviceRetireRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceRetireRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -136,8 +138,8 @@ func (b *ManagedDeviceWipeRequestBuilder) Request() *ManagedDeviceWipeRequest {
 }
 
 //
-func (r *ManagedDeviceWipeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceWipeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -162,8 +164,8 @@ func (b *ManagedDeviceResetPasscodeRequestBuilder) Request() *ManagedDeviceReset
 }
 
 //
-func (r *ManagedDeviceResetPasscodeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceResetPasscodeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -188,8 +190,8 @@ func (b *ManagedDeviceRemoteLockRequestBuilder) Request() *ManagedDeviceRemoteLo
 }
 
 //
-func (r *ManagedDeviceRemoteLockRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceRemoteLockRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -214,8 +216,8 @@ func (b *ManagedDeviceRequestRemoteAssistanceRequestBuilder) Request() *ManagedD
 }
 
 //
-func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceRequestRemoteAssistanceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -240,8 +242,8 @@ func (b *ManagedDeviceDisableLostModeRequestBuilder) Request() *ManagedDeviceDis
 }
 
 //
-func (r *ManagedDeviceDisableLostModeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceDisableLostModeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -266,8 +268,8 @@ func (b *ManagedDeviceLocateDeviceRequestBuilder) Request() *ManagedDeviceLocate
 }
 
 //
-func (r *ManagedDeviceLocateDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceLocateDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -292,8 +294,8 @@ func (b *ManagedDeviceBypassActivationLockRequestBuilder) Request() *ManagedDevi
 }
 
 //
-func (r *ManagedDeviceBypassActivationLockRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceBypassActivationLockRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -318,8 +320,8 @@ func (b *ManagedDeviceRebootNowRequestBuilder) Request() *ManagedDeviceRebootNow
 }
 
 //
-func (r *ManagedDeviceRebootNowRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceRebootNowRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -344,8 +346,8 @@ func (b *ManagedDeviceShutDownRequestBuilder) Request() *ManagedDeviceShutDownRe
 }
 
 //
-func (r *ManagedDeviceShutDownRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceShutDownRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -370,8 +372,8 @@ func (b *ManagedDeviceRecoverPasscodeRequestBuilder) Request() *ManagedDeviceRec
 }
 
 //
-func (r *ManagedDeviceRecoverPasscodeRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceRecoverPasscodeRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -396,8 +398,8 @@ func (b *ManagedDeviceCleanWindowsDeviceRequestBuilder) Request() *ManagedDevice
 }
 
 //
-func (r *ManagedDeviceCleanWindowsDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceCleanWindowsDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -422,8 +424,8 @@ func (b *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestBuilder) Request()
 }
 
 //
-func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceLogoutSharedAppleDeviceActiveUserRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -448,8 +450,8 @@ func (b *ManagedDeviceDeleteUserFromSharedAppleDeviceRequestBuilder) Request() *
 }
 
 //
-func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceDeleteUserFromSharedAppleDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -474,8 +476,8 @@ func (b *ManagedDeviceSyncDeviceRequestBuilder) Request() *ManagedDeviceSyncDevi
 }
 
 //
-func (r *ManagedDeviceSyncDeviceRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceSyncDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -500,8 +502,8 @@ func (b *ManagedDeviceWindowsDefenderScanRequestBuilder) Request() *ManagedDevic
 }
 
 //
-func (r *ManagedDeviceWindowsDefenderScanRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceWindowsDefenderScanRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -526,8 +528,8 @@ func (b *ManagedDeviceWindowsDefenderUpdateSignaturesRequestBuilder) Request() *
 }
 
 //
-func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceWindowsDefenderUpdateSignaturesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -552,6 +554,6 @@ func (b *ManagedDeviceUpdateWindowsDeviceAccountRequestBuilder) Request() *Manag
 }
 
 //
-func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ManagedDeviceUpdateWindowsDeviceAccountRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

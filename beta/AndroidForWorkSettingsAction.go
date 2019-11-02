@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkSettingsRequestSignupURLRequestParameter undocumented
 type AndroidForWorkSettingsRequestSignupURLRequestParameter struct {
 	// HostName undocumented
@@ -44,8 +46,8 @@ func (b *AndroidForWorkSettingsRequestSignupURLRequestBuilder) Request() *Androi
 }
 
 //
-func (r *AndroidForWorkSettingsRequestSignupURLRequest) Post() (resObj *string, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *AndroidForWorkSettingsRequestSignupURLRequest) Post(ctx context.Context) (resObj *string, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -71,8 +73,8 @@ func (b *AndroidForWorkSettingsCompleteSignupRequestBuilder) Request() *AndroidF
 }
 
 //
-func (r *AndroidForWorkSettingsCompleteSignupRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidForWorkSettingsCompleteSignupRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -97,8 +99,8 @@ func (b *AndroidForWorkSettingsSyncAppsRequestBuilder) Request() *AndroidForWork
 }
 
 //
-func (r *AndroidForWorkSettingsSyncAppsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidForWorkSettingsSyncAppsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -123,6 +125,6 @@ func (b *AndroidForWorkSettingsUnbindRequestBuilder) Request() *AndroidForWorkSe
 }
 
 //
-func (r *AndroidForWorkSettingsUnbindRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *AndroidForWorkSettingsUnbindRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

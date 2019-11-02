@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MobileAppAssignmentRequestBuilder is request builder for MobileAppAssignment
 type MobileAppAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MobileAppAssignmentRequestBuilder) Request() *MobileAppAssignmentReques
 type MobileAppAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for MobileAppAssignment
-func (r *MobileAppAssignmentRequest) Get() (resObj *MobileAppAssignment, err error) {
+func (r *MobileAppAssignmentRequest) Get(ctx context.Context) (resObj *MobileAppAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MobileAppAssignment
-func (r *MobileAppAssignmentRequest) Update(reqObj *MobileAppAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MobileAppAssignmentRequest) Update(ctx context.Context, reqObj *MobileAppAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppAssignment
-func (r *MobileAppAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MobileAppAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "time"
+import (
+	"context"
+	"time"
+)
 
 // ScheduleShareRequestParameter undocumented
 type ScheduleShareRequestParameter struct {
@@ -36,6 +39,6 @@ func (b *ScheduleShareRequestBuilder) Request() *ScheduleShareRequest {
 }
 
 //
-func (r *ScheduleShareRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ScheduleShareRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

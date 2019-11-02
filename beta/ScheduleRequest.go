@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ScheduleRequestBuilder) Request() *ScheduleRequest {
 type ScheduleRequest struct{ BaseRequest }
 
 // Get performs GET request for Schedule
-func (r *ScheduleRequest) Get() (resObj *Schedule, err error) {
+func (r *ScheduleRequest) Get(ctx context.Context) (resObj *Schedule, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Schedule
-func (r *ScheduleRequest) Update(reqObj *Schedule) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ScheduleRequest) Update(ctx context.Context, reqObj *Schedule) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Schedule
-func (r *ScheduleRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ScheduleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // SchedulingGroups returns request builder for SchedulingGroup collection
@@ -71,10 +72,13 @@ func (b *ScheduleSchedulingGroupsCollectionRequestBuilder) ID(id string) *Schedu
 type ScheduleSchedulingGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SchedulingGroup collection
-func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]SchedulingGroup, error) {
+func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SchedulingGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ScheduleSchedulingGroupsCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for SchedulingGroup collection
-func (r *ScheduleSchedulingGroupsCollectionRequest) Get() ([]SchedulingGroup, error) {
+func (r *ScheduleSchedulingGroupsCollectionRequest) Get(ctx context.Context) ([]SchedulingGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SchedulingGroup collection
-func (r *ScheduleSchedulingGroupsCollectionRequest) Add(reqObj *SchedulingGroup) (resObj *SchedulingGroup, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ScheduleSchedulingGroupsCollectionRequest) Add(ctx context.Context, reqObj *SchedulingGroup) (resObj *SchedulingGroup, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ScheduleShiftsCollectionRequestBuilder) ID(id string) *ShiftRequestBuil
 type ScheduleShiftsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Shift collection
-func (r *ScheduleShiftsCollectionRequest) Paging(method, path string, obj interface{}) ([]Shift, error) {
+func (r *ScheduleShiftsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Shift, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ScheduleShiftsCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ScheduleShiftsCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for Shift collection
-func (r *ScheduleShiftsCollectionRequest) Get() ([]Shift, error) {
+func (r *ScheduleShiftsCollectionRequest) Get(ctx context.Context) ([]Shift, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Shift collection
-func (r *ScheduleShiftsCollectionRequest) Add(reqObj *Shift) (resObj *Shift, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ScheduleShiftsCollectionRequest) Add(ctx context.Context, reqObj *Shift) (resObj *Shift, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ScheduleSwapShiftsChangeRequestsCollectionRequestBuilder) ID(id string)
 type ScheduleSwapShiftsChangeRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SwapShiftsChangeRequestObject collection
-func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]SwapShiftsChangeRequestObject, error) {
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SwapShiftsChangeRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for SwapShiftsChangeRequestObject collection
-func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Get() ([]SwapShiftsChangeRequestObject, error) {
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Get(ctx context.Context) ([]SwapShiftsChangeRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SwapShiftsChangeRequestObject collection
-func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Add(reqObj *SwapShiftsChangeRequestObject) (resObj *SwapShiftsChangeRequestObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ScheduleSwapShiftsChangeRequestsCollectionRequest) Add(ctx context.Context, reqObj *SwapShiftsChangeRequestObject) (resObj *SwapShiftsChangeRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *ScheduleTimeOffReasonsCollectionRequestBuilder) ID(id string) *TimeOffR
 type ScheduleTimeOffReasonsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TimeOffReason collection
-func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOffReason, error) {
+func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TimeOffReason, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *ScheduleTimeOffReasonsCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for TimeOffReason collection
-func (r *ScheduleTimeOffReasonsCollectionRequest) Get() ([]TimeOffReason, error) {
+func (r *ScheduleTimeOffReasonsCollectionRequest) Get(ctx context.Context) ([]TimeOffReason, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TimeOffReason collection
-func (r *ScheduleTimeOffReasonsCollectionRequest) Add(reqObj *TimeOffReason) (resObj *TimeOffReason, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ScheduleTimeOffReasonsCollectionRequest) Add(ctx context.Context, reqObj *TimeOffReason) (resObj *TimeOffReason, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *ScheduleTimeOffRequestsCollectionRequestBuilder) ID(id string) *TimeOff
 type ScheduleTimeOffRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TimeOffRequestObject collection
-func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOffRequestObject, error) {
+func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TimeOffRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,17 +500,17 @@ func (r *ScheduleTimeOffRequestsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for TimeOffRequestObject collection
-func (r *ScheduleTimeOffRequestsCollectionRequest) Get() ([]TimeOffRequestObject, error) {
+func (r *ScheduleTimeOffRequestsCollectionRequest) Get(ctx context.Context) ([]TimeOffRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TimeOffRequestObject collection
-func (r *ScheduleTimeOffRequestsCollectionRequest) Add(reqObj *TimeOffRequestObject) (resObj *TimeOffRequestObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ScheduleTimeOffRequestsCollectionRequest) Add(ctx context.Context, reqObj *TimeOffRequestObject) (resObj *TimeOffRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -506,10 +542,13 @@ func (b *ScheduleTimesOffCollectionRequestBuilder) ID(id string) *TimeOffRequest
 type ScheduleTimesOffCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TimeOff collection
-func (r *ScheduleTimesOffCollectionRequest) Paging(method, path string, obj interface{}) ([]TimeOff, error) {
+func (r *ScheduleTimesOffCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TimeOff, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -543,7 +582,11 @@ func (r *ScheduleTimesOffCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -551,16 +594,16 @@ func (r *ScheduleTimesOffCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for TimeOff collection
-func (r *ScheduleTimesOffCollectionRequest) Get() ([]TimeOff, error) {
+func (r *ScheduleTimesOffCollectionRequest) Get(ctx context.Context) ([]TimeOff, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TimeOff collection
-func (r *ScheduleTimesOffCollectionRequest) Add(reqObj *TimeOff) (resObj *TimeOff, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ScheduleTimesOffCollectionRequest) Add(ctx context.Context, reqObj *TimeOff) (resObj *TimeOff, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

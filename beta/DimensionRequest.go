@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DimensionRequestBuilder) Request() *DimensionRequest {
 type DimensionRequest struct{ BaseRequest }
 
 // Get performs GET request for Dimension
-func (r *DimensionRequest) Get() (resObj *Dimension, err error) {
+func (r *DimensionRequest) Get(ctx context.Context) (resObj *Dimension, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Dimension
-func (r *DimensionRequest) Update(reqObj *Dimension) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DimensionRequest) Update(ctx context.Context, reqObj *Dimension) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Dimension
-func (r *DimensionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DimensionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DimensionValues returns request builder for DimensionValue collection
@@ -71,10 +72,13 @@ func (b *DimensionDimensionValuesCollectionRequestBuilder) ID(id string) *Dimens
 type DimensionDimensionValuesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]DimensionValue, error) {
+func (r *DimensionDimensionValuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DimensionValue, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DimensionDimensionValuesCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DimensionDimensionValuesCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Get() ([]DimensionValue, error) {
+func (r *DimensionDimensionValuesCollectionRequest) Get(ctx context.Context) ([]DimensionValue, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Add(reqObj *DimensionValue) (resObj *DimensionValue, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DimensionDimensionValuesCollectionRequest) Add(ctx context.Context, reqObj *DimensionValue) (resObj *DimensionValue, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

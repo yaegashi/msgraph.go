@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MacOSCertificateProfileBaseRequestBuilder is request builder for MacOSCertificateProfileBase
 type MacOSCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MacOSCertificateProfileBaseRequestBuilder) Request() *MacOSCertificateP
 type MacOSCertificateProfileBaseRequest struct{ BaseRequest }
 
 // Get performs GET request for MacOSCertificateProfileBase
-func (r *MacOSCertificateProfileBaseRequest) Get() (resObj *MacOSCertificateProfileBase, err error) {
+func (r *MacOSCertificateProfileBaseRequest) Get(ctx context.Context) (resObj *MacOSCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MacOSCertificateProfileBase
-func (r *MacOSCertificateProfileBaseRequest) Update(reqObj *MacOSCertificateProfileBase) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MacOSCertificateProfileBaseRequest) Update(ctx context.Context, reqObj *MacOSCertificateProfileBase) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MacOSCertificateProfileBase
-func (r *MacOSCertificateProfileBaseRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MacOSCertificateProfileBaseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

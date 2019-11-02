@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -78,8 +79,8 @@ func (b *GroupValidatePropertiesRequestBuilder) Request() *GroupValidateProperti
 }
 
 //
-func (r *GroupValidatePropertiesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupValidatePropertiesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -104,10 +105,13 @@ func (b *GroupCheckGrantedPermissionsForAppRequestBuilder) Request() *GroupCheck
 }
 
 //
-func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(method, path string, obj interface{}) ([][]ResourceSpecificPermissionGrant, error) {
+func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ResourceSpecificPermissionGrant, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -141,7 +145,11 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -149,12 +157,12 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(method, path string, 
 }
 
 //
-func (r *GroupCheckGrantedPermissionsForAppRequest) Get() ([][]ResourceSpecificPermissionGrant, error) {
+func (r *GroupCheckGrantedPermissionsForAppRequest) Get(ctx context.Context) ([][]ResourceSpecificPermissionGrant, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -179,8 +187,8 @@ func (b *GroupAssignLicenseRequestBuilder) Request() *GroupAssignLicenseRequest 
 }
 
 //
-func (r *GroupAssignLicenseRequest) Post() (resObj *Group, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *GroupAssignLicenseRequest) Post(ctx context.Context) (resObj *Group, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -206,8 +214,8 @@ func (b *GroupSubscribeByMailRequestBuilder) Request() *GroupSubscribeByMailRequ
 }
 
 //
-func (r *GroupSubscribeByMailRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupSubscribeByMailRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -232,8 +240,8 @@ func (b *GroupUnsubscribeByMailRequestBuilder) Request() *GroupUnsubscribeByMail
 }
 
 //
-func (r *GroupUnsubscribeByMailRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupUnsubscribeByMailRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -258,8 +266,8 @@ func (b *GroupAddFavoriteRequestBuilder) Request() *GroupAddFavoriteRequest {
 }
 
 //
-func (r *GroupAddFavoriteRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupAddFavoriteRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -284,8 +292,8 @@ func (b *GroupRemoveFavoriteRequestBuilder) Request() *GroupRemoveFavoriteReques
 }
 
 //
-func (r *GroupRemoveFavoriteRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupRemoveFavoriteRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -310,8 +318,8 @@ func (b *GroupResetUnseenCountRequestBuilder) Request() *GroupResetUnseenCountRe
 }
 
 //
-func (r *GroupResetUnseenCountRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupResetUnseenCountRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -336,6 +344,6 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 }
 
 //
-func (r *GroupRenewRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *GroupRenewRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

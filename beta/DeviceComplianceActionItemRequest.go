@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceComplianceActionItemRequestBuilder is request builder for DeviceComplianceActionItem
 type DeviceComplianceActionItemRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceComplianceActionItemRequestBuilder) Request() *DeviceComplianceAc
 type DeviceComplianceActionItemRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceComplianceActionItem
-func (r *DeviceComplianceActionItemRequest) Get() (resObj *DeviceComplianceActionItem, err error) {
+func (r *DeviceComplianceActionItemRequest) Get(ctx context.Context) (resObj *DeviceComplianceActionItem, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceComplianceActionItem
-func (r *DeviceComplianceActionItemRequest) Update(reqObj *DeviceComplianceActionItem) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceComplianceActionItemRequest) Update(ctx context.Context, reqObj *DeviceComplianceActionItem) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceActionItem
-func (r *DeviceComplianceActionItemRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceComplianceActionItemRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

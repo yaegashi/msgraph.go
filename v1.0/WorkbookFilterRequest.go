@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookFilterRequestBuilder is request builder for WorkbookFilter
 type WorkbookFilterRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookFilterRequestBuilder) Request() *WorkbookFilterRequest {
 type WorkbookFilterRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookFilter
-func (r *WorkbookFilterRequest) Get() (resObj *WorkbookFilter, err error) {
+func (r *WorkbookFilterRequest) Get(ctx context.Context) (resObj *WorkbookFilter, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookFilter
-func (r *WorkbookFilterRequest) Update(reqObj *WorkbookFilter) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookFilterRequest) Update(ctx context.Context, reqObj *WorkbookFilter) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookFilter
-func (r *WorkbookFilterRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookFilterRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

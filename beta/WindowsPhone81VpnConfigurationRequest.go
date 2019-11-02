@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsPhone81VpnConfigurationRequestBuilder is request builder for WindowsPhone81VpnConfiguration
 type WindowsPhone81VpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WindowsPhone81VpnConfigurationRequestBuilder) Request() *WindowsPhone81
 type WindowsPhone81VpnConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsPhone81VpnConfiguration
-func (r *WindowsPhone81VpnConfigurationRequest) Get() (resObj *WindowsPhone81VpnConfiguration, err error) {
+func (r *WindowsPhone81VpnConfigurationRequest) Get(ctx context.Context) (resObj *WindowsPhone81VpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsPhone81VpnConfiguration
-func (r *WindowsPhone81VpnConfigurationRequest) Update(reqObj *WindowsPhone81VpnConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsPhone81VpnConfigurationRequest) Update(ctx context.Context, reqObj *WindowsPhone81VpnConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsPhone81VpnConfiguration
-func (r *WindowsPhone81VpnConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsPhone81VpnConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

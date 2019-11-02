@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsCertificateProfileBaseRequestBuilder is request builder for WindowsCertificateProfileBase
 type WindowsCertificateProfileBaseRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsCertificateProfileBaseRequestBuilder) Request() *WindowsCertific
 type WindowsCertificateProfileBaseRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsCertificateProfileBase
-func (r *WindowsCertificateProfileBaseRequest) Get() (resObj *WindowsCertificateProfileBase, err error) {
+func (r *WindowsCertificateProfileBaseRequest) Get(ctx context.Context) (resObj *WindowsCertificateProfileBase, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsCertificateProfileBase
-func (r *WindowsCertificateProfileBaseRequest) Update(reqObj *WindowsCertificateProfileBase) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsCertificateProfileBaseRequest) Update(ctx context.Context, reqObj *WindowsCertificateProfileBase) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsCertificateProfileBase
-func (r *WindowsCertificateProfileBaseRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsCertificateProfileBaseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

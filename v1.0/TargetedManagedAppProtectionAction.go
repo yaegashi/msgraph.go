@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TargetedManagedAppProtectionAssignRequestParameter undocumented
 type TargetedManagedAppProtectionAssignRequestParameter struct {
 	// Assignments undocumented
@@ -30,6 +32,6 @@ func (b *TargetedManagedAppProtectionAssignRequestBuilder) Request() *TargetedMa
 }
 
 //
-func (r *TargetedManagedAppProtectionAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *TargetedManagedAppProtectionAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceAndAppManagementRoleAssignmentRequestBuilder) Request() *DeviceAn
 type DeviceAndAppManagementRoleAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceAndAppManagementRoleAssignment
-func (r *DeviceAndAppManagementRoleAssignmentRequest) Get() (resObj *DeviceAndAppManagementRoleAssignment, err error) {
+func (r *DeviceAndAppManagementRoleAssignmentRequest) Get(ctx context.Context) (resObj *DeviceAndAppManagementRoleAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceAndAppManagementRoleAssignment
-func (r *DeviceAndAppManagementRoleAssignmentRequest) Update(reqObj *DeviceAndAppManagementRoleAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceAndAppManagementRoleAssignmentRequest) Update(ctx context.Context, reqObj *DeviceAndAppManagementRoleAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceAndAppManagementRoleAssignment
-func (r *DeviceAndAppManagementRoleAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceAndAppManagementRoleAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // RoleScopeTags returns request builder for RoleScopeTag collection
@@ -71,10 +72,13 @@ func (b *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequestBuild
 type DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RoleScopeTag collection
-func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Paging(method, path string, obj interface{}) ([]RoleScopeTag, error) {
+func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTag, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Pag
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Pag
 }
 
 // Get performs GET request for RoleScopeTag collection
-func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Get() ([]RoleScopeTag, error) {
+func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Get(ctx context.Context) ([]RoleScopeTag, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for RoleScopeTag collection
-func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Add(reqObj *RoleScopeTag) (resObj *RoleScopeTag, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAndAppManagementRoleAssignmentRoleScopeTagsCollectionRequest) Add(ctx context.Context, reqObj *RoleScopeTag) (resObj *RoleScopeTag, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

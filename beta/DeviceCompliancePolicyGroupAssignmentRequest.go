@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceCompliancePolicyGroupAssignmentRequestBuilder is request builder for DeviceCompliancePolicyGroupAssignment
 type DeviceCompliancePolicyGroupAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *DeviceCompliancePolicyGroupAssignmentRequestBuilder) Request() *DeviceC
 type DeviceCompliancePolicyGroupAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceCompliancePolicyGroupAssignment
-func (r *DeviceCompliancePolicyGroupAssignmentRequest) Get() (resObj *DeviceCompliancePolicyGroupAssignment, err error) {
+func (r *DeviceCompliancePolicyGroupAssignmentRequest) Get(ctx context.Context) (resObj *DeviceCompliancePolicyGroupAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceCompliancePolicyGroupAssignment
-func (r *DeviceCompliancePolicyGroupAssignmentRequest) Update(reqObj *DeviceCompliancePolicyGroupAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceCompliancePolicyGroupAssignmentRequest) Update(ctx context.Context, reqObj *DeviceCompliancePolicyGroupAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceCompliancePolicyGroupAssignment
-func (r *DeviceCompliancePolicyGroupAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceCompliancePolicyGroupAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DeviceCompliancePolicy is navigation property

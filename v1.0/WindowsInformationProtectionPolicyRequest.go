@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionPolicyRequestBuilder is request builder for WindowsInformationProtectionPolicy
 type WindowsInformationProtectionPolicyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsInformationProtectionPolicyRequestBuilder) Request() *WindowsInf
 type WindowsInformationProtectionPolicyRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsInformationProtectionPolicy
-func (r *WindowsInformationProtectionPolicyRequest) Get() (resObj *WindowsInformationProtectionPolicy, err error) {
+func (r *WindowsInformationProtectionPolicyRequest) Get(ctx context.Context) (resObj *WindowsInformationProtectionPolicy, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionPolicy
-func (r *WindowsInformationProtectionPolicyRequest) Update(reqObj *WindowsInformationProtectionPolicy) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsInformationProtectionPolicyRequest) Update(ctx context.Context, reqObj *WindowsInformationProtectionPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionPolicy
-func (r *WindowsInformationProtectionPolicyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsInformationProtectionPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

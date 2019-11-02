@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EventDismissReminderRequestParameter undocumented
 type EventDismissReminderRequestParameter struct {
 }
@@ -58,8 +60,8 @@ func (b *EventDismissReminderRequestBuilder) Request() *EventDismissReminderRequ
 }
 
 //
-func (r *EventDismissReminderRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventDismissReminderRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -84,8 +86,8 @@ func (b *EventSnoozeReminderRequestBuilder) Request() *EventSnoozeReminderReques
 }
 
 //
-func (r *EventSnoozeReminderRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventSnoozeReminderRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -110,8 +112,8 @@ func (b *EventAcceptRequestBuilder) Request() *EventAcceptRequest {
 }
 
 //
-func (r *EventAcceptRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventAcceptRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -136,8 +138,8 @@ func (b *EventDeclineRequestBuilder) Request() *EventDeclineRequest {
 }
 
 //
-func (r *EventDeclineRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventDeclineRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -162,6 +164,6 @@ func (b *EventTentativelyAcceptRequestBuilder) Request() *EventTentativelyAccept
 }
 
 //
-func (r *EventTentativelyAcceptRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventTentativelyAcceptRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SalesCreditMemoLineRequestBuilder is request builder for SalesCreditMemoLine
 type SalesCreditMemoLineRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *SalesCreditMemoLineRequestBuilder) Request() *SalesCreditMemoLineReques
 type SalesCreditMemoLineRequest struct{ BaseRequest }
 
 // Get performs GET request for SalesCreditMemoLine
-func (r *SalesCreditMemoLineRequest) Get() (resObj *SalesCreditMemoLine, err error) {
+func (r *SalesCreditMemoLineRequest) Get(ctx context.Context) (resObj *SalesCreditMemoLine, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SalesCreditMemoLine
-func (r *SalesCreditMemoLineRequest) Update(reqObj *SalesCreditMemoLine) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SalesCreditMemoLineRequest) Update(ctx context.Context, reqObj *SalesCreditMemoLine) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SalesCreditMemoLine
-func (r *SalesCreditMemoLineRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SalesCreditMemoLineRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Account is navigation property

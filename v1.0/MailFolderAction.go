@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MailFolderCopyRequestParameter undocumented
 type MailFolderCopyRequestParameter struct {
 	// DestinationID undocumented
@@ -36,8 +38,8 @@ func (b *MailFolderCopyRequestBuilder) Request() *MailFolderCopyRequest {
 }
 
 //
-func (r *MailFolderCopyRequest) Post() (resObj *MailFolder, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MailFolderCopyRequest) Post(ctx context.Context) (resObj *MailFolder, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -63,7 +65,7 @@ func (b *MailFolderMoveRequestBuilder) Request() *MailFolderMoveRequest {
 }
 
 //
-func (r *MailFolderMoveRequest) Post() (resObj *MailFolder, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *MailFolderMoveRequest) Post(ctx context.Context) (resObj *MailFolder, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

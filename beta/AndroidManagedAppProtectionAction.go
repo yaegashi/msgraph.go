@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -38,10 +39,13 @@ func (b *AndroidManagedAppProtectionCollectionHasPayloadLinksRequestBuilder) Req
 }
 
 //
-func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -75,7 +79,11 @@ func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -83,10 +91,10 @@ func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(met
 }
 
 //
-func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Get() ([][]HasPayloadLinkResultItem, error) {
+func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

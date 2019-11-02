@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OnenoteOperationRequestBuilder is request builder for OnenoteOperation
 type OnenoteOperationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *OnenoteOperationRequestBuilder) Request() *OnenoteOperationRequest {
 type OnenoteOperationRequest struct{ BaseRequest }
 
 // Get performs GET request for OnenoteOperation
-func (r *OnenoteOperationRequest) Get() (resObj *OnenoteOperation, err error) {
+func (r *OnenoteOperationRequest) Get(ctx context.Context) (resObj *OnenoteOperation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OnenoteOperation
-func (r *OnenoteOperationRequest) Update(reqObj *OnenoteOperation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OnenoteOperationRequest) Update(ctx context.Context, reqObj *OnenoteOperation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OnenoteOperation
-func (r *OnenoteOperationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OnenoteOperationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

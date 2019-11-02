@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TeamsTabRequestBuilder is request builder for TeamsTab
 type TeamsTabRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *TeamsTabRequestBuilder) Request() *TeamsTabRequest {
 type TeamsTabRequest struct{ BaseRequest }
 
 // Get performs GET request for TeamsTab
-func (r *TeamsTabRequest) Get() (resObj *TeamsTab, err error) {
+func (r *TeamsTabRequest) Get(ctx context.Context) (resObj *TeamsTab, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TeamsTab
-func (r *TeamsTabRequest) Update(reqObj *TeamsTab) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TeamsTabRequest) Update(ctx context.Context, reqObj *TeamsTab) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsTab
-func (r *TeamsTabRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TeamsTabRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // TeamsApp is navigation property

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ColumnLinkRequestBuilder is request builder for ColumnLink
 type ColumnLinkRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ColumnLinkRequestBuilder) Request() *ColumnLinkRequest {
 type ColumnLinkRequest struct{ BaseRequest }
 
 // Get performs GET request for ColumnLink
-func (r *ColumnLinkRequest) Get() (resObj *ColumnLink, err error) {
+func (r *ColumnLinkRequest) Get(ctx context.Context) (resObj *ColumnLink, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ColumnLink
-func (r *ColumnLinkRequest) Update(reqObj *ColumnLink) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ColumnLinkRequest) Update(ctx context.Context, reqObj *ColumnLink) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ColumnLink
-func (r *ColumnLinkRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ColumnLinkRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

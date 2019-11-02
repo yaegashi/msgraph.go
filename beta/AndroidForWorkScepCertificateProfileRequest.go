@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AndroidForWorkScepCertificateProfileRequestBuilder) Request() *AndroidF
 type AndroidForWorkScepCertificateProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkScepCertificateProfile
-func (r *AndroidForWorkScepCertificateProfileRequest) Get() (resObj *AndroidForWorkScepCertificateProfile, err error) {
+func (r *AndroidForWorkScepCertificateProfileRequest) Get(ctx context.Context) (resObj *AndroidForWorkScepCertificateProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkScepCertificateProfile
-func (r *AndroidForWorkScepCertificateProfileRequest) Update(reqObj *AndroidForWorkScepCertificateProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkScepCertificateProfileRequest) Update(ctx context.Context, reqObj *AndroidForWorkScepCertificateProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkScepCertificateProfile
-func (r *AndroidForWorkScepCertificateProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkScepCertificateProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -71,10 +72,13 @@ func (b *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 type AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 }
 
 // Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get() ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

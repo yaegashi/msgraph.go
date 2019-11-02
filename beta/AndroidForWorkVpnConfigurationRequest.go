@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkVpnConfigurationRequestBuilder is request builder for AndroidForWorkVpnConfiguration
 type AndroidForWorkVpnConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *AndroidForWorkVpnConfigurationRequestBuilder) Request() *AndroidForWork
 type AndroidForWorkVpnConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkVpnConfiguration
-func (r *AndroidForWorkVpnConfigurationRequest) Get() (resObj *AndroidForWorkVpnConfiguration, err error) {
+func (r *AndroidForWorkVpnConfigurationRequest) Get(ctx context.Context) (resObj *AndroidForWorkVpnConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkVpnConfiguration
-func (r *AndroidForWorkVpnConfigurationRequest) Update(reqObj *AndroidForWorkVpnConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkVpnConfigurationRequest) Update(ctx context.Context, reqObj *AndroidForWorkVpnConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkVpnConfiguration
-func (r *AndroidForWorkVpnConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkVpnConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // IdentityCertificate is navigation property

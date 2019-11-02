@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsFeatureUpdateProfileAssignRequestParameter undocumented
 type WindowsFeatureUpdateProfileAssignRequestParameter struct {
 	// Assignments undocumented
@@ -30,6 +32,6 @@ func (b *WindowsFeatureUpdateProfileAssignRequestBuilder) Request() *WindowsFeat
 }
 
 //
-func (r *WindowsFeatureUpdateProfileAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsFeatureUpdateProfileAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

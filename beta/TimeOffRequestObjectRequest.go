@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TimeOffRequestObjectRequestBuilder is request builder for TimeOffRequestObject
 type TimeOffRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TimeOffRequestObjectRequestBuilder) Request() *TimeOffRequestObjectRequ
 type TimeOffRequestObjectRequest struct{ BaseRequest }
 
 // Get performs GET request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Get() (resObj *TimeOffRequestObject, err error) {
+func (r *TimeOffRequestObjectRequest) Get(ctx context.Context) (resObj *TimeOffRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Update(reqObj *TimeOffRequestObject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TimeOffRequestObjectRequest) Update(ctx context.Context, reqObj *TimeOffRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TimeOffRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

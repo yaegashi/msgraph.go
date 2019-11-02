@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EventMessageRequestObjectAcceptRequestParameter undocumented
 type EventMessageRequestObjectAcceptRequestParameter struct {
 	// SendResponse undocumented
@@ -48,8 +50,8 @@ func (b *EventMessageRequestObjectAcceptRequestBuilder) Request() *EventMessageR
 }
 
 //
-func (r *EventMessageRequestObjectAcceptRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventMessageRequestObjectAcceptRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -74,8 +76,8 @@ func (b *EventMessageRequestObjectDeclineRequestBuilder) Request() *EventMessage
 }
 
 //
-func (r *EventMessageRequestObjectDeclineRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventMessageRequestObjectDeclineRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -100,6 +102,6 @@ func (b *EventMessageRequestObjectTentativelyAcceptRequestBuilder) Request() *Ev
 }
 
 //
-func (r *EventMessageRequestObjectTentativelyAcceptRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EventMessageRequestObjectTentativelyAcceptRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

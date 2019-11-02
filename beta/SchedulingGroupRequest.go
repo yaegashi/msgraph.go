@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SchedulingGroupRequestBuilder is request builder for SchedulingGroup
 type SchedulingGroupRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SchedulingGroupRequestBuilder) Request() *SchedulingGroupRequest {
 type SchedulingGroupRequest struct{ BaseRequest }
 
 // Get performs GET request for SchedulingGroup
-func (r *SchedulingGroupRequest) Get() (resObj *SchedulingGroup, err error) {
+func (r *SchedulingGroupRequest) Get(ctx context.Context) (resObj *SchedulingGroup, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SchedulingGroup
-func (r *SchedulingGroupRequest) Update(reqObj *SchedulingGroup) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SchedulingGroupRequest) Update(ctx context.Context, reqObj *SchedulingGroup) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SchedulingGroup
-func (r *SchedulingGroupRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SchedulingGroupRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

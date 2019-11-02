@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -50,10 +51,13 @@ func (b *PolicySetCollectionGetPolicySetsRequestBuilder) Request() *PolicySetCol
 }
 
 //
-func (r *PolicySetCollectionGetPolicySetsRequest) Paging(method, path string, obj interface{}) ([][]PolicySet, error) {
+func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]PolicySet, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -87,7 +91,11 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -95,12 +103,12 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(method, path string, ob
 }
 
 //
-func (r *PolicySetCollectionGetPolicySetsRequest) Get() ([][]PolicySet, error) {
+func (r *PolicySetCollectionGetPolicySetsRequest) Get(ctx context.Context) ([][]PolicySet, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -125,6 +133,6 @@ func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
 }
 
 //
-func (r *PolicySetUpdateRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *PolicySetUpdateRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

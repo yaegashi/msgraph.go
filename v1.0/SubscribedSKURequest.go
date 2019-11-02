@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SubscribedSKURequestBuilder is request builder for SubscribedSKU
 type SubscribedSKURequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SubscribedSKURequestBuilder) Request() *SubscribedSKURequest {
 type SubscribedSKURequest struct{ BaseRequest }
 
 // Get performs GET request for SubscribedSKU
-func (r *SubscribedSKURequest) Get() (resObj *SubscribedSKU, err error) {
+func (r *SubscribedSKURequest) Get(ctx context.Context) (resObj *SubscribedSKU, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SubscribedSKU
-func (r *SubscribedSKURequest) Update(reqObj *SubscribedSKU) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SubscribedSKURequest) Update(ctx context.Context, reqObj *SubscribedSKU) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SubscribedSKU
-func (r *SubscribedSKURequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SubscribedSKURequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

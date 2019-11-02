@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedMobileAppRequestBuilder is request builder for ManagedMobileApp
 type ManagedMobileAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedMobileAppRequestBuilder) Request() *ManagedMobileAppRequest {
 type ManagedMobileAppRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedMobileApp
-func (r *ManagedMobileAppRequest) Get() (resObj *ManagedMobileApp, err error) {
+func (r *ManagedMobileAppRequest) Get(ctx context.Context) (resObj *ManagedMobileApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedMobileApp
-func (r *ManagedMobileAppRequest) Update(reqObj *ManagedMobileApp) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedMobileAppRequest) Update(ctx context.Context, reqObj *ManagedMobileApp) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedMobileApp
-func (r *ManagedMobileAppRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedMobileAppRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

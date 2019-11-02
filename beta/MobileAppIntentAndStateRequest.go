@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MobileAppIntentAndStateRequestBuilder is request builder for MobileAppIntentAndState
 type MobileAppIntentAndStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MobileAppIntentAndStateRequestBuilder) Request() *MobileAppIntentAndSta
 type MobileAppIntentAndStateRequest struct{ BaseRequest }
 
 // Get performs GET request for MobileAppIntentAndState
-func (r *MobileAppIntentAndStateRequest) Get() (resObj *MobileAppIntentAndState, err error) {
+func (r *MobileAppIntentAndStateRequest) Get(ctx context.Context) (resObj *MobileAppIntentAndState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MobileAppIntentAndState
-func (r *MobileAppIntentAndStateRequest) Update(reqObj *MobileAppIntentAndState) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MobileAppIntentAndStateRequest) Update(ctx context.Context, reqObj *MobileAppIntentAndState) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppIntentAndState
-func (r *MobileAppIntentAndStateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MobileAppIntentAndStateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

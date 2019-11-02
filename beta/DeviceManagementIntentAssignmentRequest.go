@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementIntentAssignmentRequestBuilder is request builder for DeviceManagementIntentAssignment
 type DeviceManagementIntentAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceManagementIntentAssignmentRequestBuilder) Request() *DeviceManage
 type DeviceManagementIntentAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementIntentAssignment
-func (r *DeviceManagementIntentAssignmentRequest) Get() (resObj *DeviceManagementIntentAssignment, err error) {
+func (r *DeviceManagementIntentAssignmentRequest) Get(ctx context.Context) (resObj *DeviceManagementIntentAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementIntentAssignment
-func (r *DeviceManagementIntentAssignmentRequest) Update(reqObj *DeviceManagementIntentAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementIntentAssignmentRequest) Update(ctx context.Context, reqObj *DeviceManagementIntentAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntentAssignment
-func (r *DeviceManagementIntentAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementIntentAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

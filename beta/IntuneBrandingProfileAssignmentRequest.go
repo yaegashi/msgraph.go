@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IntuneBrandingProfileAssignmentRequestBuilder is request builder for IntuneBrandingProfileAssignment
 type IntuneBrandingProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *IntuneBrandingProfileAssignmentRequestBuilder) Request() *IntuneBrandin
 type IntuneBrandingProfileAssignmentRequest struct{ BaseRequest }
 
 // Get performs GET request for IntuneBrandingProfileAssignment
-func (r *IntuneBrandingProfileAssignmentRequest) Get() (resObj *IntuneBrandingProfileAssignment, err error) {
+func (r *IntuneBrandingProfileAssignmentRequest) Get(ctx context.Context) (resObj *IntuneBrandingProfileAssignment, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for IntuneBrandingProfileAssignment
-func (r *IntuneBrandingProfileAssignmentRequest) Update(reqObj *IntuneBrandingProfileAssignment) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *IntuneBrandingProfileAssignmentRequest) Update(ctx context.Context, reqObj *IntuneBrandingProfileAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for IntuneBrandingProfileAssignment
-func (r *IntuneBrandingProfileAssignmentRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *IntuneBrandingProfileAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

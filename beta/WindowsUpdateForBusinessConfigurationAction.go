@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestParameter undocumented
 type WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestParameter struct {
 }
@@ -32,8 +34,8 @@ func (b *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestBu
 }
 
 //
-func (r *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -58,6 +60,6 @@ func (b *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequestBu
 }
 
 //
-func (r *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

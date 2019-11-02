@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WorkbookChartSeriesRequestBuilder) Request() *WorkbookChartSeriesReques
 type WorkbookChartSeriesRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartSeries
-func (r *WorkbookChartSeriesRequest) Get() (resObj *WorkbookChartSeries, err error) {
+func (r *WorkbookChartSeriesRequest) Get(ctx context.Context) (resObj *WorkbookChartSeries, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartSeries
-func (r *WorkbookChartSeriesRequest) Update(reqObj *WorkbookChartSeries) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartSeriesRequest) Update(ctx context.Context, reqObj *WorkbookChartSeries) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartSeries
-func (r *WorkbookChartSeriesRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartSeriesRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Format is navigation property
@@ -78,10 +79,13 @@ func (b *WorkbookChartSeriesPointsCollectionRequestBuilder) ID(id string) *Workb
 type WorkbookChartSeriesPointsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkbookChartPoint collection
-func (r *WorkbookChartSeriesPointsCollectionRequest) Paging(method, path string, obj interface{}) ([]WorkbookChartPoint, error) {
+func (r *WorkbookChartSeriesPointsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkbookChartPoint, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -115,7 +119,11 @@ func (r *WorkbookChartSeriesPointsCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -123,16 +131,16 @@ func (r *WorkbookChartSeriesPointsCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for WorkbookChartPoint collection
-func (r *WorkbookChartSeriesPointsCollectionRequest) Get() ([]WorkbookChartPoint, error) {
+func (r *WorkbookChartSeriesPointsCollectionRequest) Get(ctx context.Context) ([]WorkbookChartPoint, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WorkbookChartPoint collection
-func (r *WorkbookChartSeriesPointsCollectionRequest) Add(reqObj *WorkbookChartPoint) (resObj *WorkbookChartPoint, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WorkbookChartSeriesPointsCollectionRequest) Add(ctx context.Context, reqObj *WorkbookChartPoint) (resObj *WorkbookChartPoint, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

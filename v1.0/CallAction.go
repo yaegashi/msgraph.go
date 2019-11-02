@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CallAnswerRequestParameter undocumented
 type CallAnswerRequestParameter struct {
 	// CallbackURI undocumented
@@ -110,8 +112,8 @@ func (b *CallAnswerRequestBuilder) Request() *CallAnswerRequest {
 }
 
 //
-func (r *CallAnswerRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *CallAnswerRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -136,8 +138,8 @@ func (b *CallChangeScreenSharingRoleRequestBuilder) Request() *CallChangeScreenS
 }
 
 //
-func (r *CallChangeScreenSharingRoleRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *CallChangeScreenSharingRoleRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -162,8 +164,8 @@ func (b *CallMuteRequestBuilder) Request() *CallMuteRequest {
 }
 
 //
-func (r *CallMuteRequest) Post() (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *CallMuteRequest) Post(ctx context.Context) (resObj *MuteParticipantOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -189,8 +191,8 @@ func (b *CallPlayPromptRequestBuilder) Request() *CallPlayPromptRequest {
 }
 
 //
-func (r *CallPlayPromptRequest) Post() (resObj *PlayPromptOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *CallPlayPromptRequest) Post(ctx context.Context) (resObj *PlayPromptOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -216,8 +218,8 @@ func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
 }
 
 //
-func (r *CallRecordRequest) Post() (resObj *RecordOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *CallRecordRequest) Post(ctx context.Context) (resObj *RecordOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -243,8 +245,8 @@ func (b *CallRedirectRequestBuilder) Request() *CallRedirectRequest {
 }
 
 //
-func (r *CallRedirectRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *CallRedirectRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -269,8 +271,8 @@ func (b *CallRejectRequestBuilder) Request() *CallRejectRequest {
 }
 
 //
-func (r *CallRejectRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *CallRejectRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -295,8 +297,8 @@ func (b *CallSubscribeToToneRequestBuilder) Request() *CallSubscribeToToneReques
 }
 
 //
-func (r *CallSubscribeToToneRequest) Post() (resObj *SubscribeToToneOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *CallSubscribeToToneRequest) Post(ctx context.Context) (resObj *SubscribeToToneOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -322,8 +324,8 @@ func (b *CallTransferRequestBuilder) Request() *CallTransferRequest {
 }
 
 //
-func (r *CallTransferRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *CallTransferRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -348,7 +350,7 @@ func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
 }
 
 //
-func (r *CallUnmuteRequest) Post() (resObj *UnmuteParticipantOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *CallUnmuteRequest) Post(ctx context.Context) (resObj *UnmuteParticipantOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *SynchronizationSchemaRequestBuilder) Request() *SynchronizationSchemaRe
 type SynchronizationSchemaRequest struct{ BaseRequest }
 
 // Get performs GET request for SynchronizationSchema
-func (r *SynchronizationSchemaRequest) Get() (resObj *SynchronizationSchema, err error) {
+func (r *SynchronizationSchemaRequest) Get(ctx context.Context) (resObj *SynchronizationSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SynchronizationSchema
-func (r *SynchronizationSchemaRequest) Update(reqObj *SynchronizationSchema) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SynchronizationSchemaRequest) Update(ctx context.Context, reqObj *SynchronizationSchema) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SynchronizationSchema
-func (r *SynchronizationSchemaRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SynchronizationSchemaRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Directories returns request builder for DirectoryDefinition collection
@@ -71,10 +72,13 @@ func (b *SynchronizationSchemaDirectoriesCollectionRequestBuilder) ID(id string)
 type SynchronizationSchemaDirectoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DirectoryDefinition, error) {
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Get() ([]DirectoryDefinition, error) {
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) Get(ctx context.Context) ([]DirectoryDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Add(reqObj *DirectoryDefinition) (resObj *DirectoryDefinition, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryDefinition) (resObj *DirectoryDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookChartTitleRequestBuilder is request builder for WorkbookChartTitle
 type WorkbookChartTitleRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *WorkbookChartTitleRequestBuilder) Request() *WorkbookChartTitleRequest 
 type WorkbookChartTitleRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookChartTitle
-func (r *WorkbookChartTitleRequest) Get() (resObj *WorkbookChartTitle, err error) {
+func (r *WorkbookChartTitleRequest) Get(ctx context.Context) (resObj *WorkbookChartTitle, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookChartTitle
-func (r *WorkbookChartTitleRequest) Update(reqObj *WorkbookChartTitle) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookChartTitleRequest) Update(ctx context.Context, reqObj *WorkbookChartTitle) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookChartTitle
-func (r *WorkbookChartTitleRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookChartTitleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Format is navigation property

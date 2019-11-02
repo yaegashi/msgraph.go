@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DepOnboardingSettingRequestBuilder) Request() *DepOnboardingSettingRequ
 type DepOnboardingSettingRequest struct{ BaseRequest }
 
 // Get performs GET request for DepOnboardingSetting
-func (r *DepOnboardingSettingRequest) Get() (resObj *DepOnboardingSetting, err error) {
+func (r *DepOnboardingSettingRequest) Get(ctx context.Context) (resObj *DepOnboardingSetting, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DepOnboardingSetting
-func (r *DepOnboardingSettingRequest) Update(reqObj *DepOnboardingSetting) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DepOnboardingSettingRequest) Update(ctx context.Context, reqObj *DepOnboardingSetting) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DepOnboardingSetting
-func (r *DepOnboardingSettingRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DepOnboardingSettingRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DefaultIOSEnrollmentProfile is navigation property
@@ -85,10 +86,13 @@ func (b *DepOnboardingSettingEnrollmentProfilesCollectionRequestBuilder) ID(id s
 type DepOnboardingSettingEnrollmentProfilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(method, path string, obj interface{}) ([]EnrollmentProfile, error) {
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EnrollmentProfile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -122,7 +126,11 @@ func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -130,17 +138,17 @@ func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Get() ([]EnrollmentProfile, error) {
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Get(ctx context.Context) ([]EnrollmentProfile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Add(reqObj *EnrollmentProfile) (resObj *EnrollmentProfile, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Add(ctx context.Context, reqObj *EnrollmentProfile) (resObj *EnrollmentProfile, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -172,10 +180,13 @@ func (b *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequestBuild
 type DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Paging(method, path string, obj interface{}) ([]ImportedAppleDeviceIdentity, error) {
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedAppleDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -209,7 +220,11 @@ func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Pag
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -217,16 +232,16 @@ func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Pag
 }
 
 // Get performs GET request for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Get() ([]ImportedAppleDeviceIdentity, error) {
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Get(ctx context.Context) ([]ImportedAppleDeviceIdentity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Add(reqObj *ImportedAppleDeviceIdentity) (resObj *ImportedAppleDeviceIdentity, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *ImportedAppleDeviceIdentity) (resObj *ImportedAppleDeviceIdentity, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

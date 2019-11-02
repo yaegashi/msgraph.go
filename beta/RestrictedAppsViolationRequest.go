@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RestrictedAppsViolationRequestBuilder is request builder for RestrictedAppsViolation
 type RestrictedAppsViolationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *RestrictedAppsViolationRequestBuilder) Request() *RestrictedAppsViolati
 type RestrictedAppsViolationRequest struct{ BaseRequest }
 
 // Get performs GET request for RestrictedAppsViolation
-func (r *RestrictedAppsViolationRequest) Get() (resObj *RestrictedAppsViolation, err error) {
+func (r *RestrictedAppsViolationRequest) Get(ctx context.Context) (resObj *RestrictedAppsViolation, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RestrictedAppsViolation
-func (r *RestrictedAppsViolationRequest) Update(reqObj *RestrictedAppsViolation) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RestrictedAppsViolationRequest) Update(ctx context.Context, reqObj *RestrictedAppsViolation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RestrictedAppsViolation
-func (r *RestrictedAppsViolationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RestrictedAppsViolationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OAuth2PermissionGrantRequestBuilder is request builder for OAuth2PermissionGrant
 type OAuth2PermissionGrantRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *OAuth2PermissionGrantRequestBuilder) Request() *OAuth2PermissionGrantRe
 type OAuth2PermissionGrantRequest struct{ BaseRequest }
 
 // Get performs GET request for OAuth2PermissionGrant
-func (r *OAuth2PermissionGrantRequest) Get() (resObj *OAuth2PermissionGrant, err error) {
+func (r *OAuth2PermissionGrantRequest) Get(ctx context.Context) (resObj *OAuth2PermissionGrant, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for OAuth2PermissionGrant
-func (r *OAuth2PermissionGrantRequest) Update(reqObj *OAuth2PermissionGrant) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *OAuth2PermissionGrantRequest) Update(ctx context.Context, reqObj *OAuth2PermissionGrant) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for OAuth2PermissionGrant
-func (r *OAuth2PermissionGrantRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *OAuth2PermissionGrantRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

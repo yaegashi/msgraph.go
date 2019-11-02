@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WindowsDomainJoinConfigurationRequestBuilder) Request() *WindowsDomainJ
 type WindowsDomainJoinConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsDomainJoinConfiguration
-func (r *WindowsDomainJoinConfigurationRequest) Get() (resObj *WindowsDomainJoinConfiguration, err error) {
+func (r *WindowsDomainJoinConfigurationRequest) Get(ctx context.Context) (resObj *WindowsDomainJoinConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsDomainJoinConfiguration
-func (r *WindowsDomainJoinConfigurationRequest) Update(reqObj *WindowsDomainJoinConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsDomainJoinConfigurationRequest) Update(ctx context.Context, reqObj *WindowsDomainJoinConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsDomainJoinConfiguration
-func (r *WindowsDomainJoinConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsDomainJoinConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // NetworkAccessConfigurations returns request builder for DeviceConfiguration collection
@@ -71,10 +72,13 @@ func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 type WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceConfiguration, error) {
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 }
 
 // Get performs GET request for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Get() ([]DeviceConfiguration, error) {
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Get(ctx context.Context) ([]DeviceConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Add(reqObj *DeviceConfiguration) (resObj *DeviceConfiguration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *DeviceConfiguration) (resObj *DeviceConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedRoleAssignmentRequestObjectCancelRequestParameter undocumented
 type PrivilegedRoleAssignmentRequestObjectCancelRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder) Request() *P
 }
 
 //
-func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Post() (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

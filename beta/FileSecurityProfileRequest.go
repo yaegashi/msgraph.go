@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // FileSecurityProfileRequestBuilder is request builder for FileSecurityProfile
 type FileSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *FileSecurityProfileRequestBuilder) Request() *FileSecurityProfileReques
 type FileSecurityProfileRequest struct{ BaseRequest }
 
 // Get performs GET request for FileSecurityProfile
-func (r *FileSecurityProfileRequest) Get() (resObj *FileSecurityProfile, err error) {
+func (r *FileSecurityProfileRequest) Get(ctx context.Context) (resObj *FileSecurityProfile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for FileSecurityProfile
-func (r *FileSecurityProfileRequest) Update(reqObj *FileSecurityProfile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *FileSecurityProfileRequest) Update(ctx context.Context, reqObj *FileSecurityProfile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FileSecurityProfile
-func (r *FileSecurityProfileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *FileSecurityProfileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

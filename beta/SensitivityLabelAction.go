@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SensitivityLabelCollectionEvaluateRequestParameter undocumented
 type SensitivityLabelCollectionEvaluateRequestParameter struct {
 	// DiscoveredSensitiveTypes undocumented
@@ -46,7 +48,7 @@ func (b *SensitivityLabelCollectionEvaluateRequestBuilder) Request() *Sensitivit
 }
 
 //
-func (r *SensitivityLabelCollectionEvaluateRequest) Post() (resObj *EvaluateLabelJobResponse, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *SensitivityLabelCollectionEvaluateRequest) Post(ctx context.Context) (resObj *EvaluateLabelJobResponse, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

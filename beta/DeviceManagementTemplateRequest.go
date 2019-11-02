@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceManagementTemplateRequestBuilder) Request() *DeviceManagementTemp
 type DeviceManagementTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementTemplate
-func (r *DeviceManagementTemplateRequest) Get() (resObj *DeviceManagementTemplate, err error) {
+func (r *DeviceManagementTemplateRequest) Get(ctx context.Context) (resObj *DeviceManagementTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementTemplate
-func (r *DeviceManagementTemplateRequest) Update(reqObj *DeviceManagementTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementTemplateRequest) Update(ctx context.Context, reqObj *DeviceManagementTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementTemplate
-func (r *DeviceManagementTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Categories returns request builder for DeviceManagementTemplateSettingCategory collection
@@ -71,10 +72,13 @@ func (b *DeviceManagementTemplateCategoriesCollectionRequestBuilder) ID(id strin
 type DeviceManagementTemplateCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementTemplateSettingCategory collection
-func (r *DeviceManagementTemplateCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplateSettingCategory, error) {
+func (r *DeviceManagementTemplateCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementTemplateSettingCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceManagementTemplateCategoriesCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *DeviceManagementTemplateCategoriesCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for DeviceManagementTemplateSettingCategory collection
-func (r *DeviceManagementTemplateCategoriesCollectionRequest) Get() ([]DeviceManagementTemplateSettingCategory, error) {
+func (r *DeviceManagementTemplateCategoriesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementTemplateSettingCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementTemplateSettingCategory collection
-func (r *DeviceManagementTemplateCategoriesCollectionRequest) Add(reqObj *DeviceManagementTemplateSettingCategory) (resObj *DeviceManagementTemplateSettingCategory, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementTemplateCategoriesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementTemplateSettingCategory) (resObj *DeviceManagementTemplateSettingCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *DeviceManagementTemplateMigratableToCollectionRequestBuilder) ID(id str
 type DeviceManagementTemplateMigratableToCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementTemplate collection
-func (r *DeviceManagementTemplateMigratableToCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementTemplate, error) {
+func (r *DeviceManagementTemplateMigratableToCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *DeviceManagementTemplateMigratableToCollectionRequest) Paging(method, p
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *DeviceManagementTemplateMigratableToCollectionRequest) Paging(method, p
 }
 
 // Get performs GET request for DeviceManagementTemplate collection
-func (r *DeviceManagementTemplateMigratableToCollectionRequest) Get() ([]DeviceManagementTemplate, error) {
+func (r *DeviceManagementTemplateMigratableToCollectionRequest) Get(ctx context.Context) ([]DeviceManagementTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementTemplate collection
-func (r *DeviceManagementTemplateMigratableToCollectionRequest) Add(reqObj *DeviceManagementTemplate) (resObj *DeviceManagementTemplate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementTemplateMigratableToCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementTemplate) (resObj *DeviceManagementTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *DeviceManagementTemplateSettingsCollectionRequestBuilder) ID(id string)
 type DeviceManagementTemplateSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementSettingInstance, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingsCollectionRequest) Get() ([]DeviceManagementSettingInstance, error) {
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementSettingInstance, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceManagementSettingInstance collection
-func (r *DeviceManagementTemplateSettingsCollectionRequest) Add(reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

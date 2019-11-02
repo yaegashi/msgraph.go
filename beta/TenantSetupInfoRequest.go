@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TenantSetupInfoRequestBuilder is request builder for TenantSetupInfo
 type TenantSetupInfoRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *TenantSetupInfoRequestBuilder) Request() *TenantSetupInfoRequest {
 type TenantSetupInfoRequest struct{ BaseRequest }
 
 // Get performs GET request for TenantSetupInfo
-func (r *TenantSetupInfoRequest) Get() (resObj *TenantSetupInfo, err error) {
+func (r *TenantSetupInfoRequest) Get(ctx context.Context) (resObj *TenantSetupInfo, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TenantSetupInfo
-func (r *TenantSetupInfoRequest) Update(reqObj *TenantSetupInfo) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TenantSetupInfoRequest) Update(ctx context.Context, reqObj *TenantSetupInfo) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TenantSetupInfo
-func (r *TenantSetupInfoRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TenantSetupInfoRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DefaultRolesSettings is navigation property

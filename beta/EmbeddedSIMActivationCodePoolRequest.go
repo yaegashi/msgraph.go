@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *EmbeddedSIMActivationCodePoolRequestBuilder) Request() *EmbeddedSIMActi
 type EmbeddedSIMActivationCodePoolRequest struct{ BaseRequest }
 
 // Get performs GET request for EmbeddedSIMActivationCodePool
-func (r *EmbeddedSIMActivationCodePoolRequest) Get() (resObj *EmbeddedSIMActivationCodePool, err error) {
+func (r *EmbeddedSIMActivationCodePoolRequest) Get(ctx context.Context) (resObj *EmbeddedSIMActivationCodePool, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EmbeddedSIMActivationCodePool
-func (r *EmbeddedSIMActivationCodePoolRequest) Update(reqObj *EmbeddedSIMActivationCodePool) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EmbeddedSIMActivationCodePoolRequest) Update(ctx context.Context, reqObj *EmbeddedSIMActivationCodePool) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EmbeddedSIMActivationCodePool
-func (r *EmbeddedSIMActivationCodePoolRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EmbeddedSIMActivationCodePoolRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for EmbeddedSIMActivationCodePoolAssignment collection
@@ -71,10 +72,13 @@ func (b *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequestBuilder) ID(id
 type EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(metho
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(metho
 }
 
 // Get performs GET request for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Get() ([]EmbeddedSIMActivationCodePoolAssignment, error) {
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Get(ctx context.Context) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Add(reqObj *EmbeddedSIMActivationCodePoolAssignment) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *EmbeddedSIMActivationCodePoolAssignment) (resObj *EmbeddedSIMActivationCodePoolAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder) ID(i
 type EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]EmbeddedSIMDeviceState, error) {
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EmbeddedSIMDeviceState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(meth
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(meth
 }
 
 // Get performs GET request for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Get() ([]EmbeddedSIMDeviceState, error) {
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Get(ctx context.Context) ([]EmbeddedSIMDeviceState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Add(reqObj *EmbeddedSIMDeviceState) (resObj *EmbeddedSIMDeviceState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Add(ctx context.Context, reqObj *EmbeddedSIMDeviceState) (resObj *EmbeddedSIMDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

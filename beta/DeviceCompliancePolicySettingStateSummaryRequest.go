@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceCompliancePolicySettingStateSummaryRequestBuilder) Request() *Dev
 type DeviceCompliancePolicySettingStateSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceCompliancePolicySettingStateSummary
-func (r *DeviceCompliancePolicySettingStateSummaryRequest) Get() (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) Get(ctx context.Context) (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceCompliancePolicySettingStateSummary
-func (r *DeviceCompliancePolicySettingStateSummaryRequest) Update(reqObj *DeviceCompliancePolicySettingStateSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) Update(ctx context.Context, reqObj *DeviceCompliancePolicySettingStateSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceCompliancePolicySettingStateSummary
-func (r *DeviceCompliancePolicySettingStateSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceCompliancePolicySettingStateSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DeviceComplianceSettingStates returns request builder for DeviceComplianceSettingState collection
@@ -71,10 +72,13 @@ func (b *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 type DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceComplianceSettingState, error) {
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceComplianceSettingState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesC
 }
 
 // Get performs GET request for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Get() ([]DeviceComplianceSettingState, error) {
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceSettingState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Add(reqObj *DeviceComplianceSettingState) (resObj *DeviceComplianceSettingState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceSettingState) (resObj *DeviceComplianceSettingState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementSettingDefinitionRequestBuilder is request builder for DeviceManagementSettingDefinition
 type DeviceManagementSettingDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceManagementSettingDefinitionRequestBuilder) Request() *DeviceManag
 type DeviceManagementSettingDefinitionRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementSettingDefinition
-func (r *DeviceManagementSettingDefinitionRequest) Get() (resObj *DeviceManagementSettingDefinition, err error) {
+func (r *DeviceManagementSettingDefinitionRequest) Get(ctx context.Context) (resObj *DeviceManagementSettingDefinition, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementSettingDefinition
-func (r *DeviceManagementSettingDefinitionRequest) Update(reqObj *DeviceManagementSettingDefinition) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementSettingDefinitionRequest) Update(ctx context.Context, reqObj *DeviceManagementSettingDefinition) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementSettingDefinition
-func (r *DeviceManagementSettingDefinitionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementSettingDefinitionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

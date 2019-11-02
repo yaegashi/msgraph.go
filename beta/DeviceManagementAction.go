@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementEnableLegacyPcManagementRequestParameter undocumented
 type DeviceManagementEnableLegacyPcManagementRequestParameter struct {
 }
@@ -42,8 +44,8 @@ func (b *DeviceManagementEnableLegacyPcManagementRequestBuilder) Request() *Devi
 }
 
 //
-func (r *DeviceManagementEnableLegacyPcManagementRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementEnableLegacyPcManagementRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -68,8 +70,8 @@ func (b *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilde
 }
 
 //
-func (r *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -94,6 +96,6 @@ func (b *DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder) Re
 }
 
 //
-func (r *DeviceManagementSendCustomNotificationToCompanyPortalRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementSendCustomNotificationToCompanyPortalRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

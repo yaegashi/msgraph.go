@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // FilterOperatorSchemaRequestBuilder is request builder for FilterOperatorSchema
 type FilterOperatorSchemaRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *FilterOperatorSchemaRequestBuilder) Request() *FilterOperatorSchemaRequ
 type FilterOperatorSchemaRequest struct{ BaseRequest }
 
 // Get performs GET request for FilterOperatorSchema
-func (r *FilterOperatorSchemaRequest) Get() (resObj *FilterOperatorSchema, err error) {
+func (r *FilterOperatorSchemaRequest) Get(ctx context.Context) (resObj *FilterOperatorSchema, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for FilterOperatorSchema
-func (r *FilterOperatorSchemaRequest) Update(reqObj *FilterOperatorSchema) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *FilterOperatorSchemaRequest) Update(ctx context.Context, reqObj *FilterOperatorSchema) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for FilterOperatorSchema
-func (r *FilterOperatorSchemaRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *FilterOperatorSchemaRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

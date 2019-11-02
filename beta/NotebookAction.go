@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // NotebookCollectionGetNotebookFromWebURLRequestParameter undocumented
 type NotebookCollectionGetNotebookFromWebURLRequestParameter struct {
 	// WebURL undocumented
@@ -44,8 +46,8 @@ func (b *NotebookCollectionGetNotebookFromWebURLRequestBuilder) Request() *Noteb
 }
 
 //
-func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post() (resObj *CopyNotebookModel, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *NotebookCollectionGetNotebookFromWebURLRequest) Post(ctx context.Context) (resObj *CopyNotebookModel, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -71,7 +73,7 @@ func (b *NotebookCopyNotebookRequestBuilder) Request() *NotebookCopyNotebookRequ
 }
 
 //
-func (r *NotebookCopyNotebookRequest) Post() (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *NotebookCopyNotebookRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

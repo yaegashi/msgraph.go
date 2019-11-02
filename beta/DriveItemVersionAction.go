@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DriveItemVersionRestoreVersionRequestParameter undocumented
 type DriveItemVersionRestoreVersionRequestParameter struct {
 }
@@ -28,6 +30,6 @@ func (b *DriveItemVersionRestoreVersionRequestBuilder) Request() *DriveItemVersi
 }
 
 //
-func (r *DriveItemVersionRestoreVersionRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DriveItemVersionRestoreVersionRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

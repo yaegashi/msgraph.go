@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *TermsAndConditionsRequestBuilder) Request() *TermsAndConditionsRequest 
 type TermsAndConditionsRequest struct{ BaseRequest }
 
 // Get performs GET request for TermsAndConditions
-func (r *TermsAndConditionsRequest) Get() (resObj *TermsAndConditions, err error) {
+func (r *TermsAndConditionsRequest) Get(ctx context.Context) (resObj *TermsAndConditions, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TermsAndConditions
-func (r *TermsAndConditionsRequest) Update(reqObj *TermsAndConditions) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TermsAndConditionsRequest) Update(ctx context.Context, reqObj *TermsAndConditions) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TermsAndConditions
-func (r *TermsAndConditionsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TermsAndConditionsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AcceptanceStatuses returns request builder for TermsAndConditionsAcceptanceStatus collection
@@ -71,10 +72,13 @@ func (b *TermsAndConditionsAcceptanceStatusesCollectionRequestBuilder) ID(id str
 type TermsAndConditionsAcceptanceStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsAcceptanceStatus, error) {
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TermsAndConditionsAcceptanceStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(method, p
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(method, p
 }
 
 // Get performs GET request for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Get() ([]TermsAndConditionsAcceptanceStatus, error) {
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsAcceptanceStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Add(reqObj *TermsAndConditionsAcceptanceStatus) (resObj *TermsAndConditionsAcceptanceStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Add(ctx context.Context, reqObj *TermsAndConditionsAcceptanceStatus) (resObj *TermsAndConditionsAcceptanceStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *TermsAndConditionsAssignmentsCollectionRequestBuilder) ID(id string) *T
 type TermsAndConditionsAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsAssignment, error) {
+func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TermsAndConditionsAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Get() ([]TermsAndConditionsAssignment, error) {
+func (r *TermsAndConditionsAssignmentsCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Add(reqObj *TermsAndConditionsAssignment) (resObj *TermsAndConditionsAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TermsAndConditionsAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TermsAndConditionsAssignment) (resObj *TermsAndConditionsAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *TermsAndConditionsGroupAssignmentsCollectionRequestBuilder) ID(id strin
 type TermsAndConditionsGroupAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]TermsAndConditionsGroupAssignment, error) {
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TermsAndConditionsGroupAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Get() ([]TermsAndConditionsGroupAssignment, error) {
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsGroupAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Add(reqObj *TermsAndConditionsGroupAssignment) (resObj *TermsAndConditionsGroupAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *TermsAndConditionsGroupAssignment) (resObj *TermsAndConditionsGroupAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

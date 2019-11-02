@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TeamsCatalogAppRequestBuilder is request builder for TeamsCatalogApp
 type TeamsCatalogAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TeamsCatalogAppRequestBuilder) Request() *TeamsCatalogAppRequest {
 type TeamsCatalogAppRequest struct{ BaseRequest }
 
 // Get performs GET request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Get() (resObj *TeamsCatalogApp, err error) {
+func (r *TeamsCatalogAppRequest) Get(ctx context.Context) (resObj *TeamsCatalogApp, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Update(reqObj *TeamsCatalogApp) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TeamsCatalogAppRequest) Update(ctx context.Context, reqObj *TeamsCatalogApp) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TeamsCatalogAppRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

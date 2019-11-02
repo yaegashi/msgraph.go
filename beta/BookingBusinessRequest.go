@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *BookingBusinessRequestBuilder) Request() *BookingBusinessRequest {
 type BookingBusinessRequest struct{ BaseRequest }
 
 // Get performs GET request for BookingBusiness
-func (r *BookingBusinessRequest) Get() (resObj *BookingBusiness, err error) {
+func (r *BookingBusinessRequest) Get(ctx context.Context) (resObj *BookingBusiness, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for BookingBusiness
-func (r *BookingBusinessRequest) Update(reqObj *BookingBusiness) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *BookingBusinessRequest) Update(ctx context.Context, reqObj *BookingBusiness) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BookingBusiness
-func (r *BookingBusinessRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *BookingBusinessRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Appointments returns request builder for BookingAppointment collection
@@ -71,10 +72,13 @@ func (b *BookingBusinessAppointmentsCollectionRequestBuilder) ID(id string) *Boo
 type BookingBusinessAppointmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingAppointment, error) {
+func (r *BookingBusinessAppointmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingAppointment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *BookingBusinessAppointmentsCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *BookingBusinessAppointmentsCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Get() ([]BookingAppointment, error) {
+func (r *BookingBusinessAppointmentsCollectionRequest) Get(ctx context.Context) ([]BookingAppointment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Add(reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *BookingBusinessAppointmentsCollectionRequest) Add(ctx context.Context, reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *BookingBusinessCalendarViewCollectionRequestBuilder) ID(id string) *Boo
 type BookingBusinessCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingAppointment, error) {
+func (r *BookingBusinessCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingAppointment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *BookingBusinessCalendarViewCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *BookingBusinessCalendarViewCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Get() ([]BookingAppointment, error) {
+func (r *BookingBusinessCalendarViewCollectionRequest) Get(ctx context.Context) ([]BookingAppointment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Add(reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *BookingBusinessCalendarViewCollectionRequest) Add(ctx context.Context, reqObj *BookingAppointment) (resObj *BookingAppointment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *BookingBusinessCustomersCollectionRequestBuilder) ID(id string) *Bookin
 type BookingBusinessCustomersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingCustomer, error) {
+func (r *BookingBusinessCustomersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingCustomer, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *BookingBusinessCustomersCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *BookingBusinessCustomersCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Get() ([]BookingCustomer, error) {
+func (r *BookingBusinessCustomersCollectionRequest) Get(ctx context.Context) ([]BookingCustomer, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Add(reqObj *BookingCustomer) (resObj *BookingCustomer, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *BookingBusinessCustomersCollectionRequest) Add(ctx context.Context, reqObj *BookingCustomer) (resObj *BookingCustomer, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *BookingBusinessServicesCollectionRequestBuilder) ID(id string) *Booking
 type BookingBusinessServicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingService, error) {
+func (r *BookingBusinessServicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingService, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *BookingBusinessServicesCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *BookingBusinessServicesCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Get() ([]BookingService, error) {
+func (r *BookingBusinessServicesCollectionRequest) Get(ctx context.Context) ([]BookingService, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Add(reqObj *BookingService) (resObj *BookingService, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *BookingBusinessServicesCollectionRequest) Add(ctx context.Context, reqObj *BookingService) (resObj *BookingService, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *BookingBusinessStaffMembersCollectionRequestBuilder) ID(id string) *Boo
 type BookingBusinessStaffMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]BookingStaffMember, error) {
+func (r *BookingBusinessStaffMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingStaffMember, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *BookingBusinessStaffMembersCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,16 +500,16 @@ func (r *BookingBusinessStaffMembersCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Get() ([]BookingStaffMember, error) {
+func (r *BookingBusinessStaffMembersCollectionRequest) Get(ctx context.Context) ([]BookingStaffMember, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Add(reqObj *BookingStaffMember) (resObj *BookingStaffMember, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *BookingBusinessStaffMembersCollectionRequest) Add(ctx context.Context, reqObj *BookingStaffMember) (resObj *BookingStaffMember, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

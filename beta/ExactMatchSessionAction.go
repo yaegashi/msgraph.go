@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ExactMatchSessionCancelRequestParameter undocumented
 type ExactMatchSessionCancelRequestParameter struct {
 }
@@ -36,8 +38,8 @@ func (b *ExactMatchSessionCancelRequestBuilder) Request() *ExactMatchSessionCanc
 }
 
 //
-func (r *ExactMatchSessionCancelRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ExactMatchSessionCancelRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -62,8 +64,8 @@ func (b *ExactMatchSessionCommitRequestBuilder) Request() *ExactMatchSessionComm
 }
 
 //
-func (r *ExactMatchSessionCommitRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *ExactMatchSessionCommitRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -88,7 +90,7 @@ func (b *ExactMatchSessionRenewRequestBuilder) Request() *ExactMatchSessionRenew
 }
 
 //
-func (r *ExactMatchSessionRenewRequest) Post() (resObj *ExactMatchSession, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *ExactMatchSessionRenewRequest) Post(ctx context.Context) (resObj *ExactMatchSession, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

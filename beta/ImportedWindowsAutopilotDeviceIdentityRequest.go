@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ImportedWindowsAutopilotDeviceIdentityRequestBuilder is request builder for ImportedWindowsAutopilotDeviceIdentity
 type ImportedWindowsAutopilotDeviceIdentityRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ImportedWindowsAutopilotDeviceIdentityRequestBuilder) Request() *Import
 type ImportedWindowsAutopilotDeviceIdentityRequest struct{ BaseRequest }
 
 // Get performs GET request for ImportedWindowsAutopilotDeviceIdentity
-func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Get() (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Get(ctx context.Context) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ImportedWindowsAutopilotDeviceIdentity
-func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Update(reqObj *ImportedWindowsAutopilotDeviceIdentity) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Update(ctx context.Context, reqObj *ImportedWindowsAutopilotDeviceIdentity) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ImportedWindowsAutopilotDeviceIdentity
-func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ImportedWindowsAutopilotDeviceIdentityRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

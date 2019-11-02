@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementIntentDeviceStateSummaryRequestBuilder is request builder for DeviceManagementIntentDeviceStateSummary
 type DeviceManagementIntentDeviceStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceManagementIntentDeviceStateSummaryRequestBuilder) Request() *Devi
 type DeviceManagementIntentDeviceStateSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementIntentDeviceStateSummary
-func (r *DeviceManagementIntentDeviceStateSummaryRequest) Get() (resObj *DeviceManagementIntentDeviceStateSummary, err error) {
+func (r *DeviceManagementIntentDeviceStateSummaryRequest) Get(ctx context.Context) (resObj *DeviceManagementIntentDeviceStateSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementIntentDeviceStateSummary
-func (r *DeviceManagementIntentDeviceStateSummaryRequest) Update(reqObj *DeviceManagementIntentDeviceStateSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementIntentDeviceStateSummaryRequest) Update(ctx context.Context, reqObj *DeviceManagementIntentDeviceStateSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementIntentDeviceStateSummary
-func (r *DeviceManagementIntentDeviceStateSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementIntentDeviceStateSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

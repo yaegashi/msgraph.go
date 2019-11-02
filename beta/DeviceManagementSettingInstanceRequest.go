@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementSettingInstanceRequestBuilder is request builder for DeviceManagementSettingInstance
 type DeviceManagementSettingInstanceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceManagementSettingInstanceRequestBuilder) Request() *DeviceManagem
 type DeviceManagementSettingInstanceRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementSettingInstance
-func (r *DeviceManagementSettingInstanceRequest) Get() (resObj *DeviceManagementSettingInstance, err error) {
+func (r *DeviceManagementSettingInstanceRequest) Get(ctx context.Context) (resObj *DeviceManagementSettingInstance, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementSettingInstance
-func (r *DeviceManagementSettingInstanceRequest) Update(reqObj *DeviceManagementSettingInstance) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementSettingInstanceRequest) Update(ctx context.Context, reqObj *DeviceManagementSettingInstance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementSettingInstance
-func (r *DeviceManagementSettingInstanceRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementSettingInstanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

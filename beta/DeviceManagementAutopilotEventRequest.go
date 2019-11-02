@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementAutopilotEventRequestBuilder is request builder for DeviceManagementAutopilotEvent
 type DeviceManagementAutopilotEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceManagementAutopilotEventRequestBuilder) Request() *DeviceManageme
 type DeviceManagementAutopilotEventRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementAutopilotEvent
-func (r *DeviceManagementAutopilotEventRequest) Get() (resObj *DeviceManagementAutopilotEvent, err error) {
+func (r *DeviceManagementAutopilotEventRequest) Get(ctx context.Context) (resObj *DeviceManagementAutopilotEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementAutopilotEvent
-func (r *DeviceManagementAutopilotEventRequest) Update(reqObj *DeviceManagementAutopilotEvent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementAutopilotEventRequest) Update(ctx context.Context, reqObj *DeviceManagementAutopilotEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementAutopilotEvent
-func (r *DeviceManagementAutopilotEventRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementAutopilotEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

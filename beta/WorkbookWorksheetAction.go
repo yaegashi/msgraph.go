@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookWorksheetCollectionAddRequestParameter undocumented
 type WorkbookWorksheetCollectionAddRequestParameter struct {
 	// Name undocumented
@@ -30,7 +32,7 @@ func (b *WorkbookWorksheetCollectionAddRequestBuilder) Request() *WorkbookWorksh
 }
 
 //
-func (r *WorkbookWorksheetCollectionAddRequest) Post() (resObj *WorkbookWorksheet, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *WorkbookWorksheetCollectionAddRequest) Post(ctx context.Context) (resObj *WorkbookWorksheet, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

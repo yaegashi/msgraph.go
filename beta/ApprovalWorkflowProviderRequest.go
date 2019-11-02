@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ApprovalWorkflowProviderRequestBuilder) Request() *ApprovalWorkflowProv
 type ApprovalWorkflowProviderRequest struct{ BaseRequest }
 
 // Get performs GET request for ApprovalWorkflowProvider
-func (r *ApprovalWorkflowProviderRequest) Get() (resObj *ApprovalWorkflowProvider, err error) {
+func (r *ApprovalWorkflowProviderRequest) Get(ctx context.Context) (resObj *ApprovalWorkflowProvider, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ApprovalWorkflowProvider
-func (r *ApprovalWorkflowProviderRequest) Update(reqObj *ApprovalWorkflowProvider) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ApprovalWorkflowProviderRequest) Update(ctx context.Context, reqObj *ApprovalWorkflowProvider) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ApprovalWorkflowProvider
-func (r *ApprovalWorkflowProviderRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ApprovalWorkflowProviderRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // BusinessFlows returns request builder for BusinessFlow collection
@@ -71,10 +72,13 @@ func (b *ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder) ID(id st
 type ApprovalWorkflowProviderBusinessFlowsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlow, error) {
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BusinessFlow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(method, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(method, 
 }
 
 // Get performs GET request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Get() ([]BusinessFlow, error) {
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Get(ctx context.Context) ([]BusinessFlow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Add(reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Add(ctx context.Context, reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 type ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Paging(method, path string, obj interface{}) ([]BusinessFlow, error) {
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BusinessFlow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 }
 
 // Get performs GET request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Get() ([]BusinessFlow, error) {
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]BusinessFlow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Add(reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Add(ctx context.Context, reqObj *BusinessFlow) (resObj *BusinessFlow, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ApprovalWorkflowProviderPolicyTemplatesCollectionRequestBuilder) ID(id 
 type ApprovalWorkflowProviderPolicyTemplatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(method, path string, obj interface{}) ([]GovernancePolicyTemplate, error) {
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernancePolicyTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(method
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(method
 }
 
 // Get performs GET request for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Get() ([]GovernancePolicyTemplate, error) {
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Get(ctx context.Context) ([]GovernancePolicyTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Add(reqObj *GovernancePolicyTemplate) (resObj *GovernancePolicyTemplate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Add(ctx context.Context, reqObj *GovernancePolicyTemplate) (resObj *GovernancePolicyTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *ApprovalWorkflowProviderRequestsCollectionRequestBuilder) ID(id string)
 type ApprovalWorkflowProviderRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]RequestObject, error) {
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Get() ([]RequestObject, error) {
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Add(reqObj *RequestObject) (resObj *RequestObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Add(ctx context.Context, reqObj *RequestObject) (resObj *RequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuil
 type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(method, path string, obj interface{}) ([]RequestObject, error) {
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Pa
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,16 +500,16 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Pa
 }
 
 // Get performs GET request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Get() ([]RequestObject, error) {
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Add(reqObj *RequestObject) (resObj *RequestObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Add(ctx context.Context, reqObj *RequestObject) (resObj *RequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

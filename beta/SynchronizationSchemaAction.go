@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SynchronizationSchemaParseExpressionRequestParameter undocumented
 type SynchronizationSchemaParseExpressionRequestParameter struct {
 	// Expression undocumented
@@ -34,7 +36,7 @@ func (b *SynchronizationSchemaParseExpressionRequestBuilder) Request() *Synchron
 }
 
 //
-func (r *SynchronizationSchemaParseExpressionRequest) Post() (resObj *ParseExpressionResponse, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *SynchronizationSchemaParseExpressionRequest) Post(ctx context.Context) (resObj *ParseExpressionResponse, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

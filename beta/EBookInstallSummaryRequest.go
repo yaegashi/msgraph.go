@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EBookInstallSummaryRequestBuilder is request builder for EBookInstallSummary
 type EBookInstallSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *EBookInstallSummaryRequestBuilder) Request() *EBookInstallSummaryReques
 type EBookInstallSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for EBookInstallSummary
-func (r *EBookInstallSummaryRequest) Get() (resObj *EBookInstallSummary, err error) {
+func (r *EBookInstallSummaryRequest) Get(ctx context.Context) (resObj *EBookInstallSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EBookInstallSummary
-func (r *EBookInstallSummaryRequest) Update(reqObj *EBookInstallSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EBookInstallSummaryRequest) Update(ctx context.Context, reqObj *EBookInstallSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EBookInstallSummary
-func (r *EBookInstallSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EBookInstallSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EducationAssignmentPublishRequestParameter undocumented
 type EducationAssignmentPublishRequestParameter struct {
 }
@@ -28,7 +30,7 @@ func (b *EducationAssignmentPublishRequestBuilder) Request() *EducationAssignmen
 }
 
 //
-func (r *EducationAssignmentPublishRequest) Post() (resObj *EducationAssignment, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *EducationAssignmentPublishRequest) Post(ctx context.Context) (resObj *EducationAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

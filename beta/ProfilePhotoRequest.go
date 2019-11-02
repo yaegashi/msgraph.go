@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ProfilePhotoRequestBuilder is request builder for ProfilePhoto
 type ProfilePhotoRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ProfilePhotoRequestBuilder) Request() *ProfilePhotoRequest {
 type ProfilePhotoRequest struct{ BaseRequest }
 
 // Get performs GET request for ProfilePhoto
-func (r *ProfilePhotoRequest) Get() (resObj *ProfilePhoto, err error) {
+func (r *ProfilePhotoRequest) Get(ctx context.Context) (resObj *ProfilePhoto, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ProfilePhoto
-func (r *ProfilePhotoRequest) Update(reqObj *ProfilePhoto) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ProfilePhotoRequest) Update(ctx context.Context, reqObj *ProfilePhoto) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ProfilePhoto
-func (r *ProfilePhotoRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ProfilePhotoRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

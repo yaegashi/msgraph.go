@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // OnenoteSectionCopyToNotebookRequestParameter undocumented
 type OnenoteSectionCopyToNotebookRequestParameter struct {
 	// ID undocumented
@@ -52,8 +54,8 @@ func (b *OnenoteSectionCopyToNotebookRequestBuilder) Request() *OnenoteSectionCo
 }
 
 //
-func (r *OnenoteSectionCopyToNotebookRequest) Post() (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *OnenoteSectionCopyToNotebookRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -79,7 +81,7 @@ func (b *OnenoteSectionCopyToSectionGroupRequestBuilder) Request() *OnenoteSecti
 }
 
 //
-func (r *OnenoteSectionCopyToSectionGroupRequest) Post() (resObj *OnenoteOperation, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *OnenoteSectionCopyToSectionGroupRequest) Post(ctx context.Context) (resObj *OnenoteOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

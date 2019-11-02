@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *TeamRequestBuilder) Request() *TeamRequest {
 type TeamRequest struct{ BaseRequest }
 
 // Get performs GET request for Team
-func (r *TeamRequest) Get() (resObj *Team, err error) {
+func (r *TeamRequest) Get(ctx context.Context) (resObj *Team, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Team
-func (r *TeamRequest) Update(reqObj *Team) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TeamRequest) Update(ctx context.Context, reqObj *Team) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Team
-func (r *TeamRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TeamRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Apps returns request builder for TeamsCatalogApp collection
@@ -71,10 +72,13 @@ func (b *TeamAppsCollectionRequestBuilder) ID(id string) *TeamsCatalogAppRequest
 type TeamAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsCatalogApp collection
-func (r *TeamAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsCatalogApp, error) {
+func (r *TeamAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsCatalogApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *TeamAppsCollectionRequest) Paging(method, path string, obj interface{})
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *TeamAppsCollectionRequest) Paging(method, path string, obj interface{})
 }
 
 // Get performs GET request for TeamsCatalogApp collection
-func (r *TeamAppsCollectionRequest) Get() ([]TeamsCatalogApp, error) {
+func (r *TeamAppsCollectionRequest) Get(ctx context.Context) ([]TeamsCatalogApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TeamsCatalogApp collection
-func (r *TeamAppsCollectionRequest) Add(reqObj *TeamsCatalogApp) (resObj *TeamsCatalogApp, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TeamAppsCollectionRequest) Add(ctx context.Context, reqObj *TeamsCatalogApp) (resObj *TeamsCatalogApp, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *TeamChannelsCollectionRequestBuilder) ID(id string) *ChannelRequestBuil
 type TeamChannelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Channel collection
-func (r *TeamChannelsCollectionRequest) Paging(method, path string, obj interface{}) ([]Channel, error) {
+func (r *TeamChannelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Channel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *TeamChannelsCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *TeamChannelsCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for Channel collection
-func (r *TeamChannelsCollectionRequest) Get() ([]Channel, error) {
+func (r *TeamChannelsCollectionRequest) Get(ctx context.Context) ([]Channel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Channel collection
-func (r *TeamChannelsCollectionRequest) Add(reqObj *Channel) (resObj *Channel, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TeamChannelsCollectionRequest) Add(ctx context.Context, reqObj *Channel) (resObj *Channel, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -252,10 +267,13 @@ func (b *TeamInstalledAppsCollectionRequestBuilder) ID(id string) *TeamsAppInsta
 type TeamInstalledAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
-func (r *TeamInstalledAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
+func (r *TeamInstalledAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -289,7 +307,11 @@ func (r *TeamInstalledAppsCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -297,17 +319,17 @@ func (r *TeamInstalledAppsCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for TeamsAppInstallation collection
-func (r *TeamInstalledAppsCollectionRequest) Get() ([]TeamsAppInstallation, error) {
+func (r *TeamInstalledAppsCollectionRequest) Get(ctx context.Context) ([]TeamsAppInstallation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TeamsAppInstallation collection
-func (r *TeamInstalledAppsCollectionRequest) Add(reqObj *TeamsAppInstallation) (resObj *TeamsAppInstallation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TeamInstalledAppsCollectionRequest) Add(ctx context.Context, reqObj *TeamsAppInstallation) (resObj *TeamsAppInstallation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *TeamOperationsCollectionRequestBuilder) ID(id string) *TeamsAsyncOperat
 type TeamOperationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsAsyncOperation collection
-func (r *TeamOperationsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsAsyncOperation, error) {
+func (r *TeamOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsAsyncOperation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *TeamOperationsCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,17 +413,17 @@ func (r *TeamOperationsCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for TeamsAsyncOperation collection
-func (r *TeamOperationsCollectionRequest) Get() ([]TeamsAsyncOperation, error) {
+func (r *TeamOperationsCollectionRequest) Get(ctx context.Context) ([]TeamsAsyncOperation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TeamsAsyncOperation collection
-func (r *TeamOperationsCollectionRequest) Add(reqObj *TeamsAsyncOperation) (resObj *TeamsAsyncOperation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TeamOperationsCollectionRequest) Add(ctx context.Context, reqObj *TeamsAsyncOperation) (resObj *TeamsAsyncOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -426,10 +455,13 @@ func (b *TeamOwnersCollectionRequestBuilder) ID(id string) *UserRequestBuilder {
 type TeamOwnersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for User collection
-func (r *TeamOwnersCollectionRequest) Paging(method, path string, obj interface{}) ([]User, error) {
+func (r *TeamOwnersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]User, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -463,7 +495,11 @@ func (r *TeamOwnersCollectionRequest) Paging(method, path string, obj interface{
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -471,17 +507,17 @@ func (r *TeamOwnersCollectionRequest) Paging(method, path string, obj interface{
 }
 
 // Get performs GET request for User collection
-func (r *TeamOwnersCollectionRequest) Get() ([]User, error) {
+func (r *TeamOwnersCollectionRequest) Get(ctx context.Context) ([]User, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for User collection
-func (r *TeamOwnersCollectionRequest) Add(reqObj *User) (resObj *User, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TeamOwnersCollectionRequest) Add(ctx context.Context, reqObj *User) (resObj *User, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

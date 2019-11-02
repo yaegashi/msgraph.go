@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PrivilegedRoleAssignmentMakePermanentRequestParameter undocumented
 type PrivilegedRoleAssignmentMakePermanentRequestParameter struct {
 	// Reason undocumented
@@ -38,8 +40,8 @@ func (b *PrivilegedRoleAssignmentMakePermanentRequestBuilder) Request() *Privile
 }
 
 //
-func (r *PrivilegedRoleAssignmentMakePermanentRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *PrivilegedRoleAssignmentMakePermanentRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -65,7 +67,7 @@ func (b *PrivilegedRoleAssignmentMakeEligibleRequestBuilder) Request() *Privileg
 }
 
 //
-func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Post() (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

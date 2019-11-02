@@ -70,10 +70,10 @@ func main() {
 		// Search and delete default user
 		r := graphClient.Users().Request()
 		r.Filter(fmt.Sprintf("userPrincipalName eq '%s'", *defaultUser.UserPrincipalName))
-		users, _ := r.Get()
+		users, _ := r.Get(ctx)
 		for _, user := range users {
 			log.Printf("Delete user %s", *user.ID)
-			graphClient.Users().ID(*user.ID).Request().Delete()
+			graphClient.Users().ID(*user.ID).Request().Delete(ctx)
 		}
 	}
 
@@ -81,17 +81,17 @@ func main() {
 		// Search and delete default group
 		r := graphClient.Groups().Request()
 		r.Filter(fmt.Sprintf("mailNickname eq '%s'", *defaultGroup.MailNickname))
-		groups, _ := r.Get()
+		groups, _ := r.Get(ctx)
 		for _, group := range groups {
 			log.Printf("Delete group %s", *group.ID)
-			graphClient.Groups().ID(*group.ID).Request().Delete()
+			graphClient.Groups().ID(*group.ID).Request().Delete(ctx)
 		}
 	}
 
 	var u *msgraph.User
 	{
 		log.Printf("Create user %s", *defaultUser.UserPrincipalName)
-		u, err = graphClient.Users().Request().Add(defaultUser)
+		u, err = graphClient.Users().Request().Add(ctx, defaultUser)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -101,7 +101,7 @@ func main() {
 	var g *msgraph.Group
 	{
 		log.Printf("Create group %s", *defaultGroup.DisplayName)
-		g, err = graphClient.Groups().Request().Add(defaultGroup)
+		g, err = graphClient.Groups().Request().Add(ctx, defaultGroup)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -114,7 +114,7 @@ func main() {
 			"@odata.id": graphClient.DirectoryObjects().ID(*u.ID).Request().URL(),
 		}
 		r := graphClient.Groups().ID(*g.ID).Members().Request()
-		err := r.JSONRequest("POST", "/$ref", reqObj, nil)
+		err := r.JSONRequest(ctx, "POST", "/$ref", reqObj, nil)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -124,7 +124,7 @@ func main() {
 		log.Printf("Show user %s", *u.ID)
 		r := graphClient.Users().ID(*u.ID).Request()
 		r.Expand("memberOf")
-		users, err := r.Get()
+		users, err := r.Get(ctx)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -135,7 +135,7 @@ func main() {
 		log.Printf("Show group %s", *g.ID)
 		r := graphClient.Groups().ID(*g.ID).Request()
 		r.Expand("members")
-		groups, err := r.Get()
+		groups, err := r.Get(ctx)
 		if err != nil {
 			log.Fatal(err)
 		}

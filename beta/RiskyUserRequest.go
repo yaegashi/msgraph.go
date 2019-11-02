@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *RiskyUserRequestBuilder) Request() *RiskyUserRequest {
 type RiskyUserRequest struct{ BaseRequest }
 
 // Get performs GET request for RiskyUser
-func (r *RiskyUserRequest) Get() (resObj *RiskyUser, err error) {
+func (r *RiskyUserRequest) Get(ctx context.Context) (resObj *RiskyUser, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RiskyUser
-func (r *RiskyUserRequest) Update(reqObj *RiskyUser) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RiskyUserRequest) Update(ctx context.Context, reqObj *RiskyUser) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RiskyUser
-func (r *RiskyUserRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RiskyUserRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // History returns request builder for RiskyUserHistoryItem collection
@@ -71,10 +72,13 @@ func (b *RiskyUserHistoryCollectionRequestBuilder) ID(id string) *RiskyUserHisto
 type RiskyUserHistoryCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RiskyUserHistoryItem collection
-func (r *RiskyUserHistoryCollectionRequest) Paging(method, path string, obj interface{}) ([]RiskyUserHistoryItem, error) {
+func (r *RiskyUserHistoryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RiskyUserHistoryItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *RiskyUserHistoryCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *RiskyUserHistoryCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for RiskyUserHistoryItem collection
-func (r *RiskyUserHistoryCollectionRequest) Get() ([]RiskyUserHistoryItem, error) {
+func (r *RiskyUserHistoryCollectionRequest) Get(ctx context.Context) ([]RiskyUserHistoryItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for RiskyUserHistoryItem collection
-func (r *RiskyUserHistoryCollectionRequest) Add(reqObj *RiskyUserHistoryItem) (resObj *RiskyUserHistoryItem, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *RiskyUserHistoryCollectionRequest) Add(ctx context.Context, reqObj *RiskyUserHistoryItem) (resObj *RiskyUserHistoryItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

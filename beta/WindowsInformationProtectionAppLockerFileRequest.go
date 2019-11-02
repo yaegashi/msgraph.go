@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WindowsInformationProtectionAppLockerFileRequestBuilder is request builder for WindowsInformationProtectionAppLockerFile
 type WindowsInformationProtectionAppLockerFileRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WindowsInformationProtectionAppLockerFileRequestBuilder) Request() *Win
 type WindowsInformationProtectionAppLockerFileRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsInformationProtectionAppLockerFile
-func (r *WindowsInformationProtectionAppLockerFileRequest) Get() (resObj *WindowsInformationProtectionAppLockerFile, err error) {
+func (r *WindowsInformationProtectionAppLockerFileRequest) Get(ctx context.Context) (resObj *WindowsInformationProtectionAppLockerFile, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsInformationProtectionAppLockerFile
-func (r *WindowsInformationProtectionAppLockerFileRequest) Update(reqObj *WindowsInformationProtectionAppLockerFile) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsInformationProtectionAppLockerFileRequest) Update(ctx context.Context, reqObj *WindowsInformationProtectionAppLockerFile) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsInformationProtectionAppLockerFile
-func (r *WindowsInformationProtectionAppLockerFileRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsInformationProtectionAppLockerFileRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

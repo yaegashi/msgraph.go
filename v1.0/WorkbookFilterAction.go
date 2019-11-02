@@ -2,7 +2,10 @@
 
 package msgraph
 
-import "encoding/json"
+import (
+	"context"
+	"encoding/json"
+)
 
 // WorkbookFilterApplyRequestParameter undocumented
 type WorkbookFilterApplyRequestParameter struct {
@@ -100,8 +103,8 @@ func (b *WorkbookFilterApplyRequestBuilder) Request() *WorkbookFilterApplyReques
 }
 
 //
-func (r *WorkbookFilterApplyRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -126,8 +129,8 @@ func (b *WorkbookFilterApplyBottomItemsFilterRequestBuilder) Request() *Workbook
 }
 
 //
-func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyBottomItemsFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -152,8 +155,8 @@ func (b *WorkbookFilterApplyBottomPercentFilterRequestBuilder) Request() *Workbo
 }
 
 //
-func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyBottomPercentFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -178,8 +181,8 @@ func (b *WorkbookFilterApplyCellColorFilterRequestBuilder) Request() *WorkbookFi
 }
 
 //
-func (r *WorkbookFilterApplyCellColorFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyCellColorFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -204,8 +207,8 @@ func (b *WorkbookFilterApplyCustomFilterRequestBuilder) Request() *WorkbookFilte
 }
 
 //
-func (r *WorkbookFilterApplyCustomFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyCustomFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -230,8 +233,8 @@ func (b *WorkbookFilterApplyDynamicFilterRequestBuilder) Request() *WorkbookFilt
 }
 
 //
-func (r *WorkbookFilterApplyDynamicFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyDynamicFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -256,8 +259,8 @@ func (b *WorkbookFilterApplyFontColorFilterRequestBuilder) Request() *WorkbookFi
 }
 
 //
-func (r *WorkbookFilterApplyFontColorFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyFontColorFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -282,8 +285,8 @@ func (b *WorkbookFilterApplyIconFilterRequestBuilder) Request() *WorkbookFilterA
 }
 
 //
-func (r *WorkbookFilterApplyIconFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyIconFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -308,8 +311,8 @@ func (b *WorkbookFilterApplyTopItemsFilterRequestBuilder) Request() *WorkbookFil
 }
 
 //
-func (r *WorkbookFilterApplyTopItemsFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyTopItemsFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -334,8 +337,8 @@ func (b *WorkbookFilterApplyTopPercentFilterRequestBuilder) Request() *WorkbookF
 }
 
 //
-func (r *WorkbookFilterApplyTopPercentFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyTopPercentFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -360,8 +363,8 @@ func (b *WorkbookFilterApplyValuesFilterRequestBuilder) Request() *WorkbookFilte
 }
 
 //
-func (r *WorkbookFilterApplyValuesFilterRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterApplyValuesFilterRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -386,6 +389,6 @@ func (b *WorkbookFilterClearRequestBuilder) Request() *WorkbookFilterClearReques
 }
 
 //
-func (r *WorkbookFilterClearRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookFilterClearRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

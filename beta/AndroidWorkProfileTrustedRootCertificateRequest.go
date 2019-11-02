@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidWorkProfileTrustedRootCertificateRequestBuilder is request builder for AndroidWorkProfileTrustedRootCertificate
 type AndroidWorkProfileTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidWorkProfileTrustedRootCertificateRequestBuilder) Request() *Andr
 type AndroidWorkProfileTrustedRootCertificateRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidWorkProfileTrustedRootCertificate
-func (r *AndroidWorkProfileTrustedRootCertificateRequest) Get() (resObj *AndroidWorkProfileTrustedRootCertificate, err error) {
+func (r *AndroidWorkProfileTrustedRootCertificateRequest) Get(ctx context.Context) (resObj *AndroidWorkProfileTrustedRootCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidWorkProfileTrustedRootCertificate
-func (r *AndroidWorkProfileTrustedRootCertificateRequest) Update(reqObj *AndroidWorkProfileTrustedRootCertificate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidWorkProfileTrustedRootCertificateRequest) Update(ctx context.Context, reqObj *AndroidWorkProfileTrustedRootCertificate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidWorkProfileTrustedRootCertificate
-func (r *AndroidWorkProfileTrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidWorkProfileTrustedRootCertificateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

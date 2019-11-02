@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *EducationUserRequestBuilder) Request() *EducationUserRequest {
 type EducationUserRequest struct{ BaseRequest }
 
 // Get performs GET request for EducationUser
-func (r *EducationUserRequest) Get() (resObj *EducationUser, err error) {
+func (r *EducationUserRequest) Get(ctx context.Context) (resObj *EducationUser, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for EducationUser
-func (r *EducationUserRequest) Update(reqObj *EducationUser) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *EducationUserRequest) Update(ctx context.Context, reqObj *EducationUser) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for EducationUser
-func (r *EducationUserRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *EducationUserRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Assignments returns request builder for EducationAssignment collection
@@ -71,10 +72,13 @@ func (b *EducationUserAssignmentsCollectionRequestBuilder) ID(id string) *Educat
 type EducationUserAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationAssignment collection
-func (r *EducationUserAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationAssignment, error) {
+func (r *EducationUserAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *EducationUserAssignmentsCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *EducationUserAssignmentsCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for EducationAssignment collection
-func (r *EducationUserAssignmentsCollectionRequest) Get() ([]EducationAssignment, error) {
+func (r *EducationUserAssignmentsCollectionRequest) Get(ctx context.Context) ([]EducationAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EducationAssignment collection
-func (r *EducationUserAssignmentsCollectionRequest) Add(reqObj *EducationAssignment) (resObj *EducationAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EducationUserAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *EducationAssignment) (resObj *EducationAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *EducationUserClassesCollectionRequestBuilder) ID(id string) *EducationC
 type EducationUserClassesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationClass collection
-func (r *EducationUserClassesCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationClass, error) {
+func (r *EducationUserClassesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationClass, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *EducationUserClassesCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *EducationUserClassesCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for EducationClass collection
-func (r *EducationUserClassesCollectionRequest) Get() ([]EducationClass, error) {
+func (r *EducationUserClassesCollectionRequest) Get(ctx context.Context) ([]EducationClass, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EducationClass collection
-func (r *EducationUserClassesCollectionRequest) Add(reqObj *EducationClass) (resObj *EducationClass, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EducationUserClassesCollectionRequest) Add(ctx context.Context, reqObj *EducationClass) (resObj *EducationClass, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *EducationUserRubricsCollectionRequestBuilder) ID(id string) *EducationR
 type EducationUserRubricsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationRubric collection
-func (r *EducationUserRubricsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationRubric, error) {
+func (r *EducationUserRubricsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationRubric, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *EducationUserRubricsCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *EducationUserRubricsCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for EducationRubric collection
-func (r *EducationUserRubricsCollectionRequest) Get() ([]EducationRubric, error) {
+func (r *EducationUserRubricsCollectionRequest) Get(ctx context.Context) ([]EducationRubric, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EducationRubric collection
-func (r *EducationUserRubricsCollectionRequest) Add(reqObj *EducationRubric) (resObj *EducationRubric, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EducationUserRubricsCollectionRequest) Add(ctx context.Context, reqObj *EducationRubric) (resObj *EducationRubric, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *EducationUserSchoolsCollectionRequestBuilder) ID(id string) *EducationS
 type EducationUserSchoolsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationSchool collection
-func (r *EducationUserSchoolsCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationSchool, error) {
+func (r *EducationUserSchoolsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationSchool, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *EducationUserSchoolsCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *EducationUserSchoolsCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for EducationSchool collection
-func (r *EducationUserSchoolsCollectionRequest) Get() ([]EducationSchool, error) {
+func (r *EducationUserSchoolsCollectionRequest) Get(ctx context.Context) ([]EducationSchool, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EducationSchool collection
-func (r *EducationUserSchoolsCollectionRequest) Add(reqObj *EducationSchool) (resObj *EducationSchool, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EducationUserSchoolsCollectionRequest) Add(ctx context.Context, reqObj *EducationSchool) (resObj *EducationSchool, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *EducationUserTaughtClassesCollectionRequestBuilder) ID(id string) *Educ
 type EducationUserTaughtClassesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationClass collection
-func (r *EducationUserTaughtClassesCollectionRequest) Paging(method, path string, obj interface{}) ([]EducationClass, error) {
+func (r *EducationUserTaughtClassesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationClass, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *EducationUserTaughtClassesCollectionRequest) Paging(method, path string
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,17 +500,17 @@ func (r *EducationUserTaughtClassesCollectionRequest) Paging(method, path string
 }
 
 // Get performs GET request for EducationClass collection
-func (r *EducationUserTaughtClassesCollectionRequest) Get() ([]EducationClass, error) {
+func (r *EducationUserTaughtClassesCollectionRequest) Get(ctx context.Context) ([]EducationClass, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EducationClass collection
-func (r *EducationUserTaughtClassesCollectionRequest) Add(reqObj *EducationClass) (resObj *EducationClass, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *EducationUserTaughtClassesCollectionRequest) Add(ctx context.Context, reqObj *EducationClass) (resObj *EducationClass, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

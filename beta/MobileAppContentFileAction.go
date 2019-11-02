@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MobileAppContentFileCommitRequestParameter undocumented
 type MobileAppContentFileCommitRequestParameter struct {
 	// FileEncryptionInfo undocumented
@@ -34,8 +36,8 @@ func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFi
 }
 
 //
-func (r *MobileAppContentFileCommitRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MobileAppContentFileCommitRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,6 +62,6 @@ func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppCont
 }
 
 //
-func (r *MobileAppContentFileRenewUploadRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *MobileAppContentFileRenewUploadRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

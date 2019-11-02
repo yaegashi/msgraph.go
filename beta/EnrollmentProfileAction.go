@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // EnrollmentProfileSetDefaultProfileRequestParameter undocumented
 type EnrollmentProfileSetDefaultProfileRequestParameter struct {
 }
@@ -34,8 +36,8 @@ func (b *EnrollmentProfileSetDefaultProfileRequestBuilder) Request() *Enrollment
 }
 
 //
-func (r *EnrollmentProfileSetDefaultProfileRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EnrollmentProfileSetDefaultProfileRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,6 +62,6 @@ func (b *EnrollmentProfileUpdateDeviceProfileAssignmentRequestBuilder) Request()
 }
 
 //
-func (r *EnrollmentProfileUpdateDeviceProfileAssignmentRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *EnrollmentProfileUpdateDeviceProfileAssignmentRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

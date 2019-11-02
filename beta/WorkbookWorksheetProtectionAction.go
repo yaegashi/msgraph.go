@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookWorksheetProtectionProtectRequestParameter undocumented
 type WorkbookWorksheetProtectionProtectRequestParameter struct {
 	// Options undocumented
@@ -34,8 +36,8 @@ func (b *WorkbookWorksheetProtectionProtectRequestBuilder) Request() *WorkbookWo
 }
 
 //
-func (r *WorkbookWorksheetProtectionProtectRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookWorksheetProtectionProtectRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,6 +62,6 @@ func (b *WorkbookWorksheetProtectionUnprotectRequestBuilder) Request() *Workbook
 }
 
 //
-func (r *WorkbookWorksheetProtectionUnprotectRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *WorkbookWorksheetProtectionUnprotectRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementIntentUpdateSettingsRequestParameter undocumented
 type DeviceManagementIntentUpdateSettingsRequestParameter struct {
 	// Settings undocumented
@@ -44,8 +46,8 @@ func (b *DeviceManagementIntentUpdateSettingsRequestBuilder) Request() *DeviceMa
 }
 
 //
-func (r *DeviceManagementIntentUpdateSettingsRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementIntentUpdateSettingsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -70,8 +72,8 @@ func (b *DeviceManagementIntentMigrateToTemplateRequestBuilder) Request() *Devic
 }
 
 //
-func (r *DeviceManagementIntentMigrateToTemplateRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementIntentMigrateToTemplateRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -96,6 +98,6 @@ func (b *DeviceManagementIntentAssignRequestBuilder) Request() *DeviceManagement
 }
 
 //
-func (r *DeviceManagementIntentAssignRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DeviceManagementIntentAssignRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // RoleManagementRequestBuilder is request builder for RoleManagement
 type RoleManagementRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *RoleManagementRequestBuilder) Request() *RoleManagementRequest {
 type RoleManagementRequest struct{ BaseRequest }
 
 // Get performs GET request for RoleManagement
-func (r *RoleManagementRequest) Get() (resObj *RoleManagement, err error) {
+func (r *RoleManagementRequest) Get(ctx context.Context) (resObj *RoleManagement, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for RoleManagement
-func (r *RoleManagementRequest) Update(reqObj *RoleManagement) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *RoleManagementRequest) Update(ctx context.Context, reqObj *RoleManagement) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for RoleManagement
-func (r *RoleManagementRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *RoleManagementRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Directory is navigation property

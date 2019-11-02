@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SubscriptionRequestBuilder is request builder for Subscription
 type SubscriptionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SubscriptionRequestBuilder) Request() *SubscriptionRequest {
 type SubscriptionRequest struct{ BaseRequest }
 
 // Get performs GET request for Subscription
-func (r *SubscriptionRequest) Get() (resObj *Subscription, err error) {
+func (r *SubscriptionRequest) Get(ctx context.Context) (resObj *Subscription, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Subscription
-func (r *SubscriptionRequest) Update(reqObj *Subscription) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SubscriptionRequest) Update(ctx context.Context, reqObj *Subscription) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Subscription
-func (r *SubscriptionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SubscriptionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

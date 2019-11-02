@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ReportRootRequestBuilder) Request() *ReportRootRequest {
 type ReportRootRequest struct{ BaseRequest }
 
 // Get performs GET request for ReportRoot
-func (r *ReportRootRequest) Get() (resObj *ReportRoot, err error) {
+func (r *ReportRootRequest) Get(ctx context.Context) (resObj *ReportRoot, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ReportRoot
-func (r *ReportRootRequest) Update(reqObj *ReportRoot) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ReportRootRequest) Update(ctx context.Context, reqObj *ReportRoot) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ReportRoot
-func (r *ReportRootRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ReportRootRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ApplicationSignInDetailedSummary returns request builder for ApplicationSignInDetailedSummary collection
@@ -71,10 +72,13 @@ func (b *ReportRootApplicationSignInDetailedSummaryCollectionRequestBuilder) ID(
 type ReportRootApplicationSignInDetailedSummaryCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(method, path string, obj interface{}) ([]ApplicationSignInDetailedSummary, error) {
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ApplicationSignInDetailedSummary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(met
 }
 
 // Get performs GET request for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Get() ([]ApplicationSignInDetailedSummary, error) {
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Get(ctx context.Context) ([]ApplicationSignInDetailedSummary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Add(reqObj *ApplicationSignInDetailedSummary) (resObj *ApplicationSignInDetailedSummary, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Add(ctx context.Context, reqObj *ApplicationSignInDetailedSummary) (resObj *ApplicationSignInDetailedSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder) ID
 type ReportRootCredentialUserRegistrationDetailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]CredentialUserRegistrationDetails, error) {
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CredentialUserRegistrationDetails, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(me
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(me
 }
 
 // Get performs GET request for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Get() ([]CredentialUserRegistrationDetails, error) {
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Get(ctx context.Context) ([]CredentialUserRegistrationDetails, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Add(reqObj *CredentialUserRegistrationDetails) (resObj *CredentialUserRegistrationDetails, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Add(ctx context.Context, reqObj *CredentialUserRegistrationDetails) (resObj *CredentialUserRegistrationDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *ReportRootUserCredentialUsageDetailsCollectionRequestBuilder) ID(id str
 type ReportRootUserCredentialUsageDetailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(method, path string, obj interface{}) ([]UserCredentialUsageDetails, error) {
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserCredentialUsageDetails, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(method, p
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,16 +312,16 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(method, p
 }
 
 // Get performs GET request for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Get() ([]UserCredentialUsageDetails, error) {
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Get(ctx context.Context) ([]UserCredentialUsageDetails, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Add(reqObj *UserCredentialUsageDetails) (resObj *UserCredentialUsageDetails, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Add(ctx context.Context, reqObj *UserCredentialUsageDetails) (resObj *UserCredentialUsageDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

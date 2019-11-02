@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceComplianceUserStatusRequestBuilder is request builder for DeviceComplianceUserStatus
 type DeviceComplianceUserStatusRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceComplianceUserStatusRequestBuilder) Request() *DeviceComplianceUs
 type DeviceComplianceUserStatusRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceComplianceUserStatus
-func (r *DeviceComplianceUserStatusRequest) Get() (resObj *DeviceComplianceUserStatus, err error) {
+func (r *DeviceComplianceUserStatusRequest) Get(ctx context.Context) (resObj *DeviceComplianceUserStatus, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceComplianceUserStatus
-func (r *DeviceComplianceUserStatusRequest) Update(reqObj *DeviceComplianceUserStatus) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceComplianceUserStatusRequest) Update(ctx context.Context, reqObj *DeviceComplianceUserStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceComplianceUserStatus
-func (r *DeviceComplianceUserStatusRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceComplianceUserStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

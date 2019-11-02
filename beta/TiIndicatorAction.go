@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -56,10 +57,13 @@ func (b *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(method, path string, obj interface{}) ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]TiIndicator, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -93,7 +97,11 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -101,12 +109,12 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(method, path str
 }
 
 //
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Get() ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Get(ctx context.Context) ([][]TiIndicator, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -131,10 +139,13 @@ func (b *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(method, path string, obj interface{}) ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]TiIndicator, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -168,7 +179,11 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -176,12 +191,12 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(method, path str
 }
 
 //
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Get() ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Get(ctx context.Context) ([][]TiIndicator, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -206,10 +221,13 @@ func (b *TiIndicatorCollectionDeleteTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(method, path string, obj interface{}) ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ResultInfo, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -243,7 +261,11 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -251,12 +273,12 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(method, path str
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Get() ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Get(ctx context.Context) ([][]ResultInfo, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -281,10 +303,13 @@ func (b *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequestBuilder) Requ
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(method, path string, obj interface{}) ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ResultInfo, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -318,7 +343,11 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(meth
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -326,10 +355,10 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(meth
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Get() ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Get(ctx context.Context) ([][]ResultInfo, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }

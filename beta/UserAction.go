@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -129,8 +130,8 @@ func (b *UserAssignLicenseRequestBuilder) Request() *UserAssignLicenseRequest {
 }
 
 //
-func (r *UserAssignLicenseRequest) Post() (resObj *User, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *UserAssignLicenseRequest) Post(ctx context.Context) (resObj *User, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -156,8 +157,8 @@ func (b *UserChangePasswordRequestBuilder) Request() *UserChangePasswordRequest 
 }
 
 //
-func (r *UserChangePasswordRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *UserChangePasswordRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -182,8 +183,8 @@ func (b *UserInvalidateAllRefreshTokensRequestBuilder) Request() *UserInvalidate
 }
 
 //
-func (r *UserInvalidateAllRefreshTokensRequest) Post() (resObj *bool, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *UserInvalidateAllRefreshTokensRequest) Post(ctx context.Context) (resObj *bool, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -209,8 +210,8 @@ func (b *UserRevokeSignInSessionsRequestBuilder) Request() *UserRevokeSignInSess
 }
 
 //
-func (r *UserRevokeSignInSessionsRequest) Post() (resObj *bool, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *UserRevokeSignInSessionsRequest) Post(ctx context.Context) (resObj *bool, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -236,8 +237,8 @@ func (b *UserReprocessLicenseAssignmentRequestBuilder) Request() *UserReprocessL
 }
 
 //
-func (r *UserReprocessLicenseAssignmentRequest) Post() (resObj *User, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *UserReprocessLicenseAssignmentRequest) Post(ctx context.Context) (resObj *User, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -263,8 +264,8 @@ func (b *UserFindMeetingTimesRequestBuilder) Request() *UserFindMeetingTimesRequ
 }
 
 //
-func (r *UserFindMeetingTimesRequest) Post() (resObj *MeetingTimeSuggestionsResult, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *UserFindMeetingTimesRequest) Post(ctx context.Context) (resObj *MeetingTimeSuggestionsResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
 
@@ -290,8 +291,8 @@ func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
 }
 
 //
-func (r *UserSendMailRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *UserSendMailRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -316,10 +317,13 @@ func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
 }
 
 //
-func (r *UserGetMailTipsRequest) Paging(method, path string, obj interface{}) ([][]MailTips, error) {
+func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]MailTips, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -353,7 +357,11 @@ func (r *UserGetMailTipsRequest) Paging(method, path string, obj interface{}) ([
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -361,12 +369,12 @@ func (r *UserGetMailTipsRequest) Paging(method, path string, obj interface{}) ([
 }
 
 //
-func (r *UserGetMailTipsRequest) Get() ([][]MailTips, error) {
+func (r *UserGetMailTipsRequest) Get(ctx context.Context) ([][]MailTips, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -391,10 +399,13 @@ func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchang
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Paging(method, path string, obj interface{}) ([][]ConvertIDResult, error) {
+func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ConvertIDResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -428,7 +439,11 @@ func (r *UserTranslateExchangeIDsRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -436,12 +451,12 @@ func (r *UserTranslateExchangeIDsRequest) Paging(method, path string, obj interf
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Get() ([][]ConvertIDResult, error) {
+func (r *UserTranslateExchangeIDsRequest) Get(ctx context.Context) ([][]ConvertIDResult, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 //
@@ -466,8 +481,8 @@ func (b *UserRemoveAllDevicesFromManagementRequestBuilder) Request() *UserRemove
 }
 
 //
-func (r *UserRemoveAllDevicesFromManagementRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *UserRemoveAllDevicesFromManagementRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -492,8 +507,8 @@ func (b *UserWipeManagedAppRegistrationByDeviceTagRequestBuilder) Request() *Use
 }
 
 //
-func (r *UserWipeManagedAppRegistrationByDeviceTagRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *UserWipeManagedAppRegistrationByDeviceTagRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -518,8 +533,8 @@ func (b *UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder) Request() *Us
 }
 
 //
-func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -544,6 +559,6 @@ func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalData
 }
 
 //
-func (r *UserExportPersonalDataRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *UserExportPersonalDataRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

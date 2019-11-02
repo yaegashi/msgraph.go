@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // UserExperienceAnalyticsBaselineRequestBuilder is request builder for UserExperienceAnalyticsBaseline
 type UserExperienceAnalyticsBaselineRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,23 +18,23 @@ func (b *UserExperienceAnalyticsBaselineRequestBuilder) Request() *UserExperienc
 type UserExperienceAnalyticsBaselineRequest struct{ BaseRequest }
 
 // Get performs GET request for UserExperienceAnalyticsBaseline
-func (r *UserExperienceAnalyticsBaselineRequest) Get() (resObj *UserExperienceAnalyticsBaseline, err error) {
+func (r *UserExperienceAnalyticsBaselineRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsBaseline, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for UserExperienceAnalyticsBaseline
-func (r *UserExperienceAnalyticsBaselineRequest) Update(reqObj *UserExperienceAnalyticsBaseline) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *UserExperienceAnalyticsBaselineRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsBaseline) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for UserExperienceAnalyticsBaseline
-func (r *UserExperienceAnalyticsBaselineRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *UserExperienceAnalyticsBaselineRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // BestPracticesMetrics is navigation property

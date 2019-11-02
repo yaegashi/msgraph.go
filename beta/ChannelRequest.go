@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ChannelRequestBuilder) Request() *ChannelRequest {
 type ChannelRequest struct{ BaseRequest }
 
 // Get performs GET request for Channel
-func (r *ChannelRequest) Get() (resObj *Channel, err error) {
+func (r *ChannelRequest) Get(ctx context.Context) (resObj *Channel, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Channel
-func (r *ChannelRequest) Update(reqObj *Channel) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ChannelRequest) Update(ctx context.Context, reqObj *Channel) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Channel
-func (r *ChannelRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ChannelRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // ChatThreads returns request builder for ChatThread collection
@@ -71,10 +72,13 @@ func (b *ChannelChatThreadsCollectionRequestBuilder) ID(id string) *ChatThreadRe
 type ChannelChatThreadsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatThread collection
-func (r *ChannelChatThreadsCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatThread, error) {
+func (r *ChannelChatThreadsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatThread, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ChannelChatThreadsCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *ChannelChatThreadsCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for ChatThread collection
-func (r *ChannelChatThreadsCollectionRequest) Get() ([]ChatThread, error) {
+func (r *ChannelChatThreadsCollectionRequest) Get(ctx context.Context) ([]ChatThread, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ChatThread collection
-func (r *ChannelChatThreadsCollectionRequest) Add(reqObj *ChatThread) (resObj *ChatThread, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ChannelChatThreadsCollectionRequest) Add(ctx context.Context, reqObj *ChatThread) (resObj *ChatThread, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -165,10 +173,13 @@ func (b *ChannelMembersCollectionRequestBuilder) ID(id string) *ConversationMemb
 type ChannelMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ConversationMember collection
-func (r *ChannelMembersCollectionRequest) Paging(method, path string, obj interface{}) ([]ConversationMember, error) {
+func (r *ChannelMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConversationMember, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -202,7 +213,11 @@ func (r *ChannelMembersCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -210,17 +225,17 @@ func (r *ChannelMembersCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for ConversationMember collection
-func (r *ChannelMembersCollectionRequest) Get() ([]ConversationMember, error) {
+func (r *ChannelMembersCollectionRequest) Get(ctx context.Context) ([]ConversationMember, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ConversationMember collection
-func (r *ChannelMembersCollectionRequest) Add(reqObj *ConversationMember) (resObj *ConversationMember, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ChannelMembersCollectionRequest) Add(ctx context.Context, reqObj *ConversationMember) (resObj *ConversationMember, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -252,10 +267,13 @@ func (b *ChannelMessagesCollectionRequestBuilder) ID(id string) *ChatMessageRequ
 type ChannelMessagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatMessage collection
-func (r *ChannelMessagesCollectionRequest) Paging(method, path string, obj interface{}) ([]ChatMessage, error) {
+func (r *ChannelMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -289,7 +307,11 @@ func (r *ChannelMessagesCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -297,17 +319,17 @@ func (r *ChannelMessagesCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for ChatMessage collection
-func (r *ChannelMessagesCollectionRequest) Get() ([]ChatMessage, error) {
+func (r *ChannelMessagesCollectionRequest) Get(ctx context.Context) ([]ChatMessage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ChatMessage collection
-func (r *ChannelMessagesCollectionRequest) Add(reqObj *ChatMessage) (resObj *ChatMessage, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ChannelMessagesCollectionRequest) Add(ctx context.Context, reqObj *ChatMessage) (resObj *ChatMessage, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -339,10 +361,13 @@ func (b *ChannelTabsCollectionRequestBuilder) ID(id string) *TeamsTabRequestBuil
 type ChannelTabsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface{}) ([]TeamsTab, error) {
+func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsTab, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -376,7 +401,11 @@ func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -384,16 +413,16 @@ func (r *ChannelTabsCollectionRequest) Paging(method, path string, obj interface
 }
 
 // Get performs GET request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Get() ([]TeamsTab, error) {
+func (r *ChannelTabsCollectionRequest) Get(ctx context.Context) ([]TeamsTab, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Add(reqObj *TeamsTab) (resObj *TeamsTab, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ChannelTabsCollectionRequest) Add(ctx context.Context, reqObj *TeamsTab) (resObj *TeamsTab, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidForWorkTrustedRootCertificateRequestBuilder is request builder for AndroidForWorkTrustedRootCertificate
 type AndroidForWorkTrustedRootCertificateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidForWorkTrustedRootCertificateRequestBuilder) Request() *AndroidF
 type AndroidForWorkTrustedRootCertificateRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidForWorkTrustedRootCertificate
-func (r *AndroidForWorkTrustedRootCertificateRequest) Get() (resObj *AndroidForWorkTrustedRootCertificate, err error) {
+func (r *AndroidForWorkTrustedRootCertificateRequest) Get(ctx context.Context) (resObj *AndroidForWorkTrustedRootCertificate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidForWorkTrustedRootCertificate
-func (r *AndroidForWorkTrustedRootCertificateRequest) Update(reqObj *AndroidForWorkTrustedRootCertificate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidForWorkTrustedRootCertificateRequest) Update(ctx context.Context, reqObj *AndroidForWorkTrustedRootCertificate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidForWorkTrustedRootCertificate
-func (r *AndroidForWorkTrustedRootCertificateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidForWorkTrustedRootCertificateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

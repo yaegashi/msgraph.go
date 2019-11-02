@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkbookTableSortRequestBuilder is request builder for WorkbookTableSort
 type WorkbookTableSortRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkbookTableSortRequestBuilder) Request() *WorkbookTableSortRequest {
 type WorkbookTableSortRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkbookTableSort
-func (r *WorkbookTableSortRequest) Get() (resObj *WorkbookTableSort, err error) {
+func (r *WorkbookTableSortRequest) Get(ctx context.Context) (resObj *WorkbookTableSort, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkbookTableSort
-func (r *WorkbookTableSortRequest) Update(reqObj *WorkbookTableSort) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkbookTableSortRequest) Update(ctx context.Context, reqObj *WorkbookTableSort) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkbookTableSort
-func (r *WorkbookTableSortRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkbookTableSortRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AppLogCollectionRequestObjectRequestBuilder is request builder for AppLogCollectionRequestObject
 type AppLogCollectionRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AppLogCollectionRequestObjectRequestBuilder) Request() *AppLogCollectio
 type AppLogCollectionRequestObjectRequest struct{ BaseRequest }
 
 // Get performs GET request for AppLogCollectionRequestObject
-func (r *AppLogCollectionRequestObjectRequest) Get() (resObj *AppLogCollectionRequestObject, err error) {
+func (r *AppLogCollectionRequestObjectRequest) Get(ctx context.Context) (resObj *AppLogCollectionRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AppLogCollectionRequestObject
-func (r *AppLogCollectionRequestObjectRequest) Update(reqObj *AppLogCollectionRequestObject) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AppLogCollectionRequestObjectRequest) Update(ctx context.Context, reqObj *AppLogCollectionRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AppLogCollectionRequestObject
-func (r *AppLogCollectionRequestObjectRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AppLogCollectionRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

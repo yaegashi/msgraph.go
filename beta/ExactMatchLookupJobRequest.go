@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *ExactMatchLookupJobRequestBuilder) Request() *ExactMatchLookupJobReques
 type ExactMatchLookupJobRequest struct{ BaseRequest }
 
 // Get performs GET request for ExactMatchLookupJob
-func (r *ExactMatchLookupJobRequest) Get() (resObj *ExactMatchLookupJob, err error) {
+func (r *ExactMatchLookupJobRequest) Get(ctx context.Context) (resObj *ExactMatchLookupJob, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ExactMatchLookupJob
-func (r *ExactMatchLookupJobRequest) Update(reqObj *ExactMatchLookupJob) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ExactMatchLookupJobRequest) Update(ctx context.Context, reqObj *ExactMatchLookupJob) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ExactMatchLookupJob
-func (r *ExactMatchLookupJobRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ExactMatchLookupJobRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // MatchingRows returns request builder for LookupResultRow collection
@@ -71,10 +72,13 @@ func (b *ExactMatchLookupJobMatchingRowsCollectionRequestBuilder) ID(id string) 
 type ExactMatchLookupJobMatchingRowsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(method, path string, obj interface{}) ([]LookupResultRow, error) {
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]LookupResultRow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(method, path s
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(method, path s
 }
 
 // Get performs GET request for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Get() ([]LookupResultRow, error) {
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Get(ctx context.Context) ([]LookupResultRow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Add(reqObj *LookupResultRow) (resObj *LookupResultRow, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Add(ctx context.Context, reqObj *LookupResultRow) (resObj *LookupResultRow, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

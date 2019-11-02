@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // CredentialUserRegistrationDetailsRequestBuilder is request builder for CredentialUserRegistrationDetails
 type CredentialUserRegistrationDetailsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *CredentialUserRegistrationDetailsRequestBuilder) Request() *CredentialU
 type CredentialUserRegistrationDetailsRequest struct{ BaseRequest }
 
 // Get performs GET request for CredentialUserRegistrationDetails
-func (r *CredentialUserRegistrationDetailsRequest) Get() (resObj *CredentialUserRegistrationDetails, err error) {
+func (r *CredentialUserRegistrationDetailsRequest) Get(ctx context.Context) (resObj *CredentialUserRegistrationDetails, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for CredentialUserRegistrationDetails
-func (r *CredentialUserRegistrationDetailsRequest) Update(reqObj *CredentialUserRegistrationDetails) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CredentialUserRegistrationDetailsRequest) Update(ctx context.Context, reqObj *CredentialUserRegistrationDetails) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for CredentialUserRegistrationDetails
-func (r *CredentialUserRegistrationDetailsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CredentialUserRegistrationDetailsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

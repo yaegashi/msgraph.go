@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *WindowsUpdateForBusinessConfigurationRequestBuilder) Request() *Windows
 type WindowsUpdateForBusinessConfigurationRequest struct{ BaseRequest }
 
 // Get performs GET request for WindowsUpdateForBusinessConfiguration
-func (r *WindowsUpdateForBusinessConfigurationRequest) Get() (resObj *WindowsUpdateForBusinessConfiguration, err error) {
+func (r *WindowsUpdateForBusinessConfigurationRequest) Get(ctx context.Context) (resObj *WindowsUpdateForBusinessConfiguration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WindowsUpdateForBusinessConfiguration
-func (r *WindowsUpdateForBusinessConfigurationRequest) Update(reqObj *WindowsUpdateForBusinessConfiguration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WindowsUpdateForBusinessConfigurationRequest) Update(ctx context.Context, reqObj *WindowsUpdateForBusinessConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WindowsUpdateForBusinessConfiguration
-func (r *WindowsUpdateForBusinessConfigurationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WindowsUpdateForBusinessConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // DeviceUpdateStates returns request builder for WindowsUpdateState collection
@@ -71,10 +72,13 @@ func (b *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 type WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsUpdateState, error) {
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsUpdateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 }
 
 // Get performs GET request for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Get() ([]WindowsUpdateState, error) {
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Get(ctx context.Context) ([]WindowsUpdateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Add(reqObj *WindowsUpdateState) (resObj *WindowsUpdateState, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Add(ctx context.Context, reqObj *WindowsUpdateState) (resObj *WindowsUpdateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

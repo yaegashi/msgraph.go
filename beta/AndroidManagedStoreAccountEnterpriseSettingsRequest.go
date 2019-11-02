@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder is request builder for AndroidManagedStoreAccountEnterpriseSettings
 type AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder) Request() *
 type AndroidManagedStoreAccountEnterpriseSettingsRequest struct{ BaseRequest }
 
 // Get performs GET request for AndroidManagedStoreAccountEnterpriseSettings
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Get() (resObj *AndroidManagedStoreAccountEnterpriseSettings, err error) {
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Get(ctx context.Context) (resObj *AndroidManagedStoreAccountEnterpriseSettings, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AndroidManagedStoreAccountEnterpriseSettings
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Update(reqObj *AndroidManagedStoreAccountEnterpriseSettings) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Update(ctx context.Context, reqObj *AndroidManagedStoreAccountEnterpriseSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AndroidManagedStoreAccountEnterpriseSettings
-func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AndroidManagedStoreAccountEnterpriseSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

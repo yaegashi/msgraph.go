@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedEBookCategoryRequestBuilder is request builder for ManagedEBookCategory
 type ManagedEBookCategoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedEBookCategoryRequestBuilder) Request() *ManagedEBookCategoryRequ
 type ManagedEBookCategoryRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedEBookCategory
-func (r *ManagedEBookCategoryRequest) Get() (resObj *ManagedEBookCategory, err error) {
+func (r *ManagedEBookCategoryRequest) Get(ctx context.Context) (resObj *ManagedEBookCategory, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedEBookCategory
-func (r *ManagedEBookCategoryRequest) Update(reqObj *ManagedEBookCategory) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedEBookCategoryRequest) Update(ctx context.Context, reqObj *ManagedEBookCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedEBookCategory
-func (r *ManagedEBookCategoryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedEBookCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

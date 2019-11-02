@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // SettingStateDeviceSummaryRequestBuilder is request builder for SettingStateDeviceSummary
 type SettingStateDeviceSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *SettingStateDeviceSummaryRequestBuilder) Request() *SettingStateDeviceS
 type SettingStateDeviceSummaryRequest struct{ BaseRequest }
 
 // Get performs GET request for SettingStateDeviceSummary
-func (r *SettingStateDeviceSummaryRequest) Get() (resObj *SettingStateDeviceSummary, err error) {
+func (r *SettingStateDeviceSummaryRequest) Get(ctx context.Context) (resObj *SettingStateDeviceSummary, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for SettingStateDeviceSummary
-func (r *SettingStateDeviceSummaryRequest) Update(reqObj *SettingStateDeviceSummary) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *SettingStateDeviceSummaryRequest) Update(ctx context.Context, reqObj *SettingStateDeviceSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for SettingStateDeviceSummary
-func (r *SettingStateDeviceSummaryRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *SettingStateDeviceSummaryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

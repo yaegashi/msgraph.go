@@ -30,10 +30,13 @@ func (b *{{$x.Sym}}{{$y.Sym}}CollectionRequestBuilder) ID(id string) *{{$ySymTyp
 type {{$x.Sym}}{{$y.Sym}}CollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for {{$ySymType}} collection
-func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(method, path string, obj interface{}) ([]{{$ySymType}}, error) {
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]{{$ySymType}}, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -67,7 +70,11 @@ func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -75,16 +82,16 @@ func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for {{$ySymType}} collection
-func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Get() ([]{{$ySymType}}, error) {
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Get(ctx context.Context) ([]{{$ySymType}}, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for {{$ySymType}} collection
-func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Add(reqObj *{{$ySymType}}) (resObj *{{$ySymType}}, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Add(ctx context.Context, reqObj *{{$ySymType}}) (resObj *{{$ySymType}}, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

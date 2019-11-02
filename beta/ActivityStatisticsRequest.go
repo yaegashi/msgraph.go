@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ActivityStatisticsRequestBuilder is request builder for ActivityStatistics
 type ActivityStatisticsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ActivityStatisticsRequestBuilder) Request() *ActivityStatisticsRequest 
 type ActivityStatisticsRequest struct{ BaseRequest }
 
 // Get performs GET request for ActivityStatistics
-func (r *ActivityStatisticsRequest) Get() (resObj *ActivityStatistics, err error) {
+func (r *ActivityStatisticsRequest) Get(ctx context.Context) (resObj *ActivityStatistics, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ActivityStatistics
-func (r *ActivityStatisticsRequest) Update(reqObj *ActivityStatistics) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ActivityStatisticsRequest) Update(ctx context.Context, reqObj *ActivityStatistics) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ActivityStatistics
-func (r *ActivityStatisticsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ActivityStatisticsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

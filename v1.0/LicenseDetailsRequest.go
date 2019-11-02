@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // LicenseDetailsRequestBuilder is request builder for LicenseDetails
 type LicenseDetailsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *LicenseDetailsRequestBuilder) Request() *LicenseDetailsRequest {
 type LicenseDetailsRequest struct{ BaseRequest }
 
 // Get performs GET request for LicenseDetails
-func (r *LicenseDetailsRequest) Get() (resObj *LicenseDetails, err error) {
+func (r *LicenseDetailsRequest) Get(ctx context.Context) (resObj *LicenseDetails, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for LicenseDetails
-func (r *LicenseDetailsRequest) Update(reqObj *LicenseDetails) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *LicenseDetailsRequest) Update(ctx context.Context, reqObj *LicenseDetails) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for LicenseDetails
-func (r *LicenseDetailsRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *LicenseDetailsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

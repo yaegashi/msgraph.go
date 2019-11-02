@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DomainForceDeleteRequestParameter undocumented
 type DomainForceDeleteRequestParameter struct {
 	// DisableUserAccounts undocumented
@@ -34,8 +36,8 @@ func (b *DomainForceDeleteRequestBuilder) Request() *DomainForceDeleteRequest {
 }
 
 //
-func (r *DomainForceDeleteRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *DomainForceDeleteRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -60,7 +62,7 @@ func (b *DomainVerifyRequestBuilder) Request() *DomainVerifyRequest {
 }
 
 //
-func (r *DomainVerifyRequest) Post() (resObj *Domain, err error) {
-	err = r.JSONRequest("POST", "", r.requestObject, &resObj)
+func (r *DomainVerifyRequest) Post(ctx context.Context) (resObj *Domain, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

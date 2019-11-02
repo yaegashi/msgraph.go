@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MentionRequestBuilder is request builder for Mention
 type MentionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MentionRequestBuilder) Request() *MentionRequest {
 type MentionRequest struct{ BaseRequest }
 
 // Get performs GET request for Mention
-func (r *MentionRequest) Get() (resObj *Mention, err error) {
+func (r *MentionRequest) Get(ctx context.Context) (resObj *Mention, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Mention
-func (r *MentionRequest) Update(reqObj *Mention) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MentionRequest) Update(ctx context.Context, reqObj *Mention) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Mention
-func (r *MentionRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MentionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

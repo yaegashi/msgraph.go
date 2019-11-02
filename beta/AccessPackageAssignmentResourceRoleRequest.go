@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *AccessPackageAssignmentResourceRoleRequestBuilder) Request() *AccessPac
 type AccessPackageAssignmentResourceRoleRequest struct{ BaseRequest }
 
 // Get performs GET request for AccessPackageAssignmentResourceRole
-func (r *AccessPackageAssignmentResourceRoleRequest) Get() (resObj *AccessPackageAssignmentResourceRole, err error) {
+func (r *AccessPackageAssignmentResourceRoleRequest) Get(ctx context.Context) (resObj *AccessPackageAssignmentResourceRole, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for AccessPackageAssignmentResourceRole
-func (r *AccessPackageAssignmentResourceRoleRequest) Update(reqObj *AccessPackageAssignmentResourceRole) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *AccessPackageAssignmentResourceRoleRequest) Update(ctx context.Context, reqObj *AccessPackageAssignmentResourceRole) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for AccessPackageAssignmentResourceRole
-func (r *AccessPackageAssignmentResourceRoleRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *AccessPackageAssignmentResourceRoleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AccessPackageAssignments returns request builder for AccessPackageAssignment collection
@@ -71,10 +72,13 @@ func (b *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 type AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Paging(method, path string, obj interface{}) ([]AccessPackageAssignment, error) {
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 }
 
 // Get performs GET request for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Get() ([]AccessPackageAssignment, error) {
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Add(reqObj *AccessPackageAssignment) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignment) (resObj *AccessPackageAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

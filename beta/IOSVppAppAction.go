@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // IOSVppAppRevokeAllLicensesRequestParameter undocumented
 type IOSVppAppRevokeAllLicensesRequestParameter struct {
 	// NotifyManagedDevices undocumented
@@ -46,8 +48,8 @@ func (b *IOSVppAppRevokeAllLicensesRequestBuilder) Request() *IOSVppAppRevokeAll
 }
 
 //
-func (r *IOSVppAppRevokeAllLicensesRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *IOSVppAppRevokeAllLicensesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -72,8 +74,8 @@ func (b *IOSVppAppRevokeUserLicenseRequestBuilder) Request() *IOSVppAppRevokeUse
 }
 
 //
-func (r *IOSVppAppRevokeUserLicenseRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *IOSVppAppRevokeUserLicenseRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //
@@ -98,6 +100,6 @@ func (b *IOSVppAppRevokeDeviceLicenseRequestBuilder) Request() *IOSVppAppRevokeD
 }
 
 //
-func (r *IOSVppAppRevokeDeviceLicenseRequest) Post() error {
-	return r.JSONRequest("POST", "", r.requestObject, nil)
+func (r *IOSVppAppRevokeDeviceLicenseRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

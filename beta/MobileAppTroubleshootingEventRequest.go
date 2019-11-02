@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *MobileAppTroubleshootingEventRequestBuilder) Request() *MobileAppTroubl
 type MobileAppTroubleshootingEventRequest struct{ BaseRequest }
 
 // Get performs GET request for MobileAppTroubleshootingEvent
-func (r *MobileAppTroubleshootingEventRequest) Get() (resObj *MobileAppTroubleshootingEvent, err error) {
+func (r *MobileAppTroubleshootingEventRequest) Get(ctx context.Context) (resObj *MobileAppTroubleshootingEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MobileAppTroubleshootingEvent
-func (r *MobileAppTroubleshootingEventRequest) Update(reqObj *MobileAppTroubleshootingEvent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MobileAppTroubleshootingEventRequest) Update(ctx context.Context, reqObj *MobileAppTroubleshootingEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppTroubleshootingEvent
-func (r *MobileAppTroubleshootingEventRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MobileAppTroubleshootingEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AppLogCollectionRequests returns request builder for AppLogCollectionRequestObject collection
@@ -71,10 +72,13 @@ func (b *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestB
 type MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Paging(method, path string, obj interface{}) ([]AppLogCollectionRequestObject, error) {
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AppLogCollectionRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,16 +124,16 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 }
 
 // Get performs GET request for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Get() ([]AppLogCollectionRequestObject, error) {
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Get(ctx context.Context) ([]AppLogCollectionRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Add(reqObj *AppLogCollectionRequestObject) (resObj *AppLogCollectionRequestObject, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Add(ctx context.Context, reqObj *AppLogCollectionRequestObject) (resObj *AppLogCollectionRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

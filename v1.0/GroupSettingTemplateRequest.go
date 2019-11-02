@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // GroupSettingTemplateRequestBuilder is request builder for GroupSettingTemplate
 type GroupSettingTemplateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *GroupSettingTemplateRequestBuilder) Request() *GroupSettingTemplateRequ
 type GroupSettingTemplateRequest struct{ BaseRequest }
 
 // Get performs GET request for GroupSettingTemplate
-func (r *GroupSettingTemplateRequest) Get() (resObj *GroupSettingTemplate, err error) {
+func (r *GroupSettingTemplateRequest) Get(ctx context.Context) (resObj *GroupSettingTemplate, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for GroupSettingTemplate
-func (r *GroupSettingTemplateRequest) Update(reqObj *GroupSettingTemplate) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *GroupSettingTemplateRequest) Update(ctx context.Context, reqObj *GroupSettingTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for GroupSettingTemplate
-func (r *GroupSettingTemplateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *GroupSettingTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

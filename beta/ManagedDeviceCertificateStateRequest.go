@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ManagedDeviceCertificateStateRequestBuilder is request builder for ManagedDeviceCertificateState
 type ManagedDeviceCertificateStateRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ManagedDeviceCertificateStateRequestBuilder) Request() *ManagedDeviceCe
 type ManagedDeviceCertificateStateRequest struct{ BaseRequest }
 
 // Get performs GET request for ManagedDeviceCertificateState
-func (r *ManagedDeviceCertificateStateRequest) Get() (resObj *ManagedDeviceCertificateState, err error) {
+func (r *ManagedDeviceCertificateStateRequest) Get(ctx context.Context) (resObj *ManagedDeviceCertificateState, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ManagedDeviceCertificateState
-func (r *ManagedDeviceCertificateStateRequest) Update(reqObj *ManagedDeviceCertificateState) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ManagedDeviceCertificateStateRequest) Update(ctx context.Context, reqObj *ManagedDeviceCertificateState) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ManagedDeviceCertificateState
-func (r *ManagedDeviceCertificateStateRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ManagedDeviceCertificateStateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

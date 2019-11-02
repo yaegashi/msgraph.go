@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // ExtensionPropertyRequestBuilder is request builder for ExtensionProperty
 type ExtensionPropertyRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *ExtensionPropertyRequestBuilder) Request() *ExtensionPropertyRequest {
 type ExtensionPropertyRequest struct{ BaseRequest }
 
 // Get performs GET request for ExtensionProperty
-func (r *ExtensionPropertyRequest) Get() (resObj *ExtensionProperty, err error) {
+func (r *ExtensionPropertyRequest) Get(ctx context.Context) (resObj *ExtensionProperty, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for ExtensionProperty
-func (r *ExtensionPropertyRequest) Update(reqObj *ExtensionProperty) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *ExtensionPropertyRequest) Update(ctx context.Context, reqObj *ExtensionProperty) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for ExtensionProperty
-func (r *ExtensionPropertyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *ExtensionPropertyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

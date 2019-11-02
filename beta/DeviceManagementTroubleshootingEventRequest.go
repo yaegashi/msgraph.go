@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // DeviceManagementTroubleshootingEventRequestBuilder is request builder for DeviceManagementTroubleshootingEvent
 type DeviceManagementTroubleshootingEventRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *DeviceManagementTroubleshootingEventRequestBuilder) Request() *DeviceMa
 type DeviceManagementTroubleshootingEventRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceManagementTroubleshootingEvent
-func (r *DeviceManagementTroubleshootingEventRequest) Get() (resObj *DeviceManagementTroubleshootingEvent, err error) {
+func (r *DeviceManagementTroubleshootingEventRequest) Get(ctx context.Context) (resObj *DeviceManagementTroubleshootingEvent, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceManagementTroubleshootingEvent
-func (r *DeviceManagementTroubleshootingEventRequest) Update(reqObj *DeviceManagementTroubleshootingEvent) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceManagementTroubleshootingEventRequest) Update(ctx context.Context, reqObj *DeviceManagementTroubleshootingEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceManagementTroubleshootingEvent
-func (r *DeviceManagementTroubleshootingEventRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceManagementTroubleshootingEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // WorkforceIntegrationRequestBuilder is request builder for WorkforceIntegration
 type WorkforceIntegrationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *WorkforceIntegrationRequestBuilder) Request() *WorkforceIntegrationRequ
 type WorkforceIntegrationRequest struct{ BaseRequest }
 
 // Get performs GET request for WorkforceIntegration
-func (r *WorkforceIntegrationRequest) Get() (resObj *WorkforceIntegration, err error) {
+func (r *WorkforceIntegrationRequest) Get(ctx context.Context) (resObj *WorkforceIntegration, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for WorkforceIntegration
-func (r *WorkforceIntegrationRequest) Update(reqObj *WorkforceIntegration) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *WorkforceIntegrationRequest) Update(ctx context.Context, reqObj *WorkforceIntegration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for WorkforceIntegration
-func (r *WorkforceIntegrationRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *WorkforceIntegrationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

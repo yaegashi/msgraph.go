@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *DeviceAppManagementRequestBuilder) Request() *DeviceAppManagementReques
 type DeviceAppManagementRequest struct{ BaseRequest }
 
 // Get performs GET request for DeviceAppManagement
-func (r *DeviceAppManagementRequest) Get() (resObj *DeviceAppManagement, err error) {
+func (r *DeviceAppManagementRequest) Get(ctx context.Context) (resObj *DeviceAppManagement, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for DeviceAppManagement
-func (r *DeviceAppManagementRequest) Update(reqObj *DeviceAppManagement) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *DeviceAppManagementRequest) Update(ctx context.Context, reqObj *DeviceAppManagement) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for DeviceAppManagement
-func (r *DeviceAppManagementRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *DeviceAppManagementRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // AndroidManagedAppProtections returns request builder for AndroidManagedAppProtection collection
@@ -71,10 +72,13 @@ func (b *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequestBuilder
 type DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AndroidManagedAppProtection collection
-func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]AndroidManagedAppProtection, error) {
+func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AndroidManagedAppProtection, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Pagin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Pagin
 }
 
 // Get performs GET request for AndroidManagedAppProtection collection
-func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Get() ([]AndroidManagedAppProtection, error) {
+func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Get(ctx context.Context) ([]AndroidManagedAppProtection, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AndroidManagedAppProtection collection
-func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Add(reqObj *AndroidManagedAppProtection) (resObj *AndroidManagedAppProtection, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementAndroidManagedAppProtectionsCollectionRequest) Add(ctx context.Context, reqObj *AndroidManagedAppProtection) (resObj *AndroidManagedAppProtection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequestBuilder
 type DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DefaultManagedAppProtection collection
-func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]DefaultManagedAppProtection, error) {
+func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DefaultManagedAppProtection, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Pagin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Pagin
 }
 
 // Get performs GET request for DefaultManagedAppProtection collection
-func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Get() ([]DefaultManagedAppProtection, error) {
+func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Get(ctx context.Context) ([]DefaultManagedAppProtection, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DefaultManagedAppProtection collection
-func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Add(reqObj *DefaultManagedAppProtection) (resObj *DefaultManagedAppProtection, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementDefaultManagedAppProtectionsCollectionRequest) Add(ctx context.Context, reqObj *DefaultManagedAppProtection) (resObj *DefaultManagedAppProtection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *DeviceAppManagementDeviceAppManagementTasksCollectionRequestBuilder) ID
 type DeviceAppManagementDeviceAppManagementTasksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceAppManagementTask collection
-func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Paging(method, path string, obj interface{}) ([]DeviceAppManagementTask, error) {
+func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceAppManagementTask, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Paging(me
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Paging(me
 }
 
 // Get performs GET request for DeviceAppManagementTask collection
-func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Get() ([]DeviceAppManagementTask, error) {
+func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Get(ctx context.Context) ([]DeviceAppManagementTask, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DeviceAppManagementTask collection
-func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Add(reqObj *DeviceAppManagementTask) (resObj *DeviceAppManagementTask, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementDeviceAppManagementTasksCollectionRequest) Add(ctx context.Context, reqObj *DeviceAppManagementTask) (resObj *DeviceAppManagementTask, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequestBu
 type DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EnterpriseCodeSigningCertificate collection
-func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) Paging(method, path string, obj interface{}) ([]EnterpriseCodeSigningCertificate, error) {
+func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EnterpriseCodeSigningCertificate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) 
 }
 
 // Get performs GET request for EnterpriseCodeSigningCertificate collection
-func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) Get() ([]EnterpriseCodeSigningCertificate, error) {
+func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) Get(ctx context.Context) ([]EnterpriseCodeSigningCertificate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for EnterpriseCodeSigningCertificate collection
-func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) Add(reqObj *EnterpriseCodeSigningCertificate) (resObj *EnterpriseCodeSigningCertificate, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementEnterpriseCodeSigningCertificatesCollectionRequest) Add(ctx context.Context, reqObj *EnterpriseCodeSigningCertificate) (resObj *EnterpriseCodeSigningCertificate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest
 type DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IOSLobAppProvisioningConfiguration collection
-func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSLobAppProvisioningConfiguration, error) {
+func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IOSLobAppProvisioningConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,17 +500,17 @@ func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest
 }
 
 // Get performs GET request for IOSLobAppProvisioningConfiguration collection
-func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Get() ([]IOSLobAppProvisioningConfiguration, error) {
+func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Get(ctx context.Context) ([]IOSLobAppProvisioningConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for IOSLobAppProvisioningConfiguration collection
-func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Add(reqObj *IOSLobAppProvisioningConfiguration) (resObj *IOSLobAppProvisioningConfiguration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementIOSLobAppProvisioningConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *IOSLobAppProvisioningConfiguration) (resObj *IOSLobAppProvisioningConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -506,10 +542,13 @@ func (b *DeviceAppManagementIOSManagedAppProtectionsCollectionRequestBuilder) ID
 type DeviceAppManagementIOSManagedAppProtectionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IOSManagedAppProtection collection
-func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Paging(method, path string, obj interface{}) ([]IOSManagedAppProtection, error) {
+func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IOSManagedAppProtection, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -543,7 +582,11 @@ func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Paging(me
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -551,17 +594,17 @@ func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Paging(me
 }
 
 // Get performs GET request for IOSManagedAppProtection collection
-func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Get() ([]IOSManagedAppProtection, error) {
+func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Get(ctx context.Context) ([]IOSManagedAppProtection, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for IOSManagedAppProtection collection
-func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Add(reqObj *IOSManagedAppProtection) (resObj *IOSManagedAppProtection, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementIOSManagedAppProtectionsCollectionRequest) Add(ctx context.Context, reqObj *IOSManagedAppProtection) (resObj *IOSManagedAppProtection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -593,10 +636,13 @@ func (b *DeviceAppManagementManagedAppPoliciesCollectionRequestBuilder) ID(id st
 type DeviceAppManagementManagedAppPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppPolicy collection
-func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
+func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -630,7 +676,11 @@ func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Paging(method, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -638,17 +688,17 @@ func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Paging(method, 
 }
 
 // Get performs GET request for ManagedAppPolicy collection
-func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Get() ([]ManagedAppPolicy, error) {
+func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Get(ctx context.Context) ([]ManagedAppPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedAppPolicy collection
-func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Add(reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementManagedAppPoliciesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppPolicy) (resObj *ManagedAppPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -680,10 +730,13 @@ func (b *DeviceAppManagementManagedAppRegistrationsCollectionRequestBuilder) ID(
 type DeviceAppManagementManagedAppRegistrationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppRegistration collection
-func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppRegistration, error) {
+func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppRegistration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -717,7 +770,11 @@ func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -725,17 +782,17 @@ func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Paging(met
 }
 
 // Get performs GET request for ManagedAppRegistration collection
-func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Get() ([]ManagedAppRegistration, error) {
+func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Get(ctx context.Context) ([]ManagedAppRegistration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedAppRegistration collection
-func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Add(reqObj *ManagedAppRegistration) (resObj *ManagedAppRegistration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementManagedAppRegistrationsCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppRegistration) (resObj *ManagedAppRegistration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -767,10 +824,13 @@ func (b *DeviceAppManagementManagedAppStatusesCollectionRequestBuilder) ID(id st
 type DeviceAppManagementManagedAppStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppStatus collection
-func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedAppStatus, error) {
+func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -804,7 +864,11 @@ func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Paging(method, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -812,17 +876,17 @@ func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Paging(method, 
 }
 
 // Get performs GET request for ManagedAppStatus collection
-func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Get() ([]ManagedAppStatus, error) {
+func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Get(ctx context.Context) ([]ManagedAppStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedAppStatus collection
-func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Add(reqObj *ManagedAppStatus) (resObj *ManagedAppStatus, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementManagedAppStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagedAppStatus) (resObj *ManagedAppStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -854,10 +918,13 @@ func (b *DeviceAppManagementManagedEBookCategoriesCollectionRequestBuilder) ID(i
 type DeviceAppManagementManagedEBookCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedEBookCategory collection
-func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedEBookCategory, error) {
+func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedEBookCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -891,7 +958,11 @@ func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Paging(meth
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -899,17 +970,17 @@ func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Paging(meth
 }
 
 // Get performs GET request for ManagedEBookCategory collection
-func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Get() ([]ManagedEBookCategory, error) {
+func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Get(ctx context.Context) ([]ManagedEBookCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedEBookCategory collection
-func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Add(reqObj *ManagedEBookCategory) (resObj *ManagedEBookCategory, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementManagedEBookCategoriesCollectionRequest) Add(ctx context.Context, reqObj *ManagedEBookCategory) (resObj *ManagedEBookCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -941,10 +1012,13 @@ func (b *DeviceAppManagementManagedEBooksCollectionRequestBuilder) ID(id string)
 type DeviceAppManagementManagedEBooksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedEBook collection
-func (r *DeviceAppManagementManagedEBooksCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedEBook, error) {
+func (r *DeviceAppManagementManagedEBooksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedEBook, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -978,7 +1052,11 @@ func (r *DeviceAppManagementManagedEBooksCollectionRequest) Paging(method, path 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -986,17 +1064,17 @@ func (r *DeviceAppManagementManagedEBooksCollectionRequest) Paging(method, path 
 }
 
 // Get performs GET request for ManagedEBook collection
-func (r *DeviceAppManagementManagedEBooksCollectionRequest) Get() ([]ManagedEBook, error) {
+func (r *DeviceAppManagementManagedEBooksCollectionRequest) Get(ctx context.Context) ([]ManagedEBook, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedEBook collection
-func (r *DeviceAppManagementManagedEBooksCollectionRequest) Add(reqObj *ManagedEBook) (resObj *ManagedEBook, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementManagedEBooksCollectionRequest) Add(ctx context.Context, reqObj *ManagedEBook) (resObj *ManagedEBook, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1028,10 +1106,13 @@ func (b *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionReq
 type DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MdmWindowsInformationProtectionPolicy collection
-func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]MdmWindowsInformationProtectionPolicy, error) {
+func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MdmWindowsInformationProtectionPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1065,7 +1146,11 @@ func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionReq
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1073,17 +1158,17 @@ func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionReq
 }
 
 // Get performs GET request for MdmWindowsInformationProtectionPolicy collection
-func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest) Get() ([]MdmWindowsInformationProtectionPolicy, error) {
+func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest) Get(ctx context.Context) ([]MdmWindowsInformationProtectionPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MdmWindowsInformationProtectionPolicy collection
-func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest) Add(reqObj *MdmWindowsInformationProtectionPolicy) (resObj *MdmWindowsInformationProtectionPolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementMdmWindowsInformationProtectionPoliciesCollectionRequest) Add(ctx context.Context, reqObj *MdmWindowsInformationProtectionPolicy) (resObj *MdmWindowsInformationProtectionPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1115,10 +1200,13 @@ func (b *DeviceAppManagementMobileAppCategoriesCollectionRequestBuilder) ID(id s
 type DeviceAppManagementMobileAppCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppCategory collection
-func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileAppCategory, error) {
+func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1152,7 +1240,11 @@ func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Paging(method,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1160,17 +1252,17 @@ func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Paging(method,
 }
 
 // Get performs GET request for MobileAppCategory collection
-func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Get() ([]MobileAppCategory, error) {
+func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Get(ctx context.Context) ([]MobileAppCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MobileAppCategory collection
-func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Add(reqObj *MobileAppCategory) (resObj *MobileAppCategory, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementMobileAppCategoriesCollectionRequest) Add(ctx context.Context, reqObj *MobileAppCategory) (resObj *MobileAppCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1202,10 +1294,13 @@ func (b *DeviceAppManagementMobileAppConfigurationsCollectionRequestBuilder) ID(
 type DeviceAppManagementMobileAppConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceMobileAppConfiguration collection
-func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfiguration, error) {
+func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceMobileAppConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1239,7 +1334,11 @@ func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Paging(met
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1247,17 +1346,17 @@ func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Paging(met
 }
 
 // Get performs GET request for ManagedDeviceMobileAppConfiguration collection
-func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Get() ([]ManagedDeviceMobileAppConfiguration, error) {
+func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceMobileAppConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ManagedDeviceMobileAppConfiguration collection
-func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Add(reqObj *ManagedDeviceMobileAppConfiguration) (resObj *ManagedDeviceMobileAppConfiguration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementMobileAppConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceMobileAppConfiguration) (resObj *ManagedDeviceMobileAppConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1289,10 +1388,13 @@ func (b *DeviceAppManagementMobileAppsCollectionRequestBuilder) ID(id string) *M
 type DeviceAppManagementMobileAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileApp collection
-func (r *DeviceAppManagementMobileAppsCollectionRequest) Paging(method, path string, obj interface{}) ([]MobileApp, error) {
+func (r *DeviceAppManagementMobileAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1326,7 +1428,11 @@ func (r *DeviceAppManagementMobileAppsCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1334,17 +1440,17 @@ func (r *DeviceAppManagementMobileAppsCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for MobileApp collection
-func (r *DeviceAppManagementMobileAppsCollectionRequest) Get() ([]MobileApp, error) {
+func (r *DeviceAppManagementMobileAppsCollectionRequest) Get(ctx context.Context) ([]MobileApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for MobileApp collection
-func (r *DeviceAppManagementMobileAppsCollectionRequest) Add(reqObj *MobileApp) (resObj *MobileApp, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementMobileAppsCollectionRequest) Add(ctx context.Context, reqObj *MobileApp) (resObj *MobileApp, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1376,10 +1482,13 @@ func (b *DeviceAppManagementPolicySetsCollectionRequestBuilder) ID(id string) *P
 type DeviceAppManagementPolicySetsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PolicySet collection
-func (r *DeviceAppManagementPolicySetsCollectionRequest) Paging(method, path string, obj interface{}) ([]PolicySet, error) {
+func (r *DeviceAppManagementPolicySetsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PolicySet, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1413,7 +1522,11 @@ func (r *DeviceAppManagementPolicySetsCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1421,17 +1534,17 @@ func (r *DeviceAppManagementPolicySetsCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for PolicySet collection
-func (r *DeviceAppManagementPolicySetsCollectionRequest) Get() ([]PolicySet, error) {
+func (r *DeviceAppManagementPolicySetsCollectionRequest) Get(ctx context.Context) ([]PolicySet, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PolicySet collection
-func (r *DeviceAppManagementPolicySetsCollectionRequest) Add(reqObj *PolicySet) (resObj *PolicySet, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementPolicySetsCollectionRequest) Add(ctx context.Context, reqObj *PolicySet) (resObj *PolicySet, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1463,10 +1576,13 @@ func (b *DeviceAppManagementSideLoadingKeysCollectionRequestBuilder) ID(id strin
 type DeviceAppManagementSideLoadingKeysCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SideLoadingKey collection
-func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Paging(method, path string, obj interface{}) ([]SideLoadingKey, error) {
+func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SideLoadingKey, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1500,7 +1616,11 @@ func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Paging(method, pat
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1508,17 +1628,17 @@ func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Paging(method, pat
 }
 
 // Get performs GET request for SideLoadingKey collection
-func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Get() ([]SideLoadingKey, error) {
+func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Get(ctx context.Context) ([]SideLoadingKey, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SideLoadingKey collection
-func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Add(reqObj *SideLoadingKey) (resObj *SideLoadingKey, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementSideLoadingKeysCollectionRequest) Add(ctx context.Context, reqObj *SideLoadingKey) (resObj *SideLoadingKey, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1557,10 +1677,13 @@ func (b *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequestBui
 type DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TargetedManagedAppConfiguration collection
-func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) Paging(method, path string, obj interface{}) ([]TargetedManagedAppConfiguration, error) {
+func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TargetedManagedAppConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1594,7 +1717,11 @@ func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) P
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1602,17 +1729,17 @@ func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) P
 }
 
 // Get performs GET request for TargetedManagedAppConfiguration collection
-func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) Get() ([]TargetedManagedAppConfiguration, error) {
+func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TargetedManagedAppConfiguration collection
-func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) Add(reqObj *TargetedManagedAppConfiguration) (resObj *TargetedManagedAppConfiguration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementTargetedManagedAppConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *TargetedManagedAppConfiguration) (resObj *TargetedManagedAppConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1644,10 +1771,13 @@ func (b *DeviceAppManagementVppTokensCollectionRequestBuilder) ID(id string) *Vp
 type DeviceAppManagementVppTokensCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for VppToken collection
-func (r *DeviceAppManagementVppTokensCollectionRequest) Paging(method, path string, obj interface{}) ([]VppToken, error) {
+func (r *DeviceAppManagementVppTokensCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]VppToken, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1681,7 +1811,11 @@ func (r *DeviceAppManagementVppTokensCollectionRequest) Paging(method, path stri
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1689,17 +1823,17 @@ func (r *DeviceAppManagementVppTokensCollectionRequest) Paging(method, path stri
 }
 
 // Get performs GET request for VppToken collection
-func (r *DeviceAppManagementVppTokensCollectionRequest) Get() ([]VppToken, error) {
+func (r *DeviceAppManagementVppTokensCollectionRequest) Get(ctx context.Context) ([]VppToken, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for VppToken collection
-func (r *DeviceAppManagementVppTokensCollectionRequest) Add(reqObj *VppToken) (resObj *VppToken, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementVppTokensCollectionRequest) Add(ctx context.Context, reqObj *VppToken) (resObj *VppToken, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1731,10 +1865,13 @@ func (b *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsColle
 type DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionDeviceRegistration collection
-func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionDeviceRegistration, error) {
+func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionDeviceRegistration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1768,7 +1905,11 @@ func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsColle
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1776,17 +1917,17 @@ func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsColle
 }
 
 // Get performs GET request for WindowsInformationProtectionDeviceRegistration collection
-func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Get() ([]WindowsInformationProtectionDeviceRegistration, error) {
+func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionDeviceRegistration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsInformationProtectionDeviceRegistration collection
-func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Add(reqObj *WindowsInformationProtectionDeviceRegistration) (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionDeviceRegistration) (resObj *WindowsInformationProtectionDeviceRegistration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1818,10 +1959,13 @@ func (b *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionReques
 type DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionPolicy collection
-func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionPolicy, error) {
+func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1855,7 +1999,11 @@ func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionReques
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1863,17 +2011,17 @@ func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionReques
 }
 
 // Get performs GET request for WindowsInformationProtectionPolicy collection
-func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) Get() ([]WindowsInformationProtectionPolicy, error) {
+func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsInformationProtectionPolicy collection
-func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) Add(reqObj *WindowsInformationProtectionPolicy) (resObj *WindowsInformationProtectionPolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementWindowsInformationProtectionPoliciesCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionPolicy) (resObj *WindowsInformationProtectionPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1905,10 +2053,13 @@ func (b *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionReq
 type DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionWipeAction collection
-func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Paging(method, path string, obj interface{}) ([]WindowsInformationProtectionWipeAction, error) {
+func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionWipeAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1942,7 +2093,11 @@ func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionReq
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1950,17 +2105,17 @@ func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionReq
 }
 
 // Get performs GET request for WindowsInformationProtectionWipeAction collection
-func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Get() ([]WindowsInformationProtectionWipeAction, error) {
+func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionWipeAction, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for WindowsInformationProtectionWipeAction collection
-func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Add(reqObj *WindowsInformationProtectionWipeAction) (resObj *WindowsInformationProtectionWipeAction, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *DeviceAppManagementWindowsInformationProtectionWipeActionsCollectionRequest) Add(ctx context.Context, reqObj *WindowsInformationProtectionWipeAction) (resObj *WindowsInformationProtectionWipeAction, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 

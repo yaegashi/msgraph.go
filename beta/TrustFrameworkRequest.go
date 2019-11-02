@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *TrustFrameworkRequestBuilder) Request() *TrustFrameworkRequest {
 type TrustFrameworkRequest struct{ BaseRequest }
 
 // Get performs GET request for TrustFramework
-func (r *TrustFrameworkRequest) Get() (resObj *TrustFramework, err error) {
+func (r *TrustFrameworkRequest) Get(ctx context.Context) (resObj *TrustFramework, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TrustFramework
-func (r *TrustFrameworkRequest) Update(reqObj *TrustFramework) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TrustFrameworkRequest) Update(ctx context.Context, reqObj *TrustFramework) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TrustFramework
-func (r *TrustFrameworkRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TrustFrameworkRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // KeySets returns request builder for TrustFrameworkKeySet collection
@@ -71,10 +72,13 @@ func (b *TrustFrameworkKeySetsCollectionRequestBuilder) ID(id string) *TrustFram
 type TrustFrameworkKeySetsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TrustFrameworkKeySet collection
-func (r *TrustFrameworkKeySetsCollectionRequest) Paging(method, path string, obj interface{}) ([]TrustFrameworkKeySet, error) {
+func (r *TrustFrameworkKeySetsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TrustFrameworkKeySet, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *TrustFrameworkKeySetsCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *TrustFrameworkKeySetsCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for TrustFrameworkKeySet collection
-func (r *TrustFrameworkKeySetsCollectionRequest) Get() ([]TrustFrameworkKeySet, error) {
+func (r *TrustFrameworkKeySetsCollectionRequest) Get(ctx context.Context) ([]TrustFrameworkKeySet, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TrustFrameworkKeySet collection
-func (r *TrustFrameworkKeySetsCollectionRequest) Add(reqObj *TrustFrameworkKeySet) (resObj *TrustFrameworkKeySet, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TrustFrameworkKeySetsCollectionRequest) Add(ctx context.Context, reqObj *TrustFrameworkKeySet) (resObj *TrustFrameworkKeySet, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *TrustFrameworkPoliciesCollectionRequestBuilder) ID(id string) *TrustFra
 type TrustFrameworkPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TrustFrameworkPolicy collection
-func (r *TrustFrameworkPoliciesCollectionRequest) Paging(method, path string, obj interface{}) ([]TrustFrameworkPolicy, error) {
+func (r *TrustFrameworkPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TrustFrameworkPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *TrustFrameworkPoliciesCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,16 +218,16 @@ func (r *TrustFrameworkPoliciesCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for TrustFrameworkPolicy collection
-func (r *TrustFrameworkPoliciesCollectionRequest) Get() ([]TrustFrameworkPolicy, error) {
+func (r *TrustFrameworkPoliciesCollectionRequest) Get(ctx context.Context) ([]TrustFrameworkPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TrustFrameworkPolicy collection
-func (r *TrustFrameworkPoliciesCollectionRequest) Add(reqObj *TrustFrameworkPolicy) (resObj *TrustFrameworkPolicy, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *TrustFrameworkPoliciesCollectionRequest) Add(ctx context.Context, reqObj *TrustFrameworkPolicy) (resObj *TrustFrameworkPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // TelecomExpenseManagementPartnerRequestBuilder is request builder for TelecomExpenseManagementPartner
 type TelecomExpenseManagementPartnerRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *TelecomExpenseManagementPartnerRequestBuilder) Request() *TelecomExpens
 type TelecomExpenseManagementPartnerRequest struct{ BaseRequest }
 
 // Get performs GET request for TelecomExpenseManagementPartner
-func (r *TelecomExpenseManagementPartnerRequest) Get() (resObj *TelecomExpenseManagementPartner, err error) {
+func (r *TelecomExpenseManagementPartnerRequest) Get(ctx context.Context) (resObj *TelecomExpenseManagementPartner, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for TelecomExpenseManagementPartner
-func (r *TelecomExpenseManagementPartnerRequest) Update(reqObj *TelecomExpenseManagementPartner) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *TelecomExpenseManagementPartnerRequest) Update(ctx context.Context, reqObj *TelecomExpenseManagementPartner) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for TelecomExpenseManagementPartner
-func (r *TelecomExpenseManagementPartnerRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *TelecomExpenseManagementPartnerRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

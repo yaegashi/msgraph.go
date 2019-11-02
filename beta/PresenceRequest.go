@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // PresenceRequestBuilder is request builder for Presence
 type PresenceRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *PresenceRequestBuilder) Request() *PresenceRequest {
 type PresenceRequest struct{ BaseRequest }
 
 // Get performs GET request for Presence
-func (r *PresenceRequest) Get() (resObj *Presence, err error) {
+func (r *PresenceRequest) Get(ctx context.Context) (resObj *Presence, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Presence
-func (r *PresenceRequest) Update(reqObj *Presence) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *PresenceRequest) Update(ctx context.Context, reqObj *Presence) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Presence
-func (r *PresenceRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *PresenceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

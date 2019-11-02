@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // BusinessFlowRequestBuilder is request builder for BusinessFlow
 type BusinessFlowRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *BusinessFlowRequestBuilder) Request() *BusinessFlowRequest {
 type BusinessFlowRequest struct{ BaseRequest }
 
 // Get performs GET request for BusinessFlow
-func (r *BusinessFlowRequest) Get() (resObj *BusinessFlow, err error) {
+func (r *BusinessFlowRequest) Get(ctx context.Context) (resObj *BusinessFlow, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for BusinessFlow
-func (r *BusinessFlowRequest) Update(reqObj *BusinessFlow) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *BusinessFlowRequest) Update(ctx context.Context, reqObj *BusinessFlow) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for BusinessFlow
-func (r *BusinessFlowRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *BusinessFlowRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

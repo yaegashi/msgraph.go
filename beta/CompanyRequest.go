@@ -3,6 +3,7 @@
 package msgraph
 
 import (
+	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -24,23 +25,23 @@ func (b *CompanyRequestBuilder) Request() *CompanyRequest {
 type CompanyRequest struct{ BaseRequest }
 
 // Get performs GET request for Company
-func (r *CompanyRequest) Get() (resObj *Company, err error) {
+func (r *CompanyRequest) Get(ctx context.Context) (resObj *Company, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for Company
-func (r *CompanyRequest) Update(reqObj *Company) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *CompanyRequest) Update(ctx context.Context, reqObj *Company) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for Company
-func (r *CompanyRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *CompanyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
 // Accounts returns request builder for Account collection
@@ -71,10 +72,13 @@ func (b *CompanyAccountsCollectionRequestBuilder) ID(id string) *AccountRequestB
 type CompanyAccountsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Account collection
-func (r *CompanyAccountsCollectionRequest) Paging(method, path string, obj interface{}) ([]Account, error) {
+func (r *CompanyAccountsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Account, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -108,7 +112,11 @@ func (r *CompanyAccountsCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -116,17 +124,17 @@ func (r *CompanyAccountsCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for Account collection
-func (r *CompanyAccountsCollectionRequest) Get() ([]Account, error) {
+func (r *CompanyAccountsCollectionRequest) Get(ctx context.Context) ([]Account, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Account collection
-func (r *CompanyAccountsCollectionRequest) Add(reqObj *Account) (resObj *Account, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyAccountsCollectionRequest) Add(ctx context.Context, reqObj *Account) (resObj *Account, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -158,10 +166,13 @@ func (b *CompanyAgedAccountsPayableCollectionRequestBuilder) ID(id string) *Aged
 type CompanyAgedAccountsPayableCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AgedAccountsPayable collection
-func (r *CompanyAgedAccountsPayableCollectionRequest) Paging(method, path string, obj interface{}) ([]AgedAccountsPayable, error) {
+func (r *CompanyAgedAccountsPayableCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AgedAccountsPayable, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -195,7 +206,11 @@ func (r *CompanyAgedAccountsPayableCollectionRequest) Paging(method, path string
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -203,17 +218,17 @@ func (r *CompanyAgedAccountsPayableCollectionRequest) Paging(method, path string
 }
 
 // Get performs GET request for AgedAccountsPayable collection
-func (r *CompanyAgedAccountsPayableCollectionRequest) Get() ([]AgedAccountsPayable, error) {
+func (r *CompanyAgedAccountsPayableCollectionRequest) Get(ctx context.Context) ([]AgedAccountsPayable, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AgedAccountsPayable collection
-func (r *CompanyAgedAccountsPayableCollectionRequest) Add(reqObj *AgedAccountsPayable) (resObj *AgedAccountsPayable, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyAgedAccountsPayableCollectionRequest) Add(ctx context.Context, reqObj *AgedAccountsPayable) (resObj *AgedAccountsPayable, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -245,10 +260,13 @@ func (b *CompanyAgedAccountsReceivableCollectionRequestBuilder) ID(id string) *A
 type CompanyAgedAccountsReceivableCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AgedAccountsReceivable collection
-func (r *CompanyAgedAccountsReceivableCollectionRequest) Paging(method, path string, obj interface{}) ([]AgedAccountsReceivable, error) {
+func (r *CompanyAgedAccountsReceivableCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AgedAccountsReceivable, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -282,7 +300,11 @@ func (r *CompanyAgedAccountsReceivableCollectionRequest) Paging(method, path str
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -290,17 +312,17 @@ func (r *CompanyAgedAccountsReceivableCollectionRequest) Paging(method, path str
 }
 
 // Get performs GET request for AgedAccountsReceivable collection
-func (r *CompanyAgedAccountsReceivableCollectionRequest) Get() ([]AgedAccountsReceivable, error) {
+func (r *CompanyAgedAccountsReceivableCollectionRequest) Get(ctx context.Context) ([]AgedAccountsReceivable, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for AgedAccountsReceivable collection
-func (r *CompanyAgedAccountsReceivableCollectionRequest) Add(reqObj *AgedAccountsReceivable) (resObj *AgedAccountsReceivable, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyAgedAccountsReceivableCollectionRequest) Add(ctx context.Context, reqObj *AgedAccountsReceivable) (resObj *AgedAccountsReceivable, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -332,10 +354,13 @@ func (b *CompanyCompanyInformationCollectionRequestBuilder) ID(id string) *Compa
 type CompanyCompanyInformationCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CompanyInformation collection
-func (r *CompanyCompanyInformationCollectionRequest) Paging(method, path string, obj interface{}) ([]CompanyInformation, error) {
+func (r *CompanyCompanyInformationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CompanyInformation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -369,7 +394,11 @@ func (r *CompanyCompanyInformationCollectionRequest) Paging(method, path string,
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -377,17 +406,17 @@ func (r *CompanyCompanyInformationCollectionRequest) Paging(method, path string,
 }
 
 // Get performs GET request for CompanyInformation collection
-func (r *CompanyCompanyInformationCollectionRequest) Get() ([]CompanyInformation, error) {
+func (r *CompanyCompanyInformationCollectionRequest) Get(ctx context.Context) ([]CompanyInformation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CompanyInformation collection
-func (r *CompanyCompanyInformationCollectionRequest) Add(reqObj *CompanyInformation) (resObj *CompanyInformation, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyCompanyInformationCollectionRequest) Add(ctx context.Context, reqObj *CompanyInformation) (resObj *CompanyInformation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -419,10 +448,13 @@ func (b *CompanyCountriesRegionsCollectionRequestBuilder) ID(id string) *Country
 type CompanyCountriesRegionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CountryRegion collection
-func (r *CompanyCountriesRegionsCollectionRequest) Paging(method, path string, obj interface{}) ([]CountryRegion, error) {
+func (r *CompanyCountriesRegionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CountryRegion, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -456,7 +488,11 @@ func (r *CompanyCountriesRegionsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -464,17 +500,17 @@ func (r *CompanyCountriesRegionsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for CountryRegion collection
-func (r *CompanyCountriesRegionsCollectionRequest) Get() ([]CountryRegion, error) {
+func (r *CompanyCountriesRegionsCollectionRequest) Get(ctx context.Context) ([]CountryRegion, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CountryRegion collection
-func (r *CompanyCountriesRegionsCollectionRequest) Add(reqObj *CountryRegion) (resObj *CountryRegion, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyCountriesRegionsCollectionRequest) Add(ctx context.Context, reqObj *CountryRegion) (resObj *CountryRegion, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -506,10 +542,13 @@ func (b *CompanyCurrenciesCollectionRequestBuilder) ID(id string) *CurrencyReque
 type CompanyCurrenciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Currency collection
-func (r *CompanyCurrenciesCollectionRequest) Paging(method, path string, obj interface{}) ([]Currency, error) {
+func (r *CompanyCurrenciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Currency, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -543,7 +582,11 @@ func (r *CompanyCurrenciesCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -551,17 +594,17 @@ func (r *CompanyCurrenciesCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for Currency collection
-func (r *CompanyCurrenciesCollectionRequest) Get() ([]Currency, error) {
+func (r *CompanyCurrenciesCollectionRequest) Get(ctx context.Context) ([]Currency, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Currency collection
-func (r *CompanyCurrenciesCollectionRequest) Add(reqObj *Currency) (resObj *Currency, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyCurrenciesCollectionRequest) Add(ctx context.Context, reqObj *Currency) (resObj *Currency, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -593,10 +636,13 @@ func (b *CompanyCustomerPaymentJournalsCollectionRequestBuilder) ID(id string) *
 type CompanyCustomerPaymentJournalsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CustomerPaymentJournal collection
-func (r *CompanyCustomerPaymentJournalsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPaymentJournal, error) {
+func (r *CompanyCustomerPaymentJournalsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CustomerPaymentJournal, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -630,7 +676,11 @@ func (r *CompanyCustomerPaymentJournalsCollectionRequest) Paging(method, path st
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -638,17 +688,17 @@ func (r *CompanyCustomerPaymentJournalsCollectionRequest) Paging(method, path st
 }
 
 // Get performs GET request for CustomerPaymentJournal collection
-func (r *CompanyCustomerPaymentJournalsCollectionRequest) Get() ([]CustomerPaymentJournal, error) {
+func (r *CompanyCustomerPaymentJournalsCollectionRequest) Get(ctx context.Context) ([]CustomerPaymentJournal, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CustomerPaymentJournal collection
-func (r *CompanyCustomerPaymentJournalsCollectionRequest) Add(reqObj *CustomerPaymentJournal) (resObj *CustomerPaymentJournal, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyCustomerPaymentJournalsCollectionRequest) Add(ctx context.Context, reqObj *CustomerPaymentJournal) (resObj *CustomerPaymentJournal, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -680,10 +730,13 @@ func (b *CompanyCustomerPaymentsCollectionRequestBuilder) ID(id string) *Custome
 type CompanyCustomerPaymentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CustomerPayment collection
-func (r *CompanyCustomerPaymentsCollectionRequest) Paging(method, path string, obj interface{}) ([]CustomerPayment, error) {
+func (r *CompanyCustomerPaymentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CustomerPayment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -717,7 +770,11 @@ func (r *CompanyCustomerPaymentsCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -725,17 +782,17 @@ func (r *CompanyCustomerPaymentsCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for CustomerPayment collection
-func (r *CompanyCustomerPaymentsCollectionRequest) Get() ([]CustomerPayment, error) {
+func (r *CompanyCustomerPaymentsCollectionRequest) Get(ctx context.Context) ([]CustomerPayment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for CustomerPayment collection
-func (r *CompanyCustomerPaymentsCollectionRequest) Add(reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyCustomerPaymentsCollectionRequest) Add(ctx context.Context, reqObj *CustomerPayment) (resObj *CustomerPayment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -767,10 +824,13 @@ func (b *CompanyCustomersCollectionRequestBuilder) ID(id string) *CustomerReques
 type CompanyCustomersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Customer collection
-func (r *CompanyCustomersCollectionRequest) Paging(method, path string, obj interface{}) ([]Customer, error) {
+func (r *CompanyCustomersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Customer, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -804,7 +864,11 @@ func (r *CompanyCustomersCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -812,17 +876,17 @@ func (r *CompanyCustomersCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for Customer collection
-func (r *CompanyCustomersCollectionRequest) Get() ([]Customer, error) {
+func (r *CompanyCustomersCollectionRequest) Get(ctx context.Context) ([]Customer, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Customer collection
-func (r *CompanyCustomersCollectionRequest) Add(reqObj *Customer) (resObj *Customer, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyCustomersCollectionRequest) Add(ctx context.Context, reqObj *Customer) (resObj *Customer, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -854,10 +918,13 @@ func (b *CompanyDimensionValuesCollectionRequestBuilder) ID(id string) *Dimensio
 type CompanyDimensionValuesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DimensionValue collection
-func (r *CompanyDimensionValuesCollectionRequest) Paging(method, path string, obj interface{}) ([]DimensionValue, error) {
+func (r *CompanyDimensionValuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DimensionValue, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -891,7 +958,11 @@ func (r *CompanyDimensionValuesCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -899,17 +970,17 @@ func (r *CompanyDimensionValuesCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for DimensionValue collection
-func (r *CompanyDimensionValuesCollectionRequest) Get() ([]DimensionValue, error) {
+func (r *CompanyDimensionValuesCollectionRequest) Get(ctx context.Context) ([]DimensionValue, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for DimensionValue collection
-func (r *CompanyDimensionValuesCollectionRequest) Add(reqObj *DimensionValue) (resObj *DimensionValue, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyDimensionValuesCollectionRequest) Add(ctx context.Context, reqObj *DimensionValue) (resObj *DimensionValue, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -941,10 +1012,13 @@ func (b *CompanyDimensionsCollectionRequestBuilder) ID(id string) *DimensionRequ
 type CompanyDimensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Dimension collection
-func (r *CompanyDimensionsCollectionRequest) Paging(method, path string, obj interface{}) ([]Dimension, error) {
+func (r *CompanyDimensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Dimension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -978,7 +1052,11 @@ func (r *CompanyDimensionsCollectionRequest) Paging(method, path string, obj int
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -986,17 +1064,17 @@ func (r *CompanyDimensionsCollectionRequest) Paging(method, path string, obj int
 }
 
 // Get performs GET request for Dimension collection
-func (r *CompanyDimensionsCollectionRequest) Get() ([]Dimension, error) {
+func (r *CompanyDimensionsCollectionRequest) Get(ctx context.Context) ([]Dimension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Dimension collection
-func (r *CompanyDimensionsCollectionRequest) Add(reqObj *Dimension) (resObj *Dimension, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyDimensionsCollectionRequest) Add(ctx context.Context, reqObj *Dimension) (resObj *Dimension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1028,10 +1106,13 @@ func (b *CompanyEmployeesCollectionRequestBuilder) ID(id string) *EmployeeReques
 type CompanyEmployeesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Employee collection
-func (r *CompanyEmployeesCollectionRequest) Paging(method, path string, obj interface{}) ([]Employee, error) {
+func (r *CompanyEmployeesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Employee, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1065,7 +1146,11 @@ func (r *CompanyEmployeesCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1073,17 +1158,17 @@ func (r *CompanyEmployeesCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for Employee collection
-func (r *CompanyEmployeesCollectionRequest) Get() ([]Employee, error) {
+func (r *CompanyEmployeesCollectionRequest) Get(ctx context.Context) ([]Employee, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Employee collection
-func (r *CompanyEmployeesCollectionRequest) Add(reqObj *Employee) (resObj *Employee, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyEmployeesCollectionRequest) Add(ctx context.Context, reqObj *Employee) (resObj *Employee, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1115,10 +1200,13 @@ func (b *CompanyGeneralLedgerEntriesCollectionRequestBuilder) ID(id string) *Gen
 type CompanyGeneralLedgerEntriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GeneralLedgerEntry collection
-func (r *CompanyGeneralLedgerEntriesCollectionRequest) Paging(method, path string, obj interface{}) ([]GeneralLedgerEntry, error) {
+func (r *CompanyGeneralLedgerEntriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GeneralLedgerEntry, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1152,7 +1240,11 @@ func (r *CompanyGeneralLedgerEntriesCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1160,17 +1252,17 @@ func (r *CompanyGeneralLedgerEntriesCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for GeneralLedgerEntry collection
-func (r *CompanyGeneralLedgerEntriesCollectionRequest) Get() ([]GeneralLedgerEntry, error) {
+func (r *CompanyGeneralLedgerEntriesCollectionRequest) Get(ctx context.Context) ([]GeneralLedgerEntry, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for GeneralLedgerEntry collection
-func (r *CompanyGeneralLedgerEntriesCollectionRequest) Add(reqObj *GeneralLedgerEntry) (resObj *GeneralLedgerEntry, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyGeneralLedgerEntriesCollectionRequest) Add(ctx context.Context, reqObj *GeneralLedgerEntry) (resObj *GeneralLedgerEntry, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1202,10 +1294,13 @@ func (b *CompanyItemCategoriesCollectionRequestBuilder) ID(id string) *ItemCateg
 type CompanyItemCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemCategory collection
-func (r *CompanyItemCategoriesCollectionRequest) Paging(method, path string, obj interface{}) ([]ItemCategory, error) {
+func (r *CompanyItemCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1239,7 +1334,11 @@ func (r *CompanyItemCategoriesCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1247,17 +1346,17 @@ func (r *CompanyItemCategoriesCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for ItemCategory collection
-func (r *CompanyItemCategoriesCollectionRequest) Get() ([]ItemCategory, error) {
+func (r *CompanyItemCategoriesCollectionRequest) Get(ctx context.Context) ([]ItemCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ItemCategory collection
-func (r *CompanyItemCategoriesCollectionRequest) Add(reqObj *ItemCategory) (resObj *ItemCategory, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyItemCategoriesCollectionRequest) Add(ctx context.Context, reqObj *ItemCategory) (resObj *ItemCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1289,10 +1388,13 @@ func (b *CompanyItemsCollectionRequestBuilder) ID(id string) *ItemRequestBuilder
 type CompanyItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Item collection
-func (r *CompanyItemsCollectionRequest) Paging(method, path string, obj interface{}) ([]Item, error) {
+func (r *CompanyItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Item, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1326,7 +1428,11 @@ func (r *CompanyItemsCollectionRequest) Paging(method, path string, obj interfac
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1334,17 +1440,17 @@ func (r *CompanyItemsCollectionRequest) Paging(method, path string, obj interfac
 }
 
 // Get performs GET request for Item collection
-func (r *CompanyItemsCollectionRequest) Get() ([]Item, error) {
+func (r *CompanyItemsCollectionRequest) Get(ctx context.Context) ([]Item, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Item collection
-func (r *CompanyItemsCollectionRequest) Add(reqObj *Item) (resObj *Item, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyItemsCollectionRequest) Add(ctx context.Context, reqObj *Item) (resObj *Item, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1376,10 +1482,13 @@ func (b *CompanyJournalLinesCollectionRequestBuilder) ID(id string) *JournalLine
 type CompanyJournalLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JournalLine collection
-func (r *CompanyJournalLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]JournalLine, error) {
+func (r *CompanyJournalLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JournalLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1413,7 +1522,11 @@ func (r *CompanyJournalLinesCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1421,17 +1534,17 @@ func (r *CompanyJournalLinesCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for JournalLine collection
-func (r *CompanyJournalLinesCollectionRequest) Get() ([]JournalLine, error) {
+func (r *CompanyJournalLinesCollectionRequest) Get(ctx context.Context) ([]JournalLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for JournalLine collection
-func (r *CompanyJournalLinesCollectionRequest) Add(reqObj *JournalLine) (resObj *JournalLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyJournalLinesCollectionRequest) Add(ctx context.Context, reqObj *JournalLine) (resObj *JournalLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1463,10 +1576,13 @@ func (b *CompanyJournalsCollectionRequestBuilder) ID(id string) *JournalRequestB
 type CompanyJournalsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Journal collection
-func (r *CompanyJournalsCollectionRequest) Paging(method, path string, obj interface{}) ([]Journal, error) {
+func (r *CompanyJournalsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Journal, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1500,7 +1616,11 @@ func (r *CompanyJournalsCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1508,17 +1628,17 @@ func (r *CompanyJournalsCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for Journal collection
-func (r *CompanyJournalsCollectionRequest) Get() ([]Journal, error) {
+func (r *CompanyJournalsCollectionRequest) Get(ctx context.Context) ([]Journal, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Journal collection
-func (r *CompanyJournalsCollectionRequest) Add(reqObj *Journal) (resObj *Journal, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyJournalsCollectionRequest) Add(ctx context.Context, reqObj *Journal) (resObj *Journal, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1550,10 +1670,13 @@ func (b *CompanyPaymentMethodsCollectionRequestBuilder) ID(id string) *PaymentMe
 type CompanyPaymentMethodsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PaymentMethod collection
-func (r *CompanyPaymentMethodsCollectionRequest) Paging(method, path string, obj interface{}) ([]PaymentMethod, error) {
+func (r *CompanyPaymentMethodsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PaymentMethod, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1587,7 +1710,11 @@ func (r *CompanyPaymentMethodsCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1595,17 +1722,17 @@ func (r *CompanyPaymentMethodsCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for PaymentMethod collection
-func (r *CompanyPaymentMethodsCollectionRequest) Get() ([]PaymentMethod, error) {
+func (r *CompanyPaymentMethodsCollectionRequest) Get(ctx context.Context) ([]PaymentMethod, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PaymentMethod collection
-func (r *CompanyPaymentMethodsCollectionRequest) Add(reqObj *PaymentMethod) (resObj *PaymentMethod, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyPaymentMethodsCollectionRequest) Add(ctx context.Context, reqObj *PaymentMethod) (resObj *PaymentMethod, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1637,10 +1764,13 @@ func (b *CompanyPaymentTermsCollectionRequestBuilder) ID(id string) *PaymentTerm
 type CompanyPaymentTermsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PaymentTerm collection
-func (r *CompanyPaymentTermsCollectionRequest) Paging(method, path string, obj interface{}) ([]PaymentTerm, error) {
+func (r *CompanyPaymentTermsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PaymentTerm, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1674,7 +1804,11 @@ func (r *CompanyPaymentTermsCollectionRequest) Paging(method, path string, obj i
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1682,17 +1816,17 @@ func (r *CompanyPaymentTermsCollectionRequest) Paging(method, path string, obj i
 }
 
 // Get performs GET request for PaymentTerm collection
-func (r *CompanyPaymentTermsCollectionRequest) Get() ([]PaymentTerm, error) {
+func (r *CompanyPaymentTermsCollectionRequest) Get(ctx context.Context) ([]PaymentTerm, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PaymentTerm collection
-func (r *CompanyPaymentTermsCollectionRequest) Add(reqObj *PaymentTerm) (resObj *PaymentTerm, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyPaymentTermsCollectionRequest) Add(ctx context.Context, reqObj *PaymentTerm) (resObj *PaymentTerm, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1724,10 +1858,13 @@ func (b *CompanyPictureCollectionRequestBuilder) ID(id string) *PictureRequestBu
 type CompanyPictureCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Picture collection
-func (r *CompanyPictureCollectionRequest) Paging(method, path string, obj interface{}) ([]Picture, error) {
+func (r *CompanyPictureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Picture, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1761,7 +1898,11 @@ func (r *CompanyPictureCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1769,17 +1910,17 @@ func (r *CompanyPictureCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for Picture collection
-func (r *CompanyPictureCollectionRequest) Get() ([]Picture, error) {
+func (r *CompanyPictureCollectionRequest) Get(ctx context.Context) ([]Picture, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Picture collection
-func (r *CompanyPictureCollectionRequest) Add(reqObj *Picture) (resObj *Picture, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyPictureCollectionRequest) Add(ctx context.Context, reqObj *Picture) (resObj *Picture, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1811,10 +1952,13 @@ func (b *CompanyPurchaseInvoiceLinesCollectionRequestBuilder) ID(id string) *Pur
 type CompanyPurchaseInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PurchaseInvoiceLine collection
-func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoiceLine, error) {
+func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PurchaseInvoiceLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1848,7 +1992,11 @@ func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1856,17 +2004,17 @@ func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for PurchaseInvoiceLine collection
-func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Get() ([]PurchaseInvoiceLine, error) {
+func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Get(ctx context.Context) ([]PurchaseInvoiceLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PurchaseInvoiceLine collection
-func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Add(reqObj *PurchaseInvoiceLine) (resObj *PurchaseInvoiceLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyPurchaseInvoiceLinesCollectionRequest) Add(ctx context.Context, reqObj *PurchaseInvoiceLine) (resObj *PurchaseInvoiceLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1898,10 +2046,13 @@ func (b *CompanyPurchaseInvoicesCollectionRequestBuilder) ID(id string) *Purchas
 type CompanyPurchaseInvoicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PurchaseInvoice collection
-func (r *CompanyPurchaseInvoicesCollectionRequest) Paging(method, path string, obj interface{}) ([]PurchaseInvoice, error) {
+func (r *CompanyPurchaseInvoicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PurchaseInvoice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -1935,7 +2086,11 @@ func (r *CompanyPurchaseInvoicesCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -1943,17 +2098,17 @@ func (r *CompanyPurchaseInvoicesCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for PurchaseInvoice collection
-func (r *CompanyPurchaseInvoicesCollectionRequest) Get() ([]PurchaseInvoice, error) {
+func (r *CompanyPurchaseInvoicesCollectionRequest) Get(ctx context.Context) ([]PurchaseInvoice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for PurchaseInvoice collection
-func (r *CompanyPurchaseInvoicesCollectionRequest) Add(reqObj *PurchaseInvoice) (resObj *PurchaseInvoice, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyPurchaseInvoicesCollectionRequest) Add(ctx context.Context, reqObj *PurchaseInvoice) (resObj *PurchaseInvoice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -1985,10 +2140,13 @@ func (b *CompanySalesCreditMemoLinesCollectionRequestBuilder) ID(id string) *Sal
 type CompanySalesCreditMemoLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesCreditMemoLine collection
-func (r *CompanySalesCreditMemoLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
+func (r *CompanySalesCreditMemoLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2022,7 +2180,11 @@ func (r *CompanySalesCreditMemoLinesCollectionRequest) Paging(method, path strin
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2030,17 +2192,17 @@ func (r *CompanySalesCreditMemoLinesCollectionRequest) Paging(method, path strin
 }
 
 // Get performs GET request for SalesCreditMemoLine collection
-func (r *CompanySalesCreditMemoLinesCollectionRequest) Get() ([]SalesCreditMemoLine, error) {
+func (r *CompanySalesCreditMemoLinesCollectionRequest) Get(ctx context.Context) ([]SalesCreditMemoLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesCreditMemoLine collection
-func (r *CompanySalesCreditMemoLinesCollectionRequest) Add(reqObj *SalesCreditMemoLine) (resObj *SalesCreditMemoLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesCreditMemoLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesCreditMemoLine) (resObj *SalesCreditMemoLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2072,10 +2234,13 @@ func (b *CompanySalesCreditMemosCollectionRequestBuilder) ID(id string) *SalesCr
 type CompanySalesCreditMemosCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesCreditMemo collection
-func (r *CompanySalesCreditMemosCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesCreditMemo, error) {
+func (r *CompanySalesCreditMemosCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesCreditMemo, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2109,7 +2274,11 @@ func (r *CompanySalesCreditMemosCollectionRequest) Paging(method, path string, o
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2117,17 +2286,17 @@ func (r *CompanySalesCreditMemosCollectionRequest) Paging(method, path string, o
 }
 
 // Get performs GET request for SalesCreditMemo collection
-func (r *CompanySalesCreditMemosCollectionRequest) Get() ([]SalesCreditMemo, error) {
+func (r *CompanySalesCreditMemosCollectionRequest) Get(ctx context.Context) ([]SalesCreditMemo, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesCreditMemo collection
-func (r *CompanySalesCreditMemosCollectionRequest) Add(reqObj *SalesCreditMemo) (resObj *SalesCreditMemo, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesCreditMemosCollectionRequest) Add(ctx context.Context, reqObj *SalesCreditMemo) (resObj *SalesCreditMemo, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2159,10 +2328,13 @@ func (b *CompanySalesInvoiceLinesCollectionRequestBuilder) ID(id string) *SalesI
 type CompanySalesInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesInvoiceLine collection
-func (r *CompanySalesInvoiceLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
+func (r *CompanySalesInvoiceLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2196,7 +2368,11 @@ func (r *CompanySalesInvoiceLinesCollectionRequest) Paging(method, path string, 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2204,17 +2380,17 @@ func (r *CompanySalesInvoiceLinesCollectionRequest) Paging(method, path string, 
 }
 
 // Get performs GET request for SalesInvoiceLine collection
-func (r *CompanySalesInvoiceLinesCollectionRequest) Get() ([]SalesInvoiceLine, error) {
+func (r *CompanySalesInvoiceLinesCollectionRequest) Get(ctx context.Context) ([]SalesInvoiceLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesInvoiceLine collection
-func (r *CompanySalesInvoiceLinesCollectionRequest) Add(reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesInvoiceLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesInvoiceLine) (resObj *SalesInvoiceLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2246,10 +2422,13 @@ func (b *CompanySalesInvoicesCollectionRequestBuilder) ID(id string) *SalesInvoi
 type CompanySalesInvoicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesInvoice collection
-func (r *CompanySalesInvoicesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesInvoice, error) {
+func (r *CompanySalesInvoicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesInvoice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2283,7 +2462,11 @@ func (r *CompanySalesInvoicesCollectionRequest) Paging(method, path string, obj 
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2291,17 +2474,17 @@ func (r *CompanySalesInvoicesCollectionRequest) Paging(method, path string, obj 
 }
 
 // Get performs GET request for SalesInvoice collection
-func (r *CompanySalesInvoicesCollectionRequest) Get() ([]SalesInvoice, error) {
+func (r *CompanySalesInvoicesCollectionRequest) Get(ctx context.Context) ([]SalesInvoice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesInvoice collection
-func (r *CompanySalesInvoicesCollectionRequest) Add(reqObj *SalesInvoice) (resObj *SalesInvoice, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesInvoicesCollectionRequest) Add(ctx context.Context, reqObj *SalesInvoice) (resObj *SalesInvoice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2333,10 +2516,13 @@ func (b *CompanySalesOrderLinesCollectionRequestBuilder) ID(id string) *SalesOrd
 type CompanySalesOrderLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesOrderLine collection
-func (r *CompanySalesOrderLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrderLine, error) {
+func (r *CompanySalesOrderLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesOrderLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2370,7 +2556,11 @@ func (r *CompanySalesOrderLinesCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2378,17 +2568,17 @@ func (r *CompanySalesOrderLinesCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for SalesOrderLine collection
-func (r *CompanySalesOrderLinesCollectionRequest) Get() ([]SalesOrderLine, error) {
+func (r *CompanySalesOrderLinesCollectionRequest) Get(ctx context.Context) ([]SalesOrderLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesOrderLine collection
-func (r *CompanySalesOrderLinesCollectionRequest) Add(reqObj *SalesOrderLine) (resObj *SalesOrderLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesOrderLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesOrderLine) (resObj *SalesOrderLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2420,10 +2610,13 @@ func (b *CompanySalesOrdersCollectionRequestBuilder) ID(id string) *SalesOrderRe
 type CompanySalesOrdersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesOrder collection
-func (r *CompanySalesOrdersCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesOrder, error) {
+func (r *CompanySalesOrdersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesOrder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2457,7 +2650,11 @@ func (r *CompanySalesOrdersCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2465,17 +2662,17 @@ func (r *CompanySalesOrdersCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for SalesOrder collection
-func (r *CompanySalesOrdersCollectionRequest) Get() ([]SalesOrder, error) {
+func (r *CompanySalesOrdersCollectionRequest) Get(ctx context.Context) ([]SalesOrder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesOrder collection
-func (r *CompanySalesOrdersCollectionRequest) Add(reqObj *SalesOrder) (resObj *SalesOrder, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesOrdersCollectionRequest) Add(ctx context.Context, reqObj *SalesOrder) (resObj *SalesOrder, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2507,10 +2704,13 @@ func (b *CompanySalesQuoteLinesCollectionRequestBuilder) ID(id string) *SalesQuo
 type CompanySalesQuoteLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesQuoteLine collection
-func (r *CompanySalesQuoteLinesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuoteLine, error) {
+func (r *CompanySalesQuoteLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesQuoteLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2544,7 +2744,11 @@ func (r *CompanySalesQuoteLinesCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2552,17 +2756,17 @@ func (r *CompanySalesQuoteLinesCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for SalesQuoteLine collection
-func (r *CompanySalesQuoteLinesCollectionRequest) Get() ([]SalesQuoteLine, error) {
+func (r *CompanySalesQuoteLinesCollectionRequest) Get(ctx context.Context) ([]SalesQuoteLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesQuoteLine collection
-func (r *CompanySalesQuoteLinesCollectionRequest) Add(reqObj *SalesQuoteLine) (resObj *SalesQuoteLine, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesQuoteLinesCollectionRequest) Add(ctx context.Context, reqObj *SalesQuoteLine) (resObj *SalesQuoteLine, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2594,10 +2798,13 @@ func (b *CompanySalesQuotesCollectionRequestBuilder) ID(id string) *SalesQuoteRe
 type CompanySalesQuotesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesQuote collection
-func (r *CompanySalesQuotesCollectionRequest) Paging(method, path string, obj interface{}) ([]SalesQuote, error) {
+func (r *CompanySalesQuotesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesQuote, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2631,7 +2838,11 @@ func (r *CompanySalesQuotesCollectionRequest) Paging(method, path string, obj in
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2639,17 +2850,17 @@ func (r *CompanySalesQuotesCollectionRequest) Paging(method, path string, obj in
 }
 
 // Get performs GET request for SalesQuote collection
-func (r *CompanySalesQuotesCollectionRequest) Get() ([]SalesQuote, error) {
+func (r *CompanySalesQuotesCollectionRequest) Get(ctx context.Context) ([]SalesQuote, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for SalesQuote collection
-func (r *CompanySalesQuotesCollectionRequest) Add(reqObj *SalesQuote) (resObj *SalesQuote, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanySalesQuotesCollectionRequest) Add(ctx context.Context, reqObj *SalesQuote) (resObj *SalesQuote, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2681,10 +2892,13 @@ func (b *CompanyShipmentMethodsCollectionRequestBuilder) ID(id string) *Shipment
 type CompanyShipmentMethodsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ShipmentMethod collection
-func (r *CompanyShipmentMethodsCollectionRequest) Paging(method, path string, obj interface{}) ([]ShipmentMethod, error) {
+func (r *CompanyShipmentMethodsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ShipmentMethod, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2718,7 +2932,11 @@ func (r *CompanyShipmentMethodsCollectionRequest) Paging(method, path string, ob
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2726,17 +2944,17 @@ func (r *CompanyShipmentMethodsCollectionRequest) Paging(method, path string, ob
 }
 
 // Get performs GET request for ShipmentMethod collection
-func (r *CompanyShipmentMethodsCollectionRequest) Get() ([]ShipmentMethod, error) {
+func (r *CompanyShipmentMethodsCollectionRequest) Get(ctx context.Context) ([]ShipmentMethod, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for ShipmentMethod collection
-func (r *CompanyShipmentMethodsCollectionRequest) Add(reqObj *ShipmentMethod) (resObj *ShipmentMethod, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyShipmentMethodsCollectionRequest) Add(ctx context.Context, reqObj *ShipmentMethod) (resObj *ShipmentMethod, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2768,10 +2986,13 @@ func (b *CompanyTaxAreasCollectionRequestBuilder) ID(id string) *TaxAreaRequestB
 type CompanyTaxAreasCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TaxArea collection
-func (r *CompanyTaxAreasCollectionRequest) Paging(method, path string, obj interface{}) ([]TaxArea, error) {
+func (r *CompanyTaxAreasCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TaxArea, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2805,7 +3026,11 @@ func (r *CompanyTaxAreasCollectionRequest) Paging(method, path string, obj inter
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2813,17 +3038,17 @@ func (r *CompanyTaxAreasCollectionRequest) Paging(method, path string, obj inter
 }
 
 // Get performs GET request for TaxArea collection
-func (r *CompanyTaxAreasCollectionRequest) Get() ([]TaxArea, error) {
+func (r *CompanyTaxAreasCollectionRequest) Get(ctx context.Context) ([]TaxArea, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TaxArea collection
-func (r *CompanyTaxAreasCollectionRequest) Add(reqObj *TaxArea) (resObj *TaxArea, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyTaxAreasCollectionRequest) Add(ctx context.Context, reqObj *TaxArea) (resObj *TaxArea, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2855,10 +3080,13 @@ func (b *CompanyTaxGroupsCollectionRequestBuilder) ID(id string) *TaxGroupReques
 type CompanyTaxGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TaxGroup collection
-func (r *CompanyTaxGroupsCollectionRequest) Paging(method, path string, obj interface{}) ([]TaxGroup, error) {
+func (r *CompanyTaxGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TaxGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2892,7 +3120,11 @@ func (r *CompanyTaxGroupsCollectionRequest) Paging(method, path string, obj inte
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2900,17 +3132,17 @@ func (r *CompanyTaxGroupsCollectionRequest) Paging(method, path string, obj inte
 }
 
 // Get performs GET request for TaxGroup collection
-func (r *CompanyTaxGroupsCollectionRequest) Get() ([]TaxGroup, error) {
+func (r *CompanyTaxGroupsCollectionRequest) Get(ctx context.Context) ([]TaxGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for TaxGroup collection
-func (r *CompanyTaxGroupsCollectionRequest) Add(reqObj *TaxGroup) (resObj *TaxGroup, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyTaxGroupsCollectionRequest) Add(ctx context.Context, reqObj *TaxGroup) (resObj *TaxGroup, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -2942,10 +3174,13 @@ func (b *CompanyUnitsOfMeasureCollectionRequestBuilder) ID(id string) *UnitOfMea
 type CompanyUnitsOfMeasureCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UnitOfMeasure collection
-func (r *CompanyUnitsOfMeasureCollectionRequest) Paging(method, path string, obj interface{}) ([]UnitOfMeasure, error) {
+func (r *CompanyUnitsOfMeasureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UnitOfMeasure, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -2979,7 +3214,11 @@ func (r *CompanyUnitsOfMeasureCollectionRequest) Paging(method, path string, obj
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -2987,17 +3226,17 @@ func (r *CompanyUnitsOfMeasureCollectionRequest) Paging(method, path string, obj
 }
 
 // Get performs GET request for UnitOfMeasure collection
-func (r *CompanyUnitsOfMeasureCollectionRequest) Get() ([]UnitOfMeasure, error) {
+func (r *CompanyUnitsOfMeasureCollectionRequest) Get(ctx context.Context) ([]UnitOfMeasure, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for UnitOfMeasure collection
-func (r *CompanyUnitsOfMeasureCollectionRequest) Add(reqObj *UnitOfMeasure) (resObj *UnitOfMeasure, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyUnitsOfMeasureCollectionRequest) Add(ctx context.Context, reqObj *UnitOfMeasure) (resObj *UnitOfMeasure, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
@@ -3029,10 +3268,13 @@ func (b *CompanyVendorsCollectionRequestBuilder) ID(id string) *VendorRequestBui
 type CompanyVendorsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Vendor collection
-func (r *CompanyVendorsCollectionRequest) Paging(method, path string, obj interface{}) ([]Vendor, error) {
+func (r *CompanyVendorsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Vendor, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
 	}
 	res, err := r.client.Do(req)
 	if err != nil {
@@ -3066,7 +3308,11 @@ func (r *CompanyVendorsCollectionRequest) Paging(method, path string, obj interf
 		if len(paging.NextLink) == 0 {
 			return values, nil
 		}
-		res, err = r.client.Get(paging.NextLink)
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
 		if err != nil {
 			return nil, err
 		}
@@ -3074,16 +3320,16 @@ func (r *CompanyVendorsCollectionRequest) Paging(method, path string, obj interf
 }
 
 // Get performs GET request for Vendor collection
-func (r *CompanyVendorsCollectionRequest) Get() ([]Vendor, error) {
+func (r *CompanyVendorsCollectionRequest) Get(ctx context.Context) ([]Vendor, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging("GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil)
 }
 
 // Add performs POST request for Vendor collection
-func (r *CompanyVendorsCollectionRequest) Add(reqObj *Vendor) (resObj *Vendor, err error) {
-	err = r.JSONRequest("POST", "", reqObj, &resObj)
+func (r *CompanyVendorsCollectionRequest) Add(ctx context.Context, reqObj *Vendor) (resObj *Vendor, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -2,6 +2,8 @@
 
 package msgraph
 
+import "context"
+
 // MobileAppRelationshipRequestBuilder is request builder for MobileAppRelationship
 type MobileAppRelationshipRequestBuilder struct{ BaseRequestBuilder }
 
@@ -16,21 +18,21 @@ func (b *MobileAppRelationshipRequestBuilder) Request() *MobileAppRelationshipRe
 type MobileAppRelationshipRequest struct{ BaseRequest }
 
 // Get performs GET request for MobileAppRelationship
-func (r *MobileAppRelationshipRequest) Get() (resObj *MobileAppRelationship, err error) {
+func (r *MobileAppRelationshipRequest) Get(ctx context.Context) (resObj *MobileAppRelationship, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	err = r.JSONRequest("GET", query, nil, &resObj)
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
 // Update performs PATCH request for MobileAppRelationship
-func (r *MobileAppRelationshipRequest) Update(reqObj *MobileAppRelationship) error {
-	return r.JSONRequest("PATCH", "", reqObj, nil)
+func (r *MobileAppRelationshipRequest) Update(ctx context.Context, reqObj *MobileAppRelationship) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
 // Delete performs DELETE request for MobileAppRelationship
-func (r *MobileAppRelationshipRequest) Delete() error {
-	return r.JSONRequest("DELETE", "", nil, nil)
+func (r *MobileAppRelationshipRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
