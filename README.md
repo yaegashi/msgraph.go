@@ -22,8 +22,12 @@ heavily relying on C# and non-portable .NET Framework.
 
 ## Changes
 
-- **2019-11-02: Library API breaking changes:** Since #1 gets merged every request method should take a ctx for the first arg.
-You can pass a nil for it to use the default ctx kept in http.Client.
+- **2019-11-02 Library API breaking changes:**
+  - [#1][PR1] every request method should take a ctx for the first arg
+  - [#2][PR2] package auth renamed to msauth and API changed
+
+[PR1]: https://github.com/yaegashi/msgraph.go/pull/1
+[PR2]: https://github.com/yaegashi/msgraph.go/pull/2
 
 ## Usage
 

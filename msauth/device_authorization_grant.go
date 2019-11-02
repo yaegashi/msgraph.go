@@ -1,13 +1,18 @@
-package auth
+package msauth
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 	"time"
+
+	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/microsoft"
 )
 
 const (
@@ -25,12 +30,25 @@ type DeviceCode struct {
 	Message         string `json:"message"`
 }
 
-// DeviceAuthorizationGrant authenticates via OAuth 2.0 device authorization grant
-func (m *TokenManager) DeviceAuthorizationGrant(tenantID, clientID, scope string, callback func(*DeviceCode) error) (*Token, error) {
-	t, err := m.refreshToken(tenantID, clientID, "", scope)
-	if err == nil && t != nil {
-		return t, nil
+// DeviceAuthorizationGrant performs OAuth 2.0 device authorization grant and returns auto-refreshing TokenSource
+func (m *Manager) DeviceAuthorizationGrant(ctx context.Context, tenantID, clientID string, scopes []string, callback func(*DeviceCode) error) (oauth2.TokenSource, error) {
+	endpoint := microsoft.AzureADEndpoint(tenantID)
+	endpoint.AuthStyle = oauth2.AuthStyleInParams
+	config := &oauth2.Config{
+		ClientID: clientID,
+		Endpoint: endpoint,
+		Scopes:   scopes,
 	}
+	if t, ok := m.TokenCache[generateKey(tenantID, clientID)]; ok {
+		tt, err := config.TokenSource(ctx, t).Token()
+		if err == nil {
+			return config.TokenSource(ctx, tt), nil
+		}
+		if _, ok := err.(*oauth2.RetrieveError); !ok {
+			return nil, err
+		}
+	}
+	scope := strings.Join(scopes, " ")
 	res, err := http.PostForm(deviceCodeURL(tenantID), url.Values{"client_id": {clientID}, "scope": {scope}})
 	if err != nil {
 		return nil, err
@@ -65,12 +83,13 @@ func (m *TokenManager) DeviceAuthorizationGrant(tenantID, clientID, scope string
 	}
 	for {
 		time.Sleep(time.Second * time.Duration(interval))
-		t, err := m.requestToken(tenantID, clientID, values)
+		token, err := m.requestToken(ctx, tenantID, clientID, values)
 		if err == nil {
-			return t, nil
+			m.Cache(tenantID, clientID, token)
+			return config.TokenSource(ctx, token), nil
 		}
 		tokenError, ok := err.(*TokenError)
-		if !ok || tokenError.ErrorX != authorizationPendingError {
+		if !ok || tokenError.ErrorObject != authorizationPendingError {
 			return nil, err
 		}
 	}
