@@ -10,59 +10,62 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/yaegashi/msgraph.go/auth"
 	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/yaegashi/msgraph.go/msauth"
 	msgraph "github.com/yaegashi/msgraph.go/v1.0"
+	"golang.org/x/oauth2"
 )
 
 const (
 	defaultTenantID = "common"
 	defaultClientID = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
-	defaultScope    = "Sites.Read.All Files.Read.All"
 )
+
+var defaultScopes = []string{"Sites.Read.All", "Files.Read.All"}
 
 // Config is serializable configuration
 type Config struct {
 	TenantID     string `json:"tenant_id,omitempty"`
 	ClientID     string `json:"client_id,omitempty"`
 	ClientSecret string `json:"client_secret,omitempty"`
-	TokenStore   string `json:"token_store,omitempty"`
+	TokenCache   string `json:"token_cache,omitempty"`
 }
 
 // App is application
 type App struct {
 	Config
 	URL         string
-	Token       *auth.Token
+	TokenSource oauth2.TokenSource
 	GraphClient *msgraph.GraphServiceRequestBuilder
 }
 
 // Authenticate performs OAuth2 authentication
 func (app *App) Authenticate(ctx context.Context) error {
 	var err error
-	m := auth.NewTokenManager()
+	m := msauth.NewManager()
 	if app.ClientSecret == "" {
-		if app.TokenStore != "" {
+		if app.TokenCache != "" {
 			// ignore errors
-			m.Load(app.TokenStore)
+			m.LoadFile(app.TokenCache)
 		}
-		app.Token, err = m.DeviceAuthorizationGrant(app.TenantID, app.ClientID, defaultScope, nil)
+		app.TokenSource, err = m.DeviceAuthorizationGrant(ctx, app.TenantID, app.ClientID, defaultScopes, nil)
 		if err != nil {
 			return err
 		}
-		if app.TokenStore != "" {
-			err = m.Save(app.TokenStore)
+		if app.TokenCache != "" {
+			err = m.SaveFile(app.TokenCache)
 			if err != nil {
 				return err
 			}
 		}
 	} else {
-		app.Token, err = m.ClientCredentialsGrant(app.TenantID, app.ClientID, app.ClientSecret, auth.DefaultMSGraphScope)
+		scopes := []string{msauth.DefaultMSGraphScope}
+		app.TokenSource, err = m.ClientCredentialsGrant(ctx, app.TenantID, app.ClientID, app.ClientSecret, scopes)
 		if err != nil {
 			return err
 		}
 	}
-	app.GraphClient = msgraph.NewClient(app.Token.Client(ctx))
+	app.GraphClient = msgraph.NewClient(oauth2.NewClient(ctx, app.TokenSource))
 	return nil
 }
 
@@ -117,7 +120,7 @@ func main() {
 	flag.StringVar(&app.TenantID, "tenant-id", "", "Tenant ID (default:"+defaultTenantID+")")
 	flag.StringVar(&app.ClientID, "client-id", "", "Client ID (default: "+defaultClientID+")")
 	flag.StringVar(&app.ClientSecret, "client-secret", "", "Client secret (for client credentials grant)")
-	flag.StringVar(&app.TokenStore, "token-store", "", "OAuth2 token store path")
+	flag.StringVar(&app.TokenCache, "token-cache", "", "OAuth2 token cache path")
 	flag.StringVar(&app.URL, "url", "", "URL")
 	flag.Parse()
 
@@ -144,8 +147,8 @@ func main() {
 	if app.ClientSecret == "" {
 		app.ClientSecret = cfg.ClientSecret
 	}
-	if app.TokenStore == "" {
-		app.TokenStore = cfg.TokenStore
+	if app.TokenCache == "" {
+		app.TokenCache = cfg.TokenCache
 	}
 
 	ctx := context.Background()

@@ -10,17 +10,19 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/yaegashi/msgraph.go/auth"
 	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/yaegashi/msgraph.go/msauth"
 	msgraph "github.com/yaegashi/msgraph.go/v1.0"
+	"golang.org/x/oauth2"
 )
 
 const (
 	defaultTenantID = "common"
 	defaultClientID = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
-	defaultScope    = "openid profile offline_access User.Read Files.Read"
-	tokenStorePath  = "token_store.json"
+	tokenCachePath  = "token_cache.json"
 )
+
+var defaultScopes = []string{"openid", "profile", "offline_access", "User.Read", "Files.Read"}
 
 func dump(o interface{}) {
 	enc := jsonx.NewEncoder(os.Stdout)
@@ -30,20 +32,20 @@ func dump(o interface{}) {
 
 func main() {
 	var tenantID, clientID string
-	flag.StringVar(&tenantID, "tenant_id", defaultTenantID, "Tenant ID")
-	flag.StringVar(&clientID, "client_id", defaultClientID, "Client ID")
+	flag.StringVar(&tenantID, "tenant-id", defaultTenantID, "Tenant ID")
+	flag.StringVar(&clientID, "client-id", defaultClientID, "Client ID")
 	flag.Parse()
 
-	m := auth.NewTokenManager()
-	m.Load(tokenStorePath)
-	t, err := m.DeviceAuthorizationGrant(tenantID, clientID, defaultScope, nil)
+	ctx := context.Background()
+	m := msauth.NewManager()
+	m.LoadFile(tokenCachePath)
+	ts, err := m.DeviceAuthorizationGrant(ctx, tenantID, clientID, defaultScopes, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
-	m.Save(tokenStorePath)
+	m.SaveFile(tokenCachePath)
 
-	ctx := context.Background()
-	httpClient := t.Client(ctx)
+	httpClient := oauth2.NewClient(ctx, ts)
 	graphClient := msgraph.NewClient(httpClient)
 
 	{

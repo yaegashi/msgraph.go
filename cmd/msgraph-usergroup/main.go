@@ -8,10 +8,11 @@ import (
 	"os"
 
 	"github.com/google/uuid"
-	"github.com/yaegashi/msgraph.go/auth"
 	msgraph "github.com/yaegashi/msgraph.go/beta"
 	"github.com/yaegashi/msgraph.go/jsonx"
+	"github.com/yaegashi/msgraph.go/msauth"
 	P "github.com/yaegashi/msgraph.go/ptr"
+	"golang.org/x/oauth2"
 )
 
 // Default ID and secret: you should replace them with your own
@@ -51,19 +52,20 @@ func dump(o interface{}) {
 
 func main() {
 	var tenantID, clientID, clientSecret string
-	flag.StringVar(&tenantID, "tenant_id", defaultTenantID, "Tenant ID")
-	flag.StringVar(&clientID, "client_id", defaultClientID, "Client ID")
-	flag.StringVar(&clientSecret, "client_secret", defaultClientSecret, "Client Secret")
+	flag.StringVar(&tenantID, "tenant-id", defaultTenantID, "Tenant ID")
+	flag.StringVar(&clientID, "client-id", defaultClientID, "Client ID")
+	flag.StringVar(&clientSecret, "client-secret", defaultClientSecret, "Client Secret")
 	flag.Parse()
 
-	m := auth.NewTokenManager()
-	t, err := m.ClientCredentialsGrant(tenantID, clientID, clientSecret, auth.DefaultMSGraphScope)
+	ctx := context.Background()
+	m := msauth.NewManager()
+	scopes := []string{msauth.DefaultMSGraphScope}
+	ts, err := m.ClientCredentialsGrant(ctx, tenantID, clientID, clientSecret, scopes)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	ctx := context.Background()
-	httpClient := t.Client(ctx)
+	httpClient := oauth2.NewClient(ctx, ts)
 	graphClient := msgraph.NewClient(httpClient)
 
 	{
