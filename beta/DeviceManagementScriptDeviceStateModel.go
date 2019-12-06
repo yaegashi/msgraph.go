@@ -18,14 +18,6 @@ type DeviceManagementScriptDeviceState struct {
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// ErrorDescription Error description corresponding to erroneous execution of the device management script.
 	ErrorDescription *string `json:"errorDescription,omitempty"`
-	// LastSyncDateTime The latest time that Intune Managment Extension syncs to Intune.
-	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
-	// PreRemediationDetectionScriptOutput Output of the detection script before remediation.
-	PreRemediationDetectionScriptOutput *string `json:"preRemediationDetectionScriptOutput,omitempty"`
-	// RemediationScriptError Error output of the remediation script.
-	RemediationScriptError *string `json:"remediationScriptError,omitempty"`
-	// PostRemediationDetectionScriptOutput Detection script output after remediation.
-	PostRemediationDetectionScriptOutput *string `json:"postRemediationDetectionScriptOutput,omitempty"`
 	// ManagedDevice undocumented
 	ManagedDevice *ManagedDevice `json:"managedDevice,omitempty"`
 }

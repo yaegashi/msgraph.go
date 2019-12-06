@@ -20,6 +20,10 @@ type CallChangeScreenSharingRoleRequestParameter struct {
 	Role *ScreenSharingRole `json:"role,omitempty"`
 }
 
+// CallKeepAliveRequestParameter undocumented
+type CallKeepAliveRequestParameter struct {
+}
+
 // CallMuteRequestParameter undocumented
 type CallMuteRequestParameter struct {
 	// ClientContext undocumented
@@ -34,8 +38,8 @@ type CallPlayPromptRequestParameter struct {
 	ClientContext *string `json:"clientContext,omitempty"`
 }
 
-// CallRecordRequestParameter undocumented
-type CallRecordRequestParameter struct {
+// CallRecordResponseRequestParameter undocumented
+type CallRecordResponseRequestParameter struct {
 	// Prompts undocumented
 	Prompts []Prompt `json:"prompts,omitempty"`
 	// BargeInAllowed undocumented
@@ -143,6 +147,32 @@ func (r *CallChangeScreenSharingRoleRequest) Post(ctx context.Context) error {
 }
 
 //
+type CallKeepAliveRequestBuilder struct{ BaseRequestBuilder }
+
+// KeepAlive action undocumented
+func (b *CallRequestBuilder) KeepAlive(reqObj *CallKeepAliveRequestParameter) *CallKeepAliveRequestBuilder {
+	bb := &CallKeepAliveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/keepAlive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallKeepAliveRequest struct{ BaseRequest }
+
+//
+func (b *CallKeepAliveRequestBuilder) Request() *CallKeepAliveRequest {
+	return &CallKeepAliveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *CallKeepAliveRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
 type CallMuteRequestBuilder struct{ BaseRequestBuilder }
 
 // Mute action undocumented
@@ -197,28 +227,28 @@ func (r *CallPlayPromptRequest) Post(ctx context.Context) (resObj *PlayPromptOpe
 }
 
 //
-type CallRecordRequestBuilder struct{ BaseRequestBuilder }
+type CallRecordResponseRequestBuilder struct{ BaseRequestBuilder }
 
-// Record action undocumented
-func (b *CallRequestBuilder) Record(reqObj *CallRecordRequestParameter) *CallRecordRequestBuilder {
-	bb := &CallRecordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/record"
+// RecordResponse action undocumented
+func (b *CallRequestBuilder) RecordResponse(reqObj *CallRecordResponseRequestParameter) *CallRecordResponseRequestBuilder {
+	bb := &CallRecordResponseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/recordResponse"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type CallRecordRequest struct{ BaseRequest }
+type CallRecordResponseRequest struct{ BaseRequest }
 
 //
-func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
-	return &CallRecordRequest{
+func (b *CallRecordResponseRequestBuilder) Request() *CallRecordResponseRequest {
+	return &CallRecordResponseRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *CallRecordRequest) Post(ctx context.Context) (resObj *RecordOperation, err error) {
+func (r *CallRecordResponseRequest) Post(ctx context.Context) (resObj *RecordOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

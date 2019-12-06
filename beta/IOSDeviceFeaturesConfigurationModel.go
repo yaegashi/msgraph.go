@@ -28,4 +28,6 @@ type IOSDeviceFeaturesConfiguration struct {
 	SingleSignOnExtension *SingleSignOnExtension `json:"singleSignOnExtension,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *IOSCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// SingleSignOnExtensionPkinitCertificate undocumented
+	SingleSignOnExtensionPkinitCertificate *IOSCertificateProfileBase `json:"singleSignOnExtensionPkinitCertificate,omitempty"`
 }

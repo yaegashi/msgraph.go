@@ -80,4 +80,6 @@ type AndroidForWorkGeneralDeviceConfiguration struct {
 	VpnEnableAlwaysOnLockdownMode *bool `json:"vpnEnableAlwaysOnLockdownMode,omitempty"`
 	// WorkProfileAllowWidgets Allow widgets from work profile apps.
 	WorkProfileAllowWidgets *bool `json:"workProfileAllowWidgets,omitempty"`
+	// WorkProfileBlockPersonalAppInstallsFromUnknownSources Prevent app installations from unknown sources in the personal profile.
+	WorkProfileBlockPersonalAppInstallsFromUnknownSources *bool `json:"workProfileBlockPersonalAppInstallsFromUnknownSources,omitempty"`
 }

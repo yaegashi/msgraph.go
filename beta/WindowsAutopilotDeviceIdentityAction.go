@@ -16,6 +16,18 @@ type WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter struct {
 type WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestParameter struct {
 }
 
+// WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestParameter undocumented
+type WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// AddressableUserName undocumented
+	AddressableUserName *string `json:"addressableUserName,omitempty"`
+	// GroupTag undocumented
+	GroupTag *string `json:"groupTag,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+}
+
 // WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestParameter undocumented
 type WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestParameter struct {
 	// UserPrincipalName undocumented
@@ -79,6 +91,32 @@ func (b *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestBuilder) Req
 
 //
 func (r *WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdateDeviceProperties action undocumented
+func (b *WindowsAutopilotDeviceIdentityRequestBuilder) UpdateDeviceProperties(reqObj *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestParameter) *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestBuilder {
+	bb := &WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateDeviceProperties"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest struct{ BaseRequest }
+
+//
+func (b *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestBuilder) Request() *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest {
+	return &WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 

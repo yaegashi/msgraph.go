@@ -8,6 +8,8 @@ import "context"
 type SensitivityLabelCollectionEvaluateRequestParameter struct {
 	// DiscoveredSensitiveTypes undocumented
 	DiscoveredSensitiveTypes []DiscoveredSensitiveType `json:"discoveredSensitiveTypes,omitempty"`
+	// CurrentLabel undocumented
+	CurrentLabel *CurrentLabel `json:"currentLabel,omitempty"`
 }
 
 //

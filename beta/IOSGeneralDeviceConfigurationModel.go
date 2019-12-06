@@ -320,6 +320,12 @@ type IOSGeneralDeviceConfiguration struct {
 	AirPrintForceTrustedTLS *bool `json:"airPrintForceTrustedTLS,omitempty"`
 	// AirPrintBlockiBeaconDiscovery Indicates whether or not iBeacon discovery of AirPrint printers is blocked. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic (iOS 11.0 and later).
 	AirPrintBlockiBeaconDiscovery *bool `json:"airPrintBlockiBeaconDiscovery,omitempty"`
+	// FilesNetworkDriveAccessBlocked Indicates if devices can access files or other resources on a network server using the Server Message Block (SMB) protocol. Available for devices running iOS and iPadOS, versions 13.0 and later.
+	FilesNetworkDriveAccessBlocked *bool `json:"filesNetworkDriveAccessBlocked,omitempty"`
+	// FilesUsbDriveAccessBlocked Indicates if sevices with access can connect to and open files on a USB drive. Available for devices running iOS and iPadOS, versions 13.0 and later.
+	FilesUsbDriveAccessBlocked *bool `json:"filesUsbDriveAccessBlocked,omitempty"`
+	// WifiPowerOnForced Indicates whether or not Wi-Fi remains on, even when device is in airplane mode. Available for devices running iOS and iPadOS, versions 13.0 and later.
+	WifiPowerOnForced *bool `json:"wifiPowerOnForced,omitempty"`
 	// BlockSystemAppRemoval Indicates whether or not the removal of system apps from the device is blocked on a supervised device (iOS 11.0 and later).
 	BlockSystemAppRemoval *bool `json:"blockSystemAppRemoval,omitempty"`
 	// VpnBlockCreation Indicates whether or not the creation of VPN configurations is blocked (iOS 11.0 and later).
@@ -342,16 +348,12 @@ type IOSGeneralDeviceConfiguration struct {
 	ContactsAllowUnmanagedToManagedRead *bool `json:"contactsAllowUnmanagedToManagedRead,omitempty"`
 	// CellularBlockPersonalHotspotModification Indicates whether or not to block the user from modifying the personal hotspot setting (iOS 12.2 or later).
 	CellularBlockPersonalHotspotModification *bool `json:"cellularBlockPersonalHotspotModification,omitempty"`
-	// SiriDisableServerLogging Indicates whether or not server-side Siri logging is disabled (iOS 12.2 or later).
-	SiriDisableServerLogging *bool `json:"siriDisableServerLogging,omitempty"`
 	// ContinuousPathKeyboardBlocked Indicates whether or not to block the continuous path keyboard when the device is supervised (iOS 13 or later).
 	ContinuousPathKeyboardBlocked *bool `json:"continuousPathKeyboardBlocked,omitempty"`
 	// FindMyDeviceInFindMyAppBlocked Indicates whether or not to block Find My Device when the device is supervised (iOS 13 or later).
 	FindMyDeviceInFindMyAppBlocked *bool `json:"findMyDeviceInFindMyAppBlocked,omitempty"`
 	// FindMyFriendsInFindMyAppBlocked Indicates whether or not to block Find My Friends when the device is supervised (iOS 13 or later).
 	FindMyFriendsInFindMyAppBlocked *bool `json:"findMyFriendsInFindMyAppBlocked,omitempty"`
-	// WiFiBlockPowerModification Indicates whether or not to block WiFi power modification when the device is supervised (iOS 13 or later).
-	WiFiBlockPowerModification *bool `json:"wiFiBlockPowerModification,omitempty"`
 	// ITunesBlocked Indicates whether or not to block the iTunes app. Requires a supervised device for iOS 13 and later.
 	ITunesBlocked *bool `json:"iTunesBlocked,omitempty"`
 }

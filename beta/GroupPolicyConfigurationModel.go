@@ -14,6 +14,8 @@ type GroupPolicyConfiguration struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description User provided description for the resource object.
 	Description *string `json:"description,omitempty"`
+	// RoleScopeTagIDs The list of scope tags for the configuration.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// LastModifiedDateTime The date and time the entity was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// DefinitionValues undocumented

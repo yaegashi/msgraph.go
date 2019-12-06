@@ -14,8 +14,8 @@ type OnlineMeeting struct {
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// JoinURL undocumented
-	JoinURL *string `json:"joinUrl,omitempty"`
+	// JoinWebURL undocumented
+	JoinWebURL *string `json:"joinWebUrl,omitempty"`
 	// Subject undocumented
 	Subject *string `json:"subject,omitempty"`
 	// Participants undocumented

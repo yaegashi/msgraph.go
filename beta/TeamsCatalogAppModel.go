@@ -10,8 +10,6 @@ type TeamsCatalogApp struct {
 	ExternalID *string `json:"externalId,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// Version undocumented
-	Version *string `json:"version,omitempty"`
 	// DistributionMethod undocumented
 	DistributionMethod *TeamsAppDistributionMethod `json:"distributionMethod,omitempty"`
 }

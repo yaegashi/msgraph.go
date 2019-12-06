@@ -43,3 +43,10 @@ func (b *IOSDeviceFeaturesConfigurationRequestBuilder) IdentityCertificateForCli
 	bb.baseURL += "/identityCertificateForClientAuthentication"
 	return bb
 }
+
+// SingleSignOnExtensionPkinitCertificate is navigation property
+func (b *IOSDeviceFeaturesConfigurationRequestBuilder) SingleSignOnExtensionPkinitCertificate() *IOSCertificateProfileBaseRequestBuilder {
+	bb := &IOSCertificateProfileBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/singleSignOnExtensionPkinitCertificate"
+	return bb
+}

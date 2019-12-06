@@ -21,13 +21,15 @@ type Call struct {
 	// Source undocumented
 	Source *ParticipantInfo `json:"source,omitempty"`
 	// Targets undocumented
-	Targets []ParticipantInfo `json:"targets,omitempty"`
+	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
 	// RequestedModalities undocumented
 	RequestedModalities []Modality `json:"requestedModalities,omitempty"`
 	// MediaConfig undocumented
 	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
 	// ChatInfo undocumented
 	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
+	// CallOptions undocumented
+	CallOptions *CallOptions `json:"callOptions,omitempty"`
 	// MeetingInfo undocumented
 	MeetingInfo *MeetingInfo `json:"meetingInfo,omitempty"`
 	// TenantID undocumented

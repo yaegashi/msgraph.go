@@ -10,6 +10,12 @@ const (
 	EndpointTypeVDefault EndpointType = 0
 	// EndpointTypeVVoicemail undocumented
 	EndpointTypeVVoicemail EndpointType = 1
+	// EndpointTypeVSkypeForBusiness undocumented
+	EndpointTypeVSkypeForBusiness EndpointType = 2
+	// EndpointTypeVSkypeForBusinessVoipPhone undocumented
+	EndpointTypeVSkypeForBusinessVoipPhone EndpointType = 3
+	// EndpointTypeVUnknownFutureValue undocumented
+	EndpointTypeVUnknownFutureValue EndpointType = 4
 )
 
 // EndpointTypePDefault returns a pointer to EndpointTypeVDefault
@@ -21,5 +27,23 @@ func EndpointTypePDefault() *EndpointType {
 // EndpointTypePVoicemail returns a pointer to EndpointTypeVVoicemail
 func EndpointTypePVoicemail() *EndpointType {
 	v := EndpointTypeVVoicemail
+	return &v
+}
+
+// EndpointTypePSkypeForBusiness returns a pointer to EndpointTypeVSkypeForBusiness
+func EndpointTypePSkypeForBusiness() *EndpointType {
+	v := EndpointTypeVSkypeForBusiness
+	return &v
+}
+
+// EndpointTypePSkypeForBusinessVoipPhone returns a pointer to EndpointTypeVSkypeForBusinessVoipPhone
+func EndpointTypePSkypeForBusinessVoipPhone() *EndpointType {
+	v := EndpointTypeVSkypeForBusinessVoipPhone
+	return &v
+}
+
+// EndpointTypePUnknownFutureValue returns a pointer to EndpointTypeVUnknownFutureValue
+func EndpointTypePUnknownFutureValue() *EndpointType {
+	v := EndpointTypeVUnknownFutureValue
 	return &v
 }

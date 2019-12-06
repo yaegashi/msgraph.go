@@ -26,6 +26,8 @@ const (
 	CallStateVTerminating CallState = 8
 	// CallStateVTerminated undocumented
 	CallStateVTerminated CallState = 9
+	// CallStateVUnknownFutureValue undocumented
+	CallStateVUnknownFutureValue CallState = 10
 )
 
 // CallStatePIncoming returns a pointer to CallStateVIncoming
@@ -85,5 +87,11 @@ func CallStatePTerminating() *CallState {
 // CallStatePTerminated returns a pointer to CallStateVTerminated
 func CallStatePTerminated() *CallState {
 	v := CallStateVTerminated
+	return &v
+}
+
+// CallStatePUnknownFutureValue returns a pointer to CallStateVUnknownFutureValue
+func CallStatePUnknownFutureValue() *CallState {
+	v := CallStateVUnknownFutureValue
 	return &v
 }

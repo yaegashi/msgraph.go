@@ -40,10 +40,16 @@ type Group struct {
 	MembershipRule *string `json:"membershipRule,omitempty"`
 	// MembershipRuleProcessingState undocumented
 	MembershipRuleProcessingState *string `json:"membershipRuleProcessingState,omitempty"`
+	// OnPremisesDomainName undocumented
+	OnPremisesDomainName *string `json:"onPremisesDomainName,omitempty"`
 	// OnPremisesLastSyncDateTime undocumented
 	OnPremisesLastSyncDateTime *time.Time `json:"onPremisesLastSyncDateTime,omitempty"`
+	// OnPremisesNetBiosName undocumented
+	OnPremisesNetBiosName *string `json:"onPremisesNetBiosName,omitempty"`
 	// OnPremisesProvisioningErrors undocumented
 	OnPremisesProvisioningErrors []OnPremisesProvisioningError `json:"onPremisesProvisioningErrors,omitempty"`
+	// OnPremisesSamAccountName undocumented
+	OnPremisesSamAccountName *string `json:"onPremisesSamAccountName,omitempty"`
 	// OnPremisesSecurityIdentifier undocumented
 	OnPremisesSecurityIdentifier *string `json:"onPremisesSecurityIdentifier,omitempty"`
 	// OnPremisesSyncEnabled undocumented
@@ -84,6 +90,10 @@ type Group struct {
 	UnseenConversationsCount *int `json:"unseenConversationsCount,omitempty"`
 	// UnseenMessagesCount undocumented
 	UnseenMessagesCount *int `json:"unseenMessagesCount,omitempty"`
+	// HideFromOutlookClients undocumented
+	HideFromOutlookClients *bool `json:"hideFromOutlookClients,omitempty"`
+	// HideFromAddressLists undocumented
+	HideFromAddressLists *bool `json:"hideFromAddressLists,omitempty"`
 	// IsArchived undocumented
 	IsArchived *bool `json:"isArchived,omitempty"`
 	// AppRoleAssignments undocumented
@@ -142,6 +152,4 @@ type Group struct {
 	Onenote *Onenote `json:"onenote,omitempty"`
 	// Team undocumented
 	Team *Team `json:"team,omitempty"`
-	// Channels undocumented
-	Channels []Channel `json:"channels,omitempty"`
 }

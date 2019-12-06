@@ -6,23 +6,23 @@ package msgraph
 type GiphyRatingType int
 
 const (
-	// GiphyRatingTypeVModerate undocumented
-	GiphyRatingTypeVModerate GiphyRatingType = 0
 	// GiphyRatingTypeVStrict undocumented
-	GiphyRatingTypeVStrict GiphyRatingType = 1
+	GiphyRatingTypeVStrict GiphyRatingType = 0
+	// GiphyRatingTypeVModerate undocumented
+	GiphyRatingTypeVModerate GiphyRatingType = 1
 	// GiphyRatingTypeVUnknownFutureValue undocumented
 	GiphyRatingTypeVUnknownFutureValue GiphyRatingType = 2
 )
 
-// GiphyRatingTypePModerate returns a pointer to GiphyRatingTypeVModerate
-func GiphyRatingTypePModerate() *GiphyRatingType {
-	v := GiphyRatingTypeVModerate
-	return &v
-}
-
 // GiphyRatingTypePStrict returns a pointer to GiphyRatingTypeVStrict
 func GiphyRatingTypePStrict() *GiphyRatingType {
 	v := GiphyRatingTypeVStrict
+	return &v
+}
+
+// GiphyRatingTypePModerate returns a pointer to GiphyRatingTypeVModerate
+func GiphyRatingTypePModerate() *GiphyRatingType {
+	v := GiphyRatingTypeVModerate
 	return &v
 }
 

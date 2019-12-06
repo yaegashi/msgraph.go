@@ -44,6 +44,194 @@ func (r *ScheduleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// OpenShiftChangeRequests returns request builder for OpenShiftChangeRequestObject collection
+func (b *ScheduleRequestBuilder) OpenShiftChangeRequests() *ScheduleOpenShiftChangeRequestsCollectionRequestBuilder {
+	bb := &ScheduleOpenShiftChangeRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/openShiftChangeRequests"
+	return bb
+}
+
+// ScheduleOpenShiftChangeRequestsCollectionRequestBuilder is request builder for OpenShiftChangeRequestObject collection
+type ScheduleOpenShiftChangeRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for OpenShiftChangeRequestObject collection
+func (b *ScheduleOpenShiftChangeRequestsCollectionRequestBuilder) Request() *ScheduleOpenShiftChangeRequestsCollectionRequest {
+	return &ScheduleOpenShiftChangeRequestsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for OpenShiftChangeRequestObject item
+func (b *ScheduleOpenShiftChangeRequestsCollectionRequestBuilder) ID(id string) *OpenShiftChangeRequestObjectRequestBuilder {
+	bb := &OpenShiftChangeRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ScheduleOpenShiftChangeRequestsCollectionRequest is request for OpenShiftChangeRequestObject collection
+type ScheduleOpenShiftChangeRequestsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for OpenShiftChangeRequestObject collection
+func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OpenShiftChangeRequestObject, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []OpenShiftChangeRequestObject
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []OpenShiftChangeRequestObject
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for OpenShiftChangeRequestObject collection
+func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) Get(ctx context.Context) ([]OpenShiftChangeRequestObject, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for OpenShiftChangeRequestObject collection
+func (r *ScheduleOpenShiftChangeRequestsCollectionRequest) Add(ctx context.Context, reqObj *OpenShiftChangeRequestObject) (resObj *OpenShiftChangeRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// OpenShifts returns request builder for OpenShift collection
+func (b *ScheduleRequestBuilder) OpenShifts() *ScheduleOpenShiftsCollectionRequestBuilder {
+	bb := &ScheduleOpenShiftsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/openShifts"
+	return bb
+}
+
+// ScheduleOpenShiftsCollectionRequestBuilder is request builder for OpenShift collection
+type ScheduleOpenShiftsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for OpenShift collection
+func (b *ScheduleOpenShiftsCollectionRequestBuilder) Request() *ScheduleOpenShiftsCollectionRequest {
+	return &ScheduleOpenShiftsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for OpenShift item
+func (b *ScheduleOpenShiftsCollectionRequestBuilder) ID(id string) *OpenShiftRequestBuilder {
+	bb := &OpenShiftRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ScheduleOpenShiftsCollectionRequest is request for OpenShift collection
+type ScheduleOpenShiftsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for OpenShift collection
+func (r *ScheduleOpenShiftsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OpenShift, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []OpenShift
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []OpenShift
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for OpenShift collection
+func (r *ScheduleOpenShiftsCollectionRequest) Get(ctx context.Context) ([]OpenShift, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for OpenShift collection
+func (r *ScheduleOpenShiftsCollectionRequest) Add(ctx context.Context, reqObj *OpenShift) (resObj *OpenShift, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // SchedulingGroups returns request builder for SchedulingGroup collection
 func (b *ScheduleRequestBuilder) SchedulingGroups() *ScheduleSchedulingGroupsCollectionRequestBuilder {
 	bb := &ScheduleSchedulingGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

@@ -74,4 +74,12 @@ type ManagedAppProtection struct {
 	AllowedOutboundClipboardSharingExceptionLength *int `json:"allowedOutboundClipboardSharingExceptionLength,omitempty"`
 	// NotificationRestriction Specify app notification restriction
 	NotificationRestriction *ManagedAppNotificationRestriction `json:"notificationRestriction,omitempty"`
+	// PreviousPinBlockCount Requires a pin to be unique from the number specified in this property.
+	PreviousPinBlockCount *int `json:"previousPinBlockCount,omitempty"`
+	// ManagedBrowser Indicates in which managed browser(s) that internet links should be opened.
+	ManagedBrowser *ManagedBrowserType `json:"managedBrowser,omitempty"`
+	// MaximumAllowedDeviceThreatLevel Maximum allowed device threat level, as reported by the MTD app
+	MaximumAllowedDeviceThreatLevel *ManagedAppDeviceThreatLevel `json:"maximumAllowedDeviceThreatLevel,omitempty"`
+	// MobileThreatDefenseRemediationAction Determines what action to take if the mobile threat defense threat threshold isn't met. Warn isn't a supported value for this property
+	MobileThreatDefenseRemediationAction *ManagedAppRemediationAction `json:"mobileThreatDefenseRemediationAction,omitempty"`
 }

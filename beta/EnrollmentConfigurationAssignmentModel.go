@@ -8,4 +8,8 @@ type EnrollmentConfigurationAssignment struct {
 	Entity
 	// Target Represents an assignment to managed devices in the tenant
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
+	// Source Type of resource used for deployment to a group, direct or policySet
+	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
+	// SourceID Identifier for resource used for deployment to a group
+	SourceID *string `json:"sourceId,omitempty"`
 }

@@ -30,10 +30,16 @@ type Group struct {
 	MailEnabled *bool `json:"mailEnabled,omitempty"`
 	// MailNickname undocumented
 	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnPremisesDomainName undocumented
+	OnPremisesDomainName *string `json:"onPremisesDomainName,omitempty"`
 	// OnPremisesLastSyncDateTime undocumented
 	OnPremisesLastSyncDateTime *time.Time `json:"onPremisesLastSyncDateTime,omitempty"`
+	// OnPremisesNetBiosName undocumented
+	OnPremisesNetBiosName *string `json:"onPremisesNetBiosName,omitempty"`
 	// OnPremisesProvisioningErrors undocumented
 	OnPremisesProvisioningErrors []OnPremisesProvisioningError `json:"onPremisesProvisioningErrors,omitempty"`
+	// OnPremisesSamAccountName undocumented
+	OnPremisesSamAccountName *string `json:"onPremisesSamAccountName,omitempty"`
 	// OnPremisesSecurityIdentifier undocumented
 	OnPremisesSecurityIdentifier *string `json:"onPremisesSecurityIdentifier,omitempty"`
 	// OnPremisesSyncEnabled undocumented
@@ -46,6 +52,8 @@ type Group struct {
 	RenewedDateTime *time.Time `json:"renewedDateTime,omitempty"`
 	// SecurityEnabled undocumented
 	SecurityEnabled *bool `json:"securityEnabled,omitempty"`
+	// SecurityIdentifier undocumented
+	SecurityIdentifier *string `json:"securityIdentifier,omitempty"`
 	// Visibility undocumented
 	Visibility *string `json:"visibility,omitempty"`
 	// AllowExternalSenders undocumented

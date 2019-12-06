@@ -26,6 +26,8 @@ type SensitivityLabel struct {
 	AssignedPolicies []LabelPolicy `json:"assignedPolicies,omitempty"`
 	// Priority undocumented
 	Priority *int `json:"priority,omitempty"`
+	// AutoLabeling undocumented
+	AutoLabeling *AutoLabeling `json:"autoLabeling,omitempty"`
 	// Sublabels undocumented
 	Sublabels []SensitivityLabel `json:"sublabels,omitempty"`
 }

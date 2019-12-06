@@ -4,8 +4,10 @@ package msgraph
 
 // InvitationParticipantInfo undocumented
 type InvitationParticipantInfo struct {
-	// ParticipantInfo is the base model of InvitationParticipantInfo
-	ParticipantInfo
+	// Object is the base model of InvitationParticipantInfo
+	Object
+	// Identity undocumented
+	Identity *IdentitySet `json:"identity,omitempty"`
 	// ReplacesCallID undocumented
 	ReplacesCallID *string `json:"replacesCallId,omitempty"`
 }

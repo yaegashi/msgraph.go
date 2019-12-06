@@ -12,6 +12,12 @@ const (
 	WorkforceIntegrationSupportedEntitiesVShift WorkforceIntegrationSupportedEntities = 1
 	// WorkforceIntegrationSupportedEntitiesVSwapRequest undocumented
 	WorkforceIntegrationSupportedEntitiesVSwapRequest WorkforceIntegrationSupportedEntities = 2
+	// WorkforceIntegrationSupportedEntitiesVUserShiftPreferences undocumented
+	WorkforceIntegrationSupportedEntitiesVUserShiftPreferences WorkforceIntegrationSupportedEntities = 8
+	// WorkforceIntegrationSupportedEntitiesVOpenShift undocumented
+	WorkforceIntegrationSupportedEntitiesVOpenShift WorkforceIntegrationSupportedEntities = 16
+	// WorkforceIntegrationSupportedEntitiesVOpenShiftRequest undocumented
+	WorkforceIntegrationSupportedEntitiesVOpenShiftRequest WorkforceIntegrationSupportedEntities = 32
 )
 
 // WorkforceIntegrationSupportedEntitiesPNone returns a pointer to WorkforceIntegrationSupportedEntitiesVNone
@@ -29,5 +35,23 @@ func WorkforceIntegrationSupportedEntitiesPShift() *WorkforceIntegrationSupporte
 // WorkforceIntegrationSupportedEntitiesPSwapRequest returns a pointer to WorkforceIntegrationSupportedEntitiesVSwapRequest
 func WorkforceIntegrationSupportedEntitiesPSwapRequest() *WorkforceIntegrationSupportedEntities {
 	v := WorkforceIntegrationSupportedEntitiesVSwapRequest
+	return &v
+}
+
+// WorkforceIntegrationSupportedEntitiesPUserShiftPreferences returns a pointer to WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
+func WorkforceIntegrationSupportedEntitiesPUserShiftPreferences() *WorkforceIntegrationSupportedEntities {
+	v := WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
+	return &v
+}
+
+// WorkforceIntegrationSupportedEntitiesPOpenShift returns a pointer to WorkforceIntegrationSupportedEntitiesVOpenShift
+func WorkforceIntegrationSupportedEntitiesPOpenShift() *WorkforceIntegrationSupportedEntities {
+	v := WorkforceIntegrationSupportedEntitiesVOpenShift
+	return &v
+}
+
+// WorkforceIntegrationSupportedEntitiesPOpenShiftRequest returns a pointer to WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
+func WorkforceIntegrationSupportedEntitiesPOpenShiftRequest() *WorkforceIntegrationSupportedEntities {
+	v := WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
 	return &v
 }

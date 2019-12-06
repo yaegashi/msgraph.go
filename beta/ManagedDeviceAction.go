@@ -18,6 +18,8 @@ type ManagedDeviceCollectionExecuteActionRequestParameter struct {
 	NotificationTitle *string `json:"notificationTitle,omitempty"`
 	// NotificationBody undocumented
 	NotificationBody *string `json:"notificationBody,omitempty"`
+	// DeviceName undocumented
+	DeviceName *string `json:"deviceName,omitempty"`
 }
 
 // ManagedDeviceOverrideComplianceStateRequestParameter undocumented

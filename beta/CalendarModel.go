@@ -28,10 +28,20 @@ type Calendar struct {
 	CanEdit *bool `json:"canEdit,omitempty"`
 	// Owner undocumented
 	Owner *EmailAddress `json:"owner,omitempty"`
+	// AllowedOnlineMeetingProviders undocumented
+	AllowedOnlineMeetingProviders []OnlineMeetingProviderType `json:"allowedOnlineMeetingProviders,omitempty"`
+	// DefaultOnlineMeetingProvider undocumented
+	DefaultOnlineMeetingProvider *OnlineMeetingProviderType `json:"defaultOnlineMeetingProvider,omitempty"`
+	// IsTallyingResponses undocumented
+	IsTallyingResponses *bool `json:"isTallyingResponses,omitempty"`
+	// IsRemovable undocumented
+	IsRemovable *bool `json:"isRemovable,omitempty"`
 	// SingleValueExtendedProperties undocumented
 	SingleValueExtendedProperties []SingleValueLegacyExtendedProperty `json:"singleValueExtendedProperties,omitempty"`
 	// MultiValueExtendedProperties undocumented
 	MultiValueExtendedProperties []MultiValueLegacyExtendedProperty `json:"multiValueExtendedProperties,omitempty"`
+	// CalendarPermissions undocumented
+	CalendarPermissions []CalendarPermission `json:"calendarPermissions,omitempty"`
 	// Events undocumented
 	Events []Event `json:"events,omitempty"`
 	// CalendarView undocumented

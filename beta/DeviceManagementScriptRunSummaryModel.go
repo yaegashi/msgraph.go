@@ -10,12 +10,6 @@ type DeviceManagementScriptRunSummary struct {
 	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`
 	// ErrorDeviceCount Error device count.
 	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
-	// CompliantDeviceCount Compliant device count.
-	CompliantDeviceCount *int `json:"compliantDeviceCount,omitempty"`
-	// NotCompliantDeviceCount Not Compliant device count.
-	NotCompliantDeviceCount *int `json:"notCompliantDeviceCount,omitempty"`
-	// PendingDeviceCount Pending device count.
-	PendingDeviceCount *int `json:"pendingDeviceCount,omitempty"`
 	// SuccessUserCount Success user count.
 	SuccessUserCount *int `json:"successUserCount,omitempty"`
 	// ErrorUserCount Error user count.

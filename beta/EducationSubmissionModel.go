@@ -28,10 +28,6 @@ type EducationSubmission struct {
 	ReturnedBy *IdentitySet `json:"returnedBy,omitempty"`
 	// ReturnedDateTime undocumented
 	ReturnedDateTime *time.Time `json:"returnedDateTime,omitempty"`
-	// Grade undocumented
-	Grade *EducationAssignmentGrade `json:"grade,omitempty"`
-	// Feedback undocumented
-	Feedback *EducationFeedback `json:"feedback,omitempty"`
 	// ResourcesFolderURL undocumented
 	ResourcesFolderURL *string `json:"resourcesFolderUrl,omitempty"`
 	// Resources undocumented

@@ -6,7 +6,7 @@ package msgraph
 type DeviceManagementSettings struct {
 	// Object is the base model of DeviceManagementSettings
 	Object
-	// DeviceComplianceCheckinThresholdDays The number of days a device is allowed to go without checking in to remain compliant. Valid values 0 to 120
+	// DeviceComplianceCheckinThresholdDays The number of days a device is allowed to go without checking in to remain compliant.
 	DeviceComplianceCheckinThresholdDays *int `json:"deviceComplianceCheckinThresholdDays,omitempty"`
 	// IsScheduledActionEnabled Is feature enabled or not for scheduled action for rule.
 	IsScheduledActionEnabled *bool `json:"isScheduledActionEnabled,omitempty"`

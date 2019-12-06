@@ -12,6 +12,8 @@ const (
 	PlayPromptCompletionReasonVCompletedSuccessfully PlayPromptCompletionReason = 1
 	// PlayPromptCompletionReasonVMediaOperationCanceled undocumented
 	PlayPromptCompletionReasonVMediaOperationCanceled PlayPromptCompletionReason = 2
+	// PlayPromptCompletionReasonVUnknownFutureValue undocumented
+	PlayPromptCompletionReasonVUnknownFutureValue PlayPromptCompletionReason = 3
 )
 
 // PlayPromptCompletionReasonPUnknown returns a pointer to PlayPromptCompletionReasonVUnknown
@@ -29,5 +31,11 @@ func PlayPromptCompletionReasonPCompletedSuccessfully() *PlayPromptCompletionRea
 // PlayPromptCompletionReasonPMediaOperationCanceled returns a pointer to PlayPromptCompletionReasonVMediaOperationCanceled
 func PlayPromptCompletionReasonPMediaOperationCanceled() *PlayPromptCompletionReason {
 	v := PlayPromptCompletionReasonVMediaOperationCanceled
+	return &v
+}
+
+// PlayPromptCompletionReasonPUnknownFutureValue returns a pointer to PlayPromptCompletionReasonVUnknownFutureValue
+func PlayPromptCompletionReasonPUnknownFutureValue() *PlayPromptCompletionReason {
+	v := PlayPromptCompletionReasonVUnknownFutureValue
 	return &v
 }

@@ -12,6 +12,8 @@ const (
 	WindowsHealthMonitoringScopeVHealthMonitoring WindowsHealthMonitoringScope = 1
 	// WindowsHealthMonitoringScopeVBootPerformance undocumented
 	WindowsHealthMonitoringScopeVBootPerformance WindowsHealthMonitoringScope = 2
+	// WindowsHealthMonitoringScopeVUserExperienceAnalytics undocumented
+	WindowsHealthMonitoringScopeVUserExperienceAnalytics WindowsHealthMonitoringScope = 4
 )
 
 // WindowsHealthMonitoringScopePUndefined returns a pointer to WindowsHealthMonitoringScopeVUndefined
@@ -29,5 +31,11 @@ func WindowsHealthMonitoringScopePHealthMonitoring() *WindowsHealthMonitoringSco
 // WindowsHealthMonitoringScopePBootPerformance returns a pointer to WindowsHealthMonitoringScopeVBootPerformance
 func WindowsHealthMonitoringScopePBootPerformance() *WindowsHealthMonitoringScope {
 	v := WindowsHealthMonitoringScopeVBootPerformance
+	return &v
+}
+
+// WindowsHealthMonitoringScopePUserExperienceAnalytics returns a pointer to WindowsHealthMonitoringScopeVUserExperienceAnalytics
+func WindowsHealthMonitoringScopePUserExperienceAnalytics() *WindowsHealthMonitoringScope {
+	v := WindowsHealthMonitoringScopeVUserExperienceAnalytics
 	return &v
 }

@@ -30,8 +30,6 @@ const (
 	DeviceEnrollmentTypeVAppleUserEnrollment DeviceEnrollmentType = 11
 	// DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount undocumented
 	DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount DeviceEnrollmentType = 12
-	// DeviceEnrollmentTypeVAppleUserEnrollmentWithAzureAD undocumented
-	DeviceEnrollmentTypeVAppleUserEnrollmentWithAzureAD DeviceEnrollmentType = 13
 )
 
 // DeviceEnrollmentTypePUnknown returns a pointer to DeviceEnrollmentTypeVUnknown
@@ -103,11 +101,5 @@ func DeviceEnrollmentTypePAppleUserEnrollment() *DeviceEnrollmentType {
 // DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount returns a pointer to DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount
 func DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount() *DeviceEnrollmentType {
 	v := DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount
-	return &v
-}
-
-// DeviceEnrollmentTypePAppleUserEnrollmentWithAzureAD returns a pointer to DeviceEnrollmentTypeVAppleUserEnrollmentWithAzureAD
-func DeviceEnrollmentTypePAppleUserEnrollmentWithAzureAD() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVAppleUserEnrollmentWithAzureAD
 	return &v
 }

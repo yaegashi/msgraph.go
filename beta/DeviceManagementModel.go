@@ -36,6 +36,8 @@ type DeviceManagement struct {
 	WindowsMalwareOverview *WindowsMalwareOverview `json:"windowsMalwareOverview,omitempty"`
 	// AccountMoveCompletionDateTime The date & time when tenant data moved between scaleunits.
 	AccountMoveCompletionDateTime *time.Time `json:"accountMoveCompletionDateTime,omitempty"`
+	// GroupPolicyObjectFiles A list of Group Policy Object files uploaded.
+	GroupPolicyObjectFiles []GroupPolicyObjectFile `json:"groupPolicyObjectFiles,omitempty"`
 	// AuditEvents undocumented
 	AuditEvents []AuditEvent `json:"auditEvents,omitempty"`
 	// AndroidForWorkSettings undocumented
@@ -98,6 +100,8 @@ type DeviceManagement struct {
 	MobileThreatDefenseConnectors []MobileThreatDefenseConnector `json:"mobileThreatDefenseConnectors,omitempty"`
 	// DeviceManagementPartners undocumented
 	DeviceManagementPartners []DeviceManagementPartner `json:"deviceManagementPartners,omitempty"`
+	// ComplianceManagementPartners undocumented
+	ComplianceManagementPartners []ComplianceManagementPartner `json:"complianceManagementPartners,omitempty"`
 	// Intents undocumented
 	Intents []DeviceManagementIntent `json:"intents,omitempty"`
 	// SettingDefinitions undocumented
@@ -112,6 +116,8 @@ type DeviceManagement struct {
 	ApplePushNotificationCertificate *ApplePushNotificationCertificate `json:"applePushNotificationCertificate,omitempty"`
 	// DeviceManagementScripts undocumented
 	DeviceManagementScripts []DeviceManagementScript `json:"deviceManagementScripts,omitempty"`
+	// DeviceHealthScripts undocumented
+	DeviceHealthScripts []DeviceHealthScript `json:"deviceHealthScripts,omitempty"`
 	// ManagedDeviceOverview undocumented
 	ManagedDeviceOverview *ManagedDeviceOverview `json:"managedDeviceOverview,omitempty"`
 	// DetectedApps undocumented
@@ -130,6 +136,12 @@ type DeviceManagement struct {
 	UserExperienceAnalyticsBaselines []UserExperienceAnalyticsBaseline `json:"userExperienceAnalyticsBaselines,omitempty"`
 	// UserExperienceAnalyticsCategories undocumented
 	UserExperienceAnalyticsCategories []UserExperienceAnalyticsCategory `json:"userExperienceAnalyticsCategories,omitempty"`
+	// UserExperienceAnalyticsDevicePerformance undocumented
+	UserExperienceAnalyticsDevicePerformance []UserExperienceAnalyticsDevicePerformance `json:"userExperienceAnalyticsDevicePerformance,omitempty"`
+	// UserExperienceAnalyticsRegressionSummary undocumented
+	UserExperienceAnalyticsRegressionSummary *UserExperienceAnalyticsRegressionSummary `json:"userExperienceAnalyticsRegressionSummary,omitempty"`
+	// UserExperienceAnalyticsDeviceStartupHistory undocumented
+	UserExperienceAnalyticsDeviceStartupHistory []UserExperienceAnalyticsDeviceStartupHistory `json:"userExperienceAnalyticsDeviceStartupHistory,omitempty"`
 	// DerivedCredentials undocumented
 	DerivedCredentials []DeviceManagementDerivedCredentialSettings `json:"derivedCredentials,omitempty"`
 	// WindowsAutopilotSettings undocumented
@@ -150,6 +162,8 @@ type DeviceManagement struct {
 	ManagementConditions []ManagementCondition `json:"managementConditions,omitempty"`
 	// ManagementConditionStatements undocumented
 	ManagementConditionStatements []ManagementConditionStatement `json:"managementConditionStatements,omitempty"`
+	// GroupPolicyMigrationReports undocumented
+	GroupPolicyMigrationReports []GroupPolicyMigrationReport `json:"groupPolicyMigrationReports,omitempty"`
 	// GroupPolicyConfigurations undocumented
 	GroupPolicyConfigurations []GroupPolicyConfiguration `json:"groupPolicyConfigurations,omitempty"`
 	// GroupPolicyDefinitions undocumented
@@ -170,6 +184,8 @@ type DeviceManagement struct {
 	ResourceOperations []ResourceOperation `json:"resourceOperations,omitempty"`
 	// RemoteAssistancePartners undocumented
 	RemoteAssistancePartners []RemoteAssistancePartner `json:"remoteAssistancePartners,omitempty"`
+	// Reports undocumented
+	Reports *DeviceManagementReports `json:"reports,omitempty"`
 	// TelecomExpenseManagementPartners undocumented
 	TelecomExpenseManagementPartners []TelecomExpenseManagementPartner `json:"telecomExpenseManagementPartners,omitempty"`
 	// EmbeddedSIMActivationCodePools undocumented

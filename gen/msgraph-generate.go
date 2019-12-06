@@ -329,7 +329,11 @@ func (g *Generator) Generate() error {
 			n := m["Name"]
 			t := &EnumType{Name: n, Sym: exported(n), Description: "undocumented"}
 			for _, y := range x.Elems {
-				n := exported(y.Attrs[0].Value)
+				n := y.Attrs[0].Value
+				// ex. Collection(String) -> StringCollection
+				if strings.HasPrefix(n, colPrefix) {
+					n = n[len(colPrefix):len(n)-1] + "Collection"
+				}
 				v := y.Attrs[1].Value
 				m := &EnumTypeMember{Name: n, Sym: exported(n), Value: v, Description: "undocumented"}
 				t.Members = append(t.Members, m)

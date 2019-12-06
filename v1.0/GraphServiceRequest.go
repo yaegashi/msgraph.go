@@ -11,6 +11,100 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// Applications returns request builder for Application collection
+func (b *GraphServiceRequestBuilder) Applications() *GraphServiceApplicationsCollectionRequestBuilder {
+	bb := &GraphServiceApplicationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/applications"
+	return bb
+}
+
+// GraphServiceApplicationsCollectionRequestBuilder is request builder for Application collection
+type GraphServiceApplicationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for Application collection
+func (b *GraphServiceApplicationsCollectionRequestBuilder) Request() *GraphServiceApplicationsCollectionRequest {
+	return &GraphServiceApplicationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for Application item
+func (b *GraphServiceApplicationsCollectionRequestBuilder) ID(id string) *ApplicationRequestBuilder {
+	bb := &ApplicationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GraphServiceApplicationsCollectionRequest is request for Application collection
+type GraphServiceApplicationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for Application collection
+func (r *GraphServiceApplicationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Application, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []Application
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []Application
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for Application collection
+func (r *GraphServiceApplicationsCollectionRequest) Get(ctx context.Context) ([]Application, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for Application collection
+func (r *GraphServiceApplicationsCollectionRequest) Add(ctx context.Context, reqObj *Application) (resObj *Application, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // CertificateBasedAuthConfiguration returns request builder for CertificateBasedAuthConfiguration collection
 func (b *GraphServiceRequestBuilder) CertificateBasedAuthConfiguration() *GraphServiceCertificateBasedAuthConfigurationCollectionRequestBuilder {
 	bb := &GraphServiceCertificateBasedAuthConfigurationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -101,6 +195,100 @@ func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Get(ctx
 
 // Add performs POST request for CertificateBasedAuthConfiguration collection
 func (r *GraphServiceCertificateBasedAuthConfigurationCollectionRequest) Add(ctx context.Context, reqObj *CertificateBasedAuthConfiguration) (resObj *CertificateBasedAuthConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Contacts returns request builder for OrgContact collection
+func (b *GraphServiceRequestBuilder) Contacts() *GraphServiceContactsCollectionRequestBuilder {
+	bb := &GraphServiceContactsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/contacts"
+	return bb
+}
+
+// GraphServiceContactsCollectionRequestBuilder is request builder for OrgContact collection
+type GraphServiceContactsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for OrgContact collection
+func (b *GraphServiceContactsCollectionRequestBuilder) Request() *GraphServiceContactsCollectionRequest {
+	return &GraphServiceContactsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for OrgContact item
+func (b *GraphServiceContactsCollectionRequestBuilder) ID(id string) *OrgContactRequestBuilder {
+	bb := &OrgContactRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GraphServiceContactsCollectionRequest is request for OrgContact collection
+type GraphServiceContactsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for OrgContact collection
+func (r *GraphServiceContactsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OrgContact, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []OrgContact
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []OrgContact
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for OrgContact collection
+func (r *GraphServiceContactsCollectionRequest) Get(ctx context.Context) ([]OrgContact, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for OrgContact collection
+func (r *GraphServiceContactsCollectionRequest) Add(ctx context.Context, reqObj *OrgContact) (resObj *OrgContact, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

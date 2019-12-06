@@ -32,6 +32,8 @@ type EventAcceptRequestParameter struct {
 
 // EventDeclineRequestParameter undocumented
 type EventDeclineRequestParameter struct {
+	// ProposedNewTime undocumented
+	ProposedNewTime *TimeSlot `json:"ProposedNewTime,omitempty"`
 	// SendResponse undocumented
 	SendResponse *bool `json:"SendResponse,omitempty"`
 	// Comment undocumented
@@ -40,6 +42,8 @@ type EventDeclineRequestParameter struct {
 
 // EventTentativelyAcceptRequestParameter undocumented
 type EventTentativelyAcceptRequestParameter struct {
+	// ProposedNewTime undocumented
+	ProposedNewTime *TimeSlot `json:"ProposedNewTime,omitempty"`
 	// SendResponse undocumented
 	SendResponse *bool `json:"SendResponse,omitempty"`
 	// Comment undocumented

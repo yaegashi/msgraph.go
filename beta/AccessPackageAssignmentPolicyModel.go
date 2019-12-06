@@ -18,22 +18,8 @@ type AccessPackageAssignmentPolicy struct {
 	Description *string `json:"description,omitempty"`
 	// IsEnabled undocumented
 	IsEnabled *bool `json:"isEnabled,omitempty"`
-	// IsDenyPolicy undocumented
-	IsDenyPolicy *bool `json:"isDenyPolicy,omitempty"`
-	// IsAllUsersScope undocumented
-	IsAllUsersScope *bool `json:"isAllUsersScope,omitempty"`
 	// CanExtend undocumented
 	CanExtend *bool `json:"canExtend,omitempty"`
-	// IsApprovalRequired undocumented
-	IsApprovalRequired *bool `json:"isApprovalRequired,omitempty"`
-	// IsApprovalRequiredForExtension undocumented
-	IsApprovalRequiredForExtension *bool `json:"isApprovalRequiredForExtension,omitempty"`
-	// IsApproverJustificationRequired undocumented
-	IsApproverJustificationRequired *bool `json:"isApproverJustificationRequired,omitempty"`
-	// ApprovalTimeOutInDays undocumented
-	ApprovalTimeOutInDays *int `json:"approvalTimeOutInDays,omitempty"`
-	// IsRequestorJustificationRequired undocumented
-	IsRequestorJustificationRequired *bool `json:"isRequestorJustificationRequired,omitempty"`
 	// DurationInDays undocumented
 	DurationInDays *int `json:"durationInDays,omitempty"`
 	// ExpirationDateTime undocumented
@@ -46,12 +32,8 @@ type AccessPackageAssignmentPolicy struct {
 	ModifiedBy *string `json:"modifiedBy,omitempty"`
 	// ModifiedDateTime undocumented
 	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
-	// SubjectsScope undocumented
-	SubjectsScope []AccessPackageSubject `json:"subjectsScope,omitempty"`
 	// AccessPackage undocumented
 	AccessPackage *AccessPackage `json:"accessPackage,omitempty"`
 	// AccessPackageCatalog undocumented
 	AccessPackageCatalog *AccessPackageCatalog `json:"accessPackageCatalog,omitempty"`
-	// Approvers undocumented
-	Approvers []AccessPackageSubject `json:"approvers,omitempty"`
 }

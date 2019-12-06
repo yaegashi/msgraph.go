@@ -12,4 +12,8 @@ type UnifiedRoleAssignment struct {
 	ResourceScope *string `json:"resourceScope,omitempty"`
 	// RoleDefinitionID undocumented
 	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// Principal undocumented
+	Principal *DirectoryObject `json:"principal,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
 }

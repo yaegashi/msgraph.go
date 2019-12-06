@@ -8,4 +8,8 @@ type Win32LobAppAssignmentSettings struct {
 	MobileAppAssignmentSettings
 	// Notifications The notification status for this app assignment.
 	Notifications *Win32LobAppNotification `json:"notifications,omitempty"`
+	// RestartSettings The reboot settings to apply for this app assignment.
+	RestartSettings *Win32LobAppRestartSettings `json:"restartSettings,omitempty"`
+	// InstallTimeSettings The install time settings to apply for this app assignment.
+	InstallTimeSettings *MobileAppInstallTimeSettings `json:"installTimeSettings,omitempty"`
 }

@@ -20,6 +20,10 @@ type IOSEasEmailProfileConfiguration struct {
 	DurationOfEmailToSync *EmailSyncDuration `json:"durationOfEmailToSync,omitempty"`
 	// EmailAddressSource Email attribute that is picked from AAD and injected into this profile before installing on the device.
 	EmailAddressSource *UserEmailSource `json:"emailAddressSource,omitempty"`
+	// EasServices Exchange data to sync.
+	EasServices *EasServices `json:"easServices,omitempty"`
+	// EasServicesUserOverrideEnabled Allow users to change sync settings.
+	EasServicesUserOverrideEnabled *bool `json:"easServicesUserOverrideEnabled,omitempty"`
 	// HostName Exchange location that (URL) that the native mail app connects to.
 	HostName *string `json:"hostName,omitempty"`
 	// RequireSmime Indicates whether or not to use S/MIME certificate.

@@ -14,4 +14,6 @@ type AndroidWorkProfilePkcsCertificateProfile struct {
 	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// ManagedDeviceCertificateStates undocumented
+	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }

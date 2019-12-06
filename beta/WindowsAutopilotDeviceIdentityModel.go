@@ -46,6 +46,8 @@ type WindowsAutopilotDeviceIdentity struct {
 	AzureActiveDirectoryDeviceID *string `json:"azureActiveDirectoryDeviceId,omitempty"`
 	// ManagedDeviceID Managed Device ID
 	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// DisplayName Display Name
+	DisplayName *string `json:"displayName,omitempty"`
 	// DeploymentProfile undocumented
 	DeploymentProfile *WindowsAutopilotDeploymentProfile `json:"deploymentProfile,omitempty"`
 	// IntendedDeploymentProfile undocumented

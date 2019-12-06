@@ -6,6 +6,8 @@ package msgraph
 type ActiveDirectoryWindowsAutopilotDeploymentProfile struct {
 	// WindowsAutopilotDeploymentProfile is the base model of ActiveDirectoryWindowsAutopilotDeploymentProfile
 	WindowsAutopilotDeploymentProfile
+	// HybridAzureADJoinSkipConnectivityCheck The Autopilot Hybrid Azure AD join flow will continue even if it does not establish domain controller connectivity during OOBE.
+	HybridAzureADJoinSkipConnectivityCheck *bool `json:"hybridAzureADJoinSkipConnectivityCheck,omitempty"`
 	// DomainJoinConfiguration undocumented
 	DomainJoinConfiguration *WindowsDomainJoinConfiguration `json:"domainJoinConfiguration,omitempty"`
 }

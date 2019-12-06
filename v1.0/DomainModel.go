@@ -20,6 +20,10 @@ type Domain struct {
 	IsRoot *bool `json:"isRoot,omitempty"`
 	// IsVerified undocumented
 	IsVerified *bool `json:"isVerified,omitempty"`
+	// Manufacturer undocumented
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model undocumented
+	Model *string `json:"model,omitempty"`
 	// PasswordNotificationWindowInDays undocumented
 	PasswordNotificationWindowInDays *int `json:"passwordNotificationWindowInDays,omitempty"`
 	// PasswordValidityPeriodInDays undocumented

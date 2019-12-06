@@ -66,6 +66,14 @@ type Event struct {
 	WebLink *string `json:"webLink,omitempty"`
 	// OnlineMeetingURL undocumented
 	OnlineMeetingURL *string `json:"onlineMeetingUrl,omitempty"`
+	// IsOnlineMeeting undocumented
+	IsOnlineMeeting *bool `json:"isOnlineMeeting,omitempty"`
+	// OnlineMeetingProvider undocumented
+	OnlineMeetingProvider *OnlineMeetingProviderType `json:"onlineMeetingProvider,omitempty"`
+	// OnlineMeeting undocumented
+	OnlineMeeting *OnlineMeetingInfo `json:"onlineMeeting,omitempty"`
+	// AllowNewTimeProposals undocumented
+	AllowNewTimeProposals *bool `json:"allowNewTimeProposals,omitempty"`
 	// Attachments undocumented
 	Attachments []Attachment `json:"attachments,omitempty"`
 	// SingleValueExtendedProperties undocumented

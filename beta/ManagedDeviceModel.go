@@ -144,6 +144,8 @@ type ManagedDevice struct {
 	ConfigurationManagerClientHealthState *ConfigurationManagerClientHealthState `json:"configurationManagerClientHealthState,omitempty"`
 	// ConfigurationManagerClientInformation Configuration manager client information, valid only for devices managed, duel-managed or tri-managed by ConfigMgr Agent
 	ConfigurationManagerClientInformation *ConfigurationManagerClientInformation `json:"configurationManagerClientInformation,omitempty"`
+	// EthernetMacAddress Ethernet MAC. This property is read-only.
+	EthernetMacAddress *string `json:"ethernetMacAddress,omitempty"`
 	// SecurityBaselineStates undocumented
 	SecurityBaselineStates []SecurityBaselineState `json:"securityBaselineStates,omitempty"`
 	// DeviceConfigurationStates undocumented

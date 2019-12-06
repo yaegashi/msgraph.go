@@ -22,6 +22,8 @@ const (
 	AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols AndroidDeviceOwnerRequiredPasswordType = 6
 	// AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric undocumented
 	AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric AndroidDeviceOwnerRequiredPasswordType = 7
+	// AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword undocumented
+	AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword AndroidDeviceOwnerRequiredPasswordType = 8
 )
 
 // AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault
@@ -69,5 +71,11 @@ func AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols() *AndroidDe
 // AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric
 func AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric() *AndroidDeviceOwnerRequiredPasswordType {
 	v := AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric
+	return &v
+}
+
+// AndroidDeviceOwnerRequiredPasswordTypePCustomPassword returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword
+func AndroidDeviceOwnerRequiredPasswordTypePCustomPassword() *AndroidDeviceOwnerRequiredPasswordType {
+	v := AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword
 	return &v
 }

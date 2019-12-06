@@ -6,17 +6,21 @@ package msgraph
 type RecordingStatus int
 
 const (
-	// RecordingStatusVRecordingCapable undocumented
-	RecordingStatusVRecordingCapable RecordingStatus = 0
+	// RecordingStatusVUnknown undocumented
+	RecordingStatusVUnknown RecordingStatus = 0
 	// RecordingStatusVNotRecording undocumented
 	RecordingStatusVNotRecording RecordingStatus = 1
-	// RecordingStatusVStartedRecording undocumented
-	RecordingStatusVStartedRecording RecordingStatus = 2
+	// RecordingStatusVRecording undocumented
+	RecordingStatusVRecording RecordingStatus = 2
+	// RecordingStatusVFailed undocumented
+	RecordingStatusVFailed RecordingStatus = 3
+	// RecordingStatusVUnknownFutureValue undocumented
+	RecordingStatusVUnknownFutureValue RecordingStatus = 4
 )
 
-// RecordingStatusPRecordingCapable returns a pointer to RecordingStatusVRecordingCapable
-func RecordingStatusPRecordingCapable() *RecordingStatus {
-	v := RecordingStatusVRecordingCapable
+// RecordingStatusPUnknown returns a pointer to RecordingStatusVUnknown
+func RecordingStatusPUnknown() *RecordingStatus {
+	v := RecordingStatusVUnknown
 	return &v
 }
 
@@ -26,8 +30,20 @@ func RecordingStatusPNotRecording() *RecordingStatus {
 	return &v
 }
 
-// RecordingStatusPStartedRecording returns a pointer to RecordingStatusVStartedRecording
-func RecordingStatusPStartedRecording() *RecordingStatus {
-	v := RecordingStatusVStartedRecording
+// RecordingStatusPRecording returns a pointer to RecordingStatusVRecording
+func RecordingStatusPRecording() *RecordingStatus {
+	v := RecordingStatusVRecording
+	return &v
+}
+
+// RecordingStatusPFailed returns a pointer to RecordingStatusVFailed
+func RecordingStatusPFailed() *RecordingStatus {
+	v := RecordingStatusVFailed
+	return &v
+}
+
+// RecordingStatusPUnknownFutureValue returns a pointer to RecordingStatusVUnknownFutureValue
+func RecordingStatusPUnknownFutureValue() *RecordingStatus {
+	v := RecordingStatusVUnknownFutureValue
 	return &v
 }

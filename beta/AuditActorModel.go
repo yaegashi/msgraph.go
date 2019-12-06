@@ -22,4 +22,6 @@ type AuditActor struct {
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// UserID User Id.
 	UserID *string `json:"userId,omitempty"`
+	// UserRoleScopeTags List of user scope tags when the audit was performed.
+	UserRoleScopeTags []RoleScopeTagInfo `json:"userRoleScopeTags,omitempty"`
 }

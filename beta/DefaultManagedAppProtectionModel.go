@@ -42,6 +42,8 @@ type DefaultManagedAppProtection struct {
 	AllowedAndroidDeviceManufacturers *string `json:"allowedAndroidDeviceManufacturers,omitempty"`
 	// AppActionIfAndroidDeviceManufacturerNotAllowed Defines a managed app behavior, either block or wipe, if the specified device manufacturer is not allowed. (Android only)
 	AppActionIfAndroidDeviceManufacturerNotAllowed *ManagedAppRemediationAction `json:"appActionIfAndroidDeviceManufacturerNotAllowed,omitempty"`
+	// ThirdPartyKeyboardsBlocked Defines if third party keyboards are allowed while accessing a managed app. (iOS Only)
+	ThirdPartyKeyboardsBlocked *bool `json:"thirdPartyKeyboardsBlocked,omitempty"`
 	// FilterOpenInToOnlyManagedApps Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False. (iOS Only)
 	FilterOpenInToOnlyManagedApps *bool `json:"filterOpenInToOnlyManagedApps,omitempty"`
 	// DisableProtectionOfManagedOutboundOpenInData Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps. (iOS Only)
@@ -62,6 +64,12 @@ type DefaultManagedAppProtection struct {
 	CustomBrowserPackageID *string `json:"customBrowserPackageId,omitempty"`
 	// CustomBrowserDisplayName Friendly name of the preferred custom browser to open weblink on Android. (Android only)
 	CustomBrowserDisplayName *string `json:"customBrowserDisplayName,omitempty"`
+	// MinimumRequiredCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or app access will be blocked
+	MinimumRequiredCompanyPortalVersion *string `json:"minimumRequiredCompanyPortalVersion,omitempty"`
+	// MinimumWarningCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the user will receive a warning
+	MinimumWarningCompanyPortalVersion *string `json:"minimumWarningCompanyPortalVersion,omitempty"`
+	// MinimumWipeCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
+	MinimumWipeCompanyPortalVersion *string `json:"minimumWipeCompanyPortalVersion,omitempty"`
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 	// DeploymentSummary undocumented

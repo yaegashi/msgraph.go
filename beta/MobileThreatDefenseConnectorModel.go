@@ -12,6 +12,10 @@ type MobileThreatDefenseConnector struct {
 	LastHeartbeatDateTime *time.Time `json:"lastHeartbeatDateTime,omitempty"`
 	// PartnerState Data Sync Partner state for this account
 	PartnerState *MobileThreatPartnerTenantState `json:"partnerState,omitempty"`
+	// AndroidMobileApplicationManagementEnabled For Android, set whether data from the data sync partner should be used during Mobile Application Management (MAM) evaluations. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation.
+	AndroidMobileApplicationManagementEnabled *bool `json:"androidMobileApplicationManagementEnabled,omitempty"`
+	// IOSMobileApplicationManagementEnabled For IOS, get or set whether data from the data sync partner should be used during Mobile Application Management (MAM) evaluations. Only one partner per platform may be enabled for Mobile Application Management (MAM) evaluation.
+	IOSMobileApplicationManagementEnabled *bool `json:"iosMobileApplicationManagementEnabled,omitempty"`
 	// AndroidEnabled For Android, set whether data from the data sync partner should be used during compliance evaluations
 	AndroidEnabled *bool `json:"androidEnabled,omitempty"`
 	// IOSEnabled For IOS, get or set whether data from the data sync partner should be used during compliance evaluations

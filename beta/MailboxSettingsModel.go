@@ -14,6 +14,8 @@ type MailboxSettings struct {
 	TimeZone *string `json:"timeZone,omitempty"`
 	// Language undocumented
 	Language *LocaleInfo `json:"language,omitempty"`
+	// DelegateMeetingMessageDeliveryOptions undocumented
+	DelegateMeetingMessageDeliveryOptions *DelegateMeetingMessageDeliveryOptions `json:"delegateMeetingMessageDeliveryOptions,omitempty"`
 	// WorkingHours undocumented
 	WorkingHours *WorkingHours `json:"workingHours,omitempty"`
 	// DateFormat undocumented

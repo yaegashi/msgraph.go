@@ -26,6 +26,8 @@ type User struct {
 	ConsentProvidedForMinor *string `json:"consentProvidedForMinor,omitempty"`
 	// Country undocumented
 	Country *string `json:"country,omitempty"`
+	// CreationType undocumented
+	CreationType *string `json:"creationType,omitempty"`
 	// Department undocumented
 	Department *string `json:"department,omitempty"`
 	// DisplayName undocumented
@@ -42,6 +44,8 @@ type User struct {
 	IsResourceAccount *bool `json:"isResourceAccount,omitempty"`
 	// JobTitle undocumented
 	JobTitle *string `json:"jobTitle,omitempty"`
+	// LastPasswordChangeDateTime undocumented
+	LastPasswordChangeDateTime *time.Time `json:"lastPasswordChangeDateTime,omitempty"`
 	// LegalAgeGroupClassification undocumented
 	LegalAgeGroupClassification *string `json:"legalAgeGroupClassification,omitempty"`
 	// LicenseAssignmentStates undocumented
