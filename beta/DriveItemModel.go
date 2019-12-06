@@ -70,4 +70,6 @@ type DriveItem struct {
 	Thumbnails []ThumbnailSet `json:"thumbnails,omitempty"`
 	// Versions undocumented
 	Versions []DriveItemVersion `json:"versions,omitempty"`
+	// Document undocumented
+	Document *Document `json:"document,omitempty"`
 }

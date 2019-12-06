@@ -8,8 +8,8 @@ type DeviceConfigurationAssignment struct {
 	Entity
 	// Target The assignment target for the device configuration.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
-	// Source The assignment source for the device configuration, direct or parcel/policySet.
+	// Source The assignment source for the device configuration, direct or parcel/policySet. This property is read-only.
 	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
-	// SourceID The identifier of the source of the assignment.
+	// SourceID The identifier of the source of the assignment. This property is read-only.
 	SourceID *string `json:"sourceId,omitempty"`
 }

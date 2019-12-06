@@ -22,6 +22,8 @@ type Invitation struct {
 	InviteRedeemURL *string `json:"inviteRedeemUrl,omitempty"`
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
+	// ResetRedemption undocumented
+	ResetRedemption *bool `json:"resetRedemption,omitempty"`
 	// InvitedUser undocumented
 	InvitedUser *User `json:"invitedUser,omitempty"`
 }

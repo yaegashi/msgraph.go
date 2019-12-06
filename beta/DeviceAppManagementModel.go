@@ -4,7 +4,7 @@ package msgraph
 
 import "time"
 
-// DeviceAppManagement Device app management singleton entity.
+// DeviceAppManagement Singleton entity that acts as a container for all device and app management functionality.
 type DeviceAppManagement struct {
 	// Entity is the base model of DeviceAppManagement
 	Entity
@@ -66,4 +66,6 @@ type DeviceAppManagement struct {
 	WindowsInformationProtectionWipeActions []WindowsInformationProtectionWipeAction `json:"windowsInformationProtectionWipeActions,omitempty"`
 	// DeviceAppManagementTasks undocumented
 	DeviceAppManagementTasks []DeviceAppManagementTask `json:"deviceAppManagementTasks,omitempty"`
+	// WdacSupplementalPolicies undocumented
+	WdacSupplementalPolicies []WindowsDefenderApplicationControlSupplementalPolicy `json:"wdacSupplementalPolicies,omitempty"`
 }

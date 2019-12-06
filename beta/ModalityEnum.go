@@ -16,6 +16,8 @@ const (
 	ModalityVVideoBasedScreenSharing Modality = 3
 	// ModalityVData undocumented
 	ModalityVData Modality = 4
+	// ModalityVUnknownFutureValue undocumented
+	ModalityVUnknownFutureValue Modality = 5
 )
 
 // ModalityPUnknown returns a pointer to ModalityVUnknown
@@ -45,5 +47,11 @@ func ModalityPVideoBasedScreenSharing() *Modality {
 // ModalityPData returns a pointer to ModalityVData
 func ModalityPData() *Modality {
 	v := ModalityVData
+	return &v
+}
+
+// ModalityPUnknownFutureValue returns a pointer to ModalityVUnknownFutureValue
+func ModalityPUnknownFutureValue() *Modality {
+	v := ModalityVUnknownFutureValue
 	return &v
 }

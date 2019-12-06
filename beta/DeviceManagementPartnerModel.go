@@ -28,4 +28,6 @@ type DeviceManagementPartner struct {
 	WhenPartnerDevicesWillBeRemovedDateTime *time.Time `json:"whenPartnerDevicesWillBeRemovedDateTime,omitempty"`
 	// WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime DateTime in UTC when PartnerDevices will be marked as NonCompliant
 	WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime *time.Time `json:"whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime,omitempty"`
+	// GroupsRequiringPartnerEnrollment User groups that specifies whether enrollment is through partner.
+	GroupsRequiringPartnerEnrollment []DeviceManagementPartnerAssignment `json:"groupsRequiringPartnerEnrollment,omitempty"`
 }

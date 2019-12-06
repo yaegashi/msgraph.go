@@ -8,4 +8,6 @@ type Win32LobAppInstallExperience struct {
 	Object
 	// RunAsAccount Indicates the type of execution context the app runs in.
 	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// DeviceRestartBehavior Device restart behavior.
+	DeviceRestartBehavior *Win32LobAppRestartBehavior `json:"deviceRestartBehavior,omitempty"`
 }

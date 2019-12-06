@@ -44,7 +44,7 @@ import msgraph "github.com/yaegashi/msgraph.go/beta"
 You could benefit from better IDE assisted coding experience
 because Graph API specs are completely translated to Go codes by msgraph.go.
 
-![](assets/msgraph.go-vscode.gif)
+![](assets/msgraph.go-vscode2.gif)
 
 Code examples in the repository:
 

@@ -38,6 +38,16 @@ type AndroidManagedAppProtection struct {
 	CustomBrowserPackageID *string `json:"customBrowserPackageId,omitempty"`
 	// CustomBrowserDisplayName Friendly name of the preferred custom browser to open weblink on Android.
 	CustomBrowserDisplayName *string `json:"customBrowserDisplayName,omitempty"`
+	// MinimumRequiredCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or app access will be blocked
+	MinimumRequiredCompanyPortalVersion *string `json:"minimumRequiredCompanyPortalVersion,omitempty"`
+	// MinimumWarningCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the user will receive a warning
+	MinimumWarningCompanyPortalVersion *string `json:"minimumWarningCompanyPortalVersion,omitempty"`
+	// MinimumWipeCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
+	MinimumWipeCompanyPortalVersion *string `json:"minimumWipeCompanyPortalVersion,omitempty"`
+	// KeyboardsRestricted Indicates if keyboard restriction is enabled. If enabled list of approved keyboards must be provided as well.
+	KeyboardsRestricted *bool `json:"keyboardsRestricted,omitempty"`
+	// ApprovedKeyboards If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name
+	ApprovedKeyboards []KeyValuePair `json:"approvedKeyboards,omitempty"`
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 	// DeploymentSummary undocumented

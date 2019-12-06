@@ -22,6 +22,8 @@ const (
 	ManagedDeviceRemoteActionVCustomTextNotification ManagedDeviceRemoteAction = 6
 	// ManagedDeviceRemoteActionVRebootNow undocumented
 	ManagedDeviceRemoteActionVRebootNow ManagedDeviceRemoteAction = 7
+	// ManagedDeviceRemoteActionVSetDeviceName undocumented
+	ManagedDeviceRemoteActionVSetDeviceName ManagedDeviceRemoteAction = 8
 )
 
 // ManagedDeviceRemoteActionPRetire returns a pointer to ManagedDeviceRemoteActionVRetire
@@ -69,5 +71,11 @@ func ManagedDeviceRemoteActionPCustomTextNotification() *ManagedDeviceRemoteActi
 // ManagedDeviceRemoteActionPRebootNow returns a pointer to ManagedDeviceRemoteActionVRebootNow
 func ManagedDeviceRemoteActionPRebootNow() *ManagedDeviceRemoteAction {
 	v := ManagedDeviceRemoteActionVRebootNow
+	return &v
+}
+
+// ManagedDeviceRemoteActionPSetDeviceName returns a pointer to ManagedDeviceRemoteActionVSetDeviceName
+func ManagedDeviceRemoteActionPSetDeviceName() *ManagedDeviceRemoteAction {
+	v := ManagedDeviceRemoteActionVSetDeviceName
 	return &v
 }

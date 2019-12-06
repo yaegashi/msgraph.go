@@ -12,10 +12,12 @@ const (
 	RunStateVSuccess RunState = 1
 	// RunStateVFail undocumented
 	RunStateVFail RunState = 2
-	// RunStateVError undocumented
-	RunStateVError RunState = 3
+	// RunStateVScriptError undocumented
+	RunStateVScriptError RunState = 3
 	// RunStateVPending undocumented
 	RunStateVPending RunState = 4
+	// RunStateVNotApplicable undocumented
+	RunStateVNotApplicable RunState = 5
 )
 
 // RunStatePUnknown returns a pointer to RunStateVUnknown
@@ -36,14 +38,20 @@ func RunStatePFail() *RunState {
 	return &v
 }
 
-// RunStatePError returns a pointer to RunStateVError
-func RunStatePError() *RunState {
-	v := RunStateVError
+// RunStatePScriptError returns a pointer to RunStateVScriptError
+func RunStatePScriptError() *RunState {
+	v := RunStateVScriptError
 	return &v
 }
 
 // RunStatePPending returns a pointer to RunStateVPending
 func RunStatePPending() *RunState {
 	v := RunStateVPending
+	return &v
+}
+
+// RunStatePNotApplicable returns a pointer to RunStateVNotApplicable
+func RunStatePNotApplicable() *RunState {
+	v := RunStateVNotApplicable
 	return &v
 }

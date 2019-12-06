@@ -46,4 +46,6 @@ type MacOSDeviceFeaturesConfiguration struct {
 	AssociatedDomains []KeyValuePair `json:"associatedDomains,omitempty"`
 	// SingleSignOnExtension Gets or sets a single sign-on extension profile.
 	SingleSignOnExtension *SingleSignOnExtension `json:"singleSignOnExtension,omitempty"`
+	// SingleSignOnExtensionPkinitCertificate undocumented
+	SingleSignOnExtensionPkinitCertificate *MacOSCertificateProfileBase `json:"singleSignOnExtensionPkinitCertificate,omitempty"`
 }

@@ -10,6 +10,8 @@ const (
 	MediaStateVActive MediaState = 0
 	// MediaStateVInactive undocumented
 	MediaStateVInactive MediaState = 1
+	// MediaStateVUnknownFutureValue undocumented
+	MediaStateVUnknownFutureValue MediaState = 2
 )
 
 // MediaStatePActive returns a pointer to MediaStateVActive
@@ -21,5 +23,11 @@ func MediaStatePActive() *MediaState {
 // MediaStatePInactive returns a pointer to MediaStateVInactive
 func MediaStatePInactive() *MediaState {
 	v := MediaStateVInactive
+	return &v
+}
+
+// MediaStatePUnknownFutureValue returns a pointer to MediaStateVUnknownFutureValue
+func MediaStatePUnknownFutureValue() *MediaState {
+	v := MediaStateVUnknownFutureValue
 	return &v
 }

@@ -34,22 +34,22 @@ type Team struct {
 	IsArchived *bool `json:"isArchived,omitempty"`
 	// Schedule undocumented
 	Schedule *Schedule `json:"schedule,omitempty"`
-	// Photo undocumented
-	Photo *ProfilePhoto `json:"photo,omitempty"`
+	// Group undocumented
+	Group *Group `json:"group,omitempty"`
 	// Template undocumented
 	Template *TeamsTemplate `json:"template,omitempty"`
+	// Photo undocumented
+	Photo *ProfilePhoto `json:"photo,omitempty"`
+	// Owners undocumented
+	Owners []User `json:"owners,omitempty"`
 	// Channels undocumented
 	Channels []Channel `json:"channels,omitempty"`
+	// PrimaryChannel undocumented
+	PrimaryChannel *Channel `json:"primaryChannel,omitempty"`
 	// Apps undocumented
 	Apps []TeamsCatalogApp `json:"apps,omitempty"`
 	// InstalledApps undocumented
 	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
 	// Operations undocumented
 	Operations []TeamsAsyncOperation `json:"operations,omitempty"`
-	// Owners undocumented
-	Owners []User `json:"owners,omitempty"`
-	// PrimaryChannel undocumented
-	PrimaryChannel *Channel `json:"primaryChannel,omitempty"`
-	// Group undocumented
-	Group *Group `json:"group,omitempty"`
 }

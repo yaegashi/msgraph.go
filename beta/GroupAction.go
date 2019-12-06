@@ -11,6 +11,14 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// GroupCollectionEvaluateDynamicMembershipRequestParameter undocumented
+type GroupCollectionEvaluateDynamicMembershipRequestParameter struct {
+	// MemberID undocumented
+	MemberID *string `json:"memberId,omitempty"`
+	// MembershipRule undocumented
+	MembershipRule *string `json:"membershipRule,omitempty"`
+}
+
 // GroupValidatePropertiesRequestParameter undocumented
 type GroupValidatePropertiesRequestParameter struct {
 	// DisplayName undocumented
@@ -55,6 +63,39 @@ type GroupResetUnseenCountRequestParameter struct {
 
 // GroupRenewRequestParameter undocumented
 type GroupRenewRequestParameter struct {
+}
+
+// GroupEvaluateDynamicMembershipRequestParameter undocumented
+type GroupEvaluateDynamicMembershipRequestParameter struct {
+	// MemberID undocumented
+	MemberID *string `json:"memberId,omitempty"`
+}
+
+//
+type GroupCollectionEvaluateDynamicMembershipRequestBuilder struct{ BaseRequestBuilder }
+
+// EvaluateDynamicMembership action undocumented
+func (b *UserJoinedGroupsCollectionRequestBuilder) EvaluateDynamicMembership(reqObj *GroupCollectionEvaluateDynamicMembershipRequestParameter) *GroupCollectionEvaluateDynamicMembershipRequestBuilder {
+	bb := &GroupCollectionEvaluateDynamicMembershipRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/evaluateDynamicMembership"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupCollectionEvaluateDynamicMembershipRequest struct{ BaseRequest }
+
+//
+func (b *GroupCollectionEvaluateDynamicMembershipRequestBuilder) Request() *GroupCollectionEvaluateDynamicMembershipRequest {
+	return &GroupCollectionEvaluateDynamicMembershipRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *GroupCollectionEvaluateDynamicMembershipRequest) Post(ctx context.Context) (resObj *EvaluateDynamicMembershipResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
 }
 
 //
@@ -346,4 +387,31 @@ func (b *GroupRenewRequestBuilder) Request() *GroupRenewRequest {
 //
 func (r *GroupRenewRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type GroupEvaluateDynamicMembershipRequestBuilder struct{ BaseRequestBuilder }
+
+// EvaluateDynamicMembership action undocumented
+func (b *GroupRequestBuilder) EvaluateDynamicMembership(reqObj *GroupEvaluateDynamicMembershipRequestParameter) *GroupEvaluateDynamicMembershipRequestBuilder {
+	bb := &GroupEvaluateDynamicMembershipRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/evaluateDynamicMembership"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupEvaluateDynamicMembershipRequest struct{ BaseRequest }
+
+//
+func (b *GroupEvaluateDynamicMembershipRequestBuilder) Request() *GroupEvaluateDynamicMembershipRequest {
+	return &GroupEvaluateDynamicMembershipRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *GroupEvaluateDynamicMembershipRequest) Post(ctx context.Context) (resObj *EvaluateDynamicMembershipResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
 }

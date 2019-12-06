@@ -18,4 +18,12 @@ type DeviceOperatingSystemSummary struct {
 	WindowsCount *int `json:"windowsCount,omitempty"`
 	// UnknownCount Number of unknown device count.
 	UnknownCount *int `json:"unknownCount,omitempty"`
+	// AndroidDedicatedCount Number of dedicated Android devices.
+	AndroidDedicatedCount *int `json:"androidDedicatedCount,omitempty"`
+	// AndroidDeviceAdminCount Number of device admin Android devices.
+	AndroidDeviceAdminCount *int `json:"androidDeviceAdminCount,omitempty"`
+	// AndroidFullyManagedCount Number of fully managed Android devices.
+	AndroidFullyManagedCount *int `json:"androidFullyManagedCount,omitempty"`
+	// AndroidWorkProfileCount Number of work profile Android devices.
+	AndroidWorkProfileCount *int `json:"androidWorkProfileCount,omitempty"`
 }

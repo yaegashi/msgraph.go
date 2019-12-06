@@ -420,6 +420,100 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Add(ctx con
 	return
 }
 
+// EvaluateDlpPoliciesJobs returns request builder for JobResponseBase collection
+func (b *DataClassificationServiceRequestBuilder) EvaluateDlpPoliciesJobs() *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder {
+	bb := &DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/evaluateDlpPoliciesJobs"
+	return bb
+}
+
+// DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder is request builder for JobResponseBase collection
+type DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for JobResponseBase collection
+func (b *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder) Request() *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest {
+	return &DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for JobResponseBase item
+func (b *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilder) ID(id string) *JobResponseBaseRequestBuilder {
+	bb := &JobResponseBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest is request for JobResponseBase collection
+type DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []JobResponseBase
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []JobResponseBase
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // EvaluateLabelJobs returns request builder for JobResponseBase collection
 func (b *DataClassificationServiceRequestBuilder) EvaluateLabelJobs() *DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder {
 	bb := &DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -792,6 +886,100 @@ func (r *DataClassificationServiceJobsCollectionRequest) Get(ctx context.Context
 
 // Add performs POST request for JobResponseBase collection
 func (r *DataClassificationServiceJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// LabelsAndPoliciesEvaluationJobs returns request builder for JobResponseBase collection
+func (b *DataClassificationServiceRequestBuilder) LabelsAndPoliciesEvaluationJobs() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder {
+	bb := &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/labelsAndPoliciesEvaluationJobs"
+	return bb
+}
+
+// DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder is request builder for JobResponseBase collection
+type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for JobResponseBase collection
+func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) Request() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest {
+	return &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for JobResponseBase item
+func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) ID(id string) *JobResponseBaseRequestBuilder {
+	bb := &JobResponseBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest is request for JobResponseBase collection
+type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for JobResponseBase collection
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []JobResponseBase
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []JobResponseBase
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for JobResponseBase collection
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

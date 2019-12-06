@@ -22,6 +22,8 @@ type IOSManagedAppProtection struct {
 	AllowedIOSDeviceModels *string `json:"allowedIosDeviceModels,omitempty"`
 	// AppActionIfIOSDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed.
 	AppActionIfIOSDeviceModelNotAllowed *ManagedAppRemediationAction `json:"appActionIfIosDeviceModelNotAllowed,omitempty"`
+	// ThirdPartyKeyboardsBlocked Defines if third party keyboards are allowed while accessing a managed app
+	ThirdPartyKeyboardsBlocked *bool `json:"thirdPartyKeyboardsBlocked,omitempty"`
 	// FilterOpenInToOnlyManagedApps Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
 	FilterOpenInToOnlyManagedApps *bool `json:"filterOpenInToOnlyManagedApps,omitempty"`
 	// DisableProtectionOfManagedOutboundOpenInData Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.

@@ -20,20 +20,6 @@ type IntuneBrandingProfile struct {
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// DisplayName Company/organization name that is displayed to end users
 	DisplayName *string `json:"displayName,omitempty"`
-	// ContactITName Name of the person/organization responsible for IT support
-	ContactITName *string `json:"contactITName,omitempty"`
-	// ContactITPhoneNumber Phone number of the person/organization responsible for IT support
-	ContactITPhoneNumber *string `json:"contactITPhoneNumber,omitempty"`
-	// ContactITEmailAddress E-mail address of the person/organization responsible for IT support
-	ContactITEmailAddress *string `json:"contactITEmailAddress,omitempty"`
-	// ContactITNotes Text comments regarding the person/organization responsible for IT support
-	ContactITNotes *string `json:"contactITNotes,omitempty"`
-	// PrivacyURL URL to the company/organization’s privacy policy
-	PrivacyURL *string `json:"privacyUrl,omitempty"`
-	// OnlineSupportSiteURL URL to the company/organization’s IT helpdesk site
-	OnlineSupportSiteURL *string `json:"onlineSupportSiteUrl,omitempty"`
-	// OnlineSupportSiteName Display name of the company/organization’s IT helpdesk site
-	OnlineSupportSiteName *string `json:"onlineSupportSiteName,omitempty"`
 	// ThemeColor Primary theme color used in the Company Portal applications and web portal
 	ThemeColor *RgbColor `json:"themeColor,omitempty"`
 	// ShowLogo Boolean that represents whether the administrator-supplied logo images are shown or not
@@ -46,12 +32,32 @@ type IntuneBrandingProfile struct {
 	LightBackgroundLogo *MimeContent `json:"lightBackgroundLogo,omitempty"`
 	// LandingPageCustomizedImage Customized image displayed in Company Portal apps landing page
 	LandingPageCustomizedImage *MimeContent `json:"landingPageCustomizedImage,omitempty"`
+	// ContactITName Name of the person/organization responsible for IT support
+	ContactITName *string `json:"contactITName,omitempty"`
+	// ContactITPhoneNumber Phone number of the person/organization responsible for IT support
+	ContactITPhoneNumber *string `json:"contactITPhoneNumber,omitempty"`
+	// ContactITEmailAddress E-mail address of the person/organization responsible for IT support
+	ContactITEmailAddress *string `json:"contactITEmailAddress,omitempty"`
+	// ContactITNotes Text comments regarding the person/organization responsible for IT support
+	ContactITNotes *string `json:"contactITNotes,omitempty"`
+	// OnlineSupportSiteURL URL to the company/organization’s IT helpdesk site
+	OnlineSupportSiteURL *string `json:"onlineSupportSiteUrl,omitempty"`
+	// OnlineSupportSiteName Display name of the company/organization’s IT helpdesk site
+	OnlineSupportSiteName *string `json:"onlineSupportSiteName,omitempty"`
+	// PrivacyURL URL to the company/organization’s privacy policy
+	PrivacyURL *string `json:"privacyUrl,omitempty"`
 	// CustomPrivacyMessage Text comments regarding what the admin has access to on the device
 	CustomPrivacyMessage *string `json:"customPrivacyMessage,omitempty"`
 	// IsRemoveDeviceDisabled Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
 	IsRemoveDeviceDisabled *bool `json:"isRemoveDeviceDisabled,omitempty"`
 	// IsFactoryResetDisabled Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
 	IsFactoryResetDisabled *bool `json:"isFactoryResetDisabled,omitempty"`
+	// CompanyPortalBlockedActions Collection of blocked actions on the company portal as per platform and device ownership types.
+	CompanyPortalBlockedActions []CompanyPortalBlockedAction `json:"companyPortalBlockedActions,omitempty"`
+	// ShowAzureADEnterpriseApps Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
+	ShowAzureADEnterpriseApps *bool `json:"showAzureADEnterpriseApps,omitempty"`
+	// ShowOfficeWebApps Boolean that indicates if Office WebApps will be shown in Company Portal
+	ShowOfficeWebApps *bool `json:"showOfficeWebApps,omitempty"`
 	// Assignments undocumented
 	Assignments []IntuneBrandingProfileAssignment `json:"assignments,omitempty"`
 }

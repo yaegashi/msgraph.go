@@ -46,4 +46,6 @@ type DepEnrollmentBaseProfile struct {
 	ScreenTimeScreenDisabled *bool `json:"screenTimeScreenDisabled,omitempty"`
 	// DeviceNameTemplate Sets a literal or name pattern.
 	DeviceNameTemplate *string `json:"deviceNameTemplate,omitempty"`
+	// ConfigurationWebURL URL for setup assistant login
+	ConfigurationWebURL *bool `json:"configurationWebUrl,omitempty"`
 }

@@ -3324,6 +3324,13 @@ func (b *UserRequestBuilder) Presence() *PresenceRequestBuilder {
 	return bb
 }
 
+// Profile is navigation property
+func (b *UserRequestBuilder) Profile() *ProfileRequestBuilder {
+	bb := &ProfileRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/profile"
+	return bb
+}
+
 // RegisteredDevices returns request builder for DirectoryObject collection
 func (b *UserRequestBuilder) RegisteredDevices() *UserRegisteredDevicesCollectionRequestBuilder {
 	bb := &UserRegisteredDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

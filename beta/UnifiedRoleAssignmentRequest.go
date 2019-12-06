@@ -36,3 +36,17 @@ func (r *UnifiedRoleAssignmentRequest) Update(ctx context.Context, reqObj *Unifi
 func (r *UnifiedRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+// Principal is navigation property
+func (b *UnifiedRoleAssignmentRequestBuilder) Principal() *DirectoryObjectRequestBuilder {
+	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/principal"
+	return bb
+}
+
+// RoleDefinition is navigation property
+func (b *UnifiedRoleAssignmentRequestBuilder) RoleDefinition() *UnifiedRoleDefinitionRequestBuilder {
+	bb := &UnifiedRoleDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/roleDefinition"
+	return bb
+}

@@ -27,7 +27,7 @@ type Call struct {
 	// Source undocumented
 	Source *ParticipantInfo `json:"source,omitempty"`
 	// Targets undocumented
-	Targets []ParticipantInfo `json:"targets,omitempty"`
+	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
 	// AnsweredBy undocumented
 	AnsweredBy *ParticipantInfo `json:"answeredBy,omitempty"`
 	// RequestedModalities undocumented
@@ -38,6 +38,8 @@ type Call struct {
 	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
 	// ChatInfo undocumented
 	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
+	// CallOptions undocumented
+	CallOptions *CallOptions `json:"callOptions,omitempty"`
 	// MeetingInfo undocumented
 	MeetingInfo *MeetingInfo `json:"meetingInfo,omitempty"`
 	// MeetingCapability undocumented
@@ -50,6 +52,8 @@ type Call struct {
 	MyParticipantID *string `json:"myParticipantId,omitempty"`
 	// ToneInfo undocumented
 	ToneInfo *ToneInfo `json:"toneInfo,omitempty"`
+	// IncomingContext undocumented
+	IncomingContext *IncomingContext `json:"incomingContext,omitempty"`
 	// Participants undocumented
 	Participants []Participant `json:"participants,omitempty"`
 	// AudioRoutingGroups undocumented

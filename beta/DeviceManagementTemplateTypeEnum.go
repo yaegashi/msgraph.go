@@ -18,6 +18,10 @@ const (
 	DeviceManagementTemplateTypeVCustom DeviceManagementTemplateType = 4
 	// DeviceManagementTemplateTypeVSecurityTemplate undocumented
 	DeviceManagementTemplateTypeVSecurityTemplate DeviceManagementTemplateType = 5
+	// DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline undocumented
+	DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline DeviceManagementTemplateType = 6
+	// DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline undocumented
+	DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline DeviceManagementTemplateType = 7
 )
 
 // DeviceManagementTemplateTypePSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVSecurityBaseline
@@ -53,5 +57,17 @@ func DeviceManagementTemplateTypePCustom() *DeviceManagementTemplateType {
 // DeviceManagementTemplateTypePSecurityTemplate returns a pointer to DeviceManagementTemplateTypeVSecurityTemplate
 func DeviceManagementTemplateTypePSecurityTemplate() *DeviceManagementTemplateType {
 	v := DeviceManagementTemplateTypeVSecurityTemplate
+	return &v
+}
+
+// DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
+func DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline() *DeviceManagementTemplateType {
+	v := DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
+	return &v
+}
+
+// DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
+func DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline() *DeviceManagementTemplateType {
+	v := DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
 	return &v
 }

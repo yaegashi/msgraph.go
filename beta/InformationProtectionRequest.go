@@ -44,6 +44,100 @@ func (r *InformationProtectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DataLossPreventionPolicies returns request builder for DataLossPreventionPolicy collection
+func (b *InformationProtectionRequestBuilder) DataLossPreventionPolicies() *InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder {
+	bb := &InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/dataLossPreventionPolicies"
+	return bb
+}
+
+// InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder is request builder for DataLossPreventionPolicy collection
+type InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DataLossPreventionPolicy collection
+func (b *InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder) Request() *InformationProtectionDataLossPreventionPoliciesCollectionRequest {
+	return &InformationProtectionDataLossPreventionPoliciesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DataLossPreventionPolicy item
+func (b *InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder) ID(id string) *DataLossPreventionPolicyRequestBuilder {
+	bb := &DataLossPreventionPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// InformationProtectionDataLossPreventionPoliciesCollectionRequest is request for DataLossPreventionPolicy collection
+type InformationProtectionDataLossPreventionPoliciesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DataLossPreventionPolicy collection
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DataLossPreventionPolicy, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DataLossPreventionPolicy
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DataLossPreventionPolicy
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for DataLossPreventionPolicy collection
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Get(ctx context.Context) ([]DataLossPreventionPolicy, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for DataLossPreventionPolicy collection
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DataLossPreventionPolicy) (resObj *DataLossPreventionPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Policy is navigation property
 func (b *InformationProtectionRequestBuilder) Policy() *InformationProtectionPolicyRequestBuilder {
 	bb := &InformationProtectionPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -150,4 +244,98 @@ func (b *InformationProtectionRequestBuilder) SensitivityPolicySettings() *Sensi
 	bb := &SensitivityPolicySettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/sensitivityPolicySettings"
 	return bb
+}
+
+// ThreatAssessmentRequests returns request builder for ThreatAssessmentRequestObject collection
+func (b *InformationProtectionRequestBuilder) ThreatAssessmentRequests() *InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder {
+	bb := &InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/threatAssessmentRequests"
+	return bb
+}
+
+// InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder is request builder for ThreatAssessmentRequestObject collection
+type InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ThreatAssessmentRequestObject collection
+func (b *InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder) Request() *InformationProtectionThreatAssessmentRequestsCollectionRequest {
+	return &InformationProtectionThreatAssessmentRequestsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ThreatAssessmentRequestObject item
+func (b *InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder) ID(id string) *ThreatAssessmentRequestObjectRequestBuilder {
+	bb := &ThreatAssessmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// InformationProtectionThreatAssessmentRequestsCollectionRequest is request for ThreatAssessmentRequestObject collection
+type InformationProtectionThreatAssessmentRequestsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ThreatAssessmentRequestObject collection
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ThreatAssessmentRequestObject, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ThreatAssessmentRequestObject
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ThreatAssessmentRequestObject
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for ThreatAssessmentRequestObject collection
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Get(ctx context.Context) ([]ThreatAssessmentRequestObject, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for ThreatAssessmentRequestObject collection
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *ThreatAssessmentRequestObject) (resObj *ThreatAssessmentRequestObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }

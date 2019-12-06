@@ -18,6 +18,10 @@ type DataClassificationService struct {
 	ClassifyTextJobs []JobResponseBase `json:"classifyTextJobs,omitempty"`
 	// EvaluateLabelJobs undocumented
 	EvaluateLabelJobs []JobResponseBase `json:"evaluateLabelJobs,omitempty"`
+	// EvaluateDlpPoliciesJobs undocumented
+	EvaluateDlpPoliciesJobs []JobResponseBase `json:"evaluateDlpPoliciesJobs,omitempty"`
+	// LabelsAndPoliciesEvaluationJobs undocumented
+	LabelsAndPoliciesEvaluationJobs []JobResponseBase `json:"labelsAndPoliciesEvaluationJobs,omitempty"`
 	// ClassifyText undocumented
 	ClassifyText []TextClassificationRequestObject `json:"classifyText,omitempty"`
 	// ClassifyFile undocumented

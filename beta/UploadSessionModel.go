@@ -8,10 +8,10 @@ import "time"
 type UploadSession struct {
 	// Object is the base model of UploadSession
 	Object
+	// UploadURL undocumented
+	UploadURL *string `json:"uploadUrl,omitempty"`
 	// ExpirationDateTime undocumented
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// NextExpectedRanges undocumented
 	NextExpectedRanges []string `json:"nextExpectedRanges,omitempty"`
-	// UploadURL undocumented
-	UploadURL *string `json:"uploadUrl,omitempty"`
 }

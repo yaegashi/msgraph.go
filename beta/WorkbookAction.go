@@ -8,8 +8,6 @@ import "context"
 type WorkbookCreateSessionRequestParameter struct {
 	// PersistChanges undocumented
 	PersistChanges *bool `json:"persistChanges,omitempty"`
-	// CommitExplicitly undocumented
-	CommitExplicitly *bool `json:"commitExplicitly,omitempty"`
 }
 
 // WorkbookCloseSessionRequestParameter undocumented

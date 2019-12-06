@@ -2549,6 +2549,100 @@ func (r *GraphServiceCommandsCollectionRequest) Add(ctx context.Context, reqObj 
 	return
 }
 
+// Connections returns request builder for ExternalConnection collection
+func (b *GraphServiceRequestBuilder) Connections() *GraphServiceConnectionsCollectionRequestBuilder {
+	bb := &GraphServiceConnectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/connections"
+	return bb
+}
+
+// GraphServiceConnectionsCollectionRequestBuilder is request builder for ExternalConnection collection
+type GraphServiceConnectionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ExternalConnection collection
+func (b *GraphServiceConnectionsCollectionRequestBuilder) Request() *GraphServiceConnectionsCollectionRequest {
+	return &GraphServiceConnectionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ExternalConnection item
+func (b *GraphServiceConnectionsCollectionRequestBuilder) ID(id string) *ExternalConnectionRequestBuilder {
+	bb := &ExternalConnectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GraphServiceConnectionsCollectionRequest is request for ExternalConnection collection
+type GraphServiceConnectionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ExternalConnection collection
+func (r *GraphServiceConnectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExternalConnection, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ExternalConnection
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ExternalConnection
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for ExternalConnection collection
+func (r *GraphServiceConnectionsCollectionRequest) Get(ctx context.Context) ([]ExternalConnection, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for ExternalConnection collection
+func (r *GraphServiceConnectionsCollectionRequest) Add(ctx context.Context, reqObj *ExternalConnection) (resObj *ExternalConnection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Contacts returns request builder for OrgContact collection
 func (b *GraphServiceRequestBuilder) Contacts() *GraphServiceContactsCollectionRequestBuilder {
 	bb := &GraphServiceContactsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8318,6 +8412,13 @@ func (b *GraphServiceRequestBuilder) Communications() *CloudCommunicationsReques
 	return bb
 }
 
+// ConditionalAccess is navigation property
+func (b *GraphServiceRequestBuilder) ConditionalAccess() *ConditionalAccessRootRequestBuilder {
+	bb := &ConditionalAccessRootRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/conditionalAccess"
+	return bb
+}
+
 // DataClassification is navigation property
 func (b *GraphServiceRequestBuilder) DataClassification() *DataClassificationServiceRequestBuilder {
 	bb := &DataClassificationServiceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8360,10 +8461,38 @@ func (b *GraphServiceRequestBuilder) Education() *EducationRootRequestBuilder {
 	return bb
 }
 
+// EntitlementManagement is navigation property
+func (b *GraphServiceRequestBuilder) EntitlementManagement() *EntitlementManagementRequestBuilder {
+	bb := &EntitlementManagementRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/entitlementManagement"
+	return bb
+}
+
+// External is navigation property
+func (b *GraphServiceRequestBuilder) External() *ExternalRequestBuilder {
+	bb := &ExternalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/external"
+	return bb
+}
+
 // Financials is navigation property
 func (b *GraphServiceRequestBuilder) Financials() *FinancialsRequestBuilder {
 	bb := &FinancialsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/financials"
+	return bb
+}
+
+// Identity is navigation property
+func (b *GraphServiceRequestBuilder) Identity() *IdentityContainerRequestBuilder {
+	bb := &IdentityContainerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/identity"
+	return bb
+}
+
+// IdentityGovernance is navigation property
+func (b *GraphServiceRequestBuilder) IdentityGovernance() *IdentityGovernanceRequestBuilder {
+	bb := &IdentityGovernanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/identityGovernance"
 	return bb
 }
 
@@ -8406,6 +8535,13 @@ func (b *GraphServiceRequestBuilder) Reports() *ReportRootRequestBuilder {
 func (b *GraphServiceRequestBuilder) RoleManagement() *RoleManagementRequestBuilder {
 	bb := &RoleManagementRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/roleManagement"
+	return bb
+}
+
+// Search is navigation property
+func (b *GraphServiceRequestBuilder) Search() *SearchRequestBuilder {
+	bb := &SearchRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/search"
 	return bb
 }
 

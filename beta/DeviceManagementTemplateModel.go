@@ -20,6 +20,8 @@ type DeviceManagementTemplate struct {
 	IntentCount *int `json:"intentCount,omitempty"`
 	// TemplateType The template's type.
 	TemplateType *DeviceManagementTemplateType `json:"templateType,omitempty"`
+	// PlatformType The template's platform.
+	PlatformType *PolicyPlatformType `json:"platformType,omitempty"`
 	// PublishedDateTime When the template was published
 	PublishedDateTime *time.Time `json:"publishedDateTime,omitempty"`
 	// Settings undocumented

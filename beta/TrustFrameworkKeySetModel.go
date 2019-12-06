@@ -6,4 +6,6 @@ package msgraph
 type TrustFrameworkKeySet struct {
 	// Entity is the base model of TrustFrameworkKeySet
 	Entity
+	// Keys undocumented
+	Keys []TrustFrameworkKey `json:"keys,omitempty"`
 }

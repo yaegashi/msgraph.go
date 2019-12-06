@@ -14,4 +14,6 @@ type EventMessageRequestObject struct {
 	PreviousEndDateTime *DateTimeTimeZone `json:"previousEndDateTime,omitempty"`
 	// ResponseRequested undocumented
 	ResponseRequested *bool `json:"responseRequested,omitempty"`
+	// AllowNewTimeProposals undocumented
+	AllowNewTimeProposals *bool `json:"allowNewTimeProposals,omitempty"`
 }

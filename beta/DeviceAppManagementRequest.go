@@ -1837,6 +1837,100 @@ func (r *DeviceAppManagementVppTokensCollectionRequest) Add(ctx context.Context,
 	return
 }
 
+// WdacSupplementalPolicies returns request builder for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (b *DeviceAppManagementRequestBuilder) WdacSupplementalPolicies() *DeviceAppManagementWdacSupplementalPoliciesCollectionRequestBuilder {
+	bb := &DeviceAppManagementWdacSupplementalPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/wdacSupplementalPolicies"
+	return bb
+}
+
+// DeviceAppManagementWdacSupplementalPoliciesCollectionRequestBuilder is request builder for WindowsDefenderApplicationControlSupplementalPolicy collection
+type DeviceAppManagementWdacSupplementalPoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (b *DeviceAppManagementWdacSupplementalPoliciesCollectionRequestBuilder) Request() *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest {
+	return &DeviceAppManagementWdacSupplementalPoliciesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for WindowsDefenderApplicationControlSupplementalPolicy item
+func (b *DeviceAppManagementWdacSupplementalPoliciesCollectionRequestBuilder) ID(id string) *WindowsDefenderApplicationControlSupplementalPolicyRequestBuilder {
+	bb := &WindowsDefenderApplicationControlSupplementalPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceAppManagementWdacSupplementalPoliciesCollectionRequest is request for WindowsDefenderApplicationControlSupplementalPolicy collection
+type DeviceAppManagementWdacSupplementalPoliciesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (r *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsDefenderApplicationControlSupplementalPolicy, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []WindowsDefenderApplicationControlSupplementalPolicy
+	for {
+		defer res.Body.Close()
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []WindowsDefenderApplicationControlSupplementalPolicy
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// Get performs GET request for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (r *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest) Get(ctx context.Context) ([]WindowsDefenderApplicationControlSupplementalPolicy, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil)
+}
+
+// Add performs POST request for WindowsDefenderApplicationControlSupplementalPolicy collection
+func (r *DeviceAppManagementWdacSupplementalPoliciesCollectionRequest) Add(ctx context.Context, reqObj *WindowsDefenderApplicationControlSupplementalPolicy) (resObj *WindowsDefenderApplicationControlSupplementalPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // WindowsInformationProtectionDeviceRegistrations returns request builder for WindowsInformationProtectionDeviceRegistration collection
 func (b *DeviceAppManagementRequestBuilder) WindowsInformationProtectionDeviceRegistrations() *DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequestBuilder {
 	bb := &DeviceAppManagementWindowsInformationProtectionDeviceRegistrationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

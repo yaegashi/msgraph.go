@@ -17,6 +17,16 @@ type GroupPolicyConfigurationAssignRequestParameter struct {
 	Assignments []GroupPolicyConfigurationAssignment `json:"assignments,omitempty"`
 }
 
+// GroupPolicyConfigurationUpdateDefinitionValuesRequestParameter undocumented
+type GroupPolicyConfigurationUpdateDefinitionValuesRequestParameter struct {
+	// Added undocumented
+	Added []GroupPolicyDefinitionValue `json:"added,omitempty"`
+	// Updated undocumented
+	Updated []GroupPolicyDefinitionValue `json:"updated,omitempty"`
+	// DeletedIDs undocumented
+	DeletedIDs []string `json:"deletedIds,omitempty"`
+}
+
 //
 type GroupPolicyConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
 
@@ -97,4 +107,30 @@ func (r *GroupPolicyConfigurationAssignRequest) Get(ctx context.Context) ([][]Gr
 		query = "?" + r.query.Encode()
 	}
 	return r.Paging(ctx, "GET", query, nil)
+}
+
+//
+type GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdateDefinitionValues action undocumented
+func (b *GroupPolicyConfigurationRequestBuilder) UpdateDefinitionValues(reqObj *GroupPolicyConfigurationUpdateDefinitionValuesRequestParameter) *GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder {
+	bb := &GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateDefinitionValues"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type GroupPolicyConfigurationUpdateDefinitionValuesRequest struct{ BaseRequest }
+
+//
+func (b *GroupPolicyConfigurationUpdateDefinitionValuesRequestBuilder) Request() *GroupPolicyConfigurationUpdateDefinitionValuesRequest {
+	return &GroupPolicyConfigurationUpdateDefinitionValuesRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *GroupPolicyConfigurationUpdateDefinitionValuesRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

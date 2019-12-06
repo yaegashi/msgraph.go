@@ -20,8 +20,6 @@ type Channel struct {
 	MembershipType *ChannelMembershipType `json:"membershipType,omitempty"`
 	// Messages undocumented
 	Messages []ChatMessage `json:"messages,omitempty"`
-	// ChatThreads undocumented
-	ChatThreads []ChatThread `json:"chatThreads,omitempty"`
 	// Tabs undocumented
 	Tabs []TeamsTab `json:"tabs,omitempty"`
 	// Members undocumented

@@ -12,8 +12,6 @@ type DeviceManagementScript struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description Optional description for the device management script.
 	Description *string `json:"description,omitempty"`
-	// RunSchedule The interval for script to run. If not defined the script will run once
-	RunSchedule *RunSchedule `json:"runSchedule,omitempty"`
 	// ScriptContent The script content.
 	ScriptContent *Binary `json:"scriptContent,omitempty"`
 	// CreatedDateTime The date and time the device management script was created. This property is read-only.

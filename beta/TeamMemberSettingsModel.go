@@ -8,10 +8,10 @@ type TeamMemberSettings struct {
 	Object
 	// AllowCreateUpdateChannels undocumented
 	AllowCreateUpdateChannels *bool `json:"allowCreateUpdateChannels,omitempty"`
-	// AllowDeleteChannels undocumented
-	AllowDeleteChannels *bool `json:"allowDeleteChannels,omitempty"`
 	// AllowCreatePrivateChannels undocumented
 	AllowCreatePrivateChannels *bool `json:"allowCreatePrivateChannels,omitempty"`
+	// AllowDeleteChannels undocumented
+	AllowDeleteChannels *bool `json:"allowDeleteChannels,omitempty"`
 	// AllowAddRemoveApps undocumented
 	AllowAddRemoveApps *bool `json:"allowAddRemoveApps,omitempty"`
 	// AllowCreateUpdateRemoveTabs undocumented

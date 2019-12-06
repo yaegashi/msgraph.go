@@ -8,8 +8,12 @@ type ParticipantInfo struct {
 	Object
 	// Identity undocumented
 	Identity *IdentitySet `json:"identity,omitempty"`
+	// EndpointType undocumented
+	EndpointType *EndpointType `json:"endpointType,omitempty"`
 	// Region undocumented
 	Region *string `json:"region,omitempty"`
 	// LanguageID undocumented
 	LanguageID *string `json:"languageId,omitempty"`
+	// CountryCode undocumented
+	CountryCode *string `json:"countryCode,omitempty"`
 }

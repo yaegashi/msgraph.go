@@ -239,6 +239,13 @@ func (r *DriveItemChildrenCollectionRequest) Add(ctx context.Context, reqObj *Dr
 	return
 }
 
+// Document is navigation property
+func (b *DriveItemRequestBuilder) Document() *DocumentRequestBuilder {
+	bb := &DocumentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/document"
+	return bb
+}
+
 // ListItem is navigation property
 func (b *DriveItemRequestBuilder) ListItem() *ListItemRequestBuilder {
 	bb := &ListItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

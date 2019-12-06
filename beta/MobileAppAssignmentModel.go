@@ -12,4 +12,8 @@ type MobileAppAssignment struct {
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 	// Settings The settings for target assignment defined by the admin.
 	Settings *MobileAppAssignmentSettings `json:"settings,omitempty"`
+	// Source The resource type which is the source for the assignment.
+	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
+	// SourceID The identifier of the source of the assignment.
+	SourceID *string `json:"sourceId,omitempty"`
 }

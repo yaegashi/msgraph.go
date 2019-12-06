@@ -28,6 +28,8 @@ type Device struct {
 	IsCompliant *bool `json:"isCompliant,omitempty"`
 	// IsManaged undocumented
 	IsManaged *bool `json:"isManaged,omitempty"`
+	// MdmAppID undocumented
+	MdmAppID *string `json:"mdmAppId,omitempty"`
 	// OnPremisesLastSyncDateTime undocumented
 	OnPremisesLastSyncDateTime *time.Time `json:"onPremisesLastSyncDateTime,omitempty"`
 	// OnPremisesSyncEnabled undocumented

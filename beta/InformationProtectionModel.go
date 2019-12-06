@@ -12,4 +12,8 @@ type InformationProtection struct {
 	SensitivityLabels []SensitivityLabel `json:"sensitivityLabels,omitempty"`
 	// SensitivityPolicySettings undocumented
 	SensitivityPolicySettings *SensitivityPolicySettings `json:"sensitivityPolicySettings,omitempty"`
+	// DataLossPreventionPolicies undocumented
+	DataLossPreventionPolicies []DataLossPreventionPolicy `json:"dataLossPreventionPolicies,omitempty"`
+	// ThreatAssessmentRequests undocumented
+	ThreatAssessmentRequests []ThreatAssessmentRequestObject `json:"threatAssessmentRequests,omitempty"`
 }

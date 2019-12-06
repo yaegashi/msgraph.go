@@ -8,4 +8,6 @@ type Attendee struct {
 	AttendeeBase
 	// Status undocumented
 	Status *ResponseStatus `json:"status,omitempty"`
+	// ProposedNewTime undocumented
+	ProposedNewTime *TimeSlot `json:"proposedNewTime,omitempty"`
 }

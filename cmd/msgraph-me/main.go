@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 	"github.com/yaegashi/msgraph.go/msauth"
@@ -17,12 +18,12 @@ import (
 )
 
 const (
-	defaultTenantID = "common"
-	defaultClientID = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
-	tokenCachePath  = "token_cache.json"
+	defaultTenantID       = "common"
+	defaultClientID       = "45c7f99c-0a94-42ff-a6d8-a8d657229e8c"
+	defaultTokenCachePath = "token_cache.json"
 )
 
-var defaultScopes = []string{"openid", "profile", "offline_access", "User.Read", "Files.Read"}
+var defaultScopes = []string{"offline_access", "User.Read", "Files.Read"}
 
 func dump(o interface{}) {
 	enc := jsonx.NewEncoder(os.Stdout)
@@ -31,9 +32,10 @@ func dump(o interface{}) {
 }
 
 func main() {
-	var tenantID, clientID string
+	var tenantID, clientID, tokenCachePath string
 	flag.StringVar(&tenantID, "tenant-id", defaultTenantID, "Tenant ID")
 	flag.StringVar(&clientID, "client-id", defaultClientID, "Client ID")
+	flag.StringVar(&tokenCachePath, "token-cache-path", defaultTokenCachePath, "Token cache path")
 	flag.Parse()
 
 	ctx := context.Background()
@@ -50,11 +52,11 @@ func main() {
 
 	{
 		log.Printf("Get current logged in user information")
-		r := graphClient.Me().Request()
-		log.Printf("GET %s", r.URL())
-		x, err := r.Get(ctx)
+		req := graphClient.Me().Request()
+		log.Printf("GET %s", req.URL())
+		user, err := req.Get(ctx)
 		if err == nil {
-			dump(x)
+			dump(user)
 		} else {
 			log.Println(err)
 		}
@@ -63,23 +65,35 @@ func main() {
 	var items []msgraph.DriveItem
 	{
 		log.Printf("Get files in the root folder of user's drive")
-		r := graphClient.Me().Drive().Root().Children().Request()
+		req := graphClient.Me().Drive().Root().Children().Request()
 		// This filter is not supported by OneDrive for Business or SharePoint Online
 		// https://docs.microsoft.com/en-us/onedrive/developer/rest-api/concepts/filtering-results?#filterable-properties
-		// r.Filter("file ne null")
-		log.Printf("GET %s", r.URL())
-		items, err = r.Get(ctx)
+		// req.Filter("file ne null")
+		log.Printf("GET %s", req.URL())
+		items, err = req.Get(ctx)
 		if err != nil {
 			log.Println(err)
 		}
 	}
 
 	for _, item := range items {
+		timestamp := item.LastModifiedDateTime.Format(time.RFC3339)
+		itemType := "FILE"
+		if item.File == nil {
+			itemType = "DIR "
+		}
+		log.Printf("  %s %s %10d %s", itemType, timestamp, *item.Size, *item.Name)
+	}
+
+	fmt.Print("Press ENTER to download files or Ctrl-C to abort: ")
+	fmt.Scanln()
+
+	for _, item := range items {
 		if item.File == nil {
 			continue
 		}
 		err := func() error {
-			log.Printf("Download to %#v (%d bytes)", *item.Name, *item.Size)
+			log.Printf("Download %q (%d bytes)", *item.Name, *item.Size)
 			if url, ok := item.GetAdditionalData("@microsoft.graph.downloadUrl"); ok {
 				res, err := http.Get(url.(string))
 				if err != nil {

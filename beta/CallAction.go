@@ -26,6 +26,10 @@ type CallChangeScreenSharingRoleRequestParameter struct {
 	Role *ScreenSharingRole `json:"role,omitempty"`
 }
 
+// CallKeepAliveRequestParameter undocumented
+type CallKeepAliveRequestParameter struct {
+}
+
 // CallMuteRequestParameter undocumented
 type CallMuteRequestParameter struct {
 	// ClientContext undocumented
@@ -44,6 +48,28 @@ type CallPlayPromptRequestParameter struct {
 
 // CallRecordRequestParameter undocumented
 type CallRecordRequestParameter struct {
+	// Prompts undocumented
+	Prompts []Prompt `json:"prompts,omitempty"`
+	// BargeInAllowed undocumented
+	BargeInAllowed *bool `json:"bargeInAllowed,omitempty"`
+	// InitialSilenceTimeoutInSeconds undocumented
+	InitialSilenceTimeoutInSeconds *int `json:"initialSilenceTimeoutInSeconds,omitempty"`
+	// MaxSilenceTimeoutInSeconds undocumented
+	MaxSilenceTimeoutInSeconds *int `json:"maxSilenceTimeoutInSeconds,omitempty"`
+	// MaxRecordDurationInSeconds undocumented
+	MaxRecordDurationInSeconds *int `json:"maxRecordDurationInSeconds,omitempty"`
+	// PlayBeep undocumented
+	PlayBeep *bool `json:"playBeep,omitempty"`
+	// StreamWhileRecording undocumented
+	StreamWhileRecording *bool `json:"streamWhileRecording,omitempty"`
+	// StopTones undocumented
+	StopTones []string `json:"stopTones,omitempty"`
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallRecordResponseRequestParameter undocumented
+type CallRecordResponseRequestParameter struct {
 	// Prompts undocumented
 	Prompts []Prompt `json:"prompts,omitempty"`
 	// BargeInAllowed undocumented
@@ -102,6 +128,14 @@ type CallTransferRequestParameter struct {
 
 // CallUnmuteRequestParameter undocumented
 type CallUnmuteRequestParameter struct {
+	// ClientContext undocumented
+	ClientContext *string `json:"clientContext,omitempty"`
+}
+
+// CallUpdateRecordingStatusRequestParameter undocumented
+type CallUpdateRecordingStatusRequestParameter struct {
+	// Status undocumented
+	Status *RecordingStatus `json:"status,omitempty"`
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
 }
@@ -186,6 +220,32 @@ func (r *CallChangeScreenSharingRoleRequest) Post(ctx context.Context) error {
 }
 
 //
+type CallKeepAliveRequestBuilder struct{ BaseRequestBuilder }
+
+// KeepAlive action undocumented
+func (b *CallRequestBuilder) KeepAlive(reqObj *CallKeepAliveRequestParameter) *CallKeepAliveRequestBuilder {
+	bb := &CallKeepAliveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/keepAlive"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallKeepAliveRequest struct{ BaseRequest }
+
+//
+func (b *CallKeepAliveRequestBuilder) Request() *CallKeepAliveRequest {
+	return &CallKeepAliveRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *CallKeepAliveRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
 type CallMuteRequestBuilder struct{ BaseRequestBuilder }
 
 // Mute action undocumented
@@ -262,6 +322,33 @@ func (b *CallRecordRequestBuilder) Request() *CallRecordRequest {
 
 //
 func (r *CallRecordRequest) Post(ctx context.Context) (resObj *RecordOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
+type CallRecordResponseRequestBuilder struct{ BaseRequestBuilder }
+
+// RecordResponse action undocumented
+func (b *CallRequestBuilder) RecordResponse(reqObj *CallRecordResponseRequestParameter) *CallRecordResponseRequestBuilder {
+	bb := &CallRecordResponseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/recordResponse"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallRecordResponseRequest struct{ BaseRequest }
+
+//
+func (b *CallRecordResponseRequestBuilder) Request() *CallRecordResponseRequest {
+	return &CallRecordResponseRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *CallRecordResponseRequest) Post(ctx context.Context) (resObj *RecordOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
@@ -394,6 +481,33 @@ func (b *CallUnmuteRequestBuilder) Request() *CallUnmuteRequest {
 
 //
 func (r *CallUnmuteRequest) Post(ctx context.Context) (resObj *UnmuteParticipantOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
+type CallUpdateRecordingStatusRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdateRecordingStatus action undocumented
+func (b *CallRequestBuilder) UpdateRecordingStatus(reqObj *CallUpdateRecordingStatusRequestParameter) *CallUpdateRecordingStatusRequestBuilder {
+	bb := &CallUpdateRecordingStatusRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateRecordingStatus"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type CallUpdateRecordingStatusRequest struct{ BaseRequest }
+
+//
+func (b *CallUpdateRecordingStatusRequestBuilder) Request() *CallUpdateRecordingStatusRequest {
+	return &CallUpdateRecordingStatusRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *CallUpdateRecordingStatusRequest) Post(ctx context.Context) (resObj *UpdateRecordingStatusOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

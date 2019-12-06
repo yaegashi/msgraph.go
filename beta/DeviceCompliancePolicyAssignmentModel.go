@@ -8,4 +8,8 @@ type DeviceCompliancePolicyAssignment struct {
 	Entity
 	// Target Target for the compliance policy assignment.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
+	// Source The assignment source for the device compliance policy, direct or parcel/policySet.
+	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
+	// SourceID The identifier of the source of the assignment.
+	SourceID *string `json:"sourceId,omitempty"`
 }

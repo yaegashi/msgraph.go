@@ -30,6 +30,8 @@ type User struct {
 	Country *string `json:"country,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// CreationType undocumented
+	CreationType *string `json:"creationType,omitempty"`
 	// Department undocumented
 	Department *string `json:"department,omitempty"`
 	// DeviceKeys undocumented
@@ -238,6 +240,8 @@ type User struct {
 	Settings *UserSettings `json:"settings,omitempty"`
 	// Onenote undocumented
 	Onenote *Onenote `json:"onenote,omitempty"`
+	// Profile undocumented
+	Profile *Profile `json:"profile,omitempty"`
 	// Activities undocumented
 	Activities []UserActivity `json:"activities,omitempty"`
 	// Devices undocumented
@@ -246,10 +250,10 @@ type User struct {
 	OnlineMeetings []OnlineMeeting `json:"onlineMeetings,omitempty"`
 	// Presence undocumented
 	Presence *Presence `json:"presence,omitempty"`
+	// Chats undocumented
+	Chats []Chat `json:"chats,omitempty"`
 	// JoinedTeams undocumented
 	JoinedTeams []Team `json:"joinedTeams,omitempty"`
 	// Teamwork undocumented
 	Teamwork *UserTeamwork `json:"teamwork,omitempty"`
-	// Chats undocumented
-	Chats []Chat `json:"chats,omitempty"`
 }

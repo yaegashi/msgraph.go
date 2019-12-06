@@ -14,10 +14,10 @@ type Chat struct {
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// LastUpdatedDateTime undocumented
 	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
-	// InstalledApps undocumented
-	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
 	// Members undocumented
 	Members []ConversationMember `json:"members,omitempty"`
 	// Messages undocumented
 	Messages []ChatMessage `json:"messages,omitempty"`
+	// InstalledApps undocumented
+	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
 }

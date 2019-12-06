@@ -6,7 +6,7 @@ package msgraph
 type AndroidImportedPFXCertificateProfile struct {
 	// AndroidCertificateProfileBase is the base model of AndroidImportedPFXCertificateProfile
 	AndroidCertificateProfileBase
-	// IntendedPurpose undocumented
+	// IntendedPurpose Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc.
 	IntendedPurpose *IntendedPurpose `json:"intendedPurpose,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`

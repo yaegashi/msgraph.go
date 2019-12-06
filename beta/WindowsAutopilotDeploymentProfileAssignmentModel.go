@@ -8,4 +8,8 @@ type WindowsAutopilotDeploymentProfileAssignment struct {
 	Entity
 	// Target The assignment target for the Windows Autopilot deployment profile.
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
+	// Source Type of resource used for deployment to a group, direct or parcel/policySet
+	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
+	// SourceID Identifier for resource used for deployment to a group
+	SourceID *string `json:"sourceId,omitempty"`
 }

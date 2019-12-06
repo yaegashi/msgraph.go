@@ -6,7 +6,7 @@ package msgraph
 type MacOSImportedPFXCertificateProfile struct {
 	// MacOSCertificateProfileBase is the base model of MacOSImportedPFXCertificateProfile
 	MacOSCertificateProfileBase
-	// IntendedPurpose undocumented
+	// IntendedPurpose Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc.
 	IntendedPurpose *IntendedPurpose `json:"intendedPurpose,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`

@@ -32,6 +32,10 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	FactoryResetDeviceAdministratorEmails []string `json:"factoryResetDeviceAdministratorEmails,omitempty"`
 	// FactoryResetBlocked Indicates whether or not the factory reset option in settings is disabled.
 	FactoryResetBlocked *bool `json:"factoryResetBlocked,omitempty"`
+	// GlobalProxy Proxy is set up directly with host, port and excluded hosts.
+	GlobalProxy *AndroidDeviceOwnerGlobalProxy `json:"globalProxy,omitempty"`
+	// GoogleAccountsBlocked Indicates whether or not google accounts will be blocked.
+	GoogleAccountsBlocked *bool `json:"googleAccountsBlocked,omitempty"`
 	// KioskModeScreenSaverConfigurationEnabled Whether or not to enable screen saver mode or not in Kiosk Mode.
 	KioskModeScreenSaverConfigurationEnabled *bool `json:"kioskModeScreenSaverConfigurationEnabled,omitempty"`
 	// KioskModeScreenSaverImageURL URL for an image that will be the device's screen saver in Kiosk Mode.

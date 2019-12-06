@@ -42,6 +42,8 @@ type Message struct {
 	ReplyTo []Recipient `json:"replyTo,omitempty"`
 	// ConversationID undocumented
 	ConversationID *string `json:"conversationId,omitempty"`
+	// ConversationIndex undocumented
+	ConversationIndex *Binary `json:"conversationIndex,omitempty"`
 	// UniqueBody undocumented
 	UniqueBody *ItemBody `json:"uniqueBody,omitempty"`
 	// IsDeliveryReceiptRequested undocumented

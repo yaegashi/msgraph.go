@@ -30,4 +30,6 @@ type Room struct {
 	IsWheelChairAccessible *bool `json:"isWheelChairAccessible,omitempty"`
 	// Tags undocumented
 	Tags []string `json:"tags,omitempty"`
+	// FloorLabel undocumented
+	FloorLabel *string `json:"floorLabel,omitempty"`
 }

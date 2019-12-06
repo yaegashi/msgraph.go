@@ -18,6 +18,8 @@ type ImportedAppleDeviceIdentity struct {
 	IsSupervised *bool `json:"isSupervised,omitempty"`
 	// DiscoverySource Apple device discovery source.
 	DiscoverySource *DiscoverySource `json:"discoverySource,omitempty"`
+	// IsDeleted Indicates if the device is deleted from Apple Business Manager
+	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// CreatedDateTime Created Date Time of the device
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// LastContactedDateTime Last Contacted Date Time of the device

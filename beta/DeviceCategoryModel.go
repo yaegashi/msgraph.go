@@ -10,4 +10,6 @@ type DeviceCategory struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// Description Optional description for the device category.
 	Description *string `json:"description,omitempty"`
+	// RoleScopeTagIDs Optional role scope tags for the device category.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 }

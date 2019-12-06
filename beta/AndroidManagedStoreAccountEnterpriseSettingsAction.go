@@ -4,6 +4,14 @@ package msgraph
 
 import "context"
 
+// AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestParameter undocumented
+type AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestParameter struct {
+	// PackageIDs undocumented
+	PackageIDs []string `json:"packageIds,omitempty"`
+	// ApproveAllPermissions undocumented
+	ApproveAllPermissions *bool `json:"approveAllPermissions,omitempty"`
+}
+
 // AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter undocumented
 type AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter struct {
 	// HostName undocumented
@@ -34,6 +42,32 @@ type AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest
 type AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestParameter struct {
 	// Enabled undocumented
 	Enabled *bool `json:"enabled,omitempty"`
+}
+
+//
+type AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder struct{ BaseRequestBuilder }
+
+// ApproveApps action undocumented
+func (b *AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder) ApproveApps(reqObj *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestParameter) *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder {
+	bb := &AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/approveApps"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest struct{ BaseRequest }
+
+//
+func (b *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestBuilder) Request() *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest {
+	return &AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }
 
 //

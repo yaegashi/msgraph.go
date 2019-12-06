@@ -14,6 +14,8 @@ type ServicePrincipal struct {
 	AppDisplayName *string `json:"appDisplayName,omitempty"`
 	// AppID undocumented
 	AppID *string `json:"appId,omitempty"`
+	// ApplicationTemplateID undocumented
+	ApplicationTemplateID *string `json:"applicationTemplateId,omitempty"`
 	// AppOwnerOrganizationID undocumented
 	AppOwnerOrganizationID *UUID `json:"appOwnerOrganizationId,omitempty"`
 	// AppRoleAssignmentRequired undocumented
@@ -26,10 +28,14 @@ type ServicePrincipal struct {
 	Homepage *string `json:"homepage,omitempty"`
 	// KeyCredentials undocumented
 	KeyCredentials []KeyCredential `json:"keyCredentials,omitempty"`
+	// Info undocumented
+	Info *InformationalURL `json:"info,omitempty"`
 	// LogoutURL undocumented
 	LogoutURL *string `json:"logoutUrl,omitempty"`
-	// Oauth2Permissions undocumented
-	Oauth2Permissions []OAuth2Permission `json:"oauth2Permissions,omitempty"`
+	// NotificationEmailAddresses undocumented
+	NotificationEmailAddresses []string `json:"notificationEmailAddresses,omitempty"`
+	// PublishedPermissionScopes undocumented
+	PublishedPermissionScopes []PermissionScope `json:"publishedPermissionScopes,omitempty"`
 	// PasswordCredentials undocumented
 	PasswordCredentials []PasswordCredential `json:"passwordCredentials,omitempty"`
 	// PreferredTokenSigningKeyThumbprint undocumented

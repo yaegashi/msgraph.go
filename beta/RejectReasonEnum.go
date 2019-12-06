@@ -12,6 +12,8 @@ const (
 	RejectReasonVBusy RejectReason = 1
 	// RejectReasonVForbidden undocumented
 	RejectReasonVForbidden RejectReason = 2
+	// RejectReasonVUnknownFutureValue undocumented
+	RejectReasonVUnknownFutureValue RejectReason = 3
 )
 
 // RejectReasonPNone returns a pointer to RejectReasonVNone
@@ -29,5 +31,11 @@ func RejectReasonPBusy() *RejectReason {
 // RejectReasonPForbidden returns a pointer to RejectReasonVForbidden
 func RejectReasonPForbidden() *RejectReason {
 	v := RejectReasonVForbidden
+	return &v
+}
+
+// RejectReasonPUnknownFutureValue returns a pointer to RejectReasonVUnknownFutureValue
+func RejectReasonPUnknownFutureValue() *RejectReason {
+	v := RejectReasonVUnknownFutureValue
 	return &v
 }
