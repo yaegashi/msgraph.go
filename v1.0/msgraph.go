@@ -98,7 +98,7 @@ type Paging struct {
 
 // BaseRequestBuilder is base reuqest builder
 type BaseRequestBuilder struct {
-	baseURL       string
+	BaseURL       string
 	client        *http.Client
 	requestObject interface{}
 }
