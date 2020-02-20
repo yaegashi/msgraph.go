@@ -108,6 +108,11 @@ func (r *BaseRequestBuilder) URL() string {
 	return r.baseURL
 }
 
+// SetURL set the baseURL
+func (r *BaseRequestBuilder) SetURL(baseURL string) {
+	r.baseURL = baseURL
+}
+
 // BaseRequest is base request
 type BaseRequest struct {
 	baseURL       string
@@ -257,5 +262,12 @@ type GraphServiceRequestBuilder struct {
 func NewClient(cli *http.Client) *GraphServiceRequestBuilder {
 	return &GraphServiceRequestBuilder{
 		BaseRequestBuilder: BaseRequestBuilder{baseURL: defaultBaseURL, client: cli},
+	}
+}
+
+// NewClientWithBaseURL returns GraphService request builder with the given base URL
+func NewClientWithBaseURL(cli *http.Client, baseURL string) *GraphServiceRequestBuilder {
+	return &GraphServiceRequestBuilder{
+		BaseRequestBuilder: BaseRequestBuilder{baseURL: baseURL, client: cli},
 	}
 }
