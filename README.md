@@ -1,12 +1,12 @@
 # msgraph.go
 
-(Online reference generation is broken due to huge number of files in the package)
+[![](https://github.com/yaegashi/msgraph.go/workflows/go%20generate%20test/badge.svg?branch=master)](https://github.com/yaegashi/msgraph.go/actions)
 
 |v1.0|beta|
 |---|---|
-|[![GoDoc](https://godoc.org/github.com/yaegashi/msgraph.go/v1.0?status.svg)](https://godoc.org/github.com/yaegashi/msgraph.go/v1.0)|[![GoDoc](https://godoc.org/github.com/yaegashi/msgraph.go/beta?status.svg)](https://godoc.org/github.com/yaegashi/msgraph.go/beta)|
+|[![go.dev](https://img.shields.io/badge/go.dev-reference-000000?logo=go)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/v1.0)|[![go.dev](https://img.shields.io/badge/go.dev-reference_(missing)-000000?logo=go)](https://pkg.go.dev/github.com/yaegashi/msgraph.go/beta)|
 
-[![](https://github.com/yaegashi/msgraph.go/workflows/go%20generate%20test/badge.svg?branch=master)](https://github.com/yaegashi/msgraph.go/actions)
+(Online reference generation is broken due to huge number of files in the package)
 
 ## Introduction 
 
@@ -20,14 +20,15 @@ The code generator is written in pure Go,
 in contrast to [the official code generator][Microsoft Graph SDK Code Generator]
 heavily relying on C# and non-portable .NET Framework.
 
-## Changes
+## v0.x.x releases
 
-- **2019-11-02 Library API breaking changes:**
-  - [#1][PR1] every request method should take a ctx for the first arg
-  - [#2][PR2] package auth renamed to msauth and API changed
+See [GitHub releases](https://github.com/yaegashi/msgraph.go/releases)
+for all release tags and release notes,
+and [pkg.go.dev](https://pkg.go.dev/mod/github.com/yaegashi/msgraph.go)
+for all Go module versions available for your applications.
 
-[PR1]: https://github.com/yaegashi/msgraph.go/pull/1
-[PR2]: https://github.com/yaegashi/msgraph.go/pull/2
+Until v1.0.0, all types of changes might be included in every release:
+bug fixes, new features, even incompatible API updates.
 
 ## Usage
 
@@ -90,13 +91,13 @@ $ go generate ./gen
 - [x] Provide easy way to generate pointers to constants
 - [x] Provide easy way to add queries like `$expand` `$select` `$filter`
 - [x] Every request method should take a ctx as the first arg for better control
-- [ ] Online API docs (the output is too big for godoc.org to handle)
+- [ ] Online API docs (the output is too big for pkg.go.dev to handle)
 - [ ] Unit tests
 - [x] CI
 - [x] Persist OAuth2 tokens in file
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
-- [ ] OAuth2 authorization code grant
+- [ ] Use string for EnumType (pointed out in #6)
 
 ## References
 
@@ -115,3 +116,7 @@ $ go generate ./gen
 [GitHub repository search for msgraph in Go]: https://github.com/search?l=Go&q=msgraph&type=Repositories
 [Microsoft Graph API Library for Go]: https://www.slideshare.net/yaegashi/microsoft-graph-api-library-for-go
 [msgraph.go demo - SharePoint Online + Microsoft Flow + GitLab CI]: https://www.youtube.com/watch?v=DwKk405XyF4
+
+## Applications
+
+- [Terraform Provider for Microsoft Graph](https://github.com/yaegashi/terraform-provider-msgraph)
