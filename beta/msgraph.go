@@ -108,6 +108,11 @@ func (r *BaseRequestBuilder) URL() string {
 	return r.baseURL
 }
 
+// SetURL sets the baseURL
+func (r *BaseRequestBuilder) SetURL(baseURL string) {
+	r.baseURL = baseURL
+}
+
 // BaseRequest is base request
 type BaseRequest struct {
 	baseURL       string
