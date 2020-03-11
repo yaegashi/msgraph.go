@@ -99,12 +99,8 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 }
 
 //
-func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

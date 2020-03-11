@@ -372,12 +372,8 @@ func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string
 }
 
 //
-func (r *DriveItemInviteRequest) Get(ctx context.Context) ([][]Permission, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DriveItemInviteRequest) Post(ctx context.Context) ([][]Permission, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

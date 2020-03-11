@@ -113,12 +113,8 @@ func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path stri
 }
 
 //
-func (r *SiteCollectionAddRequest) Get(ctx context.Context) ([][]Site, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *SiteCollectionAddRequest) Post(ctx context.Context) ([][]Site, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -211,10 +207,6 @@ func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path s
 }
 
 //
-func (r *SiteCollectionRemoveRequest) Get(ctx context.Context) ([][]Site, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *SiteCollectionRemoveRequest) Post(ctx context.Context) ([][]Site, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

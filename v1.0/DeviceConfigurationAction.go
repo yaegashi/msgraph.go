@@ -91,10 +91,6 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Get(ctx context.Context) ([][]DeviceConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([][]DeviceConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

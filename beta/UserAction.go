@@ -369,12 +369,8 @@ func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string
 }
 
 //
-func (r *UserGetMailTipsRequest) Get(ctx context.Context) ([][]MailTips, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([][]MailTips, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -451,12 +447,8 @@ func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, pa
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Get(ctx context.Context) ([][]ConvertIDResult, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *UserTranslateExchangeIDsRequest) Post(ctx context.Context) ([][]ConvertIDResult, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

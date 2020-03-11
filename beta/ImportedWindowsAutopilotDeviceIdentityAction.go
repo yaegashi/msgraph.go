@@ -99,10 +99,6 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(c
 }
 
 //
-func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Get(ctx context.Context) ([][]ImportedWindowsAutopilotDeviceIdentity, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Post(ctx context.Context) ([][]ImportedWindowsAutopilotDeviceIdentity, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

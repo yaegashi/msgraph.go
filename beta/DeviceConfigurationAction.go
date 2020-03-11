@@ -125,12 +125,8 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -215,12 +211,8 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Get(ctx context.Context) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Post(ctx context.Context) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -297,12 +289,8 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Get(ctx context.Context) ([][]DeviceConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([][]DeviceConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

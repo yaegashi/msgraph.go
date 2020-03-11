@@ -421,12 +421,8 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, m
 }
 
 //
-func (r *DirectoryObjectCollectionGetByIDsRequest) Get(ctx context.Context) ([][]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DirectoryObjectCollectionGetByIDsRequest) Post(ctx context.Context) ([][]DirectoryObject, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -1116,12 +1112,8 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, me
 }
 
 //
-func (r *DirectoryObjectCheckMemberGroupsRequest) Get(ctx context.Context) ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DirectoryObjectCheckMemberGroupsRequest) Post(ctx context.Context) ([][]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -1198,12 +1190,8 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, m
 }
 
 //
-func (r *DirectoryObjectCheckMemberObjectsRequest) Get(ctx context.Context) ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DirectoryObjectCheckMemberObjectsRequest) Post(ctx context.Context) ([][]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -1280,12 +1268,8 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, meth
 }
 
 //
-func (r *DirectoryObjectGetMemberGroupsRequest) Get(ctx context.Context) ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DirectoryObjectGetMemberGroupsRequest) Post(ctx context.Context) ([][]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -1362,12 +1346,8 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, met
 }
 
 //
-func (r *DirectoryObjectGetMemberObjectsRequest) Get(ctx context.Context) ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DirectoryObjectGetMemberObjectsRequest) Post(ctx context.Context) ([][]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

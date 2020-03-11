@@ -101,12 +101,8 @@ func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, meth
 }
 
 //
-func (r *GroupPolicyConfigurationAssignRequest) Get(ctx context.Context) ([][]GroupPolicyConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *GroupPolicyConfigurationAssignRequest) Post(ctx context.Context) ([][]GroupPolicyConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

@@ -109,12 +109,8 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Get(ctx context.Context) ([][]TiIndicator, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Post(ctx context.Context) ([][]TiIndicator, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -191,12 +187,8 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Get(ctx context.Context) ([][]TiIndicator, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Post(ctx context.Context) ([][]TiIndicator, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -273,12 +265,8 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Get(ctx context.Context) ([][]ResultInfo, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Post(ctx context.Context) ([][]ResultInfo, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -355,10 +343,6 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx 
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Get(ctx context.Context) ([][]ResultInfo, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Post(ctx context.Context) ([][]ResultInfo, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

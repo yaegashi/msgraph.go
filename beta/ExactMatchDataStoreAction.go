@@ -95,10 +95,6 @@ func (r *ExactMatchDataStoreLookupRequest) Paging(ctx context.Context, method, p
 }
 
 //
-func (r *ExactMatchDataStoreLookupRequest) Get(ctx context.Context) ([][]string, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *ExactMatchDataStoreLookupRequest) Post(ctx context.Context) ([][]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

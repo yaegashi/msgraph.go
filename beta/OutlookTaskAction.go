@@ -89,10 +89,6 @@ func (r *OutlookTaskCompleteRequest) Paging(ctx context.Context, method, path st
 }
 
 //
-func (r *OutlookTaskCompleteRequest) Get(ctx context.Context) ([][]OutlookTask, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *OutlookTaskCompleteRequest) Post(ctx context.Context) ([][]OutlookTask, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

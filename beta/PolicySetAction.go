@@ -103,12 +103,8 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, me
 }
 
 //
-func (r *PolicySetCollectionGetPolicySetsRequest) Get(ctx context.Context) ([][]PolicySet, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *PolicySetCollectionGetPolicySetsRequest) Post(ctx context.Context) ([][]PolicySet, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

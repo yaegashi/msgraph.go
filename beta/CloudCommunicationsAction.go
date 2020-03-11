@@ -91,10 +91,6 @@ func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) Get(ctx context.Context) ([][]Presence, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *CloudCommunicationsGetPresencesByUserIDRequest) Post(ctx context.Context) ([][]Presence, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

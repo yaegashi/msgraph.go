@@ -142,12 +142,8 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Get(ctx context.Context) ([][]InformationProtectionAction, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Post(ctx context.Context) ([][]InformationProtectionAction, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -224,12 +220,8 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx 
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Get(ctx context.Context) ([][]InformationProtectionAction, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Post(ctx context.Context) ([][]InformationProtectionAction, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -306,10 +298,6 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Get(ctx context.Context) ([][]InformationProtectionAction, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Post(ctx context.Context) ([][]InformationProtectionAction, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

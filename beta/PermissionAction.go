@@ -93,10 +93,6 @@ func (r *PermissionGrantRequest) Paging(ctx context.Context, method, path string
 }
 
 //
-func (r *PermissionGrantRequest) Get(ctx context.Context) ([][]Permission, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *PermissionGrantRequest) Post(ctx context.Context) ([][]Permission, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

@@ -125,10 +125,6 @@ func (r *OfficeClientConfigurationAssignRequest) Paging(ctx context.Context, met
 }
 
 //
-func (r *OfficeClientConfigurationAssignRequest) Get(ctx context.Context) ([][]OfficeClientConfigurationAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *OfficeClientConfigurationAssignRequest) Post(ctx context.Context) ([][]OfficeClientConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

@@ -179,10 +179,6 @@ func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context
 }
 
 //
-func (r *EducationSynchronizationProfileStartRequest) Get(ctx context.Context) ([][]EducationFileSynchronizationVerificationMessage, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *EducationSynchronizationProfileStartRequest) Post(ctx context.Context) ([][]EducationFileSynchronizationVerificationMessage, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

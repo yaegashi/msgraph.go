@@ -105,12 +105,8 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.C
 }
 
 //
-func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Get(ctx context.Context) ([][]RoleScopeTag, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Post(ctx context.Context) ([][]RoleScopeTag, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -187,10 +183,6 @@ func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path str
 }
 
 //
-func (r *RoleScopeTagAssignRequest) Get(ctx context.Context) ([][]RoleScopeTagAutoAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *RoleScopeTagAssignRequest) Post(ctx context.Context) ([][]RoleScopeTagAutoAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

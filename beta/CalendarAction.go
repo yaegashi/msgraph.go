@@ -97,10 +97,6 @@ func (r *CalendarGetScheduleRequest) Paging(ctx context.Context, method, path st
 }
 
 //
-func (r *CalendarGetScheduleRequest) Get(ctx context.Context) ([][]ScheduleInformation, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *CalendarGetScheduleRequest) Post(ctx context.Context) ([][]ScheduleInformation, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

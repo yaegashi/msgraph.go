@@ -91,10 +91,6 @@ func (r *SearchQueryRequest) Paging(ctx context.Context, method, path string, ob
 }
 
 //
-func (r *SearchQueryRequest) Get(ctx context.Context) ([][]SearchResponse, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *SearchQueryRequest) Post(ctx context.Context) ([][]SearchResponse, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

@@ -103,12 +103,8 @@ func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(ctx context.Context, 
 }
 
 //
-func (r *MobileAppCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *MobileAppCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

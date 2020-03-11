@@ -93,10 +93,6 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
-func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Get(ctx context.Context) ([][]ImportedAppleDeviceIdentityResult, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Post(ctx context.Context) ([][]ImportedAppleDeviceIdentityResult, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

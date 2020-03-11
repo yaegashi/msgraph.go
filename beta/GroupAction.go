@@ -198,12 +198,8 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, 
 }
 
 //
-func (r *GroupCheckGrantedPermissionsForAppRequest) Get(ctx context.Context) ([][]ResourceSpecificPermissionGrant, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *GroupCheckGrantedPermissionsForAppRequest) Post(ctx context.Context) ([][]ResourceSpecificPermissionGrant, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

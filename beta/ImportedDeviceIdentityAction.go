@@ -99,12 +99,8 @@ func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Get(ctx context.Context) ([][]ImportedDeviceIdentityResult, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Post(ctx context.Context) ([][]ImportedDeviceIdentityResult, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //
@@ -181,10 +177,6 @@ func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Get(ctx context.Context) ([][]ImportedDeviceIdentity, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Post(ctx context.Context) ([][]ImportedDeviceIdentity, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }

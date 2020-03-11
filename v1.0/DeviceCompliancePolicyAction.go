@@ -97,12 +97,8 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Get(ctx context.Context) ([][]DeviceCompliancePolicyAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DeviceCompliancePolicyAssignRequest) Post(ctx context.Context) ([][]DeviceCompliancePolicyAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

@@ -99,12 +99,8 @@ func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Paging(ctx cont
 }
 
 //
-func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Get(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
 //

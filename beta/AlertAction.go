@@ -91,10 +91,6 @@ func (r *AlertCollectionUpdateAlertsRequest) Paging(ctx context.Context, method,
 }
 
 //
-func (r *AlertCollectionUpdateAlertsRequest) Get(ctx context.Context) ([][]Alert, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil)
+func (r *AlertCollectionUpdateAlertsRequest) Post(ctx context.Context) ([][]Alert, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject)
 }
