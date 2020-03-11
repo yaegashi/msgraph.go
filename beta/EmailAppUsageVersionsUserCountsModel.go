@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // EmailAppUsageVersionsUserCounts undocumented
 type EmailAppUsageVersionsUserCounts struct {
 	// Entity is the base model of EmailAppUsageVersionsUserCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Outlook2016 undocumented
 	Outlook2016 *int `json:"outlook2016,omitempty"`
 	// Outlook2013 undocumented

@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // EmailActivitySummary undocumented
 type EmailActivitySummary struct {
 	// Entity is the base model of EmailActivitySummary
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Send undocumented
 	Send *int `json:"send,omitempty"`
 	// Receive undocumented
@@ -17,7 +15,7 @@ type EmailActivitySummary struct {
 	// Read undocumented
 	Read *int `json:"read,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

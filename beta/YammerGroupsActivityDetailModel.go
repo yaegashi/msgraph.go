@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // YammerGroupsActivityDetail undocumented
 type YammerGroupsActivityDetail struct {
 	// Entity is the base model of YammerGroupsActivityDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// GroupDisplayName undocumented
 	GroupDisplayName *string `json:"groupDisplayName,omitempty"`
 	// IsDeleted undocumented
@@ -17,7 +15,7 @@ type YammerGroupsActivityDetail struct {
 	// OwnerPrincipalName undocumented
 	OwnerPrincipalName *string `json:"ownerPrincipalName,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// GroupType undocumented
 	GroupType *string `json:"groupType,omitempty"`
 	// Office365Connected undocumented

@@ -17,7 +17,7 @@ type PrivilegedApproval struct {
 	// ApprovalState undocumented
 	ApprovalState *ApprovalState `json:"approvalState,omitempty"`
 	// ApprovalDuration undocumented
-	ApprovalDuration *time.Duration `json:"approvalDuration,omitempty"`
+	ApprovalDuration *Duration `json:"approvalDuration,omitempty"`
 	// RequestorReason undocumented
 	RequestorReason *string `json:"requestorReason,omitempty"`
 	// ApproverReason undocumented

@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // WindowsUpdateActiveHoursInstall undocumented
 type WindowsUpdateActiveHoursInstall struct {
 	// WindowsUpdateInstallScheduleType is the base model of WindowsUpdateActiveHoursInstall
 	WindowsUpdateInstallScheduleType
 	// ActiveHoursStart Active Hours Start
-	ActiveHoursStart *time.Time `json:"activeHoursStart,omitempty"`
+	ActiveHoursStart *TimeOfDay `json:"activeHoursStart,omitempty"`
 	// ActiveHoursEnd Active Hours End
-	ActiveHoursEnd *time.Time `json:"activeHoursEnd,omitempty"`
+	ActiveHoursEnd *TimeOfDay `json:"activeHoursEnd,omitempty"`
 }

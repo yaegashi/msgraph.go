@@ -11,7 +11,7 @@ type SynchronizationSchedule struct {
 	// Expiration undocumented
 	Expiration *time.Time `json:"expiration,omitempty"`
 	// Interval undocumented
-	Interval *time.Duration `json:"interval,omitempty"`
+	Interval *Duration `json:"interval,omitempty"`
 	// State undocumented
 	State *SynchronizationScheduleState `json:"state,omitempty"`
 }

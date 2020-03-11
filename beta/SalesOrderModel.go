@@ -13,7 +13,7 @@ type SalesOrder struct {
 	// ExternalDocumentNumber undocumented
 	ExternalDocumentNumber *string `json:"externalDocumentNumber,omitempty"`
 	// OrderDate undocumented
-	OrderDate *time.Time `json:"orderDate,omitempty"`
+	OrderDate *Date `json:"orderDate,omitempty"`
 	// CustomerID undocumented
 	CustomerID *UUID `json:"customerId,omitempty"`
 	// CustomerNumber undocumented
@@ -49,7 +49,7 @@ type SalesOrder struct {
 	// PartialShipping undocumented
 	PartialShipping *bool `json:"partialShipping,omitempty"`
 	// RequestedDeliveryDate undocumented
-	RequestedDeliveryDate *time.Time `json:"requestedDeliveryDate,omitempty"`
+	RequestedDeliveryDate *Date `json:"requestedDeliveryDate,omitempty"`
 	// DiscountAmount undocumented
 	DiscountAmount *int `json:"discountAmount,omitempty"`
 	// DiscountAppliedBeforeTax undocumented

@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // UpdateWindow undocumented
 type UpdateWindow struct {
 	// Object is the base model of UpdateWindow
 	Object
 	// UpdateWindowStartTime undocumented
-	UpdateWindowStartTime *time.Time `json:"updateWindowStartTime,omitempty"`
+	UpdateWindowStartTime *TimeOfDay `json:"updateWindowStartTime,omitempty"`
 	// UpdateWindowEndTime undocumented
-	UpdateWindowEndTime *time.Time `json:"updateWindowEndTime,omitempty"`
+	UpdateWindowEndTime *TimeOfDay `json:"updateWindowEndTime,omitempty"`
 }

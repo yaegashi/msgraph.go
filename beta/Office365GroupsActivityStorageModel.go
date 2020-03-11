@@ -2,20 +2,18 @@
 
 package msgraph
 
-import "time"
-
 // Office365GroupsActivityStorage undocumented
 type Office365GroupsActivityStorage struct {
 	// Entity is the base model of Office365GroupsActivityStorage
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// MailboxStorageUsedInBytes undocumented
 	MailboxStorageUsedInBytes *int `json:"mailboxStorageUsedInBytes,omitempty"`
 	// SiteStorageUsedInBytes undocumented
 	SiteStorageUsedInBytes *int `json:"siteStorageUsedInBytes,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

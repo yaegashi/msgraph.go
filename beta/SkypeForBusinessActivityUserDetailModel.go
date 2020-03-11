@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // SkypeForBusinessActivityUserDetail undocumented
 type SkypeForBusinessActivityUserDetail struct {
 	// Entity is the base model of SkypeForBusinessActivityUserDetail
@@ -15,11 +13,11 @@ type SkypeForBusinessActivityUserDetail struct {
 	// TotalParticipatedConferenceCount undocumented
 	TotalParticipatedConferenceCount *int `json:"totalParticipatedConferenceCount,omitempty"`
 	// PeerToPeerLastActivityDate undocumented
-	PeerToPeerLastActivityDate *time.Time `json:"peerToPeerLastActivityDate,omitempty"`
+	PeerToPeerLastActivityDate *Date `json:"peerToPeerLastActivityDate,omitempty"`
 	// OrganizedConferenceLastActivityDate undocumented
-	OrganizedConferenceLastActivityDate *time.Time `json:"organizedConferenceLastActivityDate,omitempty"`
+	OrganizedConferenceLastActivityDate *Date `json:"organizedConferenceLastActivityDate,omitempty"`
 	// ParticipatedConferenceLastActivityDate undocumented
-	ParticipatedConferenceLastActivityDate *time.Time `json:"participatedConferenceLastActivityDate,omitempty"`
+	ParticipatedConferenceLastActivityDate *Date `json:"participatedConferenceLastActivityDate,omitempty"`
 	// PeerToPeerIMCount undocumented
 	PeerToPeerIMCount *int `json:"peerToPeerIMCount,omitempty"`
 	// PeerToPeerAudioCount undocumented
@@ -65,15 +63,15 @@ type SkypeForBusinessActivityUserDetail struct {
 	// ParticipatedConferenceDialInOut3rdPartyCount undocumented
 	ParticipatedConferenceDialInOut3rdPartyCount *int `json:"participatedConferenceDialInOut3rdPartyCount,omitempty"`
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// DeletedDate undocumented
-	DeletedDate *time.Time `json:"deletedDate,omitempty"`
+	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// AssignedProducts undocumented
 	AssignedProducts []string `json:"assignedProducts,omitempty"`
 	// ReportPeriod undocumented

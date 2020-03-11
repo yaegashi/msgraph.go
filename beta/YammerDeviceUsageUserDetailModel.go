@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // YammerDeviceUsageUserDetail undocumented
 type YammerDeviceUsageUserDetail struct {
 	// Entity is the base model of YammerDeviceUsageUserDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DisplayName undocumented
@@ -17,9 +15,9 @@ type YammerDeviceUsageUserDetail struct {
 	// UserState undocumented
 	UserState *string `json:"userState,omitempty"`
 	// StateChangeDate undocumented
-	StateChangeDate *time.Time `json:"stateChangeDate,omitempty"`
+	StateChangeDate *Date `json:"stateChangeDate,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// UsedWeb undocumented
 	UsedWeb *bool `json:"usedWeb,omitempty"`
 	// UsedWindowsPhone undocumented

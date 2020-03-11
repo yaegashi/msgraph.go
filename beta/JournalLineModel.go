@@ -17,7 +17,7 @@ type JournalLine struct {
 	// AccountNumber undocumented
 	AccountNumber *string `json:"accountNumber,omitempty"`
 	// PostingDate undocumented
-	PostingDate *time.Time `json:"postingDate,omitempty"`
+	PostingDate *Date `json:"postingDate,omitempty"`
 	// DocumentNumber undocumented
 	DocumentNumber *string `json:"documentNumber,omitempty"`
 	// ExternalDocumentNumber undocumented

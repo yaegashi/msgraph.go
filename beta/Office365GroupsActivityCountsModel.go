@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // Office365GroupsActivityCounts undocumented
 type Office365GroupsActivityCounts struct {
 	// Entity is the base model of Office365GroupsActivityCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// ExchangeEmailsReceived undocumented
 	ExchangeEmailsReceived *int `json:"exchangeEmailsReceived,omitempty"`
 	// YammerMessagesPosted undocumented
@@ -19,7 +17,7 @@ type Office365GroupsActivityCounts struct {
 	// YammerMessagesLiked undocumented
 	YammerMessagesLiked *int `json:"yammerMessagesLiked,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

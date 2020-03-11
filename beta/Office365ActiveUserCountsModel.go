@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // Office365ActiveUserCounts undocumented
 type Office365ActiveUserCounts struct {
 	// Entity is the base model of Office365ActiveUserCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Office365 undocumented
 	Office365 *int `json:"office365,omitempty"`
 	// Exchange undocumented
@@ -25,7 +23,7 @@ type Office365ActiveUserCounts struct {
 	// Teams undocumented
 	Teams *int `json:"teams,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

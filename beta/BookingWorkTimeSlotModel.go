@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // BookingWorkTimeSlot undocumented
 type BookingWorkTimeSlot struct {
 	// Object is the base model of BookingWorkTimeSlot
 	Object
 	// Start undocumented
-	Start *time.Time `json:"start,omitempty"`
+	Start *TimeOfDay `json:"start,omitempty"`
 	// End undocumented
-	End *time.Time `json:"end,omitempty"`
+	End *TimeOfDay `json:"end,omitempty"`
 }

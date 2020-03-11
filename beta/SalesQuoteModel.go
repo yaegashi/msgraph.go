@@ -13,9 +13,9 @@ type SalesQuote struct {
 	// ExternalDocumentNumber undocumented
 	ExternalDocumentNumber *string `json:"externalDocumentNumber,omitempty"`
 	// DocumentDate undocumented
-	DocumentDate *time.Time `json:"documentDate,omitempty"`
+	DocumentDate *Date `json:"documentDate,omitempty"`
 	// DueDate undocumented
-	DueDate *time.Time `json:"dueDate,omitempty"`
+	DueDate *Date `json:"dueDate,omitempty"`
 	// CustomerID undocumented
 	CustomerID *UUID `json:"customerId,omitempty"`
 	// CustomerNumber undocumented
@@ -61,9 +61,9 @@ type SalesQuote struct {
 	// SentDate undocumented
 	SentDate *time.Time `json:"sentDate,omitempty"`
 	// ValidUntilDate undocumented
-	ValidUntilDate *time.Time `json:"validUntilDate,omitempty"`
+	ValidUntilDate *Date `json:"validUntilDate,omitempty"`
 	// AcceptedDate undocumented
-	AcceptedDate *time.Time `json:"acceptedDate,omitempty"`
+	AcceptedDate *Date `json:"acceptedDate,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// PhoneNumber undocumented

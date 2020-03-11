@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // SiteActivitySummary undocumented
 type SiteActivitySummary struct {
 	// Entity is the base model of SiteActivitySummary
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// ViewedOrEdited undocumented
 	ViewedOrEdited *int `json:"viewedOrEdited,omitempty"`
 	// Synced undocumented
@@ -19,7 +17,7 @@ type SiteActivitySummary struct {
 	// SharedExternally undocumented
 	SharedExternally *int `json:"sharedExternally,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

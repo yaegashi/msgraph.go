@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // Office365GroupsActivityDetail undocumented
 type Office365GroupsActivityDetail struct {
 	// Entity is the base model of Office365GroupsActivityDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// GroupID undocumented
 	GroupID *string `json:"groupId,omitempty"`
 	// GroupDisplayName undocumented
@@ -19,7 +17,7 @@ type Office365GroupsActivityDetail struct {
 	// OwnerPrincipalName undocumented
 	OwnerPrincipalName *string `json:"ownerPrincipalName,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// GroupType undocumented
 	GroupType *string `json:"groupType,omitempty"`
 	// MemberCount undocumented

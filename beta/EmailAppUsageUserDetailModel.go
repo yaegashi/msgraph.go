@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // EmailAppUsageUserDetail undocumented
 type EmailAppUsageUserDetail struct {
 	// Entity is the base model of EmailAppUsageUserDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DisplayName undocumented
@@ -17,9 +15,9 @@ type EmailAppUsageUserDetail struct {
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// DeletedDate undocumented
-	DeletedDate *time.Time `json:"deletedDate,omitempty"`
+	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// MailForMac undocumented
 	MailForMac []string `json:"mailForMac,omitempty"`
 	// OutlookForMac undocumented

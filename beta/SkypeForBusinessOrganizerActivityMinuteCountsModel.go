@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // SkypeForBusinessOrganizerActivityMinuteCounts undocumented
 type SkypeForBusinessOrganizerActivityMinuteCounts struct {
 	// Entity is the base model of SkypeForBusinessOrganizerActivityMinuteCounts
@@ -15,9 +13,9 @@ type SkypeForBusinessOrganizerActivityMinuteCounts struct {
 	// DialOutMicrosoft undocumented
 	DialOutMicrosoft *int `json:"dialOutMicrosoft,omitempty"`
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

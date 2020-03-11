@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // PositionDetail undocumented
 type PositionDetail struct {
 	// Object is the base model of PositionDetail
@@ -13,13 +11,13 @@ type PositionDetail struct {
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// EndMonthYear undocumented
-	EndMonthYear *time.Time `json:"endMonthYear,omitempty"`
+	EndMonthYear *Date `json:"endMonthYear,omitempty"`
 	// JobTitle undocumented
 	JobTitle *string `json:"jobTitle,omitempty"`
 	// Role undocumented
 	Role *string `json:"role,omitempty"`
 	// StartMonthYear undocumented
-	StartMonthYear *time.Time `json:"startMonthYear,omitempty"`
+	StartMonthYear *Date `json:"startMonthYear,omitempty"`
 	// Summary undocumented
 	Summary *string `json:"summary,omitempty"`
 }

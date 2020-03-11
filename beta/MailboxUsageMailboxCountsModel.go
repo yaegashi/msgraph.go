@@ -2,20 +2,18 @@
 
 package msgraph
 
-import "time"
-
 // MailboxUsageMailboxCounts undocumented
 type MailboxUsageMailboxCounts struct {
 	// Entity is the base model of MailboxUsageMailboxCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Total undocumented
 	Total *int `json:"total,omitempty"`
 	// Active undocumented
 	Active *int `json:"active,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

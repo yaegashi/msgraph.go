@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // UserActivationCounts undocumented
 type UserActivationCounts struct {
 	// Object is the base model of UserActivationCounts
@@ -11,7 +9,7 @@ type UserActivationCounts struct {
 	// ProductType undocumented
 	ProductType *string `json:"productType,omitempty"`
 	// LastActivatedDate undocumented
-	LastActivatedDate *time.Time `json:"lastActivatedDate,omitempty"`
+	LastActivatedDate *Date `json:"lastActivatedDate,omitempty"`
 	// Windows undocumented
 	Windows *int `json:"windows,omitempty"`
 	// Mac undocumented

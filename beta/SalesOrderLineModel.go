@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // SalesOrderLine undocumented
 type SalesOrderLine struct {
 	// Entity is the base model of SalesOrderLine
@@ -51,7 +49,7 @@ type SalesOrderLine struct {
 	// NetAmountIncludingTax undocumented
 	NetAmountIncludingTax *int `json:"netAmountIncludingTax,omitempty"`
 	// ShipmentDate undocumented
-	ShipmentDate *time.Time `json:"shipmentDate,omitempty"`
+	ShipmentDate *Date `json:"shipmentDate,omitempty"`
 	// ShippedQuantity undocumented
 	ShippedQuantity *int `json:"shippedQuantity,omitempty"`
 	// InvoicedQuantity undocumented

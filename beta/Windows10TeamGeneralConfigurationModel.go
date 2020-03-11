@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // Windows10TeamGeneralConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10TeamGeneralConfiguration resource.
 type Windows10TeamGeneralConfiguration struct {
 	// DeviceConfiguration is the base model of Windows10TeamGeneralConfiguration
@@ -21,7 +19,7 @@ type Windows10TeamGeneralConfiguration struct {
 	// MaintenanceWindowDurationInHours Maintenance window duration for device updates. Valid values 0 to 5
 	MaintenanceWindowDurationInHours *int `json:"maintenanceWindowDurationInHours,omitempty"`
 	// MaintenanceWindowStartTime Maintenance window start time for device updates.
-	MaintenanceWindowStartTime *time.Time `json:"maintenanceWindowStartTime,omitempty"`
+	MaintenanceWindowStartTime *TimeOfDay `json:"maintenanceWindowStartTime,omitempty"`
 	// MiracastChannel The channel.
 	MiracastChannel *MiracastChannel `json:"miracastChannel,omitempty"`
 	// MiracastBlocked Indicates whether or not to Block wireless projection.

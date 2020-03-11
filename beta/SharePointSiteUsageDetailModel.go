@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // SharePointSiteUsageDetail undocumented
 type SharePointSiteUsageDetail struct {
 	// Entity is the base model of SharePointSiteUsageDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// SiteID undocumented
 	SiteID *UUID `json:"siteId,omitempty"`
 	// SiteURL undocumented
@@ -21,7 +19,7 @@ type SharePointSiteUsageDetail struct {
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// FileCount undocumented
 	FileCount *int `json:"fileCount,omitempty"`
 	// ActiveFileCount undocumented

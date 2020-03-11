@@ -2,20 +2,18 @@
 
 package msgraph
 
-import "time"
-
 // SiteUsageStorage undocumented
 type SiteUsageStorage struct {
 	// Entity is the base model of SiteUsageStorage
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// SiteType undocumented
 	SiteType *string `json:"siteType,omitempty"`
 	// StorageUsedInBytes undocumented
 	StorageUsedInBytes *int `json:"storageUsedInBytes,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

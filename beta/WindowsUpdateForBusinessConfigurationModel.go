@@ -39,9 +39,9 @@ type WindowsUpdateForBusinessConfiguration struct {
 	// UpdateWeeks Scheduled the update installation on the weeks of the month
 	UpdateWeeks *WindowsUpdateForBusinessUpdateWeeks `json:"updateWeeks,omitempty"`
 	// QualityUpdatesPauseStartDate Quality Updates Pause start date. This property is read-only.
-	QualityUpdatesPauseStartDate *time.Time `json:"qualityUpdatesPauseStartDate,omitempty"`
+	QualityUpdatesPauseStartDate *Date `json:"qualityUpdatesPauseStartDate,omitempty"`
 	// FeatureUpdatesPauseStartDate Feature Updates Pause start date. This property is read-only.
-	FeatureUpdatesPauseStartDate *time.Time `json:"featureUpdatesPauseStartDate,omitempty"`
+	FeatureUpdatesPauseStartDate *Date `json:"featureUpdatesPauseStartDate,omitempty"`
 	// FeatureUpdatesRollbackWindowInDays The number of days after a Feature Update for which a rollback is valid
 	FeatureUpdatesRollbackWindowInDays *int `json:"featureUpdatesRollbackWindowInDays,omitempty"`
 	// QualityUpdatesWillBeRolledBack Specifies whether to rollback Quality Updates on the next device check in

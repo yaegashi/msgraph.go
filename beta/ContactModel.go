@@ -67,7 +67,7 @@ type Contact struct {
 	// Children undocumented
 	Children []string `json:"children,omitempty"`
 	// WeddingAnniversary undocumented
-	WeddingAnniversary *time.Time `json:"weddingAnniversary,omitempty"`
+	WeddingAnniversary *Date `json:"weddingAnniversary,omitempty"`
 	// Gender undocumented
 	Gender *string `json:"gender,omitempty"`
 	// IsFavorite undocumented

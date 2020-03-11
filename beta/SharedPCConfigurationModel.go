@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // SharedPCConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the sharedPCConfiguration resource.
 type SharedPCConfiguration struct {
 	// DeviceConfiguration is the base model of SharedPCConfiguration
@@ -41,7 +39,7 @@ type SharedPCConfiguration struct {
 	// KioskAppUserModelID Specifies the application user model ID of the app to use with assigned access.
 	KioskAppUserModelID *string `json:"kioskAppUserModelId,omitempty"`
 	// MaintenanceStartTime Specifies the daily start time of maintenance hour.
-	MaintenanceStartTime *time.Time `json:"maintenanceStartTime,omitempty"`
+	MaintenanceStartTime *TimeOfDay `json:"maintenanceStartTime,omitempty"`
 	// FastFirstSignIn Specifies whether to auto connect new non-admin Azure AD accounts to pre-configured candidate local accounts
 	FastFirstSignIn *Enablement `json:"fastFirstSignIn,omitempty"`
 }

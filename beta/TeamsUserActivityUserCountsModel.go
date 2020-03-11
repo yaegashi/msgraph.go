@@ -2,16 +2,14 @@
 
 package msgraph
 
-import "time"
-
 // TeamsUserActivityUserCounts undocumented
 type TeamsUserActivityUserCounts struct {
 	// Entity is the base model of TeamsUserActivityUserCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// TeamChatMessages undocumented
 	TeamChatMessages *int `json:"teamChatMessages,omitempty"`
 	// PrivateChatMessages undocumented

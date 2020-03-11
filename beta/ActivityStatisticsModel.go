@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // ActivityStatistics undocumented
 type ActivityStatistics struct {
 	// Entity is the base model of ActivityStatistics
@@ -11,11 +9,11 @@ type ActivityStatistics struct {
 	// Activity undocumented
 	Activity *AnalyticsActivityType `json:"activity,omitempty"`
 	// StartDate undocumented
-	StartDate *time.Time `json:"startDate,omitempty"`
+	StartDate *Date `json:"startDate,omitempty"`
 	// EndDate undocumented
-	EndDate *time.Time `json:"endDate,omitempty"`
+	EndDate *Date `json:"endDate,omitempty"`
 	// TimeZoneUsed undocumented
 	TimeZoneUsed *string `json:"timeZoneUsed,omitempty"`
 	// Duration undocumented
-	Duration *time.Duration `json:"duration,omitempty"`
+	Duration *Duration `json:"duration,omitempty"`
 }

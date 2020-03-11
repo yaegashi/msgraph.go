@@ -2,18 +2,16 @@
 
 package msgraph
 
-import "time"
-
 // BookingSchedulingPolicy undocumented
 type BookingSchedulingPolicy struct {
 	// Object is the base model of BookingSchedulingPolicy
 	Object
 	// TimeSlotInterval Duration of each time slot.
-	TimeSlotInterval *time.Duration `json:"timeSlotInterval,omitempty"`
+	TimeSlotInterval *Duration `json:"timeSlotInterval,omitempty"`
 	// MinimumLeadTime Minimum lead time for bookings and cancellations.
-	MinimumLeadTime *time.Duration `json:"minimumLeadTime,omitempty"`
+	MinimumLeadTime *Duration `json:"minimumLeadTime,omitempty"`
 	// MaximumAdvance Maximum number of days in advance that a booking can be made.
-	MaximumAdvance *time.Duration `json:"maximumAdvance,omitempty"`
+	MaximumAdvance *Duration `json:"maximumAdvance,omitempty"`
 	// SendConfirmationsToOwner Notify the business via email when a booking is created or changed.
 	SendConfirmationsToOwner *bool `json:"sendConfirmationsToOwner,omitempty"`
 	// AllowStaffSelection Allow customers to choose a specific person for the booking.

@@ -13,9 +13,9 @@ type SalesCreditMemo struct {
 	// ExternalDocumentNumber undocumented
 	ExternalDocumentNumber *string `json:"externalDocumentNumber,omitempty"`
 	// CreditMemoDate undocumented
-	CreditMemoDate *time.Time `json:"creditMemoDate,omitempty"`
+	CreditMemoDate *Date `json:"creditMemoDate,omitempty"`
 	// DueDate undocumented
-	DueDate *time.Time `json:"dueDate,omitempty"`
+	DueDate *Date `json:"dueDate,omitempty"`
 	// CustomerID undocumented
 	CustomerID *UUID `json:"customerId,omitempty"`
 	// CustomerNumber undocumented

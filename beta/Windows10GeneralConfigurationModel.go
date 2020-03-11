@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // Windows10GeneralConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the windows10GeneralConfiguration resource.
 type Windows10GeneralConfiguration struct {
 	// DeviceConfiguration is the base model of Windows10GeneralConfiguration
@@ -263,9 +261,9 @@ type Windows10GeneralConfiguration struct {
 	// DefenderScanType The defender system scan type.
 	DefenderScanType *DefenderScanType `json:"defenderScanType,omitempty"`
 	// DefenderScheduledScanTime The defender time for the system scan.
-	DefenderScheduledScanTime *time.Time `json:"defenderScheduledScanTime,omitempty"`
+	DefenderScheduledScanTime *TimeOfDay `json:"defenderScheduledScanTime,omitempty"`
 	// DefenderScheduledQuickScanTime The time to perform a daily quick scan.
-	DefenderScheduledQuickScanTime *time.Time `json:"defenderScheduledQuickScanTime,omitempty"`
+	DefenderScheduledQuickScanTime *TimeOfDay `json:"defenderScheduledQuickScanTime,omitempty"`
 	// DefenderCloudBlockLevel Specifies the level of cloud-delivered protection.
 	DefenderCloudBlockLevel *DefenderCloudBlockLevelType `json:"defenderCloudBlockLevel,omitempty"`
 	// DefenderCloudExtendedTimeout Timeout extension for file scanning by the cloud. Valid values 0 to 50

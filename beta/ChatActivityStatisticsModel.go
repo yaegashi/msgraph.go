@@ -2,12 +2,10 @@
 
 package msgraph
 
-import "time"
-
 // ChatActivityStatistics undocumented
 type ChatActivityStatistics struct {
 	// ActivityStatistics is the base model of ChatActivityStatistics
 	ActivityStatistics
 	// AfterHours undocumented
-	AfterHours *time.Duration `json:"afterHours,omitempty"`
+	AfterHours *Duration `json:"afterHours,omitempty"`
 }

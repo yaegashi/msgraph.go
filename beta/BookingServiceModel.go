@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // BookingService Represents a particular service offered by a booking business.
 type BookingService struct {
 	// BookingNamedEntity is the base model of BookingService
 	BookingNamedEntity
 	// DefaultDuration undocumented
-	DefaultDuration *time.Duration `json:"defaultDuration,omitempty"`
+	DefaultDuration *Duration `json:"defaultDuration,omitempty"`
 	// DefaultLocation undocumented
 	DefaultLocation *Location `json:"defaultLocation,omitempty"`
 	// DefaultPrice undocumented
@@ -25,9 +23,9 @@ type BookingService struct {
 	// Notes undocumented
 	Notes *string `json:"notes,omitempty"`
 	// PreBuffer undocumented
-	PreBuffer *time.Duration `json:"preBuffer,omitempty"`
+	PreBuffer *Duration `json:"preBuffer,omitempty"`
 	// PostBuffer undocumented
-	PostBuffer *time.Duration `json:"postBuffer,omitempty"`
+	PostBuffer *Duration `json:"postBuffer,omitempty"`
 	// SchedulingPolicy undocumented
 	SchedulingPolicy *BookingSchedulingPolicy `json:"schedulingPolicy,omitempty"`
 	// StaffMemberIDs undocumented

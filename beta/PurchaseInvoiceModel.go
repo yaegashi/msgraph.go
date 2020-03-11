@@ -11,9 +11,9 @@ type PurchaseInvoice struct {
 	// Number undocumented
 	Number *string `json:"number,omitempty"`
 	// InvoiceDate undocumented
-	InvoiceDate *time.Time `json:"invoiceDate,omitempty"`
+	InvoiceDate *Date `json:"invoiceDate,omitempty"`
 	// DueDate undocumented
-	DueDate *time.Time `json:"dueDate,omitempty"`
+	DueDate *Date `json:"dueDate,omitempty"`
 	// VendorInvoiceNumber undocumented
 	VendorInvoiceNumber *string `json:"vendorInvoiceNumber,omitempty"`
 	// VendorID undocumented

@@ -31,13 +31,13 @@ type Employee struct {
 	// PersonalEmail undocumented
 	PersonalEmail *string `json:"personalEmail,omitempty"`
 	// EmploymentDate undocumented
-	EmploymentDate *time.Time `json:"employmentDate,omitempty"`
+	EmploymentDate *Date `json:"employmentDate,omitempty"`
 	// TerminationDate undocumented
-	TerminationDate *time.Time `json:"terminationDate,omitempty"`
+	TerminationDate *Date `json:"terminationDate,omitempty"`
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
 	// BirthDate undocumented
-	BirthDate *time.Time `json:"birthDate,omitempty"`
+	BirthDate *Date `json:"birthDate,omitempty"`
 	// StatisticsGroupCode undocumented
 	StatisticsGroupCode *string `json:"statisticsGroupCode,omitempty"`
 	// LastModifiedDateTime undocumented

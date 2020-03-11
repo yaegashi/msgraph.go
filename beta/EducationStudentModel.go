@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // EducationStudent undocumented
 type EducationStudent struct {
 	// Object is the base model of EducationStudent
@@ -13,7 +11,7 @@ type EducationStudent struct {
 	// Grade undocumented
 	Grade *string `json:"grade,omitempty"`
 	// BirthDate undocumented
-	BirthDate *time.Time `json:"birthDate,omitempty"`
+	BirthDate *Date `json:"birthDate,omitempty"`
 	// Gender undocumented
 	Gender *EducationGender `json:"gender,omitempty"`
 	// StudentNumber undocumented

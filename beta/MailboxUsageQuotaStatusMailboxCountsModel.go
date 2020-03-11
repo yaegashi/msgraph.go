@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // MailboxUsageQuotaStatusMailboxCounts undocumented
 type MailboxUsageQuotaStatusMailboxCounts struct {
 	// Entity is the base model of MailboxUsageQuotaStatusMailboxCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UnderLimit undocumented
 	UnderLimit *int `json:"underLimit,omitempty"`
 	// WarningIssued undocumented
@@ -21,7 +19,7 @@ type MailboxUsageQuotaStatusMailboxCounts struct {
 	// Indeterminate undocumented
 	Indeterminate *int `json:"indeterminate,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

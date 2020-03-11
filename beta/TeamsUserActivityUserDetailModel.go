@@ -2,22 +2,20 @@
 
 package msgraph
 
-import "time"
-
 // TeamsUserActivityUserDetail undocumented
 type TeamsUserActivityUserDetail struct {
 	// Entity is the base model of TeamsUserActivityUserDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// DeletedDate undocumented
-	DeletedDate *time.Time `json:"deletedDate,omitempty"`
+	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// AssignedProducts undocumented
 	AssignedProducts []string `json:"assignedProducts,omitempty"`
 	// TeamChatMessageCount undocumented

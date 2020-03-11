@@ -2,16 +2,14 @@
 
 package msgraph
 
-import "time"
-
 // ManagedAppProtection Policy used to configure detailed management settings for a specified set of apps
 type ManagedAppProtection struct {
 	// ManagedAppPolicy is the base model of ManagedAppProtection
 	ManagedAppPolicy
 	// PeriodOfflineBeforeAccessCheck The period after which access is checked when the device is not connected to the internet.
-	PeriodOfflineBeforeAccessCheck *time.Duration `json:"periodOfflineBeforeAccessCheck,omitempty"`
+	PeriodOfflineBeforeAccessCheck *Duration `json:"periodOfflineBeforeAccessCheck,omitempty"`
 	// PeriodOnlineBeforeAccessCheck The period after which access is checked when the device is connected to the internet.
-	PeriodOnlineBeforeAccessCheck *time.Duration `json:"periodOnlineBeforeAccessCheck,omitempty"`
+	PeriodOnlineBeforeAccessCheck *Duration `json:"periodOnlineBeforeAccessCheck,omitempty"`
 	// AllowedInboundDataTransferSources Sources from which data is allowed to be transferred.
 	AllowedInboundDataTransferSources *ManagedAppDataTransferLevel `json:"allowedInboundDataTransferSources,omitempty"`
 	// AllowedOutboundDataTransferDestinations Destinations to which data is allowed to be transferred.
@@ -29,7 +27,7 @@ type ManagedAppProtection struct {
 	// SaveAsBlocked Indicates whether users may use the "Save As" menu item to save a copy of protected files.
 	SaveAsBlocked *bool `json:"saveAsBlocked,omitempty"`
 	// PeriodOfflineBeforeWipeIsEnforced The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
-	PeriodOfflineBeforeWipeIsEnforced *time.Duration `json:"periodOfflineBeforeWipeIsEnforced,omitempty"`
+	PeriodOfflineBeforeWipeIsEnforced *Duration `json:"periodOfflineBeforeWipeIsEnforced,omitempty"`
 	// PinRequired Indicates whether an app-level pin is required.
 	PinRequired *bool `json:"pinRequired,omitempty"`
 	// MaximumPinRetries Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.
@@ -41,7 +39,7 @@ type ManagedAppProtection struct {
 	// PinCharacterSet Character set which may be used for an app-level pin if PinRequired is set to True.
 	PinCharacterSet *ManagedAppPinCharacterSet `json:"pinCharacterSet,omitempty"`
 	// PeriodBeforePinReset TimePeriod before the all-level pin must be reset if PinRequired is set to True.
-	PeriodBeforePinReset *time.Duration `json:"periodBeforePinReset,omitempty"`
+	PeriodBeforePinReset *Duration `json:"periodBeforePinReset,omitempty"`
 	// AllowedDataStorageLocations Data storage locations where a user may store managed data.
 	AllowedDataStorageLocations []ManagedAppDataStorageLocation `json:"allowedDataStorageLocations,omitempty"`
 	// ContactSyncBlocked Indicates whether contacts can be synced to the user's device.
@@ -69,7 +67,7 @@ type ManagedAppProtection struct {
 	// AppActionIfMaximumPinRetriesExceeded Defines a managed app behavior, either block or wipe, based on maximum number of incorrect pin retry attempts.
 	AppActionIfMaximumPinRetriesExceeded *ManagedAppRemediationAction `json:"appActionIfMaximumPinRetriesExceeded,omitempty"`
 	// PinRequiredInsteadOfBiometricTimeout Timeout in minutes for an app pin instead of non biometrics passcode
-	PinRequiredInsteadOfBiometricTimeout *time.Duration `json:"pinRequiredInsteadOfBiometricTimeout,omitempty"`
+	PinRequiredInsteadOfBiometricTimeout *Duration `json:"pinRequiredInsteadOfBiometricTimeout,omitempty"`
 	// AllowedOutboundClipboardSharingExceptionLength Specify the number of characters that may be cut or copied from Org data and accounts to any application. This setting overrides the AllowedOutboundClipboardSharingLevel restriction. Default value of '0' means no exception is allowed.
 	AllowedOutboundClipboardSharingExceptionLength *int `json:"allowedOutboundClipboardSharingExceptionLength,omitempty"`
 	// NotificationRestriction Specify app notification restriction

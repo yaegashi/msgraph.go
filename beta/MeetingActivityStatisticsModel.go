@@ -2,22 +2,20 @@
 
 package msgraph
 
-import "time"
-
 // MeetingActivityStatistics undocumented
 type MeetingActivityStatistics struct {
 	// ActivityStatistics is the base model of MeetingActivityStatistics
 	ActivityStatistics
 	// AfterHours undocumented
-	AfterHours *time.Duration `json:"afterHours,omitempty"`
+	AfterHours *Duration `json:"afterHours,omitempty"`
 	// Organized undocumented
-	Organized *time.Duration `json:"organized,omitempty"`
+	Organized *Duration `json:"organized,omitempty"`
 	// Recurring undocumented
-	Recurring *time.Duration `json:"recurring,omitempty"`
+	Recurring *Duration `json:"recurring,omitempty"`
 	// Long undocumented
-	Long *time.Duration `json:"long,omitempty"`
+	Long *Duration `json:"long,omitempty"`
 	// Conflicting undocumented
-	Conflicting *time.Duration `json:"conflicting,omitempty"`
+	Conflicting *Duration `json:"conflicting,omitempty"`
 	// Multitasking undocumented
-	Multitasking *time.Duration `json:"multitasking,omitempty"`
+	Multitasking *Duration `json:"multitasking,omitempty"`
 }

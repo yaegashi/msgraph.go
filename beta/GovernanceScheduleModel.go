@@ -15,5 +15,5 @@ type GovernanceSchedule struct {
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
 	// Duration undocumented
-	Duration *time.Duration `json:"duration,omitempty"`
+	Duration *Duration `json:"duration,omitempty"`
 }

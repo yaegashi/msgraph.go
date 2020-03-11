@@ -2,18 +2,16 @@
 
 package msgraph
 
-import "time"
-
 // SkypeForBusinessDeviceUsageUserDetail undocumented
 type SkypeForBusinessDeviceUsageUserDetail struct {
 	// Entity is the base model of SkypeForBusinessDeviceUsageUserDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// UsedWindows undocumented
 	UsedWindows *bool `json:"usedWindows,omitempty"`
 	// UsedWindowsPhone undocumented

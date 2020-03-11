@@ -25,7 +25,7 @@ type CompanyInformation struct {
 	// CurrencyCode undocumented
 	CurrencyCode *string `json:"currencyCode,omitempty"`
 	// CurrentFiscalYearStartDate undocumented
-	CurrentFiscalYearStartDate *time.Time `json:"currentFiscalYearStartDate,omitempty"`
+	CurrentFiscalYearStartDate *Date `json:"currentFiscalYearStartDate,omitempty"`
 	// Industry undocumented
 	Industry *string `json:"industry,omitempty"`
 	// Picture undocumented

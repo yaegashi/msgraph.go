@@ -2,20 +2,18 @@
 
 package msgraph
 
-import "time"
-
 // SharePointSiteUsagePages undocumented
 type SharePointSiteUsagePages struct {
 	// Entity is the base model of SharePointSiteUsagePages
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// SiteType undocumented
 	SiteType *string `json:"siteType,omitempty"`
 	// PageViewCount undocumented
 	PageViewCount *int `json:"pageViewCount,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

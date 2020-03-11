@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // PersonAnniversary undocumented
 type PersonAnniversary struct {
 	// ItemFacet is the base model of PersonAnniversary
@@ -11,5 +9,5 @@ type PersonAnniversary struct {
 	// Type undocumented
 	Type *AnniversaryType `json:"type,omitempty"`
 	// Date undocumented
-	Date *time.Time `json:"date,omitempty"`
+	Date *Date `json:"date,omitempty"`
 }

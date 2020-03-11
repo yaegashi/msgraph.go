@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // YammerActivitySummary undocumented
 type YammerActivitySummary struct {
 	// Entity is the base model of YammerActivitySummary
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Liked undocumented
 	Liked *int `json:"liked,omitempty"`
 	// Posted undocumented
@@ -17,7 +15,7 @@ type YammerActivitySummary struct {
 	// Read undocumented
 	Read *int `json:"read,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

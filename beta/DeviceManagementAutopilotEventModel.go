@@ -33,15 +33,15 @@ type DeviceManagementAutopilotEvent struct {
 	// OsVersion Device operating system version.
 	OsVersion *string `json:"osVersion,omitempty"`
 	// DeploymentDuration Autopilot deployment duration including enrollment.
-	DeploymentDuration *time.Duration `json:"deploymentDuration,omitempty"`
+	DeploymentDuration *Duration `json:"deploymentDuration,omitempty"`
 	// DeploymentTotalDuration Total deployment duration from enrollment to Desktop screen.
-	DeploymentTotalDuration *time.Duration `json:"deploymentTotalDuration,omitempty"`
+	DeploymentTotalDuration *Duration `json:"deploymentTotalDuration,omitempty"`
 	// DevicePreparationDuration Time spent in device enrollment.
-	DevicePreparationDuration *time.Duration `json:"devicePreparationDuration,omitempty"`
+	DevicePreparationDuration *Duration `json:"devicePreparationDuration,omitempty"`
 	// DeviceSetupDuration Time spent in device ESP.
-	DeviceSetupDuration *time.Duration `json:"deviceSetupDuration,omitempty"`
+	DeviceSetupDuration *Duration `json:"deviceSetupDuration,omitempty"`
 	// AccountSetupDuration Time spent in user ESP.
-	AccountSetupDuration *time.Duration `json:"accountSetupDuration,omitempty"`
+	AccountSetupDuration *Duration `json:"accountSetupDuration,omitempty"`
 	// DeploymentStartDateTime Deployment start time.
 	DeploymentStartDateTime *time.Time `json:"deploymentStartDateTime,omitempty"`
 	// DeploymentEndDateTime Deployment end time.

@@ -2,16 +2,14 @@
 
 package msgraph
 
-import "time"
-
 // EmailActivityStatistics undocumented
 type EmailActivityStatistics struct {
 	// ActivityStatistics is the base model of EmailActivityStatistics
 	ActivityStatistics
 	// AfterHours undocumented
-	AfterHours *time.Duration `json:"afterHours,omitempty"`
+	AfterHours *Duration `json:"afterHours,omitempty"`
 	// ReadEmail undocumented
-	ReadEmail *time.Duration `json:"readEmail,omitempty"`
+	ReadEmail *Duration `json:"readEmail,omitempty"`
 	// SentEmail undocumented
-	SentEmail *time.Duration `json:"sentEmail,omitempty"`
+	SentEmail *Duration `json:"sentEmail,omitempty"`
 }

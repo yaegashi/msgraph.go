@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // SharePointSiteUsageFileCounts undocumented
 type SharePointSiteUsageFileCounts struct {
 	// Entity is the base model of SharePointSiteUsageFileCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// SiteType undocumented
 	SiteType *string `json:"siteType,omitempty"`
 	// Total undocumented
@@ -17,7 +15,7 @@ type SharePointSiteUsageFileCounts struct {
 	// Active undocumented
 	Active *int `json:"active,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

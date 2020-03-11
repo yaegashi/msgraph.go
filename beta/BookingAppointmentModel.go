@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // BookingAppointment Represents a booked appointment of a service by a customer in a business.
 type BookingAppointment struct {
 	// Entity is the base model of BookingAppointment
@@ -31,11 +29,11 @@ type BookingAppointment struct {
 	// End undocumented
 	End *DateTimeTimeZone `json:"end,omitempty"`
 	// Duration undocumented
-	Duration *time.Duration `json:"duration,omitempty"`
+	Duration *Duration `json:"duration,omitempty"`
 	// PreBuffer undocumented
-	PreBuffer *time.Duration `json:"preBuffer,omitempty"`
+	PreBuffer *Duration `json:"preBuffer,omitempty"`
 	// PostBuffer undocumented
-	PostBuffer *time.Duration `json:"postBuffer,omitempty"`
+	PostBuffer *Duration `json:"postBuffer,omitempty"`
 	// ServiceLocation undocumented
 	ServiceLocation *Location `json:"serviceLocation,omitempty"`
 	// PriceType undocumented

@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // EducationTerm undocumented
 type EducationTerm struct {
 	// Object is the base model of EducationTerm
@@ -11,9 +9,9 @@ type EducationTerm struct {
 	// ExternalID undocumented
 	ExternalID *string `json:"externalId,omitempty"`
 	// StartDate undocumented
-	StartDate *time.Time `json:"startDate,omitempty"`
+	StartDate *Date `json:"startDate,omitempty"`
 	// EndDate undocumented
-	EndDate *time.Time `json:"endDate,omitempty"`
+	EndDate *Date `json:"endDate,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 }

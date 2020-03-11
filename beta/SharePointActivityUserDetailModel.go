@@ -2,22 +2,20 @@
 
 package msgraph
 
-import "time"
-
 // SharePointActivityUserDetail undocumented
 type SharePointActivityUserDetail struct {
 	// Entity is the base model of SharePointActivityUserDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// DeletedDate undocumented
-	DeletedDate *time.Time `json:"deletedDate,omitempty"`
+	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// ViewedOrEditedFileCount undocumented
 	ViewedOrEditedFileCount *int `json:"viewedOrEditedFileCount,omitempty"`
 	// SyncedFileCount undocumented

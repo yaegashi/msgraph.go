@@ -13,9 +13,9 @@ type SalesInvoice struct {
 	// ExternalDocumentNumber undocumented
 	ExternalDocumentNumber *string `json:"externalDocumentNumber,omitempty"`
 	// InvoiceDate undocumented
-	InvoiceDate *time.Time `json:"invoiceDate,omitempty"`
+	InvoiceDate *Date `json:"invoiceDate,omitempty"`
 	// DueDate undocumented
-	DueDate *time.Time `json:"dueDate,omitempty"`
+	DueDate *Date `json:"dueDate,omitempty"`
 	// CustomerPurchaseOrderReference undocumented
 	CustomerPurchaseOrderReference *string `json:"customerPurchaseOrderReference,omitempty"`
 	// CustomerID undocumented

@@ -19,7 +19,7 @@ type CustomerPayment struct {
 	// ContactID undocumented
 	ContactID *string `json:"contactId,omitempty"`
 	// PostingDate undocumented
-	PostingDate *time.Time `json:"postingDate,omitempty"`
+	PostingDate *Date `json:"postingDate,omitempty"`
 	// DocumentNumber undocumented
 	DocumentNumber *string `json:"documentNumber,omitempty"`
 	// ExternalDocumentNumber undocumented

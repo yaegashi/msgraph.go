@@ -15,6 +15,8 @@ import (
 	"strings"
 	"text/template"
 	"unicode"
+
+	_ "github.com/rickb777/date/period"
 )
 
 const (
@@ -36,9 +38,9 @@ var reservedTypeTable = map[string]string{
 	"Edm.Guid":             "UUID",
 	"Edm.String":           "string",
 	"Edm.DateTimeOffset":   "time.Time",
-	"Edm.Duration":         "time.Duration",
-	"Edm.TimeOfDay":        "time.Time",
-	"Edm.Date":             "time.Time",
+	"Edm.Duration":         "Duration",
+	"Edm.TimeOfDay":        "TimeOfDay",
+	"Edm.Date":             "Date",
 	"microsoft.graph.Json": "json.RawMessage",
 }
 

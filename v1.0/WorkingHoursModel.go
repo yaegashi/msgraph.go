@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // WorkingHours undocumented
 type WorkingHours struct {
 	// Object is the base model of WorkingHours
@@ -11,9 +9,9 @@ type WorkingHours struct {
 	// DaysOfWeek undocumented
 	DaysOfWeek []DayOfWeek `json:"daysOfWeek,omitempty"`
 	// StartTime undocumented
-	StartTime *time.Time `json:"startTime,omitempty"`
+	StartTime *TimeOfDay `json:"startTime,omitempty"`
 	// EndTime undocumented
-	EndTime *time.Time `json:"endTime,omitempty"`
+	EndTime *TimeOfDay `json:"endTime,omitempty"`
 	// TimeZone undocumented
 	TimeZone *TimeZoneBase `json:"timeZone,omitempty"`
 }

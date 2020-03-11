@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // SkypeForBusinessDeviceUsageDistributionUserCounts undocumented
 type SkypeForBusinessDeviceUsageDistributionUserCounts struct {
 	// Entity is the base model of SkypeForBusinessDeviceUsageDistributionUserCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Windows undocumented
 	Windows *int `json:"windows,omitempty"`
 	// WindowsPhone undocumented

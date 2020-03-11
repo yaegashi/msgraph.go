@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // PrivilegedRoleSettings undocumented
 type PrivilegedRoleSettings struct {
 	// Entity is the base model of PrivilegedRoleSettings
@@ -11,11 +9,11 @@ type PrivilegedRoleSettings struct {
 	// ApproverIDs undocumented
 	ApproverIDs []string `json:"approverIds,omitempty"`
 	// MinElevationDuration undocumented
-	MinElevationDuration *time.Duration `json:"minElevationDuration,omitempty"`
+	MinElevationDuration *Duration `json:"minElevationDuration,omitempty"`
 	// MaxElavationDuration undocumented
-	MaxElavationDuration *time.Duration `json:"maxElavationDuration,omitempty"`
+	MaxElavationDuration *Duration `json:"maxElavationDuration,omitempty"`
 	// ElevationDuration undocumented
-	ElevationDuration *time.Duration `json:"elevationDuration,omitempty"`
+	ElevationDuration *Duration `json:"elevationDuration,omitempty"`
 	// NotificationToUserOnElevation undocumented
 	NotificationToUserOnElevation *bool `json:"notificationToUserOnElevation,omitempty"`
 	// TicketingInfoOnElevation undocumented

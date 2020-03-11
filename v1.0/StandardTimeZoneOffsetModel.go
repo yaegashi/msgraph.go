@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // StandardTimeZoneOffset undocumented
 type StandardTimeZoneOffset struct {
 	// Object is the base model of StandardTimeZoneOffset
 	Object
 	// Time undocumented
-	Time *time.Time `json:"time,omitempty"`
+	Time *TimeOfDay `json:"time,omitempty"`
 	// DayOccurrence undocumented
 	DayOccurrence *int `json:"dayOccurrence,omitempty"`
 	// DayOfWeek undocumented

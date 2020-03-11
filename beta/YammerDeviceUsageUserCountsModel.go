@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // YammerDeviceUsageUserCounts undocumented
 type YammerDeviceUsageUserCounts struct {
 	// Entity is the base model of YammerDeviceUsageUserCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Web undocumented
 	Web *int `json:"web,omitempty"`
 	// WindowsPhone undocumented
@@ -23,7 +21,7 @@ type YammerDeviceUsageUserCounts struct {
 	// Other undocumented
 	Other *int `json:"other,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

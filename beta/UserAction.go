@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"time"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
@@ -49,7 +48,7 @@ type UserFindMeetingTimesRequestParameter struct {
 	// TimeConstraint undocumented
 	TimeConstraint *TimeConstraint `json:"timeConstraint,omitempty"`
 	// MeetingDuration undocumented
-	MeetingDuration *time.Duration `json:"meetingDuration,omitempty"`
+	MeetingDuration *Duration `json:"meetingDuration,omitempty"`
 	// MaxCandidates undocumented
 	MaxCandidates *int `json:"maxCandidates,omitempty"`
 	// IsOrganizerOptional undocumented

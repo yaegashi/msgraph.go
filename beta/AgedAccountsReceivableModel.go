@@ -2,8 +2,6 @@
 
 package msgraph
 
-import "time"
-
 // AgedAccountsReceivable undocumented
 type AgedAccountsReceivable struct {
 	// Entity is the base model of AgedAccountsReceivable
@@ -25,7 +23,7 @@ type AgedAccountsReceivable struct {
 	// Period3Amount undocumented
 	Period3Amount *int `json:"period3Amount,omitempty"`
 	// AgedAsOfDate undocumented
-	AgedAsOfDate *time.Time `json:"agedAsOfDate,omitempty"`
+	AgedAsOfDate *Date `json:"agedAsOfDate,omitempty"`
 	// PeriodLengthFilter undocumented
 	PeriodLengthFilter *string `json:"periodLengthFilter,omitempty"`
 }

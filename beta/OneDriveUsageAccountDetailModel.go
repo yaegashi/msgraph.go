@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // OneDriveUsageAccountDetail undocumented
 type OneDriveUsageAccountDetail struct {
 	// Entity is the base model of OneDriveUsageAccountDetail
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// SiteURL undocumented
 	SiteURL *string `json:"siteUrl,omitempty"`
 	// OwnerDisplayName undocumented
@@ -19,7 +17,7 @@ type OneDriveUsageAccountDetail struct {
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// LastActivityDate undocumented
-	LastActivityDate *time.Time `json:"lastActivityDate,omitempty"`
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// FileCount undocumented
 	FileCount *int `json:"fileCount,omitempty"`
 	// ActiveFileCount undocumented

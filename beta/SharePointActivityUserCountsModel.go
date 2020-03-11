@@ -2,14 +2,12 @@
 
 package msgraph
 
-import "time"
-
 // SharePointActivityUserCounts undocumented
 type SharePointActivityUserCounts struct {
 	// Entity is the base model of SharePointActivityUserCounts
 	Entity
 	// ReportRefreshDate undocumented
-	ReportRefreshDate *time.Time `json:"reportRefreshDate,omitempty"`
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// VisitedPage undocumented
 	VisitedPage *int `json:"visitedPage,omitempty"`
 	// ViewedOrEdited undocumented
@@ -21,7 +19,7 @@ type SharePointActivityUserCounts struct {
 	// SharedExternally undocumented
 	SharedExternally *int `json:"sharedExternally,omitempty"`
 	// ReportDate undocumented
-	ReportDate *time.Time `json:"reportDate,omitempty"`
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }
