@@ -450,12 +450,12 @@ func (g *Generator) Generate() error {
 
 	var out io.WriteCloser
 
-	for _, path := range []string{"msgraph.go", "extensions.go"} {
+	for _, path := range []string{"msgraph", "extensions"} {
 		out, err = g.Create(path)
 		if err != nil {
 			return err
 		}
-		err = tmpl.ExecuteTemplate(out, path+".tmpl", g)
+		err = tmpl.ExecuteTemplate(out, path+".go.tmpl", g)
 		if err != nil {
 			return err
 		}
@@ -469,7 +469,7 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := enumTypeMap[key]
-		out, err = g.Create(x.Sym + "Enum.go")
+		out, err = g.Create(x.Sym)
 		g.X = x
 		if err != nil {
 			return err
@@ -488,7 +488,7 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := entityTypeMap[key]
-		out, err = g.Create(x.Sym + "Model.go")
+		out, err = g.Create(x.Sym)
 		if err != nil {
 			return err
 		}
@@ -510,7 +510,7 @@ func (g *Generator) Generate() error {
 			continue
 		}
 		x := actionTypeMap[a]
-		out, err = g.Create(g.SymBaseType(a) + "Action.go")
+		out, err = g.Create(g.SymBaseType(a))
 		if err != nil {
 			return err
 		}
@@ -547,7 +547,7 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, x := range keys {
-		out, err = g.Create(x + "Request.go")
+		out, err = g.Create(x)
 		if err != nil {
 			return err
 		}
@@ -559,7 +559,7 @@ func (g *Generator) Generate() error {
 		out.Close()
 	}
 
-	out, err = g.Create("GraphServiceRequest.go")
+	out, err = g.Create("GraphService")
 	if err != nil {
 		return err
 	}
@@ -602,7 +602,7 @@ func (g *Generator) Generate() error {
 		if len(x.Navigations) == 0 {
 			continue
 		}
-		out, err = g.Create(x.Sym + "Request.go")
+		out, err = g.Create(x.Sym)
 		if err != nil {
 			return err
 		}
@@ -636,7 +636,7 @@ func (g *Generator) Generate() error {
 		if _, ok := reservedTypeTable[a]; ok {
 			continue
 		}
-		out, err = g.Create(g.SymBaseType(a) + "Action.go")
+		out, err = g.Create(g.SymBaseType(a))
 		if err != nil {
 			return err
 		}
@@ -697,6 +697,9 @@ func (g *Generator) Clean() error {
 }
 
 func (g *Generator) Create(path string) (io.WriteCloser, error) {
+	if !strings.HasSuffix(path, ".go") {
+		path += ".go"
+	}
 	path = filepath.Join(g.Out, path)
 	if g.Created[path] {
 		return os.OpenFile(path, os.O_WRONLY|os.O_APPEND, 0644)

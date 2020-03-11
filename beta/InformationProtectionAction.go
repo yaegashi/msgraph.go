@@ -2,41 +2,8 @@
 
 package msgraph
 
-import "context"
-
-// InformationProtectionEvaluateLabelsAndPoliciesRequestParameter undocumented
-type InformationProtectionEvaluateLabelsAndPoliciesRequestParameter struct {
-	// EvaluateSensitivityLabels undocumented
-	EvaluateSensitivityLabels *EvaluateSensitivityLabelsRequestObject `json:"evaluateSensitivityLabels,omitempty"`
-	// EvaluateDataLossPreventionPolicies undocumented
-	EvaluateDataLossPreventionPolicies *DlpEvaluatePoliciesRequestObject `json:"evaluateDataLossPreventionPolicies,omitempty"`
-	// ClassifyText undocumented
-	ClassifyText *TextClassificationRequestObject `json:"classifyText,omitempty"`
-}
-
-//
-type InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder struct{ BaseRequestBuilder }
-
-// EvaluateLabelsAndPolicies action undocumented
-func (b *InformationProtectionRequestBuilder) EvaluateLabelsAndPolicies(reqObj *InformationProtectionEvaluateLabelsAndPoliciesRequestParameter) *InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder {
-	bb := &InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/evaluateLabelsAndPolicies"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type InformationProtectionEvaluateLabelsAndPoliciesRequest struct{ BaseRequest }
-
-//
-func (b *InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder) Request() *InformationProtectionEvaluateLabelsAndPoliciesRequest {
-	return &InformationProtectionEvaluateLabelsAndPoliciesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *InformationProtectionEvaluateLabelsAndPoliciesRequest) Post(ctx context.Context) (resObj *EvaluateLabelsAndPoliciesJobResponse, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
+// InformationProtectionAction undocumented
+type InformationProtectionAction struct {
+	// Object is the base model of InformationProtectionAction
+	Object
 }

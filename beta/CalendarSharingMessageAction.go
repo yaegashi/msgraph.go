@@ -2,35 +2,14 @@
 
 package msgraph
 
-import "context"
-
-// CalendarSharingMessageAcceptRequestParameter undocumented
-type CalendarSharingMessageAcceptRequestParameter struct {
-}
-
-//
-type CalendarSharingMessageAcceptRequestBuilder struct{ BaseRequestBuilder }
-
-// Accept action undocumented
-func (b *CalendarSharingMessageRequestBuilder) Accept(reqObj *CalendarSharingMessageAcceptRequestParameter) *CalendarSharingMessageAcceptRequestBuilder {
-	bb := &CalendarSharingMessageAcceptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/accept"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CalendarSharingMessageAcceptRequest struct{ BaseRequest }
-
-//
-func (b *CalendarSharingMessageAcceptRequestBuilder) Request() *CalendarSharingMessageAcceptRequest {
-	return &CalendarSharingMessageAcceptRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *CalendarSharingMessageAcceptRequest) Post(ctx context.Context) (resObj *Calendar, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
+// CalendarSharingMessageAction undocumented
+type CalendarSharingMessageAction struct {
+	// Object is the base model of CalendarSharingMessageAction
+	Object
+	// Importance undocumented
+	Importance *CalendarSharingActionImportance `json:"importance,omitempty"`
+	// ActionType undocumented
+	ActionType *CalendarSharingActionType `json:"actionType,omitempty"`
+	// Action undocumented
+	Action *CalendarSharingAction `json:"action,omitempty"`
 }

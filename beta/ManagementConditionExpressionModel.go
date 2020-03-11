@@ -2,8 +2,8 @@
 
 package msgraph
 
-// ManagementConditionExpression undocumented
-type ManagementConditionExpression struct {
-	// Object is the base model of ManagementConditionExpression
-	Object
+// ManagementConditionExpressionModel undocumented
+type ManagementConditionExpressionModel struct {
+	// ManagementConditionExpression is the base model of ManagementConditionExpressionModel
+	ManagementConditionExpression
 }
