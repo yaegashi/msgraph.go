@@ -39,7 +39,7 @@ func (b *EmbeddedSIMActivationCodePoolAssignRequestBuilder) Request() *EmbeddedS
 }
 
 //
-func (r *EmbeddedSIMActivationCodePoolAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]EmbeddedSIMActivationCodePoolAssignment, error) {
+func (r *EmbeddedSIMActivationCodePoolAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (r *EmbeddedSIMActivationCodePoolAssignRequest) Paging(ctx context.Context,
 	if err != nil {
 		return nil, err
 	}
-	var values [][]EmbeddedSIMActivationCodePoolAssignment
+	var values []EmbeddedSIMActivationCodePoolAssignment
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -65,7 +65,7 @@ func (r *EmbeddedSIMActivationCodePoolAssignRequest) Paging(ctx context.Context,
 		}
 		var (
 			paging Paging
-			value  [][]EmbeddedSIMActivationCodePoolAssignment
+			value  []EmbeddedSIMActivationCodePoolAssignment
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -91,6 +91,6 @@ func (r *EmbeddedSIMActivationCodePoolAssignRequest) Paging(ctx context.Context,
 }
 
 //
-func (r *EmbeddedSIMActivationCodePoolAssignRequest) Post(ctx context.Context) ([][]EmbeddedSIMActivationCodePoolAssignment, error) {
+func (r *EmbeddedSIMActivationCodePoolAssignRequest) Post(ctx context.Context) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

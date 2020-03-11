@@ -41,7 +41,7 @@ func (b *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
-func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ImportedAppleDeviceIdentityResult, error) {
+func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedAppleDeviceIdentityResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -53,7 +53,7 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ImportedAppleDeviceIdentityResult
+	var values []ImportedAppleDeviceIdentityResult
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -67,7 +67,7 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 		}
 		var (
 			paging Paging
-			value  [][]ImportedAppleDeviceIdentityResult
+			value  []ImportedAppleDeviceIdentityResult
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -93,6 +93,6 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
-func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Post(ctx context.Context) ([][]ImportedAppleDeviceIdentityResult, error) {
+func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Post(ctx context.Context) ([]ImportedAppleDeviceIdentityResult, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

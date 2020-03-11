@@ -61,7 +61,7 @@ func (b *SiteCollectionAddRequestBuilder) Request() *SiteCollectionAddRequest {
 }
 
 //
-func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Site, error) {
+func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -73,7 +73,7 @@ func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path stri
 	if err != nil {
 		return nil, err
 	}
-	var values [][]Site
+	var values []Site
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -87,7 +87,7 @@ func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path stri
 		}
 		var (
 			paging Paging
-			value  [][]Site
+			value  []Site
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -113,7 +113,7 @@ func (r *SiteCollectionAddRequest) Paging(ctx context.Context, method, path stri
 }
 
 //
-func (r *SiteCollectionAddRequest) Post(ctx context.Context) ([][]Site, error) {
+func (r *SiteCollectionAddRequest) Post(ctx context.Context) ([]Site, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -155,7 +155,7 @@ func (b *SiteCollectionRemoveRequestBuilder) Request() *SiteCollectionRemoveRequ
 }
 
 //
-func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Site, error) {
+func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -167,7 +167,7 @@ func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path s
 	if err != nil {
 		return nil, err
 	}
-	var values [][]Site
+	var values []Site
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -181,7 +181,7 @@ func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path s
 		}
 		var (
 			paging Paging
-			value  [][]Site
+			value  []Site
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -207,6 +207,6 @@ func (r *SiteCollectionRemoveRequest) Paging(ctx context.Context, method, path s
 }
 
 //
-func (r *SiteCollectionRemoveRequest) Post(ctx context.Context) ([][]Site, error) {
+func (r *SiteCollectionRemoveRequest) Post(ctx context.Context) ([]Site, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

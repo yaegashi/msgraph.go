@@ -39,7 +39,7 @@ func (b *CloudCommunicationsGetPresencesByUserIDRequestBuilder) Request() *Cloud
 }
 
 //
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Presence, error) {
+func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Presence, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Cont
 	if err != nil {
 		return nil, err
 	}
-	var values [][]Presence
+	var values []Presence
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -65,7 +65,7 @@ func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Cont
 		}
 		var (
 			paging Paging
-			value  [][]Presence
+			value  []Presence
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -91,6 +91,6 @@ func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) Post(ctx context.Context) ([][]Presence, error) {
+func (r *CloudCommunicationsGetPresencesByUserIDRequest) Post(ctx context.Context) ([]Presence, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

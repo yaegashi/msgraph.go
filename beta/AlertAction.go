@@ -39,7 +39,7 @@ func (b *AlertCollectionUpdateAlertsRequestBuilder) Request() *AlertCollectionUp
 }
 
 //
-func (r *AlertCollectionUpdateAlertsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Alert, error) {
+func (r *AlertCollectionUpdateAlertsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Alert, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (r *AlertCollectionUpdateAlertsRequest) Paging(ctx context.Context, method,
 	if err != nil {
 		return nil, err
 	}
-	var values [][]Alert
+	var values []Alert
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -65,7 +65,7 @@ func (r *AlertCollectionUpdateAlertsRequest) Paging(ctx context.Context, method,
 		}
 		var (
 			paging Paging
-			value  [][]Alert
+			value  []Alert
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -91,6 +91,6 @@ func (r *AlertCollectionUpdateAlertsRequest) Paging(ctx context.Context, method,
 }
 
 //
-func (r *AlertCollectionUpdateAlertsRequest) Post(ctx context.Context) ([][]Alert, error) {
+func (r *AlertCollectionUpdateAlertsRequest) Post(ctx context.Context) ([]Alert, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

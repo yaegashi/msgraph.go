@@ -90,7 +90,7 @@ func (b *InformationProtectionLabelCollectionEvaluateApplicationRequestBuilder) 
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -102,7 +102,7 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(
 	if err != nil {
 		return nil, err
 	}
-	var values [][]InformationProtectionAction
+	var values []InformationProtectionAction
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -116,7 +116,7 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(
 		}
 		var (
 			paging Paging
-			value  [][]InformationProtectionAction
+			value  []InformationProtectionAction
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -142,7 +142,7 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Paging(
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Post(ctx context.Context) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -168,7 +168,7 @@ func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Requ
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -180,7 +180,7 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx 
 	if err != nil {
 		return nil, err
 	}
-	var values [][]InformationProtectionAction
+	var values []InformationProtectionAction
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -194,7 +194,7 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx 
 		}
 		var (
 			paging Paging
-			value  [][]InformationProtectionAction
+			value  []InformationProtectionAction
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -220,7 +220,7 @@ func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx 
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Post(ctx context.Context) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -246,7 +246,7 @@ func (b *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]InformationProtectionAction, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -258,7 +258,7 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 	if err != nil {
 		return nil, err
 	}
-	var values [][]InformationProtectionAction
+	var values []InformationProtectionAction
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -272,7 +272,7 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 		}
 		var (
 			paging Paging
-			value  [][]InformationProtectionAction
+			value  []InformationProtectionAction
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -298,6 +298,6 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
-func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Post(ctx context.Context) ([][]InformationProtectionAction, error) {
+func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

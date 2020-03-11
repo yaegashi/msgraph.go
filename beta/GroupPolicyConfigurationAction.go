@@ -49,7 +49,7 @@ func (b *GroupPolicyConfigurationAssignRequestBuilder) Request() *GroupPolicyCon
 }
 
 //
-func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]GroupPolicyConfigurationAssignment, error) {
+func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupPolicyConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -61,7 +61,7 @@ func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, meth
 	if err != nil {
 		return nil, err
 	}
-	var values [][]GroupPolicyConfigurationAssignment
+	var values []GroupPolicyConfigurationAssignment
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -75,7 +75,7 @@ func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, meth
 		}
 		var (
 			paging Paging
-			value  [][]GroupPolicyConfigurationAssignment
+			value  []GroupPolicyConfigurationAssignment
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -101,7 +101,7 @@ func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, meth
 }
 
 //
-func (r *GroupPolicyConfigurationAssignRequest) Post(ctx context.Context) ([][]GroupPolicyConfigurationAssignment, error) {
+func (r *GroupPolicyConfigurationAssignRequest) Post(ctx context.Context) ([]GroupPolicyConfigurationAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

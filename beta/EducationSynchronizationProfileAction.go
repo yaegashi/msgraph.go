@@ -127,7 +127,7 @@ func (b *EducationSynchronizationProfileStartRequestBuilder) Request() *Educatio
 }
 
 //
-func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]EducationFileSynchronizationVerificationMessage, error) {
+func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationFileSynchronizationVerificationMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -139,7 +139,7 @@ func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context
 	if err != nil {
 		return nil, err
 	}
-	var values [][]EducationFileSynchronizationVerificationMessage
+	var values []EducationFileSynchronizationVerificationMessage
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -153,7 +153,7 @@ func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context
 		}
 		var (
 			paging Paging
-			value  [][]EducationFileSynchronizationVerificationMessage
+			value  []EducationFileSynchronizationVerificationMessage
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -179,6 +179,6 @@ func (r *EducationSynchronizationProfileStartRequest) Paging(ctx context.Context
 }
 
 //
-func (r *EducationSynchronizationProfileStartRequest) Post(ctx context.Context) ([][]EducationFileSynchronizationVerificationMessage, error) {
+func (r *EducationSynchronizationProfileStartRequest) Post(ctx context.Context) ([]EducationFileSynchronizationVerificationMessage, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

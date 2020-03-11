@@ -248,7 +248,7 @@ func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
 }
 
 //
-func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]MailTips, error) {
+func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MailTips, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -260,7 +260,7 @@ func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string
 	if err != nil {
 		return nil, err
 	}
-	var values [][]MailTips
+	var values []MailTips
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -274,7 +274,7 @@ func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string
 		}
 		var (
 			paging Paging
-			value  [][]MailTips
+			value  []MailTips
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -300,7 +300,7 @@ func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string
 }
 
 //
-func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([][]MailTips, error) {
+func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([]MailTips, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -326,7 +326,7 @@ func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchang
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ConvertIDResult, error) {
+func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConvertIDResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -338,7 +338,7 @@ func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, pa
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ConvertIDResult
+	var values []ConvertIDResult
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -352,7 +352,7 @@ func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, pa
 		}
 		var (
 			paging Paging
-			value  [][]ConvertIDResult
+			value  []ConvertIDResult
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -378,7 +378,7 @@ func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, pa
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Post(ctx context.Context) ([][]ConvertIDResult, error) {
+func (r *UserTranslateExchangeIDsRequest) Post(ctx context.Context) ([]ConvertIDResult, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

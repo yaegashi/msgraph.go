@@ -37,7 +37,7 @@ func (b *OutlookTaskCompleteRequestBuilder) Request() *OutlookTaskCompleteReques
 }
 
 //
-func (r *OutlookTaskCompleteRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]OutlookTask, error) {
+func (r *OutlookTaskCompleteRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookTask, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -49,7 +49,7 @@ func (r *OutlookTaskCompleteRequest) Paging(ctx context.Context, method, path st
 	if err != nil {
 		return nil, err
 	}
-	var values [][]OutlookTask
+	var values []OutlookTask
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -63,7 +63,7 @@ func (r *OutlookTaskCompleteRequest) Paging(ctx context.Context, method, path st
 		}
 		var (
 			paging Paging
-			value  [][]OutlookTask
+			value  []OutlookTask
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -89,6 +89,6 @@ func (r *OutlookTaskCompleteRequest) Paging(ctx context.Context, method, path st
 }
 
 //
-func (r *OutlookTaskCompleteRequest) Post(ctx context.Context) ([][]OutlookTask, error) {
+func (r *OutlookTaskCompleteRequest) Post(ctx context.Context) ([]OutlookTask, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

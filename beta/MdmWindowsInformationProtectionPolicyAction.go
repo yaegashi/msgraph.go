@@ -39,7 +39,7 @@ func (b *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequestBu
 }
 
 //
-func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) 
 	if err != nil {
 		return nil, err
 	}
-	var values [][]HasPayloadLinkResultItem
+	var values []HasPayloadLinkResultItem
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -65,7 +65,7 @@ func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) 
 		}
 		var (
 			paging Paging
-			value  [][]HasPayloadLinkResultItem
+			value  []HasPayloadLinkResultItem
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -91,6 +91,6 @@ func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) 
 }
 
 //
-func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+func (r *MdmWindowsInformationProtectionPolicyCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

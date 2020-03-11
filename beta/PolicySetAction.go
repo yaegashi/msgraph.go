@@ -51,7 +51,7 @@ func (b *PolicySetCollectionGetPolicySetsRequestBuilder) Request() *PolicySetCol
 }
 
 //
-func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]PolicySet, error) {
+func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PolicySet, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,7 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, me
 	if err != nil {
 		return nil, err
 	}
-	var values [][]PolicySet
+	var values []PolicySet
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -77,7 +77,7 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, me
 		}
 		var (
 			paging Paging
-			value  [][]PolicySet
+			value  []PolicySet
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -103,7 +103,7 @@ func (r *PolicySetCollectionGetPolicySetsRequest) Paging(ctx context.Context, me
 }
 
 //
-func (r *PolicySetCollectionGetPolicySetsRequest) Post(ctx context.Context) ([][]PolicySet, error) {
+func (r *PolicySetCollectionGetPolicySetsRequest) Post(ctx context.Context) ([]PolicySet, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

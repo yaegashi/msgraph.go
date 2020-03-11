@@ -53,7 +53,7 @@ func (b *RoleScopeTagCollectionGetRoleScopeTagsByIDRequestBuilder) Request() *Ro
 }
 
 //
-func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]RoleScopeTag, error) {
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTag, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -65,7 +65,7 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.C
 	if err != nil {
 		return nil, err
 	}
-	var values [][]RoleScopeTag
+	var values []RoleScopeTag
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -79,7 +79,7 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.C
 		}
 		var (
 			paging Paging
-			value  [][]RoleScopeTag
+			value  []RoleScopeTag
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -105,7 +105,7 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.C
 }
 
 //
-func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Post(ctx context.Context) ([][]RoleScopeTag, error) {
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Post(ctx context.Context) ([]RoleScopeTag, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -131,7 +131,7 @@ func (b *RoleScopeTagAssignRequestBuilder) Request() *RoleScopeTagAssignRequest 
 }
 
 //
-func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -143,7 +143,7 @@ func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path str
 	if err != nil {
 		return nil, err
 	}
-	var values [][]RoleScopeTagAutoAssignment
+	var values []RoleScopeTagAutoAssignment
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -157,7 +157,7 @@ func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path str
 		}
 		var (
 			paging Paging
-			value  [][]RoleScopeTagAutoAssignment
+			value  []RoleScopeTagAutoAssignment
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -183,6 +183,6 @@ func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path str
 }
 
 //
-func (r *RoleScopeTagAssignRequest) Post(ctx context.Context) ([][]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignRequest) Post(ctx context.Context) ([]RoleScopeTagAutoAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

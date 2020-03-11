@@ -43,7 +43,7 @@ func (b *ExactMatchDataStoreLookupRequestBuilder) Request() *ExactMatchDataStore
 }
 
 //
-func (r *ExactMatchDataStoreLookupRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]string, error) {
+func (r *ExactMatchDataStoreLookupRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -55,7 +55,7 @@ func (r *ExactMatchDataStoreLookupRequest) Paging(ctx context.Context, method, p
 	if err != nil {
 		return nil, err
 	}
-	var values [][]string
+	var values []string
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -69,7 +69,7 @@ func (r *ExactMatchDataStoreLookupRequest) Paging(ctx context.Context, method, p
 		}
 		var (
 			paging Paging
-			value  [][]string
+			value  []string
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -95,6 +95,6 @@ func (r *ExactMatchDataStoreLookupRequest) Paging(ctx context.Context, method, p
 }
 
 //
-func (r *ExactMatchDataStoreLookupRequest) Post(ctx context.Context) ([][]string, error) {
+func (r *ExactMatchDataStoreLookupRequest) Post(ctx context.Context) ([]string, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

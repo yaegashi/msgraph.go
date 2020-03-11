@@ -59,7 +59,7 @@ func (b *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestBuilder) R
 }
 
 //
-func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -71,7 +71,7 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(c
 	if err != nil {
 		return nil, err
 	}
-	var values [][]HasPayloadLinkResultItem
+	var values []HasPayloadLinkResultItem
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -85,7 +85,7 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(c
 		}
 		var (
 			paging Paging
-			value  [][]HasPayloadLinkResultItem
+			value  []HasPayloadLinkResultItem
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -111,7 +111,7 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(c
 }
 
 //
-func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

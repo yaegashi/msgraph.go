@@ -57,7 +57,7 @@ func (b *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TiIndicator, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -69,7 +69,7 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Cont
 	if err != nil {
 		return nil, err
 	}
-	var values [][]TiIndicator
+	var values []TiIndicator
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -83,7 +83,7 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Cont
 		}
 		var (
 			paging Paging
-			value  [][]TiIndicator
+			value  []TiIndicator
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -109,7 +109,7 @@ func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Post(ctx context.Context) ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -135,7 +135,7 @@ func (b *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TiIndicator, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -147,7 +147,7 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Cont
 	if err != nil {
 		return nil, err
 	}
-	var values [][]TiIndicator
+	var values []TiIndicator
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -161,7 +161,7 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Cont
 		}
 		var (
 			paging Paging
-			value  [][]TiIndicator
+			value  []TiIndicator
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -187,7 +187,7 @@ func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Post(ctx context.Context) ([][]TiIndicator, error) {
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -213,7 +213,7 @@ func (b *TiIndicatorCollectionDeleteTiIndicatorsRequestBuilder) Request() *TiInd
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ResultInfo, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -225,7 +225,7 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Cont
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ResultInfo
+	var values []ResultInfo
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -239,7 +239,7 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Cont
 		}
 		var (
 			paging Paging
-			value  [][]ResultInfo
+			value  []ResultInfo
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -265,7 +265,7 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Paging(ctx context.Cont
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Post(ctx context.Context) ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsRequest) Post(ctx context.Context) ([]ResultInfo, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -291,7 +291,7 @@ func (b *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequestBuilder) Requ
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ResultInfo, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -303,7 +303,7 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx 
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ResultInfo
+	var values []ResultInfo
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -317,7 +317,7 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx 
 		}
 		var (
 			paging Paging
-			value  [][]ResultInfo
+			value  []ResultInfo
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -343,6 +343,6 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Paging(ctx 
 }
 
 //
-func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Post(ctx context.Context) ([][]ResultInfo, error) {
+func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Post(ctx context.Context) ([]ResultInfo, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

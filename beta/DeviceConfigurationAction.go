@@ -73,7 +73,7 @@ func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -85,7 +85,7 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context
 	if err != nil {
 		return nil, err
 	}
-	var values [][]HasPayloadLinkResultItem
+	var values []HasPayloadLinkResultItem
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -99,7 +99,7 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context
 		}
 		var (
 			paging Paging
-			value  [][]HasPayloadLinkResultItem
+			value  []HasPayloadLinkResultItem
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -125,7 +125,7 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -159,7 +159,7 @@ func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) 
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceConfigurationTargetedUserAndDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -171,7 +171,7 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 	if err != nil {
 		return nil, err
 	}
-	var values [][]DeviceConfigurationTargetedUserAndDevice
+	var values []DeviceConfigurationTargetedUserAndDevice
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -185,7 +185,7 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 		}
 		var (
 			paging Paging
-			value  [][]DeviceConfigurationTargetedUserAndDevice
+			value  []DeviceConfigurationTargetedUserAndDevice
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -211,7 +211,7 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Post(ctx context.Context) ([][]DeviceConfigurationTargetedUserAndDevice, error) {
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Post(ctx context.Context) ([]DeviceConfigurationTargetedUserAndDevice, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -237,7 +237,7 @@ func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfiguration
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]DeviceConfigurationAssignment, error) {
+func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -249,7 +249,7 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 	if err != nil {
 		return nil, err
 	}
-	var values [][]DeviceConfigurationAssignment
+	var values []DeviceConfigurationAssignment
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -263,7 +263,7 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 		}
 		var (
 			paging Paging
-			value  [][]DeviceConfigurationAssignment
+			value  []DeviceConfigurationAssignment
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -289,7 +289,7 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([][]DeviceConfigurationAssignment, error) {
+func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([]DeviceConfigurationAssignment, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

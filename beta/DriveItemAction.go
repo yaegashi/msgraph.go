@@ -320,7 +320,7 @@ func (b *DriveItemInviteRequestBuilder) Request() *DriveItemInviteRequest {
 }
 
 //
-func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]Permission, error) {
+func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Permission, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -332,7 +332,7 @@ func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string
 	if err != nil {
 		return nil, err
 	}
-	var values [][]Permission
+	var values []Permission
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -346,7 +346,7 @@ func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string
 		}
 		var (
 			paging Paging
-			value  [][]Permission
+			value  []Permission
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -372,7 +372,7 @@ func (r *DriveItemInviteRequest) Paging(ctx context.Context, method, path string
 }
 
 //
-func (r *DriveItemInviteRequest) Post(ctx context.Context) ([][]Permission, error) {
+func (r *DriveItemInviteRequest) Post(ctx context.Context) ([]Permission, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

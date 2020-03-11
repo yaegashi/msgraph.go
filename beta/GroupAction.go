@@ -146,7 +146,7 @@ func (b *GroupCheckGrantedPermissionsForAppRequestBuilder) Request() *GroupCheck
 }
 
 //
-func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ResourceSpecificPermissionGrant, error) {
+func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ResourceSpecificPermissionGrant, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -158,7 +158,7 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, 
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ResourceSpecificPermissionGrant
+	var values []ResourceSpecificPermissionGrant
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -172,7 +172,7 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, 
 		}
 		var (
 			paging Paging
-			value  [][]ResourceSpecificPermissionGrant
+			value  []ResourceSpecificPermissionGrant
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -198,7 +198,7 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, 
 }
 
 //
-func (r *GroupCheckGrantedPermissionsForAppRequest) Post(ctx context.Context) ([][]ResourceSpecificPermissionGrant, error) {
+func (r *GroupCheckGrantedPermissionsForAppRequest) Post(ctx context.Context) ([]ResourceSpecificPermissionGrant, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

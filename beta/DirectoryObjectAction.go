@@ -369,7 +369,7 @@ func (b *DirectoryObjectCollectionGetByIDsRequestBuilder) Request() *DirectoryOb
 }
 
 //
-func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]DirectoryObject, error) {
+func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -381,7 +381,7 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, m
 	if err != nil {
 		return nil, err
 	}
-	var values [][]DirectoryObject
+	var values []DirectoryObject
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -395,7 +395,7 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, m
 		}
 		var (
 			paging Paging
-			value  [][]DirectoryObject
+			value  []DirectoryObject
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -421,7 +421,7 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, m
 }
 
 //
-func (r *DirectoryObjectCollectionGetByIDsRequest) Post(ctx context.Context) ([][]DirectoryObject, error) {
+func (r *DirectoryObjectCollectionGetByIDsRequest) Post(ctx context.Context) ([]DirectoryObject, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -1060,7 +1060,7 @@ func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObj
 }
 
 //
-func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]string, error) {
+func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1072,7 +1072,7 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, me
 	if err != nil {
 		return nil, err
 	}
-	var values [][]string
+	var values []string
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -1086,7 +1086,7 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, me
 		}
 		var (
 			paging Paging
-			value  [][]string
+			value  []string
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -1112,7 +1112,7 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, me
 }
 
 //
-func (r *DirectoryObjectCheckMemberGroupsRequest) Post(ctx context.Context) ([][]string, error) {
+func (r *DirectoryObjectCheckMemberGroupsRequest) Post(ctx context.Context) ([]string, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -1138,7 +1138,7 @@ func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryOb
 }
 
 //
-func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]string, error) {
+func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1150,7 +1150,7 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, m
 	if err != nil {
 		return nil, err
 	}
-	var values [][]string
+	var values []string
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -1164,7 +1164,7 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, m
 		}
 		var (
 			paging Paging
-			value  [][]string
+			value  []string
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -1190,7 +1190,7 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, m
 }
 
 //
-func (r *DirectoryObjectCheckMemberObjectsRequest) Post(ctx context.Context) ([][]string, error) {
+func (r *DirectoryObjectCheckMemberObjectsRequest) Post(ctx context.Context) ([]string, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -1216,7 +1216,7 @@ func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjec
 }
 
 //
-func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]string, error) {
+func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1228,7 +1228,7 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, meth
 	if err != nil {
 		return nil, err
 	}
-	var values [][]string
+	var values []string
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -1242,7 +1242,7 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, meth
 		}
 		var (
 			paging Paging
-			value  [][]string
+			value  []string
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -1268,7 +1268,7 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, meth
 }
 
 //
-func (r *DirectoryObjectGetMemberGroupsRequest) Post(ctx context.Context) ([][]string, error) {
+func (r *DirectoryObjectGetMemberGroupsRequest) Post(ctx context.Context) ([]string, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
@@ -1294,7 +1294,7 @@ func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObje
 }
 
 //
-func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]string, error) {
+func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1306,7 +1306,7 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, met
 	if err != nil {
 		return nil, err
 	}
-	var values [][]string
+	var values []string
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -1320,7 +1320,7 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, met
 		}
 		var (
 			paging Paging
-			value  [][]string
+			value  []string
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -1346,7 +1346,7 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, met
 }
 
 //
-func (r *DirectoryObjectGetMemberObjectsRequest) Post(ctx context.Context) ([][]string, error) {
+func (r *DirectoryObjectGetMemberObjectsRequest) Post(ctx context.Context) ([]string, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 

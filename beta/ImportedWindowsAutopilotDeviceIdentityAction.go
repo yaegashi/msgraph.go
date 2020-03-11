@@ -47,7 +47,7 @@ func (b *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequestBuilder) R
 }
 
 //
-func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]ImportedWindowsAutopilotDeviceIdentity, error) {
+func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -59,7 +59,7 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(c
 	if err != nil {
 		return nil, err
 	}
-	var values [][]ImportedWindowsAutopilotDeviceIdentity
+	var values []ImportedWindowsAutopilotDeviceIdentity
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -73,7 +73,7 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(c
 		}
 		var (
 			paging Paging
-			value  [][]ImportedWindowsAutopilotDeviceIdentity
+			value  []ImportedWindowsAutopilotDeviceIdentity
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -99,6 +99,6 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(c
 }
 
 //
-func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Post(ctx context.Context) ([][]ImportedWindowsAutopilotDeviceIdentity, error) {
+func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Post(ctx context.Context) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }

@@ -47,7 +47,7 @@ func (b *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestBuild
 }
 
 //
-func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([][]HasPayloadLinkResultItem, error) {
+func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -59,7 +59,7 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 	if err != nil {
 		return nil, err
 	}
-	var values [][]HasPayloadLinkResultItem
+	var values []HasPayloadLinkResultItem
 	for {
 		defer res.Body.Close()
 		if res.StatusCode != http.StatusOK {
@@ -73,7 +73,7 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 		}
 		var (
 			paging Paging
-			value  [][]HasPayloadLinkResultItem
+			value  []HasPayloadLinkResultItem
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		if err != nil {
@@ -99,7 +99,7 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 }
 
 //
-func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([][]HasPayloadLinkResultItem, error) {
+func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject)
 }
 
