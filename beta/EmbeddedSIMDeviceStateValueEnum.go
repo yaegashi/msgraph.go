@@ -3,71 +3,53 @@
 package msgraph
 
 // EmbeddedSIMDeviceStateValue undocumented
-type EmbeddedSIMDeviceStateValue int
+type EmbeddedSIMDeviceStateValue string
 
 const (
 	// EmbeddedSIMDeviceStateValueVNotEvaluated undocumented
-	EmbeddedSIMDeviceStateValueVNotEvaluated EmbeddedSIMDeviceStateValue = 0
+	EmbeddedSIMDeviceStateValueVNotEvaluated EmbeddedSIMDeviceStateValue = "notEvaluated"
 	// EmbeddedSIMDeviceStateValueVFailed undocumented
-	EmbeddedSIMDeviceStateValueVFailed EmbeddedSIMDeviceStateValue = 1
+	EmbeddedSIMDeviceStateValueVFailed EmbeddedSIMDeviceStateValue = "failed"
 	// EmbeddedSIMDeviceStateValueVInstalling undocumented
-	EmbeddedSIMDeviceStateValueVInstalling EmbeddedSIMDeviceStateValue = 2
+	EmbeddedSIMDeviceStateValueVInstalling EmbeddedSIMDeviceStateValue = "installing"
 	// EmbeddedSIMDeviceStateValueVInstalled undocumented
-	EmbeddedSIMDeviceStateValueVInstalled EmbeddedSIMDeviceStateValue = 3
+	EmbeddedSIMDeviceStateValueVInstalled EmbeddedSIMDeviceStateValue = "installed"
 	// EmbeddedSIMDeviceStateValueVDeleting undocumented
-	EmbeddedSIMDeviceStateValueVDeleting EmbeddedSIMDeviceStateValue = 4
+	EmbeddedSIMDeviceStateValueVDeleting EmbeddedSIMDeviceStateValue = "deleting"
 	// EmbeddedSIMDeviceStateValueVError undocumented
-	EmbeddedSIMDeviceStateValueVError EmbeddedSIMDeviceStateValue = 5
+	EmbeddedSIMDeviceStateValueVError EmbeddedSIMDeviceStateValue = "error"
 	// EmbeddedSIMDeviceStateValueVDeleted undocumented
-	EmbeddedSIMDeviceStateValueVDeleted EmbeddedSIMDeviceStateValue = 6
+	EmbeddedSIMDeviceStateValueVDeleted EmbeddedSIMDeviceStateValue = "deleted"
 	// EmbeddedSIMDeviceStateValueVRemovedByUser undocumented
-	EmbeddedSIMDeviceStateValueVRemovedByUser EmbeddedSIMDeviceStateValue = 7
+	EmbeddedSIMDeviceStateValueVRemovedByUser EmbeddedSIMDeviceStateValue = "removedByUser"
 )
 
-// EmbeddedSIMDeviceStateValuePNotEvaluated returns a pointer to EmbeddedSIMDeviceStateValueVNotEvaluated
-func EmbeddedSIMDeviceStateValuePNotEvaluated() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVNotEvaluated
-	return &v
-}
+var (
+	// EmbeddedSIMDeviceStateValuePNotEvaluated is a pointer to EmbeddedSIMDeviceStateValueVNotEvaluated
+	EmbeddedSIMDeviceStateValuePNotEvaluated = &_EmbeddedSIMDeviceStateValuePNotEvaluated
+	// EmbeddedSIMDeviceStateValuePFailed is a pointer to EmbeddedSIMDeviceStateValueVFailed
+	EmbeddedSIMDeviceStateValuePFailed = &_EmbeddedSIMDeviceStateValuePFailed
+	// EmbeddedSIMDeviceStateValuePInstalling is a pointer to EmbeddedSIMDeviceStateValueVInstalling
+	EmbeddedSIMDeviceStateValuePInstalling = &_EmbeddedSIMDeviceStateValuePInstalling
+	// EmbeddedSIMDeviceStateValuePInstalled is a pointer to EmbeddedSIMDeviceStateValueVInstalled
+	EmbeddedSIMDeviceStateValuePInstalled = &_EmbeddedSIMDeviceStateValuePInstalled
+	// EmbeddedSIMDeviceStateValuePDeleting is a pointer to EmbeddedSIMDeviceStateValueVDeleting
+	EmbeddedSIMDeviceStateValuePDeleting = &_EmbeddedSIMDeviceStateValuePDeleting
+	// EmbeddedSIMDeviceStateValuePError is a pointer to EmbeddedSIMDeviceStateValueVError
+	EmbeddedSIMDeviceStateValuePError = &_EmbeddedSIMDeviceStateValuePError
+	// EmbeddedSIMDeviceStateValuePDeleted is a pointer to EmbeddedSIMDeviceStateValueVDeleted
+	EmbeddedSIMDeviceStateValuePDeleted = &_EmbeddedSIMDeviceStateValuePDeleted
+	// EmbeddedSIMDeviceStateValuePRemovedByUser is a pointer to EmbeddedSIMDeviceStateValueVRemovedByUser
+	EmbeddedSIMDeviceStateValuePRemovedByUser = &_EmbeddedSIMDeviceStateValuePRemovedByUser
+)
 
-// EmbeddedSIMDeviceStateValuePFailed returns a pointer to EmbeddedSIMDeviceStateValueVFailed
-func EmbeddedSIMDeviceStateValuePFailed() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVFailed
-	return &v
-}
-
-// EmbeddedSIMDeviceStateValuePInstalling returns a pointer to EmbeddedSIMDeviceStateValueVInstalling
-func EmbeddedSIMDeviceStateValuePInstalling() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVInstalling
-	return &v
-}
-
-// EmbeddedSIMDeviceStateValuePInstalled returns a pointer to EmbeddedSIMDeviceStateValueVInstalled
-func EmbeddedSIMDeviceStateValuePInstalled() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVInstalled
-	return &v
-}
-
-// EmbeddedSIMDeviceStateValuePDeleting returns a pointer to EmbeddedSIMDeviceStateValueVDeleting
-func EmbeddedSIMDeviceStateValuePDeleting() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVDeleting
-	return &v
-}
-
-// EmbeddedSIMDeviceStateValuePError returns a pointer to EmbeddedSIMDeviceStateValueVError
-func EmbeddedSIMDeviceStateValuePError() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVError
-	return &v
-}
-
-// EmbeddedSIMDeviceStateValuePDeleted returns a pointer to EmbeddedSIMDeviceStateValueVDeleted
-func EmbeddedSIMDeviceStateValuePDeleted() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVDeleted
-	return &v
-}
-
-// EmbeddedSIMDeviceStateValuePRemovedByUser returns a pointer to EmbeddedSIMDeviceStateValueVRemovedByUser
-func EmbeddedSIMDeviceStateValuePRemovedByUser() *EmbeddedSIMDeviceStateValue {
-	v := EmbeddedSIMDeviceStateValueVRemovedByUser
-	return &v
-}
+var (
+	_EmbeddedSIMDeviceStateValuePNotEvaluated  = EmbeddedSIMDeviceStateValueVNotEvaluated
+	_EmbeddedSIMDeviceStateValuePFailed        = EmbeddedSIMDeviceStateValueVFailed
+	_EmbeddedSIMDeviceStateValuePInstalling    = EmbeddedSIMDeviceStateValueVInstalling
+	_EmbeddedSIMDeviceStateValuePInstalled     = EmbeddedSIMDeviceStateValueVInstalled
+	_EmbeddedSIMDeviceStateValuePDeleting      = EmbeddedSIMDeviceStateValueVDeleting
+	_EmbeddedSIMDeviceStateValuePError         = EmbeddedSIMDeviceStateValueVError
+	_EmbeddedSIMDeviceStateValuePDeleted       = EmbeddedSIMDeviceStateValueVDeleted
+	_EmbeddedSIMDeviceStateValuePRemovedByUser = EmbeddedSIMDeviceStateValueVRemovedByUser
+)

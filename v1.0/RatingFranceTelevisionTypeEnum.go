@@ -3,55 +3,43 @@
 package msgraph
 
 // RatingFranceTelevisionType undocumented
-type RatingFranceTelevisionType int
+type RatingFranceTelevisionType string
 
 const (
 	// RatingFranceTelevisionTypeVAllAllowed undocumented
-	RatingFranceTelevisionTypeVAllAllowed RatingFranceTelevisionType = 0
+	RatingFranceTelevisionTypeVAllAllowed RatingFranceTelevisionType = "allAllowed"
 	// RatingFranceTelevisionTypeVAllBlocked undocumented
-	RatingFranceTelevisionTypeVAllBlocked RatingFranceTelevisionType = 1
+	RatingFranceTelevisionTypeVAllBlocked RatingFranceTelevisionType = "allBlocked"
 	// RatingFranceTelevisionTypeVAgesAbove10 undocumented
-	RatingFranceTelevisionTypeVAgesAbove10 RatingFranceTelevisionType = 2
+	RatingFranceTelevisionTypeVAgesAbove10 RatingFranceTelevisionType = "agesAbove10"
 	// RatingFranceTelevisionTypeVAgesAbove12 undocumented
-	RatingFranceTelevisionTypeVAgesAbove12 RatingFranceTelevisionType = 3
+	RatingFranceTelevisionTypeVAgesAbove12 RatingFranceTelevisionType = "agesAbove12"
 	// RatingFranceTelevisionTypeVAgesAbove16 undocumented
-	RatingFranceTelevisionTypeVAgesAbove16 RatingFranceTelevisionType = 4
+	RatingFranceTelevisionTypeVAgesAbove16 RatingFranceTelevisionType = "agesAbove16"
 	// RatingFranceTelevisionTypeVAgesAbove18 undocumented
-	RatingFranceTelevisionTypeVAgesAbove18 RatingFranceTelevisionType = 5
+	RatingFranceTelevisionTypeVAgesAbove18 RatingFranceTelevisionType = "agesAbove18"
 )
 
-// RatingFranceTelevisionTypePAllAllowed returns a pointer to RatingFranceTelevisionTypeVAllAllowed
-func RatingFranceTelevisionTypePAllAllowed() *RatingFranceTelevisionType {
-	v := RatingFranceTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingFranceTelevisionTypePAllAllowed is a pointer to RatingFranceTelevisionTypeVAllAllowed
+	RatingFranceTelevisionTypePAllAllowed = &_RatingFranceTelevisionTypePAllAllowed
+	// RatingFranceTelevisionTypePAllBlocked is a pointer to RatingFranceTelevisionTypeVAllBlocked
+	RatingFranceTelevisionTypePAllBlocked = &_RatingFranceTelevisionTypePAllBlocked
+	// RatingFranceTelevisionTypePAgesAbove10 is a pointer to RatingFranceTelevisionTypeVAgesAbove10
+	RatingFranceTelevisionTypePAgesAbove10 = &_RatingFranceTelevisionTypePAgesAbove10
+	// RatingFranceTelevisionTypePAgesAbove12 is a pointer to RatingFranceTelevisionTypeVAgesAbove12
+	RatingFranceTelevisionTypePAgesAbove12 = &_RatingFranceTelevisionTypePAgesAbove12
+	// RatingFranceTelevisionTypePAgesAbove16 is a pointer to RatingFranceTelevisionTypeVAgesAbove16
+	RatingFranceTelevisionTypePAgesAbove16 = &_RatingFranceTelevisionTypePAgesAbove16
+	// RatingFranceTelevisionTypePAgesAbove18 is a pointer to RatingFranceTelevisionTypeVAgesAbove18
+	RatingFranceTelevisionTypePAgesAbove18 = &_RatingFranceTelevisionTypePAgesAbove18
+)
 
-// RatingFranceTelevisionTypePAllBlocked returns a pointer to RatingFranceTelevisionTypeVAllBlocked
-func RatingFranceTelevisionTypePAllBlocked() *RatingFranceTelevisionType {
-	v := RatingFranceTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingFranceTelevisionTypePAgesAbove10 returns a pointer to RatingFranceTelevisionTypeVAgesAbove10
-func RatingFranceTelevisionTypePAgesAbove10() *RatingFranceTelevisionType {
-	v := RatingFranceTelevisionTypeVAgesAbove10
-	return &v
-}
-
-// RatingFranceTelevisionTypePAgesAbove12 returns a pointer to RatingFranceTelevisionTypeVAgesAbove12
-func RatingFranceTelevisionTypePAgesAbove12() *RatingFranceTelevisionType {
-	v := RatingFranceTelevisionTypeVAgesAbove12
-	return &v
-}
-
-// RatingFranceTelevisionTypePAgesAbove16 returns a pointer to RatingFranceTelevisionTypeVAgesAbove16
-func RatingFranceTelevisionTypePAgesAbove16() *RatingFranceTelevisionType {
-	v := RatingFranceTelevisionTypeVAgesAbove16
-	return &v
-}
-
-// RatingFranceTelevisionTypePAgesAbove18 returns a pointer to RatingFranceTelevisionTypeVAgesAbove18
-func RatingFranceTelevisionTypePAgesAbove18() *RatingFranceTelevisionType {
-	v := RatingFranceTelevisionTypeVAgesAbove18
-	return &v
-}
+var (
+	_RatingFranceTelevisionTypePAllAllowed  = RatingFranceTelevisionTypeVAllAllowed
+	_RatingFranceTelevisionTypePAllBlocked  = RatingFranceTelevisionTypeVAllBlocked
+	_RatingFranceTelevisionTypePAgesAbove10 = RatingFranceTelevisionTypeVAgesAbove10
+	_RatingFranceTelevisionTypePAgesAbove12 = RatingFranceTelevisionTypeVAgesAbove12
+	_RatingFranceTelevisionTypePAgesAbove16 = RatingFranceTelevisionTypeVAgesAbove16
+	_RatingFranceTelevisionTypePAgesAbove18 = RatingFranceTelevisionTypeVAgesAbove18
+)

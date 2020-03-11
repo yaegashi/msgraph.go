@@ -3,303 +3,198 @@
 package msgraph
 
 // SynchronizationSecret undocumented
-type SynchronizationSecret int
+type SynchronizationSecret string
 
 const (
 	// SynchronizationSecretVNone undocumented
-	SynchronizationSecretVNone SynchronizationSecret = 0
+	SynchronizationSecretVNone SynchronizationSecret = "None"
 	// SynchronizationSecretVUserName undocumented
-	SynchronizationSecretVUserName SynchronizationSecret = 1
+	SynchronizationSecretVUserName SynchronizationSecret = "UserName"
 	// SynchronizationSecretVPassword undocumented
-	SynchronizationSecretVPassword SynchronizationSecret = 2
+	SynchronizationSecretVPassword SynchronizationSecret = "Password"
 	// SynchronizationSecretVSecretToken undocumented
-	SynchronizationSecretVSecretToken SynchronizationSecret = 3
+	SynchronizationSecretVSecretToken SynchronizationSecret = "SecretToken"
 	// SynchronizationSecretVAppKey undocumented
-	SynchronizationSecretVAppKey SynchronizationSecret = 4
+	SynchronizationSecretVAppKey SynchronizationSecret = "AppKey"
 	// SynchronizationSecretVBaseAddress undocumented
-	SynchronizationSecretVBaseAddress SynchronizationSecret = 5
+	SynchronizationSecretVBaseAddress SynchronizationSecret = "BaseAddress"
 	// SynchronizationSecretVClientIdentifier undocumented
-	SynchronizationSecretVClientIdentifier SynchronizationSecret = 6
+	SynchronizationSecretVClientIdentifier SynchronizationSecret = "ClientIdentifier"
 	// SynchronizationSecretVClientSecret undocumented
-	SynchronizationSecretVClientSecret SynchronizationSecret = 7
+	SynchronizationSecretVClientSecret SynchronizationSecret = "ClientSecret"
 	// SynchronizationSecretVSingleSignOnType undocumented
-	SynchronizationSecretVSingleSignOnType SynchronizationSecret = 11
+	SynchronizationSecretVSingleSignOnType SynchronizationSecret = "SingleSignOnType"
 	// SynchronizationSecretVSandbox undocumented
-	SynchronizationSecretVSandbox SynchronizationSecret = 12
+	SynchronizationSecretVSandbox SynchronizationSecret = "Sandbox"
 	// SynchronizationSecretVURL undocumented
-	SynchronizationSecretVURL SynchronizationSecret = 13
+	SynchronizationSecretVURL SynchronizationSecret = "Url"
 	// SynchronizationSecretVDomain undocumented
-	SynchronizationSecretVDomain SynchronizationSecret = 14
+	SynchronizationSecretVDomain SynchronizationSecret = "Domain"
 	// SynchronizationSecretVConsumerKey undocumented
-	SynchronizationSecretVConsumerKey SynchronizationSecret = 15
+	SynchronizationSecretVConsumerKey SynchronizationSecret = "ConsumerKey"
 	// SynchronizationSecretVConsumerSecret undocumented
-	SynchronizationSecretVConsumerSecret SynchronizationSecret = 16
+	SynchronizationSecretVConsumerSecret SynchronizationSecret = "ConsumerSecret"
 	// SynchronizationSecretVTokenKey undocumented
-	SynchronizationSecretVTokenKey SynchronizationSecret = 17
+	SynchronizationSecretVTokenKey SynchronizationSecret = "TokenKey"
 	// SynchronizationSecretVTokenExpiration undocumented
-	SynchronizationSecretVTokenExpiration SynchronizationSecret = 18
+	SynchronizationSecretVTokenExpiration SynchronizationSecret = "TokenExpiration"
 	// SynchronizationSecretVOauth2AccessToken undocumented
-	SynchronizationSecretVOauth2AccessToken SynchronizationSecret = 19
+	SynchronizationSecretVOauth2AccessToken SynchronizationSecret = "Oauth2AccessToken"
 	// SynchronizationSecretVOauth2AccessTokenCreationTime undocumented
-	SynchronizationSecretVOauth2AccessTokenCreationTime SynchronizationSecret = 20
+	SynchronizationSecretVOauth2AccessTokenCreationTime SynchronizationSecret = "Oauth2AccessTokenCreationTime"
 	// SynchronizationSecretVOauth2RefreshToken undocumented
-	SynchronizationSecretVOauth2RefreshToken SynchronizationSecret = 21
+	SynchronizationSecretVOauth2RefreshToken SynchronizationSecret = "Oauth2RefreshToken"
 	// SynchronizationSecretVSyncAll undocumented
-	SynchronizationSecretVSyncAll SynchronizationSecret = 22
+	SynchronizationSecretVSyncAll SynchronizationSecret = "SyncAll"
 	// SynchronizationSecretVInstanceName undocumented
-	SynchronizationSecretVInstanceName SynchronizationSecret = 24
+	SynchronizationSecretVInstanceName SynchronizationSecret = "InstanceName"
 	// SynchronizationSecretVOauth2ClientID undocumented
-	SynchronizationSecretVOauth2ClientID SynchronizationSecret = 27
+	SynchronizationSecretVOauth2ClientID SynchronizationSecret = "Oauth2ClientId"
 	// SynchronizationSecretVOauth2ClientSecret undocumented
-	SynchronizationSecretVOauth2ClientSecret SynchronizationSecret = 28
+	SynchronizationSecretVOauth2ClientSecret SynchronizationSecret = "Oauth2ClientSecret"
 	// SynchronizationSecretVCompanyID undocumented
-	SynchronizationSecretVCompanyID SynchronizationSecret = 29
+	SynchronizationSecretVCompanyID SynchronizationSecret = "CompanyId"
 	// SynchronizationSecretVUpdateKeyOnSoftDelete undocumented
-	SynchronizationSecretVUpdateKeyOnSoftDelete SynchronizationSecret = 30
+	SynchronizationSecretVUpdateKeyOnSoftDelete SynchronizationSecret = "UpdateKeyOnSoftDelete"
 	// SynchronizationSecretVSynchronizationSchedule undocumented
-	SynchronizationSecretVSynchronizationSchedule SynchronizationSecret = 33
+	SynchronizationSecretVSynchronizationSchedule SynchronizationSecret = "SynchronizationSchedule"
 	// SynchronizationSecretVSystemOfRecord undocumented
-	SynchronizationSecretVSystemOfRecord SynchronizationSecret = 34
+	SynchronizationSecretVSystemOfRecord SynchronizationSecret = "SystemOfRecord"
 	// SynchronizationSecretVSandboxName undocumented
-	SynchronizationSecretVSandboxName SynchronizationSecret = 35
+	SynchronizationSecretVSandboxName SynchronizationSecret = "SandboxName"
 	// SynchronizationSecretVEnforceDomain undocumented
-	SynchronizationSecretVEnforceDomain SynchronizationSecret = 36
+	SynchronizationSecretVEnforceDomain SynchronizationSecret = "EnforceDomain"
 	// SynchronizationSecretVSyncNotificationSettings undocumented
-	SynchronizationSecretVSyncNotificationSettings SynchronizationSecret = 37
+	SynchronizationSecretVSyncNotificationSettings SynchronizationSecret = "SyncNotificationSettings"
 	// SynchronizationSecretVServer undocumented
-	SynchronizationSecretVServer SynchronizationSecret = 70
+	SynchronizationSecretVServer SynchronizationSecret = "Server"
 	// SynchronizationSecretVPerformInboundEntitlementGrants undocumented
-	SynchronizationSecretVPerformInboundEntitlementGrants SynchronizationSecret = 100
+	SynchronizationSecretVPerformInboundEntitlementGrants SynchronizationSecret = "PerformInboundEntitlementGrants"
 	// SynchronizationSecretVHardDeletesEnabled undocumented
-	SynchronizationSecretVHardDeletesEnabled SynchronizationSecret = 101
+	SynchronizationSecretVHardDeletesEnabled SynchronizationSecret = "HardDeletesEnabled"
 	// SynchronizationSecretVSyncAgentCompatibilityKey undocumented
-	SynchronizationSecretVSyncAgentCompatibilityKey SynchronizationSecret = 102
+	SynchronizationSecretVSyncAgentCompatibilityKey SynchronizationSecret = "SyncAgentCompatibilityKey"
 	// SynchronizationSecretVSyncAgentADContainer undocumented
-	SynchronizationSecretVSyncAgentADContainer SynchronizationSecret = 103
+	SynchronizationSecretVSyncAgentADContainer SynchronizationSecret = "SyncAgentADContainer"
 	// SynchronizationSecretVValidateDomain undocumented
-	SynchronizationSecretVValidateDomain SynchronizationSecret = 206
+	SynchronizationSecretVValidateDomain SynchronizationSecret = "ValidateDomain"
 	// SynchronizationSecretVTestReferences undocumented
-	SynchronizationSecretVTestReferences SynchronizationSecret = 207
+	SynchronizationSecretVTestReferences SynchronizationSecret = "TestReferences"
 )
 
-// SynchronizationSecretPNone returns a pointer to SynchronizationSecretVNone
-func SynchronizationSecretPNone() *SynchronizationSecret {
-	v := SynchronizationSecretVNone
-	return &v
-}
+var (
+	// SynchronizationSecretPNone is a pointer to SynchronizationSecretVNone
+	SynchronizationSecretPNone = &_SynchronizationSecretPNone
+	// SynchronizationSecretPUserName is a pointer to SynchronizationSecretVUserName
+	SynchronizationSecretPUserName = &_SynchronizationSecretPUserName
+	// SynchronizationSecretPPassword is a pointer to SynchronizationSecretVPassword
+	SynchronizationSecretPPassword = &_SynchronizationSecretPPassword
+	// SynchronizationSecretPSecretToken is a pointer to SynchronizationSecretVSecretToken
+	SynchronizationSecretPSecretToken = &_SynchronizationSecretPSecretToken
+	// SynchronizationSecretPAppKey is a pointer to SynchronizationSecretVAppKey
+	SynchronizationSecretPAppKey = &_SynchronizationSecretPAppKey
+	// SynchronizationSecretPBaseAddress is a pointer to SynchronizationSecretVBaseAddress
+	SynchronizationSecretPBaseAddress = &_SynchronizationSecretPBaseAddress
+	// SynchronizationSecretPClientIdentifier is a pointer to SynchronizationSecretVClientIdentifier
+	SynchronizationSecretPClientIdentifier = &_SynchronizationSecretPClientIdentifier
+	// SynchronizationSecretPClientSecret is a pointer to SynchronizationSecretVClientSecret
+	SynchronizationSecretPClientSecret = &_SynchronizationSecretPClientSecret
+	// SynchronizationSecretPSingleSignOnType is a pointer to SynchronizationSecretVSingleSignOnType
+	SynchronizationSecretPSingleSignOnType = &_SynchronizationSecretPSingleSignOnType
+	// SynchronizationSecretPSandbox is a pointer to SynchronizationSecretVSandbox
+	SynchronizationSecretPSandbox = &_SynchronizationSecretPSandbox
+	// SynchronizationSecretPURL is a pointer to SynchronizationSecretVURL
+	SynchronizationSecretPURL = &_SynchronizationSecretPURL
+	// SynchronizationSecretPDomain is a pointer to SynchronizationSecretVDomain
+	SynchronizationSecretPDomain = &_SynchronizationSecretPDomain
+	// SynchronizationSecretPConsumerKey is a pointer to SynchronizationSecretVConsumerKey
+	SynchronizationSecretPConsumerKey = &_SynchronizationSecretPConsumerKey
+	// SynchronizationSecretPConsumerSecret is a pointer to SynchronizationSecretVConsumerSecret
+	SynchronizationSecretPConsumerSecret = &_SynchronizationSecretPConsumerSecret
+	// SynchronizationSecretPTokenKey is a pointer to SynchronizationSecretVTokenKey
+	SynchronizationSecretPTokenKey = &_SynchronizationSecretPTokenKey
+	// SynchronizationSecretPTokenExpiration is a pointer to SynchronizationSecretVTokenExpiration
+	SynchronizationSecretPTokenExpiration = &_SynchronizationSecretPTokenExpiration
+	// SynchronizationSecretPOauth2AccessToken is a pointer to SynchronizationSecretVOauth2AccessToken
+	SynchronizationSecretPOauth2AccessToken = &_SynchronizationSecretPOauth2AccessToken
+	// SynchronizationSecretPOauth2AccessTokenCreationTime is a pointer to SynchronizationSecretVOauth2AccessTokenCreationTime
+	SynchronizationSecretPOauth2AccessTokenCreationTime = &_SynchronizationSecretPOauth2AccessTokenCreationTime
+	// SynchronizationSecretPOauth2RefreshToken is a pointer to SynchronizationSecretVOauth2RefreshToken
+	SynchronizationSecretPOauth2RefreshToken = &_SynchronizationSecretPOauth2RefreshToken
+	// SynchronizationSecretPSyncAll is a pointer to SynchronizationSecretVSyncAll
+	SynchronizationSecretPSyncAll = &_SynchronizationSecretPSyncAll
+	// SynchronizationSecretPInstanceName is a pointer to SynchronizationSecretVInstanceName
+	SynchronizationSecretPInstanceName = &_SynchronizationSecretPInstanceName
+	// SynchronizationSecretPOauth2ClientID is a pointer to SynchronizationSecretVOauth2ClientID
+	SynchronizationSecretPOauth2ClientID = &_SynchronizationSecretPOauth2ClientID
+	// SynchronizationSecretPOauth2ClientSecret is a pointer to SynchronizationSecretVOauth2ClientSecret
+	SynchronizationSecretPOauth2ClientSecret = &_SynchronizationSecretPOauth2ClientSecret
+	// SynchronizationSecretPCompanyID is a pointer to SynchronizationSecretVCompanyID
+	SynchronizationSecretPCompanyID = &_SynchronizationSecretPCompanyID
+	// SynchronizationSecretPUpdateKeyOnSoftDelete is a pointer to SynchronizationSecretVUpdateKeyOnSoftDelete
+	SynchronizationSecretPUpdateKeyOnSoftDelete = &_SynchronizationSecretPUpdateKeyOnSoftDelete
+	// SynchronizationSecretPSynchronizationSchedule is a pointer to SynchronizationSecretVSynchronizationSchedule
+	SynchronizationSecretPSynchronizationSchedule = &_SynchronizationSecretPSynchronizationSchedule
+	// SynchronizationSecretPSystemOfRecord is a pointer to SynchronizationSecretVSystemOfRecord
+	SynchronizationSecretPSystemOfRecord = &_SynchronizationSecretPSystemOfRecord
+	// SynchronizationSecretPSandboxName is a pointer to SynchronizationSecretVSandboxName
+	SynchronizationSecretPSandboxName = &_SynchronizationSecretPSandboxName
+	// SynchronizationSecretPEnforceDomain is a pointer to SynchronizationSecretVEnforceDomain
+	SynchronizationSecretPEnforceDomain = &_SynchronizationSecretPEnforceDomain
+	// SynchronizationSecretPSyncNotificationSettings is a pointer to SynchronizationSecretVSyncNotificationSettings
+	SynchronizationSecretPSyncNotificationSettings = &_SynchronizationSecretPSyncNotificationSettings
+	// SynchronizationSecretPServer is a pointer to SynchronizationSecretVServer
+	SynchronizationSecretPServer = &_SynchronizationSecretPServer
+	// SynchronizationSecretPPerformInboundEntitlementGrants is a pointer to SynchronizationSecretVPerformInboundEntitlementGrants
+	SynchronizationSecretPPerformInboundEntitlementGrants = &_SynchronizationSecretPPerformInboundEntitlementGrants
+	// SynchronizationSecretPHardDeletesEnabled is a pointer to SynchronizationSecretVHardDeletesEnabled
+	SynchronizationSecretPHardDeletesEnabled = &_SynchronizationSecretPHardDeletesEnabled
+	// SynchronizationSecretPSyncAgentCompatibilityKey is a pointer to SynchronizationSecretVSyncAgentCompatibilityKey
+	SynchronizationSecretPSyncAgentCompatibilityKey = &_SynchronizationSecretPSyncAgentCompatibilityKey
+	// SynchronizationSecretPSyncAgentADContainer is a pointer to SynchronizationSecretVSyncAgentADContainer
+	SynchronizationSecretPSyncAgentADContainer = &_SynchronizationSecretPSyncAgentADContainer
+	// SynchronizationSecretPValidateDomain is a pointer to SynchronizationSecretVValidateDomain
+	SynchronizationSecretPValidateDomain = &_SynchronizationSecretPValidateDomain
+	// SynchronizationSecretPTestReferences is a pointer to SynchronizationSecretVTestReferences
+	SynchronizationSecretPTestReferences = &_SynchronizationSecretPTestReferences
+)
 
-// SynchronizationSecretPUserName returns a pointer to SynchronizationSecretVUserName
-func SynchronizationSecretPUserName() *SynchronizationSecret {
-	v := SynchronizationSecretVUserName
-	return &v
-}
-
-// SynchronizationSecretPPassword returns a pointer to SynchronizationSecretVPassword
-func SynchronizationSecretPPassword() *SynchronizationSecret {
-	v := SynchronizationSecretVPassword
-	return &v
-}
-
-// SynchronizationSecretPSecretToken returns a pointer to SynchronizationSecretVSecretToken
-func SynchronizationSecretPSecretToken() *SynchronizationSecret {
-	v := SynchronizationSecretVSecretToken
-	return &v
-}
-
-// SynchronizationSecretPAppKey returns a pointer to SynchronizationSecretVAppKey
-func SynchronizationSecretPAppKey() *SynchronizationSecret {
-	v := SynchronizationSecretVAppKey
-	return &v
-}
-
-// SynchronizationSecretPBaseAddress returns a pointer to SynchronizationSecretVBaseAddress
-func SynchronizationSecretPBaseAddress() *SynchronizationSecret {
-	v := SynchronizationSecretVBaseAddress
-	return &v
-}
-
-// SynchronizationSecretPClientIdentifier returns a pointer to SynchronizationSecretVClientIdentifier
-func SynchronizationSecretPClientIdentifier() *SynchronizationSecret {
-	v := SynchronizationSecretVClientIdentifier
-	return &v
-}
-
-// SynchronizationSecretPClientSecret returns a pointer to SynchronizationSecretVClientSecret
-func SynchronizationSecretPClientSecret() *SynchronizationSecret {
-	v := SynchronizationSecretVClientSecret
-	return &v
-}
-
-// SynchronizationSecretPSingleSignOnType returns a pointer to SynchronizationSecretVSingleSignOnType
-func SynchronizationSecretPSingleSignOnType() *SynchronizationSecret {
-	v := SynchronizationSecretVSingleSignOnType
-	return &v
-}
-
-// SynchronizationSecretPSandbox returns a pointer to SynchronizationSecretVSandbox
-func SynchronizationSecretPSandbox() *SynchronizationSecret {
-	v := SynchronizationSecretVSandbox
-	return &v
-}
-
-// SynchronizationSecretPURL returns a pointer to SynchronizationSecretVURL
-func SynchronizationSecretPURL() *SynchronizationSecret {
-	v := SynchronizationSecretVURL
-	return &v
-}
-
-// SynchronizationSecretPDomain returns a pointer to SynchronizationSecretVDomain
-func SynchronizationSecretPDomain() *SynchronizationSecret {
-	v := SynchronizationSecretVDomain
-	return &v
-}
-
-// SynchronizationSecretPConsumerKey returns a pointer to SynchronizationSecretVConsumerKey
-func SynchronizationSecretPConsumerKey() *SynchronizationSecret {
-	v := SynchronizationSecretVConsumerKey
-	return &v
-}
-
-// SynchronizationSecretPConsumerSecret returns a pointer to SynchronizationSecretVConsumerSecret
-func SynchronizationSecretPConsumerSecret() *SynchronizationSecret {
-	v := SynchronizationSecretVConsumerSecret
-	return &v
-}
-
-// SynchronizationSecretPTokenKey returns a pointer to SynchronizationSecretVTokenKey
-func SynchronizationSecretPTokenKey() *SynchronizationSecret {
-	v := SynchronizationSecretVTokenKey
-	return &v
-}
-
-// SynchronizationSecretPTokenExpiration returns a pointer to SynchronizationSecretVTokenExpiration
-func SynchronizationSecretPTokenExpiration() *SynchronizationSecret {
-	v := SynchronizationSecretVTokenExpiration
-	return &v
-}
-
-// SynchronizationSecretPOauth2AccessToken returns a pointer to SynchronizationSecretVOauth2AccessToken
-func SynchronizationSecretPOauth2AccessToken() *SynchronizationSecret {
-	v := SynchronizationSecretVOauth2AccessToken
-	return &v
-}
-
-// SynchronizationSecretPOauth2AccessTokenCreationTime returns a pointer to SynchronizationSecretVOauth2AccessTokenCreationTime
-func SynchronizationSecretPOauth2AccessTokenCreationTime() *SynchronizationSecret {
-	v := SynchronizationSecretVOauth2AccessTokenCreationTime
-	return &v
-}
-
-// SynchronizationSecretPOauth2RefreshToken returns a pointer to SynchronizationSecretVOauth2RefreshToken
-func SynchronizationSecretPOauth2RefreshToken() *SynchronizationSecret {
-	v := SynchronizationSecretVOauth2RefreshToken
-	return &v
-}
-
-// SynchronizationSecretPSyncAll returns a pointer to SynchronizationSecretVSyncAll
-func SynchronizationSecretPSyncAll() *SynchronizationSecret {
-	v := SynchronizationSecretVSyncAll
-	return &v
-}
-
-// SynchronizationSecretPInstanceName returns a pointer to SynchronizationSecretVInstanceName
-func SynchronizationSecretPInstanceName() *SynchronizationSecret {
-	v := SynchronizationSecretVInstanceName
-	return &v
-}
-
-// SynchronizationSecretPOauth2ClientID returns a pointer to SynchronizationSecretVOauth2ClientID
-func SynchronizationSecretPOauth2ClientID() *SynchronizationSecret {
-	v := SynchronizationSecretVOauth2ClientID
-	return &v
-}
-
-// SynchronizationSecretPOauth2ClientSecret returns a pointer to SynchronizationSecretVOauth2ClientSecret
-func SynchronizationSecretPOauth2ClientSecret() *SynchronizationSecret {
-	v := SynchronizationSecretVOauth2ClientSecret
-	return &v
-}
-
-// SynchronizationSecretPCompanyID returns a pointer to SynchronizationSecretVCompanyID
-func SynchronizationSecretPCompanyID() *SynchronizationSecret {
-	v := SynchronizationSecretVCompanyID
-	return &v
-}
-
-// SynchronizationSecretPUpdateKeyOnSoftDelete returns a pointer to SynchronizationSecretVUpdateKeyOnSoftDelete
-func SynchronizationSecretPUpdateKeyOnSoftDelete() *SynchronizationSecret {
-	v := SynchronizationSecretVUpdateKeyOnSoftDelete
-	return &v
-}
-
-// SynchronizationSecretPSynchronizationSchedule returns a pointer to SynchronizationSecretVSynchronizationSchedule
-func SynchronizationSecretPSynchronizationSchedule() *SynchronizationSecret {
-	v := SynchronizationSecretVSynchronizationSchedule
-	return &v
-}
-
-// SynchronizationSecretPSystemOfRecord returns a pointer to SynchronizationSecretVSystemOfRecord
-func SynchronizationSecretPSystemOfRecord() *SynchronizationSecret {
-	v := SynchronizationSecretVSystemOfRecord
-	return &v
-}
-
-// SynchronizationSecretPSandboxName returns a pointer to SynchronizationSecretVSandboxName
-func SynchronizationSecretPSandboxName() *SynchronizationSecret {
-	v := SynchronizationSecretVSandboxName
-	return &v
-}
-
-// SynchronizationSecretPEnforceDomain returns a pointer to SynchronizationSecretVEnforceDomain
-func SynchronizationSecretPEnforceDomain() *SynchronizationSecret {
-	v := SynchronizationSecretVEnforceDomain
-	return &v
-}
-
-// SynchronizationSecretPSyncNotificationSettings returns a pointer to SynchronizationSecretVSyncNotificationSettings
-func SynchronizationSecretPSyncNotificationSettings() *SynchronizationSecret {
-	v := SynchronizationSecretVSyncNotificationSettings
-	return &v
-}
-
-// SynchronizationSecretPServer returns a pointer to SynchronizationSecretVServer
-func SynchronizationSecretPServer() *SynchronizationSecret {
-	v := SynchronizationSecretVServer
-	return &v
-}
-
-// SynchronizationSecretPPerformInboundEntitlementGrants returns a pointer to SynchronizationSecretVPerformInboundEntitlementGrants
-func SynchronizationSecretPPerformInboundEntitlementGrants() *SynchronizationSecret {
-	v := SynchronizationSecretVPerformInboundEntitlementGrants
-	return &v
-}
-
-// SynchronizationSecretPHardDeletesEnabled returns a pointer to SynchronizationSecretVHardDeletesEnabled
-func SynchronizationSecretPHardDeletesEnabled() *SynchronizationSecret {
-	v := SynchronizationSecretVHardDeletesEnabled
-	return &v
-}
-
-// SynchronizationSecretPSyncAgentCompatibilityKey returns a pointer to SynchronizationSecretVSyncAgentCompatibilityKey
-func SynchronizationSecretPSyncAgentCompatibilityKey() *SynchronizationSecret {
-	v := SynchronizationSecretVSyncAgentCompatibilityKey
-	return &v
-}
-
-// SynchronizationSecretPSyncAgentADContainer returns a pointer to SynchronizationSecretVSyncAgentADContainer
-func SynchronizationSecretPSyncAgentADContainer() *SynchronizationSecret {
-	v := SynchronizationSecretVSyncAgentADContainer
-	return &v
-}
-
-// SynchronizationSecretPValidateDomain returns a pointer to SynchronizationSecretVValidateDomain
-func SynchronizationSecretPValidateDomain() *SynchronizationSecret {
-	v := SynchronizationSecretVValidateDomain
-	return &v
-}
-
-// SynchronizationSecretPTestReferences returns a pointer to SynchronizationSecretVTestReferences
-func SynchronizationSecretPTestReferences() *SynchronizationSecret {
-	v := SynchronizationSecretVTestReferences
-	return &v
-}
+var (
+	_SynchronizationSecretPNone                            = SynchronizationSecretVNone
+	_SynchronizationSecretPUserName                        = SynchronizationSecretVUserName
+	_SynchronizationSecretPPassword                        = SynchronizationSecretVPassword
+	_SynchronizationSecretPSecretToken                     = SynchronizationSecretVSecretToken
+	_SynchronizationSecretPAppKey                          = SynchronizationSecretVAppKey
+	_SynchronizationSecretPBaseAddress                     = SynchronizationSecretVBaseAddress
+	_SynchronizationSecretPClientIdentifier                = SynchronizationSecretVClientIdentifier
+	_SynchronizationSecretPClientSecret                    = SynchronizationSecretVClientSecret
+	_SynchronizationSecretPSingleSignOnType                = SynchronizationSecretVSingleSignOnType
+	_SynchronizationSecretPSandbox                         = SynchronizationSecretVSandbox
+	_SynchronizationSecretPURL                             = SynchronizationSecretVURL
+	_SynchronizationSecretPDomain                          = SynchronizationSecretVDomain
+	_SynchronizationSecretPConsumerKey                     = SynchronizationSecretVConsumerKey
+	_SynchronizationSecretPConsumerSecret                  = SynchronizationSecretVConsumerSecret
+	_SynchronizationSecretPTokenKey                        = SynchronizationSecretVTokenKey
+	_SynchronizationSecretPTokenExpiration                 = SynchronizationSecretVTokenExpiration
+	_SynchronizationSecretPOauth2AccessToken               = SynchronizationSecretVOauth2AccessToken
+	_SynchronizationSecretPOauth2AccessTokenCreationTime   = SynchronizationSecretVOauth2AccessTokenCreationTime
+	_SynchronizationSecretPOauth2RefreshToken              = SynchronizationSecretVOauth2RefreshToken
+	_SynchronizationSecretPSyncAll                         = SynchronizationSecretVSyncAll
+	_SynchronizationSecretPInstanceName                    = SynchronizationSecretVInstanceName
+	_SynchronizationSecretPOauth2ClientID                  = SynchronizationSecretVOauth2ClientID
+	_SynchronizationSecretPOauth2ClientSecret              = SynchronizationSecretVOauth2ClientSecret
+	_SynchronizationSecretPCompanyID                       = SynchronizationSecretVCompanyID
+	_SynchronizationSecretPUpdateKeyOnSoftDelete           = SynchronizationSecretVUpdateKeyOnSoftDelete
+	_SynchronizationSecretPSynchronizationSchedule         = SynchronizationSecretVSynchronizationSchedule
+	_SynchronizationSecretPSystemOfRecord                  = SynchronizationSecretVSystemOfRecord
+	_SynchronizationSecretPSandboxName                     = SynchronizationSecretVSandboxName
+	_SynchronizationSecretPEnforceDomain                   = SynchronizationSecretVEnforceDomain
+	_SynchronizationSecretPSyncNotificationSettings        = SynchronizationSecretVSyncNotificationSettings
+	_SynchronizationSecretPServer                          = SynchronizationSecretVServer
+	_SynchronizationSecretPPerformInboundEntitlementGrants = SynchronizationSecretVPerformInboundEntitlementGrants
+	_SynchronizationSecretPHardDeletesEnabled              = SynchronizationSecretVHardDeletesEnabled
+	_SynchronizationSecretPSyncAgentCompatibilityKey       = SynchronizationSecretVSyncAgentCompatibilityKey
+	_SynchronizationSecretPSyncAgentADContainer            = SynchronizationSecretVSyncAgentADContainer
+	_SynchronizationSecretPValidateDomain                  = SynchronizationSecretVValidateDomain
+	_SynchronizationSecretPTestReferences                  = SynchronizationSecretVTestReferences
+)

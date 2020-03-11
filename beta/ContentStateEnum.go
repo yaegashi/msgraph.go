@@ -3,31 +3,28 @@
 package msgraph
 
 // ContentState undocumented
-type ContentState int
+type ContentState string
 
 const (
 	// ContentStateVRest undocumented
-	ContentStateVRest ContentState = 0
+	ContentStateVRest ContentState = "rest"
 	// ContentStateVMotion undocumented
-	ContentStateVMotion ContentState = 1
+	ContentStateVMotion ContentState = "motion"
 	// ContentStateVUse undocumented
-	ContentStateVUse ContentState = 2
+	ContentStateVUse ContentState = "use"
 )
 
-// ContentStatePRest returns a pointer to ContentStateVRest
-func ContentStatePRest() *ContentState {
-	v := ContentStateVRest
-	return &v
-}
+var (
+	// ContentStatePRest is a pointer to ContentStateVRest
+	ContentStatePRest = &_ContentStatePRest
+	// ContentStatePMotion is a pointer to ContentStateVMotion
+	ContentStatePMotion = &_ContentStatePMotion
+	// ContentStatePUse is a pointer to ContentStateVUse
+	ContentStatePUse = &_ContentStatePUse
+)
 
-// ContentStatePMotion returns a pointer to ContentStateVMotion
-func ContentStatePMotion() *ContentState {
-	v := ContentStateVMotion
-	return &v
-}
-
-// ContentStatePUse returns a pointer to ContentStateVUse
-func ContentStatePUse() *ContentState {
-	v := ContentStateVUse
-	return &v
-}
+var (
+	_ContentStatePRest   = ContentStateVRest
+	_ContentStatePMotion = ContentStateVMotion
+	_ContentStatePUse    = ContentStateVUse
+)

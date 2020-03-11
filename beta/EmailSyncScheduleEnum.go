@@ -3,63 +3,48 @@
 package msgraph
 
 // EmailSyncSchedule undocumented
-type EmailSyncSchedule int
+type EmailSyncSchedule string
 
 const (
 	// EmailSyncScheduleVUserDefined undocumented
-	EmailSyncScheduleVUserDefined EmailSyncSchedule = 0
+	EmailSyncScheduleVUserDefined EmailSyncSchedule = "userDefined"
 	// EmailSyncScheduleVAsMessagesArrive undocumented
-	EmailSyncScheduleVAsMessagesArrive EmailSyncSchedule = 1
+	EmailSyncScheduleVAsMessagesArrive EmailSyncSchedule = "asMessagesArrive"
 	// EmailSyncScheduleVManual undocumented
-	EmailSyncScheduleVManual EmailSyncSchedule = 2
+	EmailSyncScheduleVManual EmailSyncSchedule = "manual"
 	// EmailSyncScheduleVFifteenMinutes undocumented
-	EmailSyncScheduleVFifteenMinutes EmailSyncSchedule = 3
+	EmailSyncScheduleVFifteenMinutes EmailSyncSchedule = "fifteenMinutes"
 	// EmailSyncScheduleVThirtyMinutes undocumented
-	EmailSyncScheduleVThirtyMinutes EmailSyncSchedule = 4
+	EmailSyncScheduleVThirtyMinutes EmailSyncSchedule = "thirtyMinutes"
 	// EmailSyncScheduleVSixtyMinutes undocumented
-	EmailSyncScheduleVSixtyMinutes EmailSyncSchedule = 5
+	EmailSyncScheduleVSixtyMinutes EmailSyncSchedule = "sixtyMinutes"
 	// EmailSyncScheduleVBasedOnMyUsage undocumented
-	EmailSyncScheduleVBasedOnMyUsage EmailSyncSchedule = 6
+	EmailSyncScheduleVBasedOnMyUsage EmailSyncSchedule = "basedOnMyUsage"
 )
 
-// EmailSyncSchedulePUserDefined returns a pointer to EmailSyncScheduleVUserDefined
-func EmailSyncSchedulePUserDefined() *EmailSyncSchedule {
-	v := EmailSyncScheduleVUserDefined
-	return &v
-}
+var (
+	// EmailSyncSchedulePUserDefined is a pointer to EmailSyncScheduleVUserDefined
+	EmailSyncSchedulePUserDefined = &_EmailSyncSchedulePUserDefined
+	// EmailSyncSchedulePAsMessagesArrive is a pointer to EmailSyncScheduleVAsMessagesArrive
+	EmailSyncSchedulePAsMessagesArrive = &_EmailSyncSchedulePAsMessagesArrive
+	// EmailSyncSchedulePManual is a pointer to EmailSyncScheduleVManual
+	EmailSyncSchedulePManual = &_EmailSyncSchedulePManual
+	// EmailSyncSchedulePFifteenMinutes is a pointer to EmailSyncScheduleVFifteenMinutes
+	EmailSyncSchedulePFifteenMinutes = &_EmailSyncSchedulePFifteenMinutes
+	// EmailSyncSchedulePThirtyMinutes is a pointer to EmailSyncScheduleVThirtyMinutes
+	EmailSyncSchedulePThirtyMinutes = &_EmailSyncSchedulePThirtyMinutes
+	// EmailSyncSchedulePSixtyMinutes is a pointer to EmailSyncScheduleVSixtyMinutes
+	EmailSyncSchedulePSixtyMinutes = &_EmailSyncSchedulePSixtyMinutes
+	// EmailSyncSchedulePBasedOnMyUsage is a pointer to EmailSyncScheduleVBasedOnMyUsage
+	EmailSyncSchedulePBasedOnMyUsage = &_EmailSyncSchedulePBasedOnMyUsage
+)
 
-// EmailSyncSchedulePAsMessagesArrive returns a pointer to EmailSyncScheduleVAsMessagesArrive
-func EmailSyncSchedulePAsMessagesArrive() *EmailSyncSchedule {
-	v := EmailSyncScheduleVAsMessagesArrive
-	return &v
-}
-
-// EmailSyncSchedulePManual returns a pointer to EmailSyncScheduleVManual
-func EmailSyncSchedulePManual() *EmailSyncSchedule {
-	v := EmailSyncScheduleVManual
-	return &v
-}
-
-// EmailSyncSchedulePFifteenMinutes returns a pointer to EmailSyncScheduleVFifteenMinutes
-func EmailSyncSchedulePFifteenMinutes() *EmailSyncSchedule {
-	v := EmailSyncScheduleVFifteenMinutes
-	return &v
-}
-
-// EmailSyncSchedulePThirtyMinutes returns a pointer to EmailSyncScheduleVThirtyMinutes
-func EmailSyncSchedulePThirtyMinutes() *EmailSyncSchedule {
-	v := EmailSyncScheduleVThirtyMinutes
-	return &v
-}
-
-// EmailSyncSchedulePSixtyMinutes returns a pointer to EmailSyncScheduleVSixtyMinutes
-func EmailSyncSchedulePSixtyMinutes() *EmailSyncSchedule {
-	v := EmailSyncScheduleVSixtyMinutes
-	return &v
-}
-
-// EmailSyncSchedulePBasedOnMyUsage returns a pointer to EmailSyncScheduleVBasedOnMyUsage
-func EmailSyncSchedulePBasedOnMyUsage() *EmailSyncSchedule {
-	v := EmailSyncScheduleVBasedOnMyUsage
-	return &v
-}
+var (
+	_EmailSyncSchedulePUserDefined      = EmailSyncScheduleVUserDefined
+	_EmailSyncSchedulePAsMessagesArrive = EmailSyncScheduleVAsMessagesArrive
+	_EmailSyncSchedulePManual           = EmailSyncScheduleVManual
+	_EmailSyncSchedulePFifteenMinutes   = EmailSyncScheduleVFifteenMinutes
+	_EmailSyncSchedulePThirtyMinutes    = EmailSyncScheduleVThirtyMinutes
+	_EmailSyncSchedulePSixtyMinutes     = EmailSyncScheduleVSixtyMinutes
+	_EmailSyncSchedulePBasedOnMyUsage   = EmailSyncScheduleVBasedOnMyUsage
+)

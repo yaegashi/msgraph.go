@@ -3,39 +3,33 @@
 package msgraph
 
 // InternetSiteSecurityLevel undocumented
-type InternetSiteSecurityLevel int
+type InternetSiteSecurityLevel string
 
 const (
 	// InternetSiteSecurityLevelVUserDefined undocumented
-	InternetSiteSecurityLevelVUserDefined InternetSiteSecurityLevel = 0
+	InternetSiteSecurityLevelVUserDefined InternetSiteSecurityLevel = "userDefined"
 	// InternetSiteSecurityLevelVMedium undocumented
-	InternetSiteSecurityLevelVMedium InternetSiteSecurityLevel = 1
+	InternetSiteSecurityLevelVMedium InternetSiteSecurityLevel = "medium"
 	// InternetSiteSecurityLevelVMediumHigh undocumented
-	InternetSiteSecurityLevelVMediumHigh InternetSiteSecurityLevel = 2
+	InternetSiteSecurityLevelVMediumHigh InternetSiteSecurityLevel = "mediumHigh"
 	// InternetSiteSecurityLevelVHigh undocumented
-	InternetSiteSecurityLevelVHigh InternetSiteSecurityLevel = 3
+	InternetSiteSecurityLevelVHigh InternetSiteSecurityLevel = "high"
 )
 
-// InternetSiteSecurityLevelPUserDefined returns a pointer to InternetSiteSecurityLevelVUserDefined
-func InternetSiteSecurityLevelPUserDefined() *InternetSiteSecurityLevel {
-	v := InternetSiteSecurityLevelVUserDefined
-	return &v
-}
+var (
+	// InternetSiteSecurityLevelPUserDefined is a pointer to InternetSiteSecurityLevelVUserDefined
+	InternetSiteSecurityLevelPUserDefined = &_InternetSiteSecurityLevelPUserDefined
+	// InternetSiteSecurityLevelPMedium is a pointer to InternetSiteSecurityLevelVMedium
+	InternetSiteSecurityLevelPMedium = &_InternetSiteSecurityLevelPMedium
+	// InternetSiteSecurityLevelPMediumHigh is a pointer to InternetSiteSecurityLevelVMediumHigh
+	InternetSiteSecurityLevelPMediumHigh = &_InternetSiteSecurityLevelPMediumHigh
+	// InternetSiteSecurityLevelPHigh is a pointer to InternetSiteSecurityLevelVHigh
+	InternetSiteSecurityLevelPHigh = &_InternetSiteSecurityLevelPHigh
+)
 
-// InternetSiteSecurityLevelPMedium returns a pointer to InternetSiteSecurityLevelVMedium
-func InternetSiteSecurityLevelPMedium() *InternetSiteSecurityLevel {
-	v := InternetSiteSecurityLevelVMedium
-	return &v
-}
-
-// InternetSiteSecurityLevelPMediumHigh returns a pointer to InternetSiteSecurityLevelVMediumHigh
-func InternetSiteSecurityLevelPMediumHigh() *InternetSiteSecurityLevel {
-	v := InternetSiteSecurityLevelVMediumHigh
-	return &v
-}
-
-// InternetSiteSecurityLevelPHigh returns a pointer to InternetSiteSecurityLevelVHigh
-func InternetSiteSecurityLevelPHigh() *InternetSiteSecurityLevel {
-	v := InternetSiteSecurityLevelVHigh
-	return &v
-}
+var (
+	_InternetSiteSecurityLevelPUserDefined = InternetSiteSecurityLevelVUserDefined
+	_InternetSiteSecurityLevelPMedium      = InternetSiteSecurityLevelVMedium
+	_InternetSiteSecurityLevelPMediumHigh  = InternetSiteSecurityLevelVMediumHigh
+	_InternetSiteSecurityLevelPHigh        = InternetSiteSecurityLevelVHigh
+)

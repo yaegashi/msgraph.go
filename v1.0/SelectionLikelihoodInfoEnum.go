@@ -3,23 +3,23 @@
 package msgraph
 
 // SelectionLikelihoodInfo undocumented
-type SelectionLikelihoodInfo int
+type SelectionLikelihoodInfo string
 
 const (
 	// SelectionLikelihoodInfoVNotSpecified undocumented
-	SelectionLikelihoodInfoVNotSpecified SelectionLikelihoodInfo = 0
+	SelectionLikelihoodInfoVNotSpecified SelectionLikelihoodInfo = "notSpecified"
 	// SelectionLikelihoodInfoVHigh undocumented
-	SelectionLikelihoodInfoVHigh SelectionLikelihoodInfo = 1
+	SelectionLikelihoodInfoVHigh SelectionLikelihoodInfo = "high"
 )
 
-// SelectionLikelihoodInfoPNotSpecified returns a pointer to SelectionLikelihoodInfoVNotSpecified
-func SelectionLikelihoodInfoPNotSpecified() *SelectionLikelihoodInfo {
-	v := SelectionLikelihoodInfoVNotSpecified
-	return &v
-}
+var (
+	// SelectionLikelihoodInfoPNotSpecified is a pointer to SelectionLikelihoodInfoVNotSpecified
+	SelectionLikelihoodInfoPNotSpecified = &_SelectionLikelihoodInfoPNotSpecified
+	// SelectionLikelihoodInfoPHigh is a pointer to SelectionLikelihoodInfoVHigh
+	SelectionLikelihoodInfoPHigh = &_SelectionLikelihoodInfoPHigh
+)
 
-// SelectionLikelihoodInfoPHigh returns a pointer to SelectionLikelihoodInfoVHigh
-func SelectionLikelihoodInfoPHigh() *SelectionLikelihoodInfo {
-	v := SelectionLikelihoodInfoVHigh
-	return &v
-}
+var (
+	_SelectionLikelihoodInfoPNotSpecified = SelectionLikelihoodInfoVNotSpecified
+	_SelectionLikelihoodInfoPHigh         = SelectionLikelihoodInfoVHigh
+)

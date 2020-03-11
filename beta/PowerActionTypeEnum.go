@@ -3,47 +3,38 @@
 package msgraph
 
 // PowerActionType undocumented
-type PowerActionType int
+type PowerActionType string
 
 const (
 	// PowerActionTypeVNotConfigured undocumented
-	PowerActionTypeVNotConfigured PowerActionType = 0
+	PowerActionTypeVNotConfigured PowerActionType = "notConfigured"
 	// PowerActionTypeVNoAction undocumented
-	PowerActionTypeVNoAction PowerActionType = 1
+	PowerActionTypeVNoAction PowerActionType = "noAction"
 	// PowerActionTypeVSleep undocumented
-	PowerActionTypeVSleep PowerActionType = 2
+	PowerActionTypeVSleep PowerActionType = "sleep"
 	// PowerActionTypeVHibernate undocumented
-	PowerActionTypeVHibernate PowerActionType = 3
+	PowerActionTypeVHibernate PowerActionType = "hibernate"
 	// PowerActionTypeVShutdown undocumented
-	PowerActionTypeVShutdown PowerActionType = 4
+	PowerActionTypeVShutdown PowerActionType = "shutdown"
 )
 
-// PowerActionTypePNotConfigured returns a pointer to PowerActionTypeVNotConfigured
-func PowerActionTypePNotConfigured() *PowerActionType {
-	v := PowerActionTypeVNotConfigured
-	return &v
-}
+var (
+	// PowerActionTypePNotConfigured is a pointer to PowerActionTypeVNotConfigured
+	PowerActionTypePNotConfigured = &_PowerActionTypePNotConfigured
+	// PowerActionTypePNoAction is a pointer to PowerActionTypeVNoAction
+	PowerActionTypePNoAction = &_PowerActionTypePNoAction
+	// PowerActionTypePSleep is a pointer to PowerActionTypeVSleep
+	PowerActionTypePSleep = &_PowerActionTypePSleep
+	// PowerActionTypePHibernate is a pointer to PowerActionTypeVHibernate
+	PowerActionTypePHibernate = &_PowerActionTypePHibernate
+	// PowerActionTypePShutdown is a pointer to PowerActionTypeVShutdown
+	PowerActionTypePShutdown = &_PowerActionTypePShutdown
+)
 
-// PowerActionTypePNoAction returns a pointer to PowerActionTypeVNoAction
-func PowerActionTypePNoAction() *PowerActionType {
-	v := PowerActionTypeVNoAction
-	return &v
-}
-
-// PowerActionTypePSleep returns a pointer to PowerActionTypeVSleep
-func PowerActionTypePSleep() *PowerActionType {
-	v := PowerActionTypeVSleep
-	return &v
-}
-
-// PowerActionTypePHibernate returns a pointer to PowerActionTypeVHibernate
-func PowerActionTypePHibernate() *PowerActionType {
-	v := PowerActionTypeVHibernate
-	return &v
-}
-
-// PowerActionTypePShutdown returns a pointer to PowerActionTypeVShutdown
-func PowerActionTypePShutdown() *PowerActionType {
-	v := PowerActionTypeVShutdown
-	return &v
-}
+var (
+	_PowerActionTypePNotConfigured = PowerActionTypeVNotConfigured
+	_PowerActionTypePNoAction      = PowerActionTypeVNoAction
+	_PowerActionTypePSleep         = PowerActionTypeVSleep
+	_PowerActionTypePHibernate     = PowerActionTypeVHibernate
+	_PowerActionTypePShutdown      = PowerActionTypeVShutdown
+)

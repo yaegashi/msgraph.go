@@ -3,23 +3,23 @@
 package msgraph
 
 // TimeZoneStandard undocumented
-type TimeZoneStandard int
+type TimeZoneStandard string
 
 const (
 	// TimeZoneStandardVWindows undocumented
-	TimeZoneStandardVWindows TimeZoneStandard = 0
+	TimeZoneStandardVWindows TimeZoneStandard = "windows"
 	// TimeZoneStandardVIana undocumented
-	TimeZoneStandardVIana TimeZoneStandard = 1
+	TimeZoneStandardVIana TimeZoneStandard = "iana"
 )
 
-// TimeZoneStandardPWindows returns a pointer to TimeZoneStandardVWindows
-func TimeZoneStandardPWindows() *TimeZoneStandard {
-	v := TimeZoneStandardVWindows
-	return &v
-}
+var (
+	// TimeZoneStandardPWindows is a pointer to TimeZoneStandardVWindows
+	TimeZoneStandardPWindows = &_TimeZoneStandardPWindows
+	// TimeZoneStandardPIana is a pointer to TimeZoneStandardVIana
+	TimeZoneStandardPIana = &_TimeZoneStandardPIana
+)
 
-// TimeZoneStandardPIana returns a pointer to TimeZoneStandardVIana
-func TimeZoneStandardPIana() *TimeZoneStandard {
-	v := TimeZoneStandardVIana
-	return &v
-}
+var (
+	_TimeZoneStandardPWindows = TimeZoneStandardVWindows
+	_TimeZoneStandardPIana    = TimeZoneStandardVIana
+)

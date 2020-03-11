@@ -3,31 +3,28 @@
 package msgraph
 
 // WiFiProxySetting undocumented
-type WiFiProxySetting int
+type WiFiProxySetting string
 
 const (
 	// WiFiProxySettingVNone undocumented
-	WiFiProxySettingVNone WiFiProxySetting = 0
+	WiFiProxySettingVNone WiFiProxySetting = "none"
 	// WiFiProxySettingVManual undocumented
-	WiFiProxySettingVManual WiFiProxySetting = 1
+	WiFiProxySettingVManual WiFiProxySetting = "manual"
 	// WiFiProxySettingVAutomatic undocumented
-	WiFiProxySettingVAutomatic WiFiProxySetting = 2
+	WiFiProxySettingVAutomatic WiFiProxySetting = "automatic"
 )
 
-// WiFiProxySettingPNone returns a pointer to WiFiProxySettingVNone
-func WiFiProxySettingPNone() *WiFiProxySetting {
-	v := WiFiProxySettingVNone
-	return &v
-}
+var (
+	// WiFiProxySettingPNone is a pointer to WiFiProxySettingVNone
+	WiFiProxySettingPNone = &_WiFiProxySettingPNone
+	// WiFiProxySettingPManual is a pointer to WiFiProxySettingVManual
+	WiFiProxySettingPManual = &_WiFiProxySettingPManual
+	// WiFiProxySettingPAutomatic is a pointer to WiFiProxySettingVAutomatic
+	WiFiProxySettingPAutomatic = &_WiFiProxySettingPAutomatic
+)
 
-// WiFiProxySettingPManual returns a pointer to WiFiProxySettingVManual
-func WiFiProxySettingPManual() *WiFiProxySetting {
-	v := WiFiProxySettingVManual
-	return &v
-}
-
-// WiFiProxySettingPAutomatic returns a pointer to WiFiProxySettingVAutomatic
-func WiFiProxySettingPAutomatic() *WiFiProxySetting {
-	v := WiFiProxySettingVAutomatic
-	return &v
-}
+var (
+	_WiFiProxySettingPNone      = WiFiProxySettingVNone
+	_WiFiProxySettingPManual    = WiFiProxySettingVManual
+	_WiFiProxySettingPAutomatic = WiFiProxySettingVAutomatic
+)

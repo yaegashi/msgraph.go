@@ -3,23 +3,23 @@
 package msgraph
 
 // DeviceManagementExchangeAccessRuleType undocumented
-type DeviceManagementExchangeAccessRuleType int
+type DeviceManagementExchangeAccessRuleType string
 
 const (
 	// DeviceManagementExchangeAccessRuleTypeVFamily undocumented
-	DeviceManagementExchangeAccessRuleTypeVFamily DeviceManagementExchangeAccessRuleType = 0
+	DeviceManagementExchangeAccessRuleTypeVFamily DeviceManagementExchangeAccessRuleType = "family"
 	// DeviceManagementExchangeAccessRuleTypeVModel undocumented
-	DeviceManagementExchangeAccessRuleTypeVModel DeviceManagementExchangeAccessRuleType = 1
+	DeviceManagementExchangeAccessRuleTypeVModel DeviceManagementExchangeAccessRuleType = "model"
 )
 
-// DeviceManagementExchangeAccessRuleTypePFamily returns a pointer to DeviceManagementExchangeAccessRuleTypeVFamily
-func DeviceManagementExchangeAccessRuleTypePFamily() *DeviceManagementExchangeAccessRuleType {
-	v := DeviceManagementExchangeAccessRuleTypeVFamily
-	return &v
-}
+var (
+	// DeviceManagementExchangeAccessRuleTypePFamily is a pointer to DeviceManagementExchangeAccessRuleTypeVFamily
+	DeviceManagementExchangeAccessRuleTypePFamily = &_DeviceManagementExchangeAccessRuleTypePFamily
+	// DeviceManagementExchangeAccessRuleTypePModel is a pointer to DeviceManagementExchangeAccessRuleTypeVModel
+	DeviceManagementExchangeAccessRuleTypePModel = &_DeviceManagementExchangeAccessRuleTypePModel
+)
 
-// DeviceManagementExchangeAccessRuleTypePModel returns a pointer to DeviceManagementExchangeAccessRuleTypeVModel
-func DeviceManagementExchangeAccessRuleTypePModel() *DeviceManagementExchangeAccessRuleType {
-	v := DeviceManagementExchangeAccessRuleTypeVModel
-	return &v
-}
+var (
+	_DeviceManagementExchangeAccessRuleTypePFamily = DeviceManagementExchangeAccessRuleTypeVFamily
+	_DeviceManagementExchangeAccessRuleTypePModel  = DeviceManagementExchangeAccessRuleTypeVModel
+)

@@ -3,55 +3,43 @@
 package msgraph
 
 // AndroidForWorkSyncStatus undocumented
-type AndroidForWorkSyncStatus int
+type AndroidForWorkSyncStatus string
 
 const (
 	// AndroidForWorkSyncStatusVSuccess undocumented
-	AndroidForWorkSyncStatusVSuccess AndroidForWorkSyncStatus = 0
+	AndroidForWorkSyncStatusVSuccess AndroidForWorkSyncStatus = "success"
 	// AndroidForWorkSyncStatusVCredentialsNotValid undocumented
-	AndroidForWorkSyncStatusVCredentialsNotValid AndroidForWorkSyncStatus = 1
+	AndroidForWorkSyncStatusVCredentialsNotValid AndroidForWorkSyncStatus = "credentialsNotValid"
 	// AndroidForWorkSyncStatusVAndroidForWorkAPIError undocumented
-	AndroidForWorkSyncStatusVAndroidForWorkAPIError AndroidForWorkSyncStatus = 2
+	AndroidForWorkSyncStatusVAndroidForWorkAPIError AndroidForWorkSyncStatus = "androidForWorkApiError"
 	// AndroidForWorkSyncStatusVManagementServiceError undocumented
-	AndroidForWorkSyncStatusVManagementServiceError AndroidForWorkSyncStatus = 3
+	AndroidForWorkSyncStatusVManagementServiceError AndroidForWorkSyncStatus = "managementServiceError"
 	// AndroidForWorkSyncStatusVUnknownError undocumented
-	AndroidForWorkSyncStatusVUnknownError AndroidForWorkSyncStatus = 4
+	AndroidForWorkSyncStatusVUnknownError AndroidForWorkSyncStatus = "unknownError"
 	// AndroidForWorkSyncStatusVNone undocumented
-	AndroidForWorkSyncStatusVNone AndroidForWorkSyncStatus = 5
+	AndroidForWorkSyncStatusVNone AndroidForWorkSyncStatus = "none"
 )
 
-// AndroidForWorkSyncStatusPSuccess returns a pointer to AndroidForWorkSyncStatusVSuccess
-func AndroidForWorkSyncStatusPSuccess() *AndroidForWorkSyncStatus {
-	v := AndroidForWorkSyncStatusVSuccess
-	return &v
-}
+var (
+	// AndroidForWorkSyncStatusPSuccess is a pointer to AndroidForWorkSyncStatusVSuccess
+	AndroidForWorkSyncStatusPSuccess = &_AndroidForWorkSyncStatusPSuccess
+	// AndroidForWorkSyncStatusPCredentialsNotValid is a pointer to AndroidForWorkSyncStatusVCredentialsNotValid
+	AndroidForWorkSyncStatusPCredentialsNotValid = &_AndroidForWorkSyncStatusPCredentialsNotValid
+	// AndroidForWorkSyncStatusPAndroidForWorkAPIError is a pointer to AndroidForWorkSyncStatusVAndroidForWorkAPIError
+	AndroidForWorkSyncStatusPAndroidForWorkAPIError = &_AndroidForWorkSyncStatusPAndroidForWorkAPIError
+	// AndroidForWorkSyncStatusPManagementServiceError is a pointer to AndroidForWorkSyncStatusVManagementServiceError
+	AndroidForWorkSyncStatusPManagementServiceError = &_AndroidForWorkSyncStatusPManagementServiceError
+	// AndroidForWorkSyncStatusPUnknownError is a pointer to AndroidForWorkSyncStatusVUnknownError
+	AndroidForWorkSyncStatusPUnknownError = &_AndroidForWorkSyncStatusPUnknownError
+	// AndroidForWorkSyncStatusPNone is a pointer to AndroidForWorkSyncStatusVNone
+	AndroidForWorkSyncStatusPNone = &_AndroidForWorkSyncStatusPNone
+)
 
-// AndroidForWorkSyncStatusPCredentialsNotValid returns a pointer to AndroidForWorkSyncStatusVCredentialsNotValid
-func AndroidForWorkSyncStatusPCredentialsNotValid() *AndroidForWorkSyncStatus {
-	v := AndroidForWorkSyncStatusVCredentialsNotValid
-	return &v
-}
-
-// AndroidForWorkSyncStatusPAndroidForWorkAPIError returns a pointer to AndroidForWorkSyncStatusVAndroidForWorkAPIError
-func AndroidForWorkSyncStatusPAndroidForWorkAPIError() *AndroidForWorkSyncStatus {
-	v := AndroidForWorkSyncStatusVAndroidForWorkAPIError
-	return &v
-}
-
-// AndroidForWorkSyncStatusPManagementServiceError returns a pointer to AndroidForWorkSyncStatusVManagementServiceError
-func AndroidForWorkSyncStatusPManagementServiceError() *AndroidForWorkSyncStatus {
-	v := AndroidForWorkSyncStatusVManagementServiceError
-	return &v
-}
-
-// AndroidForWorkSyncStatusPUnknownError returns a pointer to AndroidForWorkSyncStatusVUnknownError
-func AndroidForWorkSyncStatusPUnknownError() *AndroidForWorkSyncStatus {
-	v := AndroidForWorkSyncStatusVUnknownError
-	return &v
-}
-
-// AndroidForWorkSyncStatusPNone returns a pointer to AndroidForWorkSyncStatusVNone
-func AndroidForWorkSyncStatusPNone() *AndroidForWorkSyncStatus {
-	v := AndroidForWorkSyncStatusVNone
-	return &v
-}
+var (
+	_AndroidForWorkSyncStatusPSuccess                = AndroidForWorkSyncStatusVSuccess
+	_AndroidForWorkSyncStatusPCredentialsNotValid    = AndroidForWorkSyncStatusVCredentialsNotValid
+	_AndroidForWorkSyncStatusPAndroidForWorkAPIError = AndroidForWorkSyncStatusVAndroidForWorkAPIError
+	_AndroidForWorkSyncStatusPManagementServiceError = AndroidForWorkSyncStatusVManagementServiceError
+	_AndroidForWorkSyncStatusPUnknownError           = AndroidForWorkSyncStatusVUnknownError
+	_AndroidForWorkSyncStatusPNone                   = AndroidForWorkSyncStatusVNone
+)

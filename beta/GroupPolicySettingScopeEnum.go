@@ -3,31 +3,28 @@
 package msgraph
 
 // GroupPolicySettingScope undocumented
-type GroupPolicySettingScope int
+type GroupPolicySettingScope string
 
 const (
 	// GroupPolicySettingScopeVUnknown undocumented
-	GroupPolicySettingScopeVUnknown GroupPolicySettingScope = 0
+	GroupPolicySettingScopeVUnknown GroupPolicySettingScope = "unknown"
 	// GroupPolicySettingScopeVDevice undocumented
-	GroupPolicySettingScopeVDevice GroupPolicySettingScope = 1
+	GroupPolicySettingScopeVDevice GroupPolicySettingScope = "device"
 	// GroupPolicySettingScopeVUser undocumented
-	GroupPolicySettingScopeVUser GroupPolicySettingScope = 2
+	GroupPolicySettingScopeVUser GroupPolicySettingScope = "user"
 )
 
-// GroupPolicySettingScopePUnknown returns a pointer to GroupPolicySettingScopeVUnknown
-func GroupPolicySettingScopePUnknown() *GroupPolicySettingScope {
-	v := GroupPolicySettingScopeVUnknown
-	return &v
-}
+var (
+	// GroupPolicySettingScopePUnknown is a pointer to GroupPolicySettingScopeVUnknown
+	GroupPolicySettingScopePUnknown = &_GroupPolicySettingScopePUnknown
+	// GroupPolicySettingScopePDevice is a pointer to GroupPolicySettingScopeVDevice
+	GroupPolicySettingScopePDevice = &_GroupPolicySettingScopePDevice
+	// GroupPolicySettingScopePUser is a pointer to GroupPolicySettingScopeVUser
+	GroupPolicySettingScopePUser = &_GroupPolicySettingScopePUser
+)
 
-// GroupPolicySettingScopePDevice returns a pointer to GroupPolicySettingScopeVDevice
-func GroupPolicySettingScopePDevice() *GroupPolicySettingScope {
-	v := GroupPolicySettingScopeVDevice
-	return &v
-}
-
-// GroupPolicySettingScopePUser returns a pointer to GroupPolicySettingScopeVUser
-func GroupPolicySettingScopePUser() *GroupPolicySettingScope {
-	v := GroupPolicySettingScopeVUser
-	return &v
-}
+var (
+	_GroupPolicySettingScopePUnknown = GroupPolicySettingScopeVUnknown
+	_GroupPolicySettingScopePDevice  = GroupPolicySettingScopeVDevice
+	_GroupPolicySettingScopePUser    = GroupPolicySettingScopeVUser
+)

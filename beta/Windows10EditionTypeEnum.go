@@ -3,167 +3,113 @@
 package msgraph
 
 // Windows10EditionType undocumented
-type Windows10EditionType int
+type Windows10EditionType string
 
 const (
 	// Windows10EditionTypeVWindows10Enterprise undocumented
-	Windows10EditionTypeVWindows10Enterprise Windows10EditionType = 0
+	Windows10EditionTypeVWindows10Enterprise Windows10EditionType = "windows10Enterprise"
 	// Windows10EditionTypeVWindows10EnterpriseN undocumented
-	Windows10EditionTypeVWindows10EnterpriseN Windows10EditionType = 1
+	Windows10EditionTypeVWindows10EnterpriseN Windows10EditionType = "windows10EnterpriseN"
 	// Windows10EditionTypeVWindows10Education undocumented
-	Windows10EditionTypeVWindows10Education Windows10EditionType = 2
+	Windows10EditionTypeVWindows10Education Windows10EditionType = "windows10Education"
 	// Windows10EditionTypeVWindows10EducationN undocumented
-	Windows10EditionTypeVWindows10EducationN Windows10EditionType = 3
+	Windows10EditionTypeVWindows10EducationN Windows10EditionType = "windows10EducationN"
 	// Windows10EditionTypeVWindows10MobileEnterprise undocumented
-	Windows10EditionTypeVWindows10MobileEnterprise Windows10EditionType = 4
+	Windows10EditionTypeVWindows10MobileEnterprise Windows10EditionType = "windows10MobileEnterprise"
 	// Windows10EditionTypeVWindows10HolographicEnterprise undocumented
-	Windows10EditionTypeVWindows10HolographicEnterprise Windows10EditionType = 5
+	Windows10EditionTypeVWindows10HolographicEnterprise Windows10EditionType = "windows10HolographicEnterprise"
 	// Windows10EditionTypeVWindows10Professional undocumented
-	Windows10EditionTypeVWindows10Professional Windows10EditionType = 6
+	Windows10EditionTypeVWindows10Professional Windows10EditionType = "windows10Professional"
 	// Windows10EditionTypeVWindows10ProfessionalN undocumented
-	Windows10EditionTypeVWindows10ProfessionalN Windows10EditionType = 7
+	Windows10EditionTypeVWindows10ProfessionalN Windows10EditionType = "windows10ProfessionalN"
 	// Windows10EditionTypeVWindows10ProfessionalEducation undocumented
-	Windows10EditionTypeVWindows10ProfessionalEducation Windows10EditionType = 8
+	Windows10EditionTypeVWindows10ProfessionalEducation Windows10EditionType = "windows10ProfessionalEducation"
 	// Windows10EditionTypeVWindows10ProfessionalEducationN undocumented
-	Windows10EditionTypeVWindows10ProfessionalEducationN Windows10EditionType = 9
+	Windows10EditionTypeVWindows10ProfessionalEducationN Windows10EditionType = "windows10ProfessionalEducationN"
 	// Windows10EditionTypeVWindows10ProfessionalWorkstation undocumented
-	Windows10EditionTypeVWindows10ProfessionalWorkstation Windows10EditionType = 10
+	Windows10EditionTypeVWindows10ProfessionalWorkstation Windows10EditionType = "windows10ProfessionalWorkstation"
 	// Windows10EditionTypeVWindows10ProfessionalWorkstationN undocumented
-	Windows10EditionTypeVWindows10ProfessionalWorkstationN Windows10EditionType = 11
+	Windows10EditionTypeVWindows10ProfessionalWorkstationN Windows10EditionType = "windows10ProfessionalWorkstationN"
 	// Windows10EditionTypeVNotConfigured undocumented
-	Windows10EditionTypeVNotConfigured Windows10EditionType = 12
+	Windows10EditionTypeVNotConfigured Windows10EditionType = "notConfigured"
 	// Windows10EditionTypeVWindows10Home undocumented
-	Windows10EditionTypeVWindows10Home Windows10EditionType = 13
+	Windows10EditionTypeVWindows10Home Windows10EditionType = "windows10Home"
 	// Windows10EditionTypeVWindows10HomeChina undocumented
-	Windows10EditionTypeVWindows10HomeChina Windows10EditionType = 14
+	Windows10EditionTypeVWindows10HomeChina Windows10EditionType = "windows10HomeChina"
 	// Windows10EditionTypeVWindows10HomeN undocumented
-	Windows10EditionTypeVWindows10HomeN Windows10EditionType = 15
+	Windows10EditionTypeVWindows10HomeN Windows10EditionType = "windows10HomeN"
 	// Windows10EditionTypeVWindows10HomeSingleLanguage undocumented
-	Windows10EditionTypeVWindows10HomeSingleLanguage Windows10EditionType = 16
+	Windows10EditionTypeVWindows10HomeSingleLanguage Windows10EditionType = "windows10HomeSingleLanguage"
 	// Windows10EditionTypeVWindows10Mobile undocumented
-	Windows10EditionTypeVWindows10Mobile Windows10EditionType = 17
+	Windows10EditionTypeVWindows10Mobile Windows10EditionType = "windows10Mobile"
 	// Windows10EditionTypeVWindows10IoTCore undocumented
-	Windows10EditionTypeVWindows10IoTCore Windows10EditionType = 18
+	Windows10EditionTypeVWindows10IoTCore Windows10EditionType = "windows10IoTCore"
 	// Windows10EditionTypeVWindows10IoTCoreCommercial undocumented
-	Windows10EditionTypeVWindows10IoTCoreCommercial Windows10EditionType = 19
+	Windows10EditionTypeVWindows10IoTCoreCommercial Windows10EditionType = "windows10IoTCoreCommercial"
 )
 
-// Windows10EditionTypePWindows10Enterprise returns a pointer to Windows10EditionTypeVWindows10Enterprise
-func Windows10EditionTypePWindows10Enterprise() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10Enterprise
-	return &v
-}
+var (
+	// Windows10EditionTypePWindows10Enterprise is a pointer to Windows10EditionTypeVWindows10Enterprise
+	Windows10EditionTypePWindows10Enterprise = &_Windows10EditionTypePWindows10Enterprise
+	// Windows10EditionTypePWindows10EnterpriseN is a pointer to Windows10EditionTypeVWindows10EnterpriseN
+	Windows10EditionTypePWindows10EnterpriseN = &_Windows10EditionTypePWindows10EnterpriseN
+	// Windows10EditionTypePWindows10Education is a pointer to Windows10EditionTypeVWindows10Education
+	Windows10EditionTypePWindows10Education = &_Windows10EditionTypePWindows10Education
+	// Windows10EditionTypePWindows10EducationN is a pointer to Windows10EditionTypeVWindows10EducationN
+	Windows10EditionTypePWindows10EducationN = &_Windows10EditionTypePWindows10EducationN
+	// Windows10EditionTypePWindows10MobileEnterprise is a pointer to Windows10EditionTypeVWindows10MobileEnterprise
+	Windows10EditionTypePWindows10MobileEnterprise = &_Windows10EditionTypePWindows10MobileEnterprise
+	// Windows10EditionTypePWindows10HolographicEnterprise is a pointer to Windows10EditionTypeVWindows10HolographicEnterprise
+	Windows10EditionTypePWindows10HolographicEnterprise = &_Windows10EditionTypePWindows10HolographicEnterprise
+	// Windows10EditionTypePWindows10Professional is a pointer to Windows10EditionTypeVWindows10Professional
+	Windows10EditionTypePWindows10Professional = &_Windows10EditionTypePWindows10Professional
+	// Windows10EditionTypePWindows10ProfessionalN is a pointer to Windows10EditionTypeVWindows10ProfessionalN
+	Windows10EditionTypePWindows10ProfessionalN = &_Windows10EditionTypePWindows10ProfessionalN
+	// Windows10EditionTypePWindows10ProfessionalEducation is a pointer to Windows10EditionTypeVWindows10ProfessionalEducation
+	Windows10EditionTypePWindows10ProfessionalEducation = &_Windows10EditionTypePWindows10ProfessionalEducation
+	// Windows10EditionTypePWindows10ProfessionalEducationN is a pointer to Windows10EditionTypeVWindows10ProfessionalEducationN
+	Windows10EditionTypePWindows10ProfessionalEducationN = &_Windows10EditionTypePWindows10ProfessionalEducationN
+	// Windows10EditionTypePWindows10ProfessionalWorkstation is a pointer to Windows10EditionTypeVWindows10ProfessionalWorkstation
+	Windows10EditionTypePWindows10ProfessionalWorkstation = &_Windows10EditionTypePWindows10ProfessionalWorkstation
+	// Windows10EditionTypePWindows10ProfessionalWorkstationN is a pointer to Windows10EditionTypeVWindows10ProfessionalWorkstationN
+	Windows10EditionTypePWindows10ProfessionalWorkstationN = &_Windows10EditionTypePWindows10ProfessionalWorkstationN
+	// Windows10EditionTypePNotConfigured is a pointer to Windows10EditionTypeVNotConfigured
+	Windows10EditionTypePNotConfigured = &_Windows10EditionTypePNotConfigured
+	// Windows10EditionTypePWindows10Home is a pointer to Windows10EditionTypeVWindows10Home
+	Windows10EditionTypePWindows10Home = &_Windows10EditionTypePWindows10Home
+	// Windows10EditionTypePWindows10HomeChina is a pointer to Windows10EditionTypeVWindows10HomeChina
+	Windows10EditionTypePWindows10HomeChina = &_Windows10EditionTypePWindows10HomeChina
+	// Windows10EditionTypePWindows10HomeN is a pointer to Windows10EditionTypeVWindows10HomeN
+	Windows10EditionTypePWindows10HomeN = &_Windows10EditionTypePWindows10HomeN
+	// Windows10EditionTypePWindows10HomeSingleLanguage is a pointer to Windows10EditionTypeVWindows10HomeSingleLanguage
+	Windows10EditionTypePWindows10HomeSingleLanguage = &_Windows10EditionTypePWindows10HomeSingleLanguage
+	// Windows10EditionTypePWindows10Mobile is a pointer to Windows10EditionTypeVWindows10Mobile
+	Windows10EditionTypePWindows10Mobile = &_Windows10EditionTypePWindows10Mobile
+	// Windows10EditionTypePWindows10IoTCore is a pointer to Windows10EditionTypeVWindows10IoTCore
+	Windows10EditionTypePWindows10IoTCore = &_Windows10EditionTypePWindows10IoTCore
+	// Windows10EditionTypePWindows10IoTCoreCommercial is a pointer to Windows10EditionTypeVWindows10IoTCoreCommercial
+	Windows10EditionTypePWindows10IoTCoreCommercial = &_Windows10EditionTypePWindows10IoTCoreCommercial
+)
 
-// Windows10EditionTypePWindows10EnterpriseN returns a pointer to Windows10EditionTypeVWindows10EnterpriseN
-func Windows10EditionTypePWindows10EnterpriseN() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10EnterpriseN
-	return &v
-}
-
-// Windows10EditionTypePWindows10Education returns a pointer to Windows10EditionTypeVWindows10Education
-func Windows10EditionTypePWindows10Education() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10Education
-	return &v
-}
-
-// Windows10EditionTypePWindows10EducationN returns a pointer to Windows10EditionTypeVWindows10EducationN
-func Windows10EditionTypePWindows10EducationN() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10EducationN
-	return &v
-}
-
-// Windows10EditionTypePWindows10MobileEnterprise returns a pointer to Windows10EditionTypeVWindows10MobileEnterprise
-func Windows10EditionTypePWindows10MobileEnterprise() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10MobileEnterprise
-	return &v
-}
-
-// Windows10EditionTypePWindows10HolographicEnterprise returns a pointer to Windows10EditionTypeVWindows10HolographicEnterprise
-func Windows10EditionTypePWindows10HolographicEnterprise() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10HolographicEnterprise
-	return &v
-}
-
-// Windows10EditionTypePWindows10Professional returns a pointer to Windows10EditionTypeVWindows10Professional
-func Windows10EditionTypePWindows10Professional() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10Professional
-	return &v
-}
-
-// Windows10EditionTypePWindows10ProfessionalN returns a pointer to Windows10EditionTypeVWindows10ProfessionalN
-func Windows10EditionTypePWindows10ProfessionalN() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10ProfessionalN
-	return &v
-}
-
-// Windows10EditionTypePWindows10ProfessionalEducation returns a pointer to Windows10EditionTypeVWindows10ProfessionalEducation
-func Windows10EditionTypePWindows10ProfessionalEducation() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10ProfessionalEducation
-	return &v
-}
-
-// Windows10EditionTypePWindows10ProfessionalEducationN returns a pointer to Windows10EditionTypeVWindows10ProfessionalEducationN
-func Windows10EditionTypePWindows10ProfessionalEducationN() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10ProfessionalEducationN
-	return &v
-}
-
-// Windows10EditionTypePWindows10ProfessionalWorkstation returns a pointer to Windows10EditionTypeVWindows10ProfessionalWorkstation
-func Windows10EditionTypePWindows10ProfessionalWorkstation() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10ProfessionalWorkstation
-	return &v
-}
-
-// Windows10EditionTypePWindows10ProfessionalWorkstationN returns a pointer to Windows10EditionTypeVWindows10ProfessionalWorkstationN
-func Windows10EditionTypePWindows10ProfessionalWorkstationN() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10ProfessionalWorkstationN
-	return &v
-}
-
-// Windows10EditionTypePNotConfigured returns a pointer to Windows10EditionTypeVNotConfigured
-func Windows10EditionTypePNotConfigured() *Windows10EditionType {
-	v := Windows10EditionTypeVNotConfigured
-	return &v
-}
-
-// Windows10EditionTypePWindows10Home returns a pointer to Windows10EditionTypeVWindows10Home
-func Windows10EditionTypePWindows10Home() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10Home
-	return &v
-}
-
-// Windows10EditionTypePWindows10HomeChina returns a pointer to Windows10EditionTypeVWindows10HomeChina
-func Windows10EditionTypePWindows10HomeChina() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10HomeChina
-	return &v
-}
-
-// Windows10EditionTypePWindows10HomeN returns a pointer to Windows10EditionTypeVWindows10HomeN
-func Windows10EditionTypePWindows10HomeN() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10HomeN
-	return &v
-}
-
-// Windows10EditionTypePWindows10HomeSingleLanguage returns a pointer to Windows10EditionTypeVWindows10HomeSingleLanguage
-func Windows10EditionTypePWindows10HomeSingleLanguage() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10HomeSingleLanguage
-	return &v
-}
-
-// Windows10EditionTypePWindows10Mobile returns a pointer to Windows10EditionTypeVWindows10Mobile
-func Windows10EditionTypePWindows10Mobile() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10Mobile
-	return &v
-}
-
-// Windows10EditionTypePWindows10IoTCore returns a pointer to Windows10EditionTypeVWindows10IoTCore
-func Windows10EditionTypePWindows10IoTCore() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10IoTCore
-	return &v
-}
-
-// Windows10EditionTypePWindows10IoTCoreCommercial returns a pointer to Windows10EditionTypeVWindows10IoTCoreCommercial
-func Windows10EditionTypePWindows10IoTCoreCommercial() *Windows10EditionType {
-	v := Windows10EditionTypeVWindows10IoTCoreCommercial
-	return &v
-}
+var (
+	_Windows10EditionTypePWindows10Enterprise               = Windows10EditionTypeVWindows10Enterprise
+	_Windows10EditionTypePWindows10EnterpriseN              = Windows10EditionTypeVWindows10EnterpriseN
+	_Windows10EditionTypePWindows10Education                = Windows10EditionTypeVWindows10Education
+	_Windows10EditionTypePWindows10EducationN               = Windows10EditionTypeVWindows10EducationN
+	_Windows10EditionTypePWindows10MobileEnterprise         = Windows10EditionTypeVWindows10MobileEnterprise
+	_Windows10EditionTypePWindows10HolographicEnterprise    = Windows10EditionTypeVWindows10HolographicEnterprise
+	_Windows10EditionTypePWindows10Professional             = Windows10EditionTypeVWindows10Professional
+	_Windows10EditionTypePWindows10ProfessionalN            = Windows10EditionTypeVWindows10ProfessionalN
+	_Windows10EditionTypePWindows10ProfessionalEducation    = Windows10EditionTypeVWindows10ProfessionalEducation
+	_Windows10EditionTypePWindows10ProfessionalEducationN   = Windows10EditionTypeVWindows10ProfessionalEducationN
+	_Windows10EditionTypePWindows10ProfessionalWorkstation  = Windows10EditionTypeVWindows10ProfessionalWorkstation
+	_Windows10EditionTypePWindows10ProfessionalWorkstationN = Windows10EditionTypeVWindows10ProfessionalWorkstationN
+	_Windows10EditionTypePNotConfigured                     = Windows10EditionTypeVNotConfigured
+	_Windows10EditionTypePWindows10Home                     = Windows10EditionTypeVWindows10Home
+	_Windows10EditionTypePWindows10HomeChina                = Windows10EditionTypeVWindows10HomeChina
+	_Windows10EditionTypePWindows10HomeN                    = Windows10EditionTypeVWindows10HomeN
+	_Windows10EditionTypePWindows10HomeSingleLanguage       = Windows10EditionTypeVWindows10HomeSingleLanguage
+	_Windows10EditionTypePWindows10Mobile                   = Windows10EditionTypeVWindows10Mobile
+	_Windows10EditionTypePWindows10IoTCore                  = Windows10EditionTypeVWindows10IoTCore
+	_Windows10EditionTypePWindows10IoTCoreCommercial        = Windows10EditionTypeVWindows10IoTCoreCommercial
+)

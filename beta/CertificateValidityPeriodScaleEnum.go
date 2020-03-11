@@ -3,31 +3,28 @@
 package msgraph
 
 // CertificateValidityPeriodScale undocumented
-type CertificateValidityPeriodScale int
+type CertificateValidityPeriodScale string
 
 const (
 	// CertificateValidityPeriodScaleVDays undocumented
-	CertificateValidityPeriodScaleVDays CertificateValidityPeriodScale = 0
+	CertificateValidityPeriodScaleVDays CertificateValidityPeriodScale = "days"
 	// CertificateValidityPeriodScaleVMonths undocumented
-	CertificateValidityPeriodScaleVMonths CertificateValidityPeriodScale = 1
+	CertificateValidityPeriodScaleVMonths CertificateValidityPeriodScale = "months"
 	// CertificateValidityPeriodScaleVYears undocumented
-	CertificateValidityPeriodScaleVYears CertificateValidityPeriodScale = 2
+	CertificateValidityPeriodScaleVYears CertificateValidityPeriodScale = "years"
 )
 
-// CertificateValidityPeriodScalePDays returns a pointer to CertificateValidityPeriodScaleVDays
-func CertificateValidityPeriodScalePDays() *CertificateValidityPeriodScale {
-	v := CertificateValidityPeriodScaleVDays
-	return &v
-}
+var (
+	// CertificateValidityPeriodScalePDays is a pointer to CertificateValidityPeriodScaleVDays
+	CertificateValidityPeriodScalePDays = &_CertificateValidityPeriodScalePDays
+	// CertificateValidityPeriodScalePMonths is a pointer to CertificateValidityPeriodScaleVMonths
+	CertificateValidityPeriodScalePMonths = &_CertificateValidityPeriodScalePMonths
+	// CertificateValidityPeriodScalePYears is a pointer to CertificateValidityPeriodScaleVYears
+	CertificateValidityPeriodScalePYears = &_CertificateValidityPeriodScalePYears
+)
 
-// CertificateValidityPeriodScalePMonths returns a pointer to CertificateValidityPeriodScaleVMonths
-func CertificateValidityPeriodScalePMonths() *CertificateValidityPeriodScale {
-	v := CertificateValidityPeriodScaleVMonths
-	return &v
-}
-
-// CertificateValidityPeriodScalePYears returns a pointer to CertificateValidityPeriodScaleVYears
-func CertificateValidityPeriodScalePYears() *CertificateValidityPeriodScale {
-	v := CertificateValidityPeriodScaleVYears
-	return &v
-}
+var (
+	_CertificateValidityPeriodScalePDays   = CertificateValidityPeriodScaleVDays
+	_CertificateValidityPeriodScalePMonths = CertificateValidityPeriodScaleVMonths
+	_CertificateValidityPeriodScalePYears  = CertificateValidityPeriodScaleVYears
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // MacOSGatekeeperAppSources undocumented
-type MacOSGatekeeperAppSources int
+type MacOSGatekeeperAppSources string
 
 const (
 	// MacOSGatekeeperAppSourcesVNotConfigured undocumented
-	MacOSGatekeeperAppSourcesVNotConfigured MacOSGatekeeperAppSources = 0
+	MacOSGatekeeperAppSourcesVNotConfigured MacOSGatekeeperAppSources = "notConfigured"
 	// MacOSGatekeeperAppSourcesVMacAppStore undocumented
-	MacOSGatekeeperAppSourcesVMacAppStore MacOSGatekeeperAppSources = 1
+	MacOSGatekeeperAppSourcesVMacAppStore MacOSGatekeeperAppSources = "macAppStore"
 	// MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers undocumented
-	MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers MacOSGatekeeperAppSources = 2
+	MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers MacOSGatekeeperAppSources = "macAppStoreAndIdentifiedDevelopers"
 	// MacOSGatekeeperAppSourcesVAnywhere undocumented
-	MacOSGatekeeperAppSourcesVAnywhere MacOSGatekeeperAppSources = 3
+	MacOSGatekeeperAppSourcesVAnywhere MacOSGatekeeperAppSources = "anywhere"
 )
 
-// MacOSGatekeeperAppSourcesPNotConfigured returns a pointer to MacOSGatekeeperAppSourcesVNotConfigured
-func MacOSGatekeeperAppSourcesPNotConfigured() *MacOSGatekeeperAppSources {
-	v := MacOSGatekeeperAppSourcesVNotConfigured
-	return &v
-}
+var (
+	// MacOSGatekeeperAppSourcesPNotConfigured is a pointer to MacOSGatekeeperAppSourcesVNotConfigured
+	MacOSGatekeeperAppSourcesPNotConfigured = &_MacOSGatekeeperAppSourcesPNotConfigured
+	// MacOSGatekeeperAppSourcesPMacAppStore is a pointer to MacOSGatekeeperAppSourcesVMacAppStore
+	MacOSGatekeeperAppSourcesPMacAppStore = &_MacOSGatekeeperAppSourcesPMacAppStore
+	// MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers is a pointer to MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers
+	MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers = &_MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers
+	// MacOSGatekeeperAppSourcesPAnywhere is a pointer to MacOSGatekeeperAppSourcesVAnywhere
+	MacOSGatekeeperAppSourcesPAnywhere = &_MacOSGatekeeperAppSourcesPAnywhere
+)
 
-// MacOSGatekeeperAppSourcesPMacAppStore returns a pointer to MacOSGatekeeperAppSourcesVMacAppStore
-func MacOSGatekeeperAppSourcesPMacAppStore() *MacOSGatekeeperAppSources {
-	v := MacOSGatekeeperAppSourcesVMacAppStore
-	return &v
-}
-
-// MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers returns a pointer to MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers
-func MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers() *MacOSGatekeeperAppSources {
-	v := MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers
-	return &v
-}
-
-// MacOSGatekeeperAppSourcesPAnywhere returns a pointer to MacOSGatekeeperAppSourcesVAnywhere
-func MacOSGatekeeperAppSourcesPAnywhere() *MacOSGatekeeperAppSources {
-	v := MacOSGatekeeperAppSourcesVAnywhere
-	return &v
-}
+var (
+	_MacOSGatekeeperAppSourcesPNotConfigured                      = MacOSGatekeeperAppSourcesVNotConfigured
+	_MacOSGatekeeperAppSourcesPMacAppStore                        = MacOSGatekeeperAppSourcesVMacAppStore
+	_MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers = MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers
+	_MacOSGatekeeperAppSourcesPAnywhere                           = MacOSGatekeeperAppSourcesVAnywhere
+)

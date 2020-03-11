@@ -3,47 +3,38 @@
 package msgraph
 
 // FirewallPacketQueueingMethodType undocumented
-type FirewallPacketQueueingMethodType int
+type FirewallPacketQueueingMethodType string
 
 const (
 	// FirewallPacketQueueingMethodTypeVDeviceDefault undocumented
-	FirewallPacketQueueingMethodTypeVDeviceDefault FirewallPacketQueueingMethodType = 0
+	FirewallPacketQueueingMethodTypeVDeviceDefault FirewallPacketQueueingMethodType = "deviceDefault"
 	// FirewallPacketQueueingMethodTypeVDisabled undocumented
-	FirewallPacketQueueingMethodTypeVDisabled FirewallPacketQueueingMethodType = 1
+	FirewallPacketQueueingMethodTypeVDisabled FirewallPacketQueueingMethodType = "disabled"
 	// FirewallPacketQueueingMethodTypeVQueueInbound undocumented
-	FirewallPacketQueueingMethodTypeVQueueInbound FirewallPacketQueueingMethodType = 2
+	FirewallPacketQueueingMethodTypeVQueueInbound FirewallPacketQueueingMethodType = "queueInbound"
 	// FirewallPacketQueueingMethodTypeVQueueOutbound undocumented
-	FirewallPacketQueueingMethodTypeVQueueOutbound FirewallPacketQueueingMethodType = 3
+	FirewallPacketQueueingMethodTypeVQueueOutbound FirewallPacketQueueingMethodType = "queueOutbound"
 	// FirewallPacketQueueingMethodTypeVQueueBoth undocumented
-	FirewallPacketQueueingMethodTypeVQueueBoth FirewallPacketQueueingMethodType = 4
+	FirewallPacketQueueingMethodTypeVQueueBoth FirewallPacketQueueingMethodType = "queueBoth"
 )
 
-// FirewallPacketQueueingMethodTypePDeviceDefault returns a pointer to FirewallPacketQueueingMethodTypeVDeviceDefault
-func FirewallPacketQueueingMethodTypePDeviceDefault() *FirewallPacketQueueingMethodType {
-	v := FirewallPacketQueueingMethodTypeVDeviceDefault
-	return &v
-}
+var (
+	// FirewallPacketQueueingMethodTypePDeviceDefault is a pointer to FirewallPacketQueueingMethodTypeVDeviceDefault
+	FirewallPacketQueueingMethodTypePDeviceDefault = &_FirewallPacketQueueingMethodTypePDeviceDefault
+	// FirewallPacketQueueingMethodTypePDisabled is a pointer to FirewallPacketQueueingMethodTypeVDisabled
+	FirewallPacketQueueingMethodTypePDisabled = &_FirewallPacketQueueingMethodTypePDisabled
+	// FirewallPacketQueueingMethodTypePQueueInbound is a pointer to FirewallPacketQueueingMethodTypeVQueueInbound
+	FirewallPacketQueueingMethodTypePQueueInbound = &_FirewallPacketQueueingMethodTypePQueueInbound
+	// FirewallPacketQueueingMethodTypePQueueOutbound is a pointer to FirewallPacketQueueingMethodTypeVQueueOutbound
+	FirewallPacketQueueingMethodTypePQueueOutbound = &_FirewallPacketQueueingMethodTypePQueueOutbound
+	// FirewallPacketQueueingMethodTypePQueueBoth is a pointer to FirewallPacketQueueingMethodTypeVQueueBoth
+	FirewallPacketQueueingMethodTypePQueueBoth = &_FirewallPacketQueueingMethodTypePQueueBoth
+)
 
-// FirewallPacketQueueingMethodTypePDisabled returns a pointer to FirewallPacketQueueingMethodTypeVDisabled
-func FirewallPacketQueueingMethodTypePDisabled() *FirewallPacketQueueingMethodType {
-	v := FirewallPacketQueueingMethodTypeVDisabled
-	return &v
-}
-
-// FirewallPacketQueueingMethodTypePQueueInbound returns a pointer to FirewallPacketQueueingMethodTypeVQueueInbound
-func FirewallPacketQueueingMethodTypePQueueInbound() *FirewallPacketQueueingMethodType {
-	v := FirewallPacketQueueingMethodTypeVQueueInbound
-	return &v
-}
-
-// FirewallPacketQueueingMethodTypePQueueOutbound returns a pointer to FirewallPacketQueueingMethodTypeVQueueOutbound
-func FirewallPacketQueueingMethodTypePQueueOutbound() *FirewallPacketQueueingMethodType {
-	v := FirewallPacketQueueingMethodTypeVQueueOutbound
-	return &v
-}
-
-// FirewallPacketQueueingMethodTypePQueueBoth returns a pointer to FirewallPacketQueueingMethodTypeVQueueBoth
-func FirewallPacketQueueingMethodTypePQueueBoth() *FirewallPacketQueueingMethodType {
-	v := FirewallPacketQueueingMethodTypeVQueueBoth
-	return &v
-}
+var (
+	_FirewallPacketQueueingMethodTypePDeviceDefault = FirewallPacketQueueingMethodTypeVDeviceDefault
+	_FirewallPacketQueueingMethodTypePDisabled      = FirewallPacketQueueingMethodTypeVDisabled
+	_FirewallPacketQueueingMethodTypePQueueInbound  = FirewallPacketQueueingMethodTypeVQueueInbound
+	_FirewallPacketQueueingMethodTypePQueueOutbound = FirewallPacketQueueingMethodTypeVQueueOutbound
+	_FirewallPacketQueueingMethodTypePQueueBoth     = FirewallPacketQueueingMethodTypeVQueueBoth
+)

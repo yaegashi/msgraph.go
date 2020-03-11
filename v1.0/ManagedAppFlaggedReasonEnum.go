@@ -3,23 +3,23 @@
 package msgraph
 
 // ManagedAppFlaggedReason undocumented
-type ManagedAppFlaggedReason int
+type ManagedAppFlaggedReason string
 
 const (
 	// ManagedAppFlaggedReasonVNone undocumented
-	ManagedAppFlaggedReasonVNone ManagedAppFlaggedReason = 0
+	ManagedAppFlaggedReasonVNone ManagedAppFlaggedReason = "none"
 	// ManagedAppFlaggedReasonVRootedDevice undocumented
-	ManagedAppFlaggedReasonVRootedDevice ManagedAppFlaggedReason = 1
+	ManagedAppFlaggedReasonVRootedDevice ManagedAppFlaggedReason = "rootedDevice"
 )
 
-// ManagedAppFlaggedReasonPNone returns a pointer to ManagedAppFlaggedReasonVNone
-func ManagedAppFlaggedReasonPNone() *ManagedAppFlaggedReason {
-	v := ManagedAppFlaggedReasonVNone
-	return &v
-}
+var (
+	// ManagedAppFlaggedReasonPNone is a pointer to ManagedAppFlaggedReasonVNone
+	ManagedAppFlaggedReasonPNone = &_ManagedAppFlaggedReasonPNone
+	// ManagedAppFlaggedReasonPRootedDevice is a pointer to ManagedAppFlaggedReasonVRootedDevice
+	ManagedAppFlaggedReasonPRootedDevice = &_ManagedAppFlaggedReasonPRootedDevice
+)
 
-// ManagedAppFlaggedReasonPRootedDevice returns a pointer to ManagedAppFlaggedReasonVRootedDevice
-func ManagedAppFlaggedReasonPRootedDevice() *ManagedAppFlaggedReason {
-	v := ManagedAppFlaggedReasonVRootedDevice
-	return &v
-}
+var (
+	_ManagedAppFlaggedReasonPNone         = ManagedAppFlaggedReasonVNone
+	_ManagedAppFlaggedReasonPRootedDevice = ManagedAppFlaggedReasonVRootedDevice
+)

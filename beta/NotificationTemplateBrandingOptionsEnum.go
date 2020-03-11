@@ -3,39 +3,33 @@
 package msgraph
 
 // NotificationTemplateBrandingOptions undocumented
-type NotificationTemplateBrandingOptions int
+type NotificationTemplateBrandingOptions string
 
 const (
 	// NotificationTemplateBrandingOptionsVNone undocumented
-	NotificationTemplateBrandingOptionsVNone NotificationTemplateBrandingOptions = 0
+	NotificationTemplateBrandingOptionsVNone NotificationTemplateBrandingOptions = "none"
 	// NotificationTemplateBrandingOptionsVIncludeCompanyLogo undocumented
-	NotificationTemplateBrandingOptionsVIncludeCompanyLogo NotificationTemplateBrandingOptions = 1
+	NotificationTemplateBrandingOptionsVIncludeCompanyLogo NotificationTemplateBrandingOptions = "includeCompanyLogo"
 	// NotificationTemplateBrandingOptionsVIncludeCompanyName undocumented
-	NotificationTemplateBrandingOptionsVIncludeCompanyName NotificationTemplateBrandingOptions = 2
+	NotificationTemplateBrandingOptionsVIncludeCompanyName NotificationTemplateBrandingOptions = "includeCompanyName"
 	// NotificationTemplateBrandingOptionsVIncludeContactInformation undocumented
-	NotificationTemplateBrandingOptionsVIncludeContactInformation NotificationTemplateBrandingOptions = 4
+	NotificationTemplateBrandingOptionsVIncludeContactInformation NotificationTemplateBrandingOptions = "includeContactInformation"
 )
 
-// NotificationTemplateBrandingOptionsPNone returns a pointer to NotificationTemplateBrandingOptionsVNone
-func NotificationTemplateBrandingOptionsPNone() *NotificationTemplateBrandingOptions {
-	v := NotificationTemplateBrandingOptionsVNone
-	return &v
-}
+var (
+	// NotificationTemplateBrandingOptionsPNone is a pointer to NotificationTemplateBrandingOptionsVNone
+	NotificationTemplateBrandingOptionsPNone = &_NotificationTemplateBrandingOptionsPNone
+	// NotificationTemplateBrandingOptionsPIncludeCompanyLogo is a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyLogo
+	NotificationTemplateBrandingOptionsPIncludeCompanyLogo = &_NotificationTemplateBrandingOptionsPIncludeCompanyLogo
+	// NotificationTemplateBrandingOptionsPIncludeCompanyName is a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyName
+	NotificationTemplateBrandingOptionsPIncludeCompanyName = &_NotificationTemplateBrandingOptionsPIncludeCompanyName
+	// NotificationTemplateBrandingOptionsPIncludeContactInformation is a pointer to NotificationTemplateBrandingOptionsVIncludeContactInformation
+	NotificationTemplateBrandingOptionsPIncludeContactInformation = &_NotificationTemplateBrandingOptionsPIncludeContactInformation
+)
 
-// NotificationTemplateBrandingOptionsPIncludeCompanyLogo returns a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyLogo
-func NotificationTemplateBrandingOptionsPIncludeCompanyLogo() *NotificationTemplateBrandingOptions {
-	v := NotificationTemplateBrandingOptionsVIncludeCompanyLogo
-	return &v
-}
-
-// NotificationTemplateBrandingOptionsPIncludeCompanyName returns a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyName
-func NotificationTemplateBrandingOptionsPIncludeCompanyName() *NotificationTemplateBrandingOptions {
-	v := NotificationTemplateBrandingOptionsVIncludeCompanyName
-	return &v
-}
-
-// NotificationTemplateBrandingOptionsPIncludeContactInformation returns a pointer to NotificationTemplateBrandingOptionsVIncludeContactInformation
-func NotificationTemplateBrandingOptionsPIncludeContactInformation() *NotificationTemplateBrandingOptions {
-	v := NotificationTemplateBrandingOptionsVIncludeContactInformation
-	return &v
-}
+var (
+	_NotificationTemplateBrandingOptionsPNone                      = NotificationTemplateBrandingOptionsVNone
+	_NotificationTemplateBrandingOptionsPIncludeCompanyLogo        = NotificationTemplateBrandingOptionsVIncludeCompanyLogo
+	_NotificationTemplateBrandingOptionsPIncludeCompanyName        = NotificationTemplateBrandingOptionsVIncludeCompanyName
+	_NotificationTemplateBrandingOptionsPIncludeContactInformation = NotificationTemplateBrandingOptionsVIncludeContactInformation
+)

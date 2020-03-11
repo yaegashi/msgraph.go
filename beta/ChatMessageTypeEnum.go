@@ -3,31 +3,28 @@
 package msgraph
 
 // ChatMessageType undocumented
-type ChatMessageType int
+type ChatMessageType string
 
 const (
 	// ChatMessageTypeVMessage undocumented
-	ChatMessageTypeVMessage ChatMessageType = 0
+	ChatMessageTypeVMessage ChatMessageType = "message"
 	// ChatMessageTypeVChatEvent undocumented
-	ChatMessageTypeVChatEvent ChatMessageType = 1
+	ChatMessageTypeVChatEvent ChatMessageType = "chatEvent"
 	// ChatMessageTypeVTyping undocumented
-	ChatMessageTypeVTyping ChatMessageType = 2
+	ChatMessageTypeVTyping ChatMessageType = "typing"
 )
 
-// ChatMessageTypePMessage returns a pointer to ChatMessageTypeVMessage
-func ChatMessageTypePMessage() *ChatMessageType {
-	v := ChatMessageTypeVMessage
-	return &v
-}
+var (
+	// ChatMessageTypePMessage is a pointer to ChatMessageTypeVMessage
+	ChatMessageTypePMessage = &_ChatMessageTypePMessage
+	// ChatMessageTypePChatEvent is a pointer to ChatMessageTypeVChatEvent
+	ChatMessageTypePChatEvent = &_ChatMessageTypePChatEvent
+	// ChatMessageTypePTyping is a pointer to ChatMessageTypeVTyping
+	ChatMessageTypePTyping = &_ChatMessageTypePTyping
+)
 
-// ChatMessageTypePChatEvent returns a pointer to ChatMessageTypeVChatEvent
-func ChatMessageTypePChatEvent() *ChatMessageType {
-	v := ChatMessageTypeVChatEvent
-	return &v
-}
-
-// ChatMessageTypePTyping returns a pointer to ChatMessageTypeVTyping
-func ChatMessageTypePTyping() *ChatMessageType {
-	v := ChatMessageTypeVTyping
-	return &v
-}
+var (
+	_ChatMessageTypePMessage   = ChatMessageTypeVMessage
+	_ChatMessageTypePChatEvent = ChatMessageTypeVChatEvent
+	_ChatMessageTypePTyping    = ChatMessageTypeVTyping
+)

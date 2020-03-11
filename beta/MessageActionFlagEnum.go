@@ -3,95 +3,68 @@
 package msgraph
 
 // MessageActionFlag undocumented
-type MessageActionFlag int
+type MessageActionFlag string
 
 const (
 	// MessageActionFlagVAny undocumented
-	MessageActionFlagVAny MessageActionFlag = 0
+	MessageActionFlagVAny MessageActionFlag = "any"
 	// MessageActionFlagVCall undocumented
-	MessageActionFlagVCall MessageActionFlag = 1
+	MessageActionFlagVCall MessageActionFlag = "call"
 	// MessageActionFlagVDoNotForward undocumented
-	MessageActionFlagVDoNotForward MessageActionFlag = 2
+	MessageActionFlagVDoNotForward MessageActionFlag = "doNotForward"
 	// MessageActionFlagVFollowUp undocumented
-	MessageActionFlagVFollowUp MessageActionFlag = 3
+	MessageActionFlagVFollowUp MessageActionFlag = "followUp"
 	// MessageActionFlagVFyi undocumented
-	MessageActionFlagVFyi MessageActionFlag = 4
+	MessageActionFlagVFyi MessageActionFlag = "fyi"
 	// MessageActionFlagVForward undocumented
-	MessageActionFlagVForward MessageActionFlag = 5
+	MessageActionFlagVForward MessageActionFlag = "forward"
 	// MessageActionFlagVNoResponseNecessary undocumented
-	MessageActionFlagVNoResponseNecessary MessageActionFlag = 6
+	MessageActionFlagVNoResponseNecessary MessageActionFlag = "noResponseNecessary"
 	// MessageActionFlagVRead undocumented
-	MessageActionFlagVRead MessageActionFlag = 7
+	MessageActionFlagVRead MessageActionFlag = "read"
 	// MessageActionFlagVReply undocumented
-	MessageActionFlagVReply MessageActionFlag = 8
+	MessageActionFlagVReply MessageActionFlag = "reply"
 	// MessageActionFlagVReplyToAll undocumented
-	MessageActionFlagVReplyToAll MessageActionFlag = 9
+	MessageActionFlagVReplyToAll MessageActionFlag = "replyToAll"
 	// MessageActionFlagVReview undocumented
-	MessageActionFlagVReview MessageActionFlag = 10
+	MessageActionFlagVReview MessageActionFlag = "review"
 )
 
-// MessageActionFlagPAny returns a pointer to MessageActionFlagVAny
-func MessageActionFlagPAny() *MessageActionFlag {
-	v := MessageActionFlagVAny
-	return &v
-}
+var (
+	// MessageActionFlagPAny is a pointer to MessageActionFlagVAny
+	MessageActionFlagPAny = &_MessageActionFlagPAny
+	// MessageActionFlagPCall is a pointer to MessageActionFlagVCall
+	MessageActionFlagPCall = &_MessageActionFlagPCall
+	// MessageActionFlagPDoNotForward is a pointer to MessageActionFlagVDoNotForward
+	MessageActionFlagPDoNotForward = &_MessageActionFlagPDoNotForward
+	// MessageActionFlagPFollowUp is a pointer to MessageActionFlagVFollowUp
+	MessageActionFlagPFollowUp = &_MessageActionFlagPFollowUp
+	// MessageActionFlagPFyi is a pointer to MessageActionFlagVFyi
+	MessageActionFlagPFyi = &_MessageActionFlagPFyi
+	// MessageActionFlagPForward is a pointer to MessageActionFlagVForward
+	MessageActionFlagPForward = &_MessageActionFlagPForward
+	// MessageActionFlagPNoResponseNecessary is a pointer to MessageActionFlagVNoResponseNecessary
+	MessageActionFlagPNoResponseNecessary = &_MessageActionFlagPNoResponseNecessary
+	// MessageActionFlagPRead is a pointer to MessageActionFlagVRead
+	MessageActionFlagPRead = &_MessageActionFlagPRead
+	// MessageActionFlagPReply is a pointer to MessageActionFlagVReply
+	MessageActionFlagPReply = &_MessageActionFlagPReply
+	// MessageActionFlagPReplyToAll is a pointer to MessageActionFlagVReplyToAll
+	MessageActionFlagPReplyToAll = &_MessageActionFlagPReplyToAll
+	// MessageActionFlagPReview is a pointer to MessageActionFlagVReview
+	MessageActionFlagPReview = &_MessageActionFlagPReview
+)
 
-// MessageActionFlagPCall returns a pointer to MessageActionFlagVCall
-func MessageActionFlagPCall() *MessageActionFlag {
-	v := MessageActionFlagVCall
-	return &v
-}
-
-// MessageActionFlagPDoNotForward returns a pointer to MessageActionFlagVDoNotForward
-func MessageActionFlagPDoNotForward() *MessageActionFlag {
-	v := MessageActionFlagVDoNotForward
-	return &v
-}
-
-// MessageActionFlagPFollowUp returns a pointer to MessageActionFlagVFollowUp
-func MessageActionFlagPFollowUp() *MessageActionFlag {
-	v := MessageActionFlagVFollowUp
-	return &v
-}
-
-// MessageActionFlagPFyi returns a pointer to MessageActionFlagVFyi
-func MessageActionFlagPFyi() *MessageActionFlag {
-	v := MessageActionFlagVFyi
-	return &v
-}
-
-// MessageActionFlagPForward returns a pointer to MessageActionFlagVForward
-func MessageActionFlagPForward() *MessageActionFlag {
-	v := MessageActionFlagVForward
-	return &v
-}
-
-// MessageActionFlagPNoResponseNecessary returns a pointer to MessageActionFlagVNoResponseNecessary
-func MessageActionFlagPNoResponseNecessary() *MessageActionFlag {
-	v := MessageActionFlagVNoResponseNecessary
-	return &v
-}
-
-// MessageActionFlagPRead returns a pointer to MessageActionFlagVRead
-func MessageActionFlagPRead() *MessageActionFlag {
-	v := MessageActionFlagVRead
-	return &v
-}
-
-// MessageActionFlagPReply returns a pointer to MessageActionFlagVReply
-func MessageActionFlagPReply() *MessageActionFlag {
-	v := MessageActionFlagVReply
-	return &v
-}
-
-// MessageActionFlagPReplyToAll returns a pointer to MessageActionFlagVReplyToAll
-func MessageActionFlagPReplyToAll() *MessageActionFlag {
-	v := MessageActionFlagVReplyToAll
-	return &v
-}
-
-// MessageActionFlagPReview returns a pointer to MessageActionFlagVReview
-func MessageActionFlagPReview() *MessageActionFlag {
-	v := MessageActionFlagVReview
-	return &v
-}
+var (
+	_MessageActionFlagPAny                 = MessageActionFlagVAny
+	_MessageActionFlagPCall                = MessageActionFlagVCall
+	_MessageActionFlagPDoNotForward        = MessageActionFlagVDoNotForward
+	_MessageActionFlagPFollowUp            = MessageActionFlagVFollowUp
+	_MessageActionFlagPFyi                 = MessageActionFlagVFyi
+	_MessageActionFlagPForward             = MessageActionFlagVForward
+	_MessageActionFlagPNoResponseNecessary = MessageActionFlagVNoResponseNecessary
+	_MessageActionFlagPRead                = MessageActionFlagVRead
+	_MessageActionFlagPReply               = MessageActionFlagVReply
+	_MessageActionFlagPReplyToAll          = MessageActionFlagVReplyToAll
+	_MessageActionFlagPReview              = MessageActionFlagVReview
+)

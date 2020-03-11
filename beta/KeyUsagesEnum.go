@@ -3,23 +3,23 @@
 package msgraph
 
 // KeyUsages undocumented
-type KeyUsages int
+type KeyUsages string
 
 const (
 	// KeyUsagesVKeyEncipherment undocumented
-	KeyUsagesVKeyEncipherment KeyUsages = 1
+	KeyUsagesVKeyEncipherment KeyUsages = "keyEncipherment"
 	// KeyUsagesVDigitalSignature undocumented
-	KeyUsagesVDigitalSignature KeyUsages = 2
+	KeyUsagesVDigitalSignature KeyUsages = "digitalSignature"
 )
 
-// KeyUsagesPKeyEncipherment returns a pointer to KeyUsagesVKeyEncipherment
-func KeyUsagesPKeyEncipherment() *KeyUsages {
-	v := KeyUsagesVKeyEncipherment
-	return &v
-}
+var (
+	// KeyUsagesPKeyEncipherment is a pointer to KeyUsagesVKeyEncipherment
+	KeyUsagesPKeyEncipherment = &_KeyUsagesPKeyEncipherment
+	// KeyUsagesPDigitalSignature is a pointer to KeyUsagesVDigitalSignature
+	KeyUsagesPDigitalSignature = &_KeyUsagesPDigitalSignature
+)
 
-// KeyUsagesPDigitalSignature returns a pointer to KeyUsagesVDigitalSignature
-func KeyUsagesPDigitalSignature() *KeyUsages {
-	v := KeyUsagesVDigitalSignature
-	return &v
-}
+var (
+	_KeyUsagesPKeyEncipherment  = KeyUsagesVKeyEncipherment
+	_KeyUsagesPDigitalSignature = KeyUsagesVDigitalSignature
+)

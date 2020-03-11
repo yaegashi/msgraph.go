@@ -3,31 +3,28 @@
 package msgraph
 
 // MediaState undocumented
-type MediaState int
+type MediaState string
 
 const (
 	// MediaStateVActive undocumented
-	MediaStateVActive MediaState = 0
+	MediaStateVActive MediaState = "active"
 	// MediaStateVInactive undocumented
-	MediaStateVInactive MediaState = 1
+	MediaStateVInactive MediaState = "inactive"
 	// MediaStateVUnknownFutureValue undocumented
-	MediaStateVUnknownFutureValue MediaState = 2
+	MediaStateVUnknownFutureValue MediaState = "unknownFutureValue"
 )
 
-// MediaStatePActive returns a pointer to MediaStateVActive
-func MediaStatePActive() *MediaState {
-	v := MediaStateVActive
-	return &v
-}
+var (
+	// MediaStatePActive is a pointer to MediaStateVActive
+	MediaStatePActive = &_MediaStatePActive
+	// MediaStatePInactive is a pointer to MediaStateVInactive
+	MediaStatePInactive = &_MediaStatePInactive
+	// MediaStatePUnknownFutureValue is a pointer to MediaStateVUnknownFutureValue
+	MediaStatePUnknownFutureValue = &_MediaStatePUnknownFutureValue
+)
 
-// MediaStatePInactive returns a pointer to MediaStateVInactive
-func MediaStatePInactive() *MediaState {
-	v := MediaStateVInactive
-	return &v
-}
-
-// MediaStatePUnknownFutureValue returns a pointer to MediaStateVUnknownFutureValue
-func MediaStatePUnknownFutureValue() *MediaState {
-	v := MediaStateVUnknownFutureValue
-	return &v
-}
+var (
+	_MediaStatePActive             = MediaStateVActive
+	_MediaStatePInactive           = MediaStateVInactive
+	_MediaStatePUnknownFutureValue = MediaStateVUnknownFutureValue
+)

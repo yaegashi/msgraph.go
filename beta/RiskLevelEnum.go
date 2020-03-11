@@ -3,55 +3,43 @@
 package msgraph
 
 // RiskLevel undocumented
-type RiskLevel int
+type RiskLevel string
 
 const (
 	// RiskLevelVLow undocumented
-	RiskLevelVLow RiskLevel = 0
+	RiskLevelVLow RiskLevel = "low"
 	// RiskLevelVMedium undocumented
-	RiskLevelVMedium RiskLevel = 1
+	RiskLevelVMedium RiskLevel = "medium"
 	// RiskLevelVHigh undocumented
-	RiskLevelVHigh RiskLevel = 2
+	RiskLevelVHigh RiskLevel = "high"
 	// RiskLevelVHidden undocumented
-	RiskLevelVHidden RiskLevel = 3
+	RiskLevelVHidden RiskLevel = "hidden"
 	// RiskLevelVNone undocumented
-	RiskLevelVNone RiskLevel = 4
+	RiskLevelVNone RiskLevel = "none"
 	// RiskLevelVUnknownFutureValue undocumented
-	RiskLevelVUnknownFutureValue RiskLevel = 5
+	RiskLevelVUnknownFutureValue RiskLevel = "unknownFutureValue"
 )
 
-// RiskLevelPLow returns a pointer to RiskLevelVLow
-func RiskLevelPLow() *RiskLevel {
-	v := RiskLevelVLow
-	return &v
-}
+var (
+	// RiskLevelPLow is a pointer to RiskLevelVLow
+	RiskLevelPLow = &_RiskLevelPLow
+	// RiskLevelPMedium is a pointer to RiskLevelVMedium
+	RiskLevelPMedium = &_RiskLevelPMedium
+	// RiskLevelPHigh is a pointer to RiskLevelVHigh
+	RiskLevelPHigh = &_RiskLevelPHigh
+	// RiskLevelPHidden is a pointer to RiskLevelVHidden
+	RiskLevelPHidden = &_RiskLevelPHidden
+	// RiskLevelPNone is a pointer to RiskLevelVNone
+	RiskLevelPNone = &_RiskLevelPNone
+	// RiskLevelPUnknownFutureValue is a pointer to RiskLevelVUnknownFutureValue
+	RiskLevelPUnknownFutureValue = &_RiskLevelPUnknownFutureValue
+)
 
-// RiskLevelPMedium returns a pointer to RiskLevelVMedium
-func RiskLevelPMedium() *RiskLevel {
-	v := RiskLevelVMedium
-	return &v
-}
-
-// RiskLevelPHigh returns a pointer to RiskLevelVHigh
-func RiskLevelPHigh() *RiskLevel {
-	v := RiskLevelVHigh
-	return &v
-}
-
-// RiskLevelPHidden returns a pointer to RiskLevelVHidden
-func RiskLevelPHidden() *RiskLevel {
-	v := RiskLevelVHidden
-	return &v
-}
-
-// RiskLevelPNone returns a pointer to RiskLevelVNone
-func RiskLevelPNone() *RiskLevel {
-	v := RiskLevelVNone
-	return &v
-}
-
-// RiskLevelPUnknownFutureValue returns a pointer to RiskLevelVUnknownFutureValue
-func RiskLevelPUnknownFutureValue() *RiskLevel {
-	v := RiskLevelVUnknownFutureValue
-	return &v
-}
+var (
+	_RiskLevelPLow                = RiskLevelVLow
+	_RiskLevelPMedium             = RiskLevelVMedium
+	_RiskLevelPHigh               = RiskLevelVHigh
+	_RiskLevelPHidden             = RiskLevelVHidden
+	_RiskLevelPNone               = RiskLevelVNone
+	_RiskLevelPUnknownFutureValue = RiskLevelVUnknownFutureValue
+)

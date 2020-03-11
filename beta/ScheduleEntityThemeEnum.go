@@ -3,111 +3,78 @@
 package msgraph
 
 // ScheduleEntityTheme undocumented
-type ScheduleEntityTheme int
+type ScheduleEntityTheme string
 
 const (
 	// ScheduleEntityThemeVWhite undocumented
-	ScheduleEntityThemeVWhite ScheduleEntityTheme = 0
+	ScheduleEntityThemeVWhite ScheduleEntityTheme = "white"
 	// ScheduleEntityThemeVBlue undocumented
-	ScheduleEntityThemeVBlue ScheduleEntityTheme = 1
+	ScheduleEntityThemeVBlue ScheduleEntityTheme = "blue"
 	// ScheduleEntityThemeVGreen undocumented
-	ScheduleEntityThemeVGreen ScheduleEntityTheme = 2
+	ScheduleEntityThemeVGreen ScheduleEntityTheme = "green"
 	// ScheduleEntityThemeVPurple undocumented
-	ScheduleEntityThemeVPurple ScheduleEntityTheme = 3
+	ScheduleEntityThemeVPurple ScheduleEntityTheme = "purple"
 	// ScheduleEntityThemeVPink undocumented
-	ScheduleEntityThemeVPink ScheduleEntityTheme = 4
+	ScheduleEntityThemeVPink ScheduleEntityTheme = "pink"
 	// ScheduleEntityThemeVYellow undocumented
-	ScheduleEntityThemeVYellow ScheduleEntityTheme = 5
+	ScheduleEntityThemeVYellow ScheduleEntityTheme = "yellow"
 	// ScheduleEntityThemeVGray undocumented
-	ScheduleEntityThemeVGray ScheduleEntityTheme = 6
+	ScheduleEntityThemeVGray ScheduleEntityTheme = "gray"
 	// ScheduleEntityThemeVDarkBlue undocumented
-	ScheduleEntityThemeVDarkBlue ScheduleEntityTheme = 7
+	ScheduleEntityThemeVDarkBlue ScheduleEntityTheme = "darkBlue"
 	// ScheduleEntityThemeVDarkGreen undocumented
-	ScheduleEntityThemeVDarkGreen ScheduleEntityTheme = 8
+	ScheduleEntityThemeVDarkGreen ScheduleEntityTheme = "darkGreen"
 	// ScheduleEntityThemeVDarkPurple undocumented
-	ScheduleEntityThemeVDarkPurple ScheduleEntityTheme = 9
+	ScheduleEntityThemeVDarkPurple ScheduleEntityTheme = "darkPurple"
 	// ScheduleEntityThemeVDarkPink undocumented
-	ScheduleEntityThemeVDarkPink ScheduleEntityTheme = 10
+	ScheduleEntityThemeVDarkPink ScheduleEntityTheme = "darkPink"
 	// ScheduleEntityThemeVDarkYellow undocumented
-	ScheduleEntityThemeVDarkYellow ScheduleEntityTheme = 11
+	ScheduleEntityThemeVDarkYellow ScheduleEntityTheme = "darkYellow"
 	// ScheduleEntityThemeVUnknownFutureValue undocumented
-	ScheduleEntityThemeVUnknownFutureValue ScheduleEntityTheme = 12
+	ScheduleEntityThemeVUnknownFutureValue ScheduleEntityTheme = "unknownFutureValue"
 )
 
-// ScheduleEntityThemePWhite returns a pointer to ScheduleEntityThemeVWhite
-func ScheduleEntityThemePWhite() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVWhite
-	return &v
-}
+var (
+	// ScheduleEntityThemePWhite is a pointer to ScheduleEntityThemeVWhite
+	ScheduleEntityThemePWhite = &_ScheduleEntityThemePWhite
+	// ScheduleEntityThemePBlue is a pointer to ScheduleEntityThemeVBlue
+	ScheduleEntityThemePBlue = &_ScheduleEntityThemePBlue
+	// ScheduleEntityThemePGreen is a pointer to ScheduleEntityThemeVGreen
+	ScheduleEntityThemePGreen = &_ScheduleEntityThemePGreen
+	// ScheduleEntityThemePPurple is a pointer to ScheduleEntityThemeVPurple
+	ScheduleEntityThemePPurple = &_ScheduleEntityThemePPurple
+	// ScheduleEntityThemePPink is a pointer to ScheduleEntityThemeVPink
+	ScheduleEntityThemePPink = &_ScheduleEntityThemePPink
+	// ScheduleEntityThemePYellow is a pointer to ScheduleEntityThemeVYellow
+	ScheduleEntityThemePYellow = &_ScheduleEntityThemePYellow
+	// ScheduleEntityThemePGray is a pointer to ScheduleEntityThemeVGray
+	ScheduleEntityThemePGray = &_ScheduleEntityThemePGray
+	// ScheduleEntityThemePDarkBlue is a pointer to ScheduleEntityThemeVDarkBlue
+	ScheduleEntityThemePDarkBlue = &_ScheduleEntityThemePDarkBlue
+	// ScheduleEntityThemePDarkGreen is a pointer to ScheduleEntityThemeVDarkGreen
+	ScheduleEntityThemePDarkGreen = &_ScheduleEntityThemePDarkGreen
+	// ScheduleEntityThemePDarkPurple is a pointer to ScheduleEntityThemeVDarkPurple
+	ScheduleEntityThemePDarkPurple = &_ScheduleEntityThemePDarkPurple
+	// ScheduleEntityThemePDarkPink is a pointer to ScheduleEntityThemeVDarkPink
+	ScheduleEntityThemePDarkPink = &_ScheduleEntityThemePDarkPink
+	// ScheduleEntityThemePDarkYellow is a pointer to ScheduleEntityThemeVDarkYellow
+	ScheduleEntityThemePDarkYellow = &_ScheduleEntityThemePDarkYellow
+	// ScheduleEntityThemePUnknownFutureValue is a pointer to ScheduleEntityThemeVUnknownFutureValue
+	ScheduleEntityThemePUnknownFutureValue = &_ScheduleEntityThemePUnknownFutureValue
+)
 
-// ScheduleEntityThemePBlue returns a pointer to ScheduleEntityThemeVBlue
-func ScheduleEntityThemePBlue() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVBlue
-	return &v
-}
-
-// ScheduleEntityThemePGreen returns a pointer to ScheduleEntityThemeVGreen
-func ScheduleEntityThemePGreen() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVGreen
-	return &v
-}
-
-// ScheduleEntityThemePPurple returns a pointer to ScheduleEntityThemeVPurple
-func ScheduleEntityThemePPurple() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVPurple
-	return &v
-}
-
-// ScheduleEntityThemePPink returns a pointer to ScheduleEntityThemeVPink
-func ScheduleEntityThemePPink() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVPink
-	return &v
-}
-
-// ScheduleEntityThemePYellow returns a pointer to ScheduleEntityThemeVYellow
-func ScheduleEntityThemePYellow() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVYellow
-	return &v
-}
-
-// ScheduleEntityThemePGray returns a pointer to ScheduleEntityThemeVGray
-func ScheduleEntityThemePGray() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVGray
-	return &v
-}
-
-// ScheduleEntityThemePDarkBlue returns a pointer to ScheduleEntityThemeVDarkBlue
-func ScheduleEntityThemePDarkBlue() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVDarkBlue
-	return &v
-}
-
-// ScheduleEntityThemePDarkGreen returns a pointer to ScheduleEntityThemeVDarkGreen
-func ScheduleEntityThemePDarkGreen() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVDarkGreen
-	return &v
-}
-
-// ScheduleEntityThemePDarkPurple returns a pointer to ScheduleEntityThemeVDarkPurple
-func ScheduleEntityThemePDarkPurple() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVDarkPurple
-	return &v
-}
-
-// ScheduleEntityThemePDarkPink returns a pointer to ScheduleEntityThemeVDarkPink
-func ScheduleEntityThemePDarkPink() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVDarkPink
-	return &v
-}
-
-// ScheduleEntityThemePDarkYellow returns a pointer to ScheduleEntityThemeVDarkYellow
-func ScheduleEntityThemePDarkYellow() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVDarkYellow
-	return &v
-}
-
-// ScheduleEntityThemePUnknownFutureValue returns a pointer to ScheduleEntityThemeVUnknownFutureValue
-func ScheduleEntityThemePUnknownFutureValue() *ScheduleEntityTheme {
-	v := ScheduleEntityThemeVUnknownFutureValue
-	return &v
-}
+var (
+	_ScheduleEntityThemePWhite              = ScheduleEntityThemeVWhite
+	_ScheduleEntityThemePBlue               = ScheduleEntityThemeVBlue
+	_ScheduleEntityThemePGreen              = ScheduleEntityThemeVGreen
+	_ScheduleEntityThemePPurple             = ScheduleEntityThemeVPurple
+	_ScheduleEntityThemePPink               = ScheduleEntityThemeVPink
+	_ScheduleEntityThemePYellow             = ScheduleEntityThemeVYellow
+	_ScheduleEntityThemePGray               = ScheduleEntityThemeVGray
+	_ScheduleEntityThemePDarkBlue           = ScheduleEntityThemeVDarkBlue
+	_ScheduleEntityThemePDarkGreen          = ScheduleEntityThemeVDarkGreen
+	_ScheduleEntityThemePDarkPurple         = ScheduleEntityThemeVDarkPurple
+	_ScheduleEntityThemePDarkPink           = ScheduleEntityThemeVDarkPink
+	_ScheduleEntityThemePDarkYellow         = ScheduleEntityThemeVDarkYellow
+	_ScheduleEntityThemePUnknownFutureValue = ScheduleEntityThemeVUnknownFutureValue
+)

@@ -3,63 +3,48 @@
 package msgraph
 
 // RiskState undocumented
-type RiskState int
+type RiskState string
 
 const (
 	// RiskStateVNone undocumented
-	RiskStateVNone RiskState = 0
+	RiskStateVNone RiskState = "none"
 	// RiskStateVConfirmedSafe undocumented
-	RiskStateVConfirmedSafe RiskState = 1
+	RiskStateVConfirmedSafe RiskState = "confirmedSafe"
 	// RiskStateVRemediated undocumented
-	RiskStateVRemediated RiskState = 2
+	RiskStateVRemediated RiskState = "remediated"
 	// RiskStateVDismissed undocumented
-	RiskStateVDismissed RiskState = 3
+	RiskStateVDismissed RiskState = "dismissed"
 	// RiskStateVAtRisk undocumented
-	RiskStateVAtRisk RiskState = 4
+	RiskStateVAtRisk RiskState = "atRisk"
 	// RiskStateVConfirmedCompromised undocumented
-	RiskStateVConfirmedCompromised RiskState = 5
+	RiskStateVConfirmedCompromised RiskState = "confirmedCompromised"
 	// RiskStateVUnknownFutureValue undocumented
-	RiskStateVUnknownFutureValue RiskState = 6
+	RiskStateVUnknownFutureValue RiskState = "unknownFutureValue"
 )
 
-// RiskStatePNone returns a pointer to RiskStateVNone
-func RiskStatePNone() *RiskState {
-	v := RiskStateVNone
-	return &v
-}
+var (
+	// RiskStatePNone is a pointer to RiskStateVNone
+	RiskStatePNone = &_RiskStatePNone
+	// RiskStatePConfirmedSafe is a pointer to RiskStateVConfirmedSafe
+	RiskStatePConfirmedSafe = &_RiskStatePConfirmedSafe
+	// RiskStatePRemediated is a pointer to RiskStateVRemediated
+	RiskStatePRemediated = &_RiskStatePRemediated
+	// RiskStatePDismissed is a pointer to RiskStateVDismissed
+	RiskStatePDismissed = &_RiskStatePDismissed
+	// RiskStatePAtRisk is a pointer to RiskStateVAtRisk
+	RiskStatePAtRisk = &_RiskStatePAtRisk
+	// RiskStatePConfirmedCompromised is a pointer to RiskStateVConfirmedCompromised
+	RiskStatePConfirmedCompromised = &_RiskStatePConfirmedCompromised
+	// RiskStatePUnknownFutureValue is a pointer to RiskStateVUnknownFutureValue
+	RiskStatePUnknownFutureValue = &_RiskStatePUnknownFutureValue
+)
 
-// RiskStatePConfirmedSafe returns a pointer to RiskStateVConfirmedSafe
-func RiskStatePConfirmedSafe() *RiskState {
-	v := RiskStateVConfirmedSafe
-	return &v
-}
-
-// RiskStatePRemediated returns a pointer to RiskStateVRemediated
-func RiskStatePRemediated() *RiskState {
-	v := RiskStateVRemediated
-	return &v
-}
-
-// RiskStatePDismissed returns a pointer to RiskStateVDismissed
-func RiskStatePDismissed() *RiskState {
-	v := RiskStateVDismissed
-	return &v
-}
-
-// RiskStatePAtRisk returns a pointer to RiskStateVAtRisk
-func RiskStatePAtRisk() *RiskState {
-	v := RiskStateVAtRisk
-	return &v
-}
-
-// RiskStatePConfirmedCompromised returns a pointer to RiskStateVConfirmedCompromised
-func RiskStatePConfirmedCompromised() *RiskState {
-	v := RiskStateVConfirmedCompromised
-	return &v
-}
-
-// RiskStatePUnknownFutureValue returns a pointer to RiskStateVUnknownFutureValue
-func RiskStatePUnknownFutureValue() *RiskState {
-	v := RiskStateVUnknownFutureValue
-	return &v
-}
+var (
+	_RiskStatePNone                 = RiskStateVNone
+	_RiskStatePConfirmedSafe        = RiskStateVConfirmedSafe
+	_RiskStatePRemediated           = RiskStateVRemediated
+	_RiskStatePDismissed            = RiskStateVDismissed
+	_RiskStatePAtRisk               = RiskStateVAtRisk
+	_RiskStatePConfirmedCompromised = RiskStateVConfirmedCompromised
+	_RiskStatePUnknownFutureValue   = RiskStateVUnknownFutureValue
+)

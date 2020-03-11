@@ -3,39 +3,33 @@
 package msgraph
 
 // PermissionClassificationType undocumented
-type PermissionClassificationType int
+type PermissionClassificationType string
 
 const (
 	// PermissionClassificationTypeVLow undocumented
-	PermissionClassificationTypeVLow PermissionClassificationType = 1
+	PermissionClassificationTypeVLow PermissionClassificationType = "low"
 	// PermissionClassificationTypeVMedium undocumented
-	PermissionClassificationTypeVMedium PermissionClassificationType = 2
+	PermissionClassificationTypeVMedium PermissionClassificationType = "medium"
 	// PermissionClassificationTypeVHigh undocumented
-	PermissionClassificationTypeVHigh PermissionClassificationType = 3
+	PermissionClassificationTypeVHigh PermissionClassificationType = "high"
 	// PermissionClassificationTypeVUnknownFutureValue undocumented
-	PermissionClassificationTypeVUnknownFutureValue PermissionClassificationType = 4
+	PermissionClassificationTypeVUnknownFutureValue PermissionClassificationType = "unknownFutureValue"
 )
 
-// PermissionClassificationTypePLow returns a pointer to PermissionClassificationTypeVLow
-func PermissionClassificationTypePLow() *PermissionClassificationType {
-	v := PermissionClassificationTypeVLow
-	return &v
-}
+var (
+	// PermissionClassificationTypePLow is a pointer to PermissionClassificationTypeVLow
+	PermissionClassificationTypePLow = &_PermissionClassificationTypePLow
+	// PermissionClassificationTypePMedium is a pointer to PermissionClassificationTypeVMedium
+	PermissionClassificationTypePMedium = &_PermissionClassificationTypePMedium
+	// PermissionClassificationTypePHigh is a pointer to PermissionClassificationTypeVHigh
+	PermissionClassificationTypePHigh = &_PermissionClassificationTypePHigh
+	// PermissionClassificationTypePUnknownFutureValue is a pointer to PermissionClassificationTypeVUnknownFutureValue
+	PermissionClassificationTypePUnknownFutureValue = &_PermissionClassificationTypePUnknownFutureValue
+)
 
-// PermissionClassificationTypePMedium returns a pointer to PermissionClassificationTypeVMedium
-func PermissionClassificationTypePMedium() *PermissionClassificationType {
-	v := PermissionClassificationTypeVMedium
-	return &v
-}
-
-// PermissionClassificationTypePHigh returns a pointer to PermissionClassificationTypeVHigh
-func PermissionClassificationTypePHigh() *PermissionClassificationType {
-	v := PermissionClassificationTypeVHigh
-	return &v
-}
-
-// PermissionClassificationTypePUnknownFutureValue returns a pointer to PermissionClassificationTypeVUnknownFutureValue
-func PermissionClassificationTypePUnknownFutureValue() *PermissionClassificationType {
-	v := PermissionClassificationTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_PermissionClassificationTypePLow                = PermissionClassificationTypeVLow
+	_PermissionClassificationTypePMedium             = PermissionClassificationTypeVMedium
+	_PermissionClassificationTypePHigh               = PermissionClassificationTypeVHigh
+	_PermissionClassificationTypePUnknownFutureValue = PermissionClassificationTypeVUnknownFutureValue
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // VpnDeadPeerDetectionRate undocumented
-type VpnDeadPeerDetectionRate int
+type VpnDeadPeerDetectionRate string
 
 const (
 	// VpnDeadPeerDetectionRateVMedium undocumented
-	VpnDeadPeerDetectionRateVMedium VpnDeadPeerDetectionRate = 0
+	VpnDeadPeerDetectionRateVMedium VpnDeadPeerDetectionRate = "medium"
 	// VpnDeadPeerDetectionRateVNone undocumented
-	VpnDeadPeerDetectionRateVNone VpnDeadPeerDetectionRate = 1
+	VpnDeadPeerDetectionRateVNone VpnDeadPeerDetectionRate = "none"
 	// VpnDeadPeerDetectionRateVLow undocumented
-	VpnDeadPeerDetectionRateVLow VpnDeadPeerDetectionRate = 2
+	VpnDeadPeerDetectionRateVLow VpnDeadPeerDetectionRate = "low"
 	// VpnDeadPeerDetectionRateVHigh undocumented
-	VpnDeadPeerDetectionRateVHigh VpnDeadPeerDetectionRate = 3
+	VpnDeadPeerDetectionRateVHigh VpnDeadPeerDetectionRate = "high"
 )
 
-// VpnDeadPeerDetectionRatePMedium returns a pointer to VpnDeadPeerDetectionRateVMedium
-func VpnDeadPeerDetectionRatePMedium() *VpnDeadPeerDetectionRate {
-	v := VpnDeadPeerDetectionRateVMedium
-	return &v
-}
+var (
+	// VpnDeadPeerDetectionRatePMedium is a pointer to VpnDeadPeerDetectionRateVMedium
+	VpnDeadPeerDetectionRatePMedium = &_VpnDeadPeerDetectionRatePMedium
+	// VpnDeadPeerDetectionRatePNone is a pointer to VpnDeadPeerDetectionRateVNone
+	VpnDeadPeerDetectionRatePNone = &_VpnDeadPeerDetectionRatePNone
+	// VpnDeadPeerDetectionRatePLow is a pointer to VpnDeadPeerDetectionRateVLow
+	VpnDeadPeerDetectionRatePLow = &_VpnDeadPeerDetectionRatePLow
+	// VpnDeadPeerDetectionRatePHigh is a pointer to VpnDeadPeerDetectionRateVHigh
+	VpnDeadPeerDetectionRatePHigh = &_VpnDeadPeerDetectionRatePHigh
+)
 
-// VpnDeadPeerDetectionRatePNone returns a pointer to VpnDeadPeerDetectionRateVNone
-func VpnDeadPeerDetectionRatePNone() *VpnDeadPeerDetectionRate {
-	v := VpnDeadPeerDetectionRateVNone
-	return &v
-}
-
-// VpnDeadPeerDetectionRatePLow returns a pointer to VpnDeadPeerDetectionRateVLow
-func VpnDeadPeerDetectionRatePLow() *VpnDeadPeerDetectionRate {
-	v := VpnDeadPeerDetectionRateVLow
-	return &v
-}
-
-// VpnDeadPeerDetectionRatePHigh returns a pointer to VpnDeadPeerDetectionRateVHigh
-func VpnDeadPeerDetectionRatePHigh() *VpnDeadPeerDetectionRate {
-	v := VpnDeadPeerDetectionRateVHigh
-	return &v
-}
+var (
+	_VpnDeadPeerDetectionRatePMedium = VpnDeadPeerDetectionRateVMedium
+	_VpnDeadPeerDetectionRatePNone   = VpnDeadPeerDetectionRateVNone
+	_VpnDeadPeerDetectionRatePLow    = VpnDeadPeerDetectionRateVLow
+	_VpnDeadPeerDetectionRatePHigh   = VpnDeadPeerDetectionRateVHigh
+)

@@ -3,63 +3,48 @@
 package msgraph
 
 // RestrictionTrigger undocumented
-type RestrictionTrigger int
+type RestrictionTrigger string
 
 const (
 	// RestrictionTriggerVCopyPaste undocumented
-	RestrictionTriggerVCopyPaste RestrictionTrigger = 0
+	RestrictionTriggerVCopyPaste RestrictionTrigger = "copyPaste"
 	// RestrictionTriggerVCopyToNetworkShare undocumented
-	RestrictionTriggerVCopyToNetworkShare RestrictionTrigger = 1
+	RestrictionTriggerVCopyToNetworkShare RestrictionTrigger = "copyToNetworkShare"
 	// RestrictionTriggerVCopyToRemovableMedia undocumented
-	RestrictionTriggerVCopyToRemovableMedia RestrictionTrigger = 2
+	RestrictionTriggerVCopyToRemovableMedia RestrictionTrigger = "copyToRemovableMedia"
 	// RestrictionTriggerVScreenCapture undocumented
-	RestrictionTriggerVScreenCapture RestrictionTrigger = 3
+	RestrictionTriggerVScreenCapture RestrictionTrigger = "screenCapture"
 	// RestrictionTriggerVPrint undocumented
-	RestrictionTriggerVPrint RestrictionTrigger = 4
+	RestrictionTriggerVPrint RestrictionTrigger = "print"
 	// RestrictionTriggerVCloudEgress undocumented
-	RestrictionTriggerVCloudEgress RestrictionTrigger = 5
+	RestrictionTriggerVCloudEgress RestrictionTrigger = "cloudEgress"
 	// RestrictionTriggerVUnallowedApps undocumented
-	RestrictionTriggerVUnallowedApps RestrictionTrigger = 6
+	RestrictionTriggerVUnallowedApps RestrictionTrigger = "unallowedApps"
 )
 
-// RestrictionTriggerPCopyPaste returns a pointer to RestrictionTriggerVCopyPaste
-func RestrictionTriggerPCopyPaste() *RestrictionTrigger {
-	v := RestrictionTriggerVCopyPaste
-	return &v
-}
+var (
+	// RestrictionTriggerPCopyPaste is a pointer to RestrictionTriggerVCopyPaste
+	RestrictionTriggerPCopyPaste = &_RestrictionTriggerPCopyPaste
+	// RestrictionTriggerPCopyToNetworkShare is a pointer to RestrictionTriggerVCopyToNetworkShare
+	RestrictionTriggerPCopyToNetworkShare = &_RestrictionTriggerPCopyToNetworkShare
+	// RestrictionTriggerPCopyToRemovableMedia is a pointer to RestrictionTriggerVCopyToRemovableMedia
+	RestrictionTriggerPCopyToRemovableMedia = &_RestrictionTriggerPCopyToRemovableMedia
+	// RestrictionTriggerPScreenCapture is a pointer to RestrictionTriggerVScreenCapture
+	RestrictionTriggerPScreenCapture = &_RestrictionTriggerPScreenCapture
+	// RestrictionTriggerPPrint is a pointer to RestrictionTriggerVPrint
+	RestrictionTriggerPPrint = &_RestrictionTriggerPPrint
+	// RestrictionTriggerPCloudEgress is a pointer to RestrictionTriggerVCloudEgress
+	RestrictionTriggerPCloudEgress = &_RestrictionTriggerPCloudEgress
+	// RestrictionTriggerPUnallowedApps is a pointer to RestrictionTriggerVUnallowedApps
+	RestrictionTriggerPUnallowedApps = &_RestrictionTriggerPUnallowedApps
+)
 
-// RestrictionTriggerPCopyToNetworkShare returns a pointer to RestrictionTriggerVCopyToNetworkShare
-func RestrictionTriggerPCopyToNetworkShare() *RestrictionTrigger {
-	v := RestrictionTriggerVCopyToNetworkShare
-	return &v
-}
-
-// RestrictionTriggerPCopyToRemovableMedia returns a pointer to RestrictionTriggerVCopyToRemovableMedia
-func RestrictionTriggerPCopyToRemovableMedia() *RestrictionTrigger {
-	v := RestrictionTriggerVCopyToRemovableMedia
-	return &v
-}
-
-// RestrictionTriggerPScreenCapture returns a pointer to RestrictionTriggerVScreenCapture
-func RestrictionTriggerPScreenCapture() *RestrictionTrigger {
-	v := RestrictionTriggerVScreenCapture
-	return &v
-}
-
-// RestrictionTriggerPPrint returns a pointer to RestrictionTriggerVPrint
-func RestrictionTriggerPPrint() *RestrictionTrigger {
-	v := RestrictionTriggerVPrint
-	return &v
-}
-
-// RestrictionTriggerPCloudEgress returns a pointer to RestrictionTriggerVCloudEgress
-func RestrictionTriggerPCloudEgress() *RestrictionTrigger {
-	v := RestrictionTriggerVCloudEgress
-	return &v
-}
-
-// RestrictionTriggerPUnallowedApps returns a pointer to RestrictionTriggerVUnallowedApps
-func RestrictionTriggerPUnallowedApps() *RestrictionTrigger {
-	v := RestrictionTriggerVUnallowedApps
-	return &v
-}
+var (
+	_RestrictionTriggerPCopyPaste            = RestrictionTriggerVCopyPaste
+	_RestrictionTriggerPCopyToNetworkShare   = RestrictionTriggerVCopyToNetworkShare
+	_RestrictionTriggerPCopyToRemovableMedia = RestrictionTriggerVCopyToRemovableMedia
+	_RestrictionTriggerPScreenCapture        = RestrictionTriggerVScreenCapture
+	_RestrictionTriggerPPrint                = RestrictionTriggerVPrint
+	_RestrictionTriggerPCloudEgress          = RestrictionTriggerVCloudEgress
+	_RestrictionTriggerPUnallowedApps        = RestrictionTriggerVUnallowedApps
+)

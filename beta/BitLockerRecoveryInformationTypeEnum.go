@@ -3,23 +3,23 @@
 package msgraph
 
 // BitLockerRecoveryInformationType undocumented
-type BitLockerRecoveryInformationType int
+type BitLockerRecoveryInformationType string
 
 const (
 	// BitLockerRecoveryInformationTypeVPasswordAndKey undocumented
-	BitLockerRecoveryInformationTypeVPasswordAndKey BitLockerRecoveryInformationType = 1
+	BitLockerRecoveryInformationTypeVPasswordAndKey BitLockerRecoveryInformationType = "passwordAndKey"
 	// BitLockerRecoveryInformationTypeVPasswordOnly undocumented
-	BitLockerRecoveryInformationTypeVPasswordOnly BitLockerRecoveryInformationType = 2
+	BitLockerRecoveryInformationTypeVPasswordOnly BitLockerRecoveryInformationType = "passwordOnly"
 )
 
-// BitLockerRecoveryInformationTypePPasswordAndKey returns a pointer to BitLockerRecoveryInformationTypeVPasswordAndKey
-func BitLockerRecoveryInformationTypePPasswordAndKey() *BitLockerRecoveryInformationType {
-	v := BitLockerRecoveryInformationTypeVPasswordAndKey
-	return &v
-}
+var (
+	// BitLockerRecoveryInformationTypePPasswordAndKey is a pointer to BitLockerRecoveryInformationTypeVPasswordAndKey
+	BitLockerRecoveryInformationTypePPasswordAndKey = &_BitLockerRecoveryInformationTypePPasswordAndKey
+	// BitLockerRecoveryInformationTypePPasswordOnly is a pointer to BitLockerRecoveryInformationTypeVPasswordOnly
+	BitLockerRecoveryInformationTypePPasswordOnly = &_BitLockerRecoveryInformationTypePPasswordOnly
+)
 
-// BitLockerRecoveryInformationTypePPasswordOnly returns a pointer to BitLockerRecoveryInformationTypeVPasswordOnly
-func BitLockerRecoveryInformationTypePPasswordOnly() *BitLockerRecoveryInformationType {
-	v := BitLockerRecoveryInformationTypeVPasswordOnly
-	return &v
-}
+var (
+	_BitLockerRecoveryInformationTypePPasswordAndKey = BitLockerRecoveryInformationTypeVPasswordAndKey
+	_BitLockerRecoveryInformationTypePPasswordOnly   = BitLockerRecoveryInformationTypeVPasswordOnly
+)

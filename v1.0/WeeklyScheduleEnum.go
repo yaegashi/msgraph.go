@@ -3,79 +3,58 @@
 package msgraph
 
 // WeeklySchedule undocumented
-type WeeklySchedule int
+type WeeklySchedule string
 
 const (
 	// WeeklyScheduleVUserDefined undocumented
-	WeeklyScheduleVUserDefined WeeklySchedule = 0
+	WeeklyScheduleVUserDefined WeeklySchedule = "userDefined"
 	// WeeklyScheduleVEveryday undocumented
-	WeeklyScheduleVEveryday WeeklySchedule = 1
+	WeeklyScheduleVEveryday WeeklySchedule = "everyday"
 	// WeeklyScheduleVSunday undocumented
-	WeeklyScheduleVSunday WeeklySchedule = 2
+	WeeklyScheduleVSunday WeeklySchedule = "sunday"
 	// WeeklyScheduleVMonday undocumented
-	WeeklyScheduleVMonday WeeklySchedule = 3
+	WeeklyScheduleVMonday WeeklySchedule = "monday"
 	// WeeklyScheduleVTuesday undocumented
-	WeeklyScheduleVTuesday WeeklySchedule = 4
+	WeeklyScheduleVTuesday WeeklySchedule = "tuesday"
 	// WeeklyScheduleVWednesday undocumented
-	WeeklyScheduleVWednesday WeeklySchedule = 5
+	WeeklyScheduleVWednesday WeeklySchedule = "wednesday"
 	// WeeklyScheduleVThursday undocumented
-	WeeklyScheduleVThursday WeeklySchedule = 6
+	WeeklyScheduleVThursday WeeklySchedule = "thursday"
 	// WeeklyScheduleVFriday undocumented
-	WeeklyScheduleVFriday WeeklySchedule = 7
+	WeeklyScheduleVFriday WeeklySchedule = "friday"
 	// WeeklyScheduleVSaturday undocumented
-	WeeklyScheduleVSaturday WeeklySchedule = 8
+	WeeklyScheduleVSaturday WeeklySchedule = "saturday"
 )
 
-// WeeklySchedulePUserDefined returns a pointer to WeeklyScheduleVUserDefined
-func WeeklySchedulePUserDefined() *WeeklySchedule {
-	v := WeeklyScheduleVUserDefined
-	return &v
-}
+var (
+	// WeeklySchedulePUserDefined is a pointer to WeeklyScheduleVUserDefined
+	WeeklySchedulePUserDefined = &_WeeklySchedulePUserDefined
+	// WeeklySchedulePEveryday is a pointer to WeeklyScheduleVEveryday
+	WeeklySchedulePEveryday = &_WeeklySchedulePEveryday
+	// WeeklySchedulePSunday is a pointer to WeeklyScheduleVSunday
+	WeeklySchedulePSunday = &_WeeklySchedulePSunday
+	// WeeklySchedulePMonday is a pointer to WeeklyScheduleVMonday
+	WeeklySchedulePMonday = &_WeeklySchedulePMonday
+	// WeeklySchedulePTuesday is a pointer to WeeklyScheduleVTuesday
+	WeeklySchedulePTuesday = &_WeeklySchedulePTuesday
+	// WeeklySchedulePWednesday is a pointer to WeeklyScheduleVWednesday
+	WeeklySchedulePWednesday = &_WeeklySchedulePWednesday
+	// WeeklySchedulePThursday is a pointer to WeeklyScheduleVThursday
+	WeeklySchedulePThursday = &_WeeklySchedulePThursday
+	// WeeklySchedulePFriday is a pointer to WeeklyScheduleVFriday
+	WeeklySchedulePFriday = &_WeeklySchedulePFriday
+	// WeeklySchedulePSaturday is a pointer to WeeklyScheduleVSaturday
+	WeeklySchedulePSaturday = &_WeeklySchedulePSaturday
+)
 
-// WeeklySchedulePEveryday returns a pointer to WeeklyScheduleVEveryday
-func WeeklySchedulePEveryday() *WeeklySchedule {
-	v := WeeklyScheduleVEveryday
-	return &v
-}
-
-// WeeklySchedulePSunday returns a pointer to WeeklyScheduleVSunday
-func WeeklySchedulePSunday() *WeeklySchedule {
-	v := WeeklyScheduleVSunday
-	return &v
-}
-
-// WeeklySchedulePMonday returns a pointer to WeeklyScheduleVMonday
-func WeeklySchedulePMonday() *WeeklySchedule {
-	v := WeeklyScheduleVMonday
-	return &v
-}
-
-// WeeklySchedulePTuesday returns a pointer to WeeklyScheduleVTuesday
-func WeeklySchedulePTuesday() *WeeklySchedule {
-	v := WeeklyScheduleVTuesday
-	return &v
-}
-
-// WeeklySchedulePWednesday returns a pointer to WeeklyScheduleVWednesday
-func WeeklySchedulePWednesday() *WeeklySchedule {
-	v := WeeklyScheduleVWednesday
-	return &v
-}
-
-// WeeklySchedulePThursday returns a pointer to WeeklyScheduleVThursday
-func WeeklySchedulePThursday() *WeeklySchedule {
-	v := WeeklyScheduleVThursday
-	return &v
-}
-
-// WeeklySchedulePFriday returns a pointer to WeeklyScheduleVFriday
-func WeeklySchedulePFriday() *WeeklySchedule {
-	v := WeeklyScheduleVFriday
-	return &v
-}
-
-// WeeklySchedulePSaturday returns a pointer to WeeklyScheduleVSaturday
-func WeeklySchedulePSaturday() *WeeklySchedule {
-	v := WeeklyScheduleVSaturday
-	return &v
-}
+var (
+	_WeeklySchedulePUserDefined = WeeklyScheduleVUserDefined
+	_WeeklySchedulePEveryday    = WeeklyScheduleVEveryday
+	_WeeklySchedulePSunday      = WeeklyScheduleVSunday
+	_WeeklySchedulePMonday      = WeeklyScheduleVMonday
+	_WeeklySchedulePTuesday     = WeeklyScheduleVTuesday
+	_WeeklySchedulePWednesday   = WeeklyScheduleVWednesday
+	_WeeklySchedulePThursday    = WeeklyScheduleVThursday
+	_WeeklySchedulePFriday      = WeeklyScheduleVFriday
+	_WeeklySchedulePSaturday    = WeeklyScheduleVSaturday
+)

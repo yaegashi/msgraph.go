@@ -3,31 +3,28 @@
 package msgraph
 
 // StateManagementSetting undocumented
-type StateManagementSetting int
+type StateManagementSetting string
 
 const (
 	// StateManagementSettingVNotConfigured undocumented
-	StateManagementSettingVNotConfigured StateManagementSetting = 0
+	StateManagementSettingVNotConfigured StateManagementSetting = "notConfigured"
 	// StateManagementSettingVBlocked undocumented
-	StateManagementSettingVBlocked StateManagementSetting = 1
+	StateManagementSettingVBlocked StateManagementSetting = "blocked"
 	// StateManagementSettingVAllowed undocumented
-	StateManagementSettingVAllowed StateManagementSetting = 2
+	StateManagementSettingVAllowed StateManagementSetting = "allowed"
 )
 
-// StateManagementSettingPNotConfigured returns a pointer to StateManagementSettingVNotConfigured
-func StateManagementSettingPNotConfigured() *StateManagementSetting {
-	v := StateManagementSettingVNotConfigured
-	return &v
-}
+var (
+	// StateManagementSettingPNotConfigured is a pointer to StateManagementSettingVNotConfigured
+	StateManagementSettingPNotConfigured = &_StateManagementSettingPNotConfigured
+	// StateManagementSettingPBlocked is a pointer to StateManagementSettingVBlocked
+	StateManagementSettingPBlocked = &_StateManagementSettingPBlocked
+	// StateManagementSettingPAllowed is a pointer to StateManagementSettingVAllowed
+	StateManagementSettingPAllowed = &_StateManagementSettingPAllowed
+)
 
-// StateManagementSettingPBlocked returns a pointer to StateManagementSettingVBlocked
-func StateManagementSettingPBlocked() *StateManagementSetting {
-	v := StateManagementSettingVBlocked
-	return &v
-}
-
-// StateManagementSettingPAllowed returns a pointer to StateManagementSettingVAllowed
-func StateManagementSettingPAllowed() *StateManagementSetting {
-	v := StateManagementSettingVAllowed
-	return &v
-}
+var (
+	_StateManagementSettingPNotConfigured = StateManagementSettingVNotConfigured
+	_StateManagementSettingPBlocked       = StateManagementSettingVBlocked
+	_StateManagementSettingPAllowed       = StateManagementSettingVAllowed
+)

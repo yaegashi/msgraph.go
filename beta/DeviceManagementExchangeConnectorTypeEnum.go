@@ -3,39 +3,33 @@
 package msgraph
 
 // DeviceManagementExchangeConnectorType undocumented
-type DeviceManagementExchangeConnectorType int
+type DeviceManagementExchangeConnectorType string
 
 const (
 	// DeviceManagementExchangeConnectorTypeVOnPremises undocumented
-	DeviceManagementExchangeConnectorTypeVOnPremises DeviceManagementExchangeConnectorType = 0
+	DeviceManagementExchangeConnectorTypeVOnPremises DeviceManagementExchangeConnectorType = "onPremises"
 	// DeviceManagementExchangeConnectorTypeVHosted undocumented
-	DeviceManagementExchangeConnectorTypeVHosted DeviceManagementExchangeConnectorType = 1
+	DeviceManagementExchangeConnectorTypeVHosted DeviceManagementExchangeConnectorType = "hosted"
 	// DeviceManagementExchangeConnectorTypeVServiceToService undocumented
-	DeviceManagementExchangeConnectorTypeVServiceToService DeviceManagementExchangeConnectorType = 2
+	DeviceManagementExchangeConnectorTypeVServiceToService DeviceManagementExchangeConnectorType = "serviceToService"
 	// DeviceManagementExchangeConnectorTypeVDedicated undocumented
-	DeviceManagementExchangeConnectorTypeVDedicated DeviceManagementExchangeConnectorType = 3
+	DeviceManagementExchangeConnectorTypeVDedicated DeviceManagementExchangeConnectorType = "dedicated"
 )
 
-// DeviceManagementExchangeConnectorTypePOnPremises returns a pointer to DeviceManagementExchangeConnectorTypeVOnPremises
-func DeviceManagementExchangeConnectorTypePOnPremises() *DeviceManagementExchangeConnectorType {
-	v := DeviceManagementExchangeConnectorTypeVOnPremises
-	return &v
-}
+var (
+	// DeviceManagementExchangeConnectorTypePOnPremises is a pointer to DeviceManagementExchangeConnectorTypeVOnPremises
+	DeviceManagementExchangeConnectorTypePOnPremises = &_DeviceManagementExchangeConnectorTypePOnPremises
+	// DeviceManagementExchangeConnectorTypePHosted is a pointer to DeviceManagementExchangeConnectorTypeVHosted
+	DeviceManagementExchangeConnectorTypePHosted = &_DeviceManagementExchangeConnectorTypePHosted
+	// DeviceManagementExchangeConnectorTypePServiceToService is a pointer to DeviceManagementExchangeConnectorTypeVServiceToService
+	DeviceManagementExchangeConnectorTypePServiceToService = &_DeviceManagementExchangeConnectorTypePServiceToService
+	// DeviceManagementExchangeConnectorTypePDedicated is a pointer to DeviceManagementExchangeConnectorTypeVDedicated
+	DeviceManagementExchangeConnectorTypePDedicated = &_DeviceManagementExchangeConnectorTypePDedicated
+)
 
-// DeviceManagementExchangeConnectorTypePHosted returns a pointer to DeviceManagementExchangeConnectorTypeVHosted
-func DeviceManagementExchangeConnectorTypePHosted() *DeviceManagementExchangeConnectorType {
-	v := DeviceManagementExchangeConnectorTypeVHosted
-	return &v
-}
-
-// DeviceManagementExchangeConnectorTypePServiceToService returns a pointer to DeviceManagementExchangeConnectorTypeVServiceToService
-func DeviceManagementExchangeConnectorTypePServiceToService() *DeviceManagementExchangeConnectorType {
-	v := DeviceManagementExchangeConnectorTypeVServiceToService
-	return &v
-}
-
-// DeviceManagementExchangeConnectorTypePDedicated returns a pointer to DeviceManagementExchangeConnectorTypeVDedicated
-func DeviceManagementExchangeConnectorTypePDedicated() *DeviceManagementExchangeConnectorType {
-	v := DeviceManagementExchangeConnectorTypeVDedicated
-	return &v
-}
+var (
+	_DeviceManagementExchangeConnectorTypePOnPremises       = DeviceManagementExchangeConnectorTypeVOnPremises
+	_DeviceManagementExchangeConnectorTypePHosted           = DeviceManagementExchangeConnectorTypeVHosted
+	_DeviceManagementExchangeConnectorTypePServiceToService = DeviceManagementExchangeConnectorTypeVServiceToService
+	_DeviceManagementExchangeConnectorTypePDedicated        = DeviceManagementExchangeConnectorTypeVDedicated
+)

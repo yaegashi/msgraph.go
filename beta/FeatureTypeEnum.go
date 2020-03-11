@@ -3,31 +3,28 @@
 package msgraph
 
 // FeatureType undocumented
-type FeatureType int
+type FeatureType string
 
 const (
 	// FeatureTypeVRegistration undocumented
-	FeatureTypeVRegistration FeatureType = 0
+	FeatureTypeVRegistration FeatureType = "registration"
 	// FeatureTypeVReset undocumented
-	FeatureTypeVReset FeatureType = 1
+	FeatureTypeVReset FeatureType = "reset"
 	// FeatureTypeVUnknownFutureValue undocumented
-	FeatureTypeVUnknownFutureValue FeatureType = 2
+	FeatureTypeVUnknownFutureValue FeatureType = "unknownFutureValue"
 )
 
-// FeatureTypePRegistration returns a pointer to FeatureTypeVRegistration
-func FeatureTypePRegistration() *FeatureType {
-	v := FeatureTypeVRegistration
-	return &v
-}
+var (
+	// FeatureTypePRegistration is a pointer to FeatureTypeVRegistration
+	FeatureTypePRegistration = &_FeatureTypePRegistration
+	// FeatureTypePReset is a pointer to FeatureTypeVReset
+	FeatureTypePReset = &_FeatureTypePReset
+	// FeatureTypePUnknownFutureValue is a pointer to FeatureTypeVUnknownFutureValue
+	FeatureTypePUnknownFutureValue = &_FeatureTypePUnknownFutureValue
+)
 
-// FeatureTypePReset returns a pointer to FeatureTypeVReset
-func FeatureTypePReset() *FeatureType {
-	v := FeatureTypeVReset
-	return &v
-}
-
-// FeatureTypePUnknownFutureValue returns a pointer to FeatureTypeVUnknownFutureValue
-func FeatureTypePUnknownFutureValue() *FeatureType {
-	v := FeatureTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_FeatureTypePRegistration       = FeatureTypeVRegistration
+	_FeatureTypePReset              = FeatureTypeVReset
+	_FeatureTypePUnknownFutureValue = FeatureTypeVUnknownFutureValue
+)

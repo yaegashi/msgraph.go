@@ -3,31 +3,28 @@
 package msgraph
 
 // RequirementProvider undocumented
-type RequirementProvider int
+type RequirementProvider string
 
 const (
 	// RequirementProviderVMFA undocumented
-	RequirementProviderVMFA RequirementProvider = 0
+	RequirementProviderVMFA RequirementProvider = "MFA"
 	// RequirementProviderVCA undocumented
-	RequirementProviderVCA RequirementProvider = 1
+	RequirementProviderVCA RequirementProvider = "CA"
 	// RequirementProviderVUnknownFutureValue undocumented
-	RequirementProviderVUnknownFutureValue RequirementProvider = 2
+	RequirementProviderVUnknownFutureValue RequirementProvider = "unknownFutureValue"
 )
 
-// RequirementProviderPMFA returns a pointer to RequirementProviderVMFA
-func RequirementProviderPMFA() *RequirementProvider {
-	v := RequirementProviderVMFA
-	return &v
-}
+var (
+	// RequirementProviderPMFA is a pointer to RequirementProviderVMFA
+	RequirementProviderPMFA = &_RequirementProviderPMFA
+	// RequirementProviderPCA is a pointer to RequirementProviderVCA
+	RequirementProviderPCA = &_RequirementProviderPCA
+	// RequirementProviderPUnknownFutureValue is a pointer to RequirementProviderVUnknownFutureValue
+	RequirementProviderPUnknownFutureValue = &_RequirementProviderPUnknownFutureValue
+)
 
-// RequirementProviderPCA returns a pointer to RequirementProviderVCA
-func RequirementProviderPCA() *RequirementProvider {
-	v := RequirementProviderVCA
-	return &v
-}
-
-// RequirementProviderPUnknownFutureValue returns a pointer to RequirementProviderVUnknownFutureValue
-func RequirementProviderPUnknownFutureValue() *RequirementProvider {
-	v := RequirementProviderVUnknownFutureValue
-	return &v
-}
+var (
+	_RequirementProviderPMFA                = RequirementProviderVMFA
+	_RequirementProviderPCA                 = RequirementProviderVCA
+	_RequirementProviderPUnknownFutureValue = RequirementProviderVUnknownFutureValue
+)

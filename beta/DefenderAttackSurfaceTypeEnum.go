@@ -3,31 +3,28 @@
 package msgraph
 
 // DefenderAttackSurfaceType undocumented
-type DefenderAttackSurfaceType int
+type DefenderAttackSurfaceType string
 
 const (
 	// DefenderAttackSurfaceTypeVUserDefined undocumented
-	DefenderAttackSurfaceTypeVUserDefined DefenderAttackSurfaceType = 0
+	DefenderAttackSurfaceTypeVUserDefined DefenderAttackSurfaceType = "userDefined"
 	// DefenderAttackSurfaceTypeVBlock undocumented
-	DefenderAttackSurfaceTypeVBlock DefenderAttackSurfaceType = 1
+	DefenderAttackSurfaceTypeVBlock DefenderAttackSurfaceType = "block"
 	// DefenderAttackSurfaceTypeVAuditMode undocumented
-	DefenderAttackSurfaceTypeVAuditMode DefenderAttackSurfaceType = 2
+	DefenderAttackSurfaceTypeVAuditMode DefenderAttackSurfaceType = "auditMode"
 )
 
-// DefenderAttackSurfaceTypePUserDefined returns a pointer to DefenderAttackSurfaceTypeVUserDefined
-func DefenderAttackSurfaceTypePUserDefined() *DefenderAttackSurfaceType {
-	v := DefenderAttackSurfaceTypeVUserDefined
-	return &v
-}
+var (
+	// DefenderAttackSurfaceTypePUserDefined is a pointer to DefenderAttackSurfaceTypeVUserDefined
+	DefenderAttackSurfaceTypePUserDefined = &_DefenderAttackSurfaceTypePUserDefined
+	// DefenderAttackSurfaceTypePBlock is a pointer to DefenderAttackSurfaceTypeVBlock
+	DefenderAttackSurfaceTypePBlock = &_DefenderAttackSurfaceTypePBlock
+	// DefenderAttackSurfaceTypePAuditMode is a pointer to DefenderAttackSurfaceTypeVAuditMode
+	DefenderAttackSurfaceTypePAuditMode = &_DefenderAttackSurfaceTypePAuditMode
+)
 
-// DefenderAttackSurfaceTypePBlock returns a pointer to DefenderAttackSurfaceTypeVBlock
-func DefenderAttackSurfaceTypePBlock() *DefenderAttackSurfaceType {
-	v := DefenderAttackSurfaceTypeVBlock
-	return &v
-}
-
-// DefenderAttackSurfaceTypePAuditMode returns a pointer to DefenderAttackSurfaceTypeVAuditMode
-func DefenderAttackSurfaceTypePAuditMode() *DefenderAttackSurfaceType {
-	v := DefenderAttackSurfaceTypeVAuditMode
-	return &v
-}
+var (
+	_DefenderAttackSurfaceTypePUserDefined = DefenderAttackSurfaceTypeVUserDefined
+	_DefenderAttackSurfaceTypePBlock       = DefenderAttackSurfaceTypeVBlock
+	_DefenderAttackSurfaceTypePAuditMode   = DefenderAttackSurfaceTypeVAuditMode
+)

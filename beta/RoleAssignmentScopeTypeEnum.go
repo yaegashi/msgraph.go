@@ -3,39 +3,33 @@
 package msgraph
 
 // RoleAssignmentScopeType undocumented
-type RoleAssignmentScopeType int
+type RoleAssignmentScopeType string
 
 const (
 	// RoleAssignmentScopeTypeVResourceScope undocumented
-	RoleAssignmentScopeTypeVResourceScope RoleAssignmentScopeType = 0
+	RoleAssignmentScopeTypeVResourceScope RoleAssignmentScopeType = "resourceScope"
 	// RoleAssignmentScopeTypeVAllDevices undocumented
-	RoleAssignmentScopeTypeVAllDevices RoleAssignmentScopeType = 1
+	RoleAssignmentScopeTypeVAllDevices RoleAssignmentScopeType = "allDevices"
 	// RoleAssignmentScopeTypeVAllLicensedUsers undocumented
-	RoleAssignmentScopeTypeVAllLicensedUsers RoleAssignmentScopeType = 2
+	RoleAssignmentScopeTypeVAllLicensedUsers RoleAssignmentScopeType = "allLicensedUsers"
 	// RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers undocumented
-	RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers RoleAssignmentScopeType = 3
+	RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers RoleAssignmentScopeType = "allDevicesAndLicensedUsers"
 )
 
-// RoleAssignmentScopeTypePResourceScope returns a pointer to RoleAssignmentScopeTypeVResourceScope
-func RoleAssignmentScopeTypePResourceScope() *RoleAssignmentScopeType {
-	v := RoleAssignmentScopeTypeVResourceScope
-	return &v
-}
+var (
+	// RoleAssignmentScopeTypePResourceScope is a pointer to RoleAssignmentScopeTypeVResourceScope
+	RoleAssignmentScopeTypePResourceScope = &_RoleAssignmentScopeTypePResourceScope
+	// RoleAssignmentScopeTypePAllDevices is a pointer to RoleAssignmentScopeTypeVAllDevices
+	RoleAssignmentScopeTypePAllDevices = &_RoleAssignmentScopeTypePAllDevices
+	// RoleAssignmentScopeTypePAllLicensedUsers is a pointer to RoleAssignmentScopeTypeVAllLicensedUsers
+	RoleAssignmentScopeTypePAllLicensedUsers = &_RoleAssignmentScopeTypePAllLicensedUsers
+	// RoleAssignmentScopeTypePAllDevicesAndLicensedUsers is a pointer to RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers
+	RoleAssignmentScopeTypePAllDevicesAndLicensedUsers = &_RoleAssignmentScopeTypePAllDevicesAndLicensedUsers
+)
 
-// RoleAssignmentScopeTypePAllDevices returns a pointer to RoleAssignmentScopeTypeVAllDevices
-func RoleAssignmentScopeTypePAllDevices() *RoleAssignmentScopeType {
-	v := RoleAssignmentScopeTypeVAllDevices
-	return &v
-}
-
-// RoleAssignmentScopeTypePAllLicensedUsers returns a pointer to RoleAssignmentScopeTypeVAllLicensedUsers
-func RoleAssignmentScopeTypePAllLicensedUsers() *RoleAssignmentScopeType {
-	v := RoleAssignmentScopeTypeVAllLicensedUsers
-	return &v
-}
-
-// RoleAssignmentScopeTypePAllDevicesAndLicensedUsers returns a pointer to RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers
-func RoleAssignmentScopeTypePAllDevicesAndLicensedUsers() *RoleAssignmentScopeType {
-	v := RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers
-	return &v
-}
+var (
+	_RoleAssignmentScopeTypePResourceScope              = RoleAssignmentScopeTypeVResourceScope
+	_RoleAssignmentScopeTypePAllDevices                 = RoleAssignmentScopeTypeVAllDevices
+	_RoleAssignmentScopeTypePAllLicensedUsers           = RoleAssignmentScopeTypeVAllLicensedUsers
+	_RoleAssignmentScopeTypePAllDevicesAndLicensedUsers = RoleAssignmentScopeTypeVAllDevicesAndLicensedUsers
+)

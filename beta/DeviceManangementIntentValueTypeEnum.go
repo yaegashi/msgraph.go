@@ -3,55 +3,43 @@
 package msgraph
 
 // DeviceManangementIntentValueType undocumented
-type DeviceManangementIntentValueType int
+type DeviceManangementIntentValueType string
 
 const (
 	// DeviceManangementIntentValueTypeVInteger undocumented
-	DeviceManangementIntentValueTypeVInteger DeviceManangementIntentValueType = 0
+	DeviceManangementIntentValueTypeVInteger DeviceManangementIntentValueType = "integer"
 	// DeviceManangementIntentValueTypeVBoolean undocumented
-	DeviceManangementIntentValueTypeVBoolean DeviceManangementIntentValueType = 1
+	DeviceManangementIntentValueTypeVBoolean DeviceManangementIntentValueType = "boolean"
 	// DeviceManangementIntentValueTypeVString undocumented
-	DeviceManangementIntentValueTypeVString DeviceManangementIntentValueType = 2
+	DeviceManangementIntentValueTypeVString DeviceManangementIntentValueType = "string"
 	// DeviceManangementIntentValueTypeVComplex undocumented
-	DeviceManangementIntentValueTypeVComplex DeviceManangementIntentValueType = 3
+	DeviceManangementIntentValueTypeVComplex DeviceManangementIntentValueType = "complex"
 	// DeviceManangementIntentValueTypeVCollection undocumented
-	DeviceManangementIntentValueTypeVCollection DeviceManangementIntentValueType = 4
+	DeviceManangementIntentValueTypeVCollection DeviceManangementIntentValueType = "collection"
 	// DeviceManangementIntentValueTypeVAbstractComplex undocumented
-	DeviceManangementIntentValueTypeVAbstractComplex DeviceManangementIntentValueType = 5
+	DeviceManangementIntentValueTypeVAbstractComplex DeviceManangementIntentValueType = "abstractComplex"
 )
 
-// DeviceManangementIntentValueTypePInteger returns a pointer to DeviceManangementIntentValueTypeVInteger
-func DeviceManangementIntentValueTypePInteger() *DeviceManangementIntentValueType {
-	v := DeviceManangementIntentValueTypeVInteger
-	return &v
-}
+var (
+	// DeviceManangementIntentValueTypePInteger is a pointer to DeviceManangementIntentValueTypeVInteger
+	DeviceManangementIntentValueTypePInteger = &_DeviceManangementIntentValueTypePInteger
+	// DeviceManangementIntentValueTypePBoolean is a pointer to DeviceManangementIntentValueTypeVBoolean
+	DeviceManangementIntentValueTypePBoolean = &_DeviceManangementIntentValueTypePBoolean
+	// DeviceManangementIntentValueTypePString is a pointer to DeviceManangementIntentValueTypeVString
+	DeviceManangementIntentValueTypePString = &_DeviceManangementIntentValueTypePString
+	// DeviceManangementIntentValueTypePComplex is a pointer to DeviceManangementIntentValueTypeVComplex
+	DeviceManangementIntentValueTypePComplex = &_DeviceManangementIntentValueTypePComplex
+	// DeviceManangementIntentValueTypePCollection is a pointer to DeviceManangementIntentValueTypeVCollection
+	DeviceManangementIntentValueTypePCollection = &_DeviceManangementIntentValueTypePCollection
+	// DeviceManangementIntentValueTypePAbstractComplex is a pointer to DeviceManangementIntentValueTypeVAbstractComplex
+	DeviceManangementIntentValueTypePAbstractComplex = &_DeviceManangementIntentValueTypePAbstractComplex
+)
 
-// DeviceManangementIntentValueTypePBoolean returns a pointer to DeviceManangementIntentValueTypeVBoolean
-func DeviceManangementIntentValueTypePBoolean() *DeviceManangementIntentValueType {
-	v := DeviceManangementIntentValueTypeVBoolean
-	return &v
-}
-
-// DeviceManangementIntentValueTypePString returns a pointer to DeviceManangementIntentValueTypeVString
-func DeviceManangementIntentValueTypePString() *DeviceManangementIntentValueType {
-	v := DeviceManangementIntentValueTypeVString
-	return &v
-}
-
-// DeviceManangementIntentValueTypePComplex returns a pointer to DeviceManangementIntentValueTypeVComplex
-func DeviceManangementIntentValueTypePComplex() *DeviceManangementIntentValueType {
-	v := DeviceManangementIntentValueTypeVComplex
-	return &v
-}
-
-// DeviceManangementIntentValueTypePCollection returns a pointer to DeviceManangementIntentValueTypeVCollection
-func DeviceManangementIntentValueTypePCollection() *DeviceManangementIntentValueType {
-	v := DeviceManangementIntentValueTypeVCollection
-	return &v
-}
-
-// DeviceManangementIntentValueTypePAbstractComplex returns a pointer to DeviceManangementIntentValueTypeVAbstractComplex
-func DeviceManangementIntentValueTypePAbstractComplex() *DeviceManangementIntentValueType {
-	v := DeviceManangementIntentValueTypeVAbstractComplex
-	return &v
-}
+var (
+	_DeviceManangementIntentValueTypePInteger         = DeviceManangementIntentValueTypeVInteger
+	_DeviceManangementIntentValueTypePBoolean         = DeviceManangementIntentValueTypeVBoolean
+	_DeviceManangementIntentValueTypePString          = DeviceManangementIntentValueTypeVString
+	_DeviceManangementIntentValueTypePComplex         = DeviceManangementIntentValueTypeVComplex
+	_DeviceManangementIntentValueTypePCollection      = DeviceManangementIntentValueTypeVCollection
+	_DeviceManangementIntentValueTypePAbstractComplex = DeviceManangementIntentValueTypeVAbstractComplex
+)

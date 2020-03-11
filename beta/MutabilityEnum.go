@@ -3,39 +3,33 @@
 package msgraph
 
 // Mutability undocumented
-type Mutability int
+type Mutability string
 
 const (
 	// MutabilityVReadWrite undocumented
-	MutabilityVReadWrite Mutability = 0
+	MutabilityVReadWrite Mutability = "ReadWrite"
 	// MutabilityVReadOnly undocumented
-	MutabilityVReadOnly Mutability = 1
+	MutabilityVReadOnly Mutability = "ReadOnly"
 	// MutabilityVImmutable undocumented
-	MutabilityVImmutable Mutability = 2
+	MutabilityVImmutable Mutability = "Immutable"
 	// MutabilityVWriteOnly undocumented
-	MutabilityVWriteOnly Mutability = 3
+	MutabilityVWriteOnly Mutability = "WriteOnly"
 )
 
-// MutabilityPReadWrite returns a pointer to MutabilityVReadWrite
-func MutabilityPReadWrite() *Mutability {
-	v := MutabilityVReadWrite
-	return &v
-}
+var (
+	// MutabilityPReadWrite is a pointer to MutabilityVReadWrite
+	MutabilityPReadWrite = &_MutabilityPReadWrite
+	// MutabilityPReadOnly is a pointer to MutabilityVReadOnly
+	MutabilityPReadOnly = &_MutabilityPReadOnly
+	// MutabilityPImmutable is a pointer to MutabilityVImmutable
+	MutabilityPImmutable = &_MutabilityPImmutable
+	// MutabilityPWriteOnly is a pointer to MutabilityVWriteOnly
+	MutabilityPWriteOnly = &_MutabilityPWriteOnly
+)
 
-// MutabilityPReadOnly returns a pointer to MutabilityVReadOnly
-func MutabilityPReadOnly() *Mutability {
-	v := MutabilityVReadOnly
-	return &v
-}
-
-// MutabilityPImmutable returns a pointer to MutabilityVImmutable
-func MutabilityPImmutable() *Mutability {
-	v := MutabilityVImmutable
-	return &v
-}
-
-// MutabilityPWriteOnly returns a pointer to MutabilityVWriteOnly
-func MutabilityPWriteOnly() *Mutability {
-	v := MutabilityVWriteOnly
-	return &v
-}
+var (
+	_MutabilityPReadWrite = MutabilityVReadWrite
+	_MutabilityPReadOnly  = MutabilityVReadOnly
+	_MutabilityPImmutable = MutabilityVImmutable
+	_MutabilityPWriteOnly = MutabilityVWriteOnly
+)

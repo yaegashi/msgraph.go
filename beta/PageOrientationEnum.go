@@ -3,23 +3,23 @@
 package msgraph
 
 // PageOrientation undocumented
-type PageOrientation int
+type PageOrientation string
 
 const (
 	// PageOrientationVHorizontal undocumented
-	PageOrientationVHorizontal PageOrientation = 0
+	PageOrientationVHorizontal PageOrientation = "horizontal"
 	// PageOrientationVDiagonal undocumented
-	PageOrientationVDiagonal PageOrientation = 1
+	PageOrientationVDiagonal PageOrientation = "diagonal"
 )
 
-// PageOrientationPHorizontal returns a pointer to PageOrientationVHorizontal
-func PageOrientationPHorizontal() *PageOrientation {
-	v := PageOrientationVHorizontal
-	return &v
-}
+var (
+	// PageOrientationPHorizontal is a pointer to PageOrientationVHorizontal
+	PageOrientationPHorizontal = &_PageOrientationPHorizontal
+	// PageOrientationPDiagonal is a pointer to PageOrientationVDiagonal
+	PageOrientationPDiagonal = &_PageOrientationPDiagonal
+)
 
-// PageOrientationPDiagonal returns a pointer to PageOrientationVDiagonal
-func PageOrientationPDiagonal() *PageOrientation {
-	v := PageOrientationVDiagonal
-	return &v
-}
+var (
+	_PageOrientationPHorizontal = PageOrientationVHorizontal
+	_PageOrientationPDiagonal   = PageOrientationVDiagonal
+)

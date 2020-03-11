@@ -3,47 +3,38 @@
 package msgraph
 
 // AlertFeedback undocumented
-type AlertFeedback int
+type AlertFeedback string
 
 const (
 	// AlertFeedbackVUnknown undocumented
-	AlertFeedbackVUnknown AlertFeedback = 0
+	AlertFeedbackVUnknown AlertFeedback = "unknown"
 	// AlertFeedbackVTruePositive undocumented
-	AlertFeedbackVTruePositive AlertFeedback = 1
+	AlertFeedbackVTruePositive AlertFeedback = "truePositive"
 	// AlertFeedbackVFalsePositive undocumented
-	AlertFeedbackVFalsePositive AlertFeedback = 2
+	AlertFeedbackVFalsePositive AlertFeedback = "falsePositive"
 	// AlertFeedbackVBenignPositive undocumented
-	AlertFeedbackVBenignPositive AlertFeedback = 3
+	AlertFeedbackVBenignPositive AlertFeedback = "benignPositive"
 	// AlertFeedbackVUnknownFutureValue undocumented
-	AlertFeedbackVUnknownFutureValue AlertFeedback = 127
+	AlertFeedbackVUnknownFutureValue AlertFeedback = "unknownFutureValue"
 )
 
-// AlertFeedbackPUnknown returns a pointer to AlertFeedbackVUnknown
-func AlertFeedbackPUnknown() *AlertFeedback {
-	v := AlertFeedbackVUnknown
-	return &v
-}
+var (
+	// AlertFeedbackPUnknown is a pointer to AlertFeedbackVUnknown
+	AlertFeedbackPUnknown = &_AlertFeedbackPUnknown
+	// AlertFeedbackPTruePositive is a pointer to AlertFeedbackVTruePositive
+	AlertFeedbackPTruePositive = &_AlertFeedbackPTruePositive
+	// AlertFeedbackPFalsePositive is a pointer to AlertFeedbackVFalsePositive
+	AlertFeedbackPFalsePositive = &_AlertFeedbackPFalsePositive
+	// AlertFeedbackPBenignPositive is a pointer to AlertFeedbackVBenignPositive
+	AlertFeedbackPBenignPositive = &_AlertFeedbackPBenignPositive
+	// AlertFeedbackPUnknownFutureValue is a pointer to AlertFeedbackVUnknownFutureValue
+	AlertFeedbackPUnknownFutureValue = &_AlertFeedbackPUnknownFutureValue
+)
 
-// AlertFeedbackPTruePositive returns a pointer to AlertFeedbackVTruePositive
-func AlertFeedbackPTruePositive() *AlertFeedback {
-	v := AlertFeedbackVTruePositive
-	return &v
-}
-
-// AlertFeedbackPFalsePositive returns a pointer to AlertFeedbackVFalsePositive
-func AlertFeedbackPFalsePositive() *AlertFeedback {
-	v := AlertFeedbackVFalsePositive
-	return &v
-}
-
-// AlertFeedbackPBenignPositive returns a pointer to AlertFeedbackVBenignPositive
-func AlertFeedbackPBenignPositive() *AlertFeedback {
-	v := AlertFeedbackVBenignPositive
-	return &v
-}
-
-// AlertFeedbackPUnknownFutureValue returns a pointer to AlertFeedbackVUnknownFutureValue
-func AlertFeedbackPUnknownFutureValue() *AlertFeedback {
-	v := AlertFeedbackVUnknownFutureValue
-	return &v
-}
+var (
+	_AlertFeedbackPUnknown            = AlertFeedbackVUnknown
+	_AlertFeedbackPTruePositive       = AlertFeedbackVTruePositive
+	_AlertFeedbackPFalsePositive      = AlertFeedbackVFalsePositive
+	_AlertFeedbackPBenignPositive     = AlertFeedbackVBenignPositive
+	_AlertFeedbackPUnknownFutureValue = AlertFeedbackVUnknownFutureValue
+)

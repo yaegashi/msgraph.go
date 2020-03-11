@@ -3,31 +3,28 @@
 package msgraph
 
 // FollowupFlagStatus undocumented
-type FollowupFlagStatus int
+type FollowupFlagStatus string
 
 const (
 	// FollowupFlagStatusVNotFlagged undocumented
-	FollowupFlagStatusVNotFlagged FollowupFlagStatus = 0
+	FollowupFlagStatusVNotFlagged FollowupFlagStatus = "notFlagged"
 	// FollowupFlagStatusVComplete undocumented
-	FollowupFlagStatusVComplete FollowupFlagStatus = 1
+	FollowupFlagStatusVComplete FollowupFlagStatus = "complete"
 	// FollowupFlagStatusVFlagged undocumented
-	FollowupFlagStatusVFlagged FollowupFlagStatus = 2
+	FollowupFlagStatusVFlagged FollowupFlagStatus = "flagged"
 )
 
-// FollowupFlagStatusPNotFlagged returns a pointer to FollowupFlagStatusVNotFlagged
-func FollowupFlagStatusPNotFlagged() *FollowupFlagStatus {
-	v := FollowupFlagStatusVNotFlagged
-	return &v
-}
+var (
+	// FollowupFlagStatusPNotFlagged is a pointer to FollowupFlagStatusVNotFlagged
+	FollowupFlagStatusPNotFlagged = &_FollowupFlagStatusPNotFlagged
+	// FollowupFlagStatusPComplete is a pointer to FollowupFlagStatusVComplete
+	FollowupFlagStatusPComplete = &_FollowupFlagStatusPComplete
+	// FollowupFlagStatusPFlagged is a pointer to FollowupFlagStatusVFlagged
+	FollowupFlagStatusPFlagged = &_FollowupFlagStatusPFlagged
+)
 
-// FollowupFlagStatusPComplete returns a pointer to FollowupFlagStatusVComplete
-func FollowupFlagStatusPComplete() *FollowupFlagStatus {
-	v := FollowupFlagStatusVComplete
-	return &v
-}
-
-// FollowupFlagStatusPFlagged returns a pointer to FollowupFlagStatusVFlagged
-func FollowupFlagStatusPFlagged() *FollowupFlagStatus {
-	v := FollowupFlagStatusVFlagged
-	return &v
-}
+var (
+	_FollowupFlagStatusPNotFlagged = FollowupFlagStatusVNotFlagged
+	_FollowupFlagStatusPComplete   = FollowupFlagStatusVComplete
+	_FollowupFlagStatusPFlagged    = FollowupFlagStatusVFlagged
+)

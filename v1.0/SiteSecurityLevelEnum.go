@@ -3,55 +3,43 @@
 package msgraph
 
 // SiteSecurityLevel undocumented
-type SiteSecurityLevel int
+type SiteSecurityLevel string
 
 const (
 	// SiteSecurityLevelVUserDefined undocumented
-	SiteSecurityLevelVUserDefined SiteSecurityLevel = 0
+	SiteSecurityLevelVUserDefined SiteSecurityLevel = "userDefined"
 	// SiteSecurityLevelVLow undocumented
-	SiteSecurityLevelVLow SiteSecurityLevel = 1
+	SiteSecurityLevelVLow SiteSecurityLevel = "low"
 	// SiteSecurityLevelVMediumLow undocumented
-	SiteSecurityLevelVMediumLow SiteSecurityLevel = 2
+	SiteSecurityLevelVMediumLow SiteSecurityLevel = "mediumLow"
 	// SiteSecurityLevelVMedium undocumented
-	SiteSecurityLevelVMedium SiteSecurityLevel = 3
+	SiteSecurityLevelVMedium SiteSecurityLevel = "medium"
 	// SiteSecurityLevelVMediumHigh undocumented
-	SiteSecurityLevelVMediumHigh SiteSecurityLevel = 4
+	SiteSecurityLevelVMediumHigh SiteSecurityLevel = "mediumHigh"
 	// SiteSecurityLevelVHigh undocumented
-	SiteSecurityLevelVHigh SiteSecurityLevel = 5
+	SiteSecurityLevelVHigh SiteSecurityLevel = "high"
 )
 
-// SiteSecurityLevelPUserDefined returns a pointer to SiteSecurityLevelVUserDefined
-func SiteSecurityLevelPUserDefined() *SiteSecurityLevel {
-	v := SiteSecurityLevelVUserDefined
-	return &v
-}
+var (
+	// SiteSecurityLevelPUserDefined is a pointer to SiteSecurityLevelVUserDefined
+	SiteSecurityLevelPUserDefined = &_SiteSecurityLevelPUserDefined
+	// SiteSecurityLevelPLow is a pointer to SiteSecurityLevelVLow
+	SiteSecurityLevelPLow = &_SiteSecurityLevelPLow
+	// SiteSecurityLevelPMediumLow is a pointer to SiteSecurityLevelVMediumLow
+	SiteSecurityLevelPMediumLow = &_SiteSecurityLevelPMediumLow
+	// SiteSecurityLevelPMedium is a pointer to SiteSecurityLevelVMedium
+	SiteSecurityLevelPMedium = &_SiteSecurityLevelPMedium
+	// SiteSecurityLevelPMediumHigh is a pointer to SiteSecurityLevelVMediumHigh
+	SiteSecurityLevelPMediumHigh = &_SiteSecurityLevelPMediumHigh
+	// SiteSecurityLevelPHigh is a pointer to SiteSecurityLevelVHigh
+	SiteSecurityLevelPHigh = &_SiteSecurityLevelPHigh
+)
 
-// SiteSecurityLevelPLow returns a pointer to SiteSecurityLevelVLow
-func SiteSecurityLevelPLow() *SiteSecurityLevel {
-	v := SiteSecurityLevelVLow
-	return &v
-}
-
-// SiteSecurityLevelPMediumLow returns a pointer to SiteSecurityLevelVMediumLow
-func SiteSecurityLevelPMediumLow() *SiteSecurityLevel {
-	v := SiteSecurityLevelVMediumLow
-	return &v
-}
-
-// SiteSecurityLevelPMedium returns a pointer to SiteSecurityLevelVMedium
-func SiteSecurityLevelPMedium() *SiteSecurityLevel {
-	v := SiteSecurityLevelVMedium
-	return &v
-}
-
-// SiteSecurityLevelPMediumHigh returns a pointer to SiteSecurityLevelVMediumHigh
-func SiteSecurityLevelPMediumHigh() *SiteSecurityLevel {
-	v := SiteSecurityLevelVMediumHigh
-	return &v
-}
-
-// SiteSecurityLevelPHigh returns a pointer to SiteSecurityLevelVHigh
-func SiteSecurityLevelPHigh() *SiteSecurityLevel {
-	v := SiteSecurityLevelVHigh
-	return &v
-}
+var (
+	_SiteSecurityLevelPUserDefined = SiteSecurityLevelVUserDefined
+	_SiteSecurityLevelPLow         = SiteSecurityLevelVLow
+	_SiteSecurityLevelPMediumLow   = SiteSecurityLevelVMediumLow
+	_SiteSecurityLevelPMedium      = SiteSecurityLevelVMedium
+	_SiteSecurityLevelPMediumHigh  = SiteSecurityLevelVMediumHigh
+	_SiteSecurityLevelPHigh        = SiteSecurityLevelVHigh
+)

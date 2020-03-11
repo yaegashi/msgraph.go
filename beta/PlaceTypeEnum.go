@@ -3,47 +3,38 @@
 package msgraph
 
 // PlaceType undocumented
-type PlaceType int
+type PlaceType string
 
 const (
 	// PlaceTypeVUnknown undocumented
-	PlaceTypeVUnknown PlaceType = 0
+	PlaceTypeVUnknown PlaceType = "unknown"
 	// PlaceTypeVRoom undocumented
-	PlaceTypeVRoom PlaceType = 1
+	PlaceTypeVRoom PlaceType = "room"
 	// PlaceTypeVRoomList undocumented
-	PlaceTypeVRoomList PlaceType = 2
+	PlaceTypeVRoomList PlaceType = "roomList"
 	// PlaceTypeVPublicPlace undocumented
-	PlaceTypeVPublicPlace PlaceType = 3
+	PlaceTypeVPublicPlace PlaceType = "publicPlace"
 	// PlaceTypeVPersonalPlace undocumented
-	PlaceTypeVPersonalPlace PlaceType = 4
+	PlaceTypeVPersonalPlace PlaceType = "personalPlace"
 )
 
-// PlaceTypePUnknown returns a pointer to PlaceTypeVUnknown
-func PlaceTypePUnknown() *PlaceType {
-	v := PlaceTypeVUnknown
-	return &v
-}
+var (
+	// PlaceTypePUnknown is a pointer to PlaceTypeVUnknown
+	PlaceTypePUnknown = &_PlaceTypePUnknown
+	// PlaceTypePRoom is a pointer to PlaceTypeVRoom
+	PlaceTypePRoom = &_PlaceTypePRoom
+	// PlaceTypePRoomList is a pointer to PlaceTypeVRoomList
+	PlaceTypePRoomList = &_PlaceTypePRoomList
+	// PlaceTypePPublicPlace is a pointer to PlaceTypeVPublicPlace
+	PlaceTypePPublicPlace = &_PlaceTypePPublicPlace
+	// PlaceTypePPersonalPlace is a pointer to PlaceTypeVPersonalPlace
+	PlaceTypePPersonalPlace = &_PlaceTypePPersonalPlace
+)
 
-// PlaceTypePRoom returns a pointer to PlaceTypeVRoom
-func PlaceTypePRoom() *PlaceType {
-	v := PlaceTypeVRoom
-	return &v
-}
-
-// PlaceTypePRoomList returns a pointer to PlaceTypeVRoomList
-func PlaceTypePRoomList() *PlaceType {
-	v := PlaceTypeVRoomList
-	return &v
-}
-
-// PlaceTypePPublicPlace returns a pointer to PlaceTypeVPublicPlace
-func PlaceTypePPublicPlace() *PlaceType {
-	v := PlaceTypeVPublicPlace
-	return &v
-}
-
-// PlaceTypePPersonalPlace returns a pointer to PlaceTypeVPersonalPlace
-func PlaceTypePPersonalPlace() *PlaceType {
-	v := PlaceTypeVPersonalPlace
-	return &v
-}
+var (
+	_PlaceTypePUnknown       = PlaceTypeVUnknown
+	_PlaceTypePRoom          = PlaceTypeVRoom
+	_PlaceTypePRoomList      = PlaceTypeVRoomList
+	_PlaceTypePPublicPlace   = PlaceTypeVPublicPlace
+	_PlaceTypePPersonalPlace = PlaceTypeVPersonalPlace
+)

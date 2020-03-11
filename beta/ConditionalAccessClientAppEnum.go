@@ -3,47 +3,38 @@
 package msgraph
 
 // ConditionalAccessClientApp undocumented
-type ConditionalAccessClientApp int
+type ConditionalAccessClientApp string
 
 const (
 	// ConditionalAccessClientAppVBrowser undocumented
-	ConditionalAccessClientAppVBrowser ConditionalAccessClientApp = 0
+	ConditionalAccessClientAppVBrowser ConditionalAccessClientApp = "browser"
 	// ConditionalAccessClientAppVModern undocumented
-	ConditionalAccessClientAppVModern ConditionalAccessClientApp = 1
+	ConditionalAccessClientAppVModern ConditionalAccessClientApp = "modern"
 	// ConditionalAccessClientAppVEasSupported undocumented
-	ConditionalAccessClientAppVEasSupported ConditionalAccessClientApp = 2
+	ConditionalAccessClientAppVEasSupported ConditionalAccessClientApp = "easSupported"
 	// ConditionalAccessClientAppVEasUnsupported undocumented
-	ConditionalAccessClientAppVEasUnsupported ConditionalAccessClientApp = 3
+	ConditionalAccessClientAppVEasUnsupported ConditionalAccessClientApp = "easUnsupported"
 	// ConditionalAccessClientAppVOther undocumented
-	ConditionalAccessClientAppVOther ConditionalAccessClientApp = 4
+	ConditionalAccessClientAppVOther ConditionalAccessClientApp = "other"
 )
 
-// ConditionalAccessClientAppPBrowser returns a pointer to ConditionalAccessClientAppVBrowser
-func ConditionalAccessClientAppPBrowser() *ConditionalAccessClientApp {
-	v := ConditionalAccessClientAppVBrowser
-	return &v
-}
+var (
+	// ConditionalAccessClientAppPBrowser is a pointer to ConditionalAccessClientAppVBrowser
+	ConditionalAccessClientAppPBrowser = &_ConditionalAccessClientAppPBrowser
+	// ConditionalAccessClientAppPModern is a pointer to ConditionalAccessClientAppVModern
+	ConditionalAccessClientAppPModern = &_ConditionalAccessClientAppPModern
+	// ConditionalAccessClientAppPEasSupported is a pointer to ConditionalAccessClientAppVEasSupported
+	ConditionalAccessClientAppPEasSupported = &_ConditionalAccessClientAppPEasSupported
+	// ConditionalAccessClientAppPEasUnsupported is a pointer to ConditionalAccessClientAppVEasUnsupported
+	ConditionalAccessClientAppPEasUnsupported = &_ConditionalAccessClientAppPEasUnsupported
+	// ConditionalAccessClientAppPOther is a pointer to ConditionalAccessClientAppVOther
+	ConditionalAccessClientAppPOther = &_ConditionalAccessClientAppPOther
+)
 
-// ConditionalAccessClientAppPModern returns a pointer to ConditionalAccessClientAppVModern
-func ConditionalAccessClientAppPModern() *ConditionalAccessClientApp {
-	v := ConditionalAccessClientAppVModern
-	return &v
-}
-
-// ConditionalAccessClientAppPEasSupported returns a pointer to ConditionalAccessClientAppVEasSupported
-func ConditionalAccessClientAppPEasSupported() *ConditionalAccessClientApp {
-	v := ConditionalAccessClientAppVEasSupported
-	return &v
-}
-
-// ConditionalAccessClientAppPEasUnsupported returns a pointer to ConditionalAccessClientAppVEasUnsupported
-func ConditionalAccessClientAppPEasUnsupported() *ConditionalAccessClientApp {
-	v := ConditionalAccessClientAppVEasUnsupported
-	return &v
-}
-
-// ConditionalAccessClientAppPOther returns a pointer to ConditionalAccessClientAppVOther
-func ConditionalAccessClientAppPOther() *ConditionalAccessClientApp {
-	v := ConditionalAccessClientAppVOther
-	return &v
-}
+var (
+	_ConditionalAccessClientAppPBrowser        = ConditionalAccessClientAppVBrowser
+	_ConditionalAccessClientAppPModern         = ConditionalAccessClientAppVModern
+	_ConditionalAccessClientAppPEasSupported   = ConditionalAccessClientAppVEasSupported
+	_ConditionalAccessClientAppPEasUnsupported = ConditionalAccessClientAppVEasUnsupported
+	_ConditionalAccessClientAppPOther          = ConditionalAccessClientAppVOther
+)

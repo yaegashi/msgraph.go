@@ -3,71 +3,53 @@
 package msgraph
 
 // RatingIrelandMoviesType undocumented
-type RatingIrelandMoviesType int
+type RatingIrelandMoviesType string
 
 const (
 	// RatingIrelandMoviesTypeVAllAllowed undocumented
-	RatingIrelandMoviesTypeVAllAllowed RatingIrelandMoviesType = 0
+	RatingIrelandMoviesTypeVAllAllowed RatingIrelandMoviesType = "allAllowed"
 	// RatingIrelandMoviesTypeVAllBlocked undocumented
-	RatingIrelandMoviesTypeVAllBlocked RatingIrelandMoviesType = 1
+	RatingIrelandMoviesTypeVAllBlocked RatingIrelandMoviesType = "allBlocked"
 	// RatingIrelandMoviesTypeVGeneral undocumented
-	RatingIrelandMoviesTypeVGeneral RatingIrelandMoviesType = 2
+	RatingIrelandMoviesTypeVGeneral RatingIrelandMoviesType = "general"
 	// RatingIrelandMoviesTypeVParentalGuidance undocumented
-	RatingIrelandMoviesTypeVParentalGuidance RatingIrelandMoviesType = 3
+	RatingIrelandMoviesTypeVParentalGuidance RatingIrelandMoviesType = "parentalGuidance"
 	// RatingIrelandMoviesTypeVAgesAbove12 undocumented
-	RatingIrelandMoviesTypeVAgesAbove12 RatingIrelandMoviesType = 4
+	RatingIrelandMoviesTypeVAgesAbove12 RatingIrelandMoviesType = "agesAbove12"
 	// RatingIrelandMoviesTypeVAgesAbove15 undocumented
-	RatingIrelandMoviesTypeVAgesAbove15 RatingIrelandMoviesType = 5
+	RatingIrelandMoviesTypeVAgesAbove15 RatingIrelandMoviesType = "agesAbove15"
 	// RatingIrelandMoviesTypeVAgesAbove16 undocumented
-	RatingIrelandMoviesTypeVAgesAbove16 RatingIrelandMoviesType = 6
+	RatingIrelandMoviesTypeVAgesAbove16 RatingIrelandMoviesType = "agesAbove16"
 	// RatingIrelandMoviesTypeVAdults undocumented
-	RatingIrelandMoviesTypeVAdults RatingIrelandMoviesType = 7
+	RatingIrelandMoviesTypeVAdults RatingIrelandMoviesType = "adults"
 )
 
-// RatingIrelandMoviesTypePAllAllowed returns a pointer to RatingIrelandMoviesTypeVAllAllowed
-func RatingIrelandMoviesTypePAllAllowed() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingIrelandMoviesTypePAllAllowed is a pointer to RatingIrelandMoviesTypeVAllAllowed
+	RatingIrelandMoviesTypePAllAllowed = &_RatingIrelandMoviesTypePAllAllowed
+	// RatingIrelandMoviesTypePAllBlocked is a pointer to RatingIrelandMoviesTypeVAllBlocked
+	RatingIrelandMoviesTypePAllBlocked = &_RatingIrelandMoviesTypePAllBlocked
+	// RatingIrelandMoviesTypePGeneral is a pointer to RatingIrelandMoviesTypeVGeneral
+	RatingIrelandMoviesTypePGeneral = &_RatingIrelandMoviesTypePGeneral
+	// RatingIrelandMoviesTypePParentalGuidance is a pointer to RatingIrelandMoviesTypeVParentalGuidance
+	RatingIrelandMoviesTypePParentalGuidance = &_RatingIrelandMoviesTypePParentalGuidance
+	// RatingIrelandMoviesTypePAgesAbove12 is a pointer to RatingIrelandMoviesTypeVAgesAbove12
+	RatingIrelandMoviesTypePAgesAbove12 = &_RatingIrelandMoviesTypePAgesAbove12
+	// RatingIrelandMoviesTypePAgesAbove15 is a pointer to RatingIrelandMoviesTypeVAgesAbove15
+	RatingIrelandMoviesTypePAgesAbove15 = &_RatingIrelandMoviesTypePAgesAbove15
+	// RatingIrelandMoviesTypePAgesAbove16 is a pointer to RatingIrelandMoviesTypeVAgesAbove16
+	RatingIrelandMoviesTypePAgesAbove16 = &_RatingIrelandMoviesTypePAgesAbove16
+	// RatingIrelandMoviesTypePAdults is a pointer to RatingIrelandMoviesTypeVAdults
+	RatingIrelandMoviesTypePAdults = &_RatingIrelandMoviesTypePAdults
+)
 
-// RatingIrelandMoviesTypePAllBlocked returns a pointer to RatingIrelandMoviesTypeVAllBlocked
-func RatingIrelandMoviesTypePAllBlocked() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingIrelandMoviesTypePGeneral returns a pointer to RatingIrelandMoviesTypeVGeneral
-func RatingIrelandMoviesTypePGeneral() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVGeneral
-	return &v
-}
-
-// RatingIrelandMoviesTypePParentalGuidance returns a pointer to RatingIrelandMoviesTypeVParentalGuidance
-func RatingIrelandMoviesTypePParentalGuidance() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingIrelandMoviesTypePAgesAbove12 returns a pointer to RatingIrelandMoviesTypeVAgesAbove12
-func RatingIrelandMoviesTypePAgesAbove12() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVAgesAbove12
-	return &v
-}
-
-// RatingIrelandMoviesTypePAgesAbove15 returns a pointer to RatingIrelandMoviesTypeVAgesAbove15
-func RatingIrelandMoviesTypePAgesAbove15() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVAgesAbove15
-	return &v
-}
-
-// RatingIrelandMoviesTypePAgesAbove16 returns a pointer to RatingIrelandMoviesTypeVAgesAbove16
-func RatingIrelandMoviesTypePAgesAbove16() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVAgesAbove16
-	return &v
-}
-
-// RatingIrelandMoviesTypePAdults returns a pointer to RatingIrelandMoviesTypeVAdults
-func RatingIrelandMoviesTypePAdults() *RatingIrelandMoviesType {
-	v := RatingIrelandMoviesTypeVAdults
-	return &v
-}
+var (
+	_RatingIrelandMoviesTypePAllAllowed       = RatingIrelandMoviesTypeVAllAllowed
+	_RatingIrelandMoviesTypePAllBlocked       = RatingIrelandMoviesTypeVAllBlocked
+	_RatingIrelandMoviesTypePGeneral          = RatingIrelandMoviesTypeVGeneral
+	_RatingIrelandMoviesTypePParentalGuidance = RatingIrelandMoviesTypeVParentalGuidance
+	_RatingIrelandMoviesTypePAgesAbove12      = RatingIrelandMoviesTypeVAgesAbove12
+	_RatingIrelandMoviesTypePAgesAbove15      = RatingIrelandMoviesTypeVAgesAbove15
+	_RatingIrelandMoviesTypePAgesAbove16      = RatingIrelandMoviesTypeVAgesAbove16
+	_RatingIrelandMoviesTypePAdults           = RatingIrelandMoviesTypeVAdults
+)

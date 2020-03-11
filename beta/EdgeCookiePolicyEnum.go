@@ -3,39 +3,33 @@
 package msgraph
 
 // EdgeCookiePolicy undocumented
-type EdgeCookiePolicy int
+type EdgeCookiePolicy string
 
 const (
 	// EdgeCookiePolicyVUserDefined undocumented
-	EdgeCookiePolicyVUserDefined EdgeCookiePolicy = 0
+	EdgeCookiePolicyVUserDefined EdgeCookiePolicy = "userDefined"
 	// EdgeCookiePolicyVAllow undocumented
-	EdgeCookiePolicyVAllow EdgeCookiePolicy = 1
+	EdgeCookiePolicyVAllow EdgeCookiePolicy = "allow"
 	// EdgeCookiePolicyVBlockThirdParty undocumented
-	EdgeCookiePolicyVBlockThirdParty EdgeCookiePolicy = 2
+	EdgeCookiePolicyVBlockThirdParty EdgeCookiePolicy = "blockThirdParty"
 	// EdgeCookiePolicyVBlockAll undocumented
-	EdgeCookiePolicyVBlockAll EdgeCookiePolicy = 3
+	EdgeCookiePolicyVBlockAll EdgeCookiePolicy = "blockAll"
 )
 
-// EdgeCookiePolicyPUserDefined returns a pointer to EdgeCookiePolicyVUserDefined
-func EdgeCookiePolicyPUserDefined() *EdgeCookiePolicy {
-	v := EdgeCookiePolicyVUserDefined
-	return &v
-}
+var (
+	// EdgeCookiePolicyPUserDefined is a pointer to EdgeCookiePolicyVUserDefined
+	EdgeCookiePolicyPUserDefined = &_EdgeCookiePolicyPUserDefined
+	// EdgeCookiePolicyPAllow is a pointer to EdgeCookiePolicyVAllow
+	EdgeCookiePolicyPAllow = &_EdgeCookiePolicyPAllow
+	// EdgeCookiePolicyPBlockThirdParty is a pointer to EdgeCookiePolicyVBlockThirdParty
+	EdgeCookiePolicyPBlockThirdParty = &_EdgeCookiePolicyPBlockThirdParty
+	// EdgeCookiePolicyPBlockAll is a pointer to EdgeCookiePolicyVBlockAll
+	EdgeCookiePolicyPBlockAll = &_EdgeCookiePolicyPBlockAll
+)
 
-// EdgeCookiePolicyPAllow returns a pointer to EdgeCookiePolicyVAllow
-func EdgeCookiePolicyPAllow() *EdgeCookiePolicy {
-	v := EdgeCookiePolicyVAllow
-	return &v
-}
-
-// EdgeCookiePolicyPBlockThirdParty returns a pointer to EdgeCookiePolicyVBlockThirdParty
-func EdgeCookiePolicyPBlockThirdParty() *EdgeCookiePolicy {
-	v := EdgeCookiePolicyVBlockThirdParty
-	return &v
-}
-
-// EdgeCookiePolicyPBlockAll returns a pointer to EdgeCookiePolicyVBlockAll
-func EdgeCookiePolicyPBlockAll() *EdgeCookiePolicy {
-	v := EdgeCookiePolicyVBlockAll
-	return &v
-}
+var (
+	_EdgeCookiePolicyPUserDefined     = EdgeCookiePolicyVUserDefined
+	_EdgeCookiePolicyPAllow           = EdgeCookiePolicyVAllow
+	_EdgeCookiePolicyPBlockThirdParty = EdgeCookiePolicyVBlockThirdParty
+	_EdgeCookiePolicyPBlockAll        = EdgeCookiePolicyVBlockAll
+)

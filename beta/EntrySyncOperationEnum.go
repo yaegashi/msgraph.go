@@ -3,39 +3,33 @@
 package msgraph
 
 // EntrySyncOperation undocumented
-type EntrySyncOperation int
+type EntrySyncOperation string
 
 const (
 	// EntrySyncOperationVNone undocumented
-	EntrySyncOperationVNone EntrySyncOperation = 0
+	EntrySyncOperationVNone EntrySyncOperation = "None"
 	// EntrySyncOperationVAdd undocumented
-	EntrySyncOperationVAdd EntrySyncOperation = 1
+	EntrySyncOperationVAdd EntrySyncOperation = "Add"
 	// EntrySyncOperationVDelete undocumented
-	EntrySyncOperationVDelete EntrySyncOperation = 2
+	EntrySyncOperationVDelete EntrySyncOperation = "Delete"
 	// EntrySyncOperationVUpdate undocumented
-	EntrySyncOperationVUpdate EntrySyncOperation = 3
+	EntrySyncOperationVUpdate EntrySyncOperation = "Update"
 )
 
-// EntrySyncOperationPNone returns a pointer to EntrySyncOperationVNone
-func EntrySyncOperationPNone() *EntrySyncOperation {
-	v := EntrySyncOperationVNone
-	return &v
-}
+var (
+	// EntrySyncOperationPNone is a pointer to EntrySyncOperationVNone
+	EntrySyncOperationPNone = &_EntrySyncOperationPNone
+	// EntrySyncOperationPAdd is a pointer to EntrySyncOperationVAdd
+	EntrySyncOperationPAdd = &_EntrySyncOperationPAdd
+	// EntrySyncOperationPDelete is a pointer to EntrySyncOperationVDelete
+	EntrySyncOperationPDelete = &_EntrySyncOperationPDelete
+	// EntrySyncOperationPUpdate is a pointer to EntrySyncOperationVUpdate
+	EntrySyncOperationPUpdate = &_EntrySyncOperationPUpdate
+)
 
-// EntrySyncOperationPAdd returns a pointer to EntrySyncOperationVAdd
-func EntrySyncOperationPAdd() *EntrySyncOperation {
-	v := EntrySyncOperationVAdd
-	return &v
-}
-
-// EntrySyncOperationPDelete returns a pointer to EntrySyncOperationVDelete
-func EntrySyncOperationPDelete() *EntrySyncOperation {
-	v := EntrySyncOperationVDelete
-	return &v
-}
-
-// EntrySyncOperationPUpdate returns a pointer to EntrySyncOperationVUpdate
-func EntrySyncOperationPUpdate() *EntrySyncOperation {
-	v := EntrySyncOperationVUpdate
-	return &v
-}
+var (
+	_EntrySyncOperationPNone   = EntrySyncOperationVNone
+	_EntrySyncOperationPAdd    = EntrySyncOperationVAdd
+	_EntrySyncOperationPDelete = EntrySyncOperationVDelete
+	_EntrySyncOperationPUpdate = EntrySyncOperationVUpdate
+)

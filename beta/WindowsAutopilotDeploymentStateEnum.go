@@ -3,47 +3,38 @@
 package msgraph
 
 // WindowsAutopilotDeploymentState undocumented
-type WindowsAutopilotDeploymentState int
+type WindowsAutopilotDeploymentState string
 
 const (
 	// WindowsAutopilotDeploymentStateVUnknown undocumented
-	WindowsAutopilotDeploymentStateVUnknown WindowsAutopilotDeploymentState = 0
+	WindowsAutopilotDeploymentStateVUnknown WindowsAutopilotDeploymentState = "unknown"
 	// WindowsAutopilotDeploymentStateVSuccess undocumented
-	WindowsAutopilotDeploymentStateVSuccess WindowsAutopilotDeploymentState = 1
+	WindowsAutopilotDeploymentStateVSuccess WindowsAutopilotDeploymentState = "success"
 	// WindowsAutopilotDeploymentStateVInProgress undocumented
-	WindowsAutopilotDeploymentStateVInProgress WindowsAutopilotDeploymentState = 2
+	WindowsAutopilotDeploymentStateVInProgress WindowsAutopilotDeploymentState = "inProgress"
 	// WindowsAutopilotDeploymentStateVFailure undocumented
-	WindowsAutopilotDeploymentStateVFailure WindowsAutopilotDeploymentState = 3
+	WindowsAutopilotDeploymentStateVFailure WindowsAutopilotDeploymentState = "failure"
 	// WindowsAutopilotDeploymentStateVSuccessWithTimeout undocumented
-	WindowsAutopilotDeploymentStateVSuccessWithTimeout WindowsAutopilotDeploymentState = 4
+	WindowsAutopilotDeploymentStateVSuccessWithTimeout WindowsAutopilotDeploymentState = "successWithTimeout"
 )
 
-// WindowsAutopilotDeploymentStatePUnknown returns a pointer to WindowsAutopilotDeploymentStateVUnknown
-func WindowsAutopilotDeploymentStatePUnknown() *WindowsAutopilotDeploymentState {
-	v := WindowsAutopilotDeploymentStateVUnknown
-	return &v
-}
+var (
+	// WindowsAutopilotDeploymentStatePUnknown is a pointer to WindowsAutopilotDeploymentStateVUnknown
+	WindowsAutopilotDeploymentStatePUnknown = &_WindowsAutopilotDeploymentStatePUnknown
+	// WindowsAutopilotDeploymentStatePSuccess is a pointer to WindowsAutopilotDeploymentStateVSuccess
+	WindowsAutopilotDeploymentStatePSuccess = &_WindowsAutopilotDeploymentStatePSuccess
+	// WindowsAutopilotDeploymentStatePInProgress is a pointer to WindowsAutopilotDeploymentStateVInProgress
+	WindowsAutopilotDeploymentStatePInProgress = &_WindowsAutopilotDeploymentStatePInProgress
+	// WindowsAutopilotDeploymentStatePFailure is a pointer to WindowsAutopilotDeploymentStateVFailure
+	WindowsAutopilotDeploymentStatePFailure = &_WindowsAutopilotDeploymentStatePFailure
+	// WindowsAutopilotDeploymentStatePSuccessWithTimeout is a pointer to WindowsAutopilotDeploymentStateVSuccessWithTimeout
+	WindowsAutopilotDeploymentStatePSuccessWithTimeout = &_WindowsAutopilotDeploymentStatePSuccessWithTimeout
+)
 
-// WindowsAutopilotDeploymentStatePSuccess returns a pointer to WindowsAutopilotDeploymentStateVSuccess
-func WindowsAutopilotDeploymentStatePSuccess() *WindowsAutopilotDeploymentState {
-	v := WindowsAutopilotDeploymentStateVSuccess
-	return &v
-}
-
-// WindowsAutopilotDeploymentStatePInProgress returns a pointer to WindowsAutopilotDeploymentStateVInProgress
-func WindowsAutopilotDeploymentStatePInProgress() *WindowsAutopilotDeploymentState {
-	v := WindowsAutopilotDeploymentStateVInProgress
-	return &v
-}
-
-// WindowsAutopilotDeploymentStatePFailure returns a pointer to WindowsAutopilotDeploymentStateVFailure
-func WindowsAutopilotDeploymentStatePFailure() *WindowsAutopilotDeploymentState {
-	v := WindowsAutopilotDeploymentStateVFailure
-	return &v
-}
-
-// WindowsAutopilotDeploymentStatePSuccessWithTimeout returns a pointer to WindowsAutopilotDeploymentStateVSuccessWithTimeout
-func WindowsAutopilotDeploymentStatePSuccessWithTimeout() *WindowsAutopilotDeploymentState {
-	v := WindowsAutopilotDeploymentStateVSuccessWithTimeout
-	return &v
-}
+var (
+	_WindowsAutopilotDeploymentStatePUnknown            = WindowsAutopilotDeploymentStateVUnknown
+	_WindowsAutopilotDeploymentStatePSuccess            = WindowsAutopilotDeploymentStateVSuccess
+	_WindowsAutopilotDeploymentStatePInProgress         = WindowsAutopilotDeploymentStateVInProgress
+	_WindowsAutopilotDeploymentStatePFailure            = WindowsAutopilotDeploymentStateVFailure
+	_WindowsAutopilotDeploymentStatePSuccessWithTimeout = WindowsAutopilotDeploymentStateVSuccessWithTimeout
+)

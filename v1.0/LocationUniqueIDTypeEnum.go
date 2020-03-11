@@ -3,47 +3,38 @@
 package msgraph
 
 // LocationUniqueIDType undocumented
-type LocationUniqueIDType int
+type LocationUniqueIDType string
 
 const (
 	// LocationUniqueIDTypeVUnknown undocumented
-	LocationUniqueIDTypeVUnknown LocationUniqueIDType = 0
+	LocationUniqueIDTypeVUnknown LocationUniqueIDType = "unknown"
 	// LocationUniqueIDTypeVLocationStore undocumented
-	LocationUniqueIDTypeVLocationStore LocationUniqueIDType = 1
+	LocationUniqueIDTypeVLocationStore LocationUniqueIDType = "locationStore"
 	// LocationUniqueIDTypeVDirectory undocumented
-	LocationUniqueIDTypeVDirectory LocationUniqueIDType = 2
+	LocationUniqueIDTypeVDirectory LocationUniqueIDType = "directory"
 	// LocationUniqueIDTypeVPrivate undocumented
-	LocationUniqueIDTypeVPrivate LocationUniqueIDType = 3
+	LocationUniqueIDTypeVPrivate LocationUniqueIDType = "private"
 	// LocationUniqueIDTypeVBing undocumented
-	LocationUniqueIDTypeVBing LocationUniqueIDType = 4
+	LocationUniqueIDTypeVBing LocationUniqueIDType = "bing"
 )
 
-// LocationUniqueIDTypePUnknown returns a pointer to LocationUniqueIDTypeVUnknown
-func LocationUniqueIDTypePUnknown() *LocationUniqueIDType {
-	v := LocationUniqueIDTypeVUnknown
-	return &v
-}
+var (
+	// LocationUniqueIDTypePUnknown is a pointer to LocationUniqueIDTypeVUnknown
+	LocationUniqueIDTypePUnknown = &_LocationUniqueIDTypePUnknown
+	// LocationUniqueIDTypePLocationStore is a pointer to LocationUniqueIDTypeVLocationStore
+	LocationUniqueIDTypePLocationStore = &_LocationUniqueIDTypePLocationStore
+	// LocationUniqueIDTypePDirectory is a pointer to LocationUniqueIDTypeVDirectory
+	LocationUniqueIDTypePDirectory = &_LocationUniqueIDTypePDirectory
+	// LocationUniqueIDTypePPrivate is a pointer to LocationUniqueIDTypeVPrivate
+	LocationUniqueIDTypePPrivate = &_LocationUniqueIDTypePPrivate
+	// LocationUniqueIDTypePBing is a pointer to LocationUniqueIDTypeVBing
+	LocationUniqueIDTypePBing = &_LocationUniqueIDTypePBing
+)
 
-// LocationUniqueIDTypePLocationStore returns a pointer to LocationUniqueIDTypeVLocationStore
-func LocationUniqueIDTypePLocationStore() *LocationUniqueIDType {
-	v := LocationUniqueIDTypeVLocationStore
-	return &v
-}
-
-// LocationUniqueIDTypePDirectory returns a pointer to LocationUniqueIDTypeVDirectory
-func LocationUniqueIDTypePDirectory() *LocationUniqueIDType {
-	v := LocationUniqueIDTypeVDirectory
-	return &v
-}
-
-// LocationUniqueIDTypePPrivate returns a pointer to LocationUniqueIDTypeVPrivate
-func LocationUniqueIDTypePPrivate() *LocationUniqueIDType {
-	v := LocationUniqueIDTypeVPrivate
-	return &v
-}
-
-// LocationUniqueIDTypePBing returns a pointer to LocationUniqueIDTypeVBing
-func LocationUniqueIDTypePBing() *LocationUniqueIDType {
-	v := LocationUniqueIDTypeVBing
-	return &v
-}
+var (
+	_LocationUniqueIDTypePUnknown       = LocationUniqueIDTypeVUnknown
+	_LocationUniqueIDTypePLocationStore = LocationUniqueIDTypeVLocationStore
+	_LocationUniqueIDTypePDirectory     = LocationUniqueIDTypeVDirectory
+	_LocationUniqueIDTypePPrivate       = LocationUniqueIDTypeVPrivate
+	_LocationUniqueIDTypePBing          = LocationUniqueIDTypeVBing
+)

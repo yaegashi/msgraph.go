@@ -3,31 +3,28 @@
 package msgraph
 
 // DlpAction undocumented
-type DlpAction int
+type DlpAction string
 
 const (
 	// DlpActionVNotifyUser undocumented
-	DlpActionVNotifyUser DlpAction = 0
+	DlpActionVNotifyUser DlpAction = "notifyUser"
 	// DlpActionVBlockAccess undocumented
-	DlpActionVBlockAccess DlpAction = 1
+	DlpActionVBlockAccess DlpAction = "blockAccess"
 	// DlpActionVDeviceRestriction undocumented
-	DlpActionVDeviceRestriction DlpAction = 2
+	DlpActionVDeviceRestriction DlpAction = "deviceRestriction"
 )
 
-// DlpActionPNotifyUser returns a pointer to DlpActionVNotifyUser
-func DlpActionPNotifyUser() *DlpAction {
-	v := DlpActionVNotifyUser
-	return &v
-}
+var (
+	// DlpActionPNotifyUser is a pointer to DlpActionVNotifyUser
+	DlpActionPNotifyUser = &_DlpActionPNotifyUser
+	// DlpActionPBlockAccess is a pointer to DlpActionVBlockAccess
+	DlpActionPBlockAccess = &_DlpActionPBlockAccess
+	// DlpActionPDeviceRestriction is a pointer to DlpActionVDeviceRestriction
+	DlpActionPDeviceRestriction = &_DlpActionPDeviceRestriction
+)
 
-// DlpActionPBlockAccess returns a pointer to DlpActionVBlockAccess
-func DlpActionPBlockAccess() *DlpAction {
-	v := DlpActionVBlockAccess
-	return &v
-}
-
-// DlpActionPDeviceRestriction returns a pointer to DlpActionVDeviceRestriction
-func DlpActionPDeviceRestriction() *DlpAction {
-	v := DlpActionVDeviceRestriction
-	return &v
-}
+var (
+	_DlpActionPNotifyUser        = DlpActionVNotifyUser
+	_DlpActionPBlockAccess       = DlpActionVBlockAccess
+	_DlpActionPDeviceRestriction = DlpActionVDeviceRestriction
+)

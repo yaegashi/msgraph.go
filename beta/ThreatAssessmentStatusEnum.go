@@ -3,23 +3,23 @@
 package msgraph
 
 // ThreatAssessmentStatus undocumented
-type ThreatAssessmentStatus int
+type ThreatAssessmentStatus string
 
 const (
 	// ThreatAssessmentStatusVPending undocumented
-	ThreatAssessmentStatusVPending ThreatAssessmentStatus = 1
+	ThreatAssessmentStatusVPending ThreatAssessmentStatus = "pending"
 	// ThreatAssessmentStatusVCompleted undocumented
-	ThreatAssessmentStatusVCompleted ThreatAssessmentStatus = 2
+	ThreatAssessmentStatusVCompleted ThreatAssessmentStatus = "completed"
 )
 
-// ThreatAssessmentStatusPPending returns a pointer to ThreatAssessmentStatusVPending
-func ThreatAssessmentStatusPPending() *ThreatAssessmentStatus {
-	v := ThreatAssessmentStatusVPending
-	return &v
-}
+var (
+	// ThreatAssessmentStatusPPending is a pointer to ThreatAssessmentStatusVPending
+	ThreatAssessmentStatusPPending = &_ThreatAssessmentStatusPPending
+	// ThreatAssessmentStatusPCompleted is a pointer to ThreatAssessmentStatusVCompleted
+	ThreatAssessmentStatusPCompleted = &_ThreatAssessmentStatusPCompleted
+)
 
-// ThreatAssessmentStatusPCompleted returns a pointer to ThreatAssessmentStatusVCompleted
-func ThreatAssessmentStatusPCompleted() *ThreatAssessmentStatus {
-	v := ThreatAssessmentStatusVCompleted
-	return &v
-}
+var (
+	_ThreatAssessmentStatusPPending   = ThreatAssessmentStatusVPending
+	_ThreatAssessmentStatusPCompleted = ThreatAssessmentStatusVCompleted
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // EdgeTelemetryMode undocumented
-type EdgeTelemetryMode int
+type EdgeTelemetryMode string
 
 const (
 	// EdgeTelemetryModeVNotConfigured undocumented
-	EdgeTelemetryModeVNotConfigured EdgeTelemetryMode = 0
+	EdgeTelemetryModeVNotConfigured EdgeTelemetryMode = "notConfigured"
 	// EdgeTelemetryModeVIntranet undocumented
-	EdgeTelemetryModeVIntranet EdgeTelemetryMode = 1
+	EdgeTelemetryModeVIntranet EdgeTelemetryMode = "intranet"
 	// EdgeTelemetryModeVInternet undocumented
-	EdgeTelemetryModeVInternet EdgeTelemetryMode = 2
+	EdgeTelemetryModeVInternet EdgeTelemetryMode = "internet"
 	// EdgeTelemetryModeVIntranetAndInternet undocumented
-	EdgeTelemetryModeVIntranetAndInternet EdgeTelemetryMode = 3
+	EdgeTelemetryModeVIntranetAndInternet EdgeTelemetryMode = "intranetAndInternet"
 )
 
-// EdgeTelemetryModePNotConfigured returns a pointer to EdgeTelemetryModeVNotConfigured
-func EdgeTelemetryModePNotConfigured() *EdgeTelemetryMode {
-	v := EdgeTelemetryModeVNotConfigured
-	return &v
-}
+var (
+	// EdgeTelemetryModePNotConfigured is a pointer to EdgeTelemetryModeVNotConfigured
+	EdgeTelemetryModePNotConfigured = &_EdgeTelemetryModePNotConfigured
+	// EdgeTelemetryModePIntranet is a pointer to EdgeTelemetryModeVIntranet
+	EdgeTelemetryModePIntranet = &_EdgeTelemetryModePIntranet
+	// EdgeTelemetryModePInternet is a pointer to EdgeTelemetryModeVInternet
+	EdgeTelemetryModePInternet = &_EdgeTelemetryModePInternet
+	// EdgeTelemetryModePIntranetAndInternet is a pointer to EdgeTelemetryModeVIntranetAndInternet
+	EdgeTelemetryModePIntranetAndInternet = &_EdgeTelemetryModePIntranetAndInternet
+)
 
-// EdgeTelemetryModePIntranet returns a pointer to EdgeTelemetryModeVIntranet
-func EdgeTelemetryModePIntranet() *EdgeTelemetryMode {
-	v := EdgeTelemetryModeVIntranet
-	return &v
-}
-
-// EdgeTelemetryModePInternet returns a pointer to EdgeTelemetryModeVInternet
-func EdgeTelemetryModePInternet() *EdgeTelemetryMode {
-	v := EdgeTelemetryModeVInternet
-	return &v
-}
-
-// EdgeTelemetryModePIntranetAndInternet returns a pointer to EdgeTelemetryModeVIntranetAndInternet
-func EdgeTelemetryModePIntranetAndInternet() *EdgeTelemetryMode {
-	v := EdgeTelemetryModeVIntranetAndInternet
-	return &v
-}
+var (
+	_EdgeTelemetryModePNotConfigured       = EdgeTelemetryModeVNotConfigured
+	_EdgeTelemetryModePIntranet            = EdgeTelemetryModeVIntranet
+	_EdgeTelemetryModePInternet            = EdgeTelemetryModeVInternet
+	_EdgeTelemetryModePIntranetAndInternet = EdgeTelemetryModeVIntranetAndInternet
+)

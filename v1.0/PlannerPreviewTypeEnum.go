@@ -3,47 +3,38 @@
 package msgraph
 
 // PlannerPreviewType undocumented
-type PlannerPreviewType int
+type PlannerPreviewType string
 
 const (
 	// PlannerPreviewTypeVAutomatic undocumented
-	PlannerPreviewTypeVAutomatic PlannerPreviewType = 0
+	PlannerPreviewTypeVAutomatic PlannerPreviewType = "automatic"
 	// PlannerPreviewTypeVNoPreview undocumented
-	PlannerPreviewTypeVNoPreview PlannerPreviewType = 1
+	PlannerPreviewTypeVNoPreview PlannerPreviewType = "noPreview"
 	// PlannerPreviewTypeVChecklist undocumented
-	PlannerPreviewTypeVChecklist PlannerPreviewType = 2
+	PlannerPreviewTypeVChecklist PlannerPreviewType = "checklist"
 	// PlannerPreviewTypeVDescription undocumented
-	PlannerPreviewTypeVDescription PlannerPreviewType = 3
+	PlannerPreviewTypeVDescription PlannerPreviewType = "description"
 	// PlannerPreviewTypeVReference undocumented
-	PlannerPreviewTypeVReference PlannerPreviewType = 4
+	PlannerPreviewTypeVReference PlannerPreviewType = "reference"
 )
 
-// PlannerPreviewTypePAutomatic returns a pointer to PlannerPreviewTypeVAutomatic
-func PlannerPreviewTypePAutomatic() *PlannerPreviewType {
-	v := PlannerPreviewTypeVAutomatic
-	return &v
-}
+var (
+	// PlannerPreviewTypePAutomatic is a pointer to PlannerPreviewTypeVAutomatic
+	PlannerPreviewTypePAutomatic = &_PlannerPreviewTypePAutomatic
+	// PlannerPreviewTypePNoPreview is a pointer to PlannerPreviewTypeVNoPreview
+	PlannerPreviewTypePNoPreview = &_PlannerPreviewTypePNoPreview
+	// PlannerPreviewTypePChecklist is a pointer to PlannerPreviewTypeVChecklist
+	PlannerPreviewTypePChecklist = &_PlannerPreviewTypePChecklist
+	// PlannerPreviewTypePDescription is a pointer to PlannerPreviewTypeVDescription
+	PlannerPreviewTypePDescription = &_PlannerPreviewTypePDescription
+	// PlannerPreviewTypePReference is a pointer to PlannerPreviewTypeVReference
+	PlannerPreviewTypePReference = &_PlannerPreviewTypePReference
+)
 
-// PlannerPreviewTypePNoPreview returns a pointer to PlannerPreviewTypeVNoPreview
-func PlannerPreviewTypePNoPreview() *PlannerPreviewType {
-	v := PlannerPreviewTypeVNoPreview
-	return &v
-}
-
-// PlannerPreviewTypePChecklist returns a pointer to PlannerPreviewTypeVChecklist
-func PlannerPreviewTypePChecklist() *PlannerPreviewType {
-	v := PlannerPreviewTypeVChecklist
-	return &v
-}
-
-// PlannerPreviewTypePDescription returns a pointer to PlannerPreviewTypeVDescription
-func PlannerPreviewTypePDescription() *PlannerPreviewType {
-	v := PlannerPreviewTypeVDescription
-	return &v
-}
-
-// PlannerPreviewTypePReference returns a pointer to PlannerPreviewTypeVReference
-func PlannerPreviewTypePReference() *PlannerPreviewType {
-	v := PlannerPreviewTypeVReference
-	return &v
-}
+var (
+	_PlannerPreviewTypePAutomatic   = PlannerPreviewTypeVAutomatic
+	_PlannerPreviewTypePNoPreview   = PlannerPreviewTypeVNoPreview
+	_PlannerPreviewTypePChecklist   = PlannerPreviewTypeVChecklist
+	_PlannerPreviewTypePDescription = PlannerPreviewTypeVDescription
+	_PlannerPreviewTypePReference   = PlannerPreviewTypeVReference
+)

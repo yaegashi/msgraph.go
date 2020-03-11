@@ -3,23 +3,23 @@
 package msgraph
 
 // DeviceAppManagementTaskCategory undocumented
-type DeviceAppManagementTaskCategory int
+type DeviceAppManagementTaskCategory string
 
 const (
 	// DeviceAppManagementTaskCategoryVUnknown undocumented
-	DeviceAppManagementTaskCategoryVUnknown DeviceAppManagementTaskCategory = 0
+	DeviceAppManagementTaskCategoryVUnknown DeviceAppManagementTaskCategory = "unknown"
 	// DeviceAppManagementTaskCategoryVAdvancedThreatProtection undocumented
-	DeviceAppManagementTaskCategoryVAdvancedThreatProtection DeviceAppManagementTaskCategory = 1
+	DeviceAppManagementTaskCategoryVAdvancedThreatProtection DeviceAppManagementTaskCategory = "advancedThreatProtection"
 )
 
-// DeviceAppManagementTaskCategoryPUnknown returns a pointer to DeviceAppManagementTaskCategoryVUnknown
-func DeviceAppManagementTaskCategoryPUnknown() *DeviceAppManagementTaskCategory {
-	v := DeviceAppManagementTaskCategoryVUnknown
-	return &v
-}
+var (
+	// DeviceAppManagementTaskCategoryPUnknown is a pointer to DeviceAppManagementTaskCategoryVUnknown
+	DeviceAppManagementTaskCategoryPUnknown = &_DeviceAppManagementTaskCategoryPUnknown
+	// DeviceAppManagementTaskCategoryPAdvancedThreatProtection is a pointer to DeviceAppManagementTaskCategoryVAdvancedThreatProtection
+	DeviceAppManagementTaskCategoryPAdvancedThreatProtection = &_DeviceAppManagementTaskCategoryPAdvancedThreatProtection
+)
 
-// DeviceAppManagementTaskCategoryPAdvancedThreatProtection returns a pointer to DeviceAppManagementTaskCategoryVAdvancedThreatProtection
-func DeviceAppManagementTaskCategoryPAdvancedThreatProtection() *DeviceAppManagementTaskCategory {
-	v := DeviceAppManagementTaskCategoryVAdvancedThreatProtection
-	return &v
-}
+var (
+	_DeviceAppManagementTaskCategoryPUnknown                  = DeviceAppManagementTaskCategoryVUnknown
+	_DeviceAppManagementTaskCategoryPAdvancedThreatProtection = DeviceAppManagementTaskCategoryVAdvancedThreatProtection
+)

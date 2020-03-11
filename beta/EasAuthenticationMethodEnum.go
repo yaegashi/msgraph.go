@@ -3,31 +3,28 @@
 package msgraph
 
 // EasAuthenticationMethod undocumented
-type EasAuthenticationMethod int
+type EasAuthenticationMethod string
 
 const (
 	// EasAuthenticationMethodVUsernameAndPassword undocumented
-	EasAuthenticationMethodVUsernameAndPassword EasAuthenticationMethod = 0
+	EasAuthenticationMethodVUsernameAndPassword EasAuthenticationMethod = "usernameAndPassword"
 	// EasAuthenticationMethodVCertificate undocumented
-	EasAuthenticationMethodVCertificate EasAuthenticationMethod = 1
+	EasAuthenticationMethodVCertificate EasAuthenticationMethod = "certificate"
 	// EasAuthenticationMethodVDerivedCredential undocumented
-	EasAuthenticationMethodVDerivedCredential EasAuthenticationMethod = 2
+	EasAuthenticationMethodVDerivedCredential EasAuthenticationMethod = "derivedCredential"
 )
 
-// EasAuthenticationMethodPUsernameAndPassword returns a pointer to EasAuthenticationMethodVUsernameAndPassword
-func EasAuthenticationMethodPUsernameAndPassword() *EasAuthenticationMethod {
-	v := EasAuthenticationMethodVUsernameAndPassword
-	return &v
-}
+var (
+	// EasAuthenticationMethodPUsernameAndPassword is a pointer to EasAuthenticationMethodVUsernameAndPassword
+	EasAuthenticationMethodPUsernameAndPassword = &_EasAuthenticationMethodPUsernameAndPassword
+	// EasAuthenticationMethodPCertificate is a pointer to EasAuthenticationMethodVCertificate
+	EasAuthenticationMethodPCertificate = &_EasAuthenticationMethodPCertificate
+	// EasAuthenticationMethodPDerivedCredential is a pointer to EasAuthenticationMethodVDerivedCredential
+	EasAuthenticationMethodPDerivedCredential = &_EasAuthenticationMethodPDerivedCredential
+)
 
-// EasAuthenticationMethodPCertificate returns a pointer to EasAuthenticationMethodVCertificate
-func EasAuthenticationMethodPCertificate() *EasAuthenticationMethod {
-	v := EasAuthenticationMethodVCertificate
-	return &v
-}
-
-// EasAuthenticationMethodPDerivedCredential returns a pointer to EasAuthenticationMethodVDerivedCredential
-func EasAuthenticationMethodPDerivedCredential() *EasAuthenticationMethod {
-	v := EasAuthenticationMethodVDerivedCredential
-	return &v
-}
+var (
+	_EasAuthenticationMethodPUsernameAndPassword = EasAuthenticationMethodVUsernameAndPassword
+	_EasAuthenticationMethodPCertificate         = EasAuthenticationMethodVCertificate
+	_EasAuthenticationMethodPDerivedCredential   = EasAuthenticationMethodVDerivedCredential
+)

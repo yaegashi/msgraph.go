@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidForWorkEnrollmentTarget undocumented
-type AndroidForWorkEnrollmentTarget int
+type AndroidForWorkEnrollmentTarget string
 
 const (
 	// AndroidForWorkEnrollmentTargetVNone undocumented
-	AndroidForWorkEnrollmentTargetVNone AndroidForWorkEnrollmentTarget = 0
+	AndroidForWorkEnrollmentTargetVNone AndroidForWorkEnrollmentTarget = "none"
 	// AndroidForWorkEnrollmentTargetVAll undocumented
-	AndroidForWorkEnrollmentTargetVAll AndroidForWorkEnrollmentTarget = 1
+	AndroidForWorkEnrollmentTargetVAll AndroidForWorkEnrollmentTarget = "all"
 	// AndroidForWorkEnrollmentTargetVTargeted undocumented
-	AndroidForWorkEnrollmentTargetVTargeted AndroidForWorkEnrollmentTarget = 2
+	AndroidForWorkEnrollmentTargetVTargeted AndroidForWorkEnrollmentTarget = "targeted"
 	// AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions undocumented
-	AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions AndroidForWorkEnrollmentTarget = 3
+	AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions AndroidForWorkEnrollmentTarget = "targetedAsEnrollmentRestrictions"
 )
 
-// AndroidForWorkEnrollmentTargetPNone returns a pointer to AndroidForWorkEnrollmentTargetVNone
-func AndroidForWorkEnrollmentTargetPNone() *AndroidForWorkEnrollmentTarget {
-	v := AndroidForWorkEnrollmentTargetVNone
-	return &v
-}
+var (
+	// AndroidForWorkEnrollmentTargetPNone is a pointer to AndroidForWorkEnrollmentTargetVNone
+	AndroidForWorkEnrollmentTargetPNone = &_AndroidForWorkEnrollmentTargetPNone
+	// AndroidForWorkEnrollmentTargetPAll is a pointer to AndroidForWorkEnrollmentTargetVAll
+	AndroidForWorkEnrollmentTargetPAll = &_AndroidForWorkEnrollmentTargetPAll
+	// AndroidForWorkEnrollmentTargetPTargeted is a pointer to AndroidForWorkEnrollmentTargetVTargeted
+	AndroidForWorkEnrollmentTargetPTargeted = &_AndroidForWorkEnrollmentTargetPTargeted
+	// AndroidForWorkEnrollmentTargetPTargetedAsEnrollmentRestrictions is a pointer to AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions
+	AndroidForWorkEnrollmentTargetPTargetedAsEnrollmentRestrictions = &_AndroidForWorkEnrollmentTargetPTargetedAsEnrollmentRestrictions
+)
 
-// AndroidForWorkEnrollmentTargetPAll returns a pointer to AndroidForWorkEnrollmentTargetVAll
-func AndroidForWorkEnrollmentTargetPAll() *AndroidForWorkEnrollmentTarget {
-	v := AndroidForWorkEnrollmentTargetVAll
-	return &v
-}
-
-// AndroidForWorkEnrollmentTargetPTargeted returns a pointer to AndroidForWorkEnrollmentTargetVTargeted
-func AndroidForWorkEnrollmentTargetPTargeted() *AndroidForWorkEnrollmentTarget {
-	v := AndroidForWorkEnrollmentTargetVTargeted
-	return &v
-}
-
-// AndroidForWorkEnrollmentTargetPTargetedAsEnrollmentRestrictions returns a pointer to AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions
-func AndroidForWorkEnrollmentTargetPTargetedAsEnrollmentRestrictions() *AndroidForWorkEnrollmentTarget {
-	v := AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions
-	return &v
-}
+var (
+	_AndroidForWorkEnrollmentTargetPNone                             = AndroidForWorkEnrollmentTargetVNone
+	_AndroidForWorkEnrollmentTargetPAll                              = AndroidForWorkEnrollmentTargetVAll
+	_AndroidForWorkEnrollmentTargetPTargeted                         = AndroidForWorkEnrollmentTargetVTargeted
+	_AndroidForWorkEnrollmentTargetPTargetedAsEnrollmentRestrictions = AndroidForWorkEnrollmentTargetVTargetedAsEnrollmentRestrictions
+)

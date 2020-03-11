@@ -3,47 +3,38 @@
 package msgraph
 
 // VppTokenState undocumented
-type VppTokenState int
+type VppTokenState string
 
 const (
 	// VppTokenStateVUnknown undocumented
-	VppTokenStateVUnknown VppTokenState = 0
+	VppTokenStateVUnknown VppTokenState = "unknown"
 	// VppTokenStateVValid undocumented
-	VppTokenStateVValid VppTokenState = 1
+	VppTokenStateVValid VppTokenState = "valid"
 	// VppTokenStateVExpired undocumented
-	VppTokenStateVExpired VppTokenState = 2
+	VppTokenStateVExpired VppTokenState = "expired"
 	// VppTokenStateVInvalid undocumented
-	VppTokenStateVInvalid VppTokenState = 3
+	VppTokenStateVInvalid VppTokenState = "invalid"
 	// VppTokenStateVAssignedToExternalMDM undocumented
-	VppTokenStateVAssignedToExternalMDM VppTokenState = 4
+	VppTokenStateVAssignedToExternalMDM VppTokenState = "assignedToExternalMDM"
 )
 
-// VppTokenStatePUnknown returns a pointer to VppTokenStateVUnknown
-func VppTokenStatePUnknown() *VppTokenState {
-	v := VppTokenStateVUnknown
-	return &v
-}
+var (
+	// VppTokenStatePUnknown is a pointer to VppTokenStateVUnknown
+	VppTokenStatePUnknown = &_VppTokenStatePUnknown
+	// VppTokenStatePValid is a pointer to VppTokenStateVValid
+	VppTokenStatePValid = &_VppTokenStatePValid
+	// VppTokenStatePExpired is a pointer to VppTokenStateVExpired
+	VppTokenStatePExpired = &_VppTokenStatePExpired
+	// VppTokenStatePInvalid is a pointer to VppTokenStateVInvalid
+	VppTokenStatePInvalid = &_VppTokenStatePInvalid
+	// VppTokenStatePAssignedToExternalMDM is a pointer to VppTokenStateVAssignedToExternalMDM
+	VppTokenStatePAssignedToExternalMDM = &_VppTokenStatePAssignedToExternalMDM
+)
 
-// VppTokenStatePValid returns a pointer to VppTokenStateVValid
-func VppTokenStatePValid() *VppTokenState {
-	v := VppTokenStateVValid
-	return &v
-}
-
-// VppTokenStatePExpired returns a pointer to VppTokenStateVExpired
-func VppTokenStatePExpired() *VppTokenState {
-	v := VppTokenStateVExpired
-	return &v
-}
-
-// VppTokenStatePInvalid returns a pointer to VppTokenStateVInvalid
-func VppTokenStatePInvalid() *VppTokenState {
-	v := VppTokenStateVInvalid
-	return &v
-}
-
-// VppTokenStatePAssignedToExternalMDM returns a pointer to VppTokenStateVAssignedToExternalMDM
-func VppTokenStatePAssignedToExternalMDM() *VppTokenState {
-	v := VppTokenStateVAssignedToExternalMDM
-	return &v
-}
+var (
+	_VppTokenStatePUnknown               = VppTokenStateVUnknown
+	_VppTokenStatePValid                 = VppTokenStateVValid
+	_VppTokenStatePExpired               = VppTokenStateVExpired
+	_VppTokenStatePInvalid               = VppTokenStateVInvalid
+	_VppTokenStatePAssignedToExternalMDM = VppTokenStateVAssignedToExternalMDM
+)

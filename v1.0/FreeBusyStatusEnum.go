@@ -3,55 +3,43 @@
 package msgraph
 
 // FreeBusyStatus undocumented
-type FreeBusyStatus int
+type FreeBusyStatus string
 
 const (
 	// FreeBusyStatusVFree undocumented
-	FreeBusyStatusVFree FreeBusyStatus = 0
+	FreeBusyStatusVFree FreeBusyStatus = "free"
 	// FreeBusyStatusVTentative undocumented
-	FreeBusyStatusVTentative FreeBusyStatus = 1
+	FreeBusyStatusVTentative FreeBusyStatus = "tentative"
 	// FreeBusyStatusVBusy undocumented
-	FreeBusyStatusVBusy FreeBusyStatus = 2
+	FreeBusyStatusVBusy FreeBusyStatus = "busy"
 	// FreeBusyStatusVOof undocumented
-	FreeBusyStatusVOof FreeBusyStatus = 3
+	FreeBusyStatusVOof FreeBusyStatus = "oof"
 	// FreeBusyStatusVWorkingElsewhere undocumented
-	FreeBusyStatusVWorkingElsewhere FreeBusyStatus = 4
+	FreeBusyStatusVWorkingElsewhere FreeBusyStatus = "workingElsewhere"
 	// FreeBusyStatusVUnknown undocumented
-	FreeBusyStatusVUnknown FreeBusyStatus = -1
+	FreeBusyStatusVUnknown FreeBusyStatus = "unknown"
 )
 
-// FreeBusyStatusPFree returns a pointer to FreeBusyStatusVFree
-func FreeBusyStatusPFree() *FreeBusyStatus {
-	v := FreeBusyStatusVFree
-	return &v
-}
+var (
+	// FreeBusyStatusPFree is a pointer to FreeBusyStatusVFree
+	FreeBusyStatusPFree = &_FreeBusyStatusPFree
+	// FreeBusyStatusPTentative is a pointer to FreeBusyStatusVTentative
+	FreeBusyStatusPTentative = &_FreeBusyStatusPTentative
+	// FreeBusyStatusPBusy is a pointer to FreeBusyStatusVBusy
+	FreeBusyStatusPBusy = &_FreeBusyStatusPBusy
+	// FreeBusyStatusPOof is a pointer to FreeBusyStatusVOof
+	FreeBusyStatusPOof = &_FreeBusyStatusPOof
+	// FreeBusyStatusPWorkingElsewhere is a pointer to FreeBusyStatusVWorkingElsewhere
+	FreeBusyStatusPWorkingElsewhere = &_FreeBusyStatusPWorkingElsewhere
+	// FreeBusyStatusPUnknown is a pointer to FreeBusyStatusVUnknown
+	FreeBusyStatusPUnknown = &_FreeBusyStatusPUnknown
+)
 
-// FreeBusyStatusPTentative returns a pointer to FreeBusyStatusVTentative
-func FreeBusyStatusPTentative() *FreeBusyStatus {
-	v := FreeBusyStatusVTentative
-	return &v
-}
-
-// FreeBusyStatusPBusy returns a pointer to FreeBusyStatusVBusy
-func FreeBusyStatusPBusy() *FreeBusyStatus {
-	v := FreeBusyStatusVBusy
-	return &v
-}
-
-// FreeBusyStatusPOof returns a pointer to FreeBusyStatusVOof
-func FreeBusyStatusPOof() *FreeBusyStatus {
-	v := FreeBusyStatusVOof
-	return &v
-}
-
-// FreeBusyStatusPWorkingElsewhere returns a pointer to FreeBusyStatusVWorkingElsewhere
-func FreeBusyStatusPWorkingElsewhere() *FreeBusyStatus {
-	v := FreeBusyStatusVWorkingElsewhere
-	return &v
-}
-
-// FreeBusyStatusPUnknown returns a pointer to FreeBusyStatusVUnknown
-func FreeBusyStatusPUnknown() *FreeBusyStatus {
-	v := FreeBusyStatusVUnknown
-	return &v
-}
+var (
+	_FreeBusyStatusPFree             = FreeBusyStatusVFree
+	_FreeBusyStatusPTentative        = FreeBusyStatusVTentative
+	_FreeBusyStatusPBusy             = FreeBusyStatusVBusy
+	_FreeBusyStatusPOof              = FreeBusyStatusVOof
+	_FreeBusyStatusPWorkingElsewhere = FreeBusyStatusVWorkingElsewhere
+	_FreeBusyStatusPUnknown          = FreeBusyStatusVUnknown
+)

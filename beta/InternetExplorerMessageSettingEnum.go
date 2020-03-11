@@ -3,39 +3,33 @@
 package msgraph
 
 // InternetExplorerMessageSetting undocumented
-type InternetExplorerMessageSetting int
+type InternetExplorerMessageSetting string
 
 const (
 	// InternetExplorerMessageSettingVNotConfigured undocumented
-	InternetExplorerMessageSettingVNotConfigured InternetExplorerMessageSetting = 0
+	InternetExplorerMessageSettingVNotConfigured InternetExplorerMessageSetting = "notConfigured"
 	// InternetExplorerMessageSettingVDisabled undocumented
-	InternetExplorerMessageSettingVDisabled InternetExplorerMessageSetting = 1
+	InternetExplorerMessageSettingVDisabled InternetExplorerMessageSetting = "disabled"
 	// InternetExplorerMessageSettingVEnabled undocumented
-	InternetExplorerMessageSettingVEnabled InternetExplorerMessageSetting = 2
+	InternetExplorerMessageSettingVEnabled InternetExplorerMessageSetting = "enabled"
 	// InternetExplorerMessageSettingVKeepGoing undocumented
-	InternetExplorerMessageSettingVKeepGoing InternetExplorerMessageSetting = 3
+	InternetExplorerMessageSettingVKeepGoing InternetExplorerMessageSetting = "keepGoing"
 )
 
-// InternetExplorerMessageSettingPNotConfigured returns a pointer to InternetExplorerMessageSettingVNotConfigured
-func InternetExplorerMessageSettingPNotConfigured() *InternetExplorerMessageSetting {
-	v := InternetExplorerMessageSettingVNotConfigured
-	return &v
-}
+var (
+	// InternetExplorerMessageSettingPNotConfigured is a pointer to InternetExplorerMessageSettingVNotConfigured
+	InternetExplorerMessageSettingPNotConfigured = &_InternetExplorerMessageSettingPNotConfigured
+	// InternetExplorerMessageSettingPDisabled is a pointer to InternetExplorerMessageSettingVDisabled
+	InternetExplorerMessageSettingPDisabled = &_InternetExplorerMessageSettingPDisabled
+	// InternetExplorerMessageSettingPEnabled is a pointer to InternetExplorerMessageSettingVEnabled
+	InternetExplorerMessageSettingPEnabled = &_InternetExplorerMessageSettingPEnabled
+	// InternetExplorerMessageSettingPKeepGoing is a pointer to InternetExplorerMessageSettingVKeepGoing
+	InternetExplorerMessageSettingPKeepGoing = &_InternetExplorerMessageSettingPKeepGoing
+)
 
-// InternetExplorerMessageSettingPDisabled returns a pointer to InternetExplorerMessageSettingVDisabled
-func InternetExplorerMessageSettingPDisabled() *InternetExplorerMessageSetting {
-	v := InternetExplorerMessageSettingVDisabled
-	return &v
-}
-
-// InternetExplorerMessageSettingPEnabled returns a pointer to InternetExplorerMessageSettingVEnabled
-func InternetExplorerMessageSettingPEnabled() *InternetExplorerMessageSetting {
-	v := InternetExplorerMessageSettingVEnabled
-	return &v
-}
-
-// InternetExplorerMessageSettingPKeepGoing returns a pointer to InternetExplorerMessageSettingVKeepGoing
-func InternetExplorerMessageSettingPKeepGoing() *InternetExplorerMessageSetting {
-	v := InternetExplorerMessageSettingVKeepGoing
-	return &v
-}
+var (
+	_InternetExplorerMessageSettingPNotConfigured = InternetExplorerMessageSettingVNotConfigured
+	_InternetExplorerMessageSettingPDisabled      = InternetExplorerMessageSettingVDisabled
+	_InternetExplorerMessageSettingPEnabled       = InternetExplorerMessageSettingVEnabled
+	_InternetExplorerMessageSettingPKeepGoing     = InternetExplorerMessageSettingVKeepGoing
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // DomainNameSource undocumented
-type DomainNameSource int
+type DomainNameSource string
 
 const (
 	// DomainNameSourceVFullDomainName undocumented
-	DomainNameSourceVFullDomainName DomainNameSource = 0
+	DomainNameSourceVFullDomainName DomainNameSource = "fullDomainName"
 	// DomainNameSourceVNetBiosDomainName undocumented
-	DomainNameSourceVNetBiosDomainName DomainNameSource = 1
+	DomainNameSourceVNetBiosDomainName DomainNameSource = "netBiosDomainName"
 )
 
-// DomainNameSourcePFullDomainName returns a pointer to DomainNameSourceVFullDomainName
-func DomainNameSourcePFullDomainName() *DomainNameSource {
-	v := DomainNameSourceVFullDomainName
-	return &v
-}
+var (
+	// DomainNameSourcePFullDomainName is a pointer to DomainNameSourceVFullDomainName
+	DomainNameSourcePFullDomainName = &_DomainNameSourcePFullDomainName
+	// DomainNameSourcePNetBiosDomainName is a pointer to DomainNameSourceVNetBiosDomainName
+	DomainNameSourcePNetBiosDomainName = &_DomainNameSourcePNetBiosDomainName
+)
 
-// DomainNameSourcePNetBiosDomainName returns a pointer to DomainNameSourceVNetBiosDomainName
-func DomainNameSourcePNetBiosDomainName() *DomainNameSource {
-	v := DomainNameSourceVNetBiosDomainName
-	return &v
-}
+var (
+	_DomainNameSourcePFullDomainName    = DomainNameSourceVFullDomainName
+	_DomainNameSourcePNetBiosDomainName = DomainNameSourceVNetBiosDomainName
+)

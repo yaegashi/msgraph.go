@@ -3,63 +3,48 @@
 package msgraph
 
 // RatingCanadaMoviesType undocumented
-type RatingCanadaMoviesType int
+type RatingCanadaMoviesType string
 
 const (
 	// RatingCanadaMoviesTypeVAllAllowed undocumented
-	RatingCanadaMoviesTypeVAllAllowed RatingCanadaMoviesType = 0
+	RatingCanadaMoviesTypeVAllAllowed RatingCanadaMoviesType = "allAllowed"
 	// RatingCanadaMoviesTypeVAllBlocked undocumented
-	RatingCanadaMoviesTypeVAllBlocked RatingCanadaMoviesType = 1
+	RatingCanadaMoviesTypeVAllBlocked RatingCanadaMoviesType = "allBlocked"
 	// RatingCanadaMoviesTypeVGeneral undocumented
-	RatingCanadaMoviesTypeVGeneral RatingCanadaMoviesType = 2
+	RatingCanadaMoviesTypeVGeneral RatingCanadaMoviesType = "general"
 	// RatingCanadaMoviesTypeVParentalGuidance undocumented
-	RatingCanadaMoviesTypeVParentalGuidance RatingCanadaMoviesType = 3
+	RatingCanadaMoviesTypeVParentalGuidance RatingCanadaMoviesType = "parentalGuidance"
 	// RatingCanadaMoviesTypeVAgesAbove14 undocumented
-	RatingCanadaMoviesTypeVAgesAbove14 RatingCanadaMoviesType = 4
+	RatingCanadaMoviesTypeVAgesAbove14 RatingCanadaMoviesType = "agesAbove14"
 	// RatingCanadaMoviesTypeVAgesAbove18 undocumented
-	RatingCanadaMoviesTypeVAgesAbove18 RatingCanadaMoviesType = 5
+	RatingCanadaMoviesTypeVAgesAbove18 RatingCanadaMoviesType = "agesAbove18"
 	// RatingCanadaMoviesTypeVRestricted undocumented
-	RatingCanadaMoviesTypeVRestricted RatingCanadaMoviesType = 6
+	RatingCanadaMoviesTypeVRestricted RatingCanadaMoviesType = "restricted"
 )
 
-// RatingCanadaMoviesTypePAllAllowed returns a pointer to RatingCanadaMoviesTypeVAllAllowed
-func RatingCanadaMoviesTypePAllAllowed() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingCanadaMoviesTypePAllAllowed is a pointer to RatingCanadaMoviesTypeVAllAllowed
+	RatingCanadaMoviesTypePAllAllowed = &_RatingCanadaMoviesTypePAllAllowed
+	// RatingCanadaMoviesTypePAllBlocked is a pointer to RatingCanadaMoviesTypeVAllBlocked
+	RatingCanadaMoviesTypePAllBlocked = &_RatingCanadaMoviesTypePAllBlocked
+	// RatingCanadaMoviesTypePGeneral is a pointer to RatingCanadaMoviesTypeVGeneral
+	RatingCanadaMoviesTypePGeneral = &_RatingCanadaMoviesTypePGeneral
+	// RatingCanadaMoviesTypePParentalGuidance is a pointer to RatingCanadaMoviesTypeVParentalGuidance
+	RatingCanadaMoviesTypePParentalGuidance = &_RatingCanadaMoviesTypePParentalGuidance
+	// RatingCanadaMoviesTypePAgesAbove14 is a pointer to RatingCanadaMoviesTypeVAgesAbove14
+	RatingCanadaMoviesTypePAgesAbove14 = &_RatingCanadaMoviesTypePAgesAbove14
+	// RatingCanadaMoviesTypePAgesAbove18 is a pointer to RatingCanadaMoviesTypeVAgesAbove18
+	RatingCanadaMoviesTypePAgesAbove18 = &_RatingCanadaMoviesTypePAgesAbove18
+	// RatingCanadaMoviesTypePRestricted is a pointer to RatingCanadaMoviesTypeVRestricted
+	RatingCanadaMoviesTypePRestricted = &_RatingCanadaMoviesTypePRestricted
+)
 
-// RatingCanadaMoviesTypePAllBlocked returns a pointer to RatingCanadaMoviesTypeVAllBlocked
-func RatingCanadaMoviesTypePAllBlocked() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingCanadaMoviesTypePGeneral returns a pointer to RatingCanadaMoviesTypeVGeneral
-func RatingCanadaMoviesTypePGeneral() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVGeneral
-	return &v
-}
-
-// RatingCanadaMoviesTypePParentalGuidance returns a pointer to RatingCanadaMoviesTypeVParentalGuidance
-func RatingCanadaMoviesTypePParentalGuidance() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingCanadaMoviesTypePAgesAbove14 returns a pointer to RatingCanadaMoviesTypeVAgesAbove14
-func RatingCanadaMoviesTypePAgesAbove14() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVAgesAbove14
-	return &v
-}
-
-// RatingCanadaMoviesTypePAgesAbove18 returns a pointer to RatingCanadaMoviesTypeVAgesAbove18
-func RatingCanadaMoviesTypePAgesAbove18() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVAgesAbove18
-	return &v
-}
-
-// RatingCanadaMoviesTypePRestricted returns a pointer to RatingCanadaMoviesTypeVRestricted
-func RatingCanadaMoviesTypePRestricted() *RatingCanadaMoviesType {
-	v := RatingCanadaMoviesTypeVRestricted
-	return &v
-}
+var (
+	_RatingCanadaMoviesTypePAllAllowed       = RatingCanadaMoviesTypeVAllAllowed
+	_RatingCanadaMoviesTypePAllBlocked       = RatingCanadaMoviesTypeVAllBlocked
+	_RatingCanadaMoviesTypePGeneral          = RatingCanadaMoviesTypeVGeneral
+	_RatingCanadaMoviesTypePParentalGuidance = RatingCanadaMoviesTypeVParentalGuidance
+	_RatingCanadaMoviesTypePAgesAbove14      = RatingCanadaMoviesTypeVAgesAbove14
+	_RatingCanadaMoviesTypePAgesAbove18      = RatingCanadaMoviesTypeVAgesAbove18
+	_RatingCanadaMoviesTypePRestricted       = RatingCanadaMoviesTypeVRestricted
+)

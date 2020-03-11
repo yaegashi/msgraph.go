@@ -3,23 +3,23 @@
 package msgraph
 
 // SignInAssistantOptions undocumented
-type SignInAssistantOptions int
+type SignInAssistantOptions string
 
 const (
 	// SignInAssistantOptionsVNotConfigured undocumented
-	SignInAssistantOptionsVNotConfigured SignInAssistantOptions = 0
+	SignInAssistantOptionsVNotConfigured SignInAssistantOptions = "notConfigured"
 	// SignInAssistantOptionsVDisabled undocumented
-	SignInAssistantOptionsVDisabled SignInAssistantOptions = 1
+	SignInAssistantOptionsVDisabled SignInAssistantOptions = "disabled"
 )
 
-// SignInAssistantOptionsPNotConfigured returns a pointer to SignInAssistantOptionsVNotConfigured
-func SignInAssistantOptionsPNotConfigured() *SignInAssistantOptions {
-	v := SignInAssistantOptionsVNotConfigured
-	return &v
-}
+var (
+	// SignInAssistantOptionsPNotConfigured is a pointer to SignInAssistantOptionsVNotConfigured
+	SignInAssistantOptionsPNotConfigured = &_SignInAssistantOptionsPNotConfigured
+	// SignInAssistantOptionsPDisabled is a pointer to SignInAssistantOptionsVDisabled
+	SignInAssistantOptionsPDisabled = &_SignInAssistantOptionsPDisabled
+)
 
-// SignInAssistantOptionsPDisabled returns a pointer to SignInAssistantOptionsVDisabled
-func SignInAssistantOptionsPDisabled() *SignInAssistantOptions {
-	v := SignInAssistantOptionsVDisabled
-	return &v
-}
+var (
+	_SignInAssistantOptionsPNotConfigured = SignInAssistantOptionsVNotConfigured
+	_SignInAssistantOptionsPDisabled      = SignInAssistantOptionsVDisabled
+)

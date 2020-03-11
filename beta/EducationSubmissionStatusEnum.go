@@ -3,47 +3,38 @@
 package msgraph
 
 // EducationSubmissionStatus undocumented
-type EducationSubmissionStatus int
+type EducationSubmissionStatus string
 
 const (
 	// EducationSubmissionStatusVWorking undocumented
-	EducationSubmissionStatusVWorking EducationSubmissionStatus = 0
+	EducationSubmissionStatusVWorking EducationSubmissionStatus = "working"
 	// EducationSubmissionStatusVSubmitted undocumented
-	EducationSubmissionStatusVSubmitted EducationSubmissionStatus = 1
+	EducationSubmissionStatusVSubmitted EducationSubmissionStatus = "submitted"
 	// EducationSubmissionStatusVReleased undocumented
-	EducationSubmissionStatusVReleased EducationSubmissionStatus = 2
+	EducationSubmissionStatusVReleased EducationSubmissionStatus = "released"
 	// EducationSubmissionStatusVReturned undocumented
-	EducationSubmissionStatusVReturned EducationSubmissionStatus = 3
+	EducationSubmissionStatusVReturned EducationSubmissionStatus = "returned"
 	// EducationSubmissionStatusVUnknownFutureValue undocumented
-	EducationSubmissionStatusVUnknownFutureValue EducationSubmissionStatus = 4
+	EducationSubmissionStatusVUnknownFutureValue EducationSubmissionStatus = "unknownFutureValue"
 )
 
-// EducationSubmissionStatusPWorking returns a pointer to EducationSubmissionStatusVWorking
-func EducationSubmissionStatusPWorking() *EducationSubmissionStatus {
-	v := EducationSubmissionStatusVWorking
-	return &v
-}
+var (
+	// EducationSubmissionStatusPWorking is a pointer to EducationSubmissionStatusVWorking
+	EducationSubmissionStatusPWorking = &_EducationSubmissionStatusPWorking
+	// EducationSubmissionStatusPSubmitted is a pointer to EducationSubmissionStatusVSubmitted
+	EducationSubmissionStatusPSubmitted = &_EducationSubmissionStatusPSubmitted
+	// EducationSubmissionStatusPReleased is a pointer to EducationSubmissionStatusVReleased
+	EducationSubmissionStatusPReleased = &_EducationSubmissionStatusPReleased
+	// EducationSubmissionStatusPReturned is a pointer to EducationSubmissionStatusVReturned
+	EducationSubmissionStatusPReturned = &_EducationSubmissionStatusPReturned
+	// EducationSubmissionStatusPUnknownFutureValue is a pointer to EducationSubmissionStatusVUnknownFutureValue
+	EducationSubmissionStatusPUnknownFutureValue = &_EducationSubmissionStatusPUnknownFutureValue
+)
 
-// EducationSubmissionStatusPSubmitted returns a pointer to EducationSubmissionStatusVSubmitted
-func EducationSubmissionStatusPSubmitted() *EducationSubmissionStatus {
-	v := EducationSubmissionStatusVSubmitted
-	return &v
-}
-
-// EducationSubmissionStatusPReleased returns a pointer to EducationSubmissionStatusVReleased
-func EducationSubmissionStatusPReleased() *EducationSubmissionStatus {
-	v := EducationSubmissionStatusVReleased
-	return &v
-}
-
-// EducationSubmissionStatusPReturned returns a pointer to EducationSubmissionStatusVReturned
-func EducationSubmissionStatusPReturned() *EducationSubmissionStatus {
-	v := EducationSubmissionStatusVReturned
-	return &v
-}
-
-// EducationSubmissionStatusPUnknownFutureValue returns a pointer to EducationSubmissionStatusVUnknownFutureValue
-func EducationSubmissionStatusPUnknownFutureValue() *EducationSubmissionStatus {
-	v := EducationSubmissionStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_EducationSubmissionStatusPWorking            = EducationSubmissionStatusVWorking
+	_EducationSubmissionStatusPSubmitted          = EducationSubmissionStatusVSubmitted
+	_EducationSubmissionStatusPReleased           = EducationSubmissionStatusVReleased
+	_EducationSubmissionStatusPReturned           = EducationSubmissionStatusVReturned
+	_EducationSubmissionStatusPUnknownFutureValue = EducationSubmissionStatusVUnknownFutureValue
+)

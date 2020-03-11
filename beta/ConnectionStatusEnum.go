@@ -3,55 +3,43 @@
 package msgraph
 
 // ConnectionStatus undocumented
-type ConnectionStatus int
+type ConnectionStatus string
 
 const (
 	// ConnectionStatusVUnknown undocumented
-	ConnectionStatusVUnknown ConnectionStatus = 0
+	ConnectionStatusVUnknown ConnectionStatus = "unknown"
 	// ConnectionStatusVAttempted undocumented
-	ConnectionStatusVAttempted ConnectionStatus = 1
+	ConnectionStatusVAttempted ConnectionStatus = "attempted"
 	// ConnectionStatusVSucceeded undocumented
-	ConnectionStatusVSucceeded ConnectionStatus = 2
+	ConnectionStatusVSucceeded ConnectionStatus = "succeeded"
 	// ConnectionStatusVBlocked undocumented
-	ConnectionStatusVBlocked ConnectionStatus = 3
+	ConnectionStatusVBlocked ConnectionStatus = "blocked"
 	// ConnectionStatusVFailed undocumented
-	ConnectionStatusVFailed ConnectionStatus = 4
+	ConnectionStatusVFailed ConnectionStatus = "failed"
 	// ConnectionStatusVUnknownFutureValue undocumented
-	ConnectionStatusVUnknownFutureValue ConnectionStatus = 127
+	ConnectionStatusVUnknownFutureValue ConnectionStatus = "unknownFutureValue"
 )
 
-// ConnectionStatusPUnknown returns a pointer to ConnectionStatusVUnknown
-func ConnectionStatusPUnknown() *ConnectionStatus {
-	v := ConnectionStatusVUnknown
-	return &v
-}
+var (
+	// ConnectionStatusPUnknown is a pointer to ConnectionStatusVUnknown
+	ConnectionStatusPUnknown = &_ConnectionStatusPUnknown
+	// ConnectionStatusPAttempted is a pointer to ConnectionStatusVAttempted
+	ConnectionStatusPAttempted = &_ConnectionStatusPAttempted
+	// ConnectionStatusPSucceeded is a pointer to ConnectionStatusVSucceeded
+	ConnectionStatusPSucceeded = &_ConnectionStatusPSucceeded
+	// ConnectionStatusPBlocked is a pointer to ConnectionStatusVBlocked
+	ConnectionStatusPBlocked = &_ConnectionStatusPBlocked
+	// ConnectionStatusPFailed is a pointer to ConnectionStatusVFailed
+	ConnectionStatusPFailed = &_ConnectionStatusPFailed
+	// ConnectionStatusPUnknownFutureValue is a pointer to ConnectionStatusVUnknownFutureValue
+	ConnectionStatusPUnknownFutureValue = &_ConnectionStatusPUnknownFutureValue
+)
 
-// ConnectionStatusPAttempted returns a pointer to ConnectionStatusVAttempted
-func ConnectionStatusPAttempted() *ConnectionStatus {
-	v := ConnectionStatusVAttempted
-	return &v
-}
-
-// ConnectionStatusPSucceeded returns a pointer to ConnectionStatusVSucceeded
-func ConnectionStatusPSucceeded() *ConnectionStatus {
-	v := ConnectionStatusVSucceeded
-	return &v
-}
-
-// ConnectionStatusPBlocked returns a pointer to ConnectionStatusVBlocked
-func ConnectionStatusPBlocked() *ConnectionStatus {
-	v := ConnectionStatusVBlocked
-	return &v
-}
-
-// ConnectionStatusPFailed returns a pointer to ConnectionStatusVFailed
-func ConnectionStatusPFailed() *ConnectionStatus {
-	v := ConnectionStatusVFailed
-	return &v
-}
-
-// ConnectionStatusPUnknownFutureValue returns a pointer to ConnectionStatusVUnknownFutureValue
-func ConnectionStatusPUnknownFutureValue() *ConnectionStatus {
-	v := ConnectionStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_ConnectionStatusPUnknown            = ConnectionStatusVUnknown
+	_ConnectionStatusPAttempted          = ConnectionStatusVAttempted
+	_ConnectionStatusPSucceeded          = ConnectionStatusVSucceeded
+	_ConnectionStatusPBlocked            = ConnectionStatusVBlocked
+	_ConnectionStatusPFailed             = ConnectionStatusVFailed
+	_ConnectionStatusPUnknownFutureValue = ConnectionStatusVUnknownFutureValue
+)

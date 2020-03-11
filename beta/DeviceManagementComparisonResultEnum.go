@@ -3,47 +3,38 @@
 package msgraph
 
 // DeviceManagementComparisonResult undocumented
-type DeviceManagementComparisonResult int
+type DeviceManagementComparisonResult string
 
 const (
 	// DeviceManagementComparisonResultVUnknown undocumented
-	DeviceManagementComparisonResultVUnknown DeviceManagementComparisonResult = 0
+	DeviceManagementComparisonResultVUnknown DeviceManagementComparisonResult = "unknown"
 	// DeviceManagementComparisonResultVEqual undocumented
-	DeviceManagementComparisonResultVEqual DeviceManagementComparisonResult = 1
+	DeviceManagementComparisonResultVEqual DeviceManagementComparisonResult = "equal"
 	// DeviceManagementComparisonResultVNotEqual undocumented
-	DeviceManagementComparisonResultVNotEqual DeviceManagementComparisonResult = 2
+	DeviceManagementComparisonResultVNotEqual DeviceManagementComparisonResult = "notEqual"
 	// DeviceManagementComparisonResultVAdded undocumented
-	DeviceManagementComparisonResultVAdded DeviceManagementComparisonResult = 3
+	DeviceManagementComparisonResultVAdded DeviceManagementComparisonResult = "added"
 	// DeviceManagementComparisonResultVRemoved undocumented
-	DeviceManagementComparisonResultVRemoved DeviceManagementComparisonResult = 4
+	DeviceManagementComparisonResultVRemoved DeviceManagementComparisonResult = "removed"
 )
 
-// DeviceManagementComparisonResultPUnknown returns a pointer to DeviceManagementComparisonResultVUnknown
-func DeviceManagementComparisonResultPUnknown() *DeviceManagementComparisonResult {
-	v := DeviceManagementComparisonResultVUnknown
-	return &v
-}
+var (
+	// DeviceManagementComparisonResultPUnknown is a pointer to DeviceManagementComparisonResultVUnknown
+	DeviceManagementComparisonResultPUnknown = &_DeviceManagementComparisonResultPUnknown
+	// DeviceManagementComparisonResultPEqual is a pointer to DeviceManagementComparisonResultVEqual
+	DeviceManagementComparisonResultPEqual = &_DeviceManagementComparisonResultPEqual
+	// DeviceManagementComparisonResultPNotEqual is a pointer to DeviceManagementComparisonResultVNotEqual
+	DeviceManagementComparisonResultPNotEqual = &_DeviceManagementComparisonResultPNotEqual
+	// DeviceManagementComparisonResultPAdded is a pointer to DeviceManagementComparisonResultVAdded
+	DeviceManagementComparisonResultPAdded = &_DeviceManagementComparisonResultPAdded
+	// DeviceManagementComparisonResultPRemoved is a pointer to DeviceManagementComparisonResultVRemoved
+	DeviceManagementComparisonResultPRemoved = &_DeviceManagementComparisonResultPRemoved
+)
 
-// DeviceManagementComparisonResultPEqual returns a pointer to DeviceManagementComparisonResultVEqual
-func DeviceManagementComparisonResultPEqual() *DeviceManagementComparisonResult {
-	v := DeviceManagementComparisonResultVEqual
-	return &v
-}
-
-// DeviceManagementComparisonResultPNotEqual returns a pointer to DeviceManagementComparisonResultVNotEqual
-func DeviceManagementComparisonResultPNotEqual() *DeviceManagementComparisonResult {
-	v := DeviceManagementComparisonResultVNotEqual
-	return &v
-}
-
-// DeviceManagementComparisonResultPAdded returns a pointer to DeviceManagementComparisonResultVAdded
-func DeviceManagementComparisonResultPAdded() *DeviceManagementComparisonResult {
-	v := DeviceManagementComparisonResultVAdded
-	return &v
-}
-
-// DeviceManagementComparisonResultPRemoved returns a pointer to DeviceManagementComparisonResultVRemoved
-func DeviceManagementComparisonResultPRemoved() *DeviceManagementComparisonResult {
-	v := DeviceManagementComparisonResultVRemoved
-	return &v
-}
+var (
+	_DeviceManagementComparisonResultPUnknown  = DeviceManagementComparisonResultVUnknown
+	_DeviceManagementComparisonResultPEqual    = DeviceManagementComparisonResultVEqual
+	_DeviceManagementComparisonResultPNotEqual = DeviceManagementComparisonResultVNotEqual
+	_DeviceManagementComparisonResultPAdded    = DeviceManagementComparisonResultVAdded
+	_DeviceManagementComparisonResultPRemoved  = DeviceManagementComparisonResultVRemoved
+)

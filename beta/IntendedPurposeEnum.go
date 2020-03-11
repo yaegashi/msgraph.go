@@ -3,47 +3,38 @@
 package msgraph
 
 // IntendedPurpose undocumented
-type IntendedPurpose int
+type IntendedPurpose string
 
 const (
 	// IntendedPurposeVUnassigned undocumented
-	IntendedPurposeVUnassigned IntendedPurpose = 1
+	IntendedPurposeVUnassigned IntendedPurpose = "unassigned"
 	// IntendedPurposeVSmimeEncryption undocumented
-	IntendedPurposeVSmimeEncryption IntendedPurpose = 2
+	IntendedPurposeVSmimeEncryption IntendedPurpose = "smimeEncryption"
 	// IntendedPurposeVSmimeSigning undocumented
-	IntendedPurposeVSmimeSigning IntendedPurpose = 3
+	IntendedPurposeVSmimeSigning IntendedPurpose = "smimeSigning"
 	// IntendedPurposeVVpn undocumented
-	IntendedPurposeVVpn IntendedPurpose = 4
+	IntendedPurposeVVpn IntendedPurpose = "vpn"
 	// IntendedPurposeVWifi undocumented
-	IntendedPurposeVWifi IntendedPurpose = 5
+	IntendedPurposeVWifi IntendedPurpose = "wifi"
 )
 
-// IntendedPurposePUnassigned returns a pointer to IntendedPurposeVUnassigned
-func IntendedPurposePUnassigned() *IntendedPurpose {
-	v := IntendedPurposeVUnassigned
-	return &v
-}
+var (
+	// IntendedPurposePUnassigned is a pointer to IntendedPurposeVUnassigned
+	IntendedPurposePUnassigned = &_IntendedPurposePUnassigned
+	// IntendedPurposePSmimeEncryption is a pointer to IntendedPurposeVSmimeEncryption
+	IntendedPurposePSmimeEncryption = &_IntendedPurposePSmimeEncryption
+	// IntendedPurposePSmimeSigning is a pointer to IntendedPurposeVSmimeSigning
+	IntendedPurposePSmimeSigning = &_IntendedPurposePSmimeSigning
+	// IntendedPurposePVpn is a pointer to IntendedPurposeVVpn
+	IntendedPurposePVpn = &_IntendedPurposePVpn
+	// IntendedPurposePWifi is a pointer to IntendedPurposeVWifi
+	IntendedPurposePWifi = &_IntendedPurposePWifi
+)
 
-// IntendedPurposePSmimeEncryption returns a pointer to IntendedPurposeVSmimeEncryption
-func IntendedPurposePSmimeEncryption() *IntendedPurpose {
-	v := IntendedPurposeVSmimeEncryption
-	return &v
-}
-
-// IntendedPurposePSmimeSigning returns a pointer to IntendedPurposeVSmimeSigning
-func IntendedPurposePSmimeSigning() *IntendedPurpose {
-	v := IntendedPurposeVSmimeSigning
-	return &v
-}
-
-// IntendedPurposePVpn returns a pointer to IntendedPurposeVVpn
-func IntendedPurposePVpn() *IntendedPurpose {
-	v := IntendedPurposeVVpn
-	return &v
-}
-
-// IntendedPurposePWifi returns a pointer to IntendedPurposeVWifi
-func IntendedPurposePWifi() *IntendedPurpose {
-	v := IntendedPurposeVWifi
-	return &v
-}
+var (
+	_IntendedPurposePUnassigned      = IntendedPurposeVUnassigned
+	_IntendedPurposePSmimeEncryption = IntendedPurposeVSmimeEncryption
+	_IntendedPurposePSmimeSigning    = IntendedPurposeVSmimeSigning
+	_IntendedPurposePVpn             = IntendedPurposeVVpn
+	_IntendedPurposePWifi            = IntendedPurposeVWifi
+)

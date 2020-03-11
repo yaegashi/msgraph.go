@@ -3,47 +3,38 @@
 package msgraph
 
 // DefenderMonitorFileActivity undocumented
-type DefenderMonitorFileActivity int
+type DefenderMonitorFileActivity string
 
 const (
 	// DefenderMonitorFileActivityVUserDefined undocumented
-	DefenderMonitorFileActivityVUserDefined DefenderMonitorFileActivity = 0
+	DefenderMonitorFileActivityVUserDefined DefenderMonitorFileActivity = "userDefined"
 	// DefenderMonitorFileActivityVDisable undocumented
-	DefenderMonitorFileActivityVDisable DefenderMonitorFileActivity = 1
+	DefenderMonitorFileActivityVDisable DefenderMonitorFileActivity = "disable"
 	// DefenderMonitorFileActivityVMonitorAllFiles undocumented
-	DefenderMonitorFileActivityVMonitorAllFiles DefenderMonitorFileActivity = 2
+	DefenderMonitorFileActivityVMonitorAllFiles DefenderMonitorFileActivity = "monitorAllFiles"
 	// DefenderMonitorFileActivityVMonitorIncomingFilesOnly undocumented
-	DefenderMonitorFileActivityVMonitorIncomingFilesOnly DefenderMonitorFileActivity = 3
+	DefenderMonitorFileActivityVMonitorIncomingFilesOnly DefenderMonitorFileActivity = "monitorIncomingFilesOnly"
 	// DefenderMonitorFileActivityVMonitorOutgoingFilesOnly undocumented
-	DefenderMonitorFileActivityVMonitorOutgoingFilesOnly DefenderMonitorFileActivity = 4
+	DefenderMonitorFileActivityVMonitorOutgoingFilesOnly DefenderMonitorFileActivity = "monitorOutgoingFilesOnly"
 )
 
-// DefenderMonitorFileActivityPUserDefined returns a pointer to DefenderMonitorFileActivityVUserDefined
-func DefenderMonitorFileActivityPUserDefined() *DefenderMonitorFileActivity {
-	v := DefenderMonitorFileActivityVUserDefined
-	return &v
-}
+var (
+	// DefenderMonitorFileActivityPUserDefined is a pointer to DefenderMonitorFileActivityVUserDefined
+	DefenderMonitorFileActivityPUserDefined = &_DefenderMonitorFileActivityPUserDefined
+	// DefenderMonitorFileActivityPDisable is a pointer to DefenderMonitorFileActivityVDisable
+	DefenderMonitorFileActivityPDisable = &_DefenderMonitorFileActivityPDisable
+	// DefenderMonitorFileActivityPMonitorAllFiles is a pointer to DefenderMonitorFileActivityVMonitorAllFiles
+	DefenderMonitorFileActivityPMonitorAllFiles = &_DefenderMonitorFileActivityPMonitorAllFiles
+	// DefenderMonitorFileActivityPMonitorIncomingFilesOnly is a pointer to DefenderMonitorFileActivityVMonitorIncomingFilesOnly
+	DefenderMonitorFileActivityPMonitorIncomingFilesOnly = &_DefenderMonitorFileActivityPMonitorIncomingFilesOnly
+	// DefenderMonitorFileActivityPMonitorOutgoingFilesOnly is a pointer to DefenderMonitorFileActivityVMonitorOutgoingFilesOnly
+	DefenderMonitorFileActivityPMonitorOutgoingFilesOnly = &_DefenderMonitorFileActivityPMonitorOutgoingFilesOnly
+)
 
-// DefenderMonitorFileActivityPDisable returns a pointer to DefenderMonitorFileActivityVDisable
-func DefenderMonitorFileActivityPDisable() *DefenderMonitorFileActivity {
-	v := DefenderMonitorFileActivityVDisable
-	return &v
-}
-
-// DefenderMonitorFileActivityPMonitorAllFiles returns a pointer to DefenderMonitorFileActivityVMonitorAllFiles
-func DefenderMonitorFileActivityPMonitorAllFiles() *DefenderMonitorFileActivity {
-	v := DefenderMonitorFileActivityVMonitorAllFiles
-	return &v
-}
-
-// DefenderMonitorFileActivityPMonitorIncomingFilesOnly returns a pointer to DefenderMonitorFileActivityVMonitorIncomingFilesOnly
-func DefenderMonitorFileActivityPMonitorIncomingFilesOnly() *DefenderMonitorFileActivity {
-	v := DefenderMonitorFileActivityVMonitorIncomingFilesOnly
-	return &v
-}
-
-// DefenderMonitorFileActivityPMonitorOutgoingFilesOnly returns a pointer to DefenderMonitorFileActivityVMonitorOutgoingFilesOnly
-func DefenderMonitorFileActivityPMonitorOutgoingFilesOnly() *DefenderMonitorFileActivity {
-	v := DefenderMonitorFileActivityVMonitorOutgoingFilesOnly
-	return &v
-}
+var (
+	_DefenderMonitorFileActivityPUserDefined              = DefenderMonitorFileActivityVUserDefined
+	_DefenderMonitorFileActivityPDisable                  = DefenderMonitorFileActivityVDisable
+	_DefenderMonitorFileActivityPMonitorAllFiles          = DefenderMonitorFileActivityVMonitorAllFiles
+	_DefenderMonitorFileActivityPMonitorIncomingFilesOnly = DefenderMonitorFileActivityVMonitorIncomingFilesOnly
+	_DefenderMonitorFileActivityPMonitorOutgoingFilesOnly = DefenderMonitorFileActivityVMonitorOutgoingFilesOnly
+)

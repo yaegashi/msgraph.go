@@ -3,23 +3,23 @@
 package msgraph
 
 // UserEmailSource undocumented
-type UserEmailSource int
+type UserEmailSource string
 
 const (
 	// UserEmailSourceVUserPrincipalName undocumented
-	UserEmailSourceVUserPrincipalName UserEmailSource = 0
+	UserEmailSourceVUserPrincipalName UserEmailSource = "userPrincipalName"
 	// UserEmailSourceVPrimarySMTPAddress undocumented
-	UserEmailSourceVPrimarySMTPAddress UserEmailSource = 1
+	UserEmailSourceVPrimarySMTPAddress UserEmailSource = "primarySmtpAddress"
 )
 
-// UserEmailSourcePUserPrincipalName returns a pointer to UserEmailSourceVUserPrincipalName
-func UserEmailSourcePUserPrincipalName() *UserEmailSource {
-	v := UserEmailSourceVUserPrincipalName
-	return &v
-}
+var (
+	// UserEmailSourcePUserPrincipalName is a pointer to UserEmailSourceVUserPrincipalName
+	UserEmailSourcePUserPrincipalName = &_UserEmailSourcePUserPrincipalName
+	// UserEmailSourcePPrimarySMTPAddress is a pointer to UserEmailSourceVPrimarySMTPAddress
+	UserEmailSourcePPrimarySMTPAddress = &_UserEmailSourcePPrimarySMTPAddress
+)
 
-// UserEmailSourcePPrimarySMTPAddress returns a pointer to UserEmailSourceVPrimarySMTPAddress
-func UserEmailSourcePPrimarySMTPAddress() *UserEmailSource {
-	v := UserEmailSourceVPrimarySMTPAddress
-	return &v
-}
+var (
+	_UserEmailSourcePUserPrincipalName  = UserEmailSourceVUserPrincipalName
+	_UserEmailSourcePPrimarySMTPAddress = UserEmailSourceVPrimarySMTPAddress
+)

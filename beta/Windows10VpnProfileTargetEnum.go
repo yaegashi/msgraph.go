@@ -3,31 +3,28 @@
 package msgraph
 
 // Windows10VpnProfileTarget undocumented
-type Windows10VpnProfileTarget int
+type Windows10VpnProfileTarget string
 
 const (
 	// Windows10VpnProfileTargetVUser undocumented
-	Windows10VpnProfileTargetVUser Windows10VpnProfileTarget = 0
+	Windows10VpnProfileTargetVUser Windows10VpnProfileTarget = "user"
 	// Windows10VpnProfileTargetVDevice undocumented
-	Windows10VpnProfileTargetVDevice Windows10VpnProfileTarget = 1
+	Windows10VpnProfileTargetVDevice Windows10VpnProfileTarget = "device"
 	// Windows10VpnProfileTargetVAutoPilotDevice undocumented
-	Windows10VpnProfileTargetVAutoPilotDevice Windows10VpnProfileTarget = 2
+	Windows10VpnProfileTargetVAutoPilotDevice Windows10VpnProfileTarget = "autoPilotDevice"
 )
 
-// Windows10VpnProfileTargetPUser returns a pointer to Windows10VpnProfileTargetVUser
-func Windows10VpnProfileTargetPUser() *Windows10VpnProfileTarget {
-	v := Windows10VpnProfileTargetVUser
-	return &v
-}
+var (
+	// Windows10VpnProfileTargetPUser is a pointer to Windows10VpnProfileTargetVUser
+	Windows10VpnProfileTargetPUser = &_Windows10VpnProfileTargetPUser
+	// Windows10VpnProfileTargetPDevice is a pointer to Windows10VpnProfileTargetVDevice
+	Windows10VpnProfileTargetPDevice = &_Windows10VpnProfileTargetPDevice
+	// Windows10VpnProfileTargetPAutoPilotDevice is a pointer to Windows10VpnProfileTargetVAutoPilotDevice
+	Windows10VpnProfileTargetPAutoPilotDevice = &_Windows10VpnProfileTargetPAutoPilotDevice
+)
 
-// Windows10VpnProfileTargetPDevice returns a pointer to Windows10VpnProfileTargetVDevice
-func Windows10VpnProfileTargetPDevice() *Windows10VpnProfileTarget {
-	v := Windows10VpnProfileTargetVDevice
-	return &v
-}
-
-// Windows10VpnProfileTargetPAutoPilotDevice returns a pointer to Windows10VpnProfileTargetVAutoPilotDevice
-func Windows10VpnProfileTargetPAutoPilotDevice() *Windows10VpnProfileTarget {
-	v := Windows10VpnProfileTargetVAutoPilotDevice
-	return &v
-}
+var (
+	_Windows10VpnProfileTargetPUser            = Windows10VpnProfileTargetVUser
+	_Windows10VpnProfileTargetPDevice          = Windows10VpnProfileTargetVDevice
+	_Windows10VpnProfileTargetPAutoPilotDevice = Windows10VpnProfileTargetVAutoPilotDevice
+)

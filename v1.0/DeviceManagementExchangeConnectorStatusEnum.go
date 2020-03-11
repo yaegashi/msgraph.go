@@ -3,39 +3,33 @@
 package msgraph
 
 // DeviceManagementExchangeConnectorStatus undocumented
-type DeviceManagementExchangeConnectorStatus int
+type DeviceManagementExchangeConnectorStatus string
 
 const (
 	// DeviceManagementExchangeConnectorStatusVNone undocumented
-	DeviceManagementExchangeConnectorStatusVNone DeviceManagementExchangeConnectorStatus = 0
+	DeviceManagementExchangeConnectorStatusVNone DeviceManagementExchangeConnectorStatus = "none"
 	// DeviceManagementExchangeConnectorStatusVConnectionPending undocumented
-	DeviceManagementExchangeConnectorStatusVConnectionPending DeviceManagementExchangeConnectorStatus = 1
+	DeviceManagementExchangeConnectorStatusVConnectionPending DeviceManagementExchangeConnectorStatus = "connectionPending"
 	// DeviceManagementExchangeConnectorStatusVConnected undocumented
-	DeviceManagementExchangeConnectorStatusVConnected DeviceManagementExchangeConnectorStatus = 2
+	DeviceManagementExchangeConnectorStatusVConnected DeviceManagementExchangeConnectorStatus = "connected"
 	// DeviceManagementExchangeConnectorStatusVDisconnected undocumented
-	DeviceManagementExchangeConnectorStatusVDisconnected DeviceManagementExchangeConnectorStatus = 3
+	DeviceManagementExchangeConnectorStatusVDisconnected DeviceManagementExchangeConnectorStatus = "disconnected"
 )
 
-// DeviceManagementExchangeConnectorStatusPNone returns a pointer to DeviceManagementExchangeConnectorStatusVNone
-func DeviceManagementExchangeConnectorStatusPNone() *DeviceManagementExchangeConnectorStatus {
-	v := DeviceManagementExchangeConnectorStatusVNone
-	return &v
-}
+var (
+	// DeviceManagementExchangeConnectorStatusPNone is a pointer to DeviceManagementExchangeConnectorStatusVNone
+	DeviceManagementExchangeConnectorStatusPNone = &_DeviceManagementExchangeConnectorStatusPNone
+	// DeviceManagementExchangeConnectorStatusPConnectionPending is a pointer to DeviceManagementExchangeConnectorStatusVConnectionPending
+	DeviceManagementExchangeConnectorStatusPConnectionPending = &_DeviceManagementExchangeConnectorStatusPConnectionPending
+	// DeviceManagementExchangeConnectorStatusPConnected is a pointer to DeviceManagementExchangeConnectorStatusVConnected
+	DeviceManagementExchangeConnectorStatusPConnected = &_DeviceManagementExchangeConnectorStatusPConnected
+	// DeviceManagementExchangeConnectorStatusPDisconnected is a pointer to DeviceManagementExchangeConnectorStatusVDisconnected
+	DeviceManagementExchangeConnectorStatusPDisconnected = &_DeviceManagementExchangeConnectorStatusPDisconnected
+)
 
-// DeviceManagementExchangeConnectorStatusPConnectionPending returns a pointer to DeviceManagementExchangeConnectorStatusVConnectionPending
-func DeviceManagementExchangeConnectorStatusPConnectionPending() *DeviceManagementExchangeConnectorStatus {
-	v := DeviceManagementExchangeConnectorStatusVConnectionPending
-	return &v
-}
-
-// DeviceManagementExchangeConnectorStatusPConnected returns a pointer to DeviceManagementExchangeConnectorStatusVConnected
-func DeviceManagementExchangeConnectorStatusPConnected() *DeviceManagementExchangeConnectorStatus {
-	v := DeviceManagementExchangeConnectorStatusVConnected
-	return &v
-}
-
-// DeviceManagementExchangeConnectorStatusPDisconnected returns a pointer to DeviceManagementExchangeConnectorStatusVDisconnected
-func DeviceManagementExchangeConnectorStatusPDisconnected() *DeviceManagementExchangeConnectorStatus {
-	v := DeviceManagementExchangeConnectorStatusVDisconnected
-	return &v
-}
+var (
+	_DeviceManagementExchangeConnectorStatusPNone              = DeviceManagementExchangeConnectorStatusVNone
+	_DeviceManagementExchangeConnectorStatusPConnectionPending = DeviceManagementExchangeConnectorStatusVConnectionPending
+	_DeviceManagementExchangeConnectorStatusPConnected         = DeviceManagementExchangeConnectorStatusVConnected
+	_DeviceManagementExchangeConnectorStatusPDisconnected      = DeviceManagementExchangeConnectorStatusVDisconnected
+)

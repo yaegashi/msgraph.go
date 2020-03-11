@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidManagedStoreAccountEnrollmentTarget undocumented
-type AndroidManagedStoreAccountEnrollmentTarget int
+type AndroidManagedStoreAccountEnrollmentTarget string
 
 const (
 	// AndroidManagedStoreAccountEnrollmentTargetVNone undocumented
-	AndroidManagedStoreAccountEnrollmentTargetVNone AndroidManagedStoreAccountEnrollmentTarget = 0
+	AndroidManagedStoreAccountEnrollmentTargetVNone AndroidManagedStoreAccountEnrollmentTarget = "none"
 	// AndroidManagedStoreAccountEnrollmentTargetVAll undocumented
-	AndroidManagedStoreAccountEnrollmentTargetVAll AndroidManagedStoreAccountEnrollmentTarget = 1
+	AndroidManagedStoreAccountEnrollmentTargetVAll AndroidManagedStoreAccountEnrollmentTarget = "all"
 	// AndroidManagedStoreAccountEnrollmentTargetVTargeted undocumented
-	AndroidManagedStoreAccountEnrollmentTargetVTargeted AndroidManagedStoreAccountEnrollmentTarget = 2
+	AndroidManagedStoreAccountEnrollmentTargetVTargeted AndroidManagedStoreAccountEnrollmentTarget = "targeted"
 	// AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions undocumented
-	AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions AndroidManagedStoreAccountEnrollmentTarget = 3
+	AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions AndroidManagedStoreAccountEnrollmentTarget = "targetedAsEnrollmentRestrictions"
 )
 
-// AndroidManagedStoreAccountEnrollmentTargetPNone returns a pointer to AndroidManagedStoreAccountEnrollmentTargetVNone
-func AndroidManagedStoreAccountEnrollmentTargetPNone() *AndroidManagedStoreAccountEnrollmentTarget {
-	v := AndroidManagedStoreAccountEnrollmentTargetVNone
-	return &v
-}
+var (
+	// AndroidManagedStoreAccountEnrollmentTargetPNone is a pointer to AndroidManagedStoreAccountEnrollmentTargetVNone
+	AndroidManagedStoreAccountEnrollmentTargetPNone = &_AndroidManagedStoreAccountEnrollmentTargetPNone
+	// AndroidManagedStoreAccountEnrollmentTargetPAll is a pointer to AndroidManagedStoreAccountEnrollmentTargetVAll
+	AndroidManagedStoreAccountEnrollmentTargetPAll = &_AndroidManagedStoreAccountEnrollmentTargetPAll
+	// AndroidManagedStoreAccountEnrollmentTargetPTargeted is a pointer to AndroidManagedStoreAccountEnrollmentTargetVTargeted
+	AndroidManagedStoreAccountEnrollmentTargetPTargeted = &_AndroidManagedStoreAccountEnrollmentTargetPTargeted
+	// AndroidManagedStoreAccountEnrollmentTargetPTargetedAsEnrollmentRestrictions is a pointer to AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions
+	AndroidManagedStoreAccountEnrollmentTargetPTargetedAsEnrollmentRestrictions = &_AndroidManagedStoreAccountEnrollmentTargetPTargetedAsEnrollmentRestrictions
+)
 
-// AndroidManagedStoreAccountEnrollmentTargetPAll returns a pointer to AndroidManagedStoreAccountEnrollmentTargetVAll
-func AndroidManagedStoreAccountEnrollmentTargetPAll() *AndroidManagedStoreAccountEnrollmentTarget {
-	v := AndroidManagedStoreAccountEnrollmentTargetVAll
-	return &v
-}
-
-// AndroidManagedStoreAccountEnrollmentTargetPTargeted returns a pointer to AndroidManagedStoreAccountEnrollmentTargetVTargeted
-func AndroidManagedStoreAccountEnrollmentTargetPTargeted() *AndroidManagedStoreAccountEnrollmentTarget {
-	v := AndroidManagedStoreAccountEnrollmentTargetVTargeted
-	return &v
-}
-
-// AndroidManagedStoreAccountEnrollmentTargetPTargetedAsEnrollmentRestrictions returns a pointer to AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions
-func AndroidManagedStoreAccountEnrollmentTargetPTargetedAsEnrollmentRestrictions() *AndroidManagedStoreAccountEnrollmentTarget {
-	v := AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions
-	return &v
-}
+var (
+	_AndroidManagedStoreAccountEnrollmentTargetPNone                             = AndroidManagedStoreAccountEnrollmentTargetVNone
+	_AndroidManagedStoreAccountEnrollmentTargetPAll                              = AndroidManagedStoreAccountEnrollmentTargetVAll
+	_AndroidManagedStoreAccountEnrollmentTargetPTargeted                         = AndroidManagedStoreAccountEnrollmentTargetVTargeted
+	_AndroidManagedStoreAccountEnrollmentTargetPTargetedAsEnrollmentRestrictions = AndroidManagedStoreAccountEnrollmentTargetVTargetedAsEnrollmentRestrictions
+)

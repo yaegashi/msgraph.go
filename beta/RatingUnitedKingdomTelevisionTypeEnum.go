@@ -3,31 +3,28 @@
 package msgraph
 
 // RatingUnitedKingdomTelevisionType undocumented
-type RatingUnitedKingdomTelevisionType int
+type RatingUnitedKingdomTelevisionType string
 
 const (
 	// RatingUnitedKingdomTelevisionTypeVAllAllowed undocumented
-	RatingUnitedKingdomTelevisionTypeVAllAllowed RatingUnitedKingdomTelevisionType = 0
+	RatingUnitedKingdomTelevisionTypeVAllAllowed RatingUnitedKingdomTelevisionType = "allAllowed"
 	// RatingUnitedKingdomTelevisionTypeVAllBlocked undocumented
-	RatingUnitedKingdomTelevisionTypeVAllBlocked RatingUnitedKingdomTelevisionType = 1
+	RatingUnitedKingdomTelevisionTypeVAllBlocked RatingUnitedKingdomTelevisionType = "allBlocked"
 	// RatingUnitedKingdomTelevisionTypeVCaution undocumented
-	RatingUnitedKingdomTelevisionTypeVCaution RatingUnitedKingdomTelevisionType = 2
+	RatingUnitedKingdomTelevisionTypeVCaution RatingUnitedKingdomTelevisionType = "caution"
 )
 
-// RatingUnitedKingdomTelevisionTypePAllAllowed returns a pointer to RatingUnitedKingdomTelevisionTypeVAllAllowed
-func RatingUnitedKingdomTelevisionTypePAllAllowed() *RatingUnitedKingdomTelevisionType {
-	v := RatingUnitedKingdomTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingUnitedKingdomTelevisionTypePAllAllowed is a pointer to RatingUnitedKingdomTelevisionTypeVAllAllowed
+	RatingUnitedKingdomTelevisionTypePAllAllowed = &_RatingUnitedKingdomTelevisionTypePAllAllowed
+	// RatingUnitedKingdomTelevisionTypePAllBlocked is a pointer to RatingUnitedKingdomTelevisionTypeVAllBlocked
+	RatingUnitedKingdomTelevisionTypePAllBlocked = &_RatingUnitedKingdomTelevisionTypePAllBlocked
+	// RatingUnitedKingdomTelevisionTypePCaution is a pointer to RatingUnitedKingdomTelevisionTypeVCaution
+	RatingUnitedKingdomTelevisionTypePCaution = &_RatingUnitedKingdomTelevisionTypePCaution
+)
 
-// RatingUnitedKingdomTelevisionTypePAllBlocked returns a pointer to RatingUnitedKingdomTelevisionTypeVAllBlocked
-func RatingUnitedKingdomTelevisionTypePAllBlocked() *RatingUnitedKingdomTelevisionType {
-	v := RatingUnitedKingdomTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingUnitedKingdomTelevisionTypePCaution returns a pointer to RatingUnitedKingdomTelevisionTypeVCaution
-func RatingUnitedKingdomTelevisionTypePCaution() *RatingUnitedKingdomTelevisionType {
-	v := RatingUnitedKingdomTelevisionTypeVCaution
-	return &v
-}
+var (
+	_RatingUnitedKingdomTelevisionTypePAllAllowed = RatingUnitedKingdomTelevisionTypeVAllAllowed
+	_RatingUnitedKingdomTelevisionTypePAllBlocked = RatingUnitedKingdomTelevisionTypeVAllBlocked
+	_RatingUnitedKingdomTelevisionTypePCaution    = RatingUnitedKingdomTelevisionTypeVCaution
+)

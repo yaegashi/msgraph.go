@@ -3,31 +3,28 @@
 package msgraph
 
 // DeviceManagementDerivedCredentialIssuer undocumented
-type DeviceManagementDerivedCredentialIssuer int
+type DeviceManagementDerivedCredentialIssuer string
 
 const (
 	// DeviceManagementDerivedCredentialIssuerVIntercede undocumented
-	DeviceManagementDerivedCredentialIssuerVIntercede DeviceManagementDerivedCredentialIssuer = 0
+	DeviceManagementDerivedCredentialIssuerVIntercede DeviceManagementDerivedCredentialIssuer = "intercede"
 	// DeviceManagementDerivedCredentialIssuerVEntrustDatacard undocumented
-	DeviceManagementDerivedCredentialIssuerVEntrustDatacard DeviceManagementDerivedCredentialIssuer = 1
+	DeviceManagementDerivedCredentialIssuerVEntrustDatacard DeviceManagementDerivedCredentialIssuer = "entrustDatacard"
 	// DeviceManagementDerivedCredentialIssuerVPurebred undocumented
-	DeviceManagementDerivedCredentialIssuerVPurebred DeviceManagementDerivedCredentialIssuer = 2
+	DeviceManagementDerivedCredentialIssuerVPurebred DeviceManagementDerivedCredentialIssuer = "purebred"
 )
 
-// DeviceManagementDerivedCredentialIssuerPIntercede returns a pointer to DeviceManagementDerivedCredentialIssuerVIntercede
-func DeviceManagementDerivedCredentialIssuerPIntercede() *DeviceManagementDerivedCredentialIssuer {
-	v := DeviceManagementDerivedCredentialIssuerVIntercede
-	return &v
-}
+var (
+	// DeviceManagementDerivedCredentialIssuerPIntercede is a pointer to DeviceManagementDerivedCredentialIssuerVIntercede
+	DeviceManagementDerivedCredentialIssuerPIntercede = &_DeviceManagementDerivedCredentialIssuerPIntercede
+	// DeviceManagementDerivedCredentialIssuerPEntrustDatacard is a pointer to DeviceManagementDerivedCredentialIssuerVEntrustDatacard
+	DeviceManagementDerivedCredentialIssuerPEntrustDatacard = &_DeviceManagementDerivedCredentialIssuerPEntrustDatacard
+	// DeviceManagementDerivedCredentialIssuerPPurebred is a pointer to DeviceManagementDerivedCredentialIssuerVPurebred
+	DeviceManagementDerivedCredentialIssuerPPurebred = &_DeviceManagementDerivedCredentialIssuerPPurebred
+)
 
-// DeviceManagementDerivedCredentialIssuerPEntrustDatacard returns a pointer to DeviceManagementDerivedCredentialIssuerVEntrustDatacard
-func DeviceManagementDerivedCredentialIssuerPEntrustDatacard() *DeviceManagementDerivedCredentialIssuer {
-	v := DeviceManagementDerivedCredentialIssuerVEntrustDatacard
-	return &v
-}
-
-// DeviceManagementDerivedCredentialIssuerPPurebred returns a pointer to DeviceManagementDerivedCredentialIssuerVPurebred
-func DeviceManagementDerivedCredentialIssuerPPurebred() *DeviceManagementDerivedCredentialIssuer {
-	v := DeviceManagementDerivedCredentialIssuerVPurebred
-	return &v
-}
+var (
+	_DeviceManagementDerivedCredentialIssuerPIntercede       = DeviceManagementDerivedCredentialIssuerVIntercede
+	_DeviceManagementDerivedCredentialIssuerPEntrustDatacard = DeviceManagementDerivedCredentialIssuerVEntrustDatacard
+	_DeviceManagementDerivedCredentialIssuerPPurebred        = DeviceManagementDerivedCredentialIssuerVPurebred
+)

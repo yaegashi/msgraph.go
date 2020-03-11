@@ -3,39 +3,33 @@
 package msgraph
 
 // BitLockerRecoveryPasswordRotationType undocumented
-type BitLockerRecoveryPasswordRotationType int
+type BitLockerRecoveryPasswordRotationType string
 
 const (
 	// BitLockerRecoveryPasswordRotationTypeVNotConfigured undocumented
-	BitLockerRecoveryPasswordRotationTypeVNotConfigured BitLockerRecoveryPasswordRotationType = 0
+	BitLockerRecoveryPasswordRotationTypeVNotConfigured BitLockerRecoveryPasswordRotationType = "notConfigured"
 	// BitLockerRecoveryPasswordRotationTypeVDisabled undocumented
-	BitLockerRecoveryPasswordRotationTypeVDisabled BitLockerRecoveryPasswordRotationType = 1
+	BitLockerRecoveryPasswordRotationTypeVDisabled BitLockerRecoveryPasswordRotationType = "disabled"
 	// BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd undocumented
-	BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd BitLockerRecoveryPasswordRotationType = 2
+	BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd BitLockerRecoveryPasswordRotationType = "enabledForAzureAd"
 	// BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid undocumented
-	BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid BitLockerRecoveryPasswordRotationType = 3
+	BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid BitLockerRecoveryPasswordRotationType = "enabledForAzureAdAndHybrid"
 )
 
-// BitLockerRecoveryPasswordRotationTypePNotConfigured returns a pointer to BitLockerRecoveryPasswordRotationTypeVNotConfigured
-func BitLockerRecoveryPasswordRotationTypePNotConfigured() *BitLockerRecoveryPasswordRotationType {
-	v := BitLockerRecoveryPasswordRotationTypeVNotConfigured
-	return &v
-}
+var (
+	// BitLockerRecoveryPasswordRotationTypePNotConfigured is a pointer to BitLockerRecoveryPasswordRotationTypeVNotConfigured
+	BitLockerRecoveryPasswordRotationTypePNotConfigured = &_BitLockerRecoveryPasswordRotationTypePNotConfigured
+	// BitLockerRecoveryPasswordRotationTypePDisabled is a pointer to BitLockerRecoveryPasswordRotationTypeVDisabled
+	BitLockerRecoveryPasswordRotationTypePDisabled = &_BitLockerRecoveryPasswordRotationTypePDisabled
+	// BitLockerRecoveryPasswordRotationTypePEnabledForAzureAd is a pointer to BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd
+	BitLockerRecoveryPasswordRotationTypePEnabledForAzureAd = &_BitLockerRecoveryPasswordRotationTypePEnabledForAzureAd
+	// BitLockerRecoveryPasswordRotationTypePEnabledForAzureAdAndHybrid is a pointer to BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid
+	BitLockerRecoveryPasswordRotationTypePEnabledForAzureAdAndHybrid = &_BitLockerRecoveryPasswordRotationTypePEnabledForAzureAdAndHybrid
+)
 
-// BitLockerRecoveryPasswordRotationTypePDisabled returns a pointer to BitLockerRecoveryPasswordRotationTypeVDisabled
-func BitLockerRecoveryPasswordRotationTypePDisabled() *BitLockerRecoveryPasswordRotationType {
-	v := BitLockerRecoveryPasswordRotationTypeVDisabled
-	return &v
-}
-
-// BitLockerRecoveryPasswordRotationTypePEnabledForAzureAd returns a pointer to BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd
-func BitLockerRecoveryPasswordRotationTypePEnabledForAzureAd() *BitLockerRecoveryPasswordRotationType {
-	v := BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd
-	return &v
-}
-
-// BitLockerRecoveryPasswordRotationTypePEnabledForAzureAdAndHybrid returns a pointer to BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid
-func BitLockerRecoveryPasswordRotationTypePEnabledForAzureAdAndHybrid() *BitLockerRecoveryPasswordRotationType {
-	v := BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid
-	return &v
-}
+var (
+	_BitLockerRecoveryPasswordRotationTypePNotConfigured              = BitLockerRecoveryPasswordRotationTypeVNotConfigured
+	_BitLockerRecoveryPasswordRotationTypePDisabled                   = BitLockerRecoveryPasswordRotationTypeVDisabled
+	_BitLockerRecoveryPasswordRotationTypePEnabledForAzureAd          = BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAd
+	_BitLockerRecoveryPasswordRotationTypePEnabledForAzureAdAndHybrid = BitLockerRecoveryPasswordRotationTypeVEnabledForAzureAdAndHybrid
+)

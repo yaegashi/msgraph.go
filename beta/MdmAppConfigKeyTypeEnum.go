@@ -3,47 +3,38 @@
 package msgraph
 
 // MdmAppConfigKeyType undocumented
-type MdmAppConfigKeyType int
+type MdmAppConfigKeyType string
 
 const (
 	// MdmAppConfigKeyTypeVStringType undocumented
-	MdmAppConfigKeyTypeVStringType MdmAppConfigKeyType = 0
+	MdmAppConfigKeyTypeVStringType MdmAppConfigKeyType = "stringType"
 	// MdmAppConfigKeyTypeVIntegerType undocumented
-	MdmAppConfigKeyTypeVIntegerType MdmAppConfigKeyType = 1
+	MdmAppConfigKeyTypeVIntegerType MdmAppConfigKeyType = "integerType"
 	// MdmAppConfigKeyTypeVRealType undocumented
-	MdmAppConfigKeyTypeVRealType MdmAppConfigKeyType = 2
+	MdmAppConfigKeyTypeVRealType MdmAppConfigKeyType = "realType"
 	// MdmAppConfigKeyTypeVBooleanType undocumented
-	MdmAppConfigKeyTypeVBooleanType MdmAppConfigKeyType = 3
+	MdmAppConfigKeyTypeVBooleanType MdmAppConfigKeyType = "booleanType"
 	// MdmAppConfigKeyTypeVTokenType undocumented
-	MdmAppConfigKeyTypeVTokenType MdmAppConfigKeyType = 4
+	MdmAppConfigKeyTypeVTokenType MdmAppConfigKeyType = "tokenType"
 )
 
-// MdmAppConfigKeyTypePStringType returns a pointer to MdmAppConfigKeyTypeVStringType
-func MdmAppConfigKeyTypePStringType() *MdmAppConfigKeyType {
-	v := MdmAppConfigKeyTypeVStringType
-	return &v
-}
+var (
+	// MdmAppConfigKeyTypePStringType is a pointer to MdmAppConfigKeyTypeVStringType
+	MdmAppConfigKeyTypePStringType = &_MdmAppConfigKeyTypePStringType
+	// MdmAppConfigKeyTypePIntegerType is a pointer to MdmAppConfigKeyTypeVIntegerType
+	MdmAppConfigKeyTypePIntegerType = &_MdmAppConfigKeyTypePIntegerType
+	// MdmAppConfigKeyTypePRealType is a pointer to MdmAppConfigKeyTypeVRealType
+	MdmAppConfigKeyTypePRealType = &_MdmAppConfigKeyTypePRealType
+	// MdmAppConfigKeyTypePBooleanType is a pointer to MdmAppConfigKeyTypeVBooleanType
+	MdmAppConfigKeyTypePBooleanType = &_MdmAppConfigKeyTypePBooleanType
+	// MdmAppConfigKeyTypePTokenType is a pointer to MdmAppConfigKeyTypeVTokenType
+	MdmAppConfigKeyTypePTokenType = &_MdmAppConfigKeyTypePTokenType
+)
 
-// MdmAppConfigKeyTypePIntegerType returns a pointer to MdmAppConfigKeyTypeVIntegerType
-func MdmAppConfigKeyTypePIntegerType() *MdmAppConfigKeyType {
-	v := MdmAppConfigKeyTypeVIntegerType
-	return &v
-}
-
-// MdmAppConfigKeyTypePRealType returns a pointer to MdmAppConfigKeyTypeVRealType
-func MdmAppConfigKeyTypePRealType() *MdmAppConfigKeyType {
-	v := MdmAppConfigKeyTypeVRealType
-	return &v
-}
-
-// MdmAppConfigKeyTypePBooleanType returns a pointer to MdmAppConfigKeyTypeVBooleanType
-func MdmAppConfigKeyTypePBooleanType() *MdmAppConfigKeyType {
-	v := MdmAppConfigKeyTypeVBooleanType
-	return &v
-}
-
-// MdmAppConfigKeyTypePTokenType returns a pointer to MdmAppConfigKeyTypeVTokenType
-func MdmAppConfigKeyTypePTokenType() *MdmAppConfigKeyType {
-	v := MdmAppConfigKeyTypeVTokenType
-	return &v
-}
+var (
+	_MdmAppConfigKeyTypePStringType  = MdmAppConfigKeyTypeVStringType
+	_MdmAppConfigKeyTypePIntegerType = MdmAppConfigKeyTypeVIntegerType
+	_MdmAppConfigKeyTypePRealType    = MdmAppConfigKeyTypeVRealType
+	_MdmAppConfigKeyTypePBooleanType = MdmAppConfigKeyTypeVBooleanType
+	_MdmAppConfigKeyTypePTokenType   = MdmAppConfigKeyTypeVTokenType
+)

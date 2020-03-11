@@ -3,31 +3,28 @@
 package msgraph
 
 // VpnLocalIdentifier undocumented
-type VpnLocalIdentifier int
+type VpnLocalIdentifier string
 
 const (
 	// VpnLocalIdentifierVDeviceFQDN undocumented
-	VpnLocalIdentifierVDeviceFQDN VpnLocalIdentifier = 0
+	VpnLocalIdentifierVDeviceFQDN VpnLocalIdentifier = "deviceFQDN"
 	// VpnLocalIdentifierVEmpty undocumented
-	VpnLocalIdentifierVEmpty VpnLocalIdentifier = 1
+	VpnLocalIdentifierVEmpty VpnLocalIdentifier = "empty"
 	// VpnLocalIdentifierVClientCertificateSubjectName undocumented
-	VpnLocalIdentifierVClientCertificateSubjectName VpnLocalIdentifier = 2
+	VpnLocalIdentifierVClientCertificateSubjectName VpnLocalIdentifier = "clientCertificateSubjectName"
 )
 
-// VpnLocalIdentifierPDeviceFQDN returns a pointer to VpnLocalIdentifierVDeviceFQDN
-func VpnLocalIdentifierPDeviceFQDN() *VpnLocalIdentifier {
-	v := VpnLocalIdentifierVDeviceFQDN
-	return &v
-}
+var (
+	// VpnLocalIdentifierPDeviceFQDN is a pointer to VpnLocalIdentifierVDeviceFQDN
+	VpnLocalIdentifierPDeviceFQDN = &_VpnLocalIdentifierPDeviceFQDN
+	// VpnLocalIdentifierPEmpty is a pointer to VpnLocalIdentifierVEmpty
+	VpnLocalIdentifierPEmpty = &_VpnLocalIdentifierPEmpty
+	// VpnLocalIdentifierPClientCertificateSubjectName is a pointer to VpnLocalIdentifierVClientCertificateSubjectName
+	VpnLocalIdentifierPClientCertificateSubjectName = &_VpnLocalIdentifierPClientCertificateSubjectName
+)
 
-// VpnLocalIdentifierPEmpty returns a pointer to VpnLocalIdentifierVEmpty
-func VpnLocalIdentifierPEmpty() *VpnLocalIdentifier {
-	v := VpnLocalIdentifierVEmpty
-	return &v
-}
-
-// VpnLocalIdentifierPClientCertificateSubjectName returns a pointer to VpnLocalIdentifierVClientCertificateSubjectName
-func VpnLocalIdentifierPClientCertificateSubjectName() *VpnLocalIdentifier {
-	v := VpnLocalIdentifierVClientCertificateSubjectName
-	return &v
-}
+var (
+	_VpnLocalIdentifierPDeviceFQDN                   = VpnLocalIdentifierVDeviceFQDN
+	_VpnLocalIdentifierPEmpty                        = VpnLocalIdentifierVEmpty
+	_VpnLocalIdentifierPClientCertificateSubjectName = VpnLocalIdentifierVClientCertificateSubjectName
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // EdgeKioskModeRestrictionType undocumented
-type EdgeKioskModeRestrictionType int
+type EdgeKioskModeRestrictionType string
 
 const (
 	// EdgeKioskModeRestrictionTypeVNotConfigured undocumented
-	EdgeKioskModeRestrictionTypeVNotConfigured EdgeKioskModeRestrictionType = 0
+	EdgeKioskModeRestrictionTypeVNotConfigured EdgeKioskModeRestrictionType = "notConfigured"
 	// EdgeKioskModeRestrictionTypeVDigitalSignage undocumented
-	EdgeKioskModeRestrictionTypeVDigitalSignage EdgeKioskModeRestrictionType = 1
+	EdgeKioskModeRestrictionTypeVDigitalSignage EdgeKioskModeRestrictionType = "digitalSignage"
 	// EdgeKioskModeRestrictionTypeVNormalMode undocumented
-	EdgeKioskModeRestrictionTypeVNormalMode EdgeKioskModeRestrictionType = 2
+	EdgeKioskModeRestrictionTypeVNormalMode EdgeKioskModeRestrictionType = "normalMode"
 	// EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp undocumented
-	EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp EdgeKioskModeRestrictionType = 3
+	EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp EdgeKioskModeRestrictionType = "publicBrowsingSingleApp"
 	// EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp undocumented
-	EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp EdgeKioskModeRestrictionType = 4
+	EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp EdgeKioskModeRestrictionType = "publicBrowsingMultiApp"
 )
 
-// EdgeKioskModeRestrictionTypePNotConfigured returns a pointer to EdgeKioskModeRestrictionTypeVNotConfigured
-func EdgeKioskModeRestrictionTypePNotConfigured() *EdgeKioskModeRestrictionType {
-	v := EdgeKioskModeRestrictionTypeVNotConfigured
-	return &v
-}
+var (
+	// EdgeKioskModeRestrictionTypePNotConfigured is a pointer to EdgeKioskModeRestrictionTypeVNotConfigured
+	EdgeKioskModeRestrictionTypePNotConfigured = &_EdgeKioskModeRestrictionTypePNotConfigured
+	// EdgeKioskModeRestrictionTypePDigitalSignage is a pointer to EdgeKioskModeRestrictionTypeVDigitalSignage
+	EdgeKioskModeRestrictionTypePDigitalSignage = &_EdgeKioskModeRestrictionTypePDigitalSignage
+	// EdgeKioskModeRestrictionTypePNormalMode is a pointer to EdgeKioskModeRestrictionTypeVNormalMode
+	EdgeKioskModeRestrictionTypePNormalMode = &_EdgeKioskModeRestrictionTypePNormalMode
+	// EdgeKioskModeRestrictionTypePPublicBrowsingSingleApp is a pointer to EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp
+	EdgeKioskModeRestrictionTypePPublicBrowsingSingleApp = &_EdgeKioskModeRestrictionTypePPublicBrowsingSingleApp
+	// EdgeKioskModeRestrictionTypePPublicBrowsingMultiApp is a pointer to EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp
+	EdgeKioskModeRestrictionTypePPublicBrowsingMultiApp = &_EdgeKioskModeRestrictionTypePPublicBrowsingMultiApp
+)
 
-// EdgeKioskModeRestrictionTypePDigitalSignage returns a pointer to EdgeKioskModeRestrictionTypeVDigitalSignage
-func EdgeKioskModeRestrictionTypePDigitalSignage() *EdgeKioskModeRestrictionType {
-	v := EdgeKioskModeRestrictionTypeVDigitalSignage
-	return &v
-}
-
-// EdgeKioskModeRestrictionTypePNormalMode returns a pointer to EdgeKioskModeRestrictionTypeVNormalMode
-func EdgeKioskModeRestrictionTypePNormalMode() *EdgeKioskModeRestrictionType {
-	v := EdgeKioskModeRestrictionTypeVNormalMode
-	return &v
-}
-
-// EdgeKioskModeRestrictionTypePPublicBrowsingSingleApp returns a pointer to EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp
-func EdgeKioskModeRestrictionTypePPublicBrowsingSingleApp() *EdgeKioskModeRestrictionType {
-	v := EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp
-	return &v
-}
-
-// EdgeKioskModeRestrictionTypePPublicBrowsingMultiApp returns a pointer to EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp
-func EdgeKioskModeRestrictionTypePPublicBrowsingMultiApp() *EdgeKioskModeRestrictionType {
-	v := EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp
-	return &v
-}
+var (
+	_EdgeKioskModeRestrictionTypePNotConfigured           = EdgeKioskModeRestrictionTypeVNotConfigured
+	_EdgeKioskModeRestrictionTypePDigitalSignage          = EdgeKioskModeRestrictionTypeVDigitalSignage
+	_EdgeKioskModeRestrictionTypePNormalMode              = EdgeKioskModeRestrictionTypeVNormalMode
+	_EdgeKioskModeRestrictionTypePPublicBrowsingSingleApp = EdgeKioskModeRestrictionTypeVPublicBrowsingSingleApp
+	_EdgeKioskModeRestrictionTypePPublicBrowsingMultiApp  = EdgeKioskModeRestrictionTypeVPublicBrowsingMultiApp
+)

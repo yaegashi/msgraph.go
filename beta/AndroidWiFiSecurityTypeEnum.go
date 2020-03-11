@@ -3,31 +3,28 @@
 package msgraph
 
 // AndroidWiFiSecurityType undocumented
-type AndroidWiFiSecurityType int
+type AndroidWiFiSecurityType string
 
 const (
 	// AndroidWiFiSecurityTypeVOpen undocumented
-	AndroidWiFiSecurityTypeVOpen AndroidWiFiSecurityType = 0
+	AndroidWiFiSecurityTypeVOpen AndroidWiFiSecurityType = "open"
 	// AndroidWiFiSecurityTypeVWpaEnterprise undocumented
-	AndroidWiFiSecurityTypeVWpaEnterprise AndroidWiFiSecurityType = 1
+	AndroidWiFiSecurityTypeVWpaEnterprise AndroidWiFiSecurityType = "wpaEnterprise"
 	// AndroidWiFiSecurityTypeVWpa2Enterprise undocumented
-	AndroidWiFiSecurityTypeVWpa2Enterprise AndroidWiFiSecurityType = 2
+	AndroidWiFiSecurityTypeVWpa2Enterprise AndroidWiFiSecurityType = "wpa2Enterprise"
 )
 
-// AndroidWiFiSecurityTypePOpen returns a pointer to AndroidWiFiSecurityTypeVOpen
-func AndroidWiFiSecurityTypePOpen() *AndroidWiFiSecurityType {
-	v := AndroidWiFiSecurityTypeVOpen
-	return &v
-}
+var (
+	// AndroidWiFiSecurityTypePOpen is a pointer to AndroidWiFiSecurityTypeVOpen
+	AndroidWiFiSecurityTypePOpen = &_AndroidWiFiSecurityTypePOpen
+	// AndroidWiFiSecurityTypePWpaEnterprise is a pointer to AndroidWiFiSecurityTypeVWpaEnterprise
+	AndroidWiFiSecurityTypePWpaEnterprise = &_AndroidWiFiSecurityTypePWpaEnterprise
+	// AndroidWiFiSecurityTypePWpa2Enterprise is a pointer to AndroidWiFiSecurityTypeVWpa2Enterprise
+	AndroidWiFiSecurityTypePWpa2Enterprise = &_AndroidWiFiSecurityTypePWpa2Enterprise
+)
 
-// AndroidWiFiSecurityTypePWpaEnterprise returns a pointer to AndroidWiFiSecurityTypeVWpaEnterprise
-func AndroidWiFiSecurityTypePWpaEnterprise() *AndroidWiFiSecurityType {
-	v := AndroidWiFiSecurityTypeVWpaEnterprise
-	return &v
-}
-
-// AndroidWiFiSecurityTypePWpa2Enterprise returns a pointer to AndroidWiFiSecurityTypeVWpa2Enterprise
-func AndroidWiFiSecurityTypePWpa2Enterprise() *AndroidWiFiSecurityType {
-	v := AndroidWiFiSecurityTypeVWpa2Enterprise
-	return &v
-}
+var (
+	_AndroidWiFiSecurityTypePOpen           = AndroidWiFiSecurityTypeVOpen
+	_AndroidWiFiSecurityTypePWpaEnterprise  = AndroidWiFiSecurityTypeVWpaEnterprise
+	_AndroidWiFiSecurityTypePWpa2Enterprise = AndroidWiFiSecurityTypeVWpa2Enterprise
+)

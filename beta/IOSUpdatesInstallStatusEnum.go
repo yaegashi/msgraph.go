@@ -3,143 +3,98 @@
 package msgraph
 
 // IOSUpdatesInstallStatus undocumented
-type IOSUpdatesInstallStatus int
+type IOSUpdatesInstallStatus string
 
 const (
 	// IOSUpdatesInstallStatusVSuccess undocumented
-	IOSUpdatesInstallStatusVSuccess IOSUpdatesInstallStatus = 0
+	IOSUpdatesInstallStatusVSuccess IOSUpdatesInstallStatus = "success"
 	// IOSUpdatesInstallStatusVAvailable undocumented
-	IOSUpdatesInstallStatusVAvailable IOSUpdatesInstallStatus = 1
+	IOSUpdatesInstallStatusVAvailable IOSUpdatesInstallStatus = "available"
 	// IOSUpdatesInstallStatusVIdle undocumented
-	IOSUpdatesInstallStatusVIdle IOSUpdatesInstallStatus = 2
+	IOSUpdatesInstallStatusVIdle IOSUpdatesInstallStatus = "idle"
 	// IOSUpdatesInstallStatusVUnknown undocumented
-	IOSUpdatesInstallStatusVUnknown IOSUpdatesInstallStatus = 3
+	IOSUpdatesInstallStatusVUnknown IOSUpdatesInstallStatus = "unknown"
 	// IOSUpdatesInstallStatusVDownloading undocumented
-	IOSUpdatesInstallStatusVDownloading IOSUpdatesInstallStatus = -2016330712
+	IOSUpdatesInstallStatusVDownloading IOSUpdatesInstallStatus = "downloading"
 	// IOSUpdatesInstallStatusVDownloadFailed undocumented
-	IOSUpdatesInstallStatusVDownloadFailed IOSUpdatesInstallStatus = -2016330711
+	IOSUpdatesInstallStatusVDownloadFailed IOSUpdatesInstallStatus = "downloadFailed"
 	// IOSUpdatesInstallStatusVDownloadRequiresComputer undocumented
-	IOSUpdatesInstallStatusVDownloadRequiresComputer IOSUpdatesInstallStatus = -2016330710
+	IOSUpdatesInstallStatusVDownloadRequiresComputer IOSUpdatesInstallStatus = "downloadRequiresComputer"
 	// IOSUpdatesInstallStatusVDownloadInsufficientSpace undocumented
-	IOSUpdatesInstallStatusVDownloadInsufficientSpace IOSUpdatesInstallStatus = -2016330709
+	IOSUpdatesInstallStatusVDownloadInsufficientSpace IOSUpdatesInstallStatus = "downloadInsufficientSpace"
 	// IOSUpdatesInstallStatusVDownloadInsufficientPower undocumented
-	IOSUpdatesInstallStatusVDownloadInsufficientPower IOSUpdatesInstallStatus = -2016330708
+	IOSUpdatesInstallStatusVDownloadInsufficientPower IOSUpdatesInstallStatus = "downloadInsufficientPower"
 	// IOSUpdatesInstallStatusVDownloadInsufficientNetwork undocumented
-	IOSUpdatesInstallStatusVDownloadInsufficientNetwork IOSUpdatesInstallStatus = -2016330707
+	IOSUpdatesInstallStatusVDownloadInsufficientNetwork IOSUpdatesInstallStatus = "downloadInsufficientNetwork"
 	// IOSUpdatesInstallStatusVInstalling undocumented
-	IOSUpdatesInstallStatusVInstalling IOSUpdatesInstallStatus = -2016330706
+	IOSUpdatesInstallStatusVInstalling IOSUpdatesInstallStatus = "installing"
 	// IOSUpdatesInstallStatusVInstallInsufficientSpace undocumented
-	IOSUpdatesInstallStatusVInstallInsufficientSpace IOSUpdatesInstallStatus = -2016330705
+	IOSUpdatesInstallStatusVInstallInsufficientSpace IOSUpdatesInstallStatus = "installInsufficientSpace"
 	// IOSUpdatesInstallStatusVInstallInsufficientPower undocumented
-	IOSUpdatesInstallStatusVInstallInsufficientPower IOSUpdatesInstallStatus = -2016330704
+	IOSUpdatesInstallStatusVInstallInsufficientPower IOSUpdatesInstallStatus = "installInsufficientPower"
 	// IOSUpdatesInstallStatusVInstallPhoneCallInProgress undocumented
-	IOSUpdatesInstallStatusVInstallPhoneCallInProgress IOSUpdatesInstallStatus = -2016330703
+	IOSUpdatesInstallStatusVInstallPhoneCallInProgress IOSUpdatesInstallStatus = "installPhoneCallInProgress"
 	// IOSUpdatesInstallStatusVInstallFailed undocumented
-	IOSUpdatesInstallStatusVInstallFailed IOSUpdatesInstallStatus = -2016330702
+	IOSUpdatesInstallStatusVInstallFailed IOSUpdatesInstallStatus = "installFailed"
 	// IOSUpdatesInstallStatusVNotSupportedOperation undocumented
-	IOSUpdatesInstallStatusVNotSupportedOperation IOSUpdatesInstallStatus = -2016330701
+	IOSUpdatesInstallStatusVNotSupportedOperation IOSUpdatesInstallStatus = "notSupportedOperation"
 	// IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError undocumented
-	IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError IOSUpdatesInstallStatus = -2016330699
+	IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError IOSUpdatesInstallStatus = "sharedDeviceUserLoggedInError"
 )
 
-// IOSUpdatesInstallStatusPSuccess returns a pointer to IOSUpdatesInstallStatusVSuccess
-func IOSUpdatesInstallStatusPSuccess() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVSuccess
-	return &v
-}
+var (
+	// IOSUpdatesInstallStatusPSuccess is a pointer to IOSUpdatesInstallStatusVSuccess
+	IOSUpdatesInstallStatusPSuccess = &_IOSUpdatesInstallStatusPSuccess
+	// IOSUpdatesInstallStatusPAvailable is a pointer to IOSUpdatesInstallStatusVAvailable
+	IOSUpdatesInstallStatusPAvailable = &_IOSUpdatesInstallStatusPAvailable
+	// IOSUpdatesInstallStatusPIdle is a pointer to IOSUpdatesInstallStatusVIdle
+	IOSUpdatesInstallStatusPIdle = &_IOSUpdatesInstallStatusPIdle
+	// IOSUpdatesInstallStatusPUnknown is a pointer to IOSUpdatesInstallStatusVUnknown
+	IOSUpdatesInstallStatusPUnknown = &_IOSUpdatesInstallStatusPUnknown
+	// IOSUpdatesInstallStatusPDownloading is a pointer to IOSUpdatesInstallStatusVDownloading
+	IOSUpdatesInstallStatusPDownloading = &_IOSUpdatesInstallStatusPDownloading
+	// IOSUpdatesInstallStatusPDownloadFailed is a pointer to IOSUpdatesInstallStatusVDownloadFailed
+	IOSUpdatesInstallStatusPDownloadFailed = &_IOSUpdatesInstallStatusPDownloadFailed
+	// IOSUpdatesInstallStatusPDownloadRequiresComputer is a pointer to IOSUpdatesInstallStatusVDownloadRequiresComputer
+	IOSUpdatesInstallStatusPDownloadRequiresComputer = &_IOSUpdatesInstallStatusPDownloadRequiresComputer
+	// IOSUpdatesInstallStatusPDownloadInsufficientSpace is a pointer to IOSUpdatesInstallStatusVDownloadInsufficientSpace
+	IOSUpdatesInstallStatusPDownloadInsufficientSpace = &_IOSUpdatesInstallStatusPDownloadInsufficientSpace
+	// IOSUpdatesInstallStatusPDownloadInsufficientPower is a pointer to IOSUpdatesInstallStatusVDownloadInsufficientPower
+	IOSUpdatesInstallStatusPDownloadInsufficientPower = &_IOSUpdatesInstallStatusPDownloadInsufficientPower
+	// IOSUpdatesInstallStatusPDownloadInsufficientNetwork is a pointer to IOSUpdatesInstallStatusVDownloadInsufficientNetwork
+	IOSUpdatesInstallStatusPDownloadInsufficientNetwork = &_IOSUpdatesInstallStatusPDownloadInsufficientNetwork
+	// IOSUpdatesInstallStatusPInstalling is a pointer to IOSUpdatesInstallStatusVInstalling
+	IOSUpdatesInstallStatusPInstalling = &_IOSUpdatesInstallStatusPInstalling
+	// IOSUpdatesInstallStatusPInstallInsufficientSpace is a pointer to IOSUpdatesInstallStatusVInstallInsufficientSpace
+	IOSUpdatesInstallStatusPInstallInsufficientSpace = &_IOSUpdatesInstallStatusPInstallInsufficientSpace
+	// IOSUpdatesInstallStatusPInstallInsufficientPower is a pointer to IOSUpdatesInstallStatusVInstallInsufficientPower
+	IOSUpdatesInstallStatusPInstallInsufficientPower = &_IOSUpdatesInstallStatusPInstallInsufficientPower
+	// IOSUpdatesInstallStatusPInstallPhoneCallInProgress is a pointer to IOSUpdatesInstallStatusVInstallPhoneCallInProgress
+	IOSUpdatesInstallStatusPInstallPhoneCallInProgress = &_IOSUpdatesInstallStatusPInstallPhoneCallInProgress
+	// IOSUpdatesInstallStatusPInstallFailed is a pointer to IOSUpdatesInstallStatusVInstallFailed
+	IOSUpdatesInstallStatusPInstallFailed = &_IOSUpdatesInstallStatusPInstallFailed
+	// IOSUpdatesInstallStatusPNotSupportedOperation is a pointer to IOSUpdatesInstallStatusVNotSupportedOperation
+	IOSUpdatesInstallStatusPNotSupportedOperation = &_IOSUpdatesInstallStatusPNotSupportedOperation
+	// IOSUpdatesInstallStatusPSharedDeviceUserLoggedInError is a pointer to IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError
+	IOSUpdatesInstallStatusPSharedDeviceUserLoggedInError = &_IOSUpdatesInstallStatusPSharedDeviceUserLoggedInError
+)
 
-// IOSUpdatesInstallStatusPAvailable returns a pointer to IOSUpdatesInstallStatusVAvailable
-func IOSUpdatesInstallStatusPAvailable() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVAvailable
-	return &v
-}
-
-// IOSUpdatesInstallStatusPIdle returns a pointer to IOSUpdatesInstallStatusVIdle
-func IOSUpdatesInstallStatusPIdle() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVIdle
-	return &v
-}
-
-// IOSUpdatesInstallStatusPUnknown returns a pointer to IOSUpdatesInstallStatusVUnknown
-func IOSUpdatesInstallStatusPUnknown() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVUnknown
-	return &v
-}
-
-// IOSUpdatesInstallStatusPDownloading returns a pointer to IOSUpdatesInstallStatusVDownloading
-func IOSUpdatesInstallStatusPDownloading() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVDownloading
-	return &v
-}
-
-// IOSUpdatesInstallStatusPDownloadFailed returns a pointer to IOSUpdatesInstallStatusVDownloadFailed
-func IOSUpdatesInstallStatusPDownloadFailed() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVDownloadFailed
-	return &v
-}
-
-// IOSUpdatesInstallStatusPDownloadRequiresComputer returns a pointer to IOSUpdatesInstallStatusVDownloadRequiresComputer
-func IOSUpdatesInstallStatusPDownloadRequiresComputer() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVDownloadRequiresComputer
-	return &v
-}
-
-// IOSUpdatesInstallStatusPDownloadInsufficientSpace returns a pointer to IOSUpdatesInstallStatusVDownloadInsufficientSpace
-func IOSUpdatesInstallStatusPDownloadInsufficientSpace() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVDownloadInsufficientSpace
-	return &v
-}
-
-// IOSUpdatesInstallStatusPDownloadInsufficientPower returns a pointer to IOSUpdatesInstallStatusVDownloadInsufficientPower
-func IOSUpdatesInstallStatusPDownloadInsufficientPower() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVDownloadInsufficientPower
-	return &v
-}
-
-// IOSUpdatesInstallStatusPDownloadInsufficientNetwork returns a pointer to IOSUpdatesInstallStatusVDownloadInsufficientNetwork
-func IOSUpdatesInstallStatusPDownloadInsufficientNetwork() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVDownloadInsufficientNetwork
-	return &v
-}
-
-// IOSUpdatesInstallStatusPInstalling returns a pointer to IOSUpdatesInstallStatusVInstalling
-func IOSUpdatesInstallStatusPInstalling() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVInstalling
-	return &v
-}
-
-// IOSUpdatesInstallStatusPInstallInsufficientSpace returns a pointer to IOSUpdatesInstallStatusVInstallInsufficientSpace
-func IOSUpdatesInstallStatusPInstallInsufficientSpace() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVInstallInsufficientSpace
-	return &v
-}
-
-// IOSUpdatesInstallStatusPInstallInsufficientPower returns a pointer to IOSUpdatesInstallStatusVInstallInsufficientPower
-func IOSUpdatesInstallStatusPInstallInsufficientPower() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVInstallInsufficientPower
-	return &v
-}
-
-// IOSUpdatesInstallStatusPInstallPhoneCallInProgress returns a pointer to IOSUpdatesInstallStatusVInstallPhoneCallInProgress
-func IOSUpdatesInstallStatusPInstallPhoneCallInProgress() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVInstallPhoneCallInProgress
-	return &v
-}
-
-// IOSUpdatesInstallStatusPInstallFailed returns a pointer to IOSUpdatesInstallStatusVInstallFailed
-func IOSUpdatesInstallStatusPInstallFailed() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVInstallFailed
-	return &v
-}
-
-// IOSUpdatesInstallStatusPNotSupportedOperation returns a pointer to IOSUpdatesInstallStatusVNotSupportedOperation
-func IOSUpdatesInstallStatusPNotSupportedOperation() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVNotSupportedOperation
-	return &v
-}
-
-// IOSUpdatesInstallStatusPSharedDeviceUserLoggedInError returns a pointer to IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError
-func IOSUpdatesInstallStatusPSharedDeviceUserLoggedInError() *IOSUpdatesInstallStatus {
-	v := IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError
-	return &v
-}
+var (
+	_IOSUpdatesInstallStatusPSuccess                       = IOSUpdatesInstallStatusVSuccess
+	_IOSUpdatesInstallStatusPAvailable                     = IOSUpdatesInstallStatusVAvailable
+	_IOSUpdatesInstallStatusPIdle                          = IOSUpdatesInstallStatusVIdle
+	_IOSUpdatesInstallStatusPUnknown                       = IOSUpdatesInstallStatusVUnknown
+	_IOSUpdatesInstallStatusPDownloading                   = IOSUpdatesInstallStatusVDownloading
+	_IOSUpdatesInstallStatusPDownloadFailed                = IOSUpdatesInstallStatusVDownloadFailed
+	_IOSUpdatesInstallStatusPDownloadRequiresComputer      = IOSUpdatesInstallStatusVDownloadRequiresComputer
+	_IOSUpdatesInstallStatusPDownloadInsufficientSpace     = IOSUpdatesInstallStatusVDownloadInsufficientSpace
+	_IOSUpdatesInstallStatusPDownloadInsufficientPower     = IOSUpdatesInstallStatusVDownloadInsufficientPower
+	_IOSUpdatesInstallStatusPDownloadInsufficientNetwork   = IOSUpdatesInstallStatusVDownloadInsufficientNetwork
+	_IOSUpdatesInstallStatusPInstalling                    = IOSUpdatesInstallStatusVInstalling
+	_IOSUpdatesInstallStatusPInstallInsufficientSpace      = IOSUpdatesInstallStatusVInstallInsufficientSpace
+	_IOSUpdatesInstallStatusPInstallInsufficientPower      = IOSUpdatesInstallStatusVInstallInsufficientPower
+	_IOSUpdatesInstallStatusPInstallPhoneCallInProgress    = IOSUpdatesInstallStatusVInstallPhoneCallInProgress
+	_IOSUpdatesInstallStatusPInstallFailed                 = IOSUpdatesInstallStatusVInstallFailed
+	_IOSUpdatesInstallStatusPNotSupportedOperation         = IOSUpdatesInstallStatusVNotSupportedOperation
+	_IOSUpdatesInstallStatusPSharedDeviceUserLoggedInError = IOSUpdatesInstallStatusVSharedDeviceUserLoggedInError
+)

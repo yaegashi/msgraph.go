@@ -3,55 +3,43 @@
 package msgraph
 
 // AlertSeverity undocumented
-type AlertSeverity int
+type AlertSeverity string
 
 const (
 	// AlertSeverityVUnknown undocumented
-	AlertSeverityVUnknown AlertSeverity = 0
+	AlertSeverityVUnknown AlertSeverity = "unknown"
 	// AlertSeverityVInformational undocumented
-	AlertSeverityVInformational AlertSeverity = 1
+	AlertSeverityVInformational AlertSeverity = "informational"
 	// AlertSeverityVLow undocumented
-	AlertSeverityVLow AlertSeverity = 2
+	AlertSeverityVLow AlertSeverity = "low"
 	// AlertSeverityVMedium undocumented
-	AlertSeverityVMedium AlertSeverity = 3
+	AlertSeverityVMedium AlertSeverity = "medium"
 	// AlertSeverityVHigh undocumented
-	AlertSeverityVHigh AlertSeverity = 4
+	AlertSeverityVHigh AlertSeverity = "high"
 	// AlertSeverityVUnknownFutureValue undocumented
-	AlertSeverityVUnknownFutureValue AlertSeverity = 127
+	AlertSeverityVUnknownFutureValue AlertSeverity = "unknownFutureValue"
 )
 
-// AlertSeverityPUnknown returns a pointer to AlertSeverityVUnknown
-func AlertSeverityPUnknown() *AlertSeverity {
-	v := AlertSeverityVUnknown
-	return &v
-}
+var (
+	// AlertSeverityPUnknown is a pointer to AlertSeverityVUnknown
+	AlertSeverityPUnknown = &_AlertSeverityPUnknown
+	// AlertSeverityPInformational is a pointer to AlertSeverityVInformational
+	AlertSeverityPInformational = &_AlertSeverityPInformational
+	// AlertSeverityPLow is a pointer to AlertSeverityVLow
+	AlertSeverityPLow = &_AlertSeverityPLow
+	// AlertSeverityPMedium is a pointer to AlertSeverityVMedium
+	AlertSeverityPMedium = &_AlertSeverityPMedium
+	// AlertSeverityPHigh is a pointer to AlertSeverityVHigh
+	AlertSeverityPHigh = &_AlertSeverityPHigh
+	// AlertSeverityPUnknownFutureValue is a pointer to AlertSeverityVUnknownFutureValue
+	AlertSeverityPUnknownFutureValue = &_AlertSeverityPUnknownFutureValue
+)
 
-// AlertSeverityPInformational returns a pointer to AlertSeverityVInformational
-func AlertSeverityPInformational() *AlertSeverity {
-	v := AlertSeverityVInformational
-	return &v
-}
-
-// AlertSeverityPLow returns a pointer to AlertSeverityVLow
-func AlertSeverityPLow() *AlertSeverity {
-	v := AlertSeverityVLow
-	return &v
-}
-
-// AlertSeverityPMedium returns a pointer to AlertSeverityVMedium
-func AlertSeverityPMedium() *AlertSeverity {
-	v := AlertSeverityVMedium
-	return &v
-}
-
-// AlertSeverityPHigh returns a pointer to AlertSeverityVHigh
-func AlertSeverityPHigh() *AlertSeverity {
-	v := AlertSeverityVHigh
-	return &v
-}
-
-// AlertSeverityPUnknownFutureValue returns a pointer to AlertSeverityVUnknownFutureValue
-func AlertSeverityPUnknownFutureValue() *AlertSeverity {
-	v := AlertSeverityVUnknownFutureValue
-	return &v
-}
+var (
+	_AlertSeverityPUnknown            = AlertSeverityVUnknown
+	_AlertSeverityPInformational      = AlertSeverityVInformational
+	_AlertSeverityPLow                = AlertSeverityVLow
+	_AlertSeverityPMedium             = AlertSeverityVMedium
+	_AlertSeverityPHigh               = AlertSeverityVHigh
+	_AlertSeverityPUnknownFutureValue = AlertSeverityVUnknownFutureValue
+)

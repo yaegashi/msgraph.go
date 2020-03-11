@@ -3,47 +3,38 @@
 package msgraph
 
 // DeviceAppManagementTaskStatus undocumented
-type DeviceAppManagementTaskStatus int
+type DeviceAppManagementTaskStatus string
 
 const (
 	// DeviceAppManagementTaskStatusVUnknown undocumented
-	DeviceAppManagementTaskStatusVUnknown DeviceAppManagementTaskStatus = 0
+	DeviceAppManagementTaskStatusVUnknown DeviceAppManagementTaskStatus = "unknown"
 	// DeviceAppManagementTaskStatusVPending undocumented
-	DeviceAppManagementTaskStatusVPending DeviceAppManagementTaskStatus = 1
+	DeviceAppManagementTaskStatusVPending DeviceAppManagementTaskStatus = "pending"
 	// DeviceAppManagementTaskStatusVActive undocumented
-	DeviceAppManagementTaskStatusVActive DeviceAppManagementTaskStatus = 2
+	DeviceAppManagementTaskStatusVActive DeviceAppManagementTaskStatus = "active"
 	// DeviceAppManagementTaskStatusVCompleted undocumented
-	DeviceAppManagementTaskStatusVCompleted DeviceAppManagementTaskStatus = 3
+	DeviceAppManagementTaskStatusVCompleted DeviceAppManagementTaskStatus = "completed"
 	// DeviceAppManagementTaskStatusVRejected undocumented
-	DeviceAppManagementTaskStatusVRejected DeviceAppManagementTaskStatus = 4
+	DeviceAppManagementTaskStatusVRejected DeviceAppManagementTaskStatus = "rejected"
 )
 
-// DeviceAppManagementTaskStatusPUnknown returns a pointer to DeviceAppManagementTaskStatusVUnknown
-func DeviceAppManagementTaskStatusPUnknown() *DeviceAppManagementTaskStatus {
-	v := DeviceAppManagementTaskStatusVUnknown
-	return &v
-}
+var (
+	// DeviceAppManagementTaskStatusPUnknown is a pointer to DeviceAppManagementTaskStatusVUnknown
+	DeviceAppManagementTaskStatusPUnknown = &_DeviceAppManagementTaskStatusPUnknown
+	// DeviceAppManagementTaskStatusPPending is a pointer to DeviceAppManagementTaskStatusVPending
+	DeviceAppManagementTaskStatusPPending = &_DeviceAppManagementTaskStatusPPending
+	// DeviceAppManagementTaskStatusPActive is a pointer to DeviceAppManagementTaskStatusVActive
+	DeviceAppManagementTaskStatusPActive = &_DeviceAppManagementTaskStatusPActive
+	// DeviceAppManagementTaskStatusPCompleted is a pointer to DeviceAppManagementTaskStatusVCompleted
+	DeviceAppManagementTaskStatusPCompleted = &_DeviceAppManagementTaskStatusPCompleted
+	// DeviceAppManagementTaskStatusPRejected is a pointer to DeviceAppManagementTaskStatusVRejected
+	DeviceAppManagementTaskStatusPRejected = &_DeviceAppManagementTaskStatusPRejected
+)
 
-// DeviceAppManagementTaskStatusPPending returns a pointer to DeviceAppManagementTaskStatusVPending
-func DeviceAppManagementTaskStatusPPending() *DeviceAppManagementTaskStatus {
-	v := DeviceAppManagementTaskStatusVPending
-	return &v
-}
-
-// DeviceAppManagementTaskStatusPActive returns a pointer to DeviceAppManagementTaskStatusVActive
-func DeviceAppManagementTaskStatusPActive() *DeviceAppManagementTaskStatus {
-	v := DeviceAppManagementTaskStatusVActive
-	return &v
-}
-
-// DeviceAppManagementTaskStatusPCompleted returns a pointer to DeviceAppManagementTaskStatusVCompleted
-func DeviceAppManagementTaskStatusPCompleted() *DeviceAppManagementTaskStatus {
-	v := DeviceAppManagementTaskStatusVCompleted
-	return &v
-}
-
-// DeviceAppManagementTaskStatusPRejected returns a pointer to DeviceAppManagementTaskStatusVRejected
-func DeviceAppManagementTaskStatusPRejected() *DeviceAppManagementTaskStatus {
-	v := DeviceAppManagementTaskStatusVRejected
-	return &v
-}
+var (
+	_DeviceAppManagementTaskStatusPUnknown   = DeviceAppManagementTaskStatusVUnknown
+	_DeviceAppManagementTaskStatusPPending   = DeviceAppManagementTaskStatusVPending
+	_DeviceAppManagementTaskStatusPActive    = DeviceAppManagementTaskStatusVActive
+	_DeviceAppManagementTaskStatusPCompleted = DeviceAppManagementTaskStatusVCompleted
+	_DeviceAppManagementTaskStatusPRejected  = DeviceAppManagementTaskStatusVRejected
+)

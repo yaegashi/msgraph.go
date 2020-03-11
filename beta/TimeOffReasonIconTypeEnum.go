@@ -3,183 +3,123 @@
 package msgraph
 
 // TimeOffReasonIconType undocumented
-type TimeOffReasonIconType int
+type TimeOffReasonIconType string
 
 const (
 	// TimeOffReasonIconTypeVNone undocumented
-	TimeOffReasonIconTypeVNone TimeOffReasonIconType = 0
+	TimeOffReasonIconTypeVNone TimeOffReasonIconType = "none"
 	// TimeOffReasonIconTypeVCar undocumented
-	TimeOffReasonIconTypeVCar TimeOffReasonIconType = 1
+	TimeOffReasonIconTypeVCar TimeOffReasonIconType = "car"
 	// TimeOffReasonIconTypeVCalendar undocumented
-	TimeOffReasonIconTypeVCalendar TimeOffReasonIconType = 2
+	TimeOffReasonIconTypeVCalendar TimeOffReasonIconType = "calendar"
 	// TimeOffReasonIconTypeVRunning undocumented
-	TimeOffReasonIconTypeVRunning TimeOffReasonIconType = 3
+	TimeOffReasonIconTypeVRunning TimeOffReasonIconType = "running"
 	// TimeOffReasonIconTypeVPlane undocumented
-	TimeOffReasonIconTypeVPlane TimeOffReasonIconType = 4
+	TimeOffReasonIconTypeVPlane TimeOffReasonIconType = "plane"
 	// TimeOffReasonIconTypeVFirstAid undocumented
-	TimeOffReasonIconTypeVFirstAid TimeOffReasonIconType = 5
+	TimeOffReasonIconTypeVFirstAid TimeOffReasonIconType = "firstAid"
 	// TimeOffReasonIconTypeVDoctor undocumented
-	TimeOffReasonIconTypeVDoctor TimeOffReasonIconType = 6
+	TimeOffReasonIconTypeVDoctor TimeOffReasonIconType = "doctor"
 	// TimeOffReasonIconTypeVNotWorking undocumented
-	TimeOffReasonIconTypeVNotWorking TimeOffReasonIconType = 7
+	TimeOffReasonIconTypeVNotWorking TimeOffReasonIconType = "notWorking"
 	// TimeOffReasonIconTypeVClock undocumented
-	TimeOffReasonIconTypeVClock TimeOffReasonIconType = 8
+	TimeOffReasonIconTypeVClock TimeOffReasonIconType = "clock"
 	// TimeOffReasonIconTypeVJuryDuty undocumented
-	TimeOffReasonIconTypeVJuryDuty TimeOffReasonIconType = 9
+	TimeOffReasonIconTypeVJuryDuty TimeOffReasonIconType = "juryDuty"
 	// TimeOffReasonIconTypeVGlobe undocumented
-	TimeOffReasonIconTypeVGlobe TimeOffReasonIconType = 10
+	TimeOffReasonIconTypeVGlobe TimeOffReasonIconType = "globe"
 	// TimeOffReasonIconTypeVCup undocumented
-	TimeOffReasonIconTypeVCup TimeOffReasonIconType = 11
+	TimeOffReasonIconTypeVCup TimeOffReasonIconType = "cup"
 	// TimeOffReasonIconTypeVPhone undocumented
-	TimeOffReasonIconTypeVPhone TimeOffReasonIconType = 12
+	TimeOffReasonIconTypeVPhone TimeOffReasonIconType = "phone"
 	// TimeOffReasonIconTypeVWeather undocumented
-	TimeOffReasonIconTypeVWeather TimeOffReasonIconType = 13
+	TimeOffReasonIconTypeVWeather TimeOffReasonIconType = "weather"
 	// TimeOffReasonIconTypeVUmbrella undocumented
-	TimeOffReasonIconTypeVUmbrella TimeOffReasonIconType = 14
+	TimeOffReasonIconTypeVUmbrella TimeOffReasonIconType = "umbrella"
 	// TimeOffReasonIconTypeVPiggyBank undocumented
-	TimeOffReasonIconTypeVPiggyBank TimeOffReasonIconType = 15
+	TimeOffReasonIconTypeVPiggyBank TimeOffReasonIconType = "piggyBank"
 	// TimeOffReasonIconTypeVDog undocumented
-	TimeOffReasonIconTypeVDog TimeOffReasonIconType = 16
+	TimeOffReasonIconTypeVDog TimeOffReasonIconType = "dog"
 	// TimeOffReasonIconTypeVCake undocumented
-	TimeOffReasonIconTypeVCake TimeOffReasonIconType = 17
+	TimeOffReasonIconTypeVCake TimeOffReasonIconType = "cake"
 	// TimeOffReasonIconTypeVTrafficCone undocumented
-	TimeOffReasonIconTypeVTrafficCone TimeOffReasonIconType = 18
+	TimeOffReasonIconTypeVTrafficCone TimeOffReasonIconType = "trafficCone"
 	// TimeOffReasonIconTypeVPin undocumented
-	TimeOffReasonIconTypeVPin TimeOffReasonIconType = 19
+	TimeOffReasonIconTypeVPin TimeOffReasonIconType = "pin"
 	// TimeOffReasonIconTypeVSunny undocumented
-	TimeOffReasonIconTypeVSunny TimeOffReasonIconType = 20
+	TimeOffReasonIconTypeVSunny TimeOffReasonIconType = "sunny"
 	// TimeOffReasonIconTypeVUnknownFutureValue undocumented
-	TimeOffReasonIconTypeVUnknownFutureValue TimeOffReasonIconType = 21
+	TimeOffReasonIconTypeVUnknownFutureValue TimeOffReasonIconType = "unknownFutureValue"
 )
 
-// TimeOffReasonIconTypePNone returns a pointer to TimeOffReasonIconTypeVNone
-func TimeOffReasonIconTypePNone() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVNone
-	return &v
-}
+var (
+	// TimeOffReasonIconTypePNone is a pointer to TimeOffReasonIconTypeVNone
+	TimeOffReasonIconTypePNone = &_TimeOffReasonIconTypePNone
+	// TimeOffReasonIconTypePCar is a pointer to TimeOffReasonIconTypeVCar
+	TimeOffReasonIconTypePCar = &_TimeOffReasonIconTypePCar
+	// TimeOffReasonIconTypePCalendar is a pointer to TimeOffReasonIconTypeVCalendar
+	TimeOffReasonIconTypePCalendar = &_TimeOffReasonIconTypePCalendar
+	// TimeOffReasonIconTypePRunning is a pointer to TimeOffReasonIconTypeVRunning
+	TimeOffReasonIconTypePRunning = &_TimeOffReasonIconTypePRunning
+	// TimeOffReasonIconTypePPlane is a pointer to TimeOffReasonIconTypeVPlane
+	TimeOffReasonIconTypePPlane = &_TimeOffReasonIconTypePPlane
+	// TimeOffReasonIconTypePFirstAid is a pointer to TimeOffReasonIconTypeVFirstAid
+	TimeOffReasonIconTypePFirstAid = &_TimeOffReasonIconTypePFirstAid
+	// TimeOffReasonIconTypePDoctor is a pointer to TimeOffReasonIconTypeVDoctor
+	TimeOffReasonIconTypePDoctor = &_TimeOffReasonIconTypePDoctor
+	// TimeOffReasonIconTypePNotWorking is a pointer to TimeOffReasonIconTypeVNotWorking
+	TimeOffReasonIconTypePNotWorking = &_TimeOffReasonIconTypePNotWorking
+	// TimeOffReasonIconTypePClock is a pointer to TimeOffReasonIconTypeVClock
+	TimeOffReasonIconTypePClock = &_TimeOffReasonIconTypePClock
+	// TimeOffReasonIconTypePJuryDuty is a pointer to TimeOffReasonIconTypeVJuryDuty
+	TimeOffReasonIconTypePJuryDuty = &_TimeOffReasonIconTypePJuryDuty
+	// TimeOffReasonIconTypePGlobe is a pointer to TimeOffReasonIconTypeVGlobe
+	TimeOffReasonIconTypePGlobe = &_TimeOffReasonIconTypePGlobe
+	// TimeOffReasonIconTypePCup is a pointer to TimeOffReasonIconTypeVCup
+	TimeOffReasonIconTypePCup = &_TimeOffReasonIconTypePCup
+	// TimeOffReasonIconTypePPhone is a pointer to TimeOffReasonIconTypeVPhone
+	TimeOffReasonIconTypePPhone = &_TimeOffReasonIconTypePPhone
+	// TimeOffReasonIconTypePWeather is a pointer to TimeOffReasonIconTypeVWeather
+	TimeOffReasonIconTypePWeather = &_TimeOffReasonIconTypePWeather
+	// TimeOffReasonIconTypePUmbrella is a pointer to TimeOffReasonIconTypeVUmbrella
+	TimeOffReasonIconTypePUmbrella = &_TimeOffReasonIconTypePUmbrella
+	// TimeOffReasonIconTypePPiggyBank is a pointer to TimeOffReasonIconTypeVPiggyBank
+	TimeOffReasonIconTypePPiggyBank = &_TimeOffReasonIconTypePPiggyBank
+	// TimeOffReasonIconTypePDog is a pointer to TimeOffReasonIconTypeVDog
+	TimeOffReasonIconTypePDog = &_TimeOffReasonIconTypePDog
+	// TimeOffReasonIconTypePCake is a pointer to TimeOffReasonIconTypeVCake
+	TimeOffReasonIconTypePCake = &_TimeOffReasonIconTypePCake
+	// TimeOffReasonIconTypePTrafficCone is a pointer to TimeOffReasonIconTypeVTrafficCone
+	TimeOffReasonIconTypePTrafficCone = &_TimeOffReasonIconTypePTrafficCone
+	// TimeOffReasonIconTypePPin is a pointer to TimeOffReasonIconTypeVPin
+	TimeOffReasonIconTypePPin = &_TimeOffReasonIconTypePPin
+	// TimeOffReasonIconTypePSunny is a pointer to TimeOffReasonIconTypeVSunny
+	TimeOffReasonIconTypePSunny = &_TimeOffReasonIconTypePSunny
+	// TimeOffReasonIconTypePUnknownFutureValue is a pointer to TimeOffReasonIconTypeVUnknownFutureValue
+	TimeOffReasonIconTypePUnknownFutureValue = &_TimeOffReasonIconTypePUnknownFutureValue
+)
 
-// TimeOffReasonIconTypePCar returns a pointer to TimeOffReasonIconTypeVCar
-func TimeOffReasonIconTypePCar() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVCar
-	return &v
-}
-
-// TimeOffReasonIconTypePCalendar returns a pointer to TimeOffReasonIconTypeVCalendar
-func TimeOffReasonIconTypePCalendar() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVCalendar
-	return &v
-}
-
-// TimeOffReasonIconTypePRunning returns a pointer to TimeOffReasonIconTypeVRunning
-func TimeOffReasonIconTypePRunning() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVRunning
-	return &v
-}
-
-// TimeOffReasonIconTypePPlane returns a pointer to TimeOffReasonIconTypeVPlane
-func TimeOffReasonIconTypePPlane() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVPlane
-	return &v
-}
-
-// TimeOffReasonIconTypePFirstAid returns a pointer to TimeOffReasonIconTypeVFirstAid
-func TimeOffReasonIconTypePFirstAid() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVFirstAid
-	return &v
-}
-
-// TimeOffReasonIconTypePDoctor returns a pointer to TimeOffReasonIconTypeVDoctor
-func TimeOffReasonIconTypePDoctor() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVDoctor
-	return &v
-}
-
-// TimeOffReasonIconTypePNotWorking returns a pointer to TimeOffReasonIconTypeVNotWorking
-func TimeOffReasonIconTypePNotWorking() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVNotWorking
-	return &v
-}
-
-// TimeOffReasonIconTypePClock returns a pointer to TimeOffReasonIconTypeVClock
-func TimeOffReasonIconTypePClock() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVClock
-	return &v
-}
-
-// TimeOffReasonIconTypePJuryDuty returns a pointer to TimeOffReasonIconTypeVJuryDuty
-func TimeOffReasonIconTypePJuryDuty() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVJuryDuty
-	return &v
-}
-
-// TimeOffReasonIconTypePGlobe returns a pointer to TimeOffReasonIconTypeVGlobe
-func TimeOffReasonIconTypePGlobe() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVGlobe
-	return &v
-}
-
-// TimeOffReasonIconTypePCup returns a pointer to TimeOffReasonIconTypeVCup
-func TimeOffReasonIconTypePCup() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVCup
-	return &v
-}
-
-// TimeOffReasonIconTypePPhone returns a pointer to TimeOffReasonIconTypeVPhone
-func TimeOffReasonIconTypePPhone() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVPhone
-	return &v
-}
-
-// TimeOffReasonIconTypePWeather returns a pointer to TimeOffReasonIconTypeVWeather
-func TimeOffReasonIconTypePWeather() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVWeather
-	return &v
-}
-
-// TimeOffReasonIconTypePUmbrella returns a pointer to TimeOffReasonIconTypeVUmbrella
-func TimeOffReasonIconTypePUmbrella() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVUmbrella
-	return &v
-}
-
-// TimeOffReasonIconTypePPiggyBank returns a pointer to TimeOffReasonIconTypeVPiggyBank
-func TimeOffReasonIconTypePPiggyBank() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVPiggyBank
-	return &v
-}
-
-// TimeOffReasonIconTypePDog returns a pointer to TimeOffReasonIconTypeVDog
-func TimeOffReasonIconTypePDog() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVDog
-	return &v
-}
-
-// TimeOffReasonIconTypePCake returns a pointer to TimeOffReasonIconTypeVCake
-func TimeOffReasonIconTypePCake() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVCake
-	return &v
-}
-
-// TimeOffReasonIconTypePTrafficCone returns a pointer to TimeOffReasonIconTypeVTrafficCone
-func TimeOffReasonIconTypePTrafficCone() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVTrafficCone
-	return &v
-}
-
-// TimeOffReasonIconTypePPin returns a pointer to TimeOffReasonIconTypeVPin
-func TimeOffReasonIconTypePPin() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVPin
-	return &v
-}
-
-// TimeOffReasonIconTypePSunny returns a pointer to TimeOffReasonIconTypeVSunny
-func TimeOffReasonIconTypePSunny() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVSunny
-	return &v
-}
-
-// TimeOffReasonIconTypePUnknownFutureValue returns a pointer to TimeOffReasonIconTypeVUnknownFutureValue
-func TimeOffReasonIconTypePUnknownFutureValue() *TimeOffReasonIconType {
-	v := TimeOffReasonIconTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_TimeOffReasonIconTypePNone               = TimeOffReasonIconTypeVNone
+	_TimeOffReasonIconTypePCar                = TimeOffReasonIconTypeVCar
+	_TimeOffReasonIconTypePCalendar           = TimeOffReasonIconTypeVCalendar
+	_TimeOffReasonIconTypePRunning            = TimeOffReasonIconTypeVRunning
+	_TimeOffReasonIconTypePPlane              = TimeOffReasonIconTypeVPlane
+	_TimeOffReasonIconTypePFirstAid           = TimeOffReasonIconTypeVFirstAid
+	_TimeOffReasonIconTypePDoctor             = TimeOffReasonIconTypeVDoctor
+	_TimeOffReasonIconTypePNotWorking         = TimeOffReasonIconTypeVNotWorking
+	_TimeOffReasonIconTypePClock              = TimeOffReasonIconTypeVClock
+	_TimeOffReasonIconTypePJuryDuty           = TimeOffReasonIconTypeVJuryDuty
+	_TimeOffReasonIconTypePGlobe              = TimeOffReasonIconTypeVGlobe
+	_TimeOffReasonIconTypePCup                = TimeOffReasonIconTypeVCup
+	_TimeOffReasonIconTypePPhone              = TimeOffReasonIconTypeVPhone
+	_TimeOffReasonIconTypePWeather            = TimeOffReasonIconTypeVWeather
+	_TimeOffReasonIconTypePUmbrella           = TimeOffReasonIconTypeVUmbrella
+	_TimeOffReasonIconTypePPiggyBank          = TimeOffReasonIconTypeVPiggyBank
+	_TimeOffReasonIconTypePDog                = TimeOffReasonIconTypeVDog
+	_TimeOffReasonIconTypePCake               = TimeOffReasonIconTypeVCake
+	_TimeOffReasonIconTypePTrafficCone        = TimeOffReasonIconTypeVTrafficCone
+	_TimeOffReasonIconTypePPin                = TimeOffReasonIconTypeVPin
+	_TimeOffReasonIconTypePSunny              = TimeOffReasonIconTypeVSunny
+	_TimeOffReasonIconTypePUnknownFutureValue = TimeOffReasonIconTypeVUnknownFutureValue
+)

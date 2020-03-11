@@ -3,23 +3,23 @@
 package msgraph
 
 // DeviceManagementReportFileFormat undocumented
-type DeviceManagementReportFileFormat int
+type DeviceManagementReportFileFormat string
 
 const (
 	// DeviceManagementReportFileFormatVCsv undocumented
-	DeviceManagementReportFileFormatVCsv DeviceManagementReportFileFormat = 0
+	DeviceManagementReportFileFormatVCsv DeviceManagementReportFileFormat = "csv"
 	// DeviceManagementReportFileFormatVPdf undocumented
-	DeviceManagementReportFileFormatVPdf DeviceManagementReportFileFormat = 1
+	DeviceManagementReportFileFormatVPdf DeviceManagementReportFileFormat = "pdf"
 )
 
-// DeviceManagementReportFileFormatPCsv returns a pointer to DeviceManagementReportFileFormatVCsv
-func DeviceManagementReportFileFormatPCsv() *DeviceManagementReportFileFormat {
-	v := DeviceManagementReportFileFormatVCsv
-	return &v
-}
+var (
+	// DeviceManagementReportFileFormatPCsv is a pointer to DeviceManagementReportFileFormatVCsv
+	DeviceManagementReportFileFormatPCsv = &_DeviceManagementReportFileFormatPCsv
+	// DeviceManagementReportFileFormatPPdf is a pointer to DeviceManagementReportFileFormatVPdf
+	DeviceManagementReportFileFormatPPdf = &_DeviceManagementReportFileFormatPPdf
+)
 
-// DeviceManagementReportFileFormatPPdf returns a pointer to DeviceManagementReportFileFormatVPdf
-func DeviceManagementReportFileFormatPPdf() *DeviceManagementReportFileFormat {
-	v := DeviceManagementReportFileFormatVPdf
-	return &v
-}
+var (
+	_DeviceManagementReportFileFormatPCsv = DeviceManagementReportFileFormatVCsv
+	_DeviceManagementReportFileFormatPPdf = DeviceManagementReportFileFormatVPdf
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // EditionUpgradeLicenseType undocumented
-type EditionUpgradeLicenseType int
+type EditionUpgradeLicenseType string
 
 const (
 	// EditionUpgradeLicenseTypeVProductKey undocumented
-	EditionUpgradeLicenseTypeVProductKey EditionUpgradeLicenseType = 0
+	EditionUpgradeLicenseTypeVProductKey EditionUpgradeLicenseType = "productKey"
 	// EditionUpgradeLicenseTypeVLicenseFile undocumented
-	EditionUpgradeLicenseTypeVLicenseFile EditionUpgradeLicenseType = 1
+	EditionUpgradeLicenseTypeVLicenseFile EditionUpgradeLicenseType = "licenseFile"
 	// EditionUpgradeLicenseTypeVNotConfigured undocumented
-	EditionUpgradeLicenseTypeVNotConfigured EditionUpgradeLicenseType = 2
+	EditionUpgradeLicenseTypeVNotConfigured EditionUpgradeLicenseType = "notConfigured"
 )
 
-// EditionUpgradeLicenseTypePProductKey returns a pointer to EditionUpgradeLicenseTypeVProductKey
-func EditionUpgradeLicenseTypePProductKey() *EditionUpgradeLicenseType {
-	v := EditionUpgradeLicenseTypeVProductKey
-	return &v
-}
+var (
+	// EditionUpgradeLicenseTypePProductKey is a pointer to EditionUpgradeLicenseTypeVProductKey
+	EditionUpgradeLicenseTypePProductKey = &_EditionUpgradeLicenseTypePProductKey
+	// EditionUpgradeLicenseTypePLicenseFile is a pointer to EditionUpgradeLicenseTypeVLicenseFile
+	EditionUpgradeLicenseTypePLicenseFile = &_EditionUpgradeLicenseTypePLicenseFile
+	// EditionUpgradeLicenseTypePNotConfigured is a pointer to EditionUpgradeLicenseTypeVNotConfigured
+	EditionUpgradeLicenseTypePNotConfigured = &_EditionUpgradeLicenseTypePNotConfigured
+)
 
-// EditionUpgradeLicenseTypePLicenseFile returns a pointer to EditionUpgradeLicenseTypeVLicenseFile
-func EditionUpgradeLicenseTypePLicenseFile() *EditionUpgradeLicenseType {
-	v := EditionUpgradeLicenseTypeVLicenseFile
-	return &v
-}
-
-// EditionUpgradeLicenseTypePNotConfigured returns a pointer to EditionUpgradeLicenseTypeVNotConfigured
-func EditionUpgradeLicenseTypePNotConfigured() *EditionUpgradeLicenseType {
-	v := EditionUpgradeLicenseTypeVNotConfigured
-	return &v
-}
+var (
+	_EditionUpgradeLicenseTypePProductKey    = EditionUpgradeLicenseTypeVProductKey
+	_EditionUpgradeLicenseTypePLicenseFile   = EditionUpgradeLicenseTypeVLicenseFile
+	_EditionUpgradeLicenseTypePNotConfigured = EditionUpgradeLicenseTypeVNotConfigured
+)

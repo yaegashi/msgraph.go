@@ -3,39 +3,33 @@
 package msgraph
 
 // EducationAssignmentStatus undocumented
-type EducationAssignmentStatus int
+type EducationAssignmentStatus string
 
 const (
 	// EducationAssignmentStatusVDraft undocumented
-	EducationAssignmentStatusVDraft EducationAssignmentStatus = 0
+	EducationAssignmentStatusVDraft EducationAssignmentStatus = "draft"
 	// EducationAssignmentStatusVPublished undocumented
-	EducationAssignmentStatusVPublished EducationAssignmentStatus = 1
+	EducationAssignmentStatusVPublished EducationAssignmentStatus = "published"
 	// EducationAssignmentStatusVAssigned undocumented
-	EducationAssignmentStatusVAssigned EducationAssignmentStatus = 2
+	EducationAssignmentStatusVAssigned EducationAssignmentStatus = "assigned"
 	// EducationAssignmentStatusVUnknownFutureValue undocumented
-	EducationAssignmentStatusVUnknownFutureValue EducationAssignmentStatus = 3
+	EducationAssignmentStatusVUnknownFutureValue EducationAssignmentStatus = "unknownFutureValue"
 )
 
-// EducationAssignmentStatusPDraft returns a pointer to EducationAssignmentStatusVDraft
-func EducationAssignmentStatusPDraft() *EducationAssignmentStatus {
-	v := EducationAssignmentStatusVDraft
-	return &v
-}
+var (
+	// EducationAssignmentStatusPDraft is a pointer to EducationAssignmentStatusVDraft
+	EducationAssignmentStatusPDraft = &_EducationAssignmentStatusPDraft
+	// EducationAssignmentStatusPPublished is a pointer to EducationAssignmentStatusVPublished
+	EducationAssignmentStatusPPublished = &_EducationAssignmentStatusPPublished
+	// EducationAssignmentStatusPAssigned is a pointer to EducationAssignmentStatusVAssigned
+	EducationAssignmentStatusPAssigned = &_EducationAssignmentStatusPAssigned
+	// EducationAssignmentStatusPUnknownFutureValue is a pointer to EducationAssignmentStatusVUnknownFutureValue
+	EducationAssignmentStatusPUnknownFutureValue = &_EducationAssignmentStatusPUnknownFutureValue
+)
 
-// EducationAssignmentStatusPPublished returns a pointer to EducationAssignmentStatusVPublished
-func EducationAssignmentStatusPPublished() *EducationAssignmentStatus {
-	v := EducationAssignmentStatusVPublished
-	return &v
-}
-
-// EducationAssignmentStatusPAssigned returns a pointer to EducationAssignmentStatusVAssigned
-func EducationAssignmentStatusPAssigned() *EducationAssignmentStatus {
-	v := EducationAssignmentStatusVAssigned
-	return &v
-}
-
-// EducationAssignmentStatusPUnknownFutureValue returns a pointer to EducationAssignmentStatusVUnknownFutureValue
-func EducationAssignmentStatusPUnknownFutureValue() *EducationAssignmentStatus {
-	v := EducationAssignmentStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_EducationAssignmentStatusPDraft              = EducationAssignmentStatusVDraft
+	_EducationAssignmentStatusPPublished          = EducationAssignmentStatusVPublished
+	_EducationAssignmentStatusPAssigned           = EducationAssignmentStatusVAssigned
+	_EducationAssignmentStatusPUnknownFutureValue = EducationAssignmentStatusVUnknownFutureValue
+)

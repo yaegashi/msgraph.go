@@ -3,39 +3,33 @@
 package msgraph
 
 // DeviceManagementExchangeAccessLevel undocumented
-type DeviceManagementExchangeAccessLevel int
+type DeviceManagementExchangeAccessLevel string
 
 const (
 	// DeviceManagementExchangeAccessLevelVNone undocumented
-	DeviceManagementExchangeAccessLevelVNone DeviceManagementExchangeAccessLevel = 0
+	DeviceManagementExchangeAccessLevelVNone DeviceManagementExchangeAccessLevel = "none"
 	// DeviceManagementExchangeAccessLevelVAllow undocumented
-	DeviceManagementExchangeAccessLevelVAllow DeviceManagementExchangeAccessLevel = 1
+	DeviceManagementExchangeAccessLevelVAllow DeviceManagementExchangeAccessLevel = "allow"
 	// DeviceManagementExchangeAccessLevelVBlock undocumented
-	DeviceManagementExchangeAccessLevelVBlock DeviceManagementExchangeAccessLevel = 2
+	DeviceManagementExchangeAccessLevelVBlock DeviceManagementExchangeAccessLevel = "block"
 	// DeviceManagementExchangeAccessLevelVQuarantine undocumented
-	DeviceManagementExchangeAccessLevelVQuarantine DeviceManagementExchangeAccessLevel = 3
+	DeviceManagementExchangeAccessLevelVQuarantine DeviceManagementExchangeAccessLevel = "quarantine"
 )
 
-// DeviceManagementExchangeAccessLevelPNone returns a pointer to DeviceManagementExchangeAccessLevelVNone
-func DeviceManagementExchangeAccessLevelPNone() *DeviceManagementExchangeAccessLevel {
-	v := DeviceManagementExchangeAccessLevelVNone
-	return &v
-}
+var (
+	// DeviceManagementExchangeAccessLevelPNone is a pointer to DeviceManagementExchangeAccessLevelVNone
+	DeviceManagementExchangeAccessLevelPNone = &_DeviceManagementExchangeAccessLevelPNone
+	// DeviceManagementExchangeAccessLevelPAllow is a pointer to DeviceManagementExchangeAccessLevelVAllow
+	DeviceManagementExchangeAccessLevelPAllow = &_DeviceManagementExchangeAccessLevelPAllow
+	// DeviceManagementExchangeAccessLevelPBlock is a pointer to DeviceManagementExchangeAccessLevelVBlock
+	DeviceManagementExchangeAccessLevelPBlock = &_DeviceManagementExchangeAccessLevelPBlock
+	// DeviceManagementExchangeAccessLevelPQuarantine is a pointer to DeviceManagementExchangeAccessLevelVQuarantine
+	DeviceManagementExchangeAccessLevelPQuarantine = &_DeviceManagementExchangeAccessLevelPQuarantine
+)
 
-// DeviceManagementExchangeAccessLevelPAllow returns a pointer to DeviceManagementExchangeAccessLevelVAllow
-func DeviceManagementExchangeAccessLevelPAllow() *DeviceManagementExchangeAccessLevel {
-	v := DeviceManagementExchangeAccessLevelVAllow
-	return &v
-}
-
-// DeviceManagementExchangeAccessLevelPBlock returns a pointer to DeviceManagementExchangeAccessLevelVBlock
-func DeviceManagementExchangeAccessLevelPBlock() *DeviceManagementExchangeAccessLevel {
-	v := DeviceManagementExchangeAccessLevelVBlock
-	return &v
-}
-
-// DeviceManagementExchangeAccessLevelPQuarantine returns a pointer to DeviceManagementExchangeAccessLevelVQuarantine
-func DeviceManagementExchangeAccessLevelPQuarantine() *DeviceManagementExchangeAccessLevel {
-	v := DeviceManagementExchangeAccessLevelVQuarantine
-	return &v
-}
+var (
+	_DeviceManagementExchangeAccessLevelPNone       = DeviceManagementExchangeAccessLevelVNone
+	_DeviceManagementExchangeAccessLevelPAllow      = DeviceManagementExchangeAccessLevelVAllow
+	_DeviceManagementExchangeAccessLevelPBlock      = DeviceManagementExchangeAccessLevelVBlock
+	_DeviceManagementExchangeAccessLevelPQuarantine = DeviceManagementExchangeAccessLevelVQuarantine
+)

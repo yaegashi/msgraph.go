@@ -3,47 +3,38 @@
 package msgraph
 
 // TiAction undocumented
-type TiAction int
+type TiAction string
 
 const (
 	// TiActionVUnknown undocumented
-	TiActionVUnknown TiAction = 0
+	TiActionVUnknown TiAction = "unknown"
 	// TiActionVAllow undocumented
-	TiActionVAllow TiAction = 1
+	TiActionVAllow TiAction = "allow"
 	// TiActionVBlock undocumented
-	TiActionVBlock TiAction = 2
+	TiActionVBlock TiAction = "block"
 	// TiActionVAlert undocumented
-	TiActionVAlert TiAction = 3
+	TiActionVAlert TiAction = "alert"
 	// TiActionVUnknownFutureValue undocumented
-	TiActionVUnknownFutureValue TiAction = 127
+	TiActionVUnknownFutureValue TiAction = "unknownFutureValue"
 )
 
-// TiActionPUnknown returns a pointer to TiActionVUnknown
-func TiActionPUnknown() *TiAction {
-	v := TiActionVUnknown
-	return &v
-}
+var (
+	// TiActionPUnknown is a pointer to TiActionVUnknown
+	TiActionPUnknown = &_TiActionPUnknown
+	// TiActionPAllow is a pointer to TiActionVAllow
+	TiActionPAllow = &_TiActionPAllow
+	// TiActionPBlock is a pointer to TiActionVBlock
+	TiActionPBlock = &_TiActionPBlock
+	// TiActionPAlert is a pointer to TiActionVAlert
+	TiActionPAlert = &_TiActionPAlert
+	// TiActionPUnknownFutureValue is a pointer to TiActionVUnknownFutureValue
+	TiActionPUnknownFutureValue = &_TiActionPUnknownFutureValue
+)
 
-// TiActionPAllow returns a pointer to TiActionVAllow
-func TiActionPAllow() *TiAction {
-	v := TiActionVAllow
-	return &v
-}
-
-// TiActionPBlock returns a pointer to TiActionVBlock
-func TiActionPBlock() *TiAction {
-	v := TiActionVBlock
-	return &v
-}
-
-// TiActionPAlert returns a pointer to TiActionVAlert
-func TiActionPAlert() *TiAction {
-	v := TiActionVAlert
-	return &v
-}
-
-// TiActionPUnknownFutureValue returns a pointer to TiActionVUnknownFutureValue
-func TiActionPUnknownFutureValue() *TiAction {
-	v := TiActionVUnknownFutureValue
-	return &v
-}
+var (
+	_TiActionPUnknown            = TiActionVUnknown
+	_TiActionPAllow              = TiActionVAllow
+	_TiActionPBlock              = TiActionVBlock
+	_TiActionPAlert              = TiActionVAlert
+	_TiActionPUnknownFutureValue = TiActionVUnknownFutureValue
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // VpnServerCertificateType undocumented
-type VpnServerCertificateType int
+type VpnServerCertificateType string
 
 const (
 	// VpnServerCertificateTypeVRsa undocumented
-	VpnServerCertificateTypeVRsa VpnServerCertificateType = 0
+	VpnServerCertificateTypeVRsa VpnServerCertificateType = "rsa"
 	// VpnServerCertificateTypeVEcdsa256 undocumented
-	VpnServerCertificateTypeVEcdsa256 VpnServerCertificateType = 1
+	VpnServerCertificateTypeVEcdsa256 VpnServerCertificateType = "ecdsa256"
 	// VpnServerCertificateTypeVEcdsa384 undocumented
-	VpnServerCertificateTypeVEcdsa384 VpnServerCertificateType = 2
+	VpnServerCertificateTypeVEcdsa384 VpnServerCertificateType = "ecdsa384"
 	// VpnServerCertificateTypeVEcdsa521 undocumented
-	VpnServerCertificateTypeVEcdsa521 VpnServerCertificateType = 3
+	VpnServerCertificateTypeVEcdsa521 VpnServerCertificateType = "ecdsa521"
 )
 
-// VpnServerCertificateTypePRsa returns a pointer to VpnServerCertificateTypeVRsa
-func VpnServerCertificateTypePRsa() *VpnServerCertificateType {
-	v := VpnServerCertificateTypeVRsa
-	return &v
-}
+var (
+	// VpnServerCertificateTypePRsa is a pointer to VpnServerCertificateTypeVRsa
+	VpnServerCertificateTypePRsa = &_VpnServerCertificateTypePRsa
+	// VpnServerCertificateTypePEcdsa256 is a pointer to VpnServerCertificateTypeVEcdsa256
+	VpnServerCertificateTypePEcdsa256 = &_VpnServerCertificateTypePEcdsa256
+	// VpnServerCertificateTypePEcdsa384 is a pointer to VpnServerCertificateTypeVEcdsa384
+	VpnServerCertificateTypePEcdsa384 = &_VpnServerCertificateTypePEcdsa384
+	// VpnServerCertificateTypePEcdsa521 is a pointer to VpnServerCertificateTypeVEcdsa521
+	VpnServerCertificateTypePEcdsa521 = &_VpnServerCertificateTypePEcdsa521
+)
 
-// VpnServerCertificateTypePEcdsa256 returns a pointer to VpnServerCertificateTypeVEcdsa256
-func VpnServerCertificateTypePEcdsa256() *VpnServerCertificateType {
-	v := VpnServerCertificateTypeVEcdsa256
-	return &v
-}
-
-// VpnServerCertificateTypePEcdsa384 returns a pointer to VpnServerCertificateTypeVEcdsa384
-func VpnServerCertificateTypePEcdsa384() *VpnServerCertificateType {
-	v := VpnServerCertificateTypeVEcdsa384
-	return &v
-}
-
-// VpnServerCertificateTypePEcdsa521 returns a pointer to VpnServerCertificateTypeVEcdsa521
-func VpnServerCertificateTypePEcdsa521() *VpnServerCertificateType {
-	v := VpnServerCertificateTypeVEcdsa521
-	return &v
-}
+var (
+	_VpnServerCertificateTypePRsa      = VpnServerCertificateTypeVRsa
+	_VpnServerCertificateTypePEcdsa256 = VpnServerCertificateTypeVEcdsa256
+	_VpnServerCertificateTypePEcdsa384 = VpnServerCertificateTypeVEcdsa384
+	_VpnServerCertificateTypePEcdsa521 = VpnServerCertificateTypeVEcdsa521
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // ManagedAppClipboardSharingLevel undocumented
-type ManagedAppClipboardSharingLevel int
+type ManagedAppClipboardSharingLevel string
 
 const (
 	// ManagedAppClipboardSharingLevelVAllApps undocumented
-	ManagedAppClipboardSharingLevelVAllApps ManagedAppClipboardSharingLevel = 0
+	ManagedAppClipboardSharingLevelVAllApps ManagedAppClipboardSharingLevel = "allApps"
 	// ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn undocumented
-	ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn ManagedAppClipboardSharingLevel = 1
+	ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn ManagedAppClipboardSharingLevel = "managedAppsWithPasteIn"
 	// ManagedAppClipboardSharingLevelVManagedApps undocumented
-	ManagedAppClipboardSharingLevelVManagedApps ManagedAppClipboardSharingLevel = 2
+	ManagedAppClipboardSharingLevelVManagedApps ManagedAppClipboardSharingLevel = "managedApps"
 	// ManagedAppClipboardSharingLevelVBlocked undocumented
-	ManagedAppClipboardSharingLevelVBlocked ManagedAppClipboardSharingLevel = 3
+	ManagedAppClipboardSharingLevelVBlocked ManagedAppClipboardSharingLevel = "blocked"
 )
 
-// ManagedAppClipboardSharingLevelPAllApps returns a pointer to ManagedAppClipboardSharingLevelVAllApps
-func ManagedAppClipboardSharingLevelPAllApps() *ManagedAppClipboardSharingLevel {
-	v := ManagedAppClipboardSharingLevelVAllApps
-	return &v
-}
+var (
+	// ManagedAppClipboardSharingLevelPAllApps is a pointer to ManagedAppClipboardSharingLevelVAllApps
+	ManagedAppClipboardSharingLevelPAllApps = &_ManagedAppClipboardSharingLevelPAllApps
+	// ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn is a pointer to ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn
+	ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn = &_ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn
+	// ManagedAppClipboardSharingLevelPManagedApps is a pointer to ManagedAppClipboardSharingLevelVManagedApps
+	ManagedAppClipboardSharingLevelPManagedApps = &_ManagedAppClipboardSharingLevelPManagedApps
+	// ManagedAppClipboardSharingLevelPBlocked is a pointer to ManagedAppClipboardSharingLevelVBlocked
+	ManagedAppClipboardSharingLevelPBlocked = &_ManagedAppClipboardSharingLevelPBlocked
+)
 
-// ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn returns a pointer to ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn
-func ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn() *ManagedAppClipboardSharingLevel {
-	v := ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn
-	return &v
-}
-
-// ManagedAppClipboardSharingLevelPManagedApps returns a pointer to ManagedAppClipboardSharingLevelVManagedApps
-func ManagedAppClipboardSharingLevelPManagedApps() *ManagedAppClipboardSharingLevel {
-	v := ManagedAppClipboardSharingLevelVManagedApps
-	return &v
-}
-
-// ManagedAppClipboardSharingLevelPBlocked returns a pointer to ManagedAppClipboardSharingLevelVBlocked
-func ManagedAppClipboardSharingLevelPBlocked() *ManagedAppClipboardSharingLevel {
-	v := ManagedAppClipboardSharingLevelVBlocked
-	return &v
-}
+var (
+	_ManagedAppClipboardSharingLevelPAllApps                = ManagedAppClipboardSharingLevelVAllApps
+	_ManagedAppClipboardSharingLevelPManagedAppsWithPasteIn = ManagedAppClipboardSharingLevelVManagedAppsWithPasteIn
+	_ManagedAppClipboardSharingLevelPManagedApps            = ManagedAppClipboardSharingLevelVManagedApps
+	_ManagedAppClipboardSharingLevelPBlocked                = ManagedAppClipboardSharingLevelVBlocked
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // UserAccountSecurityType undocumented
-type UserAccountSecurityType int
+type UserAccountSecurityType string
 
 const (
 	// UserAccountSecurityTypeVUnknown undocumented
-	UserAccountSecurityTypeVUnknown UserAccountSecurityType = 0
+	UserAccountSecurityTypeVUnknown UserAccountSecurityType = "unknown"
 	// UserAccountSecurityTypeVStandard undocumented
-	UserAccountSecurityTypeVStandard UserAccountSecurityType = 1
+	UserAccountSecurityTypeVStandard UserAccountSecurityType = "standard"
 	// UserAccountSecurityTypeVPower undocumented
-	UserAccountSecurityTypeVPower UserAccountSecurityType = 2
+	UserAccountSecurityTypeVPower UserAccountSecurityType = "power"
 	// UserAccountSecurityTypeVAdministrator undocumented
-	UserAccountSecurityTypeVAdministrator UserAccountSecurityType = 3
+	UserAccountSecurityTypeVAdministrator UserAccountSecurityType = "administrator"
 	// UserAccountSecurityTypeVUnknownFutureValue undocumented
-	UserAccountSecurityTypeVUnknownFutureValue UserAccountSecurityType = 127
+	UserAccountSecurityTypeVUnknownFutureValue UserAccountSecurityType = "unknownFutureValue"
 )
 
-// UserAccountSecurityTypePUnknown returns a pointer to UserAccountSecurityTypeVUnknown
-func UserAccountSecurityTypePUnknown() *UserAccountSecurityType {
-	v := UserAccountSecurityTypeVUnknown
-	return &v
-}
+var (
+	// UserAccountSecurityTypePUnknown is a pointer to UserAccountSecurityTypeVUnknown
+	UserAccountSecurityTypePUnknown = &_UserAccountSecurityTypePUnknown
+	// UserAccountSecurityTypePStandard is a pointer to UserAccountSecurityTypeVStandard
+	UserAccountSecurityTypePStandard = &_UserAccountSecurityTypePStandard
+	// UserAccountSecurityTypePPower is a pointer to UserAccountSecurityTypeVPower
+	UserAccountSecurityTypePPower = &_UserAccountSecurityTypePPower
+	// UserAccountSecurityTypePAdministrator is a pointer to UserAccountSecurityTypeVAdministrator
+	UserAccountSecurityTypePAdministrator = &_UserAccountSecurityTypePAdministrator
+	// UserAccountSecurityTypePUnknownFutureValue is a pointer to UserAccountSecurityTypeVUnknownFutureValue
+	UserAccountSecurityTypePUnknownFutureValue = &_UserAccountSecurityTypePUnknownFutureValue
+)
 
-// UserAccountSecurityTypePStandard returns a pointer to UserAccountSecurityTypeVStandard
-func UserAccountSecurityTypePStandard() *UserAccountSecurityType {
-	v := UserAccountSecurityTypeVStandard
-	return &v
-}
-
-// UserAccountSecurityTypePPower returns a pointer to UserAccountSecurityTypeVPower
-func UserAccountSecurityTypePPower() *UserAccountSecurityType {
-	v := UserAccountSecurityTypeVPower
-	return &v
-}
-
-// UserAccountSecurityTypePAdministrator returns a pointer to UserAccountSecurityTypeVAdministrator
-func UserAccountSecurityTypePAdministrator() *UserAccountSecurityType {
-	v := UserAccountSecurityTypeVAdministrator
-	return &v
-}
-
-// UserAccountSecurityTypePUnknownFutureValue returns a pointer to UserAccountSecurityTypeVUnknownFutureValue
-func UserAccountSecurityTypePUnknownFutureValue() *UserAccountSecurityType {
-	v := UserAccountSecurityTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_UserAccountSecurityTypePUnknown            = UserAccountSecurityTypeVUnknown
+	_UserAccountSecurityTypePStandard           = UserAccountSecurityTypeVStandard
+	_UserAccountSecurityTypePPower              = UserAccountSecurityTypeVPower
+	_UserAccountSecurityTypePAdministrator      = UserAccountSecurityTypeVAdministrator
+	_UserAccountSecurityTypePUnknownFutureValue = UserAccountSecurityTypeVUnknownFutureValue
+)

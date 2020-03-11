@@ -3,31 +3,28 @@
 package msgraph
 
 // AndroidPermissionActionType undocumented
-type AndroidPermissionActionType int
+type AndroidPermissionActionType string
 
 const (
 	// AndroidPermissionActionTypeVPrompt undocumented
-	AndroidPermissionActionTypeVPrompt AndroidPermissionActionType = 0
+	AndroidPermissionActionTypeVPrompt AndroidPermissionActionType = "prompt"
 	// AndroidPermissionActionTypeVAutoGrant undocumented
-	AndroidPermissionActionTypeVAutoGrant AndroidPermissionActionType = 1
+	AndroidPermissionActionTypeVAutoGrant AndroidPermissionActionType = "autoGrant"
 	// AndroidPermissionActionTypeVAutoDeny undocumented
-	AndroidPermissionActionTypeVAutoDeny AndroidPermissionActionType = 2
+	AndroidPermissionActionTypeVAutoDeny AndroidPermissionActionType = "autoDeny"
 )
 
-// AndroidPermissionActionTypePPrompt returns a pointer to AndroidPermissionActionTypeVPrompt
-func AndroidPermissionActionTypePPrompt() *AndroidPermissionActionType {
-	v := AndroidPermissionActionTypeVPrompt
-	return &v
-}
+var (
+	// AndroidPermissionActionTypePPrompt is a pointer to AndroidPermissionActionTypeVPrompt
+	AndroidPermissionActionTypePPrompt = &_AndroidPermissionActionTypePPrompt
+	// AndroidPermissionActionTypePAutoGrant is a pointer to AndroidPermissionActionTypeVAutoGrant
+	AndroidPermissionActionTypePAutoGrant = &_AndroidPermissionActionTypePAutoGrant
+	// AndroidPermissionActionTypePAutoDeny is a pointer to AndroidPermissionActionTypeVAutoDeny
+	AndroidPermissionActionTypePAutoDeny = &_AndroidPermissionActionTypePAutoDeny
+)
 
-// AndroidPermissionActionTypePAutoGrant returns a pointer to AndroidPermissionActionTypeVAutoGrant
-func AndroidPermissionActionTypePAutoGrant() *AndroidPermissionActionType {
-	v := AndroidPermissionActionTypeVAutoGrant
-	return &v
-}
-
-// AndroidPermissionActionTypePAutoDeny returns a pointer to AndroidPermissionActionTypeVAutoDeny
-func AndroidPermissionActionTypePAutoDeny() *AndroidPermissionActionType {
-	v := AndroidPermissionActionTypeVAutoDeny
-	return &v
-}
+var (
+	_AndroidPermissionActionTypePPrompt    = AndroidPermissionActionTypeVPrompt
+	_AndroidPermissionActionTypePAutoGrant = AndroidPermissionActionTypeVAutoGrant
+	_AndroidPermissionActionTypePAutoDeny  = AndroidPermissionActionTypeVAutoDeny
+)

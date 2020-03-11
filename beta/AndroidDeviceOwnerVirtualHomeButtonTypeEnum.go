@@ -3,31 +3,28 @@
 package msgraph
 
 // AndroidDeviceOwnerVirtualHomeButtonType undocumented
-type AndroidDeviceOwnerVirtualHomeButtonType int
+type AndroidDeviceOwnerVirtualHomeButtonType string
 
 const (
 	// AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured undocumented
-	AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured AndroidDeviceOwnerVirtualHomeButtonType = 0
+	AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured AndroidDeviceOwnerVirtualHomeButtonType = "notConfigured"
 	// AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp undocumented
-	AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp AndroidDeviceOwnerVirtualHomeButtonType = 1
+	AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp AndroidDeviceOwnerVirtualHomeButtonType = "swipeUp"
 	// AndroidDeviceOwnerVirtualHomeButtonTypeVFloating undocumented
-	AndroidDeviceOwnerVirtualHomeButtonTypeVFloating AndroidDeviceOwnerVirtualHomeButtonType = 2
+	AndroidDeviceOwnerVirtualHomeButtonTypeVFloating AndroidDeviceOwnerVirtualHomeButtonType = "floating"
 )
 
-// AndroidDeviceOwnerVirtualHomeButtonTypePNotConfigured returns a pointer to AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured
-func AndroidDeviceOwnerVirtualHomeButtonTypePNotConfigured() *AndroidDeviceOwnerVirtualHomeButtonType {
-	v := AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured
-	return &v
-}
+var (
+	// AndroidDeviceOwnerVirtualHomeButtonTypePNotConfigured is a pointer to AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured
+	AndroidDeviceOwnerVirtualHomeButtonTypePNotConfigured = &_AndroidDeviceOwnerVirtualHomeButtonTypePNotConfigured
+	// AndroidDeviceOwnerVirtualHomeButtonTypePSwipeUp is a pointer to AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp
+	AndroidDeviceOwnerVirtualHomeButtonTypePSwipeUp = &_AndroidDeviceOwnerVirtualHomeButtonTypePSwipeUp
+	// AndroidDeviceOwnerVirtualHomeButtonTypePFloating is a pointer to AndroidDeviceOwnerVirtualHomeButtonTypeVFloating
+	AndroidDeviceOwnerVirtualHomeButtonTypePFloating = &_AndroidDeviceOwnerVirtualHomeButtonTypePFloating
+)
 
-// AndroidDeviceOwnerVirtualHomeButtonTypePSwipeUp returns a pointer to AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp
-func AndroidDeviceOwnerVirtualHomeButtonTypePSwipeUp() *AndroidDeviceOwnerVirtualHomeButtonType {
-	v := AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp
-	return &v
-}
-
-// AndroidDeviceOwnerVirtualHomeButtonTypePFloating returns a pointer to AndroidDeviceOwnerVirtualHomeButtonTypeVFloating
-func AndroidDeviceOwnerVirtualHomeButtonTypePFloating() *AndroidDeviceOwnerVirtualHomeButtonType {
-	v := AndroidDeviceOwnerVirtualHomeButtonTypeVFloating
-	return &v
-}
+var (
+	_AndroidDeviceOwnerVirtualHomeButtonTypePNotConfigured = AndroidDeviceOwnerVirtualHomeButtonTypeVNotConfigured
+	_AndroidDeviceOwnerVirtualHomeButtonTypePSwipeUp       = AndroidDeviceOwnerVirtualHomeButtonTypeVSwipeUp
+	_AndroidDeviceOwnerVirtualHomeButtonTypePFloating      = AndroidDeviceOwnerVirtualHomeButtonTypeVFloating
+)

@@ -3,63 +3,48 @@
 package msgraph
 
 // QuarantineReason undocumented
-type QuarantineReason int
+type QuarantineReason string
 
 const (
 	// QuarantineReasonVEncounteredBaseEscrowThreshold undocumented
-	QuarantineReasonVEncounteredBaseEscrowThreshold QuarantineReason = 0
+	QuarantineReasonVEncounteredBaseEscrowThreshold QuarantineReason = "EncounteredBaseEscrowThreshold"
 	// QuarantineReasonVEncounteredTotalEscrowThreshold undocumented
-	QuarantineReasonVEncounteredTotalEscrowThreshold QuarantineReason = 1
+	QuarantineReasonVEncounteredTotalEscrowThreshold QuarantineReason = "EncounteredTotalEscrowThreshold"
 	// QuarantineReasonVEncounteredEscrowProportionThreshold undocumented
-	QuarantineReasonVEncounteredEscrowProportionThreshold QuarantineReason = 2
+	QuarantineReasonVEncounteredEscrowProportionThreshold QuarantineReason = "EncounteredEscrowProportionThreshold"
 	// QuarantineReasonVEncounteredQuarantineException undocumented
-	QuarantineReasonVEncounteredQuarantineException QuarantineReason = 4
+	QuarantineReasonVEncounteredQuarantineException QuarantineReason = "EncounteredQuarantineException"
 	// QuarantineReasonVUnknown undocumented
-	QuarantineReasonVUnknown QuarantineReason = 8
+	QuarantineReasonVUnknown QuarantineReason = "Unknown"
 	// QuarantineReasonVQuarantinedOnDemand undocumented
-	QuarantineReasonVQuarantinedOnDemand QuarantineReason = 16
+	QuarantineReasonVQuarantinedOnDemand QuarantineReason = "QuarantinedOnDemand"
 	// QuarantineReasonVTooManyDeletes undocumented
-	QuarantineReasonVTooManyDeletes QuarantineReason = 32
+	QuarantineReasonVTooManyDeletes QuarantineReason = "TooManyDeletes"
 )
 
-// QuarantineReasonPEncounteredBaseEscrowThreshold returns a pointer to QuarantineReasonVEncounteredBaseEscrowThreshold
-func QuarantineReasonPEncounteredBaseEscrowThreshold() *QuarantineReason {
-	v := QuarantineReasonVEncounteredBaseEscrowThreshold
-	return &v
-}
+var (
+	// QuarantineReasonPEncounteredBaseEscrowThreshold is a pointer to QuarantineReasonVEncounteredBaseEscrowThreshold
+	QuarantineReasonPEncounteredBaseEscrowThreshold = &_QuarantineReasonPEncounteredBaseEscrowThreshold
+	// QuarantineReasonPEncounteredTotalEscrowThreshold is a pointer to QuarantineReasonVEncounteredTotalEscrowThreshold
+	QuarantineReasonPEncounteredTotalEscrowThreshold = &_QuarantineReasonPEncounteredTotalEscrowThreshold
+	// QuarantineReasonPEncounteredEscrowProportionThreshold is a pointer to QuarantineReasonVEncounteredEscrowProportionThreshold
+	QuarantineReasonPEncounteredEscrowProportionThreshold = &_QuarantineReasonPEncounteredEscrowProportionThreshold
+	// QuarantineReasonPEncounteredQuarantineException is a pointer to QuarantineReasonVEncounteredQuarantineException
+	QuarantineReasonPEncounteredQuarantineException = &_QuarantineReasonPEncounteredQuarantineException
+	// QuarantineReasonPUnknown is a pointer to QuarantineReasonVUnknown
+	QuarantineReasonPUnknown = &_QuarantineReasonPUnknown
+	// QuarantineReasonPQuarantinedOnDemand is a pointer to QuarantineReasonVQuarantinedOnDemand
+	QuarantineReasonPQuarantinedOnDemand = &_QuarantineReasonPQuarantinedOnDemand
+	// QuarantineReasonPTooManyDeletes is a pointer to QuarantineReasonVTooManyDeletes
+	QuarantineReasonPTooManyDeletes = &_QuarantineReasonPTooManyDeletes
+)
 
-// QuarantineReasonPEncounteredTotalEscrowThreshold returns a pointer to QuarantineReasonVEncounteredTotalEscrowThreshold
-func QuarantineReasonPEncounteredTotalEscrowThreshold() *QuarantineReason {
-	v := QuarantineReasonVEncounteredTotalEscrowThreshold
-	return &v
-}
-
-// QuarantineReasonPEncounteredEscrowProportionThreshold returns a pointer to QuarantineReasonVEncounteredEscrowProportionThreshold
-func QuarantineReasonPEncounteredEscrowProportionThreshold() *QuarantineReason {
-	v := QuarantineReasonVEncounteredEscrowProportionThreshold
-	return &v
-}
-
-// QuarantineReasonPEncounteredQuarantineException returns a pointer to QuarantineReasonVEncounteredQuarantineException
-func QuarantineReasonPEncounteredQuarantineException() *QuarantineReason {
-	v := QuarantineReasonVEncounteredQuarantineException
-	return &v
-}
-
-// QuarantineReasonPUnknown returns a pointer to QuarantineReasonVUnknown
-func QuarantineReasonPUnknown() *QuarantineReason {
-	v := QuarantineReasonVUnknown
-	return &v
-}
-
-// QuarantineReasonPQuarantinedOnDemand returns a pointer to QuarantineReasonVQuarantinedOnDemand
-func QuarantineReasonPQuarantinedOnDemand() *QuarantineReason {
-	v := QuarantineReasonVQuarantinedOnDemand
-	return &v
-}
-
-// QuarantineReasonPTooManyDeletes returns a pointer to QuarantineReasonVTooManyDeletes
-func QuarantineReasonPTooManyDeletes() *QuarantineReason {
-	v := QuarantineReasonVTooManyDeletes
-	return &v
-}
+var (
+	_QuarantineReasonPEncounteredBaseEscrowThreshold       = QuarantineReasonVEncounteredBaseEscrowThreshold
+	_QuarantineReasonPEncounteredTotalEscrowThreshold      = QuarantineReasonVEncounteredTotalEscrowThreshold
+	_QuarantineReasonPEncounteredEscrowProportionThreshold = QuarantineReasonVEncounteredEscrowProportionThreshold
+	_QuarantineReasonPEncounteredQuarantineException       = QuarantineReasonVEncounteredQuarantineException
+	_QuarantineReasonPUnknown                              = QuarantineReasonVUnknown
+	_QuarantineReasonPQuarantinedOnDemand                  = QuarantineReasonVQuarantinedOnDemand
+	_QuarantineReasonPTooManyDeletes                       = QuarantineReasonVTooManyDeletes
+)

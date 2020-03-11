@@ -3,55 +3,43 @@
 package msgraph
 
 // SecurityBaselineComplianceState undocumented
-type SecurityBaselineComplianceState int
+type SecurityBaselineComplianceState string
 
 const (
 	// SecurityBaselineComplianceStateVUnknown undocumented
-	SecurityBaselineComplianceStateVUnknown SecurityBaselineComplianceState = 0
+	SecurityBaselineComplianceStateVUnknown SecurityBaselineComplianceState = "unknown"
 	// SecurityBaselineComplianceStateVSecure undocumented
-	SecurityBaselineComplianceStateVSecure SecurityBaselineComplianceState = 1
+	SecurityBaselineComplianceStateVSecure SecurityBaselineComplianceState = "secure"
 	// SecurityBaselineComplianceStateVNotApplicable undocumented
-	SecurityBaselineComplianceStateVNotApplicable SecurityBaselineComplianceState = 2
+	SecurityBaselineComplianceStateVNotApplicable SecurityBaselineComplianceState = "notApplicable"
 	// SecurityBaselineComplianceStateVNotSecure undocumented
-	SecurityBaselineComplianceStateVNotSecure SecurityBaselineComplianceState = 3
+	SecurityBaselineComplianceStateVNotSecure SecurityBaselineComplianceState = "notSecure"
 	// SecurityBaselineComplianceStateVError undocumented
-	SecurityBaselineComplianceStateVError SecurityBaselineComplianceState = 4
+	SecurityBaselineComplianceStateVError SecurityBaselineComplianceState = "error"
 	// SecurityBaselineComplianceStateVConflict undocumented
-	SecurityBaselineComplianceStateVConflict SecurityBaselineComplianceState = 5
+	SecurityBaselineComplianceStateVConflict SecurityBaselineComplianceState = "conflict"
 )
 
-// SecurityBaselineComplianceStatePUnknown returns a pointer to SecurityBaselineComplianceStateVUnknown
-func SecurityBaselineComplianceStatePUnknown() *SecurityBaselineComplianceState {
-	v := SecurityBaselineComplianceStateVUnknown
-	return &v
-}
+var (
+	// SecurityBaselineComplianceStatePUnknown is a pointer to SecurityBaselineComplianceStateVUnknown
+	SecurityBaselineComplianceStatePUnknown = &_SecurityBaselineComplianceStatePUnknown
+	// SecurityBaselineComplianceStatePSecure is a pointer to SecurityBaselineComplianceStateVSecure
+	SecurityBaselineComplianceStatePSecure = &_SecurityBaselineComplianceStatePSecure
+	// SecurityBaselineComplianceStatePNotApplicable is a pointer to SecurityBaselineComplianceStateVNotApplicable
+	SecurityBaselineComplianceStatePNotApplicable = &_SecurityBaselineComplianceStatePNotApplicable
+	// SecurityBaselineComplianceStatePNotSecure is a pointer to SecurityBaselineComplianceStateVNotSecure
+	SecurityBaselineComplianceStatePNotSecure = &_SecurityBaselineComplianceStatePNotSecure
+	// SecurityBaselineComplianceStatePError is a pointer to SecurityBaselineComplianceStateVError
+	SecurityBaselineComplianceStatePError = &_SecurityBaselineComplianceStatePError
+	// SecurityBaselineComplianceStatePConflict is a pointer to SecurityBaselineComplianceStateVConflict
+	SecurityBaselineComplianceStatePConflict = &_SecurityBaselineComplianceStatePConflict
+)
 
-// SecurityBaselineComplianceStatePSecure returns a pointer to SecurityBaselineComplianceStateVSecure
-func SecurityBaselineComplianceStatePSecure() *SecurityBaselineComplianceState {
-	v := SecurityBaselineComplianceStateVSecure
-	return &v
-}
-
-// SecurityBaselineComplianceStatePNotApplicable returns a pointer to SecurityBaselineComplianceStateVNotApplicable
-func SecurityBaselineComplianceStatePNotApplicable() *SecurityBaselineComplianceState {
-	v := SecurityBaselineComplianceStateVNotApplicable
-	return &v
-}
-
-// SecurityBaselineComplianceStatePNotSecure returns a pointer to SecurityBaselineComplianceStateVNotSecure
-func SecurityBaselineComplianceStatePNotSecure() *SecurityBaselineComplianceState {
-	v := SecurityBaselineComplianceStateVNotSecure
-	return &v
-}
-
-// SecurityBaselineComplianceStatePError returns a pointer to SecurityBaselineComplianceStateVError
-func SecurityBaselineComplianceStatePError() *SecurityBaselineComplianceState {
-	v := SecurityBaselineComplianceStateVError
-	return &v
-}
-
-// SecurityBaselineComplianceStatePConflict returns a pointer to SecurityBaselineComplianceStateVConflict
-func SecurityBaselineComplianceStatePConflict() *SecurityBaselineComplianceState {
-	v := SecurityBaselineComplianceStateVConflict
-	return &v
-}
+var (
+	_SecurityBaselineComplianceStatePUnknown       = SecurityBaselineComplianceStateVUnknown
+	_SecurityBaselineComplianceStatePSecure        = SecurityBaselineComplianceStateVSecure
+	_SecurityBaselineComplianceStatePNotApplicable = SecurityBaselineComplianceStateVNotApplicable
+	_SecurityBaselineComplianceStatePNotSecure     = SecurityBaselineComplianceStateVNotSecure
+	_SecurityBaselineComplianceStatePError         = SecurityBaselineComplianceStateVError
+	_SecurityBaselineComplianceStatePConflict      = SecurityBaselineComplianceStateVConflict
+)

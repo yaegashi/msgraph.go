@@ -3,55 +3,43 @@
 package msgraph
 
 // AttributeType undocumented
-type AttributeType int
+type AttributeType string
 
 const (
 	// AttributeTypeVDateTime undocumented
-	AttributeTypeVDateTime AttributeType = 5
+	AttributeTypeVDateTime AttributeType = "DateTime"
 	// AttributeTypeVBoolean undocumented
-	AttributeTypeVBoolean AttributeType = 4
+	AttributeTypeVBoolean AttributeType = "Boolean"
 	// AttributeTypeVBinary undocumented
-	AttributeTypeVBinary AttributeType = 3
+	AttributeTypeVBinary AttributeType = "Binary"
 	// AttributeTypeVReference undocumented
-	AttributeTypeVReference AttributeType = 2
+	AttributeTypeVReference AttributeType = "Reference"
 	// AttributeTypeVInteger undocumented
-	AttributeTypeVInteger AttributeType = 1
+	AttributeTypeVInteger AttributeType = "Integer"
 	// AttributeTypeVString undocumented
-	AttributeTypeVString AttributeType = 0
+	AttributeTypeVString AttributeType = "String"
 )
 
-// AttributeTypePDateTime returns a pointer to AttributeTypeVDateTime
-func AttributeTypePDateTime() *AttributeType {
-	v := AttributeTypeVDateTime
-	return &v
-}
+var (
+	// AttributeTypePDateTime is a pointer to AttributeTypeVDateTime
+	AttributeTypePDateTime = &_AttributeTypePDateTime
+	// AttributeTypePBoolean is a pointer to AttributeTypeVBoolean
+	AttributeTypePBoolean = &_AttributeTypePBoolean
+	// AttributeTypePBinary is a pointer to AttributeTypeVBinary
+	AttributeTypePBinary = &_AttributeTypePBinary
+	// AttributeTypePReference is a pointer to AttributeTypeVReference
+	AttributeTypePReference = &_AttributeTypePReference
+	// AttributeTypePInteger is a pointer to AttributeTypeVInteger
+	AttributeTypePInteger = &_AttributeTypePInteger
+	// AttributeTypePString is a pointer to AttributeTypeVString
+	AttributeTypePString = &_AttributeTypePString
+)
 
-// AttributeTypePBoolean returns a pointer to AttributeTypeVBoolean
-func AttributeTypePBoolean() *AttributeType {
-	v := AttributeTypeVBoolean
-	return &v
-}
-
-// AttributeTypePBinary returns a pointer to AttributeTypeVBinary
-func AttributeTypePBinary() *AttributeType {
-	v := AttributeTypeVBinary
-	return &v
-}
-
-// AttributeTypePReference returns a pointer to AttributeTypeVReference
-func AttributeTypePReference() *AttributeType {
-	v := AttributeTypeVReference
-	return &v
-}
-
-// AttributeTypePInteger returns a pointer to AttributeTypeVInteger
-func AttributeTypePInteger() *AttributeType {
-	v := AttributeTypeVInteger
-	return &v
-}
-
-// AttributeTypePString returns a pointer to AttributeTypeVString
-func AttributeTypePString() *AttributeType {
-	v := AttributeTypeVString
-	return &v
-}
+var (
+	_AttributeTypePDateTime  = AttributeTypeVDateTime
+	_AttributeTypePBoolean   = AttributeTypeVBoolean
+	_AttributeTypePBinary    = AttributeTypeVBinary
+	_AttributeTypePReference = AttributeTypeVReference
+	_AttributeTypePInteger   = AttributeTypeVInteger
+	_AttributeTypePString    = AttributeTypeVString
+)

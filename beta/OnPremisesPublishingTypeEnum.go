@@ -3,63 +3,48 @@
 package msgraph
 
 // OnPremisesPublishingType undocumented
-type OnPremisesPublishingType int
+type OnPremisesPublishingType string
 
 const (
 	// OnPremisesPublishingTypeVAppProxy undocumented
-	OnPremisesPublishingTypeVAppProxy OnPremisesPublishingType = 0
+	OnPremisesPublishingTypeVAppProxy OnPremisesPublishingType = "appProxy"
 	// OnPremisesPublishingTypeVExchangeOnline undocumented
-	OnPremisesPublishingTypeVExchangeOnline OnPremisesPublishingType = 1
+	OnPremisesPublishingTypeVExchangeOnline OnPremisesPublishingType = "exchangeOnline"
 	// OnPremisesPublishingTypeVAuthentication undocumented
-	OnPremisesPublishingTypeVAuthentication OnPremisesPublishingType = 2
+	OnPremisesPublishingTypeVAuthentication OnPremisesPublishingType = "authentication"
 	// OnPremisesPublishingTypeVProvisioning undocumented
-	OnPremisesPublishingTypeVProvisioning OnPremisesPublishingType = 3
+	OnPremisesPublishingTypeVProvisioning OnPremisesPublishingType = "provisioning"
 	// OnPremisesPublishingTypeVIntunePfx undocumented
-	OnPremisesPublishingTypeVIntunePfx OnPremisesPublishingType = 4
+	OnPremisesPublishingTypeVIntunePfx OnPremisesPublishingType = "intunePfx"
 	// OnPremisesPublishingTypeVOflineDomainJoin undocumented
-	OnPremisesPublishingTypeVOflineDomainJoin OnPremisesPublishingType = 5
+	OnPremisesPublishingTypeVOflineDomainJoin OnPremisesPublishingType = "oflineDomainJoin"
 	// OnPremisesPublishingTypeVUnknownFutureValue undocumented
-	OnPremisesPublishingTypeVUnknownFutureValue OnPremisesPublishingType = 6
+	OnPremisesPublishingTypeVUnknownFutureValue OnPremisesPublishingType = "unknownFutureValue"
 )
 
-// OnPremisesPublishingTypePAppProxy returns a pointer to OnPremisesPublishingTypeVAppProxy
-func OnPremisesPublishingTypePAppProxy() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVAppProxy
-	return &v
-}
+var (
+	// OnPremisesPublishingTypePAppProxy is a pointer to OnPremisesPublishingTypeVAppProxy
+	OnPremisesPublishingTypePAppProxy = &_OnPremisesPublishingTypePAppProxy
+	// OnPremisesPublishingTypePExchangeOnline is a pointer to OnPremisesPublishingTypeVExchangeOnline
+	OnPremisesPublishingTypePExchangeOnline = &_OnPremisesPublishingTypePExchangeOnline
+	// OnPremisesPublishingTypePAuthentication is a pointer to OnPremisesPublishingTypeVAuthentication
+	OnPremisesPublishingTypePAuthentication = &_OnPremisesPublishingTypePAuthentication
+	// OnPremisesPublishingTypePProvisioning is a pointer to OnPremisesPublishingTypeVProvisioning
+	OnPremisesPublishingTypePProvisioning = &_OnPremisesPublishingTypePProvisioning
+	// OnPremisesPublishingTypePIntunePfx is a pointer to OnPremisesPublishingTypeVIntunePfx
+	OnPremisesPublishingTypePIntunePfx = &_OnPremisesPublishingTypePIntunePfx
+	// OnPremisesPublishingTypePOflineDomainJoin is a pointer to OnPremisesPublishingTypeVOflineDomainJoin
+	OnPremisesPublishingTypePOflineDomainJoin = &_OnPremisesPublishingTypePOflineDomainJoin
+	// OnPremisesPublishingTypePUnknownFutureValue is a pointer to OnPremisesPublishingTypeVUnknownFutureValue
+	OnPremisesPublishingTypePUnknownFutureValue = &_OnPremisesPublishingTypePUnknownFutureValue
+)
 
-// OnPremisesPublishingTypePExchangeOnline returns a pointer to OnPremisesPublishingTypeVExchangeOnline
-func OnPremisesPublishingTypePExchangeOnline() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVExchangeOnline
-	return &v
-}
-
-// OnPremisesPublishingTypePAuthentication returns a pointer to OnPremisesPublishingTypeVAuthentication
-func OnPremisesPublishingTypePAuthentication() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVAuthentication
-	return &v
-}
-
-// OnPremisesPublishingTypePProvisioning returns a pointer to OnPremisesPublishingTypeVProvisioning
-func OnPremisesPublishingTypePProvisioning() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVProvisioning
-	return &v
-}
-
-// OnPremisesPublishingTypePIntunePfx returns a pointer to OnPremisesPublishingTypeVIntunePfx
-func OnPremisesPublishingTypePIntunePfx() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVIntunePfx
-	return &v
-}
-
-// OnPremisesPublishingTypePOflineDomainJoin returns a pointer to OnPremisesPublishingTypeVOflineDomainJoin
-func OnPremisesPublishingTypePOflineDomainJoin() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVOflineDomainJoin
-	return &v
-}
-
-// OnPremisesPublishingTypePUnknownFutureValue returns a pointer to OnPremisesPublishingTypeVUnknownFutureValue
-func OnPremisesPublishingTypePUnknownFutureValue() *OnPremisesPublishingType {
-	v := OnPremisesPublishingTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_OnPremisesPublishingTypePAppProxy           = OnPremisesPublishingTypeVAppProxy
+	_OnPremisesPublishingTypePExchangeOnline     = OnPremisesPublishingTypeVExchangeOnline
+	_OnPremisesPublishingTypePAuthentication     = OnPremisesPublishingTypeVAuthentication
+	_OnPremisesPublishingTypePProvisioning       = OnPremisesPublishingTypeVProvisioning
+	_OnPremisesPublishingTypePIntunePfx          = OnPremisesPublishingTypeVIntunePfx
+	_OnPremisesPublishingTypePOflineDomainJoin   = OnPremisesPublishingTypeVOflineDomainJoin
+	_OnPremisesPublishingTypePUnknownFutureValue = OnPremisesPublishingTypeVUnknownFutureValue
+)

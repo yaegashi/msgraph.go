@@ -3,31 +3,28 @@
 package msgraph
 
 // WindowsSModeConfiguration undocumented
-type WindowsSModeConfiguration int
+type WindowsSModeConfiguration string
 
 const (
 	// WindowsSModeConfigurationVNoRestriction undocumented
-	WindowsSModeConfigurationVNoRestriction WindowsSModeConfiguration = 0
+	WindowsSModeConfigurationVNoRestriction WindowsSModeConfiguration = "noRestriction"
 	// WindowsSModeConfigurationVBlock undocumented
-	WindowsSModeConfigurationVBlock WindowsSModeConfiguration = 1
+	WindowsSModeConfigurationVBlock WindowsSModeConfiguration = "block"
 	// WindowsSModeConfigurationVUnlock undocumented
-	WindowsSModeConfigurationVUnlock WindowsSModeConfiguration = 2
+	WindowsSModeConfigurationVUnlock WindowsSModeConfiguration = "unlock"
 )
 
-// WindowsSModeConfigurationPNoRestriction returns a pointer to WindowsSModeConfigurationVNoRestriction
-func WindowsSModeConfigurationPNoRestriction() *WindowsSModeConfiguration {
-	v := WindowsSModeConfigurationVNoRestriction
-	return &v
-}
+var (
+	// WindowsSModeConfigurationPNoRestriction is a pointer to WindowsSModeConfigurationVNoRestriction
+	WindowsSModeConfigurationPNoRestriction = &_WindowsSModeConfigurationPNoRestriction
+	// WindowsSModeConfigurationPBlock is a pointer to WindowsSModeConfigurationVBlock
+	WindowsSModeConfigurationPBlock = &_WindowsSModeConfigurationPBlock
+	// WindowsSModeConfigurationPUnlock is a pointer to WindowsSModeConfigurationVUnlock
+	WindowsSModeConfigurationPUnlock = &_WindowsSModeConfigurationPUnlock
+)
 
-// WindowsSModeConfigurationPBlock returns a pointer to WindowsSModeConfigurationVBlock
-func WindowsSModeConfigurationPBlock() *WindowsSModeConfiguration {
-	v := WindowsSModeConfigurationVBlock
-	return &v
-}
-
-// WindowsSModeConfigurationPUnlock returns a pointer to WindowsSModeConfigurationVUnlock
-func WindowsSModeConfigurationPUnlock() *WindowsSModeConfiguration {
-	v := WindowsSModeConfigurationVUnlock
-	return &v
-}
+var (
+	_WindowsSModeConfigurationPNoRestriction = WindowsSModeConfigurationVNoRestriction
+	_WindowsSModeConfigurationPBlock         = WindowsSModeConfigurationVBlock
+	_WindowsSModeConfigurationPUnlock        = WindowsSModeConfigurationVUnlock
+)

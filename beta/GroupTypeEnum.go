@@ -3,31 +3,28 @@
 package msgraph
 
 // GroupType undocumented
-type GroupType int
+type GroupType string
 
 const (
 	// GroupTypeVUnifiedGroups undocumented
-	GroupTypeVUnifiedGroups GroupType = 0
+	GroupTypeVUnifiedGroups GroupType = "unifiedGroups"
 	// GroupTypeVAzureAD undocumented
-	GroupTypeVAzureAD GroupType = 1
+	GroupTypeVAzureAD GroupType = "azureAD"
 	// GroupTypeVUnknownFutureValue undocumented
-	GroupTypeVUnknownFutureValue GroupType = 2
+	GroupTypeVUnknownFutureValue GroupType = "unknownFutureValue"
 )
 
-// GroupTypePUnifiedGroups returns a pointer to GroupTypeVUnifiedGroups
-func GroupTypePUnifiedGroups() *GroupType {
-	v := GroupTypeVUnifiedGroups
-	return &v
-}
+var (
+	// GroupTypePUnifiedGroups is a pointer to GroupTypeVUnifiedGroups
+	GroupTypePUnifiedGroups = &_GroupTypePUnifiedGroups
+	// GroupTypePAzureAD is a pointer to GroupTypeVAzureAD
+	GroupTypePAzureAD = &_GroupTypePAzureAD
+	// GroupTypePUnknownFutureValue is a pointer to GroupTypeVUnknownFutureValue
+	GroupTypePUnknownFutureValue = &_GroupTypePUnknownFutureValue
+)
 
-// GroupTypePAzureAD returns a pointer to GroupTypeVAzureAD
-func GroupTypePAzureAD() *GroupType {
-	v := GroupTypeVAzureAD
-	return &v
-}
-
-// GroupTypePUnknownFutureValue returns a pointer to GroupTypeVUnknownFutureValue
-func GroupTypePUnknownFutureValue() *GroupType {
-	v := GroupTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_GroupTypePUnifiedGroups      = GroupTypeVUnifiedGroups
+	_GroupTypePAzureAD            = GroupTypeVAzureAD
+	_GroupTypePUnknownFutureValue = GroupTypeVUnknownFutureValue
+)

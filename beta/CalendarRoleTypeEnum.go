@@ -3,71 +3,53 @@
 package msgraph
 
 // CalendarRoleType undocumented
-type CalendarRoleType int
+type CalendarRoleType string
 
 const (
 	// CalendarRoleTypeVNone undocumented
-	CalendarRoleTypeVNone CalendarRoleType = 0
+	CalendarRoleTypeVNone CalendarRoleType = "none"
 	// CalendarRoleTypeVFreeBusyRead undocumented
-	CalendarRoleTypeVFreeBusyRead CalendarRoleType = 1
+	CalendarRoleTypeVFreeBusyRead CalendarRoleType = "freeBusyRead"
 	// CalendarRoleTypeVLimitedRead undocumented
-	CalendarRoleTypeVLimitedRead CalendarRoleType = 2
+	CalendarRoleTypeVLimitedRead CalendarRoleType = "limitedRead"
 	// CalendarRoleTypeVRead undocumented
-	CalendarRoleTypeVRead CalendarRoleType = 3
+	CalendarRoleTypeVRead CalendarRoleType = "read"
 	// CalendarRoleTypeVWrite undocumented
-	CalendarRoleTypeVWrite CalendarRoleType = 4
+	CalendarRoleTypeVWrite CalendarRoleType = "write"
 	// CalendarRoleTypeVDelegateWithoutPrivateEventAccess undocumented
-	CalendarRoleTypeVDelegateWithoutPrivateEventAccess CalendarRoleType = 5
+	CalendarRoleTypeVDelegateWithoutPrivateEventAccess CalendarRoleType = "delegateWithoutPrivateEventAccess"
 	// CalendarRoleTypeVDelegateWithPrivateEventAccess undocumented
-	CalendarRoleTypeVDelegateWithPrivateEventAccess CalendarRoleType = 6
+	CalendarRoleTypeVDelegateWithPrivateEventAccess CalendarRoleType = "delegateWithPrivateEventAccess"
 	// CalendarRoleTypeVCustom undocumented
-	CalendarRoleTypeVCustom CalendarRoleType = 7
+	CalendarRoleTypeVCustom CalendarRoleType = "custom"
 )
 
-// CalendarRoleTypePNone returns a pointer to CalendarRoleTypeVNone
-func CalendarRoleTypePNone() *CalendarRoleType {
-	v := CalendarRoleTypeVNone
-	return &v
-}
+var (
+	// CalendarRoleTypePNone is a pointer to CalendarRoleTypeVNone
+	CalendarRoleTypePNone = &_CalendarRoleTypePNone
+	// CalendarRoleTypePFreeBusyRead is a pointer to CalendarRoleTypeVFreeBusyRead
+	CalendarRoleTypePFreeBusyRead = &_CalendarRoleTypePFreeBusyRead
+	// CalendarRoleTypePLimitedRead is a pointer to CalendarRoleTypeVLimitedRead
+	CalendarRoleTypePLimitedRead = &_CalendarRoleTypePLimitedRead
+	// CalendarRoleTypePRead is a pointer to CalendarRoleTypeVRead
+	CalendarRoleTypePRead = &_CalendarRoleTypePRead
+	// CalendarRoleTypePWrite is a pointer to CalendarRoleTypeVWrite
+	CalendarRoleTypePWrite = &_CalendarRoleTypePWrite
+	// CalendarRoleTypePDelegateWithoutPrivateEventAccess is a pointer to CalendarRoleTypeVDelegateWithoutPrivateEventAccess
+	CalendarRoleTypePDelegateWithoutPrivateEventAccess = &_CalendarRoleTypePDelegateWithoutPrivateEventAccess
+	// CalendarRoleTypePDelegateWithPrivateEventAccess is a pointer to CalendarRoleTypeVDelegateWithPrivateEventAccess
+	CalendarRoleTypePDelegateWithPrivateEventAccess = &_CalendarRoleTypePDelegateWithPrivateEventAccess
+	// CalendarRoleTypePCustom is a pointer to CalendarRoleTypeVCustom
+	CalendarRoleTypePCustom = &_CalendarRoleTypePCustom
+)
 
-// CalendarRoleTypePFreeBusyRead returns a pointer to CalendarRoleTypeVFreeBusyRead
-func CalendarRoleTypePFreeBusyRead() *CalendarRoleType {
-	v := CalendarRoleTypeVFreeBusyRead
-	return &v
-}
-
-// CalendarRoleTypePLimitedRead returns a pointer to CalendarRoleTypeVLimitedRead
-func CalendarRoleTypePLimitedRead() *CalendarRoleType {
-	v := CalendarRoleTypeVLimitedRead
-	return &v
-}
-
-// CalendarRoleTypePRead returns a pointer to CalendarRoleTypeVRead
-func CalendarRoleTypePRead() *CalendarRoleType {
-	v := CalendarRoleTypeVRead
-	return &v
-}
-
-// CalendarRoleTypePWrite returns a pointer to CalendarRoleTypeVWrite
-func CalendarRoleTypePWrite() *CalendarRoleType {
-	v := CalendarRoleTypeVWrite
-	return &v
-}
-
-// CalendarRoleTypePDelegateWithoutPrivateEventAccess returns a pointer to CalendarRoleTypeVDelegateWithoutPrivateEventAccess
-func CalendarRoleTypePDelegateWithoutPrivateEventAccess() *CalendarRoleType {
-	v := CalendarRoleTypeVDelegateWithoutPrivateEventAccess
-	return &v
-}
-
-// CalendarRoleTypePDelegateWithPrivateEventAccess returns a pointer to CalendarRoleTypeVDelegateWithPrivateEventAccess
-func CalendarRoleTypePDelegateWithPrivateEventAccess() *CalendarRoleType {
-	v := CalendarRoleTypeVDelegateWithPrivateEventAccess
-	return &v
-}
-
-// CalendarRoleTypePCustom returns a pointer to CalendarRoleTypeVCustom
-func CalendarRoleTypePCustom() *CalendarRoleType {
-	v := CalendarRoleTypeVCustom
-	return &v
-}
+var (
+	_CalendarRoleTypePNone                              = CalendarRoleTypeVNone
+	_CalendarRoleTypePFreeBusyRead                      = CalendarRoleTypeVFreeBusyRead
+	_CalendarRoleTypePLimitedRead                       = CalendarRoleTypeVLimitedRead
+	_CalendarRoleTypePRead                              = CalendarRoleTypeVRead
+	_CalendarRoleTypePWrite                             = CalendarRoleTypeVWrite
+	_CalendarRoleTypePDelegateWithoutPrivateEventAccess = CalendarRoleTypeVDelegateWithoutPrivateEventAccess
+	_CalendarRoleTypePDelegateWithPrivateEventAccess    = CalendarRoleTypeVDelegateWithPrivateEventAccess
+	_CalendarRoleTypePCustom                            = CalendarRoleTypeVCustom
+)

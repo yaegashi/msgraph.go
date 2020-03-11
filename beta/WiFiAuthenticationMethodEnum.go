@@ -3,31 +3,28 @@
 package msgraph
 
 // WiFiAuthenticationMethod undocumented
-type WiFiAuthenticationMethod int
+type WiFiAuthenticationMethod string
 
 const (
 	// WiFiAuthenticationMethodVCertificate undocumented
-	WiFiAuthenticationMethodVCertificate WiFiAuthenticationMethod = 0
+	WiFiAuthenticationMethodVCertificate WiFiAuthenticationMethod = "certificate"
 	// WiFiAuthenticationMethodVUsernameAndPassword undocumented
-	WiFiAuthenticationMethodVUsernameAndPassword WiFiAuthenticationMethod = 1
+	WiFiAuthenticationMethodVUsernameAndPassword WiFiAuthenticationMethod = "usernameAndPassword"
 	// WiFiAuthenticationMethodVDerivedCredential undocumented
-	WiFiAuthenticationMethodVDerivedCredential WiFiAuthenticationMethod = 2
+	WiFiAuthenticationMethodVDerivedCredential WiFiAuthenticationMethod = "derivedCredential"
 )
 
-// WiFiAuthenticationMethodPCertificate returns a pointer to WiFiAuthenticationMethodVCertificate
-func WiFiAuthenticationMethodPCertificate() *WiFiAuthenticationMethod {
-	v := WiFiAuthenticationMethodVCertificate
-	return &v
-}
+var (
+	// WiFiAuthenticationMethodPCertificate is a pointer to WiFiAuthenticationMethodVCertificate
+	WiFiAuthenticationMethodPCertificate = &_WiFiAuthenticationMethodPCertificate
+	// WiFiAuthenticationMethodPUsernameAndPassword is a pointer to WiFiAuthenticationMethodVUsernameAndPassword
+	WiFiAuthenticationMethodPUsernameAndPassword = &_WiFiAuthenticationMethodPUsernameAndPassword
+	// WiFiAuthenticationMethodPDerivedCredential is a pointer to WiFiAuthenticationMethodVDerivedCredential
+	WiFiAuthenticationMethodPDerivedCredential = &_WiFiAuthenticationMethodPDerivedCredential
+)
 
-// WiFiAuthenticationMethodPUsernameAndPassword returns a pointer to WiFiAuthenticationMethodVUsernameAndPassword
-func WiFiAuthenticationMethodPUsernameAndPassword() *WiFiAuthenticationMethod {
-	v := WiFiAuthenticationMethodVUsernameAndPassword
-	return &v
-}
-
-// WiFiAuthenticationMethodPDerivedCredential returns a pointer to WiFiAuthenticationMethodVDerivedCredential
-func WiFiAuthenticationMethodPDerivedCredential() *WiFiAuthenticationMethod {
-	v := WiFiAuthenticationMethodVDerivedCredential
-	return &v
-}
+var (
+	_WiFiAuthenticationMethodPCertificate         = WiFiAuthenticationMethodVCertificate
+	_WiFiAuthenticationMethodPUsernameAndPassword = WiFiAuthenticationMethodVUsernameAndPassword
+	_WiFiAuthenticationMethodPDerivedCredential   = WiFiAuthenticationMethodVDerivedCredential
+)

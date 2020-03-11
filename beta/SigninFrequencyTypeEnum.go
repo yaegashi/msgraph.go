@@ -3,23 +3,23 @@
 package msgraph
 
 // SigninFrequencyType undocumented
-type SigninFrequencyType int
+type SigninFrequencyType string
 
 const (
 	// SigninFrequencyTypeVDays undocumented
-	SigninFrequencyTypeVDays SigninFrequencyType = 0
+	SigninFrequencyTypeVDays SigninFrequencyType = "days"
 	// SigninFrequencyTypeVHours undocumented
-	SigninFrequencyTypeVHours SigninFrequencyType = 1
+	SigninFrequencyTypeVHours SigninFrequencyType = "hours"
 )
 
-// SigninFrequencyTypePDays returns a pointer to SigninFrequencyTypeVDays
-func SigninFrequencyTypePDays() *SigninFrequencyType {
-	v := SigninFrequencyTypeVDays
-	return &v
-}
+var (
+	// SigninFrequencyTypePDays is a pointer to SigninFrequencyTypeVDays
+	SigninFrequencyTypePDays = &_SigninFrequencyTypePDays
+	// SigninFrequencyTypePHours is a pointer to SigninFrequencyTypeVHours
+	SigninFrequencyTypePHours = &_SigninFrequencyTypePHours
+)
 
-// SigninFrequencyTypePHours returns a pointer to SigninFrequencyTypeVHours
-func SigninFrequencyTypePHours() *SigninFrequencyType {
-	v := SigninFrequencyTypeVHours
-	return &v
-}
+var (
+	_SigninFrequencyTypePDays  = SigninFrequencyTypeVDays
+	_SigninFrequencyTypePHours = SigninFrequencyTypeVHours
+)

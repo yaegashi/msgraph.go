@@ -3,55 +3,43 @@
 package msgraph
 
 // EnrollmentState undocumented
-type EnrollmentState int
+type EnrollmentState string
 
 const (
 	// EnrollmentStateVUnknown undocumented
-	EnrollmentStateVUnknown EnrollmentState = 0
+	EnrollmentStateVUnknown EnrollmentState = "unknown"
 	// EnrollmentStateVEnrolled undocumented
-	EnrollmentStateVEnrolled EnrollmentState = 1
+	EnrollmentStateVEnrolled EnrollmentState = "enrolled"
 	// EnrollmentStateVPendingReset undocumented
-	EnrollmentStateVPendingReset EnrollmentState = 2
+	EnrollmentStateVPendingReset EnrollmentState = "pendingReset"
 	// EnrollmentStateVFailed undocumented
-	EnrollmentStateVFailed EnrollmentState = 3
+	EnrollmentStateVFailed EnrollmentState = "failed"
 	// EnrollmentStateVNotContacted undocumented
-	EnrollmentStateVNotContacted EnrollmentState = 4
+	EnrollmentStateVNotContacted EnrollmentState = "notContacted"
 	// EnrollmentStateVBlocked undocumented
-	EnrollmentStateVBlocked EnrollmentState = 5
+	EnrollmentStateVBlocked EnrollmentState = "blocked"
 )
 
-// EnrollmentStatePUnknown returns a pointer to EnrollmentStateVUnknown
-func EnrollmentStatePUnknown() *EnrollmentState {
-	v := EnrollmentStateVUnknown
-	return &v
-}
+var (
+	// EnrollmentStatePUnknown is a pointer to EnrollmentStateVUnknown
+	EnrollmentStatePUnknown = &_EnrollmentStatePUnknown
+	// EnrollmentStatePEnrolled is a pointer to EnrollmentStateVEnrolled
+	EnrollmentStatePEnrolled = &_EnrollmentStatePEnrolled
+	// EnrollmentStatePPendingReset is a pointer to EnrollmentStateVPendingReset
+	EnrollmentStatePPendingReset = &_EnrollmentStatePPendingReset
+	// EnrollmentStatePFailed is a pointer to EnrollmentStateVFailed
+	EnrollmentStatePFailed = &_EnrollmentStatePFailed
+	// EnrollmentStatePNotContacted is a pointer to EnrollmentStateVNotContacted
+	EnrollmentStatePNotContacted = &_EnrollmentStatePNotContacted
+	// EnrollmentStatePBlocked is a pointer to EnrollmentStateVBlocked
+	EnrollmentStatePBlocked = &_EnrollmentStatePBlocked
+)
 
-// EnrollmentStatePEnrolled returns a pointer to EnrollmentStateVEnrolled
-func EnrollmentStatePEnrolled() *EnrollmentState {
-	v := EnrollmentStateVEnrolled
-	return &v
-}
-
-// EnrollmentStatePPendingReset returns a pointer to EnrollmentStateVPendingReset
-func EnrollmentStatePPendingReset() *EnrollmentState {
-	v := EnrollmentStateVPendingReset
-	return &v
-}
-
-// EnrollmentStatePFailed returns a pointer to EnrollmentStateVFailed
-func EnrollmentStatePFailed() *EnrollmentState {
-	v := EnrollmentStateVFailed
-	return &v
-}
-
-// EnrollmentStatePNotContacted returns a pointer to EnrollmentStateVNotContacted
-func EnrollmentStatePNotContacted() *EnrollmentState {
-	v := EnrollmentStateVNotContacted
-	return &v
-}
-
-// EnrollmentStatePBlocked returns a pointer to EnrollmentStateVBlocked
-func EnrollmentStatePBlocked() *EnrollmentState {
-	v := EnrollmentStateVBlocked
-	return &v
-}
+var (
+	_EnrollmentStatePUnknown      = EnrollmentStateVUnknown
+	_EnrollmentStatePEnrolled     = EnrollmentStateVEnrolled
+	_EnrollmentStatePPendingReset = EnrollmentStateVPendingReset
+	_EnrollmentStatePFailed       = EnrollmentStateVFailed
+	_EnrollmentStatePNotContacted = EnrollmentStateVNotContacted
+	_EnrollmentStatePBlocked      = EnrollmentStateVBlocked
+)

@@ -3,87 +3,63 @@
 package msgraph
 
 // RegistrationAuthMethod undocumented
-type RegistrationAuthMethod int
+type RegistrationAuthMethod string
 
 const (
 	// RegistrationAuthMethodVEmail undocumented
-	RegistrationAuthMethodVEmail RegistrationAuthMethod = 0
+	RegistrationAuthMethodVEmail RegistrationAuthMethod = "email"
 	// RegistrationAuthMethodVMobilePhone undocumented
-	RegistrationAuthMethodVMobilePhone RegistrationAuthMethod = 1
+	RegistrationAuthMethodVMobilePhone RegistrationAuthMethod = "mobilePhone"
 	// RegistrationAuthMethodVOfficePhone undocumented
-	RegistrationAuthMethodVOfficePhone RegistrationAuthMethod = 2
+	RegistrationAuthMethodVOfficePhone RegistrationAuthMethod = "officePhone"
 	// RegistrationAuthMethodVSecurityQuestion undocumented
-	RegistrationAuthMethodVSecurityQuestion RegistrationAuthMethod = 3
+	RegistrationAuthMethodVSecurityQuestion RegistrationAuthMethod = "securityQuestion"
 	// RegistrationAuthMethodVAppNotification undocumented
-	RegistrationAuthMethodVAppNotification RegistrationAuthMethod = 4
+	RegistrationAuthMethodVAppNotification RegistrationAuthMethod = "appNotification"
 	// RegistrationAuthMethodVAppCode undocumented
-	RegistrationAuthMethodVAppCode RegistrationAuthMethod = 5
+	RegistrationAuthMethodVAppCode RegistrationAuthMethod = "appCode"
 	// RegistrationAuthMethodVAlternateMobilePhone undocumented
-	RegistrationAuthMethodVAlternateMobilePhone RegistrationAuthMethod = 6
+	RegistrationAuthMethodVAlternateMobilePhone RegistrationAuthMethod = "alternateMobilePhone"
 	// RegistrationAuthMethodVFido undocumented
-	RegistrationAuthMethodVFido RegistrationAuthMethod = 7
+	RegistrationAuthMethodVFido RegistrationAuthMethod = "fido"
 	// RegistrationAuthMethodVAppPassword undocumented
-	RegistrationAuthMethodVAppPassword RegistrationAuthMethod = 8
+	RegistrationAuthMethodVAppPassword RegistrationAuthMethod = "appPassword"
 	// RegistrationAuthMethodVUnknownFutureValue undocumented
-	RegistrationAuthMethodVUnknownFutureValue RegistrationAuthMethod = 9
+	RegistrationAuthMethodVUnknownFutureValue RegistrationAuthMethod = "unknownFutureValue"
 )
 
-// RegistrationAuthMethodPEmail returns a pointer to RegistrationAuthMethodVEmail
-func RegistrationAuthMethodPEmail() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVEmail
-	return &v
-}
+var (
+	// RegistrationAuthMethodPEmail is a pointer to RegistrationAuthMethodVEmail
+	RegistrationAuthMethodPEmail = &_RegistrationAuthMethodPEmail
+	// RegistrationAuthMethodPMobilePhone is a pointer to RegistrationAuthMethodVMobilePhone
+	RegistrationAuthMethodPMobilePhone = &_RegistrationAuthMethodPMobilePhone
+	// RegistrationAuthMethodPOfficePhone is a pointer to RegistrationAuthMethodVOfficePhone
+	RegistrationAuthMethodPOfficePhone = &_RegistrationAuthMethodPOfficePhone
+	// RegistrationAuthMethodPSecurityQuestion is a pointer to RegistrationAuthMethodVSecurityQuestion
+	RegistrationAuthMethodPSecurityQuestion = &_RegistrationAuthMethodPSecurityQuestion
+	// RegistrationAuthMethodPAppNotification is a pointer to RegistrationAuthMethodVAppNotification
+	RegistrationAuthMethodPAppNotification = &_RegistrationAuthMethodPAppNotification
+	// RegistrationAuthMethodPAppCode is a pointer to RegistrationAuthMethodVAppCode
+	RegistrationAuthMethodPAppCode = &_RegistrationAuthMethodPAppCode
+	// RegistrationAuthMethodPAlternateMobilePhone is a pointer to RegistrationAuthMethodVAlternateMobilePhone
+	RegistrationAuthMethodPAlternateMobilePhone = &_RegistrationAuthMethodPAlternateMobilePhone
+	// RegistrationAuthMethodPFido is a pointer to RegistrationAuthMethodVFido
+	RegistrationAuthMethodPFido = &_RegistrationAuthMethodPFido
+	// RegistrationAuthMethodPAppPassword is a pointer to RegistrationAuthMethodVAppPassword
+	RegistrationAuthMethodPAppPassword = &_RegistrationAuthMethodPAppPassword
+	// RegistrationAuthMethodPUnknownFutureValue is a pointer to RegistrationAuthMethodVUnknownFutureValue
+	RegistrationAuthMethodPUnknownFutureValue = &_RegistrationAuthMethodPUnknownFutureValue
+)
 
-// RegistrationAuthMethodPMobilePhone returns a pointer to RegistrationAuthMethodVMobilePhone
-func RegistrationAuthMethodPMobilePhone() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVMobilePhone
-	return &v
-}
-
-// RegistrationAuthMethodPOfficePhone returns a pointer to RegistrationAuthMethodVOfficePhone
-func RegistrationAuthMethodPOfficePhone() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVOfficePhone
-	return &v
-}
-
-// RegistrationAuthMethodPSecurityQuestion returns a pointer to RegistrationAuthMethodVSecurityQuestion
-func RegistrationAuthMethodPSecurityQuestion() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVSecurityQuestion
-	return &v
-}
-
-// RegistrationAuthMethodPAppNotification returns a pointer to RegistrationAuthMethodVAppNotification
-func RegistrationAuthMethodPAppNotification() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVAppNotification
-	return &v
-}
-
-// RegistrationAuthMethodPAppCode returns a pointer to RegistrationAuthMethodVAppCode
-func RegistrationAuthMethodPAppCode() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVAppCode
-	return &v
-}
-
-// RegistrationAuthMethodPAlternateMobilePhone returns a pointer to RegistrationAuthMethodVAlternateMobilePhone
-func RegistrationAuthMethodPAlternateMobilePhone() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVAlternateMobilePhone
-	return &v
-}
-
-// RegistrationAuthMethodPFido returns a pointer to RegistrationAuthMethodVFido
-func RegistrationAuthMethodPFido() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVFido
-	return &v
-}
-
-// RegistrationAuthMethodPAppPassword returns a pointer to RegistrationAuthMethodVAppPassword
-func RegistrationAuthMethodPAppPassword() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVAppPassword
-	return &v
-}
-
-// RegistrationAuthMethodPUnknownFutureValue returns a pointer to RegistrationAuthMethodVUnknownFutureValue
-func RegistrationAuthMethodPUnknownFutureValue() *RegistrationAuthMethod {
-	v := RegistrationAuthMethodVUnknownFutureValue
-	return &v
-}
+var (
+	_RegistrationAuthMethodPEmail                = RegistrationAuthMethodVEmail
+	_RegistrationAuthMethodPMobilePhone          = RegistrationAuthMethodVMobilePhone
+	_RegistrationAuthMethodPOfficePhone          = RegistrationAuthMethodVOfficePhone
+	_RegistrationAuthMethodPSecurityQuestion     = RegistrationAuthMethodVSecurityQuestion
+	_RegistrationAuthMethodPAppNotification      = RegistrationAuthMethodVAppNotification
+	_RegistrationAuthMethodPAppCode              = RegistrationAuthMethodVAppCode
+	_RegistrationAuthMethodPAlternateMobilePhone = RegistrationAuthMethodVAlternateMobilePhone
+	_RegistrationAuthMethodPFido                 = RegistrationAuthMethodVFido
+	_RegistrationAuthMethodPAppPassword          = RegistrationAuthMethodVAppPassword
+	_RegistrationAuthMethodPUnknownFutureValue   = RegistrationAuthMethodVUnknownFutureValue
+)

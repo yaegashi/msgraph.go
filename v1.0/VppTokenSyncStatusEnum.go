@@ -3,39 +3,33 @@
 package msgraph
 
 // VppTokenSyncStatus undocumented
-type VppTokenSyncStatus int
+type VppTokenSyncStatus string
 
 const (
 	// VppTokenSyncStatusVNone undocumented
-	VppTokenSyncStatusVNone VppTokenSyncStatus = 0
+	VppTokenSyncStatusVNone VppTokenSyncStatus = "none"
 	// VppTokenSyncStatusVInProgress undocumented
-	VppTokenSyncStatusVInProgress VppTokenSyncStatus = 1
+	VppTokenSyncStatusVInProgress VppTokenSyncStatus = "inProgress"
 	// VppTokenSyncStatusVCompleted undocumented
-	VppTokenSyncStatusVCompleted VppTokenSyncStatus = 2
+	VppTokenSyncStatusVCompleted VppTokenSyncStatus = "completed"
 	// VppTokenSyncStatusVFailed undocumented
-	VppTokenSyncStatusVFailed VppTokenSyncStatus = 3
+	VppTokenSyncStatusVFailed VppTokenSyncStatus = "failed"
 )
 
-// VppTokenSyncStatusPNone returns a pointer to VppTokenSyncStatusVNone
-func VppTokenSyncStatusPNone() *VppTokenSyncStatus {
-	v := VppTokenSyncStatusVNone
-	return &v
-}
+var (
+	// VppTokenSyncStatusPNone is a pointer to VppTokenSyncStatusVNone
+	VppTokenSyncStatusPNone = &_VppTokenSyncStatusPNone
+	// VppTokenSyncStatusPInProgress is a pointer to VppTokenSyncStatusVInProgress
+	VppTokenSyncStatusPInProgress = &_VppTokenSyncStatusPInProgress
+	// VppTokenSyncStatusPCompleted is a pointer to VppTokenSyncStatusVCompleted
+	VppTokenSyncStatusPCompleted = &_VppTokenSyncStatusPCompleted
+	// VppTokenSyncStatusPFailed is a pointer to VppTokenSyncStatusVFailed
+	VppTokenSyncStatusPFailed = &_VppTokenSyncStatusPFailed
+)
 
-// VppTokenSyncStatusPInProgress returns a pointer to VppTokenSyncStatusVInProgress
-func VppTokenSyncStatusPInProgress() *VppTokenSyncStatus {
-	v := VppTokenSyncStatusVInProgress
-	return &v
-}
-
-// VppTokenSyncStatusPCompleted returns a pointer to VppTokenSyncStatusVCompleted
-func VppTokenSyncStatusPCompleted() *VppTokenSyncStatus {
-	v := VppTokenSyncStatusVCompleted
-	return &v
-}
-
-// VppTokenSyncStatusPFailed returns a pointer to VppTokenSyncStatusVFailed
-func VppTokenSyncStatusPFailed() *VppTokenSyncStatus {
-	v := VppTokenSyncStatusVFailed
-	return &v
-}
+var (
+	_VppTokenSyncStatusPNone       = VppTokenSyncStatusVNone
+	_VppTokenSyncStatusPInProgress = VppTokenSyncStatusVInProgress
+	_VppTokenSyncStatusPCompleted  = VppTokenSyncStatusVCompleted
+	_VppTokenSyncStatusPFailed     = VppTokenSyncStatusVFailed
+)

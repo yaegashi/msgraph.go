@@ -3,39 +3,33 @@
 package msgraph
 
 // UserExperienceAnalyticsInsightSeverity undocumented
-type UserExperienceAnalyticsInsightSeverity int
+type UserExperienceAnalyticsInsightSeverity string
 
 const (
 	// UserExperienceAnalyticsInsightSeverityVNone undocumented
-	UserExperienceAnalyticsInsightSeverityVNone UserExperienceAnalyticsInsightSeverity = 0
+	UserExperienceAnalyticsInsightSeverityVNone UserExperienceAnalyticsInsightSeverity = "none"
 	// UserExperienceAnalyticsInsightSeverityVInformational undocumented
-	UserExperienceAnalyticsInsightSeverityVInformational UserExperienceAnalyticsInsightSeverity = 1
+	UserExperienceAnalyticsInsightSeverityVInformational UserExperienceAnalyticsInsightSeverity = "informational"
 	// UserExperienceAnalyticsInsightSeverityVWarning undocumented
-	UserExperienceAnalyticsInsightSeverityVWarning UserExperienceAnalyticsInsightSeverity = 2
+	UserExperienceAnalyticsInsightSeverityVWarning UserExperienceAnalyticsInsightSeverity = "warning"
 	// UserExperienceAnalyticsInsightSeverityVError undocumented
-	UserExperienceAnalyticsInsightSeverityVError UserExperienceAnalyticsInsightSeverity = 3
+	UserExperienceAnalyticsInsightSeverityVError UserExperienceAnalyticsInsightSeverity = "error"
 )
 
-// UserExperienceAnalyticsInsightSeverityPNone returns a pointer to UserExperienceAnalyticsInsightSeverityVNone
-func UserExperienceAnalyticsInsightSeverityPNone() *UserExperienceAnalyticsInsightSeverity {
-	v := UserExperienceAnalyticsInsightSeverityVNone
-	return &v
-}
+var (
+	// UserExperienceAnalyticsInsightSeverityPNone is a pointer to UserExperienceAnalyticsInsightSeverityVNone
+	UserExperienceAnalyticsInsightSeverityPNone = &_UserExperienceAnalyticsInsightSeverityPNone
+	// UserExperienceAnalyticsInsightSeverityPInformational is a pointer to UserExperienceAnalyticsInsightSeverityVInformational
+	UserExperienceAnalyticsInsightSeverityPInformational = &_UserExperienceAnalyticsInsightSeverityPInformational
+	// UserExperienceAnalyticsInsightSeverityPWarning is a pointer to UserExperienceAnalyticsInsightSeverityVWarning
+	UserExperienceAnalyticsInsightSeverityPWarning = &_UserExperienceAnalyticsInsightSeverityPWarning
+	// UserExperienceAnalyticsInsightSeverityPError is a pointer to UserExperienceAnalyticsInsightSeverityVError
+	UserExperienceAnalyticsInsightSeverityPError = &_UserExperienceAnalyticsInsightSeverityPError
+)
 
-// UserExperienceAnalyticsInsightSeverityPInformational returns a pointer to UserExperienceAnalyticsInsightSeverityVInformational
-func UserExperienceAnalyticsInsightSeverityPInformational() *UserExperienceAnalyticsInsightSeverity {
-	v := UserExperienceAnalyticsInsightSeverityVInformational
-	return &v
-}
-
-// UserExperienceAnalyticsInsightSeverityPWarning returns a pointer to UserExperienceAnalyticsInsightSeverityVWarning
-func UserExperienceAnalyticsInsightSeverityPWarning() *UserExperienceAnalyticsInsightSeverity {
-	v := UserExperienceAnalyticsInsightSeverityVWarning
-	return &v
-}
-
-// UserExperienceAnalyticsInsightSeverityPError returns a pointer to UserExperienceAnalyticsInsightSeverityVError
-func UserExperienceAnalyticsInsightSeverityPError() *UserExperienceAnalyticsInsightSeverity {
-	v := UserExperienceAnalyticsInsightSeverityVError
-	return &v
-}
+var (
+	_UserExperienceAnalyticsInsightSeverityPNone          = UserExperienceAnalyticsInsightSeverityVNone
+	_UserExperienceAnalyticsInsightSeverityPInformational = UserExperienceAnalyticsInsightSeverityVInformational
+	_UserExperienceAnalyticsInsightSeverityPWarning       = UserExperienceAnalyticsInsightSeverityVWarning
+	_UserExperienceAnalyticsInsightSeverityPError         = UserExperienceAnalyticsInsightSeverityVError
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // MobileAppPublishingState undocumented
-type MobileAppPublishingState int
+type MobileAppPublishingState string
 
 const (
 	// MobileAppPublishingStateVNotPublished undocumented
-	MobileAppPublishingStateVNotPublished MobileAppPublishingState = 0
+	MobileAppPublishingStateVNotPublished MobileAppPublishingState = "notPublished"
 	// MobileAppPublishingStateVProcessing undocumented
-	MobileAppPublishingStateVProcessing MobileAppPublishingState = 1
+	MobileAppPublishingStateVProcessing MobileAppPublishingState = "processing"
 	// MobileAppPublishingStateVPublished undocumented
-	MobileAppPublishingStateVPublished MobileAppPublishingState = 2
+	MobileAppPublishingStateVPublished MobileAppPublishingState = "published"
 )
 
-// MobileAppPublishingStatePNotPublished returns a pointer to MobileAppPublishingStateVNotPublished
-func MobileAppPublishingStatePNotPublished() *MobileAppPublishingState {
-	v := MobileAppPublishingStateVNotPublished
-	return &v
-}
+var (
+	// MobileAppPublishingStatePNotPublished is a pointer to MobileAppPublishingStateVNotPublished
+	MobileAppPublishingStatePNotPublished = &_MobileAppPublishingStatePNotPublished
+	// MobileAppPublishingStatePProcessing is a pointer to MobileAppPublishingStateVProcessing
+	MobileAppPublishingStatePProcessing = &_MobileAppPublishingStatePProcessing
+	// MobileAppPublishingStatePPublished is a pointer to MobileAppPublishingStateVPublished
+	MobileAppPublishingStatePPublished = &_MobileAppPublishingStatePPublished
+)
 
-// MobileAppPublishingStatePProcessing returns a pointer to MobileAppPublishingStateVProcessing
-func MobileAppPublishingStatePProcessing() *MobileAppPublishingState {
-	v := MobileAppPublishingStateVProcessing
-	return &v
-}
-
-// MobileAppPublishingStatePPublished returns a pointer to MobileAppPublishingStateVPublished
-func MobileAppPublishingStatePPublished() *MobileAppPublishingState {
-	v := MobileAppPublishingStateVPublished
-	return &v
-}
+var (
+	_MobileAppPublishingStatePNotPublished = MobileAppPublishingStateVNotPublished
+	_MobileAppPublishingStatePProcessing   = MobileAppPublishingStateVProcessing
+	_MobileAppPublishingStatePPublished    = MobileAppPublishingStateVPublished
+)

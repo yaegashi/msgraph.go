@@ -3,55 +3,43 @@
 package msgraph
 
 // WorkforceIntegrationSupportedEntities undocumented
-type WorkforceIntegrationSupportedEntities int
+type WorkforceIntegrationSupportedEntities string
 
 const (
 	// WorkforceIntegrationSupportedEntitiesVNone undocumented
-	WorkforceIntegrationSupportedEntitiesVNone WorkforceIntegrationSupportedEntities = 0
+	WorkforceIntegrationSupportedEntitiesVNone WorkforceIntegrationSupportedEntities = "none"
 	// WorkforceIntegrationSupportedEntitiesVShift undocumented
-	WorkforceIntegrationSupportedEntitiesVShift WorkforceIntegrationSupportedEntities = 1
+	WorkforceIntegrationSupportedEntitiesVShift WorkforceIntegrationSupportedEntities = "shift"
 	// WorkforceIntegrationSupportedEntitiesVSwapRequest undocumented
-	WorkforceIntegrationSupportedEntitiesVSwapRequest WorkforceIntegrationSupportedEntities = 2
+	WorkforceIntegrationSupportedEntitiesVSwapRequest WorkforceIntegrationSupportedEntities = "swapRequest"
 	// WorkforceIntegrationSupportedEntitiesVUserShiftPreferences undocumented
-	WorkforceIntegrationSupportedEntitiesVUserShiftPreferences WorkforceIntegrationSupportedEntities = 8
+	WorkforceIntegrationSupportedEntitiesVUserShiftPreferences WorkforceIntegrationSupportedEntities = "userShiftPreferences"
 	// WorkforceIntegrationSupportedEntitiesVOpenShift undocumented
-	WorkforceIntegrationSupportedEntitiesVOpenShift WorkforceIntegrationSupportedEntities = 16
+	WorkforceIntegrationSupportedEntitiesVOpenShift WorkforceIntegrationSupportedEntities = "openShift"
 	// WorkforceIntegrationSupportedEntitiesVOpenShiftRequest undocumented
-	WorkforceIntegrationSupportedEntitiesVOpenShiftRequest WorkforceIntegrationSupportedEntities = 32
+	WorkforceIntegrationSupportedEntitiesVOpenShiftRequest WorkforceIntegrationSupportedEntities = "openShiftRequest"
 )
 
-// WorkforceIntegrationSupportedEntitiesPNone returns a pointer to WorkforceIntegrationSupportedEntitiesVNone
-func WorkforceIntegrationSupportedEntitiesPNone() *WorkforceIntegrationSupportedEntities {
-	v := WorkforceIntegrationSupportedEntitiesVNone
-	return &v
-}
+var (
+	// WorkforceIntegrationSupportedEntitiesPNone is a pointer to WorkforceIntegrationSupportedEntitiesVNone
+	WorkforceIntegrationSupportedEntitiesPNone = &_WorkforceIntegrationSupportedEntitiesPNone
+	// WorkforceIntegrationSupportedEntitiesPShift is a pointer to WorkforceIntegrationSupportedEntitiesVShift
+	WorkforceIntegrationSupportedEntitiesPShift = &_WorkforceIntegrationSupportedEntitiesPShift
+	// WorkforceIntegrationSupportedEntitiesPSwapRequest is a pointer to WorkforceIntegrationSupportedEntitiesVSwapRequest
+	WorkforceIntegrationSupportedEntitiesPSwapRequest = &_WorkforceIntegrationSupportedEntitiesPSwapRequest
+	// WorkforceIntegrationSupportedEntitiesPUserShiftPreferences is a pointer to WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
+	WorkforceIntegrationSupportedEntitiesPUserShiftPreferences = &_WorkforceIntegrationSupportedEntitiesPUserShiftPreferences
+	// WorkforceIntegrationSupportedEntitiesPOpenShift is a pointer to WorkforceIntegrationSupportedEntitiesVOpenShift
+	WorkforceIntegrationSupportedEntitiesPOpenShift = &_WorkforceIntegrationSupportedEntitiesPOpenShift
+	// WorkforceIntegrationSupportedEntitiesPOpenShiftRequest is a pointer to WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
+	WorkforceIntegrationSupportedEntitiesPOpenShiftRequest = &_WorkforceIntegrationSupportedEntitiesPOpenShiftRequest
+)
 
-// WorkforceIntegrationSupportedEntitiesPShift returns a pointer to WorkforceIntegrationSupportedEntitiesVShift
-func WorkforceIntegrationSupportedEntitiesPShift() *WorkforceIntegrationSupportedEntities {
-	v := WorkforceIntegrationSupportedEntitiesVShift
-	return &v
-}
-
-// WorkforceIntegrationSupportedEntitiesPSwapRequest returns a pointer to WorkforceIntegrationSupportedEntitiesVSwapRequest
-func WorkforceIntegrationSupportedEntitiesPSwapRequest() *WorkforceIntegrationSupportedEntities {
-	v := WorkforceIntegrationSupportedEntitiesVSwapRequest
-	return &v
-}
-
-// WorkforceIntegrationSupportedEntitiesPUserShiftPreferences returns a pointer to WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
-func WorkforceIntegrationSupportedEntitiesPUserShiftPreferences() *WorkforceIntegrationSupportedEntities {
-	v := WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
-	return &v
-}
-
-// WorkforceIntegrationSupportedEntitiesPOpenShift returns a pointer to WorkforceIntegrationSupportedEntitiesVOpenShift
-func WorkforceIntegrationSupportedEntitiesPOpenShift() *WorkforceIntegrationSupportedEntities {
-	v := WorkforceIntegrationSupportedEntitiesVOpenShift
-	return &v
-}
-
-// WorkforceIntegrationSupportedEntitiesPOpenShiftRequest returns a pointer to WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
-func WorkforceIntegrationSupportedEntitiesPOpenShiftRequest() *WorkforceIntegrationSupportedEntities {
-	v := WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
-	return &v
-}
+var (
+	_WorkforceIntegrationSupportedEntitiesPNone                 = WorkforceIntegrationSupportedEntitiesVNone
+	_WorkforceIntegrationSupportedEntitiesPShift                = WorkforceIntegrationSupportedEntitiesVShift
+	_WorkforceIntegrationSupportedEntitiesPSwapRequest          = WorkforceIntegrationSupportedEntitiesVSwapRequest
+	_WorkforceIntegrationSupportedEntitiesPUserShiftPreferences = WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
+	_WorkforceIntegrationSupportedEntitiesPOpenShift            = WorkforceIntegrationSupportedEntitiesVOpenShift
+	_WorkforceIntegrationSupportedEntitiesPOpenShiftRequest     = WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
+)

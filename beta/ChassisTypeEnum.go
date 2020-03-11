@@ -3,79 +3,58 @@
 package msgraph
 
 // ChassisType undocumented
-type ChassisType int
+type ChassisType string
 
 const (
 	// ChassisTypeVUnknown undocumented
-	ChassisTypeVUnknown ChassisType = 0
+	ChassisTypeVUnknown ChassisType = "unknown"
 	// ChassisTypeVDesktop undocumented
-	ChassisTypeVDesktop ChassisType = 1
+	ChassisTypeVDesktop ChassisType = "desktop"
 	// ChassisTypeVLaptop undocumented
-	ChassisTypeVLaptop ChassisType = 2
+	ChassisTypeVLaptop ChassisType = "laptop"
 	// ChassisTypeVWorksWorkstation undocumented
-	ChassisTypeVWorksWorkstation ChassisType = 3
+	ChassisTypeVWorksWorkstation ChassisType = "worksWorkstation"
 	// ChassisTypeVEnterpriseServer undocumented
-	ChassisTypeVEnterpriseServer ChassisType = 4
+	ChassisTypeVEnterpriseServer ChassisType = "enterpriseServer"
 	// ChassisTypeVPhone undocumented
-	ChassisTypeVPhone ChassisType = 100
+	ChassisTypeVPhone ChassisType = "phone"
 	// ChassisTypeVTablet undocumented
-	ChassisTypeVTablet ChassisType = 101
+	ChassisTypeVTablet ChassisType = "tablet"
 	// ChassisTypeVMobileOther undocumented
-	ChassisTypeVMobileOther ChassisType = 102
+	ChassisTypeVMobileOther ChassisType = "mobileOther"
 	// ChassisTypeVMobileUnknown undocumented
-	ChassisTypeVMobileUnknown ChassisType = 103
+	ChassisTypeVMobileUnknown ChassisType = "mobileUnknown"
 )
 
-// ChassisTypePUnknown returns a pointer to ChassisTypeVUnknown
-func ChassisTypePUnknown() *ChassisType {
-	v := ChassisTypeVUnknown
-	return &v
-}
+var (
+	// ChassisTypePUnknown is a pointer to ChassisTypeVUnknown
+	ChassisTypePUnknown = &_ChassisTypePUnknown
+	// ChassisTypePDesktop is a pointer to ChassisTypeVDesktop
+	ChassisTypePDesktop = &_ChassisTypePDesktop
+	// ChassisTypePLaptop is a pointer to ChassisTypeVLaptop
+	ChassisTypePLaptop = &_ChassisTypePLaptop
+	// ChassisTypePWorksWorkstation is a pointer to ChassisTypeVWorksWorkstation
+	ChassisTypePWorksWorkstation = &_ChassisTypePWorksWorkstation
+	// ChassisTypePEnterpriseServer is a pointer to ChassisTypeVEnterpriseServer
+	ChassisTypePEnterpriseServer = &_ChassisTypePEnterpriseServer
+	// ChassisTypePPhone is a pointer to ChassisTypeVPhone
+	ChassisTypePPhone = &_ChassisTypePPhone
+	// ChassisTypePTablet is a pointer to ChassisTypeVTablet
+	ChassisTypePTablet = &_ChassisTypePTablet
+	// ChassisTypePMobileOther is a pointer to ChassisTypeVMobileOther
+	ChassisTypePMobileOther = &_ChassisTypePMobileOther
+	// ChassisTypePMobileUnknown is a pointer to ChassisTypeVMobileUnknown
+	ChassisTypePMobileUnknown = &_ChassisTypePMobileUnknown
+)
 
-// ChassisTypePDesktop returns a pointer to ChassisTypeVDesktop
-func ChassisTypePDesktop() *ChassisType {
-	v := ChassisTypeVDesktop
-	return &v
-}
-
-// ChassisTypePLaptop returns a pointer to ChassisTypeVLaptop
-func ChassisTypePLaptop() *ChassisType {
-	v := ChassisTypeVLaptop
-	return &v
-}
-
-// ChassisTypePWorksWorkstation returns a pointer to ChassisTypeVWorksWorkstation
-func ChassisTypePWorksWorkstation() *ChassisType {
-	v := ChassisTypeVWorksWorkstation
-	return &v
-}
-
-// ChassisTypePEnterpriseServer returns a pointer to ChassisTypeVEnterpriseServer
-func ChassisTypePEnterpriseServer() *ChassisType {
-	v := ChassisTypeVEnterpriseServer
-	return &v
-}
-
-// ChassisTypePPhone returns a pointer to ChassisTypeVPhone
-func ChassisTypePPhone() *ChassisType {
-	v := ChassisTypeVPhone
-	return &v
-}
-
-// ChassisTypePTablet returns a pointer to ChassisTypeVTablet
-func ChassisTypePTablet() *ChassisType {
-	v := ChassisTypeVTablet
-	return &v
-}
-
-// ChassisTypePMobileOther returns a pointer to ChassisTypeVMobileOther
-func ChassisTypePMobileOther() *ChassisType {
-	v := ChassisTypeVMobileOther
-	return &v
-}
-
-// ChassisTypePMobileUnknown returns a pointer to ChassisTypeVMobileUnknown
-func ChassisTypePMobileUnknown() *ChassisType {
-	v := ChassisTypeVMobileUnknown
-	return &v
-}
+var (
+	_ChassisTypePUnknown          = ChassisTypeVUnknown
+	_ChassisTypePDesktop          = ChassisTypeVDesktop
+	_ChassisTypePLaptop           = ChassisTypeVLaptop
+	_ChassisTypePWorksWorkstation = ChassisTypeVWorksWorkstation
+	_ChassisTypePEnterpriseServer = ChassisTypeVEnterpriseServer
+	_ChassisTypePPhone            = ChassisTypeVPhone
+	_ChassisTypePTablet           = ChassisTypeVTablet
+	_ChassisTypePMobileOther      = ChassisTypeVMobileOther
+	_ChassisTypePMobileUnknown    = ChassisTypeVMobileUnknown
+)

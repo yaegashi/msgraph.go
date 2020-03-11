@@ -3,63 +3,48 @@
 package msgraph
 
 // WiredNetworkInterface undocumented
-type WiredNetworkInterface int
+type WiredNetworkInterface string
 
 const (
 	// WiredNetworkInterfaceVAnyEthernet undocumented
-	WiredNetworkInterfaceVAnyEthernet WiredNetworkInterface = 0
+	WiredNetworkInterfaceVAnyEthernet WiredNetworkInterface = "anyEthernet"
 	// WiredNetworkInterfaceVFirstActiveEthernet undocumented
-	WiredNetworkInterfaceVFirstActiveEthernet WiredNetworkInterface = 1
+	WiredNetworkInterfaceVFirstActiveEthernet WiredNetworkInterface = "firstActiveEthernet"
 	// WiredNetworkInterfaceVSecondActiveEthernet undocumented
-	WiredNetworkInterfaceVSecondActiveEthernet WiredNetworkInterface = 2
+	WiredNetworkInterfaceVSecondActiveEthernet WiredNetworkInterface = "secondActiveEthernet"
 	// WiredNetworkInterfaceVThirdActiveEthernet undocumented
-	WiredNetworkInterfaceVThirdActiveEthernet WiredNetworkInterface = 3
+	WiredNetworkInterfaceVThirdActiveEthernet WiredNetworkInterface = "thirdActiveEthernet"
 	// WiredNetworkInterfaceVFirstEthernet undocumented
-	WiredNetworkInterfaceVFirstEthernet WiredNetworkInterface = 4
+	WiredNetworkInterfaceVFirstEthernet WiredNetworkInterface = "firstEthernet"
 	// WiredNetworkInterfaceVSecondEthernet undocumented
-	WiredNetworkInterfaceVSecondEthernet WiredNetworkInterface = 5
+	WiredNetworkInterfaceVSecondEthernet WiredNetworkInterface = "secondEthernet"
 	// WiredNetworkInterfaceVThirdEthernet undocumented
-	WiredNetworkInterfaceVThirdEthernet WiredNetworkInterface = 6
+	WiredNetworkInterfaceVThirdEthernet WiredNetworkInterface = "thirdEthernet"
 )
 
-// WiredNetworkInterfacePAnyEthernet returns a pointer to WiredNetworkInterfaceVAnyEthernet
-func WiredNetworkInterfacePAnyEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVAnyEthernet
-	return &v
-}
+var (
+	// WiredNetworkInterfacePAnyEthernet is a pointer to WiredNetworkInterfaceVAnyEthernet
+	WiredNetworkInterfacePAnyEthernet = &_WiredNetworkInterfacePAnyEthernet
+	// WiredNetworkInterfacePFirstActiveEthernet is a pointer to WiredNetworkInterfaceVFirstActiveEthernet
+	WiredNetworkInterfacePFirstActiveEthernet = &_WiredNetworkInterfacePFirstActiveEthernet
+	// WiredNetworkInterfacePSecondActiveEthernet is a pointer to WiredNetworkInterfaceVSecondActiveEthernet
+	WiredNetworkInterfacePSecondActiveEthernet = &_WiredNetworkInterfacePSecondActiveEthernet
+	// WiredNetworkInterfacePThirdActiveEthernet is a pointer to WiredNetworkInterfaceVThirdActiveEthernet
+	WiredNetworkInterfacePThirdActiveEthernet = &_WiredNetworkInterfacePThirdActiveEthernet
+	// WiredNetworkInterfacePFirstEthernet is a pointer to WiredNetworkInterfaceVFirstEthernet
+	WiredNetworkInterfacePFirstEthernet = &_WiredNetworkInterfacePFirstEthernet
+	// WiredNetworkInterfacePSecondEthernet is a pointer to WiredNetworkInterfaceVSecondEthernet
+	WiredNetworkInterfacePSecondEthernet = &_WiredNetworkInterfacePSecondEthernet
+	// WiredNetworkInterfacePThirdEthernet is a pointer to WiredNetworkInterfaceVThirdEthernet
+	WiredNetworkInterfacePThirdEthernet = &_WiredNetworkInterfacePThirdEthernet
+)
 
-// WiredNetworkInterfacePFirstActiveEthernet returns a pointer to WiredNetworkInterfaceVFirstActiveEthernet
-func WiredNetworkInterfacePFirstActiveEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVFirstActiveEthernet
-	return &v
-}
-
-// WiredNetworkInterfacePSecondActiveEthernet returns a pointer to WiredNetworkInterfaceVSecondActiveEthernet
-func WiredNetworkInterfacePSecondActiveEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVSecondActiveEthernet
-	return &v
-}
-
-// WiredNetworkInterfacePThirdActiveEthernet returns a pointer to WiredNetworkInterfaceVThirdActiveEthernet
-func WiredNetworkInterfacePThirdActiveEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVThirdActiveEthernet
-	return &v
-}
-
-// WiredNetworkInterfacePFirstEthernet returns a pointer to WiredNetworkInterfaceVFirstEthernet
-func WiredNetworkInterfacePFirstEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVFirstEthernet
-	return &v
-}
-
-// WiredNetworkInterfacePSecondEthernet returns a pointer to WiredNetworkInterfaceVSecondEthernet
-func WiredNetworkInterfacePSecondEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVSecondEthernet
-	return &v
-}
-
-// WiredNetworkInterfacePThirdEthernet returns a pointer to WiredNetworkInterfaceVThirdEthernet
-func WiredNetworkInterfacePThirdEthernet() *WiredNetworkInterface {
-	v := WiredNetworkInterfaceVThirdEthernet
-	return &v
-}
+var (
+	_WiredNetworkInterfacePAnyEthernet          = WiredNetworkInterfaceVAnyEthernet
+	_WiredNetworkInterfacePFirstActiveEthernet  = WiredNetworkInterfaceVFirstActiveEthernet
+	_WiredNetworkInterfacePSecondActiveEthernet = WiredNetworkInterfaceVSecondActiveEthernet
+	_WiredNetworkInterfacePThirdActiveEthernet  = WiredNetworkInterfaceVThirdActiveEthernet
+	_WiredNetworkInterfacePFirstEthernet        = WiredNetworkInterfaceVFirstEthernet
+	_WiredNetworkInterfacePSecondEthernet       = WiredNetworkInterfaceVSecondEthernet
+	_WiredNetworkInterfacePThirdEthernet        = WiredNetworkInterfaceVThirdEthernet
+)

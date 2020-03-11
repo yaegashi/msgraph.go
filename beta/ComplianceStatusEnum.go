@@ -3,71 +3,53 @@
 package msgraph
 
 // ComplianceStatus undocumented
-type ComplianceStatus int
+type ComplianceStatus string
 
 const (
 	// ComplianceStatusVUnknown undocumented
-	ComplianceStatusVUnknown ComplianceStatus = 0
+	ComplianceStatusVUnknown ComplianceStatus = "unknown"
 	// ComplianceStatusVNotApplicable undocumented
-	ComplianceStatusVNotApplicable ComplianceStatus = 1
+	ComplianceStatusVNotApplicable ComplianceStatus = "notApplicable"
 	// ComplianceStatusVCompliant undocumented
-	ComplianceStatusVCompliant ComplianceStatus = 2
+	ComplianceStatusVCompliant ComplianceStatus = "compliant"
 	// ComplianceStatusVRemediated undocumented
-	ComplianceStatusVRemediated ComplianceStatus = 3
+	ComplianceStatusVRemediated ComplianceStatus = "remediated"
 	// ComplianceStatusVNonCompliant undocumented
-	ComplianceStatusVNonCompliant ComplianceStatus = 4
+	ComplianceStatusVNonCompliant ComplianceStatus = "nonCompliant"
 	// ComplianceStatusVError undocumented
-	ComplianceStatusVError ComplianceStatus = 5
+	ComplianceStatusVError ComplianceStatus = "error"
 	// ComplianceStatusVConflict undocumented
-	ComplianceStatusVConflict ComplianceStatus = 6
+	ComplianceStatusVConflict ComplianceStatus = "conflict"
 	// ComplianceStatusVNotAssigned undocumented
-	ComplianceStatusVNotAssigned ComplianceStatus = 7
+	ComplianceStatusVNotAssigned ComplianceStatus = "notAssigned"
 )
 
-// ComplianceStatusPUnknown returns a pointer to ComplianceStatusVUnknown
-func ComplianceStatusPUnknown() *ComplianceStatus {
-	v := ComplianceStatusVUnknown
-	return &v
-}
+var (
+	// ComplianceStatusPUnknown is a pointer to ComplianceStatusVUnknown
+	ComplianceStatusPUnknown = &_ComplianceStatusPUnknown
+	// ComplianceStatusPNotApplicable is a pointer to ComplianceStatusVNotApplicable
+	ComplianceStatusPNotApplicable = &_ComplianceStatusPNotApplicable
+	// ComplianceStatusPCompliant is a pointer to ComplianceStatusVCompliant
+	ComplianceStatusPCompliant = &_ComplianceStatusPCompliant
+	// ComplianceStatusPRemediated is a pointer to ComplianceStatusVRemediated
+	ComplianceStatusPRemediated = &_ComplianceStatusPRemediated
+	// ComplianceStatusPNonCompliant is a pointer to ComplianceStatusVNonCompliant
+	ComplianceStatusPNonCompliant = &_ComplianceStatusPNonCompliant
+	// ComplianceStatusPError is a pointer to ComplianceStatusVError
+	ComplianceStatusPError = &_ComplianceStatusPError
+	// ComplianceStatusPConflict is a pointer to ComplianceStatusVConflict
+	ComplianceStatusPConflict = &_ComplianceStatusPConflict
+	// ComplianceStatusPNotAssigned is a pointer to ComplianceStatusVNotAssigned
+	ComplianceStatusPNotAssigned = &_ComplianceStatusPNotAssigned
+)
 
-// ComplianceStatusPNotApplicable returns a pointer to ComplianceStatusVNotApplicable
-func ComplianceStatusPNotApplicable() *ComplianceStatus {
-	v := ComplianceStatusVNotApplicable
-	return &v
-}
-
-// ComplianceStatusPCompliant returns a pointer to ComplianceStatusVCompliant
-func ComplianceStatusPCompliant() *ComplianceStatus {
-	v := ComplianceStatusVCompliant
-	return &v
-}
-
-// ComplianceStatusPRemediated returns a pointer to ComplianceStatusVRemediated
-func ComplianceStatusPRemediated() *ComplianceStatus {
-	v := ComplianceStatusVRemediated
-	return &v
-}
-
-// ComplianceStatusPNonCompliant returns a pointer to ComplianceStatusVNonCompliant
-func ComplianceStatusPNonCompliant() *ComplianceStatus {
-	v := ComplianceStatusVNonCompliant
-	return &v
-}
-
-// ComplianceStatusPError returns a pointer to ComplianceStatusVError
-func ComplianceStatusPError() *ComplianceStatus {
-	v := ComplianceStatusVError
-	return &v
-}
-
-// ComplianceStatusPConflict returns a pointer to ComplianceStatusVConflict
-func ComplianceStatusPConflict() *ComplianceStatus {
-	v := ComplianceStatusVConflict
-	return &v
-}
-
-// ComplianceStatusPNotAssigned returns a pointer to ComplianceStatusVNotAssigned
-func ComplianceStatusPNotAssigned() *ComplianceStatus {
-	v := ComplianceStatusVNotAssigned
-	return &v
-}
+var (
+	_ComplianceStatusPUnknown       = ComplianceStatusVUnknown
+	_ComplianceStatusPNotApplicable = ComplianceStatusVNotApplicable
+	_ComplianceStatusPCompliant     = ComplianceStatusVCompliant
+	_ComplianceStatusPRemediated    = ComplianceStatusVRemediated
+	_ComplianceStatusPNonCompliant  = ComplianceStatusVNonCompliant
+	_ComplianceStatusPError         = ComplianceStatusVError
+	_ComplianceStatusPConflict      = ComplianceStatusVConflict
+	_ComplianceStatusPNotAssigned   = ComplianceStatusVNotAssigned
+)

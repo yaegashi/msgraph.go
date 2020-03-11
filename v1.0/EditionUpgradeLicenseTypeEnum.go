@@ -3,23 +3,23 @@
 package msgraph
 
 // EditionUpgradeLicenseType undocumented
-type EditionUpgradeLicenseType int
+type EditionUpgradeLicenseType string
 
 const (
 	// EditionUpgradeLicenseTypeVProductKey undocumented
-	EditionUpgradeLicenseTypeVProductKey EditionUpgradeLicenseType = 0
+	EditionUpgradeLicenseTypeVProductKey EditionUpgradeLicenseType = "productKey"
 	// EditionUpgradeLicenseTypeVLicenseFile undocumented
-	EditionUpgradeLicenseTypeVLicenseFile EditionUpgradeLicenseType = 1
+	EditionUpgradeLicenseTypeVLicenseFile EditionUpgradeLicenseType = "licenseFile"
 )
 
-// EditionUpgradeLicenseTypePProductKey returns a pointer to EditionUpgradeLicenseTypeVProductKey
-func EditionUpgradeLicenseTypePProductKey() *EditionUpgradeLicenseType {
-	v := EditionUpgradeLicenseTypeVProductKey
-	return &v
-}
+var (
+	// EditionUpgradeLicenseTypePProductKey is a pointer to EditionUpgradeLicenseTypeVProductKey
+	EditionUpgradeLicenseTypePProductKey = &_EditionUpgradeLicenseTypePProductKey
+	// EditionUpgradeLicenseTypePLicenseFile is a pointer to EditionUpgradeLicenseTypeVLicenseFile
+	EditionUpgradeLicenseTypePLicenseFile = &_EditionUpgradeLicenseTypePLicenseFile
+)
 
-// EditionUpgradeLicenseTypePLicenseFile returns a pointer to EditionUpgradeLicenseTypeVLicenseFile
-func EditionUpgradeLicenseTypePLicenseFile() *EditionUpgradeLicenseType {
-	v := EditionUpgradeLicenseTypeVLicenseFile
-	return &v
-}
+var (
+	_EditionUpgradeLicenseTypePProductKey  = EditionUpgradeLicenseTypeVProductKey
+	_EditionUpgradeLicenseTypePLicenseFile = EditionUpgradeLicenseTypeVLicenseFile
+)

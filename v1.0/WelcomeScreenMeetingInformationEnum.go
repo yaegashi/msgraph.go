@@ -3,31 +3,28 @@
 package msgraph
 
 // WelcomeScreenMeetingInformation undocumented
-type WelcomeScreenMeetingInformation int
+type WelcomeScreenMeetingInformation string
 
 const (
 	// WelcomeScreenMeetingInformationVUserDefined undocumented
-	WelcomeScreenMeetingInformationVUserDefined WelcomeScreenMeetingInformation = 0
+	WelcomeScreenMeetingInformationVUserDefined WelcomeScreenMeetingInformation = "userDefined"
 	// WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly undocumented
-	WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly WelcomeScreenMeetingInformation = 1
+	WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly WelcomeScreenMeetingInformation = "showOrganizerAndTimeOnly"
 	// WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject undocumented
-	WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject WelcomeScreenMeetingInformation = 2
+	WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject WelcomeScreenMeetingInformation = "showOrganizerAndTimeAndSubject"
 )
 
-// WelcomeScreenMeetingInformationPUserDefined returns a pointer to WelcomeScreenMeetingInformationVUserDefined
-func WelcomeScreenMeetingInformationPUserDefined() *WelcomeScreenMeetingInformation {
-	v := WelcomeScreenMeetingInformationVUserDefined
-	return &v
-}
+var (
+	// WelcomeScreenMeetingInformationPUserDefined is a pointer to WelcomeScreenMeetingInformationVUserDefined
+	WelcomeScreenMeetingInformationPUserDefined = &_WelcomeScreenMeetingInformationPUserDefined
+	// WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly is a pointer to WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly
+	WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly = &_WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly
+	// WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject is a pointer to WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject
+	WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject = &_WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject
+)
 
-// WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly returns a pointer to WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly
-func WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly() *WelcomeScreenMeetingInformation {
-	v := WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly
-	return &v
-}
-
-// WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject returns a pointer to WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject
-func WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject() *WelcomeScreenMeetingInformation {
-	v := WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject
-	return &v
-}
+var (
+	_WelcomeScreenMeetingInformationPUserDefined                    = WelcomeScreenMeetingInformationVUserDefined
+	_WelcomeScreenMeetingInformationPShowOrganizerAndTimeOnly       = WelcomeScreenMeetingInformationVShowOrganizerAndTimeOnly
+	_WelcomeScreenMeetingInformationPShowOrganizerAndTimeAndSubject = WelcomeScreenMeetingInformationVShowOrganizerAndTimeAndSubject
+)

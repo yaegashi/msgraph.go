@@ -3,55 +3,43 @@
 package msgraph
 
 // WindowsDeviceHealthState undocumented
-type WindowsDeviceHealthState int
+type WindowsDeviceHealthState string
 
 const (
 	// WindowsDeviceHealthStateVClean undocumented
-	WindowsDeviceHealthStateVClean WindowsDeviceHealthState = 0
+	WindowsDeviceHealthStateVClean WindowsDeviceHealthState = "clean"
 	// WindowsDeviceHealthStateVFullScanPending undocumented
-	WindowsDeviceHealthStateVFullScanPending WindowsDeviceHealthState = 1
+	WindowsDeviceHealthStateVFullScanPending WindowsDeviceHealthState = "fullScanPending"
 	// WindowsDeviceHealthStateVRebootPending undocumented
-	WindowsDeviceHealthStateVRebootPending WindowsDeviceHealthState = 2
+	WindowsDeviceHealthStateVRebootPending WindowsDeviceHealthState = "rebootPending"
 	// WindowsDeviceHealthStateVManualStepsPending undocumented
-	WindowsDeviceHealthStateVManualStepsPending WindowsDeviceHealthState = 4
+	WindowsDeviceHealthStateVManualStepsPending WindowsDeviceHealthState = "manualStepsPending"
 	// WindowsDeviceHealthStateVOfflineScanPending undocumented
-	WindowsDeviceHealthStateVOfflineScanPending WindowsDeviceHealthState = 8
+	WindowsDeviceHealthStateVOfflineScanPending WindowsDeviceHealthState = "offlineScanPending"
 	// WindowsDeviceHealthStateVCritical undocumented
-	WindowsDeviceHealthStateVCritical WindowsDeviceHealthState = 16
+	WindowsDeviceHealthStateVCritical WindowsDeviceHealthState = "critical"
 )
 
-// WindowsDeviceHealthStatePClean returns a pointer to WindowsDeviceHealthStateVClean
-func WindowsDeviceHealthStatePClean() *WindowsDeviceHealthState {
-	v := WindowsDeviceHealthStateVClean
-	return &v
-}
+var (
+	// WindowsDeviceHealthStatePClean is a pointer to WindowsDeviceHealthStateVClean
+	WindowsDeviceHealthStatePClean = &_WindowsDeviceHealthStatePClean
+	// WindowsDeviceHealthStatePFullScanPending is a pointer to WindowsDeviceHealthStateVFullScanPending
+	WindowsDeviceHealthStatePFullScanPending = &_WindowsDeviceHealthStatePFullScanPending
+	// WindowsDeviceHealthStatePRebootPending is a pointer to WindowsDeviceHealthStateVRebootPending
+	WindowsDeviceHealthStatePRebootPending = &_WindowsDeviceHealthStatePRebootPending
+	// WindowsDeviceHealthStatePManualStepsPending is a pointer to WindowsDeviceHealthStateVManualStepsPending
+	WindowsDeviceHealthStatePManualStepsPending = &_WindowsDeviceHealthStatePManualStepsPending
+	// WindowsDeviceHealthStatePOfflineScanPending is a pointer to WindowsDeviceHealthStateVOfflineScanPending
+	WindowsDeviceHealthStatePOfflineScanPending = &_WindowsDeviceHealthStatePOfflineScanPending
+	// WindowsDeviceHealthStatePCritical is a pointer to WindowsDeviceHealthStateVCritical
+	WindowsDeviceHealthStatePCritical = &_WindowsDeviceHealthStatePCritical
+)
 
-// WindowsDeviceHealthStatePFullScanPending returns a pointer to WindowsDeviceHealthStateVFullScanPending
-func WindowsDeviceHealthStatePFullScanPending() *WindowsDeviceHealthState {
-	v := WindowsDeviceHealthStateVFullScanPending
-	return &v
-}
-
-// WindowsDeviceHealthStatePRebootPending returns a pointer to WindowsDeviceHealthStateVRebootPending
-func WindowsDeviceHealthStatePRebootPending() *WindowsDeviceHealthState {
-	v := WindowsDeviceHealthStateVRebootPending
-	return &v
-}
-
-// WindowsDeviceHealthStatePManualStepsPending returns a pointer to WindowsDeviceHealthStateVManualStepsPending
-func WindowsDeviceHealthStatePManualStepsPending() *WindowsDeviceHealthState {
-	v := WindowsDeviceHealthStateVManualStepsPending
-	return &v
-}
-
-// WindowsDeviceHealthStatePOfflineScanPending returns a pointer to WindowsDeviceHealthStateVOfflineScanPending
-func WindowsDeviceHealthStatePOfflineScanPending() *WindowsDeviceHealthState {
-	v := WindowsDeviceHealthStateVOfflineScanPending
-	return &v
-}
-
-// WindowsDeviceHealthStatePCritical returns a pointer to WindowsDeviceHealthStateVCritical
-func WindowsDeviceHealthStatePCritical() *WindowsDeviceHealthState {
-	v := WindowsDeviceHealthStateVCritical
-	return &v
-}
+var (
+	_WindowsDeviceHealthStatePClean              = WindowsDeviceHealthStateVClean
+	_WindowsDeviceHealthStatePFullScanPending    = WindowsDeviceHealthStateVFullScanPending
+	_WindowsDeviceHealthStatePRebootPending      = WindowsDeviceHealthStateVRebootPending
+	_WindowsDeviceHealthStatePManualStepsPending = WindowsDeviceHealthStateVManualStepsPending
+	_WindowsDeviceHealthStatePOfflineScanPending = WindowsDeviceHealthStateVOfflineScanPending
+	_WindowsDeviceHealthStatePCritical           = WindowsDeviceHealthStateVCritical
+)

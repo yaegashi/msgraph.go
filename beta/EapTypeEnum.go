@@ -3,55 +3,43 @@
 package msgraph
 
 // EapType undocumented
-type EapType int
+type EapType string
 
 const (
 	// EapTypeVEapTLS undocumented
-	EapTypeVEapTLS EapType = 13
+	EapTypeVEapTLS EapType = "eapTls"
 	// EapTypeVLeap undocumented
-	EapTypeVLeap EapType = 17
+	EapTypeVLeap EapType = "leap"
 	// EapTypeVEapSim undocumented
-	EapTypeVEapSim EapType = 18
+	EapTypeVEapSim EapType = "eapSim"
 	// EapTypeVEapTtls undocumented
-	EapTypeVEapTtls EapType = 21
+	EapTypeVEapTtls EapType = "eapTtls"
 	// EapTypeVPeap undocumented
-	EapTypeVPeap EapType = 25
+	EapTypeVPeap EapType = "peap"
 	// EapTypeVEapFast undocumented
-	EapTypeVEapFast EapType = 43
+	EapTypeVEapFast EapType = "eapFast"
 )
 
-// EapTypePEapTLS returns a pointer to EapTypeVEapTLS
-func EapTypePEapTLS() *EapType {
-	v := EapTypeVEapTLS
-	return &v
-}
+var (
+	// EapTypePEapTLS is a pointer to EapTypeVEapTLS
+	EapTypePEapTLS = &_EapTypePEapTLS
+	// EapTypePLeap is a pointer to EapTypeVLeap
+	EapTypePLeap = &_EapTypePLeap
+	// EapTypePEapSim is a pointer to EapTypeVEapSim
+	EapTypePEapSim = &_EapTypePEapSim
+	// EapTypePEapTtls is a pointer to EapTypeVEapTtls
+	EapTypePEapTtls = &_EapTypePEapTtls
+	// EapTypePPeap is a pointer to EapTypeVPeap
+	EapTypePPeap = &_EapTypePPeap
+	// EapTypePEapFast is a pointer to EapTypeVEapFast
+	EapTypePEapFast = &_EapTypePEapFast
+)
 
-// EapTypePLeap returns a pointer to EapTypeVLeap
-func EapTypePLeap() *EapType {
-	v := EapTypeVLeap
-	return &v
-}
-
-// EapTypePEapSim returns a pointer to EapTypeVEapSim
-func EapTypePEapSim() *EapType {
-	v := EapTypeVEapSim
-	return &v
-}
-
-// EapTypePEapTtls returns a pointer to EapTypeVEapTtls
-func EapTypePEapTtls() *EapType {
-	v := EapTypeVEapTtls
-	return &v
-}
-
-// EapTypePPeap returns a pointer to EapTypeVPeap
-func EapTypePPeap() *EapType {
-	v := EapTypeVPeap
-	return &v
-}
-
-// EapTypePEapFast returns a pointer to EapTypeVEapFast
-func EapTypePEapFast() *EapType {
-	v := EapTypeVEapFast
-	return &v
-}
+var (
+	_EapTypePEapTLS  = EapTypeVEapTLS
+	_EapTypePLeap    = EapTypeVLeap
+	_EapTypePEapSim  = EapTypeVEapSim
+	_EapTypePEapTtls = EapTypeVEapTtls
+	_EapTypePPeap    = EapTypeVPeap
+	_EapTypePEapFast = EapTypeVEapFast
+)

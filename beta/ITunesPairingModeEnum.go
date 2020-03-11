@@ -3,31 +3,28 @@
 package msgraph
 
 // ITunesPairingMode undocumented
-type ITunesPairingMode int
+type ITunesPairingMode string
 
 const (
 	// ITunesPairingModeVDisallow undocumented
-	ITunesPairingModeVDisallow ITunesPairingMode = 0
+	ITunesPairingModeVDisallow ITunesPairingMode = "disallow"
 	// ITunesPairingModeVAllow undocumented
-	ITunesPairingModeVAllow ITunesPairingMode = 1
+	ITunesPairingModeVAllow ITunesPairingMode = "allow"
 	// ITunesPairingModeVRequiresCertificate undocumented
-	ITunesPairingModeVRequiresCertificate ITunesPairingMode = 2
+	ITunesPairingModeVRequiresCertificate ITunesPairingMode = "requiresCertificate"
 )
 
-// ITunesPairingModePDisallow returns a pointer to ITunesPairingModeVDisallow
-func ITunesPairingModePDisallow() *ITunesPairingMode {
-	v := ITunesPairingModeVDisallow
-	return &v
-}
+var (
+	// ITunesPairingModePDisallow is a pointer to ITunesPairingModeVDisallow
+	ITunesPairingModePDisallow = &_ITunesPairingModePDisallow
+	// ITunesPairingModePAllow is a pointer to ITunesPairingModeVAllow
+	ITunesPairingModePAllow = &_ITunesPairingModePAllow
+	// ITunesPairingModePRequiresCertificate is a pointer to ITunesPairingModeVRequiresCertificate
+	ITunesPairingModePRequiresCertificate = &_ITunesPairingModePRequiresCertificate
+)
 
-// ITunesPairingModePAllow returns a pointer to ITunesPairingModeVAllow
-func ITunesPairingModePAllow() *ITunesPairingMode {
-	v := ITunesPairingModeVAllow
-	return &v
-}
-
-// ITunesPairingModePRequiresCertificate returns a pointer to ITunesPairingModeVRequiresCertificate
-func ITunesPairingModePRequiresCertificate() *ITunesPairingMode {
-	v := ITunesPairingModeVRequiresCertificate
-	return &v
-}
+var (
+	_ITunesPairingModePDisallow            = ITunesPairingModeVDisallow
+	_ITunesPairingModePAllow               = ITunesPairingModeVAllow
+	_ITunesPairingModePRequiresCertificate = ITunesPairingModeVRequiresCertificate
+)

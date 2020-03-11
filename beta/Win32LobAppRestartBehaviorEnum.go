@@ -3,39 +3,33 @@
 package msgraph
 
 // Win32LobAppRestartBehavior undocumented
-type Win32LobAppRestartBehavior int
+type Win32LobAppRestartBehavior string
 
 const (
 	// Win32LobAppRestartBehaviorVBasedOnReturnCode undocumented
-	Win32LobAppRestartBehaviorVBasedOnReturnCode Win32LobAppRestartBehavior = 0
+	Win32LobAppRestartBehaviorVBasedOnReturnCode Win32LobAppRestartBehavior = "basedOnReturnCode"
 	// Win32LobAppRestartBehaviorVAllow undocumented
-	Win32LobAppRestartBehaviorVAllow Win32LobAppRestartBehavior = 1
+	Win32LobAppRestartBehaviorVAllow Win32LobAppRestartBehavior = "allow"
 	// Win32LobAppRestartBehaviorVSuppress undocumented
-	Win32LobAppRestartBehaviorVSuppress Win32LobAppRestartBehavior = 2
+	Win32LobAppRestartBehaviorVSuppress Win32LobAppRestartBehavior = "suppress"
 	// Win32LobAppRestartBehaviorVForce undocumented
-	Win32LobAppRestartBehaviorVForce Win32LobAppRestartBehavior = 3
+	Win32LobAppRestartBehaviorVForce Win32LobAppRestartBehavior = "force"
 )
 
-// Win32LobAppRestartBehaviorPBasedOnReturnCode returns a pointer to Win32LobAppRestartBehaviorVBasedOnReturnCode
-func Win32LobAppRestartBehaviorPBasedOnReturnCode() *Win32LobAppRestartBehavior {
-	v := Win32LobAppRestartBehaviorVBasedOnReturnCode
-	return &v
-}
+var (
+	// Win32LobAppRestartBehaviorPBasedOnReturnCode is a pointer to Win32LobAppRestartBehaviorVBasedOnReturnCode
+	Win32LobAppRestartBehaviorPBasedOnReturnCode = &_Win32LobAppRestartBehaviorPBasedOnReturnCode
+	// Win32LobAppRestartBehaviorPAllow is a pointer to Win32LobAppRestartBehaviorVAllow
+	Win32LobAppRestartBehaviorPAllow = &_Win32LobAppRestartBehaviorPAllow
+	// Win32LobAppRestartBehaviorPSuppress is a pointer to Win32LobAppRestartBehaviorVSuppress
+	Win32LobAppRestartBehaviorPSuppress = &_Win32LobAppRestartBehaviorPSuppress
+	// Win32LobAppRestartBehaviorPForce is a pointer to Win32LobAppRestartBehaviorVForce
+	Win32LobAppRestartBehaviorPForce = &_Win32LobAppRestartBehaviorPForce
+)
 
-// Win32LobAppRestartBehaviorPAllow returns a pointer to Win32LobAppRestartBehaviorVAllow
-func Win32LobAppRestartBehaviorPAllow() *Win32LobAppRestartBehavior {
-	v := Win32LobAppRestartBehaviorVAllow
-	return &v
-}
-
-// Win32LobAppRestartBehaviorPSuppress returns a pointer to Win32LobAppRestartBehaviorVSuppress
-func Win32LobAppRestartBehaviorPSuppress() *Win32LobAppRestartBehavior {
-	v := Win32LobAppRestartBehaviorVSuppress
-	return &v
-}
-
-// Win32LobAppRestartBehaviorPForce returns a pointer to Win32LobAppRestartBehaviorVForce
-func Win32LobAppRestartBehaviorPForce() *Win32LobAppRestartBehavior {
-	v := Win32LobAppRestartBehaviorVForce
-	return &v
-}
+var (
+	_Win32LobAppRestartBehaviorPBasedOnReturnCode = Win32LobAppRestartBehaviorVBasedOnReturnCode
+	_Win32LobAppRestartBehaviorPAllow             = Win32LobAppRestartBehaviorVAllow
+	_Win32LobAppRestartBehaviorPSuppress          = Win32LobAppRestartBehaviorVSuppress
+	_Win32LobAppRestartBehaviorPForce             = Win32LobAppRestartBehaviorVForce
+)

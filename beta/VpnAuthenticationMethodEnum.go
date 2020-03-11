@@ -3,39 +3,33 @@
 package msgraph
 
 // VpnAuthenticationMethod undocumented
-type VpnAuthenticationMethod int
+type VpnAuthenticationMethod string
 
 const (
 	// VpnAuthenticationMethodVCertificate undocumented
-	VpnAuthenticationMethodVCertificate VpnAuthenticationMethod = 0
+	VpnAuthenticationMethodVCertificate VpnAuthenticationMethod = "certificate"
 	// VpnAuthenticationMethodVUsernameAndPassword undocumented
-	VpnAuthenticationMethodVUsernameAndPassword VpnAuthenticationMethod = 1
+	VpnAuthenticationMethodVUsernameAndPassword VpnAuthenticationMethod = "usernameAndPassword"
 	// VpnAuthenticationMethodVSharedSecret undocumented
-	VpnAuthenticationMethodVSharedSecret VpnAuthenticationMethod = 2
+	VpnAuthenticationMethodVSharedSecret VpnAuthenticationMethod = "sharedSecret"
 	// VpnAuthenticationMethodVDerivedCredential undocumented
-	VpnAuthenticationMethodVDerivedCredential VpnAuthenticationMethod = 3
+	VpnAuthenticationMethodVDerivedCredential VpnAuthenticationMethod = "derivedCredential"
 )
 
-// VpnAuthenticationMethodPCertificate returns a pointer to VpnAuthenticationMethodVCertificate
-func VpnAuthenticationMethodPCertificate() *VpnAuthenticationMethod {
-	v := VpnAuthenticationMethodVCertificate
-	return &v
-}
+var (
+	// VpnAuthenticationMethodPCertificate is a pointer to VpnAuthenticationMethodVCertificate
+	VpnAuthenticationMethodPCertificate = &_VpnAuthenticationMethodPCertificate
+	// VpnAuthenticationMethodPUsernameAndPassword is a pointer to VpnAuthenticationMethodVUsernameAndPassword
+	VpnAuthenticationMethodPUsernameAndPassword = &_VpnAuthenticationMethodPUsernameAndPassword
+	// VpnAuthenticationMethodPSharedSecret is a pointer to VpnAuthenticationMethodVSharedSecret
+	VpnAuthenticationMethodPSharedSecret = &_VpnAuthenticationMethodPSharedSecret
+	// VpnAuthenticationMethodPDerivedCredential is a pointer to VpnAuthenticationMethodVDerivedCredential
+	VpnAuthenticationMethodPDerivedCredential = &_VpnAuthenticationMethodPDerivedCredential
+)
 
-// VpnAuthenticationMethodPUsernameAndPassword returns a pointer to VpnAuthenticationMethodVUsernameAndPassword
-func VpnAuthenticationMethodPUsernameAndPassword() *VpnAuthenticationMethod {
-	v := VpnAuthenticationMethodVUsernameAndPassword
-	return &v
-}
-
-// VpnAuthenticationMethodPSharedSecret returns a pointer to VpnAuthenticationMethodVSharedSecret
-func VpnAuthenticationMethodPSharedSecret() *VpnAuthenticationMethod {
-	v := VpnAuthenticationMethodVSharedSecret
-	return &v
-}
-
-// VpnAuthenticationMethodPDerivedCredential returns a pointer to VpnAuthenticationMethodVDerivedCredential
-func VpnAuthenticationMethodPDerivedCredential() *VpnAuthenticationMethod {
-	v := VpnAuthenticationMethodVDerivedCredential
-	return &v
-}
+var (
+	_VpnAuthenticationMethodPCertificate         = VpnAuthenticationMethodVCertificate
+	_VpnAuthenticationMethodPUsernameAndPassword = VpnAuthenticationMethodVUsernameAndPassword
+	_VpnAuthenticationMethodPSharedSecret        = VpnAuthenticationMethodVSharedSecret
+	_VpnAuthenticationMethodPDerivedCredential   = VpnAuthenticationMethodVDerivedCredential
+)

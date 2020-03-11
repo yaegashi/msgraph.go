@@ -3,79 +3,58 @@
 package msgraph
 
 // RecordCompletionReason undocumented
-type RecordCompletionReason int
+type RecordCompletionReason string
 
 const (
 	// RecordCompletionReasonVOperationCanceled undocumented
-	RecordCompletionReasonVOperationCanceled RecordCompletionReason = 0
+	RecordCompletionReasonVOperationCanceled RecordCompletionReason = "operationCanceled"
 	// RecordCompletionReasonVStopToneDetected undocumented
-	RecordCompletionReasonVStopToneDetected RecordCompletionReason = 1
+	RecordCompletionReasonVStopToneDetected RecordCompletionReason = "stopToneDetected"
 	// RecordCompletionReasonVMaxRecordDurationReached undocumented
-	RecordCompletionReasonVMaxRecordDurationReached RecordCompletionReason = 2
+	RecordCompletionReasonVMaxRecordDurationReached RecordCompletionReason = "maxRecordDurationReached"
 	// RecordCompletionReasonVInitialSilenceTimeout undocumented
-	RecordCompletionReasonVInitialSilenceTimeout RecordCompletionReason = 3
+	RecordCompletionReasonVInitialSilenceTimeout RecordCompletionReason = "initialSilenceTimeout"
 	// RecordCompletionReasonVMaxSilenceTimeout undocumented
-	RecordCompletionReasonVMaxSilenceTimeout RecordCompletionReason = 4
+	RecordCompletionReasonVMaxSilenceTimeout RecordCompletionReason = "maxSilenceTimeout"
 	// RecordCompletionReasonVPlayPromptFailed undocumented
-	RecordCompletionReasonVPlayPromptFailed RecordCompletionReason = 5
+	RecordCompletionReasonVPlayPromptFailed RecordCompletionReason = "playPromptFailed"
 	// RecordCompletionReasonVPlayBeepFailed undocumented
-	RecordCompletionReasonVPlayBeepFailed RecordCompletionReason = 6
+	RecordCompletionReasonVPlayBeepFailed RecordCompletionReason = "playBeepFailed"
 	// RecordCompletionReasonVMediaReceiveTimeout undocumented
-	RecordCompletionReasonVMediaReceiveTimeout RecordCompletionReason = 7
+	RecordCompletionReasonVMediaReceiveTimeout RecordCompletionReason = "mediaReceiveTimeout"
 	// RecordCompletionReasonVUnspecifiedError undocumented
-	RecordCompletionReasonVUnspecifiedError RecordCompletionReason = 8
+	RecordCompletionReasonVUnspecifiedError RecordCompletionReason = "unspecifiedError"
 )
 
-// RecordCompletionReasonPOperationCanceled returns a pointer to RecordCompletionReasonVOperationCanceled
-func RecordCompletionReasonPOperationCanceled() *RecordCompletionReason {
-	v := RecordCompletionReasonVOperationCanceled
-	return &v
-}
+var (
+	// RecordCompletionReasonPOperationCanceled is a pointer to RecordCompletionReasonVOperationCanceled
+	RecordCompletionReasonPOperationCanceled = &_RecordCompletionReasonPOperationCanceled
+	// RecordCompletionReasonPStopToneDetected is a pointer to RecordCompletionReasonVStopToneDetected
+	RecordCompletionReasonPStopToneDetected = &_RecordCompletionReasonPStopToneDetected
+	// RecordCompletionReasonPMaxRecordDurationReached is a pointer to RecordCompletionReasonVMaxRecordDurationReached
+	RecordCompletionReasonPMaxRecordDurationReached = &_RecordCompletionReasonPMaxRecordDurationReached
+	// RecordCompletionReasonPInitialSilenceTimeout is a pointer to RecordCompletionReasonVInitialSilenceTimeout
+	RecordCompletionReasonPInitialSilenceTimeout = &_RecordCompletionReasonPInitialSilenceTimeout
+	// RecordCompletionReasonPMaxSilenceTimeout is a pointer to RecordCompletionReasonVMaxSilenceTimeout
+	RecordCompletionReasonPMaxSilenceTimeout = &_RecordCompletionReasonPMaxSilenceTimeout
+	// RecordCompletionReasonPPlayPromptFailed is a pointer to RecordCompletionReasonVPlayPromptFailed
+	RecordCompletionReasonPPlayPromptFailed = &_RecordCompletionReasonPPlayPromptFailed
+	// RecordCompletionReasonPPlayBeepFailed is a pointer to RecordCompletionReasonVPlayBeepFailed
+	RecordCompletionReasonPPlayBeepFailed = &_RecordCompletionReasonPPlayBeepFailed
+	// RecordCompletionReasonPMediaReceiveTimeout is a pointer to RecordCompletionReasonVMediaReceiveTimeout
+	RecordCompletionReasonPMediaReceiveTimeout = &_RecordCompletionReasonPMediaReceiveTimeout
+	// RecordCompletionReasonPUnspecifiedError is a pointer to RecordCompletionReasonVUnspecifiedError
+	RecordCompletionReasonPUnspecifiedError = &_RecordCompletionReasonPUnspecifiedError
+)
 
-// RecordCompletionReasonPStopToneDetected returns a pointer to RecordCompletionReasonVStopToneDetected
-func RecordCompletionReasonPStopToneDetected() *RecordCompletionReason {
-	v := RecordCompletionReasonVStopToneDetected
-	return &v
-}
-
-// RecordCompletionReasonPMaxRecordDurationReached returns a pointer to RecordCompletionReasonVMaxRecordDurationReached
-func RecordCompletionReasonPMaxRecordDurationReached() *RecordCompletionReason {
-	v := RecordCompletionReasonVMaxRecordDurationReached
-	return &v
-}
-
-// RecordCompletionReasonPInitialSilenceTimeout returns a pointer to RecordCompletionReasonVInitialSilenceTimeout
-func RecordCompletionReasonPInitialSilenceTimeout() *RecordCompletionReason {
-	v := RecordCompletionReasonVInitialSilenceTimeout
-	return &v
-}
-
-// RecordCompletionReasonPMaxSilenceTimeout returns a pointer to RecordCompletionReasonVMaxSilenceTimeout
-func RecordCompletionReasonPMaxSilenceTimeout() *RecordCompletionReason {
-	v := RecordCompletionReasonVMaxSilenceTimeout
-	return &v
-}
-
-// RecordCompletionReasonPPlayPromptFailed returns a pointer to RecordCompletionReasonVPlayPromptFailed
-func RecordCompletionReasonPPlayPromptFailed() *RecordCompletionReason {
-	v := RecordCompletionReasonVPlayPromptFailed
-	return &v
-}
-
-// RecordCompletionReasonPPlayBeepFailed returns a pointer to RecordCompletionReasonVPlayBeepFailed
-func RecordCompletionReasonPPlayBeepFailed() *RecordCompletionReason {
-	v := RecordCompletionReasonVPlayBeepFailed
-	return &v
-}
-
-// RecordCompletionReasonPMediaReceiveTimeout returns a pointer to RecordCompletionReasonVMediaReceiveTimeout
-func RecordCompletionReasonPMediaReceiveTimeout() *RecordCompletionReason {
-	v := RecordCompletionReasonVMediaReceiveTimeout
-	return &v
-}
-
-// RecordCompletionReasonPUnspecifiedError returns a pointer to RecordCompletionReasonVUnspecifiedError
-func RecordCompletionReasonPUnspecifiedError() *RecordCompletionReason {
-	v := RecordCompletionReasonVUnspecifiedError
-	return &v
-}
+var (
+	_RecordCompletionReasonPOperationCanceled        = RecordCompletionReasonVOperationCanceled
+	_RecordCompletionReasonPStopToneDetected         = RecordCompletionReasonVStopToneDetected
+	_RecordCompletionReasonPMaxRecordDurationReached = RecordCompletionReasonVMaxRecordDurationReached
+	_RecordCompletionReasonPInitialSilenceTimeout    = RecordCompletionReasonVInitialSilenceTimeout
+	_RecordCompletionReasonPMaxSilenceTimeout        = RecordCompletionReasonVMaxSilenceTimeout
+	_RecordCompletionReasonPPlayPromptFailed         = RecordCompletionReasonVPlayPromptFailed
+	_RecordCompletionReasonPPlayBeepFailed           = RecordCompletionReasonVPlayBeepFailed
+	_RecordCompletionReasonPMediaReceiveTimeout      = RecordCompletionReasonVMediaReceiveTimeout
+	_RecordCompletionReasonPUnspecifiedError         = RecordCompletionReasonVUnspecifiedError
+)

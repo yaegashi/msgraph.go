@@ -3,15 +3,18 @@
 package msgraph
 
 // UnaryManagementConditionExpressionOperatorType undocumented
-type UnaryManagementConditionExpressionOperatorType int
+type UnaryManagementConditionExpressionOperatorType string
 
 const (
 	// UnaryManagementConditionExpressionOperatorTypeVNot undocumented
-	UnaryManagementConditionExpressionOperatorTypeVNot UnaryManagementConditionExpressionOperatorType = 0
+	UnaryManagementConditionExpressionOperatorTypeVNot UnaryManagementConditionExpressionOperatorType = "not"
 )
 
-// UnaryManagementConditionExpressionOperatorTypePNot returns a pointer to UnaryManagementConditionExpressionOperatorTypeVNot
-func UnaryManagementConditionExpressionOperatorTypePNot() *UnaryManagementConditionExpressionOperatorType {
-	v := UnaryManagementConditionExpressionOperatorTypeVNot
-	return &v
-}
+var (
+	// UnaryManagementConditionExpressionOperatorTypePNot is a pointer to UnaryManagementConditionExpressionOperatorTypeVNot
+	UnaryManagementConditionExpressionOperatorTypePNot = &_UnaryManagementConditionExpressionOperatorTypePNot
+)
+
+var (
+	_UnaryManagementConditionExpressionOperatorTypePNot = UnaryManagementConditionExpressionOperatorTypeVNot
+)

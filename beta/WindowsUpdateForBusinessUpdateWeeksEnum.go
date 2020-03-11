@@ -3,55 +3,43 @@
 package msgraph
 
 // WindowsUpdateForBusinessUpdateWeeks undocumented
-type WindowsUpdateForBusinessUpdateWeeks int
+type WindowsUpdateForBusinessUpdateWeeks string
 
 const (
 	// WindowsUpdateForBusinessUpdateWeeksVUserDefined undocumented
-	WindowsUpdateForBusinessUpdateWeeksVUserDefined WindowsUpdateForBusinessUpdateWeeks = 0
+	WindowsUpdateForBusinessUpdateWeeksVUserDefined WindowsUpdateForBusinessUpdateWeeks = "userDefined"
 	// WindowsUpdateForBusinessUpdateWeeksVFirstWeek undocumented
-	WindowsUpdateForBusinessUpdateWeeksVFirstWeek WindowsUpdateForBusinessUpdateWeeks = 1
+	WindowsUpdateForBusinessUpdateWeeksVFirstWeek WindowsUpdateForBusinessUpdateWeeks = "firstWeek"
 	// WindowsUpdateForBusinessUpdateWeeksVSecondWeek undocumented
-	WindowsUpdateForBusinessUpdateWeeksVSecondWeek WindowsUpdateForBusinessUpdateWeeks = 2
+	WindowsUpdateForBusinessUpdateWeeksVSecondWeek WindowsUpdateForBusinessUpdateWeeks = "secondWeek"
 	// WindowsUpdateForBusinessUpdateWeeksVThirdWeek undocumented
-	WindowsUpdateForBusinessUpdateWeeksVThirdWeek WindowsUpdateForBusinessUpdateWeeks = 4
+	WindowsUpdateForBusinessUpdateWeeksVThirdWeek WindowsUpdateForBusinessUpdateWeeks = "thirdWeek"
 	// WindowsUpdateForBusinessUpdateWeeksVFourthWeek undocumented
-	WindowsUpdateForBusinessUpdateWeeksVFourthWeek WindowsUpdateForBusinessUpdateWeeks = 8
+	WindowsUpdateForBusinessUpdateWeeksVFourthWeek WindowsUpdateForBusinessUpdateWeeks = "fourthWeek"
 	// WindowsUpdateForBusinessUpdateWeeksVEveryWeek undocumented
-	WindowsUpdateForBusinessUpdateWeeksVEveryWeek WindowsUpdateForBusinessUpdateWeeks = 15
+	WindowsUpdateForBusinessUpdateWeeksVEveryWeek WindowsUpdateForBusinessUpdateWeeks = "everyWeek"
 )
 
-// WindowsUpdateForBusinessUpdateWeeksPUserDefined returns a pointer to WindowsUpdateForBusinessUpdateWeeksVUserDefined
-func WindowsUpdateForBusinessUpdateWeeksPUserDefined() *WindowsUpdateForBusinessUpdateWeeks {
-	v := WindowsUpdateForBusinessUpdateWeeksVUserDefined
-	return &v
-}
+var (
+	// WindowsUpdateForBusinessUpdateWeeksPUserDefined is a pointer to WindowsUpdateForBusinessUpdateWeeksVUserDefined
+	WindowsUpdateForBusinessUpdateWeeksPUserDefined = &_WindowsUpdateForBusinessUpdateWeeksPUserDefined
+	// WindowsUpdateForBusinessUpdateWeeksPFirstWeek is a pointer to WindowsUpdateForBusinessUpdateWeeksVFirstWeek
+	WindowsUpdateForBusinessUpdateWeeksPFirstWeek = &_WindowsUpdateForBusinessUpdateWeeksPFirstWeek
+	// WindowsUpdateForBusinessUpdateWeeksPSecondWeek is a pointer to WindowsUpdateForBusinessUpdateWeeksVSecondWeek
+	WindowsUpdateForBusinessUpdateWeeksPSecondWeek = &_WindowsUpdateForBusinessUpdateWeeksPSecondWeek
+	// WindowsUpdateForBusinessUpdateWeeksPThirdWeek is a pointer to WindowsUpdateForBusinessUpdateWeeksVThirdWeek
+	WindowsUpdateForBusinessUpdateWeeksPThirdWeek = &_WindowsUpdateForBusinessUpdateWeeksPThirdWeek
+	// WindowsUpdateForBusinessUpdateWeeksPFourthWeek is a pointer to WindowsUpdateForBusinessUpdateWeeksVFourthWeek
+	WindowsUpdateForBusinessUpdateWeeksPFourthWeek = &_WindowsUpdateForBusinessUpdateWeeksPFourthWeek
+	// WindowsUpdateForBusinessUpdateWeeksPEveryWeek is a pointer to WindowsUpdateForBusinessUpdateWeeksVEveryWeek
+	WindowsUpdateForBusinessUpdateWeeksPEveryWeek = &_WindowsUpdateForBusinessUpdateWeeksPEveryWeek
+)
 
-// WindowsUpdateForBusinessUpdateWeeksPFirstWeek returns a pointer to WindowsUpdateForBusinessUpdateWeeksVFirstWeek
-func WindowsUpdateForBusinessUpdateWeeksPFirstWeek() *WindowsUpdateForBusinessUpdateWeeks {
-	v := WindowsUpdateForBusinessUpdateWeeksVFirstWeek
-	return &v
-}
-
-// WindowsUpdateForBusinessUpdateWeeksPSecondWeek returns a pointer to WindowsUpdateForBusinessUpdateWeeksVSecondWeek
-func WindowsUpdateForBusinessUpdateWeeksPSecondWeek() *WindowsUpdateForBusinessUpdateWeeks {
-	v := WindowsUpdateForBusinessUpdateWeeksVSecondWeek
-	return &v
-}
-
-// WindowsUpdateForBusinessUpdateWeeksPThirdWeek returns a pointer to WindowsUpdateForBusinessUpdateWeeksVThirdWeek
-func WindowsUpdateForBusinessUpdateWeeksPThirdWeek() *WindowsUpdateForBusinessUpdateWeeks {
-	v := WindowsUpdateForBusinessUpdateWeeksVThirdWeek
-	return &v
-}
-
-// WindowsUpdateForBusinessUpdateWeeksPFourthWeek returns a pointer to WindowsUpdateForBusinessUpdateWeeksVFourthWeek
-func WindowsUpdateForBusinessUpdateWeeksPFourthWeek() *WindowsUpdateForBusinessUpdateWeeks {
-	v := WindowsUpdateForBusinessUpdateWeeksVFourthWeek
-	return &v
-}
-
-// WindowsUpdateForBusinessUpdateWeeksPEveryWeek returns a pointer to WindowsUpdateForBusinessUpdateWeeksVEveryWeek
-func WindowsUpdateForBusinessUpdateWeeksPEveryWeek() *WindowsUpdateForBusinessUpdateWeeks {
-	v := WindowsUpdateForBusinessUpdateWeeksVEveryWeek
-	return &v
-}
+var (
+	_WindowsUpdateForBusinessUpdateWeeksPUserDefined = WindowsUpdateForBusinessUpdateWeeksVUserDefined
+	_WindowsUpdateForBusinessUpdateWeeksPFirstWeek   = WindowsUpdateForBusinessUpdateWeeksVFirstWeek
+	_WindowsUpdateForBusinessUpdateWeeksPSecondWeek  = WindowsUpdateForBusinessUpdateWeeksVSecondWeek
+	_WindowsUpdateForBusinessUpdateWeeksPThirdWeek   = WindowsUpdateForBusinessUpdateWeeksVThirdWeek
+	_WindowsUpdateForBusinessUpdateWeeksPFourthWeek  = WindowsUpdateForBusinessUpdateWeeksVFourthWeek
+	_WindowsUpdateForBusinessUpdateWeeksPEveryWeek   = WindowsUpdateForBusinessUpdateWeeksVEveryWeek
+)

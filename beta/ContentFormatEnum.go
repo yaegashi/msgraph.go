@@ -3,23 +3,23 @@
 package msgraph
 
 // ContentFormat undocumented
-type ContentFormat int
+type ContentFormat string
 
 const (
 	// ContentFormatVDefault undocumented
-	ContentFormatVDefault ContentFormat = 0
+	ContentFormatVDefault ContentFormat = "default"
 	// ContentFormatVEmail undocumented
-	ContentFormatVEmail ContentFormat = 1
+	ContentFormatVEmail ContentFormat = "email"
 )
 
-// ContentFormatPDefault returns a pointer to ContentFormatVDefault
-func ContentFormatPDefault() *ContentFormat {
-	v := ContentFormatVDefault
-	return &v
-}
+var (
+	// ContentFormatPDefault is a pointer to ContentFormatVDefault
+	ContentFormatPDefault = &_ContentFormatPDefault
+	// ContentFormatPEmail is a pointer to ContentFormatVEmail
+	ContentFormatPEmail = &_ContentFormatPEmail
+)
 
-// ContentFormatPEmail returns a pointer to ContentFormatVEmail
-func ContentFormatPEmail() *ContentFormat {
-	v := ContentFormatVEmail
-	return &v
-}
+var (
+	_ContentFormatPDefault = ContentFormatVDefault
+	_ContentFormatPEmail   = ContentFormatVEmail
+)

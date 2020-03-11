@@ -3,191 +3,128 @@
 package msgraph
 
 // RemoteAction undocumented
-type RemoteAction int
+type RemoteAction string
 
 const (
 	// RemoteActionVUnknown undocumented
-	RemoteActionVUnknown RemoteAction = 0
+	RemoteActionVUnknown RemoteAction = "unknown"
 	// RemoteActionVFactoryReset undocumented
-	RemoteActionVFactoryReset RemoteAction = 1
+	RemoteActionVFactoryReset RemoteAction = "factoryReset"
 	// RemoteActionVRemoveCompanyData undocumented
-	RemoteActionVRemoveCompanyData RemoteAction = 2
+	RemoteActionVRemoveCompanyData RemoteAction = "removeCompanyData"
 	// RemoteActionVResetPasscode undocumented
-	RemoteActionVResetPasscode RemoteAction = 3
+	RemoteActionVResetPasscode RemoteAction = "resetPasscode"
 	// RemoteActionVRemoteLock undocumented
-	RemoteActionVRemoteLock RemoteAction = 4
+	RemoteActionVRemoteLock RemoteAction = "remoteLock"
 	// RemoteActionVEnableLostMode undocumented
-	RemoteActionVEnableLostMode RemoteAction = 5
+	RemoteActionVEnableLostMode RemoteAction = "enableLostMode"
 	// RemoteActionVDisableLostMode undocumented
-	RemoteActionVDisableLostMode RemoteAction = 6
+	RemoteActionVDisableLostMode RemoteAction = "disableLostMode"
 	// RemoteActionVLocateDevice undocumented
-	RemoteActionVLocateDevice RemoteAction = 7
+	RemoteActionVLocateDevice RemoteAction = "locateDevice"
 	// RemoteActionVRebootNow undocumented
-	RemoteActionVRebootNow RemoteAction = 8
+	RemoteActionVRebootNow RemoteAction = "rebootNow"
 	// RemoteActionVRecoverPasscode undocumented
-	RemoteActionVRecoverPasscode RemoteAction = 9
+	RemoteActionVRecoverPasscode RemoteAction = "recoverPasscode"
 	// RemoteActionVCleanWindowsDevice undocumented
-	RemoteActionVCleanWindowsDevice RemoteAction = 10
+	RemoteActionVCleanWindowsDevice RemoteAction = "cleanWindowsDevice"
 	// RemoteActionVLogoutSharedAppleDeviceActiveUser undocumented
-	RemoteActionVLogoutSharedAppleDeviceActiveUser RemoteAction = 11
+	RemoteActionVLogoutSharedAppleDeviceActiveUser RemoteAction = "logoutSharedAppleDeviceActiveUser"
 	// RemoteActionVQuickScan undocumented
-	RemoteActionVQuickScan RemoteAction = 12
+	RemoteActionVQuickScan RemoteAction = "quickScan"
 	// RemoteActionVFullScan undocumented
-	RemoteActionVFullScan RemoteAction = 13
+	RemoteActionVFullScan RemoteAction = "fullScan"
 	// RemoteActionVWindowsDefenderUpdateSignatures undocumented
-	RemoteActionVWindowsDefenderUpdateSignatures RemoteAction = 14
+	RemoteActionVWindowsDefenderUpdateSignatures RemoteAction = "windowsDefenderUpdateSignatures"
 	// RemoteActionVFactoryResetKeepEnrollmentData undocumented
-	RemoteActionVFactoryResetKeepEnrollmentData RemoteAction = 15
+	RemoteActionVFactoryResetKeepEnrollmentData RemoteAction = "factoryResetKeepEnrollmentData"
 	// RemoteActionVUpdateDeviceAccount undocumented
-	RemoteActionVUpdateDeviceAccount RemoteAction = 16
+	RemoteActionVUpdateDeviceAccount RemoteAction = "updateDeviceAccount"
 	// RemoteActionVAutomaticRedeployment undocumented
-	RemoteActionVAutomaticRedeployment RemoteAction = 17
+	RemoteActionVAutomaticRedeployment RemoteAction = "automaticRedeployment"
 	// RemoteActionVShutDown undocumented
-	RemoteActionVShutDown RemoteAction = 18
+	RemoteActionVShutDown RemoteAction = "shutDown"
 	// RemoteActionVRotateBitLockerKeys undocumented
-	RemoteActionVRotateBitLockerKeys RemoteAction = 19
+	RemoteActionVRotateBitLockerKeys RemoteAction = "rotateBitLockerKeys"
 	// RemoteActionVRotateFileVaultKey undocumented
-	RemoteActionVRotateFileVaultKey RemoteAction = 20
+	RemoteActionVRotateFileVaultKey RemoteAction = "rotateFileVaultKey"
 	// RemoteActionVGetFileVaultKey undocumented
-	RemoteActionVGetFileVaultKey RemoteAction = 21
+	RemoteActionVGetFileVaultKey RemoteAction = "getFileVaultKey"
 	// RemoteActionVSetDeviceName undocumented
-	RemoteActionVSetDeviceName RemoteAction = 22
+	RemoteActionVSetDeviceName RemoteAction = "setDeviceName"
 )
 
-// RemoteActionPUnknown returns a pointer to RemoteActionVUnknown
-func RemoteActionPUnknown() *RemoteAction {
-	v := RemoteActionVUnknown
-	return &v
-}
+var (
+	// RemoteActionPUnknown is a pointer to RemoteActionVUnknown
+	RemoteActionPUnknown = &_RemoteActionPUnknown
+	// RemoteActionPFactoryReset is a pointer to RemoteActionVFactoryReset
+	RemoteActionPFactoryReset = &_RemoteActionPFactoryReset
+	// RemoteActionPRemoveCompanyData is a pointer to RemoteActionVRemoveCompanyData
+	RemoteActionPRemoveCompanyData = &_RemoteActionPRemoveCompanyData
+	// RemoteActionPResetPasscode is a pointer to RemoteActionVResetPasscode
+	RemoteActionPResetPasscode = &_RemoteActionPResetPasscode
+	// RemoteActionPRemoteLock is a pointer to RemoteActionVRemoteLock
+	RemoteActionPRemoteLock = &_RemoteActionPRemoteLock
+	// RemoteActionPEnableLostMode is a pointer to RemoteActionVEnableLostMode
+	RemoteActionPEnableLostMode = &_RemoteActionPEnableLostMode
+	// RemoteActionPDisableLostMode is a pointer to RemoteActionVDisableLostMode
+	RemoteActionPDisableLostMode = &_RemoteActionPDisableLostMode
+	// RemoteActionPLocateDevice is a pointer to RemoteActionVLocateDevice
+	RemoteActionPLocateDevice = &_RemoteActionPLocateDevice
+	// RemoteActionPRebootNow is a pointer to RemoteActionVRebootNow
+	RemoteActionPRebootNow = &_RemoteActionPRebootNow
+	// RemoteActionPRecoverPasscode is a pointer to RemoteActionVRecoverPasscode
+	RemoteActionPRecoverPasscode = &_RemoteActionPRecoverPasscode
+	// RemoteActionPCleanWindowsDevice is a pointer to RemoteActionVCleanWindowsDevice
+	RemoteActionPCleanWindowsDevice = &_RemoteActionPCleanWindowsDevice
+	// RemoteActionPLogoutSharedAppleDeviceActiveUser is a pointer to RemoteActionVLogoutSharedAppleDeviceActiveUser
+	RemoteActionPLogoutSharedAppleDeviceActiveUser = &_RemoteActionPLogoutSharedAppleDeviceActiveUser
+	// RemoteActionPQuickScan is a pointer to RemoteActionVQuickScan
+	RemoteActionPQuickScan = &_RemoteActionPQuickScan
+	// RemoteActionPFullScan is a pointer to RemoteActionVFullScan
+	RemoteActionPFullScan = &_RemoteActionPFullScan
+	// RemoteActionPWindowsDefenderUpdateSignatures is a pointer to RemoteActionVWindowsDefenderUpdateSignatures
+	RemoteActionPWindowsDefenderUpdateSignatures = &_RemoteActionPWindowsDefenderUpdateSignatures
+	// RemoteActionPFactoryResetKeepEnrollmentData is a pointer to RemoteActionVFactoryResetKeepEnrollmentData
+	RemoteActionPFactoryResetKeepEnrollmentData = &_RemoteActionPFactoryResetKeepEnrollmentData
+	// RemoteActionPUpdateDeviceAccount is a pointer to RemoteActionVUpdateDeviceAccount
+	RemoteActionPUpdateDeviceAccount = &_RemoteActionPUpdateDeviceAccount
+	// RemoteActionPAutomaticRedeployment is a pointer to RemoteActionVAutomaticRedeployment
+	RemoteActionPAutomaticRedeployment = &_RemoteActionPAutomaticRedeployment
+	// RemoteActionPShutDown is a pointer to RemoteActionVShutDown
+	RemoteActionPShutDown = &_RemoteActionPShutDown
+	// RemoteActionPRotateBitLockerKeys is a pointer to RemoteActionVRotateBitLockerKeys
+	RemoteActionPRotateBitLockerKeys = &_RemoteActionPRotateBitLockerKeys
+	// RemoteActionPRotateFileVaultKey is a pointer to RemoteActionVRotateFileVaultKey
+	RemoteActionPRotateFileVaultKey = &_RemoteActionPRotateFileVaultKey
+	// RemoteActionPGetFileVaultKey is a pointer to RemoteActionVGetFileVaultKey
+	RemoteActionPGetFileVaultKey = &_RemoteActionPGetFileVaultKey
+	// RemoteActionPSetDeviceName is a pointer to RemoteActionVSetDeviceName
+	RemoteActionPSetDeviceName = &_RemoteActionPSetDeviceName
+)
 
-// RemoteActionPFactoryReset returns a pointer to RemoteActionVFactoryReset
-func RemoteActionPFactoryReset() *RemoteAction {
-	v := RemoteActionVFactoryReset
-	return &v
-}
-
-// RemoteActionPRemoveCompanyData returns a pointer to RemoteActionVRemoveCompanyData
-func RemoteActionPRemoveCompanyData() *RemoteAction {
-	v := RemoteActionVRemoveCompanyData
-	return &v
-}
-
-// RemoteActionPResetPasscode returns a pointer to RemoteActionVResetPasscode
-func RemoteActionPResetPasscode() *RemoteAction {
-	v := RemoteActionVResetPasscode
-	return &v
-}
-
-// RemoteActionPRemoteLock returns a pointer to RemoteActionVRemoteLock
-func RemoteActionPRemoteLock() *RemoteAction {
-	v := RemoteActionVRemoteLock
-	return &v
-}
-
-// RemoteActionPEnableLostMode returns a pointer to RemoteActionVEnableLostMode
-func RemoteActionPEnableLostMode() *RemoteAction {
-	v := RemoteActionVEnableLostMode
-	return &v
-}
-
-// RemoteActionPDisableLostMode returns a pointer to RemoteActionVDisableLostMode
-func RemoteActionPDisableLostMode() *RemoteAction {
-	v := RemoteActionVDisableLostMode
-	return &v
-}
-
-// RemoteActionPLocateDevice returns a pointer to RemoteActionVLocateDevice
-func RemoteActionPLocateDevice() *RemoteAction {
-	v := RemoteActionVLocateDevice
-	return &v
-}
-
-// RemoteActionPRebootNow returns a pointer to RemoteActionVRebootNow
-func RemoteActionPRebootNow() *RemoteAction {
-	v := RemoteActionVRebootNow
-	return &v
-}
-
-// RemoteActionPRecoverPasscode returns a pointer to RemoteActionVRecoverPasscode
-func RemoteActionPRecoverPasscode() *RemoteAction {
-	v := RemoteActionVRecoverPasscode
-	return &v
-}
-
-// RemoteActionPCleanWindowsDevice returns a pointer to RemoteActionVCleanWindowsDevice
-func RemoteActionPCleanWindowsDevice() *RemoteAction {
-	v := RemoteActionVCleanWindowsDevice
-	return &v
-}
-
-// RemoteActionPLogoutSharedAppleDeviceActiveUser returns a pointer to RemoteActionVLogoutSharedAppleDeviceActiveUser
-func RemoteActionPLogoutSharedAppleDeviceActiveUser() *RemoteAction {
-	v := RemoteActionVLogoutSharedAppleDeviceActiveUser
-	return &v
-}
-
-// RemoteActionPQuickScan returns a pointer to RemoteActionVQuickScan
-func RemoteActionPQuickScan() *RemoteAction {
-	v := RemoteActionVQuickScan
-	return &v
-}
-
-// RemoteActionPFullScan returns a pointer to RemoteActionVFullScan
-func RemoteActionPFullScan() *RemoteAction {
-	v := RemoteActionVFullScan
-	return &v
-}
-
-// RemoteActionPWindowsDefenderUpdateSignatures returns a pointer to RemoteActionVWindowsDefenderUpdateSignatures
-func RemoteActionPWindowsDefenderUpdateSignatures() *RemoteAction {
-	v := RemoteActionVWindowsDefenderUpdateSignatures
-	return &v
-}
-
-// RemoteActionPFactoryResetKeepEnrollmentData returns a pointer to RemoteActionVFactoryResetKeepEnrollmentData
-func RemoteActionPFactoryResetKeepEnrollmentData() *RemoteAction {
-	v := RemoteActionVFactoryResetKeepEnrollmentData
-	return &v
-}
-
-// RemoteActionPUpdateDeviceAccount returns a pointer to RemoteActionVUpdateDeviceAccount
-func RemoteActionPUpdateDeviceAccount() *RemoteAction {
-	v := RemoteActionVUpdateDeviceAccount
-	return &v
-}
-
-// RemoteActionPAutomaticRedeployment returns a pointer to RemoteActionVAutomaticRedeployment
-func RemoteActionPAutomaticRedeployment() *RemoteAction {
-	v := RemoteActionVAutomaticRedeployment
-	return &v
-}
-
-// RemoteActionPShutDown returns a pointer to RemoteActionVShutDown
-func RemoteActionPShutDown() *RemoteAction {
-	v := RemoteActionVShutDown
-	return &v
-}
-
-// RemoteActionPRotateBitLockerKeys returns a pointer to RemoteActionVRotateBitLockerKeys
-func RemoteActionPRotateBitLockerKeys() *RemoteAction {
-	v := RemoteActionVRotateBitLockerKeys
-	return &v
-}
-
-// RemoteActionPRotateFileVaultKey returns a pointer to RemoteActionVRotateFileVaultKey
-func RemoteActionPRotateFileVaultKey() *RemoteAction {
-	v := RemoteActionVRotateFileVaultKey
-	return &v
-}
-
-// RemoteActionPGetFileVaultKey returns a pointer to RemoteActionVGetFileVaultKey
-func RemoteActionPGetFileVaultKey() *RemoteAction {
-	v := RemoteActionVGetFileVaultKey
-	return &v
-}
-
-// RemoteActionPSetDeviceName returns a pointer to RemoteActionVSetDeviceName
-func RemoteActionPSetDeviceName() *RemoteAction {
-	v := RemoteActionVSetDeviceName
-	return &v
-}
+var (
+	_RemoteActionPUnknown                           = RemoteActionVUnknown
+	_RemoteActionPFactoryReset                      = RemoteActionVFactoryReset
+	_RemoteActionPRemoveCompanyData                 = RemoteActionVRemoveCompanyData
+	_RemoteActionPResetPasscode                     = RemoteActionVResetPasscode
+	_RemoteActionPRemoteLock                        = RemoteActionVRemoteLock
+	_RemoteActionPEnableLostMode                    = RemoteActionVEnableLostMode
+	_RemoteActionPDisableLostMode                   = RemoteActionVDisableLostMode
+	_RemoteActionPLocateDevice                      = RemoteActionVLocateDevice
+	_RemoteActionPRebootNow                         = RemoteActionVRebootNow
+	_RemoteActionPRecoverPasscode                   = RemoteActionVRecoverPasscode
+	_RemoteActionPCleanWindowsDevice                = RemoteActionVCleanWindowsDevice
+	_RemoteActionPLogoutSharedAppleDeviceActiveUser = RemoteActionVLogoutSharedAppleDeviceActiveUser
+	_RemoteActionPQuickScan                         = RemoteActionVQuickScan
+	_RemoteActionPFullScan                          = RemoteActionVFullScan
+	_RemoteActionPWindowsDefenderUpdateSignatures   = RemoteActionVWindowsDefenderUpdateSignatures
+	_RemoteActionPFactoryResetKeepEnrollmentData    = RemoteActionVFactoryResetKeepEnrollmentData
+	_RemoteActionPUpdateDeviceAccount               = RemoteActionVUpdateDeviceAccount
+	_RemoteActionPAutomaticRedeployment             = RemoteActionVAutomaticRedeployment
+	_RemoteActionPShutDown                          = RemoteActionVShutDown
+	_RemoteActionPRotateBitLockerKeys               = RemoteActionVRotateBitLockerKeys
+	_RemoteActionPRotateFileVaultKey                = RemoteActionVRotateFileVaultKey
+	_RemoteActionPGetFileVaultKey                   = RemoteActionVGetFileVaultKey
+	_RemoteActionPSetDeviceName                     = RemoteActionVSetDeviceName
+)

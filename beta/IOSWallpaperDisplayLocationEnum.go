@@ -3,39 +3,33 @@
 package msgraph
 
 // IOSWallpaperDisplayLocation undocumented
-type IOSWallpaperDisplayLocation int
+type IOSWallpaperDisplayLocation string
 
 const (
 	// IOSWallpaperDisplayLocationVNotConfigured undocumented
-	IOSWallpaperDisplayLocationVNotConfigured IOSWallpaperDisplayLocation = 0
+	IOSWallpaperDisplayLocationVNotConfigured IOSWallpaperDisplayLocation = "notConfigured"
 	// IOSWallpaperDisplayLocationVLockScreen undocumented
-	IOSWallpaperDisplayLocationVLockScreen IOSWallpaperDisplayLocation = 1
+	IOSWallpaperDisplayLocationVLockScreen IOSWallpaperDisplayLocation = "lockScreen"
 	// IOSWallpaperDisplayLocationVHomeScreen undocumented
-	IOSWallpaperDisplayLocationVHomeScreen IOSWallpaperDisplayLocation = 2
+	IOSWallpaperDisplayLocationVHomeScreen IOSWallpaperDisplayLocation = "homeScreen"
 	// IOSWallpaperDisplayLocationVLockAndHomeScreens undocumented
-	IOSWallpaperDisplayLocationVLockAndHomeScreens IOSWallpaperDisplayLocation = 3
+	IOSWallpaperDisplayLocationVLockAndHomeScreens IOSWallpaperDisplayLocation = "lockAndHomeScreens"
 )
 
-// IOSWallpaperDisplayLocationPNotConfigured returns a pointer to IOSWallpaperDisplayLocationVNotConfigured
-func IOSWallpaperDisplayLocationPNotConfigured() *IOSWallpaperDisplayLocation {
-	v := IOSWallpaperDisplayLocationVNotConfigured
-	return &v
-}
+var (
+	// IOSWallpaperDisplayLocationPNotConfigured is a pointer to IOSWallpaperDisplayLocationVNotConfigured
+	IOSWallpaperDisplayLocationPNotConfigured = &_IOSWallpaperDisplayLocationPNotConfigured
+	// IOSWallpaperDisplayLocationPLockScreen is a pointer to IOSWallpaperDisplayLocationVLockScreen
+	IOSWallpaperDisplayLocationPLockScreen = &_IOSWallpaperDisplayLocationPLockScreen
+	// IOSWallpaperDisplayLocationPHomeScreen is a pointer to IOSWallpaperDisplayLocationVHomeScreen
+	IOSWallpaperDisplayLocationPHomeScreen = &_IOSWallpaperDisplayLocationPHomeScreen
+	// IOSWallpaperDisplayLocationPLockAndHomeScreens is a pointer to IOSWallpaperDisplayLocationVLockAndHomeScreens
+	IOSWallpaperDisplayLocationPLockAndHomeScreens = &_IOSWallpaperDisplayLocationPLockAndHomeScreens
+)
 
-// IOSWallpaperDisplayLocationPLockScreen returns a pointer to IOSWallpaperDisplayLocationVLockScreen
-func IOSWallpaperDisplayLocationPLockScreen() *IOSWallpaperDisplayLocation {
-	v := IOSWallpaperDisplayLocationVLockScreen
-	return &v
-}
-
-// IOSWallpaperDisplayLocationPHomeScreen returns a pointer to IOSWallpaperDisplayLocationVHomeScreen
-func IOSWallpaperDisplayLocationPHomeScreen() *IOSWallpaperDisplayLocation {
-	v := IOSWallpaperDisplayLocationVHomeScreen
-	return &v
-}
-
-// IOSWallpaperDisplayLocationPLockAndHomeScreens returns a pointer to IOSWallpaperDisplayLocationVLockAndHomeScreens
-func IOSWallpaperDisplayLocationPLockAndHomeScreens() *IOSWallpaperDisplayLocation {
-	v := IOSWallpaperDisplayLocationVLockAndHomeScreens
-	return &v
-}
+var (
+	_IOSWallpaperDisplayLocationPNotConfigured      = IOSWallpaperDisplayLocationVNotConfigured
+	_IOSWallpaperDisplayLocationPLockScreen         = IOSWallpaperDisplayLocationVLockScreen
+	_IOSWallpaperDisplayLocationPHomeScreen         = IOSWallpaperDisplayLocationVHomeScreen
+	_IOSWallpaperDisplayLocationPLockAndHomeScreens = IOSWallpaperDisplayLocationVLockAndHomeScreens
+)

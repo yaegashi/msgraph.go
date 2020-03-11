@@ -3,55 +3,43 @@
 package msgraph
 
 // RunState undocumented
-type RunState int
+type RunState string
 
 const (
 	// RunStateVUnknown undocumented
-	RunStateVUnknown RunState = 0
+	RunStateVUnknown RunState = "unknown"
 	// RunStateVSuccess undocumented
-	RunStateVSuccess RunState = 1
+	RunStateVSuccess RunState = "success"
 	// RunStateVFail undocumented
-	RunStateVFail RunState = 2
+	RunStateVFail RunState = "fail"
 	// RunStateVScriptError undocumented
-	RunStateVScriptError RunState = 3
+	RunStateVScriptError RunState = "scriptError"
 	// RunStateVPending undocumented
-	RunStateVPending RunState = 4
+	RunStateVPending RunState = "pending"
 	// RunStateVNotApplicable undocumented
-	RunStateVNotApplicable RunState = 5
+	RunStateVNotApplicable RunState = "notApplicable"
 )
 
-// RunStatePUnknown returns a pointer to RunStateVUnknown
-func RunStatePUnknown() *RunState {
-	v := RunStateVUnknown
-	return &v
-}
+var (
+	// RunStatePUnknown is a pointer to RunStateVUnknown
+	RunStatePUnknown = &_RunStatePUnknown
+	// RunStatePSuccess is a pointer to RunStateVSuccess
+	RunStatePSuccess = &_RunStatePSuccess
+	// RunStatePFail is a pointer to RunStateVFail
+	RunStatePFail = &_RunStatePFail
+	// RunStatePScriptError is a pointer to RunStateVScriptError
+	RunStatePScriptError = &_RunStatePScriptError
+	// RunStatePPending is a pointer to RunStateVPending
+	RunStatePPending = &_RunStatePPending
+	// RunStatePNotApplicable is a pointer to RunStateVNotApplicable
+	RunStatePNotApplicable = &_RunStatePNotApplicable
+)
 
-// RunStatePSuccess returns a pointer to RunStateVSuccess
-func RunStatePSuccess() *RunState {
-	v := RunStateVSuccess
-	return &v
-}
-
-// RunStatePFail returns a pointer to RunStateVFail
-func RunStatePFail() *RunState {
-	v := RunStateVFail
-	return &v
-}
-
-// RunStatePScriptError returns a pointer to RunStateVScriptError
-func RunStatePScriptError() *RunState {
-	v := RunStateVScriptError
-	return &v
-}
-
-// RunStatePPending returns a pointer to RunStateVPending
-func RunStatePPending() *RunState {
-	v := RunStateVPending
-	return &v
-}
-
-// RunStatePNotApplicable returns a pointer to RunStateVNotApplicable
-func RunStatePNotApplicable() *RunState {
-	v := RunStateVNotApplicable
-	return &v
-}
+var (
+	_RunStatePUnknown       = RunStateVUnknown
+	_RunStatePSuccess       = RunStateVSuccess
+	_RunStatePFail          = RunStateVFail
+	_RunStatePScriptError   = RunStateVScriptError
+	_RunStatePPending       = RunStateVPending
+	_RunStatePNotApplicable = RunStateVNotApplicable
+)

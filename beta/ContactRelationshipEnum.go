@@ -3,71 +3,53 @@
 package msgraph
 
 // ContactRelationship undocumented
-type ContactRelationship int
+type ContactRelationship string
 
 const (
 	// ContactRelationshipVParent undocumented
-	ContactRelationshipVParent ContactRelationship = 0
+	ContactRelationshipVParent ContactRelationship = "parent"
 	// ContactRelationshipVRelative undocumented
-	ContactRelationshipVRelative ContactRelationship = 1
+	ContactRelationshipVRelative ContactRelationship = "relative"
 	// ContactRelationshipVAide undocumented
-	ContactRelationshipVAide ContactRelationship = 2
+	ContactRelationshipVAide ContactRelationship = "aide"
 	// ContactRelationshipVDoctor undocumented
-	ContactRelationshipVDoctor ContactRelationship = 3
+	ContactRelationshipVDoctor ContactRelationship = "doctor"
 	// ContactRelationshipVGuardian undocumented
-	ContactRelationshipVGuardian ContactRelationship = 4
+	ContactRelationshipVGuardian ContactRelationship = "guardian"
 	// ContactRelationshipVChild undocumented
-	ContactRelationshipVChild ContactRelationship = 5
+	ContactRelationshipVChild ContactRelationship = "child"
 	// ContactRelationshipVOther undocumented
-	ContactRelationshipVOther ContactRelationship = 6
+	ContactRelationshipVOther ContactRelationship = "other"
 	// ContactRelationshipVUnknownFutureValue undocumented
-	ContactRelationshipVUnknownFutureValue ContactRelationship = 7
+	ContactRelationshipVUnknownFutureValue ContactRelationship = "unknownFutureValue"
 )
 
-// ContactRelationshipPParent returns a pointer to ContactRelationshipVParent
-func ContactRelationshipPParent() *ContactRelationship {
-	v := ContactRelationshipVParent
-	return &v
-}
+var (
+	// ContactRelationshipPParent is a pointer to ContactRelationshipVParent
+	ContactRelationshipPParent = &_ContactRelationshipPParent
+	// ContactRelationshipPRelative is a pointer to ContactRelationshipVRelative
+	ContactRelationshipPRelative = &_ContactRelationshipPRelative
+	// ContactRelationshipPAide is a pointer to ContactRelationshipVAide
+	ContactRelationshipPAide = &_ContactRelationshipPAide
+	// ContactRelationshipPDoctor is a pointer to ContactRelationshipVDoctor
+	ContactRelationshipPDoctor = &_ContactRelationshipPDoctor
+	// ContactRelationshipPGuardian is a pointer to ContactRelationshipVGuardian
+	ContactRelationshipPGuardian = &_ContactRelationshipPGuardian
+	// ContactRelationshipPChild is a pointer to ContactRelationshipVChild
+	ContactRelationshipPChild = &_ContactRelationshipPChild
+	// ContactRelationshipPOther is a pointer to ContactRelationshipVOther
+	ContactRelationshipPOther = &_ContactRelationshipPOther
+	// ContactRelationshipPUnknownFutureValue is a pointer to ContactRelationshipVUnknownFutureValue
+	ContactRelationshipPUnknownFutureValue = &_ContactRelationshipPUnknownFutureValue
+)
 
-// ContactRelationshipPRelative returns a pointer to ContactRelationshipVRelative
-func ContactRelationshipPRelative() *ContactRelationship {
-	v := ContactRelationshipVRelative
-	return &v
-}
-
-// ContactRelationshipPAide returns a pointer to ContactRelationshipVAide
-func ContactRelationshipPAide() *ContactRelationship {
-	v := ContactRelationshipVAide
-	return &v
-}
-
-// ContactRelationshipPDoctor returns a pointer to ContactRelationshipVDoctor
-func ContactRelationshipPDoctor() *ContactRelationship {
-	v := ContactRelationshipVDoctor
-	return &v
-}
-
-// ContactRelationshipPGuardian returns a pointer to ContactRelationshipVGuardian
-func ContactRelationshipPGuardian() *ContactRelationship {
-	v := ContactRelationshipVGuardian
-	return &v
-}
-
-// ContactRelationshipPChild returns a pointer to ContactRelationshipVChild
-func ContactRelationshipPChild() *ContactRelationship {
-	v := ContactRelationshipVChild
-	return &v
-}
-
-// ContactRelationshipPOther returns a pointer to ContactRelationshipVOther
-func ContactRelationshipPOther() *ContactRelationship {
-	v := ContactRelationshipVOther
-	return &v
-}
-
-// ContactRelationshipPUnknownFutureValue returns a pointer to ContactRelationshipVUnknownFutureValue
-func ContactRelationshipPUnknownFutureValue() *ContactRelationship {
-	v := ContactRelationshipVUnknownFutureValue
-	return &v
-}
+var (
+	_ContactRelationshipPParent             = ContactRelationshipVParent
+	_ContactRelationshipPRelative           = ContactRelationshipVRelative
+	_ContactRelationshipPAide               = ContactRelationshipVAide
+	_ContactRelationshipPDoctor             = ContactRelationshipVDoctor
+	_ContactRelationshipPGuardian           = ContactRelationshipVGuardian
+	_ContactRelationshipPChild              = ContactRelationshipVChild
+	_ContactRelationshipPOther              = ContactRelationshipVOther
+	_ContactRelationshipPUnknownFutureValue = ContactRelationshipVUnknownFutureValue
+)

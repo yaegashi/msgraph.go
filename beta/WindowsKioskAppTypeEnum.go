@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsKioskAppType undocumented
-type WindowsKioskAppType int
+type WindowsKioskAppType string
 
 const (
 	// WindowsKioskAppTypeVUnknown undocumented
-	WindowsKioskAppTypeVUnknown WindowsKioskAppType = 0
+	WindowsKioskAppTypeVUnknown WindowsKioskAppType = "unknown"
 	// WindowsKioskAppTypeVStore undocumented
-	WindowsKioskAppTypeVStore WindowsKioskAppType = 1
+	WindowsKioskAppTypeVStore WindowsKioskAppType = "store"
 	// WindowsKioskAppTypeVDesktop undocumented
-	WindowsKioskAppTypeVDesktop WindowsKioskAppType = 2
+	WindowsKioskAppTypeVDesktop WindowsKioskAppType = "desktop"
 	// WindowsKioskAppTypeVAumID undocumented
-	WindowsKioskAppTypeVAumID WindowsKioskAppType = 3
+	WindowsKioskAppTypeVAumID WindowsKioskAppType = "aumId"
 )
 
-// WindowsKioskAppTypePUnknown returns a pointer to WindowsKioskAppTypeVUnknown
-func WindowsKioskAppTypePUnknown() *WindowsKioskAppType {
-	v := WindowsKioskAppTypeVUnknown
-	return &v
-}
+var (
+	// WindowsKioskAppTypePUnknown is a pointer to WindowsKioskAppTypeVUnknown
+	WindowsKioskAppTypePUnknown = &_WindowsKioskAppTypePUnknown
+	// WindowsKioskAppTypePStore is a pointer to WindowsKioskAppTypeVStore
+	WindowsKioskAppTypePStore = &_WindowsKioskAppTypePStore
+	// WindowsKioskAppTypePDesktop is a pointer to WindowsKioskAppTypeVDesktop
+	WindowsKioskAppTypePDesktop = &_WindowsKioskAppTypePDesktop
+	// WindowsKioskAppTypePAumID is a pointer to WindowsKioskAppTypeVAumID
+	WindowsKioskAppTypePAumID = &_WindowsKioskAppTypePAumID
+)
 
-// WindowsKioskAppTypePStore returns a pointer to WindowsKioskAppTypeVStore
-func WindowsKioskAppTypePStore() *WindowsKioskAppType {
-	v := WindowsKioskAppTypeVStore
-	return &v
-}
-
-// WindowsKioskAppTypePDesktop returns a pointer to WindowsKioskAppTypeVDesktop
-func WindowsKioskAppTypePDesktop() *WindowsKioskAppType {
-	v := WindowsKioskAppTypeVDesktop
-	return &v
-}
-
-// WindowsKioskAppTypePAumID returns a pointer to WindowsKioskAppTypeVAumID
-func WindowsKioskAppTypePAumID() *WindowsKioskAppType {
-	v := WindowsKioskAppTypeVAumID
-	return &v
-}
+var (
+	_WindowsKioskAppTypePUnknown = WindowsKioskAppTypeVUnknown
+	_WindowsKioskAppTypePStore   = WindowsKioskAppTypeVStore
+	_WindowsKioskAppTypePDesktop = WindowsKioskAppTypeVDesktop
+	_WindowsKioskAppTypePAumID   = WindowsKioskAppTypeVAumID
+)

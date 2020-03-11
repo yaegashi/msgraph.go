@@ -3,55 +3,43 @@
 package msgraph
 
 // AlertStatus undocumented
-type AlertStatus int
+type AlertStatus string
 
 const (
 	// AlertStatusVUnknown undocumented
-	AlertStatusVUnknown AlertStatus = 0
+	AlertStatusVUnknown AlertStatus = "unknown"
 	// AlertStatusVNewAlert undocumented
-	AlertStatusVNewAlert AlertStatus = 1
+	AlertStatusVNewAlert AlertStatus = "newAlert"
 	// AlertStatusVInProgress undocumented
-	AlertStatusVInProgress AlertStatus = 2
+	AlertStatusVInProgress AlertStatus = "inProgress"
 	// AlertStatusVResolved undocumented
-	AlertStatusVResolved AlertStatus = 3
+	AlertStatusVResolved AlertStatus = "resolved"
 	// AlertStatusVDismissed undocumented
-	AlertStatusVDismissed AlertStatus = 4
+	AlertStatusVDismissed AlertStatus = "dismissed"
 	// AlertStatusVUnknownFutureValue undocumented
-	AlertStatusVUnknownFutureValue AlertStatus = 127
+	AlertStatusVUnknownFutureValue AlertStatus = "unknownFutureValue"
 )
 
-// AlertStatusPUnknown returns a pointer to AlertStatusVUnknown
-func AlertStatusPUnknown() *AlertStatus {
-	v := AlertStatusVUnknown
-	return &v
-}
+var (
+	// AlertStatusPUnknown is a pointer to AlertStatusVUnknown
+	AlertStatusPUnknown = &_AlertStatusPUnknown
+	// AlertStatusPNewAlert is a pointer to AlertStatusVNewAlert
+	AlertStatusPNewAlert = &_AlertStatusPNewAlert
+	// AlertStatusPInProgress is a pointer to AlertStatusVInProgress
+	AlertStatusPInProgress = &_AlertStatusPInProgress
+	// AlertStatusPResolved is a pointer to AlertStatusVResolved
+	AlertStatusPResolved = &_AlertStatusPResolved
+	// AlertStatusPDismissed is a pointer to AlertStatusVDismissed
+	AlertStatusPDismissed = &_AlertStatusPDismissed
+	// AlertStatusPUnknownFutureValue is a pointer to AlertStatusVUnknownFutureValue
+	AlertStatusPUnknownFutureValue = &_AlertStatusPUnknownFutureValue
+)
 
-// AlertStatusPNewAlert returns a pointer to AlertStatusVNewAlert
-func AlertStatusPNewAlert() *AlertStatus {
-	v := AlertStatusVNewAlert
-	return &v
-}
-
-// AlertStatusPInProgress returns a pointer to AlertStatusVInProgress
-func AlertStatusPInProgress() *AlertStatus {
-	v := AlertStatusVInProgress
-	return &v
-}
-
-// AlertStatusPResolved returns a pointer to AlertStatusVResolved
-func AlertStatusPResolved() *AlertStatus {
-	v := AlertStatusVResolved
-	return &v
-}
-
-// AlertStatusPDismissed returns a pointer to AlertStatusVDismissed
-func AlertStatusPDismissed() *AlertStatus {
-	v := AlertStatusVDismissed
-	return &v
-}
-
-// AlertStatusPUnknownFutureValue returns a pointer to AlertStatusVUnknownFutureValue
-func AlertStatusPUnknownFutureValue() *AlertStatus {
-	v := AlertStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_AlertStatusPUnknown            = AlertStatusVUnknown
+	_AlertStatusPNewAlert           = AlertStatusVNewAlert
+	_AlertStatusPInProgress         = AlertStatusVInProgress
+	_AlertStatusPResolved           = AlertStatusVResolved
+	_AlertStatusPDismissed          = AlertStatusVDismissed
+	_AlertStatusPUnknownFutureValue = AlertStatusVUnknownFutureValue
+)

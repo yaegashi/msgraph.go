@@ -3,55 +3,43 @@
 package msgraph
 
 // RoutingPolicy undocumented
-type RoutingPolicy int
+type RoutingPolicy string
 
 const (
 	// RoutingPolicyVNone undocumented
-	RoutingPolicyVNone RoutingPolicy = 0
+	RoutingPolicyVNone RoutingPolicy = "none"
 	// RoutingPolicyVNoMissedCall undocumented
-	RoutingPolicyVNoMissedCall RoutingPolicy = 1
+	RoutingPolicyVNoMissedCall RoutingPolicy = "noMissedCall"
 	// RoutingPolicyVDisableForwardingExceptPhone undocumented
-	RoutingPolicyVDisableForwardingExceptPhone RoutingPolicy = 2
+	RoutingPolicyVDisableForwardingExceptPhone RoutingPolicy = "disableForwardingExceptPhone"
 	// RoutingPolicyVDisableForwarding undocumented
-	RoutingPolicyVDisableForwarding RoutingPolicy = 3
+	RoutingPolicyVDisableForwarding RoutingPolicy = "disableForwarding"
 	// RoutingPolicyVPreferSkypeForBusiness undocumented
-	RoutingPolicyVPreferSkypeForBusiness RoutingPolicy = 5
+	RoutingPolicyVPreferSkypeForBusiness RoutingPolicy = "preferSkypeForBusiness"
 	// RoutingPolicyVUnknownFutureValue undocumented
-	RoutingPolicyVUnknownFutureValue RoutingPolicy = 6
+	RoutingPolicyVUnknownFutureValue RoutingPolicy = "unknownFutureValue"
 )
 
-// RoutingPolicyPNone returns a pointer to RoutingPolicyVNone
-func RoutingPolicyPNone() *RoutingPolicy {
-	v := RoutingPolicyVNone
-	return &v
-}
+var (
+	// RoutingPolicyPNone is a pointer to RoutingPolicyVNone
+	RoutingPolicyPNone = &_RoutingPolicyPNone
+	// RoutingPolicyPNoMissedCall is a pointer to RoutingPolicyVNoMissedCall
+	RoutingPolicyPNoMissedCall = &_RoutingPolicyPNoMissedCall
+	// RoutingPolicyPDisableForwardingExceptPhone is a pointer to RoutingPolicyVDisableForwardingExceptPhone
+	RoutingPolicyPDisableForwardingExceptPhone = &_RoutingPolicyPDisableForwardingExceptPhone
+	// RoutingPolicyPDisableForwarding is a pointer to RoutingPolicyVDisableForwarding
+	RoutingPolicyPDisableForwarding = &_RoutingPolicyPDisableForwarding
+	// RoutingPolicyPPreferSkypeForBusiness is a pointer to RoutingPolicyVPreferSkypeForBusiness
+	RoutingPolicyPPreferSkypeForBusiness = &_RoutingPolicyPPreferSkypeForBusiness
+	// RoutingPolicyPUnknownFutureValue is a pointer to RoutingPolicyVUnknownFutureValue
+	RoutingPolicyPUnknownFutureValue = &_RoutingPolicyPUnknownFutureValue
+)
 
-// RoutingPolicyPNoMissedCall returns a pointer to RoutingPolicyVNoMissedCall
-func RoutingPolicyPNoMissedCall() *RoutingPolicy {
-	v := RoutingPolicyVNoMissedCall
-	return &v
-}
-
-// RoutingPolicyPDisableForwardingExceptPhone returns a pointer to RoutingPolicyVDisableForwardingExceptPhone
-func RoutingPolicyPDisableForwardingExceptPhone() *RoutingPolicy {
-	v := RoutingPolicyVDisableForwardingExceptPhone
-	return &v
-}
-
-// RoutingPolicyPDisableForwarding returns a pointer to RoutingPolicyVDisableForwarding
-func RoutingPolicyPDisableForwarding() *RoutingPolicy {
-	v := RoutingPolicyVDisableForwarding
-	return &v
-}
-
-// RoutingPolicyPPreferSkypeForBusiness returns a pointer to RoutingPolicyVPreferSkypeForBusiness
-func RoutingPolicyPPreferSkypeForBusiness() *RoutingPolicy {
-	v := RoutingPolicyVPreferSkypeForBusiness
-	return &v
-}
-
-// RoutingPolicyPUnknownFutureValue returns a pointer to RoutingPolicyVUnknownFutureValue
-func RoutingPolicyPUnknownFutureValue() *RoutingPolicy {
-	v := RoutingPolicyVUnknownFutureValue
-	return &v
-}
+var (
+	_RoutingPolicyPNone                         = RoutingPolicyVNone
+	_RoutingPolicyPNoMissedCall                 = RoutingPolicyVNoMissedCall
+	_RoutingPolicyPDisableForwardingExceptPhone = RoutingPolicyVDisableForwardingExceptPhone
+	_RoutingPolicyPDisableForwarding            = RoutingPolicyVDisableForwarding
+	_RoutingPolicyPPreferSkypeForBusiness       = RoutingPolicyVPreferSkypeForBusiness
+	_RoutingPolicyPUnknownFutureValue           = RoutingPolicyVUnknownFutureValue
+)

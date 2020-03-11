@@ -3,63 +3,48 @@
 package msgraph
 
 // RatingAustraliaMoviesType undocumented
-type RatingAustraliaMoviesType int
+type RatingAustraliaMoviesType string
 
 const (
 	// RatingAustraliaMoviesTypeVAllAllowed undocumented
-	RatingAustraliaMoviesTypeVAllAllowed RatingAustraliaMoviesType = 0
+	RatingAustraliaMoviesTypeVAllAllowed RatingAustraliaMoviesType = "allAllowed"
 	// RatingAustraliaMoviesTypeVAllBlocked undocumented
-	RatingAustraliaMoviesTypeVAllBlocked RatingAustraliaMoviesType = 1
+	RatingAustraliaMoviesTypeVAllBlocked RatingAustraliaMoviesType = "allBlocked"
 	// RatingAustraliaMoviesTypeVGeneral undocumented
-	RatingAustraliaMoviesTypeVGeneral RatingAustraliaMoviesType = 2
+	RatingAustraliaMoviesTypeVGeneral RatingAustraliaMoviesType = "general"
 	// RatingAustraliaMoviesTypeVParentalGuidance undocumented
-	RatingAustraliaMoviesTypeVParentalGuidance RatingAustraliaMoviesType = 3
+	RatingAustraliaMoviesTypeVParentalGuidance RatingAustraliaMoviesType = "parentalGuidance"
 	// RatingAustraliaMoviesTypeVMature undocumented
-	RatingAustraliaMoviesTypeVMature RatingAustraliaMoviesType = 4
+	RatingAustraliaMoviesTypeVMature RatingAustraliaMoviesType = "mature"
 	// RatingAustraliaMoviesTypeVAgesAbove15 undocumented
-	RatingAustraliaMoviesTypeVAgesAbove15 RatingAustraliaMoviesType = 5
+	RatingAustraliaMoviesTypeVAgesAbove15 RatingAustraliaMoviesType = "agesAbove15"
 	// RatingAustraliaMoviesTypeVAgesAbove18 undocumented
-	RatingAustraliaMoviesTypeVAgesAbove18 RatingAustraliaMoviesType = 6
+	RatingAustraliaMoviesTypeVAgesAbove18 RatingAustraliaMoviesType = "agesAbove18"
 )
 
-// RatingAustraliaMoviesTypePAllAllowed returns a pointer to RatingAustraliaMoviesTypeVAllAllowed
-func RatingAustraliaMoviesTypePAllAllowed() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingAustraliaMoviesTypePAllAllowed is a pointer to RatingAustraliaMoviesTypeVAllAllowed
+	RatingAustraliaMoviesTypePAllAllowed = &_RatingAustraliaMoviesTypePAllAllowed
+	// RatingAustraliaMoviesTypePAllBlocked is a pointer to RatingAustraliaMoviesTypeVAllBlocked
+	RatingAustraliaMoviesTypePAllBlocked = &_RatingAustraliaMoviesTypePAllBlocked
+	// RatingAustraliaMoviesTypePGeneral is a pointer to RatingAustraliaMoviesTypeVGeneral
+	RatingAustraliaMoviesTypePGeneral = &_RatingAustraliaMoviesTypePGeneral
+	// RatingAustraliaMoviesTypePParentalGuidance is a pointer to RatingAustraliaMoviesTypeVParentalGuidance
+	RatingAustraliaMoviesTypePParentalGuidance = &_RatingAustraliaMoviesTypePParentalGuidance
+	// RatingAustraliaMoviesTypePMature is a pointer to RatingAustraliaMoviesTypeVMature
+	RatingAustraliaMoviesTypePMature = &_RatingAustraliaMoviesTypePMature
+	// RatingAustraliaMoviesTypePAgesAbove15 is a pointer to RatingAustraliaMoviesTypeVAgesAbove15
+	RatingAustraliaMoviesTypePAgesAbove15 = &_RatingAustraliaMoviesTypePAgesAbove15
+	// RatingAustraliaMoviesTypePAgesAbove18 is a pointer to RatingAustraliaMoviesTypeVAgesAbove18
+	RatingAustraliaMoviesTypePAgesAbove18 = &_RatingAustraliaMoviesTypePAgesAbove18
+)
 
-// RatingAustraliaMoviesTypePAllBlocked returns a pointer to RatingAustraliaMoviesTypeVAllBlocked
-func RatingAustraliaMoviesTypePAllBlocked() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingAustraliaMoviesTypePGeneral returns a pointer to RatingAustraliaMoviesTypeVGeneral
-func RatingAustraliaMoviesTypePGeneral() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVGeneral
-	return &v
-}
-
-// RatingAustraliaMoviesTypePParentalGuidance returns a pointer to RatingAustraliaMoviesTypeVParentalGuidance
-func RatingAustraliaMoviesTypePParentalGuidance() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingAustraliaMoviesTypePMature returns a pointer to RatingAustraliaMoviesTypeVMature
-func RatingAustraliaMoviesTypePMature() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVMature
-	return &v
-}
-
-// RatingAustraliaMoviesTypePAgesAbove15 returns a pointer to RatingAustraliaMoviesTypeVAgesAbove15
-func RatingAustraliaMoviesTypePAgesAbove15() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVAgesAbove15
-	return &v
-}
-
-// RatingAustraliaMoviesTypePAgesAbove18 returns a pointer to RatingAustraliaMoviesTypeVAgesAbove18
-func RatingAustraliaMoviesTypePAgesAbove18() *RatingAustraliaMoviesType {
-	v := RatingAustraliaMoviesTypeVAgesAbove18
-	return &v
-}
+var (
+	_RatingAustraliaMoviesTypePAllAllowed       = RatingAustraliaMoviesTypeVAllAllowed
+	_RatingAustraliaMoviesTypePAllBlocked       = RatingAustraliaMoviesTypeVAllBlocked
+	_RatingAustraliaMoviesTypePGeneral          = RatingAustraliaMoviesTypeVGeneral
+	_RatingAustraliaMoviesTypePParentalGuidance = RatingAustraliaMoviesTypeVParentalGuidance
+	_RatingAustraliaMoviesTypePMature           = RatingAustraliaMoviesTypeVMature
+	_RatingAustraliaMoviesTypePAgesAbove15      = RatingAustraliaMoviesTypeVAgesAbove15
+	_RatingAustraliaMoviesTypePAgesAbove18      = RatingAustraliaMoviesTypeVAgesAbove18
+)

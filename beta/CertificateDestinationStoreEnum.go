@@ -3,31 +3,28 @@
 package msgraph
 
 // CertificateDestinationStore undocumented
-type CertificateDestinationStore int
+type CertificateDestinationStore string
 
 const (
 	// CertificateDestinationStoreVComputerCertStoreRoot undocumented
-	CertificateDestinationStoreVComputerCertStoreRoot CertificateDestinationStore = 0
+	CertificateDestinationStoreVComputerCertStoreRoot CertificateDestinationStore = "computerCertStoreRoot"
 	// CertificateDestinationStoreVComputerCertStoreIntermediate undocumented
-	CertificateDestinationStoreVComputerCertStoreIntermediate CertificateDestinationStore = 1
+	CertificateDestinationStoreVComputerCertStoreIntermediate CertificateDestinationStore = "computerCertStoreIntermediate"
 	// CertificateDestinationStoreVUserCertStoreIntermediate undocumented
-	CertificateDestinationStoreVUserCertStoreIntermediate CertificateDestinationStore = 2
+	CertificateDestinationStoreVUserCertStoreIntermediate CertificateDestinationStore = "userCertStoreIntermediate"
 )
 
-// CertificateDestinationStorePComputerCertStoreRoot returns a pointer to CertificateDestinationStoreVComputerCertStoreRoot
-func CertificateDestinationStorePComputerCertStoreRoot() *CertificateDestinationStore {
-	v := CertificateDestinationStoreVComputerCertStoreRoot
-	return &v
-}
+var (
+	// CertificateDestinationStorePComputerCertStoreRoot is a pointer to CertificateDestinationStoreVComputerCertStoreRoot
+	CertificateDestinationStorePComputerCertStoreRoot = &_CertificateDestinationStorePComputerCertStoreRoot
+	// CertificateDestinationStorePComputerCertStoreIntermediate is a pointer to CertificateDestinationStoreVComputerCertStoreIntermediate
+	CertificateDestinationStorePComputerCertStoreIntermediate = &_CertificateDestinationStorePComputerCertStoreIntermediate
+	// CertificateDestinationStorePUserCertStoreIntermediate is a pointer to CertificateDestinationStoreVUserCertStoreIntermediate
+	CertificateDestinationStorePUserCertStoreIntermediate = &_CertificateDestinationStorePUserCertStoreIntermediate
+)
 
-// CertificateDestinationStorePComputerCertStoreIntermediate returns a pointer to CertificateDestinationStoreVComputerCertStoreIntermediate
-func CertificateDestinationStorePComputerCertStoreIntermediate() *CertificateDestinationStore {
-	v := CertificateDestinationStoreVComputerCertStoreIntermediate
-	return &v
-}
-
-// CertificateDestinationStorePUserCertStoreIntermediate returns a pointer to CertificateDestinationStoreVUserCertStoreIntermediate
-func CertificateDestinationStorePUserCertStoreIntermediate() *CertificateDestinationStore {
-	v := CertificateDestinationStoreVUserCertStoreIntermediate
-	return &v
-}
+var (
+	_CertificateDestinationStorePComputerCertStoreRoot         = CertificateDestinationStoreVComputerCertStoreRoot
+	_CertificateDestinationStorePComputerCertStoreIntermediate = CertificateDestinationStoreVComputerCertStoreIntermediate
+	_CertificateDestinationStorePUserCertStoreIntermediate     = CertificateDestinationStoreVUserCertStoreIntermediate
+)

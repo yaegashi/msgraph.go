@@ -3,31 +3,28 @@
 package msgraph
 
 // VpnTrafficRuleRoutingPolicyType undocumented
-type VpnTrafficRuleRoutingPolicyType int
+type VpnTrafficRuleRoutingPolicyType string
 
 const (
 	// VpnTrafficRuleRoutingPolicyTypeVNone undocumented
-	VpnTrafficRuleRoutingPolicyTypeVNone VpnTrafficRuleRoutingPolicyType = 0
+	VpnTrafficRuleRoutingPolicyTypeVNone VpnTrafficRuleRoutingPolicyType = "none"
 	// VpnTrafficRuleRoutingPolicyTypeVSplitTunnel undocumented
-	VpnTrafficRuleRoutingPolicyTypeVSplitTunnel VpnTrafficRuleRoutingPolicyType = 1
+	VpnTrafficRuleRoutingPolicyTypeVSplitTunnel VpnTrafficRuleRoutingPolicyType = "splitTunnel"
 	// VpnTrafficRuleRoutingPolicyTypeVForceTunnel undocumented
-	VpnTrafficRuleRoutingPolicyTypeVForceTunnel VpnTrafficRuleRoutingPolicyType = 2
+	VpnTrafficRuleRoutingPolicyTypeVForceTunnel VpnTrafficRuleRoutingPolicyType = "forceTunnel"
 )
 
-// VpnTrafficRuleRoutingPolicyTypePNone returns a pointer to VpnTrafficRuleRoutingPolicyTypeVNone
-func VpnTrafficRuleRoutingPolicyTypePNone() *VpnTrafficRuleRoutingPolicyType {
-	v := VpnTrafficRuleRoutingPolicyTypeVNone
-	return &v
-}
+var (
+	// VpnTrafficRuleRoutingPolicyTypePNone is a pointer to VpnTrafficRuleRoutingPolicyTypeVNone
+	VpnTrafficRuleRoutingPolicyTypePNone = &_VpnTrafficRuleRoutingPolicyTypePNone
+	// VpnTrafficRuleRoutingPolicyTypePSplitTunnel is a pointer to VpnTrafficRuleRoutingPolicyTypeVSplitTunnel
+	VpnTrafficRuleRoutingPolicyTypePSplitTunnel = &_VpnTrafficRuleRoutingPolicyTypePSplitTunnel
+	// VpnTrafficRuleRoutingPolicyTypePForceTunnel is a pointer to VpnTrafficRuleRoutingPolicyTypeVForceTunnel
+	VpnTrafficRuleRoutingPolicyTypePForceTunnel = &_VpnTrafficRuleRoutingPolicyTypePForceTunnel
+)
 
-// VpnTrafficRuleRoutingPolicyTypePSplitTunnel returns a pointer to VpnTrafficRuleRoutingPolicyTypeVSplitTunnel
-func VpnTrafficRuleRoutingPolicyTypePSplitTunnel() *VpnTrafficRuleRoutingPolicyType {
-	v := VpnTrafficRuleRoutingPolicyTypeVSplitTunnel
-	return &v
-}
-
-// VpnTrafficRuleRoutingPolicyTypePForceTunnel returns a pointer to VpnTrafficRuleRoutingPolicyTypeVForceTunnel
-func VpnTrafficRuleRoutingPolicyTypePForceTunnel() *VpnTrafficRuleRoutingPolicyType {
-	v := VpnTrafficRuleRoutingPolicyTypeVForceTunnel
-	return &v
-}
+var (
+	_VpnTrafficRuleRoutingPolicyTypePNone        = VpnTrafficRuleRoutingPolicyTypeVNone
+	_VpnTrafficRuleRoutingPolicyTypePSplitTunnel = VpnTrafficRuleRoutingPolicyTypeVSplitTunnel
+	_VpnTrafficRuleRoutingPolicyTypePForceTunnel = VpnTrafficRuleRoutingPolicyTypeVForceTunnel
+)

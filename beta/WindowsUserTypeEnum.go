@@ -3,23 +3,23 @@
 package msgraph
 
 // WindowsUserType undocumented
-type WindowsUserType int
+type WindowsUserType string
 
 const (
 	// WindowsUserTypeVAdministrator undocumented
-	WindowsUserTypeVAdministrator WindowsUserType = 0
+	WindowsUserTypeVAdministrator WindowsUserType = "administrator"
 	// WindowsUserTypeVStandard undocumented
-	WindowsUserTypeVStandard WindowsUserType = 1
+	WindowsUserTypeVStandard WindowsUserType = "standard"
 )
 
-// WindowsUserTypePAdministrator returns a pointer to WindowsUserTypeVAdministrator
-func WindowsUserTypePAdministrator() *WindowsUserType {
-	v := WindowsUserTypeVAdministrator
-	return &v
-}
+var (
+	// WindowsUserTypePAdministrator is a pointer to WindowsUserTypeVAdministrator
+	WindowsUserTypePAdministrator = &_WindowsUserTypePAdministrator
+	// WindowsUserTypePStandard is a pointer to WindowsUserTypeVStandard
+	WindowsUserTypePStandard = &_WindowsUserTypePStandard
+)
 
-// WindowsUserTypePStandard returns a pointer to WindowsUserTypeVStandard
-func WindowsUserTypePStandard() *WindowsUserType {
-	v := WindowsUserTypeVStandard
-	return &v
-}
+var (
+	_WindowsUserTypePAdministrator = WindowsUserTypeVAdministrator
+	_WindowsUserTypePStandard      = WindowsUserTypeVStandard
+)

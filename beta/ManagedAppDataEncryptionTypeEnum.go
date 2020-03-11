@@ -3,39 +3,33 @@
 package msgraph
 
 // ManagedAppDataEncryptionType undocumented
-type ManagedAppDataEncryptionType int
+type ManagedAppDataEncryptionType string
 
 const (
 	// ManagedAppDataEncryptionTypeVUseDeviceSettings undocumented
-	ManagedAppDataEncryptionTypeVUseDeviceSettings ManagedAppDataEncryptionType = 0
+	ManagedAppDataEncryptionTypeVUseDeviceSettings ManagedAppDataEncryptionType = "useDeviceSettings"
 	// ManagedAppDataEncryptionTypeVAfterDeviceRestart undocumented
-	ManagedAppDataEncryptionTypeVAfterDeviceRestart ManagedAppDataEncryptionType = 1
+	ManagedAppDataEncryptionTypeVAfterDeviceRestart ManagedAppDataEncryptionType = "afterDeviceRestart"
 	// ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles undocumented
-	ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles ManagedAppDataEncryptionType = 2
+	ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles ManagedAppDataEncryptionType = "whenDeviceLockedExceptOpenFiles"
 	// ManagedAppDataEncryptionTypeVWhenDeviceLocked undocumented
-	ManagedAppDataEncryptionTypeVWhenDeviceLocked ManagedAppDataEncryptionType = 3
+	ManagedAppDataEncryptionTypeVWhenDeviceLocked ManagedAppDataEncryptionType = "whenDeviceLocked"
 )
 
-// ManagedAppDataEncryptionTypePUseDeviceSettings returns a pointer to ManagedAppDataEncryptionTypeVUseDeviceSettings
-func ManagedAppDataEncryptionTypePUseDeviceSettings() *ManagedAppDataEncryptionType {
-	v := ManagedAppDataEncryptionTypeVUseDeviceSettings
-	return &v
-}
+var (
+	// ManagedAppDataEncryptionTypePUseDeviceSettings is a pointer to ManagedAppDataEncryptionTypeVUseDeviceSettings
+	ManagedAppDataEncryptionTypePUseDeviceSettings = &_ManagedAppDataEncryptionTypePUseDeviceSettings
+	// ManagedAppDataEncryptionTypePAfterDeviceRestart is a pointer to ManagedAppDataEncryptionTypeVAfterDeviceRestart
+	ManagedAppDataEncryptionTypePAfterDeviceRestart = &_ManagedAppDataEncryptionTypePAfterDeviceRestart
+	// ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles is a pointer to ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles
+	ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles = &_ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles
+	// ManagedAppDataEncryptionTypePWhenDeviceLocked is a pointer to ManagedAppDataEncryptionTypeVWhenDeviceLocked
+	ManagedAppDataEncryptionTypePWhenDeviceLocked = &_ManagedAppDataEncryptionTypePWhenDeviceLocked
+)
 
-// ManagedAppDataEncryptionTypePAfterDeviceRestart returns a pointer to ManagedAppDataEncryptionTypeVAfterDeviceRestart
-func ManagedAppDataEncryptionTypePAfterDeviceRestart() *ManagedAppDataEncryptionType {
-	v := ManagedAppDataEncryptionTypeVAfterDeviceRestart
-	return &v
-}
-
-// ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles returns a pointer to ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles
-func ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles() *ManagedAppDataEncryptionType {
-	v := ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles
-	return &v
-}
-
-// ManagedAppDataEncryptionTypePWhenDeviceLocked returns a pointer to ManagedAppDataEncryptionTypeVWhenDeviceLocked
-func ManagedAppDataEncryptionTypePWhenDeviceLocked() *ManagedAppDataEncryptionType {
-	v := ManagedAppDataEncryptionTypeVWhenDeviceLocked
-	return &v
-}
+var (
+	_ManagedAppDataEncryptionTypePUseDeviceSettings               = ManagedAppDataEncryptionTypeVUseDeviceSettings
+	_ManagedAppDataEncryptionTypePAfterDeviceRestart              = ManagedAppDataEncryptionTypeVAfterDeviceRestart
+	_ManagedAppDataEncryptionTypePWhenDeviceLockedExceptOpenFiles = ManagedAppDataEncryptionTypeVWhenDeviceLockedExceptOpenFiles
+	_ManagedAppDataEncryptionTypePWhenDeviceLocked                = ManagedAppDataEncryptionTypeVWhenDeviceLocked
+)

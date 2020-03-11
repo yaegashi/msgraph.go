@@ -3,39 +3,33 @@
 package msgraph
 
 // ACLType undocumented
-type ACLType int
+type ACLType string
 
 const (
 	// ACLTypeVUser undocumented
-	ACLTypeVUser ACLType = 1
+	ACLTypeVUser ACLType = "user"
 	// ACLTypeVGroup undocumented
-	ACLTypeVGroup ACLType = 2
+	ACLTypeVGroup ACLType = "group"
 	// ACLTypeVEveryone undocumented
-	ACLTypeVEveryone ACLType = 3
+	ACLTypeVEveryone ACLType = "everyone"
 	// ACLTypeVEveryoneExceptGuests undocumented
-	ACLTypeVEveryoneExceptGuests ACLType = 4
+	ACLTypeVEveryoneExceptGuests ACLType = "everyoneExceptGuests"
 )
 
-// ACLTypePUser returns a pointer to ACLTypeVUser
-func ACLTypePUser() *ACLType {
-	v := ACLTypeVUser
-	return &v
-}
+var (
+	// ACLTypePUser is a pointer to ACLTypeVUser
+	ACLTypePUser = &_ACLTypePUser
+	// ACLTypePGroup is a pointer to ACLTypeVGroup
+	ACLTypePGroup = &_ACLTypePGroup
+	// ACLTypePEveryone is a pointer to ACLTypeVEveryone
+	ACLTypePEveryone = &_ACLTypePEveryone
+	// ACLTypePEveryoneExceptGuests is a pointer to ACLTypeVEveryoneExceptGuests
+	ACLTypePEveryoneExceptGuests = &_ACLTypePEveryoneExceptGuests
+)
 
-// ACLTypePGroup returns a pointer to ACLTypeVGroup
-func ACLTypePGroup() *ACLType {
-	v := ACLTypeVGroup
-	return &v
-}
-
-// ACLTypePEveryone returns a pointer to ACLTypeVEveryone
-func ACLTypePEveryone() *ACLType {
-	v := ACLTypeVEveryone
-	return &v
-}
-
-// ACLTypePEveryoneExceptGuests returns a pointer to ACLTypeVEveryoneExceptGuests
-func ACLTypePEveryoneExceptGuests() *ACLType {
-	v := ACLTypeVEveryoneExceptGuests
-	return &v
-}
+var (
+	_ACLTypePUser                 = ACLTypeVUser
+	_ACLTypePGroup                = ACLTypeVGroup
+	_ACLTypePEveryone             = ACLTypeVEveryone
+	_ACLTypePEveryoneExceptGuests = ACLTypeVEveryoneExceptGuests
+)

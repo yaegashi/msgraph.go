@@ -3,127 +3,88 @@
 package msgraph
 
 // AppleVpnConnectionType undocumented
-type AppleVpnConnectionType int
+type AppleVpnConnectionType string
 
 const (
 	// AppleVpnConnectionTypeVCiscoAnyConnect undocumented
-	AppleVpnConnectionTypeVCiscoAnyConnect AppleVpnConnectionType = 0
+	AppleVpnConnectionTypeVCiscoAnyConnect AppleVpnConnectionType = "ciscoAnyConnect"
 	// AppleVpnConnectionTypeVPulseSecure undocumented
-	AppleVpnConnectionTypeVPulseSecure AppleVpnConnectionType = 1
+	AppleVpnConnectionTypeVPulseSecure AppleVpnConnectionType = "pulseSecure"
 	// AppleVpnConnectionTypeVF5EdgeClient undocumented
-	AppleVpnConnectionTypeVF5EdgeClient AppleVpnConnectionType = 2
+	AppleVpnConnectionTypeVF5EdgeClient AppleVpnConnectionType = "f5EdgeClient"
 	// AppleVpnConnectionTypeVDellSonicWallMobileConnect undocumented
-	AppleVpnConnectionTypeVDellSonicWallMobileConnect AppleVpnConnectionType = 3
+	AppleVpnConnectionTypeVDellSonicWallMobileConnect AppleVpnConnectionType = "dellSonicWallMobileConnect"
 	// AppleVpnConnectionTypeVCheckPointCapsuleVpn undocumented
-	AppleVpnConnectionTypeVCheckPointCapsuleVpn AppleVpnConnectionType = 4
+	AppleVpnConnectionTypeVCheckPointCapsuleVpn AppleVpnConnectionType = "checkPointCapsuleVpn"
 	// AppleVpnConnectionTypeVCustomVpn undocumented
-	AppleVpnConnectionTypeVCustomVpn AppleVpnConnectionType = 5
+	AppleVpnConnectionTypeVCustomVpn AppleVpnConnectionType = "customVpn"
 	// AppleVpnConnectionTypeVCiscoIPSec undocumented
-	AppleVpnConnectionTypeVCiscoIPSec AppleVpnConnectionType = 6
+	AppleVpnConnectionTypeVCiscoIPSec AppleVpnConnectionType = "ciscoIPSec"
 	// AppleVpnConnectionTypeVCitrix undocumented
-	AppleVpnConnectionTypeVCitrix AppleVpnConnectionType = 7
+	AppleVpnConnectionTypeVCitrix AppleVpnConnectionType = "citrix"
 	// AppleVpnConnectionTypeVCiscoAnyConnectV2 undocumented
-	AppleVpnConnectionTypeVCiscoAnyConnectV2 AppleVpnConnectionType = 8
+	AppleVpnConnectionTypeVCiscoAnyConnectV2 AppleVpnConnectionType = "ciscoAnyConnectV2"
 	// AppleVpnConnectionTypeVPaloAltoGlobalProtect undocumented
-	AppleVpnConnectionTypeVPaloAltoGlobalProtect AppleVpnConnectionType = 9
+	AppleVpnConnectionTypeVPaloAltoGlobalProtect AppleVpnConnectionType = "paloAltoGlobalProtect"
 	// AppleVpnConnectionTypeVZscalerPrivateAccess undocumented
-	AppleVpnConnectionTypeVZscalerPrivateAccess AppleVpnConnectionType = 10
+	AppleVpnConnectionTypeVZscalerPrivateAccess AppleVpnConnectionType = "zscalerPrivateAccess"
 	// AppleVpnConnectionTypeVF5Access2018 undocumented
-	AppleVpnConnectionTypeVF5Access2018 AppleVpnConnectionType = 11
+	AppleVpnConnectionTypeVF5Access2018 AppleVpnConnectionType = "f5Access2018"
 	// AppleVpnConnectionTypeVCitrixSso undocumented
-	AppleVpnConnectionTypeVCitrixSso AppleVpnConnectionType = 12
+	AppleVpnConnectionTypeVCitrixSso AppleVpnConnectionType = "citrixSso"
 	// AppleVpnConnectionTypeVPaloAltoGlobalProtectV2 undocumented
-	AppleVpnConnectionTypeVPaloAltoGlobalProtectV2 AppleVpnConnectionType = 13
+	AppleVpnConnectionTypeVPaloAltoGlobalProtectV2 AppleVpnConnectionType = "paloAltoGlobalProtectV2"
 	// AppleVpnConnectionTypeVIkEv2 undocumented
-	AppleVpnConnectionTypeVIkEv2 AppleVpnConnectionType = 14
+	AppleVpnConnectionTypeVIkEv2 AppleVpnConnectionType = "ikEv2"
 )
 
-// AppleVpnConnectionTypePCiscoAnyConnect returns a pointer to AppleVpnConnectionTypeVCiscoAnyConnect
-func AppleVpnConnectionTypePCiscoAnyConnect() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCiscoAnyConnect
-	return &v
-}
+var (
+	// AppleVpnConnectionTypePCiscoAnyConnect is a pointer to AppleVpnConnectionTypeVCiscoAnyConnect
+	AppleVpnConnectionTypePCiscoAnyConnect = &_AppleVpnConnectionTypePCiscoAnyConnect
+	// AppleVpnConnectionTypePPulseSecure is a pointer to AppleVpnConnectionTypeVPulseSecure
+	AppleVpnConnectionTypePPulseSecure = &_AppleVpnConnectionTypePPulseSecure
+	// AppleVpnConnectionTypePF5EdgeClient is a pointer to AppleVpnConnectionTypeVF5EdgeClient
+	AppleVpnConnectionTypePF5EdgeClient = &_AppleVpnConnectionTypePF5EdgeClient
+	// AppleVpnConnectionTypePDellSonicWallMobileConnect is a pointer to AppleVpnConnectionTypeVDellSonicWallMobileConnect
+	AppleVpnConnectionTypePDellSonicWallMobileConnect = &_AppleVpnConnectionTypePDellSonicWallMobileConnect
+	// AppleVpnConnectionTypePCheckPointCapsuleVpn is a pointer to AppleVpnConnectionTypeVCheckPointCapsuleVpn
+	AppleVpnConnectionTypePCheckPointCapsuleVpn = &_AppleVpnConnectionTypePCheckPointCapsuleVpn
+	// AppleVpnConnectionTypePCustomVpn is a pointer to AppleVpnConnectionTypeVCustomVpn
+	AppleVpnConnectionTypePCustomVpn = &_AppleVpnConnectionTypePCustomVpn
+	// AppleVpnConnectionTypePCiscoIPSec is a pointer to AppleVpnConnectionTypeVCiscoIPSec
+	AppleVpnConnectionTypePCiscoIPSec = &_AppleVpnConnectionTypePCiscoIPSec
+	// AppleVpnConnectionTypePCitrix is a pointer to AppleVpnConnectionTypeVCitrix
+	AppleVpnConnectionTypePCitrix = &_AppleVpnConnectionTypePCitrix
+	// AppleVpnConnectionTypePCiscoAnyConnectV2 is a pointer to AppleVpnConnectionTypeVCiscoAnyConnectV2
+	AppleVpnConnectionTypePCiscoAnyConnectV2 = &_AppleVpnConnectionTypePCiscoAnyConnectV2
+	// AppleVpnConnectionTypePPaloAltoGlobalProtect is a pointer to AppleVpnConnectionTypeVPaloAltoGlobalProtect
+	AppleVpnConnectionTypePPaloAltoGlobalProtect = &_AppleVpnConnectionTypePPaloAltoGlobalProtect
+	// AppleVpnConnectionTypePZscalerPrivateAccess is a pointer to AppleVpnConnectionTypeVZscalerPrivateAccess
+	AppleVpnConnectionTypePZscalerPrivateAccess = &_AppleVpnConnectionTypePZscalerPrivateAccess
+	// AppleVpnConnectionTypePF5Access2018 is a pointer to AppleVpnConnectionTypeVF5Access2018
+	AppleVpnConnectionTypePF5Access2018 = &_AppleVpnConnectionTypePF5Access2018
+	// AppleVpnConnectionTypePCitrixSso is a pointer to AppleVpnConnectionTypeVCitrixSso
+	AppleVpnConnectionTypePCitrixSso = &_AppleVpnConnectionTypePCitrixSso
+	// AppleVpnConnectionTypePPaloAltoGlobalProtectV2 is a pointer to AppleVpnConnectionTypeVPaloAltoGlobalProtectV2
+	AppleVpnConnectionTypePPaloAltoGlobalProtectV2 = &_AppleVpnConnectionTypePPaloAltoGlobalProtectV2
+	// AppleVpnConnectionTypePIkEv2 is a pointer to AppleVpnConnectionTypeVIkEv2
+	AppleVpnConnectionTypePIkEv2 = &_AppleVpnConnectionTypePIkEv2
+)
 
-// AppleVpnConnectionTypePPulseSecure returns a pointer to AppleVpnConnectionTypeVPulseSecure
-func AppleVpnConnectionTypePPulseSecure() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVPulseSecure
-	return &v
-}
-
-// AppleVpnConnectionTypePF5EdgeClient returns a pointer to AppleVpnConnectionTypeVF5EdgeClient
-func AppleVpnConnectionTypePF5EdgeClient() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVF5EdgeClient
-	return &v
-}
-
-// AppleVpnConnectionTypePDellSonicWallMobileConnect returns a pointer to AppleVpnConnectionTypeVDellSonicWallMobileConnect
-func AppleVpnConnectionTypePDellSonicWallMobileConnect() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVDellSonicWallMobileConnect
-	return &v
-}
-
-// AppleVpnConnectionTypePCheckPointCapsuleVpn returns a pointer to AppleVpnConnectionTypeVCheckPointCapsuleVpn
-func AppleVpnConnectionTypePCheckPointCapsuleVpn() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCheckPointCapsuleVpn
-	return &v
-}
-
-// AppleVpnConnectionTypePCustomVpn returns a pointer to AppleVpnConnectionTypeVCustomVpn
-func AppleVpnConnectionTypePCustomVpn() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCustomVpn
-	return &v
-}
-
-// AppleVpnConnectionTypePCiscoIPSec returns a pointer to AppleVpnConnectionTypeVCiscoIPSec
-func AppleVpnConnectionTypePCiscoIPSec() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCiscoIPSec
-	return &v
-}
-
-// AppleVpnConnectionTypePCitrix returns a pointer to AppleVpnConnectionTypeVCitrix
-func AppleVpnConnectionTypePCitrix() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCitrix
-	return &v
-}
-
-// AppleVpnConnectionTypePCiscoAnyConnectV2 returns a pointer to AppleVpnConnectionTypeVCiscoAnyConnectV2
-func AppleVpnConnectionTypePCiscoAnyConnectV2() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCiscoAnyConnectV2
-	return &v
-}
-
-// AppleVpnConnectionTypePPaloAltoGlobalProtect returns a pointer to AppleVpnConnectionTypeVPaloAltoGlobalProtect
-func AppleVpnConnectionTypePPaloAltoGlobalProtect() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVPaloAltoGlobalProtect
-	return &v
-}
-
-// AppleVpnConnectionTypePZscalerPrivateAccess returns a pointer to AppleVpnConnectionTypeVZscalerPrivateAccess
-func AppleVpnConnectionTypePZscalerPrivateAccess() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVZscalerPrivateAccess
-	return &v
-}
-
-// AppleVpnConnectionTypePF5Access2018 returns a pointer to AppleVpnConnectionTypeVF5Access2018
-func AppleVpnConnectionTypePF5Access2018() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVF5Access2018
-	return &v
-}
-
-// AppleVpnConnectionTypePCitrixSso returns a pointer to AppleVpnConnectionTypeVCitrixSso
-func AppleVpnConnectionTypePCitrixSso() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVCitrixSso
-	return &v
-}
-
-// AppleVpnConnectionTypePPaloAltoGlobalProtectV2 returns a pointer to AppleVpnConnectionTypeVPaloAltoGlobalProtectV2
-func AppleVpnConnectionTypePPaloAltoGlobalProtectV2() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVPaloAltoGlobalProtectV2
-	return &v
-}
-
-// AppleVpnConnectionTypePIkEv2 returns a pointer to AppleVpnConnectionTypeVIkEv2
-func AppleVpnConnectionTypePIkEv2() *AppleVpnConnectionType {
-	v := AppleVpnConnectionTypeVIkEv2
-	return &v
-}
+var (
+	_AppleVpnConnectionTypePCiscoAnyConnect            = AppleVpnConnectionTypeVCiscoAnyConnect
+	_AppleVpnConnectionTypePPulseSecure                = AppleVpnConnectionTypeVPulseSecure
+	_AppleVpnConnectionTypePF5EdgeClient               = AppleVpnConnectionTypeVF5EdgeClient
+	_AppleVpnConnectionTypePDellSonicWallMobileConnect = AppleVpnConnectionTypeVDellSonicWallMobileConnect
+	_AppleVpnConnectionTypePCheckPointCapsuleVpn       = AppleVpnConnectionTypeVCheckPointCapsuleVpn
+	_AppleVpnConnectionTypePCustomVpn                  = AppleVpnConnectionTypeVCustomVpn
+	_AppleVpnConnectionTypePCiscoIPSec                 = AppleVpnConnectionTypeVCiscoIPSec
+	_AppleVpnConnectionTypePCitrix                     = AppleVpnConnectionTypeVCitrix
+	_AppleVpnConnectionTypePCiscoAnyConnectV2          = AppleVpnConnectionTypeVCiscoAnyConnectV2
+	_AppleVpnConnectionTypePPaloAltoGlobalProtect      = AppleVpnConnectionTypeVPaloAltoGlobalProtect
+	_AppleVpnConnectionTypePZscalerPrivateAccess       = AppleVpnConnectionTypeVZscalerPrivateAccess
+	_AppleVpnConnectionTypePF5Access2018               = AppleVpnConnectionTypeVF5Access2018
+	_AppleVpnConnectionTypePCitrixSso                  = AppleVpnConnectionTypeVCitrixSso
+	_AppleVpnConnectionTypePPaloAltoGlobalProtectV2    = AppleVpnConnectionTypeVPaloAltoGlobalProtectV2
+	_AppleVpnConnectionTypePIkEv2                      = AppleVpnConnectionTypeVIkEv2
+)

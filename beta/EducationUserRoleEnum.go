@@ -3,47 +3,38 @@
 package msgraph
 
 // EducationUserRole undocumented
-type EducationUserRole int
+type EducationUserRole string
 
 const (
 	// EducationUserRoleVStudent undocumented
-	EducationUserRoleVStudent EducationUserRole = 0
+	EducationUserRoleVStudent EducationUserRole = "student"
 	// EducationUserRoleVTeacher undocumented
-	EducationUserRoleVTeacher EducationUserRole = 1
+	EducationUserRoleVTeacher EducationUserRole = "teacher"
 	// EducationUserRoleVNone undocumented
-	EducationUserRoleVNone EducationUserRole = 2
+	EducationUserRoleVNone EducationUserRole = "none"
 	// EducationUserRoleVUnknownFutureValue undocumented
-	EducationUserRoleVUnknownFutureValue EducationUserRole = 3
+	EducationUserRoleVUnknownFutureValue EducationUserRole = "unknownFutureValue"
 	// EducationUserRoleVFaculty undocumented
-	EducationUserRoleVFaculty EducationUserRole = 4
+	EducationUserRoleVFaculty EducationUserRole = "faculty"
 )
 
-// EducationUserRolePStudent returns a pointer to EducationUserRoleVStudent
-func EducationUserRolePStudent() *EducationUserRole {
-	v := EducationUserRoleVStudent
-	return &v
-}
+var (
+	// EducationUserRolePStudent is a pointer to EducationUserRoleVStudent
+	EducationUserRolePStudent = &_EducationUserRolePStudent
+	// EducationUserRolePTeacher is a pointer to EducationUserRoleVTeacher
+	EducationUserRolePTeacher = &_EducationUserRolePTeacher
+	// EducationUserRolePNone is a pointer to EducationUserRoleVNone
+	EducationUserRolePNone = &_EducationUserRolePNone
+	// EducationUserRolePUnknownFutureValue is a pointer to EducationUserRoleVUnknownFutureValue
+	EducationUserRolePUnknownFutureValue = &_EducationUserRolePUnknownFutureValue
+	// EducationUserRolePFaculty is a pointer to EducationUserRoleVFaculty
+	EducationUserRolePFaculty = &_EducationUserRolePFaculty
+)
 
-// EducationUserRolePTeacher returns a pointer to EducationUserRoleVTeacher
-func EducationUserRolePTeacher() *EducationUserRole {
-	v := EducationUserRoleVTeacher
-	return &v
-}
-
-// EducationUserRolePNone returns a pointer to EducationUserRoleVNone
-func EducationUserRolePNone() *EducationUserRole {
-	v := EducationUserRoleVNone
-	return &v
-}
-
-// EducationUserRolePUnknownFutureValue returns a pointer to EducationUserRoleVUnknownFutureValue
-func EducationUserRolePUnknownFutureValue() *EducationUserRole {
-	v := EducationUserRoleVUnknownFutureValue
-	return &v
-}
-
-// EducationUserRolePFaculty returns a pointer to EducationUserRoleVFaculty
-func EducationUserRolePFaculty() *EducationUserRole {
-	v := EducationUserRoleVFaculty
-	return &v
-}
+var (
+	_EducationUserRolePStudent            = EducationUserRoleVStudent
+	_EducationUserRolePTeacher            = EducationUserRoleVTeacher
+	_EducationUserRolePNone               = EducationUserRoleVNone
+	_EducationUserRolePUnknownFutureValue = EducationUserRoleVUnknownFutureValue
+	_EducationUserRolePFaculty            = EducationUserRoleVFaculty
+)

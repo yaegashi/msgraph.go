@@ -3,47 +3,38 @@
 package msgraph
 
 // WindowsArchitecture undocumented
-type WindowsArchitecture int
+type WindowsArchitecture string
 
 const (
 	// WindowsArchitectureVNone undocumented
-	WindowsArchitectureVNone WindowsArchitecture = 0
+	WindowsArchitectureVNone WindowsArchitecture = "none"
 	// WindowsArchitectureVX86 undocumented
-	WindowsArchitectureVX86 WindowsArchitecture = 1
+	WindowsArchitectureVX86 WindowsArchitecture = "x86"
 	// WindowsArchitectureVX64 undocumented
-	WindowsArchitectureVX64 WindowsArchitecture = 2
+	WindowsArchitectureVX64 WindowsArchitecture = "x64"
 	// WindowsArchitectureVArm undocumented
-	WindowsArchitectureVArm WindowsArchitecture = 4
+	WindowsArchitectureVArm WindowsArchitecture = "arm"
 	// WindowsArchitectureVNeutral undocumented
-	WindowsArchitectureVNeutral WindowsArchitecture = 8
+	WindowsArchitectureVNeutral WindowsArchitecture = "neutral"
 )
 
-// WindowsArchitecturePNone returns a pointer to WindowsArchitectureVNone
-func WindowsArchitecturePNone() *WindowsArchitecture {
-	v := WindowsArchitectureVNone
-	return &v
-}
+var (
+	// WindowsArchitecturePNone is a pointer to WindowsArchitectureVNone
+	WindowsArchitecturePNone = &_WindowsArchitecturePNone
+	// WindowsArchitecturePX86 is a pointer to WindowsArchitectureVX86
+	WindowsArchitecturePX86 = &_WindowsArchitecturePX86
+	// WindowsArchitecturePX64 is a pointer to WindowsArchitectureVX64
+	WindowsArchitecturePX64 = &_WindowsArchitecturePX64
+	// WindowsArchitecturePArm is a pointer to WindowsArchitectureVArm
+	WindowsArchitecturePArm = &_WindowsArchitecturePArm
+	// WindowsArchitecturePNeutral is a pointer to WindowsArchitectureVNeutral
+	WindowsArchitecturePNeutral = &_WindowsArchitecturePNeutral
+)
 
-// WindowsArchitecturePX86 returns a pointer to WindowsArchitectureVX86
-func WindowsArchitecturePX86() *WindowsArchitecture {
-	v := WindowsArchitectureVX86
-	return &v
-}
-
-// WindowsArchitecturePX64 returns a pointer to WindowsArchitectureVX64
-func WindowsArchitecturePX64() *WindowsArchitecture {
-	v := WindowsArchitectureVX64
-	return &v
-}
-
-// WindowsArchitecturePArm returns a pointer to WindowsArchitectureVArm
-func WindowsArchitecturePArm() *WindowsArchitecture {
-	v := WindowsArchitectureVArm
-	return &v
-}
-
-// WindowsArchitecturePNeutral returns a pointer to WindowsArchitectureVNeutral
-func WindowsArchitecturePNeutral() *WindowsArchitecture {
-	v := WindowsArchitectureVNeutral
-	return &v
-}
+var (
+	_WindowsArchitecturePNone    = WindowsArchitectureVNone
+	_WindowsArchitecturePX86     = WindowsArchitectureVX86
+	_WindowsArchitecturePX64     = WindowsArchitectureVX64
+	_WindowsArchitecturePArm     = WindowsArchitectureVArm
+	_WindowsArchitecturePNeutral = WindowsArchitectureVNeutral
+)

@@ -3,79 +3,58 @@
 package msgraph
 
 // ManagedDeviceRemoteAction undocumented
-type ManagedDeviceRemoteAction int
+type ManagedDeviceRemoteAction string
 
 const (
 	// ManagedDeviceRemoteActionVRetire undocumented
-	ManagedDeviceRemoteActionVRetire ManagedDeviceRemoteAction = 0
+	ManagedDeviceRemoteActionVRetire ManagedDeviceRemoteAction = "retire"
 	// ManagedDeviceRemoteActionVDelete undocumented
-	ManagedDeviceRemoteActionVDelete ManagedDeviceRemoteAction = 1
+	ManagedDeviceRemoteActionVDelete ManagedDeviceRemoteAction = "delete"
 	// ManagedDeviceRemoteActionVFullScan undocumented
-	ManagedDeviceRemoteActionVFullScan ManagedDeviceRemoteAction = 2
+	ManagedDeviceRemoteActionVFullScan ManagedDeviceRemoteAction = "fullScan"
 	// ManagedDeviceRemoteActionVQuickScan undocumented
-	ManagedDeviceRemoteActionVQuickScan ManagedDeviceRemoteAction = 3
+	ManagedDeviceRemoteActionVQuickScan ManagedDeviceRemoteAction = "quickScan"
 	// ManagedDeviceRemoteActionVSignatureUpdate undocumented
-	ManagedDeviceRemoteActionVSignatureUpdate ManagedDeviceRemoteAction = 4
+	ManagedDeviceRemoteActionVSignatureUpdate ManagedDeviceRemoteAction = "signatureUpdate"
 	// ManagedDeviceRemoteActionVWipe undocumented
-	ManagedDeviceRemoteActionVWipe ManagedDeviceRemoteAction = 5
+	ManagedDeviceRemoteActionVWipe ManagedDeviceRemoteAction = "wipe"
 	// ManagedDeviceRemoteActionVCustomTextNotification undocumented
-	ManagedDeviceRemoteActionVCustomTextNotification ManagedDeviceRemoteAction = 6
+	ManagedDeviceRemoteActionVCustomTextNotification ManagedDeviceRemoteAction = "customTextNotification"
 	// ManagedDeviceRemoteActionVRebootNow undocumented
-	ManagedDeviceRemoteActionVRebootNow ManagedDeviceRemoteAction = 7
+	ManagedDeviceRemoteActionVRebootNow ManagedDeviceRemoteAction = "rebootNow"
 	// ManagedDeviceRemoteActionVSetDeviceName undocumented
-	ManagedDeviceRemoteActionVSetDeviceName ManagedDeviceRemoteAction = 8
+	ManagedDeviceRemoteActionVSetDeviceName ManagedDeviceRemoteAction = "setDeviceName"
 )
 
-// ManagedDeviceRemoteActionPRetire returns a pointer to ManagedDeviceRemoteActionVRetire
-func ManagedDeviceRemoteActionPRetire() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVRetire
-	return &v
-}
+var (
+	// ManagedDeviceRemoteActionPRetire is a pointer to ManagedDeviceRemoteActionVRetire
+	ManagedDeviceRemoteActionPRetire = &_ManagedDeviceRemoteActionPRetire
+	// ManagedDeviceRemoteActionPDelete is a pointer to ManagedDeviceRemoteActionVDelete
+	ManagedDeviceRemoteActionPDelete = &_ManagedDeviceRemoteActionPDelete
+	// ManagedDeviceRemoteActionPFullScan is a pointer to ManagedDeviceRemoteActionVFullScan
+	ManagedDeviceRemoteActionPFullScan = &_ManagedDeviceRemoteActionPFullScan
+	// ManagedDeviceRemoteActionPQuickScan is a pointer to ManagedDeviceRemoteActionVQuickScan
+	ManagedDeviceRemoteActionPQuickScan = &_ManagedDeviceRemoteActionPQuickScan
+	// ManagedDeviceRemoteActionPSignatureUpdate is a pointer to ManagedDeviceRemoteActionVSignatureUpdate
+	ManagedDeviceRemoteActionPSignatureUpdate = &_ManagedDeviceRemoteActionPSignatureUpdate
+	// ManagedDeviceRemoteActionPWipe is a pointer to ManagedDeviceRemoteActionVWipe
+	ManagedDeviceRemoteActionPWipe = &_ManagedDeviceRemoteActionPWipe
+	// ManagedDeviceRemoteActionPCustomTextNotification is a pointer to ManagedDeviceRemoteActionVCustomTextNotification
+	ManagedDeviceRemoteActionPCustomTextNotification = &_ManagedDeviceRemoteActionPCustomTextNotification
+	// ManagedDeviceRemoteActionPRebootNow is a pointer to ManagedDeviceRemoteActionVRebootNow
+	ManagedDeviceRemoteActionPRebootNow = &_ManagedDeviceRemoteActionPRebootNow
+	// ManagedDeviceRemoteActionPSetDeviceName is a pointer to ManagedDeviceRemoteActionVSetDeviceName
+	ManagedDeviceRemoteActionPSetDeviceName = &_ManagedDeviceRemoteActionPSetDeviceName
+)
 
-// ManagedDeviceRemoteActionPDelete returns a pointer to ManagedDeviceRemoteActionVDelete
-func ManagedDeviceRemoteActionPDelete() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVDelete
-	return &v
-}
-
-// ManagedDeviceRemoteActionPFullScan returns a pointer to ManagedDeviceRemoteActionVFullScan
-func ManagedDeviceRemoteActionPFullScan() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVFullScan
-	return &v
-}
-
-// ManagedDeviceRemoteActionPQuickScan returns a pointer to ManagedDeviceRemoteActionVQuickScan
-func ManagedDeviceRemoteActionPQuickScan() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVQuickScan
-	return &v
-}
-
-// ManagedDeviceRemoteActionPSignatureUpdate returns a pointer to ManagedDeviceRemoteActionVSignatureUpdate
-func ManagedDeviceRemoteActionPSignatureUpdate() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVSignatureUpdate
-	return &v
-}
-
-// ManagedDeviceRemoteActionPWipe returns a pointer to ManagedDeviceRemoteActionVWipe
-func ManagedDeviceRemoteActionPWipe() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVWipe
-	return &v
-}
-
-// ManagedDeviceRemoteActionPCustomTextNotification returns a pointer to ManagedDeviceRemoteActionVCustomTextNotification
-func ManagedDeviceRemoteActionPCustomTextNotification() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVCustomTextNotification
-	return &v
-}
-
-// ManagedDeviceRemoteActionPRebootNow returns a pointer to ManagedDeviceRemoteActionVRebootNow
-func ManagedDeviceRemoteActionPRebootNow() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVRebootNow
-	return &v
-}
-
-// ManagedDeviceRemoteActionPSetDeviceName returns a pointer to ManagedDeviceRemoteActionVSetDeviceName
-func ManagedDeviceRemoteActionPSetDeviceName() *ManagedDeviceRemoteAction {
-	v := ManagedDeviceRemoteActionVSetDeviceName
-	return &v
-}
+var (
+	_ManagedDeviceRemoteActionPRetire                 = ManagedDeviceRemoteActionVRetire
+	_ManagedDeviceRemoteActionPDelete                 = ManagedDeviceRemoteActionVDelete
+	_ManagedDeviceRemoteActionPFullScan               = ManagedDeviceRemoteActionVFullScan
+	_ManagedDeviceRemoteActionPQuickScan              = ManagedDeviceRemoteActionVQuickScan
+	_ManagedDeviceRemoteActionPSignatureUpdate        = ManagedDeviceRemoteActionVSignatureUpdate
+	_ManagedDeviceRemoteActionPWipe                   = ManagedDeviceRemoteActionVWipe
+	_ManagedDeviceRemoteActionPCustomTextNotification = ManagedDeviceRemoteActionVCustomTextNotification
+	_ManagedDeviceRemoteActionPRebootNow              = ManagedDeviceRemoteActionVRebootNow
+	_ManagedDeviceRemoteActionPSetDeviceName          = ManagedDeviceRemoteActionVSetDeviceName
+)

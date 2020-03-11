@@ -3,79 +3,58 @@
 package msgraph
 
 // AndroidDeviceOwnerRequiredPasswordType undocumented
-type AndroidDeviceOwnerRequiredPasswordType int
+type AndroidDeviceOwnerRequiredPasswordType string
 
 const (
 	// AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault AndroidDeviceOwnerRequiredPasswordType = 0
+	AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault AndroidDeviceOwnerRequiredPasswordType = "deviceDefault"
 	// AndroidDeviceOwnerRequiredPasswordTypeVRequired undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVRequired AndroidDeviceOwnerRequiredPasswordType = 1
+	AndroidDeviceOwnerRequiredPasswordTypeVRequired AndroidDeviceOwnerRequiredPasswordType = "required"
 	// AndroidDeviceOwnerRequiredPasswordTypeVNumeric undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVNumeric AndroidDeviceOwnerRequiredPasswordType = 2
+	AndroidDeviceOwnerRequiredPasswordTypeVNumeric AndroidDeviceOwnerRequiredPasswordType = "numeric"
 	// AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex AndroidDeviceOwnerRequiredPasswordType = 3
+	AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex AndroidDeviceOwnerRequiredPasswordType = "numericComplex"
 	// AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic AndroidDeviceOwnerRequiredPasswordType = 4
+	AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic AndroidDeviceOwnerRequiredPasswordType = "alphabetic"
 	// AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric AndroidDeviceOwnerRequiredPasswordType = 5
+	AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric AndroidDeviceOwnerRequiredPasswordType = "alphanumeric"
 	// AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols AndroidDeviceOwnerRequiredPasswordType = 6
+	AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols AndroidDeviceOwnerRequiredPasswordType = "alphanumericWithSymbols"
 	// AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric AndroidDeviceOwnerRequiredPasswordType = 7
+	AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric AndroidDeviceOwnerRequiredPasswordType = "lowSecurityBiometric"
 	// AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword undocumented
-	AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword AndroidDeviceOwnerRequiredPasswordType = 8
+	AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword AndroidDeviceOwnerRequiredPasswordType = "customPassword"
 )
 
-// AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault
-func AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault
-	return &v
-}
+var (
+	// AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault
+	AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault = &_AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault
+	// AndroidDeviceOwnerRequiredPasswordTypePRequired is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVRequired
+	AndroidDeviceOwnerRequiredPasswordTypePRequired = &_AndroidDeviceOwnerRequiredPasswordTypePRequired
+	// AndroidDeviceOwnerRequiredPasswordTypePNumeric is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVNumeric
+	AndroidDeviceOwnerRequiredPasswordTypePNumeric = &_AndroidDeviceOwnerRequiredPasswordTypePNumeric
+	// AndroidDeviceOwnerRequiredPasswordTypePNumericComplex is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex
+	AndroidDeviceOwnerRequiredPasswordTypePNumericComplex = &_AndroidDeviceOwnerRequiredPasswordTypePNumericComplex
+	// AndroidDeviceOwnerRequiredPasswordTypePAlphabetic is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic
+	AndroidDeviceOwnerRequiredPasswordTypePAlphabetic = &_AndroidDeviceOwnerRequiredPasswordTypePAlphabetic
+	// AndroidDeviceOwnerRequiredPasswordTypePAlphanumeric is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric
+	AndroidDeviceOwnerRequiredPasswordTypePAlphanumeric = &_AndroidDeviceOwnerRequiredPasswordTypePAlphanumeric
+	// AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols
+	AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols = &_AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols
+	// AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric
+	AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric = &_AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric
+	// AndroidDeviceOwnerRequiredPasswordTypePCustomPassword is a pointer to AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword
+	AndroidDeviceOwnerRequiredPasswordTypePCustomPassword = &_AndroidDeviceOwnerRequiredPasswordTypePCustomPassword
+)
 
-// AndroidDeviceOwnerRequiredPasswordTypePRequired returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVRequired
-func AndroidDeviceOwnerRequiredPasswordTypePRequired() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVRequired
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePNumeric returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVNumeric
-func AndroidDeviceOwnerRequiredPasswordTypePNumeric() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVNumeric
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePNumericComplex returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex
-func AndroidDeviceOwnerRequiredPasswordTypePNumericComplex() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePAlphabetic returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic
-func AndroidDeviceOwnerRequiredPasswordTypePAlphabetic() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePAlphanumeric returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric
-func AndroidDeviceOwnerRequiredPasswordTypePAlphanumeric() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols
-func AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric
-func AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric
-	return &v
-}
-
-// AndroidDeviceOwnerRequiredPasswordTypePCustomPassword returns a pointer to AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword
-func AndroidDeviceOwnerRequiredPasswordTypePCustomPassword() *AndroidDeviceOwnerRequiredPasswordType {
-	v := AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword
-	return &v
-}
+var (
+	_AndroidDeviceOwnerRequiredPasswordTypePDeviceDefault           = AndroidDeviceOwnerRequiredPasswordTypeVDeviceDefault
+	_AndroidDeviceOwnerRequiredPasswordTypePRequired                = AndroidDeviceOwnerRequiredPasswordTypeVRequired
+	_AndroidDeviceOwnerRequiredPasswordTypePNumeric                 = AndroidDeviceOwnerRequiredPasswordTypeVNumeric
+	_AndroidDeviceOwnerRequiredPasswordTypePNumericComplex          = AndroidDeviceOwnerRequiredPasswordTypeVNumericComplex
+	_AndroidDeviceOwnerRequiredPasswordTypePAlphabetic              = AndroidDeviceOwnerRequiredPasswordTypeVAlphabetic
+	_AndroidDeviceOwnerRequiredPasswordTypePAlphanumeric            = AndroidDeviceOwnerRequiredPasswordTypeVAlphanumeric
+	_AndroidDeviceOwnerRequiredPasswordTypePAlphanumericWithSymbols = AndroidDeviceOwnerRequiredPasswordTypeVAlphanumericWithSymbols
+	_AndroidDeviceOwnerRequiredPasswordTypePLowSecurityBiometric    = AndroidDeviceOwnerRequiredPasswordTypeVLowSecurityBiometric
+	_AndroidDeviceOwnerRequiredPasswordTypePCustomPassword          = AndroidDeviceOwnerRequiredPasswordTypeVCustomPassword
+)

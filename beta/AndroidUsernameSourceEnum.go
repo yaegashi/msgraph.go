@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidUsernameSource undocumented
-type AndroidUsernameSource int
+type AndroidUsernameSource string
 
 const (
 	// AndroidUsernameSourceVUsername undocumented
-	AndroidUsernameSourceVUsername AndroidUsernameSource = 0
+	AndroidUsernameSourceVUsername AndroidUsernameSource = "username"
 	// AndroidUsernameSourceVUserPrincipalName undocumented
-	AndroidUsernameSourceVUserPrincipalName AndroidUsernameSource = 1
+	AndroidUsernameSourceVUserPrincipalName AndroidUsernameSource = "userPrincipalName"
 	// AndroidUsernameSourceVSamAccountName undocumented
-	AndroidUsernameSourceVSamAccountName AndroidUsernameSource = 2
+	AndroidUsernameSourceVSamAccountName AndroidUsernameSource = "samAccountName"
 	// AndroidUsernameSourceVPrimarySMTPAddress undocumented
-	AndroidUsernameSourceVPrimarySMTPAddress AndroidUsernameSource = 3
+	AndroidUsernameSourceVPrimarySMTPAddress AndroidUsernameSource = "primarySmtpAddress"
 )
 
-// AndroidUsernameSourcePUsername returns a pointer to AndroidUsernameSourceVUsername
-func AndroidUsernameSourcePUsername() *AndroidUsernameSource {
-	v := AndroidUsernameSourceVUsername
-	return &v
-}
+var (
+	// AndroidUsernameSourcePUsername is a pointer to AndroidUsernameSourceVUsername
+	AndroidUsernameSourcePUsername = &_AndroidUsernameSourcePUsername
+	// AndroidUsernameSourcePUserPrincipalName is a pointer to AndroidUsernameSourceVUserPrincipalName
+	AndroidUsernameSourcePUserPrincipalName = &_AndroidUsernameSourcePUserPrincipalName
+	// AndroidUsernameSourcePSamAccountName is a pointer to AndroidUsernameSourceVSamAccountName
+	AndroidUsernameSourcePSamAccountName = &_AndroidUsernameSourcePSamAccountName
+	// AndroidUsernameSourcePPrimarySMTPAddress is a pointer to AndroidUsernameSourceVPrimarySMTPAddress
+	AndroidUsernameSourcePPrimarySMTPAddress = &_AndroidUsernameSourcePPrimarySMTPAddress
+)
 
-// AndroidUsernameSourcePUserPrincipalName returns a pointer to AndroidUsernameSourceVUserPrincipalName
-func AndroidUsernameSourcePUserPrincipalName() *AndroidUsernameSource {
-	v := AndroidUsernameSourceVUserPrincipalName
-	return &v
-}
-
-// AndroidUsernameSourcePSamAccountName returns a pointer to AndroidUsernameSourceVSamAccountName
-func AndroidUsernameSourcePSamAccountName() *AndroidUsernameSource {
-	v := AndroidUsernameSourceVSamAccountName
-	return &v
-}
-
-// AndroidUsernameSourcePPrimarySMTPAddress returns a pointer to AndroidUsernameSourceVPrimarySMTPAddress
-func AndroidUsernameSourcePPrimarySMTPAddress() *AndroidUsernameSource {
-	v := AndroidUsernameSourceVPrimarySMTPAddress
-	return &v
-}
+var (
+	_AndroidUsernameSourcePUsername           = AndroidUsernameSourceVUsername
+	_AndroidUsernameSourcePUserPrincipalName  = AndroidUsernameSourceVUserPrincipalName
+	_AndroidUsernameSourcePSamAccountName     = AndroidUsernameSourceVSamAccountName
+	_AndroidUsernameSourcePPrimarySMTPAddress = AndroidUsernameSourceVPrimarySMTPAddress
+)

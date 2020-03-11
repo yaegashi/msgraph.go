@@ -3,63 +3,48 @@
 package msgraph
 
 // LogonType undocumented
-type LogonType int
+type LogonType string
 
 const (
 	// LogonTypeVUnknown undocumented
-	LogonTypeVUnknown LogonType = 0
+	LogonTypeVUnknown LogonType = "unknown"
 	// LogonTypeVInteractive undocumented
-	LogonTypeVInteractive LogonType = 1
+	LogonTypeVInteractive LogonType = "interactive"
 	// LogonTypeVRemoteInteractive undocumented
-	LogonTypeVRemoteInteractive LogonType = 2
+	LogonTypeVRemoteInteractive LogonType = "remoteInteractive"
 	// LogonTypeVNetwork undocumented
-	LogonTypeVNetwork LogonType = 3
+	LogonTypeVNetwork LogonType = "network"
 	// LogonTypeVBatch undocumented
-	LogonTypeVBatch LogonType = 4
+	LogonTypeVBatch LogonType = "batch"
 	// LogonTypeVService undocumented
-	LogonTypeVService LogonType = 5
+	LogonTypeVService LogonType = "service"
 	// LogonTypeVUnknownFutureValue undocumented
-	LogonTypeVUnknownFutureValue LogonType = 127
+	LogonTypeVUnknownFutureValue LogonType = "unknownFutureValue"
 )
 
-// LogonTypePUnknown returns a pointer to LogonTypeVUnknown
-func LogonTypePUnknown() *LogonType {
-	v := LogonTypeVUnknown
-	return &v
-}
+var (
+	// LogonTypePUnknown is a pointer to LogonTypeVUnknown
+	LogonTypePUnknown = &_LogonTypePUnknown
+	// LogonTypePInteractive is a pointer to LogonTypeVInteractive
+	LogonTypePInteractive = &_LogonTypePInteractive
+	// LogonTypePRemoteInteractive is a pointer to LogonTypeVRemoteInteractive
+	LogonTypePRemoteInteractive = &_LogonTypePRemoteInteractive
+	// LogonTypePNetwork is a pointer to LogonTypeVNetwork
+	LogonTypePNetwork = &_LogonTypePNetwork
+	// LogonTypePBatch is a pointer to LogonTypeVBatch
+	LogonTypePBatch = &_LogonTypePBatch
+	// LogonTypePService is a pointer to LogonTypeVService
+	LogonTypePService = &_LogonTypePService
+	// LogonTypePUnknownFutureValue is a pointer to LogonTypeVUnknownFutureValue
+	LogonTypePUnknownFutureValue = &_LogonTypePUnknownFutureValue
+)
 
-// LogonTypePInteractive returns a pointer to LogonTypeVInteractive
-func LogonTypePInteractive() *LogonType {
-	v := LogonTypeVInteractive
-	return &v
-}
-
-// LogonTypePRemoteInteractive returns a pointer to LogonTypeVRemoteInteractive
-func LogonTypePRemoteInteractive() *LogonType {
-	v := LogonTypeVRemoteInteractive
-	return &v
-}
-
-// LogonTypePNetwork returns a pointer to LogonTypeVNetwork
-func LogonTypePNetwork() *LogonType {
-	v := LogonTypeVNetwork
-	return &v
-}
-
-// LogonTypePBatch returns a pointer to LogonTypeVBatch
-func LogonTypePBatch() *LogonType {
-	v := LogonTypeVBatch
-	return &v
-}
-
-// LogonTypePService returns a pointer to LogonTypeVService
-func LogonTypePService() *LogonType {
-	v := LogonTypeVService
-	return &v
-}
-
-// LogonTypePUnknownFutureValue returns a pointer to LogonTypeVUnknownFutureValue
-func LogonTypePUnknownFutureValue() *LogonType {
-	v := LogonTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_LogonTypePUnknown            = LogonTypeVUnknown
+	_LogonTypePInteractive        = LogonTypeVInteractive
+	_LogonTypePRemoteInteractive  = LogonTypeVRemoteInteractive
+	_LogonTypePNetwork            = LogonTypeVNetwork
+	_LogonTypePBatch              = LogonTypeVBatch
+	_LogonTypePService            = LogonTypeVService
+	_LogonTypePUnknownFutureValue = LogonTypeVUnknownFutureValue
+)

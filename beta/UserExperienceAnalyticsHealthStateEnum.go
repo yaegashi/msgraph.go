@@ -3,39 +3,33 @@
 package msgraph
 
 // UserExperienceAnalyticsHealthState undocumented
-type UserExperienceAnalyticsHealthState int
+type UserExperienceAnalyticsHealthState string
 
 const (
 	// UserExperienceAnalyticsHealthStateVUnknown undocumented
-	UserExperienceAnalyticsHealthStateVUnknown UserExperienceAnalyticsHealthState = 0
+	UserExperienceAnalyticsHealthStateVUnknown UserExperienceAnalyticsHealthState = "unknown"
 	// UserExperienceAnalyticsHealthStateVInsufficientData undocumented
-	UserExperienceAnalyticsHealthStateVInsufficientData UserExperienceAnalyticsHealthState = 1
+	UserExperienceAnalyticsHealthStateVInsufficientData UserExperienceAnalyticsHealthState = "insufficientData"
 	// UserExperienceAnalyticsHealthStateVNeedsAttention undocumented
-	UserExperienceAnalyticsHealthStateVNeedsAttention UserExperienceAnalyticsHealthState = 2
+	UserExperienceAnalyticsHealthStateVNeedsAttention UserExperienceAnalyticsHealthState = "needsAttention"
 	// UserExperienceAnalyticsHealthStateVMeetingGoals undocumented
-	UserExperienceAnalyticsHealthStateVMeetingGoals UserExperienceAnalyticsHealthState = 3
+	UserExperienceAnalyticsHealthStateVMeetingGoals UserExperienceAnalyticsHealthState = "meetingGoals"
 )
 
-// UserExperienceAnalyticsHealthStatePUnknown returns a pointer to UserExperienceAnalyticsHealthStateVUnknown
-func UserExperienceAnalyticsHealthStatePUnknown() *UserExperienceAnalyticsHealthState {
-	v := UserExperienceAnalyticsHealthStateVUnknown
-	return &v
-}
+var (
+	// UserExperienceAnalyticsHealthStatePUnknown is a pointer to UserExperienceAnalyticsHealthStateVUnknown
+	UserExperienceAnalyticsHealthStatePUnknown = &_UserExperienceAnalyticsHealthStatePUnknown
+	// UserExperienceAnalyticsHealthStatePInsufficientData is a pointer to UserExperienceAnalyticsHealthStateVInsufficientData
+	UserExperienceAnalyticsHealthStatePInsufficientData = &_UserExperienceAnalyticsHealthStatePInsufficientData
+	// UserExperienceAnalyticsHealthStatePNeedsAttention is a pointer to UserExperienceAnalyticsHealthStateVNeedsAttention
+	UserExperienceAnalyticsHealthStatePNeedsAttention = &_UserExperienceAnalyticsHealthStatePNeedsAttention
+	// UserExperienceAnalyticsHealthStatePMeetingGoals is a pointer to UserExperienceAnalyticsHealthStateVMeetingGoals
+	UserExperienceAnalyticsHealthStatePMeetingGoals = &_UserExperienceAnalyticsHealthStatePMeetingGoals
+)
 
-// UserExperienceAnalyticsHealthStatePInsufficientData returns a pointer to UserExperienceAnalyticsHealthStateVInsufficientData
-func UserExperienceAnalyticsHealthStatePInsufficientData() *UserExperienceAnalyticsHealthState {
-	v := UserExperienceAnalyticsHealthStateVInsufficientData
-	return &v
-}
-
-// UserExperienceAnalyticsHealthStatePNeedsAttention returns a pointer to UserExperienceAnalyticsHealthStateVNeedsAttention
-func UserExperienceAnalyticsHealthStatePNeedsAttention() *UserExperienceAnalyticsHealthState {
-	v := UserExperienceAnalyticsHealthStateVNeedsAttention
-	return &v
-}
-
-// UserExperienceAnalyticsHealthStatePMeetingGoals returns a pointer to UserExperienceAnalyticsHealthStateVMeetingGoals
-func UserExperienceAnalyticsHealthStatePMeetingGoals() *UserExperienceAnalyticsHealthState {
-	v := UserExperienceAnalyticsHealthStateVMeetingGoals
-	return &v
-}
+var (
+	_UserExperienceAnalyticsHealthStatePUnknown          = UserExperienceAnalyticsHealthStateVUnknown
+	_UserExperienceAnalyticsHealthStatePInsufficientData = UserExperienceAnalyticsHealthStateVInsufficientData
+	_UserExperienceAnalyticsHealthStatePNeedsAttention   = UserExperienceAnalyticsHealthStateVNeedsAttention
+	_UserExperienceAnalyticsHealthStatePMeetingGoals     = UserExperienceAnalyticsHealthStateVMeetingGoals
+)

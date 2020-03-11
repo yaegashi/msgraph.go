@@ -3,31 +3,28 @@
 package msgraph
 
 // WindowsDefenderTamperProtectionOptions undocumented
-type WindowsDefenderTamperProtectionOptions int
+type WindowsDefenderTamperProtectionOptions string
 
 const (
 	// WindowsDefenderTamperProtectionOptionsVNotConfigured undocumented
-	WindowsDefenderTamperProtectionOptionsVNotConfigured WindowsDefenderTamperProtectionOptions = 0
+	WindowsDefenderTamperProtectionOptionsVNotConfigured WindowsDefenderTamperProtectionOptions = "notConfigured"
 	// WindowsDefenderTamperProtectionOptionsVEnable undocumented
-	WindowsDefenderTamperProtectionOptionsVEnable WindowsDefenderTamperProtectionOptions = 1
+	WindowsDefenderTamperProtectionOptionsVEnable WindowsDefenderTamperProtectionOptions = "enable"
 	// WindowsDefenderTamperProtectionOptionsVDisable undocumented
-	WindowsDefenderTamperProtectionOptionsVDisable WindowsDefenderTamperProtectionOptions = 2
+	WindowsDefenderTamperProtectionOptionsVDisable WindowsDefenderTamperProtectionOptions = "disable"
 )
 
-// WindowsDefenderTamperProtectionOptionsPNotConfigured returns a pointer to WindowsDefenderTamperProtectionOptionsVNotConfigured
-func WindowsDefenderTamperProtectionOptionsPNotConfigured() *WindowsDefenderTamperProtectionOptions {
-	v := WindowsDefenderTamperProtectionOptionsVNotConfigured
-	return &v
-}
+var (
+	// WindowsDefenderTamperProtectionOptionsPNotConfigured is a pointer to WindowsDefenderTamperProtectionOptionsVNotConfigured
+	WindowsDefenderTamperProtectionOptionsPNotConfigured = &_WindowsDefenderTamperProtectionOptionsPNotConfigured
+	// WindowsDefenderTamperProtectionOptionsPEnable is a pointer to WindowsDefenderTamperProtectionOptionsVEnable
+	WindowsDefenderTamperProtectionOptionsPEnable = &_WindowsDefenderTamperProtectionOptionsPEnable
+	// WindowsDefenderTamperProtectionOptionsPDisable is a pointer to WindowsDefenderTamperProtectionOptionsVDisable
+	WindowsDefenderTamperProtectionOptionsPDisable = &_WindowsDefenderTamperProtectionOptionsPDisable
+)
 
-// WindowsDefenderTamperProtectionOptionsPEnable returns a pointer to WindowsDefenderTamperProtectionOptionsVEnable
-func WindowsDefenderTamperProtectionOptionsPEnable() *WindowsDefenderTamperProtectionOptions {
-	v := WindowsDefenderTamperProtectionOptionsVEnable
-	return &v
-}
-
-// WindowsDefenderTamperProtectionOptionsPDisable returns a pointer to WindowsDefenderTamperProtectionOptionsVDisable
-func WindowsDefenderTamperProtectionOptionsPDisable() *WindowsDefenderTamperProtectionOptions {
-	v := WindowsDefenderTamperProtectionOptionsVDisable
-	return &v
-}
+var (
+	_WindowsDefenderTamperProtectionOptionsPNotConfigured = WindowsDefenderTamperProtectionOptionsVNotConfigured
+	_WindowsDefenderTamperProtectionOptionsPEnable        = WindowsDefenderTamperProtectionOptionsVEnable
+	_WindowsDefenderTamperProtectionOptionsPDisable       = WindowsDefenderTamperProtectionOptionsVDisable
+)

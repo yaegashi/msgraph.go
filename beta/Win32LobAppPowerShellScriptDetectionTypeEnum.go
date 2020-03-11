@@ -3,63 +3,48 @@
 package msgraph
 
 // Win32LobAppPowerShellScriptDetectionType undocumented
-type Win32LobAppPowerShellScriptDetectionType int
+type Win32LobAppPowerShellScriptDetectionType string
 
 const (
 	// Win32LobAppPowerShellScriptDetectionTypeVNotConfigured undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVNotConfigured Win32LobAppPowerShellScriptDetectionType = 0
+	Win32LobAppPowerShellScriptDetectionTypeVNotConfigured Win32LobAppPowerShellScriptDetectionType = "notConfigured"
 	// Win32LobAppPowerShellScriptDetectionTypeVString undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVString Win32LobAppPowerShellScriptDetectionType = 1
+	Win32LobAppPowerShellScriptDetectionTypeVString Win32LobAppPowerShellScriptDetectionType = "string"
 	// Win32LobAppPowerShellScriptDetectionTypeVDateTime undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVDateTime Win32LobAppPowerShellScriptDetectionType = 2
+	Win32LobAppPowerShellScriptDetectionTypeVDateTime Win32LobAppPowerShellScriptDetectionType = "dateTime"
 	// Win32LobAppPowerShellScriptDetectionTypeVInteger undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVInteger Win32LobAppPowerShellScriptDetectionType = 3
+	Win32LobAppPowerShellScriptDetectionTypeVInteger Win32LobAppPowerShellScriptDetectionType = "integer"
 	// Win32LobAppPowerShellScriptDetectionTypeVFloat undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVFloat Win32LobAppPowerShellScriptDetectionType = 4
+	Win32LobAppPowerShellScriptDetectionTypeVFloat Win32LobAppPowerShellScriptDetectionType = "float"
 	// Win32LobAppPowerShellScriptDetectionTypeVVersion undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVVersion Win32LobAppPowerShellScriptDetectionType = 5
+	Win32LobAppPowerShellScriptDetectionTypeVVersion Win32LobAppPowerShellScriptDetectionType = "version"
 	// Win32LobAppPowerShellScriptDetectionTypeVBoolean undocumented
-	Win32LobAppPowerShellScriptDetectionTypeVBoolean Win32LobAppPowerShellScriptDetectionType = 6
+	Win32LobAppPowerShellScriptDetectionTypeVBoolean Win32LobAppPowerShellScriptDetectionType = "boolean"
 )
 
-// Win32LobAppPowerShellScriptDetectionTypePNotConfigured returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVNotConfigured
-func Win32LobAppPowerShellScriptDetectionTypePNotConfigured() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVNotConfigured
-	return &v
-}
+var (
+	// Win32LobAppPowerShellScriptDetectionTypePNotConfigured is a pointer to Win32LobAppPowerShellScriptDetectionTypeVNotConfigured
+	Win32LobAppPowerShellScriptDetectionTypePNotConfigured = &_Win32LobAppPowerShellScriptDetectionTypePNotConfigured
+	// Win32LobAppPowerShellScriptDetectionTypePString is a pointer to Win32LobAppPowerShellScriptDetectionTypeVString
+	Win32LobAppPowerShellScriptDetectionTypePString = &_Win32LobAppPowerShellScriptDetectionTypePString
+	// Win32LobAppPowerShellScriptDetectionTypePDateTime is a pointer to Win32LobAppPowerShellScriptDetectionTypeVDateTime
+	Win32LobAppPowerShellScriptDetectionTypePDateTime = &_Win32LobAppPowerShellScriptDetectionTypePDateTime
+	// Win32LobAppPowerShellScriptDetectionTypePInteger is a pointer to Win32LobAppPowerShellScriptDetectionTypeVInteger
+	Win32LobAppPowerShellScriptDetectionTypePInteger = &_Win32LobAppPowerShellScriptDetectionTypePInteger
+	// Win32LobAppPowerShellScriptDetectionTypePFloat is a pointer to Win32LobAppPowerShellScriptDetectionTypeVFloat
+	Win32LobAppPowerShellScriptDetectionTypePFloat = &_Win32LobAppPowerShellScriptDetectionTypePFloat
+	// Win32LobAppPowerShellScriptDetectionTypePVersion is a pointer to Win32LobAppPowerShellScriptDetectionTypeVVersion
+	Win32LobAppPowerShellScriptDetectionTypePVersion = &_Win32LobAppPowerShellScriptDetectionTypePVersion
+	// Win32LobAppPowerShellScriptDetectionTypePBoolean is a pointer to Win32LobAppPowerShellScriptDetectionTypeVBoolean
+	Win32LobAppPowerShellScriptDetectionTypePBoolean = &_Win32LobAppPowerShellScriptDetectionTypePBoolean
+)
 
-// Win32LobAppPowerShellScriptDetectionTypePString returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVString
-func Win32LobAppPowerShellScriptDetectionTypePString() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVString
-	return &v
-}
-
-// Win32LobAppPowerShellScriptDetectionTypePDateTime returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVDateTime
-func Win32LobAppPowerShellScriptDetectionTypePDateTime() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVDateTime
-	return &v
-}
-
-// Win32LobAppPowerShellScriptDetectionTypePInteger returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVInteger
-func Win32LobAppPowerShellScriptDetectionTypePInteger() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVInteger
-	return &v
-}
-
-// Win32LobAppPowerShellScriptDetectionTypePFloat returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVFloat
-func Win32LobAppPowerShellScriptDetectionTypePFloat() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVFloat
-	return &v
-}
-
-// Win32LobAppPowerShellScriptDetectionTypePVersion returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVVersion
-func Win32LobAppPowerShellScriptDetectionTypePVersion() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVVersion
-	return &v
-}
-
-// Win32LobAppPowerShellScriptDetectionTypePBoolean returns a pointer to Win32LobAppPowerShellScriptDetectionTypeVBoolean
-func Win32LobAppPowerShellScriptDetectionTypePBoolean() *Win32LobAppPowerShellScriptDetectionType {
-	v := Win32LobAppPowerShellScriptDetectionTypeVBoolean
-	return &v
-}
+var (
+	_Win32LobAppPowerShellScriptDetectionTypePNotConfigured = Win32LobAppPowerShellScriptDetectionTypeVNotConfigured
+	_Win32LobAppPowerShellScriptDetectionTypePString        = Win32LobAppPowerShellScriptDetectionTypeVString
+	_Win32LobAppPowerShellScriptDetectionTypePDateTime      = Win32LobAppPowerShellScriptDetectionTypeVDateTime
+	_Win32LobAppPowerShellScriptDetectionTypePInteger       = Win32LobAppPowerShellScriptDetectionTypeVInteger
+	_Win32LobAppPowerShellScriptDetectionTypePFloat         = Win32LobAppPowerShellScriptDetectionTypeVFloat
+	_Win32LobAppPowerShellScriptDetectionTypePVersion       = Win32LobAppPowerShellScriptDetectionTypeVVersion
+	_Win32LobAppPowerShellScriptDetectionTypePBoolean       = Win32LobAppPowerShellScriptDetectionTypeVBoolean
+)

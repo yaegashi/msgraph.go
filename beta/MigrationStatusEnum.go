@@ -3,39 +3,33 @@
 package msgraph
 
 // MigrationStatus undocumented
-type MigrationStatus int
+type MigrationStatus string
 
 const (
 	// MigrationStatusVReady undocumented
-	MigrationStatusVReady MigrationStatus = 0
+	MigrationStatusVReady MigrationStatus = "ready"
 	// MigrationStatusVNeedsReview undocumented
-	MigrationStatusVNeedsReview MigrationStatus = 1
+	MigrationStatusVNeedsReview MigrationStatus = "needsReview"
 	// MigrationStatusVAdditionalStepsRequired undocumented
-	MigrationStatusVAdditionalStepsRequired MigrationStatus = 2
+	MigrationStatusVAdditionalStepsRequired MigrationStatus = "additionalStepsRequired"
 	// MigrationStatusVUnknownFutureValue undocumented
-	MigrationStatusVUnknownFutureValue MigrationStatus = 3
+	MigrationStatusVUnknownFutureValue MigrationStatus = "unknownFutureValue"
 )
 
-// MigrationStatusPReady returns a pointer to MigrationStatusVReady
-func MigrationStatusPReady() *MigrationStatus {
-	v := MigrationStatusVReady
-	return &v
-}
+var (
+	// MigrationStatusPReady is a pointer to MigrationStatusVReady
+	MigrationStatusPReady = &_MigrationStatusPReady
+	// MigrationStatusPNeedsReview is a pointer to MigrationStatusVNeedsReview
+	MigrationStatusPNeedsReview = &_MigrationStatusPNeedsReview
+	// MigrationStatusPAdditionalStepsRequired is a pointer to MigrationStatusVAdditionalStepsRequired
+	MigrationStatusPAdditionalStepsRequired = &_MigrationStatusPAdditionalStepsRequired
+	// MigrationStatusPUnknownFutureValue is a pointer to MigrationStatusVUnknownFutureValue
+	MigrationStatusPUnknownFutureValue = &_MigrationStatusPUnknownFutureValue
+)
 
-// MigrationStatusPNeedsReview returns a pointer to MigrationStatusVNeedsReview
-func MigrationStatusPNeedsReview() *MigrationStatus {
-	v := MigrationStatusVNeedsReview
-	return &v
-}
-
-// MigrationStatusPAdditionalStepsRequired returns a pointer to MigrationStatusVAdditionalStepsRequired
-func MigrationStatusPAdditionalStepsRequired() *MigrationStatus {
-	v := MigrationStatusVAdditionalStepsRequired
-	return &v
-}
-
-// MigrationStatusPUnknownFutureValue returns a pointer to MigrationStatusVUnknownFutureValue
-func MigrationStatusPUnknownFutureValue() *MigrationStatus {
-	v := MigrationStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_MigrationStatusPReady                   = MigrationStatusVReady
+	_MigrationStatusPNeedsReview             = MigrationStatusVNeedsReview
+	_MigrationStatusPAdditionalStepsRequired = MigrationStatusVAdditionalStepsRequired
+	_MigrationStatusPUnknownFutureValue      = MigrationStatusVUnknownFutureValue
+)

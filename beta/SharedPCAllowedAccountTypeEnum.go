@@ -3,31 +3,28 @@
 package msgraph
 
 // SharedPCAllowedAccountType undocumented
-type SharedPCAllowedAccountType int
+type SharedPCAllowedAccountType string
 
 const (
 	// SharedPCAllowedAccountTypeVNotConfigured undocumented
-	SharedPCAllowedAccountTypeVNotConfigured SharedPCAllowedAccountType = 0
+	SharedPCAllowedAccountTypeVNotConfigured SharedPCAllowedAccountType = "notConfigured"
 	// SharedPCAllowedAccountTypeVGuest undocumented
-	SharedPCAllowedAccountTypeVGuest SharedPCAllowedAccountType = 1
+	SharedPCAllowedAccountTypeVGuest SharedPCAllowedAccountType = "guest"
 	// SharedPCAllowedAccountTypeVDomain undocumented
-	SharedPCAllowedAccountTypeVDomain SharedPCAllowedAccountType = 2
+	SharedPCAllowedAccountTypeVDomain SharedPCAllowedAccountType = "domain"
 )
 
-// SharedPCAllowedAccountTypePNotConfigured returns a pointer to SharedPCAllowedAccountTypeVNotConfigured
-func SharedPCAllowedAccountTypePNotConfigured() *SharedPCAllowedAccountType {
-	v := SharedPCAllowedAccountTypeVNotConfigured
-	return &v
-}
+var (
+	// SharedPCAllowedAccountTypePNotConfigured is a pointer to SharedPCAllowedAccountTypeVNotConfigured
+	SharedPCAllowedAccountTypePNotConfigured = &_SharedPCAllowedAccountTypePNotConfigured
+	// SharedPCAllowedAccountTypePGuest is a pointer to SharedPCAllowedAccountTypeVGuest
+	SharedPCAllowedAccountTypePGuest = &_SharedPCAllowedAccountTypePGuest
+	// SharedPCAllowedAccountTypePDomain is a pointer to SharedPCAllowedAccountTypeVDomain
+	SharedPCAllowedAccountTypePDomain = &_SharedPCAllowedAccountTypePDomain
+)
 
-// SharedPCAllowedAccountTypePGuest returns a pointer to SharedPCAllowedAccountTypeVGuest
-func SharedPCAllowedAccountTypePGuest() *SharedPCAllowedAccountType {
-	v := SharedPCAllowedAccountTypeVGuest
-	return &v
-}
-
-// SharedPCAllowedAccountTypePDomain returns a pointer to SharedPCAllowedAccountTypeVDomain
-func SharedPCAllowedAccountTypePDomain() *SharedPCAllowedAccountType {
-	v := SharedPCAllowedAccountTypeVDomain
-	return &v
-}
+var (
+	_SharedPCAllowedAccountTypePNotConfigured = SharedPCAllowedAccountTypeVNotConfigured
+	_SharedPCAllowedAccountTypePGuest         = SharedPCAllowedAccountTypeVGuest
+	_SharedPCAllowedAccountTypePDomain        = SharedPCAllowedAccountTypeVDomain
+)

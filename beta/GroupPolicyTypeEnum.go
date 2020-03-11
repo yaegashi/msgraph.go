@@ -3,23 +3,23 @@
 package msgraph
 
 // GroupPolicyType undocumented
-type GroupPolicyType int
+type GroupPolicyType string
 
 const (
 	// GroupPolicyTypeVAdmxBacked undocumented
-	GroupPolicyTypeVAdmxBacked GroupPolicyType = 0
+	GroupPolicyTypeVAdmxBacked GroupPolicyType = "admxBacked"
 	// GroupPolicyTypeVAdmxIngested undocumented
-	GroupPolicyTypeVAdmxIngested GroupPolicyType = 1
+	GroupPolicyTypeVAdmxIngested GroupPolicyType = "admxIngested"
 )
 
-// GroupPolicyTypePAdmxBacked returns a pointer to GroupPolicyTypeVAdmxBacked
-func GroupPolicyTypePAdmxBacked() *GroupPolicyType {
-	v := GroupPolicyTypeVAdmxBacked
-	return &v
-}
+var (
+	// GroupPolicyTypePAdmxBacked is a pointer to GroupPolicyTypeVAdmxBacked
+	GroupPolicyTypePAdmxBacked = &_GroupPolicyTypePAdmxBacked
+	// GroupPolicyTypePAdmxIngested is a pointer to GroupPolicyTypeVAdmxIngested
+	GroupPolicyTypePAdmxIngested = &_GroupPolicyTypePAdmxIngested
+)
 
-// GroupPolicyTypePAdmxIngested returns a pointer to GroupPolicyTypeVAdmxIngested
-func GroupPolicyTypePAdmxIngested() *GroupPolicyType {
-	v := GroupPolicyTypeVAdmxIngested
-	return &v
-}
+var (
+	_GroupPolicyTypePAdmxBacked   = GroupPolicyTypeVAdmxBacked
+	_GroupPolicyTypePAdmxIngested = GroupPolicyTypeVAdmxIngested
+)

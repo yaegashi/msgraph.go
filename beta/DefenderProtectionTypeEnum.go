@@ -3,31 +3,28 @@
 package msgraph
 
 // DefenderProtectionType undocumented
-type DefenderProtectionType int
+type DefenderProtectionType string
 
 const (
 	// DefenderProtectionTypeVUserDefined undocumented
-	DefenderProtectionTypeVUserDefined DefenderProtectionType = 0
+	DefenderProtectionTypeVUserDefined DefenderProtectionType = "userDefined"
 	// DefenderProtectionTypeVEnable undocumented
-	DefenderProtectionTypeVEnable DefenderProtectionType = 1
+	DefenderProtectionTypeVEnable DefenderProtectionType = "enable"
 	// DefenderProtectionTypeVAuditMode undocumented
-	DefenderProtectionTypeVAuditMode DefenderProtectionType = 2
+	DefenderProtectionTypeVAuditMode DefenderProtectionType = "auditMode"
 )
 
-// DefenderProtectionTypePUserDefined returns a pointer to DefenderProtectionTypeVUserDefined
-func DefenderProtectionTypePUserDefined() *DefenderProtectionType {
-	v := DefenderProtectionTypeVUserDefined
-	return &v
-}
+var (
+	// DefenderProtectionTypePUserDefined is a pointer to DefenderProtectionTypeVUserDefined
+	DefenderProtectionTypePUserDefined = &_DefenderProtectionTypePUserDefined
+	// DefenderProtectionTypePEnable is a pointer to DefenderProtectionTypeVEnable
+	DefenderProtectionTypePEnable = &_DefenderProtectionTypePEnable
+	// DefenderProtectionTypePAuditMode is a pointer to DefenderProtectionTypeVAuditMode
+	DefenderProtectionTypePAuditMode = &_DefenderProtectionTypePAuditMode
+)
 
-// DefenderProtectionTypePEnable returns a pointer to DefenderProtectionTypeVEnable
-func DefenderProtectionTypePEnable() *DefenderProtectionType {
-	v := DefenderProtectionTypeVEnable
-	return &v
-}
-
-// DefenderProtectionTypePAuditMode returns a pointer to DefenderProtectionTypeVAuditMode
-func DefenderProtectionTypePAuditMode() *DefenderProtectionType {
-	v := DefenderProtectionTypeVAuditMode
-	return &v
-}
+var (
+	_DefenderProtectionTypePUserDefined = DefenderProtectionTypeVUserDefined
+	_DefenderProtectionTypePEnable      = DefenderProtectionTypeVEnable
+	_DefenderProtectionTypePAuditMode   = DefenderProtectionTypeVAuditMode
+)

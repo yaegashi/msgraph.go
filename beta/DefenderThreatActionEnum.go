@@ -3,63 +3,48 @@
 package msgraph
 
 // DefenderThreatAction undocumented
-type DefenderThreatAction int
+type DefenderThreatAction string
 
 const (
 	// DefenderThreatActionVDeviceDefault undocumented
-	DefenderThreatActionVDeviceDefault DefenderThreatAction = 0
+	DefenderThreatActionVDeviceDefault DefenderThreatAction = "deviceDefault"
 	// DefenderThreatActionVClean undocumented
-	DefenderThreatActionVClean DefenderThreatAction = 1
+	DefenderThreatActionVClean DefenderThreatAction = "clean"
 	// DefenderThreatActionVQuarantine undocumented
-	DefenderThreatActionVQuarantine DefenderThreatAction = 2
+	DefenderThreatActionVQuarantine DefenderThreatAction = "quarantine"
 	// DefenderThreatActionVRemove undocumented
-	DefenderThreatActionVRemove DefenderThreatAction = 3
+	DefenderThreatActionVRemove DefenderThreatAction = "remove"
 	// DefenderThreatActionVAllow undocumented
-	DefenderThreatActionVAllow DefenderThreatAction = 4
+	DefenderThreatActionVAllow DefenderThreatAction = "allow"
 	// DefenderThreatActionVUserDefined undocumented
-	DefenderThreatActionVUserDefined DefenderThreatAction = 5
+	DefenderThreatActionVUserDefined DefenderThreatAction = "userDefined"
 	// DefenderThreatActionVBlock undocumented
-	DefenderThreatActionVBlock DefenderThreatAction = 6
+	DefenderThreatActionVBlock DefenderThreatAction = "block"
 )
 
-// DefenderThreatActionPDeviceDefault returns a pointer to DefenderThreatActionVDeviceDefault
-func DefenderThreatActionPDeviceDefault() *DefenderThreatAction {
-	v := DefenderThreatActionVDeviceDefault
-	return &v
-}
+var (
+	// DefenderThreatActionPDeviceDefault is a pointer to DefenderThreatActionVDeviceDefault
+	DefenderThreatActionPDeviceDefault = &_DefenderThreatActionPDeviceDefault
+	// DefenderThreatActionPClean is a pointer to DefenderThreatActionVClean
+	DefenderThreatActionPClean = &_DefenderThreatActionPClean
+	// DefenderThreatActionPQuarantine is a pointer to DefenderThreatActionVQuarantine
+	DefenderThreatActionPQuarantine = &_DefenderThreatActionPQuarantine
+	// DefenderThreatActionPRemove is a pointer to DefenderThreatActionVRemove
+	DefenderThreatActionPRemove = &_DefenderThreatActionPRemove
+	// DefenderThreatActionPAllow is a pointer to DefenderThreatActionVAllow
+	DefenderThreatActionPAllow = &_DefenderThreatActionPAllow
+	// DefenderThreatActionPUserDefined is a pointer to DefenderThreatActionVUserDefined
+	DefenderThreatActionPUserDefined = &_DefenderThreatActionPUserDefined
+	// DefenderThreatActionPBlock is a pointer to DefenderThreatActionVBlock
+	DefenderThreatActionPBlock = &_DefenderThreatActionPBlock
+)
 
-// DefenderThreatActionPClean returns a pointer to DefenderThreatActionVClean
-func DefenderThreatActionPClean() *DefenderThreatAction {
-	v := DefenderThreatActionVClean
-	return &v
-}
-
-// DefenderThreatActionPQuarantine returns a pointer to DefenderThreatActionVQuarantine
-func DefenderThreatActionPQuarantine() *DefenderThreatAction {
-	v := DefenderThreatActionVQuarantine
-	return &v
-}
-
-// DefenderThreatActionPRemove returns a pointer to DefenderThreatActionVRemove
-func DefenderThreatActionPRemove() *DefenderThreatAction {
-	v := DefenderThreatActionVRemove
-	return &v
-}
-
-// DefenderThreatActionPAllow returns a pointer to DefenderThreatActionVAllow
-func DefenderThreatActionPAllow() *DefenderThreatAction {
-	v := DefenderThreatActionVAllow
-	return &v
-}
-
-// DefenderThreatActionPUserDefined returns a pointer to DefenderThreatActionVUserDefined
-func DefenderThreatActionPUserDefined() *DefenderThreatAction {
-	v := DefenderThreatActionVUserDefined
-	return &v
-}
-
-// DefenderThreatActionPBlock returns a pointer to DefenderThreatActionVBlock
-func DefenderThreatActionPBlock() *DefenderThreatAction {
-	v := DefenderThreatActionVBlock
-	return &v
-}
+var (
+	_DefenderThreatActionPDeviceDefault = DefenderThreatActionVDeviceDefault
+	_DefenderThreatActionPClean         = DefenderThreatActionVClean
+	_DefenderThreatActionPQuarantine    = DefenderThreatActionVQuarantine
+	_DefenderThreatActionPRemove        = DefenderThreatActionVRemove
+	_DefenderThreatActionPAllow         = DefenderThreatActionVAllow
+	_DefenderThreatActionPUserDefined   = DefenderThreatActionVUserDefined
+	_DefenderThreatActionPBlock         = DefenderThreatActionVBlock
+)

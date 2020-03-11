@@ -3,47 +3,38 @@
 package msgraph
 
 // WebsiteType undocumented
-type WebsiteType int
+type WebsiteType string
 
 const (
 	// WebsiteTypeVOther undocumented
-	WebsiteTypeVOther WebsiteType = 0
+	WebsiteTypeVOther WebsiteType = "other"
 	// WebsiteTypeVHome undocumented
-	WebsiteTypeVHome WebsiteType = 1
+	WebsiteTypeVHome WebsiteType = "home"
 	// WebsiteTypeVWork undocumented
-	WebsiteTypeVWork WebsiteType = 2
+	WebsiteTypeVWork WebsiteType = "work"
 	// WebsiteTypeVBlog undocumented
-	WebsiteTypeVBlog WebsiteType = 3
+	WebsiteTypeVBlog WebsiteType = "blog"
 	// WebsiteTypeVProfile undocumented
-	WebsiteTypeVProfile WebsiteType = 4
+	WebsiteTypeVProfile WebsiteType = "profile"
 )
 
-// WebsiteTypePOther returns a pointer to WebsiteTypeVOther
-func WebsiteTypePOther() *WebsiteType {
-	v := WebsiteTypeVOther
-	return &v
-}
+var (
+	// WebsiteTypePOther is a pointer to WebsiteTypeVOther
+	WebsiteTypePOther = &_WebsiteTypePOther
+	// WebsiteTypePHome is a pointer to WebsiteTypeVHome
+	WebsiteTypePHome = &_WebsiteTypePHome
+	// WebsiteTypePWork is a pointer to WebsiteTypeVWork
+	WebsiteTypePWork = &_WebsiteTypePWork
+	// WebsiteTypePBlog is a pointer to WebsiteTypeVBlog
+	WebsiteTypePBlog = &_WebsiteTypePBlog
+	// WebsiteTypePProfile is a pointer to WebsiteTypeVProfile
+	WebsiteTypePProfile = &_WebsiteTypePProfile
+)
 
-// WebsiteTypePHome returns a pointer to WebsiteTypeVHome
-func WebsiteTypePHome() *WebsiteType {
-	v := WebsiteTypeVHome
-	return &v
-}
-
-// WebsiteTypePWork returns a pointer to WebsiteTypeVWork
-func WebsiteTypePWork() *WebsiteType {
-	v := WebsiteTypeVWork
-	return &v
-}
-
-// WebsiteTypePBlog returns a pointer to WebsiteTypeVBlog
-func WebsiteTypePBlog() *WebsiteType {
-	v := WebsiteTypeVBlog
-	return &v
-}
-
-// WebsiteTypePProfile returns a pointer to WebsiteTypeVProfile
-func WebsiteTypePProfile() *WebsiteType {
-	v := WebsiteTypeVProfile
-	return &v
-}
+var (
+	_WebsiteTypePOther   = WebsiteTypeVOther
+	_WebsiteTypePHome    = WebsiteTypeVHome
+	_WebsiteTypePWork    = WebsiteTypeVWork
+	_WebsiteTypePBlog    = WebsiteTypeVBlog
+	_WebsiteTypePProfile = WebsiteTypeVProfile
+)

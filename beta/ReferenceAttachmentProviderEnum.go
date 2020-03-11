@@ -3,39 +3,33 @@
 package msgraph
 
 // ReferenceAttachmentProvider undocumented
-type ReferenceAttachmentProvider int
+type ReferenceAttachmentProvider string
 
 const (
 	// ReferenceAttachmentProviderVOther undocumented
-	ReferenceAttachmentProviderVOther ReferenceAttachmentProvider = 0
+	ReferenceAttachmentProviderVOther ReferenceAttachmentProvider = "other"
 	// ReferenceAttachmentProviderVOneDriveBusiness undocumented
-	ReferenceAttachmentProviderVOneDriveBusiness ReferenceAttachmentProvider = 1
+	ReferenceAttachmentProviderVOneDriveBusiness ReferenceAttachmentProvider = "oneDriveBusiness"
 	// ReferenceAttachmentProviderVOneDriveConsumer undocumented
-	ReferenceAttachmentProviderVOneDriveConsumer ReferenceAttachmentProvider = 2
+	ReferenceAttachmentProviderVOneDriveConsumer ReferenceAttachmentProvider = "oneDriveConsumer"
 	// ReferenceAttachmentProviderVDropbox undocumented
-	ReferenceAttachmentProviderVDropbox ReferenceAttachmentProvider = 3
+	ReferenceAttachmentProviderVDropbox ReferenceAttachmentProvider = "dropbox"
 )
 
-// ReferenceAttachmentProviderPOther returns a pointer to ReferenceAttachmentProviderVOther
-func ReferenceAttachmentProviderPOther() *ReferenceAttachmentProvider {
-	v := ReferenceAttachmentProviderVOther
-	return &v
-}
+var (
+	// ReferenceAttachmentProviderPOther is a pointer to ReferenceAttachmentProviderVOther
+	ReferenceAttachmentProviderPOther = &_ReferenceAttachmentProviderPOther
+	// ReferenceAttachmentProviderPOneDriveBusiness is a pointer to ReferenceAttachmentProviderVOneDriveBusiness
+	ReferenceAttachmentProviderPOneDriveBusiness = &_ReferenceAttachmentProviderPOneDriveBusiness
+	// ReferenceAttachmentProviderPOneDriveConsumer is a pointer to ReferenceAttachmentProviderVOneDriveConsumer
+	ReferenceAttachmentProviderPOneDriveConsumer = &_ReferenceAttachmentProviderPOneDriveConsumer
+	// ReferenceAttachmentProviderPDropbox is a pointer to ReferenceAttachmentProviderVDropbox
+	ReferenceAttachmentProviderPDropbox = &_ReferenceAttachmentProviderPDropbox
+)
 
-// ReferenceAttachmentProviderPOneDriveBusiness returns a pointer to ReferenceAttachmentProviderVOneDriveBusiness
-func ReferenceAttachmentProviderPOneDriveBusiness() *ReferenceAttachmentProvider {
-	v := ReferenceAttachmentProviderVOneDriveBusiness
-	return &v
-}
-
-// ReferenceAttachmentProviderPOneDriveConsumer returns a pointer to ReferenceAttachmentProviderVOneDriveConsumer
-func ReferenceAttachmentProviderPOneDriveConsumer() *ReferenceAttachmentProvider {
-	v := ReferenceAttachmentProviderVOneDriveConsumer
-	return &v
-}
-
-// ReferenceAttachmentProviderPDropbox returns a pointer to ReferenceAttachmentProviderVDropbox
-func ReferenceAttachmentProviderPDropbox() *ReferenceAttachmentProvider {
-	v := ReferenceAttachmentProviderVDropbox
-	return &v
-}
+var (
+	_ReferenceAttachmentProviderPOther            = ReferenceAttachmentProviderVOther
+	_ReferenceAttachmentProviderPOneDriveBusiness = ReferenceAttachmentProviderVOneDriveBusiness
+	_ReferenceAttachmentProviderPOneDriveConsumer = ReferenceAttachmentProviderVOneDriveConsumer
+	_ReferenceAttachmentProviderPDropbox          = ReferenceAttachmentProviderVDropbox
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // VpnTrafficRuleAppType undocumented
-type VpnTrafficRuleAppType int
+type VpnTrafficRuleAppType string
 
 const (
 	// VpnTrafficRuleAppTypeVNone undocumented
-	VpnTrafficRuleAppTypeVNone VpnTrafficRuleAppType = 0
+	VpnTrafficRuleAppTypeVNone VpnTrafficRuleAppType = "none"
 	// VpnTrafficRuleAppTypeVDesktop undocumented
-	VpnTrafficRuleAppTypeVDesktop VpnTrafficRuleAppType = 1
+	VpnTrafficRuleAppTypeVDesktop VpnTrafficRuleAppType = "desktop"
 	// VpnTrafficRuleAppTypeVUniversal undocumented
-	VpnTrafficRuleAppTypeVUniversal VpnTrafficRuleAppType = 2
+	VpnTrafficRuleAppTypeVUniversal VpnTrafficRuleAppType = "universal"
 )
 
-// VpnTrafficRuleAppTypePNone returns a pointer to VpnTrafficRuleAppTypeVNone
-func VpnTrafficRuleAppTypePNone() *VpnTrafficRuleAppType {
-	v := VpnTrafficRuleAppTypeVNone
-	return &v
-}
+var (
+	// VpnTrafficRuleAppTypePNone is a pointer to VpnTrafficRuleAppTypeVNone
+	VpnTrafficRuleAppTypePNone = &_VpnTrafficRuleAppTypePNone
+	// VpnTrafficRuleAppTypePDesktop is a pointer to VpnTrafficRuleAppTypeVDesktop
+	VpnTrafficRuleAppTypePDesktop = &_VpnTrafficRuleAppTypePDesktop
+	// VpnTrafficRuleAppTypePUniversal is a pointer to VpnTrafficRuleAppTypeVUniversal
+	VpnTrafficRuleAppTypePUniversal = &_VpnTrafficRuleAppTypePUniversal
+)
 
-// VpnTrafficRuleAppTypePDesktop returns a pointer to VpnTrafficRuleAppTypeVDesktop
-func VpnTrafficRuleAppTypePDesktop() *VpnTrafficRuleAppType {
-	v := VpnTrafficRuleAppTypeVDesktop
-	return &v
-}
-
-// VpnTrafficRuleAppTypePUniversal returns a pointer to VpnTrafficRuleAppTypeVUniversal
-func VpnTrafficRuleAppTypePUniversal() *VpnTrafficRuleAppType {
-	v := VpnTrafficRuleAppTypeVUniversal
-	return &v
-}
+var (
+	_VpnTrafficRuleAppTypePNone      = VpnTrafficRuleAppTypeVNone
+	_VpnTrafficRuleAppTypePDesktop   = VpnTrafficRuleAppTypeVDesktop
+	_VpnTrafficRuleAppTypePUniversal = VpnTrafficRuleAppTypeVUniversal
+)

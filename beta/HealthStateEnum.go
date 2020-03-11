@@ -3,31 +3,28 @@
 package msgraph
 
 // HealthState undocumented
-type HealthState int
+type HealthState string
 
 const (
 	// HealthStateVUnknown undocumented
-	HealthStateVUnknown HealthState = 0
+	HealthStateVUnknown HealthState = "unknown"
 	// HealthStateVHealthy undocumented
-	HealthStateVHealthy HealthState = 1
+	HealthStateVHealthy HealthState = "healthy"
 	// HealthStateVUnhealthy undocumented
-	HealthStateVUnhealthy HealthState = 2
+	HealthStateVUnhealthy HealthState = "unhealthy"
 )
 
-// HealthStatePUnknown returns a pointer to HealthStateVUnknown
-func HealthStatePUnknown() *HealthState {
-	v := HealthStateVUnknown
-	return &v
-}
+var (
+	// HealthStatePUnknown is a pointer to HealthStateVUnknown
+	HealthStatePUnknown = &_HealthStatePUnknown
+	// HealthStatePHealthy is a pointer to HealthStateVHealthy
+	HealthStatePHealthy = &_HealthStatePHealthy
+	// HealthStatePUnhealthy is a pointer to HealthStateVUnhealthy
+	HealthStatePUnhealthy = &_HealthStatePUnhealthy
+)
 
-// HealthStatePHealthy returns a pointer to HealthStateVHealthy
-func HealthStatePHealthy() *HealthState {
-	v := HealthStateVHealthy
-	return &v
-}
-
-// HealthStatePUnhealthy returns a pointer to HealthStateVUnhealthy
-func HealthStatePUnhealthy() *HealthState {
-	v := HealthStateVUnhealthy
-	return &v
-}
+var (
+	_HealthStatePUnknown   = HealthStateVUnknown
+	_HealthStatePHealthy   = HealthStateVHealthy
+	_HealthStatePUnhealthy = HealthStateVUnhealthy
+)

@@ -3,55 +3,43 @@
 package msgraph
 
 // TeamsAsyncOperationType undocumented
-type TeamsAsyncOperationType int
+type TeamsAsyncOperationType string
 
 const (
 	// TeamsAsyncOperationTypeVInvalid undocumented
-	TeamsAsyncOperationTypeVInvalid TeamsAsyncOperationType = 0
+	TeamsAsyncOperationTypeVInvalid TeamsAsyncOperationType = "invalid"
 	// TeamsAsyncOperationTypeVCloneTeam undocumented
-	TeamsAsyncOperationTypeVCloneTeam TeamsAsyncOperationType = 1
+	TeamsAsyncOperationTypeVCloneTeam TeamsAsyncOperationType = "cloneTeam"
 	// TeamsAsyncOperationTypeVArchiveTeam undocumented
-	TeamsAsyncOperationTypeVArchiveTeam TeamsAsyncOperationType = 2
+	TeamsAsyncOperationTypeVArchiveTeam TeamsAsyncOperationType = "archiveTeam"
 	// TeamsAsyncOperationTypeVUnarchiveTeam undocumented
-	TeamsAsyncOperationTypeVUnarchiveTeam TeamsAsyncOperationType = 3
+	TeamsAsyncOperationTypeVUnarchiveTeam TeamsAsyncOperationType = "unarchiveTeam"
 	// TeamsAsyncOperationTypeVCreateTeam undocumented
-	TeamsAsyncOperationTypeVCreateTeam TeamsAsyncOperationType = 4
+	TeamsAsyncOperationTypeVCreateTeam TeamsAsyncOperationType = "createTeam"
 	// TeamsAsyncOperationTypeVUnknownFutureValue undocumented
-	TeamsAsyncOperationTypeVUnknownFutureValue TeamsAsyncOperationType = 5
+	TeamsAsyncOperationTypeVUnknownFutureValue TeamsAsyncOperationType = "unknownFutureValue"
 )
 
-// TeamsAsyncOperationTypePInvalid returns a pointer to TeamsAsyncOperationTypeVInvalid
-func TeamsAsyncOperationTypePInvalid() *TeamsAsyncOperationType {
-	v := TeamsAsyncOperationTypeVInvalid
-	return &v
-}
+var (
+	// TeamsAsyncOperationTypePInvalid is a pointer to TeamsAsyncOperationTypeVInvalid
+	TeamsAsyncOperationTypePInvalid = &_TeamsAsyncOperationTypePInvalid
+	// TeamsAsyncOperationTypePCloneTeam is a pointer to TeamsAsyncOperationTypeVCloneTeam
+	TeamsAsyncOperationTypePCloneTeam = &_TeamsAsyncOperationTypePCloneTeam
+	// TeamsAsyncOperationTypePArchiveTeam is a pointer to TeamsAsyncOperationTypeVArchiveTeam
+	TeamsAsyncOperationTypePArchiveTeam = &_TeamsAsyncOperationTypePArchiveTeam
+	// TeamsAsyncOperationTypePUnarchiveTeam is a pointer to TeamsAsyncOperationTypeVUnarchiveTeam
+	TeamsAsyncOperationTypePUnarchiveTeam = &_TeamsAsyncOperationTypePUnarchiveTeam
+	// TeamsAsyncOperationTypePCreateTeam is a pointer to TeamsAsyncOperationTypeVCreateTeam
+	TeamsAsyncOperationTypePCreateTeam = &_TeamsAsyncOperationTypePCreateTeam
+	// TeamsAsyncOperationTypePUnknownFutureValue is a pointer to TeamsAsyncOperationTypeVUnknownFutureValue
+	TeamsAsyncOperationTypePUnknownFutureValue = &_TeamsAsyncOperationTypePUnknownFutureValue
+)
 
-// TeamsAsyncOperationTypePCloneTeam returns a pointer to TeamsAsyncOperationTypeVCloneTeam
-func TeamsAsyncOperationTypePCloneTeam() *TeamsAsyncOperationType {
-	v := TeamsAsyncOperationTypeVCloneTeam
-	return &v
-}
-
-// TeamsAsyncOperationTypePArchiveTeam returns a pointer to TeamsAsyncOperationTypeVArchiveTeam
-func TeamsAsyncOperationTypePArchiveTeam() *TeamsAsyncOperationType {
-	v := TeamsAsyncOperationTypeVArchiveTeam
-	return &v
-}
-
-// TeamsAsyncOperationTypePUnarchiveTeam returns a pointer to TeamsAsyncOperationTypeVUnarchiveTeam
-func TeamsAsyncOperationTypePUnarchiveTeam() *TeamsAsyncOperationType {
-	v := TeamsAsyncOperationTypeVUnarchiveTeam
-	return &v
-}
-
-// TeamsAsyncOperationTypePCreateTeam returns a pointer to TeamsAsyncOperationTypeVCreateTeam
-func TeamsAsyncOperationTypePCreateTeam() *TeamsAsyncOperationType {
-	v := TeamsAsyncOperationTypeVCreateTeam
-	return &v
-}
-
-// TeamsAsyncOperationTypePUnknownFutureValue returns a pointer to TeamsAsyncOperationTypeVUnknownFutureValue
-func TeamsAsyncOperationTypePUnknownFutureValue() *TeamsAsyncOperationType {
-	v := TeamsAsyncOperationTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_TeamsAsyncOperationTypePInvalid            = TeamsAsyncOperationTypeVInvalid
+	_TeamsAsyncOperationTypePCloneTeam          = TeamsAsyncOperationTypeVCloneTeam
+	_TeamsAsyncOperationTypePArchiveTeam        = TeamsAsyncOperationTypeVArchiveTeam
+	_TeamsAsyncOperationTypePUnarchiveTeam      = TeamsAsyncOperationTypeVUnarchiveTeam
+	_TeamsAsyncOperationTypePCreateTeam         = TeamsAsyncOperationTypeVCreateTeam
+	_TeamsAsyncOperationTypePUnknownFutureValue = TeamsAsyncOperationTypeVUnknownFutureValue
+)

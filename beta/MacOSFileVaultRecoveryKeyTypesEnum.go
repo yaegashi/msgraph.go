@@ -3,31 +3,28 @@
 package msgraph
 
 // MacOSFileVaultRecoveryKeyTypes undocumented
-type MacOSFileVaultRecoveryKeyTypes int
+type MacOSFileVaultRecoveryKeyTypes string
 
 const (
 	// MacOSFileVaultRecoveryKeyTypesVNotConfigured undocumented
-	MacOSFileVaultRecoveryKeyTypesVNotConfigured MacOSFileVaultRecoveryKeyTypes = 0
+	MacOSFileVaultRecoveryKeyTypesVNotConfigured MacOSFileVaultRecoveryKeyTypes = "notConfigured"
 	// MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey undocumented
-	MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey MacOSFileVaultRecoveryKeyTypes = 1
+	MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey MacOSFileVaultRecoveryKeyTypes = "institutionalRecoveryKey"
 	// MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey undocumented
-	MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey MacOSFileVaultRecoveryKeyTypes = 2
+	MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey MacOSFileVaultRecoveryKeyTypes = "personalRecoveryKey"
 )
 
-// MacOSFileVaultRecoveryKeyTypesPNotConfigured returns a pointer to MacOSFileVaultRecoveryKeyTypesVNotConfigured
-func MacOSFileVaultRecoveryKeyTypesPNotConfigured() *MacOSFileVaultRecoveryKeyTypes {
-	v := MacOSFileVaultRecoveryKeyTypesVNotConfigured
-	return &v
-}
+var (
+	// MacOSFileVaultRecoveryKeyTypesPNotConfigured is a pointer to MacOSFileVaultRecoveryKeyTypesVNotConfigured
+	MacOSFileVaultRecoveryKeyTypesPNotConfigured = &_MacOSFileVaultRecoveryKeyTypesPNotConfigured
+	// MacOSFileVaultRecoveryKeyTypesPInstitutionalRecoveryKey is a pointer to MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey
+	MacOSFileVaultRecoveryKeyTypesPInstitutionalRecoveryKey = &_MacOSFileVaultRecoveryKeyTypesPInstitutionalRecoveryKey
+	// MacOSFileVaultRecoveryKeyTypesPPersonalRecoveryKey is a pointer to MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey
+	MacOSFileVaultRecoveryKeyTypesPPersonalRecoveryKey = &_MacOSFileVaultRecoveryKeyTypesPPersonalRecoveryKey
+)
 
-// MacOSFileVaultRecoveryKeyTypesPInstitutionalRecoveryKey returns a pointer to MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey
-func MacOSFileVaultRecoveryKeyTypesPInstitutionalRecoveryKey() *MacOSFileVaultRecoveryKeyTypes {
-	v := MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey
-	return &v
-}
-
-// MacOSFileVaultRecoveryKeyTypesPPersonalRecoveryKey returns a pointer to MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey
-func MacOSFileVaultRecoveryKeyTypesPPersonalRecoveryKey() *MacOSFileVaultRecoveryKeyTypes {
-	v := MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey
-	return &v
-}
+var (
+	_MacOSFileVaultRecoveryKeyTypesPNotConfigured            = MacOSFileVaultRecoveryKeyTypesVNotConfigured
+	_MacOSFileVaultRecoveryKeyTypesPInstitutionalRecoveryKey = MacOSFileVaultRecoveryKeyTypesVInstitutionalRecoveryKey
+	_MacOSFileVaultRecoveryKeyTypesPPersonalRecoveryKey      = MacOSFileVaultRecoveryKeyTypesVPersonalRecoveryKey
+)

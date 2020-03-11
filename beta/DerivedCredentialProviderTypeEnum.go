@@ -3,47 +3,38 @@
 package msgraph
 
 // DerivedCredentialProviderType undocumented
-type DerivedCredentialProviderType int
+type DerivedCredentialProviderType string
 
 const (
 	// DerivedCredentialProviderTypeVNotConfigured undocumented
-	DerivedCredentialProviderTypeVNotConfigured DerivedCredentialProviderType = 0
+	DerivedCredentialProviderTypeVNotConfigured DerivedCredentialProviderType = "notConfigured"
 	// DerivedCredentialProviderTypeVEntrustDataCard undocumented
-	DerivedCredentialProviderTypeVEntrustDataCard DerivedCredentialProviderType = 1
+	DerivedCredentialProviderTypeVEntrustDataCard DerivedCredentialProviderType = "entrustDataCard"
 	// DerivedCredentialProviderTypeVPurebred undocumented
-	DerivedCredentialProviderTypeVPurebred DerivedCredentialProviderType = 2
+	DerivedCredentialProviderTypeVPurebred DerivedCredentialProviderType = "purebred"
 	// DerivedCredentialProviderTypeVXTec undocumented
-	DerivedCredentialProviderTypeVXTec DerivedCredentialProviderType = 3
+	DerivedCredentialProviderTypeVXTec DerivedCredentialProviderType = "xTec"
 	// DerivedCredentialProviderTypeVIntercede undocumented
-	DerivedCredentialProviderTypeVIntercede DerivedCredentialProviderType = 4
+	DerivedCredentialProviderTypeVIntercede DerivedCredentialProviderType = "intercede"
 )
 
-// DerivedCredentialProviderTypePNotConfigured returns a pointer to DerivedCredentialProviderTypeVNotConfigured
-func DerivedCredentialProviderTypePNotConfigured() *DerivedCredentialProviderType {
-	v := DerivedCredentialProviderTypeVNotConfigured
-	return &v
-}
+var (
+	// DerivedCredentialProviderTypePNotConfigured is a pointer to DerivedCredentialProviderTypeVNotConfigured
+	DerivedCredentialProviderTypePNotConfigured = &_DerivedCredentialProviderTypePNotConfigured
+	// DerivedCredentialProviderTypePEntrustDataCard is a pointer to DerivedCredentialProviderTypeVEntrustDataCard
+	DerivedCredentialProviderTypePEntrustDataCard = &_DerivedCredentialProviderTypePEntrustDataCard
+	// DerivedCredentialProviderTypePPurebred is a pointer to DerivedCredentialProviderTypeVPurebred
+	DerivedCredentialProviderTypePPurebred = &_DerivedCredentialProviderTypePPurebred
+	// DerivedCredentialProviderTypePXTec is a pointer to DerivedCredentialProviderTypeVXTec
+	DerivedCredentialProviderTypePXTec = &_DerivedCredentialProviderTypePXTec
+	// DerivedCredentialProviderTypePIntercede is a pointer to DerivedCredentialProviderTypeVIntercede
+	DerivedCredentialProviderTypePIntercede = &_DerivedCredentialProviderTypePIntercede
+)
 
-// DerivedCredentialProviderTypePEntrustDataCard returns a pointer to DerivedCredentialProviderTypeVEntrustDataCard
-func DerivedCredentialProviderTypePEntrustDataCard() *DerivedCredentialProviderType {
-	v := DerivedCredentialProviderTypeVEntrustDataCard
-	return &v
-}
-
-// DerivedCredentialProviderTypePPurebred returns a pointer to DerivedCredentialProviderTypeVPurebred
-func DerivedCredentialProviderTypePPurebred() *DerivedCredentialProviderType {
-	v := DerivedCredentialProviderTypeVPurebred
-	return &v
-}
-
-// DerivedCredentialProviderTypePXTec returns a pointer to DerivedCredentialProviderTypeVXTec
-func DerivedCredentialProviderTypePXTec() *DerivedCredentialProviderType {
-	v := DerivedCredentialProviderTypeVXTec
-	return &v
-}
-
-// DerivedCredentialProviderTypePIntercede returns a pointer to DerivedCredentialProviderTypeVIntercede
-func DerivedCredentialProviderTypePIntercede() *DerivedCredentialProviderType {
-	v := DerivedCredentialProviderTypeVIntercede
-	return &v
-}
+var (
+	_DerivedCredentialProviderTypePNotConfigured   = DerivedCredentialProviderTypeVNotConfigured
+	_DerivedCredentialProviderTypePEntrustDataCard = DerivedCredentialProviderTypeVEntrustDataCard
+	_DerivedCredentialProviderTypePPurebred        = DerivedCredentialProviderTypeVPurebred
+	_DerivedCredentialProviderTypePXTec            = DerivedCredentialProviderTypeVXTec
+	_DerivedCredentialProviderTypePIntercede       = DerivedCredentialProviderTypeVIntercede
+)

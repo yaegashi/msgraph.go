@@ -3,55 +3,43 @@
 package msgraph
 
 // AndroidForWorkVpnConnectionType undocumented
-type AndroidForWorkVpnConnectionType int
+type AndroidForWorkVpnConnectionType string
 
 const (
 	// AndroidForWorkVpnConnectionTypeVCiscoAnyConnect undocumented
-	AndroidForWorkVpnConnectionTypeVCiscoAnyConnect AndroidForWorkVpnConnectionType = 0
+	AndroidForWorkVpnConnectionTypeVCiscoAnyConnect AndroidForWorkVpnConnectionType = "ciscoAnyConnect"
 	// AndroidForWorkVpnConnectionTypeVPulseSecure undocumented
-	AndroidForWorkVpnConnectionTypeVPulseSecure AndroidForWorkVpnConnectionType = 1
+	AndroidForWorkVpnConnectionTypeVPulseSecure AndroidForWorkVpnConnectionType = "pulseSecure"
 	// AndroidForWorkVpnConnectionTypeVF5EdgeClient undocumented
-	AndroidForWorkVpnConnectionTypeVF5EdgeClient AndroidForWorkVpnConnectionType = 2
+	AndroidForWorkVpnConnectionTypeVF5EdgeClient AndroidForWorkVpnConnectionType = "f5EdgeClient"
 	// AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect undocumented
-	AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect AndroidForWorkVpnConnectionType = 3
+	AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect AndroidForWorkVpnConnectionType = "dellSonicWallMobileConnect"
 	// AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn undocumented
-	AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn AndroidForWorkVpnConnectionType = 4
+	AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn AndroidForWorkVpnConnectionType = "checkPointCapsuleVpn"
 	// AndroidForWorkVpnConnectionTypeVCitrix undocumented
-	AndroidForWorkVpnConnectionTypeVCitrix AndroidForWorkVpnConnectionType = 5
+	AndroidForWorkVpnConnectionTypeVCitrix AndroidForWorkVpnConnectionType = "citrix"
 )
 
-// AndroidForWorkVpnConnectionTypePCiscoAnyConnect returns a pointer to AndroidForWorkVpnConnectionTypeVCiscoAnyConnect
-func AndroidForWorkVpnConnectionTypePCiscoAnyConnect() *AndroidForWorkVpnConnectionType {
-	v := AndroidForWorkVpnConnectionTypeVCiscoAnyConnect
-	return &v
-}
+var (
+	// AndroidForWorkVpnConnectionTypePCiscoAnyConnect is a pointer to AndroidForWorkVpnConnectionTypeVCiscoAnyConnect
+	AndroidForWorkVpnConnectionTypePCiscoAnyConnect = &_AndroidForWorkVpnConnectionTypePCiscoAnyConnect
+	// AndroidForWorkVpnConnectionTypePPulseSecure is a pointer to AndroidForWorkVpnConnectionTypeVPulseSecure
+	AndroidForWorkVpnConnectionTypePPulseSecure = &_AndroidForWorkVpnConnectionTypePPulseSecure
+	// AndroidForWorkVpnConnectionTypePF5EdgeClient is a pointer to AndroidForWorkVpnConnectionTypeVF5EdgeClient
+	AndroidForWorkVpnConnectionTypePF5EdgeClient = &_AndroidForWorkVpnConnectionTypePF5EdgeClient
+	// AndroidForWorkVpnConnectionTypePDellSonicWallMobileConnect is a pointer to AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect
+	AndroidForWorkVpnConnectionTypePDellSonicWallMobileConnect = &_AndroidForWorkVpnConnectionTypePDellSonicWallMobileConnect
+	// AndroidForWorkVpnConnectionTypePCheckPointCapsuleVpn is a pointer to AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn
+	AndroidForWorkVpnConnectionTypePCheckPointCapsuleVpn = &_AndroidForWorkVpnConnectionTypePCheckPointCapsuleVpn
+	// AndroidForWorkVpnConnectionTypePCitrix is a pointer to AndroidForWorkVpnConnectionTypeVCitrix
+	AndroidForWorkVpnConnectionTypePCitrix = &_AndroidForWorkVpnConnectionTypePCitrix
+)
 
-// AndroidForWorkVpnConnectionTypePPulseSecure returns a pointer to AndroidForWorkVpnConnectionTypeVPulseSecure
-func AndroidForWorkVpnConnectionTypePPulseSecure() *AndroidForWorkVpnConnectionType {
-	v := AndroidForWorkVpnConnectionTypeVPulseSecure
-	return &v
-}
-
-// AndroidForWorkVpnConnectionTypePF5EdgeClient returns a pointer to AndroidForWorkVpnConnectionTypeVF5EdgeClient
-func AndroidForWorkVpnConnectionTypePF5EdgeClient() *AndroidForWorkVpnConnectionType {
-	v := AndroidForWorkVpnConnectionTypeVF5EdgeClient
-	return &v
-}
-
-// AndroidForWorkVpnConnectionTypePDellSonicWallMobileConnect returns a pointer to AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect
-func AndroidForWorkVpnConnectionTypePDellSonicWallMobileConnect() *AndroidForWorkVpnConnectionType {
-	v := AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect
-	return &v
-}
-
-// AndroidForWorkVpnConnectionTypePCheckPointCapsuleVpn returns a pointer to AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn
-func AndroidForWorkVpnConnectionTypePCheckPointCapsuleVpn() *AndroidForWorkVpnConnectionType {
-	v := AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn
-	return &v
-}
-
-// AndroidForWorkVpnConnectionTypePCitrix returns a pointer to AndroidForWorkVpnConnectionTypeVCitrix
-func AndroidForWorkVpnConnectionTypePCitrix() *AndroidForWorkVpnConnectionType {
-	v := AndroidForWorkVpnConnectionTypeVCitrix
-	return &v
-}
+var (
+	_AndroidForWorkVpnConnectionTypePCiscoAnyConnect            = AndroidForWorkVpnConnectionTypeVCiscoAnyConnect
+	_AndroidForWorkVpnConnectionTypePPulseSecure                = AndroidForWorkVpnConnectionTypeVPulseSecure
+	_AndroidForWorkVpnConnectionTypePF5EdgeClient               = AndroidForWorkVpnConnectionTypeVF5EdgeClient
+	_AndroidForWorkVpnConnectionTypePDellSonicWallMobileConnect = AndroidForWorkVpnConnectionTypeVDellSonicWallMobileConnect
+	_AndroidForWorkVpnConnectionTypePCheckPointCapsuleVpn       = AndroidForWorkVpnConnectionTypeVCheckPointCapsuleVpn
+	_AndroidForWorkVpnConnectionTypePCitrix                     = AndroidForWorkVpnConnectionTypeVCitrix
+)

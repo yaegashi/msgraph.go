@@ -3,55 +3,43 @@
 package msgraph
 
 // AndroidVpnConnectionType undocumented
-type AndroidVpnConnectionType int
+type AndroidVpnConnectionType string
 
 const (
 	// AndroidVpnConnectionTypeVCiscoAnyConnect undocumented
-	AndroidVpnConnectionTypeVCiscoAnyConnect AndroidVpnConnectionType = 0
+	AndroidVpnConnectionTypeVCiscoAnyConnect AndroidVpnConnectionType = "ciscoAnyConnect"
 	// AndroidVpnConnectionTypeVPulseSecure undocumented
-	AndroidVpnConnectionTypeVPulseSecure AndroidVpnConnectionType = 1
+	AndroidVpnConnectionTypeVPulseSecure AndroidVpnConnectionType = "pulseSecure"
 	// AndroidVpnConnectionTypeVF5EdgeClient undocumented
-	AndroidVpnConnectionTypeVF5EdgeClient AndroidVpnConnectionType = 2
+	AndroidVpnConnectionTypeVF5EdgeClient AndroidVpnConnectionType = "f5EdgeClient"
 	// AndroidVpnConnectionTypeVDellSonicWallMobileConnect undocumented
-	AndroidVpnConnectionTypeVDellSonicWallMobileConnect AndroidVpnConnectionType = 3
+	AndroidVpnConnectionTypeVDellSonicWallMobileConnect AndroidVpnConnectionType = "dellSonicWallMobileConnect"
 	// AndroidVpnConnectionTypeVCheckPointCapsuleVpn undocumented
-	AndroidVpnConnectionTypeVCheckPointCapsuleVpn AndroidVpnConnectionType = 4
+	AndroidVpnConnectionTypeVCheckPointCapsuleVpn AndroidVpnConnectionType = "checkPointCapsuleVpn"
 	// AndroidVpnConnectionTypeVCitrix undocumented
-	AndroidVpnConnectionTypeVCitrix AndroidVpnConnectionType = 5
+	AndroidVpnConnectionTypeVCitrix AndroidVpnConnectionType = "citrix"
 )
 
-// AndroidVpnConnectionTypePCiscoAnyConnect returns a pointer to AndroidVpnConnectionTypeVCiscoAnyConnect
-func AndroidVpnConnectionTypePCiscoAnyConnect() *AndroidVpnConnectionType {
-	v := AndroidVpnConnectionTypeVCiscoAnyConnect
-	return &v
-}
+var (
+	// AndroidVpnConnectionTypePCiscoAnyConnect is a pointer to AndroidVpnConnectionTypeVCiscoAnyConnect
+	AndroidVpnConnectionTypePCiscoAnyConnect = &_AndroidVpnConnectionTypePCiscoAnyConnect
+	// AndroidVpnConnectionTypePPulseSecure is a pointer to AndroidVpnConnectionTypeVPulseSecure
+	AndroidVpnConnectionTypePPulseSecure = &_AndroidVpnConnectionTypePPulseSecure
+	// AndroidVpnConnectionTypePF5EdgeClient is a pointer to AndroidVpnConnectionTypeVF5EdgeClient
+	AndroidVpnConnectionTypePF5EdgeClient = &_AndroidVpnConnectionTypePF5EdgeClient
+	// AndroidVpnConnectionTypePDellSonicWallMobileConnect is a pointer to AndroidVpnConnectionTypeVDellSonicWallMobileConnect
+	AndroidVpnConnectionTypePDellSonicWallMobileConnect = &_AndroidVpnConnectionTypePDellSonicWallMobileConnect
+	// AndroidVpnConnectionTypePCheckPointCapsuleVpn is a pointer to AndroidVpnConnectionTypeVCheckPointCapsuleVpn
+	AndroidVpnConnectionTypePCheckPointCapsuleVpn = &_AndroidVpnConnectionTypePCheckPointCapsuleVpn
+	// AndroidVpnConnectionTypePCitrix is a pointer to AndroidVpnConnectionTypeVCitrix
+	AndroidVpnConnectionTypePCitrix = &_AndroidVpnConnectionTypePCitrix
+)
 
-// AndroidVpnConnectionTypePPulseSecure returns a pointer to AndroidVpnConnectionTypeVPulseSecure
-func AndroidVpnConnectionTypePPulseSecure() *AndroidVpnConnectionType {
-	v := AndroidVpnConnectionTypeVPulseSecure
-	return &v
-}
-
-// AndroidVpnConnectionTypePF5EdgeClient returns a pointer to AndroidVpnConnectionTypeVF5EdgeClient
-func AndroidVpnConnectionTypePF5EdgeClient() *AndroidVpnConnectionType {
-	v := AndroidVpnConnectionTypeVF5EdgeClient
-	return &v
-}
-
-// AndroidVpnConnectionTypePDellSonicWallMobileConnect returns a pointer to AndroidVpnConnectionTypeVDellSonicWallMobileConnect
-func AndroidVpnConnectionTypePDellSonicWallMobileConnect() *AndroidVpnConnectionType {
-	v := AndroidVpnConnectionTypeVDellSonicWallMobileConnect
-	return &v
-}
-
-// AndroidVpnConnectionTypePCheckPointCapsuleVpn returns a pointer to AndroidVpnConnectionTypeVCheckPointCapsuleVpn
-func AndroidVpnConnectionTypePCheckPointCapsuleVpn() *AndroidVpnConnectionType {
-	v := AndroidVpnConnectionTypeVCheckPointCapsuleVpn
-	return &v
-}
-
-// AndroidVpnConnectionTypePCitrix returns a pointer to AndroidVpnConnectionTypeVCitrix
-func AndroidVpnConnectionTypePCitrix() *AndroidVpnConnectionType {
-	v := AndroidVpnConnectionTypeVCitrix
-	return &v
-}
+var (
+	_AndroidVpnConnectionTypePCiscoAnyConnect            = AndroidVpnConnectionTypeVCiscoAnyConnect
+	_AndroidVpnConnectionTypePPulseSecure                = AndroidVpnConnectionTypeVPulseSecure
+	_AndroidVpnConnectionTypePF5EdgeClient               = AndroidVpnConnectionTypeVF5EdgeClient
+	_AndroidVpnConnectionTypePDellSonicWallMobileConnect = AndroidVpnConnectionTypeVDellSonicWallMobileConnect
+	_AndroidVpnConnectionTypePCheckPointCapsuleVpn       = AndroidVpnConnectionTypeVCheckPointCapsuleVpn
+	_AndroidVpnConnectionTypePCitrix                     = AndroidVpnConnectionTypeVCitrix
+)

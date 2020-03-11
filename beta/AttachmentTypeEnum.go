@@ -3,31 +3,28 @@
 package msgraph
 
 // AttachmentType undocumented
-type AttachmentType int
+type AttachmentType string
 
 const (
 	// AttachmentTypeVFile undocumented
-	AttachmentTypeVFile AttachmentType = 0
+	AttachmentTypeVFile AttachmentType = "file"
 	// AttachmentTypeVItem undocumented
-	AttachmentTypeVItem AttachmentType = 1
+	AttachmentTypeVItem AttachmentType = "item"
 	// AttachmentTypeVReference undocumented
-	AttachmentTypeVReference AttachmentType = 2
+	AttachmentTypeVReference AttachmentType = "reference"
 )
 
-// AttachmentTypePFile returns a pointer to AttachmentTypeVFile
-func AttachmentTypePFile() *AttachmentType {
-	v := AttachmentTypeVFile
-	return &v
-}
+var (
+	// AttachmentTypePFile is a pointer to AttachmentTypeVFile
+	AttachmentTypePFile = &_AttachmentTypePFile
+	// AttachmentTypePItem is a pointer to AttachmentTypeVItem
+	AttachmentTypePItem = &_AttachmentTypePItem
+	// AttachmentTypePReference is a pointer to AttachmentTypeVReference
+	AttachmentTypePReference = &_AttachmentTypePReference
+)
 
-// AttachmentTypePItem returns a pointer to AttachmentTypeVItem
-func AttachmentTypePItem() *AttachmentType {
-	v := AttachmentTypeVItem
-	return &v
-}
-
-// AttachmentTypePReference returns a pointer to AttachmentTypeVReference
-func AttachmentTypePReference() *AttachmentType {
-	v := AttachmentTypeVReference
-	return &v
-}
+var (
+	_AttachmentTypePFile      = AttachmentTypeVFile
+	_AttachmentTypePItem      = AttachmentTypeVItem
+	_AttachmentTypePReference = AttachmentTypeVReference
+)

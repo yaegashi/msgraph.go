@@ -3,87 +3,63 @@
 package msgraph
 
 // LocationType undocumented
-type LocationType int
+type LocationType string
 
 const (
 	// LocationTypeVDefault undocumented
-	LocationTypeVDefault LocationType = 0
+	LocationTypeVDefault LocationType = "default"
 	// LocationTypeVConferenceRoom undocumented
-	LocationTypeVConferenceRoom LocationType = 1
+	LocationTypeVConferenceRoom LocationType = "conferenceRoom"
 	// LocationTypeVHomeAddress undocumented
-	LocationTypeVHomeAddress LocationType = 2
+	LocationTypeVHomeAddress LocationType = "homeAddress"
 	// LocationTypeVBusinessAddress undocumented
-	LocationTypeVBusinessAddress LocationType = 3
+	LocationTypeVBusinessAddress LocationType = "businessAddress"
 	// LocationTypeVGeoCoordinates undocumented
-	LocationTypeVGeoCoordinates LocationType = 4
+	LocationTypeVGeoCoordinates LocationType = "geoCoordinates"
 	// LocationTypeVStreetAddress undocumented
-	LocationTypeVStreetAddress LocationType = 5
+	LocationTypeVStreetAddress LocationType = "streetAddress"
 	// LocationTypeVHotel undocumented
-	LocationTypeVHotel LocationType = 6
+	LocationTypeVHotel LocationType = "hotel"
 	// LocationTypeVRestaurant undocumented
-	LocationTypeVRestaurant LocationType = 7
+	LocationTypeVRestaurant LocationType = "restaurant"
 	// LocationTypeVLocalBusiness undocumented
-	LocationTypeVLocalBusiness LocationType = 8
+	LocationTypeVLocalBusiness LocationType = "localBusiness"
 	// LocationTypeVPostalAddress undocumented
-	LocationTypeVPostalAddress LocationType = 9
+	LocationTypeVPostalAddress LocationType = "postalAddress"
 )
 
-// LocationTypePDefault returns a pointer to LocationTypeVDefault
-func LocationTypePDefault() *LocationType {
-	v := LocationTypeVDefault
-	return &v
-}
+var (
+	// LocationTypePDefault is a pointer to LocationTypeVDefault
+	LocationTypePDefault = &_LocationTypePDefault
+	// LocationTypePConferenceRoom is a pointer to LocationTypeVConferenceRoom
+	LocationTypePConferenceRoom = &_LocationTypePConferenceRoom
+	// LocationTypePHomeAddress is a pointer to LocationTypeVHomeAddress
+	LocationTypePHomeAddress = &_LocationTypePHomeAddress
+	// LocationTypePBusinessAddress is a pointer to LocationTypeVBusinessAddress
+	LocationTypePBusinessAddress = &_LocationTypePBusinessAddress
+	// LocationTypePGeoCoordinates is a pointer to LocationTypeVGeoCoordinates
+	LocationTypePGeoCoordinates = &_LocationTypePGeoCoordinates
+	// LocationTypePStreetAddress is a pointer to LocationTypeVStreetAddress
+	LocationTypePStreetAddress = &_LocationTypePStreetAddress
+	// LocationTypePHotel is a pointer to LocationTypeVHotel
+	LocationTypePHotel = &_LocationTypePHotel
+	// LocationTypePRestaurant is a pointer to LocationTypeVRestaurant
+	LocationTypePRestaurant = &_LocationTypePRestaurant
+	// LocationTypePLocalBusiness is a pointer to LocationTypeVLocalBusiness
+	LocationTypePLocalBusiness = &_LocationTypePLocalBusiness
+	// LocationTypePPostalAddress is a pointer to LocationTypeVPostalAddress
+	LocationTypePPostalAddress = &_LocationTypePPostalAddress
+)
 
-// LocationTypePConferenceRoom returns a pointer to LocationTypeVConferenceRoom
-func LocationTypePConferenceRoom() *LocationType {
-	v := LocationTypeVConferenceRoom
-	return &v
-}
-
-// LocationTypePHomeAddress returns a pointer to LocationTypeVHomeAddress
-func LocationTypePHomeAddress() *LocationType {
-	v := LocationTypeVHomeAddress
-	return &v
-}
-
-// LocationTypePBusinessAddress returns a pointer to LocationTypeVBusinessAddress
-func LocationTypePBusinessAddress() *LocationType {
-	v := LocationTypeVBusinessAddress
-	return &v
-}
-
-// LocationTypePGeoCoordinates returns a pointer to LocationTypeVGeoCoordinates
-func LocationTypePGeoCoordinates() *LocationType {
-	v := LocationTypeVGeoCoordinates
-	return &v
-}
-
-// LocationTypePStreetAddress returns a pointer to LocationTypeVStreetAddress
-func LocationTypePStreetAddress() *LocationType {
-	v := LocationTypeVStreetAddress
-	return &v
-}
-
-// LocationTypePHotel returns a pointer to LocationTypeVHotel
-func LocationTypePHotel() *LocationType {
-	v := LocationTypeVHotel
-	return &v
-}
-
-// LocationTypePRestaurant returns a pointer to LocationTypeVRestaurant
-func LocationTypePRestaurant() *LocationType {
-	v := LocationTypeVRestaurant
-	return &v
-}
-
-// LocationTypePLocalBusiness returns a pointer to LocationTypeVLocalBusiness
-func LocationTypePLocalBusiness() *LocationType {
-	v := LocationTypeVLocalBusiness
-	return &v
-}
-
-// LocationTypePPostalAddress returns a pointer to LocationTypeVPostalAddress
-func LocationTypePPostalAddress() *LocationType {
-	v := LocationTypeVPostalAddress
-	return &v
-}
+var (
+	_LocationTypePDefault         = LocationTypeVDefault
+	_LocationTypePConferenceRoom  = LocationTypeVConferenceRoom
+	_LocationTypePHomeAddress     = LocationTypeVHomeAddress
+	_LocationTypePBusinessAddress = LocationTypeVBusinessAddress
+	_LocationTypePGeoCoordinates  = LocationTypeVGeoCoordinates
+	_LocationTypePStreetAddress   = LocationTypeVStreetAddress
+	_LocationTypePHotel           = LocationTypeVHotel
+	_LocationTypePRestaurant      = LocationTypeVRestaurant
+	_LocationTypePLocalBusiness   = LocationTypeVLocalBusiness
+	_LocationTypePPostalAddress   = LocationTypeVPostalAddress
+)

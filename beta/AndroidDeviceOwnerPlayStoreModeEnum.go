@@ -3,31 +3,28 @@
 package msgraph
 
 // AndroidDeviceOwnerPlayStoreMode undocumented
-type AndroidDeviceOwnerPlayStoreMode int
+type AndroidDeviceOwnerPlayStoreMode string
 
 const (
 	// AndroidDeviceOwnerPlayStoreModeVNotConfigured undocumented
-	AndroidDeviceOwnerPlayStoreModeVNotConfigured AndroidDeviceOwnerPlayStoreMode = 0
+	AndroidDeviceOwnerPlayStoreModeVNotConfigured AndroidDeviceOwnerPlayStoreMode = "notConfigured"
 	// AndroidDeviceOwnerPlayStoreModeVAllowList undocumented
-	AndroidDeviceOwnerPlayStoreModeVAllowList AndroidDeviceOwnerPlayStoreMode = 1
+	AndroidDeviceOwnerPlayStoreModeVAllowList AndroidDeviceOwnerPlayStoreMode = "allowList"
 	// AndroidDeviceOwnerPlayStoreModeVBlockList undocumented
-	AndroidDeviceOwnerPlayStoreModeVBlockList AndroidDeviceOwnerPlayStoreMode = 2
+	AndroidDeviceOwnerPlayStoreModeVBlockList AndroidDeviceOwnerPlayStoreMode = "blockList"
 )
 
-// AndroidDeviceOwnerPlayStoreModePNotConfigured returns a pointer to AndroidDeviceOwnerPlayStoreModeVNotConfigured
-func AndroidDeviceOwnerPlayStoreModePNotConfigured() *AndroidDeviceOwnerPlayStoreMode {
-	v := AndroidDeviceOwnerPlayStoreModeVNotConfigured
-	return &v
-}
+var (
+	// AndroidDeviceOwnerPlayStoreModePNotConfigured is a pointer to AndroidDeviceOwnerPlayStoreModeVNotConfigured
+	AndroidDeviceOwnerPlayStoreModePNotConfigured = &_AndroidDeviceOwnerPlayStoreModePNotConfigured
+	// AndroidDeviceOwnerPlayStoreModePAllowList is a pointer to AndroidDeviceOwnerPlayStoreModeVAllowList
+	AndroidDeviceOwnerPlayStoreModePAllowList = &_AndroidDeviceOwnerPlayStoreModePAllowList
+	// AndroidDeviceOwnerPlayStoreModePBlockList is a pointer to AndroidDeviceOwnerPlayStoreModeVBlockList
+	AndroidDeviceOwnerPlayStoreModePBlockList = &_AndroidDeviceOwnerPlayStoreModePBlockList
+)
 
-// AndroidDeviceOwnerPlayStoreModePAllowList returns a pointer to AndroidDeviceOwnerPlayStoreModeVAllowList
-func AndroidDeviceOwnerPlayStoreModePAllowList() *AndroidDeviceOwnerPlayStoreMode {
-	v := AndroidDeviceOwnerPlayStoreModeVAllowList
-	return &v
-}
-
-// AndroidDeviceOwnerPlayStoreModePBlockList returns a pointer to AndroidDeviceOwnerPlayStoreModeVBlockList
-func AndroidDeviceOwnerPlayStoreModePBlockList() *AndroidDeviceOwnerPlayStoreMode {
-	v := AndroidDeviceOwnerPlayStoreModeVBlockList
-	return &v
-}
+var (
+	_AndroidDeviceOwnerPlayStoreModePNotConfigured = AndroidDeviceOwnerPlayStoreModeVNotConfigured
+	_AndroidDeviceOwnerPlayStoreModePAllowList     = AndroidDeviceOwnerPlayStoreModeVAllowList
+	_AndroidDeviceOwnerPlayStoreModePBlockList     = AndroidDeviceOwnerPlayStoreModeVBlockList
+)

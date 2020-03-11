@@ -3,39 +3,33 @@
 package msgraph
 
 // OfficeProductID undocumented
-type OfficeProductID int
+type OfficeProductID string
 
 const (
 	// OfficeProductIDVO365ProPlusRetail undocumented
-	OfficeProductIDVO365ProPlusRetail OfficeProductID = 0
+	OfficeProductIDVO365ProPlusRetail OfficeProductID = "o365ProPlusRetail"
 	// OfficeProductIDVO365BusinessRetail undocumented
-	OfficeProductIDVO365BusinessRetail OfficeProductID = 1
+	OfficeProductIDVO365BusinessRetail OfficeProductID = "o365BusinessRetail"
 	// OfficeProductIDVVisioProRetail undocumented
-	OfficeProductIDVVisioProRetail OfficeProductID = 2
+	OfficeProductIDVVisioProRetail OfficeProductID = "visioProRetail"
 	// OfficeProductIDVProjectProRetail undocumented
-	OfficeProductIDVProjectProRetail OfficeProductID = 3
+	OfficeProductIDVProjectProRetail OfficeProductID = "projectProRetail"
 )
 
-// OfficeProductIDPO365ProPlusRetail returns a pointer to OfficeProductIDVO365ProPlusRetail
-func OfficeProductIDPO365ProPlusRetail() *OfficeProductID {
-	v := OfficeProductIDVO365ProPlusRetail
-	return &v
-}
+var (
+	// OfficeProductIDPO365ProPlusRetail is a pointer to OfficeProductIDVO365ProPlusRetail
+	OfficeProductIDPO365ProPlusRetail = &_OfficeProductIDPO365ProPlusRetail
+	// OfficeProductIDPO365BusinessRetail is a pointer to OfficeProductIDVO365BusinessRetail
+	OfficeProductIDPO365BusinessRetail = &_OfficeProductIDPO365BusinessRetail
+	// OfficeProductIDPVisioProRetail is a pointer to OfficeProductIDVVisioProRetail
+	OfficeProductIDPVisioProRetail = &_OfficeProductIDPVisioProRetail
+	// OfficeProductIDPProjectProRetail is a pointer to OfficeProductIDVProjectProRetail
+	OfficeProductIDPProjectProRetail = &_OfficeProductIDPProjectProRetail
+)
 
-// OfficeProductIDPO365BusinessRetail returns a pointer to OfficeProductIDVO365BusinessRetail
-func OfficeProductIDPO365BusinessRetail() *OfficeProductID {
-	v := OfficeProductIDVO365BusinessRetail
-	return &v
-}
-
-// OfficeProductIDPVisioProRetail returns a pointer to OfficeProductIDVVisioProRetail
-func OfficeProductIDPVisioProRetail() *OfficeProductID {
-	v := OfficeProductIDVVisioProRetail
-	return &v
-}
-
-// OfficeProductIDPProjectProRetail returns a pointer to OfficeProductIDVProjectProRetail
-func OfficeProductIDPProjectProRetail() *OfficeProductID {
-	v := OfficeProductIDVProjectProRetail
-	return &v
-}
+var (
+	_OfficeProductIDPO365ProPlusRetail  = OfficeProductIDVO365ProPlusRetail
+	_OfficeProductIDPO365BusinessRetail = OfficeProductIDVO365BusinessRetail
+	_OfficeProductIDPVisioProRetail     = OfficeProductIDVVisioProRetail
+	_OfficeProductIDPProjectProRetail   = OfficeProductIDVProjectProRetail
+)

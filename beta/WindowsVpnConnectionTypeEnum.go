@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsVpnConnectionType undocumented
-type WindowsVpnConnectionType int
+type WindowsVpnConnectionType string
 
 const (
 	// WindowsVpnConnectionTypeVPulseSecure undocumented
-	WindowsVpnConnectionTypeVPulseSecure WindowsVpnConnectionType = 0
+	WindowsVpnConnectionTypeVPulseSecure WindowsVpnConnectionType = "pulseSecure"
 	// WindowsVpnConnectionTypeVF5EdgeClient undocumented
-	WindowsVpnConnectionTypeVF5EdgeClient WindowsVpnConnectionType = 1
+	WindowsVpnConnectionTypeVF5EdgeClient WindowsVpnConnectionType = "f5EdgeClient"
 	// WindowsVpnConnectionTypeVDellSonicWallMobileConnect undocumented
-	WindowsVpnConnectionTypeVDellSonicWallMobileConnect WindowsVpnConnectionType = 2
+	WindowsVpnConnectionTypeVDellSonicWallMobileConnect WindowsVpnConnectionType = "dellSonicWallMobileConnect"
 	// WindowsVpnConnectionTypeVCheckPointCapsuleVpn undocumented
-	WindowsVpnConnectionTypeVCheckPointCapsuleVpn WindowsVpnConnectionType = 3
+	WindowsVpnConnectionTypeVCheckPointCapsuleVpn WindowsVpnConnectionType = "checkPointCapsuleVpn"
 )
 
-// WindowsVpnConnectionTypePPulseSecure returns a pointer to WindowsVpnConnectionTypeVPulseSecure
-func WindowsVpnConnectionTypePPulseSecure() *WindowsVpnConnectionType {
-	v := WindowsVpnConnectionTypeVPulseSecure
-	return &v
-}
+var (
+	// WindowsVpnConnectionTypePPulseSecure is a pointer to WindowsVpnConnectionTypeVPulseSecure
+	WindowsVpnConnectionTypePPulseSecure = &_WindowsVpnConnectionTypePPulseSecure
+	// WindowsVpnConnectionTypePF5EdgeClient is a pointer to WindowsVpnConnectionTypeVF5EdgeClient
+	WindowsVpnConnectionTypePF5EdgeClient = &_WindowsVpnConnectionTypePF5EdgeClient
+	// WindowsVpnConnectionTypePDellSonicWallMobileConnect is a pointer to WindowsVpnConnectionTypeVDellSonicWallMobileConnect
+	WindowsVpnConnectionTypePDellSonicWallMobileConnect = &_WindowsVpnConnectionTypePDellSonicWallMobileConnect
+	// WindowsVpnConnectionTypePCheckPointCapsuleVpn is a pointer to WindowsVpnConnectionTypeVCheckPointCapsuleVpn
+	WindowsVpnConnectionTypePCheckPointCapsuleVpn = &_WindowsVpnConnectionTypePCheckPointCapsuleVpn
+)
 
-// WindowsVpnConnectionTypePF5EdgeClient returns a pointer to WindowsVpnConnectionTypeVF5EdgeClient
-func WindowsVpnConnectionTypePF5EdgeClient() *WindowsVpnConnectionType {
-	v := WindowsVpnConnectionTypeVF5EdgeClient
-	return &v
-}
-
-// WindowsVpnConnectionTypePDellSonicWallMobileConnect returns a pointer to WindowsVpnConnectionTypeVDellSonicWallMobileConnect
-func WindowsVpnConnectionTypePDellSonicWallMobileConnect() *WindowsVpnConnectionType {
-	v := WindowsVpnConnectionTypeVDellSonicWallMobileConnect
-	return &v
-}
-
-// WindowsVpnConnectionTypePCheckPointCapsuleVpn returns a pointer to WindowsVpnConnectionTypeVCheckPointCapsuleVpn
-func WindowsVpnConnectionTypePCheckPointCapsuleVpn() *WindowsVpnConnectionType {
-	v := WindowsVpnConnectionTypeVCheckPointCapsuleVpn
-	return &v
-}
+var (
+	_WindowsVpnConnectionTypePPulseSecure                = WindowsVpnConnectionTypeVPulseSecure
+	_WindowsVpnConnectionTypePF5EdgeClient               = WindowsVpnConnectionTypeVF5EdgeClient
+	_WindowsVpnConnectionTypePDellSonicWallMobileConnect = WindowsVpnConnectionTypeVDellSonicWallMobileConnect
+	_WindowsVpnConnectionTypePCheckPointCapsuleVpn       = WindowsVpnConnectionTypeVCheckPointCapsuleVpn
+)

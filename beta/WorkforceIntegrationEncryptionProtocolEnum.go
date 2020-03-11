@@ -3,23 +3,23 @@
 package msgraph
 
 // WorkforceIntegrationEncryptionProtocol undocumented
-type WorkforceIntegrationEncryptionProtocol int
+type WorkforceIntegrationEncryptionProtocol string
 
 const (
 	// WorkforceIntegrationEncryptionProtocolVSharedSecret undocumented
-	WorkforceIntegrationEncryptionProtocolVSharedSecret WorkforceIntegrationEncryptionProtocol = 0
+	WorkforceIntegrationEncryptionProtocolVSharedSecret WorkforceIntegrationEncryptionProtocol = "sharedSecret"
 	// WorkforceIntegrationEncryptionProtocolVUnknownFutureValue undocumented
-	WorkforceIntegrationEncryptionProtocolVUnknownFutureValue WorkforceIntegrationEncryptionProtocol = 1
+	WorkforceIntegrationEncryptionProtocolVUnknownFutureValue WorkforceIntegrationEncryptionProtocol = "unknownFutureValue"
 )
 
-// WorkforceIntegrationEncryptionProtocolPSharedSecret returns a pointer to WorkforceIntegrationEncryptionProtocolVSharedSecret
-func WorkforceIntegrationEncryptionProtocolPSharedSecret() *WorkforceIntegrationEncryptionProtocol {
-	v := WorkforceIntegrationEncryptionProtocolVSharedSecret
-	return &v
-}
+var (
+	// WorkforceIntegrationEncryptionProtocolPSharedSecret is a pointer to WorkforceIntegrationEncryptionProtocolVSharedSecret
+	WorkforceIntegrationEncryptionProtocolPSharedSecret = &_WorkforceIntegrationEncryptionProtocolPSharedSecret
+	// WorkforceIntegrationEncryptionProtocolPUnknownFutureValue is a pointer to WorkforceIntegrationEncryptionProtocolVUnknownFutureValue
+	WorkforceIntegrationEncryptionProtocolPUnknownFutureValue = &_WorkforceIntegrationEncryptionProtocolPUnknownFutureValue
+)
 
-// WorkforceIntegrationEncryptionProtocolPUnknownFutureValue returns a pointer to WorkforceIntegrationEncryptionProtocolVUnknownFutureValue
-func WorkforceIntegrationEncryptionProtocolPUnknownFutureValue() *WorkforceIntegrationEncryptionProtocol {
-	v := WorkforceIntegrationEncryptionProtocolVUnknownFutureValue
-	return &v
-}
+var (
+	_WorkforceIntegrationEncryptionProtocolPSharedSecret       = WorkforceIntegrationEncryptionProtocolVSharedSecret
+	_WorkforceIntegrationEncryptionProtocolPUnknownFutureValue = WorkforceIntegrationEncryptionProtocolVUnknownFutureValue
+)

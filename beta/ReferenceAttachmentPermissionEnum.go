@@ -3,63 +3,48 @@
 package msgraph
 
 // ReferenceAttachmentPermission undocumented
-type ReferenceAttachmentPermission int
+type ReferenceAttachmentPermission string
 
 const (
 	// ReferenceAttachmentPermissionVOther undocumented
-	ReferenceAttachmentPermissionVOther ReferenceAttachmentPermission = 0
+	ReferenceAttachmentPermissionVOther ReferenceAttachmentPermission = "other"
 	// ReferenceAttachmentPermissionVView undocumented
-	ReferenceAttachmentPermissionVView ReferenceAttachmentPermission = 1
+	ReferenceAttachmentPermissionVView ReferenceAttachmentPermission = "view"
 	// ReferenceAttachmentPermissionVEdit undocumented
-	ReferenceAttachmentPermissionVEdit ReferenceAttachmentPermission = 2
+	ReferenceAttachmentPermissionVEdit ReferenceAttachmentPermission = "edit"
 	// ReferenceAttachmentPermissionVAnonymousView undocumented
-	ReferenceAttachmentPermissionVAnonymousView ReferenceAttachmentPermission = 3
+	ReferenceAttachmentPermissionVAnonymousView ReferenceAttachmentPermission = "anonymousView"
 	// ReferenceAttachmentPermissionVAnonymousEdit undocumented
-	ReferenceAttachmentPermissionVAnonymousEdit ReferenceAttachmentPermission = 4
+	ReferenceAttachmentPermissionVAnonymousEdit ReferenceAttachmentPermission = "anonymousEdit"
 	// ReferenceAttachmentPermissionVOrganizationView undocumented
-	ReferenceAttachmentPermissionVOrganizationView ReferenceAttachmentPermission = 5
+	ReferenceAttachmentPermissionVOrganizationView ReferenceAttachmentPermission = "organizationView"
 	// ReferenceAttachmentPermissionVOrganizationEdit undocumented
-	ReferenceAttachmentPermissionVOrganizationEdit ReferenceAttachmentPermission = 6
+	ReferenceAttachmentPermissionVOrganizationEdit ReferenceAttachmentPermission = "organizationEdit"
 )
 
-// ReferenceAttachmentPermissionPOther returns a pointer to ReferenceAttachmentPermissionVOther
-func ReferenceAttachmentPermissionPOther() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVOther
-	return &v
-}
+var (
+	// ReferenceAttachmentPermissionPOther is a pointer to ReferenceAttachmentPermissionVOther
+	ReferenceAttachmentPermissionPOther = &_ReferenceAttachmentPermissionPOther
+	// ReferenceAttachmentPermissionPView is a pointer to ReferenceAttachmentPermissionVView
+	ReferenceAttachmentPermissionPView = &_ReferenceAttachmentPermissionPView
+	// ReferenceAttachmentPermissionPEdit is a pointer to ReferenceAttachmentPermissionVEdit
+	ReferenceAttachmentPermissionPEdit = &_ReferenceAttachmentPermissionPEdit
+	// ReferenceAttachmentPermissionPAnonymousView is a pointer to ReferenceAttachmentPermissionVAnonymousView
+	ReferenceAttachmentPermissionPAnonymousView = &_ReferenceAttachmentPermissionPAnonymousView
+	// ReferenceAttachmentPermissionPAnonymousEdit is a pointer to ReferenceAttachmentPermissionVAnonymousEdit
+	ReferenceAttachmentPermissionPAnonymousEdit = &_ReferenceAttachmentPermissionPAnonymousEdit
+	// ReferenceAttachmentPermissionPOrganizationView is a pointer to ReferenceAttachmentPermissionVOrganizationView
+	ReferenceAttachmentPermissionPOrganizationView = &_ReferenceAttachmentPermissionPOrganizationView
+	// ReferenceAttachmentPermissionPOrganizationEdit is a pointer to ReferenceAttachmentPermissionVOrganizationEdit
+	ReferenceAttachmentPermissionPOrganizationEdit = &_ReferenceAttachmentPermissionPOrganizationEdit
+)
 
-// ReferenceAttachmentPermissionPView returns a pointer to ReferenceAttachmentPermissionVView
-func ReferenceAttachmentPermissionPView() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVView
-	return &v
-}
-
-// ReferenceAttachmentPermissionPEdit returns a pointer to ReferenceAttachmentPermissionVEdit
-func ReferenceAttachmentPermissionPEdit() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVEdit
-	return &v
-}
-
-// ReferenceAttachmentPermissionPAnonymousView returns a pointer to ReferenceAttachmentPermissionVAnonymousView
-func ReferenceAttachmentPermissionPAnonymousView() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVAnonymousView
-	return &v
-}
-
-// ReferenceAttachmentPermissionPAnonymousEdit returns a pointer to ReferenceAttachmentPermissionVAnonymousEdit
-func ReferenceAttachmentPermissionPAnonymousEdit() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVAnonymousEdit
-	return &v
-}
-
-// ReferenceAttachmentPermissionPOrganizationView returns a pointer to ReferenceAttachmentPermissionVOrganizationView
-func ReferenceAttachmentPermissionPOrganizationView() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVOrganizationView
-	return &v
-}
-
-// ReferenceAttachmentPermissionPOrganizationEdit returns a pointer to ReferenceAttachmentPermissionVOrganizationEdit
-func ReferenceAttachmentPermissionPOrganizationEdit() *ReferenceAttachmentPermission {
-	v := ReferenceAttachmentPermissionVOrganizationEdit
-	return &v
-}
+var (
+	_ReferenceAttachmentPermissionPOther            = ReferenceAttachmentPermissionVOther
+	_ReferenceAttachmentPermissionPView             = ReferenceAttachmentPermissionVView
+	_ReferenceAttachmentPermissionPEdit             = ReferenceAttachmentPermissionVEdit
+	_ReferenceAttachmentPermissionPAnonymousView    = ReferenceAttachmentPermissionVAnonymousView
+	_ReferenceAttachmentPermissionPAnonymousEdit    = ReferenceAttachmentPermissionVAnonymousEdit
+	_ReferenceAttachmentPermissionPOrganizationView = ReferenceAttachmentPermissionVOrganizationView
+	_ReferenceAttachmentPermissionPOrganizationEdit = ReferenceAttachmentPermissionVOrganizationEdit
+)

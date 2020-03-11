@@ -3,191 +3,128 @@
 package msgraph
 
 // CertificateIssuanceStates undocumented
-type CertificateIssuanceStates int
+type CertificateIssuanceStates string
 
 const (
 	// CertificateIssuanceStatesVUnknown undocumented
-	CertificateIssuanceStatesVUnknown CertificateIssuanceStates = 0
+	CertificateIssuanceStatesVUnknown CertificateIssuanceStates = "unknown"
 	// CertificateIssuanceStatesVChallengeIssued undocumented
-	CertificateIssuanceStatesVChallengeIssued CertificateIssuanceStates = 1
+	CertificateIssuanceStatesVChallengeIssued CertificateIssuanceStates = "challengeIssued"
 	// CertificateIssuanceStatesVChallengeIssueFailed undocumented
-	CertificateIssuanceStatesVChallengeIssueFailed CertificateIssuanceStates = 2
+	CertificateIssuanceStatesVChallengeIssueFailed CertificateIssuanceStates = "challengeIssueFailed"
 	// CertificateIssuanceStatesVRequestCreationFailed undocumented
-	CertificateIssuanceStatesVRequestCreationFailed CertificateIssuanceStates = 3
+	CertificateIssuanceStatesVRequestCreationFailed CertificateIssuanceStates = "requestCreationFailed"
 	// CertificateIssuanceStatesVRequestSubmitFailed undocumented
-	CertificateIssuanceStatesVRequestSubmitFailed CertificateIssuanceStates = 4
+	CertificateIssuanceStatesVRequestSubmitFailed CertificateIssuanceStates = "requestSubmitFailed"
 	// CertificateIssuanceStatesVChallengeValidationSucceeded undocumented
-	CertificateIssuanceStatesVChallengeValidationSucceeded CertificateIssuanceStates = 5
+	CertificateIssuanceStatesVChallengeValidationSucceeded CertificateIssuanceStates = "challengeValidationSucceeded"
 	// CertificateIssuanceStatesVChallengeValidationFailed undocumented
-	CertificateIssuanceStatesVChallengeValidationFailed CertificateIssuanceStates = 6
+	CertificateIssuanceStatesVChallengeValidationFailed CertificateIssuanceStates = "challengeValidationFailed"
 	// CertificateIssuanceStatesVIssueFailed undocumented
-	CertificateIssuanceStatesVIssueFailed CertificateIssuanceStates = 7
+	CertificateIssuanceStatesVIssueFailed CertificateIssuanceStates = "issueFailed"
 	// CertificateIssuanceStatesVIssuePending undocumented
-	CertificateIssuanceStatesVIssuePending CertificateIssuanceStates = 8
+	CertificateIssuanceStatesVIssuePending CertificateIssuanceStates = "issuePending"
 	// CertificateIssuanceStatesVIssued undocumented
-	CertificateIssuanceStatesVIssued CertificateIssuanceStates = 9
+	CertificateIssuanceStatesVIssued CertificateIssuanceStates = "issued"
 	// CertificateIssuanceStatesVResponseProcessingFailed undocumented
-	CertificateIssuanceStatesVResponseProcessingFailed CertificateIssuanceStates = 10
+	CertificateIssuanceStatesVResponseProcessingFailed CertificateIssuanceStates = "responseProcessingFailed"
 	// CertificateIssuanceStatesVResponsePending undocumented
-	CertificateIssuanceStatesVResponsePending CertificateIssuanceStates = 11
+	CertificateIssuanceStatesVResponsePending CertificateIssuanceStates = "responsePending"
 	// CertificateIssuanceStatesVEnrollmentSucceeded undocumented
-	CertificateIssuanceStatesVEnrollmentSucceeded CertificateIssuanceStates = 12
+	CertificateIssuanceStatesVEnrollmentSucceeded CertificateIssuanceStates = "enrollmentSucceeded"
 	// CertificateIssuanceStatesVEnrollmentNotNeeded undocumented
-	CertificateIssuanceStatesVEnrollmentNotNeeded CertificateIssuanceStates = 13
+	CertificateIssuanceStatesVEnrollmentNotNeeded CertificateIssuanceStates = "enrollmentNotNeeded"
 	// CertificateIssuanceStatesVRevoked undocumented
-	CertificateIssuanceStatesVRevoked CertificateIssuanceStates = 14
+	CertificateIssuanceStatesVRevoked CertificateIssuanceStates = "revoked"
 	// CertificateIssuanceStatesVRemovedFromCollection undocumented
-	CertificateIssuanceStatesVRemovedFromCollection CertificateIssuanceStates = 15
+	CertificateIssuanceStatesVRemovedFromCollection CertificateIssuanceStates = "removedFromCollection"
 	// CertificateIssuanceStatesVRenewVerified undocumented
-	CertificateIssuanceStatesVRenewVerified CertificateIssuanceStates = 16
+	CertificateIssuanceStatesVRenewVerified CertificateIssuanceStates = "renewVerified"
 	// CertificateIssuanceStatesVInstallFailed undocumented
-	CertificateIssuanceStatesVInstallFailed CertificateIssuanceStates = 17
+	CertificateIssuanceStatesVInstallFailed CertificateIssuanceStates = "installFailed"
 	// CertificateIssuanceStatesVInstalled undocumented
-	CertificateIssuanceStatesVInstalled CertificateIssuanceStates = 18
+	CertificateIssuanceStatesVInstalled CertificateIssuanceStates = "installed"
 	// CertificateIssuanceStatesVDeleteFailed undocumented
-	CertificateIssuanceStatesVDeleteFailed CertificateIssuanceStates = 19
+	CertificateIssuanceStatesVDeleteFailed CertificateIssuanceStates = "deleteFailed"
 	// CertificateIssuanceStatesVDeleted undocumented
-	CertificateIssuanceStatesVDeleted CertificateIssuanceStates = 20
+	CertificateIssuanceStatesVDeleted CertificateIssuanceStates = "deleted"
 	// CertificateIssuanceStatesVRenewalRequested undocumented
-	CertificateIssuanceStatesVRenewalRequested CertificateIssuanceStates = 21
+	CertificateIssuanceStatesVRenewalRequested CertificateIssuanceStates = "renewalRequested"
 	// CertificateIssuanceStatesVRequested undocumented
-	CertificateIssuanceStatesVRequested CertificateIssuanceStates = 22
+	CertificateIssuanceStatesVRequested CertificateIssuanceStates = "requested"
 )
 
-// CertificateIssuanceStatesPUnknown returns a pointer to CertificateIssuanceStatesVUnknown
-func CertificateIssuanceStatesPUnknown() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVUnknown
-	return &v
-}
+var (
+	// CertificateIssuanceStatesPUnknown is a pointer to CertificateIssuanceStatesVUnknown
+	CertificateIssuanceStatesPUnknown = &_CertificateIssuanceStatesPUnknown
+	// CertificateIssuanceStatesPChallengeIssued is a pointer to CertificateIssuanceStatesVChallengeIssued
+	CertificateIssuanceStatesPChallengeIssued = &_CertificateIssuanceStatesPChallengeIssued
+	// CertificateIssuanceStatesPChallengeIssueFailed is a pointer to CertificateIssuanceStatesVChallengeIssueFailed
+	CertificateIssuanceStatesPChallengeIssueFailed = &_CertificateIssuanceStatesPChallengeIssueFailed
+	// CertificateIssuanceStatesPRequestCreationFailed is a pointer to CertificateIssuanceStatesVRequestCreationFailed
+	CertificateIssuanceStatesPRequestCreationFailed = &_CertificateIssuanceStatesPRequestCreationFailed
+	// CertificateIssuanceStatesPRequestSubmitFailed is a pointer to CertificateIssuanceStatesVRequestSubmitFailed
+	CertificateIssuanceStatesPRequestSubmitFailed = &_CertificateIssuanceStatesPRequestSubmitFailed
+	// CertificateIssuanceStatesPChallengeValidationSucceeded is a pointer to CertificateIssuanceStatesVChallengeValidationSucceeded
+	CertificateIssuanceStatesPChallengeValidationSucceeded = &_CertificateIssuanceStatesPChallengeValidationSucceeded
+	// CertificateIssuanceStatesPChallengeValidationFailed is a pointer to CertificateIssuanceStatesVChallengeValidationFailed
+	CertificateIssuanceStatesPChallengeValidationFailed = &_CertificateIssuanceStatesPChallengeValidationFailed
+	// CertificateIssuanceStatesPIssueFailed is a pointer to CertificateIssuanceStatesVIssueFailed
+	CertificateIssuanceStatesPIssueFailed = &_CertificateIssuanceStatesPIssueFailed
+	// CertificateIssuanceStatesPIssuePending is a pointer to CertificateIssuanceStatesVIssuePending
+	CertificateIssuanceStatesPIssuePending = &_CertificateIssuanceStatesPIssuePending
+	// CertificateIssuanceStatesPIssued is a pointer to CertificateIssuanceStatesVIssued
+	CertificateIssuanceStatesPIssued = &_CertificateIssuanceStatesPIssued
+	// CertificateIssuanceStatesPResponseProcessingFailed is a pointer to CertificateIssuanceStatesVResponseProcessingFailed
+	CertificateIssuanceStatesPResponseProcessingFailed = &_CertificateIssuanceStatesPResponseProcessingFailed
+	// CertificateIssuanceStatesPResponsePending is a pointer to CertificateIssuanceStatesVResponsePending
+	CertificateIssuanceStatesPResponsePending = &_CertificateIssuanceStatesPResponsePending
+	// CertificateIssuanceStatesPEnrollmentSucceeded is a pointer to CertificateIssuanceStatesVEnrollmentSucceeded
+	CertificateIssuanceStatesPEnrollmentSucceeded = &_CertificateIssuanceStatesPEnrollmentSucceeded
+	// CertificateIssuanceStatesPEnrollmentNotNeeded is a pointer to CertificateIssuanceStatesVEnrollmentNotNeeded
+	CertificateIssuanceStatesPEnrollmentNotNeeded = &_CertificateIssuanceStatesPEnrollmentNotNeeded
+	// CertificateIssuanceStatesPRevoked is a pointer to CertificateIssuanceStatesVRevoked
+	CertificateIssuanceStatesPRevoked = &_CertificateIssuanceStatesPRevoked
+	// CertificateIssuanceStatesPRemovedFromCollection is a pointer to CertificateIssuanceStatesVRemovedFromCollection
+	CertificateIssuanceStatesPRemovedFromCollection = &_CertificateIssuanceStatesPRemovedFromCollection
+	// CertificateIssuanceStatesPRenewVerified is a pointer to CertificateIssuanceStatesVRenewVerified
+	CertificateIssuanceStatesPRenewVerified = &_CertificateIssuanceStatesPRenewVerified
+	// CertificateIssuanceStatesPInstallFailed is a pointer to CertificateIssuanceStatesVInstallFailed
+	CertificateIssuanceStatesPInstallFailed = &_CertificateIssuanceStatesPInstallFailed
+	// CertificateIssuanceStatesPInstalled is a pointer to CertificateIssuanceStatesVInstalled
+	CertificateIssuanceStatesPInstalled = &_CertificateIssuanceStatesPInstalled
+	// CertificateIssuanceStatesPDeleteFailed is a pointer to CertificateIssuanceStatesVDeleteFailed
+	CertificateIssuanceStatesPDeleteFailed = &_CertificateIssuanceStatesPDeleteFailed
+	// CertificateIssuanceStatesPDeleted is a pointer to CertificateIssuanceStatesVDeleted
+	CertificateIssuanceStatesPDeleted = &_CertificateIssuanceStatesPDeleted
+	// CertificateIssuanceStatesPRenewalRequested is a pointer to CertificateIssuanceStatesVRenewalRequested
+	CertificateIssuanceStatesPRenewalRequested = &_CertificateIssuanceStatesPRenewalRequested
+	// CertificateIssuanceStatesPRequested is a pointer to CertificateIssuanceStatesVRequested
+	CertificateIssuanceStatesPRequested = &_CertificateIssuanceStatesPRequested
+)
 
-// CertificateIssuanceStatesPChallengeIssued returns a pointer to CertificateIssuanceStatesVChallengeIssued
-func CertificateIssuanceStatesPChallengeIssued() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVChallengeIssued
-	return &v
-}
-
-// CertificateIssuanceStatesPChallengeIssueFailed returns a pointer to CertificateIssuanceStatesVChallengeIssueFailed
-func CertificateIssuanceStatesPChallengeIssueFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVChallengeIssueFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPRequestCreationFailed returns a pointer to CertificateIssuanceStatesVRequestCreationFailed
-func CertificateIssuanceStatesPRequestCreationFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRequestCreationFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPRequestSubmitFailed returns a pointer to CertificateIssuanceStatesVRequestSubmitFailed
-func CertificateIssuanceStatesPRequestSubmitFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRequestSubmitFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPChallengeValidationSucceeded returns a pointer to CertificateIssuanceStatesVChallengeValidationSucceeded
-func CertificateIssuanceStatesPChallengeValidationSucceeded() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVChallengeValidationSucceeded
-	return &v
-}
-
-// CertificateIssuanceStatesPChallengeValidationFailed returns a pointer to CertificateIssuanceStatesVChallengeValidationFailed
-func CertificateIssuanceStatesPChallengeValidationFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVChallengeValidationFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPIssueFailed returns a pointer to CertificateIssuanceStatesVIssueFailed
-func CertificateIssuanceStatesPIssueFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVIssueFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPIssuePending returns a pointer to CertificateIssuanceStatesVIssuePending
-func CertificateIssuanceStatesPIssuePending() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVIssuePending
-	return &v
-}
-
-// CertificateIssuanceStatesPIssued returns a pointer to CertificateIssuanceStatesVIssued
-func CertificateIssuanceStatesPIssued() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVIssued
-	return &v
-}
-
-// CertificateIssuanceStatesPResponseProcessingFailed returns a pointer to CertificateIssuanceStatesVResponseProcessingFailed
-func CertificateIssuanceStatesPResponseProcessingFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVResponseProcessingFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPResponsePending returns a pointer to CertificateIssuanceStatesVResponsePending
-func CertificateIssuanceStatesPResponsePending() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVResponsePending
-	return &v
-}
-
-// CertificateIssuanceStatesPEnrollmentSucceeded returns a pointer to CertificateIssuanceStatesVEnrollmentSucceeded
-func CertificateIssuanceStatesPEnrollmentSucceeded() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVEnrollmentSucceeded
-	return &v
-}
-
-// CertificateIssuanceStatesPEnrollmentNotNeeded returns a pointer to CertificateIssuanceStatesVEnrollmentNotNeeded
-func CertificateIssuanceStatesPEnrollmentNotNeeded() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVEnrollmentNotNeeded
-	return &v
-}
-
-// CertificateIssuanceStatesPRevoked returns a pointer to CertificateIssuanceStatesVRevoked
-func CertificateIssuanceStatesPRevoked() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRevoked
-	return &v
-}
-
-// CertificateIssuanceStatesPRemovedFromCollection returns a pointer to CertificateIssuanceStatesVRemovedFromCollection
-func CertificateIssuanceStatesPRemovedFromCollection() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRemovedFromCollection
-	return &v
-}
-
-// CertificateIssuanceStatesPRenewVerified returns a pointer to CertificateIssuanceStatesVRenewVerified
-func CertificateIssuanceStatesPRenewVerified() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRenewVerified
-	return &v
-}
-
-// CertificateIssuanceStatesPInstallFailed returns a pointer to CertificateIssuanceStatesVInstallFailed
-func CertificateIssuanceStatesPInstallFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVInstallFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPInstalled returns a pointer to CertificateIssuanceStatesVInstalled
-func CertificateIssuanceStatesPInstalled() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVInstalled
-	return &v
-}
-
-// CertificateIssuanceStatesPDeleteFailed returns a pointer to CertificateIssuanceStatesVDeleteFailed
-func CertificateIssuanceStatesPDeleteFailed() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVDeleteFailed
-	return &v
-}
-
-// CertificateIssuanceStatesPDeleted returns a pointer to CertificateIssuanceStatesVDeleted
-func CertificateIssuanceStatesPDeleted() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVDeleted
-	return &v
-}
-
-// CertificateIssuanceStatesPRenewalRequested returns a pointer to CertificateIssuanceStatesVRenewalRequested
-func CertificateIssuanceStatesPRenewalRequested() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRenewalRequested
-	return &v
-}
-
-// CertificateIssuanceStatesPRequested returns a pointer to CertificateIssuanceStatesVRequested
-func CertificateIssuanceStatesPRequested() *CertificateIssuanceStates {
-	v := CertificateIssuanceStatesVRequested
-	return &v
-}
+var (
+	_CertificateIssuanceStatesPUnknown                      = CertificateIssuanceStatesVUnknown
+	_CertificateIssuanceStatesPChallengeIssued              = CertificateIssuanceStatesVChallengeIssued
+	_CertificateIssuanceStatesPChallengeIssueFailed         = CertificateIssuanceStatesVChallengeIssueFailed
+	_CertificateIssuanceStatesPRequestCreationFailed        = CertificateIssuanceStatesVRequestCreationFailed
+	_CertificateIssuanceStatesPRequestSubmitFailed          = CertificateIssuanceStatesVRequestSubmitFailed
+	_CertificateIssuanceStatesPChallengeValidationSucceeded = CertificateIssuanceStatesVChallengeValidationSucceeded
+	_CertificateIssuanceStatesPChallengeValidationFailed    = CertificateIssuanceStatesVChallengeValidationFailed
+	_CertificateIssuanceStatesPIssueFailed                  = CertificateIssuanceStatesVIssueFailed
+	_CertificateIssuanceStatesPIssuePending                 = CertificateIssuanceStatesVIssuePending
+	_CertificateIssuanceStatesPIssued                       = CertificateIssuanceStatesVIssued
+	_CertificateIssuanceStatesPResponseProcessingFailed     = CertificateIssuanceStatesVResponseProcessingFailed
+	_CertificateIssuanceStatesPResponsePending              = CertificateIssuanceStatesVResponsePending
+	_CertificateIssuanceStatesPEnrollmentSucceeded          = CertificateIssuanceStatesVEnrollmentSucceeded
+	_CertificateIssuanceStatesPEnrollmentNotNeeded          = CertificateIssuanceStatesVEnrollmentNotNeeded
+	_CertificateIssuanceStatesPRevoked                      = CertificateIssuanceStatesVRevoked
+	_CertificateIssuanceStatesPRemovedFromCollection        = CertificateIssuanceStatesVRemovedFromCollection
+	_CertificateIssuanceStatesPRenewVerified                = CertificateIssuanceStatesVRenewVerified
+	_CertificateIssuanceStatesPInstallFailed                = CertificateIssuanceStatesVInstallFailed
+	_CertificateIssuanceStatesPInstalled                    = CertificateIssuanceStatesVInstalled
+	_CertificateIssuanceStatesPDeleteFailed                 = CertificateIssuanceStatesVDeleteFailed
+	_CertificateIssuanceStatesPDeleted                      = CertificateIssuanceStatesVDeleted
+	_CertificateIssuanceStatesPRenewalRequested             = CertificateIssuanceStatesVRenewalRequested
+	_CertificateIssuanceStatesPRequested                    = CertificateIssuanceStatesVRequested
+)

@@ -3,199 +3,133 @@
 package msgraph
 
 // SecurityNetworkProtocol undocumented
-type SecurityNetworkProtocol int
+type SecurityNetworkProtocol string
 
 const (
 	// SecurityNetworkProtocolVIP undocumented
-	SecurityNetworkProtocolVIP SecurityNetworkProtocol = 0
+	SecurityNetworkProtocolVIP SecurityNetworkProtocol = "ip"
 	// SecurityNetworkProtocolVICMP undocumented
-	SecurityNetworkProtocolVICMP SecurityNetworkProtocol = 1
+	SecurityNetworkProtocolVICMP SecurityNetworkProtocol = "icmp"
 	// SecurityNetworkProtocolVIGMP undocumented
-	SecurityNetworkProtocolVIGMP SecurityNetworkProtocol = 2
+	SecurityNetworkProtocolVIGMP SecurityNetworkProtocol = "igmp"
 	// SecurityNetworkProtocolVGgp undocumented
-	SecurityNetworkProtocolVGgp SecurityNetworkProtocol = 3
+	SecurityNetworkProtocolVGgp SecurityNetworkProtocol = "ggp"
 	// SecurityNetworkProtocolVIpv4 undocumented
-	SecurityNetworkProtocolVIpv4 SecurityNetworkProtocol = 4
+	SecurityNetworkProtocolVIpv4 SecurityNetworkProtocol = "ipv4"
 	// SecurityNetworkProtocolVTCP undocumented
-	SecurityNetworkProtocolVTCP SecurityNetworkProtocol = 6
+	SecurityNetworkProtocolVTCP SecurityNetworkProtocol = "tcp"
 	// SecurityNetworkProtocolVPup undocumented
-	SecurityNetworkProtocolVPup SecurityNetworkProtocol = 12
+	SecurityNetworkProtocolVPup SecurityNetworkProtocol = "pup"
 	// SecurityNetworkProtocolVUDP undocumented
-	SecurityNetworkProtocolVUDP SecurityNetworkProtocol = 17
+	SecurityNetworkProtocolVUDP SecurityNetworkProtocol = "udp"
 	// SecurityNetworkProtocolVIdp undocumented
-	SecurityNetworkProtocolVIdp SecurityNetworkProtocol = 22
+	SecurityNetworkProtocolVIdp SecurityNetworkProtocol = "idp"
 	// SecurityNetworkProtocolVIpv6 undocumented
-	SecurityNetworkProtocolVIpv6 SecurityNetworkProtocol = 41
+	SecurityNetworkProtocolVIpv6 SecurityNetworkProtocol = "ipv6"
 	// SecurityNetworkProtocolVIpv6RoutingHeader undocumented
-	SecurityNetworkProtocolVIpv6RoutingHeader SecurityNetworkProtocol = 43
+	SecurityNetworkProtocolVIpv6RoutingHeader SecurityNetworkProtocol = "ipv6RoutingHeader"
 	// SecurityNetworkProtocolVIpv6FragmentHeader undocumented
-	SecurityNetworkProtocolVIpv6FragmentHeader SecurityNetworkProtocol = 44
+	SecurityNetworkProtocolVIpv6FragmentHeader SecurityNetworkProtocol = "ipv6FragmentHeader"
 	// SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload undocumented
-	SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload SecurityNetworkProtocol = 50
+	SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload SecurityNetworkProtocol = "ipSecEncapsulatingSecurityPayload"
 	// SecurityNetworkProtocolVIPSecAuthenticationHeader undocumented
-	SecurityNetworkProtocolVIPSecAuthenticationHeader SecurityNetworkProtocol = 51
+	SecurityNetworkProtocolVIPSecAuthenticationHeader SecurityNetworkProtocol = "ipSecAuthenticationHeader"
 	// SecurityNetworkProtocolVICMPV6 undocumented
-	SecurityNetworkProtocolVICMPV6 SecurityNetworkProtocol = 58
+	SecurityNetworkProtocolVICMPV6 SecurityNetworkProtocol = "icmpV6"
 	// SecurityNetworkProtocolVIpv6NoNextHeader undocumented
-	SecurityNetworkProtocolVIpv6NoNextHeader SecurityNetworkProtocol = 59
+	SecurityNetworkProtocolVIpv6NoNextHeader SecurityNetworkProtocol = "ipv6NoNextHeader"
 	// SecurityNetworkProtocolVIpv6DestinationOptions undocumented
-	SecurityNetworkProtocolVIpv6DestinationOptions SecurityNetworkProtocol = 60
+	SecurityNetworkProtocolVIpv6DestinationOptions SecurityNetworkProtocol = "ipv6DestinationOptions"
 	// SecurityNetworkProtocolVNd undocumented
-	SecurityNetworkProtocolVNd SecurityNetworkProtocol = 77
+	SecurityNetworkProtocolVNd SecurityNetworkProtocol = "nd"
 	// SecurityNetworkProtocolVRaw undocumented
-	SecurityNetworkProtocolVRaw SecurityNetworkProtocol = 255
+	SecurityNetworkProtocolVRaw SecurityNetworkProtocol = "raw"
 	// SecurityNetworkProtocolVIpx undocumented
-	SecurityNetworkProtocolVIpx SecurityNetworkProtocol = 1000
+	SecurityNetworkProtocolVIpx SecurityNetworkProtocol = "ipx"
 	// SecurityNetworkProtocolVSpx undocumented
-	SecurityNetworkProtocolVSpx SecurityNetworkProtocol = 1256
+	SecurityNetworkProtocolVSpx SecurityNetworkProtocol = "spx"
 	// SecurityNetworkProtocolVSpxII undocumented
-	SecurityNetworkProtocolVSpxII SecurityNetworkProtocol = 1257
+	SecurityNetworkProtocolVSpxII SecurityNetworkProtocol = "spxII"
 	// SecurityNetworkProtocolVUnknownFutureValue undocumented
-	SecurityNetworkProtocolVUnknownFutureValue SecurityNetworkProtocol = 32767
+	SecurityNetworkProtocolVUnknownFutureValue SecurityNetworkProtocol = "unknownFutureValue"
 	// SecurityNetworkProtocolVUnknown undocumented
-	SecurityNetworkProtocolVUnknown SecurityNetworkProtocol = -1
+	SecurityNetworkProtocolVUnknown SecurityNetworkProtocol = "unknown"
 )
 
-// SecurityNetworkProtocolPIP returns a pointer to SecurityNetworkProtocolVIP
-func SecurityNetworkProtocolPIP() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIP
-	return &v
-}
+var (
+	// SecurityNetworkProtocolPIP is a pointer to SecurityNetworkProtocolVIP
+	SecurityNetworkProtocolPIP = &_SecurityNetworkProtocolPIP
+	// SecurityNetworkProtocolPICMP is a pointer to SecurityNetworkProtocolVICMP
+	SecurityNetworkProtocolPICMP = &_SecurityNetworkProtocolPICMP
+	// SecurityNetworkProtocolPIGMP is a pointer to SecurityNetworkProtocolVIGMP
+	SecurityNetworkProtocolPIGMP = &_SecurityNetworkProtocolPIGMP
+	// SecurityNetworkProtocolPGgp is a pointer to SecurityNetworkProtocolVGgp
+	SecurityNetworkProtocolPGgp = &_SecurityNetworkProtocolPGgp
+	// SecurityNetworkProtocolPIpv4 is a pointer to SecurityNetworkProtocolVIpv4
+	SecurityNetworkProtocolPIpv4 = &_SecurityNetworkProtocolPIpv4
+	// SecurityNetworkProtocolPTCP is a pointer to SecurityNetworkProtocolVTCP
+	SecurityNetworkProtocolPTCP = &_SecurityNetworkProtocolPTCP
+	// SecurityNetworkProtocolPPup is a pointer to SecurityNetworkProtocolVPup
+	SecurityNetworkProtocolPPup = &_SecurityNetworkProtocolPPup
+	// SecurityNetworkProtocolPUDP is a pointer to SecurityNetworkProtocolVUDP
+	SecurityNetworkProtocolPUDP = &_SecurityNetworkProtocolPUDP
+	// SecurityNetworkProtocolPIdp is a pointer to SecurityNetworkProtocolVIdp
+	SecurityNetworkProtocolPIdp = &_SecurityNetworkProtocolPIdp
+	// SecurityNetworkProtocolPIpv6 is a pointer to SecurityNetworkProtocolVIpv6
+	SecurityNetworkProtocolPIpv6 = &_SecurityNetworkProtocolPIpv6
+	// SecurityNetworkProtocolPIpv6RoutingHeader is a pointer to SecurityNetworkProtocolVIpv6RoutingHeader
+	SecurityNetworkProtocolPIpv6RoutingHeader = &_SecurityNetworkProtocolPIpv6RoutingHeader
+	// SecurityNetworkProtocolPIpv6FragmentHeader is a pointer to SecurityNetworkProtocolVIpv6FragmentHeader
+	SecurityNetworkProtocolPIpv6FragmentHeader = &_SecurityNetworkProtocolPIpv6FragmentHeader
+	// SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload is a pointer to SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload
+	SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload = &_SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload
+	// SecurityNetworkProtocolPIPSecAuthenticationHeader is a pointer to SecurityNetworkProtocolVIPSecAuthenticationHeader
+	SecurityNetworkProtocolPIPSecAuthenticationHeader = &_SecurityNetworkProtocolPIPSecAuthenticationHeader
+	// SecurityNetworkProtocolPICMPV6 is a pointer to SecurityNetworkProtocolVICMPV6
+	SecurityNetworkProtocolPICMPV6 = &_SecurityNetworkProtocolPICMPV6
+	// SecurityNetworkProtocolPIpv6NoNextHeader is a pointer to SecurityNetworkProtocolVIpv6NoNextHeader
+	SecurityNetworkProtocolPIpv6NoNextHeader = &_SecurityNetworkProtocolPIpv6NoNextHeader
+	// SecurityNetworkProtocolPIpv6DestinationOptions is a pointer to SecurityNetworkProtocolVIpv6DestinationOptions
+	SecurityNetworkProtocolPIpv6DestinationOptions = &_SecurityNetworkProtocolPIpv6DestinationOptions
+	// SecurityNetworkProtocolPNd is a pointer to SecurityNetworkProtocolVNd
+	SecurityNetworkProtocolPNd = &_SecurityNetworkProtocolPNd
+	// SecurityNetworkProtocolPRaw is a pointer to SecurityNetworkProtocolVRaw
+	SecurityNetworkProtocolPRaw = &_SecurityNetworkProtocolPRaw
+	// SecurityNetworkProtocolPIpx is a pointer to SecurityNetworkProtocolVIpx
+	SecurityNetworkProtocolPIpx = &_SecurityNetworkProtocolPIpx
+	// SecurityNetworkProtocolPSpx is a pointer to SecurityNetworkProtocolVSpx
+	SecurityNetworkProtocolPSpx = &_SecurityNetworkProtocolPSpx
+	// SecurityNetworkProtocolPSpxII is a pointer to SecurityNetworkProtocolVSpxII
+	SecurityNetworkProtocolPSpxII = &_SecurityNetworkProtocolPSpxII
+	// SecurityNetworkProtocolPUnknownFutureValue is a pointer to SecurityNetworkProtocolVUnknownFutureValue
+	SecurityNetworkProtocolPUnknownFutureValue = &_SecurityNetworkProtocolPUnknownFutureValue
+	// SecurityNetworkProtocolPUnknown is a pointer to SecurityNetworkProtocolVUnknown
+	SecurityNetworkProtocolPUnknown = &_SecurityNetworkProtocolPUnknown
+)
 
-// SecurityNetworkProtocolPICMP returns a pointer to SecurityNetworkProtocolVICMP
-func SecurityNetworkProtocolPICMP() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVICMP
-	return &v
-}
-
-// SecurityNetworkProtocolPIGMP returns a pointer to SecurityNetworkProtocolVIGMP
-func SecurityNetworkProtocolPIGMP() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIGMP
-	return &v
-}
-
-// SecurityNetworkProtocolPGgp returns a pointer to SecurityNetworkProtocolVGgp
-func SecurityNetworkProtocolPGgp() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVGgp
-	return &v
-}
-
-// SecurityNetworkProtocolPIpv4 returns a pointer to SecurityNetworkProtocolVIpv4
-func SecurityNetworkProtocolPIpv4() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpv4
-	return &v
-}
-
-// SecurityNetworkProtocolPTCP returns a pointer to SecurityNetworkProtocolVTCP
-func SecurityNetworkProtocolPTCP() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVTCP
-	return &v
-}
-
-// SecurityNetworkProtocolPPup returns a pointer to SecurityNetworkProtocolVPup
-func SecurityNetworkProtocolPPup() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVPup
-	return &v
-}
-
-// SecurityNetworkProtocolPUDP returns a pointer to SecurityNetworkProtocolVUDP
-func SecurityNetworkProtocolPUDP() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVUDP
-	return &v
-}
-
-// SecurityNetworkProtocolPIdp returns a pointer to SecurityNetworkProtocolVIdp
-func SecurityNetworkProtocolPIdp() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIdp
-	return &v
-}
-
-// SecurityNetworkProtocolPIpv6 returns a pointer to SecurityNetworkProtocolVIpv6
-func SecurityNetworkProtocolPIpv6() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpv6
-	return &v
-}
-
-// SecurityNetworkProtocolPIpv6RoutingHeader returns a pointer to SecurityNetworkProtocolVIpv6RoutingHeader
-func SecurityNetworkProtocolPIpv6RoutingHeader() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpv6RoutingHeader
-	return &v
-}
-
-// SecurityNetworkProtocolPIpv6FragmentHeader returns a pointer to SecurityNetworkProtocolVIpv6FragmentHeader
-func SecurityNetworkProtocolPIpv6FragmentHeader() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpv6FragmentHeader
-	return &v
-}
-
-// SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload returns a pointer to SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload
-func SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload
-	return &v
-}
-
-// SecurityNetworkProtocolPIPSecAuthenticationHeader returns a pointer to SecurityNetworkProtocolVIPSecAuthenticationHeader
-func SecurityNetworkProtocolPIPSecAuthenticationHeader() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIPSecAuthenticationHeader
-	return &v
-}
-
-// SecurityNetworkProtocolPICMPV6 returns a pointer to SecurityNetworkProtocolVICMPV6
-func SecurityNetworkProtocolPICMPV6() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVICMPV6
-	return &v
-}
-
-// SecurityNetworkProtocolPIpv6NoNextHeader returns a pointer to SecurityNetworkProtocolVIpv6NoNextHeader
-func SecurityNetworkProtocolPIpv6NoNextHeader() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpv6NoNextHeader
-	return &v
-}
-
-// SecurityNetworkProtocolPIpv6DestinationOptions returns a pointer to SecurityNetworkProtocolVIpv6DestinationOptions
-func SecurityNetworkProtocolPIpv6DestinationOptions() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpv6DestinationOptions
-	return &v
-}
-
-// SecurityNetworkProtocolPNd returns a pointer to SecurityNetworkProtocolVNd
-func SecurityNetworkProtocolPNd() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVNd
-	return &v
-}
-
-// SecurityNetworkProtocolPRaw returns a pointer to SecurityNetworkProtocolVRaw
-func SecurityNetworkProtocolPRaw() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVRaw
-	return &v
-}
-
-// SecurityNetworkProtocolPIpx returns a pointer to SecurityNetworkProtocolVIpx
-func SecurityNetworkProtocolPIpx() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVIpx
-	return &v
-}
-
-// SecurityNetworkProtocolPSpx returns a pointer to SecurityNetworkProtocolVSpx
-func SecurityNetworkProtocolPSpx() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVSpx
-	return &v
-}
-
-// SecurityNetworkProtocolPSpxII returns a pointer to SecurityNetworkProtocolVSpxII
-func SecurityNetworkProtocolPSpxII() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVSpxII
-	return &v
-}
-
-// SecurityNetworkProtocolPUnknownFutureValue returns a pointer to SecurityNetworkProtocolVUnknownFutureValue
-func SecurityNetworkProtocolPUnknownFutureValue() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVUnknownFutureValue
-	return &v
-}
-
-// SecurityNetworkProtocolPUnknown returns a pointer to SecurityNetworkProtocolVUnknown
-func SecurityNetworkProtocolPUnknown() *SecurityNetworkProtocol {
-	v := SecurityNetworkProtocolVUnknown
-	return &v
-}
+var (
+	_SecurityNetworkProtocolPIP                                = SecurityNetworkProtocolVIP
+	_SecurityNetworkProtocolPICMP                              = SecurityNetworkProtocolVICMP
+	_SecurityNetworkProtocolPIGMP                              = SecurityNetworkProtocolVIGMP
+	_SecurityNetworkProtocolPGgp                               = SecurityNetworkProtocolVGgp
+	_SecurityNetworkProtocolPIpv4                              = SecurityNetworkProtocolVIpv4
+	_SecurityNetworkProtocolPTCP                               = SecurityNetworkProtocolVTCP
+	_SecurityNetworkProtocolPPup                               = SecurityNetworkProtocolVPup
+	_SecurityNetworkProtocolPUDP                               = SecurityNetworkProtocolVUDP
+	_SecurityNetworkProtocolPIdp                               = SecurityNetworkProtocolVIdp
+	_SecurityNetworkProtocolPIpv6                              = SecurityNetworkProtocolVIpv6
+	_SecurityNetworkProtocolPIpv6RoutingHeader                 = SecurityNetworkProtocolVIpv6RoutingHeader
+	_SecurityNetworkProtocolPIpv6FragmentHeader                = SecurityNetworkProtocolVIpv6FragmentHeader
+	_SecurityNetworkProtocolPIPSecEncapsulatingSecurityPayload = SecurityNetworkProtocolVIPSecEncapsulatingSecurityPayload
+	_SecurityNetworkProtocolPIPSecAuthenticationHeader         = SecurityNetworkProtocolVIPSecAuthenticationHeader
+	_SecurityNetworkProtocolPICMPV6                            = SecurityNetworkProtocolVICMPV6
+	_SecurityNetworkProtocolPIpv6NoNextHeader                  = SecurityNetworkProtocolVIpv6NoNextHeader
+	_SecurityNetworkProtocolPIpv6DestinationOptions            = SecurityNetworkProtocolVIpv6DestinationOptions
+	_SecurityNetworkProtocolPNd                                = SecurityNetworkProtocolVNd
+	_SecurityNetworkProtocolPRaw                               = SecurityNetworkProtocolVRaw
+	_SecurityNetworkProtocolPIpx                               = SecurityNetworkProtocolVIpx
+	_SecurityNetworkProtocolPSpx                               = SecurityNetworkProtocolVSpx
+	_SecurityNetworkProtocolPSpxII                             = SecurityNetworkProtocolVSpxII
+	_SecurityNetworkProtocolPUnknownFutureValue                = SecurityNetworkProtocolVUnknownFutureValue
+	_SecurityNetworkProtocolPUnknown                           = SecurityNetworkProtocolVUnknown
+)

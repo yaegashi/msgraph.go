@@ -3,31 +3,28 @@
 package msgraph
 
 // ManagedAppDataTransferLevel undocumented
-type ManagedAppDataTransferLevel int
+type ManagedAppDataTransferLevel string
 
 const (
 	// ManagedAppDataTransferLevelVAllApps undocumented
-	ManagedAppDataTransferLevelVAllApps ManagedAppDataTransferLevel = 0
+	ManagedAppDataTransferLevelVAllApps ManagedAppDataTransferLevel = "allApps"
 	// ManagedAppDataTransferLevelVManagedApps undocumented
-	ManagedAppDataTransferLevelVManagedApps ManagedAppDataTransferLevel = 1
+	ManagedAppDataTransferLevelVManagedApps ManagedAppDataTransferLevel = "managedApps"
 	// ManagedAppDataTransferLevelVNone undocumented
-	ManagedAppDataTransferLevelVNone ManagedAppDataTransferLevel = 2
+	ManagedAppDataTransferLevelVNone ManagedAppDataTransferLevel = "none"
 )
 
-// ManagedAppDataTransferLevelPAllApps returns a pointer to ManagedAppDataTransferLevelVAllApps
-func ManagedAppDataTransferLevelPAllApps() *ManagedAppDataTransferLevel {
-	v := ManagedAppDataTransferLevelVAllApps
-	return &v
-}
+var (
+	// ManagedAppDataTransferLevelPAllApps is a pointer to ManagedAppDataTransferLevelVAllApps
+	ManagedAppDataTransferLevelPAllApps = &_ManagedAppDataTransferLevelPAllApps
+	// ManagedAppDataTransferLevelPManagedApps is a pointer to ManagedAppDataTransferLevelVManagedApps
+	ManagedAppDataTransferLevelPManagedApps = &_ManagedAppDataTransferLevelPManagedApps
+	// ManagedAppDataTransferLevelPNone is a pointer to ManagedAppDataTransferLevelVNone
+	ManagedAppDataTransferLevelPNone = &_ManagedAppDataTransferLevelPNone
+)
 
-// ManagedAppDataTransferLevelPManagedApps returns a pointer to ManagedAppDataTransferLevelVManagedApps
-func ManagedAppDataTransferLevelPManagedApps() *ManagedAppDataTransferLevel {
-	v := ManagedAppDataTransferLevelVManagedApps
-	return &v
-}
-
-// ManagedAppDataTransferLevelPNone returns a pointer to ManagedAppDataTransferLevelVNone
-func ManagedAppDataTransferLevelPNone() *ManagedAppDataTransferLevel {
-	v := ManagedAppDataTransferLevelVNone
-	return &v
-}
+var (
+	_ManagedAppDataTransferLevelPAllApps     = ManagedAppDataTransferLevelVAllApps
+	_ManagedAppDataTransferLevelPManagedApps = ManagedAppDataTransferLevelVManagedApps
+	_ManagedAppDataTransferLevelPNone        = ManagedAppDataTransferLevelVNone
+)

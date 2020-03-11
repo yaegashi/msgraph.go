@@ -3,31 +3,28 @@
 package msgraph
 
 // OwnerType undocumented
-type OwnerType int
+type OwnerType string
 
 const (
 	// OwnerTypeVUnknown undocumented
-	OwnerTypeVUnknown OwnerType = 0
+	OwnerTypeVUnknown OwnerType = "unknown"
 	// OwnerTypeVCompany undocumented
-	OwnerTypeVCompany OwnerType = 1
+	OwnerTypeVCompany OwnerType = "company"
 	// OwnerTypeVPersonal undocumented
-	OwnerTypeVPersonal OwnerType = 2
+	OwnerTypeVPersonal OwnerType = "personal"
 )
 
-// OwnerTypePUnknown returns a pointer to OwnerTypeVUnknown
-func OwnerTypePUnknown() *OwnerType {
-	v := OwnerTypeVUnknown
-	return &v
-}
+var (
+	// OwnerTypePUnknown is a pointer to OwnerTypeVUnknown
+	OwnerTypePUnknown = &_OwnerTypePUnknown
+	// OwnerTypePCompany is a pointer to OwnerTypeVCompany
+	OwnerTypePCompany = &_OwnerTypePCompany
+	// OwnerTypePPersonal is a pointer to OwnerTypeVPersonal
+	OwnerTypePPersonal = &_OwnerTypePPersonal
+)
 
-// OwnerTypePCompany returns a pointer to OwnerTypeVCompany
-func OwnerTypePCompany() *OwnerType {
-	v := OwnerTypeVCompany
-	return &v
-}
-
-// OwnerTypePPersonal returns a pointer to OwnerTypeVPersonal
-func OwnerTypePPersonal() *OwnerType {
-	v := OwnerTypeVPersonal
-	return &v
-}
+var (
+	_OwnerTypePUnknown  = OwnerTypeVUnknown
+	_OwnerTypePCompany  = OwnerTypeVCompany
+	_OwnerTypePPersonal = OwnerTypeVPersonal
+)

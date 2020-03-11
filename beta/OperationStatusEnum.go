@@ -3,39 +3,33 @@
 package msgraph
 
 // OperationStatus undocumented
-type OperationStatus int
+type OperationStatus string
 
 const (
 	// OperationStatusVNotStarted undocumented
-	OperationStatusVNotStarted OperationStatus = 0
+	OperationStatusVNotStarted OperationStatus = "NotStarted"
 	// OperationStatusVRunning undocumented
-	OperationStatusVRunning OperationStatus = 1
+	OperationStatusVRunning OperationStatus = "Running"
 	// OperationStatusVCompleted undocumented
-	OperationStatusVCompleted OperationStatus = 2
+	OperationStatusVCompleted OperationStatus = "Completed"
 	// OperationStatusVFailed undocumented
-	OperationStatusVFailed OperationStatus = 3
+	OperationStatusVFailed OperationStatus = "Failed"
 )
 
-// OperationStatusPNotStarted returns a pointer to OperationStatusVNotStarted
-func OperationStatusPNotStarted() *OperationStatus {
-	v := OperationStatusVNotStarted
-	return &v
-}
+var (
+	// OperationStatusPNotStarted is a pointer to OperationStatusVNotStarted
+	OperationStatusPNotStarted = &_OperationStatusPNotStarted
+	// OperationStatusPRunning is a pointer to OperationStatusVRunning
+	OperationStatusPRunning = &_OperationStatusPRunning
+	// OperationStatusPCompleted is a pointer to OperationStatusVCompleted
+	OperationStatusPCompleted = &_OperationStatusPCompleted
+	// OperationStatusPFailed is a pointer to OperationStatusVFailed
+	OperationStatusPFailed = &_OperationStatusPFailed
+)
 
-// OperationStatusPRunning returns a pointer to OperationStatusVRunning
-func OperationStatusPRunning() *OperationStatus {
-	v := OperationStatusVRunning
-	return &v
-}
-
-// OperationStatusPCompleted returns a pointer to OperationStatusVCompleted
-func OperationStatusPCompleted() *OperationStatus {
-	v := OperationStatusVCompleted
-	return &v
-}
-
-// OperationStatusPFailed returns a pointer to OperationStatusVFailed
-func OperationStatusPFailed() *OperationStatus {
-	v := OperationStatusVFailed
-	return &v
-}
+var (
+	_OperationStatusPNotStarted = OperationStatusVNotStarted
+	_OperationStatusPRunning    = OperationStatusVRunning
+	_OperationStatusPCompleted  = OperationStatusVCompleted
+	_OperationStatusPFailed     = OperationStatusVFailed
+)

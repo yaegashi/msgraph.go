@@ -3,31 +3,28 @@
 package msgraph
 
 // AppLogUploadState undocumented
-type AppLogUploadState int
+type AppLogUploadState string
 
 const (
 	// AppLogUploadStateVPending undocumented
-	AppLogUploadStateVPending AppLogUploadState = 0
+	AppLogUploadStateVPending AppLogUploadState = "pending"
 	// AppLogUploadStateVCompleted undocumented
-	AppLogUploadStateVCompleted AppLogUploadState = 1
+	AppLogUploadStateVCompleted AppLogUploadState = "completed"
 	// AppLogUploadStateVFailed undocumented
-	AppLogUploadStateVFailed AppLogUploadState = 2
+	AppLogUploadStateVFailed AppLogUploadState = "failed"
 )
 
-// AppLogUploadStatePPending returns a pointer to AppLogUploadStateVPending
-func AppLogUploadStatePPending() *AppLogUploadState {
-	v := AppLogUploadStateVPending
-	return &v
-}
+var (
+	// AppLogUploadStatePPending is a pointer to AppLogUploadStateVPending
+	AppLogUploadStatePPending = &_AppLogUploadStatePPending
+	// AppLogUploadStatePCompleted is a pointer to AppLogUploadStateVCompleted
+	AppLogUploadStatePCompleted = &_AppLogUploadStatePCompleted
+	// AppLogUploadStatePFailed is a pointer to AppLogUploadStateVFailed
+	AppLogUploadStatePFailed = &_AppLogUploadStatePFailed
+)
 
-// AppLogUploadStatePCompleted returns a pointer to AppLogUploadStateVCompleted
-func AppLogUploadStatePCompleted() *AppLogUploadState {
-	v := AppLogUploadStateVCompleted
-	return &v
-}
-
-// AppLogUploadStatePFailed returns a pointer to AppLogUploadStateVFailed
-func AppLogUploadStatePFailed() *AppLogUploadState {
-	v := AppLogUploadStateVFailed
-	return &v
-}
+var (
+	_AppLogUploadStatePPending   = AppLogUploadStateVPending
+	_AppLogUploadStatePCompleted = AppLogUploadStateVCompleted
+	_AppLogUploadStatePFailed    = AppLogUploadStateVFailed
+)

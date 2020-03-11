@@ -3,31 +3,28 @@
 package msgraph
 
 // VisibilitySetting undocumented
-type VisibilitySetting int
+type VisibilitySetting string
 
 const (
 	// VisibilitySettingVNotConfigured undocumented
-	VisibilitySettingVNotConfigured VisibilitySetting = 0
+	VisibilitySettingVNotConfigured VisibilitySetting = "notConfigured"
 	// VisibilitySettingVHide undocumented
-	VisibilitySettingVHide VisibilitySetting = 1
+	VisibilitySettingVHide VisibilitySetting = "hide"
 	// VisibilitySettingVShow undocumented
-	VisibilitySettingVShow VisibilitySetting = 2
+	VisibilitySettingVShow VisibilitySetting = "show"
 )
 
-// VisibilitySettingPNotConfigured returns a pointer to VisibilitySettingVNotConfigured
-func VisibilitySettingPNotConfigured() *VisibilitySetting {
-	v := VisibilitySettingVNotConfigured
-	return &v
-}
+var (
+	// VisibilitySettingPNotConfigured is a pointer to VisibilitySettingVNotConfigured
+	VisibilitySettingPNotConfigured = &_VisibilitySettingPNotConfigured
+	// VisibilitySettingPHide is a pointer to VisibilitySettingVHide
+	VisibilitySettingPHide = &_VisibilitySettingPHide
+	// VisibilitySettingPShow is a pointer to VisibilitySettingVShow
+	VisibilitySettingPShow = &_VisibilitySettingPShow
+)
 
-// VisibilitySettingPHide returns a pointer to VisibilitySettingVHide
-func VisibilitySettingPHide() *VisibilitySetting {
-	v := VisibilitySettingVHide
-	return &v
-}
-
-// VisibilitySettingPShow returns a pointer to VisibilitySettingVShow
-func VisibilitySettingPShow() *VisibilitySetting {
-	v := VisibilitySettingVShow
-	return &v
-}
+var (
+	_VisibilitySettingPNotConfigured = VisibilitySettingVNotConfigured
+	_VisibilitySettingPHide          = VisibilitySettingVHide
+	_VisibilitySettingPShow          = VisibilitySettingVShow
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // RiskDetectionTimingType undocumented
-type RiskDetectionTimingType int
+type RiskDetectionTimingType string
 
 const (
 	// RiskDetectionTimingTypeVNotDefined undocumented
-	RiskDetectionTimingTypeVNotDefined RiskDetectionTimingType = 0
+	RiskDetectionTimingTypeVNotDefined RiskDetectionTimingType = "notDefined"
 	// RiskDetectionTimingTypeVRealtime undocumented
-	RiskDetectionTimingTypeVRealtime RiskDetectionTimingType = 1
+	RiskDetectionTimingTypeVRealtime RiskDetectionTimingType = "realtime"
 	// RiskDetectionTimingTypeVNearRealtime undocumented
-	RiskDetectionTimingTypeVNearRealtime RiskDetectionTimingType = 2
+	RiskDetectionTimingTypeVNearRealtime RiskDetectionTimingType = "nearRealtime"
 	// RiskDetectionTimingTypeVOffline undocumented
-	RiskDetectionTimingTypeVOffline RiskDetectionTimingType = 3
+	RiskDetectionTimingTypeVOffline RiskDetectionTimingType = "offline"
 	// RiskDetectionTimingTypeVUnknownFutureValue undocumented
-	RiskDetectionTimingTypeVUnknownFutureValue RiskDetectionTimingType = 4
+	RiskDetectionTimingTypeVUnknownFutureValue RiskDetectionTimingType = "unknownFutureValue"
 )
 
-// RiskDetectionTimingTypePNotDefined returns a pointer to RiskDetectionTimingTypeVNotDefined
-func RiskDetectionTimingTypePNotDefined() *RiskDetectionTimingType {
-	v := RiskDetectionTimingTypeVNotDefined
-	return &v
-}
+var (
+	// RiskDetectionTimingTypePNotDefined is a pointer to RiskDetectionTimingTypeVNotDefined
+	RiskDetectionTimingTypePNotDefined = &_RiskDetectionTimingTypePNotDefined
+	// RiskDetectionTimingTypePRealtime is a pointer to RiskDetectionTimingTypeVRealtime
+	RiskDetectionTimingTypePRealtime = &_RiskDetectionTimingTypePRealtime
+	// RiskDetectionTimingTypePNearRealtime is a pointer to RiskDetectionTimingTypeVNearRealtime
+	RiskDetectionTimingTypePNearRealtime = &_RiskDetectionTimingTypePNearRealtime
+	// RiskDetectionTimingTypePOffline is a pointer to RiskDetectionTimingTypeVOffline
+	RiskDetectionTimingTypePOffline = &_RiskDetectionTimingTypePOffline
+	// RiskDetectionTimingTypePUnknownFutureValue is a pointer to RiskDetectionTimingTypeVUnknownFutureValue
+	RiskDetectionTimingTypePUnknownFutureValue = &_RiskDetectionTimingTypePUnknownFutureValue
+)
 
-// RiskDetectionTimingTypePRealtime returns a pointer to RiskDetectionTimingTypeVRealtime
-func RiskDetectionTimingTypePRealtime() *RiskDetectionTimingType {
-	v := RiskDetectionTimingTypeVRealtime
-	return &v
-}
-
-// RiskDetectionTimingTypePNearRealtime returns a pointer to RiskDetectionTimingTypeVNearRealtime
-func RiskDetectionTimingTypePNearRealtime() *RiskDetectionTimingType {
-	v := RiskDetectionTimingTypeVNearRealtime
-	return &v
-}
-
-// RiskDetectionTimingTypePOffline returns a pointer to RiskDetectionTimingTypeVOffline
-func RiskDetectionTimingTypePOffline() *RiskDetectionTimingType {
-	v := RiskDetectionTimingTypeVOffline
-	return &v
-}
-
-// RiskDetectionTimingTypePUnknownFutureValue returns a pointer to RiskDetectionTimingTypeVUnknownFutureValue
-func RiskDetectionTimingTypePUnknownFutureValue() *RiskDetectionTimingType {
-	v := RiskDetectionTimingTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_RiskDetectionTimingTypePNotDefined         = RiskDetectionTimingTypeVNotDefined
+	_RiskDetectionTimingTypePRealtime           = RiskDetectionTimingTypeVRealtime
+	_RiskDetectionTimingTypePNearRealtime       = RiskDetectionTimingTypeVNearRealtime
+	_RiskDetectionTimingTypePOffline            = RiskDetectionTimingTypeVOffline
+	_RiskDetectionTimingTypePUnknownFutureValue = RiskDetectionTimingTypeVUnknownFutureValue
+)

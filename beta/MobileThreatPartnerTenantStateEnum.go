@@ -3,39 +3,33 @@
 package msgraph
 
 // MobileThreatPartnerTenantState undocumented
-type MobileThreatPartnerTenantState int
+type MobileThreatPartnerTenantState string
 
 const (
 	// MobileThreatPartnerTenantStateVUnavailable undocumented
-	MobileThreatPartnerTenantStateVUnavailable MobileThreatPartnerTenantState = 0
+	MobileThreatPartnerTenantStateVUnavailable MobileThreatPartnerTenantState = "unavailable"
 	// MobileThreatPartnerTenantStateVAvailable undocumented
-	MobileThreatPartnerTenantStateVAvailable MobileThreatPartnerTenantState = 1
+	MobileThreatPartnerTenantStateVAvailable MobileThreatPartnerTenantState = "available"
 	// MobileThreatPartnerTenantStateVEnabled undocumented
-	MobileThreatPartnerTenantStateVEnabled MobileThreatPartnerTenantState = 2
+	MobileThreatPartnerTenantStateVEnabled MobileThreatPartnerTenantState = "enabled"
 	// MobileThreatPartnerTenantStateVUnresponsive undocumented
-	MobileThreatPartnerTenantStateVUnresponsive MobileThreatPartnerTenantState = 3
+	MobileThreatPartnerTenantStateVUnresponsive MobileThreatPartnerTenantState = "unresponsive"
 )
 
-// MobileThreatPartnerTenantStatePUnavailable returns a pointer to MobileThreatPartnerTenantStateVUnavailable
-func MobileThreatPartnerTenantStatePUnavailable() *MobileThreatPartnerTenantState {
-	v := MobileThreatPartnerTenantStateVUnavailable
-	return &v
-}
+var (
+	// MobileThreatPartnerTenantStatePUnavailable is a pointer to MobileThreatPartnerTenantStateVUnavailable
+	MobileThreatPartnerTenantStatePUnavailable = &_MobileThreatPartnerTenantStatePUnavailable
+	// MobileThreatPartnerTenantStatePAvailable is a pointer to MobileThreatPartnerTenantStateVAvailable
+	MobileThreatPartnerTenantStatePAvailable = &_MobileThreatPartnerTenantStatePAvailable
+	// MobileThreatPartnerTenantStatePEnabled is a pointer to MobileThreatPartnerTenantStateVEnabled
+	MobileThreatPartnerTenantStatePEnabled = &_MobileThreatPartnerTenantStatePEnabled
+	// MobileThreatPartnerTenantStatePUnresponsive is a pointer to MobileThreatPartnerTenantStateVUnresponsive
+	MobileThreatPartnerTenantStatePUnresponsive = &_MobileThreatPartnerTenantStatePUnresponsive
+)
 
-// MobileThreatPartnerTenantStatePAvailable returns a pointer to MobileThreatPartnerTenantStateVAvailable
-func MobileThreatPartnerTenantStatePAvailable() *MobileThreatPartnerTenantState {
-	v := MobileThreatPartnerTenantStateVAvailable
-	return &v
-}
-
-// MobileThreatPartnerTenantStatePEnabled returns a pointer to MobileThreatPartnerTenantStateVEnabled
-func MobileThreatPartnerTenantStatePEnabled() *MobileThreatPartnerTenantState {
-	v := MobileThreatPartnerTenantStateVEnabled
-	return &v
-}
-
-// MobileThreatPartnerTenantStatePUnresponsive returns a pointer to MobileThreatPartnerTenantStateVUnresponsive
-func MobileThreatPartnerTenantStatePUnresponsive() *MobileThreatPartnerTenantState {
-	v := MobileThreatPartnerTenantStateVUnresponsive
-	return &v
-}
+var (
+	_MobileThreatPartnerTenantStatePUnavailable  = MobileThreatPartnerTenantStateVUnavailable
+	_MobileThreatPartnerTenantStatePAvailable    = MobileThreatPartnerTenantStateVAvailable
+	_MobileThreatPartnerTenantStatePEnabled      = MobileThreatPartnerTenantStateVEnabled
+	_MobileThreatPartnerTenantStatePUnresponsive = MobileThreatPartnerTenantStateVUnresponsive
+)

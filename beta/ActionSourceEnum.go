@@ -3,39 +3,33 @@
 package msgraph
 
 // ActionSource undocumented
-type ActionSource int
+type ActionSource string
 
 const (
 	// ActionSourceVManual undocumented
-	ActionSourceVManual ActionSource = 0
+	ActionSourceVManual ActionSource = "manual"
 	// ActionSourceVAutomatic undocumented
-	ActionSourceVAutomatic ActionSource = 1
+	ActionSourceVAutomatic ActionSource = "automatic"
 	// ActionSourceVRecommended undocumented
-	ActionSourceVRecommended ActionSource = 2
+	ActionSourceVRecommended ActionSource = "recommended"
 	// ActionSourceVDefault undocumented
-	ActionSourceVDefault ActionSource = 3
+	ActionSourceVDefault ActionSource = "default"
 )
 
-// ActionSourcePManual returns a pointer to ActionSourceVManual
-func ActionSourcePManual() *ActionSource {
-	v := ActionSourceVManual
-	return &v
-}
+var (
+	// ActionSourcePManual is a pointer to ActionSourceVManual
+	ActionSourcePManual = &_ActionSourcePManual
+	// ActionSourcePAutomatic is a pointer to ActionSourceVAutomatic
+	ActionSourcePAutomatic = &_ActionSourcePAutomatic
+	// ActionSourcePRecommended is a pointer to ActionSourceVRecommended
+	ActionSourcePRecommended = &_ActionSourcePRecommended
+	// ActionSourcePDefault is a pointer to ActionSourceVDefault
+	ActionSourcePDefault = &_ActionSourcePDefault
+)
 
-// ActionSourcePAutomatic returns a pointer to ActionSourceVAutomatic
-func ActionSourcePAutomatic() *ActionSource {
-	v := ActionSourceVAutomatic
-	return &v
-}
-
-// ActionSourcePRecommended returns a pointer to ActionSourceVRecommended
-func ActionSourcePRecommended() *ActionSource {
-	v := ActionSourceVRecommended
-	return &v
-}
-
-// ActionSourcePDefault returns a pointer to ActionSourceVDefault
-func ActionSourcePDefault() *ActionSource {
-	v := ActionSourceVDefault
-	return &v
-}
+var (
+	_ActionSourcePManual      = ActionSourceVManual
+	_ActionSourcePAutomatic   = ActionSourceVAutomatic
+	_ActionSourcePRecommended = ActionSourceVRecommended
+	_ActionSourcePDefault     = ActionSourceVDefault
+)

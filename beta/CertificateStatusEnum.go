@@ -3,23 +3,23 @@
 package msgraph
 
 // CertificateStatus undocumented
-type CertificateStatus int
+type CertificateStatus string
 
 const (
 	// CertificateStatusVNotProvisioned undocumented
-	CertificateStatusVNotProvisioned CertificateStatus = 0
+	CertificateStatusVNotProvisioned CertificateStatus = "notProvisioned"
 	// CertificateStatusVProvisioned undocumented
-	CertificateStatusVProvisioned CertificateStatus = 1
+	CertificateStatusVProvisioned CertificateStatus = "provisioned"
 )
 
-// CertificateStatusPNotProvisioned returns a pointer to CertificateStatusVNotProvisioned
-func CertificateStatusPNotProvisioned() *CertificateStatus {
-	v := CertificateStatusVNotProvisioned
-	return &v
-}
+var (
+	// CertificateStatusPNotProvisioned is a pointer to CertificateStatusVNotProvisioned
+	CertificateStatusPNotProvisioned = &_CertificateStatusPNotProvisioned
+	// CertificateStatusPProvisioned is a pointer to CertificateStatusVProvisioned
+	CertificateStatusPProvisioned = &_CertificateStatusPProvisioned
+)
 
-// CertificateStatusPProvisioned returns a pointer to CertificateStatusVProvisioned
-func CertificateStatusPProvisioned() *CertificateStatus {
-	v := CertificateStatusVProvisioned
-	return &v
-}
+var (
+	_CertificateStatusPNotProvisioned = CertificateStatusVNotProvisioned
+	_CertificateStatusPProvisioned    = CertificateStatusVProvisioned
+)

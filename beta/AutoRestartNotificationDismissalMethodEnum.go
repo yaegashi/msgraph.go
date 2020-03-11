@@ -3,31 +3,28 @@
 package msgraph
 
 // AutoRestartNotificationDismissalMethod undocumented
-type AutoRestartNotificationDismissalMethod int
+type AutoRestartNotificationDismissalMethod string
 
 const (
 	// AutoRestartNotificationDismissalMethodVNotConfigured undocumented
-	AutoRestartNotificationDismissalMethodVNotConfigured AutoRestartNotificationDismissalMethod = 0
+	AutoRestartNotificationDismissalMethodVNotConfigured AutoRestartNotificationDismissalMethod = "notConfigured"
 	// AutoRestartNotificationDismissalMethodVAutomatic undocumented
-	AutoRestartNotificationDismissalMethodVAutomatic AutoRestartNotificationDismissalMethod = 1
+	AutoRestartNotificationDismissalMethodVAutomatic AutoRestartNotificationDismissalMethod = "automatic"
 	// AutoRestartNotificationDismissalMethodVUser undocumented
-	AutoRestartNotificationDismissalMethodVUser AutoRestartNotificationDismissalMethod = 2
+	AutoRestartNotificationDismissalMethodVUser AutoRestartNotificationDismissalMethod = "user"
 )
 
-// AutoRestartNotificationDismissalMethodPNotConfigured returns a pointer to AutoRestartNotificationDismissalMethodVNotConfigured
-func AutoRestartNotificationDismissalMethodPNotConfigured() *AutoRestartNotificationDismissalMethod {
-	v := AutoRestartNotificationDismissalMethodVNotConfigured
-	return &v
-}
+var (
+	// AutoRestartNotificationDismissalMethodPNotConfigured is a pointer to AutoRestartNotificationDismissalMethodVNotConfigured
+	AutoRestartNotificationDismissalMethodPNotConfigured = &_AutoRestartNotificationDismissalMethodPNotConfigured
+	// AutoRestartNotificationDismissalMethodPAutomatic is a pointer to AutoRestartNotificationDismissalMethodVAutomatic
+	AutoRestartNotificationDismissalMethodPAutomatic = &_AutoRestartNotificationDismissalMethodPAutomatic
+	// AutoRestartNotificationDismissalMethodPUser is a pointer to AutoRestartNotificationDismissalMethodVUser
+	AutoRestartNotificationDismissalMethodPUser = &_AutoRestartNotificationDismissalMethodPUser
+)
 
-// AutoRestartNotificationDismissalMethodPAutomatic returns a pointer to AutoRestartNotificationDismissalMethodVAutomatic
-func AutoRestartNotificationDismissalMethodPAutomatic() *AutoRestartNotificationDismissalMethod {
-	v := AutoRestartNotificationDismissalMethodVAutomatic
-	return &v
-}
-
-// AutoRestartNotificationDismissalMethodPUser returns a pointer to AutoRestartNotificationDismissalMethodVUser
-func AutoRestartNotificationDismissalMethodPUser() *AutoRestartNotificationDismissalMethod {
-	v := AutoRestartNotificationDismissalMethodVUser
-	return &v
-}
+var (
+	_AutoRestartNotificationDismissalMethodPNotConfigured = AutoRestartNotificationDismissalMethodVNotConfigured
+	_AutoRestartNotificationDismissalMethodPAutomatic     = AutoRestartNotificationDismissalMethodVAutomatic
+	_AutoRestartNotificationDismissalMethodPUser          = AutoRestartNotificationDismissalMethodVUser
+)

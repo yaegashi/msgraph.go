@@ -3,63 +3,48 @@
 package msgraph
 
 // EmailSyncDuration undocumented
-type EmailSyncDuration int
+type EmailSyncDuration string
 
 const (
 	// EmailSyncDurationVUserDefined undocumented
-	EmailSyncDurationVUserDefined EmailSyncDuration = 0
+	EmailSyncDurationVUserDefined EmailSyncDuration = "userDefined"
 	// EmailSyncDurationVOneDay undocumented
-	EmailSyncDurationVOneDay EmailSyncDuration = 1
+	EmailSyncDurationVOneDay EmailSyncDuration = "oneDay"
 	// EmailSyncDurationVThreeDays undocumented
-	EmailSyncDurationVThreeDays EmailSyncDuration = 2
+	EmailSyncDurationVThreeDays EmailSyncDuration = "threeDays"
 	// EmailSyncDurationVOneWeek undocumented
-	EmailSyncDurationVOneWeek EmailSyncDuration = 3
+	EmailSyncDurationVOneWeek EmailSyncDuration = "oneWeek"
 	// EmailSyncDurationVTwoWeeks undocumented
-	EmailSyncDurationVTwoWeeks EmailSyncDuration = 4
+	EmailSyncDurationVTwoWeeks EmailSyncDuration = "twoWeeks"
 	// EmailSyncDurationVOneMonth undocumented
-	EmailSyncDurationVOneMonth EmailSyncDuration = 5
+	EmailSyncDurationVOneMonth EmailSyncDuration = "oneMonth"
 	// EmailSyncDurationVUnlimited undocumented
-	EmailSyncDurationVUnlimited EmailSyncDuration = 6
+	EmailSyncDurationVUnlimited EmailSyncDuration = "unlimited"
 )
 
-// EmailSyncDurationPUserDefined returns a pointer to EmailSyncDurationVUserDefined
-func EmailSyncDurationPUserDefined() *EmailSyncDuration {
-	v := EmailSyncDurationVUserDefined
-	return &v
-}
+var (
+	// EmailSyncDurationPUserDefined is a pointer to EmailSyncDurationVUserDefined
+	EmailSyncDurationPUserDefined = &_EmailSyncDurationPUserDefined
+	// EmailSyncDurationPOneDay is a pointer to EmailSyncDurationVOneDay
+	EmailSyncDurationPOneDay = &_EmailSyncDurationPOneDay
+	// EmailSyncDurationPThreeDays is a pointer to EmailSyncDurationVThreeDays
+	EmailSyncDurationPThreeDays = &_EmailSyncDurationPThreeDays
+	// EmailSyncDurationPOneWeek is a pointer to EmailSyncDurationVOneWeek
+	EmailSyncDurationPOneWeek = &_EmailSyncDurationPOneWeek
+	// EmailSyncDurationPTwoWeeks is a pointer to EmailSyncDurationVTwoWeeks
+	EmailSyncDurationPTwoWeeks = &_EmailSyncDurationPTwoWeeks
+	// EmailSyncDurationPOneMonth is a pointer to EmailSyncDurationVOneMonth
+	EmailSyncDurationPOneMonth = &_EmailSyncDurationPOneMonth
+	// EmailSyncDurationPUnlimited is a pointer to EmailSyncDurationVUnlimited
+	EmailSyncDurationPUnlimited = &_EmailSyncDurationPUnlimited
+)
 
-// EmailSyncDurationPOneDay returns a pointer to EmailSyncDurationVOneDay
-func EmailSyncDurationPOneDay() *EmailSyncDuration {
-	v := EmailSyncDurationVOneDay
-	return &v
-}
-
-// EmailSyncDurationPThreeDays returns a pointer to EmailSyncDurationVThreeDays
-func EmailSyncDurationPThreeDays() *EmailSyncDuration {
-	v := EmailSyncDurationVThreeDays
-	return &v
-}
-
-// EmailSyncDurationPOneWeek returns a pointer to EmailSyncDurationVOneWeek
-func EmailSyncDurationPOneWeek() *EmailSyncDuration {
-	v := EmailSyncDurationVOneWeek
-	return &v
-}
-
-// EmailSyncDurationPTwoWeeks returns a pointer to EmailSyncDurationVTwoWeeks
-func EmailSyncDurationPTwoWeeks() *EmailSyncDuration {
-	v := EmailSyncDurationVTwoWeeks
-	return &v
-}
-
-// EmailSyncDurationPOneMonth returns a pointer to EmailSyncDurationVOneMonth
-func EmailSyncDurationPOneMonth() *EmailSyncDuration {
-	v := EmailSyncDurationVOneMonth
-	return &v
-}
-
-// EmailSyncDurationPUnlimited returns a pointer to EmailSyncDurationVUnlimited
-func EmailSyncDurationPUnlimited() *EmailSyncDuration {
-	v := EmailSyncDurationVUnlimited
-	return &v
-}
+var (
+	_EmailSyncDurationPUserDefined = EmailSyncDurationVUserDefined
+	_EmailSyncDurationPOneDay      = EmailSyncDurationVOneDay
+	_EmailSyncDurationPThreeDays   = EmailSyncDurationVThreeDays
+	_EmailSyncDurationPOneWeek     = EmailSyncDurationVOneWeek
+	_EmailSyncDurationPTwoWeeks    = EmailSyncDurationVTwoWeeks
+	_EmailSyncDurationPOneMonth    = EmailSyncDurationVOneMonth
+	_EmailSyncDurationPUnlimited   = EmailSyncDurationVUnlimited
+)

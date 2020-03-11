@@ -3,111 +3,78 @@
 package msgraph
 
 // RegistryValueType undocumented
-type RegistryValueType int
+type RegistryValueType string
 
 const (
 	// RegistryValueTypeVUnknown undocumented
-	RegistryValueTypeVUnknown RegistryValueType = 0
+	RegistryValueTypeVUnknown RegistryValueType = "unknown"
 	// RegistryValueTypeVBinary undocumented
-	RegistryValueTypeVBinary RegistryValueType = 1
+	RegistryValueTypeVBinary RegistryValueType = "binary"
 	// RegistryValueTypeVDword undocumented
-	RegistryValueTypeVDword RegistryValueType = 2
+	RegistryValueTypeVDword RegistryValueType = "dword"
 	// RegistryValueTypeVDwordLittleEndian undocumented
-	RegistryValueTypeVDwordLittleEndian RegistryValueType = 3
+	RegistryValueTypeVDwordLittleEndian RegistryValueType = "dwordLittleEndian"
 	// RegistryValueTypeVDwordBigEndian undocumented
-	RegistryValueTypeVDwordBigEndian RegistryValueType = 4
+	RegistryValueTypeVDwordBigEndian RegistryValueType = "dwordBigEndian"
 	// RegistryValueTypeVExpandSz undocumented
-	RegistryValueTypeVExpandSz RegistryValueType = 5
+	RegistryValueTypeVExpandSz RegistryValueType = "expandSz"
 	// RegistryValueTypeVLink undocumented
-	RegistryValueTypeVLink RegistryValueType = 6
+	RegistryValueTypeVLink RegistryValueType = "link"
 	// RegistryValueTypeVMultiSz undocumented
-	RegistryValueTypeVMultiSz RegistryValueType = 7
+	RegistryValueTypeVMultiSz RegistryValueType = "multiSz"
 	// RegistryValueTypeVNone undocumented
-	RegistryValueTypeVNone RegistryValueType = 8
+	RegistryValueTypeVNone RegistryValueType = "none"
 	// RegistryValueTypeVQword undocumented
-	RegistryValueTypeVQword RegistryValueType = 9
+	RegistryValueTypeVQword RegistryValueType = "qword"
 	// RegistryValueTypeVQwordlittleEndian undocumented
-	RegistryValueTypeVQwordlittleEndian RegistryValueType = 10
+	RegistryValueTypeVQwordlittleEndian RegistryValueType = "qwordlittleEndian"
 	// RegistryValueTypeVSz undocumented
-	RegistryValueTypeVSz RegistryValueType = 11
+	RegistryValueTypeVSz RegistryValueType = "sz"
 	// RegistryValueTypeVUnknownFutureValue undocumented
-	RegistryValueTypeVUnknownFutureValue RegistryValueType = 127
+	RegistryValueTypeVUnknownFutureValue RegistryValueType = "unknownFutureValue"
 )
 
-// RegistryValueTypePUnknown returns a pointer to RegistryValueTypeVUnknown
-func RegistryValueTypePUnknown() *RegistryValueType {
-	v := RegistryValueTypeVUnknown
-	return &v
-}
+var (
+	// RegistryValueTypePUnknown is a pointer to RegistryValueTypeVUnknown
+	RegistryValueTypePUnknown = &_RegistryValueTypePUnknown
+	// RegistryValueTypePBinary is a pointer to RegistryValueTypeVBinary
+	RegistryValueTypePBinary = &_RegistryValueTypePBinary
+	// RegistryValueTypePDword is a pointer to RegistryValueTypeVDword
+	RegistryValueTypePDword = &_RegistryValueTypePDword
+	// RegistryValueTypePDwordLittleEndian is a pointer to RegistryValueTypeVDwordLittleEndian
+	RegistryValueTypePDwordLittleEndian = &_RegistryValueTypePDwordLittleEndian
+	// RegistryValueTypePDwordBigEndian is a pointer to RegistryValueTypeVDwordBigEndian
+	RegistryValueTypePDwordBigEndian = &_RegistryValueTypePDwordBigEndian
+	// RegistryValueTypePExpandSz is a pointer to RegistryValueTypeVExpandSz
+	RegistryValueTypePExpandSz = &_RegistryValueTypePExpandSz
+	// RegistryValueTypePLink is a pointer to RegistryValueTypeVLink
+	RegistryValueTypePLink = &_RegistryValueTypePLink
+	// RegistryValueTypePMultiSz is a pointer to RegistryValueTypeVMultiSz
+	RegistryValueTypePMultiSz = &_RegistryValueTypePMultiSz
+	// RegistryValueTypePNone is a pointer to RegistryValueTypeVNone
+	RegistryValueTypePNone = &_RegistryValueTypePNone
+	// RegistryValueTypePQword is a pointer to RegistryValueTypeVQword
+	RegistryValueTypePQword = &_RegistryValueTypePQword
+	// RegistryValueTypePQwordlittleEndian is a pointer to RegistryValueTypeVQwordlittleEndian
+	RegistryValueTypePQwordlittleEndian = &_RegistryValueTypePQwordlittleEndian
+	// RegistryValueTypePSz is a pointer to RegistryValueTypeVSz
+	RegistryValueTypePSz = &_RegistryValueTypePSz
+	// RegistryValueTypePUnknownFutureValue is a pointer to RegistryValueTypeVUnknownFutureValue
+	RegistryValueTypePUnknownFutureValue = &_RegistryValueTypePUnknownFutureValue
+)
 
-// RegistryValueTypePBinary returns a pointer to RegistryValueTypeVBinary
-func RegistryValueTypePBinary() *RegistryValueType {
-	v := RegistryValueTypeVBinary
-	return &v
-}
-
-// RegistryValueTypePDword returns a pointer to RegistryValueTypeVDword
-func RegistryValueTypePDword() *RegistryValueType {
-	v := RegistryValueTypeVDword
-	return &v
-}
-
-// RegistryValueTypePDwordLittleEndian returns a pointer to RegistryValueTypeVDwordLittleEndian
-func RegistryValueTypePDwordLittleEndian() *RegistryValueType {
-	v := RegistryValueTypeVDwordLittleEndian
-	return &v
-}
-
-// RegistryValueTypePDwordBigEndian returns a pointer to RegistryValueTypeVDwordBigEndian
-func RegistryValueTypePDwordBigEndian() *RegistryValueType {
-	v := RegistryValueTypeVDwordBigEndian
-	return &v
-}
-
-// RegistryValueTypePExpandSz returns a pointer to RegistryValueTypeVExpandSz
-func RegistryValueTypePExpandSz() *RegistryValueType {
-	v := RegistryValueTypeVExpandSz
-	return &v
-}
-
-// RegistryValueTypePLink returns a pointer to RegistryValueTypeVLink
-func RegistryValueTypePLink() *RegistryValueType {
-	v := RegistryValueTypeVLink
-	return &v
-}
-
-// RegistryValueTypePMultiSz returns a pointer to RegistryValueTypeVMultiSz
-func RegistryValueTypePMultiSz() *RegistryValueType {
-	v := RegistryValueTypeVMultiSz
-	return &v
-}
-
-// RegistryValueTypePNone returns a pointer to RegistryValueTypeVNone
-func RegistryValueTypePNone() *RegistryValueType {
-	v := RegistryValueTypeVNone
-	return &v
-}
-
-// RegistryValueTypePQword returns a pointer to RegistryValueTypeVQword
-func RegistryValueTypePQword() *RegistryValueType {
-	v := RegistryValueTypeVQword
-	return &v
-}
-
-// RegistryValueTypePQwordlittleEndian returns a pointer to RegistryValueTypeVQwordlittleEndian
-func RegistryValueTypePQwordlittleEndian() *RegistryValueType {
-	v := RegistryValueTypeVQwordlittleEndian
-	return &v
-}
-
-// RegistryValueTypePSz returns a pointer to RegistryValueTypeVSz
-func RegistryValueTypePSz() *RegistryValueType {
-	v := RegistryValueTypeVSz
-	return &v
-}
-
-// RegistryValueTypePUnknownFutureValue returns a pointer to RegistryValueTypeVUnknownFutureValue
-func RegistryValueTypePUnknownFutureValue() *RegistryValueType {
-	v := RegistryValueTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_RegistryValueTypePUnknown            = RegistryValueTypeVUnknown
+	_RegistryValueTypePBinary             = RegistryValueTypeVBinary
+	_RegistryValueTypePDword              = RegistryValueTypeVDword
+	_RegistryValueTypePDwordLittleEndian  = RegistryValueTypeVDwordLittleEndian
+	_RegistryValueTypePDwordBigEndian     = RegistryValueTypeVDwordBigEndian
+	_RegistryValueTypePExpandSz           = RegistryValueTypeVExpandSz
+	_RegistryValueTypePLink               = RegistryValueTypeVLink
+	_RegistryValueTypePMultiSz            = RegistryValueTypeVMultiSz
+	_RegistryValueTypePNone               = RegistryValueTypeVNone
+	_RegistryValueTypePQword              = RegistryValueTypeVQword
+	_RegistryValueTypePQwordlittleEndian  = RegistryValueTypeVQwordlittleEndian
+	_RegistryValueTypePSz                 = RegistryValueTypeVSz
+	_RegistryValueTypePUnknownFutureValue = RegistryValueTypeVUnknownFutureValue
+)

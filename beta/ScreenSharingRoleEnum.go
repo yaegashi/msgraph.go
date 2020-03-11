@@ -3,23 +3,23 @@
 package msgraph
 
 // ScreenSharingRole undocumented
-type ScreenSharingRole int
+type ScreenSharingRole string
 
 const (
 	// ScreenSharingRoleVViewer undocumented
-	ScreenSharingRoleVViewer ScreenSharingRole = 0
+	ScreenSharingRoleVViewer ScreenSharingRole = "viewer"
 	// ScreenSharingRoleVSharer undocumented
-	ScreenSharingRoleVSharer ScreenSharingRole = 1
+	ScreenSharingRoleVSharer ScreenSharingRole = "sharer"
 )
 
-// ScreenSharingRolePViewer returns a pointer to ScreenSharingRoleVViewer
-func ScreenSharingRolePViewer() *ScreenSharingRole {
-	v := ScreenSharingRoleVViewer
-	return &v
-}
+var (
+	// ScreenSharingRolePViewer is a pointer to ScreenSharingRoleVViewer
+	ScreenSharingRolePViewer = &_ScreenSharingRolePViewer
+	// ScreenSharingRolePSharer is a pointer to ScreenSharingRoleVSharer
+	ScreenSharingRolePSharer = &_ScreenSharingRolePSharer
+)
 
-// ScreenSharingRolePSharer returns a pointer to ScreenSharingRoleVSharer
-func ScreenSharingRolePSharer() *ScreenSharingRole {
-	v := ScreenSharingRoleVSharer
-	return &v
-}
+var (
+	_ScreenSharingRolePViewer = ScreenSharingRoleVViewer
+	_ScreenSharingRolePSharer = ScreenSharingRoleVSharer
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // AgreementAcceptanceState undocumented
-type AgreementAcceptanceState int
+type AgreementAcceptanceState string
 
 const (
 	// AgreementAcceptanceStateVAccepted undocumented
-	AgreementAcceptanceStateVAccepted AgreementAcceptanceState = 2
+	AgreementAcceptanceStateVAccepted AgreementAcceptanceState = "accepted"
 	// AgreementAcceptanceStateVDeclined undocumented
-	AgreementAcceptanceStateVDeclined AgreementAcceptanceState = 3
+	AgreementAcceptanceStateVDeclined AgreementAcceptanceState = "declined"
 )
 
-// AgreementAcceptanceStatePAccepted returns a pointer to AgreementAcceptanceStateVAccepted
-func AgreementAcceptanceStatePAccepted() *AgreementAcceptanceState {
-	v := AgreementAcceptanceStateVAccepted
-	return &v
-}
+var (
+	// AgreementAcceptanceStatePAccepted is a pointer to AgreementAcceptanceStateVAccepted
+	AgreementAcceptanceStatePAccepted = &_AgreementAcceptanceStatePAccepted
+	// AgreementAcceptanceStatePDeclined is a pointer to AgreementAcceptanceStateVDeclined
+	AgreementAcceptanceStatePDeclined = &_AgreementAcceptanceStatePDeclined
+)
 
-// AgreementAcceptanceStatePDeclined returns a pointer to AgreementAcceptanceStateVDeclined
-func AgreementAcceptanceStatePDeclined() *AgreementAcceptanceState {
-	v := AgreementAcceptanceStateVDeclined
-	return &v
-}
+var (
+	_AgreementAcceptanceStatePAccepted = AgreementAcceptanceStateVAccepted
+	_AgreementAcceptanceStatePDeclined = AgreementAcceptanceStateVDeclined
+)

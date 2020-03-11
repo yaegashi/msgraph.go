@@ -3,31 +3,28 @@
 package msgraph
 
 // ManagedAppDataStorageLocation undocumented
-type ManagedAppDataStorageLocation int
+type ManagedAppDataStorageLocation string
 
 const (
 	// ManagedAppDataStorageLocationVOneDriveForBusiness undocumented
-	ManagedAppDataStorageLocationVOneDriveForBusiness ManagedAppDataStorageLocation = 1
+	ManagedAppDataStorageLocationVOneDriveForBusiness ManagedAppDataStorageLocation = "oneDriveForBusiness"
 	// ManagedAppDataStorageLocationVSharePoint undocumented
-	ManagedAppDataStorageLocationVSharePoint ManagedAppDataStorageLocation = 2
+	ManagedAppDataStorageLocationVSharePoint ManagedAppDataStorageLocation = "sharePoint"
 	// ManagedAppDataStorageLocationVLocalStorage undocumented
-	ManagedAppDataStorageLocationVLocalStorage ManagedAppDataStorageLocation = 6
+	ManagedAppDataStorageLocationVLocalStorage ManagedAppDataStorageLocation = "localStorage"
 )
 
-// ManagedAppDataStorageLocationPOneDriveForBusiness returns a pointer to ManagedAppDataStorageLocationVOneDriveForBusiness
-func ManagedAppDataStorageLocationPOneDriveForBusiness() *ManagedAppDataStorageLocation {
-	v := ManagedAppDataStorageLocationVOneDriveForBusiness
-	return &v
-}
+var (
+	// ManagedAppDataStorageLocationPOneDriveForBusiness is a pointer to ManagedAppDataStorageLocationVOneDriveForBusiness
+	ManagedAppDataStorageLocationPOneDriveForBusiness = &_ManagedAppDataStorageLocationPOneDriveForBusiness
+	// ManagedAppDataStorageLocationPSharePoint is a pointer to ManagedAppDataStorageLocationVSharePoint
+	ManagedAppDataStorageLocationPSharePoint = &_ManagedAppDataStorageLocationPSharePoint
+	// ManagedAppDataStorageLocationPLocalStorage is a pointer to ManagedAppDataStorageLocationVLocalStorage
+	ManagedAppDataStorageLocationPLocalStorage = &_ManagedAppDataStorageLocationPLocalStorage
+)
 
-// ManagedAppDataStorageLocationPSharePoint returns a pointer to ManagedAppDataStorageLocationVSharePoint
-func ManagedAppDataStorageLocationPSharePoint() *ManagedAppDataStorageLocation {
-	v := ManagedAppDataStorageLocationVSharePoint
-	return &v
-}
-
-// ManagedAppDataStorageLocationPLocalStorage returns a pointer to ManagedAppDataStorageLocationVLocalStorage
-func ManagedAppDataStorageLocationPLocalStorage() *ManagedAppDataStorageLocation {
-	v := ManagedAppDataStorageLocationVLocalStorage
-	return &v
-}
+var (
+	_ManagedAppDataStorageLocationPOneDriveForBusiness = ManagedAppDataStorageLocationVOneDriveForBusiness
+	_ManagedAppDataStorageLocationPSharePoint          = ManagedAppDataStorageLocationVSharePoint
+	_ManagedAppDataStorageLocationPLocalStorage        = ManagedAppDataStorageLocationVLocalStorage
+)

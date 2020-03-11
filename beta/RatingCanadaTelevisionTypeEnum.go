@@ -3,71 +3,53 @@
 package msgraph
 
 // RatingCanadaTelevisionType undocumented
-type RatingCanadaTelevisionType int
+type RatingCanadaTelevisionType string
 
 const (
 	// RatingCanadaTelevisionTypeVAllAllowed undocumented
-	RatingCanadaTelevisionTypeVAllAllowed RatingCanadaTelevisionType = 0
+	RatingCanadaTelevisionTypeVAllAllowed RatingCanadaTelevisionType = "allAllowed"
 	// RatingCanadaTelevisionTypeVAllBlocked undocumented
-	RatingCanadaTelevisionTypeVAllBlocked RatingCanadaTelevisionType = 1
+	RatingCanadaTelevisionTypeVAllBlocked RatingCanadaTelevisionType = "allBlocked"
 	// RatingCanadaTelevisionTypeVChildren undocumented
-	RatingCanadaTelevisionTypeVChildren RatingCanadaTelevisionType = 2
+	RatingCanadaTelevisionTypeVChildren RatingCanadaTelevisionType = "children"
 	// RatingCanadaTelevisionTypeVChildrenAbove8 undocumented
-	RatingCanadaTelevisionTypeVChildrenAbove8 RatingCanadaTelevisionType = 3
+	RatingCanadaTelevisionTypeVChildrenAbove8 RatingCanadaTelevisionType = "childrenAbove8"
 	// RatingCanadaTelevisionTypeVGeneral undocumented
-	RatingCanadaTelevisionTypeVGeneral RatingCanadaTelevisionType = 4
+	RatingCanadaTelevisionTypeVGeneral RatingCanadaTelevisionType = "general"
 	// RatingCanadaTelevisionTypeVParentalGuidance undocumented
-	RatingCanadaTelevisionTypeVParentalGuidance RatingCanadaTelevisionType = 5
+	RatingCanadaTelevisionTypeVParentalGuidance RatingCanadaTelevisionType = "parentalGuidance"
 	// RatingCanadaTelevisionTypeVAgesAbove14 undocumented
-	RatingCanadaTelevisionTypeVAgesAbove14 RatingCanadaTelevisionType = 6
+	RatingCanadaTelevisionTypeVAgesAbove14 RatingCanadaTelevisionType = "agesAbove14"
 	// RatingCanadaTelevisionTypeVAgesAbove18 undocumented
-	RatingCanadaTelevisionTypeVAgesAbove18 RatingCanadaTelevisionType = 7
+	RatingCanadaTelevisionTypeVAgesAbove18 RatingCanadaTelevisionType = "agesAbove18"
 )
 
-// RatingCanadaTelevisionTypePAllAllowed returns a pointer to RatingCanadaTelevisionTypeVAllAllowed
-func RatingCanadaTelevisionTypePAllAllowed() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingCanadaTelevisionTypePAllAllowed is a pointer to RatingCanadaTelevisionTypeVAllAllowed
+	RatingCanadaTelevisionTypePAllAllowed = &_RatingCanadaTelevisionTypePAllAllowed
+	// RatingCanadaTelevisionTypePAllBlocked is a pointer to RatingCanadaTelevisionTypeVAllBlocked
+	RatingCanadaTelevisionTypePAllBlocked = &_RatingCanadaTelevisionTypePAllBlocked
+	// RatingCanadaTelevisionTypePChildren is a pointer to RatingCanadaTelevisionTypeVChildren
+	RatingCanadaTelevisionTypePChildren = &_RatingCanadaTelevisionTypePChildren
+	// RatingCanadaTelevisionTypePChildrenAbove8 is a pointer to RatingCanadaTelevisionTypeVChildrenAbove8
+	RatingCanadaTelevisionTypePChildrenAbove8 = &_RatingCanadaTelevisionTypePChildrenAbove8
+	// RatingCanadaTelevisionTypePGeneral is a pointer to RatingCanadaTelevisionTypeVGeneral
+	RatingCanadaTelevisionTypePGeneral = &_RatingCanadaTelevisionTypePGeneral
+	// RatingCanadaTelevisionTypePParentalGuidance is a pointer to RatingCanadaTelevisionTypeVParentalGuidance
+	RatingCanadaTelevisionTypePParentalGuidance = &_RatingCanadaTelevisionTypePParentalGuidance
+	// RatingCanadaTelevisionTypePAgesAbove14 is a pointer to RatingCanadaTelevisionTypeVAgesAbove14
+	RatingCanadaTelevisionTypePAgesAbove14 = &_RatingCanadaTelevisionTypePAgesAbove14
+	// RatingCanadaTelevisionTypePAgesAbove18 is a pointer to RatingCanadaTelevisionTypeVAgesAbove18
+	RatingCanadaTelevisionTypePAgesAbove18 = &_RatingCanadaTelevisionTypePAgesAbove18
+)
 
-// RatingCanadaTelevisionTypePAllBlocked returns a pointer to RatingCanadaTelevisionTypeVAllBlocked
-func RatingCanadaTelevisionTypePAllBlocked() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingCanadaTelevisionTypePChildren returns a pointer to RatingCanadaTelevisionTypeVChildren
-func RatingCanadaTelevisionTypePChildren() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVChildren
-	return &v
-}
-
-// RatingCanadaTelevisionTypePChildrenAbove8 returns a pointer to RatingCanadaTelevisionTypeVChildrenAbove8
-func RatingCanadaTelevisionTypePChildrenAbove8() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVChildrenAbove8
-	return &v
-}
-
-// RatingCanadaTelevisionTypePGeneral returns a pointer to RatingCanadaTelevisionTypeVGeneral
-func RatingCanadaTelevisionTypePGeneral() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVGeneral
-	return &v
-}
-
-// RatingCanadaTelevisionTypePParentalGuidance returns a pointer to RatingCanadaTelevisionTypeVParentalGuidance
-func RatingCanadaTelevisionTypePParentalGuidance() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVParentalGuidance
-	return &v
-}
-
-// RatingCanadaTelevisionTypePAgesAbove14 returns a pointer to RatingCanadaTelevisionTypeVAgesAbove14
-func RatingCanadaTelevisionTypePAgesAbove14() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVAgesAbove14
-	return &v
-}
-
-// RatingCanadaTelevisionTypePAgesAbove18 returns a pointer to RatingCanadaTelevisionTypeVAgesAbove18
-func RatingCanadaTelevisionTypePAgesAbove18() *RatingCanadaTelevisionType {
-	v := RatingCanadaTelevisionTypeVAgesAbove18
-	return &v
-}
+var (
+	_RatingCanadaTelevisionTypePAllAllowed       = RatingCanadaTelevisionTypeVAllAllowed
+	_RatingCanadaTelevisionTypePAllBlocked       = RatingCanadaTelevisionTypeVAllBlocked
+	_RatingCanadaTelevisionTypePChildren         = RatingCanadaTelevisionTypeVChildren
+	_RatingCanadaTelevisionTypePChildrenAbove8   = RatingCanadaTelevisionTypeVChildrenAbove8
+	_RatingCanadaTelevisionTypePGeneral          = RatingCanadaTelevisionTypeVGeneral
+	_RatingCanadaTelevisionTypePParentalGuidance = RatingCanadaTelevisionTypeVParentalGuidance
+	_RatingCanadaTelevisionTypePAgesAbove14      = RatingCanadaTelevisionTypeVAgesAbove14
+	_RatingCanadaTelevisionTypePAgesAbove18      = RatingCanadaTelevisionTypeVAgesAbove18
+)

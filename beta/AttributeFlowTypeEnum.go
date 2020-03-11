@@ -3,31 +3,28 @@
 package msgraph
 
 // AttributeFlowType undocumented
-type AttributeFlowType int
+type AttributeFlowType string
 
 const (
 	// AttributeFlowTypeVAlways undocumented
-	AttributeFlowTypeVAlways AttributeFlowType = 0
+	AttributeFlowTypeVAlways AttributeFlowType = "Always"
 	// AttributeFlowTypeVObjectAddOnly undocumented
-	AttributeFlowTypeVObjectAddOnly AttributeFlowType = 1
+	AttributeFlowTypeVObjectAddOnly AttributeFlowType = "ObjectAddOnly"
 	// AttributeFlowTypeVMultiValueAddOnly undocumented
-	AttributeFlowTypeVMultiValueAddOnly AttributeFlowType = 2
+	AttributeFlowTypeVMultiValueAddOnly AttributeFlowType = "MultiValueAddOnly"
 )
 
-// AttributeFlowTypePAlways returns a pointer to AttributeFlowTypeVAlways
-func AttributeFlowTypePAlways() *AttributeFlowType {
-	v := AttributeFlowTypeVAlways
-	return &v
-}
+var (
+	// AttributeFlowTypePAlways is a pointer to AttributeFlowTypeVAlways
+	AttributeFlowTypePAlways = &_AttributeFlowTypePAlways
+	// AttributeFlowTypePObjectAddOnly is a pointer to AttributeFlowTypeVObjectAddOnly
+	AttributeFlowTypePObjectAddOnly = &_AttributeFlowTypePObjectAddOnly
+	// AttributeFlowTypePMultiValueAddOnly is a pointer to AttributeFlowTypeVMultiValueAddOnly
+	AttributeFlowTypePMultiValueAddOnly = &_AttributeFlowTypePMultiValueAddOnly
+)
 
-// AttributeFlowTypePObjectAddOnly returns a pointer to AttributeFlowTypeVObjectAddOnly
-func AttributeFlowTypePObjectAddOnly() *AttributeFlowType {
-	v := AttributeFlowTypeVObjectAddOnly
-	return &v
-}
-
-// AttributeFlowTypePMultiValueAddOnly returns a pointer to AttributeFlowTypeVMultiValueAddOnly
-func AttributeFlowTypePMultiValueAddOnly() *AttributeFlowType {
-	v := AttributeFlowTypeVMultiValueAddOnly
-	return &v
-}
+var (
+	_AttributeFlowTypePAlways            = AttributeFlowTypeVAlways
+	_AttributeFlowTypePObjectAddOnly     = AttributeFlowTypeVObjectAddOnly
+	_AttributeFlowTypePMultiValueAddOnly = AttributeFlowTypeVMultiValueAddOnly
+)

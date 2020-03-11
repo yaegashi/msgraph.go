@@ -3,47 +3,38 @@
 package msgraph
 
 // OfficeUpdateChannel undocumented
-type OfficeUpdateChannel int
+type OfficeUpdateChannel string
 
 const (
 	// OfficeUpdateChannelVNone undocumented
-	OfficeUpdateChannelVNone OfficeUpdateChannel = 0
+	OfficeUpdateChannelVNone OfficeUpdateChannel = "none"
 	// OfficeUpdateChannelVCurrent undocumented
-	OfficeUpdateChannelVCurrent OfficeUpdateChannel = 1
+	OfficeUpdateChannelVCurrent OfficeUpdateChannel = "current"
 	// OfficeUpdateChannelVDeferred undocumented
-	OfficeUpdateChannelVDeferred OfficeUpdateChannel = 2
+	OfficeUpdateChannelVDeferred OfficeUpdateChannel = "deferred"
 	// OfficeUpdateChannelVFirstReleaseCurrent undocumented
-	OfficeUpdateChannelVFirstReleaseCurrent OfficeUpdateChannel = 3
+	OfficeUpdateChannelVFirstReleaseCurrent OfficeUpdateChannel = "firstReleaseCurrent"
 	// OfficeUpdateChannelVFirstReleaseDeferred undocumented
-	OfficeUpdateChannelVFirstReleaseDeferred OfficeUpdateChannel = 4
+	OfficeUpdateChannelVFirstReleaseDeferred OfficeUpdateChannel = "firstReleaseDeferred"
 )
 
-// OfficeUpdateChannelPNone returns a pointer to OfficeUpdateChannelVNone
-func OfficeUpdateChannelPNone() *OfficeUpdateChannel {
-	v := OfficeUpdateChannelVNone
-	return &v
-}
+var (
+	// OfficeUpdateChannelPNone is a pointer to OfficeUpdateChannelVNone
+	OfficeUpdateChannelPNone = &_OfficeUpdateChannelPNone
+	// OfficeUpdateChannelPCurrent is a pointer to OfficeUpdateChannelVCurrent
+	OfficeUpdateChannelPCurrent = &_OfficeUpdateChannelPCurrent
+	// OfficeUpdateChannelPDeferred is a pointer to OfficeUpdateChannelVDeferred
+	OfficeUpdateChannelPDeferred = &_OfficeUpdateChannelPDeferred
+	// OfficeUpdateChannelPFirstReleaseCurrent is a pointer to OfficeUpdateChannelVFirstReleaseCurrent
+	OfficeUpdateChannelPFirstReleaseCurrent = &_OfficeUpdateChannelPFirstReleaseCurrent
+	// OfficeUpdateChannelPFirstReleaseDeferred is a pointer to OfficeUpdateChannelVFirstReleaseDeferred
+	OfficeUpdateChannelPFirstReleaseDeferred = &_OfficeUpdateChannelPFirstReleaseDeferred
+)
 
-// OfficeUpdateChannelPCurrent returns a pointer to OfficeUpdateChannelVCurrent
-func OfficeUpdateChannelPCurrent() *OfficeUpdateChannel {
-	v := OfficeUpdateChannelVCurrent
-	return &v
-}
-
-// OfficeUpdateChannelPDeferred returns a pointer to OfficeUpdateChannelVDeferred
-func OfficeUpdateChannelPDeferred() *OfficeUpdateChannel {
-	v := OfficeUpdateChannelVDeferred
-	return &v
-}
-
-// OfficeUpdateChannelPFirstReleaseCurrent returns a pointer to OfficeUpdateChannelVFirstReleaseCurrent
-func OfficeUpdateChannelPFirstReleaseCurrent() *OfficeUpdateChannel {
-	v := OfficeUpdateChannelVFirstReleaseCurrent
-	return &v
-}
-
-// OfficeUpdateChannelPFirstReleaseDeferred returns a pointer to OfficeUpdateChannelVFirstReleaseDeferred
-func OfficeUpdateChannelPFirstReleaseDeferred() *OfficeUpdateChannel {
-	v := OfficeUpdateChannelVFirstReleaseDeferred
-	return &v
-}
+var (
+	_OfficeUpdateChannelPNone                 = OfficeUpdateChannelVNone
+	_OfficeUpdateChannelPCurrent              = OfficeUpdateChannelVCurrent
+	_OfficeUpdateChannelPDeferred             = OfficeUpdateChannelVDeferred
+	_OfficeUpdateChannelPFirstReleaseCurrent  = OfficeUpdateChannelVFirstReleaseCurrent
+	_OfficeUpdateChannelPFirstReleaseDeferred = OfficeUpdateChannelVFirstReleaseDeferred
+)

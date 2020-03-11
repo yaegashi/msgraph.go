@@ -3,55 +3,43 @@
 package msgraph
 
 // AppleSubjectNameFormat undocumented
-type AppleSubjectNameFormat int
+type AppleSubjectNameFormat string
 
 const (
 	// AppleSubjectNameFormatVCommonName undocumented
-	AppleSubjectNameFormatVCommonName AppleSubjectNameFormat = 0
+	AppleSubjectNameFormatVCommonName AppleSubjectNameFormat = "commonName"
 	// AppleSubjectNameFormatVCommonNameAsEmail undocumented
-	AppleSubjectNameFormatVCommonNameAsEmail AppleSubjectNameFormat = 1
+	AppleSubjectNameFormatVCommonNameAsEmail AppleSubjectNameFormat = "commonNameAsEmail"
 	// AppleSubjectNameFormatVCustom undocumented
-	AppleSubjectNameFormatVCustom AppleSubjectNameFormat = 2
+	AppleSubjectNameFormatVCustom AppleSubjectNameFormat = "custom"
 	// AppleSubjectNameFormatVCommonNameIncludingEmail undocumented
-	AppleSubjectNameFormatVCommonNameIncludingEmail AppleSubjectNameFormat = 3
+	AppleSubjectNameFormatVCommonNameIncludingEmail AppleSubjectNameFormat = "commonNameIncludingEmail"
 	// AppleSubjectNameFormatVCommonNameAsIMEI undocumented
-	AppleSubjectNameFormatVCommonNameAsIMEI AppleSubjectNameFormat = 5
+	AppleSubjectNameFormatVCommonNameAsIMEI AppleSubjectNameFormat = "commonNameAsIMEI"
 	// AppleSubjectNameFormatVCommonNameAsSerialNumber undocumented
-	AppleSubjectNameFormatVCommonNameAsSerialNumber AppleSubjectNameFormat = 6
+	AppleSubjectNameFormatVCommonNameAsSerialNumber AppleSubjectNameFormat = "commonNameAsSerialNumber"
 )
 
-// AppleSubjectNameFormatPCommonName returns a pointer to AppleSubjectNameFormatVCommonName
-func AppleSubjectNameFormatPCommonName() *AppleSubjectNameFormat {
-	v := AppleSubjectNameFormatVCommonName
-	return &v
-}
+var (
+	// AppleSubjectNameFormatPCommonName is a pointer to AppleSubjectNameFormatVCommonName
+	AppleSubjectNameFormatPCommonName = &_AppleSubjectNameFormatPCommonName
+	// AppleSubjectNameFormatPCommonNameAsEmail is a pointer to AppleSubjectNameFormatVCommonNameAsEmail
+	AppleSubjectNameFormatPCommonNameAsEmail = &_AppleSubjectNameFormatPCommonNameAsEmail
+	// AppleSubjectNameFormatPCustom is a pointer to AppleSubjectNameFormatVCustom
+	AppleSubjectNameFormatPCustom = &_AppleSubjectNameFormatPCustom
+	// AppleSubjectNameFormatPCommonNameIncludingEmail is a pointer to AppleSubjectNameFormatVCommonNameIncludingEmail
+	AppleSubjectNameFormatPCommonNameIncludingEmail = &_AppleSubjectNameFormatPCommonNameIncludingEmail
+	// AppleSubjectNameFormatPCommonNameAsIMEI is a pointer to AppleSubjectNameFormatVCommonNameAsIMEI
+	AppleSubjectNameFormatPCommonNameAsIMEI = &_AppleSubjectNameFormatPCommonNameAsIMEI
+	// AppleSubjectNameFormatPCommonNameAsSerialNumber is a pointer to AppleSubjectNameFormatVCommonNameAsSerialNumber
+	AppleSubjectNameFormatPCommonNameAsSerialNumber = &_AppleSubjectNameFormatPCommonNameAsSerialNumber
+)
 
-// AppleSubjectNameFormatPCommonNameAsEmail returns a pointer to AppleSubjectNameFormatVCommonNameAsEmail
-func AppleSubjectNameFormatPCommonNameAsEmail() *AppleSubjectNameFormat {
-	v := AppleSubjectNameFormatVCommonNameAsEmail
-	return &v
-}
-
-// AppleSubjectNameFormatPCustom returns a pointer to AppleSubjectNameFormatVCustom
-func AppleSubjectNameFormatPCustom() *AppleSubjectNameFormat {
-	v := AppleSubjectNameFormatVCustom
-	return &v
-}
-
-// AppleSubjectNameFormatPCommonNameIncludingEmail returns a pointer to AppleSubjectNameFormatVCommonNameIncludingEmail
-func AppleSubjectNameFormatPCommonNameIncludingEmail() *AppleSubjectNameFormat {
-	v := AppleSubjectNameFormatVCommonNameIncludingEmail
-	return &v
-}
-
-// AppleSubjectNameFormatPCommonNameAsIMEI returns a pointer to AppleSubjectNameFormatVCommonNameAsIMEI
-func AppleSubjectNameFormatPCommonNameAsIMEI() *AppleSubjectNameFormat {
-	v := AppleSubjectNameFormatVCommonNameAsIMEI
-	return &v
-}
-
-// AppleSubjectNameFormatPCommonNameAsSerialNumber returns a pointer to AppleSubjectNameFormatVCommonNameAsSerialNumber
-func AppleSubjectNameFormatPCommonNameAsSerialNumber() *AppleSubjectNameFormat {
-	v := AppleSubjectNameFormatVCommonNameAsSerialNumber
-	return &v
-}
+var (
+	_AppleSubjectNameFormatPCommonName               = AppleSubjectNameFormatVCommonName
+	_AppleSubjectNameFormatPCommonNameAsEmail        = AppleSubjectNameFormatVCommonNameAsEmail
+	_AppleSubjectNameFormatPCustom                   = AppleSubjectNameFormatVCustom
+	_AppleSubjectNameFormatPCommonNameIncludingEmail = AppleSubjectNameFormatVCommonNameIncludingEmail
+	_AppleSubjectNameFormatPCommonNameAsIMEI         = AppleSubjectNameFormatVCommonNameAsIMEI
+	_AppleSubjectNameFormatPCommonNameAsSerialNumber = AppleSubjectNameFormatVCommonNameAsSerialNumber
+)

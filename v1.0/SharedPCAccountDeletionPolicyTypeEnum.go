@@ -3,31 +3,28 @@
 package msgraph
 
 // SharedPCAccountDeletionPolicyType undocumented
-type SharedPCAccountDeletionPolicyType int
+type SharedPCAccountDeletionPolicyType string
 
 const (
 	// SharedPCAccountDeletionPolicyTypeVImmediate undocumented
-	SharedPCAccountDeletionPolicyTypeVImmediate SharedPCAccountDeletionPolicyType = 0
+	SharedPCAccountDeletionPolicyTypeVImmediate SharedPCAccountDeletionPolicyType = "immediate"
 	// SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold undocumented
-	SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold SharedPCAccountDeletionPolicyType = 1
+	SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold SharedPCAccountDeletionPolicyType = "diskSpaceThreshold"
 	// SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold undocumented
-	SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold SharedPCAccountDeletionPolicyType = 2
+	SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold SharedPCAccountDeletionPolicyType = "diskSpaceThresholdOrInactiveThreshold"
 )
 
-// SharedPCAccountDeletionPolicyTypePImmediate returns a pointer to SharedPCAccountDeletionPolicyTypeVImmediate
-func SharedPCAccountDeletionPolicyTypePImmediate() *SharedPCAccountDeletionPolicyType {
-	v := SharedPCAccountDeletionPolicyTypeVImmediate
-	return &v
-}
+var (
+	// SharedPCAccountDeletionPolicyTypePImmediate is a pointer to SharedPCAccountDeletionPolicyTypeVImmediate
+	SharedPCAccountDeletionPolicyTypePImmediate = &_SharedPCAccountDeletionPolicyTypePImmediate
+	// SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold is a pointer to SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold
+	SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold = &_SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold
+	// SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold is a pointer to SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold
+	SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold = &_SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold
+)
 
-// SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold returns a pointer to SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold
-func SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold() *SharedPCAccountDeletionPolicyType {
-	v := SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold
-	return &v
-}
-
-// SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold returns a pointer to SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold
-func SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold() *SharedPCAccountDeletionPolicyType {
-	v := SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold
-	return &v
-}
+var (
+	_SharedPCAccountDeletionPolicyTypePImmediate                             = SharedPCAccountDeletionPolicyTypeVImmediate
+	_SharedPCAccountDeletionPolicyTypePDiskSpaceThreshold                    = SharedPCAccountDeletionPolicyTypeVDiskSpaceThreshold
+	_SharedPCAccountDeletionPolicyTypePDiskSpaceThresholdOrInactiveThreshold = SharedPCAccountDeletionPolicyTypeVDiskSpaceThresholdOrInactiveThreshold
+)

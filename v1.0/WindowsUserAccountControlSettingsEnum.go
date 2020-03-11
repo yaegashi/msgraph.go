@@ -3,47 +3,38 @@
 package msgraph
 
 // WindowsUserAccountControlSettings undocumented
-type WindowsUserAccountControlSettings int
+type WindowsUserAccountControlSettings string
 
 const (
 	// WindowsUserAccountControlSettingsVUserDefined undocumented
-	WindowsUserAccountControlSettingsVUserDefined WindowsUserAccountControlSettings = 0
+	WindowsUserAccountControlSettingsVUserDefined WindowsUserAccountControlSettings = "userDefined"
 	// WindowsUserAccountControlSettingsVAlwaysNotify undocumented
-	WindowsUserAccountControlSettingsVAlwaysNotify WindowsUserAccountControlSettings = 1
+	WindowsUserAccountControlSettingsVAlwaysNotify WindowsUserAccountControlSettings = "alwaysNotify"
 	// WindowsUserAccountControlSettingsVNotifyOnAppChanges undocumented
-	WindowsUserAccountControlSettingsVNotifyOnAppChanges WindowsUserAccountControlSettings = 2
+	WindowsUserAccountControlSettingsVNotifyOnAppChanges WindowsUserAccountControlSettings = "notifyOnAppChanges"
 	// WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming undocumented
-	WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming WindowsUserAccountControlSettings = 3
+	WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming WindowsUserAccountControlSettings = "notifyOnAppChangesWithoutDimming"
 	// WindowsUserAccountControlSettingsVNeverNotify undocumented
-	WindowsUserAccountControlSettingsVNeverNotify WindowsUserAccountControlSettings = 4
+	WindowsUserAccountControlSettingsVNeverNotify WindowsUserAccountControlSettings = "neverNotify"
 )
 
-// WindowsUserAccountControlSettingsPUserDefined returns a pointer to WindowsUserAccountControlSettingsVUserDefined
-func WindowsUserAccountControlSettingsPUserDefined() *WindowsUserAccountControlSettings {
-	v := WindowsUserAccountControlSettingsVUserDefined
-	return &v
-}
+var (
+	// WindowsUserAccountControlSettingsPUserDefined is a pointer to WindowsUserAccountControlSettingsVUserDefined
+	WindowsUserAccountControlSettingsPUserDefined = &_WindowsUserAccountControlSettingsPUserDefined
+	// WindowsUserAccountControlSettingsPAlwaysNotify is a pointer to WindowsUserAccountControlSettingsVAlwaysNotify
+	WindowsUserAccountControlSettingsPAlwaysNotify = &_WindowsUserAccountControlSettingsPAlwaysNotify
+	// WindowsUserAccountControlSettingsPNotifyOnAppChanges is a pointer to WindowsUserAccountControlSettingsVNotifyOnAppChanges
+	WindowsUserAccountControlSettingsPNotifyOnAppChanges = &_WindowsUserAccountControlSettingsPNotifyOnAppChanges
+	// WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming is a pointer to WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming
+	WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming = &_WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming
+	// WindowsUserAccountControlSettingsPNeverNotify is a pointer to WindowsUserAccountControlSettingsVNeverNotify
+	WindowsUserAccountControlSettingsPNeverNotify = &_WindowsUserAccountControlSettingsPNeverNotify
+)
 
-// WindowsUserAccountControlSettingsPAlwaysNotify returns a pointer to WindowsUserAccountControlSettingsVAlwaysNotify
-func WindowsUserAccountControlSettingsPAlwaysNotify() *WindowsUserAccountControlSettings {
-	v := WindowsUserAccountControlSettingsVAlwaysNotify
-	return &v
-}
-
-// WindowsUserAccountControlSettingsPNotifyOnAppChanges returns a pointer to WindowsUserAccountControlSettingsVNotifyOnAppChanges
-func WindowsUserAccountControlSettingsPNotifyOnAppChanges() *WindowsUserAccountControlSettings {
-	v := WindowsUserAccountControlSettingsVNotifyOnAppChanges
-	return &v
-}
-
-// WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming returns a pointer to WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming
-func WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming() *WindowsUserAccountControlSettings {
-	v := WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming
-	return &v
-}
-
-// WindowsUserAccountControlSettingsPNeverNotify returns a pointer to WindowsUserAccountControlSettingsVNeverNotify
-func WindowsUserAccountControlSettingsPNeverNotify() *WindowsUserAccountControlSettings {
-	v := WindowsUserAccountControlSettingsVNeverNotify
-	return &v
-}
+var (
+	_WindowsUserAccountControlSettingsPUserDefined                      = WindowsUserAccountControlSettingsVUserDefined
+	_WindowsUserAccountControlSettingsPAlwaysNotify                     = WindowsUserAccountControlSettingsVAlwaysNotify
+	_WindowsUserAccountControlSettingsPNotifyOnAppChanges               = WindowsUserAccountControlSettingsVNotifyOnAppChanges
+	_WindowsUserAccountControlSettingsPNotifyOnAppChangesWithoutDimming = WindowsUserAccountControlSettingsVNotifyOnAppChangesWithoutDimming
+	_WindowsUserAccountControlSettingsPNeverNotify                      = WindowsUserAccountControlSettingsVNeverNotify
+)

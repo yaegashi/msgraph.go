@@ -3,31 +3,28 @@
 package msgraph
 
 // DeviceManagementPartnerAppType undocumented
-type DeviceManagementPartnerAppType int
+type DeviceManagementPartnerAppType string
 
 const (
 	// DeviceManagementPartnerAppTypeVUnknown undocumented
-	DeviceManagementPartnerAppTypeVUnknown DeviceManagementPartnerAppType = 0
+	DeviceManagementPartnerAppTypeVUnknown DeviceManagementPartnerAppType = "unknown"
 	// DeviceManagementPartnerAppTypeVSingleTenantApp undocumented
-	DeviceManagementPartnerAppTypeVSingleTenantApp DeviceManagementPartnerAppType = 1
+	DeviceManagementPartnerAppTypeVSingleTenantApp DeviceManagementPartnerAppType = "singleTenantApp"
 	// DeviceManagementPartnerAppTypeVMultiTenantApp undocumented
-	DeviceManagementPartnerAppTypeVMultiTenantApp DeviceManagementPartnerAppType = 2
+	DeviceManagementPartnerAppTypeVMultiTenantApp DeviceManagementPartnerAppType = "multiTenantApp"
 )
 
-// DeviceManagementPartnerAppTypePUnknown returns a pointer to DeviceManagementPartnerAppTypeVUnknown
-func DeviceManagementPartnerAppTypePUnknown() *DeviceManagementPartnerAppType {
-	v := DeviceManagementPartnerAppTypeVUnknown
-	return &v
-}
+var (
+	// DeviceManagementPartnerAppTypePUnknown is a pointer to DeviceManagementPartnerAppTypeVUnknown
+	DeviceManagementPartnerAppTypePUnknown = &_DeviceManagementPartnerAppTypePUnknown
+	// DeviceManagementPartnerAppTypePSingleTenantApp is a pointer to DeviceManagementPartnerAppTypeVSingleTenantApp
+	DeviceManagementPartnerAppTypePSingleTenantApp = &_DeviceManagementPartnerAppTypePSingleTenantApp
+	// DeviceManagementPartnerAppTypePMultiTenantApp is a pointer to DeviceManagementPartnerAppTypeVMultiTenantApp
+	DeviceManagementPartnerAppTypePMultiTenantApp = &_DeviceManagementPartnerAppTypePMultiTenantApp
+)
 
-// DeviceManagementPartnerAppTypePSingleTenantApp returns a pointer to DeviceManagementPartnerAppTypeVSingleTenantApp
-func DeviceManagementPartnerAppTypePSingleTenantApp() *DeviceManagementPartnerAppType {
-	v := DeviceManagementPartnerAppTypeVSingleTenantApp
-	return &v
-}
-
-// DeviceManagementPartnerAppTypePMultiTenantApp returns a pointer to DeviceManagementPartnerAppTypeVMultiTenantApp
-func DeviceManagementPartnerAppTypePMultiTenantApp() *DeviceManagementPartnerAppType {
-	v := DeviceManagementPartnerAppTypeVMultiTenantApp
-	return &v
-}
+var (
+	_DeviceManagementPartnerAppTypePUnknown         = DeviceManagementPartnerAppTypeVUnknown
+	_DeviceManagementPartnerAppTypePSingleTenantApp = DeviceManagementPartnerAppTypeVSingleTenantApp
+	_DeviceManagementPartnerAppTypePMultiTenantApp  = DeviceManagementPartnerAppTypeVMultiTenantApp
+)

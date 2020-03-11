@@ -3,127 +3,88 @@
 package msgraph
 
 // RiskEventType undocumented
-type RiskEventType int
+type RiskEventType string
 
 const (
 	// RiskEventTypeVUnlikelyTravel undocumented
-	RiskEventTypeVUnlikelyTravel RiskEventType = 0
+	RiskEventTypeVUnlikelyTravel RiskEventType = "unlikelyTravel"
 	// RiskEventTypeVAnonymizedIPAddress undocumented
-	RiskEventTypeVAnonymizedIPAddress RiskEventType = 1
+	RiskEventTypeVAnonymizedIPAddress RiskEventType = "anonymizedIPAddress"
 	// RiskEventTypeVMaliciousIPAddress undocumented
-	RiskEventTypeVMaliciousIPAddress RiskEventType = 2
+	RiskEventTypeVMaliciousIPAddress RiskEventType = "maliciousIPAddress"
 	// RiskEventTypeVUnfamiliarFeatures undocumented
-	RiskEventTypeVUnfamiliarFeatures RiskEventType = 3
+	RiskEventTypeVUnfamiliarFeatures RiskEventType = "unfamiliarFeatures"
 	// RiskEventTypeVMalwareInfectedIPAddress undocumented
-	RiskEventTypeVMalwareInfectedIPAddress RiskEventType = 4
+	RiskEventTypeVMalwareInfectedIPAddress RiskEventType = "malwareInfectedIPAddress"
 	// RiskEventTypeVSuspiciousIPAddress undocumented
-	RiskEventTypeVSuspiciousIPAddress RiskEventType = 5
+	RiskEventTypeVSuspiciousIPAddress RiskEventType = "suspiciousIPAddress"
 	// RiskEventTypeVLeakedCredentials undocumented
-	RiskEventTypeVLeakedCredentials RiskEventType = 6
+	RiskEventTypeVLeakedCredentials RiskEventType = "leakedCredentials"
 	// RiskEventTypeVInvestigationsThreatIntelligence undocumented
-	RiskEventTypeVInvestigationsThreatIntelligence RiskEventType = 7
+	RiskEventTypeVInvestigationsThreatIntelligence RiskEventType = "investigationsThreatIntelligence"
 	// RiskEventTypeVGeneric undocumented
-	RiskEventTypeVGeneric RiskEventType = 8
+	RiskEventTypeVGeneric RiskEventType = "generic"
 	// RiskEventTypeVAdminConfirmedUserCompromised undocumented
-	RiskEventTypeVAdminConfirmedUserCompromised RiskEventType = 9
+	RiskEventTypeVAdminConfirmedUserCompromised RiskEventType = "adminConfirmedUserCompromised"
 	// RiskEventTypeVMcasImpossibleTravel undocumented
-	RiskEventTypeVMcasImpossibleTravel RiskEventType = 10
+	RiskEventTypeVMcasImpossibleTravel RiskEventType = "mcasImpossibleTravel"
 	// RiskEventTypeVMcasSuspiciousInboxManipulationRules undocumented
-	RiskEventTypeVMcasSuspiciousInboxManipulationRules RiskEventType = 11
+	RiskEventTypeVMcasSuspiciousInboxManipulationRules RiskEventType = "mcasSuspiciousInboxManipulationRules"
 	// RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked undocumented
-	RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked RiskEventType = 12
+	RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked RiskEventType = "investigationsThreatIntelligenceSigninLinked"
 	// RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP undocumented
-	RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP RiskEventType = 13
+	RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP RiskEventType = "maliciousIPAddressValidCredentialsBlockedIP"
 	// RiskEventTypeVUnknownFutureValue undocumented
-	RiskEventTypeVUnknownFutureValue RiskEventType = 14
+	RiskEventTypeVUnknownFutureValue RiskEventType = "unknownFutureValue"
 )
 
-// RiskEventTypePUnlikelyTravel returns a pointer to RiskEventTypeVUnlikelyTravel
-func RiskEventTypePUnlikelyTravel() *RiskEventType {
-	v := RiskEventTypeVUnlikelyTravel
-	return &v
-}
+var (
+	// RiskEventTypePUnlikelyTravel is a pointer to RiskEventTypeVUnlikelyTravel
+	RiskEventTypePUnlikelyTravel = &_RiskEventTypePUnlikelyTravel
+	// RiskEventTypePAnonymizedIPAddress is a pointer to RiskEventTypeVAnonymizedIPAddress
+	RiskEventTypePAnonymizedIPAddress = &_RiskEventTypePAnonymizedIPAddress
+	// RiskEventTypePMaliciousIPAddress is a pointer to RiskEventTypeVMaliciousIPAddress
+	RiskEventTypePMaliciousIPAddress = &_RiskEventTypePMaliciousIPAddress
+	// RiskEventTypePUnfamiliarFeatures is a pointer to RiskEventTypeVUnfamiliarFeatures
+	RiskEventTypePUnfamiliarFeatures = &_RiskEventTypePUnfamiliarFeatures
+	// RiskEventTypePMalwareInfectedIPAddress is a pointer to RiskEventTypeVMalwareInfectedIPAddress
+	RiskEventTypePMalwareInfectedIPAddress = &_RiskEventTypePMalwareInfectedIPAddress
+	// RiskEventTypePSuspiciousIPAddress is a pointer to RiskEventTypeVSuspiciousIPAddress
+	RiskEventTypePSuspiciousIPAddress = &_RiskEventTypePSuspiciousIPAddress
+	// RiskEventTypePLeakedCredentials is a pointer to RiskEventTypeVLeakedCredentials
+	RiskEventTypePLeakedCredentials = &_RiskEventTypePLeakedCredentials
+	// RiskEventTypePInvestigationsThreatIntelligence is a pointer to RiskEventTypeVInvestigationsThreatIntelligence
+	RiskEventTypePInvestigationsThreatIntelligence = &_RiskEventTypePInvestigationsThreatIntelligence
+	// RiskEventTypePGeneric is a pointer to RiskEventTypeVGeneric
+	RiskEventTypePGeneric = &_RiskEventTypePGeneric
+	// RiskEventTypePAdminConfirmedUserCompromised is a pointer to RiskEventTypeVAdminConfirmedUserCompromised
+	RiskEventTypePAdminConfirmedUserCompromised = &_RiskEventTypePAdminConfirmedUserCompromised
+	// RiskEventTypePMcasImpossibleTravel is a pointer to RiskEventTypeVMcasImpossibleTravel
+	RiskEventTypePMcasImpossibleTravel = &_RiskEventTypePMcasImpossibleTravel
+	// RiskEventTypePMcasSuspiciousInboxManipulationRules is a pointer to RiskEventTypeVMcasSuspiciousInboxManipulationRules
+	RiskEventTypePMcasSuspiciousInboxManipulationRules = &_RiskEventTypePMcasSuspiciousInboxManipulationRules
+	// RiskEventTypePInvestigationsThreatIntelligenceSigninLinked is a pointer to RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked
+	RiskEventTypePInvestigationsThreatIntelligenceSigninLinked = &_RiskEventTypePInvestigationsThreatIntelligenceSigninLinked
+	// RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP is a pointer to RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP
+	RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP = &_RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP
+	// RiskEventTypePUnknownFutureValue is a pointer to RiskEventTypeVUnknownFutureValue
+	RiskEventTypePUnknownFutureValue = &_RiskEventTypePUnknownFutureValue
+)
 
-// RiskEventTypePAnonymizedIPAddress returns a pointer to RiskEventTypeVAnonymizedIPAddress
-func RiskEventTypePAnonymizedIPAddress() *RiskEventType {
-	v := RiskEventTypeVAnonymizedIPAddress
-	return &v
-}
-
-// RiskEventTypePMaliciousIPAddress returns a pointer to RiskEventTypeVMaliciousIPAddress
-func RiskEventTypePMaliciousIPAddress() *RiskEventType {
-	v := RiskEventTypeVMaliciousIPAddress
-	return &v
-}
-
-// RiskEventTypePUnfamiliarFeatures returns a pointer to RiskEventTypeVUnfamiliarFeatures
-func RiskEventTypePUnfamiliarFeatures() *RiskEventType {
-	v := RiskEventTypeVUnfamiliarFeatures
-	return &v
-}
-
-// RiskEventTypePMalwareInfectedIPAddress returns a pointer to RiskEventTypeVMalwareInfectedIPAddress
-func RiskEventTypePMalwareInfectedIPAddress() *RiskEventType {
-	v := RiskEventTypeVMalwareInfectedIPAddress
-	return &v
-}
-
-// RiskEventTypePSuspiciousIPAddress returns a pointer to RiskEventTypeVSuspiciousIPAddress
-func RiskEventTypePSuspiciousIPAddress() *RiskEventType {
-	v := RiskEventTypeVSuspiciousIPAddress
-	return &v
-}
-
-// RiskEventTypePLeakedCredentials returns a pointer to RiskEventTypeVLeakedCredentials
-func RiskEventTypePLeakedCredentials() *RiskEventType {
-	v := RiskEventTypeVLeakedCredentials
-	return &v
-}
-
-// RiskEventTypePInvestigationsThreatIntelligence returns a pointer to RiskEventTypeVInvestigationsThreatIntelligence
-func RiskEventTypePInvestigationsThreatIntelligence() *RiskEventType {
-	v := RiskEventTypeVInvestigationsThreatIntelligence
-	return &v
-}
-
-// RiskEventTypePGeneric returns a pointer to RiskEventTypeVGeneric
-func RiskEventTypePGeneric() *RiskEventType {
-	v := RiskEventTypeVGeneric
-	return &v
-}
-
-// RiskEventTypePAdminConfirmedUserCompromised returns a pointer to RiskEventTypeVAdminConfirmedUserCompromised
-func RiskEventTypePAdminConfirmedUserCompromised() *RiskEventType {
-	v := RiskEventTypeVAdminConfirmedUserCompromised
-	return &v
-}
-
-// RiskEventTypePMcasImpossibleTravel returns a pointer to RiskEventTypeVMcasImpossibleTravel
-func RiskEventTypePMcasImpossibleTravel() *RiskEventType {
-	v := RiskEventTypeVMcasImpossibleTravel
-	return &v
-}
-
-// RiskEventTypePMcasSuspiciousInboxManipulationRules returns a pointer to RiskEventTypeVMcasSuspiciousInboxManipulationRules
-func RiskEventTypePMcasSuspiciousInboxManipulationRules() *RiskEventType {
-	v := RiskEventTypeVMcasSuspiciousInboxManipulationRules
-	return &v
-}
-
-// RiskEventTypePInvestigationsThreatIntelligenceSigninLinked returns a pointer to RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked
-func RiskEventTypePInvestigationsThreatIntelligenceSigninLinked() *RiskEventType {
-	v := RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked
-	return &v
-}
-
-// RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP returns a pointer to RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP
-func RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP() *RiskEventType {
-	v := RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP
-	return &v
-}
-
-// RiskEventTypePUnknownFutureValue returns a pointer to RiskEventTypeVUnknownFutureValue
-func RiskEventTypePUnknownFutureValue() *RiskEventType {
-	v := RiskEventTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_RiskEventTypePUnlikelyTravel                               = RiskEventTypeVUnlikelyTravel
+	_RiskEventTypePAnonymizedIPAddress                          = RiskEventTypeVAnonymizedIPAddress
+	_RiskEventTypePMaliciousIPAddress                           = RiskEventTypeVMaliciousIPAddress
+	_RiskEventTypePUnfamiliarFeatures                           = RiskEventTypeVUnfamiliarFeatures
+	_RiskEventTypePMalwareInfectedIPAddress                     = RiskEventTypeVMalwareInfectedIPAddress
+	_RiskEventTypePSuspiciousIPAddress                          = RiskEventTypeVSuspiciousIPAddress
+	_RiskEventTypePLeakedCredentials                            = RiskEventTypeVLeakedCredentials
+	_RiskEventTypePInvestigationsThreatIntelligence             = RiskEventTypeVInvestigationsThreatIntelligence
+	_RiskEventTypePGeneric                                      = RiskEventTypeVGeneric
+	_RiskEventTypePAdminConfirmedUserCompromised                = RiskEventTypeVAdminConfirmedUserCompromised
+	_RiskEventTypePMcasImpossibleTravel                         = RiskEventTypeVMcasImpossibleTravel
+	_RiskEventTypePMcasSuspiciousInboxManipulationRules         = RiskEventTypeVMcasSuspiciousInboxManipulationRules
+	_RiskEventTypePInvestigationsThreatIntelligenceSigninLinked = RiskEventTypeVInvestigationsThreatIntelligenceSigninLinked
+	_RiskEventTypePMaliciousIPAddressValidCredentialsBlockedIP  = RiskEventTypeVMaliciousIPAddressValidCredentialsBlockedIP
+	_RiskEventTypePUnknownFutureValue                           = RiskEventTypeVUnknownFutureValue
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // ManagedAppAvailability undocumented
-type ManagedAppAvailability int
+type ManagedAppAvailability string
 
 const (
 	// ManagedAppAvailabilityVGlobal undocumented
-	ManagedAppAvailabilityVGlobal ManagedAppAvailability = 0
+	ManagedAppAvailabilityVGlobal ManagedAppAvailability = "global"
 	// ManagedAppAvailabilityVLineOfBusiness undocumented
-	ManagedAppAvailabilityVLineOfBusiness ManagedAppAvailability = 1
+	ManagedAppAvailabilityVLineOfBusiness ManagedAppAvailability = "lineOfBusiness"
 )
 
-// ManagedAppAvailabilityPGlobal returns a pointer to ManagedAppAvailabilityVGlobal
-func ManagedAppAvailabilityPGlobal() *ManagedAppAvailability {
-	v := ManagedAppAvailabilityVGlobal
-	return &v
-}
+var (
+	// ManagedAppAvailabilityPGlobal is a pointer to ManagedAppAvailabilityVGlobal
+	ManagedAppAvailabilityPGlobal = &_ManagedAppAvailabilityPGlobal
+	// ManagedAppAvailabilityPLineOfBusiness is a pointer to ManagedAppAvailabilityVLineOfBusiness
+	ManagedAppAvailabilityPLineOfBusiness = &_ManagedAppAvailabilityPLineOfBusiness
+)
 
-// ManagedAppAvailabilityPLineOfBusiness returns a pointer to ManagedAppAvailabilityVLineOfBusiness
-func ManagedAppAvailabilityPLineOfBusiness() *ManagedAppAvailability {
-	v := ManagedAppAvailabilityVLineOfBusiness
-	return &v
-}
+var (
+	_ManagedAppAvailabilityPGlobal         = ManagedAppAvailabilityVGlobal
+	_ManagedAppAvailabilityPLineOfBusiness = ManagedAppAvailabilityVLineOfBusiness
+)

@@ -3,55 +3,43 @@
 package msgraph
 
 // RecurrencePatternType undocumented
-type RecurrencePatternType int
+type RecurrencePatternType string
 
 const (
 	// RecurrencePatternTypeVDaily undocumented
-	RecurrencePatternTypeVDaily RecurrencePatternType = 0
+	RecurrencePatternTypeVDaily RecurrencePatternType = "daily"
 	// RecurrencePatternTypeVWeekly undocumented
-	RecurrencePatternTypeVWeekly RecurrencePatternType = 1
+	RecurrencePatternTypeVWeekly RecurrencePatternType = "weekly"
 	// RecurrencePatternTypeVAbsoluteMonthly undocumented
-	RecurrencePatternTypeVAbsoluteMonthly RecurrencePatternType = 2
+	RecurrencePatternTypeVAbsoluteMonthly RecurrencePatternType = "absoluteMonthly"
 	// RecurrencePatternTypeVRelativeMonthly undocumented
-	RecurrencePatternTypeVRelativeMonthly RecurrencePatternType = 3
+	RecurrencePatternTypeVRelativeMonthly RecurrencePatternType = "relativeMonthly"
 	// RecurrencePatternTypeVAbsoluteYearly undocumented
-	RecurrencePatternTypeVAbsoluteYearly RecurrencePatternType = 4
+	RecurrencePatternTypeVAbsoluteYearly RecurrencePatternType = "absoluteYearly"
 	// RecurrencePatternTypeVRelativeYearly undocumented
-	RecurrencePatternTypeVRelativeYearly RecurrencePatternType = 5
+	RecurrencePatternTypeVRelativeYearly RecurrencePatternType = "relativeYearly"
 )
 
-// RecurrencePatternTypePDaily returns a pointer to RecurrencePatternTypeVDaily
-func RecurrencePatternTypePDaily() *RecurrencePatternType {
-	v := RecurrencePatternTypeVDaily
-	return &v
-}
+var (
+	// RecurrencePatternTypePDaily is a pointer to RecurrencePatternTypeVDaily
+	RecurrencePatternTypePDaily = &_RecurrencePatternTypePDaily
+	// RecurrencePatternTypePWeekly is a pointer to RecurrencePatternTypeVWeekly
+	RecurrencePatternTypePWeekly = &_RecurrencePatternTypePWeekly
+	// RecurrencePatternTypePAbsoluteMonthly is a pointer to RecurrencePatternTypeVAbsoluteMonthly
+	RecurrencePatternTypePAbsoluteMonthly = &_RecurrencePatternTypePAbsoluteMonthly
+	// RecurrencePatternTypePRelativeMonthly is a pointer to RecurrencePatternTypeVRelativeMonthly
+	RecurrencePatternTypePRelativeMonthly = &_RecurrencePatternTypePRelativeMonthly
+	// RecurrencePatternTypePAbsoluteYearly is a pointer to RecurrencePatternTypeVAbsoluteYearly
+	RecurrencePatternTypePAbsoluteYearly = &_RecurrencePatternTypePAbsoluteYearly
+	// RecurrencePatternTypePRelativeYearly is a pointer to RecurrencePatternTypeVRelativeYearly
+	RecurrencePatternTypePRelativeYearly = &_RecurrencePatternTypePRelativeYearly
+)
 
-// RecurrencePatternTypePWeekly returns a pointer to RecurrencePatternTypeVWeekly
-func RecurrencePatternTypePWeekly() *RecurrencePatternType {
-	v := RecurrencePatternTypeVWeekly
-	return &v
-}
-
-// RecurrencePatternTypePAbsoluteMonthly returns a pointer to RecurrencePatternTypeVAbsoluteMonthly
-func RecurrencePatternTypePAbsoluteMonthly() *RecurrencePatternType {
-	v := RecurrencePatternTypeVAbsoluteMonthly
-	return &v
-}
-
-// RecurrencePatternTypePRelativeMonthly returns a pointer to RecurrencePatternTypeVRelativeMonthly
-func RecurrencePatternTypePRelativeMonthly() *RecurrencePatternType {
-	v := RecurrencePatternTypeVRelativeMonthly
-	return &v
-}
-
-// RecurrencePatternTypePAbsoluteYearly returns a pointer to RecurrencePatternTypeVAbsoluteYearly
-func RecurrencePatternTypePAbsoluteYearly() *RecurrencePatternType {
-	v := RecurrencePatternTypeVAbsoluteYearly
-	return &v
-}
-
-// RecurrencePatternTypePRelativeYearly returns a pointer to RecurrencePatternTypeVRelativeYearly
-func RecurrencePatternTypePRelativeYearly() *RecurrencePatternType {
-	v := RecurrencePatternTypeVRelativeYearly
-	return &v
-}
+var (
+	_RecurrencePatternTypePDaily           = RecurrencePatternTypeVDaily
+	_RecurrencePatternTypePWeekly          = RecurrencePatternTypeVWeekly
+	_RecurrencePatternTypePAbsoluteMonthly = RecurrencePatternTypeVAbsoluteMonthly
+	_RecurrencePatternTypePRelativeMonthly = RecurrencePatternTypeVRelativeMonthly
+	_RecurrencePatternTypePAbsoluteYearly  = RecurrencePatternTypeVAbsoluteYearly
+	_RecurrencePatternTypePRelativeYearly  = RecurrencePatternTypeVRelativeYearly
+)

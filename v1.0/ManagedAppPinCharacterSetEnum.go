@@ -3,23 +3,23 @@
 package msgraph
 
 // ManagedAppPinCharacterSet undocumented
-type ManagedAppPinCharacterSet int
+type ManagedAppPinCharacterSet string
 
 const (
 	// ManagedAppPinCharacterSetVNumeric undocumented
-	ManagedAppPinCharacterSetVNumeric ManagedAppPinCharacterSet = 0
+	ManagedAppPinCharacterSetVNumeric ManagedAppPinCharacterSet = "numeric"
 	// ManagedAppPinCharacterSetVAlphanumericAndSymbol undocumented
-	ManagedAppPinCharacterSetVAlphanumericAndSymbol ManagedAppPinCharacterSet = 1
+	ManagedAppPinCharacterSetVAlphanumericAndSymbol ManagedAppPinCharacterSet = "alphanumericAndSymbol"
 )
 
-// ManagedAppPinCharacterSetPNumeric returns a pointer to ManagedAppPinCharacterSetVNumeric
-func ManagedAppPinCharacterSetPNumeric() *ManagedAppPinCharacterSet {
-	v := ManagedAppPinCharacterSetVNumeric
-	return &v
-}
+var (
+	// ManagedAppPinCharacterSetPNumeric is a pointer to ManagedAppPinCharacterSetVNumeric
+	ManagedAppPinCharacterSetPNumeric = &_ManagedAppPinCharacterSetPNumeric
+	// ManagedAppPinCharacterSetPAlphanumericAndSymbol is a pointer to ManagedAppPinCharacterSetVAlphanumericAndSymbol
+	ManagedAppPinCharacterSetPAlphanumericAndSymbol = &_ManagedAppPinCharacterSetPAlphanumericAndSymbol
+)
 
-// ManagedAppPinCharacterSetPAlphanumericAndSymbol returns a pointer to ManagedAppPinCharacterSetVAlphanumericAndSymbol
-func ManagedAppPinCharacterSetPAlphanumericAndSymbol() *ManagedAppPinCharacterSet {
-	v := ManagedAppPinCharacterSetVAlphanumericAndSymbol
-	return &v
-}
+var (
+	_ManagedAppPinCharacterSetPNumeric               = ManagedAppPinCharacterSetVNumeric
+	_ManagedAppPinCharacterSetPAlphanumericAndSymbol = ManagedAppPinCharacterSetVAlphanumericAndSymbol
+)

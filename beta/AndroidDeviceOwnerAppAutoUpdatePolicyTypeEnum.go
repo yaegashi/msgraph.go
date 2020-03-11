@@ -3,47 +3,38 @@
 package msgraph
 
 // AndroidDeviceOwnerAppAutoUpdatePolicyType undocumented
-type AndroidDeviceOwnerAppAutoUpdatePolicyType int
+type AndroidDeviceOwnerAppAutoUpdatePolicyType string
 
 const (
 	// AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured undocumented
-	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured AndroidDeviceOwnerAppAutoUpdatePolicyType = 0
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured AndroidDeviceOwnerAppAutoUpdatePolicyType = "notConfigured"
 	// AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice undocumented
-	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice AndroidDeviceOwnerAppAutoUpdatePolicyType = 1
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice AndroidDeviceOwnerAppAutoUpdatePolicyType = "userChoice"
 	// AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever undocumented
-	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever AndroidDeviceOwnerAppAutoUpdatePolicyType = 2
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever AndroidDeviceOwnerAppAutoUpdatePolicyType = "never"
 	// AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly undocumented
-	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly AndroidDeviceOwnerAppAutoUpdatePolicyType = 3
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly AndroidDeviceOwnerAppAutoUpdatePolicyType = "wiFiOnly"
 	// AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways undocumented
-	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways AndroidDeviceOwnerAppAutoUpdatePolicyType = 4
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways AndroidDeviceOwnerAppAutoUpdatePolicyType = "always"
 )
 
-// AndroidDeviceOwnerAppAutoUpdatePolicyTypePNotConfigured returns a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured
-func AndroidDeviceOwnerAppAutoUpdatePolicyTypePNotConfigured() *AndroidDeviceOwnerAppAutoUpdatePolicyType {
-	v := AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured
-	return &v
-}
+var (
+	// AndroidDeviceOwnerAppAutoUpdatePolicyTypePNotConfigured is a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypePNotConfigured = &_AndroidDeviceOwnerAppAutoUpdatePolicyTypePNotConfigured
+	// AndroidDeviceOwnerAppAutoUpdatePolicyTypePUserChoice is a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypePUserChoice = &_AndroidDeviceOwnerAppAutoUpdatePolicyTypePUserChoice
+	// AndroidDeviceOwnerAppAutoUpdatePolicyTypePNever is a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypePNever = &_AndroidDeviceOwnerAppAutoUpdatePolicyTypePNever
+	// AndroidDeviceOwnerAppAutoUpdatePolicyTypePWiFiOnly is a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypePWiFiOnly = &_AndroidDeviceOwnerAppAutoUpdatePolicyTypePWiFiOnly
+	// AndroidDeviceOwnerAppAutoUpdatePolicyTypePAlways is a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways
+	AndroidDeviceOwnerAppAutoUpdatePolicyTypePAlways = &_AndroidDeviceOwnerAppAutoUpdatePolicyTypePAlways
+)
 
-// AndroidDeviceOwnerAppAutoUpdatePolicyTypePUserChoice returns a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice
-func AndroidDeviceOwnerAppAutoUpdatePolicyTypePUserChoice() *AndroidDeviceOwnerAppAutoUpdatePolicyType {
-	v := AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice
-	return &v
-}
-
-// AndroidDeviceOwnerAppAutoUpdatePolicyTypePNever returns a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever
-func AndroidDeviceOwnerAppAutoUpdatePolicyTypePNever() *AndroidDeviceOwnerAppAutoUpdatePolicyType {
-	v := AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever
-	return &v
-}
-
-// AndroidDeviceOwnerAppAutoUpdatePolicyTypePWiFiOnly returns a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly
-func AndroidDeviceOwnerAppAutoUpdatePolicyTypePWiFiOnly() *AndroidDeviceOwnerAppAutoUpdatePolicyType {
-	v := AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly
-	return &v
-}
-
-// AndroidDeviceOwnerAppAutoUpdatePolicyTypePAlways returns a pointer to AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways
-func AndroidDeviceOwnerAppAutoUpdatePolicyTypePAlways() *AndroidDeviceOwnerAppAutoUpdatePolicyType {
-	v := AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways
-	return &v
-}
+var (
+	_AndroidDeviceOwnerAppAutoUpdatePolicyTypePNotConfigured = AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNotConfigured
+	_AndroidDeviceOwnerAppAutoUpdatePolicyTypePUserChoice    = AndroidDeviceOwnerAppAutoUpdatePolicyTypeVUserChoice
+	_AndroidDeviceOwnerAppAutoUpdatePolicyTypePNever         = AndroidDeviceOwnerAppAutoUpdatePolicyTypeVNever
+	_AndroidDeviceOwnerAppAutoUpdatePolicyTypePWiFiOnly      = AndroidDeviceOwnerAppAutoUpdatePolicyTypeVWiFiOnly
+	_AndroidDeviceOwnerAppAutoUpdatePolicyTypePAlways        = AndroidDeviceOwnerAppAutoUpdatePolicyTypeVAlways
+)

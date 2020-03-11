@@ -3,55 +3,43 @@
 package msgraph
 
 // WiFiSecurityType undocumented
-type WiFiSecurityType int
+type WiFiSecurityType string
 
 const (
 	// WiFiSecurityTypeVOpen undocumented
-	WiFiSecurityTypeVOpen WiFiSecurityType = 0
+	WiFiSecurityTypeVOpen WiFiSecurityType = "open"
 	// WiFiSecurityTypeVWpaPersonal undocumented
-	WiFiSecurityTypeVWpaPersonal WiFiSecurityType = 1
+	WiFiSecurityTypeVWpaPersonal WiFiSecurityType = "wpaPersonal"
 	// WiFiSecurityTypeVWpaEnterprise undocumented
-	WiFiSecurityTypeVWpaEnterprise WiFiSecurityType = 2
+	WiFiSecurityTypeVWpaEnterprise WiFiSecurityType = "wpaEnterprise"
 	// WiFiSecurityTypeVWep undocumented
-	WiFiSecurityTypeVWep WiFiSecurityType = 3
+	WiFiSecurityTypeVWep WiFiSecurityType = "wep"
 	// WiFiSecurityTypeVWpa2Personal undocumented
-	WiFiSecurityTypeVWpa2Personal WiFiSecurityType = 4
+	WiFiSecurityTypeVWpa2Personal WiFiSecurityType = "wpa2Personal"
 	// WiFiSecurityTypeVWpa2Enterprise undocumented
-	WiFiSecurityTypeVWpa2Enterprise WiFiSecurityType = 5
+	WiFiSecurityTypeVWpa2Enterprise WiFiSecurityType = "wpa2Enterprise"
 )
 
-// WiFiSecurityTypePOpen returns a pointer to WiFiSecurityTypeVOpen
-func WiFiSecurityTypePOpen() *WiFiSecurityType {
-	v := WiFiSecurityTypeVOpen
-	return &v
-}
+var (
+	// WiFiSecurityTypePOpen is a pointer to WiFiSecurityTypeVOpen
+	WiFiSecurityTypePOpen = &_WiFiSecurityTypePOpen
+	// WiFiSecurityTypePWpaPersonal is a pointer to WiFiSecurityTypeVWpaPersonal
+	WiFiSecurityTypePWpaPersonal = &_WiFiSecurityTypePWpaPersonal
+	// WiFiSecurityTypePWpaEnterprise is a pointer to WiFiSecurityTypeVWpaEnterprise
+	WiFiSecurityTypePWpaEnterprise = &_WiFiSecurityTypePWpaEnterprise
+	// WiFiSecurityTypePWep is a pointer to WiFiSecurityTypeVWep
+	WiFiSecurityTypePWep = &_WiFiSecurityTypePWep
+	// WiFiSecurityTypePWpa2Personal is a pointer to WiFiSecurityTypeVWpa2Personal
+	WiFiSecurityTypePWpa2Personal = &_WiFiSecurityTypePWpa2Personal
+	// WiFiSecurityTypePWpa2Enterprise is a pointer to WiFiSecurityTypeVWpa2Enterprise
+	WiFiSecurityTypePWpa2Enterprise = &_WiFiSecurityTypePWpa2Enterprise
+)
 
-// WiFiSecurityTypePWpaPersonal returns a pointer to WiFiSecurityTypeVWpaPersonal
-func WiFiSecurityTypePWpaPersonal() *WiFiSecurityType {
-	v := WiFiSecurityTypeVWpaPersonal
-	return &v
-}
-
-// WiFiSecurityTypePWpaEnterprise returns a pointer to WiFiSecurityTypeVWpaEnterprise
-func WiFiSecurityTypePWpaEnterprise() *WiFiSecurityType {
-	v := WiFiSecurityTypeVWpaEnterprise
-	return &v
-}
-
-// WiFiSecurityTypePWep returns a pointer to WiFiSecurityTypeVWep
-func WiFiSecurityTypePWep() *WiFiSecurityType {
-	v := WiFiSecurityTypeVWep
-	return &v
-}
-
-// WiFiSecurityTypePWpa2Personal returns a pointer to WiFiSecurityTypeVWpa2Personal
-func WiFiSecurityTypePWpa2Personal() *WiFiSecurityType {
-	v := WiFiSecurityTypeVWpa2Personal
-	return &v
-}
-
-// WiFiSecurityTypePWpa2Enterprise returns a pointer to WiFiSecurityTypeVWpa2Enterprise
-func WiFiSecurityTypePWpa2Enterprise() *WiFiSecurityType {
-	v := WiFiSecurityTypeVWpa2Enterprise
-	return &v
-}
+var (
+	_WiFiSecurityTypePOpen           = WiFiSecurityTypeVOpen
+	_WiFiSecurityTypePWpaPersonal    = WiFiSecurityTypeVWpaPersonal
+	_WiFiSecurityTypePWpaEnterprise  = WiFiSecurityTypeVWpaEnterprise
+	_WiFiSecurityTypePWep            = WiFiSecurityTypeVWep
+	_WiFiSecurityTypePWpa2Personal   = WiFiSecurityTypeVWpa2Personal
+	_WiFiSecurityTypePWpa2Enterprise = WiFiSecurityTypeVWpa2Enterprise
+)

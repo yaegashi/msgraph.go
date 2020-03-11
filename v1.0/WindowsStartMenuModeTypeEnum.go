@@ -3,31 +3,28 @@
 package msgraph
 
 // WindowsStartMenuModeType undocumented
-type WindowsStartMenuModeType int
+type WindowsStartMenuModeType string
 
 const (
 	// WindowsStartMenuModeTypeVUserDefined undocumented
-	WindowsStartMenuModeTypeVUserDefined WindowsStartMenuModeType = 0
+	WindowsStartMenuModeTypeVUserDefined WindowsStartMenuModeType = "userDefined"
 	// WindowsStartMenuModeTypeVFullScreen undocumented
-	WindowsStartMenuModeTypeVFullScreen WindowsStartMenuModeType = 1
+	WindowsStartMenuModeTypeVFullScreen WindowsStartMenuModeType = "fullScreen"
 	// WindowsStartMenuModeTypeVNonFullScreen undocumented
-	WindowsStartMenuModeTypeVNonFullScreen WindowsStartMenuModeType = 2
+	WindowsStartMenuModeTypeVNonFullScreen WindowsStartMenuModeType = "nonFullScreen"
 )
 
-// WindowsStartMenuModeTypePUserDefined returns a pointer to WindowsStartMenuModeTypeVUserDefined
-func WindowsStartMenuModeTypePUserDefined() *WindowsStartMenuModeType {
-	v := WindowsStartMenuModeTypeVUserDefined
-	return &v
-}
+var (
+	// WindowsStartMenuModeTypePUserDefined is a pointer to WindowsStartMenuModeTypeVUserDefined
+	WindowsStartMenuModeTypePUserDefined = &_WindowsStartMenuModeTypePUserDefined
+	// WindowsStartMenuModeTypePFullScreen is a pointer to WindowsStartMenuModeTypeVFullScreen
+	WindowsStartMenuModeTypePFullScreen = &_WindowsStartMenuModeTypePFullScreen
+	// WindowsStartMenuModeTypePNonFullScreen is a pointer to WindowsStartMenuModeTypeVNonFullScreen
+	WindowsStartMenuModeTypePNonFullScreen = &_WindowsStartMenuModeTypePNonFullScreen
+)
 
-// WindowsStartMenuModeTypePFullScreen returns a pointer to WindowsStartMenuModeTypeVFullScreen
-func WindowsStartMenuModeTypePFullScreen() *WindowsStartMenuModeType {
-	v := WindowsStartMenuModeTypeVFullScreen
-	return &v
-}
-
-// WindowsStartMenuModeTypePNonFullScreen returns a pointer to WindowsStartMenuModeTypeVNonFullScreen
-func WindowsStartMenuModeTypePNonFullScreen() *WindowsStartMenuModeType {
-	v := WindowsStartMenuModeTypeVNonFullScreen
-	return &v
-}
+var (
+	_WindowsStartMenuModeTypePUserDefined   = WindowsStartMenuModeTypeVUserDefined
+	_WindowsStartMenuModeTypePFullScreen    = WindowsStartMenuModeTypeVFullScreen
+	_WindowsStartMenuModeTypePNonFullScreen = WindowsStartMenuModeTypeVNonFullScreen
+)

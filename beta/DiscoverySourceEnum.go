@@ -3,31 +3,28 @@
 package msgraph
 
 // DiscoverySource undocumented
-type DiscoverySource int
+type DiscoverySource string
 
 const (
 	// DiscoverySourceVUnknown undocumented
-	DiscoverySourceVUnknown DiscoverySource = 0
+	DiscoverySourceVUnknown DiscoverySource = "unknown"
 	// DiscoverySourceVAdminImport undocumented
-	DiscoverySourceVAdminImport DiscoverySource = 2
+	DiscoverySourceVAdminImport DiscoverySource = "adminImport"
 	// DiscoverySourceVDeviceEnrollmentProgram undocumented
-	DiscoverySourceVDeviceEnrollmentProgram DiscoverySource = 4
+	DiscoverySourceVDeviceEnrollmentProgram DiscoverySource = "deviceEnrollmentProgram"
 )
 
-// DiscoverySourcePUnknown returns a pointer to DiscoverySourceVUnknown
-func DiscoverySourcePUnknown() *DiscoverySource {
-	v := DiscoverySourceVUnknown
-	return &v
-}
+var (
+	// DiscoverySourcePUnknown is a pointer to DiscoverySourceVUnknown
+	DiscoverySourcePUnknown = &_DiscoverySourcePUnknown
+	// DiscoverySourcePAdminImport is a pointer to DiscoverySourceVAdminImport
+	DiscoverySourcePAdminImport = &_DiscoverySourcePAdminImport
+	// DiscoverySourcePDeviceEnrollmentProgram is a pointer to DiscoverySourceVDeviceEnrollmentProgram
+	DiscoverySourcePDeviceEnrollmentProgram = &_DiscoverySourcePDeviceEnrollmentProgram
+)
 
-// DiscoverySourcePAdminImport returns a pointer to DiscoverySourceVAdminImport
-func DiscoverySourcePAdminImport() *DiscoverySource {
-	v := DiscoverySourceVAdminImport
-	return &v
-}
-
-// DiscoverySourcePDeviceEnrollmentProgram returns a pointer to DiscoverySourceVDeviceEnrollmentProgram
-func DiscoverySourcePDeviceEnrollmentProgram() *DiscoverySource {
-	v := DiscoverySourceVDeviceEnrollmentProgram
-	return &v
-}
+var (
+	_DiscoverySourcePUnknown                 = DiscoverySourceVUnknown
+	_DiscoverySourcePAdminImport             = DiscoverySourceVAdminImport
+	_DiscoverySourcePDeviceEnrollmentProgram = DiscoverySourceVDeviceEnrollmentProgram
+)

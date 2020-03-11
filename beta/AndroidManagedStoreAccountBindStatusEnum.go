@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidManagedStoreAccountBindStatus undocumented
-type AndroidManagedStoreAccountBindStatus int
+type AndroidManagedStoreAccountBindStatus string
 
 const (
 	// AndroidManagedStoreAccountBindStatusVNotBound undocumented
-	AndroidManagedStoreAccountBindStatusVNotBound AndroidManagedStoreAccountBindStatus = 0
+	AndroidManagedStoreAccountBindStatusVNotBound AndroidManagedStoreAccountBindStatus = "notBound"
 	// AndroidManagedStoreAccountBindStatusVBound undocumented
-	AndroidManagedStoreAccountBindStatusVBound AndroidManagedStoreAccountBindStatus = 1
+	AndroidManagedStoreAccountBindStatusVBound AndroidManagedStoreAccountBindStatus = "bound"
 	// AndroidManagedStoreAccountBindStatusVBoundAndValidated undocumented
-	AndroidManagedStoreAccountBindStatusVBoundAndValidated AndroidManagedStoreAccountBindStatus = 2
+	AndroidManagedStoreAccountBindStatusVBoundAndValidated AndroidManagedStoreAccountBindStatus = "boundAndValidated"
 	// AndroidManagedStoreAccountBindStatusVUnbinding undocumented
-	AndroidManagedStoreAccountBindStatusVUnbinding AndroidManagedStoreAccountBindStatus = 3
+	AndroidManagedStoreAccountBindStatusVUnbinding AndroidManagedStoreAccountBindStatus = "unbinding"
 )
 
-// AndroidManagedStoreAccountBindStatusPNotBound returns a pointer to AndroidManagedStoreAccountBindStatusVNotBound
-func AndroidManagedStoreAccountBindStatusPNotBound() *AndroidManagedStoreAccountBindStatus {
-	v := AndroidManagedStoreAccountBindStatusVNotBound
-	return &v
-}
+var (
+	// AndroidManagedStoreAccountBindStatusPNotBound is a pointer to AndroidManagedStoreAccountBindStatusVNotBound
+	AndroidManagedStoreAccountBindStatusPNotBound = &_AndroidManagedStoreAccountBindStatusPNotBound
+	// AndroidManagedStoreAccountBindStatusPBound is a pointer to AndroidManagedStoreAccountBindStatusVBound
+	AndroidManagedStoreAccountBindStatusPBound = &_AndroidManagedStoreAccountBindStatusPBound
+	// AndroidManagedStoreAccountBindStatusPBoundAndValidated is a pointer to AndroidManagedStoreAccountBindStatusVBoundAndValidated
+	AndroidManagedStoreAccountBindStatusPBoundAndValidated = &_AndroidManagedStoreAccountBindStatusPBoundAndValidated
+	// AndroidManagedStoreAccountBindStatusPUnbinding is a pointer to AndroidManagedStoreAccountBindStatusVUnbinding
+	AndroidManagedStoreAccountBindStatusPUnbinding = &_AndroidManagedStoreAccountBindStatusPUnbinding
+)
 
-// AndroidManagedStoreAccountBindStatusPBound returns a pointer to AndroidManagedStoreAccountBindStatusVBound
-func AndroidManagedStoreAccountBindStatusPBound() *AndroidManagedStoreAccountBindStatus {
-	v := AndroidManagedStoreAccountBindStatusVBound
-	return &v
-}
-
-// AndroidManagedStoreAccountBindStatusPBoundAndValidated returns a pointer to AndroidManagedStoreAccountBindStatusVBoundAndValidated
-func AndroidManagedStoreAccountBindStatusPBoundAndValidated() *AndroidManagedStoreAccountBindStatus {
-	v := AndroidManagedStoreAccountBindStatusVBoundAndValidated
-	return &v
-}
-
-// AndroidManagedStoreAccountBindStatusPUnbinding returns a pointer to AndroidManagedStoreAccountBindStatusVUnbinding
-func AndroidManagedStoreAccountBindStatusPUnbinding() *AndroidManagedStoreAccountBindStatus {
-	v := AndroidManagedStoreAccountBindStatusVUnbinding
-	return &v
-}
+var (
+	_AndroidManagedStoreAccountBindStatusPNotBound          = AndroidManagedStoreAccountBindStatusVNotBound
+	_AndroidManagedStoreAccountBindStatusPBound             = AndroidManagedStoreAccountBindStatusVBound
+	_AndroidManagedStoreAccountBindStatusPBoundAndValidated = AndroidManagedStoreAccountBindStatusVBoundAndValidated
+	_AndroidManagedStoreAccountBindStatusPUnbinding         = AndroidManagedStoreAccountBindStatusVUnbinding
+)

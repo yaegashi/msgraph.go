@@ -3,39 +3,33 @@
 package msgraph
 
 // ScheduleChangeState undocumented
-type ScheduleChangeState int
+type ScheduleChangeState string
 
 const (
 	// ScheduleChangeStateVPending undocumented
-	ScheduleChangeStateVPending ScheduleChangeState = 0
+	ScheduleChangeStateVPending ScheduleChangeState = "pending"
 	// ScheduleChangeStateVApproved undocumented
-	ScheduleChangeStateVApproved ScheduleChangeState = 1
+	ScheduleChangeStateVApproved ScheduleChangeState = "approved"
 	// ScheduleChangeStateVDeclined undocumented
-	ScheduleChangeStateVDeclined ScheduleChangeState = 2
+	ScheduleChangeStateVDeclined ScheduleChangeState = "declined"
 	// ScheduleChangeStateVUnknownFutureValue undocumented
-	ScheduleChangeStateVUnknownFutureValue ScheduleChangeState = 3
+	ScheduleChangeStateVUnknownFutureValue ScheduleChangeState = "unknownFutureValue"
 )
 
-// ScheduleChangeStatePPending returns a pointer to ScheduleChangeStateVPending
-func ScheduleChangeStatePPending() *ScheduleChangeState {
-	v := ScheduleChangeStateVPending
-	return &v
-}
+var (
+	// ScheduleChangeStatePPending is a pointer to ScheduleChangeStateVPending
+	ScheduleChangeStatePPending = &_ScheduleChangeStatePPending
+	// ScheduleChangeStatePApproved is a pointer to ScheduleChangeStateVApproved
+	ScheduleChangeStatePApproved = &_ScheduleChangeStatePApproved
+	// ScheduleChangeStatePDeclined is a pointer to ScheduleChangeStateVDeclined
+	ScheduleChangeStatePDeclined = &_ScheduleChangeStatePDeclined
+	// ScheduleChangeStatePUnknownFutureValue is a pointer to ScheduleChangeStateVUnknownFutureValue
+	ScheduleChangeStatePUnknownFutureValue = &_ScheduleChangeStatePUnknownFutureValue
+)
 
-// ScheduleChangeStatePApproved returns a pointer to ScheduleChangeStateVApproved
-func ScheduleChangeStatePApproved() *ScheduleChangeState {
-	v := ScheduleChangeStateVApproved
-	return &v
-}
-
-// ScheduleChangeStatePDeclined returns a pointer to ScheduleChangeStateVDeclined
-func ScheduleChangeStatePDeclined() *ScheduleChangeState {
-	v := ScheduleChangeStateVDeclined
-	return &v
-}
-
-// ScheduleChangeStatePUnknownFutureValue returns a pointer to ScheduleChangeStateVUnknownFutureValue
-func ScheduleChangeStatePUnknownFutureValue() *ScheduleChangeState {
-	v := ScheduleChangeStateVUnknownFutureValue
-	return &v
-}
+var (
+	_ScheduleChangeStatePPending            = ScheduleChangeStateVPending
+	_ScheduleChangeStatePApproved           = ScheduleChangeStateVApproved
+	_ScheduleChangeStatePDeclined           = ScheduleChangeStateVDeclined
+	_ScheduleChangeStatePUnknownFutureValue = ScheduleChangeStateVUnknownFutureValue
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // InkAccessSetting undocumented
-type InkAccessSetting int
+type InkAccessSetting string
 
 const (
 	// InkAccessSettingVNotConfigured undocumented
-	InkAccessSettingVNotConfigured InkAccessSetting = 0
+	InkAccessSettingVNotConfigured InkAccessSetting = "notConfigured"
 	// InkAccessSettingVEnabled undocumented
-	InkAccessSettingVEnabled InkAccessSetting = 1
+	InkAccessSettingVEnabled InkAccessSetting = "enabled"
 	// InkAccessSettingVDisabled undocumented
-	InkAccessSettingVDisabled InkAccessSetting = 2
+	InkAccessSettingVDisabled InkAccessSetting = "disabled"
 )
 
-// InkAccessSettingPNotConfigured returns a pointer to InkAccessSettingVNotConfigured
-func InkAccessSettingPNotConfigured() *InkAccessSetting {
-	v := InkAccessSettingVNotConfigured
-	return &v
-}
+var (
+	// InkAccessSettingPNotConfigured is a pointer to InkAccessSettingVNotConfigured
+	InkAccessSettingPNotConfigured = &_InkAccessSettingPNotConfigured
+	// InkAccessSettingPEnabled is a pointer to InkAccessSettingVEnabled
+	InkAccessSettingPEnabled = &_InkAccessSettingPEnabled
+	// InkAccessSettingPDisabled is a pointer to InkAccessSettingVDisabled
+	InkAccessSettingPDisabled = &_InkAccessSettingPDisabled
+)
 
-// InkAccessSettingPEnabled returns a pointer to InkAccessSettingVEnabled
-func InkAccessSettingPEnabled() *InkAccessSetting {
-	v := InkAccessSettingVEnabled
-	return &v
-}
-
-// InkAccessSettingPDisabled returns a pointer to InkAccessSettingVDisabled
-func InkAccessSettingPDisabled() *InkAccessSetting {
-	v := InkAccessSettingVDisabled
-	return &v
-}
+var (
+	_InkAccessSettingPNotConfigured = InkAccessSettingVNotConfigured
+	_InkAccessSettingPEnabled       = InkAccessSettingVEnabled
+	_InkAccessSettingPDisabled      = InkAccessSettingVDisabled
+)

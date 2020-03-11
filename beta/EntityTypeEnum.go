@@ -3,47 +3,38 @@
 package msgraph
 
 // EntityType undocumented
-type EntityType int
+type EntityType string
 
 const (
 	// EntityTypeVEvent undocumented
-	EntityTypeVEvent EntityType = 0
+	EntityTypeVEvent EntityType = "event"
 	// EntityTypeVMessage undocumented
-	EntityTypeVMessage EntityType = 1
+	EntityTypeVMessage EntityType = "message"
 	// EntityTypeVDriveItem undocumented
-	EntityTypeVDriveItem EntityType = 2
+	EntityTypeVDriveItem EntityType = "driveItem"
 	// EntityTypeVExternalFile undocumented
-	EntityTypeVExternalFile EntityType = 3
+	EntityTypeVExternalFile EntityType = "externalFile"
 	// EntityTypeVExternalItem undocumented
-	EntityTypeVExternalItem EntityType = 4
+	EntityTypeVExternalItem EntityType = "externalItem"
 )
 
-// EntityTypePEvent returns a pointer to EntityTypeVEvent
-func EntityTypePEvent() *EntityType {
-	v := EntityTypeVEvent
-	return &v
-}
+var (
+	// EntityTypePEvent is a pointer to EntityTypeVEvent
+	EntityTypePEvent = &_EntityTypePEvent
+	// EntityTypePMessage is a pointer to EntityTypeVMessage
+	EntityTypePMessage = &_EntityTypePMessage
+	// EntityTypePDriveItem is a pointer to EntityTypeVDriveItem
+	EntityTypePDriveItem = &_EntityTypePDriveItem
+	// EntityTypePExternalFile is a pointer to EntityTypeVExternalFile
+	EntityTypePExternalFile = &_EntityTypePExternalFile
+	// EntityTypePExternalItem is a pointer to EntityTypeVExternalItem
+	EntityTypePExternalItem = &_EntityTypePExternalItem
+)
 
-// EntityTypePMessage returns a pointer to EntityTypeVMessage
-func EntityTypePMessage() *EntityType {
-	v := EntityTypeVMessage
-	return &v
-}
-
-// EntityTypePDriveItem returns a pointer to EntityTypeVDriveItem
-func EntityTypePDriveItem() *EntityType {
-	v := EntityTypeVDriveItem
-	return &v
-}
-
-// EntityTypePExternalFile returns a pointer to EntityTypeVExternalFile
-func EntityTypePExternalFile() *EntityType {
-	v := EntityTypeVExternalFile
-	return &v
-}
-
-// EntityTypePExternalItem returns a pointer to EntityTypeVExternalItem
-func EntityTypePExternalItem() *EntityType {
-	v := EntityTypeVExternalItem
-	return &v
-}
+var (
+	_EntityTypePEvent        = EntityTypeVEvent
+	_EntityTypePMessage      = EntityTypeVMessage
+	_EntityTypePDriveItem    = EntityTypeVDriveItem
+	_EntityTypePExternalFile = EntityTypeVExternalFile
+	_EntityTypePExternalItem = EntityTypeVExternalItem
+)

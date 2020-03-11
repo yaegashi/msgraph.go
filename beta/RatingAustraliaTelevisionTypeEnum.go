@@ -3,79 +3,58 @@
 package msgraph
 
 // RatingAustraliaTelevisionType undocumented
-type RatingAustraliaTelevisionType int
+type RatingAustraliaTelevisionType string
 
 const (
 	// RatingAustraliaTelevisionTypeVAllAllowed undocumented
-	RatingAustraliaTelevisionTypeVAllAllowed RatingAustraliaTelevisionType = 0
+	RatingAustraliaTelevisionTypeVAllAllowed RatingAustraliaTelevisionType = "allAllowed"
 	// RatingAustraliaTelevisionTypeVAllBlocked undocumented
-	RatingAustraliaTelevisionTypeVAllBlocked RatingAustraliaTelevisionType = 1
+	RatingAustraliaTelevisionTypeVAllBlocked RatingAustraliaTelevisionType = "allBlocked"
 	// RatingAustraliaTelevisionTypeVPreschoolers undocumented
-	RatingAustraliaTelevisionTypeVPreschoolers RatingAustraliaTelevisionType = 2
+	RatingAustraliaTelevisionTypeVPreschoolers RatingAustraliaTelevisionType = "preschoolers"
 	// RatingAustraliaTelevisionTypeVChildren undocumented
-	RatingAustraliaTelevisionTypeVChildren RatingAustraliaTelevisionType = 3
+	RatingAustraliaTelevisionTypeVChildren RatingAustraliaTelevisionType = "children"
 	// RatingAustraliaTelevisionTypeVGeneral undocumented
-	RatingAustraliaTelevisionTypeVGeneral RatingAustraliaTelevisionType = 4
+	RatingAustraliaTelevisionTypeVGeneral RatingAustraliaTelevisionType = "general"
 	// RatingAustraliaTelevisionTypeVParentalGuidance undocumented
-	RatingAustraliaTelevisionTypeVParentalGuidance RatingAustraliaTelevisionType = 5
+	RatingAustraliaTelevisionTypeVParentalGuidance RatingAustraliaTelevisionType = "parentalGuidance"
 	// RatingAustraliaTelevisionTypeVMature undocumented
-	RatingAustraliaTelevisionTypeVMature RatingAustraliaTelevisionType = 6
+	RatingAustraliaTelevisionTypeVMature RatingAustraliaTelevisionType = "mature"
 	// RatingAustraliaTelevisionTypeVAgesAbove15 undocumented
-	RatingAustraliaTelevisionTypeVAgesAbove15 RatingAustraliaTelevisionType = 7
+	RatingAustraliaTelevisionTypeVAgesAbove15 RatingAustraliaTelevisionType = "agesAbove15"
 	// RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence undocumented
-	RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence RatingAustraliaTelevisionType = 8
+	RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence RatingAustraliaTelevisionType = "agesAbove15AdultViolence"
 )
 
-// RatingAustraliaTelevisionTypePAllAllowed returns a pointer to RatingAustraliaTelevisionTypeVAllAllowed
-func RatingAustraliaTelevisionTypePAllAllowed() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingAustraliaTelevisionTypePAllAllowed is a pointer to RatingAustraliaTelevisionTypeVAllAllowed
+	RatingAustraliaTelevisionTypePAllAllowed = &_RatingAustraliaTelevisionTypePAllAllowed
+	// RatingAustraliaTelevisionTypePAllBlocked is a pointer to RatingAustraliaTelevisionTypeVAllBlocked
+	RatingAustraliaTelevisionTypePAllBlocked = &_RatingAustraliaTelevisionTypePAllBlocked
+	// RatingAustraliaTelevisionTypePPreschoolers is a pointer to RatingAustraliaTelevisionTypeVPreschoolers
+	RatingAustraliaTelevisionTypePPreschoolers = &_RatingAustraliaTelevisionTypePPreschoolers
+	// RatingAustraliaTelevisionTypePChildren is a pointer to RatingAustraliaTelevisionTypeVChildren
+	RatingAustraliaTelevisionTypePChildren = &_RatingAustraliaTelevisionTypePChildren
+	// RatingAustraliaTelevisionTypePGeneral is a pointer to RatingAustraliaTelevisionTypeVGeneral
+	RatingAustraliaTelevisionTypePGeneral = &_RatingAustraliaTelevisionTypePGeneral
+	// RatingAustraliaTelevisionTypePParentalGuidance is a pointer to RatingAustraliaTelevisionTypeVParentalGuidance
+	RatingAustraliaTelevisionTypePParentalGuidance = &_RatingAustraliaTelevisionTypePParentalGuidance
+	// RatingAustraliaTelevisionTypePMature is a pointer to RatingAustraliaTelevisionTypeVMature
+	RatingAustraliaTelevisionTypePMature = &_RatingAustraliaTelevisionTypePMature
+	// RatingAustraliaTelevisionTypePAgesAbove15 is a pointer to RatingAustraliaTelevisionTypeVAgesAbove15
+	RatingAustraliaTelevisionTypePAgesAbove15 = &_RatingAustraliaTelevisionTypePAgesAbove15
+	// RatingAustraliaTelevisionTypePAgesAbove15AdultViolence is a pointer to RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence
+	RatingAustraliaTelevisionTypePAgesAbove15AdultViolence = &_RatingAustraliaTelevisionTypePAgesAbove15AdultViolence
+)
 
-// RatingAustraliaTelevisionTypePAllBlocked returns a pointer to RatingAustraliaTelevisionTypeVAllBlocked
-func RatingAustraliaTelevisionTypePAllBlocked() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePPreschoolers returns a pointer to RatingAustraliaTelevisionTypeVPreschoolers
-func RatingAustraliaTelevisionTypePPreschoolers() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVPreschoolers
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePChildren returns a pointer to RatingAustraliaTelevisionTypeVChildren
-func RatingAustraliaTelevisionTypePChildren() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVChildren
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePGeneral returns a pointer to RatingAustraliaTelevisionTypeVGeneral
-func RatingAustraliaTelevisionTypePGeneral() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVGeneral
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePParentalGuidance returns a pointer to RatingAustraliaTelevisionTypeVParentalGuidance
-func RatingAustraliaTelevisionTypePParentalGuidance() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVParentalGuidance
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePMature returns a pointer to RatingAustraliaTelevisionTypeVMature
-func RatingAustraliaTelevisionTypePMature() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVMature
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePAgesAbove15 returns a pointer to RatingAustraliaTelevisionTypeVAgesAbove15
-func RatingAustraliaTelevisionTypePAgesAbove15() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVAgesAbove15
-	return &v
-}
-
-// RatingAustraliaTelevisionTypePAgesAbove15AdultViolence returns a pointer to RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence
-func RatingAustraliaTelevisionTypePAgesAbove15AdultViolence() *RatingAustraliaTelevisionType {
-	v := RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence
-	return &v
-}
+var (
+	_RatingAustraliaTelevisionTypePAllAllowed               = RatingAustraliaTelevisionTypeVAllAllowed
+	_RatingAustraliaTelevisionTypePAllBlocked               = RatingAustraliaTelevisionTypeVAllBlocked
+	_RatingAustraliaTelevisionTypePPreschoolers             = RatingAustraliaTelevisionTypeVPreschoolers
+	_RatingAustraliaTelevisionTypePChildren                 = RatingAustraliaTelevisionTypeVChildren
+	_RatingAustraliaTelevisionTypePGeneral                  = RatingAustraliaTelevisionTypeVGeneral
+	_RatingAustraliaTelevisionTypePParentalGuidance         = RatingAustraliaTelevisionTypeVParentalGuidance
+	_RatingAustraliaTelevisionTypePMature                   = RatingAustraliaTelevisionTypeVMature
+	_RatingAustraliaTelevisionTypePAgesAbove15              = RatingAustraliaTelevisionTypeVAgesAbove15
+	_RatingAustraliaTelevisionTypePAgesAbove15AdultViolence = RatingAustraliaTelevisionTypeVAgesAbove15AdultViolence
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // SubjectAlternativeNameType undocumented
-type SubjectAlternativeNameType int
+type SubjectAlternativeNameType string
 
 const (
 	// SubjectAlternativeNameTypeVNone undocumented
-	SubjectAlternativeNameTypeVNone SubjectAlternativeNameType = 0
+	SubjectAlternativeNameTypeVNone SubjectAlternativeNameType = "none"
 	// SubjectAlternativeNameTypeVEmailAddress undocumented
-	SubjectAlternativeNameTypeVEmailAddress SubjectAlternativeNameType = 1
+	SubjectAlternativeNameTypeVEmailAddress SubjectAlternativeNameType = "emailAddress"
 	// SubjectAlternativeNameTypeVUserPrincipalName undocumented
-	SubjectAlternativeNameTypeVUserPrincipalName SubjectAlternativeNameType = 2
+	SubjectAlternativeNameTypeVUserPrincipalName SubjectAlternativeNameType = "userPrincipalName"
 	// SubjectAlternativeNameTypeVCustomAzureADAttribute undocumented
-	SubjectAlternativeNameTypeVCustomAzureADAttribute SubjectAlternativeNameType = 4
+	SubjectAlternativeNameTypeVCustomAzureADAttribute SubjectAlternativeNameType = "customAzureADAttribute"
 	// SubjectAlternativeNameTypeVDomainNameService undocumented
-	SubjectAlternativeNameTypeVDomainNameService SubjectAlternativeNameType = 8
+	SubjectAlternativeNameTypeVDomainNameService SubjectAlternativeNameType = "domainNameService"
 )
 
-// SubjectAlternativeNameTypePNone returns a pointer to SubjectAlternativeNameTypeVNone
-func SubjectAlternativeNameTypePNone() *SubjectAlternativeNameType {
-	v := SubjectAlternativeNameTypeVNone
-	return &v
-}
+var (
+	// SubjectAlternativeNameTypePNone is a pointer to SubjectAlternativeNameTypeVNone
+	SubjectAlternativeNameTypePNone = &_SubjectAlternativeNameTypePNone
+	// SubjectAlternativeNameTypePEmailAddress is a pointer to SubjectAlternativeNameTypeVEmailAddress
+	SubjectAlternativeNameTypePEmailAddress = &_SubjectAlternativeNameTypePEmailAddress
+	// SubjectAlternativeNameTypePUserPrincipalName is a pointer to SubjectAlternativeNameTypeVUserPrincipalName
+	SubjectAlternativeNameTypePUserPrincipalName = &_SubjectAlternativeNameTypePUserPrincipalName
+	// SubjectAlternativeNameTypePCustomAzureADAttribute is a pointer to SubjectAlternativeNameTypeVCustomAzureADAttribute
+	SubjectAlternativeNameTypePCustomAzureADAttribute = &_SubjectAlternativeNameTypePCustomAzureADAttribute
+	// SubjectAlternativeNameTypePDomainNameService is a pointer to SubjectAlternativeNameTypeVDomainNameService
+	SubjectAlternativeNameTypePDomainNameService = &_SubjectAlternativeNameTypePDomainNameService
+)
 
-// SubjectAlternativeNameTypePEmailAddress returns a pointer to SubjectAlternativeNameTypeVEmailAddress
-func SubjectAlternativeNameTypePEmailAddress() *SubjectAlternativeNameType {
-	v := SubjectAlternativeNameTypeVEmailAddress
-	return &v
-}
-
-// SubjectAlternativeNameTypePUserPrincipalName returns a pointer to SubjectAlternativeNameTypeVUserPrincipalName
-func SubjectAlternativeNameTypePUserPrincipalName() *SubjectAlternativeNameType {
-	v := SubjectAlternativeNameTypeVUserPrincipalName
-	return &v
-}
-
-// SubjectAlternativeNameTypePCustomAzureADAttribute returns a pointer to SubjectAlternativeNameTypeVCustomAzureADAttribute
-func SubjectAlternativeNameTypePCustomAzureADAttribute() *SubjectAlternativeNameType {
-	v := SubjectAlternativeNameTypeVCustomAzureADAttribute
-	return &v
-}
-
-// SubjectAlternativeNameTypePDomainNameService returns a pointer to SubjectAlternativeNameTypeVDomainNameService
-func SubjectAlternativeNameTypePDomainNameService() *SubjectAlternativeNameType {
-	v := SubjectAlternativeNameTypeVDomainNameService
-	return &v
-}
+var (
+	_SubjectAlternativeNameTypePNone                   = SubjectAlternativeNameTypeVNone
+	_SubjectAlternativeNameTypePEmailAddress           = SubjectAlternativeNameTypeVEmailAddress
+	_SubjectAlternativeNameTypePUserPrincipalName      = SubjectAlternativeNameTypeVUserPrincipalName
+	_SubjectAlternativeNameTypePCustomAzureADAttribute = SubjectAlternativeNameTypeVCustomAzureADAttribute
+	_SubjectAlternativeNameTypePDomainNameService      = SubjectAlternativeNameTypeVDomainNameService
+)

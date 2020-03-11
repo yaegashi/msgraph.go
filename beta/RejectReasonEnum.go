@@ -3,39 +3,33 @@
 package msgraph
 
 // RejectReason undocumented
-type RejectReason int
+type RejectReason string
 
 const (
 	// RejectReasonVNone undocumented
-	RejectReasonVNone RejectReason = 0
+	RejectReasonVNone RejectReason = "none"
 	// RejectReasonVBusy undocumented
-	RejectReasonVBusy RejectReason = 1
+	RejectReasonVBusy RejectReason = "busy"
 	// RejectReasonVForbidden undocumented
-	RejectReasonVForbidden RejectReason = 2
+	RejectReasonVForbidden RejectReason = "forbidden"
 	// RejectReasonVUnknownFutureValue undocumented
-	RejectReasonVUnknownFutureValue RejectReason = 3
+	RejectReasonVUnknownFutureValue RejectReason = "unknownFutureValue"
 )
 
-// RejectReasonPNone returns a pointer to RejectReasonVNone
-func RejectReasonPNone() *RejectReason {
-	v := RejectReasonVNone
-	return &v
-}
+var (
+	// RejectReasonPNone is a pointer to RejectReasonVNone
+	RejectReasonPNone = &_RejectReasonPNone
+	// RejectReasonPBusy is a pointer to RejectReasonVBusy
+	RejectReasonPBusy = &_RejectReasonPBusy
+	// RejectReasonPForbidden is a pointer to RejectReasonVForbidden
+	RejectReasonPForbidden = &_RejectReasonPForbidden
+	// RejectReasonPUnknownFutureValue is a pointer to RejectReasonVUnknownFutureValue
+	RejectReasonPUnknownFutureValue = &_RejectReasonPUnknownFutureValue
+)
 
-// RejectReasonPBusy returns a pointer to RejectReasonVBusy
-func RejectReasonPBusy() *RejectReason {
-	v := RejectReasonVBusy
-	return &v
-}
-
-// RejectReasonPForbidden returns a pointer to RejectReasonVForbidden
-func RejectReasonPForbidden() *RejectReason {
-	v := RejectReasonVForbidden
-	return &v
-}
-
-// RejectReasonPUnknownFutureValue returns a pointer to RejectReasonVUnknownFutureValue
-func RejectReasonPUnknownFutureValue() *RejectReason {
-	v := RejectReasonVUnknownFutureValue
-	return &v
-}
+var (
+	_RejectReasonPNone               = RejectReasonVNone
+	_RejectReasonPBusy               = RejectReasonVBusy
+	_RejectReasonPForbidden          = RejectReasonVForbidden
+	_RejectReasonPUnknownFutureValue = RejectReasonVUnknownFutureValue
+)

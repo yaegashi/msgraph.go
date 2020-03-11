@@ -3,175 +3,118 @@
 package msgraph
 
 // MiracastChannel undocumented
-type MiracastChannel int
+type MiracastChannel string
 
 const (
 	// MiracastChannelVUserDefined undocumented
-	MiracastChannelVUserDefined MiracastChannel = 0
+	MiracastChannelVUserDefined MiracastChannel = "userDefined"
 	// MiracastChannelVOne undocumented
-	MiracastChannelVOne MiracastChannel = 1
+	MiracastChannelVOne MiracastChannel = "one"
 	// MiracastChannelVTwo undocumented
-	MiracastChannelVTwo MiracastChannel = 2
+	MiracastChannelVTwo MiracastChannel = "two"
 	// MiracastChannelVThree undocumented
-	MiracastChannelVThree MiracastChannel = 3
+	MiracastChannelVThree MiracastChannel = "three"
 	// MiracastChannelVFour undocumented
-	MiracastChannelVFour MiracastChannel = 4
+	MiracastChannelVFour MiracastChannel = "four"
 	// MiracastChannelVFive undocumented
-	MiracastChannelVFive MiracastChannel = 5
+	MiracastChannelVFive MiracastChannel = "five"
 	// MiracastChannelVSix undocumented
-	MiracastChannelVSix MiracastChannel = 6
+	MiracastChannelVSix MiracastChannel = "six"
 	// MiracastChannelVSeven undocumented
-	MiracastChannelVSeven MiracastChannel = 7
+	MiracastChannelVSeven MiracastChannel = "seven"
 	// MiracastChannelVEight undocumented
-	MiracastChannelVEight MiracastChannel = 8
+	MiracastChannelVEight MiracastChannel = "eight"
 	// MiracastChannelVNine undocumented
-	MiracastChannelVNine MiracastChannel = 9
+	MiracastChannelVNine MiracastChannel = "nine"
 	// MiracastChannelVTen undocumented
-	MiracastChannelVTen MiracastChannel = 10
+	MiracastChannelVTen MiracastChannel = "ten"
 	// MiracastChannelVEleven undocumented
-	MiracastChannelVEleven MiracastChannel = 11
+	MiracastChannelVEleven MiracastChannel = "eleven"
 	// MiracastChannelVThirtySix undocumented
-	MiracastChannelVThirtySix MiracastChannel = 36
+	MiracastChannelVThirtySix MiracastChannel = "thirtySix"
 	// MiracastChannelVForty undocumented
-	MiracastChannelVForty MiracastChannel = 40
+	MiracastChannelVForty MiracastChannel = "forty"
 	// MiracastChannelVFortyFour undocumented
-	MiracastChannelVFortyFour MiracastChannel = 44
+	MiracastChannelVFortyFour MiracastChannel = "fortyFour"
 	// MiracastChannelVFortyEight undocumented
-	MiracastChannelVFortyEight MiracastChannel = 48
+	MiracastChannelVFortyEight MiracastChannel = "fortyEight"
 	// MiracastChannelVOneHundredFortyNine undocumented
-	MiracastChannelVOneHundredFortyNine MiracastChannel = 149
+	MiracastChannelVOneHundredFortyNine MiracastChannel = "oneHundredFortyNine"
 	// MiracastChannelVOneHundredFiftyThree undocumented
-	MiracastChannelVOneHundredFiftyThree MiracastChannel = 153
+	MiracastChannelVOneHundredFiftyThree MiracastChannel = "oneHundredFiftyThree"
 	// MiracastChannelVOneHundredFiftySeven undocumented
-	MiracastChannelVOneHundredFiftySeven MiracastChannel = 157
+	MiracastChannelVOneHundredFiftySeven MiracastChannel = "oneHundredFiftySeven"
 	// MiracastChannelVOneHundredSixtyOne undocumented
-	MiracastChannelVOneHundredSixtyOne MiracastChannel = 161
+	MiracastChannelVOneHundredSixtyOne MiracastChannel = "oneHundredSixtyOne"
 	// MiracastChannelVOneHundredSixtyFive undocumented
-	MiracastChannelVOneHundredSixtyFive MiracastChannel = 165
+	MiracastChannelVOneHundredSixtyFive MiracastChannel = "oneHundredSixtyFive"
 )
 
-// MiracastChannelPUserDefined returns a pointer to MiracastChannelVUserDefined
-func MiracastChannelPUserDefined() *MiracastChannel {
-	v := MiracastChannelVUserDefined
-	return &v
-}
+var (
+	// MiracastChannelPUserDefined is a pointer to MiracastChannelVUserDefined
+	MiracastChannelPUserDefined = &_MiracastChannelPUserDefined
+	// MiracastChannelPOne is a pointer to MiracastChannelVOne
+	MiracastChannelPOne = &_MiracastChannelPOne
+	// MiracastChannelPTwo is a pointer to MiracastChannelVTwo
+	MiracastChannelPTwo = &_MiracastChannelPTwo
+	// MiracastChannelPThree is a pointer to MiracastChannelVThree
+	MiracastChannelPThree = &_MiracastChannelPThree
+	// MiracastChannelPFour is a pointer to MiracastChannelVFour
+	MiracastChannelPFour = &_MiracastChannelPFour
+	// MiracastChannelPFive is a pointer to MiracastChannelVFive
+	MiracastChannelPFive = &_MiracastChannelPFive
+	// MiracastChannelPSix is a pointer to MiracastChannelVSix
+	MiracastChannelPSix = &_MiracastChannelPSix
+	// MiracastChannelPSeven is a pointer to MiracastChannelVSeven
+	MiracastChannelPSeven = &_MiracastChannelPSeven
+	// MiracastChannelPEight is a pointer to MiracastChannelVEight
+	MiracastChannelPEight = &_MiracastChannelPEight
+	// MiracastChannelPNine is a pointer to MiracastChannelVNine
+	MiracastChannelPNine = &_MiracastChannelPNine
+	// MiracastChannelPTen is a pointer to MiracastChannelVTen
+	MiracastChannelPTen = &_MiracastChannelPTen
+	// MiracastChannelPEleven is a pointer to MiracastChannelVEleven
+	MiracastChannelPEleven = &_MiracastChannelPEleven
+	// MiracastChannelPThirtySix is a pointer to MiracastChannelVThirtySix
+	MiracastChannelPThirtySix = &_MiracastChannelPThirtySix
+	// MiracastChannelPForty is a pointer to MiracastChannelVForty
+	MiracastChannelPForty = &_MiracastChannelPForty
+	// MiracastChannelPFortyFour is a pointer to MiracastChannelVFortyFour
+	MiracastChannelPFortyFour = &_MiracastChannelPFortyFour
+	// MiracastChannelPFortyEight is a pointer to MiracastChannelVFortyEight
+	MiracastChannelPFortyEight = &_MiracastChannelPFortyEight
+	// MiracastChannelPOneHundredFortyNine is a pointer to MiracastChannelVOneHundredFortyNine
+	MiracastChannelPOneHundredFortyNine = &_MiracastChannelPOneHundredFortyNine
+	// MiracastChannelPOneHundredFiftyThree is a pointer to MiracastChannelVOneHundredFiftyThree
+	MiracastChannelPOneHundredFiftyThree = &_MiracastChannelPOneHundredFiftyThree
+	// MiracastChannelPOneHundredFiftySeven is a pointer to MiracastChannelVOneHundredFiftySeven
+	MiracastChannelPOneHundredFiftySeven = &_MiracastChannelPOneHundredFiftySeven
+	// MiracastChannelPOneHundredSixtyOne is a pointer to MiracastChannelVOneHundredSixtyOne
+	MiracastChannelPOneHundredSixtyOne = &_MiracastChannelPOneHundredSixtyOne
+	// MiracastChannelPOneHundredSixtyFive is a pointer to MiracastChannelVOneHundredSixtyFive
+	MiracastChannelPOneHundredSixtyFive = &_MiracastChannelPOneHundredSixtyFive
+)
 
-// MiracastChannelPOne returns a pointer to MiracastChannelVOne
-func MiracastChannelPOne() *MiracastChannel {
-	v := MiracastChannelVOne
-	return &v
-}
-
-// MiracastChannelPTwo returns a pointer to MiracastChannelVTwo
-func MiracastChannelPTwo() *MiracastChannel {
-	v := MiracastChannelVTwo
-	return &v
-}
-
-// MiracastChannelPThree returns a pointer to MiracastChannelVThree
-func MiracastChannelPThree() *MiracastChannel {
-	v := MiracastChannelVThree
-	return &v
-}
-
-// MiracastChannelPFour returns a pointer to MiracastChannelVFour
-func MiracastChannelPFour() *MiracastChannel {
-	v := MiracastChannelVFour
-	return &v
-}
-
-// MiracastChannelPFive returns a pointer to MiracastChannelVFive
-func MiracastChannelPFive() *MiracastChannel {
-	v := MiracastChannelVFive
-	return &v
-}
-
-// MiracastChannelPSix returns a pointer to MiracastChannelVSix
-func MiracastChannelPSix() *MiracastChannel {
-	v := MiracastChannelVSix
-	return &v
-}
-
-// MiracastChannelPSeven returns a pointer to MiracastChannelVSeven
-func MiracastChannelPSeven() *MiracastChannel {
-	v := MiracastChannelVSeven
-	return &v
-}
-
-// MiracastChannelPEight returns a pointer to MiracastChannelVEight
-func MiracastChannelPEight() *MiracastChannel {
-	v := MiracastChannelVEight
-	return &v
-}
-
-// MiracastChannelPNine returns a pointer to MiracastChannelVNine
-func MiracastChannelPNine() *MiracastChannel {
-	v := MiracastChannelVNine
-	return &v
-}
-
-// MiracastChannelPTen returns a pointer to MiracastChannelVTen
-func MiracastChannelPTen() *MiracastChannel {
-	v := MiracastChannelVTen
-	return &v
-}
-
-// MiracastChannelPEleven returns a pointer to MiracastChannelVEleven
-func MiracastChannelPEleven() *MiracastChannel {
-	v := MiracastChannelVEleven
-	return &v
-}
-
-// MiracastChannelPThirtySix returns a pointer to MiracastChannelVThirtySix
-func MiracastChannelPThirtySix() *MiracastChannel {
-	v := MiracastChannelVThirtySix
-	return &v
-}
-
-// MiracastChannelPForty returns a pointer to MiracastChannelVForty
-func MiracastChannelPForty() *MiracastChannel {
-	v := MiracastChannelVForty
-	return &v
-}
-
-// MiracastChannelPFortyFour returns a pointer to MiracastChannelVFortyFour
-func MiracastChannelPFortyFour() *MiracastChannel {
-	v := MiracastChannelVFortyFour
-	return &v
-}
-
-// MiracastChannelPFortyEight returns a pointer to MiracastChannelVFortyEight
-func MiracastChannelPFortyEight() *MiracastChannel {
-	v := MiracastChannelVFortyEight
-	return &v
-}
-
-// MiracastChannelPOneHundredFortyNine returns a pointer to MiracastChannelVOneHundredFortyNine
-func MiracastChannelPOneHundredFortyNine() *MiracastChannel {
-	v := MiracastChannelVOneHundredFortyNine
-	return &v
-}
-
-// MiracastChannelPOneHundredFiftyThree returns a pointer to MiracastChannelVOneHundredFiftyThree
-func MiracastChannelPOneHundredFiftyThree() *MiracastChannel {
-	v := MiracastChannelVOneHundredFiftyThree
-	return &v
-}
-
-// MiracastChannelPOneHundredFiftySeven returns a pointer to MiracastChannelVOneHundredFiftySeven
-func MiracastChannelPOneHundredFiftySeven() *MiracastChannel {
-	v := MiracastChannelVOneHundredFiftySeven
-	return &v
-}
-
-// MiracastChannelPOneHundredSixtyOne returns a pointer to MiracastChannelVOneHundredSixtyOne
-func MiracastChannelPOneHundredSixtyOne() *MiracastChannel {
-	v := MiracastChannelVOneHundredSixtyOne
-	return &v
-}
-
-// MiracastChannelPOneHundredSixtyFive returns a pointer to MiracastChannelVOneHundredSixtyFive
-func MiracastChannelPOneHundredSixtyFive() *MiracastChannel {
-	v := MiracastChannelVOneHundredSixtyFive
-	return &v
-}
+var (
+	_MiracastChannelPUserDefined          = MiracastChannelVUserDefined
+	_MiracastChannelPOne                  = MiracastChannelVOne
+	_MiracastChannelPTwo                  = MiracastChannelVTwo
+	_MiracastChannelPThree                = MiracastChannelVThree
+	_MiracastChannelPFour                 = MiracastChannelVFour
+	_MiracastChannelPFive                 = MiracastChannelVFive
+	_MiracastChannelPSix                  = MiracastChannelVSix
+	_MiracastChannelPSeven                = MiracastChannelVSeven
+	_MiracastChannelPEight                = MiracastChannelVEight
+	_MiracastChannelPNine                 = MiracastChannelVNine
+	_MiracastChannelPTen                  = MiracastChannelVTen
+	_MiracastChannelPEleven               = MiracastChannelVEleven
+	_MiracastChannelPThirtySix            = MiracastChannelVThirtySix
+	_MiracastChannelPForty                = MiracastChannelVForty
+	_MiracastChannelPFortyFour            = MiracastChannelVFortyFour
+	_MiracastChannelPFortyEight           = MiracastChannelVFortyEight
+	_MiracastChannelPOneHundredFortyNine  = MiracastChannelVOneHundredFortyNine
+	_MiracastChannelPOneHundredFiftyThree = MiracastChannelVOneHundredFiftyThree
+	_MiracastChannelPOneHundredFiftySeven = MiracastChannelVOneHundredFiftySeven
+	_MiracastChannelPOneHundredSixtyOne   = MiracastChannelVOneHundredSixtyOne
+	_MiracastChannelPOneHundredSixtyFive  = MiracastChannelVOneHundredSixtyFive
+)

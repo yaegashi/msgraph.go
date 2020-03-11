@@ -3,47 +3,38 @@
 package msgraph
 
 // RecordingStatus undocumented
-type RecordingStatus int
+type RecordingStatus string
 
 const (
 	// RecordingStatusVUnknown undocumented
-	RecordingStatusVUnknown RecordingStatus = 0
+	RecordingStatusVUnknown RecordingStatus = "unknown"
 	// RecordingStatusVNotRecording undocumented
-	RecordingStatusVNotRecording RecordingStatus = 1
+	RecordingStatusVNotRecording RecordingStatus = "notRecording"
 	// RecordingStatusVRecording undocumented
-	RecordingStatusVRecording RecordingStatus = 2
+	RecordingStatusVRecording RecordingStatus = "recording"
 	// RecordingStatusVFailed undocumented
-	RecordingStatusVFailed RecordingStatus = 3
+	RecordingStatusVFailed RecordingStatus = "failed"
 	// RecordingStatusVUnknownFutureValue undocumented
-	RecordingStatusVUnknownFutureValue RecordingStatus = 4
+	RecordingStatusVUnknownFutureValue RecordingStatus = "unknownFutureValue"
 )
 
-// RecordingStatusPUnknown returns a pointer to RecordingStatusVUnknown
-func RecordingStatusPUnknown() *RecordingStatus {
-	v := RecordingStatusVUnknown
-	return &v
-}
+var (
+	// RecordingStatusPUnknown is a pointer to RecordingStatusVUnknown
+	RecordingStatusPUnknown = &_RecordingStatusPUnknown
+	// RecordingStatusPNotRecording is a pointer to RecordingStatusVNotRecording
+	RecordingStatusPNotRecording = &_RecordingStatusPNotRecording
+	// RecordingStatusPRecording is a pointer to RecordingStatusVRecording
+	RecordingStatusPRecording = &_RecordingStatusPRecording
+	// RecordingStatusPFailed is a pointer to RecordingStatusVFailed
+	RecordingStatusPFailed = &_RecordingStatusPFailed
+	// RecordingStatusPUnknownFutureValue is a pointer to RecordingStatusVUnknownFutureValue
+	RecordingStatusPUnknownFutureValue = &_RecordingStatusPUnknownFutureValue
+)
 
-// RecordingStatusPNotRecording returns a pointer to RecordingStatusVNotRecording
-func RecordingStatusPNotRecording() *RecordingStatus {
-	v := RecordingStatusVNotRecording
-	return &v
-}
-
-// RecordingStatusPRecording returns a pointer to RecordingStatusVRecording
-func RecordingStatusPRecording() *RecordingStatus {
-	v := RecordingStatusVRecording
-	return &v
-}
-
-// RecordingStatusPFailed returns a pointer to RecordingStatusVFailed
-func RecordingStatusPFailed() *RecordingStatus {
-	v := RecordingStatusVFailed
-	return &v
-}
-
-// RecordingStatusPUnknownFutureValue returns a pointer to RecordingStatusVUnknownFutureValue
-func RecordingStatusPUnknownFutureValue() *RecordingStatus {
-	v := RecordingStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_RecordingStatusPUnknown            = RecordingStatusVUnknown
+	_RecordingStatusPNotRecording       = RecordingStatusVNotRecording
+	_RecordingStatusPRecording          = RecordingStatusVRecording
+	_RecordingStatusPFailed             = RecordingStatusVFailed
+	_RecordingStatusPUnknownFutureValue = RecordingStatusVUnknownFutureValue
+)

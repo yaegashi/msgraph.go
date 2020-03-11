@@ -3,63 +3,48 @@
 package msgraph
 
 // DayOfWeek undocumented
-type DayOfWeek int
+type DayOfWeek string
 
 const (
 	// DayOfWeekVSunday undocumented
-	DayOfWeekVSunday DayOfWeek = 0
+	DayOfWeekVSunday DayOfWeek = "sunday"
 	// DayOfWeekVMonday undocumented
-	DayOfWeekVMonday DayOfWeek = 1
+	DayOfWeekVMonday DayOfWeek = "monday"
 	// DayOfWeekVTuesday undocumented
-	DayOfWeekVTuesday DayOfWeek = 2
+	DayOfWeekVTuesday DayOfWeek = "tuesday"
 	// DayOfWeekVWednesday undocumented
-	DayOfWeekVWednesday DayOfWeek = 3
+	DayOfWeekVWednesday DayOfWeek = "wednesday"
 	// DayOfWeekVThursday undocumented
-	DayOfWeekVThursday DayOfWeek = 4
+	DayOfWeekVThursday DayOfWeek = "thursday"
 	// DayOfWeekVFriday undocumented
-	DayOfWeekVFriday DayOfWeek = 5
+	DayOfWeekVFriday DayOfWeek = "friday"
 	// DayOfWeekVSaturday undocumented
-	DayOfWeekVSaturday DayOfWeek = 6
+	DayOfWeekVSaturday DayOfWeek = "saturday"
 )
 
-// DayOfWeekPSunday returns a pointer to DayOfWeekVSunday
-func DayOfWeekPSunday() *DayOfWeek {
-	v := DayOfWeekVSunday
-	return &v
-}
+var (
+	// DayOfWeekPSunday is a pointer to DayOfWeekVSunday
+	DayOfWeekPSunday = &_DayOfWeekPSunday
+	// DayOfWeekPMonday is a pointer to DayOfWeekVMonday
+	DayOfWeekPMonday = &_DayOfWeekPMonday
+	// DayOfWeekPTuesday is a pointer to DayOfWeekVTuesday
+	DayOfWeekPTuesday = &_DayOfWeekPTuesday
+	// DayOfWeekPWednesday is a pointer to DayOfWeekVWednesday
+	DayOfWeekPWednesday = &_DayOfWeekPWednesday
+	// DayOfWeekPThursday is a pointer to DayOfWeekVThursday
+	DayOfWeekPThursday = &_DayOfWeekPThursday
+	// DayOfWeekPFriday is a pointer to DayOfWeekVFriday
+	DayOfWeekPFriday = &_DayOfWeekPFriday
+	// DayOfWeekPSaturday is a pointer to DayOfWeekVSaturday
+	DayOfWeekPSaturday = &_DayOfWeekPSaturday
+)
 
-// DayOfWeekPMonday returns a pointer to DayOfWeekVMonday
-func DayOfWeekPMonday() *DayOfWeek {
-	v := DayOfWeekVMonday
-	return &v
-}
-
-// DayOfWeekPTuesday returns a pointer to DayOfWeekVTuesday
-func DayOfWeekPTuesday() *DayOfWeek {
-	v := DayOfWeekVTuesday
-	return &v
-}
-
-// DayOfWeekPWednesday returns a pointer to DayOfWeekVWednesday
-func DayOfWeekPWednesday() *DayOfWeek {
-	v := DayOfWeekVWednesday
-	return &v
-}
-
-// DayOfWeekPThursday returns a pointer to DayOfWeekVThursday
-func DayOfWeekPThursday() *DayOfWeek {
-	v := DayOfWeekVThursday
-	return &v
-}
-
-// DayOfWeekPFriday returns a pointer to DayOfWeekVFriday
-func DayOfWeekPFriday() *DayOfWeek {
-	v := DayOfWeekVFriday
-	return &v
-}
-
-// DayOfWeekPSaturday returns a pointer to DayOfWeekVSaturday
-func DayOfWeekPSaturday() *DayOfWeek {
-	v := DayOfWeekVSaturday
-	return &v
-}
+var (
+	_DayOfWeekPSunday    = DayOfWeekVSunday
+	_DayOfWeekPMonday    = DayOfWeekVMonday
+	_DayOfWeekPTuesday   = DayOfWeekVTuesday
+	_DayOfWeekPWednesday = DayOfWeekVWednesday
+	_DayOfWeekPThursday  = DayOfWeekVThursday
+	_DayOfWeekPFriday    = DayOfWeekVFriday
+	_DayOfWeekPSaturday  = DayOfWeekVSaturday
+)

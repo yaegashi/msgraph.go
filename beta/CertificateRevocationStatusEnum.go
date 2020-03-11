@@ -3,47 +3,38 @@
 package msgraph
 
 // CertificateRevocationStatus undocumented
-type CertificateRevocationStatus int
+type CertificateRevocationStatus string
 
 const (
 	// CertificateRevocationStatusVNone undocumented
-	CertificateRevocationStatusVNone CertificateRevocationStatus = 0
+	CertificateRevocationStatusVNone CertificateRevocationStatus = "none"
 	// CertificateRevocationStatusVPending undocumented
-	CertificateRevocationStatusVPending CertificateRevocationStatus = 1
+	CertificateRevocationStatusVPending CertificateRevocationStatus = "pending"
 	// CertificateRevocationStatusVIssued undocumented
-	CertificateRevocationStatusVIssued CertificateRevocationStatus = 2
+	CertificateRevocationStatusVIssued CertificateRevocationStatus = "issued"
 	// CertificateRevocationStatusVFailed undocumented
-	CertificateRevocationStatusVFailed CertificateRevocationStatus = 3
+	CertificateRevocationStatusVFailed CertificateRevocationStatus = "failed"
 	// CertificateRevocationStatusVRevoked undocumented
-	CertificateRevocationStatusVRevoked CertificateRevocationStatus = 4
+	CertificateRevocationStatusVRevoked CertificateRevocationStatus = "revoked"
 )
 
-// CertificateRevocationStatusPNone returns a pointer to CertificateRevocationStatusVNone
-func CertificateRevocationStatusPNone() *CertificateRevocationStatus {
-	v := CertificateRevocationStatusVNone
-	return &v
-}
+var (
+	// CertificateRevocationStatusPNone is a pointer to CertificateRevocationStatusVNone
+	CertificateRevocationStatusPNone = &_CertificateRevocationStatusPNone
+	// CertificateRevocationStatusPPending is a pointer to CertificateRevocationStatusVPending
+	CertificateRevocationStatusPPending = &_CertificateRevocationStatusPPending
+	// CertificateRevocationStatusPIssued is a pointer to CertificateRevocationStatusVIssued
+	CertificateRevocationStatusPIssued = &_CertificateRevocationStatusPIssued
+	// CertificateRevocationStatusPFailed is a pointer to CertificateRevocationStatusVFailed
+	CertificateRevocationStatusPFailed = &_CertificateRevocationStatusPFailed
+	// CertificateRevocationStatusPRevoked is a pointer to CertificateRevocationStatusVRevoked
+	CertificateRevocationStatusPRevoked = &_CertificateRevocationStatusPRevoked
+)
 
-// CertificateRevocationStatusPPending returns a pointer to CertificateRevocationStatusVPending
-func CertificateRevocationStatusPPending() *CertificateRevocationStatus {
-	v := CertificateRevocationStatusVPending
-	return &v
-}
-
-// CertificateRevocationStatusPIssued returns a pointer to CertificateRevocationStatusVIssued
-func CertificateRevocationStatusPIssued() *CertificateRevocationStatus {
-	v := CertificateRevocationStatusVIssued
-	return &v
-}
-
-// CertificateRevocationStatusPFailed returns a pointer to CertificateRevocationStatusVFailed
-func CertificateRevocationStatusPFailed() *CertificateRevocationStatus {
-	v := CertificateRevocationStatusVFailed
-	return &v
-}
-
-// CertificateRevocationStatusPRevoked returns a pointer to CertificateRevocationStatusVRevoked
-func CertificateRevocationStatusPRevoked() *CertificateRevocationStatus {
-	v := CertificateRevocationStatusVRevoked
-	return &v
-}
+var (
+	_CertificateRevocationStatusPNone    = CertificateRevocationStatusVNone
+	_CertificateRevocationStatusPPending = CertificateRevocationStatusVPending
+	_CertificateRevocationStatusPIssued  = CertificateRevocationStatusVIssued
+	_CertificateRevocationStatusPFailed  = CertificateRevocationStatusVFailed
+	_CertificateRevocationStatusPRevoked = CertificateRevocationStatusVRevoked
+)

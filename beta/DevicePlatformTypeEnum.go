@@ -3,79 +3,58 @@
 package msgraph
 
 // DevicePlatformType undocumented
-type DevicePlatformType int
+type DevicePlatformType string
 
 const (
 	// DevicePlatformTypeVAndroid undocumented
-	DevicePlatformTypeVAndroid DevicePlatformType = 0
+	DevicePlatformTypeVAndroid DevicePlatformType = "android"
 	// DevicePlatformTypeVAndroidForWork undocumented
-	DevicePlatformTypeVAndroidForWork DevicePlatformType = 1
+	DevicePlatformTypeVAndroidForWork DevicePlatformType = "androidForWork"
 	// DevicePlatformTypeVIOS undocumented
-	DevicePlatformTypeVIOS DevicePlatformType = 2
+	DevicePlatformTypeVIOS DevicePlatformType = "iOS"
 	// DevicePlatformTypeVMacOS undocumented
-	DevicePlatformTypeVMacOS DevicePlatformType = 3
+	DevicePlatformTypeVMacOS DevicePlatformType = "macOS"
 	// DevicePlatformTypeVWindowsPhone81 undocumented
-	DevicePlatformTypeVWindowsPhone81 DevicePlatformType = 4
+	DevicePlatformTypeVWindowsPhone81 DevicePlatformType = "windowsPhone81"
 	// DevicePlatformTypeVWindows81AndLater undocumented
-	DevicePlatformTypeVWindows81AndLater DevicePlatformType = 5
+	DevicePlatformTypeVWindows81AndLater DevicePlatformType = "windows81AndLater"
 	// DevicePlatformTypeVWindows10AndLater undocumented
-	DevicePlatformTypeVWindows10AndLater DevicePlatformType = 6
+	DevicePlatformTypeVWindows10AndLater DevicePlatformType = "windows10AndLater"
 	// DevicePlatformTypeVAndroidWorkProfile undocumented
-	DevicePlatformTypeVAndroidWorkProfile DevicePlatformType = 7
+	DevicePlatformTypeVAndroidWorkProfile DevicePlatformType = "androidWorkProfile"
 	// DevicePlatformTypeVUnknown undocumented
-	DevicePlatformTypeVUnknown DevicePlatformType = 8
+	DevicePlatformTypeVUnknown DevicePlatformType = "unknown"
 )
 
-// DevicePlatformTypePAndroid returns a pointer to DevicePlatformTypeVAndroid
-func DevicePlatformTypePAndroid() *DevicePlatformType {
-	v := DevicePlatformTypeVAndroid
-	return &v
-}
+var (
+	// DevicePlatformTypePAndroid is a pointer to DevicePlatformTypeVAndroid
+	DevicePlatformTypePAndroid = &_DevicePlatformTypePAndroid
+	// DevicePlatformTypePAndroidForWork is a pointer to DevicePlatformTypeVAndroidForWork
+	DevicePlatformTypePAndroidForWork = &_DevicePlatformTypePAndroidForWork
+	// DevicePlatformTypePIOS is a pointer to DevicePlatformTypeVIOS
+	DevicePlatformTypePIOS = &_DevicePlatformTypePIOS
+	// DevicePlatformTypePMacOS is a pointer to DevicePlatformTypeVMacOS
+	DevicePlatformTypePMacOS = &_DevicePlatformTypePMacOS
+	// DevicePlatformTypePWindowsPhone81 is a pointer to DevicePlatformTypeVWindowsPhone81
+	DevicePlatformTypePWindowsPhone81 = &_DevicePlatformTypePWindowsPhone81
+	// DevicePlatformTypePWindows81AndLater is a pointer to DevicePlatformTypeVWindows81AndLater
+	DevicePlatformTypePWindows81AndLater = &_DevicePlatformTypePWindows81AndLater
+	// DevicePlatformTypePWindows10AndLater is a pointer to DevicePlatformTypeVWindows10AndLater
+	DevicePlatformTypePWindows10AndLater = &_DevicePlatformTypePWindows10AndLater
+	// DevicePlatformTypePAndroidWorkProfile is a pointer to DevicePlatformTypeVAndroidWorkProfile
+	DevicePlatformTypePAndroidWorkProfile = &_DevicePlatformTypePAndroidWorkProfile
+	// DevicePlatformTypePUnknown is a pointer to DevicePlatformTypeVUnknown
+	DevicePlatformTypePUnknown = &_DevicePlatformTypePUnknown
+)
 
-// DevicePlatformTypePAndroidForWork returns a pointer to DevicePlatformTypeVAndroidForWork
-func DevicePlatformTypePAndroidForWork() *DevicePlatformType {
-	v := DevicePlatformTypeVAndroidForWork
-	return &v
-}
-
-// DevicePlatformTypePIOS returns a pointer to DevicePlatformTypeVIOS
-func DevicePlatformTypePIOS() *DevicePlatformType {
-	v := DevicePlatformTypeVIOS
-	return &v
-}
-
-// DevicePlatformTypePMacOS returns a pointer to DevicePlatformTypeVMacOS
-func DevicePlatformTypePMacOS() *DevicePlatformType {
-	v := DevicePlatformTypeVMacOS
-	return &v
-}
-
-// DevicePlatformTypePWindowsPhone81 returns a pointer to DevicePlatformTypeVWindowsPhone81
-func DevicePlatformTypePWindowsPhone81() *DevicePlatformType {
-	v := DevicePlatformTypeVWindowsPhone81
-	return &v
-}
-
-// DevicePlatformTypePWindows81AndLater returns a pointer to DevicePlatformTypeVWindows81AndLater
-func DevicePlatformTypePWindows81AndLater() *DevicePlatformType {
-	v := DevicePlatformTypeVWindows81AndLater
-	return &v
-}
-
-// DevicePlatformTypePWindows10AndLater returns a pointer to DevicePlatformTypeVWindows10AndLater
-func DevicePlatformTypePWindows10AndLater() *DevicePlatformType {
-	v := DevicePlatformTypeVWindows10AndLater
-	return &v
-}
-
-// DevicePlatformTypePAndroidWorkProfile returns a pointer to DevicePlatformTypeVAndroidWorkProfile
-func DevicePlatformTypePAndroidWorkProfile() *DevicePlatformType {
-	v := DevicePlatformTypeVAndroidWorkProfile
-	return &v
-}
-
-// DevicePlatformTypePUnknown returns a pointer to DevicePlatformTypeVUnknown
-func DevicePlatformTypePUnknown() *DevicePlatformType {
-	v := DevicePlatformTypeVUnknown
-	return &v
-}
+var (
+	_DevicePlatformTypePAndroid            = DevicePlatformTypeVAndroid
+	_DevicePlatformTypePAndroidForWork     = DevicePlatformTypeVAndroidForWork
+	_DevicePlatformTypePIOS                = DevicePlatformTypeVIOS
+	_DevicePlatformTypePMacOS              = DevicePlatformTypeVMacOS
+	_DevicePlatformTypePWindowsPhone81     = DevicePlatformTypeVWindowsPhone81
+	_DevicePlatformTypePWindows81AndLater  = DevicePlatformTypeVWindows81AndLater
+	_DevicePlatformTypePWindows10AndLater  = DevicePlatformTypeVWindows10AndLater
+	_DevicePlatformTypePAndroidWorkProfile = DevicePlatformTypeVAndroidWorkProfile
+	_DevicePlatformTypePUnknown            = DevicePlatformTypeVUnknown
+)

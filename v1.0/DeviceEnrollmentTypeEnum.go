@@ -3,87 +3,63 @@
 package msgraph
 
 // DeviceEnrollmentType undocumented
-type DeviceEnrollmentType int
+type DeviceEnrollmentType string
 
 const (
 	// DeviceEnrollmentTypeVUnknown undocumented
-	DeviceEnrollmentTypeVUnknown DeviceEnrollmentType = 0
+	DeviceEnrollmentTypeVUnknown DeviceEnrollmentType = "unknown"
 	// DeviceEnrollmentTypeVUserEnrollment undocumented
-	DeviceEnrollmentTypeVUserEnrollment DeviceEnrollmentType = 1
+	DeviceEnrollmentTypeVUserEnrollment DeviceEnrollmentType = "userEnrollment"
 	// DeviceEnrollmentTypeVDeviceEnrollmentManager undocumented
-	DeviceEnrollmentTypeVDeviceEnrollmentManager DeviceEnrollmentType = 2
+	DeviceEnrollmentTypeVDeviceEnrollmentManager DeviceEnrollmentType = "deviceEnrollmentManager"
 	// DeviceEnrollmentTypeVAppleBulkWithUser undocumented
-	DeviceEnrollmentTypeVAppleBulkWithUser DeviceEnrollmentType = 3
+	DeviceEnrollmentTypeVAppleBulkWithUser DeviceEnrollmentType = "appleBulkWithUser"
 	// DeviceEnrollmentTypeVAppleBulkWithoutUser undocumented
-	DeviceEnrollmentTypeVAppleBulkWithoutUser DeviceEnrollmentType = 4
+	DeviceEnrollmentTypeVAppleBulkWithoutUser DeviceEnrollmentType = "appleBulkWithoutUser"
 	// DeviceEnrollmentTypeVWindowsAzureADJoin undocumented
-	DeviceEnrollmentTypeVWindowsAzureADJoin DeviceEnrollmentType = 5
+	DeviceEnrollmentTypeVWindowsAzureADJoin DeviceEnrollmentType = "windowsAzureADJoin"
 	// DeviceEnrollmentTypeVWindowsBulkUserless undocumented
-	DeviceEnrollmentTypeVWindowsBulkUserless DeviceEnrollmentType = 6
+	DeviceEnrollmentTypeVWindowsBulkUserless DeviceEnrollmentType = "windowsBulkUserless"
 	// DeviceEnrollmentTypeVWindowsAutoEnrollment undocumented
-	DeviceEnrollmentTypeVWindowsAutoEnrollment DeviceEnrollmentType = 7
+	DeviceEnrollmentTypeVWindowsAutoEnrollment DeviceEnrollmentType = "windowsAutoEnrollment"
 	// DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin undocumented
-	DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin DeviceEnrollmentType = 8
+	DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin DeviceEnrollmentType = "windowsBulkAzureDomainJoin"
 	// DeviceEnrollmentTypeVWindowsCoManagement undocumented
-	DeviceEnrollmentTypeVWindowsCoManagement DeviceEnrollmentType = 9
+	DeviceEnrollmentTypeVWindowsCoManagement DeviceEnrollmentType = "windowsCoManagement"
 )
 
-// DeviceEnrollmentTypePUnknown returns a pointer to DeviceEnrollmentTypeVUnknown
-func DeviceEnrollmentTypePUnknown() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVUnknown
-	return &v
-}
+var (
+	// DeviceEnrollmentTypePUnknown is a pointer to DeviceEnrollmentTypeVUnknown
+	DeviceEnrollmentTypePUnknown = &_DeviceEnrollmentTypePUnknown
+	// DeviceEnrollmentTypePUserEnrollment is a pointer to DeviceEnrollmentTypeVUserEnrollment
+	DeviceEnrollmentTypePUserEnrollment = &_DeviceEnrollmentTypePUserEnrollment
+	// DeviceEnrollmentTypePDeviceEnrollmentManager is a pointer to DeviceEnrollmentTypeVDeviceEnrollmentManager
+	DeviceEnrollmentTypePDeviceEnrollmentManager = &_DeviceEnrollmentTypePDeviceEnrollmentManager
+	// DeviceEnrollmentTypePAppleBulkWithUser is a pointer to DeviceEnrollmentTypeVAppleBulkWithUser
+	DeviceEnrollmentTypePAppleBulkWithUser = &_DeviceEnrollmentTypePAppleBulkWithUser
+	// DeviceEnrollmentTypePAppleBulkWithoutUser is a pointer to DeviceEnrollmentTypeVAppleBulkWithoutUser
+	DeviceEnrollmentTypePAppleBulkWithoutUser = &_DeviceEnrollmentTypePAppleBulkWithoutUser
+	// DeviceEnrollmentTypePWindowsAzureADJoin is a pointer to DeviceEnrollmentTypeVWindowsAzureADJoin
+	DeviceEnrollmentTypePWindowsAzureADJoin = &_DeviceEnrollmentTypePWindowsAzureADJoin
+	// DeviceEnrollmentTypePWindowsBulkUserless is a pointer to DeviceEnrollmentTypeVWindowsBulkUserless
+	DeviceEnrollmentTypePWindowsBulkUserless = &_DeviceEnrollmentTypePWindowsBulkUserless
+	// DeviceEnrollmentTypePWindowsAutoEnrollment is a pointer to DeviceEnrollmentTypeVWindowsAutoEnrollment
+	DeviceEnrollmentTypePWindowsAutoEnrollment = &_DeviceEnrollmentTypePWindowsAutoEnrollment
+	// DeviceEnrollmentTypePWindowsBulkAzureDomainJoin is a pointer to DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
+	DeviceEnrollmentTypePWindowsBulkAzureDomainJoin = &_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin
+	// DeviceEnrollmentTypePWindowsCoManagement is a pointer to DeviceEnrollmentTypeVWindowsCoManagement
+	DeviceEnrollmentTypePWindowsCoManagement = &_DeviceEnrollmentTypePWindowsCoManagement
+)
 
-// DeviceEnrollmentTypePUserEnrollment returns a pointer to DeviceEnrollmentTypeVUserEnrollment
-func DeviceEnrollmentTypePUserEnrollment() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVUserEnrollment
-	return &v
-}
-
-// DeviceEnrollmentTypePDeviceEnrollmentManager returns a pointer to DeviceEnrollmentTypeVDeviceEnrollmentManager
-func DeviceEnrollmentTypePDeviceEnrollmentManager() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVDeviceEnrollmentManager
-	return &v
-}
-
-// DeviceEnrollmentTypePAppleBulkWithUser returns a pointer to DeviceEnrollmentTypeVAppleBulkWithUser
-func DeviceEnrollmentTypePAppleBulkWithUser() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVAppleBulkWithUser
-	return &v
-}
-
-// DeviceEnrollmentTypePAppleBulkWithoutUser returns a pointer to DeviceEnrollmentTypeVAppleBulkWithoutUser
-func DeviceEnrollmentTypePAppleBulkWithoutUser() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVAppleBulkWithoutUser
-	return &v
-}
-
-// DeviceEnrollmentTypePWindowsAzureADJoin returns a pointer to DeviceEnrollmentTypeVWindowsAzureADJoin
-func DeviceEnrollmentTypePWindowsAzureADJoin() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVWindowsAzureADJoin
-	return &v
-}
-
-// DeviceEnrollmentTypePWindowsBulkUserless returns a pointer to DeviceEnrollmentTypeVWindowsBulkUserless
-func DeviceEnrollmentTypePWindowsBulkUserless() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVWindowsBulkUserless
-	return &v
-}
-
-// DeviceEnrollmentTypePWindowsAutoEnrollment returns a pointer to DeviceEnrollmentTypeVWindowsAutoEnrollment
-func DeviceEnrollmentTypePWindowsAutoEnrollment() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVWindowsAutoEnrollment
-	return &v
-}
-
-// DeviceEnrollmentTypePWindowsBulkAzureDomainJoin returns a pointer to DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
-func DeviceEnrollmentTypePWindowsBulkAzureDomainJoin() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
-	return &v
-}
-
-// DeviceEnrollmentTypePWindowsCoManagement returns a pointer to DeviceEnrollmentTypeVWindowsCoManagement
-func DeviceEnrollmentTypePWindowsCoManagement() *DeviceEnrollmentType {
-	v := DeviceEnrollmentTypeVWindowsCoManagement
-	return &v
-}
+var (
+	_DeviceEnrollmentTypePUnknown                    = DeviceEnrollmentTypeVUnknown
+	_DeviceEnrollmentTypePUserEnrollment             = DeviceEnrollmentTypeVUserEnrollment
+	_DeviceEnrollmentTypePDeviceEnrollmentManager    = DeviceEnrollmentTypeVDeviceEnrollmentManager
+	_DeviceEnrollmentTypePAppleBulkWithUser          = DeviceEnrollmentTypeVAppleBulkWithUser
+	_DeviceEnrollmentTypePAppleBulkWithoutUser       = DeviceEnrollmentTypeVAppleBulkWithoutUser
+	_DeviceEnrollmentTypePWindowsAzureADJoin         = DeviceEnrollmentTypeVWindowsAzureADJoin
+	_DeviceEnrollmentTypePWindowsBulkUserless        = DeviceEnrollmentTypeVWindowsBulkUserless
+	_DeviceEnrollmentTypePWindowsAutoEnrollment      = DeviceEnrollmentTypeVWindowsAutoEnrollment
+	_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin = DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
+	_DeviceEnrollmentTypePWindowsCoManagement        = DeviceEnrollmentTypeVWindowsCoManagement
+)

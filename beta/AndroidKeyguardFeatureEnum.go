@@ -3,71 +3,53 @@
 package msgraph
 
 // AndroidKeyguardFeature undocumented
-type AndroidKeyguardFeature int
+type AndroidKeyguardFeature string
 
 const (
 	// AndroidKeyguardFeatureVNotConfigured undocumented
-	AndroidKeyguardFeatureVNotConfigured AndroidKeyguardFeature = 0
+	AndroidKeyguardFeatureVNotConfigured AndroidKeyguardFeature = "notConfigured"
 	// AndroidKeyguardFeatureVCamera undocumented
-	AndroidKeyguardFeatureVCamera AndroidKeyguardFeature = 1
+	AndroidKeyguardFeatureVCamera AndroidKeyguardFeature = "camera"
 	// AndroidKeyguardFeatureVNotifications undocumented
-	AndroidKeyguardFeatureVNotifications AndroidKeyguardFeature = 2
+	AndroidKeyguardFeatureVNotifications AndroidKeyguardFeature = "notifications"
 	// AndroidKeyguardFeatureVUnredactedNotifications undocumented
-	AndroidKeyguardFeatureVUnredactedNotifications AndroidKeyguardFeature = 3
+	AndroidKeyguardFeatureVUnredactedNotifications AndroidKeyguardFeature = "unredactedNotifications"
 	// AndroidKeyguardFeatureVTrustAgents undocumented
-	AndroidKeyguardFeatureVTrustAgents AndroidKeyguardFeature = 4
+	AndroidKeyguardFeatureVTrustAgents AndroidKeyguardFeature = "trustAgents"
 	// AndroidKeyguardFeatureVFingerprint undocumented
-	AndroidKeyguardFeatureVFingerprint AndroidKeyguardFeature = 5
+	AndroidKeyguardFeatureVFingerprint AndroidKeyguardFeature = "fingerprint"
 	// AndroidKeyguardFeatureVRemoteInput undocumented
-	AndroidKeyguardFeatureVRemoteInput AndroidKeyguardFeature = 6
+	AndroidKeyguardFeatureVRemoteInput AndroidKeyguardFeature = "remoteInput"
 	// AndroidKeyguardFeatureVAllFeatures undocumented
-	AndroidKeyguardFeatureVAllFeatures AndroidKeyguardFeature = 7
+	AndroidKeyguardFeatureVAllFeatures AndroidKeyguardFeature = "allFeatures"
 )
 
-// AndroidKeyguardFeaturePNotConfigured returns a pointer to AndroidKeyguardFeatureVNotConfigured
-func AndroidKeyguardFeaturePNotConfigured() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVNotConfigured
-	return &v
-}
+var (
+	// AndroidKeyguardFeaturePNotConfigured is a pointer to AndroidKeyguardFeatureVNotConfigured
+	AndroidKeyguardFeaturePNotConfigured = &_AndroidKeyguardFeaturePNotConfigured
+	// AndroidKeyguardFeaturePCamera is a pointer to AndroidKeyguardFeatureVCamera
+	AndroidKeyguardFeaturePCamera = &_AndroidKeyguardFeaturePCamera
+	// AndroidKeyguardFeaturePNotifications is a pointer to AndroidKeyguardFeatureVNotifications
+	AndroidKeyguardFeaturePNotifications = &_AndroidKeyguardFeaturePNotifications
+	// AndroidKeyguardFeaturePUnredactedNotifications is a pointer to AndroidKeyguardFeatureVUnredactedNotifications
+	AndroidKeyguardFeaturePUnredactedNotifications = &_AndroidKeyguardFeaturePUnredactedNotifications
+	// AndroidKeyguardFeaturePTrustAgents is a pointer to AndroidKeyguardFeatureVTrustAgents
+	AndroidKeyguardFeaturePTrustAgents = &_AndroidKeyguardFeaturePTrustAgents
+	// AndroidKeyguardFeaturePFingerprint is a pointer to AndroidKeyguardFeatureVFingerprint
+	AndroidKeyguardFeaturePFingerprint = &_AndroidKeyguardFeaturePFingerprint
+	// AndroidKeyguardFeaturePRemoteInput is a pointer to AndroidKeyguardFeatureVRemoteInput
+	AndroidKeyguardFeaturePRemoteInput = &_AndroidKeyguardFeaturePRemoteInput
+	// AndroidKeyguardFeaturePAllFeatures is a pointer to AndroidKeyguardFeatureVAllFeatures
+	AndroidKeyguardFeaturePAllFeatures = &_AndroidKeyguardFeaturePAllFeatures
+)
 
-// AndroidKeyguardFeaturePCamera returns a pointer to AndroidKeyguardFeatureVCamera
-func AndroidKeyguardFeaturePCamera() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVCamera
-	return &v
-}
-
-// AndroidKeyguardFeaturePNotifications returns a pointer to AndroidKeyguardFeatureVNotifications
-func AndroidKeyguardFeaturePNotifications() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVNotifications
-	return &v
-}
-
-// AndroidKeyguardFeaturePUnredactedNotifications returns a pointer to AndroidKeyguardFeatureVUnredactedNotifications
-func AndroidKeyguardFeaturePUnredactedNotifications() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVUnredactedNotifications
-	return &v
-}
-
-// AndroidKeyguardFeaturePTrustAgents returns a pointer to AndroidKeyguardFeatureVTrustAgents
-func AndroidKeyguardFeaturePTrustAgents() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVTrustAgents
-	return &v
-}
-
-// AndroidKeyguardFeaturePFingerprint returns a pointer to AndroidKeyguardFeatureVFingerprint
-func AndroidKeyguardFeaturePFingerprint() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVFingerprint
-	return &v
-}
-
-// AndroidKeyguardFeaturePRemoteInput returns a pointer to AndroidKeyguardFeatureVRemoteInput
-func AndroidKeyguardFeaturePRemoteInput() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVRemoteInput
-	return &v
-}
-
-// AndroidKeyguardFeaturePAllFeatures returns a pointer to AndroidKeyguardFeatureVAllFeatures
-func AndroidKeyguardFeaturePAllFeatures() *AndroidKeyguardFeature {
-	v := AndroidKeyguardFeatureVAllFeatures
-	return &v
-}
+var (
+	_AndroidKeyguardFeaturePNotConfigured           = AndroidKeyguardFeatureVNotConfigured
+	_AndroidKeyguardFeaturePCamera                  = AndroidKeyguardFeatureVCamera
+	_AndroidKeyguardFeaturePNotifications           = AndroidKeyguardFeatureVNotifications
+	_AndroidKeyguardFeaturePUnredactedNotifications = AndroidKeyguardFeatureVUnredactedNotifications
+	_AndroidKeyguardFeaturePTrustAgents             = AndroidKeyguardFeatureVTrustAgents
+	_AndroidKeyguardFeaturePFingerprint             = AndroidKeyguardFeatureVFingerprint
+	_AndroidKeyguardFeaturePRemoteInput             = AndroidKeyguardFeatureVRemoteInput
+	_AndroidKeyguardFeaturePAllFeatures             = AndroidKeyguardFeatureVAllFeatures
+)

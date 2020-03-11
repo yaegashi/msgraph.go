@@ -3,39 +3,33 @@
 package msgraph
 
 // AppManagementLevel undocumented
-type AppManagementLevel int
+type AppManagementLevel string
 
 const (
 	// AppManagementLevelVUnspecified undocumented
-	AppManagementLevelVUnspecified AppManagementLevel = 0
+	AppManagementLevelVUnspecified AppManagementLevel = "unspecified"
 	// AppManagementLevelVUnmanaged undocumented
-	AppManagementLevelVUnmanaged AppManagementLevel = 1
+	AppManagementLevelVUnmanaged AppManagementLevel = "unmanaged"
 	// AppManagementLevelVMdm undocumented
-	AppManagementLevelVMdm AppManagementLevel = 2
+	AppManagementLevelVMdm AppManagementLevel = "mdm"
 	// AppManagementLevelVAndroidEnterprise undocumented
-	AppManagementLevelVAndroidEnterprise AppManagementLevel = 4
+	AppManagementLevelVAndroidEnterprise AppManagementLevel = "androidEnterprise"
 )
 
-// AppManagementLevelPUnspecified returns a pointer to AppManagementLevelVUnspecified
-func AppManagementLevelPUnspecified() *AppManagementLevel {
-	v := AppManagementLevelVUnspecified
-	return &v
-}
+var (
+	// AppManagementLevelPUnspecified is a pointer to AppManagementLevelVUnspecified
+	AppManagementLevelPUnspecified = &_AppManagementLevelPUnspecified
+	// AppManagementLevelPUnmanaged is a pointer to AppManagementLevelVUnmanaged
+	AppManagementLevelPUnmanaged = &_AppManagementLevelPUnmanaged
+	// AppManagementLevelPMdm is a pointer to AppManagementLevelVMdm
+	AppManagementLevelPMdm = &_AppManagementLevelPMdm
+	// AppManagementLevelPAndroidEnterprise is a pointer to AppManagementLevelVAndroidEnterprise
+	AppManagementLevelPAndroidEnterprise = &_AppManagementLevelPAndroidEnterprise
+)
 
-// AppManagementLevelPUnmanaged returns a pointer to AppManagementLevelVUnmanaged
-func AppManagementLevelPUnmanaged() *AppManagementLevel {
-	v := AppManagementLevelVUnmanaged
-	return &v
-}
-
-// AppManagementLevelPMdm returns a pointer to AppManagementLevelVMdm
-func AppManagementLevelPMdm() *AppManagementLevel {
-	v := AppManagementLevelVMdm
-	return &v
-}
-
-// AppManagementLevelPAndroidEnterprise returns a pointer to AppManagementLevelVAndroidEnterprise
-func AppManagementLevelPAndroidEnterprise() *AppManagementLevel {
-	v := AppManagementLevelVAndroidEnterprise
-	return &v
-}
+var (
+	_AppManagementLevelPUnspecified       = AppManagementLevelVUnspecified
+	_AppManagementLevelPUnmanaged         = AppManagementLevelVUnmanaged
+	_AppManagementLevelPMdm               = AppManagementLevelVMdm
+	_AppManagementLevelPAndroidEnterprise = AppManagementLevelVAndroidEnterprise
+)

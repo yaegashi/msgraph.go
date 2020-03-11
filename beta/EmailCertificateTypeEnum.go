@@ -3,31 +3,28 @@
 package msgraph
 
 // EmailCertificateType undocumented
-type EmailCertificateType int
+type EmailCertificateType string
 
 const (
 	// EmailCertificateTypeVNone undocumented
-	EmailCertificateTypeVNone EmailCertificateType = 0
+	EmailCertificateTypeVNone EmailCertificateType = "none"
 	// EmailCertificateTypeVCertificate undocumented
-	EmailCertificateTypeVCertificate EmailCertificateType = 1
+	EmailCertificateTypeVCertificate EmailCertificateType = "certificate"
 	// EmailCertificateTypeVDerivedCredential undocumented
-	EmailCertificateTypeVDerivedCredential EmailCertificateType = 2
+	EmailCertificateTypeVDerivedCredential EmailCertificateType = "derivedCredential"
 )
 
-// EmailCertificateTypePNone returns a pointer to EmailCertificateTypeVNone
-func EmailCertificateTypePNone() *EmailCertificateType {
-	v := EmailCertificateTypeVNone
-	return &v
-}
+var (
+	// EmailCertificateTypePNone is a pointer to EmailCertificateTypeVNone
+	EmailCertificateTypePNone = &_EmailCertificateTypePNone
+	// EmailCertificateTypePCertificate is a pointer to EmailCertificateTypeVCertificate
+	EmailCertificateTypePCertificate = &_EmailCertificateTypePCertificate
+	// EmailCertificateTypePDerivedCredential is a pointer to EmailCertificateTypeVDerivedCredential
+	EmailCertificateTypePDerivedCredential = &_EmailCertificateTypePDerivedCredential
+)
 
-// EmailCertificateTypePCertificate returns a pointer to EmailCertificateTypeVCertificate
-func EmailCertificateTypePCertificate() *EmailCertificateType {
-	v := EmailCertificateTypeVCertificate
-	return &v
-}
-
-// EmailCertificateTypePDerivedCredential returns a pointer to EmailCertificateTypeVDerivedCredential
-func EmailCertificateTypePDerivedCredential() *EmailCertificateType {
-	v := EmailCertificateTypeVDerivedCredential
-	return &v
-}
+var (
+	_EmailCertificateTypePNone              = EmailCertificateTypeVNone
+	_EmailCertificateTypePCertificate       = EmailCertificateTypeVCertificate
+	_EmailCertificateTypePDerivedCredential = EmailCertificateTypeVDerivedCredential
+)

@@ -3,15 +3,18 @@
 package msgraph
 
 // CalendarSharingActionType undocumented
-type CalendarSharingActionType int
+type CalendarSharingActionType string
 
 const (
 	// CalendarSharingActionTypeVAccept undocumented
-	CalendarSharingActionTypeVAccept CalendarSharingActionType = 0
+	CalendarSharingActionTypeVAccept CalendarSharingActionType = "accept"
 )
 
-// CalendarSharingActionTypePAccept returns a pointer to CalendarSharingActionTypeVAccept
-func CalendarSharingActionTypePAccept() *CalendarSharingActionType {
-	v := CalendarSharingActionTypeVAccept
-	return &v
-}
+var (
+	// CalendarSharingActionTypePAccept is a pointer to CalendarSharingActionTypeVAccept
+	CalendarSharingActionTypePAccept = &_CalendarSharingActionTypePAccept
+)
+
+var (
+	_CalendarSharingActionTypePAccept = CalendarSharingActionTypeVAccept
+)

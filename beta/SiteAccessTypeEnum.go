@@ -3,31 +3,28 @@
 package msgraph
 
 // SiteAccessType undocumented
-type SiteAccessType int
+type SiteAccessType string
 
 const (
 	// SiteAccessTypeVBlock undocumented
-	SiteAccessTypeVBlock SiteAccessType = 0
+	SiteAccessTypeVBlock SiteAccessType = "block"
 	// SiteAccessTypeVFull undocumented
-	SiteAccessTypeVFull SiteAccessType = 1
+	SiteAccessTypeVFull SiteAccessType = "full"
 	// SiteAccessTypeVLimited undocumented
-	SiteAccessTypeVLimited SiteAccessType = 2
+	SiteAccessTypeVLimited SiteAccessType = "limited"
 )
 
-// SiteAccessTypePBlock returns a pointer to SiteAccessTypeVBlock
-func SiteAccessTypePBlock() *SiteAccessType {
-	v := SiteAccessTypeVBlock
-	return &v
-}
+var (
+	// SiteAccessTypePBlock is a pointer to SiteAccessTypeVBlock
+	SiteAccessTypePBlock = &_SiteAccessTypePBlock
+	// SiteAccessTypePFull is a pointer to SiteAccessTypeVFull
+	SiteAccessTypePFull = &_SiteAccessTypePFull
+	// SiteAccessTypePLimited is a pointer to SiteAccessTypeVLimited
+	SiteAccessTypePLimited = &_SiteAccessTypePLimited
+)
 
-// SiteAccessTypePFull returns a pointer to SiteAccessTypeVFull
-func SiteAccessTypePFull() *SiteAccessType {
-	v := SiteAccessTypeVFull
-	return &v
-}
-
-// SiteAccessTypePLimited returns a pointer to SiteAccessTypeVLimited
-func SiteAccessTypePLimited() *SiteAccessType {
-	v := SiteAccessTypeVLimited
-	return &v
-}
+var (
+	_SiteAccessTypePBlock   = SiteAccessTypeVBlock
+	_SiteAccessTypePFull    = SiteAccessTypeVFull
+	_SiteAccessTypePLimited = SiteAccessTypeVLimited
+)

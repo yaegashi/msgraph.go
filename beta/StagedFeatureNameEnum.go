@@ -3,39 +3,33 @@
 package msgraph
 
 // StagedFeatureName undocumented
-type StagedFeatureName int
+type StagedFeatureName string
 
 const (
 	// StagedFeatureNameVPassthroughAuthentication undocumented
-	StagedFeatureNameVPassthroughAuthentication StagedFeatureName = 0
+	StagedFeatureNameVPassthroughAuthentication StagedFeatureName = "passthroughAuthentication"
 	// StagedFeatureNameVSeamlessSso undocumented
-	StagedFeatureNameVSeamlessSso StagedFeatureName = 1
+	StagedFeatureNameVSeamlessSso StagedFeatureName = "seamlessSso"
 	// StagedFeatureNameVPasswordHashSync undocumented
-	StagedFeatureNameVPasswordHashSync StagedFeatureName = 2
+	StagedFeatureNameVPasswordHashSync StagedFeatureName = "passwordHashSync"
 	// StagedFeatureNameVUnknownFutureValue undocumented
-	StagedFeatureNameVUnknownFutureValue StagedFeatureName = 3
+	StagedFeatureNameVUnknownFutureValue StagedFeatureName = "unknownFutureValue"
 )
 
-// StagedFeatureNamePPassthroughAuthentication returns a pointer to StagedFeatureNameVPassthroughAuthentication
-func StagedFeatureNamePPassthroughAuthentication() *StagedFeatureName {
-	v := StagedFeatureNameVPassthroughAuthentication
-	return &v
-}
+var (
+	// StagedFeatureNamePPassthroughAuthentication is a pointer to StagedFeatureNameVPassthroughAuthentication
+	StagedFeatureNamePPassthroughAuthentication = &_StagedFeatureNamePPassthroughAuthentication
+	// StagedFeatureNamePSeamlessSso is a pointer to StagedFeatureNameVSeamlessSso
+	StagedFeatureNamePSeamlessSso = &_StagedFeatureNamePSeamlessSso
+	// StagedFeatureNamePPasswordHashSync is a pointer to StagedFeatureNameVPasswordHashSync
+	StagedFeatureNamePPasswordHashSync = &_StagedFeatureNamePPasswordHashSync
+	// StagedFeatureNamePUnknownFutureValue is a pointer to StagedFeatureNameVUnknownFutureValue
+	StagedFeatureNamePUnknownFutureValue = &_StagedFeatureNamePUnknownFutureValue
+)
 
-// StagedFeatureNamePSeamlessSso returns a pointer to StagedFeatureNameVSeamlessSso
-func StagedFeatureNamePSeamlessSso() *StagedFeatureName {
-	v := StagedFeatureNameVSeamlessSso
-	return &v
-}
-
-// StagedFeatureNamePPasswordHashSync returns a pointer to StagedFeatureNameVPasswordHashSync
-func StagedFeatureNamePPasswordHashSync() *StagedFeatureName {
-	v := StagedFeatureNameVPasswordHashSync
-	return &v
-}
-
-// StagedFeatureNamePUnknownFutureValue returns a pointer to StagedFeatureNameVUnknownFutureValue
-func StagedFeatureNamePUnknownFutureValue() *StagedFeatureName {
-	v := StagedFeatureNameVUnknownFutureValue
-	return &v
-}
+var (
+	_StagedFeatureNamePPassthroughAuthentication = StagedFeatureNameVPassthroughAuthentication
+	_StagedFeatureNamePSeamlessSso               = StagedFeatureNameVSeamlessSso
+	_StagedFeatureNamePPasswordHashSync          = StagedFeatureNameVPasswordHashSync
+	_StagedFeatureNamePUnknownFutureValue        = StagedFeatureNameVUnknownFutureValue
+)

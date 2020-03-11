@@ -3,87 +3,63 @@
 package msgraph
 
 // MailTipsType undocumented
-type MailTipsType int
+type MailTipsType string
 
 const (
 	// MailTipsTypeVAutomaticReplies undocumented
-	MailTipsTypeVAutomaticReplies MailTipsType = 1
+	MailTipsTypeVAutomaticReplies MailTipsType = "automaticReplies"
 	// MailTipsTypeVMailboxFullStatus undocumented
-	MailTipsTypeVMailboxFullStatus MailTipsType = 2
+	MailTipsTypeVMailboxFullStatus MailTipsType = "mailboxFullStatus"
 	// MailTipsTypeVCustomMailTip undocumented
-	MailTipsTypeVCustomMailTip MailTipsType = 4
+	MailTipsTypeVCustomMailTip MailTipsType = "customMailTip"
 	// MailTipsTypeVExternalMemberCount undocumented
-	MailTipsTypeVExternalMemberCount MailTipsType = 8
+	MailTipsTypeVExternalMemberCount MailTipsType = "externalMemberCount"
 	// MailTipsTypeVTotalMemberCount undocumented
-	MailTipsTypeVTotalMemberCount MailTipsType = 16
+	MailTipsTypeVTotalMemberCount MailTipsType = "totalMemberCount"
 	// MailTipsTypeVMaxMessageSize undocumented
-	MailTipsTypeVMaxMessageSize MailTipsType = 32
+	MailTipsTypeVMaxMessageSize MailTipsType = "maxMessageSize"
 	// MailTipsTypeVDeliveryRestriction undocumented
-	MailTipsTypeVDeliveryRestriction MailTipsType = 64
+	MailTipsTypeVDeliveryRestriction MailTipsType = "deliveryRestriction"
 	// MailTipsTypeVModerationStatus undocumented
-	MailTipsTypeVModerationStatus MailTipsType = 128
+	MailTipsTypeVModerationStatus MailTipsType = "moderationStatus"
 	// MailTipsTypeVRecipientScope undocumented
-	MailTipsTypeVRecipientScope MailTipsType = 256
+	MailTipsTypeVRecipientScope MailTipsType = "recipientScope"
 	// MailTipsTypeVRecipientSuggestions undocumented
-	MailTipsTypeVRecipientSuggestions MailTipsType = 512
+	MailTipsTypeVRecipientSuggestions MailTipsType = "recipientSuggestions"
 )
 
-// MailTipsTypePAutomaticReplies returns a pointer to MailTipsTypeVAutomaticReplies
-func MailTipsTypePAutomaticReplies() *MailTipsType {
-	v := MailTipsTypeVAutomaticReplies
-	return &v
-}
+var (
+	// MailTipsTypePAutomaticReplies is a pointer to MailTipsTypeVAutomaticReplies
+	MailTipsTypePAutomaticReplies = &_MailTipsTypePAutomaticReplies
+	// MailTipsTypePMailboxFullStatus is a pointer to MailTipsTypeVMailboxFullStatus
+	MailTipsTypePMailboxFullStatus = &_MailTipsTypePMailboxFullStatus
+	// MailTipsTypePCustomMailTip is a pointer to MailTipsTypeVCustomMailTip
+	MailTipsTypePCustomMailTip = &_MailTipsTypePCustomMailTip
+	// MailTipsTypePExternalMemberCount is a pointer to MailTipsTypeVExternalMemberCount
+	MailTipsTypePExternalMemberCount = &_MailTipsTypePExternalMemberCount
+	// MailTipsTypePTotalMemberCount is a pointer to MailTipsTypeVTotalMemberCount
+	MailTipsTypePTotalMemberCount = &_MailTipsTypePTotalMemberCount
+	// MailTipsTypePMaxMessageSize is a pointer to MailTipsTypeVMaxMessageSize
+	MailTipsTypePMaxMessageSize = &_MailTipsTypePMaxMessageSize
+	// MailTipsTypePDeliveryRestriction is a pointer to MailTipsTypeVDeliveryRestriction
+	MailTipsTypePDeliveryRestriction = &_MailTipsTypePDeliveryRestriction
+	// MailTipsTypePModerationStatus is a pointer to MailTipsTypeVModerationStatus
+	MailTipsTypePModerationStatus = &_MailTipsTypePModerationStatus
+	// MailTipsTypePRecipientScope is a pointer to MailTipsTypeVRecipientScope
+	MailTipsTypePRecipientScope = &_MailTipsTypePRecipientScope
+	// MailTipsTypePRecipientSuggestions is a pointer to MailTipsTypeVRecipientSuggestions
+	MailTipsTypePRecipientSuggestions = &_MailTipsTypePRecipientSuggestions
+)
 
-// MailTipsTypePMailboxFullStatus returns a pointer to MailTipsTypeVMailboxFullStatus
-func MailTipsTypePMailboxFullStatus() *MailTipsType {
-	v := MailTipsTypeVMailboxFullStatus
-	return &v
-}
-
-// MailTipsTypePCustomMailTip returns a pointer to MailTipsTypeVCustomMailTip
-func MailTipsTypePCustomMailTip() *MailTipsType {
-	v := MailTipsTypeVCustomMailTip
-	return &v
-}
-
-// MailTipsTypePExternalMemberCount returns a pointer to MailTipsTypeVExternalMemberCount
-func MailTipsTypePExternalMemberCount() *MailTipsType {
-	v := MailTipsTypeVExternalMemberCount
-	return &v
-}
-
-// MailTipsTypePTotalMemberCount returns a pointer to MailTipsTypeVTotalMemberCount
-func MailTipsTypePTotalMemberCount() *MailTipsType {
-	v := MailTipsTypeVTotalMemberCount
-	return &v
-}
-
-// MailTipsTypePMaxMessageSize returns a pointer to MailTipsTypeVMaxMessageSize
-func MailTipsTypePMaxMessageSize() *MailTipsType {
-	v := MailTipsTypeVMaxMessageSize
-	return &v
-}
-
-// MailTipsTypePDeliveryRestriction returns a pointer to MailTipsTypeVDeliveryRestriction
-func MailTipsTypePDeliveryRestriction() *MailTipsType {
-	v := MailTipsTypeVDeliveryRestriction
-	return &v
-}
-
-// MailTipsTypePModerationStatus returns a pointer to MailTipsTypeVModerationStatus
-func MailTipsTypePModerationStatus() *MailTipsType {
-	v := MailTipsTypeVModerationStatus
-	return &v
-}
-
-// MailTipsTypePRecipientScope returns a pointer to MailTipsTypeVRecipientScope
-func MailTipsTypePRecipientScope() *MailTipsType {
-	v := MailTipsTypeVRecipientScope
-	return &v
-}
-
-// MailTipsTypePRecipientSuggestions returns a pointer to MailTipsTypeVRecipientSuggestions
-func MailTipsTypePRecipientSuggestions() *MailTipsType {
-	v := MailTipsTypeVRecipientSuggestions
-	return &v
-}
+var (
+	_MailTipsTypePAutomaticReplies     = MailTipsTypeVAutomaticReplies
+	_MailTipsTypePMailboxFullStatus    = MailTipsTypeVMailboxFullStatus
+	_MailTipsTypePCustomMailTip        = MailTipsTypeVCustomMailTip
+	_MailTipsTypePExternalMemberCount  = MailTipsTypeVExternalMemberCount
+	_MailTipsTypePTotalMemberCount     = MailTipsTypeVTotalMemberCount
+	_MailTipsTypePMaxMessageSize       = MailTipsTypeVMaxMessageSize
+	_MailTipsTypePDeliveryRestriction  = MailTipsTypeVDeliveryRestriction
+	_MailTipsTypePModerationStatus     = MailTipsTypeVModerationStatus
+	_MailTipsTypePRecipientScope       = MailTipsTypeVRecipientScope
+	_MailTipsTypePRecipientSuggestions = MailTipsTypeVRecipientSuggestions
+)

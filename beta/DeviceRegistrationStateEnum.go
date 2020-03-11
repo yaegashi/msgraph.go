@@ -3,71 +3,53 @@
 package msgraph
 
 // DeviceRegistrationState undocumented
-type DeviceRegistrationState int
+type DeviceRegistrationState string
 
 const (
 	// DeviceRegistrationStateVNotRegistered undocumented
-	DeviceRegistrationStateVNotRegistered DeviceRegistrationState = 0
+	DeviceRegistrationStateVNotRegistered DeviceRegistrationState = "notRegistered"
 	// DeviceRegistrationStateVRegistered undocumented
-	DeviceRegistrationStateVRegistered DeviceRegistrationState = 2
+	DeviceRegistrationStateVRegistered DeviceRegistrationState = "registered"
 	// DeviceRegistrationStateVRevoked undocumented
-	DeviceRegistrationStateVRevoked DeviceRegistrationState = 3
+	DeviceRegistrationStateVRevoked DeviceRegistrationState = "revoked"
 	// DeviceRegistrationStateVKeyConflict undocumented
-	DeviceRegistrationStateVKeyConflict DeviceRegistrationState = 4
+	DeviceRegistrationStateVKeyConflict DeviceRegistrationState = "keyConflict"
 	// DeviceRegistrationStateVApprovalPending undocumented
-	DeviceRegistrationStateVApprovalPending DeviceRegistrationState = 5
+	DeviceRegistrationStateVApprovalPending DeviceRegistrationState = "approvalPending"
 	// DeviceRegistrationStateVCertificateReset undocumented
-	DeviceRegistrationStateVCertificateReset DeviceRegistrationState = 6
+	DeviceRegistrationStateVCertificateReset DeviceRegistrationState = "certificateReset"
 	// DeviceRegistrationStateVNotRegisteredPendingEnrollment undocumented
-	DeviceRegistrationStateVNotRegisteredPendingEnrollment DeviceRegistrationState = 7
+	DeviceRegistrationStateVNotRegisteredPendingEnrollment DeviceRegistrationState = "notRegisteredPendingEnrollment"
 	// DeviceRegistrationStateVUnknown undocumented
-	DeviceRegistrationStateVUnknown DeviceRegistrationState = 8
+	DeviceRegistrationStateVUnknown DeviceRegistrationState = "unknown"
 )
 
-// DeviceRegistrationStatePNotRegistered returns a pointer to DeviceRegistrationStateVNotRegistered
-func DeviceRegistrationStatePNotRegistered() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVNotRegistered
-	return &v
-}
+var (
+	// DeviceRegistrationStatePNotRegistered is a pointer to DeviceRegistrationStateVNotRegistered
+	DeviceRegistrationStatePNotRegistered = &_DeviceRegistrationStatePNotRegistered
+	// DeviceRegistrationStatePRegistered is a pointer to DeviceRegistrationStateVRegistered
+	DeviceRegistrationStatePRegistered = &_DeviceRegistrationStatePRegistered
+	// DeviceRegistrationStatePRevoked is a pointer to DeviceRegistrationStateVRevoked
+	DeviceRegistrationStatePRevoked = &_DeviceRegistrationStatePRevoked
+	// DeviceRegistrationStatePKeyConflict is a pointer to DeviceRegistrationStateVKeyConflict
+	DeviceRegistrationStatePKeyConflict = &_DeviceRegistrationStatePKeyConflict
+	// DeviceRegistrationStatePApprovalPending is a pointer to DeviceRegistrationStateVApprovalPending
+	DeviceRegistrationStatePApprovalPending = &_DeviceRegistrationStatePApprovalPending
+	// DeviceRegistrationStatePCertificateReset is a pointer to DeviceRegistrationStateVCertificateReset
+	DeviceRegistrationStatePCertificateReset = &_DeviceRegistrationStatePCertificateReset
+	// DeviceRegistrationStatePNotRegisteredPendingEnrollment is a pointer to DeviceRegistrationStateVNotRegisteredPendingEnrollment
+	DeviceRegistrationStatePNotRegisteredPendingEnrollment = &_DeviceRegistrationStatePNotRegisteredPendingEnrollment
+	// DeviceRegistrationStatePUnknown is a pointer to DeviceRegistrationStateVUnknown
+	DeviceRegistrationStatePUnknown = &_DeviceRegistrationStatePUnknown
+)
 
-// DeviceRegistrationStatePRegistered returns a pointer to DeviceRegistrationStateVRegistered
-func DeviceRegistrationStatePRegistered() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVRegistered
-	return &v
-}
-
-// DeviceRegistrationStatePRevoked returns a pointer to DeviceRegistrationStateVRevoked
-func DeviceRegistrationStatePRevoked() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVRevoked
-	return &v
-}
-
-// DeviceRegistrationStatePKeyConflict returns a pointer to DeviceRegistrationStateVKeyConflict
-func DeviceRegistrationStatePKeyConflict() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVKeyConflict
-	return &v
-}
-
-// DeviceRegistrationStatePApprovalPending returns a pointer to DeviceRegistrationStateVApprovalPending
-func DeviceRegistrationStatePApprovalPending() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVApprovalPending
-	return &v
-}
-
-// DeviceRegistrationStatePCertificateReset returns a pointer to DeviceRegistrationStateVCertificateReset
-func DeviceRegistrationStatePCertificateReset() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVCertificateReset
-	return &v
-}
-
-// DeviceRegistrationStatePNotRegisteredPendingEnrollment returns a pointer to DeviceRegistrationStateVNotRegisteredPendingEnrollment
-func DeviceRegistrationStatePNotRegisteredPendingEnrollment() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVNotRegisteredPendingEnrollment
-	return &v
-}
-
-// DeviceRegistrationStatePUnknown returns a pointer to DeviceRegistrationStateVUnknown
-func DeviceRegistrationStatePUnknown() *DeviceRegistrationState {
-	v := DeviceRegistrationStateVUnknown
-	return &v
-}
+var (
+	_DeviceRegistrationStatePNotRegistered                  = DeviceRegistrationStateVNotRegistered
+	_DeviceRegistrationStatePRegistered                     = DeviceRegistrationStateVRegistered
+	_DeviceRegistrationStatePRevoked                        = DeviceRegistrationStateVRevoked
+	_DeviceRegistrationStatePKeyConflict                    = DeviceRegistrationStateVKeyConflict
+	_DeviceRegistrationStatePApprovalPending                = DeviceRegistrationStateVApprovalPending
+	_DeviceRegistrationStatePCertificateReset               = DeviceRegistrationStateVCertificateReset
+	_DeviceRegistrationStatePNotRegisteredPendingEnrollment = DeviceRegistrationStateVNotRegisteredPendingEnrollment
+	_DeviceRegistrationStatePUnknown                        = DeviceRegistrationStateVUnknown
+)

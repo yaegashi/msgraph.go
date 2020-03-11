@@ -3,23 +3,23 @@
 package msgraph
 
 // VppTokenAccountType undocumented
-type VppTokenAccountType int
+type VppTokenAccountType string
 
 const (
 	// VppTokenAccountTypeVBusiness undocumented
-	VppTokenAccountTypeVBusiness VppTokenAccountType = 0
+	VppTokenAccountTypeVBusiness VppTokenAccountType = "business"
 	// VppTokenAccountTypeVEducation undocumented
-	VppTokenAccountTypeVEducation VppTokenAccountType = 1
+	VppTokenAccountTypeVEducation VppTokenAccountType = "education"
 )
 
-// VppTokenAccountTypePBusiness returns a pointer to VppTokenAccountTypeVBusiness
-func VppTokenAccountTypePBusiness() *VppTokenAccountType {
-	v := VppTokenAccountTypeVBusiness
-	return &v
-}
+var (
+	// VppTokenAccountTypePBusiness is a pointer to VppTokenAccountTypeVBusiness
+	VppTokenAccountTypePBusiness = &_VppTokenAccountTypePBusiness
+	// VppTokenAccountTypePEducation is a pointer to VppTokenAccountTypeVEducation
+	VppTokenAccountTypePEducation = &_VppTokenAccountTypePEducation
+)
 
-// VppTokenAccountTypePEducation returns a pointer to VppTokenAccountTypeVEducation
-func VppTokenAccountTypePEducation() *VppTokenAccountType {
-	v := VppTokenAccountTypeVEducation
-	return &v
-}
+var (
+	_VppTokenAccountTypePBusiness  = VppTokenAccountTypeVBusiness
+	_VppTokenAccountTypePEducation = VppTokenAccountTypeVEducation
+)

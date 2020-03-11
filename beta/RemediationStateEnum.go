@@ -3,47 +3,38 @@
 package msgraph
 
 // RemediationState undocumented
-type RemediationState int
+type RemediationState string
 
 const (
 	// RemediationStateVUnknown undocumented
-	RemediationStateVUnknown RemediationState = 0
+	RemediationStateVUnknown RemediationState = "unknown"
 	// RemediationStateVSkipped undocumented
-	RemediationStateVSkipped RemediationState = 1
+	RemediationStateVSkipped RemediationState = "skipped"
 	// RemediationStateVSuccess undocumented
-	RemediationStateVSuccess RemediationState = 2
+	RemediationStateVSuccess RemediationState = "success"
 	// RemediationStateVRemediationFailed undocumented
-	RemediationStateVRemediationFailed RemediationState = 3
+	RemediationStateVRemediationFailed RemediationState = "remediationFailed"
 	// RemediationStateVScriptError undocumented
-	RemediationStateVScriptError RemediationState = 4
+	RemediationStateVScriptError RemediationState = "scriptError"
 )
 
-// RemediationStatePUnknown returns a pointer to RemediationStateVUnknown
-func RemediationStatePUnknown() *RemediationState {
-	v := RemediationStateVUnknown
-	return &v
-}
+var (
+	// RemediationStatePUnknown is a pointer to RemediationStateVUnknown
+	RemediationStatePUnknown = &_RemediationStatePUnknown
+	// RemediationStatePSkipped is a pointer to RemediationStateVSkipped
+	RemediationStatePSkipped = &_RemediationStatePSkipped
+	// RemediationStatePSuccess is a pointer to RemediationStateVSuccess
+	RemediationStatePSuccess = &_RemediationStatePSuccess
+	// RemediationStatePRemediationFailed is a pointer to RemediationStateVRemediationFailed
+	RemediationStatePRemediationFailed = &_RemediationStatePRemediationFailed
+	// RemediationStatePScriptError is a pointer to RemediationStateVScriptError
+	RemediationStatePScriptError = &_RemediationStatePScriptError
+)
 
-// RemediationStatePSkipped returns a pointer to RemediationStateVSkipped
-func RemediationStatePSkipped() *RemediationState {
-	v := RemediationStateVSkipped
-	return &v
-}
-
-// RemediationStatePSuccess returns a pointer to RemediationStateVSuccess
-func RemediationStatePSuccess() *RemediationState {
-	v := RemediationStateVSuccess
-	return &v
-}
-
-// RemediationStatePRemediationFailed returns a pointer to RemediationStateVRemediationFailed
-func RemediationStatePRemediationFailed() *RemediationState {
-	v := RemediationStateVRemediationFailed
-	return &v
-}
-
-// RemediationStatePScriptError returns a pointer to RemediationStateVScriptError
-func RemediationStatePScriptError() *RemediationState {
-	v := RemediationStateVScriptError
-	return &v
-}
+var (
+	_RemediationStatePUnknown           = RemediationStateVUnknown
+	_RemediationStatePSkipped           = RemediationStateVSkipped
+	_RemediationStatePSuccess           = RemediationStateVSuccess
+	_RemediationStatePRemediationFailed = RemediationStateVRemediationFailed
+	_RemediationStatePScriptError       = RemediationStateVScriptError
+)

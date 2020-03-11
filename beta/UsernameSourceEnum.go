@@ -3,31 +3,28 @@
 package msgraph
 
 // UsernameSource undocumented
-type UsernameSource int
+type UsernameSource string
 
 const (
 	// UsernameSourceVUserPrincipalName undocumented
-	UsernameSourceVUserPrincipalName UsernameSource = 0
+	UsernameSourceVUserPrincipalName UsernameSource = "userPrincipalName"
 	// UsernameSourceVPrimarySMTPAddress undocumented
-	UsernameSourceVPrimarySMTPAddress UsernameSource = 1
+	UsernameSourceVPrimarySMTPAddress UsernameSource = "primarySmtpAddress"
 	// UsernameSourceVSamAccountName undocumented
-	UsernameSourceVSamAccountName UsernameSource = 2
+	UsernameSourceVSamAccountName UsernameSource = "samAccountName"
 )
 
-// UsernameSourcePUserPrincipalName returns a pointer to UsernameSourceVUserPrincipalName
-func UsernameSourcePUserPrincipalName() *UsernameSource {
-	v := UsernameSourceVUserPrincipalName
-	return &v
-}
+var (
+	// UsernameSourcePUserPrincipalName is a pointer to UsernameSourceVUserPrincipalName
+	UsernameSourcePUserPrincipalName = &_UsernameSourcePUserPrincipalName
+	// UsernameSourcePPrimarySMTPAddress is a pointer to UsernameSourceVPrimarySMTPAddress
+	UsernameSourcePPrimarySMTPAddress = &_UsernameSourcePPrimarySMTPAddress
+	// UsernameSourcePSamAccountName is a pointer to UsernameSourceVSamAccountName
+	UsernameSourcePSamAccountName = &_UsernameSourcePSamAccountName
+)
 
-// UsernameSourcePPrimarySMTPAddress returns a pointer to UsernameSourceVPrimarySMTPAddress
-func UsernameSourcePPrimarySMTPAddress() *UsernameSource {
-	v := UsernameSourceVPrimarySMTPAddress
-	return &v
-}
-
-// UsernameSourcePSamAccountName returns a pointer to UsernameSourceVSamAccountName
-func UsernameSourcePSamAccountName() *UsernameSource {
-	v := UsernameSourceVSamAccountName
-	return &v
-}
+var (
+	_UsernameSourcePUserPrincipalName  = UsernameSourceVUserPrincipalName
+	_UsernameSourcePPrimarySMTPAddress = UsernameSourceVPrimarySMTPAddress
+	_UsernameSourcePSamAccountName     = UsernameSourceVSamAccountName
+)

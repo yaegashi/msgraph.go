@@ -3,39 +3,33 @@
 package msgraph
 
 // MdmAuthority undocumented
-type MdmAuthority int
+type MdmAuthority string
 
 const (
 	// MdmAuthorityVUnknown undocumented
-	MdmAuthorityVUnknown MdmAuthority = 0
+	MdmAuthorityVUnknown MdmAuthority = "unknown"
 	// MdmAuthorityVIntune undocumented
-	MdmAuthorityVIntune MdmAuthority = 1
+	MdmAuthorityVIntune MdmAuthority = "intune"
 	// MdmAuthorityVSccm undocumented
-	MdmAuthorityVSccm MdmAuthority = 2
+	MdmAuthorityVSccm MdmAuthority = "sccm"
 	// MdmAuthorityVOffice365 undocumented
-	MdmAuthorityVOffice365 MdmAuthority = 3
+	MdmAuthorityVOffice365 MdmAuthority = "office365"
 )
 
-// MdmAuthorityPUnknown returns a pointer to MdmAuthorityVUnknown
-func MdmAuthorityPUnknown() *MdmAuthority {
-	v := MdmAuthorityVUnknown
-	return &v
-}
+var (
+	// MdmAuthorityPUnknown is a pointer to MdmAuthorityVUnknown
+	MdmAuthorityPUnknown = &_MdmAuthorityPUnknown
+	// MdmAuthorityPIntune is a pointer to MdmAuthorityVIntune
+	MdmAuthorityPIntune = &_MdmAuthorityPIntune
+	// MdmAuthorityPSccm is a pointer to MdmAuthorityVSccm
+	MdmAuthorityPSccm = &_MdmAuthorityPSccm
+	// MdmAuthorityPOffice365 is a pointer to MdmAuthorityVOffice365
+	MdmAuthorityPOffice365 = &_MdmAuthorityPOffice365
+)
 
-// MdmAuthorityPIntune returns a pointer to MdmAuthorityVIntune
-func MdmAuthorityPIntune() *MdmAuthority {
-	v := MdmAuthorityVIntune
-	return &v
-}
-
-// MdmAuthorityPSccm returns a pointer to MdmAuthorityVSccm
-func MdmAuthorityPSccm() *MdmAuthority {
-	v := MdmAuthorityVSccm
-	return &v
-}
-
-// MdmAuthorityPOffice365 returns a pointer to MdmAuthorityVOffice365
-func MdmAuthorityPOffice365() *MdmAuthority {
-	v := MdmAuthorityVOffice365
-	return &v
-}
+var (
+	_MdmAuthorityPUnknown   = MdmAuthorityVUnknown
+	_MdmAuthorityPIntune    = MdmAuthorityVIntune
+	_MdmAuthorityPSccm      = MdmAuthorityVSccm
+	_MdmAuthorityPOffice365 = MdmAuthorityVOffice365
+)

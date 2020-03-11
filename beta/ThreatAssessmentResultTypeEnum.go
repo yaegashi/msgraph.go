@@ -3,31 +3,28 @@
 package msgraph
 
 // ThreatAssessmentResultType undocumented
-type ThreatAssessmentResultType int
+type ThreatAssessmentResultType string
 
 const (
 	// ThreatAssessmentResultTypeVCheckPolicy undocumented
-	ThreatAssessmentResultTypeVCheckPolicy ThreatAssessmentResultType = 1
+	ThreatAssessmentResultTypeVCheckPolicy ThreatAssessmentResultType = "checkPolicy"
 	// ThreatAssessmentResultTypeVRescan undocumented
-	ThreatAssessmentResultTypeVRescan ThreatAssessmentResultType = 2
+	ThreatAssessmentResultTypeVRescan ThreatAssessmentResultType = "rescan"
 	// ThreatAssessmentResultTypeVUnknownFutureValue undocumented
-	ThreatAssessmentResultTypeVUnknownFutureValue ThreatAssessmentResultType = 3
+	ThreatAssessmentResultTypeVUnknownFutureValue ThreatAssessmentResultType = "unknownFutureValue"
 )
 
-// ThreatAssessmentResultTypePCheckPolicy returns a pointer to ThreatAssessmentResultTypeVCheckPolicy
-func ThreatAssessmentResultTypePCheckPolicy() *ThreatAssessmentResultType {
-	v := ThreatAssessmentResultTypeVCheckPolicy
-	return &v
-}
+var (
+	// ThreatAssessmentResultTypePCheckPolicy is a pointer to ThreatAssessmentResultTypeVCheckPolicy
+	ThreatAssessmentResultTypePCheckPolicy = &_ThreatAssessmentResultTypePCheckPolicy
+	// ThreatAssessmentResultTypePRescan is a pointer to ThreatAssessmentResultTypeVRescan
+	ThreatAssessmentResultTypePRescan = &_ThreatAssessmentResultTypePRescan
+	// ThreatAssessmentResultTypePUnknownFutureValue is a pointer to ThreatAssessmentResultTypeVUnknownFutureValue
+	ThreatAssessmentResultTypePUnknownFutureValue = &_ThreatAssessmentResultTypePUnknownFutureValue
+)
 
-// ThreatAssessmentResultTypePRescan returns a pointer to ThreatAssessmentResultTypeVRescan
-func ThreatAssessmentResultTypePRescan() *ThreatAssessmentResultType {
-	v := ThreatAssessmentResultTypeVRescan
-	return &v
-}
-
-// ThreatAssessmentResultTypePUnknownFutureValue returns a pointer to ThreatAssessmentResultTypeVUnknownFutureValue
-func ThreatAssessmentResultTypePUnknownFutureValue() *ThreatAssessmentResultType {
-	v := ThreatAssessmentResultTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_ThreatAssessmentResultTypePCheckPolicy        = ThreatAssessmentResultTypeVCheckPolicy
+	_ThreatAssessmentResultTypePRescan             = ThreatAssessmentResultTypeVRescan
+	_ThreatAssessmentResultTypePUnknownFutureValue = ThreatAssessmentResultTypeVUnknownFutureValue
+)

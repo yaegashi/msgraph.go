@@ -3,31 +3,28 @@
 package msgraph
 
 // ExternalAudienceScope undocumented
-type ExternalAudienceScope int
+type ExternalAudienceScope string
 
 const (
 	// ExternalAudienceScopeVNone undocumented
-	ExternalAudienceScopeVNone ExternalAudienceScope = 0
+	ExternalAudienceScopeVNone ExternalAudienceScope = "none"
 	// ExternalAudienceScopeVContactsOnly undocumented
-	ExternalAudienceScopeVContactsOnly ExternalAudienceScope = 1
+	ExternalAudienceScopeVContactsOnly ExternalAudienceScope = "contactsOnly"
 	// ExternalAudienceScopeVAll undocumented
-	ExternalAudienceScopeVAll ExternalAudienceScope = 2
+	ExternalAudienceScopeVAll ExternalAudienceScope = "all"
 )
 
-// ExternalAudienceScopePNone returns a pointer to ExternalAudienceScopeVNone
-func ExternalAudienceScopePNone() *ExternalAudienceScope {
-	v := ExternalAudienceScopeVNone
-	return &v
-}
+var (
+	// ExternalAudienceScopePNone is a pointer to ExternalAudienceScopeVNone
+	ExternalAudienceScopePNone = &_ExternalAudienceScopePNone
+	// ExternalAudienceScopePContactsOnly is a pointer to ExternalAudienceScopeVContactsOnly
+	ExternalAudienceScopePContactsOnly = &_ExternalAudienceScopePContactsOnly
+	// ExternalAudienceScopePAll is a pointer to ExternalAudienceScopeVAll
+	ExternalAudienceScopePAll = &_ExternalAudienceScopePAll
+)
 
-// ExternalAudienceScopePContactsOnly returns a pointer to ExternalAudienceScopeVContactsOnly
-func ExternalAudienceScopePContactsOnly() *ExternalAudienceScope {
-	v := ExternalAudienceScopeVContactsOnly
-	return &v
-}
-
-// ExternalAudienceScopePAll returns a pointer to ExternalAudienceScopeVAll
-func ExternalAudienceScopePAll() *ExternalAudienceScope {
-	v := ExternalAudienceScopeVAll
-	return &v
-}
+var (
+	_ExternalAudienceScopePNone         = ExternalAudienceScopeVNone
+	_ExternalAudienceScopePContactsOnly = ExternalAudienceScopeVContactsOnly
+	_ExternalAudienceScopePAll          = ExternalAudienceScopeVAll
+)

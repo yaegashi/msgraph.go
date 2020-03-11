@@ -3,63 +3,48 @@
 package msgraph
 
 // SynchronizationJobRestartScope undocumented
-type SynchronizationJobRestartScope int
+type SynchronizationJobRestartScope string
 
 const (
 	// SynchronizationJobRestartScopeVForceDeletes undocumented
-	SynchronizationJobRestartScopeVForceDeletes SynchronizationJobRestartScope = 32
+	SynchronizationJobRestartScopeVForceDeletes SynchronizationJobRestartScope = "ForceDeletes"
 	// SynchronizationJobRestartScopeVFull undocumented
-	SynchronizationJobRestartScopeVFull SynchronizationJobRestartScope = 15
+	SynchronizationJobRestartScopeVFull SynchronizationJobRestartScope = "Full"
 	// SynchronizationJobRestartScopeVQuarantineState undocumented
-	SynchronizationJobRestartScopeVQuarantineState SynchronizationJobRestartScope = 8
+	SynchronizationJobRestartScopeVQuarantineState SynchronizationJobRestartScope = "QuarantineState"
 	// SynchronizationJobRestartScopeVWatermark undocumented
-	SynchronizationJobRestartScopeVWatermark SynchronizationJobRestartScope = 4
+	SynchronizationJobRestartScopeVWatermark SynchronizationJobRestartScope = "Watermark"
 	// SynchronizationJobRestartScopeVEscrows undocumented
-	SynchronizationJobRestartScopeVEscrows SynchronizationJobRestartScope = 2
+	SynchronizationJobRestartScopeVEscrows SynchronizationJobRestartScope = "Escrows"
 	// SynchronizationJobRestartScopeVConnectorDataStore undocumented
-	SynchronizationJobRestartScopeVConnectorDataStore SynchronizationJobRestartScope = 1
+	SynchronizationJobRestartScopeVConnectorDataStore SynchronizationJobRestartScope = "ConnectorDataStore"
 	// SynchronizationJobRestartScopeVNone undocumented
-	SynchronizationJobRestartScopeVNone SynchronizationJobRestartScope = 0
+	SynchronizationJobRestartScopeVNone SynchronizationJobRestartScope = "None"
 )
 
-// SynchronizationJobRestartScopePForceDeletes returns a pointer to SynchronizationJobRestartScopeVForceDeletes
-func SynchronizationJobRestartScopePForceDeletes() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVForceDeletes
-	return &v
-}
+var (
+	// SynchronizationJobRestartScopePForceDeletes is a pointer to SynchronizationJobRestartScopeVForceDeletes
+	SynchronizationJobRestartScopePForceDeletes = &_SynchronizationJobRestartScopePForceDeletes
+	// SynchronizationJobRestartScopePFull is a pointer to SynchronizationJobRestartScopeVFull
+	SynchronizationJobRestartScopePFull = &_SynchronizationJobRestartScopePFull
+	// SynchronizationJobRestartScopePQuarantineState is a pointer to SynchronizationJobRestartScopeVQuarantineState
+	SynchronizationJobRestartScopePQuarantineState = &_SynchronizationJobRestartScopePQuarantineState
+	// SynchronizationJobRestartScopePWatermark is a pointer to SynchronizationJobRestartScopeVWatermark
+	SynchronizationJobRestartScopePWatermark = &_SynchronizationJobRestartScopePWatermark
+	// SynchronizationJobRestartScopePEscrows is a pointer to SynchronizationJobRestartScopeVEscrows
+	SynchronizationJobRestartScopePEscrows = &_SynchronizationJobRestartScopePEscrows
+	// SynchronizationJobRestartScopePConnectorDataStore is a pointer to SynchronizationJobRestartScopeVConnectorDataStore
+	SynchronizationJobRestartScopePConnectorDataStore = &_SynchronizationJobRestartScopePConnectorDataStore
+	// SynchronizationJobRestartScopePNone is a pointer to SynchronizationJobRestartScopeVNone
+	SynchronizationJobRestartScopePNone = &_SynchronizationJobRestartScopePNone
+)
 
-// SynchronizationJobRestartScopePFull returns a pointer to SynchronizationJobRestartScopeVFull
-func SynchronizationJobRestartScopePFull() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVFull
-	return &v
-}
-
-// SynchronizationJobRestartScopePQuarantineState returns a pointer to SynchronizationJobRestartScopeVQuarantineState
-func SynchronizationJobRestartScopePQuarantineState() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVQuarantineState
-	return &v
-}
-
-// SynchronizationJobRestartScopePWatermark returns a pointer to SynchronizationJobRestartScopeVWatermark
-func SynchronizationJobRestartScopePWatermark() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVWatermark
-	return &v
-}
-
-// SynchronizationJobRestartScopePEscrows returns a pointer to SynchronizationJobRestartScopeVEscrows
-func SynchronizationJobRestartScopePEscrows() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVEscrows
-	return &v
-}
-
-// SynchronizationJobRestartScopePConnectorDataStore returns a pointer to SynchronizationJobRestartScopeVConnectorDataStore
-func SynchronizationJobRestartScopePConnectorDataStore() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVConnectorDataStore
-	return &v
-}
-
-// SynchronizationJobRestartScopePNone returns a pointer to SynchronizationJobRestartScopeVNone
-func SynchronizationJobRestartScopePNone() *SynchronizationJobRestartScope {
-	v := SynchronizationJobRestartScopeVNone
-	return &v
-}
+var (
+	_SynchronizationJobRestartScopePForceDeletes       = SynchronizationJobRestartScopeVForceDeletes
+	_SynchronizationJobRestartScopePFull               = SynchronizationJobRestartScopeVFull
+	_SynchronizationJobRestartScopePQuarantineState    = SynchronizationJobRestartScopeVQuarantineState
+	_SynchronizationJobRestartScopePWatermark          = SynchronizationJobRestartScopeVWatermark
+	_SynchronizationJobRestartScopePEscrows            = SynchronizationJobRestartScopeVEscrows
+	_SynchronizationJobRestartScopePConnectorDataStore = SynchronizationJobRestartScopeVConnectorDataStore
+	_SynchronizationJobRestartScopePNone               = SynchronizationJobRestartScopeVNone
+)

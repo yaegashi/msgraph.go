@@ -3,63 +3,48 @@
 package msgraph
 
 // DeviceComplianceActionType undocumented
-type DeviceComplianceActionType int
+type DeviceComplianceActionType string
 
 const (
 	// DeviceComplianceActionTypeVNoAction undocumented
-	DeviceComplianceActionTypeVNoAction DeviceComplianceActionType = 0
+	DeviceComplianceActionTypeVNoAction DeviceComplianceActionType = "noAction"
 	// DeviceComplianceActionTypeVNotification undocumented
-	DeviceComplianceActionTypeVNotification DeviceComplianceActionType = 1
+	DeviceComplianceActionTypeVNotification DeviceComplianceActionType = "notification"
 	// DeviceComplianceActionTypeVBlock undocumented
-	DeviceComplianceActionTypeVBlock DeviceComplianceActionType = 2
+	DeviceComplianceActionTypeVBlock DeviceComplianceActionType = "block"
 	// DeviceComplianceActionTypeVRetire undocumented
-	DeviceComplianceActionTypeVRetire DeviceComplianceActionType = 3
+	DeviceComplianceActionTypeVRetire DeviceComplianceActionType = "retire"
 	// DeviceComplianceActionTypeVWipe undocumented
-	DeviceComplianceActionTypeVWipe DeviceComplianceActionType = 4
+	DeviceComplianceActionTypeVWipe DeviceComplianceActionType = "wipe"
 	// DeviceComplianceActionTypeVRemoveResourceAccessProfiles undocumented
-	DeviceComplianceActionTypeVRemoveResourceAccessProfiles DeviceComplianceActionType = 5
+	DeviceComplianceActionTypeVRemoveResourceAccessProfiles DeviceComplianceActionType = "removeResourceAccessProfiles"
 	// DeviceComplianceActionTypeVPushNotification undocumented
-	DeviceComplianceActionTypeVPushNotification DeviceComplianceActionType = 9
+	DeviceComplianceActionTypeVPushNotification DeviceComplianceActionType = "pushNotification"
 )
 
-// DeviceComplianceActionTypePNoAction returns a pointer to DeviceComplianceActionTypeVNoAction
-func DeviceComplianceActionTypePNoAction() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVNoAction
-	return &v
-}
+var (
+	// DeviceComplianceActionTypePNoAction is a pointer to DeviceComplianceActionTypeVNoAction
+	DeviceComplianceActionTypePNoAction = &_DeviceComplianceActionTypePNoAction
+	// DeviceComplianceActionTypePNotification is a pointer to DeviceComplianceActionTypeVNotification
+	DeviceComplianceActionTypePNotification = &_DeviceComplianceActionTypePNotification
+	// DeviceComplianceActionTypePBlock is a pointer to DeviceComplianceActionTypeVBlock
+	DeviceComplianceActionTypePBlock = &_DeviceComplianceActionTypePBlock
+	// DeviceComplianceActionTypePRetire is a pointer to DeviceComplianceActionTypeVRetire
+	DeviceComplianceActionTypePRetire = &_DeviceComplianceActionTypePRetire
+	// DeviceComplianceActionTypePWipe is a pointer to DeviceComplianceActionTypeVWipe
+	DeviceComplianceActionTypePWipe = &_DeviceComplianceActionTypePWipe
+	// DeviceComplianceActionTypePRemoveResourceAccessProfiles is a pointer to DeviceComplianceActionTypeVRemoveResourceAccessProfiles
+	DeviceComplianceActionTypePRemoveResourceAccessProfiles = &_DeviceComplianceActionTypePRemoveResourceAccessProfiles
+	// DeviceComplianceActionTypePPushNotification is a pointer to DeviceComplianceActionTypeVPushNotification
+	DeviceComplianceActionTypePPushNotification = &_DeviceComplianceActionTypePPushNotification
+)
 
-// DeviceComplianceActionTypePNotification returns a pointer to DeviceComplianceActionTypeVNotification
-func DeviceComplianceActionTypePNotification() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVNotification
-	return &v
-}
-
-// DeviceComplianceActionTypePBlock returns a pointer to DeviceComplianceActionTypeVBlock
-func DeviceComplianceActionTypePBlock() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVBlock
-	return &v
-}
-
-// DeviceComplianceActionTypePRetire returns a pointer to DeviceComplianceActionTypeVRetire
-func DeviceComplianceActionTypePRetire() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVRetire
-	return &v
-}
-
-// DeviceComplianceActionTypePWipe returns a pointer to DeviceComplianceActionTypeVWipe
-func DeviceComplianceActionTypePWipe() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVWipe
-	return &v
-}
-
-// DeviceComplianceActionTypePRemoveResourceAccessProfiles returns a pointer to DeviceComplianceActionTypeVRemoveResourceAccessProfiles
-func DeviceComplianceActionTypePRemoveResourceAccessProfiles() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVRemoveResourceAccessProfiles
-	return &v
-}
-
-// DeviceComplianceActionTypePPushNotification returns a pointer to DeviceComplianceActionTypeVPushNotification
-func DeviceComplianceActionTypePPushNotification() *DeviceComplianceActionType {
-	v := DeviceComplianceActionTypeVPushNotification
-	return &v
-}
+var (
+	_DeviceComplianceActionTypePNoAction                     = DeviceComplianceActionTypeVNoAction
+	_DeviceComplianceActionTypePNotification                 = DeviceComplianceActionTypeVNotification
+	_DeviceComplianceActionTypePBlock                        = DeviceComplianceActionTypeVBlock
+	_DeviceComplianceActionTypePRetire                       = DeviceComplianceActionTypeVRetire
+	_DeviceComplianceActionTypePWipe                         = DeviceComplianceActionTypeVWipe
+	_DeviceComplianceActionTypePRemoveResourceAccessProfiles = DeviceComplianceActionTypeVRemoveResourceAccessProfiles
+	_DeviceComplianceActionTypePPushNotification             = DeviceComplianceActionTypeVPushNotification
+)

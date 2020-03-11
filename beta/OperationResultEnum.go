@@ -3,39 +3,33 @@
 package msgraph
 
 // OperationResult undocumented
-type OperationResult int
+type OperationResult string
 
 const (
 	// OperationResultVSuccess undocumented
-	OperationResultVSuccess OperationResult = 0
+	OperationResultVSuccess OperationResult = "success"
 	// OperationResultVFailure undocumented
-	OperationResultVFailure OperationResult = 1
+	OperationResultVFailure OperationResult = "failure"
 	// OperationResultVTimeout undocumented
-	OperationResultVTimeout OperationResult = 2
+	OperationResultVTimeout OperationResult = "timeout"
 	// OperationResultVUnknownFutureValue undocumented
-	OperationResultVUnknownFutureValue OperationResult = 3
+	OperationResultVUnknownFutureValue OperationResult = "unknownFutureValue"
 )
 
-// OperationResultPSuccess returns a pointer to OperationResultVSuccess
-func OperationResultPSuccess() *OperationResult {
-	v := OperationResultVSuccess
-	return &v
-}
+var (
+	// OperationResultPSuccess is a pointer to OperationResultVSuccess
+	OperationResultPSuccess = &_OperationResultPSuccess
+	// OperationResultPFailure is a pointer to OperationResultVFailure
+	OperationResultPFailure = &_OperationResultPFailure
+	// OperationResultPTimeout is a pointer to OperationResultVTimeout
+	OperationResultPTimeout = &_OperationResultPTimeout
+	// OperationResultPUnknownFutureValue is a pointer to OperationResultVUnknownFutureValue
+	OperationResultPUnknownFutureValue = &_OperationResultPUnknownFutureValue
+)
 
-// OperationResultPFailure returns a pointer to OperationResultVFailure
-func OperationResultPFailure() *OperationResult {
-	v := OperationResultVFailure
-	return &v
-}
-
-// OperationResultPTimeout returns a pointer to OperationResultVTimeout
-func OperationResultPTimeout() *OperationResult {
-	v := OperationResultVTimeout
-	return &v
-}
-
-// OperationResultPUnknownFutureValue returns a pointer to OperationResultVUnknownFutureValue
-func OperationResultPUnknownFutureValue() *OperationResult {
-	v := OperationResultVUnknownFutureValue
-	return &v
-}
+var (
+	_OperationResultPSuccess            = OperationResultVSuccess
+	_OperationResultPFailure            = OperationResultVFailure
+	_OperationResultPTimeout            = OperationResultVTimeout
+	_OperationResultPUnknownFutureValue = OperationResultVUnknownFutureValue
+)

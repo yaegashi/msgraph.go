@@ -3,79 +3,58 @@
 package msgraph
 
 // SubjectNameFormat undocumented
-type SubjectNameFormat int
+type SubjectNameFormat string
 
 const (
 	// SubjectNameFormatVCommonName undocumented
-	SubjectNameFormatVCommonName SubjectNameFormat = 0
+	SubjectNameFormatVCommonName SubjectNameFormat = "commonName"
 	// SubjectNameFormatVCommonNameIncludingEmail undocumented
-	SubjectNameFormatVCommonNameIncludingEmail SubjectNameFormat = 1
+	SubjectNameFormatVCommonNameIncludingEmail SubjectNameFormat = "commonNameIncludingEmail"
 	// SubjectNameFormatVCommonNameAsEmail undocumented
-	SubjectNameFormatVCommonNameAsEmail SubjectNameFormat = 2
+	SubjectNameFormatVCommonNameAsEmail SubjectNameFormat = "commonNameAsEmail"
 	// SubjectNameFormatVCustom undocumented
-	SubjectNameFormatVCustom SubjectNameFormat = 3
+	SubjectNameFormatVCustom SubjectNameFormat = "custom"
 	// SubjectNameFormatVCommonNameAsIMEI undocumented
-	SubjectNameFormatVCommonNameAsIMEI SubjectNameFormat = 5
+	SubjectNameFormatVCommonNameAsIMEI SubjectNameFormat = "commonNameAsIMEI"
 	// SubjectNameFormatVCommonNameAsSerialNumber undocumented
-	SubjectNameFormatVCommonNameAsSerialNumber SubjectNameFormat = 6
+	SubjectNameFormatVCommonNameAsSerialNumber SubjectNameFormat = "commonNameAsSerialNumber"
 	// SubjectNameFormatVCommonNameAsAadDeviceID undocumented
-	SubjectNameFormatVCommonNameAsAadDeviceID SubjectNameFormat = 7
+	SubjectNameFormatVCommonNameAsAadDeviceID SubjectNameFormat = "commonNameAsAadDeviceId"
 	// SubjectNameFormatVCommonNameAsIntuneDeviceID undocumented
-	SubjectNameFormatVCommonNameAsIntuneDeviceID SubjectNameFormat = 8
+	SubjectNameFormatVCommonNameAsIntuneDeviceID SubjectNameFormat = "commonNameAsIntuneDeviceId"
 	// SubjectNameFormatVCommonNameAsDurableDeviceID undocumented
-	SubjectNameFormatVCommonNameAsDurableDeviceID SubjectNameFormat = 9
+	SubjectNameFormatVCommonNameAsDurableDeviceID SubjectNameFormat = "commonNameAsDurableDeviceId"
 )
 
-// SubjectNameFormatPCommonName returns a pointer to SubjectNameFormatVCommonName
-func SubjectNameFormatPCommonName() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonName
-	return &v
-}
+var (
+	// SubjectNameFormatPCommonName is a pointer to SubjectNameFormatVCommonName
+	SubjectNameFormatPCommonName = &_SubjectNameFormatPCommonName
+	// SubjectNameFormatPCommonNameIncludingEmail is a pointer to SubjectNameFormatVCommonNameIncludingEmail
+	SubjectNameFormatPCommonNameIncludingEmail = &_SubjectNameFormatPCommonNameIncludingEmail
+	// SubjectNameFormatPCommonNameAsEmail is a pointer to SubjectNameFormatVCommonNameAsEmail
+	SubjectNameFormatPCommonNameAsEmail = &_SubjectNameFormatPCommonNameAsEmail
+	// SubjectNameFormatPCustom is a pointer to SubjectNameFormatVCustom
+	SubjectNameFormatPCustom = &_SubjectNameFormatPCustom
+	// SubjectNameFormatPCommonNameAsIMEI is a pointer to SubjectNameFormatVCommonNameAsIMEI
+	SubjectNameFormatPCommonNameAsIMEI = &_SubjectNameFormatPCommonNameAsIMEI
+	// SubjectNameFormatPCommonNameAsSerialNumber is a pointer to SubjectNameFormatVCommonNameAsSerialNumber
+	SubjectNameFormatPCommonNameAsSerialNumber = &_SubjectNameFormatPCommonNameAsSerialNumber
+	// SubjectNameFormatPCommonNameAsAadDeviceID is a pointer to SubjectNameFormatVCommonNameAsAadDeviceID
+	SubjectNameFormatPCommonNameAsAadDeviceID = &_SubjectNameFormatPCommonNameAsAadDeviceID
+	// SubjectNameFormatPCommonNameAsIntuneDeviceID is a pointer to SubjectNameFormatVCommonNameAsIntuneDeviceID
+	SubjectNameFormatPCommonNameAsIntuneDeviceID = &_SubjectNameFormatPCommonNameAsIntuneDeviceID
+	// SubjectNameFormatPCommonNameAsDurableDeviceID is a pointer to SubjectNameFormatVCommonNameAsDurableDeviceID
+	SubjectNameFormatPCommonNameAsDurableDeviceID = &_SubjectNameFormatPCommonNameAsDurableDeviceID
+)
 
-// SubjectNameFormatPCommonNameIncludingEmail returns a pointer to SubjectNameFormatVCommonNameIncludingEmail
-func SubjectNameFormatPCommonNameIncludingEmail() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameIncludingEmail
-	return &v
-}
-
-// SubjectNameFormatPCommonNameAsEmail returns a pointer to SubjectNameFormatVCommonNameAsEmail
-func SubjectNameFormatPCommonNameAsEmail() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameAsEmail
-	return &v
-}
-
-// SubjectNameFormatPCustom returns a pointer to SubjectNameFormatVCustom
-func SubjectNameFormatPCustom() *SubjectNameFormat {
-	v := SubjectNameFormatVCustom
-	return &v
-}
-
-// SubjectNameFormatPCommonNameAsIMEI returns a pointer to SubjectNameFormatVCommonNameAsIMEI
-func SubjectNameFormatPCommonNameAsIMEI() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameAsIMEI
-	return &v
-}
-
-// SubjectNameFormatPCommonNameAsSerialNumber returns a pointer to SubjectNameFormatVCommonNameAsSerialNumber
-func SubjectNameFormatPCommonNameAsSerialNumber() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameAsSerialNumber
-	return &v
-}
-
-// SubjectNameFormatPCommonNameAsAadDeviceID returns a pointer to SubjectNameFormatVCommonNameAsAadDeviceID
-func SubjectNameFormatPCommonNameAsAadDeviceID() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameAsAadDeviceID
-	return &v
-}
-
-// SubjectNameFormatPCommonNameAsIntuneDeviceID returns a pointer to SubjectNameFormatVCommonNameAsIntuneDeviceID
-func SubjectNameFormatPCommonNameAsIntuneDeviceID() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameAsIntuneDeviceID
-	return &v
-}
-
-// SubjectNameFormatPCommonNameAsDurableDeviceID returns a pointer to SubjectNameFormatVCommonNameAsDurableDeviceID
-func SubjectNameFormatPCommonNameAsDurableDeviceID() *SubjectNameFormat {
-	v := SubjectNameFormatVCommonNameAsDurableDeviceID
-	return &v
-}
+var (
+	_SubjectNameFormatPCommonName                  = SubjectNameFormatVCommonName
+	_SubjectNameFormatPCommonNameIncludingEmail    = SubjectNameFormatVCommonNameIncludingEmail
+	_SubjectNameFormatPCommonNameAsEmail           = SubjectNameFormatVCommonNameAsEmail
+	_SubjectNameFormatPCustom                      = SubjectNameFormatVCustom
+	_SubjectNameFormatPCommonNameAsIMEI            = SubjectNameFormatVCommonNameAsIMEI
+	_SubjectNameFormatPCommonNameAsSerialNumber    = SubjectNameFormatVCommonNameAsSerialNumber
+	_SubjectNameFormatPCommonNameAsAadDeviceID     = SubjectNameFormatVCommonNameAsAadDeviceID
+	_SubjectNameFormatPCommonNameAsIntuneDeviceID  = SubjectNameFormatVCommonNameAsIntuneDeviceID
+	_SubjectNameFormatPCommonNameAsDurableDeviceID = SubjectNameFormatVCommonNameAsDurableDeviceID
+)

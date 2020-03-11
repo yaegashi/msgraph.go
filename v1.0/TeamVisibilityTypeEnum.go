@@ -3,39 +3,33 @@
 package msgraph
 
 // TeamVisibilityType undocumented
-type TeamVisibilityType int
+type TeamVisibilityType string
 
 const (
 	// TeamVisibilityTypeVPrivate undocumented
-	TeamVisibilityTypeVPrivate TeamVisibilityType = 0
+	TeamVisibilityTypeVPrivate TeamVisibilityType = "private"
 	// TeamVisibilityTypeVPublic undocumented
-	TeamVisibilityTypeVPublic TeamVisibilityType = 1
+	TeamVisibilityTypeVPublic TeamVisibilityType = "public"
 	// TeamVisibilityTypeVHiddenMembership undocumented
-	TeamVisibilityTypeVHiddenMembership TeamVisibilityType = 2
+	TeamVisibilityTypeVHiddenMembership TeamVisibilityType = "hiddenMembership"
 	// TeamVisibilityTypeVUnknownFutureValue undocumented
-	TeamVisibilityTypeVUnknownFutureValue TeamVisibilityType = 3
+	TeamVisibilityTypeVUnknownFutureValue TeamVisibilityType = "unknownFutureValue"
 )
 
-// TeamVisibilityTypePPrivate returns a pointer to TeamVisibilityTypeVPrivate
-func TeamVisibilityTypePPrivate() *TeamVisibilityType {
-	v := TeamVisibilityTypeVPrivate
-	return &v
-}
+var (
+	// TeamVisibilityTypePPrivate is a pointer to TeamVisibilityTypeVPrivate
+	TeamVisibilityTypePPrivate = &_TeamVisibilityTypePPrivate
+	// TeamVisibilityTypePPublic is a pointer to TeamVisibilityTypeVPublic
+	TeamVisibilityTypePPublic = &_TeamVisibilityTypePPublic
+	// TeamVisibilityTypePHiddenMembership is a pointer to TeamVisibilityTypeVHiddenMembership
+	TeamVisibilityTypePHiddenMembership = &_TeamVisibilityTypePHiddenMembership
+	// TeamVisibilityTypePUnknownFutureValue is a pointer to TeamVisibilityTypeVUnknownFutureValue
+	TeamVisibilityTypePUnknownFutureValue = &_TeamVisibilityTypePUnknownFutureValue
+)
 
-// TeamVisibilityTypePPublic returns a pointer to TeamVisibilityTypeVPublic
-func TeamVisibilityTypePPublic() *TeamVisibilityType {
-	v := TeamVisibilityTypeVPublic
-	return &v
-}
-
-// TeamVisibilityTypePHiddenMembership returns a pointer to TeamVisibilityTypeVHiddenMembership
-func TeamVisibilityTypePHiddenMembership() *TeamVisibilityType {
-	v := TeamVisibilityTypeVHiddenMembership
-	return &v
-}
-
-// TeamVisibilityTypePUnknownFutureValue returns a pointer to TeamVisibilityTypeVUnknownFutureValue
-func TeamVisibilityTypePUnknownFutureValue() *TeamVisibilityType {
-	v := TeamVisibilityTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_TeamVisibilityTypePPrivate            = TeamVisibilityTypeVPrivate
+	_TeamVisibilityTypePPublic             = TeamVisibilityTypeVPublic
+	_TeamVisibilityTypePHiddenMembership   = TeamVisibilityTypeVHiddenMembership
+	_TeamVisibilityTypePUnknownFutureValue = TeamVisibilityTypeVUnknownFutureValue
+)

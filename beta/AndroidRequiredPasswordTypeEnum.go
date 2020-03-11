@@ -3,71 +3,53 @@
 package msgraph
 
 // AndroidRequiredPasswordType undocumented
-type AndroidRequiredPasswordType int
+type AndroidRequiredPasswordType string
 
 const (
 	// AndroidRequiredPasswordTypeVDeviceDefault undocumented
-	AndroidRequiredPasswordTypeVDeviceDefault AndroidRequiredPasswordType = 0
+	AndroidRequiredPasswordTypeVDeviceDefault AndroidRequiredPasswordType = "deviceDefault"
 	// AndroidRequiredPasswordTypeVAlphabetic undocumented
-	AndroidRequiredPasswordTypeVAlphabetic AndroidRequiredPasswordType = 1
+	AndroidRequiredPasswordTypeVAlphabetic AndroidRequiredPasswordType = "alphabetic"
 	// AndroidRequiredPasswordTypeVAlphanumeric undocumented
-	AndroidRequiredPasswordTypeVAlphanumeric AndroidRequiredPasswordType = 2
+	AndroidRequiredPasswordTypeVAlphanumeric AndroidRequiredPasswordType = "alphanumeric"
 	// AndroidRequiredPasswordTypeVAlphanumericWithSymbols undocumented
-	AndroidRequiredPasswordTypeVAlphanumericWithSymbols AndroidRequiredPasswordType = 3
+	AndroidRequiredPasswordTypeVAlphanumericWithSymbols AndroidRequiredPasswordType = "alphanumericWithSymbols"
 	// AndroidRequiredPasswordTypeVLowSecurityBiometric undocumented
-	AndroidRequiredPasswordTypeVLowSecurityBiometric AndroidRequiredPasswordType = 4
+	AndroidRequiredPasswordTypeVLowSecurityBiometric AndroidRequiredPasswordType = "lowSecurityBiometric"
 	// AndroidRequiredPasswordTypeVNumeric undocumented
-	AndroidRequiredPasswordTypeVNumeric AndroidRequiredPasswordType = 5
+	AndroidRequiredPasswordTypeVNumeric AndroidRequiredPasswordType = "numeric"
 	// AndroidRequiredPasswordTypeVNumericComplex undocumented
-	AndroidRequiredPasswordTypeVNumericComplex AndroidRequiredPasswordType = 6
+	AndroidRequiredPasswordTypeVNumericComplex AndroidRequiredPasswordType = "numericComplex"
 	// AndroidRequiredPasswordTypeVAny undocumented
-	AndroidRequiredPasswordTypeVAny AndroidRequiredPasswordType = 7
+	AndroidRequiredPasswordTypeVAny AndroidRequiredPasswordType = "any"
 )
 
-// AndroidRequiredPasswordTypePDeviceDefault returns a pointer to AndroidRequiredPasswordTypeVDeviceDefault
-func AndroidRequiredPasswordTypePDeviceDefault() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVDeviceDefault
-	return &v
-}
+var (
+	// AndroidRequiredPasswordTypePDeviceDefault is a pointer to AndroidRequiredPasswordTypeVDeviceDefault
+	AndroidRequiredPasswordTypePDeviceDefault = &_AndroidRequiredPasswordTypePDeviceDefault
+	// AndroidRequiredPasswordTypePAlphabetic is a pointer to AndroidRequiredPasswordTypeVAlphabetic
+	AndroidRequiredPasswordTypePAlphabetic = &_AndroidRequiredPasswordTypePAlphabetic
+	// AndroidRequiredPasswordTypePAlphanumeric is a pointer to AndroidRequiredPasswordTypeVAlphanumeric
+	AndroidRequiredPasswordTypePAlphanumeric = &_AndroidRequiredPasswordTypePAlphanumeric
+	// AndroidRequiredPasswordTypePAlphanumericWithSymbols is a pointer to AndroidRequiredPasswordTypeVAlphanumericWithSymbols
+	AndroidRequiredPasswordTypePAlphanumericWithSymbols = &_AndroidRequiredPasswordTypePAlphanumericWithSymbols
+	// AndroidRequiredPasswordTypePLowSecurityBiometric is a pointer to AndroidRequiredPasswordTypeVLowSecurityBiometric
+	AndroidRequiredPasswordTypePLowSecurityBiometric = &_AndroidRequiredPasswordTypePLowSecurityBiometric
+	// AndroidRequiredPasswordTypePNumeric is a pointer to AndroidRequiredPasswordTypeVNumeric
+	AndroidRequiredPasswordTypePNumeric = &_AndroidRequiredPasswordTypePNumeric
+	// AndroidRequiredPasswordTypePNumericComplex is a pointer to AndroidRequiredPasswordTypeVNumericComplex
+	AndroidRequiredPasswordTypePNumericComplex = &_AndroidRequiredPasswordTypePNumericComplex
+	// AndroidRequiredPasswordTypePAny is a pointer to AndroidRequiredPasswordTypeVAny
+	AndroidRequiredPasswordTypePAny = &_AndroidRequiredPasswordTypePAny
+)
 
-// AndroidRequiredPasswordTypePAlphabetic returns a pointer to AndroidRequiredPasswordTypeVAlphabetic
-func AndroidRequiredPasswordTypePAlphabetic() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVAlphabetic
-	return &v
-}
-
-// AndroidRequiredPasswordTypePAlphanumeric returns a pointer to AndroidRequiredPasswordTypeVAlphanumeric
-func AndroidRequiredPasswordTypePAlphanumeric() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVAlphanumeric
-	return &v
-}
-
-// AndroidRequiredPasswordTypePAlphanumericWithSymbols returns a pointer to AndroidRequiredPasswordTypeVAlphanumericWithSymbols
-func AndroidRequiredPasswordTypePAlphanumericWithSymbols() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVAlphanumericWithSymbols
-	return &v
-}
-
-// AndroidRequiredPasswordTypePLowSecurityBiometric returns a pointer to AndroidRequiredPasswordTypeVLowSecurityBiometric
-func AndroidRequiredPasswordTypePLowSecurityBiometric() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVLowSecurityBiometric
-	return &v
-}
-
-// AndroidRequiredPasswordTypePNumeric returns a pointer to AndroidRequiredPasswordTypeVNumeric
-func AndroidRequiredPasswordTypePNumeric() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVNumeric
-	return &v
-}
-
-// AndroidRequiredPasswordTypePNumericComplex returns a pointer to AndroidRequiredPasswordTypeVNumericComplex
-func AndroidRequiredPasswordTypePNumericComplex() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVNumericComplex
-	return &v
-}
-
-// AndroidRequiredPasswordTypePAny returns a pointer to AndroidRequiredPasswordTypeVAny
-func AndroidRequiredPasswordTypePAny() *AndroidRequiredPasswordType {
-	v := AndroidRequiredPasswordTypeVAny
-	return &v
-}
+var (
+	_AndroidRequiredPasswordTypePDeviceDefault           = AndroidRequiredPasswordTypeVDeviceDefault
+	_AndroidRequiredPasswordTypePAlphabetic              = AndroidRequiredPasswordTypeVAlphabetic
+	_AndroidRequiredPasswordTypePAlphanumeric            = AndroidRequiredPasswordTypeVAlphanumeric
+	_AndroidRequiredPasswordTypePAlphanumericWithSymbols = AndroidRequiredPasswordTypeVAlphanumericWithSymbols
+	_AndroidRequiredPasswordTypePLowSecurityBiometric    = AndroidRequiredPasswordTypeVLowSecurityBiometric
+	_AndroidRequiredPasswordTypePNumeric                 = AndroidRequiredPasswordTypeVNumeric
+	_AndroidRequiredPasswordTypePNumericComplex          = AndroidRequiredPasswordTypeVNumericComplex
+	_AndroidRequiredPasswordTypePAny                     = AndroidRequiredPasswordTypeVAny
+)

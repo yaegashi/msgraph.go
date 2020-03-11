@@ -3,31 +3,28 @@
 package msgraph
 
 // CloudAppSecuritySessionControlType undocumented
-type CloudAppSecuritySessionControlType int
+type CloudAppSecuritySessionControlType string
 
 const (
 	// CloudAppSecuritySessionControlTypeVMcasConfigured undocumented
-	CloudAppSecuritySessionControlTypeVMcasConfigured CloudAppSecuritySessionControlType = 0
+	CloudAppSecuritySessionControlTypeVMcasConfigured CloudAppSecuritySessionControlType = "mcasConfigured"
 	// CloudAppSecuritySessionControlTypeVMonitorOnly undocumented
-	CloudAppSecuritySessionControlTypeVMonitorOnly CloudAppSecuritySessionControlType = 1
+	CloudAppSecuritySessionControlTypeVMonitorOnly CloudAppSecuritySessionControlType = "monitorOnly"
 	// CloudAppSecuritySessionControlTypeVBlockDownloads undocumented
-	CloudAppSecuritySessionControlTypeVBlockDownloads CloudAppSecuritySessionControlType = 2
+	CloudAppSecuritySessionControlTypeVBlockDownloads CloudAppSecuritySessionControlType = "blockDownloads"
 )
 
-// CloudAppSecuritySessionControlTypePMcasConfigured returns a pointer to CloudAppSecuritySessionControlTypeVMcasConfigured
-func CloudAppSecuritySessionControlTypePMcasConfigured() *CloudAppSecuritySessionControlType {
-	v := CloudAppSecuritySessionControlTypeVMcasConfigured
-	return &v
-}
+var (
+	// CloudAppSecuritySessionControlTypePMcasConfigured is a pointer to CloudAppSecuritySessionControlTypeVMcasConfigured
+	CloudAppSecuritySessionControlTypePMcasConfigured = &_CloudAppSecuritySessionControlTypePMcasConfigured
+	// CloudAppSecuritySessionControlTypePMonitorOnly is a pointer to CloudAppSecuritySessionControlTypeVMonitorOnly
+	CloudAppSecuritySessionControlTypePMonitorOnly = &_CloudAppSecuritySessionControlTypePMonitorOnly
+	// CloudAppSecuritySessionControlTypePBlockDownloads is a pointer to CloudAppSecuritySessionControlTypeVBlockDownloads
+	CloudAppSecuritySessionControlTypePBlockDownloads = &_CloudAppSecuritySessionControlTypePBlockDownloads
+)
 
-// CloudAppSecuritySessionControlTypePMonitorOnly returns a pointer to CloudAppSecuritySessionControlTypeVMonitorOnly
-func CloudAppSecuritySessionControlTypePMonitorOnly() *CloudAppSecuritySessionControlType {
-	v := CloudAppSecuritySessionControlTypeVMonitorOnly
-	return &v
-}
-
-// CloudAppSecuritySessionControlTypePBlockDownloads returns a pointer to CloudAppSecuritySessionControlTypeVBlockDownloads
-func CloudAppSecuritySessionControlTypePBlockDownloads() *CloudAppSecuritySessionControlType {
-	v := CloudAppSecuritySessionControlTypeVBlockDownloads
-	return &v
-}
+var (
+	_CloudAppSecuritySessionControlTypePMcasConfigured = CloudAppSecuritySessionControlTypeVMcasConfigured
+	_CloudAppSecuritySessionControlTypePMonitorOnly    = CloudAppSecuritySessionControlTypeVMonitorOnly
+	_CloudAppSecuritySessionControlTypePBlockDownloads = CloudAppSecuritySessionControlTypeVBlockDownloads
+)

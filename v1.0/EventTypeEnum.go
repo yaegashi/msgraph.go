@@ -3,39 +3,33 @@
 package msgraph
 
 // EventType undocumented
-type EventType int
+type EventType string
 
 const (
 	// EventTypeVSingleInstance undocumented
-	EventTypeVSingleInstance EventType = 0
+	EventTypeVSingleInstance EventType = "singleInstance"
 	// EventTypeVOccurrence undocumented
-	EventTypeVOccurrence EventType = 1
+	EventTypeVOccurrence EventType = "occurrence"
 	// EventTypeVException undocumented
-	EventTypeVException EventType = 2
+	EventTypeVException EventType = "exception"
 	// EventTypeVSeriesMaster undocumented
-	EventTypeVSeriesMaster EventType = 3
+	EventTypeVSeriesMaster EventType = "seriesMaster"
 )
 
-// EventTypePSingleInstance returns a pointer to EventTypeVSingleInstance
-func EventTypePSingleInstance() *EventType {
-	v := EventTypeVSingleInstance
-	return &v
-}
+var (
+	// EventTypePSingleInstance is a pointer to EventTypeVSingleInstance
+	EventTypePSingleInstance = &_EventTypePSingleInstance
+	// EventTypePOccurrence is a pointer to EventTypeVOccurrence
+	EventTypePOccurrence = &_EventTypePOccurrence
+	// EventTypePException is a pointer to EventTypeVException
+	EventTypePException = &_EventTypePException
+	// EventTypePSeriesMaster is a pointer to EventTypeVSeriesMaster
+	EventTypePSeriesMaster = &_EventTypePSeriesMaster
+)
 
-// EventTypePOccurrence returns a pointer to EventTypeVOccurrence
-func EventTypePOccurrence() *EventType {
-	v := EventTypeVOccurrence
-	return &v
-}
-
-// EventTypePException returns a pointer to EventTypeVException
-func EventTypePException() *EventType {
-	v := EventTypeVException
-	return &v
-}
-
-// EventTypePSeriesMaster returns a pointer to EventTypeVSeriesMaster
-func EventTypePSeriesMaster() *EventType {
-	v := EventTypeVSeriesMaster
-	return &v
-}
+var (
+	_EventTypePSingleInstance = EventTypeVSingleInstance
+	_EventTypePOccurrence     = EventTypeVOccurrence
+	_EventTypePException      = EventTypeVException
+	_EventTypePSeriesMaster   = EventTypeVSeriesMaster
+)

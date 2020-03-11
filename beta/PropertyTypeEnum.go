@@ -3,79 +3,58 @@
 package msgraph
 
 // PropertyType undocumented
-type PropertyType int
+type PropertyType string
 
 const (
 	// PropertyTypeVString undocumented
-	PropertyTypeVString PropertyType = 0
+	PropertyTypeVString PropertyType = "String"
 	// PropertyTypeVInt64 undocumented
-	PropertyTypeVInt64 PropertyType = 1
+	PropertyTypeVInt64 PropertyType = "Int64"
 	// PropertyTypeVDouble undocumented
-	PropertyTypeVDouble PropertyType = 2
+	PropertyTypeVDouble PropertyType = "Double"
 	// PropertyTypeVDateTime undocumented
-	PropertyTypeVDateTime PropertyType = 3
+	PropertyTypeVDateTime PropertyType = "DateTime"
 	// PropertyTypeVBoolean undocumented
-	PropertyTypeVBoolean PropertyType = 4
+	PropertyTypeVBoolean PropertyType = "Boolean"
 	// PropertyTypeVStringCollection undocumented
-	PropertyTypeVStringCollection PropertyType = 5
+	PropertyTypeVStringCollection PropertyType = "StringCollection"
 	// PropertyTypeVInt64Collection undocumented
-	PropertyTypeVInt64Collection PropertyType = 6
+	PropertyTypeVInt64Collection PropertyType = "Int64Collection"
 	// PropertyTypeVDoubleCollection undocumented
-	PropertyTypeVDoubleCollection PropertyType = 7
+	PropertyTypeVDoubleCollection PropertyType = "DoubleCollection"
 	// PropertyTypeVDateTimeCollection undocumented
-	PropertyTypeVDateTimeCollection PropertyType = 8
+	PropertyTypeVDateTimeCollection PropertyType = "DateTimeCollection"
 )
 
-// PropertyTypePString returns a pointer to PropertyTypeVString
-func PropertyTypePString() *PropertyType {
-	v := PropertyTypeVString
-	return &v
-}
+var (
+	// PropertyTypePString is a pointer to PropertyTypeVString
+	PropertyTypePString = &_PropertyTypePString
+	// PropertyTypePInt64 is a pointer to PropertyTypeVInt64
+	PropertyTypePInt64 = &_PropertyTypePInt64
+	// PropertyTypePDouble is a pointer to PropertyTypeVDouble
+	PropertyTypePDouble = &_PropertyTypePDouble
+	// PropertyTypePDateTime is a pointer to PropertyTypeVDateTime
+	PropertyTypePDateTime = &_PropertyTypePDateTime
+	// PropertyTypePBoolean is a pointer to PropertyTypeVBoolean
+	PropertyTypePBoolean = &_PropertyTypePBoolean
+	// PropertyTypePStringCollection is a pointer to PropertyTypeVStringCollection
+	PropertyTypePStringCollection = &_PropertyTypePStringCollection
+	// PropertyTypePInt64Collection is a pointer to PropertyTypeVInt64Collection
+	PropertyTypePInt64Collection = &_PropertyTypePInt64Collection
+	// PropertyTypePDoubleCollection is a pointer to PropertyTypeVDoubleCollection
+	PropertyTypePDoubleCollection = &_PropertyTypePDoubleCollection
+	// PropertyTypePDateTimeCollection is a pointer to PropertyTypeVDateTimeCollection
+	PropertyTypePDateTimeCollection = &_PropertyTypePDateTimeCollection
+)
 
-// PropertyTypePInt64 returns a pointer to PropertyTypeVInt64
-func PropertyTypePInt64() *PropertyType {
-	v := PropertyTypeVInt64
-	return &v
-}
-
-// PropertyTypePDouble returns a pointer to PropertyTypeVDouble
-func PropertyTypePDouble() *PropertyType {
-	v := PropertyTypeVDouble
-	return &v
-}
-
-// PropertyTypePDateTime returns a pointer to PropertyTypeVDateTime
-func PropertyTypePDateTime() *PropertyType {
-	v := PropertyTypeVDateTime
-	return &v
-}
-
-// PropertyTypePBoolean returns a pointer to PropertyTypeVBoolean
-func PropertyTypePBoolean() *PropertyType {
-	v := PropertyTypeVBoolean
-	return &v
-}
-
-// PropertyTypePStringCollection returns a pointer to PropertyTypeVStringCollection
-func PropertyTypePStringCollection() *PropertyType {
-	v := PropertyTypeVStringCollection
-	return &v
-}
-
-// PropertyTypePInt64Collection returns a pointer to PropertyTypeVInt64Collection
-func PropertyTypePInt64Collection() *PropertyType {
-	v := PropertyTypeVInt64Collection
-	return &v
-}
-
-// PropertyTypePDoubleCollection returns a pointer to PropertyTypeVDoubleCollection
-func PropertyTypePDoubleCollection() *PropertyType {
-	v := PropertyTypeVDoubleCollection
-	return &v
-}
-
-// PropertyTypePDateTimeCollection returns a pointer to PropertyTypeVDateTimeCollection
-func PropertyTypePDateTimeCollection() *PropertyType {
-	v := PropertyTypeVDateTimeCollection
-	return &v
-}
+var (
+	_PropertyTypePString             = PropertyTypeVString
+	_PropertyTypePInt64              = PropertyTypeVInt64
+	_PropertyTypePDouble             = PropertyTypeVDouble
+	_PropertyTypePDateTime           = PropertyTypeVDateTime
+	_PropertyTypePBoolean            = PropertyTypeVBoolean
+	_PropertyTypePStringCollection   = PropertyTypeVStringCollection
+	_PropertyTypePInt64Collection    = PropertyTypeVInt64Collection
+	_PropertyTypePDoubleCollection   = PropertyTypeVDoubleCollection
+	_PropertyTypePDateTimeCollection = PropertyTypeVDateTimeCollection
+)

@@ -3,63 +3,48 @@
 package msgraph
 
 // DeviceManagementSubscriptionState undocumented
-type DeviceManagementSubscriptionState int
+type DeviceManagementSubscriptionState string
 
 const (
 	// DeviceManagementSubscriptionStateVPending undocumented
-	DeviceManagementSubscriptionStateVPending DeviceManagementSubscriptionState = 0
+	DeviceManagementSubscriptionStateVPending DeviceManagementSubscriptionState = "pending"
 	// DeviceManagementSubscriptionStateVActive undocumented
-	DeviceManagementSubscriptionStateVActive DeviceManagementSubscriptionState = 1
+	DeviceManagementSubscriptionStateVActive DeviceManagementSubscriptionState = "active"
 	// DeviceManagementSubscriptionStateVWarning undocumented
-	DeviceManagementSubscriptionStateVWarning DeviceManagementSubscriptionState = 2
+	DeviceManagementSubscriptionStateVWarning DeviceManagementSubscriptionState = "warning"
 	// DeviceManagementSubscriptionStateVDisabled undocumented
-	DeviceManagementSubscriptionStateVDisabled DeviceManagementSubscriptionState = 3
+	DeviceManagementSubscriptionStateVDisabled DeviceManagementSubscriptionState = "disabled"
 	// DeviceManagementSubscriptionStateVDeleted undocumented
-	DeviceManagementSubscriptionStateVDeleted DeviceManagementSubscriptionState = 4
+	DeviceManagementSubscriptionStateVDeleted DeviceManagementSubscriptionState = "deleted"
 	// DeviceManagementSubscriptionStateVBlocked undocumented
-	DeviceManagementSubscriptionStateVBlocked DeviceManagementSubscriptionState = 5
+	DeviceManagementSubscriptionStateVBlocked DeviceManagementSubscriptionState = "blocked"
 	// DeviceManagementSubscriptionStateVLockedOut undocumented
-	DeviceManagementSubscriptionStateVLockedOut DeviceManagementSubscriptionState = 8
+	DeviceManagementSubscriptionStateVLockedOut DeviceManagementSubscriptionState = "lockedOut"
 )
 
-// DeviceManagementSubscriptionStatePPending returns a pointer to DeviceManagementSubscriptionStateVPending
-func DeviceManagementSubscriptionStatePPending() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVPending
-	return &v
-}
+var (
+	// DeviceManagementSubscriptionStatePPending is a pointer to DeviceManagementSubscriptionStateVPending
+	DeviceManagementSubscriptionStatePPending = &_DeviceManagementSubscriptionStatePPending
+	// DeviceManagementSubscriptionStatePActive is a pointer to DeviceManagementSubscriptionStateVActive
+	DeviceManagementSubscriptionStatePActive = &_DeviceManagementSubscriptionStatePActive
+	// DeviceManagementSubscriptionStatePWarning is a pointer to DeviceManagementSubscriptionStateVWarning
+	DeviceManagementSubscriptionStatePWarning = &_DeviceManagementSubscriptionStatePWarning
+	// DeviceManagementSubscriptionStatePDisabled is a pointer to DeviceManagementSubscriptionStateVDisabled
+	DeviceManagementSubscriptionStatePDisabled = &_DeviceManagementSubscriptionStatePDisabled
+	// DeviceManagementSubscriptionStatePDeleted is a pointer to DeviceManagementSubscriptionStateVDeleted
+	DeviceManagementSubscriptionStatePDeleted = &_DeviceManagementSubscriptionStatePDeleted
+	// DeviceManagementSubscriptionStatePBlocked is a pointer to DeviceManagementSubscriptionStateVBlocked
+	DeviceManagementSubscriptionStatePBlocked = &_DeviceManagementSubscriptionStatePBlocked
+	// DeviceManagementSubscriptionStatePLockedOut is a pointer to DeviceManagementSubscriptionStateVLockedOut
+	DeviceManagementSubscriptionStatePLockedOut = &_DeviceManagementSubscriptionStatePLockedOut
+)
 
-// DeviceManagementSubscriptionStatePActive returns a pointer to DeviceManagementSubscriptionStateVActive
-func DeviceManagementSubscriptionStatePActive() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVActive
-	return &v
-}
-
-// DeviceManagementSubscriptionStatePWarning returns a pointer to DeviceManagementSubscriptionStateVWarning
-func DeviceManagementSubscriptionStatePWarning() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVWarning
-	return &v
-}
-
-// DeviceManagementSubscriptionStatePDisabled returns a pointer to DeviceManagementSubscriptionStateVDisabled
-func DeviceManagementSubscriptionStatePDisabled() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVDisabled
-	return &v
-}
-
-// DeviceManagementSubscriptionStatePDeleted returns a pointer to DeviceManagementSubscriptionStateVDeleted
-func DeviceManagementSubscriptionStatePDeleted() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVDeleted
-	return &v
-}
-
-// DeviceManagementSubscriptionStatePBlocked returns a pointer to DeviceManagementSubscriptionStateVBlocked
-func DeviceManagementSubscriptionStatePBlocked() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVBlocked
-	return &v
-}
-
-// DeviceManagementSubscriptionStatePLockedOut returns a pointer to DeviceManagementSubscriptionStateVLockedOut
-func DeviceManagementSubscriptionStatePLockedOut() *DeviceManagementSubscriptionState {
-	v := DeviceManagementSubscriptionStateVLockedOut
-	return &v
-}
+var (
+	_DeviceManagementSubscriptionStatePPending   = DeviceManagementSubscriptionStateVPending
+	_DeviceManagementSubscriptionStatePActive    = DeviceManagementSubscriptionStateVActive
+	_DeviceManagementSubscriptionStatePWarning   = DeviceManagementSubscriptionStateVWarning
+	_DeviceManagementSubscriptionStatePDisabled  = DeviceManagementSubscriptionStateVDisabled
+	_DeviceManagementSubscriptionStatePDeleted   = DeviceManagementSubscriptionStateVDeleted
+	_DeviceManagementSubscriptionStatePBlocked   = DeviceManagementSubscriptionStateVBlocked
+	_DeviceManagementSubscriptionStatePLockedOut = DeviceManagementSubscriptionStateVLockedOut
+)

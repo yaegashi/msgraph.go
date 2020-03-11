@@ -3,47 +3,38 @@
 package msgraph
 
 // NetworkType undocumented
-type NetworkType int
+type NetworkType string
 
 const (
 	// NetworkTypeVIntranet undocumented
-	NetworkTypeVIntranet NetworkType = 0
+	NetworkTypeVIntranet NetworkType = "intranet"
 	// NetworkTypeVExtranet undocumented
-	NetworkTypeVExtranet NetworkType = 1
+	NetworkTypeVExtranet NetworkType = "extranet"
 	// NetworkTypeVNamedNetwork undocumented
-	NetworkTypeVNamedNetwork NetworkType = 2
+	NetworkTypeVNamedNetwork NetworkType = "namedNetwork"
 	// NetworkTypeVTrusted undocumented
-	NetworkTypeVTrusted NetworkType = 3
+	NetworkTypeVTrusted NetworkType = "trusted"
 	// NetworkTypeVUnknownFutureValue undocumented
-	NetworkTypeVUnknownFutureValue NetworkType = 4
+	NetworkTypeVUnknownFutureValue NetworkType = "unknownFutureValue"
 )
 
-// NetworkTypePIntranet returns a pointer to NetworkTypeVIntranet
-func NetworkTypePIntranet() *NetworkType {
-	v := NetworkTypeVIntranet
-	return &v
-}
+var (
+	// NetworkTypePIntranet is a pointer to NetworkTypeVIntranet
+	NetworkTypePIntranet = &_NetworkTypePIntranet
+	// NetworkTypePExtranet is a pointer to NetworkTypeVExtranet
+	NetworkTypePExtranet = &_NetworkTypePExtranet
+	// NetworkTypePNamedNetwork is a pointer to NetworkTypeVNamedNetwork
+	NetworkTypePNamedNetwork = &_NetworkTypePNamedNetwork
+	// NetworkTypePTrusted is a pointer to NetworkTypeVTrusted
+	NetworkTypePTrusted = &_NetworkTypePTrusted
+	// NetworkTypePUnknownFutureValue is a pointer to NetworkTypeVUnknownFutureValue
+	NetworkTypePUnknownFutureValue = &_NetworkTypePUnknownFutureValue
+)
 
-// NetworkTypePExtranet returns a pointer to NetworkTypeVExtranet
-func NetworkTypePExtranet() *NetworkType {
-	v := NetworkTypeVExtranet
-	return &v
-}
-
-// NetworkTypePNamedNetwork returns a pointer to NetworkTypeVNamedNetwork
-func NetworkTypePNamedNetwork() *NetworkType {
-	v := NetworkTypeVNamedNetwork
-	return &v
-}
-
-// NetworkTypePTrusted returns a pointer to NetworkTypeVTrusted
-func NetworkTypePTrusted() *NetworkType {
-	v := NetworkTypeVTrusted
-	return &v
-}
-
-// NetworkTypePUnknownFutureValue returns a pointer to NetworkTypeVUnknownFutureValue
-func NetworkTypePUnknownFutureValue() *NetworkType {
-	v := NetworkTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_NetworkTypePIntranet           = NetworkTypeVIntranet
+	_NetworkTypePExtranet           = NetworkTypeVExtranet
+	_NetworkTypePNamedNetwork       = NetworkTypeVNamedNetwork
+	_NetworkTypePTrusted            = NetworkTypeVTrusted
+	_NetworkTypePUnknownFutureValue = NetworkTypeVUnknownFutureValue
+)

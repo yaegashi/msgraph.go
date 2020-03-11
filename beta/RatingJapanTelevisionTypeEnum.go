@@ -3,31 +3,28 @@
 package msgraph
 
 // RatingJapanTelevisionType undocumented
-type RatingJapanTelevisionType int
+type RatingJapanTelevisionType string
 
 const (
 	// RatingJapanTelevisionTypeVAllAllowed undocumented
-	RatingJapanTelevisionTypeVAllAllowed RatingJapanTelevisionType = 0
+	RatingJapanTelevisionTypeVAllAllowed RatingJapanTelevisionType = "allAllowed"
 	// RatingJapanTelevisionTypeVAllBlocked undocumented
-	RatingJapanTelevisionTypeVAllBlocked RatingJapanTelevisionType = 1
+	RatingJapanTelevisionTypeVAllBlocked RatingJapanTelevisionType = "allBlocked"
 	// RatingJapanTelevisionTypeVExplicitAllowed undocumented
-	RatingJapanTelevisionTypeVExplicitAllowed RatingJapanTelevisionType = 2
+	RatingJapanTelevisionTypeVExplicitAllowed RatingJapanTelevisionType = "explicitAllowed"
 )
 
-// RatingJapanTelevisionTypePAllAllowed returns a pointer to RatingJapanTelevisionTypeVAllAllowed
-func RatingJapanTelevisionTypePAllAllowed() *RatingJapanTelevisionType {
-	v := RatingJapanTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingJapanTelevisionTypePAllAllowed is a pointer to RatingJapanTelevisionTypeVAllAllowed
+	RatingJapanTelevisionTypePAllAllowed = &_RatingJapanTelevisionTypePAllAllowed
+	// RatingJapanTelevisionTypePAllBlocked is a pointer to RatingJapanTelevisionTypeVAllBlocked
+	RatingJapanTelevisionTypePAllBlocked = &_RatingJapanTelevisionTypePAllBlocked
+	// RatingJapanTelevisionTypePExplicitAllowed is a pointer to RatingJapanTelevisionTypeVExplicitAllowed
+	RatingJapanTelevisionTypePExplicitAllowed = &_RatingJapanTelevisionTypePExplicitAllowed
+)
 
-// RatingJapanTelevisionTypePAllBlocked returns a pointer to RatingJapanTelevisionTypeVAllBlocked
-func RatingJapanTelevisionTypePAllBlocked() *RatingJapanTelevisionType {
-	v := RatingJapanTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingJapanTelevisionTypePExplicitAllowed returns a pointer to RatingJapanTelevisionTypeVExplicitAllowed
-func RatingJapanTelevisionTypePExplicitAllowed() *RatingJapanTelevisionType {
-	v := RatingJapanTelevisionTypeVExplicitAllowed
-	return &v
-}
+var (
+	_RatingJapanTelevisionTypePAllAllowed      = RatingJapanTelevisionTypeVAllAllowed
+	_RatingJapanTelevisionTypePAllBlocked      = RatingJapanTelevisionTypeVAllBlocked
+	_RatingJapanTelevisionTypePExplicitAllowed = RatingJapanTelevisionTypeVExplicitAllowed
+)

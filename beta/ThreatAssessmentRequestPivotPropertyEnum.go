@@ -3,23 +3,23 @@
 package msgraph
 
 // ThreatAssessmentRequestPivotProperty undocumented
-type ThreatAssessmentRequestPivotProperty int
+type ThreatAssessmentRequestPivotProperty string
 
 const (
 	// ThreatAssessmentRequestPivotPropertyVThreatCategory undocumented
-	ThreatAssessmentRequestPivotPropertyVThreatCategory ThreatAssessmentRequestPivotProperty = 1
+	ThreatAssessmentRequestPivotPropertyVThreatCategory ThreatAssessmentRequestPivotProperty = "threatCategory"
 	// ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason undocumented
-	ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason ThreatAssessmentRequestPivotProperty = 2
+	ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason ThreatAssessmentRequestPivotProperty = "mailDestinationRoutingReason"
 )
 
-// ThreatAssessmentRequestPivotPropertyPThreatCategory returns a pointer to ThreatAssessmentRequestPivotPropertyVThreatCategory
-func ThreatAssessmentRequestPivotPropertyPThreatCategory() *ThreatAssessmentRequestPivotProperty {
-	v := ThreatAssessmentRequestPivotPropertyVThreatCategory
-	return &v
-}
+var (
+	// ThreatAssessmentRequestPivotPropertyPThreatCategory is a pointer to ThreatAssessmentRequestPivotPropertyVThreatCategory
+	ThreatAssessmentRequestPivotPropertyPThreatCategory = &_ThreatAssessmentRequestPivotPropertyPThreatCategory
+	// ThreatAssessmentRequestPivotPropertyPMailDestinationRoutingReason is a pointer to ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason
+	ThreatAssessmentRequestPivotPropertyPMailDestinationRoutingReason = &_ThreatAssessmentRequestPivotPropertyPMailDestinationRoutingReason
+)
 
-// ThreatAssessmentRequestPivotPropertyPMailDestinationRoutingReason returns a pointer to ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason
-func ThreatAssessmentRequestPivotPropertyPMailDestinationRoutingReason() *ThreatAssessmentRequestPivotProperty {
-	v := ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason
-	return &v
-}
+var (
+	_ThreatAssessmentRequestPivotPropertyPThreatCategory               = ThreatAssessmentRequestPivotPropertyVThreatCategory
+	_ThreatAssessmentRequestPivotPropertyPMailDestinationRoutingReason = ThreatAssessmentRequestPivotPropertyVMailDestinationRoutingReason
+)

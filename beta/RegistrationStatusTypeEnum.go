@@ -3,47 +3,38 @@
 package msgraph
 
 // RegistrationStatusType undocumented
-type RegistrationStatusType int
+type RegistrationStatusType string
 
 const (
 	// RegistrationStatusTypeVRegistered undocumented
-	RegistrationStatusTypeVRegistered RegistrationStatusType = 0
+	RegistrationStatusTypeVRegistered RegistrationStatusType = "registered"
 	// RegistrationStatusTypeVEnabled undocumented
-	RegistrationStatusTypeVEnabled RegistrationStatusType = 1
+	RegistrationStatusTypeVEnabled RegistrationStatusType = "enabled"
 	// RegistrationStatusTypeVCapable undocumented
-	RegistrationStatusTypeVCapable RegistrationStatusType = 2
+	RegistrationStatusTypeVCapable RegistrationStatusType = "capable"
 	// RegistrationStatusTypeVMFARegistered undocumented
-	RegistrationStatusTypeVMFARegistered RegistrationStatusType = 3
+	RegistrationStatusTypeVMFARegistered RegistrationStatusType = "mfaRegistered"
 	// RegistrationStatusTypeVUnknownFutureValue undocumented
-	RegistrationStatusTypeVUnknownFutureValue RegistrationStatusType = 4
+	RegistrationStatusTypeVUnknownFutureValue RegistrationStatusType = "unknownFutureValue"
 )
 
-// RegistrationStatusTypePRegistered returns a pointer to RegistrationStatusTypeVRegistered
-func RegistrationStatusTypePRegistered() *RegistrationStatusType {
-	v := RegistrationStatusTypeVRegistered
-	return &v
-}
+var (
+	// RegistrationStatusTypePRegistered is a pointer to RegistrationStatusTypeVRegistered
+	RegistrationStatusTypePRegistered = &_RegistrationStatusTypePRegistered
+	// RegistrationStatusTypePEnabled is a pointer to RegistrationStatusTypeVEnabled
+	RegistrationStatusTypePEnabled = &_RegistrationStatusTypePEnabled
+	// RegistrationStatusTypePCapable is a pointer to RegistrationStatusTypeVCapable
+	RegistrationStatusTypePCapable = &_RegistrationStatusTypePCapable
+	// RegistrationStatusTypePMFARegistered is a pointer to RegistrationStatusTypeVMFARegistered
+	RegistrationStatusTypePMFARegistered = &_RegistrationStatusTypePMFARegistered
+	// RegistrationStatusTypePUnknownFutureValue is a pointer to RegistrationStatusTypeVUnknownFutureValue
+	RegistrationStatusTypePUnknownFutureValue = &_RegistrationStatusTypePUnknownFutureValue
+)
 
-// RegistrationStatusTypePEnabled returns a pointer to RegistrationStatusTypeVEnabled
-func RegistrationStatusTypePEnabled() *RegistrationStatusType {
-	v := RegistrationStatusTypeVEnabled
-	return &v
-}
-
-// RegistrationStatusTypePCapable returns a pointer to RegistrationStatusTypeVCapable
-func RegistrationStatusTypePCapable() *RegistrationStatusType {
-	v := RegistrationStatusTypeVCapable
-	return &v
-}
-
-// RegistrationStatusTypePMFARegistered returns a pointer to RegistrationStatusTypeVMFARegistered
-func RegistrationStatusTypePMFARegistered() *RegistrationStatusType {
-	v := RegistrationStatusTypeVMFARegistered
-	return &v
-}
-
-// RegistrationStatusTypePUnknownFutureValue returns a pointer to RegistrationStatusTypeVUnknownFutureValue
-func RegistrationStatusTypePUnknownFutureValue() *RegistrationStatusType {
-	v := RegistrationStatusTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_RegistrationStatusTypePRegistered         = RegistrationStatusTypeVRegistered
+	_RegistrationStatusTypePEnabled            = RegistrationStatusTypeVEnabled
+	_RegistrationStatusTypePCapable            = RegistrationStatusTypeVCapable
+	_RegistrationStatusTypePMFARegistered      = RegistrationStatusTypeVMFARegistered
+	_RegistrationStatusTypePUnknownFutureValue = RegistrationStatusTypeVUnknownFutureValue
+)

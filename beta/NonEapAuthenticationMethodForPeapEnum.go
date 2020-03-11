@@ -3,23 +3,23 @@
 package msgraph
 
 // NonEapAuthenticationMethodForPeap undocumented
-type NonEapAuthenticationMethodForPeap int
+type NonEapAuthenticationMethodForPeap string
 
 const (
 	// NonEapAuthenticationMethodForPeapVNone undocumented
-	NonEapAuthenticationMethodForPeapVNone NonEapAuthenticationMethodForPeap = 0
+	NonEapAuthenticationMethodForPeapVNone NonEapAuthenticationMethodForPeap = "none"
 	// NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo undocumented
-	NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo NonEapAuthenticationMethodForPeap = 1
+	NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo NonEapAuthenticationMethodForPeap = "microsoftChapVersionTwo"
 )
 
-// NonEapAuthenticationMethodForPeapPNone returns a pointer to NonEapAuthenticationMethodForPeapVNone
-func NonEapAuthenticationMethodForPeapPNone() *NonEapAuthenticationMethodForPeap {
-	v := NonEapAuthenticationMethodForPeapVNone
-	return &v
-}
+var (
+	// NonEapAuthenticationMethodForPeapPNone is a pointer to NonEapAuthenticationMethodForPeapVNone
+	NonEapAuthenticationMethodForPeapPNone = &_NonEapAuthenticationMethodForPeapPNone
+	// NonEapAuthenticationMethodForPeapPMicrosoftChapVersionTwo is a pointer to NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo
+	NonEapAuthenticationMethodForPeapPMicrosoftChapVersionTwo = &_NonEapAuthenticationMethodForPeapPMicrosoftChapVersionTwo
+)
 
-// NonEapAuthenticationMethodForPeapPMicrosoftChapVersionTwo returns a pointer to NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo
-func NonEapAuthenticationMethodForPeapPMicrosoftChapVersionTwo() *NonEapAuthenticationMethodForPeap {
-	v := NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo
-	return &v
-}
+var (
+	_NonEapAuthenticationMethodForPeapPNone                    = NonEapAuthenticationMethodForPeapVNone
+	_NonEapAuthenticationMethodForPeapPMicrosoftChapVersionTwo = NonEapAuthenticationMethodForPeapVMicrosoftChapVersionTwo
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // WindowsDeviceType undocumented
-type WindowsDeviceType int
+type WindowsDeviceType string
 
 const (
 	// WindowsDeviceTypeVNone undocumented
-	WindowsDeviceTypeVNone WindowsDeviceType = 0
+	WindowsDeviceTypeVNone WindowsDeviceType = "none"
 	// WindowsDeviceTypeVDesktop undocumented
-	WindowsDeviceTypeVDesktop WindowsDeviceType = 1
+	WindowsDeviceTypeVDesktop WindowsDeviceType = "desktop"
 	// WindowsDeviceTypeVMobile undocumented
-	WindowsDeviceTypeVMobile WindowsDeviceType = 2
+	WindowsDeviceTypeVMobile WindowsDeviceType = "mobile"
 	// WindowsDeviceTypeVHolographic undocumented
-	WindowsDeviceTypeVHolographic WindowsDeviceType = 4
+	WindowsDeviceTypeVHolographic WindowsDeviceType = "holographic"
 	// WindowsDeviceTypeVTeam undocumented
-	WindowsDeviceTypeVTeam WindowsDeviceType = 8
+	WindowsDeviceTypeVTeam WindowsDeviceType = "team"
 )
 
-// WindowsDeviceTypePNone returns a pointer to WindowsDeviceTypeVNone
-func WindowsDeviceTypePNone() *WindowsDeviceType {
-	v := WindowsDeviceTypeVNone
-	return &v
-}
+var (
+	// WindowsDeviceTypePNone is a pointer to WindowsDeviceTypeVNone
+	WindowsDeviceTypePNone = &_WindowsDeviceTypePNone
+	// WindowsDeviceTypePDesktop is a pointer to WindowsDeviceTypeVDesktop
+	WindowsDeviceTypePDesktop = &_WindowsDeviceTypePDesktop
+	// WindowsDeviceTypePMobile is a pointer to WindowsDeviceTypeVMobile
+	WindowsDeviceTypePMobile = &_WindowsDeviceTypePMobile
+	// WindowsDeviceTypePHolographic is a pointer to WindowsDeviceTypeVHolographic
+	WindowsDeviceTypePHolographic = &_WindowsDeviceTypePHolographic
+	// WindowsDeviceTypePTeam is a pointer to WindowsDeviceTypeVTeam
+	WindowsDeviceTypePTeam = &_WindowsDeviceTypePTeam
+)
 
-// WindowsDeviceTypePDesktop returns a pointer to WindowsDeviceTypeVDesktop
-func WindowsDeviceTypePDesktop() *WindowsDeviceType {
-	v := WindowsDeviceTypeVDesktop
-	return &v
-}
-
-// WindowsDeviceTypePMobile returns a pointer to WindowsDeviceTypeVMobile
-func WindowsDeviceTypePMobile() *WindowsDeviceType {
-	v := WindowsDeviceTypeVMobile
-	return &v
-}
-
-// WindowsDeviceTypePHolographic returns a pointer to WindowsDeviceTypeVHolographic
-func WindowsDeviceTypePHolographic() *WindowsDeviceType {
-	v := WindowsDeviceTypeVHolographic
-	return &v
-}
-
-// WindowsDeviceTypePTeam returns a pointer to WindowsDeviceTypeVTeam
-func WindowsDeviceTypePTeam() *WindowsDeviceType {
-	v := WindowsDeviceTypeVTeam
-	return &v
-}
+var (
+	_WindowsDeviceTypePNone        = WindowsDeviceTypeVNone
+	_WindowsDeviceTypePDesktop     = WindowsDeviceTypeVDesktop
+	_WindowsDeviceTypePMobile      = WindowsDeviceTypeVMobile
+	_WindowsDeviceTypePHolographic = WindowsDeviceTypeVHolographic
+	_WindowsDeviceTypePTeam        = WindowsDeviceTypeVTeam
+)

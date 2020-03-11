@@ -3,39 +3,33 @@
 package msgraph
 
 // EmailRole undocumented
-type EmailRole int
+type EmailRole string
 
 const (
 	// EmailRoleVUnknown undocumented
-	EmailRoleVUnknown EmailRole = 0
+	EmailRoleVUnknown EmailRole = "unknown"
 	// EmailRoleVSender undocumented
-	EmailRoleVSender EmailRole = 1
+	EmailRoleVSender EmailRole = "sender"
 	// EmailRoleVRecipient undocumented
-	EmailRoleVRecipient EmailRole = 2
+	EmailRoleVRecipient EmailRole = "recipient"
 	// EmailRoleVUnknownFutureValue undocumented
-	EmailRoleVUnknownFutureValue EmailRole = 127
+	EmailRoleVUnknownFutureValue EmailRole = "unknownFutureValue"
 )
 
-// EmailRolePUnknown returns a pointer to EmailRoleVUnknown
-func EmailRolePUnknown() *EmailRole {
-	v := EmailRoleVUnknown
-	return &v
-}
+var (
+	// EmailRolePUnknown is a pointer to EmailRoleVUnknown
+	EmailRolePUnknown = &_EmailRolePUnknown
+	// EmailRolePSender is a pointer to EmailRoleVSender
+	EmailRolePSender = &_EmailRolePSender
+	// EmailRolePRecipient is a pointer to EmailRoleVRecipient
+	EmailRolePRecipient = &_EmailRolePRecipient
+	// EmailRolePUnknownFutureValue is a pointer to EmailRoleVUnknownFutureValue
+	EmailRolePUnknownFutureValue = &_EmailRolePUnknownFutureValue
+)
 
-// EmailRolePSender returns a pointer to EmailRoleVSender
-func EmailRolePSender() *EmailRole {
-	v := EmailRoleVSender
-	return &v
-}
-
-// EmailRolePRecipient returns a pointer to EmailRoleVRecipient
-func EmailRolePRecipient() *EmailRole {
-	v := EmailRoleVRecipient
-	return &v
-}
-
-// EmailRolePUnknownFutureValue returns a pointer to EmailRoleVUnknownFutureValue
-func EmailRolePUnknownFutureValue() *EmailRole {
-	v := EmailRoleVUnknownFutureValue
-	return &v
-}
+var (
+	_EmailRolePUnknown            = EmailRoleVUnknown
+	_EmailRolePSender             = EmailRoleVSender
+	_EmailRolePRecipient          = EmailRoleVRecipient
+	_EmailRolePUnknownFutureValue = EmailRoleVUnknownFutureValue
+)

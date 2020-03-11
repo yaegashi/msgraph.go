@@ -3,63 +3,48 @@
 package msgraph
 
 // RatingGermanyTelevisionType undocumented
-type RatingGermanyTelevisionType int
+type RatingGermanyTelevisionType string
 
 const (
 	// RatingGermanyTelevisionTypeVAllAllowed undocumented
-	RatingGermanyTelevisionTypeVAllAllowed RatingGermanyTelevisionType = 0
+	RatingGermanyTelevisionTypeVAllAllowed RatingGermanyTelevisionType = "allAllowed"
 	// RatingGermanyTelevisionTypeVAllBlocked undocumented
-	RatingGermanyTelevisionTypeVAllBlocked RatingGermanyTelevisionType = 1
+	RatingGermanyTelevisionTypeVAllBlocked RatingGermanyTelevisionType = "allBlocked"
 	// RatingGermanyTelevisionTypeVGeneral undocumented
-	RatingGermanyTelevisionTypeVGeneral RatingGermanyTelevisionType = 2
+	RatingGermanyTelevisionTypeVGeneral RatingGermanyTelevisionType = "general"
 	// RatingGermanyTelevisionTypeVAgesAbove6 undocumented
-	RatingGermanyTelevisionTypeVAgesAbove6 RatingGermanyTelevisionType = 3
+	RatingGermanyTelevisionTypeVAgesAbove6 RatingGermanyTelevisionType = "agesAbove6"
 	// RatingGermanyTelevisionTypeVAgesAbove12 undocumented
-	RatingGermanyTelevisionTypeVAgesAbove12 RatingGermanyTelevisionType = 4
+	RatingGermanyTelevisionTypeVAgesAbove12 RatingGermanyTelevisionType = "agesAbove12"
 	// RatingGermanyTelevisionTypeVAgesAbove16 undocumented
-	RatingGermanyTelevisionTypeVAgesAbove16 RatingGermanyTelevisionType = 5
+	RatingGermanyTelevisionTypeVAgesAbove16 RatingGermanyTelevisionType = "agesAbove16"
 	// RatingGermanyTelevisionTypeVAdults undocumented
-	RatingGermanyTelevisionTypeVAdults RatingGermanyTelevisionType = 6
+	RatingGermanyTelevisionTypeVAdults RatingGermanyTelevisionType = "adults"
 )
 
-// RatingGermanyTelevisionTypePAllAllowed returns a pointer to RatingGermanyTelevisionTypeVAllAllowed
-func RatingGermanyTelevisionTypePAllAllowed() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingGermanyTelevisionTypePAllAllowed is a pointer to RatingGermanyTelevisionTypeVAllAllowed
+	RatingGermanyTelevisionTypePAllAllowed = &_RatingGermanyTelevisionTypePAllAllowed
+	// RatingGermanyTelevisionTypePAllBlocked is a pointer to RatingGermanyTelevisionTypeVAllBlocked
+	RatingGermanyTelevisionTypePAllBlocked = &_RatingGermanyTelevisionTypePAllBlocked
+	// RatingGermanyTelevisionTypePGeneral is a pointer to RatingGermanyTelevisionTypeVGeneral
+	RatingGermanyTelevisionTypePGeneral = &_RatingGermanyTelevisionTypePGeneral
+	// RatingGermanyTelevisionTypePAgesAbove6 is a pointer to RatingGermanyTelevisionTypeVAgesAbove6
+	RatingGermanyTelevisionTypePAgesAbove6 = &_RatingGermanyTelevisionTypePAgesAbove6
+	// RatingGermanyTelevisionTypePAgesAbove12 is a pointer to RatingGermanyTelevisionTypeVAgesAbove12
+	RatingGermanyTelevisionTypePAgesAbove12 = &_RatingGermanyTelevisionTypePAgesAbove12
+	// RatingGermanyTelevisionTypePAgesAbove16 is a pointer to RatingGermanyTelevisionTypeVAgesAbove16
+	RatingGermanyTelevisionTypePAgesAbove16 = &_RatingGermanyTelevisionTypePAgesAbove16
+	// RatingGermanyTelevisionTypePAdults is a pointer to RatingGermanyTelevisionTypeVAdults
+	RatingGermanyTelevisionTypePAdults = &_RatingGermanyTelevisionTypePAdults
+)
 
-// RatingGermanyTelevisionTypePAllBlocked returns a pointer to RatingGermanyTelevisionTypeVAllBlocked
-func RatingGermanyTelevisionTypePAllBlocked() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingGermanyTelevisionTypePGeneral returns a pointer to RatingGermanyTelevisionTypeVGeneral
-func RatingGermanyTelevisionTypePGeneral() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVGeneral
-	return &v
-}
-
-// RatingGermanyTelevisionTypePAgesAbove6 returns a pointer to RatingGermanyTelevisionTypeVAgesAbove6
-func RatingGermanyTelevisionTypePAgesAbove6() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVAgesAbove6
-	return &v
-}
-
-// RatingGermanyTelevisionTypePAgesAbove12 returns a pointer to RatingGermanyTelevisionTypeVAgesAbove12
-func RatingGermanyTelevisionTypePAgesAbove12() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVAgesAbove12
-	return &v
-}
-
-// RatingGermanyTelevisionTypePAgesAbove16 returns a pointer to RatingGermanyTelevisionTypeVAgesAbove16
-func RatingGermanyTelevisionTypePAgesAbove16() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVAgesAbove16
-	return &v
-}
-
-// RatingGermanyTelevisionTypePAdults returns a pointer to RatingGermanyTelevisionTypeVAdults
-func RatingGermanyTelevisionTypePAdults() *RatingGermanyTelevisionType {
-	v := RatingGermanyTelevisionTypeVAdults
-	return &v
-}
+var (
+	_RatingGermanyTelevisionTypePAllAllowed  = RatingGermanyTelevisionTypeVAllAllowed
+	_RatingGermanyTelevisionTypePAllBlocked  = RatingGermanyTelevisionTypeVAllBlocked
+	_RatingGermanyTelevisionTypePGeneral     = RatingGermanyTelevisionTypeVGeneral
+	_RatingGermanyTelevisionTypePAgesAbove6  = RatingGermanyTelevisionTypeVAgesAbove6
+	_RatingGermanyTelevisionTypePAgesAbove12 = RatingGermanyTelevisionTypeVAgesAbove12
+	_RatingGermanyTelevisionTypePAgesAbove16 = RatingGermanyTelevisionTypeVAgesAbove16
+	_RatingGermanyTelevisionTypePAdults      = RatingGermanyTelevisionTypeVAdults
+)

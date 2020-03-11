@@ -3,87 +3,63 @@
 package msgraph
 
 // PhoneType undocumented
-type PhoneType int
+type PhoneType string
 
 const (
 	// PhoneTypeVHome undocumented
-	PhoneTypeVHome PhoneType = 0
+	PhoneTypeVHome PhoneType = "home"
 	// PhoneTypeVBusiness undocumented
-	PhoneTypeVBusiness PhoneType = 1
+	PhoneTypeVBusiness PhoneType = "business"
 	// PhoneTypeVMobile undocumented
-	PhoneTypeVMobile PhoneType = 2
+	PhoneTypeVMobile PhoneType = "mobile"
 	// PhoneTypeVOther undocumented
-	PhoneTypeVOther PhoneType = 3
+	PhoneTypeVOther PhoneType = "other"
 	// PhoneTypeVAssistant undocumented
-	PhoneTypeVAssistant PhoneType = 4
+	PhoneTypeVAssistant PhoneType = "assistant"
 	// PhoneTypeVHomeFax undocumented
-	PhoneTypeVHomeFax PhoneType = 5
+	PhoneTypeVHomeFax PhoneType = "homeFax"
 	// PhoneTypeVBusinessFax undocumented
-	PhoneTypeVBusinessFax PhoneType = 6
+	PhoneTypeVBusinessFax PhoneType = "businessFax"
 	// PhoneTypeVOtherFax undocumented
-	PhoneTypeVOtherFax PhoneType = 7
+	PhoneTypeVOtherFax PhoneType = "otherFax"
 	// PhoneTypeVPager undocumented
-	PhoneTypeVPager PhoneType = 8
+	PhoneTypeVPager PhoneType = "pager"
 	// PhoneTypeVRadio undocumented
-	PhoneTypeVRadio PhoneType = 9
+	PhoneTypeVRadio PhoneType = "radio"
 )
 
-// PhoneTypePHome returns a pointer to PhoneTypeVHome
-func PhoneTypePHome() *PhoneType {
-	v := PhoneTypeVHome
-	return &v
-}
+var (
+	// PhoneTypePHome is a pointer to PhoneTypeVHome
+	PhoneTypePHome = &_PhoneTypePHome
+	// PhoneTypePBusiness is a pointer to PhoneTypeVBusiness
+	PhoneTypePBusiness = &_PhoneTypePBusiness
+	// PhoneTypePMobile is a pointer to PhoneTypeVMobile
+	PhoneTypePMobile = &_PhoneTypePMobile
+	// PhoneTypePOther is a pointer to PhoneTypeVOther
+	PhoneTypePOther = &_PhoneTypePOther
+	// PhoneTypePAssistant is a pointer to PhoneTypeVAssistant
+	PhoneTypePAssistant = &_PhoneTypePAssistant
+	// PhoneTypePHomeFax is a pointer to PhoneTypeVHomeFax
+	PhoneTypePHomeFax = &_PhoneTypePHomeFax
+	// PhoneTypePBusinessFax is a pointer to PhoneTypeVBusinessFax
+	PhoneTypePBusinessFax = &_PhoneTypePBusinessFax
+	// PhoneTypePOtherFax is a pointer to PhoneTypeVOtherFax
+	PhoneTypePOtherFax = &_PhoneTypePOtherFax
+	// PhoneTypePPager is a pointer to PhoneTypeVPager
+	PhoneTypePPager = &_PhoneTypePPager
+	// PhoneTypePRadio is a pointer to PhoneTypeVRadio
+	PhoneTypePRadio = &_PhoneTypePRadio
+)
 
-// PhoneTypePBusiness returns a pointer to PhoneTypeVBusiness
-func PhoneTypePBusiness() *PhoneType {
-	v := PhoneTypeVBusiness
-	return &v
-}
-
-// PhoneTypePMobile returns a pointer to PhoneTypeVMobile
-func PhoneTypePMobile() *PhoneType {
-	v := PhoneTypeVMobile
-	return &v
-}
-
-// PhoneTypePOther returns a pointer to PhoneTypeVOther
-func PhoneTypePOther() *PhoneType {
-	v := PhoneTypeVOther
-	return &v
-}
-
-// PhoneTypePAssistant returns a pointer to PhoneTypeVAssistant
-func PhoneTypePAssistant() *PhoneType {
-	v := PhoneTypeVAssistant
-	return &v
-}
-
-// PhoneTypePHomeFax returns a pointer to PhoneTypeVHomeFax
-func PhoneTypePHomeFax() *PhoneType {
-	v := PhoneTypeVHomeFax
-	return &v
-}
-
-// PhoneTypePBusinessFax returns a pointer to PhoneTypeVBusinessFax
-func PhoneTypePBusinessFax() *PhoneType {
-	v := PhoneTypeVBusinessFax
-	return &v
-}
-
-// PhoneTypePOtherFax returns a pointer to PhoneTypeVOtherFax
-func PhoneTypePOtherFax() *PhoneType {
-	v := PhoneTypeVOtherFax
-	return &v
-}
-
-// PhoneTypePPager returns a pointer to PhoneTypeVPager
-func PhoneTypePPager() *PhoneType {
-	v := PhoneTypeVPager
-	return &v
-}
-
-// PhoneTypePRadio returns a pointer to PhoneTypeVRadio
-func PhoneTypePRadio() *PhoneType {
-	v := PhoneTypeVRadio
-	return &v
-}
+var (
+	_PhoneTypePHome        = PhoneTypeVHome
+	_PhoneTypePBusiness    = PhoneTypeVBusiness
+	_PhoneTypePMobile      = PhoneTypeVMobile
+	_PhoneTypePOther       = PhoneTypeVOther
+	_PhoneTypePAssistant   = PhoneTypeVAssistant
+	_PhoneTypePHomeFax     = PhoneTypeVHomeFax
+	_PhoneTypePBusinessFax = PhoneTypeVBusinessFax
+	_PhoneTypePOtherFax    = PhoneTypeVOtherFax
+	_PhoneTypePPager       = PhoneTypeVPager
+	_PhoneTypePRadio       = PhoneTypeVRadio
+)

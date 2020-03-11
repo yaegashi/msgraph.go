@@ -3,215 +3,143 @@
 package msgraph
 
 // CategoryColor undocumented
-type CategoryColor int
+type CategoryColor string
 
 const (
 	// CategoryColorVPreset0 undocumented
-	CategoryColorVPreset0 CategoryColor = 0
+	CategoryColorVPreset0 CategoryColor = "preset0"
 	// CategoryColorVPreset1 undocumented
-	CategoryColorVPreset1 CategoryColor = 1
+	CategoryColorVPreset1 CategoryColor = "preset1"
 	// CategoryColorVPreset2 undocumented
-	CategoryColorVPreset2 CategoryColor = 2
+	CategoryColorVPreset2 CategoryColor = "preset2"
 	// CategoryColorVPreset3 undocumented
-	CategoryColorVPreset3 CategoryColor = 3
+	CategoryColorVPreset3 CategoryColor = "preset3"
 	// CategoryColorVPreset4 undocumented
-	CategoryColorVPreset4 CategoryColor = 4
+	CategoryColorVPreset4 CategoryColor = "preset4"
 	// CategoryColorVPreset5 undocumented
-	CategoryColorVPreset5 CategoryColor = 5
+	CategoryColorVPreset5 CategoryColor = "preset5"
 	// CategoryColorVPreset6 undocumented
-	CategoryColorVPreset6 CategoryColor = 6
+	CategoryColorVPreset6 CategoryColor = "preset6"
 	// CategoryColorVPreset7 undocumented
-	CategoryColorVPreset7 CategoryColor = 7
+	CategoryColorVPreset7 CategoryColor = "preset7"
 	// CategoryColorVPreset8 undocumented
-	CategoryColorVPreset8 CategoryColor = 8
+	CategoryColorVPreset8 CategoryColor = "preset8"
 	// CategoryColorVPreset9 undocumented
-	CategoryColorVPreset9 CategoryColor = 9
+	CategoryColorVPreset9 CategoryColor = "preset9"
 	// CategoryColorVPreset10 undocumented
-	CategoryColorVPreset10 CategoryColor = 10
+	CategoryColorVPreset10 CategoryColor = "preset10"
 	// CategoryColorVPreset11 undocumented
-	CategoryColorVPreset11 CategoryColor = 11
+	CategoryColorVPreset11 CategoryColor = "preset11"
 	// CategoryColorVPreset12 undocumented
-	CategoryColorVPreset12 CategoryColor = 12
+	CategoryColorVPreset12 CategoryColor = "preset12"
 	// CategoryColorVPreset13 undocumented
-	CategoryColorVPreset13 CategoryColor = 13
+	CategoryColorVPreset13 CategoryColor = "preset13"
 	// CategoryColorVPreset14 undocumented
-	CategoryColorVPreset14 CategoryColor = 14
+	CategoryColorVPreset14 CategoryColor = "preset14"
 	// CategoryColorVPreset15 undocumented
-	CategoryColorVPreset15 CategoryColor = 15
+	CategoryColorVPreset15 CategoryColor = "preset15"
 	// CategoryColorVPreset16 undocumented
-	CategoryColorVPreset16 CategoryColor = 16
+	CategoryColorVPreset16 CategoryColor = "preset16"
 	// CategoryColorVPreset17 undocumented
-	CategoryColorVPreset17 CategoryColor = 17
+	CategoryColorVPreset17 CategoryColor = "preset17"
 	// CategoryColorVPreset18 undocumented
-	CategoryColorVPreset18 CategoryColor = 18
+	CategoryColorVPreset18 CategoryColor = "preset18"
 	// CategoryColorVPreset19 undocumented
-	CategoryColorVPreset19 CategoryColor = 19
+	CategoryColorVPreset19 CategoryColor = "preset19"
 	// CategoryColorVPreset20 undocumented
-	CategoryColorVPreset20 CategoryColor = 20
+	CategoryColorVPreset20 CategoryColor = "preset20"
 	// CategoryColorVPreset21 undocumented
-	CategoryColorVPreset21 CategoryColor = 21
+	CategoryColorVPreset21 CategoryColor = "preset21"
 	// CategoryColorVPreset22 undocumented
-	CategoryColorVPreset22 CategoryColor = 22
+	CategoryColorVPreset22 CategoryColor = "preset22"
 	// CategoryColorVPreset23 undocumented
-	CategoryColorVPreset23 CategoryColor = 23
+	CategoryColorVPreset23 CategoryColor = "preset23"
 	// CategoryColorVPreset24 undocumented
-	CategoryColorVPreset24 CategoryColor = 24
+	CategoryColorVPreset24 CategoryColor = "preset24"
 	// CategoryColorVNone undocumented
-	CategoryColorVNone CategoryColor = -1
+	CategoryColorVNone CategoryColor = "none"
 )
 
-// CategoryColorPPreset0 returns a pointer to CategoryColorVPreset0
-func CategoryColorPPreset0() *CategoryColor {
-	v := CategoryColorVPreset0
-	return &v
-}
+var (
+	// CategoryColorPPreset0 is a pointer to CategoryColorVPreset0
+	CategoryColorPPreset0 = &_CategoryColorPPreset0
+	// CategoryColorPPreset1 is a pointer to CategoryColorVPreset1
+	CategoryColorPPreset1 = &_CategoryColorPPreset1
+	// CategoryColorPPreset2 is a pointer to CategoryColorVPreset2
+	CategoryColorPPreset2 = &_CategoryColorPPreset2
+	// CategoryColorPPreset3 is a pointer to CategoryColorVPreset3
+	CategoryColorPPreset3 = &_CategoryColorPPreset3
+	// CategoryColorPPreset4 is a pointer to CategoryColorVPreset4
+	CategoryColorPPreset4 = &_CategoryColorPPreset4
+	// CategoryColorPPreset5 is a pointer to CategoryColorVPreset5
+	CategoryColorPPreset5 = &_CategoryColorPPreset5
+	// CategoryColorPPreset6 is a pointer to CategoryColorVPreset6
+	CategoryColorPPreset6 = &_CategoryColorPPreset6
+	// CategoryColorPPreset7 is a pointer to CategoryColorVPreset7
+	CategoryColorPPreset7 = &_CategoryColorPPreset7
+	// CategoryColorPPreset8 is a pointer to CategoryColorVPreset8
+	CategoryColorPPreset8 = &_CategoryColorPPreset8
+	// CategoryColorPPreset9 is a pointer to CategoryColorVPreset9
+	CategoryColorPPreset9 = &_CategoryColorPPreset9
+	// CategoryColorPPreset10 is a pointer to CategoryColorVPreset10
+	CategoryColorPPreset10 = &_CategoryColorPPreset10
+	// CategoryColorPPreset11 is a pointer to CategoryColorVPreset11
+	CategoryColorPPreset11 = &_CategoryColorPPreset11
+	// CategoryColorPPreset12 is a pointer to CategoryColorVPreset12
+	CategoryColorPPreset12 = &_CategoryColorPPreset12
+	// CategoryColorPPreset13 is a pointer to CategoryColorVPreset13
+	CategoryColorPPreset13 = &_CategoryColorPPreset13
+	// CategoryColorPPreset14 is a pointer to CategoryColorVPreset14
+	CategoryColorPPreset14 = &_CategoryColorPPreset14
+	// CategoryColorPPreset15 is a pointer to CategoryColorVPreset15
+	CategoryColorPPreset15 = &_CategoryColorPPreset15
+	// CategoryColorPPreset16 is a pointer to CategoryColorVPreset16
+	CategoryColorPPreset16 = &_CategoryColorPPreset16
+	// CategoryColorPPreset17 is a pointer to CategoryColorVPreset17
+	CategoryColorPPreset17 = &_CategoryColorPPreset17
+	// CategoryColorPPreset18 is a pointer to CategoryColorVPreset18
+	CategoryColorPPreset18 = &_CategoryColorPPreset18
+	// CategoryColorPPreset19 is a pointer to CategoryColorVPreset19
+	CategoryColorPPreset19 = &_CategoryColorPPreset19
+	// CategoryColorPPreset20 is a pointer to CategoryColorVPreset20
+	CategoryColorPPreset20 = &_CategoryColorPPreset20
+	// CategoryColorPPreset21 is a pointer to CategoryColorVPreset21
+	CategoryColorPPreset21 = &_CategoryColorPPreset21
+	// CategoryColorPPreset22 is a pointer to CategoryColorVPreset22
+	CategoryColorPPreset22 = &_CategoryColorPPreset22
+	// CategoryColorPPreset23 is a pointer to CategoryColorVPreset23
+	CategoryColorPPreset23 = &_CategoryColorPPreset23
+	// CategoryColorPPreset24 is a pointer to CategoryColorVPreset24
+	CategoryColorPPreset24 = &_CategoryColorPPreset24
+	// CategoryColorPNone is a pointer to CategoryColorVNone
+	CategoryColorPNone = &_CategoryColorPNone
+)
 
-// CategoryColorPPreset1 returns a pointer to CategoryColorVPreset1
-func CategoryColorPPreset1() *CategoryColor {
-	v := CategoryColorVPreset1
-	return &v
-}
-
-// CategoryColorPPreset2 returns a pointer to CategoryColorVPreset2
-func CategoryColorPPreset2() *CategoryColor {
-	v := CategoryColorVPreset2
-	return &v
-}
-
-// CategoryColorPPreset3 returns a pointer to CategoryColorVPreset3
-func CategoryColorPPreset3() *CategoryColor {
-	v := CategoryColorVPreset3
-	return &v
-}
-
-// CategoryColorPPreset4 returns a pointer to CategoryColorVPreset4
-func CategoryColorPPreset4() *CategoryColor {
-	v := CategoryColorVPreset4
-	return &v
-}
-
-// CategoryColorPPreset5 returns a pointer to CategoryColorVPreset5
-func CategoryColorPPreset5() *CategoryColor {
-	v := CategoryColorVPreset5
-	return &v
-}
-
-// CategoryColorPPreset6 returns a pointer to CategoryColorVPreset6
-func CategoryColorPPreset6() *CategoryColor {
-	v := CategoryColorVPreset6
-	return &v
-}
-
-// CategoryColorPPreset7 returns a pointer to CategoryColorVPreset7
-func CategoryColorPPreset7() *CategoryColor {
-	v := CategoryColorVPreset7
-	return &v
-}
-
-// CategoryColorPPreset8 returns a pointer to CategoryColorVPreset8
-func CategoryColorPPreset8() *CategoryColor {
-	v := CategoryColorVPreset8
-	return &v
-}
-
-// CategoryColorPPreset9 returns a pointer to CategoryColorVPreset9
-func CategoryColorPPreset9() *CategoryColor {
-	v := CategoryColorVPreset9
-	return &v
-}
-
-// CategoryColorPPreset10 returns a pointer to CategoryColorVPreset10
-func CategoryColorPPreset10() *CategoryColor {
-	v := CategoryColorVPreset10
-	return &v
-}
-
-// CategoryColorPPreset11 returns a pointer to CategoryColorVPreset11
-func CategoryColorPPreset11() *CategoryColor {
-	v := CategoryColorVPreset11
-	return &v
-}
-
-// CategoryColorPPreset12 returns a pointer to CategoryColorVPreset12
-func CategoryColorPPreset12() *CategoryColor {
-	v := CategoryColorVPreset12
-	return &v
-}
-
-// CategoryColorPPreset13 returns a pointer to CategoryColorVPreset13
-func CategoryColorPPreset13() *CategoryColor {
-	v := CategoryColorVPreset13
-	return &v
-}
-
-// CategoryColorPPreset14 returns a pointer to CategoryColorVPreset14
-func CategoryColorPPreset14() *CategoryColor {
-	v := CategoryColorVPreset14
-	return &v
-}
-
-// CategoryColorPPreset15 returns a pointer to CategoryColorVPreset15
-func CategoryColorPPreset15() *CategoryColor {
-	v := CategoryColorVPreset15
-	return &v
-}
-
-// CategoryColorPPreset16 returns a pointer to CategoryColorVPreset16
-func CategoryColorPPreset16() *CategoryColor {
-	v := CategoryColorVPreset16
-	return &v
-}
-
-// CategoryColorPPreset17 returns a pointer to CategoryColorVPreset17
-func CategoryColorPPreset17() *CategoryColor {
-	v := CategoryColorVPreset17
-	return &v
-}
-
-// CategoryColorPPreset18 returns a pointer to CategoryColorVPreset18
-func CategoryColorPPreset18() *CategoryColor {
-	v := CategoryColorVPreset18
-	return &v
-}
-
-// CategoryColorPPreset19 returns a pointer to CategoryColorVPreset19
-func CategoryColorPPreset19() *CategoryColor {
-	v := CategoryColorVPreset19
-	return &v
-}
-
-// CategoryColorPPreset20 returns a pointer to CategoryColorVPreset20
-func CategoryColorPPreset20() *CategoryColor {
-	v := CategoryColorVPreset20
-	return &v
-}
-
-// CategoryColorPPreset21 returns a pointer to CategoryColorVPreset21
-func CategoryColorPPreset21() *CategoryColor {
-	v := CategoryColorVPreset21
-	return &v
-}
-
-// CategoryColorPPreset22 returns a pointer to CategoryColorVPreset22
-func CategoryColorPPreset22() *CategoryColor {
-	v := CategoryColorVPreset22
-	return &v
-}
-
-// CategoryColorPPreset23 returns a pointer to CategoryColorVPreset23
-func CategoryColorPPreset23() *CategoryColor {
-	v := CategoryColorVPreset23
-	return &v
-}
-
-// CategoryColorPPreset24 returns a pointer to CategoryColorVPreset24
-func CategoryColorPPreset24() *CategoryColor {
-	v := CategoryColorVPreset24
-	return &v
-}
-
-// CategoryColorPNone returns a pointer to CategoryColorVNone
-func CategoryColorPNone() *CategoryColor {
-	v := CategoryColorVNone
-	return &v
-}
+var (
+	_CategoryColorPPreset0  = CategoryColorVPreset0
+	_CategoryColorPPreset1  = CategoryColorVPreset1
+	_CategoryColorPPreset2  = CategoryColorVPreset2
+	_CategoryColorPPreset3  = CategoryColorVPreset3
+	_CategoryColorPPreset4  = CategoryColorVPreset4
+	_CategoryColorPPreset5  = CategoryColorVPreset5
+	_CategoryColorPPreset6  = CategoryColorVPreset6
+	_CategoryColorPPreset7  = CategoryColorVPreset7
+	_CategoryColorPPreset8  = CategoryColorVPreset8
+	_CategoryColorPPreset9  = CategoryColorVPreset9
+	_CategoryColorPPreset10 = CategoryColorVPreset10
+	_CategoryColorPPreset11 = CategoryColorVPreset11
+	_CategoryColorPPreset12 = CategoryColorVPreset12
+	_CategoryColorPPreset13 = CategoryColorVPreset13
+	_CategoryColorPPreset14 = CategoryColorVPreset14
+	_CategoryColorPPreset15 = CategoryColorVPreset15
+	_CategoryColorPPreset16 = CategoryColorVPreset16
+	_CategoryColorPPreset17 = CategoryColorVPreset17
+	_CategoryColorPPreset18 = CategoryColorVPreset18
+	_CategoryColorPPreset19 = CategoryColorVPreset19
+	_CategoryColorPPreset20 = CategoryColorVPreset20
+	_CategoryColorPPreset21 = CategoryColorVPreset21
+	_CategoryColorPPreset22 = CategoryColorVPreset22
+	_CategoryColorPPreset23 = CategoryColorVPreset23
+	_CategoryColorPPreset24 = CategoryColorVPreset24
+	_CategoryColorPNone     = CategoryColorVNone
+)

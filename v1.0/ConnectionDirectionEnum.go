@@ -3,39 +3,33 @@
 package msgraph
 
 // ConnectionDirection undocumented
-type ConnectionDirection int
+type ConnectionDirection string
 
 const (
 	// ConnectionDirectionVUnknown undocumented
-	ConnectionDirectionVUnknown ConnectionDirection = 0
+	ConnectionDirectionVUnknown ConnectionDirection = "unknown"
 	// ConnectionDirectionVInbound undocumented
-	ConnectionDirectionVInbound ConnectionDirection = 1
+	ConnectionDirectionVInbound ConnectionDirection = "inbound"
 	// ConnectionDirectionVOutbound undocumented
-	ConnectionDirectionVOutbound ConnectionDirection = 2
+	ConnectionDirectionVOutbound ConnectionDirection = "outbound"
 	// ConnectionDirectionVUnknownFutureValue undocumented
-	ConnectionDirectionVUnknownFutureValue ConnectionDirection = 127
+	ConnectionDirectionVUnknownFutureValue ConnectionDirection = "unknownFutureValue"
 )
 
-// ConnectionDirectionPUnknown returns a pointer to ConnectionDirectionVUnknown
-func ConnectionDirectionPUnknown() *ConnectionDirection {
-	v := ConnectionDirectionVUnknown
-	return &v
-}
+var (
+	// ConnectionDirectionPUnknown is a pointer to ConnectionDirectionVUnknown
+	ConnectionDirectionPUnknown = &_ConnectionDirectionPUnknown
+	// ConnectionDirectionPInbound is a pointer to ConnectionDirectionVInbound
+	ConnectionDirectionPInbound = &_ConnectionDirectionPInbound
+	// ConnectionDirectionPOutbound is a pointer to ConnectionDirectionVOutbound
+	ConnectionDirectionPOutbound = &_ConnectionDirectionPOutbound
+	// ConnectionDirectionPUnknownFutureValue is a pointer to ConnectionDirectionVUnknownFutureValue
+	ConnectionDirectionPUnknownFutureValue = &_ConnectionDirectionPUnknownFutureValue
+)
 
-// ConnectionDirectionPInbound returns a pointer to ConnectionDirectionVInbound
-func ConnectionDirectionPInbound() *ConnectionDirection {
-	v := ConnectionDirectionVInbound
-	return &v
-}
-
-// ConnectionDirectionPOutbound returns a pointer to ConnectionDirectionVOutbound
-func ConnectionDirectionPOutbound() *ConnectionDirection {
-	v := ConnectionDirectionVOutbound
-	return &v
-}
-
-// ConnectionDirectionPUnknownFutureValue returns a pointer to ConnectionDirectionVUnknownFutureValue
-func ConnectionDirectionPUnknownFutureValue() *ConnectionDirection {
-	v := ConnectionDirectionVUnknownFutureValue
-	return &v
-}
+var (
+	_ConnectionDirectionPUnknown            = ConnectionDirectionVUnknown
+	_ConnectionDirectionPInbound            = ConnectionDirectionVInbound
+	_ConnectionDirectionPOutbound           = ConnectionDirectionVOutbound
+	_ConnectionDirectionPUnknownFutureValue = ConnectionDirectionVUnknownFutureValue
+)

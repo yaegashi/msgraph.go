@@ -3,39 +3,33 @@
 package msgraph
 
 // ProvisioningResult undocumented
-type ProvisioningResult int
+type ProvisioningResult string
 
 const (
 	// ProvisioningResultVSuccess undocumented
-	ProvisioningResultVSuccess ProvisioningResult = 0
+	ProvisioningResultVSuccess ProvisioningResult = "success"
 	// ProvisioningResultVFailure undocumented
-	ProvisioningResultVFailure ProvisioningResult = 1
+	ProvisioningResultVFailure ProvisioningResult = "failure"
 	// ProvisioningResultVSkipped undocumented
-	ProvisioningResultVSkipped ProvisioningResult = 2
+	ProvisioningResultVSkipped ProvisioningResult = "skipped"
 	// ProvisioningResultVUnknownFutureValue undocumented
-	ProvisioningResultVUnknownFutureValue ProvisioningResult = 3
+	ProvisioningResultVUnknownFutureValue ProvisioningResult = "unknownFutureValue"
 )
 
-// ProvisioningResultPSuccess returns a pointer to ProvisioningResultVSuccess
-func ProvisioningResultPSuccess() *ProvisioningResult {
-	v := ProvisioningResultVSuccess
-	return &v
-}
+var (
+	// ProvisioningResultPSuccess is a pointer to ProvisioningResultVSuccess
+	ProvisioningResultPSuccess = &_ProvisioningResultPSuccess
+	// ProvisioningResultPFailure is a pointer to ProvisioningResultVFailure
+	ProvisioningResultPFailure = &_ProvisioningResultPFailure
+	// ProvisioningResultPSkipped is a pointer to ProvisioningResultVSkipped
+	ProvisioningResultPSkipped = &_ProvisioningResultPSkipped
+	// ProvisioningResultPUnknownFutureValue is a pointer to ProvisioningResultVUnknownFutureValue
+	ProvisioningResultPUnknownFutureValue = &_ProvisioningResultPUnknownFutureValue
+)
 
-// ProvisioningResultPFailure returns a pointer to ProvisioningResultVFailure
-func ProvisioningResultPFailure() *ProvisioningResult {
-	v := ProvisioningResultVFailure
-	return &v
-}
-
-// ProvisioningResultPSkipped returns a pointer to ProvisioningResultVSkipped
-func ProvisioningResultPSkipped() *ProvisioningResult {
-	v := ProvisioningResultVSkipped
-	return &v
-}
-
-// ProvisioningResultPUnknownFutureValue returns a pointer to ProvisioningResultVUnknownFutureValue
-func ProvisioningResultPUnknownFutureValue() *ProvisioningResult {
-	v := ProvisioningResultVUnknownFutureValue
-	return &v
-}
+var (
+	_ProvisioningResultPSuccess            = ProvisioningResultVSuccess
+	_ProvisioningResultPFailure            = ProvisioningResultVFailure
+	_ProvisioningResultPSkipped            = ProvisioningResultVSkipped
+	_ProvisioningResultPUnknownFutureValue = ProvisioningResultVUnknownFutureValue
+)

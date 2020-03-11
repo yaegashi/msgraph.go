@@ -3,31 +3,28 @@
 package msgraph
 
 // Win32LobAppNotification undocumented
-type Win32LobAppNotification int
+type Win32LobAppNotification string
 
 const (
 	// Win32LobAppNotificationVShowAll undocumented
-	Win32LobAppNotificationVShowAll Win32LobAppNotification = 0
+	Win32LobAppNotificationVShowAll Win32LobAppNotification = "showAll"
 	// Win32LobAppNotificationVShowReboot undocumented
-	Win32LobAppNotificationVShowReboot Win32LobAppNotification = 1
+	Win32LobAppNotificationVShowReboot Win32LobAppNotification = "showReboot"
 	// Win32LobAppNotificationVHideAll undocumented
-	Win32LobAppNotificationVHideAll Win32LobAppNotification = 2
+	Win32LobAppNotificationVHideAll Win32LobAppNotification = "hideAll"
 )
 
-// Win32LobAppNotificationPShowAll returns a pointer to Win32LobAppNotificationVShowAll
-func Win32LobAppNotificationPShowAll() *Win32LobAppNotification {
-	v := Win32LobAppNotificationVShowAll
-	return &v
-}
+var (
+	// Win32LobAppNotificationPShowAll is a pointer to Win32LobAppNotificationVShowAll
+	Win32LobAppNotificationPShowAll = &_Win32LobAppNotificationPShowAll
+	// Win32LobAppNotificationPShowReboot is a pointer to Win32LobAppNotificationVShowReboot
+	Win32LobAppNotificationPShowReboot = &_Win32LobAppNotificationPShowReboot
+	// Win32LobAppNotificationPHideAll is a pointer to Win32LobAppNotificationVHideAll
+	Win32LobAppNotificationPHideAll = &_Win32LobAppNotificationPHideAll
+)
 
-// Win32LobAppNotificationPShowReboot returns a pointer to Win32LobAppNotificationVShowReboot
-func Win32LobAppNotificationPShowReboot() *Win32LobAppNotification {
-	v := Win32LobAppNotificationVShowReboot
-	return &v
-}
-
-// Win32LobAppNotificationPHideAll returns a pointer to Win32LobAppNotificationVHideAll
-func Win32LobAppNotificationPHideAll() *Win32LobAppNotification {
-	v := Win32LobAppNotificationVHideAll
-	return &v
-}
+var (
+	_Win32LobAppNotificationPShowAll    = Win32LobAppNotificationVShowAll
+	_Win32LobAppNotificationPShowReboot = Win32LobAppNotificationVShowReboot
+	_Win32LobAppNotificationPHideAll    = Win32LobAppNotificationVHideAll
+)

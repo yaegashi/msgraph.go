@@ -3,31 +3,28 @@
 package msgraph
 
 // NdesConnectorState undocumented
-type NdesConnectorState int
+type NdesConnectorState string
 
 const (
 	// NdesConnectorStateVNone undocumented
-	NdesConnectorStateVNone NdesConnectorState = 0
+	NdesConnectorStateVNone NdesConnectorState = "none"
 	// NdesConnectorStateVActive undocumented
-	NdesConnectorStateVActive NdesConnectorState = 1
+	NdesConnectorStateVActive NdesConnectorState = "active"
 	// NdesConnectorStateVInactive undocumented
-	NdesConnectorStateVInactive NdesConnectorState = 2
+	NdesConnectorStateVInactive NdesConnectorState = "inactive"
 )
 
-// NdesConnectorStatePNone returns a pointer to NdesConnectorStateVNone
-func NdesConnectorStatePNone() *NdesConnectorState {
-	v := NdesConnectorStateVNone
-	return &v
-}
+var (
+	// NdesConnectorStatePNone is a pointer to NdesConnectorStateVNone
+	NdesConnectorStatePNone = &_NdesConnectorStatePNone
+	// NdesConnectorStatePActive is a pointer to NdesConnectorStateVActive
+	NdesConnectorStatePActive = &_NdesConnectorStatePActive
+	// NdesConnectorStatePInactive is a pointer to NdesConnectorStateVInactive
+	NdesConnectorStatePInactive = &_NdesConnectorStatePInactive
+)
 
-// NdesConnectorStatePActive returns a pointer to NdesConnectorStateVActive
-func NdesConnectorStatePActive() *NdesConnectorState {
-	v := NdesConnectorStateVActive
-	return &v
-}
-
-// NdesConnectorStatePInactive returns a pointer to NdesConnectorStateVInactive
-func NdesConnectorStatePInactive() *NdesConnectorState {
-	v := NdesConnectorStateVInactive
-	return &v
-}
+var (
+	_NdesConnectorStatePNone     = NdesConnectorStateVNone
+	_NdesConnectorStatePActive   = NdesConnectorStateVActive
+	_NdesConnectorStatePInactive = NdesConnectorStateVInactive
+)

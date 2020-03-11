@@ -3,71 +3,53 @@
 package msgraph
 
 // AndroidForWorkRequiredPasswordType undocumented
-type AndroidForWorkRequiredPasswordType int
+type AndroidForWorkRequiredPasswordType string
 
 const (
 	// AndroidForWorkRequiredPasswordTypeVDeviceDefault undocumented
-	AndroidForWorkRequiredPasswordTypeVDeviceDefault AndroidForWorkRequiredPasswordType = 0
+	AndroidForWorkRequiredPasswordTypeVDeviceDefault AndroidForWorkRequiredPasswordType = "deviceDefault"
 	// AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric undocumented
-	AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric AndroidForWorkRequiredPasswordType = 1
+	AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric AndroidForWorkRequiredPasswordType = "lowSecurityBiometric"
 	// AndroidForWorkRequiredPasswordTypeVRequired undocumented
-	AndroidForWorkRequiredPasswordTypeVRequired AndroidForWorkRequiredPasswordType = 2
+	AndroidForWorkRequiredPasswordTypeVRequired AndroidForWorkRequiredPasswordType = "required"
 	// AndroidForWorkRequiredPasswordTypeVAtLeastNumeric undocumented
-	AndroidForWorkRequiredPasswordTypeVAtLeastNumeric AndroidForWorkRequiredPasswordType = 3
+	AndroidForWorkRequiredPasswordTypeVAtLeastNumeric AndroidForWorkRequiredPasswordType = "atLeastNumeric"
 	// AndroidForWorkRequiredPasswordTypeVNumericComplex undocumented
-	AndroidForWorkRequiredPasswordTypeVNumericComplex AndroidForWorkRequiredPasswordType = 4
+	AndroidForWorkRequiredPasswordTypeVNumericComplex AndroidForWorkRequiredPasswordType = "numericComplex"
 	// AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic undocumented
-	AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic AndroidForWorkRequiredPasswordType = 5
+	AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic AndroidForWorkRequiredPasswordType = "atLeastAlphabetic"
 	// AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric undocumented
-	AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric AndroidForWorkRequiredPasswordType = 6
+	AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric AndroidForWorkRequiredPasswordType = "atLeastAlphanumeric"
 	// AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols undocumented
-	AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols AndroidForWorkRequiredPasswordType = 7
+	AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols AndroidForWorkRequiredPasswordType = "alphanumericWithSymbols"
 )
 
-// AndroidForWorkRequiredPasswordTypePDeviceDefault returns a pointer to AndroidForWorkRequiredPasswordTypeVDeviceDefault
-func AndroidForWorkRequiredPasswordTypePDeviceDefault() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVDeviceDefault
-	return &v
-}
+var (
+	// AndroidForWorkRequiredPasswordTypePDeviceDefault is a pointer to AndroidForWorkRequiredPasswordTypeVDeviceDefault
+	AndroidForWorkRequiredPasswordTypePDeviceDefault = &_AndroidForWorkRequiredPasswordTypePDeviceDefault
+	// AndroidForWorkRequiredPasswordTypePLowSecurityBiometric is a pointer to AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric
+	AndroidForWorkRequiredPasswordTypePLowSecurityBiometric = &_AndroidForWorkRequiredPasswordTypePLowSecurityBiometric
+	// AndroidForWorkRequiredPasswordTypePRequired is a pointer to AndroidForWorkRequiredPasswordTypeVRequired
+	AndroidForWorkRequiredPasswordTypePRequired = &_AndroidForWorkRequiredPasswordTypePRequired
+	// AndroidForWorkRequiredPasswordTypePAtLeastNumeric is a pointer to AndroidForWorkRequiredPasswordTypeVAtLeastNumeric
+	AndroidForWorkRequiredPasswordTypePAtLeastNumeric = &_AndroidForWorkRequiredPasswordTypePAtLeastNumeric
+	// AndroidForWorkRequiredPasswordTypePNumericComplex is a pointer to AndroidForWorkRequiredPasswordTypeVNumericComplex
+	AndroidForWorkRequiredPasswordTypePNumericComplex = &_AndroidForWorkRequiredPasswordTypePNumericComplex
+	// AndroidForWorkRequiredPasswordTypePAtLeastAlphabetic is a pointer to AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic
+	AndroidForWorkRequiredPasswordTypePAtLeastAlphabetic = &_AndroidForWorkRequiredPasswordTypePAtLeastAlphabetic
+	// AndroidForWorkRequiredPasswordTypePAtLeastAlphanumeric is a pointer to AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric
+	AndroidForWorkRequiredPasswordTypePAtLeastAlphanumeric = &_AndroidForWorkRequiredPasswordTypePAtLeastAlphanumeric
+	// AndroidForWorkRequiredPasswordTypePAlphanumericWithSymbols is a pointer to AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols
+	AndroidForWorkRequiredPasswordTypePAlphanumericWithSymbols = &_AndroidForWorkRequiredPasswordTypePAlphanumericWithSymbols
+)
 
-// AndroidForWorkRequiredPasswordTypePLowSecurityBiometric returns a pointer to AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric
-func AndroidForWorkRequiredPasswordTypePLowSecurityBiometric() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric
-	return &v
-}
-
-// AndroidForWorkRequiredPasswordTypePRequired returns a pointer to AndroidForWorkRequiredPasswordTypeVRequired
-func AndroidForWorkRequiredPasswordTypePRequired() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVRequired
-	return &v
-}
-
-// AndroidForWorkRequiredPasswordTypePAtLeastNumeric returns a pointer to AndroidForWorkRequiredPasswordTypeVAtLeastNumeric
-func AndroidForWorkRequiredPasswordTypePAtLeastNumeric() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVAtLeastNumeric
-	return &v
-}
-
-// AndroidForWorkRequiredPasswordTypePNumericComplex returns a pointer to AndroidForWorkRequiredPasswordTypeVNumericComplex
-func AndroidForWorkRequiredPasswordTypePNumericComplex() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVNumericComplex
-	return &v
-}
-
-// AndroidForWorkRequiredPasswordTypePAtLeastAlphabetic returns a pointer to AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic
-func AndroidForWorkRequiredPasswordTypePAtLeastAlphabetic() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic
-	return &v
-}
-
-// AndroidForWorkRequiredPasswordTypePAtLeastAlphanumeric returns a pointer to AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric
-func AndroidForWorkRequiredPasswordTypePAtLeastAlphanumeric() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric
-	return &v
-}
-
-// AndroidForWorkRequiredPasswordTypePAlphanumericWithSymbols returns a pointer to AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols
-func AndroidForWorkRequiredPasswordTypePAlphanumericWithSymbols() *AndroidForWorkRequiredPasswordType {
-	v := AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols
-	return &v
-}
+var (
+	_AndroidForWorkRequiredPasswordTypePDeviceDefault           = AndroidForWorkRequiredPasswordTypeVDeviceDefault
+	_AndroidForWorkRequiredPasswordTypePLowSecurityBiometric    = AndroidForWorkRequiredPasswordTypeVLowSecurityBiometric
+	_AndroidForWorkRequiredPasswordTypePRequired                = AndroidForWorkRequiredPasswordTypeVRequired
+	_AndroidForWorkRequiredPasswordTypePAtLeastNumeric          = AndroidForWorkRequiredPasswordTypeVAtLeastNumeric
+	_AndroidForWorkRequiredPasswordTypePNumericComplex          = AndroidForWorkRequiredPasswordTypeVNumericComplex
+	_AndroidForWorkRequiredPasswordTypePAtLeastAlphabetic       = AndroidForWorkRequiredPasswordTypeVAtLeastAlphabetic
+	_AndroidForWorkRequiredPasswordTypePAtLeastAlphanumeric     = AndroidForWorkRequiredPasswordTypeVAtLeastAlphanumeric
+	_AndroidForWorkRequiredPasswordTypePAlphanumericWithSymbols = AndroidForWorkRequiredPasswordTypeVAlphanumericWithSymbols
+)

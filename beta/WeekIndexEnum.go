@@ -3,47 +3,38 @@
 package msgraph
 
 // WeekIndex undocumented
-type WeekIndex int
+type WeekIndex string
 
 const (
 	// WeekIndexVFirst undocumented
-	WeekIndexVFirst WeekIndex = 0
+	WeekIndexVFirst WeekIndex = "first"
 	// WeekIndexVSecond undocumented
-	WeekIndexVSecond WeekIndex = 1
+	WeekIndexVSecond WeekIndex = "second"
 	// WeekIndexVThird undocumented
-	WeekIndexVThird WeekIndex = 2
+	WeekIndexVThird WeekIndex = "third"
 	// WeekIndexVFourth undocumented
-	WeekIndexVFourth WeekIndex = 3
+	WeekIndexVFourth WeekIndex = "fourth"
 	// WeekIndexVLast undocumented
-	WeekIndexVLast WeekIndex = 4
+	WeekIndexVLast WeekIndex = "last"
 )
 
-// WeekIndexPFirst returns a pointer to WeekIndexVFirst
-func WeekIndexPFirst() *WeekIndex {
-	v := WeekIndexVFirst
-	return &v
-}
+var (
+	// WeekIndexPFirst is a pointer to WeekIndexVFirst
+	WeekIndexPFirst = &_WeekIndexPFirst
+	// WeekIndexPSecond is a pointer to WeekIndexVSecond
+	WeekIndexPSecond = &_WeekIndexPSecond
+	// WeekIndexPThird is a pointer to WeekIndexVThird
+	WeekIndexPThird = &_WeekIndexPThird
+	// WeekIndexPFourth is a pointer to WeekIndexVFourth
+	WeekIndexPFourth = &_WeekIndexPFourth
+	// WeekIndexPLast is a pointer to WeekIndexVLast
+	WeekIndexPLast = &_WeekIndexPLast
+)
 
-// WeekIndexPSecond returns a pointer to WeekIndexVSecond
-func WeekIndexPSecond() *WeekIndex {
-	v := WeekIndexVSecond
-	return &v
-}
-
-// WeekIndexPThird returns a pointer to WeekIndexVThird
-func WeekIndexPThird() *WeekIndex {
-	v := WeekIndexVThird
-	return &v
-}
-
-// WeekIndexPFourth returns a pointer to WeekIndexVFourth
-func WeekIndexPFourth() *WeekIndex {
-	v := WeekIndexVFourth
-	return &v
-}
-
-// WeekIndexPLast returns a pointer to WeekIndexVLast
-func WeekIndexPLast() *WeekIndex {
-	v := WeekIndexVLast
-	return &v
-}
+var (
+	_WeekIndexPFirst  = WeekIndexVFirst
+	_WeekIndexPSecond = WeekIndexVSecond
+	_WeekIndexPThird  = WeekIndexVThird
+	_WeekIndexPFourth = WeekIndexVFourth
+	_WeekIndexPLast   = WeekIndexVLast
+)

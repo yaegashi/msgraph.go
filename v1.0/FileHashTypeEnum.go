@@ -3,71 +3,53 @@
 package msgraph
 
 // FileHashType undocumented
-type FileHashType int
+type FileHashType string
 
 const (
 	// FileHashTypeVUnknown undocumented
-	FileHashTypeVUnknown FileHashType = 0
+	FileHashTypeVUnknown FileHashType = "unknown"
 	// FileHashTypeVSha1 undocumented
-	FileHashTypeVSha1 FileHashType = 1
+	FileHashTypeVSha1 FileHashType = "sha1"
 	// FileHashTypeVSha256 undocumented
-	FileHashTypeVSha256 FileHashType = 2
+	FileHashTypeVSha256 FileHashType = "sha256"
 	// FileHashTypeVMd5 undocumented
-	FileHashTypeVMd5 FileHashType = 3
+	FileHashTypeVMd5 FileHashType = "md5"
 	// FileHashTypeVAuthenticodeHash256 undocumented
-	FileHashTypeVAuthenticodeHash256 FileHashType = 4
+	FileHashTypeVAuthenticodeHash256 FileHashType = "authenticodeHash256"
 	// FileHashTypeVLsHash undocumented
-	FileHashTypeVLsHash FileHashType = 5
+	FileHashTypeVLsHash FileHashType = "lsHash"
 	// FileHashTypeVCtph undocumented
-	FileHashTypeVCtph FileHashType = 6
+	FileHashTypeVCtph FileHashType = "ctph"
 	// FileHashTypeVUnknownFutureValue undocumented
-	FileHashTypeVUnknownFutureValue FileHashType = 127
+	FileHashTypeVUnknownFutureValue FileHashType = "unknownFutureValue"
 )
 
-// FileHashTypePUnknown returns a pointer to FileHashTypeVUnknown
-func FileHashTypePUnknown() *FileHashType {
-	v := FileHashTypeVUnknown
-	return &v
-}
+var (
+	// FileHashTypePUnknown is a pointer to FileHashTypeVUnknown
+	FileHashTypePUnknown = &_FileHashTypePUnknown
+	// FileHashTypePSha1 is a pointer to FileHashTypeVSha1
+	FileHashTypePSha1 = &_FileHashTypePSha1
+	// FileHashTypePSha256 is a pointer to FileHashTypeVSha256
+	FileHashTypePSha256 = &_FileHashTypePSha256
+	// FileHashTypePMd5 is a pointer to FileHashTypeVMd5
+	FileHashTypePMd5 = &_FileHashTypePMd5
+	// FileHashTypePAuthenticodeHash256 is a pointer to FileHashTypeVAuthenticodeHash256
+	FileHashTypePAuthenticodeHash256 = &_FileHashTypePAuthenticodeHash256
+	// FileHashTypePLsHash is a pointer to FileHashTypeVLsHash
+	FileHashTypePLsHash = &_FileHashTypePLsHash
+	// FileHashTypePCtph is a pointer to FileHashTypeVCtph
+	FileHashTypePCtph = &_FileHashTypePCtph
+	// FileHashTypePUnknownFutureValue is a pointer to FileHashTypeVUnknownFutureValue
+	FileHashTypePUnknownFutureValue = &_FileHashTypePUnknownFutureValue
+)
 
-// FileHashTypePSha1 returns a pointer to FileHashTypeVSha1
-func FileHashTypePSha1() *FileHashType {
-	v := FileHashTypeVSha1
-	return &v
-}
-
-// FileHashTypePSha256 returns a pointer to FileHashTypeVSha256
-func FileHashTypePSha256() *FileHashType {
-	v := FileHashTypeVSha256
-	return &v
-}
-
-// FileHashTypePMd5 returns a pointer to FileHashTypeVMd5
-func FileHashTypePMd5() *FileHashType {
-	v := FileHashTypeVMd5
-	return &v
-}
-
-// FileHashTypePAuthenticodeHash256 returns a pointer to FileHashTypeVAuthenticodeHash256
-func FileHashTypePAuthenticodeHash256() *FileHashType {
-	v := FileHashTypeVAuthenticodeHash256
-	return &v
-}
-
-// FileHashTypePLsHash returns a pointer to FileHashTypeVLsHash
-func FileHashTypePLsHash() *FileHashType {
-	v := FileHashTypeVLsHash
-	return &v
-}
-
-// FileHashTypePCtph returns a pointer to FileHashTypeVCtph
-func FileHashTypePCtph() *FileHashType {
-	v := FileHashTypeVCtph
-	return &v
-}
-
-// FileHashTypePUnknownFutureValue returns a pointer to FileHashTypeVUnknownFutureValue
-func FileHashTypePUnknownFutureValue() *FileHashType {
-	v := FileHashTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_FileHashTypePUnknown             = FileHashTypeVUnknown
+	_FileHashTypePSha1                = FileHashTypeVSha1
+	_FileHashTypePSha256              = FileHashTypeVSha256
+	_FileHashTypePMd5                 = FileHashTypeVMd5
+	_FileHashTypePAuthenticodeHash256 = FileHashTypeVAuthenticodeHash256
+	_FileHashTypePLsHash              = FileHashTypeVLsHash
+	_FileHashTypePCtph                = FileHashTypeVCtph
+	_FileHashTypePUnknownFutureValue  = FileHashTypeVUnknownFutureValue
+)

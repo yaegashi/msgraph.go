@@ -3,23 +3,23 @@
 package msgraph
 
 // OnenotePatchInsertPosition undocumented
-type OnenotePatchInsertPosition int
+type OnenotePatchInsertPosition string
 
 const (
 	// OnenotePatchInsertPositionVAfter undocumented
-	OnenotePatchInsertPositionVAfter OnenotePatchInsertPosition = 0
+	OnenotePatchInsertPositionVAfter OnenotePatchInsertPosition = "After"
 	// OnenotePatchInsertPositionVBefore undocumented
-	OnenotePatchInsertPositionVBefore OnenotePatchInsertPosition = 1
+	OnenotePatchInsertPositionVBefore OnenotePatchInsertPosition = "Before"
 )
 
-// OnenotePatchInsertPositionPAfter returns a pointer to OnenotePatchInsertPositionVAfter
-func OnenotePatchInsertPositionPAfter() *OnenotePatchInsertPosition {
-	v := OnenotePatchInsertPositionVAfter
-	return &v
-}
+var (
+	// OnenotePatchInsertPositionPAfter is a pointer to OnenotePatchInsertPositionVAfter
+	OnenotePatchInsertPositionPAfter = &_OnenotePatchInsertPositionPAfter
+	// OnenotePatchInsertPositionPBefore is a pointer to OnenotePatchInsertPositionVBefore
+	OnenotePatchInsertPositionPBefore = &_OnenotePatchInsertPositionPBefore
+)
 
-// OnenotePatchInsertPositionPBefore returns a pointer to OnenotePatchInsertPositionVBefore
-func OnenotePatchInsertPositionPBefore() *OnenotePatchInsertPosition {
-	v := OnenotePatchInsertPositionVBefore
-	return &v
-}
+var (
+	_OnenotePatchInsertPositionPAfter  = OnenotePatchInsertPositionVAfter
+	_OnenotePatchInsertPositionPBefore = OnenotePatchInsertPositionVBefore
+)

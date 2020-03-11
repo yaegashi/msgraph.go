@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsPrivacyDataAccessLevel undocumented
-type WindowsPrivacyDataAccessLevel int
+type WindowsPrivacyDataAccessLevel string
 
 const (
 	// WindowsPrivacyDataAccessLevelVNotConfigured undocumented
-	WindowsPrivacyDataAccessLevelVNotConfigured WindowsPrivacyDataAccessLevel = 0
+	WindowsPrivacyDataAccessLevelVNotConfigured WindowsPrivacyDataAccessLevel = "notConfigured"
 	// WindowsPrivacyDataAccessLevelVForceAllow undocumented
-	WindowsPrivacyDataAccessLevelVForceAllow WindowsPrivacyDataAccessLevel = 1
+	WindowsPrivacyDataAccessLevelVForceAllow WindowsPrivacyDataAccessLevel = "forceAllow"
 	// WindowsPrivacyDataAccessLevelVForceDeny undocumented
-	WindowsPrivacyDataAccessLevelVForceDeny WindowsPrivacyDataAccessLevel = 2
+	WindowsPrivacyDataAccessLevelVForceDeny WindowsPrivacyDataAccessLevel = "forceDeny"
 	// WindowsPrivacyDataAccessLevelVUserInControl undocumented
-	WindowsPrivacyDataAccessLevelVUserInControl WindowsPrivacyDataAccessLevel = 3
+	WindowsPrivacyDataAccessLevelVUserInControl WindowsPrivacyDataAccessLevel = "userInControl"
 )
 
-// WindowsPrivacyDataAccessLevelPNotConfigured returns a pointer to WindowsPrivacyDataAccessLevelVNotConfigured
-func WindowsPrivacyDataAccessLevelPNotConfigured() *WindowsPrivacyDataAccessLevel {
-	v := WindowsPrivacyDataAccessLevelVNotConfigured
-	return &v
-}
+var (
+	// WindowsPrivacyDataAccessLevelPNotConfigured is a pointer to WindowsPrivacyDataAccessLevelVNotConfigured
+	WindowsPrivacyDataAccessLevelPNotConfigured = &_WindowsPrivacyDataAccessLevelPNotConfigured
+	// WindowsPrivacyDataAccessLevelPForceAllow is a pointer to WindowsPrivacyDataAccessLevelVForceAllow
+	WindowsPrivacyDataAccessLevelPForceAllow = &_WindowsPrivacyDataAccessLevelPForceAllow
+	// WindowsPrivacyDataAccessLevelPForceDeny is a pointer to WindowsPrivacyDataAccessLevelVForceDeny
+	WindowsPrivacyDataAccessLevelPForceDeny = &_WindowsPrivacyDataAccessLevelPForceDeny
+	// WindowsPrivacyDataAccessLevelPUserInControl is a pointer to WindowsPrivacyDataAccessLevelVUserInControl
+	WindowsPrivacyDataAccessLevelPUserInControl = &_WindowsPrivacyDataAccessLevelPUserInControl
+)
 
-// WindowsPrivacyDataAccessLevelPForceAllow returns a pointer to WindowsPrivacyDataAccessLevelVForceAllow
-func WindowsPrivacyDataAccessLevelPForceAllow() *WindowsPrivacyDataAccessLevel {
-	v := WindowsPrivacyDataAccessLevelVForceAllow
-	return &v
-}
-
-// WindowsPrivacyDataAccessLevelPForceDeny returns a pointer to WindowsPrivacyDataAccessLevelVForceDeny
-func WindowsPrivacyDataAccessLevelPForceDeny() *WindowsPrivacyDataAccessLevel {
-	v := WindowsPrivacyDataAccessLevelVForceDeny
-	return &v
-}
-
-// WindowsPrivacyDataAccessLevelPUserInControl returns a pointer to WindowsPrivacyDataAccessLevelVUserInControl
-func WindowsPrivacyDataAccessLevelPUserInControl() *WindowsPrivacyDataAccessLevel {
-	v := WindowsPrivacyDataAccessLevelVUserInControl
-	return &v
-}
+var (
+	_WindowsPrivacyDataAccessLevelPNotConfigured = WindowsPrivacyDataAccessLevelVNotConfigured
+	_WindowsPrivacyDataAccessLevelPForceAllow    = WindowsPrivacyDataAccessLevelVForceAllow
+	_WindowsPrivacyDataAccessLevelPForceDeny     = WindowsPrivacyDataAccessLevelVForceDeny
+	_WindowsPrivacyDataAccessLevelPUserInControl = WindowsPrivacyDataAccessLevelVUserInControl
+)

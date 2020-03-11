@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsHealthMonitoringScope undocumented
-type WindowsHealthMonitoringScope int
+type WindowsHealthMonitoringScope string
 
 const (
 	// WindowsHealthMonitoringScopeVUndefined undocumented
-	WindowsHealthMonitoringScopeVUndefined WindowsHealthMonitoringScope = 0
+	WindowsHealthMonitoringScopeVUndefined WindowsHealthMonitoringScope = "undefined"
 	// WindowsHealthMonitoringScopeVHealthMonitoring undocumented
-	WindowsHealthMonitoringScopeVHealthMonitoring WindowsHealthMonitoringScope = 1
+	WindowsHealthMonitoringScopeVHealthMonitoring WindowsHealthMonitoringScope = "healthMonitoring"
 	// WindowsHealthMonitoringScopeVBootPerformance undocumented
-	WindowsHealthMonitoringScopeVBootPerformance WindowsHealthMonitoringScope = 2
+	WindowsHealthMonitoringScopeVBootPerformance WindowsHealthMonitoringScope = "bootPerformance"
 	// WindowsHealthMonitoringScopeVUserExperienceAnalytics undocumented
-	WindowsHealthMonitoringScopeVUserExperienceAnalytics WindowsHealthMonitoringScope = 4
+	WindowsHealthMonitoringScopeVUserExperienceAnalytics WindowsHealthMonitoringScope = "userExperienceAnalytics"
 )
 
-// WindowsHealthMonitoringScopePUndefined returns a pointer to WindowsHealthMonitoringScopeVUndefined
-func WindowsHealthMonitoringScopePUndefined() *WindowsHealthMonitoringScope {
-	v := WindowsHealthMonitoringScopeVUndefined
-	return &v
-}
+var (
+	// WindowsHealthMonitoringScopePUndefined is a pointer to WindowsHealthMonitoringScopeVUndefined
+	WindowsHealthMonitoringScopePUndefined = &_WindowsHealthMonitoringScopePUndefined
+	// WindowsHealthMonitoringScopePHealthMonitoring is a pointer to WindowsHealthMonitoringScopeVHealthMonitoring
+	WindowsHealthMonitoringScopePHealthMonitoring = &_WindowsHealthMonitoringScopePHealthMonitoring
+	// WindowsHealthMonitoringScopePBootPerformance is a pointer to WindowsHealthMonitoringScopeVBootPerformance
+	WindowsHealthMonitoringScopePBootPerformance = &_WindowsHealthMonitoringScopePBootPerformance
+	// WindowsHealthMonitoringScopePUserExperienceAnalytics is a pointer to WindowsHealthMonitoringScopeVUserExperienceAnalytics
+	WindowsHealthMonitoringScopePUserExperienceAnalytics = &_WindowsHealthMonitoringScopePUserExperienceAnalytics
+)
 
-// WindowsHealthMonitoringScopePHealthMonitoring returns a pointer to WindowsHealthMonitoringScopeVHealthMonitoring
-func WindowsHealthMonitoringScopePHealthMonitoring() *WindowsHealthMonitoringScope {
-	v := WindowsHealthMonitoringScopeVHealthMonitoring
-	return &v
-}
-
-// WindowsHealthMonitoringScopePBootPerformance returns a pointer to WindowsHealthMonitoringScopeVBootPerformance
-func WindowsHealthMonitoringScopePBootPerformance() *WindowsHealthMonitoringScope {
-	v := WindowsHealthMonitoringScopeVBootPerformance
-	return &v
-}
-
-// WindowsHealthMonitoringScopePUserExperienceAnalytics returns a pointer to WindowsHealthMonitoringScopeVUserExperienceAnalytics
-func WindowsHealthMonitoringScopePUserExperienceAnalytics() *WindowsHealthMonitoringScope {
-	v := WindowsHealthMonitoringScopeVUserExperienceAnalytics
-	return &v
-}
+var (
+	_WindowsHealthMonitoringScopePUndefined               = WindowsHealthMonitoringScopeVUndefined
+	_WindowsHealthMonitoringScopePHealthMonitoring        = WindowsHealthMonitoringScopeVHealthMonitoring
+	_WindowsHealthMonitoringScopePBootPerformance         = WindowsHealthMonitoringScopeVBootPerformance
+	_WindowsHealthMonitoringScopePUserExperienceAnalytics = WindowsHealthMonitoringScopeVUserExperienceAnalytics
+)

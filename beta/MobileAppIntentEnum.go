@@ -3,63 +3,48 @@
 package msgraph
 
 // MobileAppIntent undocumented
-type MobileAppIntent int
+type MobileAppIntent string
 
 const (
 	// MobileAppIntentVAvailable undocumented
-	MobileAppIntentVAvailable MobileAppIntent = 0
+	MobileAppIntentVAvailable MobileAppIntent = "available"
 	// MobileAppIntentVNotAvailable undocumented
-	MobileAppIntentVNotAvailable MobileAppIntent = 1
+	MobileAppIntentVNotAvailable MobileAppIntent = "notAvailable"
 	// MobileAppIntentVRequiredInstall undocumented
-	MobileAppIntentVRequiredInstall MobileAppIntent = 2
+	MobileAppIntentVRequiredInstall MobileAppIntent = "requiredInstall"
 	// MobileAppIntentVRequiredUninstall undocumented
-	MobileAppIntentVRequiredUninstall MobileAppIntent = 3
+	MobileAppIntentVRequiredUninstall MobileAppIntent = "requiredUninstall"
 	// MobileAppIntentVRequiredAndAvailableInstall undocumented
-	MobileAppIntentVRequiredAndAvailableInstall MobileAppIntent = 4
+	MobileAppIntentVRequiredAndAvailableInstall MobileAppIntent = "requiredAndAvailableInstall"
 	// MobileAppIntentVAvailableInstallWithoutEnrollment undocumented
-	MobileAppIntentVAvailableInstallWithoutEnrollment MobileAppIntent = 5
+	MobileAppIntentVAvailableInstallWithoutEnrollment MobileAppIntent = "availableInstallWithoutEnrollment"
 	// MobileAppIntentVExclude undocumented
-	MobileAppIntentVExclude MobileAppIntent = 6
+	MobileAppIntentVExclude MobileAppIntent = "exclude"
 )
 
-// MobileAppIntentPAvailable returns a pointer to MobileAppIntentVAvailable
-func MobileAppIntentPAvailable() *MobileAppIntent {
-	v := MobileAppIntentVAvailable
-	return &v
-}
+var (
+	// MobileAppIntentPAvailable is a pointer to MobileAppIntentVAvailable
+	MobileAppIntentPAvailable = &_MobileAppIntentPAvailable
+	// MobileAppIntentPNotAvailable is a pointer to MobileAppIntentVNotAvailable
+	MobileAppIntentPNotAvailable = &_MobileAppIntentPNotAvailable
+	// MobileAppIntentPRequiredInstall is a pointer to MobileAppIntentVRequiredInstall
+	MobileAppIntentPRequiredInstall = &_MobileAppIntentPRequiredInstall
+	// MobileAppIntentPRequiredUninstall is a pointer to MobileAppIntentVRequiredUninstall
+	MobileAppIntentPRequiredUninstall = &_MobileAppIntentPRequiredUninstall
+	// MobileAppIntentPRequiredAndAvailableInstall is a pointer to MobileAppIntentVRequiredAndAvailableInstall
+	MobileAppIntentPRequiredAndAvailableInstall = &_MobileAppIntentPRequiredAndAvailableInstall
+	// MobileAppIntentPAvailableInstallWithoutEnrollment is a pointer to MobileAppIntentVAvailableInstallWithoutEnrollment
+	MobileAppIntentPAvailableInstallWithoutEnrollment = &_MobileAppIntentPAvailableInstallWithoutEnrollment
+	// MobileAppIntentPExclude is a pointer to MobileAppIntentVExclude
+	MobileAppIntentPExclude = &_MobileAppIntentPExclude
+)
 
-// MobileAppIntentPNotAvailable returns a pointer to MobileAppIntentVNotAvailable
-func MobileAppIntentPNotAvailable() *MobileAppIntent {
-	v := MobileAppIntentVNotAvailable
-	return &v
-}
-
-// MobileAppIntentPRequiredInstall returns a pointer to MobileAppIntentVRequiredInstall
-func MobileAppIntentPRequiredInstall() *MobileAppIntent {
-	v := MobileAppIntentVRequiredInstall
-	return &v
-}
-
-// MobileAppIntentPRequiredUninstall returns a pointer to MobileAppIntentVRequiredUninstall
-func MobileAppIntentPRequiredUninstall() *MobileAppIntent {
-	v := MobileAppIntentVRequiredUninstall
-	return &v
-}
-
-// MobileAppIntentPRequiredAndAvailableInstall returns a pointer to MobileAppIntentVRequiredAndAvailableInstall
-func MobileAppIntentPRequiredAndAvailableInstall() *MobileAppIntent {
-	v := MobileAppIntentVRequiredAndAvailableInstall
-	return &v
-}
-
-// MobileAppIntentPAvailableInstallWithoutEnrollment returns a pointer to MobileAppIntentVAvailableInstallWithoutEnrollment
-func MobileAppIntentPAvailableInstallWithoutEnrollment() *MobileAppIntent {
-	v := MobileAppIntentVAvailableInstallWithoutEnrollment
-	return &v
-}
-
-// MobileAppIntentPExclude returns a pointer to MobileAppIntentVExclude
-func MobileAppIntentPExclude() *MobileAppIntent {
-	v := MobileAppIntentVExclude
-	return &v
-}
+var (
+	_MobileAppIntentPAvailable                         = MobileAppIntentVAvailable
+	_MobileAppIntentPNotAvailable                      = MobileAppIntentVNotAvailable
+	_MobileAppIntentPRequiredInstall                   = MobileAppIntentVRequiredInstall
+	_MobileAppIntentPRequiredUninstall                 = MobileAppIntentVRequiredUninstall
+	_MobileAppIntentPRequiredAndAvailableInstall       = MobileAppIntentVRequiredAndAvailableInstall
+	_MobileAppIntentPAvailableInstallWithoutEnrollment = MobileAppIntentVAvailableInstallWithoutEnrollment
+	_MobileAppIntentPExclude                           = MobileAppIntentVExclude
+)

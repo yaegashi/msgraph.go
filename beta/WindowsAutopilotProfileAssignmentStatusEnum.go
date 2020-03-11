@@ -3,63 +3,48 @@
 package msgraph
 
 // WindowsAutopilotProfileAssignmentStatus undocumented
-type WindowsAutopilotProfileAssignmentStatus int
+type WindowsAutopilotProfileAssignmentStatus string
 
 const (
 	// WindowsAutopilotProfileAssignmentStatusVUnknown undocumented
-	WindowsAutopilotProfileAssignmentStatusVUnknown WindowsAutopilotProfileAssignmentStatus = 0
+	WindowsAutopilotProfileAssignmentStatusVUnknown WindowsAutopilotProfileAssignmentStatus = "unknown"
 	// WindowsAutopilotProfileAssignmentStatusVAssignedInSync undocumented
-	WindowsAutopilotProfileAssignmentStatusVAssignedInSync WindowsAutopilotProfileAssignmentStatus = 1
+	WindowsAutopilotProfileAssignmentStatusVAssignedInSync WindowsAutopilotProfileAssignmentStatus = "assignedInSync"
 	// WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync undocumented
-	WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync WindowsAutopilotProfileAssignmentStatus = 2
+	WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync WindowsAutopilotProfileAssignmentStatus = "assignedOutOfSync"
 	// WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState undocumented
-	WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState WindowsAutopilotProfileAssignmentStatus = 3
+	WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState WindowsAutopilotProfileAssignmentStatus = "assignedUnkownSyncState"
 	// WindowsAutopilotProfileAssignmentStatusVNotAssigned undocumented
-	WindowsAutopilotProfileAssignmentStatusVNotAssigned WindowsAutopilotProfileAssignmentStatus = 4
+	WindowsAutopilotProfileAssignmentStatusVNotAssigned WindowsAutopilotProfileAssignmentStatus = "notAssigned"
 	// WindowsAutopilotProfileAssignmentStatusVPending undocumented
-	WindowsAutopilotProfileAssignmentStatusVPending WindowsAutopilotProfileAssignmentStatus = 5
+	WindowsAutopilotProfileAssignmentStatusVPending WindowsAutopilotProfileAssignmentStatus = "pending"
 	// WindowsAutopilotProfileAssignmentStatusVFailed undocumented
-	WindowsAutopilotProfileAssignmentStatusVFailed WindowsAutopilotProfileAssignmentStatus = 6
+	WindowsAutopilotProfileAssignmentStatusVFailed WindowsAutopilotProfileAssignmentStatus = "failed"
 )
 
-// WindowsAutopilotProfileAssignmentStatusPUnknown returns a pointer to WindowsAutopilotProfileAssignmentStatusVUnknown
-func WindowsAutopilotProfileAssignmentStatusPUnknown() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVUnknown
-	return &v
-}
+var (
+	// WindowsAutopilotProfileAssignmentStatusPUnknown is a pointer to WindowsAutopilotProfileAssignmentStatusVUnknown
+	WindowsAutopilotProfileAssignmentStatusPUnknown = &_WindowsAutopilotProfileAssignmentStatusPUnknown
+	// WindowsAutopilotProfileAssignmentStatusPAssignedInSync is a pointer to WindowsAutopilotProfileAssignmentStatusVAssignedInSync
+	WindowsAutopilotProfileAssignmentStatusPAssignedInSync = &_WindowsAutopilotProfileAssignmentStatusPAssignedInSync
+	// WindowsAutopilotProfileAssignmentStatusPAssignedOutOfSync is a pointer to WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync
+	WindowsAutopilotProfileAssignmentStatusPAssignedOutOfSync = &_WindowsAutopilotProfileAssignmentStatusPAssignedOutOfSync
+	// WindowsAutopilotProfileAssignmentStatusPAssignedUnkownSyncState is a pointer to WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState
+	WindowsAutopilotProfileAssignmentStatusPAssignedUnkownSyncState = &_WindowsAutopilotProfileAssignmentStatusPAssignedUnkownSyncState
+	// WindowsAutopilotProfileAssignmentStatusPNotAssigned is a pointer to WindowsAutopilotProfileAssignmentStatusVNotAssigned
+	WindowsAutopilotProfileAssignmentStatusPNotAssigned = &_WindowsAutopilotProfileAssignmentStatusPNotAssigned
+	// WindowsAutopilotProfileAssignmentStatusPPending is a pointer to WindowsAutopilotProfileAssignmentStatusVPending
+	WindowsAutopilotProfileAssignmentStatusPPending = &_WindowsAutopilotProfileAssignmentStatusPPending
+	// WindowsAutopilotProfileAssignmentStatusPFailed is a pointer to WindowsAutopilotProfileAssignmentStatusVFailed
+	WindowsAutopilotProfileAssignmentStatusPFailed = &_WindowsAutopilotProfileAssignmentStatusPFailed
+)
 
-// WindowsAutopilotProfileAssignmentStatusPAssignedInSync returns a pointer to WindowsAutopilotProfileAssignmentStatusVAssignedInSync
-func WindowsAutopilotProfileAssignmentStatusPAssignedInSync() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVAssignedInSync
-	return &v
-}
-
-// WindowsAutopilotProfileAssignmentStatusPAssignedOutOfSync returns a pointer to WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync
-func WindowsAutopilotProfileAssignmentStatusPAssignedOutOfSync() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync
-	return &v
-}
-
-// WindowsAutopilotProfileAssignmentStatusPAssignedUnkownSyncState returns a pointer to WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState
-func WindowsAutopilotProfileAssignmentStatusPAssignedUnkownSyncState() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState
-	return &v
-}
-
-// WindowsAutopilotProfileAssignmentStatusPNotAssigned returns a pointer to WindowsAutopilotProfileAssignmentStatusVNotAssigned
-func WindowsAutopilotProfileAssignmentStatusPNotAssigned() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVNotAssigned
-	return &v
-}
-
-// WindowsAutopilotProfileAssignmentStatusPPending returns a pointer to WindowsAutopilotProfileAssignmentStatusVPending
-func WindowsAutopilotProfileAssignmentStatusPPending() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVPending
-	return &v
-}
-
-// WindowsAutopilotProfileAssignmentStatusPFailed returns a pointer to WindowsAutopilotProfileAssignmentStatusVFailed
-func WindowsAutopilotProfileAssignmentStatusPFailed() *WindowsAutopilotProfileAssignmentStatus {
-	v := WindowsAutopilotProfileAssignmentStatusVFailed
-	return &v
-}
+var (
+	_WindowsAutopilotProfileAssignmentStatusPUnknown                 = WindowsAutopilotProfileAssignmentStatusVUnknown
+	_WindowsAutopilotProfileAssignmentStatusPAssignedInSync          = WindowsAutopilotProfileAssignmentStatusVAssignedInSync
+	_WindowsAutopilotProfileAssignmentStatusPAssignedOutOfSync       = WindowsAutopilotProfileAssignmentStatusVAssignedOutOfSync
+	_WindowsAutopilotProfileAssignmentStatusPAssignedUnkownSyncState = WindowsAutopilotProfileAssignmentStatusVAssignedUnkownSyncState
+	_WindowsAutopilotProfileAssignmentStatusPNotAssigned             = WindowsAutopilotProfileAssignmentStatusVNotAssigned
+	_WindowsAutopilotProfileAssignmentStatusPPending                 = WindowsAutopilotProfileAssignmentStatusVPending
+	_WindowsAutopilotProfileAssignmentStatusPFailed                  = WindowsAutopilotProfileAssignmentStatusVFailed
+)

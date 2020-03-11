@@ -3,47 +3,38 @@
 package msgraph
 
 // ExchangeIDFormat undocumented
-type ExchangeIDFormat int
+type ExchangeIDFormat string
 
 const (
 	// ExchangeIDFormatVEntryID undocumented
-	ExchangeIDFormatVEntryID ExchangeIDFormat = 0
+	ExchangeIDFormatVEntryID ExchangeIDFormat = "entryId"
 	// ExchangeIDFormatVEwsID undocumented
-	ExchangeIDFormatVEwsID ExchangeIDFormat = 1
+	ExchangeIDFormatVEwsID ExchangeIDFormat = "ewsId"
 	// ExchangeIDFormatVImmutableEntryID undocumented
-	ExchangeIDFormatVImmutableEntryID ExchangeIDFormat = 2
+	ExchangeIDFormatVImmutableEntryID ExchangeIDFormat = "immutableEntryId"
 	// ExchangeIDFormatVRestID undocumented
-	ExchangeIDFormatVRestID ExchangeIDFormat = 3
+	ExchangeIDFormatVRestID ExchangeIDFormat = "restId"
 	// ExchangeIDFormatVRestImmutableEntryID undocumented
-	ExchangeIDFormatVRestImmutableEntryID ExchangeIDFormat = 4
+	ExchangeIDFormatVRestImmutableEntryID ExchangeIDFormat = "restImmutableEntryId"
 )
 
-// ExchangeIDFormatPEntryID returns a pointer to ExchangeIDFormatVEntryID
-func ExchangeIDFormatPEntryID() *ExchangeIDFormat {
-	v := ExchangeIDFormatVEntryID
-	return &v
-}
+var (
+	// ExchangeIDFormatPEntryID is a pointer to ExchangeIDFormatVEntryID
+	ExchangeIDFormatPEntryID = &_ExchangeIDFormatPEntryID
+	// ExchangeIDFormatPEwsID is a pointer to ExchangeIDFormatVEwsID
+	ExchangeIDFormatPEwsID = &_ExchangeIDFormatPEwsID
+	// ExchangeIDFormatPImmutableEntryID is a pointer to ExchangeIDFormatVImmutableEntryID
+	ExchangeIDFormatPImmutableEntryID = &_ExchangeIDFormatPImmutableEntryID
+	// ExchangeIDFormatPRestID is a pointer to ExchangeIDFormatVRestID
+	ExchangeIDFormatPRestID = &_ExchangeIDFormatPRestID
+	// ExchangeIDFormatPRestImmutableEntryID is a pointer to ExchangeIDFormatVRestImmutableEntryID
+	ExchangeIDFormatPRestImmutableEntryID = &_ExchangeIDFormatPRestImmutableEntryID
+)
 
-// ExchangeIDFormatPEwsID returns a pointer to ExchangeIDFormatVEwsID
-func ExchangeIDFormatPEwsID() *ExchangeIDFormat {
-	v := ExchangeIDFormatVEwsID
-	return &v
-}
-
-// ExchangeIDFormatPImmutableEntryID returns a pointer to ExchangeIDFormatVImmutableEntryID
-func ExchangeIDFormatPImmutableEntryID() *ExchangeIDFormat {
-	v := ExchangeIDFormatVImmutableEntryID
-	return &v
-}
-
-// ExchangeIDFormatPRestID returns a pointer to ExchangeIDFormatVRestID
-func ExchangeIDFormatPRestID() *ExchangeIDFormat {
-	v := ExchangeIDFormatVRestID
-	return &v
-}
-
-// ExchangeIDFormatPRestImmutableEntryID returns a pointer to ExchangeIDFormatVRestImmutableEntryID
-func ExchangeIDFormatPRestImmutableEntryID() *ExchangeIDFormat {
-	v := ExchangeIDFormatVRestImmutableEntryID
-	return &v
-}
+var (
+	_ExchangeIDFormatPEntryID              = ExchangeIDFormatVEntryID
+	_ExchangeIDFormatPEwsID                = ExchangeIDFormatVEwsID
+	_ExchangeIDFormatPImmutableEntryID     = ExchangeIDFormatVImmutableEntryID
+	_ExchangeIDFormatPRestID               = ExchangeIDFormatVRestID
+	_ExchangeIDFormatPRestImmutableEntryID = ExchangeIDFormatVRestImmutableEntryID
+)

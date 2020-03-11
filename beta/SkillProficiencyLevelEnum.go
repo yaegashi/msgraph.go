@@ -3,55 +3,43 @@
 package msgraph
 
 // SkillProficiencyLevel undocumented
-type SkillProficiencyLevel int
+type SkillProficiencyLevel string
 
 const (
 	// SkillProficiencyLevelVElementary undocumented
-	SkillProficiencyLevelVElementary SkillProficiencyLevel = 0
+	SkillProficiencyLevelVElementary SkillProficiencyLevel = "elementary"
 	// SkillProficiencyLevelVLimitedWorking undocumented
-	SkillProficiencyLevelVLimitedWorking SkillProficiencyLevel = 1
+	SkillProficiencyLevelVLimitedWorking SkillProficiencyLevel = "limitedWorking"
 	// SkillProficiencyLevelVGeneralProfessional undocumented
-	SkillProficiencyLevelVGeneralProfessional SkillProficiencyLevel = 2
+	SkillProficiencyLevelVGeneralProfessional SkillProficiencyLevel = "generalProfessional"
 	// SkillProficiencyLevelVAdvancedProfessional undocumented
-	SkillProficiencyLevelVAdvancedProfessional SkillProficiencyLevel = 3
+	SkillProficiencyLevelVAdvancedProfessional SkillProficiencyLevel = "advancedProfessional"
 	// SkillProficiencyLevelVExpert undocumented
-	SkillProficiencyLevelVExpert SkillProficiencyLevel = 4
+	SkillProficiencyLevelVExpert SkillProficiencyLevel = "expert"
 	// SkillProficiencyLevelVUnknownFutureValue undocumented
-	SkillProficiencyLevelVUnknownFutureValue SkillProficiencyLevel = 5
+	SkillProficiencyLevelVUnknownFutureValue SkillProficiencyLevel = "unknownFutureValue"
 )
 
-// SkillProficiencyLevelPElementary returns a pointer to SkillProficiencyLevelVElementary
-func SkillProficiencyLevelPElementary() *SkillProficiencyLevel {
-	v := SkillProficiencyLevelVElementary
-	return &v
-}
+var (
+	// SkillProficiencyLevelPElementary is a pointer to SkillProficiencyLevelVElementary
+	SkillProficiencyLevelPElementary = &_SkillProficiencyLevelPElementary
+	// SkillProficiencyLevelPLimitedWorking is a pointer to SkillProficiencyLevelVLimitedWorking
+	SkillProficiencyLevelPLimitedWorking = &_SkillProficiencyLevelPLimitedWorking
+	// SkillProficiencyLevelPGeneralProfessional is a pointer to SkillProficiencyLevelVGeneralProfessional
+	SkillProficiencyLevelPGeneralProfessional = &_SkillProficiencyLevelPGeneralProfessional
+	// SkillProficiencyLevelPAdvancedProfessional is a pointer to SkillProficiencyLevelVAdvancedProfessional
+	SkillProficiencyLevelPAdvancedProfessional = &_SkillProficiencyLevelPAdvancedProfessional
+	// SkillProficiencyLevelPExpert is a pointer to SkillProficiencyLevelVExpert
+	SkillProficiencyLevelPExpert = &_SkillProficiencyLevelPExpert
+	// SkillProficiencyLevelPUnknownFutureValue is a pointer to SkillProficiencyLevelVUnknownFutureValue
+	SkillProficiencyLevelPUnknownFutureValue = &_SkillProficiencyLevelPUnknownFutureValue
+)
 
-// SkillProficiencyLevelPLimitedWorking returns a pointer to SkillProficiencyLevelVLimitedWorking
-func SkillProficiencyLevelPLimitedWorking() *SkillProficiencyLevel {
-	v := SkillProficiencyLevelVLimitedWorking
-	return &v
-}
-
-// SkillProficiencyLevelPGeneralProfessional returns a pointer to SkillProficiencyLevelVGeneralProfessional
-func SkillProficiencyLevelPGeneralProfessional() *SkillProficiencyLevel {
-	v := SkillProficiencyLevelVGeneralProfessional
-	return &v
-}
-
-// SkillProficiencyLevelPAdvancedProfessional returns a pointer to SkillProficiencyLevelVAdvancedProfessional
-func SkillProficiencyLevelPAdvancedProfessional() *SkillProficiencyLevel {
-	v := SkillProficiencyLevelVAdvancedProfessional
-	return &v
-}
-
-// SkillProficiencyLevelPExpert returns a pointer to SkillProficiencyLevelVExpert
-func SkillProficiencyLevelPExpert() *SkillProficiencyLevel {
-	v := SkillProficiencyLevelVExpert
-	return &v
-}
-
-// SkillProficiencyLevelPUnknownFutureValue returns a pointer to SkillProficiencyLevelVUnknownFutureValue
-func SkillProficiencyLevelPUnknownFutureValue() *SkillProficiencyLevel {
-	v := SkillProficiencyLevelVUnknownFutureValue
-	return &v
-}
+var (
+	_SkillProficiencyLevelPElementary           = SkillProficiencyLevelVElementary
+	_SkillProficiencyLevelPLimitedWorking       = SkillProficiencyLevelVLimitedWorking
+	_SkillProficiencyLevelPGeneralProfessional  = SkillProficiencyLevelVGeneralProfessional
+	_SkillProficiencyLevelPAdvancedProfessional = SkillProficiencyLevelVAdvancedProfessional
+	_SkillProficiencyLevelPExpert               = SkillProficiencyLevelVExpert
+	_SkillProficiencyLevelPUnknownFutureValue   = SkillProficiencyLevelVUnknownFutureValue
+)

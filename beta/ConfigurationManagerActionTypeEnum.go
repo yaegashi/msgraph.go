@@ -3,39 +3,33 @@
 package msgraph
 
 // ConfigurationManagerActionType undocumented
-type ConfigurationManagerActionType int
+type ConfigurationManagerActionType string
 
 const (
 	// ConfigurationManagerActionTypeVRefreshMachinePolicy undocumented
-	ConfigurationManagerActionTypeVRefreshMachinePolicy ConfigurationManagerActionType = 0
+	ConfigurationManagerActionTypeVRefreshMachinePolicy ConfigurationManagerActionType = "refreshMachinePolicy"
 	// ConfigurationManagerActionTypeVRefreshUserPolicy undocumented
-	ConfigurationManagerActionTypeVRefreshUserPolicy ConfigurationManagerActionType = 1
+	ConfigurationManagerActionTypeVRefreshUserPolicy ConfigurationManagerActionType = "refreshUserPolicy"
 	// ConfigurationManagerActionTypeVWakeUpClient undocumented
-	ConfigurationManagerActionTypeVWakeUpClient ConfigurationManagerActionType = 2
+	ConfigurationManagerActionTypeVWakeUpClient ConfigurationManagerActionType = "wakeUpClient"
 	// ConfigurationManagerActionTypeVAppEvaluation undocumented
-	ConfigurationManagerActionTypeVAppEvaluation ConfigurationManagerActionType = 3
+	ConfigurationManagerActionTypeVAppEvaluation ConfigurationManagerActionType = "appEvaluation"
 )
 
-// ConfigurationManagerActionTypePRefreshMachinePolicy returns a pointer to ConfigurationManagerActionTypeVRefreshMachinePolicy
-func ConfigurationManagerActionTypePRefreshMachinePolicy() *ConfigurationManagerActionType {
-	v := ConfigurationManagerActionTypeVRefreshMachinePolicy
-	return &v
-}
+var (
+	// ConfigurationManagerActionTypePRefreshMachinePolicy is a pointer to ConfigurationManagerActionTypeVRefreshMachinePolicy
+	ConfigurationManagerActionTypePRefreshMachinePolicy = &_ConfigurationManagerActionTypePRefreshMachinePolicy
+	// ConfigurationManagerActionTypePRefreshUserPolicy is a pointer to ConfigurationManagerActionTypeVRefreshUserPolicy
+	ConfigurationManagerActionTypePRefreshUserPolicy = &_ConfigurationManagerActionTypePRefreshUserPolicy
+	// ConfigurationManagerActionTypePWakeUpClient is a pointer to ConfigurationManagerActionTypeVWakeUpClient
+	ConfigurationManagerActionTypePWakeUpClient = &_ConfigurationManagerActionTypePWakeUpClient
+	// ConfigurationManagerActionTypePAppEvaluation is a pointer to ConfigurationManagerActionTypeVAppEvaluation
+	ConfigurationManagerActionTypePAppEvaluation = &_ConfigurationManagerActionTypePAppEvaluation
+)
 
-// ConfigurationManagerActionTypePRefreshUserPolicy returns a pointer to ConfigurationManagerActionTypeVRefreshUserPolicy
-func ConfigurationManagerActionTypePRefreshUserPolicy() *ConfigurationManagerActionType {
-	v := ConfigurationManagerActionTypeVRefreshUserPolicy
-	return &v
-}
-
-// ConfigurationManagerActionTypePWakeUpClient returns a pointer to ConfigurationManagerActionTypeVWakeUpClient
-func ConfigurationManagerActionTypePWakeUpClient() *ConfigurationManagerActionType {
-	v := ConfigurationManagerActionTypeVWakeUpClient
-	return &v
-}
-
-// ConfigurationManagerActionTypePAppEvaluation returns a pointer to ConfigurationManagerActionTypeVAppEvaluation
-func ConfigurationManagerActionTypePAppEvaluation() *ConfigurationManagerActionType {
-	v := ConfigurationManagerActionTypeVAppEvaluation
-	return &v
-}
+var (
+	_ConfigurationManagerActionTypePRefreshMachinePolicy = ConfigurationManagerActionTypeVRefreshMachinePolicy
+	_ConfigurationManagerActionTypePRefreshUserPolicy    = ConfigurationManagerActionTypeVRefreshUserPolicy
+	_ConfigurationManagerActionTypePWakeUpClient         = ConfigurationManagerActionTypeVWakeUpClient
+	_ConfigurationManagerActionTypePAppEvaluation        = ConfigurationManagerActionTypeVAppEvaluation
+)

@@ -3,55 +3,43 @@
 package msgraph
 
 // BookingInvoiceStatus undocumented
-type BookingInvoiceStatus int
+type BookingInvoiceStatus string
 
 const (
 	// BookingInvoiceStatusVDraft undocumented
-	BookingInvoiceStatusVDraft BookingInvoiceStatus = 0
+	BookingInvoiceStatusVDraft BookingInvoiceStatus = "draft"
 	// BookingInvoiceStatusVReviewing undocumented
-	BookingInvoiceStatusVReviewing BookingInvoiceStatus = 1
+	BookingInvoiceStatusVReviewing BookingInvoiceStatus = "reviewing"
 	// BookingInvoiceStatusVOpen undocumented
-	BookingInvoiceStatusVOpen BookingInvoiceStatus = 2
+	BookingInvoiceStatusVOpen BookingInvoiceStatus = "open"
 	// BookingInvoiceStatusVCanceled undocumented
-	BookingInvoiceStatusVCanceled BookingInvoiceStatus = 3
+	BookingInvoiceStatusVCanceled BookingInvoiceStatus = "canceled"
 	// BookingInvoiceStatusVPaid undocumented
-	BookingInvoiceStatusVPaid BookingInvoiceStatus = 4
+	BookingInvoiceStatusVPaid BookingInvoiceStatus = "paid"
 	// BookingInvoiceStatusVCorrective undocumented
-	BookingInvoiceStatusVCorrective BookingInvoiceStatus = 5
+	BookingInvoiceStatusVCorrective BookingInvoiceStatus = "corrective"
 )
 
-// BookingInvoiceStatusPDraft returns a pointer to BookingInvoiceStatusVDraft
-func BookingInvoiceStatusPDraft() *BookingInvoiceStatus {
-	v := BookingInvoiceStatusVDraft
-	return &v
-}
+var (
+	// BookingInvoiceStatusPDraft is a pointer to BookingInvoiceStatusVDraft
+	BookingInvoiceStatusPDraft = &_BookingInvoiceStatusPDraft
+	// BookingInvoiceStatusPReviewing is a pointer to BookingInvoiceStatusVReviewing
+	BookingInvoiceStatusPReviewing = &_BookingInvoiceStatusPReviewing
+	// BookingInvoiceStatusPOpen is a pointer to BookingInvoiceStatusVOpen
+	BookingInvoiceStatusPOpen = &_BookingInvoiceStatusPOpen
+	// BookingInvoiceStatusPCanceled is a pointer to BookingInvoiceStatusVCanceled
+	BookingInvoiceStatusPCanceled = &_BookingInvoiceStatusPCanceled
+	// BookingInvoiceStatusPPaid is a pointer to BookingInvoiceStatusVPaid
+	BookingInvoiceStatusPPaid = &_BookingInvoiceStatusPPaid
+	// BookingInvoiceStatusPCorrective is a pointer to BookingInvoiceStatusVCorrective
+	BookingInvoiceStatusPCorrective = &_BookingInvoiceStatusPCorrective
+)
 
-// BookingInvoiceStatusPReviewing returns a pointer to BookingInvoiceStatusVReviewing
-func BookingInvoiceStatusPReviewing() *BookingInvoiceStatus {
-	v := BookingInvoiceStatusVReviewing
-	return &v
-}
-
-// BookingInvoiceStatusPOpen returns a pointer to BookingInvoiceStatusVOpen
-func BookingInvoiceStatusPOpen() *BookingInvoiceStatus {
-	v := BookingInvoiceStatusVOpen
-	return &v
-}
-
-// BookingInvoiceStatusPCanceled returns a pointer to BookingInvoiceStatusVCanceled
-func BookingInvoiceStatusPCanceled() *BookingInvoiceStatus {
-	v := BookingInvoiceStatusVCanceled
-	return &v
-}
-
-// BookingInvoiceStatusPPaid returns a pointer to BookingInvoiceStatusVPaid
-func BookingInvoiceStatusPPaid() *BookingInvoiceStatus {
-	v := BookingInvoiceStatusVPaid
-	return &v
-}
-
-// BookingInvoiceStatusPCorrective returns a pointer to BookingInvoiceStatusVCorrective
-func BookingInvoiceStatusPCorrective() *BookingInvoiceStatus {
-	v := BookingInvoiceStatusVCorrective
-	return &v
-}
+var (
+	_BookingInvoiceStatusPDraft      = BookingInvoiceStatusVDraft
+	_BookingInvoiceStatusPReviewing  = BookingInvoiceStatusVReviewing
+	_BookingInvoiceStatusPOpen       = BookingInvoiceStatusVOpen
+	_BookingInvoiceStatusPCanceled   = BookingInvoiceStatusVCanceled
+	_BookingInvoiceStatusPPaid       = BookingInvoiceStatusVPaid
+	_BookingInvoiceStatusPCorrective = BookingInvoiceStatusVCorrective
+)

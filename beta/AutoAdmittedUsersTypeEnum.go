@@ -3,23 +3,23 @@
 package msgraph
 
 // AutoAdmittedUsersType undocumented
-type AutoAdmittedUsersType int
+type AutoAdmittedUsersType string
 
 const (
 	// AutoAdmittedUsersTypeVEveryoneInCompany undocumented
-	AutoAdmittedUsersTypeVEveryoneInCompany AutoAdmittedUsersType = 0
+	AutoAdmittedUsersTypeVEveryoneInCompany AutoAdmittedUsersType = "everyoneInCompany"
 	// AutoAdmittedUsersTypeVEveryone undocumented
-	AutoAdmittedUsersTypeVEveryone AutoAdmittedUsersType = 1
+	AutoAdmittedUsersTypeVEveryone AutoAdmittedUsersType = "everyone"
 )
 
-// AutoAdmittedUsersTypePEveryoneInCompany returns a pointer to AutoAdmittedUsersTypeVEveryoneInCompany
-func AutoAdmittedUsersTypePEveryoneInCompany() *AutoAdmittedUsersType {
-	v := AutoAdmittedUsersTypeVEveryoneInCompany
-	return &v
-}
+var (
+	// AutoAdmittedUsersTypePEveryoneInCompany is a pointer to AutoAdmittedUsersTypeVEveryoneInCompany
+	AutoAdmittedUsersTypePEveryoneInCompany = &_AutoAdmittedUsersTypePEveryoneInCompany
+	// AutoAdmittedUsersTypePEveryone is a pointer to AutoAdmittedUsersTypeVEveryone
+	AutoAdmittedUsersTypePEveryone = &_AutoAdmittedUsersTypePEveryone
+)
 
-// AutoAdmittedUsersTypePEveryone returns a pointer to AutoAdmittedUsersTypeVEveryone
-func AutoAdmittedUsersTypePEveryone() *AutoAdmittedUsersType {
-	v := AutoAdmittedUsersTypeVEveryone
-	return &v
-}
+var (
+	_AutoAdmittedUsersTypePEveryoneInCompany = AutoAdmittedUsersTypeVEveryoneInCompany
+	_AutoAdmittedUsersTypePEveryone          = AutoAdmittedUsersTypeVEveryone
+)

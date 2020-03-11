@@ -3,31 +3,28 @@
 package msgraph
 
 // AnniversaryType undocumented
-type AnniversaryType int
+type AnniversaryType string
 
 const (
 	// AnniversaryTypeVBirthday undocumented
-	AnniversaryTypeVBirthday AnniversaryType = 0
+	AnniversaryTypeVBirthday AnniversaryType = "birthday"
 	// AnniversaryTypeVWedding undocumented
-	AnniversaryTypeVWedding AnniversaryType = 1
+	AnniversaryTypeVWedding AnniversaryType = "wedding"
 	// AnniversaryTypeVUnknownFutureValue undocumented
-	AnniversaryTypeVUnknownFutureValue AnniversaryType = 3
+	AnniversaryTypeVUnknownFutureValue AnniversaryType = "unknownFutureValue"
 )
 
-// AnniversaryTypePBirthday returns a pointer to AnniversaryTypeVBirthday
-func AnniversaryTypePBirthday() *AnniversaryType {
-	v := AnniversaryTypeVBirthday
-	return &v
-}
+var (
+	// AnniversaryTypePBirthday is a pointer to AnniversaryTypeVBirthday
+	AnniversaryTypePBirthday = &_AnniversaryTypePBirthday
+	// AnniversaryTypePWedding is a pointer to AnniversaryTypeVWedding
+	AnniversaryTypePWedding = &_AnniversaryTypePWedding
+	// AnniversaryTypePUnknownFutureValue is a pointer to AnniversaryTypeVUnknownFutureValue
+	AnniversaryTypePUnknownFutureValue = &_AnniversaryTypePUnknownFutureValue
+)
 
-// AnniversaryTypePWedding returns a pointer to AnniversaryTypeVWedding
-func AnniversaryTypePWedding() *AnniversaryType {
-	v := AnniversaryTypeVWedding
-	return &v
-}
-
-// AnniversaryTypePUnknownFutureValue returns a pointer to AnniversaryTypeVUnknownFutureValue
-func AnniversaryTypePUnknownFutureValue() *AnniversaryType {
-	v := AnniversaryTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_AnniversaryTypePBirthday           = AnniversaryTypeVBirthday
+	_AnniversaryTypePWedding            = AnniversaryTypeVWedding
+	_AnniversaryTypePUnknownFutureValue = AnniversaryTypeVUnknownFutureValue
+)

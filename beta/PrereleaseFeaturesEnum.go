@@ -3,39 +3,33 @@
 package msgraph
 
 // PrereleaseFeatures undocumented
-type PrereleaseFeatures int
+type PrereleaseFeatures string
 
 const (
 	// PrereleaseFeaturesVUserDefined undocumented
-	PrereleaseFeaturesVUserDefined PrereleaseFeatures = 0
+	PrereleaseFeaturesVUserDefined PrereleaseFeatures = "userDefined"
 	// PrereleaseFeaturesVSettingsOnly undocumented
-	PrereleaseFeaturesVSettingsOnly PrereleaseFeatures = 1
+	PrereleaseFeaturesVSettingsOnly PrereleaseFeatures = "settingsOnly"
 	// PrereleaseFeaturesVSettingsAndExperimentations undocumented
-	PrereleaseFeaturesVSettingsAndExperimentations PrereleaseFeatures = 2
+	PrereleaseFeaturesVSettingsAndExperimentations PrereleaseFeatures = "settingsAndExperimentations"
 	// PrereleaseFeaturesVNotAllowed undocumented
-	PrereleaseFeaturesVNotAllowed PrereleaseFeatures = 3
+	PrereleaseFeaturesVNotAllowed PrereleaseFeatures = "notAllowed"
 )
 
-// PrereleaseFeaturesPUserDefined returns a pointer to PrereleaseFeaturesVUserDefined
-func PrereleaseFeaturesPUserDefined() *PrereleaseFeatures {
-	v := PrereleaseFeaturesVUserDefined
-	return &v
-}
+var (
+	// PrereleaseFeaturesPUserDefined is a pointer to PrereleaseFeaturesVUserDefined
+	PrereleaseFeaturesPUserDefined = &_PrereleaseFeaturesPUserDefined
+	// PrereleaseFeaturesPSettingsOnly is a pointer to PrereleaseFeaturesVSettingsOnly
+	PrereleaseFeaturesPSettingsOnly = &_PrereleaseFeaturesPSettingsOnly
+	// PrereleaseFeaturesPSettingsAndExperimentations is a pointer to PrereleaseFeaturesVSettingsAndExperimentations
+	PrereleaseFeaturesPSettingsAndExperimentations = &_PrereleaseFeaturesPSettingsAndExperimentations
+	// PrereleaseFeaturesPNotAllowed is a pointer to PrereleaseFeaturesVNotAllowed
+	PrereleaseFeaturesPNotAllowed = &_PrereleaseFeaturesPNotAllowed
+)
 
-// PrereleaseFeaturesPSettingsOnly returns a pointer to PrereleaseFeaturesVSettingsOnly
-func PrereleaseFeaturesPSettingsOnly() *PrereleaseFeatures {
-	v := PrereleaseFeaturesVSettingsOnly
-	return &v
-}
-
-// PrereleaseFeaturesPSettingsAndExperimentations returns a pointer to PrereleaseFeaturesVSettingsAndExperimentations
-func PrereleaseFeaturesPSettingsAndExperimentations() *PrereleaseFeatures {
-	v := PrereleaseFeaturesVSettingsAndExperimentations
-	return &v
-}
-
-// PrereleaseFeaturesPNotAllowed returns a pointer to PrereleaseFeaturesVNotAllowed
-func PrereleaseFeaturesPNotAllowed() *PrereleaseFeatures {
-	v := PrereleaseFeaturesVNotAllowed
-	return &v
-}
+var (
+	_PrereleaseFeaturesPUserDefined                 = PrereleaseFeaturesVUserDefined
+	_PrereleaseFeaturesPSettingsOnly                = PrereleaseFeaturesVSettingsOnly
+	_PrereleaseFeaturesPSettingsAndExperimentations = PrereleaseFeaturesVSettingsAndExperimentations
+	_PrereleaseFeaturesPNotAllowed                  = PrereleaseFeaturesVNotAllowed
+)

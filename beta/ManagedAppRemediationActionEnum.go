@@ -3,31 +3,28 @@
 package msgraph
 
 // ManagedAppRemediationAction undocumented
-type ManagedAppRemediationAction int
+type ManagedAppRemediationAction string
 
 const (
 	// ManagedAppRemediationActionVBlock undocumented
-	ManagedAppRemediationActionVBlock ManagedAppRemediationAction = 0
+	ManagedAppRemediationActionVBlock ManagedAppRemediationAction = "block"
 	// ManagedAppRemediationActionVWipe undocumented
-	ManagedAppRemediationActionVWipe ManagedAppRemediationAction = 1
+	ManagedAppRemediationActionVWipe ManagedAppRemediationAction = "wipe"
 	// ManagedAppRemediationActionVWarn undocumented
-	ManagedAppRemediationActionVWarn ManagedAppRemediationAction = 2
+	ManagedAppRemediationActionVWarn ManagedAppRemediationAction = "warn"
 )
 
-// ManagedAppRemediationActionPBlock returns a pointer to ManagedAppRemediationActionVBlock
-func ManagedAppRemediationActionPBlock() *ManagedAppRemediationAction {
-	v := ManagedAppRemediationActionVBlock
-	return &v
-}
+var (
+	// ManagedAppRemediationActionPBlock is a pointer to ManagedAppRemediationActionVBlock
+	ManagedAppRemediationActionPBlock = &_ManagedAppRemediationActionPBlock
+	// ManagedAppRemediationActionPWipe is a pointer to ManagedAppRemediationActionVWipe
+	ManagedAppRemediationActionPWipe = &_ManagedAppRemediationActionPWipe
+	// ManagedAppRemediationActionPWarn is a pointer to ManagedAppRemediationActionVWarn
+	ManagedAppRemediationActionPWarn = &_ManagedAppRemediationActionPWarn
+)
 
-// ManagedAppRemediationActionPWipe returns a pointer to ManagedAppRemediationActionVWipe
-func ManagedAppRemediationActionPWipe() *ManagedAppRemediationAction {
-	v := ManagedAppRemediationActionVWipe
-	return &v
-}
-
-// ManagedAppRemediationActionPWarn returns a pointer to ManagedAppRemediationActionVWarn
-func ManagedAppRemediationActionPWarn() *ManagedAppRemediationAction {
-	v := ManagedAppRemediationActionVWarn
-	return &v
-}
+var (
+	_ManagedAppRemediationActionPBlock = ManagedAppRemediationActionVBlock
+	_ManagedAppRemediationActionPWipe  = ManagedAppRemediationActionVWipe
+	_ManagedAppRemediationActionPWarn  = ManagedAppRemediationActionVWarn
+)

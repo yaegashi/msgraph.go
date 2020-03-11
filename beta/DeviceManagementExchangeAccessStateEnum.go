@@ -3,47 +3,38 @@
 package msgraph
 
 // DeviceManagementExchangeAccessState undocumented
-type DeviceManagementExchangeAccessState int
+type DeviceManagementExchangeAccessState string
 
 const (
 	// DeviceManagementExchangeAccessStateVNone undocumented
-	DeviceManagementExchangeAccessStateVNone DeviceManagementExchangeAccessState = 0
+	DeviceManagementExchangeAccessStateVNone DeviceManagementExchangeAccessState = "none"
 	// DeviceManagementExchangeAccessStateVUnknown undocumented
-	DeviceManagementExchangeAccessStateVUnknown DeviceManagementExchangeAccessState = 1
+	DeviceManagementExchangeAccessStateVUnknown DeviceManagementExchangeAccessState = "unknown"
 	// DeviceManagementExchangeAccessStateVAllowed undocumented
-	DeviceManagementExchangeAccessStateVAllowed DeviceManagementExchangeAccessState = 2
+	DeviceManagementExchangeAccessStateVAllowed DeviceManagementExchangeAccessState = "allowed"
 	// DeviceManagementExchangeAccessStateVBlocked undocumented
-	DeviceManagementExchangeAccessStateVBlocked DeviceManagementExchangeAccessState = 3
+	DeviceManagementExchangeAccessStateVBlocked DeviceManagementExchangeAccessState = "blocked"
 	// DeviceManagementExchangeAccessStateVQuarantined undocumented
-	DeviceManagementExchangeAccessStateVQuarantined DeviceManagementExchangeAccessState = 4
+	DeviceManagementExchangeAccessStateVQuarantined DeviceManagementExchangeAccessState = "quarantined"
 )
 
-// DeviceManagementExchangeAccessStatePNone returns a pointer to DeviceManagementExchangeAccessStateVNone
-func DeviceManagementExchangeAccessStatePNone() *DeviceManagementExchangeAccessState {
-	v := DeviceManagementExchangeAccessStateVNone
-	return &v
-}
+var (
+	// DeviceManagementExchangeAccessStatePNone is a pointer to DeviceManagementExchangeAccessStateVNone
+	DeviceManagementExchangeAccessStatePNone = &_DeviceManagementExchangeAccessStatePNone
+	// DeviceManagementExchangeAccessStatePUnknown is a pointer to DeviceManagementExchangeAccessStateVUnknown
+	DeviceManagementExchangeAccessStatePUnknown = &_DeviceManagementExchangeAccessStatePUnknown
+	// DeviceManagementExchangeAccessStatePAllowed is a pointer to DeviceManagementExchangeAccessStateVAllowed
+	DeviceManagementExchangeAccessStatePAllowed = &_DeviceManagementExchangeAccessStatePAllowed
+	// DeviceManagementExchangeAccessStatePBlocked is a pointer to DeviceManagementExchangeAccessStateVBlocked
+	DeviceManagementExchangeAccessStatePBlocked = &_DeviceManagementExchangeAccessStatePBlocked
+	// DeviceManagementExchangeAccessStatePQuarantined is a pointer to DeviceManagementExchangeAccessStateVQuarantined
+	DeviceManagementExchangeAccessStatePQuarantined = &_DeviceManagementExchangeAccessStatePQuarantined
+)
 
-// DeviceManagementExchangeAccessStatePUnknown returns a pointer to DeviceManagementExchangeAccessStateVUnknown
-func DeviceManagementExchangeAccessStatePUnknown() *DeviceManagementExchangeAccessState {
-	v := DeviceManagementExchangeAccessStateVUnknown
-	return &v
-}
-
-// DeviceManagementExchangeAccessStatePAllowed returns a pointer to DeviceManagementExchangeAccessStateVAllowed
-func DeviceManagementExchangeAccessStatePAllowed() *DeviceManagementExchangeAccessState {
-	v := DeviceManagementExchangeAccessStateVAllowed
-	return &v
-}
-
-// DeviceManagementExchangeAccessStatePBlocked returns a pointer to DeviceManagementExchangeAccessStateVBlocked
-func DeviceManagementExchangeAccessStatePBlocked() *DeviceManagementExchangeAccessState {
-	v := DeviceManagementExchangeAccessStateVBlocked
-	return &v
-}
-
-// DeviceManagementExchangeAccessStatePQuarantined returns a pointer to DeviceManagementExchangeAccessStateVQuarantined
-func DeviceManagementExchangeAccessStatePQuarantined() *DeviceManagementExchangeAccessState {
-	v := DeviceManagementExchangeAccessStateVQuarantined
-	return &v
-}
+var (
+	_DeviceManagementExchangeAccessStatePNone        = DeviceManagementExchangeAccessStateVNone
+	_DeviceManagementExchangeAccessStatePUnknown     = DeviceManagementExchangeAccessStateVUnknown
+	_DeviceManagementExchangeAccessStatePAllowed     = DeviceManagementExchangeAccessStateVAllowed
+	_DeviceManagementExchangeAccessStatePBlocked     = DeviceManagementExchangeAccessStateVBlocked
+	_DeviceManagementExchangeAccessStatePQuarantined = DeviceManagementExchangeAccessStateVQuarantined
+)

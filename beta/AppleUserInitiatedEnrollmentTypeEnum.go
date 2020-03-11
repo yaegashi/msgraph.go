@@ -3,31 +3,28 @@
 package msgraph
 
 // AppleUserInitiatedEnrollmentType undocumented
-type AppleUserInitiatedEnrollmentType int
+type AppleUserInitiatedEnrollmentType string
 
 const (
 	// AppleUserInitiatedEnrollmentTypeVUnknown undocumented
-	AppleUserInitiatedEnrollmentTypeVUnknown AppleUserInitiatedEnrollmentType = 0
+	AppleUserInitiatedEnrollmentTypeVUnknown AppleUserInitiatedEnrollmentType = "unknown"
 	// AppleUserInitiatedEnrollmentTypeVDevice undocumented
-	AppleUserInitiatedEnrollmentTypeVDevice AppleUserInitiatedEnrollmentType = 1
+	AppleUserInitiatedEnrollmentTypeVDevice AppleUserInitiatedEnrollmentType = "device"
 	// AppleUserInitiatedEnrollmentTypeVUser undocumented
-	AppleUserInitiatedEnrollmentTypeVUser AppleUserInitiatedEnrollmentType = 2
+	AppleUserInitiatedEnrollmentTypeVUser AppleUserInitiatedEnrollmentType = "user"
 )
 
-// AppleUserInitiatedEnrollmentTypePUnknown returns a pointer to AppleUserInitiatedEnrollmentTypeVUnknown
-func AppleUserInitiatedEnrollmentTypePUnknown() *AppleUserInitiatedEnrollmentType {
-	v := AppleUserInitiatedEnrollmentTypeVUnknown
-	return &v
-}
+var (
+	// AppleUserInitiatedEnrollmentTypePUnknown is a pointer to AppleUserInitiatedEnrollmentTypeVUnknown
+	AppleUserInitiatedEnrollmentTypePUnknown = &_AppleUserInitiatedEnrollmentTypePUnknown
+	// AppleUserInitiatedEnrollmentTypePDevice is a pointer to AppleUserInitiatedEnrollmentTypeVDevice
+	AppleUserInitiatedEnrollmentTypePDevice = &_AppleUserInitiatedEnrollmentTypePDevice
+	// AppleUserInitiatedEnrollmentTypePUser is a pointer to AppleUserInitiatedEnrollmentTypeVUser
+	AppleUserInitiatedEnrollmentTypePUser = &_AppleUserInitiatedEnrollmentTypePUser
+)
 
-// AppleUserInitiatedEnrollmentTypePDevice returns a pointer to AppleUserInitiatedEnrollmentTypeVDevice
-func AppleUserInitiatedEnrollmentTypePDevice() *AppleUserInitiatedEnrollmentType {
-	v := AppleUserInitiatedEnrollmentTypeVDevice
-	return &v
-}
-
-// AppleUserInitiatedEnrollmentTypePUser returns a pointer to AppleUserInitiatedEnrollmentTypeVUser
-func AppleUserInitiatedEnrollmentTypePUser() *AppleUserInitiatedEnrollmentType {
-	v := AppleUserInitiatedEnrollmentTypeVUser
-	return &v
-}
+var (
+	_AppleUserInitiatedEnrollmentTypePUnknown = AppleUserInitiatedEnrollmentTypeVUnknown
+	_AppleUserInitiatedEnrollmentTypePDevice  = AppleUserInitiatedEnrollmentTypeVDevice
+	_AppleUserInitiatedEnrollmentTypePUser    = AppleUserInitiatedEnrollmentTypeVUser
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // FirewallPreSharedKeyEncodingMethodType undocumented
-type FirewallPreSharedKeyEncodingMethodType int
+type FirewallPreSharedKeyEncodingMethodType string
 
 const (
 	// FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault undocumented
-	FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault FirewallPreSharedKeyEncodingMethodType = 0
+	FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault FirewallPreSharedKeyEncodingMethodType = "deviceDefault"
 	// FirewallPreSharedKeyEncodingMethodTypeVNone undocumented
-	FirewallPreSharedKeyEncodingMethodTypeVNone FirewallPreSharedKeyEncodingMethodType = 1
+	FirewallPreSharedKeyEncodingMethodTypeVNone FirewallPreSharedKeyEncodingMethodType = "none"
 	// FirewallPreSharedKeyEncodingMethodTypeVUtF8 undocumented
-	FirewallPreSharedKeyEncodingMethodTypeVUtF8 FirewallPreSharedKeyEncodingMethodType = 2
+	FirewallPreSharedKeyEncodingMethodTypeVUtF8 FirewallPreSharedKeyEncodingMethodType = "utF8"
 )
 
-// FirewallPreSharedKeyEncodingMethodTypePDeviceDefault returns a pointer to FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault
-func FirewallPreSharedKeyEncodingMethodTypePDeviceDefault() *FirewallPreSharedKeyEncodingMethodType {
-	v := FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault
-	return &v
-}
+var (
+	// FirewallPreSharedKeyEncodingMethodTypePDeviceDefault is a pointer to FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault
+	FirewallPreSharedKeyEncodingMethodTypePDeviceDefault = &_FirewallPreSharedKeyEncodingMethodTypePDeviceDefault
+	// FirewallPreSharedKeyEncodingMethodTypePNone is a pointer to FirewallPreSharedKeyEncodingMethodTypeVNone
+	FirewallPreSharedKeyEncodingMethodTypePNone = &_FirewallPreSharedKeyEncodingMethodTypePNone
+	// FirewallPreSharedKeyEncodingMethodTypePUtF8 is a pointer to FirewallPreSharedKeyEncodingMethodTypeVUtF8
+	FirewallPreSharedKeyEncodingMethodTypePUtF8 = &_FirewallPreSharedKeyEncodingMethodTypePUtF8
+)
 
-// FirewallPreSharedKeyEncodingMethodTypePNone returns a pointer to FirewallPreSharedKeyEncodingMethodTypeVNone
-func FirewallPreSharedKeyEncodingMethodTypePNone() *FirewallPreSharedKeyEncodingMethodType {
-	v := FirewallPreSharedKeyEncodingMethodTypeVNone
-	return &v
-}
-
-// FirewallPreSharedKeyEncodingMethodTypePUtF8 returns a pointer to FirewallPreSharedKeyEncodingMethodTypeVUtF8
-func FirewallPreSharedKeyEncodingMethodTypePUtF8() *FirewallPreSharedKeyEncodingMethodType {
-	v := FirewallPreSharedKeyEncodingMethodTypeVUtF8
-	return &v
-}
+var (
+	_FirewallPreSharedKeyEncodingMethodTypePDeviceDefault = FirewallPreSharedKeyEncodingMethodTypeVDeviceDefault
+	_FirewallPreSharedKeyEncodingMethodTypePNone          = FirewallPreSharedKeyEncodingMethodTypeVNone
+	_FirewallPreSharedKeyEncodingMethodTypePUtF8          = FirewallPreSharedKeyEncodingMethodTypeVUtF8
+)

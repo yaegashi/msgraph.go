@@ -3,63 +3,48 @@
 package msgraph
 
 // LanguageProficiencyLevel undocumented
-type LanguageProficiencyLevel int
+type LanguageProficiencyLevel string
 
 const (
 	// LanguageProficiencyLevelVElementary undocumented
-	LanguageProficiencyLevelVElementary LanguageProficiencyLevel = 0
+	LanguageProficiencyLevelVElementary LanguageProficiencyLevel = "elementary"
 	// LanguageProficiencyLevelVConversational undocumented
-	LanguageProficiencyLevelVConversational LanguageProficiencyLevel = 1
+	LanguageProficiencyLevelVConversational LanguageProficiencyLevel = "conversational"
 	// LanguageProficiencyLevelVLimitedWorking undocumented
-	LanguageProficiencyLevelVLimitedWorking LanguageProficiencyLevel = 2
+	LanguageProficiencyLevelVLimitedWorking LanguageProficiencyLevel = "limitedWorking"
 	// LanguageProficiencyLevelVProfessionalWorking undocumented
-	LanguageProficiencyLevelVProfessionalWorking LanguageProficiencyLevel = 3
+	LanguageProficiencyLevelVProfessionalWorking LanguageProficiencyLevel = "professionalWorking"
 	// LanguageProficiencyLevelVFullProfessional undocumented
-	LanguageProficiencyLevelVFullProfessional LanguageProficiencyLevel = 4
+	LanguageProficiencyLevelVFullProfessional LanguageProficiencyLevel = "fullProfessional"
 	// LanguageProficiencyLevelVNativeOrBilingual undocumented
-	LanguageProficiencyLevelVNativeOrBilingual LanguageProficiencyLevel = 5
+	LanguageProficiencyLevelVNativeOrBilingual LanguageProficiencyLevel = "nativeOrBilingual"
 	// LanguageProficiencyLevelVUnknownFutureValue undocumented
-	LanguageProficiencyLevelVUnknownFutureValue LanguageProficiencyLevel = 6
+	LanguageProficiencyLevelVUnknownFutureValue LanguageProficiencyLevel = "unknownFutureValue"
 )
 
-// LanguageProficiencyLevelPElementary returns a pointer to LanguageProficiencyLevelVElementary
-func LanguageProficiencyLevelPElementary() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVElementary
-	return &v
-}
+var (
+	// LanguageProficiencyLevelPElementary is a pointer to LanguageProficiencyLevelVElementary
+	LanguageProficiencyLevelPElementary = &_LanguageProficiencyLevelPElementary
+	// LanguageProficiencyLevelPConversational is a pointer to LanguageProficiencyLevelVConversational
+	LanguageProficiencyLevelPConversational = &_LanguageProficiencyLevelPConversational
+	// LanguageProficiencyLevelPLimitedWorking is a pointer to LanguageProficiencyLevelVLimitedWorking
+	LanguageProficiencyLevelPLimitedWorking = &_LanguageProficiencyLevelPLimitedWorking
+	// LanguageProficiencyLevelPProfessionalWorking is a pointer to LanguageProficiencyLevelVProfessionalWorking
+	LanguageProficiencyLevelPProfessionalWorking = &_LanguageProficiencyLevelPProfessionalWorking
+	// LanguageProficiencyLevelPFullProfessional is a pointer to LanguageProficiencyLevelVFullProfessional
+	LanguageProficiencyLevelPFullProfessional = &_LanguageProficiencyLevelPFullProfessional
+	// LanguageProficiencyLevelPNativeOrBilingual is a pointer to LanguageProficiencyLevelVNativeOrBilingual
+	LanguageProficiencyLevelPNativeOrBilingual = &_LanguageProficiencyLevelPNativeOrBilingual
+	// LanguageProficiencyLevelPUnknownFutureValue is a pointer to LanguageProficiencyLevelVUnknownFutureValue
+	LanguageProficiencyLevelPUnknownFutureValue = &_LanguageProficiencyLevelPUnknownFutureValue
+)
 
-// LanguageProficiencyLevelPConversational returns a pointer to LanguageProficiencyLevelVConversational
-func LanguageProficiencyLevelPConversational() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVConversational
-	return &v
-}
-
-// LanguageProficiencyLevelPLimitedWorking returns a pointer to LanguageProficiencyLevelVLimitedWorking
-func LanguageProficiencyLevelPLimitedWorking() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVLimitedWorking
-	return &v
-}
-
-// LanguageProficiencyLevelPProfessionalWorking returns a pointer to LanguageProficiencyLevelVProfessionalWorking
-func LanguageProficiencyLevelPProfessionalWorking() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVProfessionalWorking
-	return &v
-}
-
-// LanguageProficiencyLevelPFullProfessional returns a pointer to LanguageProficiencyLevelVFullProfessional
-func LanguageProficiencyLevelPFullProfessional() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVFullProfessional
-	return &v
-}
-
-// LanguageProficiencyLevelPNativeOrBilingual returns a pointer to LanguageProficiencyLevelVNativeOrBilingual
-func LanguageProficiencyLevelPNativeOrBilingual() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVNativeOrBilingual
-	return &v
-}
-
-// LanguageProficiencyLevelPUnknownFutureValue returns a pointer to LanguageProficiencyLevelVUnknownFutureValue
-func LanguageProficiencyLevelPUnknownFutureValue() *LanguageProficiencyLevel {
-	v := LanguageProficiencyLevelVUnknownFutureValue
-	return &v
-}
+var (
+	_LanguageProficiencyLevelPElementary          = LanguageProficiencyLevelVElementary
+	_LanguageProficiencyLevelPConversational      = LanguageProficiencyLevelVConversational
+	_LanguageProficiencyLevelPLimitedWorking      = LanguageProficiencyLevelVLimitedWorking
+	_LanguageProficiencyLevelPProfessionalWorking = LanguageProficiencyLevelVProfessionalWorking
+	_LanguageProficiencyLevelPFullProfessional    = LanguageProficiencyLevelVFullProfessional
+	_LanguageProficiencyLevelPNativeOrBilingual   = LanguageProficiencyLevelVNativeOrBilingual
+	_LanguageProficiencyLevelPUnknownFutureValue  = LanguageProficiencyLevelVUnknownFutureValue
+)

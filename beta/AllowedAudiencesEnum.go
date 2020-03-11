@@ -3,71 +3,53 @@
 package msgraph
 
 // AllowedAudiences undocumented
-type AllowedAudiences int
+type AllowedAudiences string
 
 const (
 	// AllowedAudiencesVMe undocumented
-	AllowedAudiencesVMe AllowedAudiences = 0
+	AllowedAudiencesVMe AllowedAudiences = "me"
 	// AllowedAudiencesVFamily undocumented
-	AllowedAudiencesVFamily AllowedAudiences = 1
+	AllowedAudiencesVFamily AllowedAudiences = "family"
 	// AllowedAudiencesVContacts undocumented
-	AllowedAudiencesVContacts AllowedAudiences = 2
+	AllowedAudiencesVContacts AllowedAudiences = "contacts"
 	// AllowedAudiencesVGroupMembers undocumented
-	AllowedAudiencesVGroupMembers AllowedAudiences = 4
+	AllowedAudiencesVGroupMembers AllowedAudiences = "groupMembers"
 	// AllowedAudiencesVOrganization undocumented
-	AllowedAudiencesVOrganization AllowedAudiences = 8
+	AllowedAudiencesVOrganization AllowedAudiences = "organization"
 	// AllowedAudiencesVFederatedOrganizations undocumented
-	AllowedAudiencesVFederatedOrganizations AllowedAudiences = 16
+	AllowedAudiencesVFederatedOrganizations AllowedAudiences = "federatedOrganizations"
 	// AllowedAudiencesVEveryone undocumented
-	AllowedAudiencesVEveryone AllowedAudiences = 32
+	AllowedAudiencesVEveryone AllowedAudiences = "everyone"
 	// AllowedAudiencesVUnknownFutureValue undocumented
-	AllowedAudiencesVUnknownFutureValue AllowedAudiences = 64
+	AllowedAudiencesVUnknownFutureValue AllowedAudiences = "unknownFutureValue"
 )
 
-// AllowedAudiencesPMe returns a pointer to AllowedAudiencesVMe
-func AllowedAudiencesPMe() *AllowedAudiences {
-	v := AllowedAudiencesVMe
-	return &v
-}
+var (
+	// AllowedAudiencesPMe is a pointer to AllowedAudiencesVMe
+	AllowedAudiencesPMe = &_AllowedAudiencesPMe
+	// AllowedAudiencesPFamily is a pointer to AllowedAudiencesVFamily
+	AllowedAudiencesPFamily = &_AllowedAudiencesPFamily
+	// AllowedAudiencesPContacts is a pointer to AllowedAudiencesVContacts
+	AllowedAudiencesPContacts = &_AllowedAudiencesPContacts
+	// AllowedAudiencesPGroupMembers is a pointer to AllowedAudiencesVGroupMembers
+	AllowedAudiencesPGroupMembers = &_AllowedAudiencesPGroupMembers
+	// AllowedAudiencesPOrganization is a pointer to AllowedAudiencesVOrganization
+	AllowedAudiencesPOrganization = &_AllowedAudiencesPOrganization
+	// AllowedAudiencesPFederatedOrganizations is a pointer to AllowedAudiencesVFederatedOrganizations
+	AllowedAudiencesPFederatedOrganizations = &_AllowedAudiencesPFederatedOrganizations
+	// AllowedAudiencesPEveryone is a pointer to AllowedAudiencesVEveryone
+	AllowedAudiencesPEveryone = &_AllowedAudiencesPEveryone
+	// AllowedAudiencesPUnknownFutureValue is a pointer to AllowedAudiencesVUnknownFutureValue
+	AllowedAudiencesPUnknownFutureValue = &_AllowedAudiencesPUnknownFutureValue
+)
 
-// AllowedAudiencesPFamily returns a pointer to AllowedAudiencesVFamily
-func AllowedAudiencesPFamily() *AllowedAudiences {
-	v := AllowedAudiencesVFamily
-	return &v
-}
-
-// AllowedAudiencesPContacts returns a pointer to AllowedAudiencesVContacts
-func AllowedAudiencesPContacts() *AllowedAudiences {
-	v := AllowedAudiencesVContacts
-	return &v
-}
-
-// AllowedAudiencesPGroupMembers returns a pointer to AllowedAudiencesVGroupMembers
-func AllowedAudiencesPGroupMembers() *AllowedAudiences {
-	v := AllowedAudiencesVGroupMembers
-	return &v
-}
-
-// AllowedAudiencesPOrganization returns a pointer to AllowedAudiencesVOrganization
-func AllowedAudiencesPOrganization() *AllowedAudiences {
-	v := AllowedAudiencesVOrganization
-	return &v
-}
-
-// AllowedAudiencesPFederatedOrganizations returns a pointer to AllowedAudiencesVFederatedOrganizations
-func AllowedAudiencesPFederatedOrganizations() *AllowedAudiences {
-	v := AllowedAudiencesVFederatedOrganizations
-	return &v
-}
-
-// AllowedAudiencesPEveryone returns a pointer to AllowedAudiencesVEveryone
-func AllowedAudiencesPEveryone() *AllowedAudiences {
-	v := AllowedAudiencesVEveryone
-	return &v
-}
-
-// AllowedAudiencesPUnknownFutureValue returns a pointer to AllowedAudiencesVUnknownFutureValue
-func AllowedAudiencesPUnknownFutureValue() *AllowedAudiences {
-	v := AllowedAudiencesVUnknownFutureValue
-	return &v
-}
+var (
+	_AllowedAudiencesPMe                     = AllowedAudiencesVMe
+	_AllowedAudiencesPFamily                 = AllowedAudiencesVFamily
+	_AllowedAudiencesPContacts               = AllowedAudiencesVContacts
+	_AllowedAudiencesPGroupMembers           = AllowedAudiencesVGroupMembers
+	_AllowedAudiencesPOrganization           = AllowedAudiencesVOrganization
+	_AllowedAudiencesPFederatedOrganizations = AllowedAudiencesVFederatedOrganizations
+	_AllowedAudiencesPEveryone               = AllowedAudiencesVEveryone
+	_AllowedAudiencesPUnknownFutureValue     = AllowedAudiencesVUnknownFutureValue
+)

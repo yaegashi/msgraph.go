@@ -3,31 +3,28 @@
 package msgraph
 
 // AttendeeType undocumented
-type AttendeeType int
+type AttendeeType string
 
 const (
 	// AttendeeTypeVRequired undocumented
-	AttendeeTypeVRequired AttendeeType = 0
+	AttendeeTypeVRequired AttendeeType = "required"
 	// AttendeeTypeVOptional undocumented
-	AttendeeTypeVOptional AttendeeType = 1
+	AttendeeTypeVOptional AttendeeType = "optional"
 	// AttendeeTypeVResource undocumented
-	AttendeeTypeVResource AttendeeType = 2
+	AttendeeTypeVResource AttendeeType = "resource"
 )
 
-// AttendeeTypePRequired returns a pointer to AttendeeTypeVRequired
-func AttendeeTypePRequired() *AttendeeType {
-	v := AttendeeTypeVRequired
-	return &v
-}
+var (
+	// AttendeeTypePRequired is a pointer to AttendeeTypeVRequired
+	AttendeeTypePRequired = &_AttendeeTypePRequired
+	// AttendeeTypePOptional is a pointer to AttendeeTypeVOptional
+	AttendeeTypePOptional = &_AttendeeTypePOptional
+	// AttendeeTypePResource is a pointer to AttendeeTypeVResource
+	AttendeeTypePResource = &_AttendeeTypePResource
+)
 
-// AttendeeTypePOptional returns a pointer to AttendeeTypeVOptional
-func AttendeeTypePOptional() *AttendeeType {
-	v := AttendeeTypeVOptional
-	return &v
-}
-
-// AttendeeTypePResource returns a pointer to AttendeeTypeVResource
-func AttendeeTypePResource() *AttendeeType {
-	v := AttendeeTypeVResource
-	return &v
-}
+var (
+	_AttendeeTypePRequired = AttendeeTypeVRequired
+	_AttendeeTypePOptional = AttendeeTypeVOptional
+	_AttendeeTypePResource = AttendeeTypeVResource
+)

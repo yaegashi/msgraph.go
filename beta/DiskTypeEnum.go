@@ -3,31 +3,28 @@
 package msgraph
 
 // DiskType undocumented
-type DiskType int
+type DiskType string
 
 const (
 	// DiskTypeVUnkown undocumented
-	DiskTypeVUnkown DiskType = 0
+	DiskTypeVUnkown DiskType = "unkown"
 	// DiskTypeVHdd undocumented
-	DiskTypeVHdd DiskType = 1
+	DiskTypeVHdd DiskType = "hdd"
 	// DiskTypeVSsd undocumented
-	DiskTypeVSsd DiskType = 2
+	DiskTypeVSsd DiskType = "ssd"
 )
 
-// DiskTypePUnkown returns a pointer to DiskTypeVUnkown
-func DiskTypePUnkown() *DiskType {
-	v := DiskTypeVUnkown
-	return &v
-}
+var (
+	// DiskTypePUnkown is a pointer to DiskTypeVUnkown
+	DiskTypePUnkown = &_DiskTypePUnkown
+	// DiskTypePHdd is a pointer to DiskTypeVHdd
+	DiskTypePHdd = &_DiskTypePHdd
+	// DiskTypePSsd is a pointer to DiskTypeVSsd
+	DiskTypePSsd = &_DiskTypePSsd
+)
 
-// DiskTypePHdd returns a pointer to DiskTypeVHdd
-func DiskTypePHdd() *DiskType {
-	v := DiskTypeVHdd
-	return &v
-}
-
-// DiskTypePSsd returns a pointer to DiskTypeVSsd
-func DiskTypePSsd() *DiskType {
-	v := DiskTypeVSsd
-	return &v
-}
+var (
+	_DiskTypePUnkown = DiskTypeVUnkown
+	_DiskTypePHdd    = DiskTypeVHdd
+	_DiskTypePSsd    = DiskTypeVSsd
+)

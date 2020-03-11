@@ -3,31 +3,28 @@
 package msgraph
 
 // GroupPolicySettingType undocumented
-type GroupPolicySettingType int
+type GroupPolicySettingType string
 
 const (
 	// GroupPolicySettingTypeVUnknown undocumented
-	GroupPolicySettingTypeVUnknown GroupPolicySettingType = 0
+	GroupPolicySettingTypeVUnknown GroupPolicySettingType = "unknown"
 	// GroupPolicySettingTypeVPolicy undocumented
-	GroupPolicySettingTypeVPolicy GroupPolicySettingType = 1
+	GroupPolicySettingTypeVPolicy GroupPolicySettingType = "policy"
 	// GroupPolicySettingTypeVAccount undocumented
-	GroupPolicySettingTypeVAccount GroupPolicySettingType = 2
+	GroupPolicySettingTypeVAccount GroupPolicySettingType = "account"
 )
 
-// GroupPolicySettingTypePUnknown returns a pointer to GroupPolicySettingTypeVUnknown
-func GroupPolicySettingTypePUnknown() *GroupPolicySettingType {
-	v := GroupPolicySettingTypeVUnknown
-	return &v
-}
+var (
+	// GroupPolicySettingTypePUnknown is a pointer to GroupPolicySettingTypeVUnknown
+	GroupPolicySettingTypePUnknown = &_GroupPolicySettingTypePUnknown
+	// GroupPolicySettingTypePPolicy is a pointer to GroupPolicySettingTypeVPolicy
+	GroupPolicySettingTypePPolicy = &_GroupPolicySettingTypePPolicy
+	// GroupPolicySettingTypePAccount is a pointer to GroupPolicySettingTypeVAccount
+	GroupPolicySettingTypePAccount = &_GroupPolicySettingTypePAccount
+)
 
-// GroupPolicySettingTypePPolicy returns a pointer to GroupPolicySettingTypeVPolicy
-func GroupPolicySettingTypePPolicy() *GroupPolicySettingType {
-	v := GroupPolicySettingTypeVPolicy
-	return &v
-}
-
-// GroupPolicySettingTypePAccount returns a pointer to GroupPolicySettingTypeVAccount
-func GroupPolicySettingTypePAccount() *GroupPolicySettingType {
-	v := GroupPolicySettingTypeVAccount
-	return &v
-}
+var (
+	_GroupPolicySettingTypePUnknown = GroupPolicySettingTypeVUnknown
+	_GroupPolicySettingTypePPolicy  = GroupPolicySettingTypeVPolicy
+	_GroupPolicySettingTypePAccount = GroupPolicySettingTypeVAccount
+)

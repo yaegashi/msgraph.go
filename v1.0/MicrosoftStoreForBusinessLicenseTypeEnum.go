@@ -3,23 +3,23 @@
 package msgraph
 
 // MicrosoftStoreForBusinessLicenseType undocumented
-type MicrosoftStoreForBusinessLicenseType int
+type MicrosoftStoreForBusinessLicenseType string
 
 const (
 	// MicrosoftStoreForBusinessLicenseTypeVOffline undocumented
-	MicrosoftStoreForBusinessLicenseTypeVOffline MicrosoftStoreForBusinessLicenseType = 0
+	MicrosoftStoreForBusinessLicenseTypeVOffline MicrosoftStoreForBusinessLicenseType = "offline"
 	// MicrosoftStoreForBusinessLicenseTypeVOnline undocumented
-	MicrosoftStoreForBusinessLicenseTypeVOnline MicrosoftStoreForBusinessLicenseType = 1
+	MicrosoftStoreForBusinessLicenseTypeVOnline MicrosoftStoreForBusinessLicenseType = "online"
 )
 
-// MicrosoftStoreForBusinessLicenseTypePOffline returns a pointer to MicrosoftStoreForBusinessLicenseTypeVOffline
-func MicrosoftStoreForBusinessLicenseTypePOffline() *MicrosoftStoreForBusinessLicenseType {
-	v := MicrosoftStoreForBusinessLicenseTypeVOffline
-	return &v
-}
+var (
+	// MicrosoftStoreForBusinessLicenseTypePOffline is a pointer to MicrosoftStoreForBusinessLicenseTypeVOffline
+	MicrosoftStoreForBusinessLicenseTypePOffline = &_MicrosoftStoreForBusinessLicenseTypePOffline
+	// MicrosoftStoreForBusinessLicenseTypePOnline is a pointer to MicrosoftStoreForBusinessLicenseTypeVOnline
+	MicrosoftStoreForBusinessLicenseTypePOnline = &_MicrosoftStoreForBusinessLicenseTypePOnline
+)
 
-// MicrosoftStoreForBusinessLicenseTypePOnline returns a pointer to MicrosoftStoreForBusinessLicenseTypeVOnline
-func MicrosoftStoreForBusinessLicenseTypePOnline() *MicrosoftStoreForBusinessLicenseType {
-	v := MicrosoftStoreForBusinessLicenseTypeVOnline
-	return &v
-}
+var (
+	_MicrosoftStoreForBusinessLicenseTypePOffline = MicrosoftStoreForBusinessLicenseTypeVOffline
+	_MicrosoftStoreForBusinessLicenseTypePOnline  = MicrosoftStoreForBusinessLicenseTypeVOnline
+)

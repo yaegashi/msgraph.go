@@ -3,47 +3,38 @@
 package msgraph
 
 // ApprovalState undocumented
-type ApprovalState int
+type ApprovalState string
 
 const (
 	// ApprovalStateVPending undocumented
-	ApprovalStateVPending ApprovalState = 0
+	ApprovalStateVPending ApprovalState = "pending"
 	// ApprovalStateVApproved undocumented
-	ApprovalStateVApproved ApprovalState = 1
+	ApprovalStateVApproved ApprovalState = "approved"
 	// ApprovalStateVDenied undocumented
-	ApprovalStateVDenied ApprovalState = 2
+	ApprovalStateVDenied ApprovalState = "denied"
 	// ApprovalStateVAborted undocumented
-	ApprovalStateVAborted ApprovalState = 3
+	ApprovalStateVAborted ApprovalState = "aborted"
 	// ApprovalStateVCanceled undocumented
-	ApprovalStateVCanceled ApprovalState = 4
+	ApprovalStateVCanceled ApprovalState = "canceled"
 )
 
-// ApprovalStatePPending returns a pointer to ApprovalStateVPending
-func ApprovalStatePPending() *ApprovalState {
-	v := ApprovalStateVPending
-	return &v
-}
+var (
+	// ApprovalStatePPending is a pointer to ApprovalStateVPending
+	ApprovalStatePPending = &_ApprovalStatePPending
+	// ApprovalStatePApproved is a pointer to ApprovalStateVApproved
+	ApprovalStatePApproved = &_ApprovalStatePApproved
+	// ApprovalStatePDenied is a pointer to ApprovalStateVDenied
+	ApprovalStatePDenied = &_ApprovalStatePDenied
+	// ApprovalStatePAborted is a pointer to ApprovalStateVAborted
+	ApprovalStatePAborted = &_ApprovalStatePAborted
+	// ApprovalStatePCanceled is a pointer to ApprovalStateVCanceled
+	ApprovalStatePCanceled = &_ApprovalStatePCanceled
+)
 
-// ApprovalStatePApproved returns a pointer to ApprovalStateVApproved
-func ApprovalStatePApproved() *ApprovalState {
-	v := ApprovalStateVApproved
-	return &v
-}
-
-// ApprovalStatePDenied returns a pointer to ApprovalStateVDenied
-func ApprovalStatePDenied() *ApprovalState {
-	v := ApprovalStateVDenied
-	return &v
-}
-
-// ApprovalStatePAborted returns a pointer to ApprovalStateVAborted
-func ApprovalStatePAborted() *ApprovalState {
-	v := ApprovalStateVAborted
-	return &v
-}
-
-// ApprovalStatePCanceled returns a pointer to ApprovalStateVCanceled
-func ApprovalStatePCanceled() *ApprovalState {
-	v := ApprovalStateVCanceled
-	return &v
-}
+var (
+	_ApprovalStatePPending  = ApprovalStateVPending
+	_ApprovalStatePApproved = ApprovalStateVApproved
+	_ApprovalStatePDenied   = ApprovalStateVDenied
+	_ApprovalStatePAborted  = ApprovalStateVAborted
+	_ApprovalStatePCanceled = ApprovalStateVCanceled
+)

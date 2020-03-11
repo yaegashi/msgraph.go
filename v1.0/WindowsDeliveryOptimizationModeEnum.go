@@ -3,63 +3,48 @@
 package msgraph
 
 // WindowsDeliveryOptimizationMode undocumented
-type WindowsDeliveryOptimizationMode int
+type WindowsDeliveryOptimizationMode string
 
 const (
 	// WindowsDeliveryOptimizationModeVUserDefined undocumented
-	WindowsDeliveryOptimizationModeVUserDefined WindowsDeliveryOptimizationMode = 0
+	WindowsDeliveryOptimizationModeVUserDefined WindowsDeliveryOptimizationMode = "userDefined"
 	// WindowsDeliveryOptimizationModeVHTTPOnly undocumented
-	WindowsDeliveryOptimizationModeVHTTPOnly WindowsDeliveryOptimizationMode = 1
+	WindowsDeliveryOptimizationModeVHTTPOnly WindowsDeliveryOptimizationMode = "httpOnly"
 	// WindowsDeliveryOptimizationModeVHTTPWithPeeringNat undocumented
-	WindowsDeliveryOptimizationModeVHTTPWithPeeringNat WindowsDeliveryOptimizationMode = 2
+	WindowsDeliveryOptimizationModeVHTTPWithPeeringNat WindowsDeliveryOptimizationMode = "httpWithPeeringNat"
 	// WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup undocumented
-	WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup WindowsDeliveryOptimizationMode = 3
+	WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup WindowsDeliveryOptimizationMode = "httpWithPeeringPrivateGroup"
 	// WindowsDeliveryOptimizationModeVHTTPWithInternetPeering undocumented
-	WindowsDeliveryOptimizationModeVHTTPWithInternetPeering WindowsDeliveryOptimizationMode = 4
+	WindowsDeliveryOptimizationModeVHTTPWithInternetPeering WindowsDeliveryOptimizationMode = "httpWithInternetPeering"
 	// WindowsDeliveryOptimizationModeVSimpleDownload undocumented
-	WindowsDeliveryOptimizationModeVSimpleDownload WindowsDeliveryOptimizationMode = 99
+	WindowsDeliveryOptimizationModeVSimpleDownload WindowsDeliveryOptimizationMode = "simpleDownload"
 	// WindowsDeliveryOptimizationModeVBypassMode undocumented
-	WindowsDeliveryOptimizationModeVBypassMode WindowsDeliveryOptimizationMode = 100
+	WindowsDeliveryOptimizationModeVBypassMode WindowsDeliveryOptimizationMode = "bypassMode"
 )
 
-// WindowsDeliveryOptimizationModePUserDefined returns a pointer to WindowsDeliveryOptimizationModeVUserDefined
-func WindowsDeliveryOptimizationModePUserDefined() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVUserDefined
-	return &v
-}
+var (
+	// WindowsDeliveryOptimizationModePUserDefined is a pointer to WindowsDeliveryOptimizationModeVUserDefined
+	WindowsDeliveryOptimizationModePUserDefined = &_WindowsDeliveryOptimizationModePUserDefined
+	// WindowsDeliveryOptimizationModePHTTPOnly is a pointer to WindowsDeliveryOptimizationModeVHTTPOnly
+	WindowsDeliveryOptimizationModePHTTPOnly = &_WindowsDeliveryOptimizationModePHTTPOnly
+	// WindowsDeliveryOptimizationModePHTTPWithPeeringNat is a pointer to WindowsDeliveryOptimizationModeVHTTPWithPeeringNat
+	WindowsDeliveryOptimizationModePHTTPWithPeeringNat = &_WindowsDeliveryOptimizationModePHTTPWithPeeringNat
+	// WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup is a pointer to WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup
+	WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup = &_WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup
+	// WindowsDeliveryOptimizationModePHTTPWithInternetPeering is a pointer to WindowsDeliveryOptimizationModeVHTTPWithInternetPeering
+	WindowsDeliveryOptimizationModePHTTPWithInternetPeering = &_WindowsDeliveryOptimizationModePHTTPWithInternetPeering
+	// WindowsDeliveryOptimizationModePSimpleDownload is a pointer to WindowsDeliveryOptimizationModeVSimpleDownload
+	WindowsDeliveryOptimizationModePSimpleDownload = &_WindowsDeliveryOptimizationModePSimpleDownload
+	// WindowsDeliveryOptimizationModePBypassMode is a pointer to WindowsDeliveryOptimizationModeVBypassMode
+	WindowsDeliveryOptimizationModePBypassMode = &_WindowsDeliveryOptimizationModePBypassMode
+)
 
-// WindowsDeliveryOptimizationModePHTTPOnly returns a pointer to WindowsDeliveryOptimizationModeVHTTPOnly
-func WindowsDeliveryOptimizationModePHTTPOnly() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVHTTPOnly
-	return &v
-}
-
-// WindowsDeliveryOptimizationModePHTTPWithPeeringNat returns a pointer to WindowsDeliveryOptimizationModeVHTTPWithPeeringNat
-func WindowsDeliveryOptimizationModePHTTPWithPeeringNat() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVHTTPWithPeeringNat
-	return &v
-}
-
-// WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup returns a pointer to WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup
-func WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup
-	return &v
-}
-
-// WindowsDeliveryOptimizationModePHTTPWithInternetPeering returns a pointer to WindowsDeliveryOptimizationModeVHTTPWithInternetPeering
-func WindowsDeliveryOptimizationModePHTTPWithInternetPeering() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVHTTPWithInternetPeering
-	return &v
-}
-
-// WindowsDeliveryOptimizationModePSimpleDownload returns a pointer to WindowsDeliveryOptimizationModeVSimpleDownload
-func WindowsDeliveryOptimizationModePSimpleDownload() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVSimpleDownload
-	return &v
-}
-
-// WindowsDeliveryOptimizationModePBypassMode returns a pointer to WindowsDeliveryOptimizationModeVBypassMode
-func WindowsDeliveryOptimizationModePBypassMode() *WindowsDeliveryOptimizationMode {
-	v := WindowsDeliveryOptimizationModeVBypassMode
-	return &v
-}
+var (
+	_WindowsDeliveryOptimizationModePUserDefined                 = WindowsDeliveryOptimizationModeVUserDefined
+	_WindowsDeliveryOptimizationModePHTTPOnly                    = WindowsDeliveryOptimizationModeVHTTPOnly
+	_WindowsDeliveryOptimizationModePHTTPWithPeeringNat          = WindowsDeliveryOptimizationModeVHTTPWithPeeringNat
+	_WindowsDeliveryOptimizationModePHTTPWithPeeringPrivateGroup = WindowsDeliveryOptimizationModeVHTTPWithPeeringPrivateGroup
+	_WindowsDeliveryOptimizationModePHTTPWithInternetPeering     = WindowsDeliveryOptimizationModeVHTTPWithInternetPeering
+	_WindowsDeliveryOptimizationModePSimpleDownload              = WindowsDeliveryOptimizationModeVSimpleDownload
+	_WindowsDeliveryOptimizationModePBypassMode                  = WindowsDeliveryOptimizationModeVBypassMode
+)

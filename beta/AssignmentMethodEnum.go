@@ -3,31 +3,28 @@
 package msgraph
 
 // AssignmentMethod undocumented
-type AssignmentMethod int
+type AssignmentMethod string
 
 const (
 	// AssignmentMethodVStandard undocumented
-	AssignmentMethodVStandard AssignmentMethod = 0
+	AssignmentMethodVStandard AssignmentMethod = "standard"
 	// AssignmentMethodVPrivileged undocumented
-	AssignmentMethodVPrivileged AssignmentMethod = 1
+	AssignmentMethodVPrivileged AssignmentMethod = "privileged"
 	// AssignmentMethodVAuto undocumented
-	AssignmentMethodVAuto AssignmentMethod = 2
+	AssignmentMethodVAuto AssignmentMethod = "auto"
 )
 
-// AssignmentMethodPStandard returns a pointer to AssignmentMethodVStandard
-func AssignmentMethodPStandard() *AssignmentMethod {
-	v := AssignmentMethodVStandard
-	return &v
-}
+var (
+	// AssignmentMethodPStandard is a pointer to AssignmentMethodVStandard
+	AssignmentMethodPStandard = &_AssignmentMethodPStandard
+	// AssignmentMethodPPrivileged is a pointer to AssignmentMethodVPrivileged
+	AssignmentMethodPPrivileged = &_AssignmentMethodPPrivileged
+	// AssignmentMethodPAuto is a pointer to AssignmentMethodVAuto
+	AssignmentMethodPAuto = &_AssignmentMethodPAuto
+)
 
-// AssignmentMethodPPrivileged returns a pointer to AssignmentMethodVPrivileged
-func AssignmentMethodPPrivileged() *AssignmentMethod {
-	v := AssignmentMethodVPrivileged
-	return &v
-}
-
-// AssignmentMethodPAuto returns a pointer to AssignmentMethodVAuto
-func AssignmentMethodPAuto() *AssignmentMethod {
-	v := AssignmentMethodVAuto
-	return &v
-}
+var (
+	_AssignmentMethodPStandard   = AssignmentMethodVStandard
+	_AssignmentMethodPPrivileged = AssignmentMethodVPrivileged
+	_AssignmentMethodPAuto       = AssignmentMethodVAuto
+)

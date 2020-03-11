@@ -3,47 +3,38 @@
 package msgraph
 
 // DeliveryOptimizationGroupIDOptionsType undocumented
-type DeliveryOptimizationGroupIDOptionsType int
+type DeliveryOptimizationGroupIDOptionsType string
 
 const (
 	// DeliveryOptimizationGroupIDOptionsTypeVNotConfigured undocumented
-	DeliveryOptimizationGroupIDOptionsTypeVNotConfigured DeliveryOptimizationGroupIDOptionsType = 0
+	DeliveryOptimizationGroupIDOptionsTypeVNotConfigured DeliveryOptimizationGroupIDOptionsType = "notConfigured"
 	// DeliveryOptimizationGroupIDOptionsTypeVAdSite undocumented
-	DeliveryOptimizationGroupIDOptionsTypeVAdSite DeliveryOptimizationGroupIDOptionsType = 1
+	DeliveryOptimizationGroupIDOptionsTypeVAdSite DeliveryOptimizationGroupIDOptionsType = "adSite"
 	// DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid undocumented
-	DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid DeliveryOptimizationGroupIDOptionsType = 2
+	DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid DeliveryOptimizationGroupIDOptionsType = "authenticatedDomainSid"
 	// DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption undocumented
-	DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption DeliveryOptimizationGroupIDOptionsType = 3
+	DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption DeliveryOptimizationGroupIDOptionsType = "dhcpUserOption"
 	// DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix undocumented
-	DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix DeliveryOptimizationGroupIDOptionsType = 4
+	DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix DeliveryOptimizationGroupIDOptionsType = "dnsSuffix"
 )
 
-// DeliveryOptimizationGroupIDOptionsTypePNotConfigured returns a pointer to DeliveryOptimizationGroupIDOptionsTypeVNotConfigured
-func DeliveryOptimizationGroupIDOptionsTypePNotConfigured() *DeliveryOptimizationGroupIDOptionsType {
-	v := DeliveryOptimizationGroupIDOptionsTypeVNotConfigured
-	return &v
-}
+var (
+	// DeliveryOptimizationGroupIDOptionsTypePNotConfigured is a pointer to DeliveryOptimizationGroupIDOptionsTypeVNotConfigured
+	DeliveryOptimizationGroupIDOptionsTypePNotConfigured = &_DeliveryOptimizationGroupIDOptionsTypePNotConfigured
+	// DeliveryOptimizationGroupIDOptionsTypePAdSite is a pointer to DeliveryOptimizationGroupIDOptionsTypeVAdSite
+	DeliveryOptimizationGroupIDOptionsTypePAdSite = &_DeliveryOptimizationGroupIDOptionsTypePAdSite
+	// DeliveryOptimizationGroupIDOptionsTypePAuthenticatedDomainSid is a pointer to DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid
+	DeliveryOptimizationGroupIDOptionsTypePAuthenticatedDomainSid = &_DeliveryOptimizationGroupIDOptionsTypePAuthenticatedDomainSid
+	// DeliveryOptimizationGroupIDOptionsTypePDhcpUserOption is a pointer to DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption
+	DeliveryOptimizationGroupIDOptionsTypePDhcpUserOption = &_DeliveryOptimizationGroupIDOptionsTypePDhcpUserOption
+	// DeliveryOptimizationGroupIDOptionsTypePDNSSuffix is a pointer to DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix
+	DeliveryOptimizationGroupIDOptionsTypePDNSSuffix = &_DeliveryOptimizationGroupIDOptionsTypePDNSSuffix
+)
 
-// DeliveryOptimizationGroupIDOptionsTypePAdSite returns a pointer to DeliveryOptimizationGroupIDOptionsTypeVAdSite
-func DeliveryOptimizationGroupIDOptionsTypePAdSite() *DeliveryOptimizationGroupIDOptionsType {
-	v := DeliveryOptimizationGroupIDOptionsTypeVAdSite
-	return &v
-}
-
-// DeliveryOptimizationGroupIDOptionsTypePAuthenticatedDomainSid returns a pointer to DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid
-func DeliveryOptimizationGroupIDOptionsTypePAuthenticatedDomainSid() *DeliveryOptimizationGroupIDOptionsType {
-	v := DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid
-	return &v
-}
-
-// DeliveryOptimizationGroupIDOptionsTypePDhcpUserOption returns a pointer to DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption
-func DeliveryOptimizationGroupIDOptionsTypePDhcpUserOption() *DeliveryOptimizationGroupIDOptionsType {
-	v := DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption
-	return &v
-}
-
-// DeliveryOptimizationGroupIDOptionsTypePDNSSuffix returns a pointer to DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix
-func DeliveryOptimizationGroupIDOptionsTypePDNSSuffix() *DeliveryOptimizationGroupIDOptionsType {
-	v := DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix
-	return &v
-}
+var (
+	_DeliveryOptimizationGroupIDOptionsTypePNotConfigured          = DeliveryOptimizationGroupIDOptionsTypeVNotConfigured
+	_DeliveryOptimizationGroupIDOptionsTypePAdSite                 = DeliveryOptimizationGroupIDOptionsTypeVAdSite
+	_DeliveryOptimizationGroupIDOptionsTypePAuthenticatedDomainSid = DeliveryOptimizationGroupIDOptionsTypeVAuthenticatedDomainSid
+	_DeliveryOptimizationGroupIDOptionsTypePDhcpUserOption         = DeliveryOptimizationGroupIDOptionsTypeVDhcpUserOption
+	_DeliveryOptimizationGroupIDOptionsTypePDNSSuffix              = DeliveryOptimizationGroupIDOptionsTypeVDNSSuffix
+)

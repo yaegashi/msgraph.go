@@ -3,47 +3,38 @@
 package msgraph
 
 // AnalyticsActivityType undocumented
-type AnalyticsActivityType int
+type AnalyticsActivityType string
 
 const (
 	// AnalyticsActivityTypeVEmail undocumented
-	AnalyticsActivityTypeVEmail AnalyticsActivityType = 0
+	AnalyticsActivityTypeVEmail AnalyticsActivityType = "Email"
 	// AnalyticsActivityTypeVMeeting undocumented
-	AnalyticsActivityTypeVMeeting AnalyticsActivityType = 1
+	AnalyticsActivityTypeVMeeting AnalyticsActivityType = "Meeting"
 	// AnalyticsActivityTypeVFocus undocumented
-	AnalyticsActivityTypeVFocus AnalyticsActivityType = 2
+	AnalyticsActivityTypeVFocus AnalyticsActivityType = "Focus"
 	// AnalyticsActivityTypeVChat undocumented
-	AnalyticsActivityTypeVChat AnalyticsActivityType = 3
+	AnalyticsActivityTypeVChat AnalyticsActivityType = "Chat"
 	// AnalyticsActivityTypeVCall undocumented
-	AnalyticsActivityTypeVCall AnalyticsActivityType = 4
+	AnalyticsActivityTypeVCall AnalyticsActivityType = "Call"
 )
 
-// AnalyticsActivityTypePEmail returns a pointer to AnalyticsActivityTypeVEmail
-func AnalyticsActivityTypePEmail() *AnalyticsActivityType {
-	v := AnalyticsActivityTypeVEmail
-	return &v
-}
+var (
+	// AnalyticsActivityTypePEmail is a pointer to AnalyticsActivityTypeVEmail
+	AnalyticsActivityTypePEmail = &_AnalyticsActivityTypePEmail
+	// AnalyticsActivityTypePMeeting is a pointer to AnalyticsActivityTypeVMeeting
+	AnalyticsActivityTypePMeeting = &_AnalyticsActivityTypePMeeting
+	// AnalyticsActivityTypePFocus is a pointer to AnalyticsActivityTypeVFocus
+	AnalyticsActivityTypePFocus = &_AnalyticsActivityTypePFocus
+	// AnalyticsActivityTypePChat is a pointer to AnalyticsActivityTypeVChat
+	AnalyticsActivityTypePChat = &_AnalyticsActivityTypePChat
+	// AnalyticsActivityTypePCall is a pointer to AnalyticsActivityTypeVCall
+	AnalyticsActivityTypePCall = &_AnalyticsActivityTypePCall
+)
 
-// AnalyticsActivityTypePMeeting returns a pointer to AnalyticsActivityTypeVMeeting
-func AnalyticsActivityTypePMeeting() *AnalyticsActivityType {
-	v := AnalyticsActivityTypeVMeeting
-	return &v
-}
-
-// AnalyticsActivityTypePFocus returns a pointer to AnalyticsActivityTypeVFocus
-func AnalyticsActivityTypePFocus() *AnalyticsActivityType {
-	v := AnalyticsActivityTypeVFocus
-	return &v
-}
-
-// AnalyticsActivityTypePChat returns a pointer to AnalyticsActivityTypeVChat
-func AnalyticsActivityTypePChat() *AnalyticsActivityType {
-	v := AnalyticsActivityTypeVChat
-	return &v
-}
-
-// AnalyticsActivityTypePCall returns a pointer to AnalyticsActivityTypeVCall
-func AnalyticsActivityTypePCall() *AnalyticsActivityType {
-	v := AnalyticsActivityTypeVCall
-	return &v
-}
+var (
+	_AnalyticsActivityTypePEmail   = AnalyticsActivityTypeVEmail
+	_AnalyticsActivityTypePMeeting = AnalyticsActivityTypeVMeeting
+	_AnalyticsActivityTypePFocus   = AnalyticsActivityTypeVFocus
+	_AnalyticsActivityTypePChat    = AnalyticsActivityTypeVChat
+	_AnalyticsActivityTypePCall    = AnalyticsActivityTypeVCall
+)

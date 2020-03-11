@@ -3,31 +3,28 @@
 package msgraph
 
 // ConditionalAccessPolicyState undocumented
-type ConditionalAccessPolicyState int
+type ConditionalAccessPolicyState string
 
 const (
 	// ConditionalAccessPolicyStateVEnabled undocumented
-	ConditionalAccessPolicyStateVEnabled ConditionalAccessPolicyState = 0
+	ConditionalAccessPolicyStateVEnabled ConditionalAccessPolicyState = "enabled"
 	// ConditionalAccessPolicyStateVDisabled undocumented
-	ConditionalAccessPolicyStateVDisabled ConditionalAccessPolicyState = 1
+	ConditionalAccessPolicyStateVDisabled ConditionalAccessPolicyState = "disabled"
 	// ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced undocumented
-	ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced ConditionalAccessPolicyState = 2
+	ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced ConditionalAccessPolicyState = "enabledForReportingButNotEnforced"
 )
 
-// ConditionalAccessPolicyStatePEnabled returns a pointer to ConditionalAccessPolicyStateVEnabled
-func ConditionalAccessPolicyStatePEnabled() *ConditionalAccessPolicyState {
-	v := ConditionalAccessPolicyStateVEnabled
-	return &v
-}
+var (
+	// ConditionalAccessPolicyStatePEnabled is a pointer to ConditionalAccessPolicyStateVEnabled
+	ConditionalAccessPolicyStatePEnabled = &_ConditionalAccessPolicyStatePEnabled
+	// ConditionalAccessPolicyStatePDisabled is a pointer to ConditionalAccessPolicyStateVDisabled
+	ConditionalAccessPolicyStatePDisabled = &_ConditionalAccessPolicyStatePDisabled
+	// ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced is a pointer to ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced
+	ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced = &_ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced
+)
 
-// ConditionalAccessPolicyStatePDisabled returns a pointer to ConditionalAccessPolicyStateVDisabled
-func ConditionalAccessPolicyStatePDisabled() *ConditionalAccessPolicyState {
-	v := ConditionalAccessPolicyStateVDisabled
-	return &v
-}
-
-// ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced returns a pointer to ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced
-func ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced() *ConditionalAccessPolicyState {
-	v := ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced
-	return &v
-}
+var (
+	_ConditionalAccessPolicyStatePEnabled                           = ConditionalAccessPolicyStateVEnabled
+	_ConditionalAccessPolicyStatePDisabled                          = ConditionalAccessPolicyStateVDisabled
+	_ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced = ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced
+)

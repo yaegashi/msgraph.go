@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsUpdateStatus undocumented
-type WindowsUpdateStatus int
+type WindowsUpdateStatus string
 
 const (
 	// WindowsUpdateStatusVUpToDate undocumented
-	WindowsUpdateStatusVUpToDate WindowsUpdateStatus = 0
+	WindowsUpdateStatusVUpToDate WindowsUpdateStatus = "upToDate"
 	// WindowsUpdateStatusVPendingInstallation undocumented
-	WindowsUpdateStatusVPendingInstallation WindowsUpdateStatus = 1
+	WindowsUpdateStatusVPendingInstallation WindowsUpdateStatus = "pendingInstallation"
 	// WindowsUpdateStatusVPendingReboot undocumented
-	WindowsUpdateStatusVPendingReboot WindowsUpdateStatus = 2
+	WindowsUpdateStatusVPendingReboot WindowsUpdateStatus = "pendingReboot"
 	// WindowsUpdateStatusVFailed undocumented
-	WindowsUpdateStatusVFailed WindowsUpdateStatus = 3
+	WindowsUpdateStatusVFailed WindowsUpdateStatus = "failed"
 )
 
-// WindowsUpdateStatusPUpToDate returns a pointer to WindowsUpdateStatusVUpToDate
-func WindowsUpdateStatusPUpToDate() *WindowsUpdateStatus {
-	v := WindowsUpdateStatusVUpToDate
-	return &v
-}
+var (
+	// WindowsUpdateStatusPUpToDate is a pointer to WindowsUpdateStatusVUpToDate
+	WindowsUpdateStatusPUpToDate = &_WindowsUpdateStatusPUpToDate
+	// WindowsUpdateStatusPPendingInstallation is a pointer to WindowsUpdateStatusVPendingInstallation
+	WindowsUpdateStatusPPendingInstallation = &_WindowsUpdateStatusPPendingInstallation
+	// WindowsUpdateStatusPPendingReboot is a pointer to WindowsUpdateStatusVPendingReboot
+	WindowsUpdateStatusPPendingReboot = &_WindowsUpdateStatusPPendingReboot
+	// WindowsUpdateStatusPFailed is a pointer to WindowsUpdateStatusVFailed
+	WindowsUpdateStatusPFailed = &_WindowsUpdateStatusPFailed
+)
 
-// WindowsUpdateStatusPPendingInstallation returns a pointer to WindowsUpdateStatusVPendingInstallation
-func WindowsUpdateStatusPPendingInstallation() *WindowsUpdateStatus {
-	v := WindowsUpdateStatusVPendingInstallation
-	return &v
-}
-
-// WindowsUpdateStatusPPendingReboot returns a pointer to WindowsUpdateStatusVPendingReboot
-func WindowsUpdateStatusPPendingReboot() *WindowsUpdateStatus {
-	v := WindowsUpdateStatusVPendingReboot
-	return &v
-}
-
-// WindowsUpdateStatusPFailed returns a pointer to WindowsUpdateStatusVFailed
-func WindowsUpdateStatusPFailed() *WindowsUpdateStatus {
-	v := WindowsUpdateStatusVFailed
-	return &v
-}
+var (
+	_WindowsUpdateStatusPUpToDate            = WindowsUpdateStatusVUpToDate
+	_WindowsUpdateStatusPPendingInstallation = WindowsUpdateStatusVPendingInstallation
+	_WindowsUpdateStatusPPendingReboot       = WindowsUpdateStatusVPendingReboot
+	_WindowsUpdateStatusPFailed              = WindowsUpdateStatusVFailed
+)

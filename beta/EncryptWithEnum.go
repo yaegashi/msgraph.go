@@ -3,23 +3,23 @@
 package msgraph
 
 // EncryptWith undocumented
-type EncryptWith int
+type EncryptWith string
 
 const (
 	// EncryptWithVTemplate undocumented
-	EncryptWithVTemplate EncryptWith = 0
+	EncryptWithVTemplate EncryptWith = "template"
 	// EncryptWithVUserDefinedRights undocumented
-	EncryptWithVUserDefinedRights EncryptWith = 1
+	EncryptWithVUserDefinedRights EncryptWith = "userDefinedRights"
 )
 
-// EncryptWithPTemplate returns a pointer to EncryptWithVTemplate
-func EncryptWithPTemplate() *EncryptWith {
-	v := EncryptWithVTemplate
-	return &v
-}
+var (
+	// EncryptWithPTemplate is a pointer to EncryptWithVTemplate
+	EncryptWithPTemplate = &_EncryptWithPTemplate
+	// EncryptWithPUserDefinedRights is a pointer to EncryptWithVUserDefinedRights
+	EncryptWithPUserDefinedRights = &_EncryptWithPUserDefinedRights
+)
 
-// EncryptWithPUserDefinedRights returns a pointer to EncryptWithVUserDefinedRights
-func EncryptWithPUserDefinedRights() *EncryptWith {
-	v := EncryptWithVUserDefinedRights
-	return &v
-}
+var (
+	_EncryptWithPTemplate          = EncryptWithVTemplate
+	_EncryptWithPUserDefinedRights = EncryptWithVUserDefinedRights
+)

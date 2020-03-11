@@ -3,23 +3,23 @@
 package msgraph
 
 // LostModeState undocumented
-type LostModeState int
+type LostModeState string
 
 const (
 	// LostModeStateVDisabled undocumented
-	LostModeStateVDisabled LostModeState = 0
+	LostModeStateVDisabled LostModeState = "disabled"
 	// LostModeStateVEnabled undocumented
-	LostModeStateVEnabled LostModeState = 1
+	LostModeStateVEnabled LostModeState = "enabled"
 )
 
-// LostModeStatePDisabled returns a pointer to LostModeStateVDisabled
-func LostModeStatePDisabled() *LostModeState {
-	v := LostModeStateVDisabled
-	return &v
-}
+var (
+	// LostModeStatePDisabled is a pointer to LostModeStateVDisabled
+	LostModeStatePDisabled = &_LostModeStatePDisabled
+	// LostModeStatePEnabled is a pointer to LostModeStateVEnabled
+	LostModeStatePEnabled = &_LostModeStatePEnabled
+)
 
-// LostModeStatePEnabled returns a pointer to LostModeStateVEnabled
-func LostModeStatePEnabled() *LostModeState {
-	v := LostModeStateVEnabled
-	return &v
-}
+var (
+	_LostModeStatePDisabled = LostModeStateVDisabled
+	_LostModeStatePEnabled  = LostModeStateVEnabled
+)

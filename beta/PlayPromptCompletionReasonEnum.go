@@ -3,39 +3,33 @@
 package msgraph
 
 // PlayPromptCompletionReason undocumented
-type PlayPromptCompletionReason int
+type PlayPromptCompletionReason string
 
 const (
 	// PlayPromptCompletionReasonVUnknown undocumented
-	PlayPromptCompletionReasonVUnknown PlayPromptCompletionReason = 0
+	PlayPromptCompletionReasonVUnknown PlayPromptCompletionReason = "unknown"
 	// PlayPromptCompletionReasonVCompletedSuccessfully undocumented
-	PlayPromptCompletionReasonVCompletedSuccessfully PlayPromptCompletionReason = 1
+	PlayPromptCompletionReasonVCompletedSuccessfully PlayPromptCompletionReason = "completedSuccessfully"
 	// PlayPromptCompletionReasonVMediaOperationCanceled undocumented
-	PlayPromptCompletionReasonVMediaOperationCanceled PlayPromptCompletionReason = 2
+	PlayPromptCompletionReasonVMediaOperationCanceled PlayPromptCompletionReason = "mediaOperationCanceled"
 	// PlayPromptCompletionReasonVUnknownFutureValue undocumented
-	PlayPromptCompletionReasonVUnknownFutureValue PlayPromptCompletionReason = 3
+	PlayPromptCompletionReasonVUnknownFutureValue PlayPromptCompletionReason = "unknownFutureValue"
 )
 
-// PlayPromptCompletionReasonPUnknown returns a pointer to PlayPromptCompletionReasonVUnknown
-func PlayPromptCompletionReasonPUnknown() *PlayPromptCompletionReason {
-	v := PlayPromptCompletionReasonVUnknown
-	return &v
-}
+var (
+	// PlayPromptCompletionReasonPUnknown is a pointer to PlayPromptCompletionReasonVUnknown
+	PlayPromptCompletionReasonPUnknown = &_PlayPromptCompletionReasonPUnknown
+	// PlayPromptCompletionReasonPCompletedSuccessfully is a pointer to PlayPromptCompletionReasonVCompletedSuccessfully
+	PlayPromptCompletionReasonPCompletedSuccessfully = &_PlayPromptCompletionReasonPCompletedSuccessfully
+	// PlayPromptCompletionReasonPMediaOperationCanceled is a pointer to PlayPromptCompletionReasonVMediaOperationCanceled
+	PlayPromptCompletionReasonPMediaOperationCanceled = &_PlayPromptCompletionReasonPMediaOperationCanceled
+	// PlayPromptCompletionReasonPUnknownFutureValue is a pointer to PlayPromptCompletionReasonVUnknownFutureValue
+	PlayPromptCompletionReasonPUnknownFutureValue = &_PlayPromptCompletionReasonPUnknownFutureValue
+)
 
-// PlayPromptCompletionReasonPCompletedSuccessfully returns a pointer to PlayPromptCompletionReasonVCompletedSuccessfully
-func PlayPromptCompletionReasonPCompletedSuccessfully() *PlayPromptCompletionReason {
-	v := PlayPromptCompletionReasonVCompletedSuccessfully
-	return &v
-}
-
-// PlayPromptCompletionReasonPMediaOperationCanceled returns a pointer to PlayPromptCompletionReasonVMediaOperationCanceled
-func PlayPromptCompletionReasonPMediaOperationCanceled() *PlayPromptCompletionReason {
-	v := PlayPromptCompletionReasonVMediaOperationCanceled
-	return &v
-}
-
-// PlayPromptCompletionReasonPUnknownFutureValue returns a pointer to PlayPromptCompletionReasonVUnknownFutureValue
-func PlayPromptCompletionReasonPUnknownFutureValue() *PlayPromptCompletionReason {
-	v := PlayPromptCompletionReasonVUnknownFutureValue
-	return &v
-}
+var (
+	_PlayPromptCompletionReasonPUnknown                = PlayPromptCompletionReasonVUnknown
+	_PlayPromptCompletionReasonPCompletedSuccessfully  = PlayPromptCompletionReasonVCompletedSuccessfully
+	_PlayPromptCompletionReasonPMediaOperationCanceled = PlayPromptCompletionReasonVMediaOperationCanceled
+	_PlayPromptCompletionReasonPUnknownFutureValue     = PlayPromptCompletionReasonVUnknownFutureValue
+)

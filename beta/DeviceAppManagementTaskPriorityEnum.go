@@ -3,31 +3,28 @@
 package msgraph
 
 // DeviceAppManagementTaskPriority undocumented
-type DeviceAppManagementTaskPriority int
+type DeviceAppManagementTaskPriority string
 
 const (
 	// DeviceAppManagementTaskPriorityVNone undocumented
-	DeviceAppManagementTaskPriorityVNone DeviceAppManagementTaskPriority = 0
+	DeviceAppManagementTaskPriorityVNone DeviceAppManagementTaskPriority = "none"
 	// DeviceAppManagementTaskPriorityVHigh undocumented
-	DeviceAppManagementTaskPriorityVHigh DeviceAppManagementTaskPriority = 1
+	DeviceAppManagementTaskPriorityVHigh DeviceAppManagementTaskPriority = "high"
 	// DeviceAppManagementTaskPriorityVLow undocumented
-	DeviceAppManagementTaskPriorityVLow DeviceAppManagementTaskPriority = 2
+	DeviceAppManagementTaskPriorityVLow DeviceAppManagementTaskPriority = "low"
 )
 
-// DeviceAppManagementTaskPriorityPNone returns a pointer to DeviceAppManagementTaskPriorityVNone
-func DeviceAppManagementTaskPriorityPNone() *DeviceAppManagementTaskPriority {
-	v := DeviceAppManagementTaskPriorityVNone
-	return &v
-}
+var (
+	// DeviceAppManagementTaskPriorityPNone is a pointer to DeviceAppManagementTaskPriorityVNone
+	DeviceAppManagementTaskPriorityPNone = &_DeviceAppManagementTaskPriorityPNone
+	// DeviceAppManagementTaskPriorityPHigh is a pointer to DeviceAppManagementTaskPriorityVHigh
+	DeviceAppManagementTaskPriorityPHigh = &_DeviceAppManagementTaskPriorityPHigh
+	// DeviceAppManagementTaskPriorityPLow is a pointer to DeviceAppManagementTaskPriorityVLow
+	DeviceAppManagementTaskPriorityPLow = &_DeviceAppManagementTaskPriorityPLow
+)
 
-// DeviceAppManagementTaskPriorityPHigh returns a pointer to DeviceAppManagementTaskPriorityVHigh
-func DeviceAppManagementTaskPriorityPHigh() *DeviceAppManagementTaskPriority {
-	v := DeviceAppManagementTaskPriorityVHigh
-	return &v
-}
-
-// DeviceAppManagementTaskPriorityPLow returns a pointer to DeviceAppManagementTaskPriorityVLow
-func DeviceAppManagementTaskPriorityPLow() *DeviceAppManagementTaskPriority {
-	v := DeviceAppManagementTaskPriorityVLow
-	return &v
-}
+var (
+	_DeviceAppManagementTaskPriorityPNone = DeviceAppManagementTaskPriorityVNone
+	_DeviceAppManagementTaskPriorityPHigh = DeviceAppManagementTaskPriorityVHigh
+	_DeviceAppManagementTaskPriorityPLow  = DeviceAppManagementTaskPriorityVLow
+)

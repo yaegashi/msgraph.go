@@ -3,23 +3,23 @@
 package msgraph
 
 // HashAlgorithms undocumented
-type HashAlgorithms int
+type HashAlgorithms string
 
 const (
 	// HashAlgorithmsVSha1 undocumented
-	HashAlgorithmsVSha1 HashAlgorithms = 1
+	HashAlgorithmsVSha1 HashAlgorithms = "sha1"
 	// HashAlgorithmsVSha2 undocumented
-	HashAlgorithmsVSha2 HashAlgorithms = 2
+	HashAlgorithmsVSha2 HashAlgorithms = "sha2"
 )
 
-// HashAlgorithmsPSha1 returns a pointer to HashAlgorithmsVSha1
-func HashAlgorithmsPSha1() *HashAlgorithms {
-	v := HashAlgorithmsVSha1
-	return &v
-}
+var (
+	// HashAlgorithmsPSha1 is a pointer to HashAlgorithmsVSha1
+	HashAlgorithmsPSha1 = &_HashAlgorithmsPSha1
+	// HashAlgorithmsPSha2 is a pointer to HashAlgorithmsVSha2
+	HashAlgorithmsPSha2 = &_HashAlgorithmsPSha2
+)
 
-// HashAlgorithmsPSha2 returns a pointer to HashAlgorithmsVSha2
-func HashAlgorithmsPSha2() *HashAlgorithms {
-	v := HashAlgorithmsVSha2
-	return &v
-}
+var (
+	_HashAlgorithmsPSha1 = HashAlgorithmsVSha1
+	_HashAlgorithmsPSha2 = HashAlgorithmsVSha2
+)

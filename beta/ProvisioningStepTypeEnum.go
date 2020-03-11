@@ -3,63 +3,48 @@
 package msgraph
 
 // ProvisioningStepType undocumented
-type ProvisioningStepType int
+type ProvisioningStepType string
 
 const (
 	// ProvisioningStepTypeVImport undocumented
-	ProvisioningStepTypeVImport ProvisioningStepType = 0
+	ProvisioningStepTypeVImport ProvisioningStepType = "import"
 	// ProvisioningStepTypeVScoping undocumented
-	ProvisioningStepTypeVScoping ProvisioningStepType = 1
+	ProvisioningStepTypeVScoping ProvisioningStepType = "scoping"
 	// ProvisioningStepTypeVMatching undocumented
-	ProvisioningStepTypeVMatching ProvisioningStepType = 2
+	ProvisioningStepTypeVMatching ProvisioningStepType = "matching"
 	// ProvisioningStepTypeVProcessing undocumented
-	ProvisioningStepTypeVProcessing ProvisioningStepType = 3
+	ProvisioningStepTypeVProcessing ProvisioningStepType = "processing"
 	// ProvisioningStepTypeVReferenceResolution undocumented
-	ProvisioningStepTypeVReferenceResolution ProvisioningStepType = 4
+	ProvisioningStepTypeVReferenceResolution ProvisioningStepType = "referenceResolution"
 	// ProvisioningStepTypeVExport undocumented
-	ProvisioningStepTypeVExport ProvisioningStepType = 5
+	ProvisioningStepTypeVExport ProvisioningStepType = "export"
 	// ProvisioningStepTypeVUnknownFutureValue undocumented
-	ProvisioningStepTypeVUnknownFutureValue ProvisioningStepType = 6
+	ProvisioningStepTypeVUnknownFutureValue ProvisioningStepType = "unknownFutureValue"
 )
 
-// ProvisioningStepTypePImport returns a pointer to ProvisioningStepTypeVImport
-func ProvisioningStepTypePImport() *ProvisioningStepType {
-	v := ProvisioningStepTypeVImport
-	return &v
-}
+var (
+	// ProvisioningStepTypePImport is a pointer to ProvisioningStepTypeVImport
+	ProvisioningStepTypePImport = &_ProvisioningStepTypePImport
+	// ProvisioningStepTypePScoping is a pointer to ProvisioningStepTypeVScoping
+	ProvisioningStepTypePScoping = &_ProvisioningStepTypePScoping
+	// ProvisioningStepTypePMatching is a pointer to ProvisioningStepTypeVMatching
+	ProvisioningStepTypePMatching = &_ProvisioningStepTypePMatching
+	// ProvisioningStepTypePProcessing is a pointer to ProvisioningStepTypeVProcessing
+	ProvisioningStepTypePProcessing = &_ProvisioningStepTypePProcessing
+	// ProvisioningStepTypePReferenceResolution is a pointer to ProvisioningStepTypeVReferenceResolution
+	ProvisioningStepTypePReferenceResolution = &_ProvisioningStepTypePReferenceResolution
+	// ProvisioningStepTypePExport is a pointer to ProvisioningStepTypeVExport
+	ProvisioningStepTypePExport = &_ProvisioningStepTypePExport
+	// ProvisioningStepTypePUnknownFutureValue is a pointer to ProvisioningStepTypeVUnknownFutureValue
+	ProvisioningStepTypePUnknownFutureValue = &_ProvisioningStepTypePUnknownFutureValue
+)
 
-// ProvisioningStepTypePScoping returns a pointer to ProvisioningStepTypeVScoping
-func ProvisioningStepTypePScoping() *ProvisioningStepType {
-	v := ProvisioningStepTypeVScoping
-	return &v
-}
-
-// ProvisioningStepTypePMatching returns a pointer to ProvisioningStepTypeVMatching
-func ProvisioningStepTypePMatching() *ProvisioningStepType {
-	v := ProvisioningStepTypeVMatching
-	return &v
-}
-
-// ProvisioningStepTypePProcessing returns a pointer to ProvisioningStepTypeVProcessing
-func ProvisioningStepTypePProcessing() *ProvisioningStepType {
-	v := ProvisioningStepTypeVProcessing
-	return &v
-}
-
-// ProvisioningStepTypePReferenceResolution returns a pointer to ProvisioningStepTypeVReferenceResolution
-func ProvisioningStepTypePReferenceResolution() *ProvisioningStepType {
-	v := ProvisioningStepTypeVReferenceResolution
-	return &v
-}
-
-// ProvisioningStepTypePExport returns a pointer to ProvisioningStepTypeVExport
-func ProvisioningStepTypePExport() *ProvisioningStepType {
-	v := ProvisioningStepTypeVExport
-	return &v
-}
-
-// ProvisioningStepTypePUnknownFutureValue returns a pointer to ProvisioningStepTypeVUnknownFutureValue
-func ProvisioningStepTypePUnknownFutureValue() *ProvisioningStepType {
-	v := ProvisioningStepTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_ProvisioningStepTypePImport              = ProvisioningStepTypeVImport
+	_ProvisioningStepTypePScoping             = ProvisioningStepTypeVScoping
+	_ProvisioningStepTypePMatching            = ProvisioningStepTypeVMatching
+	_ProvisioningStepTypePProcessing          = ProvisioningStepTypeVProcessing
+	_ProvisioningStepTypePReferenceResolution = ProvisioningStepTypeVReferenceResolution
+	_ProvisioningStepTypePExport              = ProvisioningStepTypeVExport
+	_ProvisioningStepTypePUnknownFutureValue  = ProvisioningStepTypeVUnknownFutureValue
+)

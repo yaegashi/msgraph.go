@@ -3,47 +3,38 @@
 package msgraph
 
 // TaskStatus undocumented
-type TaskStatus int
+type TaskStatus string
 
 const (
 	// TaskStatusVNotStarted undocumented
-	TaskStatusVNotStarted TaskStatus = 0
+	TaskStatusVNotStarted TaskStatus = "notStarted"
 	// TaskStatusVInProgress undocumented
-	TaskStatusVInProgress TaskStatus = 1
+	TaskStatusVInProgress TaskStatus = "inProgress"
 	// TaskStatusVCompleted undocumented
-	TaskStatusVCompleted TaskStatus = 2
+	TaskStatusVCompleted TaskStatus = "completed"
 	// TaskStatusVWaitingOnOthers undocumented
-	TaskStatusVWaitingOnOthers TaskStatus = 3
+	TaskStatusVWaitingOnOthers TaskStatus = "waitingOnOthers"
 	// TaskStatusVDeferred undocumented
-	TaskStatusVDeferred TaskStatus = 4
+	TaskStatusVDeferred TaskStatus = "deferred"
 )
 
-// TaskStatusPNotStarted returns a pointer to TaskStatusVNotStarted
-func TaskStatusPNotStarted() *TaskStatus {
-	v := TaskStatusVNotStarted
-	return &v
-}
+var (
+	// TaskStatusPNotStarted is a pointer to TaskStatusVNotStarted
+	TaskStatusPNotStarted = &_TaskStatusPNotStarted
+	// TaskStatusPInProgress is a pointer to TaskStatusVInProgress
+	TaskStatusPInProgress = &_TaskStatusPInProgress
+	// TaskStatusPCompleted is a pointer to TaskStatusVCompleted
+	TaskStatusPCompleted = &_TaskStatusPCompleted
+	// TaskStatusPWaitingOnOthers is a pointer to TaskStatusVWaitingOnOthers
+	TaskStatusPWaitingOnOthers = &_TaskStatusPWaitingOnOthers
+	// TaskStatusPDeferred is a pointer to TaskStatusVDeferred
+	TaskStatusPDeferred = &_TaskStatusPDeferred
+)
 
-// TaskStatusPInProgress returns a pointer to TaskStatusVInProgress
-func TaskStatusPInProgress() *TaskStatus {
-	v := TaskStatusVInProgress
-	return &v
-}
-
-// TaskStatusPCompleted returns a pointer to TaskStatusVCompleted
-func TaskStatusPCompleted() *TaskStatus {
-	v := TaskStatusVCompleted
-	return &v
-}
-
-// TaskStatusPWaitingOnOthers returns a pointer to TaskStatusVWaitingOnOthers
-func TaskStatusPWaitingOnOthers() *TaskStatus {
-	v := TaskStatusVWaitingOnOthers
-	return &v
-}
-
-// TaskStatusPDeferred returns a pointer to TaskStatusVDeferred
-func TaskStatusPDeferred() *TaskStatus {
-	v := TaskStatusVDeferred
-	return &v
-}
+var (
+	_TaskStatusPNotStarted      = TaskStatusVNotStarted
+	_TaskStatusPInProgress      = TaskStatusVInProgress
+	_TaskStatusPCompleted       = TaskStatusVCompleted
+	_TaskStatusPWaitingOnOthers = TaskStatusVWaitingOnOthers
+	_TaskStatusPDeferred        = TaskStatusVDeferred
+)

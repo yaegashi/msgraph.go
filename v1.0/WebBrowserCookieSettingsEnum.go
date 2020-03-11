@@ -3,47 +3,38 @@
 package msgraph
 
 // WebBrowserCookieSettings undocumented
-type WebBrowserCookieSettings int
+type WebBrowserCookieSettings string
 
 const (
 	// WebBrowserCookieSettingsVBrowserDefault undocumented
-	WebBrowserCookieSettingsVBrowserDefault WebBrowserCookieSettings = 0
+	WebBrowserCookieSettingsVBrowserDefault WebBrowserCookieSettings = "browserDefault"
 	// WebBrowserCookieSettingsVBlockAlways undocumented
-	WebBrowserCookieSettingsVBlockAlways WebBrowserCookieSettings = 1
+	WebBrowserCookieSettingsVBlockAlways WebBrowserCookieSettings = "blockAlways"
 	// WebBrowserCookieSettingsVAllowCurrentWebSite undocumented
-	WebBrowserCookieSettingsVAllowCurrentWebSite WebBrowserCookieSettings = 2
+	WebBrowserCookieSettingsVAllowCurrentWebSite WebBrowserCookieSettings = "allowCurrentWebSite"
 	// WebBrowserCookieSettingsVAllowFromWebsitesVisited undocumented
-	WebBrowserCookieSettingsVAllowFromWebsitesVisited WebBrowserCookieSettings = 3
+	WebBrowserCookieSettingsVAllowFromWebsitesVisited WebBrowserCookieSettings = "allowFromWebsitesVisited"
 	// WebBrowserCookieSettingsVAllowAlways undocumented
-	WebBrowserCookieSettingsVAllowAlways WebBrowserCookieSettings = 4
+	WebBrowserCookieSettingsVAllowAlways WebBrowserCookieSettings = "allowAlways"
 )
 
-// WebBrowserCookieSettingsPBrowserDefault returns a pointer to WebBrowserCookieSettingsVBrowserDefault
-func WebBrowserCookieSettingsPBrowserDefault() *WebBrowserCookieSettings {
-	v := WebBrowserCookieSettingsVBrowserDefault
-	return &v
-}
+var (
+	// WebBrowserCookieSettingsPBrowserDefault is a pointer to WebBrowserCookieSettingsVBrowserDefault
+	WebBrowserCookieSettingsPBrowserDefault = &_WebBrowserCookieSettingsPBrowserDefault
+	// WebBrowserCookieSettingsPBlockAlways is a pointer to WebBrowserCookieSettingsVBlockAlways
+	WebBrowserCookieSettingsPBlockAlways = &_WebBrowserCookieSettingsPBlockAlways
+	// WebBrowserCookieSettingsPAllowCurrentWebSite is a pointer to WebBrowserCookieSettingsVAllowCurrentWebSite
+	WebBrowserCookieSettingsPAllowCurrentWebSite = &_WebBrowserCookieSettingsPAllowCurrentWebSite
+	// WebBrowserCookieSettingsPAllowFromWebsitesVisited is a pointer to WebBrowserCookieSettingsVAllowFromWebsitesVisited
+	WebBrowserCookieSettingsPAllowFromWebsitesVisited = &_WebBrowserCookieSettingsPAllowFromWebsitesVisited
+	// WebBrowserCookieSettingsPAllowAlways is a pointer to WebBrowserCookieSettingsVAllowAlways
+	WebBrowserCookieSettingsPAllowAlways = &_WebBrowserCookieSettingsPAllowAlways
+)
 
-// WebBrowserCookieSettingsPBlockAlways returns a pointer to WebBrowserCookieSettingsVBlockAlways
-func WebBrowserCookieSettingsPBlockAlways() *WebBrowserCookieSettings {
-	v := WebBrowserCookieSettingsVBlockAlways
-	return &v
-}
-
-// WebBrowserCookieSettingsPAllowCurrentWebSite returns a pointer to WebBrowserCookieSettingsVAllowCurrentWebSite
-func WebBrowserCookieSettingsPAllowCurrentWebSite() *WebBrowserCookieSettings {
-	v := WebBrowserCookieSettingsVAllowCurrentWebSite
-	return &v
-}
-
-// WebBrowserCookieSettingsPAllowFromWebsitesVisited returns a pointer to WebBrowserCookieSettingsVAllowFromWebsitesVisited
-func WebBrowserCookieSettingsPAllowFromWebsitesVisited() *WebBrowserCookieSettings {
-	v := WebBrowserCookieSettingsVAllowFromWebsitesVisited
-	return &v
-}
-
-// WebBrowserCookieSettingsPAllowAlways returns a pointer to WebBrowserCookieSettingsVAllowAlways
-func WebBrowserCookieSettingsPAllowAlways() *WebBrowserCookieSettings {
-	v := WebBrowserCookieSettingsVAllowAlways
-	return &v
-}
+var (
+	_WebBrowserCookieSettingsPBrowserDefault           = WebBrowserCookieSettingsVBrowserDefault
+	_WebBrowserCookieSettingsPBlockAlways              = WebBrowserCookieSettingsVBlockAlways
+	_WebBrowserCookieSettingsPAllowCurrentWebSite      = WebBrowserCookieSettingsVAllowCurrentWebSite
+	_WebBrowserCookieSettingsPAllowFromWebsitesVisited = WebBrowserCookieSettingsVAllowFromWebsitesVisited
+	_WebBrowserCookieSettingsPAllowAlways              = WebBrowserCookieSettingsVAllowAlways
+)

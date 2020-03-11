@@ -3,23 +3,23 @@
 package msgraph
 
 // WindowsAutopilotDeviceType undocumented
-type WindowsAutopilotDeviceType int
+type WindowsAutopilotDeviceType string
 
 const (
 	// WindowsAutopilotDeviceTypeVWindowsPc undocumented
-	WindowsAutopilotDeviceTypeVWindowsPc WindowsAutopilotDeviceType = 0
+	WindowsAutopilotDeviceTypeVWindowsPc WindowsAutopilotDeviceType = "windowsPc"
 	// WindowsAutopilotDeviceTypeVSurfaceHub2 undocumented
-	WindowsAutopilotDeviceTypeVSurfaceHub2 WindowsAutopilotDeviceType = 1
+	WindowsAutopilotDeviceTypeVSurfaceHub2 WindowsAutopilotDeviceType = "surfaceHub2"
 )
 
-// WindowsAutopilotDeviceTypePWindowsPc returns a pointer to WindowsAutopilotDeviceTypeVWindowsPc
-func WindowsAutopilotDeviceTypePWindowsPc() *WindowsAutopilotDeviceType {
-	v := WindowsAutopilotDeviceTypeVWindowsPc
-	return &v
-}
+var (
+	// WindowsAutopilotDeviceTypePWindowsPc is a pointer to WindowsAutopilotDeviceTypeVWindowsPc
+	WindowsAutopilotDeviceTypePWindowsPc = &_WindowsAutopilotDeviceTypePWindowsPc
+	// WindowsAutopilotDeviceTypePSurfaceHub2 is a pointer to WindowsAutopilotDeviceTypeVSurfaceHub2
+	WindowsAutopilotDeviceTypePSurfaceHub2 = &_WindowsAutopilotDeviceTypePSurfaceHub2
+)
 
-// WindowsAutopilotDeviceTypePSurfaceHub2 returns a pointer to WindowsAutopilotDeviceTypeVSurfaceHub2
-func WindowsAutopilotDeviceTypePSurfaceHub2() *WindowsAutopilotDeviceType {
-	v := WindowsAutopilotDeviceTypeVSurfaceHub2
-	return &v
-}
+var (
+	_WindowsAutopilotDeviceTypePWindowsPc   = WindowsAutopilotDeviceTypeVWindowsPc
+	_WindowsAutopilotDeviceTypePSurfaceHub2 = WindowsAutopilotDeviceTypeVSurfaceHub2
+)

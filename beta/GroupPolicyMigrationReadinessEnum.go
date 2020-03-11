@@ -3,47 +3,38 @@
 package msgraph
 
 // GroupPolicyMigrationReadiness undocumented
-type GroupPolicyMigrationReadiness int
+type GroupPolicyMigrationReadiness string
 
 const (
 	// GroupPolicyMigrationReadinessVNone undocumented
-	GroupPolicyMigrationReadinessVNone GroupPolicyMigrationReadiness = 1
+	GroupPolicyMigrationReadinessVNone GroupPolicyMigrationReadiness = "none"
 	// GroupPolicyMigrationReadinessVPartial undocumented
-	GroupPolicyMigrationReadinessVPartial GroupPolicyMigrationReadiness = 2
+	GroupPolicyMigrationReadinessVPartial GroupPolicyMigrationReadiness = "partial"
 	// GroupPolicyMigrationReadinessVComplete undocumented
-	GroupPolicyMigrationReadinessVComplete GroupPolicyMigrationReadiness = 3
+	GroupPolicyMigrationReadinessVComplete GroupPolicyMigrationReadiness = "complete"
 	// GroupPolicyMigrationReadinessVError undocumented
-	GroupPolicyMigrationReadinessVError GroupPolicyMigrationReadiness = 4
+	GroupPolicyMigrationReadinessVError GroupPolicyMigrationReadiness = "error"
 	// GroupPolicyMigrationReadinessVNotApplicable undocumented
-	GroupPolicyMigrationReadinessVNotApplicable GroupPolicyMigrationReadiness = 5
+	GroupPolicyMigrationReadinessVNotApplicable GroupPolicyMigrationReadiness = "notApplicable"
 )
 
-// GroupPolicyMigrationReadinessPNone returns a pointer to GroupPolicyMigrationReadinessVNone
-func GroupPolicyMigrationReadinessPNone() *GroupPolicyMigrationReadiness {
-	v := GroupPolicyMigrationReadinessVNone
-	return &v
-}
+var (
+	// GroupPolicyMigrationReadinessPNone is a pointer to GroupPolicyMigrationReadinessVNone
+	GroupPolicyMigrationReadinessPNone = &_GroupPolicyMigrationReadinessPNone
+	// GroupPolicyMigrationReadinessPPartial is a pointer to GroupPolicyMigrationReadinessVPartial
+	GroupPolicyMigrationReadinessPPartial = &_GroupPolicyMigrationReadinessPPartial
+	// GroupPolicyMigrationReadinessPComplete is a pointer to GroupPolicyMigrationReadinessVComplete
+	GroupPolicyMigrationReadinessPComplete = &_GroupPolicyMigrationReadinessPComplete
+	// GroupPolicyMigrationReadinessPError is a pointer to GroupPolicyMigrationReadinessVError
+	GroupPolicyMigrationReadinessPError = &_GroupPolicyMigrationReadinessPError
+	// GroupPolicyMigrationReadinessPNotApplicable is a pointer to GroupPolicyMigrationReadinessVNotApplicable
+	GroupPolicyMigrationReadinessPNotApplicable = &_GroupPolicyMigrationReadinessPNotApplicable
+)
 
-// GroupPolicyMigrationReadinessPPartial returns a pointer to GroupPolicyMigrationReadinessVPartial
-func GroupPolicyMigrationReadinessPPartial() *GroupPolicyMigrationReadiness {
-	v := GroupPolicyMigrationReadinessVPartial
-	return &v
-}
-
-// GroupPolicyMigrationReadinessPComplete returns a pointer to GroupPolicyMigrationReadinessVComplete
-func GroupPolicyMigrationReadinessPComplete() *GroupPolicyMigrationReadiness {
-	v := GroupPolicyMigrationReadinessVComplete
-	return &v
-}
-
-// GroupPolicyMigrationReadinessPError returns a pointer to GroupPolicyMigrationReadinessVError
-func GroupPolicyMigrationReadinessPError() *GroupPolicyMigrationReadiness {
-	v := GroupPolicyMigrationReadinessVError
-	return &v
-}
-
-// GroupPolicyMigrationReadinessPNotApplicable returns a pointer to GroupPolicyMigrationReadinessVNotApplicable
-func GroupPolicyMigrationReadinessPNotApplicable() *GroupPolicyMigrationReadiness {
-	v := GroupPolicyMigrationReadinessVNotApplicable
-	return &v
-}
+var (
+	_GroupPolicyMigrationReadinessPNone          = GroupPolicyMigrationReadinessVNone
+	_GroupPolicyMigrationReadinessPPartial       = GroupPolicyMigrationReadinessVPartial
+	_GroupPolicyMigrationReadinessPComplete      = GroupPolicyMigrationReadinessVComplete
+	_GroupPolicyMigrationReadinessPError         = GroupPolicyMigrationReadinessVError
+	_GroupPolicyMigrationReadinessPNotApplicable = GroupPolicyMigrationReadinessVNotApplicable
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // ThreatCategory undocumented
-type ThreatCategory int
+type ThreatCategory string
 
 const (
 	// ThreatCategoryVSpam undocumented
-	ThreatCategoryVSpam ThreatCategory = 1
+	ThreatCategoryVSpam ThreatCategory = "spam"
 	// ThreatCategoryVPhishing undocumented
-	ThreatCategoryVPhishing ThreatCategory = 2
+	ThreatCategoryVPhishing ThreatCategory = "phishing"
 	// ThreatCategoryVMalware undocumented
-	ThreatCategoryVMalware ThreatCategory = 3
+	ThreatCategoryVMalware ThreatCategory = "malware"
 	// ThreatCategoryVUnknownFutureValue undocumented
-	ThreatCategoryVUnknownFutureValue ThreatCategory = 4
+	ThreatCategoryVUnknownFutureValue ThreatCategory = "unknownFutureValue"
 )
 
-// ThreatCategoryPSpam returns a pointer to ThreatCategoryVSpam
-func ThreatCategoryPSpam() *ThreatCategory {
-	v := ThreatCategoryVSpam
-	return &v
-}
+var (
+	// ThreatCategoryPSpam is a pointer to ThreatCategoryVSpam
+	ThreatCategoryPSpam = &_ThreatCategoryPSpam
+	// ThreatCategoryPPhishing is a pointer to ThreatCategoryVPhishing
+	ThreatCategoryPPhishing = &_ThreatCategoryPPhishing
+	// ThreatCategoryPMalware is a pointer to ThreatCategoryVMalware
+	ThreatCategoryPMalware = &_ThreatCategoryPMalware
+	// ThreatCategoryPUnknownFutureValue is a pointer to ThreatCategoryVUnknownFutureValue
+	ThreatCategoryPUnknownFutureValue = &_ThreatCategoryPUnknownFutureValue
+)
 
-// ThreatCategoryPPhishing returns a pointer to ThreatCategoryVPhishing
-func ThreatCategoryPPhishing() *ThreatCategory {
-	v := ThreatCategoryVPhishing
-	return &v
-}
-
-// ThreatCategoryPMalware returns a pointer to ThreatCategoryVMalware
-func ThreatCategoryPMalware() *ThreatCategory {
-	v := ThreatCategoryVMalware
-	return &v
-}
-
-// ThreatCategoryPUnknownFutureValue returns a pointer to ThreatCategoryVUnknownFutureValue
-func ThreatCategoryPUnknownFutureValue() *ThreatCategory {
-	v := ThreatCategoryVUnknownFutureValue
-	return &v
-}
+var (
+	_ThreatCategoryPSpam               = ThreatCategoryVSpam
+	_ThreatCategoryPPhishing           = ThreatCategoryVPhishing
+	_ThreatCategoryPMalware            = ThreatCategoryVMalware
+	_ThreatCategoryPUnknownFutureValue = ThreatCategoryVUnknownFutureValue
+)

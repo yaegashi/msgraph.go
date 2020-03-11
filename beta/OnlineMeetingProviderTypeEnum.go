@@ -3,39 +3,33 @@
 package msgraph
 
 // OnlineMeetingProviderType undocumented
-type OnlineMeetingProviderType int
+type OnlineMeetingProviderType string
 
 const (
 	// OnlineMeetingProviderTypeVUnknown undocumented
-	OnlineMeetingProviderTypeVUnknown OnlineMeetingProviderType = 0
+	OnlineMeetingProviderTypeVUnknown OnlineMeetingProviderType = "unknown"
 	// OnlineMeetingProviderTypeVSkypeForBusiness undocumented
-	OnlineMeetingProviderTypeVSkypeForBusiness OnlineMeetingProviderType = 1
+	OnlineMeetingProviderTypeVSkypeForBusiness OnlineMeetingProviderType = "skypeForBusiness"
 	// OnlineMeetingProviderTypeVSkypeForConsumer undocumented
-	OnlineMeetingProviderTypeVSkypeForConsumer OnlineMeetingProviderType = 2
+	OnlineMeetingProviderTypeVSkypeForConsumer OnlineMeetingProviderType = "skypeForConsumer"
 	// OnlineMeetingProviderTypeVTeamsForBusiness undocumented
-	OnlineMeetingProviderTypeVTeamsForBusiness OnlineMeetingProviderType = 3
+	OnlineMeetingProviderTypeVTeamsForBusiness OnlineMeetingProviderType = "teamsForBusiness"
 )
 
-// OnlineMeetingProviderTypePUnknown returns a pointer to OnlineMeetingProviderTypeVUnknown
-func OnlineMeetingProviderTypePUnknown() *OnlineMeetingProviderType {
-	v := OnlineMeetingProviderTypeVUnknown
-	return &v
-}
+var (
+	// OnlineMeetingProviderTypePUnknown is a pointer to OnlineMeetingProviderTypeVUnknown
+	OnlineMeetingProviderTypePUnknown = &_OnlineMeetingProviderTypePUnknown
+	// OnlineMeetingProviderTypePSkypeForBusiness is a pointer to OnlineMeetingProviderTypeVSkypeForBusiness
+	OnlineMeetingProviderTypePSkypeForBusiness = &_OnlineMeetingProviderTypePSkypeForBusiness
+	// OnlineMeetingProviderTypePSkypeForConsumer is a pointer to OnlineMeetingProviderTypeVSkypeForConsumer
+	OnlineMeetingProviderTypePSkypeForConsumer = &_OnlineMeetingProviderTypePSkypeForConsumer
+	// OnlineMeetingProviderTypePTeamsForBusiness is a pointer to OnlineMeetingProviderTypeVTeamsForBusiness
+	OnlineMeetingProviderTypePTeamsForBusiness = &_OnlineMeetingProviderTypePTeamsForBusiness
+)
 
-// OnlineMeetingProviderTypePSkypeForBusiness returns a pointer to OnlineMeetingProviderTypeVSkypeForBusiness
-func OnlineMeetingProviderTypePSkypeForBusiness() *OnlineMeetingProviderType {
-	v := OnlineMeetingProviderTypeVSkypeForBusiness
-	return &v
-}
-
-// OnlineMeetingProviderTypePSkypeForConsumer returns a pointer to OnlineMeetingProviderTypeVSkypeForConsumer
-func OnlineMeetingProviderTypePSkypeForConsumer() *OnlineMeetingProviderType {
-	v := OnlineMeetingProviderTypeVSkypeForConsumer
-	return &v
-}
-
-// OnlineMeetingProviderTypePTeamsForBusiness returns a pointer to OnlineMeetingProviderTypeVTeamsForBusiness
-func OnlineMeetingProviderTypePTeamsForBusiness() *OnlineMeetingProviderType {
-	v := OnlineMeetingProviderTypeVTeamsForBusiness
-	return &v
-}
+var (
+	_OnlineMeetingProviderTypePUnknown          = OnlineMeetingProviderTypeVUnknown
+	_OnlineMeetingProviderTypePSkypeForBusiness = OnlineMeetingProviderTypeVSkypeForBusiness
+	_OnlineMeetingProviderTypePSkypeForConsumer = OnlineMeetingProviderTypeVSkypeForConsumer
+	_OnlineMeetingProviderTypePTeamsForBusiness = OnlineMeetingProviderTypeVTeamsForBusiness
+)

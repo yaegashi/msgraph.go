@@ -3,31 +3,28 @@
 package msgraph
 
 // DepTokenType undocumented
-type DepTokenType int
+type DepTokenType string
 
 const (
 	// DepTokenTypeVNone undocumented
-	DepTokenTypeVNone DepTokenType = 0
+	DepTokenTypeVNone DepTokenType = "none"
 	// DepTokenTypeVDep undocumented
-	DepTokenTypeVDep DepTokenType = 1
+	DepTokenTypeVDep DepTokenType = "dep"
 	// DepTokenTypeVAppleSchoolManager undocumented
-	DepTokenTypeVAppleSchoolManager DepTokenType = 2
+	DepTokenTypeVAppleSchoolManager DepTokenType = "appleSchoolManager"
 )
 
-// DepTokenTypePNone returns a pointer to DepTokenTypeVNone
-func DepTokenTypePNone() *DepTokenType {
-	v := DepTokenTypeVNone
-	return &v
-}
+var (
+	// DepTokenTypePNone is a pointer to DepTokenTypeVNone
+	DepTokenTypePNone = &_DepTokenTypePNone
+	// DepTokenTypePDep is a pointer to DepTokenTypeVDep
+	DepTokenTypePDep = &_DepTokenTypePDep
+	// DepTokenTypePAppleSchoolManager is a pointer to DepTokenTypeVAppleSchoolManager
+	DepTokenTypePAppleSchoolManager = &_DepTokenTypePAppleSchoolManager
+)
 
-// DepTokenTypePDep returns a pointer to DepTokenTypeVDep
-func DepTokenTypePDep() *DepTokenType {
-	v := DepTokenTypeVDep
-	return &v
-}
-
-// DepTokenTypePAppleSchoolManager returns a pointer to DepTokenTypeVAppleSchoolManager
-func DepTokenTypePAppleSchoolManager() *DepTokenType {
-	v := DepTokenTypeVAppleSchoolManager
-	return &v
-}
+var (
+	_DepTokenTypePNone               = DepTokenTypeVNone
+	_DepTokenTypePDep                = DepTokenTypeVDep
+	_DepTokenTypePAppleSchoolManager = DepTokenTypeVAppleSchoolManager
+)

@@ -3,95 +3,68 @@
 package msgraph
 
 // RatingNewZealandMoviesType undocumented
-type RatingNewZealandMoviesType int
+type RatingNewZealandMoviesType string
 
 const (
 	// RatingNewZealandMoviesTypeVAllAllowed undocumented
-	RatingNewZealandMoviesTypeVAllAllowed RatingNewZealandMoviesType = 0
+	RatingNewZealandMoviesTypeVAllAllowed RatingNewZealandMoviesType = "allAllowed"
 	// RatingNewZealandMoviesTypeVAllBlocked undocumented
-	RatingNewZealandMoviesTypeVAllBlocked RatingNewZealandMoviesType = 1
+	RatingNewZealandMoviesTypeVAllBlocked RatingNewZealandMoviesType = "allBlocked"
 	// RatingNewZealandMoviesTypeVGeneral undocumented
-	RatingNewZealandMoviesTypeVGeneral RatingNewZealandMoviesType = 2
+	RatingNewZealandMoviesTypeVGeneral RatingNewZealandMoviesType = "general"
 	// RatingNewZealandMoviesTypeVParentalGuidance undocumented
-	RatingNewZealandMoviesTypeVParentalGuidance RatingNewZealandMoviesType = 3
+	RatingNewZealandMoviesTypeVParentalGuidance RatingNewZealandMoviesType = "parentalGuidance"
 	// RatingNewZealandMoviesTypeVMature undocumented
-	RatingNewZealandMoviesTypeVMature RatingNewZealandMoviesType = 4
+	RatingNewZealandMoviesTypeVMature RatingNewZealandMoviesType = "mature"
 	// RatingNewZealandMoviesTypeVAgesAbove13 undocumented
-	RatingNewZealandMoviesTypeVAgesAbove13 RatingNewZealandMoviesType = 5
+	RatingNewZealandMoviesTypeVAgesAbove13 RatingNewZealandMoviesType = "agesAbove13"
 	// RatingNewZealandMoviesTypeVAgesAbove15 undocumented
-	RatingNewZealandMoviesTypeVAgesAbove15 RatingNewZealandMoviesType = 6
+	RatingNewZealandMoviesTypeVAgesAbove15 RatingNewZealandMoviesType = "agesAbove15"
 	// RatingNewZealandMoviesTypeVAgesAbove16 undocumented
-	RatingNewZealandMoviesTypeVAgesAbove16 RatingNewZealandMoviesType = 7
+	RatingNewZealandMoviesTypeVAgesAbove16 RatingNewZealandMoviesType = "agesAbove16"
 	// RatingNewZealandMoviesTypeVAgesAbove18 undocumented
-	RatingNewZealandMoviesTypeVAgesAbove18 RatingNewZealandMoviesType = 8
+	RatingNewZealandMoviesTypeVAgesAbove18 RatingNewZealandMoviesType = "agesAbove18"
 	// RatingNewZealandMoviesTypeVRestricted undocumented
-	RatingNewZealandMoviesTypeVRestricted RatingNewZealandMoviesType = 9
+	RatingNewZealandMoviesTypeVRestricted RatingNewZealandMoviesType = "restricted"
 	// RatingNewZealandMoviesTypeVAgesAbove16Restricted undocumented
-	RatingNewZealandMoviesTypeVAgesAbove16Restricted RatingNewZealandMoviesType = 10
+	RatingNewZealandMoviesTypeVAgesAbove16Restricted RatingNewZealandMoviesType = "agesAbove16Restricted"
 )
 
-// RatingNewZealandMoviesTypePAllAllowed returns a pointer to RatingNewZealandMoviesTypeVAllAllowed
-func RatingNewZealandMoviesTypePAllAllowed() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingNewZealandMoviesTypePAllAllowed is a pointer to RatingNewZealandMoviesTypeVAllAllowed
+	RatingNewZealandMoviesTypePAllAllowed = &_RatingNewZealandMoviesTypePAllAllowed
+	// RatingNewZealandMoviesTypePAllBlocked is a pointer to RatingNewZealandMoviesTypeVAllBlocked
+	RatingNewZealandMoviesTypePAllBlocked = &_RatingNewZealandMoviesTypePAllBlocked
+	// RatingNewZealandMoviesTypePGeneral is a pointer to RatingNewZealandMoviesTypeVGeneral
+	RatingNewZealandMoviesTypePGeneral = &_RatingNewZealandMoviesTypePGeneral
+	// RatingNewZealandMoviesTypePParentalGuidance is a pointer to RatingNewZealandMoviesTypeVParentalGuidance
+	RatingNewZealandMoviesTypePParentalGuidance = &_RatingNewZealandMoviesTypePParentalGuidance
+	// RatingNewZealandMoviesTypePMature is a pointer to RatingNewZealandMoviesTypeVMature
+	RatingNewZealandMoviesTypePMature = &_RatingNewZealandMoviesTypePMature
+	// RatingNewZealandMoviesTypePAgesAbove13 is a pointer to RatingNewZealandMoviesTypeVAgesAbove13
+	RatingNewZealandMoviesTypePAgesAbove13 = &_RatingNewZealandMoviesTypePAgesAbove13
+	// RatingNewZealandMoviesTypePAgesAbove15 is a pointer to RatingNewZealandMoviesTypeVAgesAbove15
+	RatingNewZealandMoviesTypePAgesAbove15 = &_RatingNewZealandMoviesTypePAgesAbove15
+	// RatingNewZealandMoviesTypePAgesAbove16 is a pointer to RatingNewZealandMoviesTypeVAgesAbove16
+	RatingNewZealandMoviesTypePAgesAbove16 = &_RatingNewZealandMoviesTypePAgesAbove16
+	// RatingNewZealandMoviesTypePAgesAbove18 is a pointer to RatingNewZealandMoviesTypeVAgesAbove18
+	RatingNewZealandMoviesTypePAgesAbove18 = &_RatingNewZealandMoviesTypePAgesAbove18
+	// RatingNewZealandMoviesTypePRestricted is a pointer to RatingNewZealandMoviesTypeVRestricted
+	RatingNewZealandMoviesTypePRestricted = &_RatingNewZealandMoviesTypePRestricted
+	// RatingNewZealandMoviesTypePAgesAbove16Restricted is a pointer to RatingNewZealandMoviesTypeVAgesAbove16Restricted
+	RatingNewZealandMoviesTypePAgesAbove16Restricted = &_RatingNewZealandMoviesTypePAgesAbove16Restricted
+)
 
-// RatingNewZealandMoviesTypePAllBlocked returns a pointer to RatingNewZealandMoviesTypeVAllBlocked
-func RatingNewZealandMoviesTypePAllBlocked() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingNewZealandMoviesTypePGeneral returns a pointer to RatingNewZealandMoviesTypeVGeneral
-func RatingNewZealandMoviesTypePGeneral() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVGeneral
-	return &v
-}
-
-// RatingNewZealandMoviesTypePParentalGuidance returns a pointer to RatingNewZealandMoviesTypeVParentalGuidance
-func RatingNewZealandMoviesTypePParentalGuidance() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingNewZealandMoviesTypePMature returns a pointer to RatingNewZealandMoviesTypeVMature
-func RatingNewZealandMoviesTypePMature() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVMature
-	return &v
-}
-
-// RatingNewZealandMoviesTypePAgesAbove13 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove13
-func RatingNewZealandMoviesTypePAgesAbove13() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAgesAbove13
-	return &v
-}
-
-// RatingNewZealandMoviesTypePAgesAbove15 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove15
-func RatingNewZealandMoviesTypePAgesAbove15() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAgesAbove15
-	return &v
-}
-
-// RatingNewZealandMoviesTypePAgesAbove16 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove16
-func RatingNewZealandMoviesTypePAgesAbove16() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAgesAbove16
-	return &v
-}
-
-// RatingNewZealandMoviesTypePAgesAbove18 returns a pointer to RatingNewZealandMoviesTypeVAgesAbove18
-func RatingNewZealandMoviesTypePAgesAbove18() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAgesAbove18
-	return &v
-}
-
-// RatingNewZealandMoviesTypePRestricted returns a pointer to RatingNewZealandMoviesTypeVRestricted
-func RatingNewZealandMoviesTypePRestricted() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVRestricted
-	return &v
-}
-
-// RatingNewZealandMoviesTypePAgesAbove16Restricted returns a pointer to RatingNewZealandMoviesTypeVAgesAbove16Restricted
-func RatingNewZealandMoviesTypePAgesAbove16Restricted() *RatingNewZealandMoviesType {
-	v := RatingNewZealandMoviesTypeVAgesAbove16Restricted
-	return &v
-}
+var (
+	_RatingNewZealandMoviesTypePAllAllowed            = RatingNewZealandMoviesTypeVAllAllowed
+	_RatingNewZealandMoviesTypePAllBlocked            = RatingNewZealandMoviesTypeVAllBlocked
+	_RatingNewZealandMoviesTypePGeneral               = RatingNewZealandMoviesTypeVGeneral
+	_RatingNewZealandMoviesTypePParentalGuidance      = RatingNewZealandMoviesTypeVParentalGuidance
+	_RatingNewZealandMoviesTypePMature                = RatingNewZealandMoviesTypeVMature
+	_RatingNewZealandMoviesTypePAgesAbove13           = RatingNewZealandMoviesTypeVAgesAbove13
+	_RatingNewZealandMoviesTypePAgesAbove15           = RatingNewZealandMoviesTypeVAgesAbove15
+	_RatingNewZealandMoviesTypePAgesAbove16           = RatingNewZealandMoviesTypeVAgesAbove16
+	_RatingNewZealandMoviesTypePAgesAbove18           = RatingNewZealandMoviesTypeVAgesAbove18
+	_RatingNewZealandMoviesTypePRestricted            = RatingNewZealandMoviesTypeVRestricted
+	_RatingNewZealandMoviesTypePAgesAbove16Restricted = RatingNewZealandMoviesTypeVAgesAbove16Restricted
+)

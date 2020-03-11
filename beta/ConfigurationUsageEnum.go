@@ -3,31 +3,28 @@
 package msgraph
 
 // ConfigurationUsage undocumented
-type ConfigurationUsage int
+type ConfigurationUsage string
 
 const (
 	// ConfigurationUsageVBlocked undocumented
-	ConfigurationUsageVBlocked ConfigurationUsage = 0
+	ConfigurationUsageVBlocked ConfigurationUsage = "blocked"
 	// ConfigurationUsageVRequired undocumented
-	ConfigurationUsageVRequired ConfigurationUsage = 1
+	ConfigurationUsageVRequired ConfigurationUsage = "required"
 	// ConfigurationUsageVAllowed undocumented
-	ConfigurationUsageVAllowed ConfigurationUsage = 2
+	ConfigurationUsageVAllowed ConfigurationUsage = "allowed"
 )
 
-// ConfigurationUsagePBlocked returns a pointer to ConfigurationUsageVBlocked
-func ConfigurationUsagePBlocked() *ConfigurationUsage {
-	v := ConfigurationUsageVBlocked
-	return &v
-}
+var (
+	// ConfigurationUsagePBlocked is a pointer to ConfigurationUsageVBlocked
+	ConfigurationUsagePBlocked = &_ConfigurationUsagePBlocked
+	// ConfigurationUsagePRequired is a pointer to ConfigurationUsageVRequired
+	ConfigurationUsagePRequired = &_ConfigurationUsagePRequired
+	// ConfigurationUsagePAllowed is a pointer to ConfigurationUsageVAllowed
+	ConfigurationUsagePAllowed = &_ConfigurationUsagePAllowed
+)
 
-// ConfigurationUsagePRequired returns a pointer to ConfigurationUsageVRequired
-func ConfigurationUsagePRequired() *ConfigurationUsage {
-	v := ConfigurationUsageVRequired
-	return &v
-}
-
-// ConfigurationUsagePAllowed returns a pointer to ConfigurationUsageVAllowed
-func ConfigurationUsagePAllowed() *ConfigurationUsage {
-	v := ConfigurationUsageVAllowed
-	return &v
-}
+var (
+	_ConfigurationUsagePBlocked  = ConfigurationUsageVBlocked
+	_ConfigurationUsagePRequired = ConfigurationUsageVRequired
+	_ConfigurationUsagePAllowed  = ConfigurationUsageVAllowed
+)

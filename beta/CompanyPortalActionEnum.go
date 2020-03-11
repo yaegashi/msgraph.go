@@ -3,31 +3,28 @@
 package msgraph
 
 // CompanyPortalAction undocumented
-type CompanyPortalAction int
+type CompanyPortalAction string
 
 const (
 	// CompanyPortalActionVUnknown undocumented
-	CompanyPortalActionVUnknown CompanyPortalAction = 0
+	CompanyPortalActionVUnknown CompanyPortalAction = "unknown"
 	// CompanyPortalActionVRemove undocumented
-	CompanyPortalActionVRemove CompanyPortalAction = 1
+	CompanyPortalActionVRemove CompanyPortalAction = "remove"
 	// CompanyPortalActionVReset undocumented
-	CompanyPortalActionVReset CompanyPortalAction = 2
+	CompanyPortalActionVReset CompanyPortalAction = "reset"
 )
 
-// CompanyPortalActionPUnknown returns a pointer to CompanyPortalActionVUnknown
-func CompanyPortalActionPUnknown() *CompanyPortalAction {
-	v := CompanyPortalActionVUnknown
-	return &v
-}
+var (
+	// CompanyPortalActionPUnknown is a pointer to CompanyPortalActionVUnknown
+	CompanyPortalActionPUnknown = &_CompanyPortalActionPUnknown
+	// CompanyPortalActionPRemove is a pointer to CompanyPortalActionVRemove
+	CompanyPortalActionPRemove = &_CompanyPortalActionPRemove
+	// CompanyPortalActionPReset is a pointer to CompanyPortalActionVReset
+	CompanyPortalActionPReset = &_CompanyPortalActionPReset
+)
 
-// CompanyPortalActionPRemove returns a pointer to CompanyPortalActionVRemove
-func CompanyPortalActionPRemove() *CompanyPortalAction {
-	v := CompanyPortalActionVRemove
-	return &v
-}
-
-// CompanyPortalActionPReset returns a pointer to CompanyPortalActionVReset
-func CompanyPortalActionPReset() *CompanyPortalAction {
-	v := CompanyPortalActionVReset
-	return &v
-}
+var (
+	_CompanyPortalActionPUnknown = CompanyPortalActionVUnknown
+	_CompanyPortalActionPRemove  = CompanyPortalActionVRemove
+	_CompanyPortalActionPReset   = CompanyPortalActionVReset
+)

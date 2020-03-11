@@ -3,31 +3,28 @@
 package msgraph
 
 // WindowsHelloForBusinessPinUsage undocumented
-type WindowsHelloForBusinessPinUsage int
+type WindowsHelloForBusinessPinUsage string
 
 const (
 	// WindowsHelloForBusinessPinUsageVAllowed undocumented
-	WindowsHelloForBusinessPinUsageVAllowed WindowsHelloForBusinessPinUsage = 0
+	WindowsHelloForBusinessPinUsageVAllowed WindowsHelloForBusinessPinUsage = "allowed"
 	// WindowsHelloForBusinessPinUsageVRequired undocumented
-	WindowsHelloForBusinessPinUsageVRequired WindowsHelloForBusinessPinUsage = 1
+	WindowsHelloForBusinessPinUsageVRequired WindowsHelloForBusinessPinUsage = "required"
 	// WindowsHelloForBusinessPinUsageVDisallowed undocumented
-	WindowsHelloForBusinessPinUsageVDisallowed WindowsHelloForBusinessPinUsage = 2
+	WindowsHelloForBusinessPinUsageVDisallowed WindowsHelloForBusinessPinUsage = "disallowed"
 )
 
-// WindowsHelloForBusinessPinUsagePAllowed returns a pointer to WindowsHelloForBusinessPinUsageVAllowed
-func WindowsHelloForBusinessPinUsagePAllowed() *WindowsHelloForBusinessPinUsage {
-	v := WindowsHelloForBusinessPinUsageVAllowed
-	return &v
-}
+var (
+	// WindowsHelloForBusinessPinUsagePAllowed is a pointer to WindowsHelloForBusinessPinUsageVAllowed
+	WindowsHelloForBusinessPinUsagePAllowed = &_WindowsHelloForBusinessPinUsagePAllowed
+	// WindowsHelloForBusinessPinUsagePRequired is a pointer to WindowsHelloForBusinessPinUsageVRequired
+	WindowsHelloForBusinessPinUsagePRequired = &_WindowsHelloForBusinessPinUsagePRequired
+	// WindowsHelloForBusinessPinUsagePDisallowed is a pointer to WindowsHelloForBusinessPinUsageVDisallowed
+	WindowsHelloForBusinessPinUsagePDisallowed = &_WindowsHelloForBusinessPinUsagePDisallowed
+)
 
-// WindowsHelloForBusinessPinUsagePRequired returns a pointer to WindowsHelloForBusinessPinUsageVRequired
-func WindowsHelloForBusinessPinUsagePRequired() *WindowsHelloForBusinessPinUsage {
-	v := WindowsHelloForBusinessPinUsageVRequired
-	return &v
-}
-
-// WindowsHelloForBusinessPinUsagePDisallowed returns a pointer to WindowsHelloForBusinessPinUsageVDisallowed
-func WindowsHelloForBusinessPinUsagePDisallowed() *WindowsHelloForBusinessPinUsage {
-	v := WindowsHelloForBusinessPinUsageVDisallowed
-	return &v
-}
+var (
+	_WindowsHelloForBusinessPinUsagePAllowed    = WindowsHelloForBusinessPinUsageVAllowed
+	_WindowsHelloForBusinessPinUsagePRequired   = WindowsHelloForBusinessPinUsageVRequired
+	_WindowsHelloForBusinessPinUsagePDisallowed = WindowsHelloForBusinessPinUsageVDisallowed
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // EncryptionState undocumented
-type EncryptionState int
+type EncryptionState string
 
 const (
 	// EncryptionStateVNotEncrypted undocumented
-	EncryptionStateVNotEncrypted EncryptionState = 0
+	EncryptionStateVNotEncrypted EncryptionState = "notEncrypted"
 	// EncryptionStateVEncrypted undocumented
-	EncryptionStateVEncrypted EncryptionState = 1
+	EncryptionStateVEncrypted EncryptionState = "encrypted"
 )
 
-// EncryptionStatePNotEncrypted returns a pointer to EncryptionStateVNotEncrypted
-func EncryptionStatePNotEncrypted() *EncryptionState {
-	v := EncryptionStateVNotEncrypted
-	return &v
-}
+var (
+	// EncryptionStatePNotEncrypted is a pointer to EncryptionStateVNotEncrypted
+	EncryptionStatePNotEncrypted = &_EncryptionStatePNotEncrypted
+	// EncryptionStatePEncrypted is a pointer to EncryptionStateVEncrypted
+	EncryptionStatePEncrypted = &_EncryptionStatePEncrypted
+)
 
-// EncryptionStatePEncrypted returns a pointer to EncryptionStateVEncrypted
-func EncryptionStatePEncrypted() *EncryptionState {
-	v := EncryptionStateVEncrypted
-	return &v
-}
+var (
+	_EncryptionStatePNotEncrypted = EncryptionStateVNotEncrypted
+	_EncryptionStatePEncrypted    = EncryptionStateVEncrypted
+)

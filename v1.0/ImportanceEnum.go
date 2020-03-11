@@ -3,31 +3,28 @@
 package msgraph
 
 // Importance undocumented
-type Importance int
+type Importance string
 
 const (
 	// ImportanceVLow undocumented
-	ImportanceVLow Importance = 0
+	ImportanceVLow Importance = "low"
 	// ImportanceVNormal undocumented
-	ImportanceVNormal Importance = 1
+	ImportanceVNormal Importance = "normal"
 	// ImportanceVHigh undocumented
-	ImportanceVHigh Importance = 2
+	ImportanceVHigh Importance = "high"
 )
 
-// ImportancePLow returns a pointer to ImportanceVLow
-func ImportancePLow() *Importance {
-	v := ImportanceVLow
-	return &v
-}
+var (
+	// ImportancePLow is a pointer to ImportanceVLow
+	ImportancePLow = &_ImportancePLow
+	// ImportancePNormal is a pointer to ImportanceVNormal
+	ImportancePNormal = &_ImportancePNormal
+	// ImportancePHigh is a pointer to ImportanceVHigh
+	ImportancePHigh = &_ImportancePHigh
+)
 
-// ImportancePNormal returns a pointer to ImportanceVNormal
-func ImportancePNormal() *Importance {
-	v := ImportanceVNormal
-	return &v
-}
-
-// ImportancePHigh returns a pointer to ImportanceVHigh
-func ImportancePHigh() *Importance {
-	v := ImportanceVHigh
-	return &v
-}
+var (
+	_ImportancePLow    = ImportanceVLow
+	_ImportancePNormal = ImportanceVNormal
+	_ImportancePHigh   = ImportanceVHigh
+)

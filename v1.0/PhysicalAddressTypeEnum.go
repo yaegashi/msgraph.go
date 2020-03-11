@@ -3,39 +3,33 @@
 package msgraph
 
 // PhysicalAddressType undocumented
-type PhysicalAddressType int
+type PhysicalAddressType string
 
 const (
 	// PhysicalAddressTypeVUnknown undocumented
-	PhysicalAddressTypeVUnknown PhysicalAddressType = 0
+	PhysicalAddressTypeVUnknown PhysicalAddressType = "unknown"
 	// PhysicalAddressTypeVHome undocumented
-	PhysicalAddressTypeVHome PhysicalAddressType = 1
+	PhysicalAddressTypeVHome PhysicalAddressType = "home"
 	// PhysicalAddressTypeVBusiness undocumented
-	PhysicalAddressTypeVBusiness PhysicalAddressType = 2
+	PhysicalAddressTypeVBusiness PhysicalAddressType = "business"
 	// PhysicalAddressTypeVOther undocumented
-	PhysicalAddressTypeVOther PhysicalAddressType = 3
+	PhysicalAddressTypeVOther PhysicalAddressType = "other"
 )
 
-// PhysicalAddressTypePUnknown returns a pointer to PhysicalAddressTypeVUnknown
-func PhysicalAddressTypePUnknown() *PhysicalAddressType {
-	v := PhysicalAddressTypeVUnknown
-	return &v
-}
+var (
+	// PhysicalAddressTypePUnknown is a pointer to PhysicalAddressTypeVUnknown
+	PhysicalAddressTypePUnknown = &_PhysicalAddressTypePUnknown
+	// PhysicalAddressTypePHome is a pointer to PhysicalAddressTypeVHome
+	PhysicalAddressTypePHome = &_PhysicalAddressTypePHome
+	// PhysicalAddressTypePBusiness is a pointer to PhysicalAddressTypeVBusiness
+	PhysicalAddressTypePBusiness = &_PhysicalAddressTypePBusiness
+	// PhysicalAddressTypePOther is a pointer to PhysicalAddressTypeVOther
+	PhysicalAddressTypePOther = &_PhysicalAddressTypePOther
+)
 
-// PhysicalAddressTypePHome returns a pointer to PhysicalAddressTypeVHome
-func PhysicalAddressTypePHome() *PhysicalAddressType {
-	v := PhysicalAddressTypeVHome
-	return &v
-}
-
-// PhysicalAddressTypePBusiness returns a pointer to PhysicalAddressTypeVBusiness
-func PhysicalAddressTypePBusiness() *PhysicalAddressType {
-	v := PhysicalAddressTypeVBusiness
-	return &v
-}
-
-// PhysicalAddressTypePOther returns a pointer to PhysicalAddressTypeVOther
-func PhysicalAddressTypePOther() *PhysicalAddressType {
-	v := PhysicalAddressTypeVOther
-	return &v
-}
+var (
+	_PhysicalAddressTypePUnknown  = PhysicalAddressTypeVUnknown
+	_PhysicalAddressTypePHome     = PhysicalAddressTypeVHome
+	_PhysicalAddressTypePBusiness = PhysicalAddressTypeVBusiness
+	_PhysicalAddressTypePOther    = PhysicalAddressTypeVOther
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // Windows10DeviceModeType undocumented
-type Windows10DeviceModeType int
+type Windows10DeviceModeType string
 
 const (
 	// Windows10DeviceModeTypeVStandardConfiguration undocumented
-	Windows10DeviceModeTypeVStandardConfiguration Windows10DeviceModeType = 0
+	Windows10DeviceModeTypeVStandardConfiguration Windows10DeviceModeType = "standardConfiguration"
 	// Windows10DeviceModeTypeVSModeConfiguration undocumented
-	Windows10DeviceModeTypeVSModeConfiguration Windows10DeviceModeType = 1
+	Windows10DeviceModeTypeVSModeConfiguration Windows10DeviceModeType = "sModeConfiguration"
 )
 
-// Windows10DeviceModeTypePStandardConfiguration returns a pointer to Windows10DeviceModeTypeVStandardConfiguration
-func Windows10DeviceModeTypePStandardConfiguration() *Windows10DeviceModeType {
-	v := Windows10DeviceModeTypeVStandardConfiguration
-	return &v
-}
+var (
+	// Windows10DeviceModeTypePStandardConfiguration is a pointer to Windows10DeviceModeTypeVStandardConfiguration
+	Windows10DeviceModeTypePStandardConfiguration = &_Windows10DeviceModeTypePStandardConfiguration
+	// Windows10DeviceModeTypePSModeConfiguration is a pointer to Windows10DeviceModeTypeVSModeConfiguration
+	Windows10DeviceModeTypePSModeConfiguration = &_Windows10DeviceModeTypePSModeConfiguration
+)
 
-// Windows10DeviceModeTypePSModeConfiguration returns a pointer to Windows10DeviceModeTypeVSModeConfiguration
-func Windows10DeviceModeTypePSModeConfiguration() *Windows10DeviceModeType {
-	v := Windows10DeviceModeTypeVSModeConfiguration
-	return &v
-}
+var (
+	_Windows10DeviceModeTypePStandardConfiguration = Windows10DeviceModeTypeVStandardConfiguration
+	_Windows10DeviceModeTypePSModeConfiguration    = Windows10DeviceModeTypeVSModeConfiguration
+)

@@ -3,55 +3,43 @@
 package msgraph
 
 // WindowsUpdateType undocumented
-type WindowsUpdateType int
+type WindowsUpdateType string
 
 const (
 	// WindowsUpdateTypeVUserDefined undocumented
-	WindowsUpdateTypeVUserDefined WindowsUpdateType = 0
+	WindowsUpdateTypeVUserDefined WindowsUpdateType = "userDefined"
 	// WindowsUpdateTypeVAll undocumented
-	WindowsUpdateTypeVAll WindowsUpdateType = 1
+	WindowsUpdateTypeVAll WindowsUpdateType = "all"
 	// WindowsUpdateTypeVBusinessReadyOnly undocumented
-	WindowsUpdateTypeVBusinessReadyOnly WindowsUpdateType = 2
+	WindowsUpdateTypeVBusinessReadyOnly WindowsUpdateType = "businessReadyOnly"
 	// WindowsUpdateTypeVWindowsInsiderBuildFast undocumented
-	WindowsUpdateTypeVWindowsInsiderBuildFast WindowsUpdateType = 3
+	WindowsUpdateTypeVWindowsInsiderBuildFast WindowsUpdateType = "windowsInsiderBuildFast"
 	// WindowsUpdateTypeVWindowsInsiderBuildSlow undocumented
-	WindowsUpdateTypeVWindowsInsiderBuildSlow WindowsUpdateType = 4
+	WindowsUpdateTypeVWindowsInsiderBuildSlow WindowsUpdateType = "windowsInsiderBuildSlow"
 	// WindowsUpdateTypeVWindowsInsiderBuildRelease undocumented
-	WindowsUpdateTypeVWindowsInsiderBuildRelease WindowsUpdateType = 5
+	WindowsUpdateTypeVWindowsInsiderBuildRelease WindowsUpdateType = "windowsInsiderBuildRelease"
 )
 
-// WindowsUpdateTypePUserDefined returns a pointer to WindowsUpdateTypeVUserDefined
-func WindowsUpdateTypePUserDefined() *WindowsUpdateType {
-	v := WindowsUpdateTypeVUserDefined
-	return &v
-}
+var (
+	// WindowsUpdateTypePUserDefined is a pointer to WindowsUpdateTypeVUserDefined
+	WindowsUpdateTypePUserDefined = &_WindowsUpdateTypePUserDefined
+	// WindowsUpdateTypePAll is a pointer to WindowsUpdateTypeVAll
+	WindowsUpdateTypePAll = &_WindowsUpdateTypePAll
+	// WindowsUpdateTypePBusinessReadyOnly is a pointer to WindowsUpdateTypeVBusinessReadyOnly
+	WindowsUpdateTypePBusinessReadyOnly = &_WindowsUpdateTypePBusinessReadyOnly
+	// WindowsUpdateTypePWindowsInsiderBuildFast is a pointer to WindowsUpdateTypeVWindowsInsiderBuildFast
+	WindowsUpdateTypePWindowsInsiderBuildFast = &_WindowsUpdateTypePWindowsInsiderBuildFast
+	// WindowsUpdateTypePWindowsInsiderBuildSlow is a pointer to WindowsUpdateTypeVWindowsInsiderBuildSlow
+	WindowsUpdateTypePWindowsInsiderBuildSlow = &_WindowsUpdateTypePWindowsInsiderBuildSlow
+	// WindowsUpdateTypePWindowsInsiderBuildRelease is a pointer to WindowsUpdateTypeVWindowsInsiderBuildRelease
+	WindowsUpdateTypePWindowsInsiderBuildRelease = &_WindowsUpdateTypePWindowsInsiderBuildRelease
+)
 
-// WindowsUpdateTypePAll returns a pointer to WindowsUpdateTypeVAll
-func WindowsUpdateTypePAll() *WindowsUpdateType {
-	v := WindowsUpdateTypeVAll
-	return &v
-}
-
-// WindowsUpdateTypePBusinessReadyOnly returns a pointer to WindowsUpdateTypeVBusinessReadyOnly
-func WindowsUpdateTypePBusinessReadyOnly() *WindowsUpdateType {
-	v := WindowsUpdateTypeVBusinessReadyOnly
-	return &v
-}
-
-// WindowsUpdateTypePWindowsInsiderBuildFast returns a pointer to WindowsUpdateTypeVWindowsInsiderBuildFast
-func WindowsUpdateTypePWindowsInsiderBuildFast() *WindowsUpdateType {
-	v := WindowsUpdateTypeVWindowsInsiderBuildFast
-	return &v
-}
-
-// WindowsUpdateTypePWindowsInsiderBuildSlow returns a pointer to WindowsUpdateTypeVWindowsInsiderBuildSlow
-func WindowsUpdateTypePWindowsInsiderBuildSlow() *WindowsUpdateType {
-	v := WindowsUpdateTypeVWindowsInsiderBuildSlow
-	return &v
-}
-
-// WindowsUpdateTypePWindowsInsiderBuildRelease returns a pointer to WindowsUpdateTypeVWindowsInsiderBuildRelease
-func WindowsUpdateTypePWindowsInsiderBuildRelease() *WindowsUpdateType {
-	v := WindowsUpdateTypeVWindowsInsiderBuildRelease
-	return &v
-}
+var (
+	_WindowsUpdateTypePUserDefined                = WindowsUpdateTypeVUserDefined
+	_WindowsUpdateTypePAll                        = WindowsUpdateTypeVAll
+	_WindowsUpdateTypePBusinessReadyOnly          = WindowsUpdateTypeVBusinessReadyOnly
+	_WindowsUpdateTypePWindowsInsiderBuildFast    = WindowsUpdateTypeVWindowsInsiderBuildFast
+	_WindowsUpdateTypePWindowsInsiderBuildSlow    = WindowsUpdateTypeVWindowsInsiderBuildSlow
+	_WindowsUpdateTypePWindowsInsiderBuildRelease = WindowsUpdateTypeVWindowsInsiderBuildRelease
+)

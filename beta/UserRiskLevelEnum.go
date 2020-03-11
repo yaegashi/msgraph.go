@@ -3,47 +3,38 @@
 package msgraph
 
 // UserRiskLevel undocumented
-type UserRiskLevel int
+type UserRiskLevel string
 
 const (
 	// UserRiskLevelVUnknown undocumented
-	UserRiskLevelVUnknown UserRiskLevel = 0
+	UserRiskLevelVUnknown UserRiskLevel = "unknown"
 	// UserRiskLevelVNone undocumented
-	UserRiskLevelVNone UserRiskLevel = 1
+	UserRiskLevelVNone UserRiskLevel = "none"
 	// UserRiskLevelVLow undocumented
-	UserRiskLevelVLow UserRiskLevel = 2
+	UserRiskLevelVLow UserRiskLevel = "low"
 	// UserRiskLevelVMedium undocumented
-	UserRiskLevelVMedium UserRiskLevel = 3
+	UserRiskLevelVMedium UserRiskLevel = "medium"
 	// UserRiskLevelVHigh undocumented
-	UserRiskLevelVHigh UserRiskLevel = 4
+	UserRiskLevelVHigh UserRiskLevel = "high"
 )
 
-// UserRiskLevelPUnknown returns a pointer to UserRiskLevelVUnknown
-func UserRiskLevelPUnknown() *UserRiskLevel {
-	v := UserRiskLevelVUnknown
-	return &v
-}
+var (
+	// UserRiskLevelPUnknown is a pointer to UserRiskLevelVUnknown
+	UserRiskLevelPUnknown = &_UserRiskLevelPUnknown
+	// UserRiskLevelPNone is a pointer to UserRiskLevelVNone
+	UserRiskLevelPNone = &_UserRiskLevelPNone
+	// UserRiskLevelPLow is a pointer to UserRiskLevelVLow
+	UserRiskLevelPLow = &_UserRiskLevelPLow
+	// UserRiskLevelPMedium is a pointer to UserRiskLevelVMedium
+	UserRiskLevelPMedium = &_UserRiskLevelPMedium
+	// UserRiskLevelPHigh is a pointer to UserRiskLevelVHigh
+	UserRiskLevelPHigh = &_UserRiskLevelPHigh
+)
 
-// UserRiskLevelPNone returns a pointer to UserRiskLevelVNone
-func UserRiskLevelPNone() *UserRiskLevel {
-	v := UserRiskLevelVNone
-	return &v
-}
-
-// UserRiskLevelPLow returns a pointer to UserRiskLevelVLow
-func UserRiskLevelPLow() *UserRiskLevel {
-	v := UserRiskLevelVLow
-	return &v
-}
-
-// UserRiskLevelPMedium returns a pointer to UserRiskLevelVMedium
-func UserRiskLevelPMedium() *UserRiskLevel {
-	v := UserRiskLevelVMedium
-	return &v
-}
-
-// UserRiskLevelPHigh returns a pointer to UserRiskLevelVHigh
-func UserRiskLevelPHigh() *UserRiskLevel {
-	v := UserRiskLevelVHigh
-	return &v
-}
+var (
+	_UserRiskLevelPUnknown = UserRiskLevelVUnknown
+	_UserRiskLevelPNone    = UserRiskLevelVNone
+	_UserRiskLevelPLow     = UserRiskLevelVLow
+	_UserRiskLevelPMedium  = UserRiskLevelVMedium
+	_UserRiskLevelPHigh    = UserRiskLevelVHigh
+)

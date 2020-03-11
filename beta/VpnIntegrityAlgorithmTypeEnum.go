@@ -3,47 +3,38 @@
 package msgraph
 
 // VpnIntegrityAlgorithmType undocumented
-type VpnIntegrityAlgorithmType int
+type VpnIntegrityAlgorithmType string
 
 const (
 	// VpnIntegrityAlgorithmTypeVSha2_256 undocumented
-	VpnIntegrityAlgorithmTypeVSha2_256 VpnIntegrityAlgorithmType = 0
+	VpnIntegrityAlgorithmTypeVSha2_256 VpnIntegrityAlgorithmType = "sha2_256"
 	// VpnIntegrityAlgorithmTypeVSha1_96 undocumented
-	VpnIntegrityAlgorithmTypeVSha1_96 VpnIntegrityAlgorithmType = 1
+	VpnIntegrityAlgorithmTypeVSha1_96 VpnIntegrityAlgorithmType = "sha1_96"
 	// VpnIntegrityAlgorithmTypeVSha1_160 undocumented
-	VpnIntegrityAlgorithmTypeVSha1_160 VpnIntegrityAlgorithmType = 2
+	VpnIntegrityAlgorithmTypeVSha1_160 VpnIntegrityAlgorithmType = "sha1_160"
 	// VpnIntegrityAlgorithmTypeVSha2_384 undocumented
-	VpnIntegrityAlgorithmTypeVSha2_384 VpnIntegrityAlgorithmType = 3
+	VpnIntegrityAlgorithmTypeVSha2_384 VpnIntegrityAlgorithmType = "sha2_384"
 	// VpnIntegrityAlgorithmTypeVSha2_512 undocumented
-	VpnIntegrityAlgorithmTypeVSha2_512 VpnIntegrityAlgorithmType = 4
+	VpnIntegrityAlgorithmTypeVSha2_512 VpnIntegrityAlgorithmType = "sha2_512"
 )
 
-// VpnIntegrityAlgorithmTypePSha2_256 returns a pointer to VpnIntegrityAlgorithmTypeVSha2_256
-func VpnIntegrityAlgorithmTypePSha2_256() *VpnIntegrityAlgorithmType {
-	v := VpnIntegrityAlgorithmTypeVSha2_256
-	return &v
-}
+var (
+	// VpnIntegrityAlgorithmTypePSha2_256 is a pointer to VpnIntegrityAlgorithmTypeVSha2_256
+	VpnIntegrityAlgorithmTypePSha2_256 = &_VpnIntegrityAlgorithmTypePSha2_256
+	// VpnIntegrityAlgorithmTypePSha1_96 is a pointer to VpnIntegrityAlgorithmTypeVSha1_96
+	VpnIntegrityAlgorithmTypePSha1_96 = &_VpnIntegrityAlgorithmTypePSha1_96
+	// VpnIntegrityAlgorithmTypePSha1_160 is a pointer to VpnIntegrityAlgorithmTypeVSha1_160
+	VpnIntegrityAlgorithmTypePSha1_160 = &_VpnIntegrityAlgorithmTypePSha1_160
+	// VpnIntegrityAlgorithmTypePSha2_384 is a pointer to VpnIntegrityAlgorithmTypeVSha2_384
+	VpnIntegrityAlgorithmTypePSha2_384 = &_VpnIntegrityAlgorithmTypePSha2_384
+	// VpnIntegrityAlgorithmTypePSha2_512 is a pointer to VpnIntegrityAlgorithmTypeVSha2_512
+	VpnIntegrityAlgorithmTypePSha2_512 = &_VpnIntegrityAlgorithmTypePSha2_512
+)
 
-// VpnIntegrityAlgorithmTypePSha1_96 returns a pointer to VpnIntegrityAlgorithmTypeVSha1_96
-func VpnIntegrityAlgorithmTypePSha1_96() *VpnIntegrityAlgorithmType {
-	v := VpnIntegrityAlgorithmTypeVSha1_96
-	return &v
-}
-
-// VpnIntegrityAlgorithmTypePSha1_160 returns a pointer to VpnIntegrityAlgorithmTypeVSha1_160
-func VpnIntegrityAlgorithmTypePSha1_160() *VpnIntegrityAlgorithmType {
-	v := VpnIntegrityAlgorithmTypeVSha1_160
-	return &v
-}
-
-// VpnIntegrityAlgorithmTypePSha2_384 returns a pointer to VpnIntegrityAlgorithmTypeVSha2_384
-func VpnIntegrityAlgorithmTypePSha2_384() *VpnIntegrityAlgorithmType {
-	v := VpnIntegrityAlgorithmTypeVSha2_384
-	return &v
-}
-
-// VpnIntegrityAlgorithmTypePSha2_512 returns a pointer to VpnIntegrityAlgorithmTypeVSha2_512
-func VpnIntegrityAlgorithmTypePSha2_512() *VpnIntegrityAlgorithmType {
-	v := VpnIntegrityAlgorithmTypeVSha2_512
-	return &v
-}
+var (
+	_VpnIntegrityAlgorithmTypePSha2_256 = VpnIntegrityAlgorithmTypeVSha2_256
+	_VpnIntegrityAlgorithmTypePSha1_96  = VpnIntegrityAlgorithmTypeVSha1_96
+	_VpnIntegrityAlgorithmTypePSha1_160 = VpnIntegrityAlgorithmTypeVSha1_160
+	_VpnIntegrityAlgorithmTypePSha2_384 = VpnIntegrityAlgorithmTypeVSha2_384
+	_VpnIntegrityAlgorithmTypePSha2_512 = VpnIntegrityAlgorithmTypeVSha2_512
+)

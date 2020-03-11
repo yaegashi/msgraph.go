@@ -3,23 +3,23 @@
 package msgraph
 
 // InferenceClassificationType undocumented
-type InferenceClassificationType int
+type InferenceClassificationType string
 
 const (
 	// InferenceClassificationTypeVFocused undocumented
-	InferenceClassificationTypeVFocused InferenceClassificationType = 0
+	InferenceClassificationTypeVFocused InferenceClassificationType = "focused"
 	// InferenceClassificationTypeVOther undocumented
-	InferenceClassificationTypeVOther InferenceClassificationType = 1
+	InferenceClassificationTypeVOther InferenceClassificationType = "other"
 )
 
-// InferenceClassificationTypePFocused returns a pointer to InferenceClassificationTypeVFocused
-func InferenceClassificationTypePFocused() *InferenceClassificationType {
-	v := InferenceClassificationTypeVFocused
-	return &v
-}
+var (
+	// InferenceClassificationTypePFocused is a pointer to InferenceClassificationTypeVFocused
+	InferenceClassificationTypePFocused = &_InferenceClassificationTypePFocused
+	// InferenceClassificationTypePOther is a pointer to InferenceClassificationTypeVOther
+	InferenceClassificationTypePOther = &_InferenceClassificationTypePOther
+)
 
-// InferenceClassificationTypePOther returns a pointer to InferenceClassificationTypeVOther
-func InferenceClassificationTypePOther() *InferenceClassificationType {
-	v := InferenceClassificationTypeVOther
-	return &v
-}
+var (
+	_InferenceClassificationTypePFocused = InferenceClassificationTypeVFocused
+	_InferenceClassificationTypePOther   = InferenceClassificationTypeVOther
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidDeviceOwnerWiFiSecurityType undocumented
-type AndroidDeviceOwnerWiFiSecurityType int
+type AndroidDeviceOwnerWiFiSecurityType string
 
 const (
 	// AndroidDeviceOwnerWiFiSecurityTypeVOpen undocumented
-	AndroidDeviceOwnerWiFiSecurityTypeVOpen AndroidDeviceOwnerWiFiSecurityType = 0
+	AndroidDeviceOwnerWiFiSecurityTypeVOpen AndroidDeviceOwnerWiFiSecurityType = "open"
 	// AndroidDeviceOwnerWiFiSecurityTypeVWep undocumented
-	AndroidDeviceOwnerWiFiSecurityTypeVWep AndroidDeviceOwnerWiFiSecurityType = 1
+	AndroidDeviceOwnerWiFiSecurityTypeVWep AndroidDeviceOwnerWiFiSecurityType = "wep"
 	// AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal undocumented
-	AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal AndroidDeviceOwnerWiFiSecurityType = 2
+	AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal AndroidDeviceOwnerWiFiSecurityType = "wpaPersonal"
 	// AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise undocumented
-	AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise AndroidDeviceOwnerWiFiSecurityType = 4
+	AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise AndroidDeviceOwnerWiFiSecurityType = "wpaEnterprise"
 )
 
-// AndroidDeviceOwnerWiFiSecurityTypePOpen returns a pointer to AndroidDeviceOwnerWiFiSecurityTypeVOpen
-func AndroidDeviceOwnerWiFiSecurityTypePOpen() *AndroidDeviceOwnerWiFiSecurityType {
-	v := AndroidDeviceOwnerWiFiSecurityTypeVOpen
-	return &v
-}
+var (
+	// AndroidDeviceOwnerWiFiSecurityTypePOpen is a pointer to AndroidDeviceOwnerWiFiSecurityTypeVOpen
+	AndroidDeviceOwnerWiFiSecurityTypePOpen = &_AndroidDeviceOwnerWiFiSecurityTypePOpen
+	// AndroidDeviceOwnerWiFiSecurityTypePWep is a pointer to AndroidDeviceOwnerWiFiSecurityTypeVWep
+	AndroidDeviceOwnerWiFiSecurityTypePWep = &_AndroidDeviceOwnerWiFiSecurityTypePWep
+	// AndroidDeviceOwnerWiFiSecurityTypePWpaPersonal is a pointer to AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal
+	AndroidDeviceOwnerWiFiSecurityTypePWpaPersonal = &_AndroidDeviceOwnerWiFiSecurityTypePWpaPersonal
+	// AndroidDeviceOwnerWiFiSecurityTypePWpaEnterprise is a pointer to AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise
+	AndroidDeviceOwnerWiFiSecurityTypePWpaEnterprise = &_AndroidDeviceOwnerWiFiSecurityTypePWpaEnterprise
+)
 
-// AndroidDeviceOwnerWiFiSecurityTypePWep returns a pointer to AndroidDeviceOwnerWiFiSecurityTypeVWep
-func AndroidDeviceOwnerWiFiSecurityTypePWep() *AndroidDeviceOwnerWiFiSecurityType {
-	v := AndroidDeviceOwnerWiFiSecurityTypeVWep
-	return &v
-}
-
-// AndroidDeviceOwnerWiFiSecurityTypePWpaPersonal returns a pointer to AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal
-func AndroidDeviceOwnerWiFiSecurityTypePWpaPersonal() *AndroidDeviceOwnerWiFiSecurityType {
-	v := AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal
-	return &v
-}
-
-// AndroidDeviceOwnerWiFiSecurityTypePWpaEnterprise returns a pointer to AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise
-func AndroidDeviceOwnerWiFiSecurityTypePWpaEnterprise() *AndroidDeviceOwnerWiFiSecurityType {
-	v := AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise
-	return &v
-}
+var (
+	_AndroidDeviceOwnerWiFiSecurityTypePOpen          = AndroidDeviceOwnerWiFiSecurityTypeVOpen
+	_AndroidDeviceOwnerWiFiSecurityTypePWep           = AndroidDeviceOwnerWiFiSecurityTypeVWep
+	_AndroidDeviceOwnerWiFiSecurityTypePWpaPersonal   = AndroidDeviceOwnerWiFiSecurityTypeVWpaPersonal
+	_AndroidDeviceOwnerWiFiSecurityTypePWpaEnterprise = AndroidDeviceOwnerWiFiSecurityTypeVWpaEnterprise
+)

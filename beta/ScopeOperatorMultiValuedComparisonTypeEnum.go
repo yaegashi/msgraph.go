@@ -3,23 +3,23 @@
 package msgraph
 
 // ScopeOperatorMultiValuedComparisonType undocumented
-type ScopeOperatorMultiValuedComparisonType int
+type ScopeOperatorMultiValuedComparisonType string
 
 const (
 	// ScopeOperatorMultiValuedComparisonTypeVAll undocumented
-	ScopeOperatorMultiValuedComparisonTypeVAll ScopeOperatorMultiValuedComparisonType = 0
+	ScopeOperatorMultiValuedComparisonTypeVAll ScopeOperatorMultiValuedComparisonType = "All"
 	// ScopeOperatorMultiValuedComparisonTypeVAny undocumented
-	ScopeOperatorMultiValuedComparisonTypeVAny ScopeOperatorMultiValuedComparisonType = 1
+	ScopeOperatorMultiValuedComparisonTypeVAny ScopeOperatorMultiValuedComparisonType = "Any"
 )
 
-// ScopeOperatorMultiValuedComparisonTypePAll returns a pointer to ScopeOperatorMultiValuedComparisonTypeVAll
-func ScopeOperatorMultiValuedComparisonTypePAll() *ScopeOperatorMultiValuedComparisonType {
-	v := ScopeOperatorMultiValuedComparisonTypeVAll
-	return &v
-}
+var (
+	// ScopeOperatorMultiValuedComparisonTypePAll is a pointer to ScopeOperatorMultiValuedComparisonTypeVAll
+	ScopeOperatorMultiValuedComparisonTypePAll = &_ScopeOperatorMultiValuedComparisonTypePAll
+	// ScopeOperatorMultiValuedComparisonTypePAny is a pointer to ScopeOperatorMultiValuedComparisonTypeVAny
+	ScopeOperatorMultiValuedComparisonTypePAny = &_ScopeOperatorMultiValuedComparisonTypePAny
+)
 
-// ScopeOperatorMultiValuedComparisonTypePAny returns a pointer to ScopeOperatorMultiValuedComparisonTypeVAny
-func ScopeOperatorMultiValuedComparisonTypePAny() *ScopeOperatorMultiValuedComparisonType {
-	v := ScopeOperatorMultiValuedComparisonTypeVAny
-	return &v
-}
+var (
+	_ScopeOperatorMultiValuedComparisonTypePAll = ScopeOperatorMultiValuedComparisonTypeVAll
+	_ScopeOperatorMultiValuedComparisonTypePAny = ScopeOperatorMultiValuedComparisonTypeVAny
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // AgentStatus undocumented
-type AgentStatus int
+type AgentStatus string
 
 const (
 	// AgentStatusVActive undocumented
-	AgentStatusVActive AgentStatus = 0
+	AgentStatusVActive AgentStatus = "active"
 	// AgentStatusVInactive undocumented
-	AgentStatusVInactive AgentStatus = 1
+	AgentStatusVInactive AgentStatus = "inactive"
 )
 
-// AgentStatusPActive returns a pointer to AgentStatusVActive
-func AgentStatusPActive() *AgentStatus {
-	v := AgentStatusVActive
-	return &v
-}
+var (
+	// AgentStatusPActive is a pointer to AgentStatusVActive
+	AgentStatusPActive = &_AgentStatusPActive
+	// AgentStatusPInactive is a pointer to AgentStatusVInactive
+	AgentStatusPInactive = &_AgentStatusPInactive
+)
 
-// AgentStatusPInactive returns a pointer to AgentStatusVInactive
-func AgentStatusPInactive() *AgentStatus {
-	v := AgentStatusVInactive
-	return &v
-}
+var (
+	_AgentStatusPActive   = AgentStatusVActive
+	_AgentStatusPInactive = AgentStatusVInactive
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // ContentAlignment undocumented
-type ContentAlignment int
+type ContentAlignment string
 
 const (
 	// ContentAlignmentVLeft undocumented
-	ContentAlignmentVLeft ContentAlignment = 0
+	ContentAlignmentVLeft ContentAlignment = "left"
 	// ContentAlignmentVRight undocumented
-	ContentAlignmentVRight ContentAlignment = 1
+	ContentAlignmentVRight ContentAlignment = "right"
 	// ContentAlignmentVCenter undocumented
-	ContentAlignmentVCenter ContentAlignment = 2
+	ContentAlignmentVCenter ContentAlignment = "center"
 )
 
-// ContentAlignmentPLeft returns a pointer to ContentAlignmentVLeft
-func ContentAlignmentPLeft() *ContentAlignment {
-	v := ContentAlignmentVLeft
-	return &v
-}
+var (
+	// ContentAlignmentPLeft is a pointer to ContentAlignmentVLeft
+	ContentAlignmentPLeft = &_ContentAlignmentPLeft
+	// ContentAlignmentPRight is a pointer to ContentAlignmentVRight
+	ContentAlignmentPRight = &_ContentAlignmentPRight
+	// ContentAlignmentPCenter is a pointer to ContentAlignmentVCenter
+	ContentAlignmentPCenter = &_ContentAlignmentPCenter
+)
 
-// ContentAlignmentPRight returns a pointer to ContentAlignmentVRight
-func ContentAlignmentPRight() *ContentAlignment {
-	v := ContentAlignmentVRight
-	return &v
-}
-
-// ContentAlignmentPCenter returns a pointer to ContentAlignmentVCenter
-func ContentAlignmentPCenter() *ContentAlignment {
-	v := ContentAlignmentVCenter
-	return &v
-}
+var (
+	_ContentAlignmentPLeft   = ContentAlignmentVLeft
+	_ContentAlignmentPRight  = ContentAlignmentVRight
+	_ContentAlignmentPCenter = ContentAlignmentVCenter
+)

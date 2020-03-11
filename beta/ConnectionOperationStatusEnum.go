@@ -3,39 +3,33 @@
 package msgraph
 
 // ConnectionOperationStatus undocumented
-type ConnectionOperationStatus int
+type ConnectionOperationStatus string
 
 const (
 	// ConnectionOperationStatusVUnspecified undocumented
-	ConnectionOperationStatusVUnspecified ConnectionOperationStatus = 0
+	ConnectionOperationStatusVUnspecified ConnectionOperationStatus = "unspecified"
 	// ConnectionOperationStatusVInprogress undocumented
-	ConnectionOperationStatusVInprogress ConnectionOperationStatus = 1
+	ConnectionOperationStatusVInprogress ConnectionOperationStatus = "inprogress"
 	// ConnectionOperationStatusVCompleted undocumented
-	ConnectionOperationStatusVCompleted ConnectionOperationStatus = 2
+	ConnectionOperationStatusVCompleted ConnectionOperationStatus = "completed"
 	// ConnectionOperationStatusVFailed undocumented
-	ConnectionOperationStatusVFailed ConnectionOperationStatus = 3
+	ConnectionOperationStatusVFailed ConnectionOperationStatus = "failed"
 )
 
-// ConnectionOperationStatusPUnspecified returns a pointer to ConnectionOperationStatusVUnspecified
-func ConnectionOperationStatusPUnspecified() *ConnectionOperationStatus {
-	v := ConnectionOperationStatusVUnspecified
-	return &v
-}
+var (
+	// ConnectionOperationStatusPUnspecified is a pointer to ConnectionOperationStatusVUnspecified
+	ConnectionOperationStatusPUnspecified = &_ConnectionOperationStatusPUnspecified
+	// ConnectionOperationStatusPInprogress is a pointer to ConnectionOperationStatusVInprogress
+	ConnectionOperationStatusPInprogress = &_ConnectionOperationStatusPInprogress
+	// ConnectionOperationStatusPCompleted is a pointer to ConnectionOperationStatusVCompleted
+	ConnectionOperationStatusPCompleted = &_ConnectionOperationStatusPCompleted
+	// ConnectionOperationStatusPFailed is a pointer to ConnectionOperationStatusVFailed
+	ConnectionOperationStatusPFailed = &_ConnectionOperationStatusPFailed
+)
 
-// ConnectionOperationStatusPInprogress returns a pointer to ConnectionOperationStatusVInprogress
-func ConnectionOperationStatusPInprogress() *ConnectionOperationStatus {
-	v := ConnectionOperationStatusVInprogress
-	return &v
-}
-
-// ConnectionOperationStatusPCompleted returns a pointer to ConnectionOperationStatusVCompleted
-func ConnectionOperationStatusPCompleted() *ConnectionOperationStatus {
-	v := ConnectionOperationStatusVCompleted
-	return &v
-}
-
-// ConnectionOperationStatusPFailed returns a pointer to ConnectionOperationStatusVFailed
-func ConnectionOperationStatusPFailed() *ConnectionOperationStatus {
-	v := ConnectionOperationStatusVFailed
-	return &v
-}
+var (
+	_ConnectionOperationStatusPUnspecified = ConnectionOperationStatusVUnspecified
+	_ConnectionOperationStatusPInprogress  = ConnectionOperationStatusVInprogress
+	_ConnectionOperationStatusPCompleted   = ConnectionOperationStatusVCompleted
+	_ConnectionOperationStatusPFailed      = ConnectionOperationStatusVFailed
+)

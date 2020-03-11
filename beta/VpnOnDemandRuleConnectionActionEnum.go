@@ -3,39 +3,33 @@
 package msgraph
 
 // VpnOnDemandRuleConnectionAction undocumented
-type VpnOnDemandRuleConnectionAction int
+type VpnOnDemandRuleConnectionAction string
 
 const (
 	// VpnOnDemandRuleConnectionActionVConnect undocumented
-	VpnOnDemandRuleConnectionActionVConnect VpnOnDemandRuleConnectionAction = 0
+	VpnOnDemandRuleConnectionActionVConnect VpnOnDemandRuleConnectionAction = "connect"
 	// VpnOnDemandRuleConnectionActionVEvaluateConnection undocumented
-	VpnOnDemandRuleConnectionActionVEvaluateConnection VpnOnDemandRuleConnectionAction = 1
+	VpnOnDemandRuleConnectionActionVEvaluateConnection VpnOnDemandRuleConnectionAction = "evaluateConnection"
 	// VpnOnDemandRuleConnectionActionVIgnore undocumented
-	VpnOnDemandRuleConnectionActionVIgnore VpnOnDemandRuleConnectionAction = 2
+	VpnOnDemandRuleConnectionActionVIgnore VpnOnDemandRuleConnectionAction = "ignore"
 	// VpnOnDemandRuleConnectionActionVDisconnect undocumented
-	VpnOnDemandRuleConnectionActionVDisconnect VpnOnDemandRuleConnectionAction = 3
+	VpnOnDemandRuleConnectionActionVDisconnect VpnOnDemandRuleConnectionAction = "disconnect"
 )
 
-// VpnOnDemandRuleConnectionActionPConnect returns a pointer to VpnOnDemandRuleConnectionActionVConnect
-func VpnOnDemandRuleConnectionActionPConnect() *VpnOnDemandRuleConnectionAction {
-	v := VpnOnDemandRuleConnectionActionVConnect
-	return &v
-}
+var (
+	// VpnOnDemandRuleConnectionActionPConnect is a pointer to VpnOnDemandRuleConnectionActionVConnect
+	VpnOnDemandRuleConnectionActionPConnect = &_VpnOnDemandRuleConnectionActionPConnect
+	// VpnOnDemandRuleConnectionActionPEvaluateConnection is a pointer to VpnOnDemandRuleConnectionActionVEvaluateConnection
+	VpnOnDemandRuleConnectionActionPEvaluateConnection = &_VpnOnDemandRuleConnectionActionPEvaluateConnection
+	// VpnOnDemandRuleConnectionActionPIgnore is a pointer to VpnOnDemandRuleConnectionActionVIgnore
+	VpnOnDemandRuleConnectionActionPIgnore = &_VpnOnDemandRuleConnectionActionPIgnore
+	// VpnOnDemandRuleConnectionActionPDisconnect is a pointer to VpnOnDemandRuleConnectionActionVDisconnect
+	VpnOnDemandRuleConnectionActionPDisconnect = &_VpnOnDemandRuleConnectionActionPDisconnect
+)
 
-// VpnOnDemandRuleConnectionActionPEvaluateConnection returns a pointer to VpnOnDemandRuleConnectionActionVEvaluateConnection
-func VpnOnDemandRuleConnectionActionPEvaluateConnection() *VpnOnDemandRuleConnectionAction {
-	v := VpnOnDemandRuleConnectionActionVEvaluateConnection
-	return &v
-}
-
-// VpnOnDemandRuleConnectionActionPIgnore returns a pointer to VpnOnDemandRuleConnectionActionVIgnore
-func VpnOnDemandRuleConnectionActionPIgnore() *VpnOnDemandRuleConnectionAction {
-	v := VpnOnDemandRuleConnectionActionVIgnore
-	return &v
-}
-
-// VpnOnDemandRuleConnectionActionPDisconnect returns a pointer to VpnOnDemandRuleConnectionActionVDisconnect
-func VpnOnDemandRuleConnectionActionPDisconnect() *VpnOnDemandRuleConnectionAction {
-	v := VpnOnDemandRuleConnectionActionVDisconnect
-	return &v
-}
+var (
+	_VpnOnDemandRuleConnectionActionPConnect            = VpnOnDemandRuleConnectionActionVConnect
+	_VpnOnDemandRuleConnectionActionPEvaluateConnection = VpnOnDemandRuleConnectionActionVEvaluateConnection
+	_VpnOnDemandRuleConnectionActionPIgnore             = VpnOnDemandRuleConnectionActionVIgnore
+	_VpnOnDemandRuleConnectionActionPDisconnect         = VpnOnDemandRuleConnectionActionVDisconnect
+)

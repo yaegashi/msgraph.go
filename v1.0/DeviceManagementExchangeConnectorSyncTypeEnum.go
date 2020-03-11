@@ -3,23 +3,23 @@
 package msgraph
 
 // DeviceManagementExchangeConnectorSyncType undocumented
-type DeviceManagementExchangeConnectorSyncType int
+type DeviceManagementExchangeConnectorSyncType string
 
 const (
 	// DeviceManagementExchangeConnectorSyncTypeVFullSync undocumented
-	DeviceManagementExchangeConnectorSyncTypeVFullSync DeviceManagementExchangeConnectorSyncType = 0
+	DeviceManagementExchangeConnectorSyncTypeVFullSync DeviceManagementExchangeConnectorSyncType = "fullSync"
 	// DeviceManagementExchangeConnectorSyncTypeVDeltaSync undocumented
-	DeviceManagementExchangeConnectorSyncTypeVDeltaSync DeviceManagementExchangeConnectorSyncType = 1
+	DeviceManagementExchangeConnectorSyncTypeVDeltaSync DeviceManagementExchangeConnectorSyncType = "deltaSync"
 )
 
-// DeviceManagementExchangeConnectorSyncTypePFullSync returns a pointer to DeviceManagementExchangeConnectorSyncTypeVFullSync
-func DeviceManagementExchangeConnectorSyncTypePFullSync() *DeviceManagementExchangeConnectorSyncType {
-	v := DeviceManagementExchangeConnectorSyncTypeVFullSync
-	return &v
-}
+var (
+	// DeviceManagementExchangeConnectorSyncTypePFullSync is a pointer to DeviceManagementExchangeConnectorSyncTypeVFullSync
+	DeviceManagementExchangeConnectorSyncTypePFullSync = &_DeviceManagementExchangeConnectorSyncTypePFullSync
+	// DeviceManagementExchangeConnectorSyncTypePDeltaSync is a pointer to DeviceManagementExchangeConnectorSyncTypeVDeltaSync
+	DeviceManagementExchangeConnectorSyncTypePDeltaSync = &_DeviceManagementExchangeConnectorSyncTypePDeltaSync
+)
 
-// DeviceManagementExchangeConnectorSyncTypePDeltaSync returns a pointer to DeviceManagementExchangeConnectorSyncTypeVDeltaSync
-func DeviceManagementExchangeConnectorSyncTypePDeltaSync() *DeviceManagementExchangeConnectorSyncType {
-	v := DeviceManagementExchangeConnectorSyncTypeVDeltaSync
-	return &v
-}
+var (
+	_DeviceManagementExchangeConnectorSyncTypePFullSync  = DeviceManagementExchangeConnectorSyncTypeVFullSync
+	_DeviceManagementExchangeConnectorSyncTypePDeltaSync = DeviceManagementExchangeConnectorSyncTypeVDeltaSync
+)

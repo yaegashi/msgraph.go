@@ -3,47 +3,38 @@
 package msgraph
 
 // DeviceManagementReportStatus undocumented
-type DeviceManagementReportStatus int
+type DeviceManagementReportStatus string
 
 const (
 	// DeviceManagementReportStatusVUnknown undocumented
-	DeviceManagementReportStatusVUnknown DeviceManagementReportStatus = 0
+	DeviceManagementReportStatusVUnknown DeviceManagementReportStatus = "unknown"
 	// DeviceManagementReportStatusVNotStarted undocumented
-	DeviceManagementReportStatusVNotStarted DeviceManagementReportStatus = 1
+	DeviceManagementReportStatusVNotStarted DeviceManagementReportStatus = "notStarted"
 	// DeviceManagementReportStatusVInProgress undocumented
-	DeviceManagementReportStatusVInProgress DeviceManagementReportStatus = 2
+	DeviceManagementReportStatusVInProgress DeviceManagementReportStatus = "inProgress"
 	// DeviceManagementReportStatusVCompleted undocumented
-	DeviceManagementReportStatusVCompleted DeviceManagementReportStatus = 3
+	DeviceManagementReportStatusVCompleted DeviceManagementReportStatus = "completed"
 	// DeviceManagementReportStatusVFailed undocumented
-	DeviceManagementReportStatusVFailed DeviceManagementReportStatus = 4
+	DeviceManagementReportStatusVFailed DeviceManagementReportStatus = "failed"
 )
 
-// DeviceManagementReportStatusPUnknown returns a pointer to DeviceManagementReportStatusVUnknown
-func DeviceManagementReportStatusPUnknown() *DeviceManagementReportStatus {
-	v := DeviceManagementReportStatusVUnknown
-	return &v
-}
+var (
+	// DeviceManagementReportStatusPUnknown is a pointer to DeviceManagementReportStatusVUnknown
+	DeviceManagementReportStatusPUnknown = &_DeviceManagementReportStatusPUnknown
+	// DeviceManagementReportStatusPNotStarted is a pointer to DeviceManagementReportStatusVNotStarted
+	DeviceManagementReportStatusPNotStarted = &_DeviceManagementReportStatusPNotStarted
+	// DeviceManagementReportStatusPInProgress is a pointer to DeviceManagementReportStatusVInProgress
+	DeviceManagementReportStatusPInProgress = &_DeviceManagementReportStatusPInProgress
+	// DeviceManagementReportStatusPCompleted is a pointer to DeviceManagementReportStatusVCompleted
+	DeviceManagementReportStatusPCompleted = &_DeviceManagementReportStatusPCompleted
+	// DeviceManagementReportStatusPFailed is a pointer to DeviceManagementReportStatusVFailed
+	DeviceManagementReportStatusPFailed = &_DeviceManagementReportStatusPFailed
+)
 
-// DeviceManagementReportStatusPNotStarted returns a pointer to DeviceManagementReportStatusVNotStarted
-func DeviceManagementReportStatusPNotStarted() *DeviceManagementReportStatus {
-	v := DeviceManagementReportStatusVNotStarted
-	return &v
-}
-
-// DeviceManagementReportStatusPInProgress returns a pointer to DeviceManagementReportStatusVInProgress
-func DeviceManagementReportStatusPInProgress() *DeviceManagementReportStatus {
-	v := DeviceManagementReportStatusVInProgress
-	return &v
-}
-
-// DeviceManagementReportStatusPCompleted returns a pointer to DeviceManagementReportStatusVCompleted
-func DeviceManagementReportStatusPCompleted() *DeviceManagementReportStatus {
-	v := DeviceManagementReportStatusVCompleted
-	return &v
-}
-
-// DeviceManagementReportStatusPFailed returns a pointer to DeviceManagementReportStatusVFailed
-func DeviceManagementReportStatusPFailed() *DeviceManagementReportStatus {
-	v := DeviceManagementReportStatusVFailed
-	return &v
-}
+var (
+	_DeviceManagementReportStatusPUnknown    = DeviceManagementReportStatusVUnknown
+	_DeviceManagementReportStatusPNotStarted = DeviceManagementReportStatusVNotStarted
+	_DeviceManagementReportStatusPInProgress = DeviceManagementReportStatusVInProgress
+	_DeviceManagementReportStatusPCompleted  = DeviceManagementReportStatusVCompleted
+	_DeviceManagementReportStatusPFailed     = DeviceManagementReportStatusVFailed
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // ConditionalAccessStatus undocumented
-type ConditionalAccessStatus int
+type ConditionalAccessStatus string
 
 const (
 	// ConditionalAccessStatusVSuccess undocumented
-	ConditionalAccessStatusVSuccess ConditionalAccessStatus = 0
+	ConditionalAccessStatusVSuccess ConditionalAccessStatus = "success"
 	// ConditionalAccessStatusVFailure undocumented
-	ConditionalAccessStatusVFailure ConditionalAccessStatus = 1
+	ConditionalAccessStatusVFailure ConditionalAccessStatus = "failure"
 	// ConditionalAccessStatusVNotApplied undocumented
-	ConditionalAccessStatusVNotApplied ConditionalAccessStatus = 2
+	ConditionalAccessStatusVNotApplied ConditionalAccessStatus = "notApplied"
 	// ConditionalAccessStatusVUnknownFutureValue undocumented
-	ConditionalAccessStatusVUnknownFutureValue ConditionalAccessStatus = 3
+	ConditionalAccessStatusVUnknownFutureValue ConditionalAccessStatus = "unknownFutureValue"
 )
 
-// ConditionalAccessStatusPSuccess returns a pointer to ConditionalAccessStatusVSuccess
-func ConditionalAccessStatusPSuccess() *ConditionalAccessStatus {
-	v := ConditionalAccessStatusVSuccess
-	return &v
-}
+var (
+	// ConditionalAccessStatusPSuccess is a pointer to ConditionalAccessStatusVSuccess
+	ConditionalAccessStatusPSuccess = &_ConditionalAccessStatusPSuccess
+	// ConditionalAccessStatusPFailure is a pointer to ConditionalAccessStatusVFailure
+	ConditionalAccessStatusPFailure = &_ConditionalAccessStatusPFailure
+	// ConditionalAccessStatusPNotApplied is a pointer to ConditionalAccessStatusVNotApplied
+	ConditionalAccessStatusPNotApplied = &_ConditionalAccessStatusPNotApplied
+	// ConditionalAccessStatusPUnknownFutureValue is a pointer to ConditionalAccessStatusVUnknownFutureValue
+	ConditionalAccessStatusPUnknownFutureValue = &_ConditionalAccessStatusPUnknownFutureValue
+)
 
-// ConditionalAccessStatusPFailure returns a pointer to ConditionalAccessStatusVFailure
-func ConditionalAccessStatusPFailure() *ConditionalAccessStatus {
-	v := ConditionalAccessStatusVFailure
-	return &v
-}
-
-// ConditionalAccessStatusPNotApplied returns a pointer to ConditionalAccessStatusVNotApplied
-func ConditionalAccessStatusPNotApplied() *ConditionalAccessStatus {
-	v := ConditionalAccessStatusVNotApplied
-	return &v
-}
-
-// ConditionalAccessStatusPUnknownFutureValue returns a pointer to ConditionalAccessStatusVUnknownFutureValue
-func ConditionalAccessStatusPUnknownFutureValue() *ConditionalAccessStatus {
-	v := ConditionalAccessStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_ConditionalAccessStatusPSuccess            = ConditionalAccessStatusVSuccess
+	_ConditionalAccessStatusPFailure            = ConditionalAccessStatusVFailure
+	_ConditionalAccessStatusPNotApplied         = ConditionalAccessStatusVNotApplied
+	_ConditionalAccessStatusPUnknownFutureValue = ConditionalAccessStatusVUnknownFutureValue
+)

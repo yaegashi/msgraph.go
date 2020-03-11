@@ -3,71 +3,53 @@
 package msgraph
 
 // SetupStatus undocumented
-type SetupStatus int
+type SetupStatus string
 
 const (
 	// SetupStatusVUnknown undocumented
-	SetupStatusVUnknown SetupStatus = 0
+	SetupStatusVUnknown SetupStatus = "unknown"
 	// SetupStatusVNotRegisteredYet undocumented
-	SetupStatusVNotRegisteredYet SetupStatus = 1
+	SetupStatusVNotRegisteredYet SetupStatus = "notRegisteredYet"
 	// SetupStatusVRegisteredSetupNotStarted undocumented
-	SetupStatusVRegisteredSetupNotStarted SetupStatus = 2
+	SetupStatusVRegisteredSetupNotStarted SetupStatus = "registeredSetupNotStarted"
 	// SetupStatusVRegisteredSetupInProgress undocumented
-	SetupStatusVRegisteredSetupInProgress SetupStatus = 3
+	SetupStatusVRegisteredSetupInProgress SetupStatus = "registeredSetupInProgress"
 	// SetupStatusVRegistrationAndSetupCompleted undocumented
-	SetupStatusVRegistrationAndSetupCompleted SetupStatus = 4
+	SetupStatusVRegistrationAndSetupCompleted SetupStatus = "registrationAndSetupCompleted"
 	// SetupStatusVRegistrationFailed undocumented
-	SetupStatusVRegistrationFailed SetupStatus = 5
+	SetupStatusVRegistrationFailed SetupStatus = "registrationFailed"
 	// SetupStatusVRegistrationTimedOut undocumented
-	SetupStatusVRegistrationTimedOut SetupStatus = 6
+	SetupStatusVRegistrationTimedOut SetupStatus = "registrationTimedOut"
 	// SetupStatusVDisabled undocumented
-	SetupStatusVDisabled SetupStatus = 7
+	SetupStatusVDisabled SetupStatus = "disabled"
 )
 
-// SetupStatusPUnknown returns a pointer to SetupStatusVUnknown
-func SetupStatusPUnknown() *SetupStatus {
-	v := SetupStatusVUnknown
-	return &v
-}
+var (
+	// SetupStatusPUnknown is a pointer to SetupStatusVUnknown
+	SetupStatusPUnknown = &_SetupStatusPUnknown
+	// SetupStatusPNotRegisteredYet is a pointer to SetupStatusVNotRegisteredYet
+	SetupStatusPNotRegisteredYet = &_SetupStatusPNotRegisteredYet
+	// SetupStatusPRegisteredSetupNotStarted is a pointer to SetupStatusVRegisteredSetupNotStarted
+	SetupStatusPRegisteredSetupNotStarted = &_SetupStatusPRegisteredSetupNotStarted
+	// SetupStatusPRegisteredSetupInProgress is a pointer to SetupStatusVRegisteredSetupInProgress
+	SetupStatusPRegisteredSetupInProgress = &_SetupStatusPRegisteredSetupInProgress
+	// SetupStatusPRegistrationAndSetupCompleted is a pointer to SetupStatusVRegistrationAndSetupCompleted
+	SetupStatusPRegistrationAndSetupCompleted = &_SetupStatusPRegistrationAndSetupCompleted
+	// SetupStatusPRegistrationFailed is a pointer to SetupStatusVRegistrationFailed
+	SetupStatusPRegistrationFailed = &_SetupStatusPRegistrationFailed
+	// SetupStatusPRegistrationTimedOut is a pointer to SetupStatusVRegistrationTimedOut
+	SetupStatusPRegistrationTimedOut = &_SetupStatusPRegistrationTimedOut
+	// SetupStatusPDisabled is a pointer to SetupStatusVDisabled
+	SetupStatusPDisabled = &_SetupStatusPDisabled
+)
 
-// SetupStatusPNotRegisteredYet returns a pointer to SetupStatusVNotRegisteredYet
-func SetupStatusPNotRegisteredYet() *SetupStatus {
-	v := SetupStatusVNotRegisteredYet
-	return &v
-}
-
-// SetupStatusPRegisteredSetupNotStarted returns a pointer to SetupStatusVRegisteredSetupNotStarted
-func SetupStatusPRegisteredSetupNotStarted() *SetupStatus {
-	v := SetupStatusVRegisteredSetupNotStarted
-	return &v
-}
-
-// SetupStatusPRegisteredSetupInProgress returns a pointer to SetupStatusVRegisteredSetupInProgress
-func SetupStatusPRegisteredSetupInProgress() *SetupStatus {
-	v := SetupStatusVRegisteredSetupInProgress
-	return &v
-}
-
-// SetupStatusPRegistrationAndSetupCompleted returns a pointer to SetupStatusVRegistrationAndSetupCompleted
-func SetupStatusPRegistrationAndSetupCompleted() *SetupStatus {
-	v := SetupStatusVRegistrationAndSetupCompleted
-	return &v
-}
-
-// SetupStatusPRegistrationFailed returns a pointer to SetupStatusVRegistrationFailed
-func SetupStatusPRegistrationFailed() *SetupStatus {
-	v := SetupStatusVRegistrationFailed
-	return &v
-}
-
-// SetupStatusPRegistrationTimedOut returns a pointer to SetupStatusVRegistrationTimedOut
-func SetupStatusPRegistrationTimedOut() *SetupStatus {
-	v := SetupStatusVRegistrationTimedOut
-	return &v
-}
-
-// SetupStatusPDisabled returns a pointer to SetupStatusVDisabled
-func SetupStatusPDisabled() *SetupStatus {
-	v := SetupStatusVDisabled
-	return &v
-}
+var (
+	_SetupStatusPUnknown                       = SetupStatusVUnknown
+	_SetupStatusPNotRegisteredYet              = SetupStatusVNotRegisteredYet
+	_SetupStatusPRegisteredSetupNotStarted     = SetupStatusVRegisteredSetupNotStarted
+	_SetupStatusPRegisteredSetupInProgress     = SetupStatusVRegisteredSetupInProgress
+	_SetupStatusPRegistrationAndSetupCompleted = SetupStatusVRegistrationAndSetupCompleted
+	_SetupStatusPRegistrationFailed            = SetupStatusVRegistrationFailed
+	_SetupStatusPRegistrationTimedOut          = SetupStatusVRegistrationTimedOut
+	_SetupStatusPDisabled                      = SetupStatusVDisabled
+)

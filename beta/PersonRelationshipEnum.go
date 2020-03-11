@@ -3,135 +3,93 @@
 package msgraph
 
 // PersonRelationship undocumented
-type PersonRelationship int
+type PersonRelationship string
 
 const (
 	// PersonRelationshipVManager undocumented
-	PersonRelationshipVManager PersonRelationship = 0
+	PersonRelationshipVManager PersonRelationship = "manager"
 	// PersonRelationshipVColleague undocumented
-	PersonRelationshipVColleague PersonRelationship = 1
+	PersonRelationshipVColleague PersonRelationship = "colleague"
 	// PersonRelationshipVDirectReport undocumented
-	PersonRelationshipVDirectReport PersonRelationship = 2
+	PersonRelationshipVDirectReport PersonRelationship = "directReport"
 	// PersonRelationshipVDotLineReport undocumented
-	PersonRelationshipVDotLineReport PersonRelationship = 3
+	PersonRelationshipVDotLineReport PersonRelationship = "dotLineReport"
 	// PersonRelationshipVAssistant undocumented
-	PersonRelationshipVAssistant PersonRelationship = 4
+	PersonRelationshipVAssistant PersonRelationship = "assistant"
 	// PersonRelationshipVDotLineManager undocumented
-	PersonRelationshipVDotLineManager PersonRelationship = 5
+	PersonRelationshipVDotLineManager PersonRelationship = "dotLineManager"
 	// PersonRelationshipVAlternateContact undocumented
-	PersonRelationshipVAlternateContact PersonRelationship = 6
+	PersonRelationshipVAlternateContact PersonRelationship = "alternateContact"
 	// PersonRelationshipVFriend undocumented
-	PersonRelationshipVFriend PersonRelationship = 7
+	PersonRelationshipVFriend PersonRelationship = "friend"
 	// PersonRelationshipVSpouse undocumented
-	PersonRelationshipVSpouse PersonRelationship = 8
+	PersonRelationshipVSpouse PersonRelationship = "spouse"
 	// PersonRelationshipVSibling undocumented
-	PersonRelationshipVSibling PersonRelationship = 9
+	PersonRelationshipVSibling PersonRelationship = "sibling"
 	// PersonRelationshipVChild undocumented
-	PersonRelationshipVChild PersonRelationship = 10
+	PersonRelationshipVChild PersonRelationship = "child"
 	// PersonRelationshipVParent undocumented
-	PersonRelationshipVParent PersonRelationship = 11
+	PersonRelationshipVParent PersonRelationship = "parent"
 	// PersonRelationshipVSponsor undocumented
-	PersonRelationshipVSponsor PersonRelationship = 12
+	PersonRelationshipVSponsor PersonRelationship = "sponsor"
 	// PersonRelationshipVEmergencyContact undocumented
-	PersonRelationshipVEmergencyContact PersonRelationship = 13
+	PersonRelationshipVEmergencyContact PersonRelationship = "emergencyContact"
 	// PersonRelationshipVOther undocumented
-	PersonRelationshipVOther PersonRelationship = 14
+	PersonRelationshipVOther PersonRelationship = "other"
 	// PersonRelationshipVUnknownFutureValue undocumented
-	PersonRelationshipVUnknownFutureValue PersonRelationship = 15
+	PersonRelationshipVUnknownFutureValue PersonRelationship = "unknownFutureValue"
 )
 
-// PersonRelationshipPManager returns a pointer to PersonRelationshipVManager
-func PersonRelationshipPManager() *PersonRelationship {
-	v := PersonRelationshipVManager
-	return &v
-}
+var (
+	// PersonRelationshipPManager is a pointer to PersonRelationshipVManager
+	PersonRelationshipPManager = &_PersonRelationshipPManager
+	// PersonRelationshipPColleague is a pointer to PersonRelationshipVColleague
+	PersonRelationshipPColleague = &_PersonRelationshipPColleague
+	// PersonRelationshipPDirectReport is a pointer to PersonRelationshipVDirectReport
+	PersonRelationshipPDirectReport = &_PersonRelationshipPDirectReport
+	// PersonRelationshipPDotLineReport is a pointer to PersonRelationshipVDotLineReport
+	PersonRelationshipPDotLineReport = &_PersonRelationshipPDotLineReport
+	// PersonRelationshipPAssistant is a pointer to PersonRelationshipVAssistant
+	PersonRelationshipPAssistant = &_PersonRelationshipPAssistant
+	// PersonRelationshipPDotLineManager is a pointer to PersonRelationshipVDotLineManager
+	PersonRelationshipPDotLineManager = &_PersonRelationshipPDotLineManager
+	// PersonRelationshipPAlternateContact is a pointer to PersonRelationshipVAlternateContact
+	PersonRelationshipPAlternateContact = &_PersonRelationshipPAlternateContact
+	// PersonRelationshipPFriend is a pointer to PersonRelationshipVFriend
+	PersonRelationshipPFriend = &_PersonRelationshipPFriend
+	// PersonRelationshipPSpouse is a pointer to PersonRelationshipVSpouse
+	PersonRelationshipPSpouse = &_PersonRelationshipPSpouse
+	// PersonRelationshipPSibling is a pointer to PersonRelationshipVSibling
+	PersonRelationshipPSibling = &_PersonRelationshipPSibling
+	// PersonRelationshipPChild is a pointer to PersonRelationshipVChild
+	PersonRelationshipPChild = &_PersonRelationshipPChild
+	// PersonRelationshipPParent is a pointer to PersonRelationshipVParent
+	PersonRelationshipPParent = &_PersonRelationshipPParent
+	// PersonRelationshipPSponsor is a pointer to PersonRelationshipVSponsor
+	PersonRelationshipPSponsor = &_PersonRelationshipPSponsor
+	// PersonRelationshipPEmergencyContact is a pointer to PersonRelationshipVEmergencyContact
+	PersonRelationshipPEmergencyContact = &_PersonRelationshipPEmergencyContact
+	// PersonRelationshipPOther is a pointer to PersonRelationshipVOther
+	PersonRelationshipPOther = &_PersonRelationshipPOther
+	// PersonRelationshipPUnknownFutureValue is a pointer to PersonRelationshipVUnknownFutureValue
+	PersonRelationshipPUnknownFutureValue = &_PersonRelationshipPUnknownFutureValue
+)
 
-// PersonRelationshipPColleague returns a pointer to PersonRelationshipVColleague
-func PersonRelationshipPColleague() *PersonRelationship {
-	v := PersonRelationshipVColleague
-	return &v
-}
-
-// PersonRelationshipPDirectReport returns a pointer to PersonRelationshipVDirectReport
-func PersonRelationshipPDirectReport() *PersonRelationship {
-	v := PersonRelationshipVDirectReport
-	return &v
-}
-
-// PersonRelationshipPDotLineReport returns a pointer to PersonRelationshipVDotLineReport
-func PersonRelationshipPDotLineReport() *PersonRelationship {
-	v := PersonRelationshipVDotLineReport
-	return &v
-}
-
-// PersonRelationshipPAssistant returns a pointer to PersonRelationshipVAssistant
-func PersonRelationshipPAssistant() *PersonRelationship {
-	v := PersonRelationshipVAssistant
-	return &v
-}
-
-// PersonRelationshipPDotLineManager returns a pointer to PersonRelationshipVDotLineManager
-func PersonRelationshipPDotLineManager() *PersonRelationship {
-	v := PersonRelationshipVDotLineManager
-	return &v
-}
-
-// PersonRelationshipPAlternateContact returns a pointer to PersonRelationshipVAlternateContact
-func PersonRelationshipPAlternateContact() *PersonRelationship {
-	v := PersonRelationshipVAlternateContact
-	return &v
-}
-
-// PersonRelationshipPFriend returns a pointer to PersonRelationshipVFriend
-func PersonRelationshipPFriend() *PersonRelationship {
-	v := PersonRelationshipVFriend
-	return &v
-}
-
-// PersonRelationshipPSpouse returns a pointer to PersonRelationshipVSpouse
-func PersonRelationshipPSpouse() *PersonRelationship {
-	v := PersonRelationshipVSpouse
-	return &v
-}
-
-// PersonRelationshipPSibling returns a pointer to PersonRelationshipVSibling
-func PersonRelationshipPSibling() *PersonRelationship {
-	v := PersonRelationshipVSibling
-	return &v
-}
-
-// PersonRelationshipPChild returns a pointer to PersonRelationshipVChild
-func PersonRelationshipPChild() *PersonRelationship {
-	v := PersonRelationshipVChild
-	return &v
-}
-
-// PersonRelationshipPParent returns a pointer to PersonRelationshipVParent
-func PersonRelationshipPParent() *PersonRelationship {
-	v := PersonRelationshipVParent
-	return &v
-}
-
-// PersonRelationshipPSponsor returns a pointer to PersonRelationshipVSponsor
-func PersonRelationshipPSponsor() *PersonRelationship {
-	v := PersonRelationshipVSponsor
-	return &v
-}
-
-// PersonRelationshipPEmergencyContact returns a pointer to PersonRelationshipVEmergencyContact
-func PersonRelationshipPEmergencyContact() *PersonRelationship {
-	v := PersonRelationshipVEmergencyContact
-	return &v
-}
-
-// PersonRelationshipPOther returns a pointer to PersonRelationshipVOther
-func PersonRelationshipPOther() *PersonRelationship {
-	v := PersonRelationshipVOther
-	return &v
-}
-
-// PersonRelationshipPUnknownFutureValue returns a pointer to PersonRelationshipVUnknownFutureValue
-func PersonRelationshipPUnknownFutureValue() *PersonRelationship {
-	v := PersonRelationshipVUnknownFutureValue
-	return &v
-}
+var (
+	_PersonRelationshipPManager            = PersonRelationshipVManager
+	_PersonRelationshipPColleague          = PersonRelationshipVColleague
+	_PersonRelationshipPDirectReport       = PersonRelationshipVDirectReport
+	_PersonRelationshipPDotLineReport      = PersonRelationshipVDotLineReport
+	_PersonRelationshipPAssistant          = PersonRelationshipVAssistant
+	_PersonRelationshipPDotLineManager     = PersonRelationshipVDotLineManager
+	_PersonRelationshipPAlternateContact   = PersonRelationshipVAlternateContact
+	_PersonRelationshipPFriend             = PersonRelationshipVFriend
+	_PersonRelationshipPSpouse             = PersonRelationshipVSpouse
+	_PersonRelationshipPSibling            = PersonRelationshipVSibling
+	_PersonRelationshipPChild              = PersonRelationshipVChild
+	_PersonRelationshipPParent             = PersonRelationshipVParent
+	_PersonRelationshipPSponsor            = PersonRelationshipVSponsor
+	_PersonRelationshipPEmergencyContact   = PersonRelationshipVEmergencyContact
+	_PersonRelationshipPOther              = PersonRelationshipVOther
+	_PersonRelationshipPUnknownFutureValue = PersonRelationshipVUnknownFutureValue
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // ManagedAppNotificationRestriction undocumented
-type ManagedAppNotificationRestriction int
+type ManagedAppNotificationRestriction string
 
 const (
 	// ManagedAppNotificationRestrictionVAllow undocumented
-	ManagedAppNotificationRestrictionVAllow ManagedAppNotificationRestriction = 0
+	ManagedAppNotificationRestrictionVAllow ManagedAppNotificationRestriction = "allow"
 	// ManagedAppNotificationRestrictionVBlockOrganizationalData undocumented
-	ManagedAppNotificationRestrictionVBlockOrganizationalData ManagedAppNotificationRestriction = 1
+	ManagedAppNotificationRestrictionVBlockOrganizationalData ManagedAppNotificationRestriction = "blockOrganizationalData"
 	// ManagedAppNotificationRestrictionVBlock undocumented
-	ManagedAppNotificationRestrictionVBlock ManagedAppNotificationRestriction = 2
+	ManagedAppNotificationRestrictionVBlock ManagedAppNotificationRestriction = "block"
 )
 
-// ManagedAppNotificationRestrictionPAllow returns a pointer to ManagedAppNotificationRestrictionVAllow
-func ManagedAppNotificationRestrictionPAllow() *ManagedAppNotificationRestriction {
-	v := ManagedAppNotificationRestrictionVAllow
-	return &v
-}
+var (
+	// ManagedAppNotificationRestrictionPAllow is a pointer to ManagedAppNotificationRestrictionVAllow
+	ManagedAppNotificationRestrictionPAllow = &_ManagedAppNotificationRestrictionPAllow
+	// ManagedAppNotificationRestrictionPBlockOrganizationalData is a pointer to ManagedAppNotificationRestrictionVBlockOrganizationalData
+	ManagedAppNotificationRestrictionPBlockOrganizationalData = &_ManagedAppNotificationRestrictionPBlockOrganizationalData
+	// ManagedAppNotificationRestrictionPBlock is a pointer to ManagedAppNotificationRestrictionVBlock
+	ManagedAppNotificationRestrictionPBlock = &_ManagedAppNotificationRestrictionPBlock
+)
 
-// ManagedAppNotificationRestrictionPBlockOrganizationalData returns a pointer to ManagedAppNotificationRestrictionVBlockOrganizationalData
-func ManagedAppNotificationRestrictionPBlockOrganizationalData() *ManagedAppNotificationRestriction {
-	v := ManagedAppNotificationRestrictionVBlockOrganizationalData
-	return &v
-}
-
-// ManagedAppNotificationRestrictionPBlock returns a pointer to ManagedAppNotificationRestrictionVBlock
-func ManagedAppNotificationRestrictionPBlock() *ManagedAppNotificationRestriction {
-	v := ManagedAppNotificationRestrictionVBlock
-	return &v
-}
+var (
+	_ManagedAppNotificationRestrictionPAllow                   = ManagedAppNotificationRestrictionVAllow
+	_ManagedAppNotificationRestrictionPBlockOrganizationalData = ManagedAppNotificationRestrictionVBlockOrganizationalData
+	_ManagedAppNotificationRestrictionPBlock                   = ManagedAppNotificationRestrictionVBlock
+)

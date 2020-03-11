@@ -3,55 +3,43 @@
 package msgraph
 
 // ResponseType undocumented
-type ResponseType int
+type ResponseType string
 
 const (
 	// ResponseTypeVNone undocumented
-	ResponseTypeVNone ResponseType = 0
+	ResponseTypeVNone ResponseType = "none"
 	// ResponseTypeVOrganizer undocumented
-	ResponseTypeVOrganizer ResponseType = 1
+	ResponseTypeVOrganizer ResponseType = "organizer"
 	// ResponseTypeVTentativelyAccepted undocumented
-	ResponseTypeVTentativelyAccepted ResponseType = 2
+	ResponseTypeVTentativelyAccepted ResponseType = "tentativelyAccepted"
 	// ResponseTypeVAccepted undocumented
-	ResponseTypeVAccepted ResponseType = 3
+	ResponseTypeVAccepted ResponseType = "accepted"
 	// ResponseTypeVDeclined undocumented
-	ResponseTypeVDeclined ResponseType = 4
+	ResponseTypeVDeclined ResponseType = "declined"
 	// ResponseTypeVNotResponded undocumented
-	ResponseTypeVNotResponded ResponseType = 5
+	ResponseTypeVNotResponded ResponseType = "notResponded"
 )
 
-// ResponseTypePNone returns a pointer to ResponseTypeVNone
-func ResponseTypePNone() *ResponseType {
-	v := ResponseTypeVNone
-	return &v
-}
+var (
+	// ResponseTypePNone is a pointer to ResponseTypeVNone
+	ResponseTypePNone = &_ResponseTypePNone
+	// ResponseTypePOrganizer is a pointer to ResponseTypeVOrganizer
+	ResponseTypePOrganizer = &_ResponseTypePOrganizer
+	// ResponseTypePTentativelyAccepted is a pointer to ResponseTypeVTentativelyAccepted
+	ResponseTypePTentativelyAccepted = &_ResponseTypePTentativelyAccepted
+	// ResponseTypePAccepted is a pointer to ResponseTypeVAccepted
+	ResponseTypePAccepted = &_ResponseTypePAccepted
+	// ResponseTypePDeclined is a pointer to ResponseTypeVDeclined
+	ResponseTypePDeclined = &_ResponseTypePDeclined
+	// ResponseTypePNotResponded is a pointer to ResponseTypeVNotResponded
+	ResponseTypePNotResponded = &_ResponseTypePNotResponded
+)
 
-// ResponseTypePOrganizer returns a pointer to ResponseTypeVOrganizer
-func ResponseTypePOrganizer() *ResponseType {
-	v := ResponseTypeVOrganizer
-	return &v
-}
-
-// ResponseTypePTentativelyAccepted returns a pointer to ResponseTypeVTentativelyAccepted
-func ResponseTypePTentativelyAccepted() *ResponseType {
-	v := ResponseTypeVTentativelyAccepted
-	return &v
-}
-
-// ResponseTypePAccepted returns a pointer to ResponseTypeVAccepted
-func ResponseTypePAccepted() *ResponseType {
-	v := ResponseTypeVAccepted
-	return &v
-}
-
-// ResponseTypePDeclined returns a pointer to ResponseTypeVDeclined
-func ResponseTypePDeclined() *ResponseType {
-	v := ResponseTypeVDeclined
-	return &v
-}
-
-// ResponseTypePNotResponded returns a pointer to ResponseTypeVNotResponded
-func ResponseTypePNotResponded() *ResponseType {
-	v := ResponseTypeVNotResponded
-	return &v
-}
+var (
+	_ResponseTypePNone                = ResponseTypeVNone
+	_ResponseTypePOrganizer           = ResponseTypeVOrganizer
+	_ResponseTypePTentativelyAccepted = ResponseTypeVTentativelyAccepted
+	_ResponseTypePAccepted            = ResponseTypeVAccepted
+	_ResponseTypePDeclined            = ResponseTypeVDeclined
+	_ResponseTypePNotResponded        = ResponseTypeVNotResponded
+)

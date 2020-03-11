@@ -3,47 +3,38 @@
 package msgraph
 
 // WindowsAppStartLayoutTileSize undocumented
-type WindowsAppStartLayoutTileSize int
+type WindowsAppStartLayoutTileSize string
 
 const (
 	// WindowsAppStartLayoutTileSizeVHidden undocumented
-	WindowsAppStartLayoutTileSizeVHidden WindowsAppStartLayoutTileSize = 0
+	WindowsAppStartLayoutTileSizeVHidden WindowsAppStartLayoutTileSize = "hidden"
 	// WindowsAppStartLayoutTileSizeVSmall undocumented
-	WindowsAppStartLayoutTileSizeVSmall WindowsAppStartLayoutTileSize = 1
+	WindowsAppStartLayoutTileSizeVSmall WindowsAppStartLayoutTileSize = "small"
 	// WindowsAppStartLayoutTileSizeVMedium undocumented
-	WindowsAppStartLayoutTileSizeVMedium WindowsAppStartLayoutTileSize = 2
+	WindowsAppStartLayoutTileSizeVMedium WindowsAppStartLayoutTileSize = "medium"
 	// WindowsAppStartLayoutTileSizeVWide undocumented
-	WindowsAppStartLayoutTileSizeVWide WindowsAppStartLayoutTileSize = 3
+	WindowsAppStartLayoutTileSizeVWide WindowsAppStartLayoutTileSize = "wide"
 	// WindowsAppStartLayoutTileSizeVLarge undocumented
-	WindowsAppStartLayoutTileSizeVLarge WindowsAppStartLayoutTileSize = 4
+	WindowsAppStartLayoutTileSizeVLarge WindowsAppStartLayoutTileSize = "large"
 )
 
-// WindowsAppStartLayoutTileSizePHidden returns a pointer to WindowsAppStartLayoutTileSizeVHidden
-func WindowsAppStartLayoutTileSizePHidden() *WindowsAppStartLayoutTileSize {
-	v := WindowsAppStartLayoutTileSizeVHidden
-	return &v
-}
+var (
+	// WindowsAppStartLayoutTileSizePHidden is a pointer to WindowsAppStartLayoutTileSizeVHidden
+	WindowsAppStartLayoutTileSizePHidden = &_WindowsAppStartLayoutTileSizePHidden
+	// WindowsAppStartLayoutTileSizePSmall is a pointer to WindowsAppStartLayoutTileSizeVSmall
+	WindowsAppStartLayoutTileSizePSmall = &_WindowsAppStartLayoutTileSizePSmall
+	// WindowsAppStartLayoutTileSizePMedium is a pointer to WindowsAppStartLayoutTileSizeVMedium
+	WindowsAppStartLayoutTileSizePMedium = &_WindowsAppStartLayoutTileSizePMedium
+	// WindowsAppStartLayoutTileSizePWide is a pointer to WindowsAppStartLayoutTileSizeVWide
+	WindowsAppStartLayoutTileSizePWide = &_WindowsAppStartLayoutTileSizePWide
+	// WindowsAppStartLayoutTileSizePLarge is a pointer to WindowsAppStartLayoutTileSizeVLarge
+	WindowsAppStartLayoutTileSizePLarge = &_WindowsAppStartLayoutTileSizePLarge
+)
 
-// WindowsAppStartLayoutTileSizePSmall returns a pointer to WindowsAppStartLayoutTileSizeVSmall
-func WindowsAppStartLayoutTileSizePSmall() *WindowsAppStartLayoutTileSize {
-	v := WindowsAppStartLayoutTileSizeVSmall
-	return &v
-}
-
-// WindowsAppStartLayoutTileSizePMedium returns a pointer to WindowsAppStartLayoutTileSizeVMedium
-func WindowsAppStartLayoutTileSizePMedium() *WindowsAppStartLayoutTileSize {
-	v := WindowsAppStartLayoutTileSizeVMedium
-	return &v
-}
-
-// WindowsAppStartLayoutTileSizePWide returns a pointer to WindowsAppStartLayoutTileSizeVWide
-func WindowsAppStartLayoutTileSizePWide() *WindowsAppStartLayoutTileSize {
-	v := WindowsAppStartLayoutTileSizeVWide
-	return &v
-}
-
-// WindowsAppStartLayoutTileSizePLarge returns a pointer to WindowsAppStartLayoutTileSizeVLarge
-func WindowsAppStartLayoutTileSizePLarge() *WindowsAppStartLayoutTileSize {
-	v := WindowsAppStartLayoutTileSizeVLarge
-	return &v
-}
+var (
+	_WindowsAppStartLayoutTileSizePHidden = WindowsAppStartLayoutTileSizeVHidden
+	_WindowsAppStartLayoutTileSizePSmall  = WindowsAppStartLayoutTileSizeVSmall
+	_WindowsAppStartLayoutTileSizePMedium = WindowsAppStartLayoutTileSizeVMedium
+	_WindowsAppStartLayoutTileSizePWide   = WindowsAppStartLayoutTileSizeVWide
+	_WindowsAppStartLayoutTileSizePLarge  = WindowsAppStartLayoutTileSizeVLarge
+)

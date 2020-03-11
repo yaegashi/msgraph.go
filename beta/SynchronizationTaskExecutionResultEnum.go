@@ -3,31 +3,28 @@
 package msgraph
 
 // SynchronizationTaskExecutionResult undocumented
-type SynchronizationTaskExecutionResult int
+type SynchronizationTaskExecutionResult string
 
 const (
 	// SynchronizationTaskExecutionResultVSucceeded undocumented
-	SynchronizationTaskExecutionResultVSucceeded SynchronizationTaskExecutionResult = 0
+	SynchronizationTaskExecutionResultVSucceeded SynchronizationTaskExecutionResult = "Succeeded"
 	// SynchronizationTaskExecutionResultVFailed undocumented
-	SynchronizationTaskExecutionResultVFailed SynchronizationTaskExecutionResult = 1
+	SynchronizationTaskExecutionResultVFailed SynchronizationTaskExecutionResult = "Failed"
 	// SynchronizationTaskExecutionResultVEntryLevelErrors undocumented
-	SynchronizationTaskExecutionResultVEntryLevelErrors SynchronizationTaskExecutionResult = 2
+	SynchronizationTaskExecutionResultVEntryLevelErrors SynchronizationTaskExecutionResult = "EntryLevelErrors"
 )
 
-// SynchronizationTaskExecutionResultPSucceeded returns a pointer to SynchronizationTaskExecutionResultVSucceeded
-func SynchronizationTaskExecutionResultPSucceeded() *SynchronizationTaskExecutionResult {
-	v := SynchronizationTaskExecutionResultVSucceeded
-	return &v
-}
+var (
+	// SynchronizationTaskExecutionResultPSucceeded is a pointer to SynchronizationTaskExecutionResultVSucceeded
+	SynchronizationTaskExecutionResultPSucceeded = &_SynchronizationTaskExecutionResultPSucceeded
+	// SynchronizationTaskExecutionResultPFailed is a pointer to SynchronizationTaskExecutionResultVFailed
+	SynchronizationTaskExecutionResultPFailed = &_SynchronizationTaskExecutionResultPFailed
+	// SynchronizationTaskExecutionResultPEntryLevelErrors is a pointer to SynchronizationTaskExecutionResultVEntryLevelErrors
+	SynchronizationTaskExecutionResultPEntryLevelErrors = &_SynchronizationTaskExecutionResultPEntryLevelErrors
+)
 
-// SynchronizationTaskExecutionResultPFailed returns a pointer to SynchronizationTaskExecutionResultVFailed
-func SynchronizationTaskExecutionResultPFailed() *SynchronizationTaskExecutionResult {
-	v := SynchronizationTaskExecutionResultVFailed
-	return &v
-}
-
-// SynchronizationTaskExecutionResultPEntryLevelErrors returns a pointer to SynchronizationTaskExecutionResultVEntryLevelErrors
-func SynchronizationTaskExecutionResultPEntryLevelErrors() *SynchronizationTaskExecutionResult {
-	v := SynchronizationTaskExecutionResultVEntryLevelErrors
-	return &v
-}
+var (
+	_SynchronizationTaskExecutionResultPSucceeded        = SynchronizationTaskExecutionResultVSucceeded
+	_SynchronizationTaskExecutionResultPFailed           = SynchronizationTaskExecutionResultVFailed
+	_SynchronizationTaskExecutionResultPEntryLevelErrors = SynchronizationTaskExecutionResultVEntryLevelErrors
+)

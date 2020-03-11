@@ -3,23 +3,23 @@
 package msgraph
 
 // CallDirection undocumented
-type CallDirection int
+type CallDirection string
 
 const (
 	// CallDirectionVIncoming undocumented
-	CallDirectionVIncoming CallDirection = 0
+	CallDirectionVIncoming CallDirection = "incoming"
 	// CallDirectionVOutgoing undocumented
-	CallDirectionVOutgoing CallDirection = 1
+	CallDirectionVOutgoing CallDirection = "outgoing"
 )
 
-// CallDirectionPIncoming returns a pointer to CallDirectionVIncoming
-func CallDirectionPIncoming() *CallDirection {
-	v := CallDirectionVIncoming
-	return &v
-}
+var (
+	// CallDirectionPIncoming is a pointer to CallDirectionVIncoming
+	CallDirectionPIncoming = &_CallDirectionPIncoming
+	// CallDirectionPOutgoing is a pointer to CallDirectionVOutgoing
+	CallDirectionPOutgoing = &_CallDirectionPOutgoing
+)
 
-// CallDirectionPOutgoing returns a pointer to CallDirectionVOutgoing
-func CallDirectionPOutgoing() *CallDirection {
-	v := CallDirectionVOutgoing
-	return &v
-}
+var (
+	_CallDirectionPIncoming = CallDirectionVIncoming
+	_CallDirectionPOutgoing = CallDirectionVOutgoing
+)

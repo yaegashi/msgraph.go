@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsAutopilotSyncStatus undocumented
-type WindowsAutopilotSyncStatus int
+type WindowsAutopilotSyncStatus string
 
 const (
 	// WindowsAutopilotSyncStatusVUnknown undocumented
-	WindowsAutopilotSyncStatusVUnknown WindowsAutopilotSyncStatus = 0
+	WindowsAutopilotSyncStatusVUnknown WindowsAutopilotSyncStatus = "unknown"
 	// WindowsAutopilotSyncStatusVInProgress undocumented
-	WindowsAutopilotSyncStatusVInProgress WindowsAutopilotSyncStatus = 1
+	WindowsAutopilotSyncStatusVInProgress WindowsAutopilotSyncStatus = "inProgress"
 	// WindowsAutopilotSyncStatusVCompleted undocumented
-	WindowsAutopilotSyncStatusVCompleted WindowsAutopilotSyncStatus = 2
+	WindowsAutopilotSyncStatusVCompleted WindowsAutopilotSyncStatus = "completed"
 	// WindowsAutopilotSyncStatusVFailed undocumented
-	WindowsAutopilotSyncStatusVFailed WindowsAutopilotSyncStatus = 3
+	WindowsAutopilotSyncStatusVFailed WindowsAutopilotSyncStatus = "failed"
 )
 
-// WindowsAutopilotSyncStatusPUnknown returns a pointer to WindowsAutopilotSyncStatusVUnknown
-func WindowsAutopilotSyncStatusPUnknown() *WindowsAutopilotSyncStatus {
-	v := WindowsAutopilotSyncStatusVUnknown
-	return &v
-}
+var (
+	// WindowsAutopilotSyncStatusPUnknown is a pointer to WindowsAutopilotSyncStatusVUnknown
+	WindowsAutopilotSyncStatusPUnknown = &_WindowsAutopilotSyncStatusPUnknown
+	// WindowsAutopilotSyncStatusPInProgress is a pointer to WindowsAutopilotSyncStatusVInProgress
+	WindowsAutopilotSyncStatusPInProgress = &_WindowsAutopilotSyncStatusPInProgress
+	// WindowsAutopilotSyncStatusPCompleted is a pointer to WindowsAutopilotSyncStatusVCompleted
+	WindowsAutopilotSyncStatusPCompleted = &_WindowsAutopilotSyncStatusPCompleted
+	// WindowsAutopilotSyncStatusPFailed is a pointer to WindowsAutopilotSyncStatusVFailed
+	WindowsAutopilotSyncStatusPFailed = &_WindowsAutopilotSyncStatusPFailed
+)
 
-// WindowsAutopilotSyncStatusPInProgress returns a pointer to WindowsAutopilotSyncStatusVInProgress
-func WindowsAutopilotSyncStatusPInProgress() *WindowsAutopilotSyncStatus {
-	v := WindowsAutopilotSyncStatusVInProgress
-	return &v
-}
-
-// WindowsAutopilotSyncStatusPCompleted returns a pointer to WindowsAutopilotSyncStatusVCompleted
-func WindowsAutopilotSyncStatusPCompleted() *WindowsAutopilotSyncStatus {
-	v := WindowsAutopilotSyncStatusVCompleted
-	return &v
-}
-
-// WindowsAutopilotSyncStatusPFailed returns a pointer to WindowsAutopilotSyncStatusVFailed
-func WindowsAutopilotSyncStatusPFailed() *WindowsAutopilotSyncStatus {
-	v := WindowsAutopilotSyncStatusVFailed
-	return &v
-}
+var (
+	_WindowsAutopilotSyncStatusPUnknown    = WindowsAutopilotSyncStatusVUnknown
+	_WindowsAutopilotSyncStatusPInProgress = WindowsAutopilotSyncStatusVInProgress
+	_WindowsAutopilotSyncStatusPCompleted  = WindowsAutopilotSyncStatusVCompleted
+	_WindowsAutopilotSyncStatusPFailed     = WindowsAutopilotSyncStatusVFailed
+)

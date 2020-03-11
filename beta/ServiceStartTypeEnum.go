@@ -3,31 +3,28 @@
 package msgraph
 
 // ServiceStartType undocumented
-type ServiceStartType int
+type ServiceStartType string
 
 const (
 	// ServiceStartTypeVManual undocumented
-	ServiceStartTypeVManual ServiceStartType = 0
+	ServiceStartTypeVManual ServiceStartType = "manual"
 	// ServiceStartTypeVAutomatic undocumented
-	ServiceStartTypeVAutomatic ServiceStartType = 1
+	ServiceStartTypeVAutomatic ServiceStartType = "automatic"
 	// ServiceStartTypeVDisabled undocumented
-	ServiceStartTypeVDisabled ServiceStartType = 2
+	ServiceStartTypeVDisabled ServiceStartType = "disabled"
 )
 
-// ServiceStartTypePManual returns a pointer to ServiceStartTypeVManual
-func ServiceStartTypePManual() *ServiceStartType {
-	v := ServiceStartTypeVManual
-	return &v
-}
+var (
+	// ServiceStartTypePManual is a pointer to ServiceStartTypeVManual
+	ServiceStartTypePManual = &_ServiceStartTypePManual
+	// ServiceStartTypePAutomatic is a pointer to ServiceStartTypeVAutomatic
+	ServiceStartTypePAutomatic = &_ServiceStartTypePAutomatic
+	// ServiceStartTypePDisabled is a pointer to ServiceStartTypeVDisabled
+	ServiceStartTypePDisabled = &_ServiceStartTypePDisabled
+)
 
-// ServiceStartTypePAutomatic returns a pointer to ServiceStartTypeVAutomatic
-func ServiceStartTypePAutomatic() *ServiceStartType {
-	v := ServiceStartTypeVAutomatic
-	return &v
-}
-
-// ServiceStartTypePDisabled returns a pointer to ServiceStartTypeVDisabled
-func ServiceStartTypePDisabled() *ServiceStartType {
-	v := ServiceStartTypeVDisabled
-	return &v
-}
+var (
+	_ServiceStartTypePManual    = ServiceStartTypeVManual
+	_ServiceStartTypePAutomatic = ServiceStartTypeVAutomatic
+	_ServiceStartTypePDisabled  = ServiceStartTypeVDisabled
+)

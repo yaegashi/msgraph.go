@@ -3,63 +3,48 @@
 package msgraph
 
 // RatingGermanyMoviesType undocumented
-type RatingGermanyMoviesType int
+type RatingGermanyMoviesType string
 
 const (
 	// RatingGermanyMoviesTypeVAllAllowed undocumented
-	RatingGermanyMoviesTypeVAllAllowed RatingGermanyMoviesType = 0
+	RatingGermanyMoviesTypeVAllAllowed RatingGermanyMoviesType = "allAllowed"
 	// RatingGermanyMoviesTypeVAllBlocked undocumented
-	RatingGermanyMoviesTypeVAllBlocked RatingGermanyMoviesType = 1
+	RatingGermanyMoviesTypeVAllBlocked RatingGermanyMoviesType = "allBlocked"
 	// RatingGermanyMoviesTypeVGeneral undocumented
-	RatingGermanyMoviesTypeVGeneral RatingGermanyMoviesType = 2
+	RatingGermanyMoviesTypeVGeneral RatingGermanyMoviesType = "general"
 	// RatingGermanyMoviesTypeVAgesAbove6 undocumented
-	RatingGermanyMoviesTypeVAgesAbove6 RatingGermanyMoviesType = 3
+	RatingGermanyMoviesTypeVAgesAbove6 RatingGermanyMoviesType = "agesAbove6"
 	// RatingGermanyMoviesTypeVAgesAbove12 undocumented
-	RatingGermanyMoviesTypeVAgesAbove12 RatingGermanyMoviesType = 4
+	RatingGermanyMoviesTypeVAgesAbove12 RatingGermanyMoviesType = "agesAbove12"
 	// RatingGermanyMoviesTypeVAgesAbove16 undocumented
-	RatingGermanyMoviesTypeVAgesAbove16 RatingGermanyMoviesType = 5
+	RatingGermanyMoviesTypeVAgesAbove16 RatingGermanyMoviesType = "agesAbove16"
 	// RatingGermanyMoviesTypeVAdults undocumented
-	RatingGermanyMoviesTypeVAdults RatingGermanyMoviesType = 6
+	RatingGermanyMoviesTypeVAdults RatingGermanyMoviesType = "adults"
 )
 
-// RatingGermanyMoviesTypePAllAllowed returns a pointer to RatingGermanyMoviesTypeVAllAllowed
-func RatingGermanyMoviesTypePAllAllowed() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingGermanyMoviesTypePAllAllowed is a pointer to RatingGermanyMoviesTypeVAllAllowed
+	RatingGermanyMoviesTypePAllAllowed = &_RatingGermanyMoviesTypePAllAllowed
+	// RatingGermanyMoviesTypePAllBlocked is a pointer to RatingGermanyMoviesTypeVAllBlocked
+	RatingGermanyMoviesTypePAllBlocked = &_RatingGermanyMoviesTypePAllBlocked
+	// RatingGermanyMoviesTypePGeneral is a pointer to RatingGermanyMoviesTypeVGeneral
+	RatingGermanyMoviesTypePGeneral = &_RatingGermanyMoviesTypePGeneral
+	// RatingGermanyMoviesTypePAgesAbove6 is a pointer to RatingGermanyMoviesTypeVAgesAbove6
+	RatingGermanyMoviesTypePAgesAbove6 = &_RatingGermanyMoviesTypePAgesAbove6
+	// RatingGermanyMoviesTypePAgesAbove12 is a pointer to RatingGermanyMoviesTypeVAgesAbove12
+	RatingGermanyMoviesTypePAgesAbove12 = &_RatingGermanyMoviesTypePAgesAbove12
+	// RatingGermanyMoviesTypePAgesAbove16 is a pointer to RatingGermanyMoviesTypeVAgesAbove16
+	RatingGermanyMoviesTypePAgesAbove16 = &_RatingGermanyMoviesTypePAgesAbove16
+	// RatingGermanyMoviesTypePAdults is a pointer to RatingGermanyMoviesTypeVAdults
+	RatingGermanyMoviesTypePAdults = &_RatingGermanyMoviesTypePAdults
+)
 
-// RatingGermanyMoviesTypePAllBlocked returns a pointer to RatingGermanyMoviesTypeVAllBlocked
-func RatingGermanyMoviesTypePAllBlocked() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingGermanyMoviesTypePGeneral returns a pointer to RatingGermanyMoviesTypeVGeneral
-func RatingGermanyMoviesTypePGeneral() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVGeneral
-	return &v
-}
-
-// RatingGermanyMoviesTypePAgesAbove6 returns a pointer to RatingGermanyMoviesTypeVAgesAbove6
-func RatingGermanyMoviesTypePAgesAbove6() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVAgesAbove6
-	return &v
-}
-
-// RatingGermanyMoviesTypePAgesAbove12 returns a pointer to RatingGermanyMoviesTypeVAgesAbove12
-func RatingGermanyMoviesTypePAgesAbove12() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVAgesAbove12
-	return &v
-}
-
-// RatingGermanyMoviesTypePAgesAbove16 returns a pointer to RatingGermanyMoviesTypeVAgesAbove16
-func RatingGermanyMoviesTypePAgesAbove16() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVAgesAbove16
-	return &v
-}
-
-// RatingGermanyMoviesTypePAdults returns a pointer to RatingGermanyMoviesTypeVAdults
-func RatingGermanyMoviesTypePAdults() *RatingGermanyMoviesType {
-	v := RatingGermanyMoviesTypeVAdults
-	return &v
-}
+var (
+	_RatingGermanyMoviesTypePAllAllowed  = RatingGermanyMoviesTypeVAllAllowed
+	_RatingGermanyMoviesTypePAllBlocked  = RatingGermanyMoviesTypeVAllBlocked
+	_RatingGermanyMoviesTypePGeneral     = RatingGermanyMoviesTypeVGeneral
+	_RatingGermanyMoviesTypePAgesAbove6  = RatingGermanyMoviesTypeVAgesAbove6
+	_RatingGermanyMoviesTypePAgesAbove12 = RatingGermanyMoviesTypeVAgesAbove12
+	_RatingGermanyMoviesTypePAgesAbove16 = RatingGermanyMoviesTypeVAgesAbove16
+	_RatingGermanyMoviesTypePAdults      = RatingGermanyMoviesTypeVAdults
+)

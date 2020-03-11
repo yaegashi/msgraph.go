@@ -3,95 +3,68 @@
 package msgraph
 
 // CalendarColor undocumented
-type CalendarColor int
+type CalendarColor string
 
 const (
 	// CalendarColorVLightBlue undocumented
-	CalendarColorVLightBlue CalendarColor = 0
+	CalendarColorVLightBlue CalendarColor = "lightBlue"
 	// CalendarColorVLightGreen undocumented
-	CalendarColorVLightGreen CalendarColor = 1
+	CalendarColorVLightGreen CalendarColor = "lightGreen"
 	// CalendarColorVLightOrange undocumented
-	CalendarColorVLightOrange CalendarColor = 2
+	CalendarColorVLightOrange CalendarColor = "lightOrange"
 	// CalendarColorVLightGray undocumented
-	CalendarColorVLightGray CalendarColor = 3
+	CalendarColorVLightGray CalendarColor = "lightGray"
 	// CalendarColorVLightYellow undocumented
-	CalendarColorVLightYellow CalendarColor = 4
+	CalendarColorVLightYellow CalendarColor = "lightYellow"
 	// CalendarColorVLightTeal undocumented
-	CalendarColorVLightTeal CalendarColor = 5
+	CalendarColorVLightTeal CalendarColor = "lightTeal"
 	// CalendarColorVLightPink undocumented
-	CalendarColorVLightPink CalendarColor = 6
+	CalendarColorVLightPink CalendarColor = "lightPink"
 	// CalendarColorVLightBrown undocumented
-	CalendarColorVLightBrown CalendarColor = 7
+	CalendarColorVLightBrown CalendarColor = "lightBrown"
 	// CalendarColorVLightRed undocumented
-	CalendarColorVLightRed CalendarColor = 8
+	CalendarColorVLightRed CalendarColor = "lightRed"
 	// CalendarColorVMaxColor undocumented
-	CalendarColorVMaxColor CalendarColor = 9
+	CalendarColorVMaxColor CalendarColor = "maxColor"
 	// CalendarColorVAuto undocumented
-	CalendarColorVAuto CalendarColor = -1
+	CalendarColorVAuto CalendarColor = "auto"
 )
 
-// CalendarColorPLightBlue returns a pointer to CalendarColorVLightBlue
-func CalendarColorPLightBlue() *CalendarColor {
-	v := CalendarColorVLightBlue
-	return &v
-}
+var (
+	// CalendarColorPLightBlue is a pointer to CalendarColorVLightBlue
+	CalendarColorPLightBlue = &_CalendarColorPLightBlue
+	// CalendarColorPLightGreen is a pointer to CalendarColorVLightGreen
+	CalendarColorPLightGreen = &_CalendarColorPLightGreen
+	// CalendarColorPLightOrange is a pointer to CalendarColorVLightOrange
+	CalendarColorPLightOrange = &_CalendarColorPLightOrange
+	// CalendarColorPLightGray is a pointer to CalendarColorVLightGray
+	CalendarColorPLightGray = &_CalendarColorPLightGray
+	// CalendarColorPLightYellow is a pointer to CalendarColorVLightYellow
+	CalendarColorPLightYellow = &_CalendarColorPLightYellow
+	// CalendarColorPLightTeal is a pointer to CalendarColorVLightTeal
+	CalendarColorPLightTeal = &_CalendarColorPLightTeal
+	// CalendarColorPLightPink is a pointer to CalendarColorVLightPink
+	CalendarColorPLightPink = &_CalendarColorPLightPink
+	// CalendarColorPLightBrown is a pointer to CalendarColorVLightBrown
+	CalendarColorPLightBrown = &_CalendarColorPLightBrown
+	// CalendarColorPLightRed is a pointer to CalendarColorVLightRed
+	CalendarColorPLightRed = &_CalendarColorPLightRed
+	// CalendarColorPMaxColor is a pointer to CalendarColorVMaxColor
+	CalendarColorPMaxColor = &_CalendarColorPMaxColor
+	// CalendarColorPAuto is a pointer to CalendarColorVAuto
+	CalendarColorPAuto = &_CalendarColorPAuto
+)
 
-// CalendarColorPLightGreen returns a pointer to CalendarColorVLightGreen
-func CalendarColorPLightGreen() *CalendarColor {
-	v := CalendarColorVLightGreen
-	return &v
-}
-
-// CalendarColorPLightOrange returns a pointer to CalendarColorVLightOrange
-func CalendarColorPLightOrange() *CalendarColor {
-	v := CalendarColorVLightOrange
-	return &v
-}
-
-// CalendarColorPLightGray returns a pointer to CalendarColorVLightGray
-func CalendarColorPLightGray() *CalendarColor {
-	v := CalendarColorVLightGray
-	return &v
-}
-
-// CalendarColorPLightYellow returns a pointer to CalendarColorVLightYellow
-func CalendarColorPLightYellow() *CalendarColor {
-	v := CalendarColorVLightYellow
-	return &v
-}
-
-// CalendarColorPLightTeal returns a pointer to CalendarColorVLightTeal
-func CalendarColorPLightTeal() *CalendarColor {
-	v := CalendarColorVLightTeal
-	return &v
-}
-
-// CalendarColorPLightPink returns a pointer to CalendarColorVLightPink
-func CalendarColorPLightPink() *CalendarColor {
-	v := CalendarColorVLightPink
-	return &v
-}
-
-// CalendarColorPLightBrown returns a pointer to CalendarColorVLightBrown
-func CalendarColorPLightBrown() *CalendarColor {
-	v := CalendarColorVLightBrown
-	return &v
-}
-
-// CalendarColorPLightRed returns a pointer to CalendarColorVLightRed
-func CalendarColorPLightRed() *CalendarColor {
-	v := CalendarColorVLightRed
-	return &v
-}
-
-// CalendarColorPMaxColor returns a pointer to CalendarColorVMaxColor
-func CalendarColorPMaxColor() *CalendarColor {
-	v := CalendarColorVMaxColor
-	return &v
-}
-
-// CalendarColorPAuto returns a pointer to CalendarColorVAuto
-func CalendarColorPAuto() *CalendarColor {
-	v := CalendarColorVAuto
-	return &v
-}
+var (
+	_CalendarColorPLightBlue   = CalendarColorVLightBlue
+	_CalendarColorPLightGreen  = CalendarColorVLightGreen
+	_CalendarColorPLightOrange = CalendarColorVLightOrange
+	_CalendarColorPLightGray   = CalendarColorVLightGray
+	_CalendarColorPLightYellow = CalendarColorVLightYellow
+	_CalendarColorPLightTeal   = CalendarColorVLightTeal
+	_CalendarColorPLightPink   = CalendarColorVLightPink
+	_CalendarColorPLightBrown  = CalendarColorVLightBrown
+	_CalendarColorPLightRed    = CalendarColorVLightRed
+	_CalendarColorPMaxColor    = CalendarColorVMaxColor
+	_CalendarColorPAuto        = CalendarColorVAuto
+)

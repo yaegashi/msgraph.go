@@ -3,23 +3,23 @@
 package msgraph
 
 // GroupPrivacy undocumented
-type GroupPrivacy int
+type GroupPrivacy string
 
 const (
 	// GroupPrivacyVPublic undocumented
-	GroupPrivacyVPublic GroupPrivacy = 0
+	GroupPrivacyVPublic GroupPrivacy = "public"
 	// GroupPrivacyVPrivate undocumented
-	GroupPrivacyVPrivate GroupPrivacy = 1
+	GroupPrivacyVPrivate GroupPrivacy = "private"
 )
 
-// GroupPrivacyPPublic returns a pointer to GroupPrivacyVPublic
-func GroupPrivacyPPublic() *GroupPrivacy {
-	v := GroupPrivacyVPublic
-	return &v
-}
+var (
+	// GroupPrivacyPPublic is a pointer to GroupPrivacyVPublic
+	GroupPrivacyPPublic = &_GroupPrivacyPPublic
+	// GroupPrivacyPPrivate is a pointer to GroupPrivacyVPrivate
+	GroupPrivacyPPrivate = &_GroupPrivacyPPrivate
+)
 
-// GroupPrivacyPPrivate returns a pointer to GroupPrivacyVPrivate
-func GroupPrivacyPPrivate() *GroupPrivacy {
-	v := GroupPrivacyVPrivate
-	return &v
-}
+var (
+	_GroupPrivacyPPublic  = GroupPrivacyVPublic
+	_GroupPrivacyPPrivate = GroupPrivacyVPrivate
+)

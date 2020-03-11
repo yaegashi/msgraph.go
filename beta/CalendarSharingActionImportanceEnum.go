@@ -3,23 +3,23 @@
 package msgraph
 
 // CalendarSharingActionImportance undocumented
-type CalendarSharingActionImportance int
+type CalendarSharingActionImportance string
 
 const (
 	// CalendarSharingActionImportanceVPrimary undocumented
-	CalendarSharingActionImportanceVPrimary CalendarSharingActionImportance = 0
+	CalendarSharingActionImportanceVPrimary CalendarSharingActionImportance = "primary"
 	// CalendarSharingActionImportanceVSecondary undocumented
-	CalendarSharingActionImportanceVSecondary CalendarSharingActionImportance = 1
+	CalendarSharingActionImportanceVSecondary CalendarSharingActionImportance = "secondary"
 )
 
-// CalendarSharingActionImportancePPrimary returns a pointer to CalendarSharingActionImportanceVPrimary
-func CalendarSharingActionImportancePPrimary() *CalendarSharingActionImportance {
-	v := CalendarSharingActionImportanceVPrimary
-	return &v
-}
+var (
+	// CalendarSharingActionImportancePPrimary is a pointer to CalendarSharingActionImportanceVPrimary
+	CalendarSharingActionImportancePPrimary = &_CalendarSharingActionImportancePPrimary
+	// CalendarSharingActionImportancePSecondary is a pointer to CalendarSharingActionImportanceVSecondary
+	CalendarSharingActionImportancePSecondary = &_CalendarSharingActionImportancePSecondary
+)
 
-// CalendarSharingActionImportancePSecondary returns a pointer to CalendarSharingActionImportanceVSecondary
-func CalendarSharingActionImportancePSecondary() *CalendarSharingActionImportance {
-	v := CalendarSharingActionImportanceVSecondary
-	return &v
-}
+var (
+	_CalendarSharingActionImportancePPrimary   = CalendarSharingActionImportanceVPrimary
+	_CalendarSharingActionImportancePSecondary = CalendarSharingActionImportanceVSecondary
+)

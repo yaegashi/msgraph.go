@@ -3,47 +3,38 @@
 package msgraph
 
 // ApplicationGuardBlockFileTransferType undocumented
-type ApplicationGuardBlockFileTransferType int
+type ApplicationGuardBlockFileTransferType string
 
 const (
 	// ApplicationGuardBlockFileTransferTypeVNotConfigured undocumented
-	ApplicationGuardBlockFileTransferTypeVNotConfigured ApplicationGuardBlockFileTransferType = 0
+	ApplicationGuardBlockFileTransferTypeVNotConfigured ApplicationGuardBlockFileTransferType = "notConfigured"
 	// ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile undocumented
-	ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile ApplicationGuardBlockFileTransferType = 1
+	ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile ApplicationGuardBlockFileTransferType = "blockImageAndTextFile"
 	// ApplicationGuardBlockFileTransferTypeVBlockImageFile undocumented
-	ApplicationGuardBlockFileTransferTypeVBlockImageFile ApplicationGuardBlockFileTransferType = 2
+	ApplicationGuardBlockFileTransferTypeVBlockImageFile ApplicationGuardBlockFileTransferType = "blockImageFile"
 	// ApplicationGuardBlockFileTransferTypeVBlockNone undocumented
-	ApplicationGuardBlockFileTransferTypeVBlockNone ApplicationGuardBlockFileTransferType = 3
+	ApplicationGuardBlockFileTransferTypeVBlockNone ApplicationGuardBlockFileTransferType = "blockNone"
 	// ApplicationGuardBlockFileTransferTypeVBlockTextFile undocumented
-	ApplicationGuardBlockFileTransferTypeVBlockTextFile ApplicationGuardBlockFileTransferType = 4
+	ApplicationGuardBlockFileTransferTypeVBlockTextFile ApplicationGuardBlockFileTransferType = "blockTextFile"
 )
 
-// ApplicationGuardBlockFileTransferTypePNotConfigured returns a pointer to ApplicationGuardBlockFileTransferTypeVNotConfigured
-func ApplicationGuardBlockFileTransferTypePNotConfigured() *ApplicationGuardBlockFileTransferType {
-	v := ApplicationGuardBlockFileTransferTypeVNotConfigured
-	return &v
-}
+var (
+	// ApplicationGuardBlockFileTransferTypePNotConfigured is a pointer to ApplicationGuardBlockFileTransferTypeVNotConfigured
+	ApplicationGuardBlockFileTransferTypePNotConfigured = &_ApplicationGuardBlockFileTransferTypePNotConfigured
+	// ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile is a pointer to ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile
+	ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile = &_ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile
+	// ApplicationGuardBlockFileTransferTypePBlockImageFile is a pointer to ApplicationGuardBlockFileTransferTypeVBlockImageFile
+	ApplicationGuardBlockFileTransferTypePBlockImageFile = &_ApplicationGuardBlockFileTransferTypePBlockImageFile
+	// ApplicationGuardBlockFileTransferTypePBlockNone is a pointer to ApplicationGuardBlockFileTransferTypeVBlockNone
+	ApplicationGuardBlockFileTransferTypePBlockNone = &_ApplicationGuardBlockFileTransferTypePBlockNone
+	// ApplicationGuardBlockFileTransferTypePBlockTextFile is a pointer to ApplicationGuardBlockFileTransferTypeVBlockTextFile
+	ApplicationGuardBlockFileTransferTypePBlockTextFile = &_ApplicationGuardBlockFileTransferTypePBlockTextFile
+)
 
-// ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile
-func ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile() *ApplicationGuardBlockFileTransferType {
-	v := ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile
-	return &v
-}
-
-// ApplicationGuardBlockFileTransferTypePBlockImageFile returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockImageFile
-func ApplicationGuardBlockFileTransferTypePBlockImageFile() *ApplicationGuardBlockFileTransferType {
-	v := ApplicationGuardBlockFileTransferTypeVBlockImageFile
-	return &v
-}
-
-// ApplicationGuardBlockFileTransferTypePBlockNone returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockNone
-func ApplicationGuardBlockFileTransferTypePBlockNone() *ApplicationGuardBlockFileTransferType {
-	v := ApplicationGuardBlockFileTransferTypeVBlockNone
-	return &v
-}
-
-// ApplicationGuardBlockFileTransferTypePBlockTextFile returns a pointer to ApplicationGuardBlockFileTransferTypeVBlockTextFile
-func ApplicationGuardBlockFileTransferTypePBlockTextFile() *ApplicationGuardBlockFileTransferType {
-	v := ApplicationGuardBlockFileTransferTypeVBlockTextFile
-	return &v
-}
+var (
+	_ApplicationGuardBlockFileTransferTypePNotConfigured         = ApplicationGuardBlockFileTransferTypeVNotConfigured
+	_ApplicationGuardBlockFileTransferTypePBlockImageAndTextFile = ApplicationGuardBlockFileTransferTypeVBlockImageAndTextFile
+	_ApplicationGuardBlockFileTransferTypePBlockImageFile        = ApplicationGuardBlockFileTransferTypeVBlockImageFile
+	_ApplicationGuardBlockFileTransferTypePBlockNone             = ApplicationGuardBlockFileTransferTypeVBlockNone
+	_ApplicationGuardBlockFileTransferTypePBlockTextFile         = ApplicationGuardBlockFileTransferTypeVBlockTextFile
+)

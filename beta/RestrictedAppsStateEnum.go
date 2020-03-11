@@ -3,23 +3,23 @@
 package msgraph
 
 // RestrictedAppsState undocumented
-type RestrictedAppsState int
+type RestrictedAppsState string
 
 const (
 	// RestrictedAppsStateVProhibitedApps undocumented
-	RestrictedAppsStateVProhibitedApps RestrictedAppsState = 0
+	RestrictedAppsStateVProhibitedApps RestrictedAppsState = "prohibitedApps"
 	// RestrictedAppsStateVNotApprovedApps undocumented
-	RestrictedAppsStateVNotApprovedApps RestrictedAppsState = 1
+	RestrictedAppsStateVNotApprovedApps RestrictedAppsState = "notApprovedApps"
 )
 
-// RestrictedAppsStatePProhibitedApps returns a pointer to RestrictedAppsStateVProhibitedApps
-func RestrictedAppsStatePProhibitedApps() *RestrictedAppsState {
-	v := RestrictedAppsStateVProhibitedApps
-	return &v
-}
+var (
+	// RestrictedAppsStatePProhibitedApps is a pointer to RestrictedAppsStateVProhibitedApps
+	RestrictedAppsStatePProhibitedApps = &_RestrictedAppsStatePProhibitedApps
+	// RestrictedAppsStatePNotApprovedApps is a pointer to RestrictedAppsStateVNotApprovedApps
+	RestrictedAppsStatePNotApprovedApps = &_RestrictedAppsStatePNotApprovedApps
+)
 
-// RestrictedAppsStatePNotApprovedApps returns a pointer to RestrictedAppsStateVNotApprovedApps
-func RestrictedAppsStatePNotApprovedApps() *RestrictedAppsState {
-	v := RestrictedAppsStateVNotApprovedApps
-	return &v
-}
+var (
+	_RestrictedAppsStatePProhibitedApps  = RestrictedAppsStateVProhibitedApps
+	_RestrictedAppsStatePNotApprovedApps = RestrictedAppsStateVNotApprovedApps
+)

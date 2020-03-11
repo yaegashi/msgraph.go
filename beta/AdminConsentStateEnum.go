@@ -3,31 +3,28 @@
 package msgraph
 
 // AdminConsentState undocumented
-type AdminConsentState int
+type AdminConsentState string
 
 const (
 	// AdminConsentStateVNotConfigured undocumented
-	AdminConsentStateVNotConfigured AdminConsentState = 0
+	AdminConsentStateVNotConfigured AdminConsentState = "notConfigured"
 	// AdminConsentStateVGranted undocumented
-	AdminConsentStateVGranted AdminConsentState = 1
+	AdminConsentStateVGranted AdminConsentState = "granted"
 	// AdminConsentStateVNotGranted undocumented
-	AdminConsentStateVNotGranted AdminConsentState = 2
+	AdminConsentStateVNotGranted AdminConsentState = "notGranted"
 )
 
-// AdminConsentStatePNotConfigured returns a pointer to AdminConsentStateVNotConfigured
-func AdminConsentStatePNotConfigured() *AdminConsentState {
-	v := AdminConsentStateVNotConfigured
-	return &v
-}
+var (
+	// AdminConsentStatePNotConfigured is a pointer to AdminConsentStateVNotConfigured
+	AdminConsentStatePNotConfigured = &_AdminConsentStatePNotConfigured
+	// AdminConsentStatePGranted is a pointer to AdminConsentStateVGranted
+	AdminConsentStatePGranted = &_AdminConsentStatePGranted
+	// AdminConsentStatePNotGranted is a pointer to AdminConsentStateVNotGranted
+	AdminConsentStatePNotGranted = &_AdminConsentStatePNotGranted
+)
 
-// AdminConsentStatePGranted returns a pointer to AdminConsentStateVGranted
-func AdminConsentStatePGranted() *AdminConsentState {
-	v := AdminConsentStateVGranted
-	return &v
-}
-
-// AdminConsentStatePNotGranted returns a pointer to AdminConsentStateVNotGranted
-func AdminConsentStatePNotGranted() *AdminConsentState {
-	v := AdminConsentStateVNotGranted
-	return &v
-}
+var (
+	_AdminConsentStatePNotConfigured = AdminConsentStateVNotConfigured
+	_AdminConsentStatePGranted       = AdminConsentStateVGranted
+	_AdminConsentStatePNotGranted    = AdminConsentStateVNotGranted
+)

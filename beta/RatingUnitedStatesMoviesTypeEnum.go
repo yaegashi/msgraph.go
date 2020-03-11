@@ -3,63 +3,48 @@
 package msgraph
 
 // RatingUnitedStatesMoviesType undocumented
-type RatingUnitedStatesMoviesType int
+type RatingUnitedStatesMoviesType string
 
 const (
 	// RatingUnitedStatesMoviesTypeVAllAllowed undocumented
-	RatingUnitedStatesMoviesTypeVAllAllowed RatingUnitedStatesMoviesType = 0
+	RatingUnitedStatesMoviesTypeVAllAllowed RatingUnitedStatesMoviesType = "allAllowed"
 	// RatingUnitedStatesMoviesTypeVAllBlocked undocumented
-	RatingUnitedStatesMoviesTypeVAllBlocked RatingUnitedStatesMoviesType = 1
+	RatingUnitedStatesMoviesTypeVAllBlocked RatingUnitedStatesMoviesType = "allBlocked"
 	// RatingUnitedStatesMoviesTypeVGeneral undocumented
-	RatingUnitedStatesMoviesTypeVGeneral RatingUnitedStatesMoviesType = 2
+	RatingUnitedStatesMoviesTypeVGeneral RatingUnitedStatesMoviesType = "general"
 	// RatingUnitedStatesMoviesTypeVParentalGuidance undocumented
-	RatingUnitedStatesMoviesTypeVParentalGuidance RatingUnitedStatesMoviesType = 3
+	RatingUnitedStatesMoviesTypeVParentalGuidance RatingUnitedStatesMoviesType = "parentalGuidance"
 	// RatingUnitedStatesMoviesTypeVParentalGuidance13 undocumented
-	RatingUnitedStatesMoviesTypeVParentalGuidance13 RatingUnitedStatesMoviesType = 4
+	RatingUnitedStatesMoviesTypeVParentalGuidance13 RatingUnitedStatesMoviesType = "parentalGuidance13"
 	// RatingUnitedStatesMoviesTypeVRestricted undocumented
-	RatingUnitedStatesMoviesTypeVRestricted RatingUnitedStatesMoviesType = 5
+	RatingUnitedStatesMoviesTypeVRestricted RatingUnitedStatesMoviesType = "restricted"
 	// RatingUnitedStatesMoviesTypeVAdults undocumented
-	RatingUnitedStatesMoviesTypeVAdults RatingUnitedStatesMoviesType = 6
+	RatingUnitedStatesMoviesTypeVAdults RatingUnitedStatesMoviesType = "adults"
 )
 
-// RatingUnitedStatesMoviesTypePAllAllowed returns a pointer to RatingUnitedStatesMoviesTypeVAllAllowed
-func RatingUnitedStatesMoviesTypePAllAllowed() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingUnitedStatesMoviesTypePAllAllowed is a pointer to RatingUnitedStatesMoviesTypeVAllAllowed
+	RatingUnitedStatesMoviesTypePAllAllowed = &_RatingUnitedStatesMoviesTypePAllAllowed
+	// RatingUnitedStatesMoviesTypePAllBlocked is a pointer to RatingUnitedStatesMoviesTypeVAllBlocked
+	RatingUnitedStatesMoviesTypePAllBlocked = &_RatingUnitedStatesMoviesTypePAllBlocked
+	// RatingUnitedStatesMoviesTypePGeneral is a pointer to RatingUnitedStatesMoviesTypeVGeneral
+	RatingUnitedStatesMoviesTypePGeneral = &_RatingUnitedStatesMoviesTypePGeneral
+	// RatingUnitedStatesMoviesTypePParentalGuidance is a pointer to RatingUnitedStatesMoviesTypeVParentalGuidance
+	RatingUnitedStatesMoviesTypePParentalGuidance = &_RatingUnitedStatesMoviesTypePParentalGuidance
+	// RatingUnitedStatesMoviesTypePParentalGuidance13 is a pointer to RatingUnitedStatesMoviesTypeVParentalGuidance13
+	RatingUnitedStatesMoviesTypePParentalGuidance13 = &_RatingUnitedStatesMoviesTypePParentalGuidance13
+	// RatingUnitedStatesMoviesTypePRestricted is a pointer to RatingUnitedStatesMoviesTypeVRestricted
+	RatingUnitedStatesMoviesTypePRestricted = &_RatingUnitedStatesMoviesTypePRestricted
+	// RatingUnitedStatesMoviesTypePAdults is a pointer to RatingUnitedStatesMoviesTypeVAdults
+	RatingUnitedStatesMoviesTypePAdults = &_RatingUnitedStatesMoviesTypePAdults
+)
 
-// RatingUnitedStatesMoviesTypePAllBlocked returns a pointer to RatingUnitedStatesMoviesTypeVAllBlocked
-func RatingUnitedStatesMoviesTypePAllBlocked() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingUnitedStatesMoviesTypePGeneral returns a pointer to RatingUnitedStatesMoviesTypeVGeneral
-func RatingUnitedStatesMoviesTypePGeneral() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVGeneral
-	return &v
-}
-
-// RatingUnitedStatesMoviesTypePParentalGuidance returns a pointer to RatingUnitedStatesMoviesTypeVParentalGuidance
-func RatingUnitedStatesMoviesTypePParentalGuidance() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingUnitedStatesMoviesTypePParentalGuidance13 returns a pointer to RatingUnitedStatesMoviesTypeVParentalGuidance13
-func RatingUnitedStatesMoviesTypePParentalGuidance13() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVParentalGuidance13
-	return &v
-}
-
-// RatingUnitedStatesMoviesTypePRestricted returns a pointer to RatingUnitedStatesMoviesTypeVRestricted
-func RatingUnitedStatesMoviesTypePRestricted() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVRestricted
-	return &v
-}
-
-// RatingUnitedStatesMoviesTypePAdults returns a pointer to RatingUnitedStatesMoviesTypeVAdults
-func RatingUnitedStatesMoviesTypePAdults() *RatingUnitedStatesMoviesType {
-	v := RatingUnitedStatesMoviesTypeVAdults
-	return &v
-}
+var (
+	_RatingUnitedStatesMoviesTypePAllAllowed         = RatingUnitedStatesMoviesTypeVAllAllowed
+	_RatingUnitedStatesMoviesTypePAllBlocked         = RatingUnitedStatesMoviesTypeVAllBlocked
+	_RatingUnitedStatesMoviesTypePGeneral            = RatingUnitedStatesMoviesTypeVGeneral
+	_RatingUnitedStatesMoviesTypePParentalGuidance   = RatingUnitedStatesMoviesTypeVParentalGuidance
+	_RatingUnitedStatesMoviesTypePParentalGuidance13 = RatingUnitedStatesMoviesTypeVParentalGuidance13
+	_RatingUnitedStatesMoviesTypePRestricted         = RatingUnitedStatesMoviesTypeVRestricted
+	_RatingUnitedStatesMoviesTypePAdults             = RatingUnitedStatesMoviesTypeVAdults
+)

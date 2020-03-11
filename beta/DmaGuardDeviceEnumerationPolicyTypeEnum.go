@@ -3,31 +3,28 @@
 package msgraph
 
 // DmaGuardDeviceEnumerationPolicyType undocumented
-type DmaGuardDeviceEnumerationPolicyType int
+type DmaGuardDeviceEnumerationPolicyType string
 
 const (
 	// DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault undocumented
-	DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault DmaGuardDeviceEnumerationPolicyType = 0
+	DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault DmaGuardDeviceEnumerationPolicyType = "deviceDefault"
 	// DmaGuardDeviceEnumerationPolicyTypeVBlockAll undocumented
-	DmaGuardDeviceEnumerationPolicyTypeVBlockAll DmaGuardDeviceEnumerationPolicyType = 1
+	DmaGuardDeviceEnumerationPolicyTypeVBlockAll DmaGuardDeviceEnumerationPolicyType = "blockAll"
 	// DmaGuardDeviceEnumerationPolicyTypeVAllowAll undocumented
-	DmaGuardDeviceEnumerationPolicyTypeVAllowAll DmaGuardDeviceEnumerationPolicyType = 2
+	DmaGuardDeviceEnumerationPolicyTypeVAllowAll DmaGuardDeviceEnumerationPolicyType = "allowAll"
 )
 
-// DmaGuardDeviceEnumerationPolicyTypePDeviceDefault returns a pointer to DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault
-func DmaGuardDeviceEnumerationPolicyTypePDeviceDefault() *DmaGuardDeviceEnumerationPolicyType {
-	v := DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault
-	return &v
-}
+var (
+	// DmaGuardDeviceEnumerationPolicyTypePDeviceDefault is a pointer to DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault
+	DmaGuardDeviceEnumerationPolicyTypePDeviceDefault = &_DmaGuardDeviceEnumerationPolicyTypePDeviceDefault
+	// DmaGuardDeviceEnumerationPolicyTypePBlockAll is a pointer to DmaGuardDeviceEnumerationPolicyTypeVBlockAll
+	DmaGuardDeviceEnumerationPolicyTypePBlockAll = &_DmaGuardDeviceEnumerationPolicyTypePBlockAll
+	// DmaGuardDeviceEnumerationPolicyTypePAllowAll is a pointer to DmaGuardDeviceEnumerationPolicyTypeVAllowAll
+	DmaGuardDeviceEnumerationPolicyTypePAllowAll = &_DmaGuardDeviceEnumerationPolicyTypePAllowAll
+)
 
-// DmaGuardDeviceEnumerationPolicyTypePBlockAll returns a pointer to DmaGuardDeviceEnumerationPolicyTypeVBlockAll
-func DmaGuardDeviceEnumerationPolicyTypePBlockAll() *DmaGuardDeviceEnumerationPolicyType {
-	v := DmaGuardDeviceEnumerationPolicyTypeVBlockAll
-	return &v
-}
-
-// DmaGuardDeviceEnumerationPolicyTypePAllowAll returns a pointer to DmaGuardDeviceEnumerationPolicyTypeVAllowAll
-func DmaGuardDeviceEnumerationPolicyTypePAllowAll() *DmaGuardDeviceEnumerationPolicyType {
-	v := DmaGuardDeviceEnumerationPolicyTypeVAllowAll
-	return &v
-}
+var (
+	_DmaGuardDeviceEnumerationPolicyTypePDeviceDefault = DmaGuardDeviceEnumerationPolicyTypeVDeviceDefault
+	_DmaGuardDeviceEnumerationPolicyTypePBlockAll      = DmaGuardDeviceEnumerationPolicyTypeVBlockAll
+	_DmaGuardDeviceEnumerationPolicyTypePAllowAll      = DmaGuardDeviceEnumerationPolicyTypeVAllowAll
+)

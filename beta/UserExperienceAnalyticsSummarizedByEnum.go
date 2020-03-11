@@ -3,55 +3,43 @@
 package msgraph
 
 // UserExperienceAnalyticsSummarizedBy undocumented
-type UserExperienceAnalyticsSummarizedBy int
+type UserExperienceAnalyticsSummarizedBy string
 
 const (
 	// UserExperienceAnalyticsSummarizedByVNone undocumented
-	UserExperienceAnalyticsSummarizedByVNone UserExperienceAnalyticsSummarizedBy = 0
+	UserExperienceAnalyticsSummarizedByVNone UserExperienceAnalyticsSummarizedBy = "none"
 	// UserExperienceAnalyticsSummarizedByVModel undocumented
-	UserExperienceAnalyticsSummarizedByVModel UserExperienceAnalyticsSummarizedBy = 1
+	UserExperienceAnalyticsSummarizedByVModel UserExperienceAnalyticsSummarizedBy = "model"
 	// UserExperienceAnalyticsSummarizedByVAllRegressions undocumented
-	UserExperienceAnalyticsSummarizedByVAllRegressions UserExperienceAnalyticsSummarizedBy = 3
+	UserExperienceAnalyticsSummarizedByVAllRegressions UserExperienceAnalyticsSummarizedBy = "allRegressions"
 	// UserExperienceAnalyticsSummarizedByVModelRegression undocumented
-	UserExperienceAnalyticsSummarizedByVModelRegression UserExperienceAnalyticsSummarizedBy = 4
+	UserExperienceAnalyticsSummarizedByVModelRegression UserExperienceAnalyticsSummarizedBy = "modelRegression"
 	// UserExperienceAnalyticsSummarizedByVManufacturerRegression undocumented
-	UserExperienceAnalyticsSummarizedByVManufacturerRegression UserExperienceAnalyticsSummarizedBy = 5
+	UserExperienceAnalyticsSummarizedByVManufacturerRegression UserExperienceAnalyticsSummarizedBy = "manufacturerRegression"
 	// UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression undocumented
-	UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression UserExperienceAnalyticsSummarizedBy = 6
+	UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression UserExperienceAnalyticsSummarizedBy = "operatingSystemVersionRegression"
 )
 
-// UserExperienceAnalyticsSummarizedByPNone returns a pointer to UserExperienceAnalyticsSummarizedByVNone
-func UserExperienceAnalyticsSummarizedByPNone() *UserExperienceAnalyticsSummarizedBy {
-	v := UserExperienceAnalyticsSummarizedByVNone
-	return &v
-}
+var (
+	// UserExperienceAnalyticsSummarizedByPNone is a pointer to UserExperienceAnalyticsSummarizedByVNone
+	UserExperienceAnalyticsSummarizedByPNone = &_UserExperienceAnalyticsSummarizedByPNone
+	// UserExperienceAnalyticsSummarizedByPModel is a pointer to UserExperienceAnalyticsSummarizedByVModel
+	UserExperienceAnalyticsSummarizedByPModel = &_UserExperienceAnalyticsSummarizedByPModel
+	// UserExperienceAnalyticsSummarizedByPAllRegressions is a pointer to UserExperienceAnalyticsSummarizedByVAllRegressions
+	UserExperienceAnalyticsSummarizedByPAllRegressions = &_UserExperienceAnalyticsSummarizedByPAllRegressions
+	// UserExperienceAnalyticsSummarizedByPModelRegression is a pointer to UserExperienceAnalyticsSummarizedByVModelRegression
+	UserExperienceAnalyticsSummarizedByPModelRegression = &_UserExperienceAnalyticsSummarizedByPModelRegression
+	// UserExperienceAnalyticsSummarizedByPManufacturerRegression is a pointer to UserExperienceAnalyticsSummarizedByVManufacturerRegression
+	UserExperienceAnalyticsSummarizedByPManufacturerRegression = &_UserExperienceAnalyticsSummarizedByPManufacturerRegression
+	// UserExperienceAnalyticsSummarizedByPOperatingSystemVersionRegression is a pointer to UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression
+	UserExperienceAnalyticsSummarizedByPOperatingSystemVersionRegression = &_UserExperienceAnalyticsSummarizedByPOperatingSystemVersionRegression
+)
 
-// UserExperienceAnalyticsSummarizedByPModel returns a pointer to UserExperienceAnalyticsSummarizedByVModel
-func UserExperienceAnalyticsSummarizedByPModel() *UserExperienceAnalyticsSummarizedBy {
-	v := UserExperienceAnalyticsSummarizedByVModel
-	return &v
-}
-
-// UserExperienceAnalyticsSummarizedByPAllRegressions returns a pointer to UserExperienceAnalyticsSummarizedByVAllRegressions
-func UserExperienceAnalyticsSummarizedByPAllRegressions() *UserExperienceAnalyticsSummarizedBy {
-	v := UserExperienceAnalyticsSummarizedByVAllRegressions
-	return &v
-}
-
-// UserExperienceAnalyticsSummarizedByPModelRegression returns a pointer to UserExperienceAnalyticsSummarizedByVModelRegression
-func UserExperienceAnalyticsSummarizedByPModelRegression() *UserExperienceAnalyticsSummarizedBy {
-	v := UserExperienceAnalyticsSummarizedByVModelRegression
-	return &v
-}
-
-// UserExperienceAnalyticsSummarizedByPManufacturerRegression returns a pointer to UserExperienceAnalyticsSummarizedByVManufacturerRegression
-func UserExperienceAnalyticsSummarizedByPManufacturerRegression() *UserExperienceAnalyticsSummarizedBy {
-	v := UserExperienceAnalyticsSummarizedByVManufacturerRegression
-	return &v
-}
-
-// UserExperienceAnalyticsSummarizedByPOperatingSystemVersionRegression returns a pointer to UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression
-func UserExperienceAnalyticsSummarizedByPOperatingSystemVersionRegression() *UserExperienceAnalyticsSummarizedBy {
-	v := UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression
-	return &v
-}
+var (
+	_UserExperienceAnalyticsSummarizedByPNone                             = UserExperienceAnalyticsSummarizedByVNone
+	_UserExperienceAnalyticsSummarizedByPModel                            = UserExperienceAnalyticsSummarizedByVModel
+	_UserExperienceAnalyticsSummarizedByPAllRegressions                   = UserExperienceAnalyticsSummarizedByVAllRegressions
+	_UserExperienceAnalyticsSummarizedByPModelRegression                  = UserExperienceAnalyticsSummarizedByVModelRegression
+	_UserExperienceAnalyticsSummarizedByPManufacturerRegression           = UserExperienceAnalyticsSummarizedByVManufacturerRegression
+	_UserExperienceAnalyticsSummarizedByPOperatingSystemVersionRegression = UserExperienceAnalyticsSummarizedByVOperatingSystemVersionRegression
+)

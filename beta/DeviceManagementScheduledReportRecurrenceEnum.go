@@ -3,39 +3,33 @@
 package msgraph
 
 // DeviceManagementScheduledReportRecurrence undocumented
-type DeviceManagementScheduledReportRecurrence int
+type DeviceManagementScheduledReportRecurrence string
 
 const (
 	// DeviceManagementScheduledReportRecurrenceVNone undocumented
-	DeviceManagementScheduledReportRecurrenceVNone DeviceManagementScheduledReportRecurrence = 0
+	DeviceManagementScheduledReportRecurrenceVNone DeviceManagementScheduledReportRecurrence = "none"
 	// DeviceManagementScheduledReportRecurrenceVDaily undocumented
-	DeviceManagementScheduledReportRecurrenceVDaily DeviceManagementScheduledReportRecurrence = 1
+	DeviceManagementScheduledReportRecurrenceVDaily DeviceManagementScheduledReportRecurrence = "daily"
 	// DeviceManagementScheduledReportRecurrenceVWeekly undocumented
-	DeviceManagementScheduledReportRecurrenceVWeekly DeviceManagementScheduledReportRecurrence = 2
+	DeviceManagementScheduledReportRecurrenceVWeekly DeviceManagementScheduledReportRecurrence = "weekly"
 	// DeviceManagementScheduledReportRecurrenceVMonthly undocumented
-	DeviceManagementScheduledReportRecurrenceVMonthly DeviceManagementScheduledReportRecurrence = 3
+	DeviceManagementScheduledReportRecurrenceVMonthly DeviceManagementScheduledReportRecurrence = "monthly"
 )
 
-// DeviceManagementScheduledReportRecurrencePNone returns a pointer to DeviceManagementScheduledReportRecurrenceVNone
-func DeviceManagementScheduledReportRecurrencePNone() *DeviceManagementScheduledReportRecurrence {
-	v := DeviceManagementScheduledReportRecurrenceVNone
-	return &v
-}
+var (
+	// DeviceManagementScheduledReportRecurrencePNone is a pointer to DeviceManagementScheduledReportRecurrenceVNone
+	DeviceManagementScheduledReportRecurrencePNone = &_DeviceManagementScheduledReportRecurrencePNone
+	// DeviceManagementScheduledReportRecurrencePDaily is a pointer to DeviceManagementScheduledReportRecurrenceVDaily
+	DeviceManagementScheduledReportRecurrencePDaily = &_DeviceManagementScheduledReportRecurrencePDaily
+	// DeviceManagementScheduledReportRecurrencePWeekly is a pointer to DeviceManagementScheduledReportRecurrenceVWeekly
+	DeviceManagementScheduledReportRecurrencePWeekly = &_DeviceManagementScheduledReportRecurrencePWeekly
+	// DeviceManagementScheduledReportRecurrencePMonthly is a pointer to DeviceManagementScheduledReportRecurrenceVMonthly
+	DeviceManagementScheduledReportRecurrencePMonthly = &_DeviceManagementScheduledReportRecurrencePMonthly
+)
 
-// DeviceManagementScheduledReportRecurrencePDaily returns a pointer to DeviceManagementScheduledReportRecurrenceVDaily
-func DeviceManagementScheduledReportRecurrencePDaily() *DeviceManagementScheduledReportRecurrence {
-	v := DeviceManagementScheduledReportRecurrenceVDaily
-	return &v
-}
-
-// DeviceManagementScheduledReportRecurrencePWeekly returns a pointer to DeviceManagementScheduledReportRecurrenceVWeekly
-func DeviceManagementScheduledReportRecurrencePWeekly() *DeviceManagementScheduledReportRecurrence {
-	v := DeviceManagementScheduledReportRecurrenceVWeekly
-	return &v
-}
-
-// DeviceManagementScheduledReportRecurrencePMonthly returns a pointer to DeviceManagementScheduledReportRecurrenceVMonthly
-func DeviceManagementScheduledReportRecurrencePMonthly() *DeviceManagementScheduledReportRecurrence {
-	v := DeviceManagementScheduledReportRecurrenceVMonthly
-	return &v
-}
+var (
+	_DeviceManagementScheduledReportRecurrencePNone    = DeviceManagementScheduledReportRecurrenceVNone
+	_DeviceManagementScheduledReportRecurrencePDaily   = DeviceManagementScheduledReportRecurrenceVDaily
+	_DeviceManagementScheduledReportRecurrencePWeekly  = DeviceManagementScheduledReportRecurrenceVWeekly
+	_DeviceManagementScheduledReportRecurrencePMonthly = DeviceManagementScheduledReportRecurrenceVMonthly
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // MobileAppActionType undocumented
-type MobileAppActionType int
+type MobileAppActionType string
 
 const (
 	// MobileAppActionTypeVUnknown undocumented
-	MobileAppActionTypeVUnknown MobileAppActionType = 0
+	MobileAppActionTypeVUnknown MobileAppActionType = "unknown"
 	// MobileAppActionTypeVInstallCommandSent undocumented
-	MobileAppActionTypeVInstallCommandSent MobileAppActionType = 1
+	MobileAppActionTypeVInstallCommandSent MobileAppActionType = "installCommandSent"
 	// MobileAppActionTypeVInstalled undocumented
-	MobileAppActionTypeVInstalled MobileAppActionType = 3
+	MobileAppActionTypeVInstalled MobileAppActionType = "installed"
 	// MobileAppActionTypeVUninstalled undocumented
-	MobileAppActionTypeVUninstalled MobileAppActionType = 4
+	MobileAppActionTypeVUninstalled MobileAppActionType = "uninstalled"
 	// MobileAppActionTypeVUserRequestedInstall undocumented
-	MobileAppActionTypeVUserRequestedInstall MobileAppActionType = 5
+	MobileAppActionTypeVUserRequestedInstall MobileAppActionType = "userRequestedInstall"
 )
 
-// MobileAppActionTypePUnknown returns a pointer to MobileAppActionTypeVUnknown
-func MobileAppActionTypePUnknown() *MobileAppActionType {
-	v := MobileAppActionTypeVUnknown
-	return &v
-}
+var (
+	// MobileAppActionTypePUnknown is a pointer to MobileAppActionTypeVUnknown
+	MobileAppActionTypePUnknown = &_MobileAppActionTypePUnknown
+	// MobileAppActionTypePInstallCommandSent is a pointer to MobileAppActionTypeVInstallCommandSent
+	MobileAppActionTypePInstallCommandSent = &_MobileAppActionTypePInstallCommandSent
+	// MobileAppActionTypePInstalled is a pointer to MobileAppActionTypeVInstalled
+	MobileAppActionTypePInstalled = &_MobileAppActionTypePInstalled
+	// MobileAppActionTypePUninstalled is a pointer to MobileAppActionTypeVUninstalled
+	MobileAppActionTypePUninstalled = &_MobileAppActionTypePUninstalled
+	// MobileAppActionTypePUserRequestedInstall is a pointer to MobileAppActionTypeVUserRequestedInstall
+	MobileAppActionTypePUserRequestedInstall = &_MobileAppActionTypePUserRequestedInstall
+)
 
-// MobileAppActionTypePInstallCommandSent returns a pointer to MobileAppActionTypeVInstallCommandSent
-func MobileAppActionTypePInstallCommandSent() *MobileAppActionType {
-	v := MobileAppActionTypeVInstallCommandSent
-	return &v
-}
-
-// MobileAppActionTypePInstalled returns a pointer to MobileAppActionTypeVInstalled
-func MobileAppActionTypePInstalled() *MobileAppActionType {
-	v := MobileAppActionTypeVInstalled
-	return &v
-}
-
-// MobileAppActionTypePUninstalled returns a pointer to MobileAppActionTypeVUninstalled
-func MobileAppActionTypePUninstalled() *MobileAppActionType {
-	v := MobileAppActionTypeVUninstalled
-	return &v
-}
-
-// MobileAppActionTypePUserRequestedInstall returns a pointer to MobileAppActionTypeVUserRequestedInstall
-func MobileAppActionTypePUserRequestedInstall() *MobileAppActionType {
-	v := MobileAppActionTypeVUserRequestedInstall
-	return &v
-}
+var (
+	_MobileAppActionTypePUnknown              = MobileAppActionTypeVUnknown
+	_MobileAppActionTypePInstallCommandSent   = MobileAppActionTypeVInstallCommandSent
+	_MobileAppActionTypePInstalled            = MobileAppActionTypeVInstalled
+	_MobileAppActionTypePUninstalled          = MobileAppActionTypeVUninstalled
+	_MobileAppActionTypePUserRequestedInstall = MobileAppActionTypeVUserRequestedInstall
+)

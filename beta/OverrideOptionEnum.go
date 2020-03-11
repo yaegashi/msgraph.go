@@ -3,39 +3,33 @@
 package msgraph
 
 // OverrideOption undocumented
-type OverrideOption int
+type OverrideOption string
 
 const (
 	// OverrideOptionVNotAllowed undocumented
-	OverrideOptionVNotAllowed OverrideOption = 0
+	OverrideOptionVNotAllowed OverrideOption = "notAllowed"
 	// OverrideOptionVAllowFalsePositiveOverride undocumented
-	OverrideOptionVAllowFalsePositiveOverride OverrideOption = 1
+	OverrideOptionVAllowFalsePositiveOverride OverrideOption = "allowFalsePositiveOverride"
 	// OverrideOptionVAllowWithJustification undocumented
-	OverrideOptionVAllowWithJustification OverrideOption = 2
+	OverrideOptionVAllowWithJustification OverrideOption = "allowWithJustification"
 	// OverrideOptionVAllowWithoutJustification undocumented
-	OverrideOptionVAllowWithoutJustification OverrideOption = 4
+	OverrideOptionVAllowWithoutJustification OverrideOption = "allowWithoutJustification"
 )
 
-// OverrideOptionPNotAllowed returns a pointer to OverrideOptionVNotAllowed
-func OverrideOptionPNotAllowed() *OverrideOption {
-	v := OverrideOptionVNotAllowed
-	return &v
-}
+var (
+	// OverrideOptionPNotAllowed is a pointer to OverrideOptionVNotAllowed
+	OverrideOptionPNotAllowed = &_OverrideOptionPNotAllowed
+	// OverrideOptionPAllowFalsePositiveOverride is a pointer to OverrideOptionVAllowFalsePositiveOverride
+	OverrideOptionPAllowFalsePositiveOverride = &_OverrideOptionPAllowFalsePositiveOverride
+	// OverrideOptionPAllowWithJustification is a pointer to OverrideOptionVAllowWithJustification
+	OverrideOptionPAllowWithJustification = &_OverrideOptionPAllowWithJustification
+	// OverrideOptionPAllowWithoutJustification is a pointer to OverrideOptionVAllowWithoutJustification
+	OverrideOptionPAllowWithoutJustification = &_OverrideOptionPAllowWithoutJustification
+)
 
-// OverrideOptionPAllowFalsePositiveOverride returns a pointer to OverrideOptionVAllowFalsePositiveOverride
-func OverrideOptionPAllowFalsePositiveOverride() *OverrideOption {
-	v := OverrideOptionVAllowFalsePositiveOverride
-	return &v
-}
-
-// OverrideOptionPAllowWithJustification returns a pointer to OverrideOptionVAllowWithJustification
-func OverrideOptionPAllowWithJustification() *OverrideOption {
-	v := OverrideOptionVAllowWithJustification
-	return &v
-}
-
-// OverrideOptionPAllowWithoutJustification returns a pointer to OverrideOptionVAllowWithoutJustification
-func OverrideOptionPAllowWithoutJustification() *OverrideOption {
-	v := OverrideOptionVAllowWithoutJustification
-	return &v
-}
+var (
+	_OverrideOptionPNotAllowed                 = OverrideOptionVNotAllowed
+	_OverrideOptionPAllowFalsePositiveOverride = OverrideOptionVAllowFalsePositiveOverride
+	_OverrideOptionPAllowWithJustification     = OverrideOptionVAllowWithJustification
+	_OverrideOptionPAllowWithoutJustification  = OverrideOptionVAllowWithoutJustification
+)

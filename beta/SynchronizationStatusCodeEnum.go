@@ -3,47 +3,38 @@
 package msgraph
 
 // SynchronizationStatusCode undocumented
-type SynchronizationStatusCode int
+type SynchronizationStatusCode string
 
 const (
 	// SynchronizationStatusCodeVNotConfigured undocumented
-	SynchronizationStatusCodeVNotConfigured SynchronizationStatusCode = 0
+	SynchronizationStatusCodeVNotConfigured SynchronizationStatusCode = "NotConfigured"
 	// SynchronizationStatusCodeVNotRun undocumented
-	SynchronizationStatusCodeVNotRun SynchronizationStatusCode = 1
+	SynchronizationStatusCodeVNotRun SynchronizationStatusCode = "NotRun"
 	// SynchronizationStatusCodeVActive undocumented
-	SynchronizationStatusCodeVActive SynchronizationStatusCode = 2
+	SynchronizationStatusCodeVActive SynchronizationStatusCode = "Active"
 	// SynchronizationStatusCodeVPaused undocumented
-	SynchronizationStatusCodeVPaused SynchronizationStatusCode = 3
+	SynchronizationStatusCodeVPaused SynchronizationStatusCode = "Paused"
 	// SynchronizationStatusCodeVQuarantine undocumented
-	SynchronizationStatusCodeVQuarantine SynchronizationStatusCode = 4
+	SynchronizationStatusCodeVQuarantine SynchronizationStatusCode = "Quarantine"
 )
 
-// SynchronizationStatusCodePNotConfigured returns a pointer to SynchronizationStatusCodeVNotConfigured
-func SynchronizationStatusCodePNotConfigured() *SynchronizationStatusCode {
-	v := SynchronizationStatusCodeVNotConfigured
-	return &v
-}
+var (
+	// SynchronizationStatusCodePNotConfigured is a pointer to SynchronizationStatusCodeVNotConfigured
+	SynchronizationStatusCodePNotConfigured = &_SynchronizationStatusCodePNotConfigured
+	// SynchronizationStatusCodePNotRun is a pointer to SynchronizationStatusCodeVNotRun
+	SynchronizationStatusCodePNotRun = &_SynchronizationStatusCodePNotRun
+	// SynchronizationStatusCodePActive is a pointer to SynchronizationStatusCodeVActive
+	SynchronizationStatusCodePActive = &_SynchronizationStatusCodePActive
+	// SynchronizationStatusCodePPaused is a pointer to SynchronizationStatusCodeVPaused
+	SynchronizationStatusCodePPaused = &_SynchronizationStatusCodePPaused
+	// SynchronizationStatusCodePQuarantine is a pointer to SynchronizationStatusCodeVQuarantine
+	SynchronizationStatusCodePQuarantine = &_SynchronizationStatusCodePQuarantine
+)
 
-// SynchronizationStatusCodePNotRun returns a pointer to SynchronizationStatusCodeVNotRun
-func SynchronizationStatusCodePNotRun() *SynchronizationStatusCode {
-	v := SynchronizationStatusCodeVNotRun
-	return &v
-}
-
-// SynchronizationStatusCodePActive returns a pointer to SynchronizationStatusCodeVActive
-func SynchronizationStatusCodePActive() *SynchronizationStatusCode {
-	v := SynchronizationStatusCodeVActive
-	return &v
-}
-
-// SynchronizationStatusCodePPaused returns a pointer to SynchronizationStatusCodeVPaused
-func SynchronizationStatusCodePPaused() *SynchronizationStatusCode {
-	v := SynchronizationStatusCodeVPaused
-	return &v
-}
-
-// SynchronizationStatusCodePQuarantine returns a pointer to SynchronizationStatusCodeVQuarantine
-func SynchronizationStatusCodePQuarantine() *SynchronizationStatusCode {
-	v := SynchronizationStatusCodeVQuarantine
-	return &v
-}
+var (
+	_SynchronizationStatusCodePNotConfigured = SynchronizationStatusCodeVNotConfigured
+	_SynchronizationStatusCodePNotRun        = SynchronizationStatusCodeVNotRun
+	_SynchronizationStatusCodePActive        = SynchronizationStatusCodeVActive
+	_SynchronizationStatusCodePPaused        = SynchronizationStatusCodeVPaused
+	_SynchronizationStatusCodePQuarantine    = SynchronizationStatusCodeVQuarantine
+)

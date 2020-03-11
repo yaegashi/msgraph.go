@@ -3,31 +3,28 @@
 package msgraph
 
 // AppListType undocumented
-type AppListType int
+type AppListType string
 
 const (
 	// AppListTypeVNone undocumented
-	AppListTypeVNone AppListType = 0
+	AppListTypeVNone AppListType = "none"
 	// AppListTypeVAppsInListCompliant undocumented
-	AppListTypeVAppsInListCompliant AppListType = 1
+	AppListTypeVAppsInListCompliant AppListType = "appsInListCompliant"
 	// AppListTypeVAppsNotInListCompliant undocumented
-	AppListTypeVAppsNotInListCompliant AppListType = 2
+	AppListTypeVAppsNotInListCompliant AppListType = "appsNotInListCompliant"
 )
 
-// AppListTypePNone returns a pointer to AppListTypeVNone
-func AppListTypePNone() *AppListType {
-	v := AppListTypeVNone
-	return &v
-}
+var (
+	// AppListTypePNone is a pointer to AppListTypeVNone
+	AppListTypePNone = &_AppListTypePNone
+	// AppListTypePAppsInListCompliant is a pointer to AppListTypeVAppsInListCompliant
+	AppListTypePAppsInListCompliant = &_AppListTypePAppsInListCompliant
+	// AppListTypePAppsNotInListCompliant is a pointer to AppListTypeVAppsNotInListCompliant
+	AppListTypePAppsNotInListCompliant = &_AppListTypePAppsNotInListCompliant
+)
 
-// AppListTypePAppsInListCompliant returns a pointer to AppListTypeVAppsInListCompliant
-func AppListTypePAppsInListCompliant() *AppListType {
-	v := AppListTypeVAppsInListCompliant
-	return &v
-}
-
-// AppListTypePAppsNotInListCompliant returns a pointer to AppListTypeVAppsNotInListCompliant
-func AppListTypePAppsNotInListCompliant() *AppListType {
-	v := AppListTypeVAppsNotInListCompliant
-	return &v
-}
+var (
+	_AppListTypePNone                   = AppListTypeVNone
+	_AppListTypePAppsInListCompliant    = AppListTypeVAppsInListCompliant
+	_AppListTypePAppsNotInListCompliant = AppListTypeVAppsNotInListCompliant
+)

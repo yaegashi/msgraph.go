@@ -3,55 +3,43 @@
 package msgraph
 
 // AccountStatus undocumented
-type AccountStatus int
+type AccountStatus string
 
 const (
 	// AccountStatusVUnknown undocumented
-	AccountStatusVUnknown AccountStatus = 0
+	AccountStatusVUnknown AccountStatus = "unknown"
 	// AccountStatusVStaged undocumented
-	AccountStatusVStaged AccountStatus = 1
+	AccountStatusVStaged AccountStatus = "staged"
 	// AccountStatusVActive undocumented
-	AccountStatusVActive AccountStatus = 2
+	AccountStatusVActive AccountStatus = "active"
 	// AccountStatusVSuspended undocumented
-	AccountStatusVSuspended AccountStatus = 3
+	AccountStatusVSuspended AccountStatus = "suspended"
 	// AccountStatusVDeleted undocumented
-	AccountStatusVDeleted AccountStatus = 4
+	AccountStatusVDeleted AccountStatus = "deleted"
 	// AccountStatusVUnknownFutureValue undocumented
-	AccountStatusVUnknownFutureValue AccountStatus = 127
+	AccountStatusVUnknownFutureValue AccountStatus = "unknownFutureValue"
 )
 
-// AccountStatusPUnknown returns a pointer to AccountStatusVUnknown
-func AccountStatusPUnknown() *AccountStatus {
-	v := AccountStatusVUnknown
-	return &v
-}
+var (
+	// AccountStatusPUnknown is a pointer to AccountStatusVUnknown
+	AccountStatusPUnknown = &_AccountStatusPUnknown
+	// AccountStatusPStaged is a pointer to AccountStatusVStaged
+	AccountStatusPStaged = &_AccountStatusPStaged
+	// AccountStatusPActive is a pointer to AccountStatusVActive
+	AccountStatusPActive = &_AccountStatusPActive
+	// AccountStatusPSuspended is a pointer to AccountStatusVSuspended
+	AccountStatusPSuspended = &_AccountStatusPSuspended
+	// AccountStatusPDeleted is a pointer to AccountStatusVDeleted
+	AccountStatusPDeleted = &_AccountStatusPDeleted
+	// AccountStatusPUnknownFutureValue is a pointer to AccountStatusVUnknownFutureValue
+	AccountStatusPUnknownFutureValue = &_AccountStatusPUnknownFutureValue
+)
 
-// AccountStatusPStaged returns a pointer to AccountStatusVStaged
-func AccountStatusPStaged() *AccountStatus {
-	v := AccountStatusVStaged
-	return &v
-}
-
-// AccountStatusPActive returns a pointer to AccountStatusVActive
-func AccountStatusPActive() *AccountStatus {
-	v := AccountStatusVActive
-	return &v
-}
-
-// AccountStatusPSuspended returns a pointer to AccountStatusVSuspended
-func AccountStatusPSuspended() *AccountStatus {
-	v := AccountStatusVSuspended
-	return &v
-}
-
-// AccountStatusPDeleted returns a pointer to AccountStatusVDeleted
-func AccountStatusPDeleted() *AccountStatus {
-	v := AccountStatusVDeleted
-	return &v
-}
-
-// AccountStatusPUnknownFutureValue returns a pointer to AccountStatusVUnknownFutureValue
-func AccountStatusPUnknownFutureValue() *AccountStatus {
-	v := AccountStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_AccountStatusPUnknown            = AccountStatusVUnknown
+	_AccountStatusPStaged             = AccountStatusVStaged
+	_AccountStatusPActive             = AccountStatusVActive
+	_AccountStatusPSuspended          = AccountStatusVSuspended
+	_AccountStatusPDeleted            = AccountStatusVDeleted
+	_AccountStatusPUnknownFutureValue = AccountStatusVUnknownFutureValue
+)

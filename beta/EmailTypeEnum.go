@@ -3,47 +3,38 @@
 package msgraph
 
 // EmailType undocumented
-type EmailType int
+type EmailType string
 
 const (
 	// EmailTypeVUnknown undocumented
-	EmailTypeVUnknown EmailType = 0
+	EmailTypeVUnknown EmailType = "unknown"
 	// EmailTypeVWork undocumented
-	EmailTypeVWork EmailType = 1
+	EmailTypeVWork EmailType = "work"
 	// EmailTypeVPersonal undocumented
-	EmailTypeVPersonal EmailType = 2
+	EmailTypeVPersonal EmailType = "personal"
 	// EmailTypeVMain undocumented
-	EmailTypeVMain EmailType = 3
+	EmailTypeVMain EmailType = "main"
 	// EmailTypeVOther undocumented
-	EmailTypeVOther EmailType = 4
+	EmailTypeVOther EmailType = "other"
 )
 
-// EmailTypePUnknown returns a pointer to EmailTypeVUnknown
-func EmailTypePUnknown() *EmailType {
-	v := EmailTypeVUnknown
-	return &v
-}
+var (
+	// EmailTypePUnknown is a pointer to EmailTypeVUnknown
+	EmailTypePUnknown = &_EmailTypePUnknown
+	// EmailTypePWork is a pointer to EmailTypeVWork
+	EmailTypePWork = &_EmailTypePWork
+	// EmailTypePPersonal is a pointer to EmailTypeVPersonal
+	EmailTypePPersonal = &_EmailTypePPersonal
+	// EmailTypePMain is a pointer to EmailTypeVMain
+	EmailTypePMain = &_EmailTypePMain
+	// EmailTypePOther is a pointer to EmailTypeVOther
+	EmailTypePOther = &_EmailTypePOther
+)
 
-// EmailTypePWork returns a pointer to EmailTypeVWork
-func EmailTypePWork() *EmailType {
-	v := EmailTypeVWork
-	return &v
-}
-
-// EmailTypePPersonal returns a pointer to EmailTypeVPersonal
-func EmailTypePPersonal() *EmailType {
-	v := EmailTypeVPersonal
-	return &v
-}
-
-// EmailTypePMain returns a pointer to EmailTypeVMain
-func EmailTypePMain() *EmailType {
-	v := EmailTypeVMain
-	return &v
-}
-
-// EmailTypePOther returns a pointer to EmailTypeVOther
-func EmailTypePOther() *EmailType {
-	v := EmailTypeVOther
-	return &v
-}
+var (
+	_EmailTypePUnknown  = EmailTypeVUnknown
+	_EmailTypePWork     = EmailTypeVWork
+	_EmailTypePPersonal = EmailTypeVPersonal
+	_EmailTypePMain     = EmailTypeVMain
+	_EmailTypePOther    = EmailTypeVOther
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // InitiatorType undocumented
-type InitiatorType int
+type InitiatorType string
 
 const (
 	// InitiatorTypeVUser undocumented
-	InitiatorTypeVUser InitiatorType = 0
+	InitiatorTypeVUser InitiatorType = "user"
 	// InitiatorTypeVApp undocumented
-	InitiatorTypeVApp InitiatorType = 1
+	InitiatorTypeVApp InitiatorType = "app"
 	// InitiatorTypeVSystem undocumented
-	InitiatorTypeVSystem InitiatorType = 2
+	InitiatorTypeVSystem InitiatorType = "system"
 	// InitiatorTypeVUnknownFutureValue undocumented
-	InitiatorTypeVUnknownFutureValue InitiatorType = 3
+	InitiatorTypeVUnknownFutureValue InitiatorType = "unknownFutureValue"
 )
 
-// InitiatorTypePUser returns a pointer to InitiatorTypeVUser
-func InitiatorTypePUser() *InitiatorType {
-	v := InitiatorTypeVUser
-	return &v
-}
+var (
+	// InitiatorTypePUser is a pointer to InitiatorTypeVUser
+	InitiatorTypePUser = &_InitiatorTypePUser
+	// InitiatorTypePApp is a pointer to InitiatorTypeVApp
+	InitiatorTypePApp = &_InitiatorTypePApp
+	// InitiatorTypePSystem is a pointer to InitiatorTypeVSystem
+	InitiatorTypePSystem = &_InitiatorTypePSystem
+	// InitiatorTypePUnknownFutureValue is a pointer to InitiatorTypeVUnknownFutureValue
+	InitiatorTypePUnknownFutureValue = &_InitiatorTypePUnknownFutureValue
+)
 
-// InitiatorTypePApp returns a pointer to InitiatorTypeVApp
-func InitiatorTypePApp() *InitiatorType {
-	v := InitiatorTypeVApp
-	return &v
-}
-
-// InitiatorTypePSystem returns a pointer to InitiatorTypeVSystem
-func InitiatorTypePSystem() *InitiatorType {
-	v := InitiatorTypeVSystem
-	return &v
-}
-
-// InitiatorTypePUnknownFutureValue returns a pointer to InitiatorTypeVUnknownFutureValue
-func InitiatorTypePUnknownFutureValue() *InitiatorType {
-	v := InitiatorTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_InitiatorTypePUser               = InitiatorTypeVUser
+	_InitiatorTypePApp                = InitiatorTypeVApp
+	_InitiatorTypePSystem             = InitiatorTypeVSystem
+	_InitiatorTypePUnknownFutureValue = InitiatorTypeVUnknownFutureValue
+)

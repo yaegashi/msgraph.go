@@ -3,103 +3,73 @@
 package msgraph
 
 // ManagementState undocumented
-type ManagementState int
+type ManagementState string
 
 const (
 	// ManagementStateVManaged undocumented
-	ManagementStateVManaged ManagementState = 0
+	ManagementStateVManaged ManagementState = "managed"
 	// ManagementStateVRetirePending undocumented
-	ManagementStateVRetirePending ManagementState = 1
+	ManagementStateVRetirePending ManagementState = "retirePending"
 	// ManagementStateVRetireFailed undocumented
-	ManagementStateVRetireFailed ManagementState = 2
+	ManagementStateVRetireFailed ManagementState = "retireFailed"
 	// ManagementStateVWipePending undocumented
-	ManagementStateVWipePending ManagementState = 3
+	ManagementStateVWipePending ManagementState = "wipePending"
 	// ManagementStateVWipeFailed undocumented
-	ManagementStateVWipeFailed ManagementState = 4
+	ManagementStateVWipeFailed ManagementState = "wipeFailed"
 	// ManagementStateVUnhealthy undocumented
-	ManagementStateVUnhealthy ManagementState = 5
+	ManagementStateVUnhealthy ManagementState = "unhealthy"
 	// ManagementStateVDeletePending undocumented
-	ManagementStateVDeletePending ManagementState = 6
+	ManagementStateVDeletePending ManagementState = "deletePending"
 	// ManagementStateVRetireIssued undocumented
-	ManagementStateVRetireIssued ManagementState = 7
+	ManagementStateVRetireIssued ManagementState = "retireIssued"
 	// ManagementStateVWipeIssued undocumented
-	ManagementStateVWipeIssued ManagementState = 8
+	ManagementStateVWipeIssued ManagementState = "wipeIssued"
 	// ManagementStateVWipeCanceled undocumented
-	ManagementStateVWipeCanceled ManagementState = 9
+	ManagementStateVWipeCanceled ManagementState = "wipeCanceled"
 	// ManagementStateVRetireCanceled undocumented
-	ManagementStateVRetireCanceled ManagementState = 10
+	ManagementStateVRetireCanceled ManagementState = "retireCanceled"
 	// ManagementStateVDiscovered undocumented
-	ManagementStateVDiscovered ManagementState = 11
+	ManagementStateVDiscovered ManagementState = "discovered"
 )
 
-// ManagementStatePManaged returns a pointer to ManagementStateVManaged
-func ManagementStatePManaged() *ManagementState {
-	v := ManagementStateVManaged
-	return &v
-}
+var (
+	// ManagementStatePManaged is a pointer to ManagementStateVManaged
+	ManagementStatePManaged = &_ManagementStatePManaged
+	// ManagementStatePRetirePending is a pointer to ManagementStateVRetirePending
+	ManagementStatePRetirePending = &_ManagementStatePRetirePending
+	// ManagementStatePRetireFailed is a pointer to ManagementStateVRetireFailed
+	ManagementStatePRetireFailed = &_ManagementStatePRetireFailed
+	// ManagementStatePWipePending is a pointer to ManagementStateVWipePending
+	ManagementStatePWipePending = &_ManagementStatePWipePending
+	// ManagementStatePWipeFailed is a pointer to ManagementStateVWipeFailed
+	ManagementStatePWipeFailed = &_ManagementStatePWipeFailed
+	// ManagementStatePUnhealthy is a pointer to ManagementStateVUnhealthy
+	ManagementStatePUnhealthy = &_ManagementStatePUnhealthy
+	// ManagementStatePDeletePending is a pointer to ManagementStateVDeletePending
+	ManagementStatePDeletePending = &_ManagementStatePDeletePending
+	// ManagementStatePRetireIssued is a pointer to ManagementStateVRetireIssued
+	ManagementStatePRetireIssued = &_ManagementStatePRetireIssued
+	// ManagementStatePWipeIssued is a pointer to ManagementStateVWipeIssued
+	ManagementStatePWipeIssued = &_ManagementStatePWipeIssued
+	// ManagementStatePWipeCanceled is a pointer to ManagementStateVWipeCanceled
+	ManagementStatePWipeCanceled = &_ManagementStatePWipeCanceled
+	// ManagementStatePRetireCanceled is a pointer to ManagementStateVRetireCanceled
+	ManagementStatePRetireCanceled = &_ManagementStatePRetireCanceled
+	// ManagementStatePDiscovered is a pointer to ManagementStateVDiscovered
+	ManagementStatePDiscovered = &_ManagementStatePDiscovered
+)
 
-// ManagementStatePRetirePending returns a pointer to ManagementStateVRetirePending
-func ManagementStatePRetirePending() *ManagementState {
-	v := ManagementStateVRetirePending
-	return &v
-}
-
-// ManagementStatePRetireFailed returns a pointer to ManagementStateVRetireFailed
-func ManagementStatePRetireFailed() *ManagementState {
-	v := ManagementStateVRetireFailed
-	return &v
-}
-
-// ManagementStatePWipePending returns a pointer to ManagementStateVWipePending
-func ManagementStatePWipePending() *ManagementState {
-	v := ManagementStateVWipePending
-	return &v
-}
-
-// ManagementStatePWipeFailed returns a pointer to ManagementStateVWipeFailed
-func ManagementStatePWipeFailed() *ManagementState {
-	v := ManagementStateVWipeFailed
-	return &v
-}
-
-// ManagementStatePUnhealthy returns a pointer to ManagementStateVUnhealthy
-func ManagementStatePUnhealthy() *ManagementState {
-	v := ManagementStateVUnhealthy
-	return &v
-}
-
-// ManagementStatePDeletePending returns a pointer to ManagementStateVDeletePending
-func ManagementStatePDeletePending() *ManagementState {
-	v := ManagementStateVDeletePending
-	return &v
-}
-
-// ManagementStatePRetireIssued returns a pointer to ManagementStateVRetireIssued
-func ManagementStatePRetireIssued() *ManagementState {
-	v := ManagementStateVRetireIssued
-	return &v
-}
-
-// ManagementStatePWipeIssued returns a pointer to ManagementStateVWipeIssued
-func ManagementStatePWipeIssued() *ManagementState {
-	v := ManagementStateVWipeIssued
-	return &v
-}
-
-// ManagementStatePWipeCanceled returns a pointer to ManagementStateVWipeCanceled
-func ManagementStatePWipeCanceled() *ManagementState {
-	v := ManagementStateVWipeCanceled
-	return &v
-}
-
-// ManagementStatePRetireCanceled returns a pointer to ManagementStateVRetireCanceled
-func ManagementStatePRetireCanceled() *ManagementState {
-	v := ManagementStateVRetireCanceled
-	return &v
-}
-
-// ManagementStatePDiscovered returns a pointer to ManagementStateVDiscovered
-func ManagementStatePDiscovered() *ManagementState {
-	v := ManagementStateVDiscovered
-	return &v
-}
+var (
+	_ManagementStatePManaged        = ManagementStateVManaged
+	_ManagementStatePRetirePending  = ManagementStateVRetirePending
+	_ManagementStatePRetireFailed   = ManagementStateVRetireFailed
+	_ManagementStatePWipePending    = ManagementStateVWipePending
+	_ManagementStatePWipeFailed     = ManagementStateVWipeFailed
+	_ManagementStatePUnhealthy      = ManagementStateVUnhealthy
+	_ManagementStatePDeletePending  = ManagementStateVDeletePending
+	_ManagementStatePRetireIssued   = ManagementStateVRetireIssued
+	_ManagementStatePWipeIssued     = ManagementStateVWipeIssued
+	_ManagementStatePWipeCanceled   = ManagementStateVWipeCanceled
+	_ManagementStatePRetireCanceled = ManagementStateVRetireCanceled
+	_ManagementStatePDiscovered     = ManagementStateVDiscovered
+)

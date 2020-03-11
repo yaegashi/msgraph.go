@@ -3,95 +3,68 @@
 package msgraph
 
 // UsageAuthMethod undocumented
-type UsageAuthMethod int
+type UsageAuthMethod string
 
 const (
 	// UsageAuthMethodVEmail undocumented
-	UsageAuthMethodVEmail UsageAuthMethod = 0
+	UsageAuthMethodVEmail UsageAuthMethod = "email"
 	// UsageAuthMethodVMobileSMS undocumented
-	UsageAuthMethodVMobileSMS UsageAuthMethod = 1
+	UsageAuthMethodVMobileSMS UsageAuthMethod = "mobileSMS"
 	// UsageAuthMethodVMobileCall undocumented
-	UsageAuthMethodVMobileCall UsageAuthMethod = 2
+	UsageAuthMethodVMobileCall UsageAuthMethod = "mobileCall"
 	// UsageAuthMethodVOfficePhone undocumented
-	UsageAuthMethodVOfficePhone UsageAuthMethod = 3
+	UsageAuthMethodVOfficePhone UsageAuthMethod = "officePhone"
 	// UsageAuthMethodVSecurityQuestion undocumented
-	UsageAuthMethodVSecurityQuestion UsageAuthMethod = 4
+	UsageAuthMethodVSecurityQuestion UsageAuthMethod = "securityQuestion"
 	// UsageAuthMethodVAppNotification undocumented
-	UsageAuthMethodVAppNotification UsageAuthMethod = 5
+	UsageAuthMethodVAppNotification UsageAuthMethod = "appNotification"
 	// UsageAuthMethodVAppCode undocumented
-	UsageAuthMethodVAppCode UsageAuthMethod = 6
+	UsageAuthMethodVAppCode UsageAuthMethod = "appCode"
 	// UsageAuthMethodVAlternateMobileCall undocumented
-	UsageAuthMethodVAlternateMobileCall UsageAuthMethod = 7
+	UsageAuthMethodVAlternateMobileCall UsageAuthMethod = "alternateMobileCall"
 	// UsageAuthMethodVFido undocumented
-	UsageAuthMethodVFido UsageAuthMethod = 8
+	UsageAuthMethodVFido UsageAuthMethod = "fido"
 	// UsageAuthMethodVAppPassword undocumented
-	UsageAuthMethodVAppPassword UsageAuthMethod = 9
+	UsageAuthMethodVAppPassword UsageAuthMethod = "appPassword"
 	// UsageAuthMethodVUnknownFutureValue undocumented
-	UsageAuthMethodVUnknownFutureValue UsageAuthMethod = 10
+	UsageAuthMethodVUnknownFutureValue UsageAuthMethod = "unknownFutureValue"
 )
 
-// UsageAuthMethodPEmail returns a pointer to UsageAuthMethodVEmail
-func UsageAuthMethodPEmail() *UsageAuthMethod {
-	v := UsageAuthMethodVEmail
-	return &v
-}
+var (
+	// UsageAuthMethodPEmail is a pointer to UsageAuthMethodVEmail
+	UsageAuthMethodPEmail = &_UsageAuthMethodPEmail
+	// UsageAuthMethodPMobileSMS is a pointer to UsageAuthMethodVMobileSMS
+	UsageAuthMethodPMobileSMS = &_UsageAuthMethodPMobileSMS
+	// UsageAuthMethodPMobileCall is a pointer to UsageAuthMethodVMobileCall
+	UsageAuthMethodPMobileCall = &_UsageAuthMethodPMobileCall
+	// UsageAuthMethodPOfficePhone is a pointer to UsageAuthMethodVOfficePhone
+	UsageAuthMethodPOfficePhone = &_UsageAuthMethodPOfficePhone
+	// UsageAuthMethodPSecurityQuestion is a pointer to UsageAuthMethodVSecurityQuestion
+	UsageAuthMethodPSecurityQuestion = &_UsageAuthMethodPSecurityQuestion
+	// UsageAuthMethodPAppNotification is a pointer to UsageAuthMethodVAppNotification
+	UsageAuthMethodPAppNotification = &_UsageAuthMethodPAppNotification
+	// UsageAuthMethodPAppCode is a pointer to UsageAuthMethodVAppCode
+	UsageAuthMethodPAppCode = &_UsageAuthMethodPAppCode
+	// UsageAuthMethodPAlternateMobileCall is a pointer to UsageAuthMethodVAlternateMobileCall
+	UsageAuthMethodPAlternateMobileCall = &_UsageAuthMethodPAlternateMobileCall
+	// UsageAuthMethodPFido is a pointer to UsageAuthMethodVFido
+	UsageAuthMethodPFido = &_UsageAuthMethodPFido
+	// UsageAuthMethodPAppPassword is a pointer to UsageAuthMethodVAppPassword
+	UsageAuthMethodPAppPassword = &_UsageAuthMethodPAppPassword
+	// UsageAuthMethodPUnknownFutureValue is a pointer to UsageAuthMethodVUnknownFutureValue
+	UsageAuthMethodPUnknownFutureValue = &_UsageAuthMethodPUnknownFutureValue
+)
 
-// UsageAuthMethodPMobileSMS returns a pointer to UsageAuthMethodVMobileSMS
-func UsageAuthMethodPMobileSMS() *UsageAuthMethod {
-	v := UsageAuthMethodVMobileSMS
-	return &v
-}
-
-// UsageAuthMethodPMobileCall returns a pointer to UsageAuthMethodVMobileCall
-func UsageAuthMethodPMobileCall() *UsageAuthMethod {
-	v := UsageAuthMethodVMobileCall
-	return &v
-}
-
-// UsageAuthMethodPOfficePhone returns a pointer to UsageAuthMethodVOfficePhone
-func UsageAuthMethodPOfficePhone() *UsageAuthMethod {
-	v := UsageAuthMethodVOfficePhone
-	return &v
-}
-
-// UsageAuthMethodPSecurityQuestion returns a pointer to UsageAuthMethodVSecurityQuestion
-func UsageAuthMethodPSecurityQuestion() *UsageAuthMethod {
-	v := UsageAuthMethodVSecurityQuestion
-	return &v
-}
-
-// UsageAuthMethodPAppNotification returns a pointer to UsageAuthMethodVAppNotification
-func UsageAuthMethodPAppNotification() *UsageAuthMethod {
-	v := UsageAuthMethodVAppNotification
-	return &v
-}
-
-// UsageAuthMethodPAppCode returns a pointer to UsageAuthMethodVAppCode
-func UsageAuthMethodPAppCode() *UsageAuthMethod {
-	v := UsageAuthMethodVAppCode
-	return &v
-}
-
-// UsageAuthMethodPAlternateMobileCall returns a pointer to UsageAuthMethodVAlternateMobileCall
-func UsageAuthMethodPAlternateMobileCall() *UsageAuthMethod {
-	v := UsageAuthMethodVAlternateMobileCall
-	return &v
-}
-
-// UsageAuthMethodPFido returns a pointer to UsageAuthMethodVFido
-func UsageAuthMethodPFido() *UsageAuthMethod {
-	v := UsageAuthMethodVFido
-	return &v
-}
-
-// UsageAuthMethodPAppPassword returns a pointer to UsageAuthMethodVAppPassword
-func UsageAuthMethodPAppPassword() *UsageAuthMethod {
-	v := UsageAuthMethodVAppPassword
-	return &v
-}
-
-// UsageAuthMethodPUnknownFutureValue returns a pointer to UsageAuthMethodVUnknownFutureValue
-func UsageAuthMethodPUnknownFutureValue() *UsageAuthMethod {
-	v := UsageAuthMethodVUnknownFutureValue
-	return &v
-}
+var (
+	_UsageAuthMethodPEmail               = UsageAuthMethodVEmail
+	_UsageAuthMethodPMobileSMS           = UsageAuthMethodVMobileSMS
+	_UsageAuthMethodPMobileCall          = UsageAuthMethodVMobileCall
+	_UsageAuthMethodPOfficePhone         = UsageAuthMethodVOfficePhone
+	_UsageAuthMethodPSecurityQuestion    = UsageAuthMethodVSecurityQuestion
+	_UsageAuthMethodPAppNotification     = UsageAuthMethodVAppNotification
+	_UsageAuthMethodPAppCode             = UsageAuthMethodVAppCode
+	_UsageAuthMethodPAlternateMobileCall = UsageAuthMethodVAlternateMobileCall
+	_UsageAuthMethodPFido                = UsageAuthMethodVFido
+	_UsageAuthMethodPAppPassword         = UsageAuthMethodVAppPassword
+	_UsageAuthMethodPUnknownFutureValue  = UsageAuthMethodVUnknownFutureValue
+)

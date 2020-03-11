@@ -3,31 +3,28 @@
 package msgraph
 
 // ManagedDeviceOwnerType undocumented
-type ManagedDeviceOwnerType int
+type ManagedDeviceOwnerType string
 
 const (
 	// ManagedDeviceOwnerTypeVUnknown undocumented
-	ManagedDeviceOwnerTypeVUnknown ManagedDeviceOwnerType = 0
+	ManagedDeviceOwnerTypeVUnknown ManagedDeviceOwnerType = "unknown"
 	// ManagedDeviceOwnerTypeVCompany undocumented
-	ManagedDeviceOwnerTypeVCompany ManagedDeviceOwnerType = 1
+	ManagedDeviceOwnerTypeVCompany ManagedDeviceOwnerType = "company"
 	// ManagedDeviceOwnerTypeVPersonal undocumented
-	ManagedDeviceOwnerTypeVPersonal ManagedDeviceOwnerType = 2
+	ManagedDeviceOwnerTypeVPersonal ManagedDeviceOwnerType = "personal"
 )
 
-// ManagedDeviceOwnerTypePUnknown returns a pointer to ManagedDeviceOwnerTypeVUnknown
-func ManagedDeviceOwnerTypePUnknown() *ManagedDeviceOwnerType {
-	v := ManagedDeviceOwnerTypeVUnknown
-	return &v
-}
+var (
+	// ManagedDeviceOwnerTypePUnknown is a pointer to ManagedDeviceOwnerTypeVUnknown
+	ManagedDeviceOwnerTypePUnknown = &_ManagedDeviceOwnerTypePUnknown
+	// ManagedDeviceOwnerTypePCompany is a pointer to ManagedDeviceOwnerTypeVCompany
+	ManagedDeviceOwnerTypePCompany = &_ManagedDeviceOwnerTypePCompany
+	// ManagedDeviceOwnerTypePPersonal is a pointer to ManagedDeviceOwnerTypeVPersonal
+	ManagedDeviceOwnerTypePPersonal = &_ManagedDeviceOwnerTypePPersonal
+)
 
-// ManagedDeviceOwnerTypePCompany returns a pointer to ManagedDeviceOwnerTypeVCompany
-func ManagedDeviceOwnerTypePCompany() *ManagedDeviceOwnerType {
-	v := ManagedDeviceOwnerTypeVCompany
-	return &v
-}
-
-// ManagedDeviceOwnerTypePPersonal returns a pointer to ManagedDeviceOwnerTypeVPersonal
-func ManagedDeviceOwnerTypePPersonal() *ManagedDeviceOwnerType {
-	v := ManagedDeviceOwnerTypeVPersonal
-	return &v
-}
+var (
+	_ManagedDeviceOwnerTypePUnknown  = ManagedDeviceOwnerTypeVUnknown
+	_ManagedDeviceOwnerTypePCompany  = ManagedDeviceOwnerTypeVCompany
+	_ManagedDeviceOwnerTypePPersonal = ManagedDeviceOwnerTypeVPersonal
+)

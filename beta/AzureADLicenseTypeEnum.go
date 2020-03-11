@@ -3,55 +3,43 @@
 package msgraph
 
 // AzureADLicenseType undocumented
-type AzureADLicenseType int
+type AzureADLicenseType string
 
 const (
 	// AzureADLicenseTypeVNone undocumented
-	AzureADLicenseTypeVNone AzureADLicenseType = 0
+	AzureADLicenseTypeVNone AzureADLicenseType = "none"
 	// AzureADLicenseTypeVFree undocumented
-	AzureADLicenseTypeVFree AzureADLicenseType = 1
+	AzureADLicenseTypeVFree AzureADLicenseType = "free"
 	// AzureADLicenseTypeVBasic undocumented
-	AzureADLicenseTypeVBasic AzureADLicenseType = 2
+	AzureADLicenseTypeVBasic AzureADLicenseType = "basic"
 	// AzureADLicenseTypeVPremiumP1 undocumented
-	AzureADLicenseTypeVPremiumP1 AzureADLicenseType = 3
+	AzureADLicenseTypeVPremiumP1 AzureADLicenseType = "premiumP1"
 	// AzureADLicenseTypeVPremiumP2 undocumented
-	AzureADLicenseTypeVPremiumP2 AzureADLicenseType = 4
+	AzureADLicenseTypeVPremiumP2 AzureADLicenseType = "premiumP2"
 	// AzureADLicenseTypeVUnknownFutureValue undocumented
-	AzureADLicenseTypeVUnknownFutureValue AzureADLicenseType = 5
+	AzureADLicenseTypeVUnknownFutureValue AzureADLicenseType = "unknownFutureValue"
 )
 
-// AzureADLicenseTypePNone returns a pointer to AzureADLicenseTypeVNone
-func AzureADLicenseTypePNone() *AzureADLicenseType {
-	v := AzureADLicenseTypeVNone
-	return &v
-}
+var (
+	// AzureADLicenseTypePNone is a pointer to AzureADLicenseTypeVNone
+	AzureADLicenseTypePNone = &_AzureADLicenseTypePNone
+	// AzureADLicenseTypePFree is a pointer to AzureADLicenseTypeVFree
+	AzureADLicenseTypePFree = &_AzureADLicenseTypePFree
+	// AzureADLicenseTypePBasic is a pointer to AzureADLicenseTypeVBasic
+	AzureADLicenseTypePBasic = &_AzureADLicenseTypePBasic
+	// AzureADLicenseTypePPremiumP1 is a pointer to AzureADLicenseTypeVPremiumP1
+	AzureADLicenseTypePPremiumP1 = &_AzureADLicenseTypePPremiumP1
+	// AzureADLicenseTypePPremiumP2 is a pointer to AzureADLicenseTypeVPremiumP2
+	AzureADLicenseTypePPremiumP2 = &_AzureADLicenseTypePPremiumP2
+	// AzureADLicenseTypePUnknownFutureValue is a pointer to AzureADLicenseTypeVUnknownFutureValue
+	AzureADLicenseTypePUnknownFutureValue = &_AzureADLicenseTypePUnknownFutureValue
+)
 
-// AzureADLicenseTypePFree returns a pointer to AzureADLicenseTypeVFree
-func AzureADLicenseTypePFree() *AzureADLicenseType {
-	v := AzureADLicenseTypeVFree
-	return &v
-}
-
-// AzureADLicenseTypePBasic returns a pointer to AzureADLicenseTypeVBasic
-func AzureADLicenseTypePBasic() *AzureADLicenseType {
-	v := AzureADLicenseTypeVBasic
-	return &v
-}
-
-// AzureADLicenseTypePPremiumP1 returns a pointer to AzureADLicenseTypeVPremiumP1
-func AzureADLicenseTypePPremiumP1() *AzureADLicenseType {
-	v := AzureADLicenseTypeVPremiumP1
-	return &v
-}
-
-// AzureADLicenseTypePPremiumP2 returns a pointer to AzureADLicenseTypeVPremiumP2
-func AzureADLicenseTypePPremiumP2() *AzureADLicenseType {
-	v := AzureADLicenseTypeVPremiumP2
-	return &v
-}
-
-// AzureADLicenseTypePUnknownFutureValue returns a pointer to AzureADLicenseTypeVUnknownFutureValue
-func AzureADLicenseTypePUnknownFutureValue() *AzureADLicenseType {
-	v := AzureADLicenseTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_AzureADLicenseTypePNone               = AzureADLicenseTypeVNone
+	_AzureADLicenseTypePFree               = AzureADLicenseTypeVFree
+	_AzureADLicenseTypePBasic              = AzureADLicenseTypeVBasic
+	_AzureADLicenseTypePPremiumP1          = AzureADLicenseTypeVPremiumP1
+	_AzureADLicenseTypePPremiumP2          = AzureADLicenseTypeVPremiumP2
+	_AzureADLicenseTypePUnknownFutureValue = AzureADLicenseTypeVUnknownFutureValue
+)

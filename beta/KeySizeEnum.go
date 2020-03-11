@@ -3,23 +3,23 @@
 package msgraph
 
 // KeySize undocumented
-type KeySize int
+type KeySize string
 
 const (
 	// KeySizeVSize1024 undocumented
-	KeySizeVSize1024 KeySize = 0
+	KeySizeVSize1024 KeySize = "size1024"
 	// KeySizeVSize2048 undocumented
-	KeySizeVSize2048 KeySize = 1
+	KeySizeVSize2048 KeySize = "size2048"
 )
 
-// KeySizePSize1024 returns a pointer to KeySizeVSize1024
-func KeySizePSize1024() *KeySize {
-	v := KeySizeVSize1024
-	return &v
-}
+var (
+	// KeySizePSize1024 is a pointer to KeySizeVSize1024
+	KeySizePSize1024 = &_KeySizePSize1024
+	// KeySizePSize2048 is a pointer to KeySizeVSize2048
+	KeySizePSize2048 = &_KeySizePSize2048
+)
 
-// KeySizePSize2048 returns a pointer to KeySizeVSize2048
-func KeySizePSize2048() *KeySize {
-	v := KeySizeVSize2048
-	return &v
-}
+var (
+	_KeySizePSize1024 = KeySizeVSize1024
+	_KeySizePSize2048 = KeySizeVSize2048
+)

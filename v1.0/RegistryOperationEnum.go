@@ -3,47 +3,38 @@
 package msgraph
 
 // RegistryOperation undocumented
-type RegistryOperation int
+type RegistryOperation string
 
 const (
 	// RegistryOperationVUnknown undocumented
-	RegistryOperationVUnknown RegistryOperation = 0
+	RegistryOperationVUnknown RegistryOperation = "unknown"
 	// RegistryOperationVCreate undocumented
-	RegistryOperationVCreate RegistryOperation = 1
+	RegistryOperationVCreate RegistryOperation = "create"
 	// RegistryOperationVModify undocumented
-	RegistryOperationVModify RegistryOperation = 2
+	RegistryOperationVModify RegistryOperation = "modify"
 	// RegistryOperationVDelete undocumented
-	RegistryOperationVDelete RegistryOperation = 3
+	RegistryOperationVDelete RegistryOperation = "delete"
 	// RegistryOperationVUnknownFutureValue undocumented
-	RegistryOperationVUnknownFutureValue RegistryOperation = 127
+	RegistryOperationVUnknownFutureValue RegistryOperation = "unknownFutureValue"
 )
 
-// RegistryOperationPUnknown returns a pointer to RegistryOperationVUnknown
-func RegistryOperationPUnknown() *RegistryOperation {
-	v := RegistryOperationVUnknown
-	return &v
-}
+var (
+	// RegistryOperationPUnknown is a pointer to RegistryOperationVUnknown
+	RegistryOperationPUnknown = &_RegistryOperationPUnknown
+	// RegistryOperationPCreate is a pointer to RegistryOperationVCreate
+	RegistryOperationPCreate = &_RegistryOperationPCreate
+	// RegistryOperationPModify is a pointer to RegistryOperationVModify
+	RegistryOperationPModify = &_RegistryOperationPModify
+	// RegistryOperationPDelete is a pointer to RegistryOperationVDelete
+	RegistryOperationPDelete = &_RegistryOperationPDelete
+	// RegistryOperationPUnknownFutureValue is a pointer to RegistryOperationVUnknownFutureValue
+	RegistryOperationPUnknownFutureValue = &_RegistryOperationPUnknownFutureValue
+)
 
-// RegistryOperationPCreate returns a pointer to RegistryOperationVCreate
-func RegistryOperationPCreate() *RegistryOperation {
-	v := RegistryOperationVCreate
-	return &v
-}
-
-// RegistryOperationPModify returns a pointer to RegistryOperationVModify
-func RegistryOperationPModify() *RegistryOperation {
-	v := RegistryOperationVModify
-	return &v
-}
-
-// RegistryOperationPDelete returns a pointer to RegistryOperationVDelete
-func RegistryOperationPDelete() *RegistryOperation {
-	v := RegistryOperationVDelete
-	return &v
-}
-
-// RegistryOperationPUnknownFutureValue returns a pointer to RegistryOperationVUnknownFutureValue
-func RegistryOperationPUnknownFutureValue() *RegistryOperation {
-	v := RegistryOperationVUnknownFutureValue
-	return &v
-}
+var (
+	_RegistryOperationPUnknown            = RegistryOperationVUnknown
+	_RegistryOperationPCreate             = RegistryOperationVCreate
+	_RegistryOperationPModify             = RegistryOperationVModify
+	_RegistryOperationPDelete             = RegistryOperationVDelete
+	_RegistryOperationPUnknownFutureValue = RegistryOperationVUnknownFutureValue
+)

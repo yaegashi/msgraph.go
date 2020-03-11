@@ -3,55 +3,43 @@
 package msgraph
 
 // VpnEncryptionAlgorithmType undocumented
-type VpnEncryptionAlgorithmType int
+type VpnEncryptionAlgorithmType string
 
 const (
 	// VpnEncryptionAlgorithmTypeVAes256 undocumented
-	VpnEncryptionAlgorithmTypeVAes256 VpnEncryptionAlgorithmType = 0
+	VpnEncryptionAlgorithmTypeVAes256 VpnEncryptionAlgorithmType = "aes256"
 	// VpnEncryptionAlgorithmTypeVDes undocumented
-	VpnEncryptionAlgorithmTypeVDes VpnEncryptionAlgorithmType = 1
+	VpnEncryptionAlgorithmTypeVDes VpnEncryptionAlgorithmType = "des"
 	// VpnEncryptionAlgorithmTypeVTripleDes undocumented
-	VpnEncryptionAlgorithmTypeVTripleDes VpnEncryptionAlgorithmType = 2
+	VpnEncryptionAlgorithmTypeVTripleDes VpnEncryptionAlgorithmType = "tripleDes"
 	// VpnEncryptionAlgorithmTypeVAes128 undocumented
-	VpnEncryptionAlgorithmTypeVAes128 VpnEncryptionAlgorithmType = 3
+	VpnEncryptionAlgorithmTypeVAes128 VpnEncryptionAlgorithmType = "aes128"
 	// VpnEncryptionAlgorithmTypeVAes128Gcm undocumented
-	VpnEncryptionAlgorithmTypeVAes128Gcm VpnEncryptionAlgorithmType = 4
+	VpnEncryptionAlgorithmTypeVAes128Gcm VpnEncryptionAlgorithmType = "aes128Gcm"
 	// VpnEncryptionAlgorithmTypeVAes256Gcm undocumented
-	VpnEncryptionAlgorithmTypeVAes256Gcm VpnEncryptionAlgorithmType = 5
+	VpnEncryptionAlgorithmTypeVAes256Gcm VpnEncryptionAlgorithmType = "aes256Gcm"
 )
 
-// VpnEncryptionAlgorithmTypePAes256 returns a pointer to VpnEncryptionAlgorithmTypeVAes256
-func VpnEncryptionAlgorithmTypePAes256() *VpnEncryptionAlgorithmType {
-	v := VpnEncryptionAlgorithmTypeVAes256
-	return &v
-}
+var (
+	// VpnEncryptionAlgorithmTypePAes256 is a pointer to VpnEncryptionAlgorithmTypeVAes256
+	VpnEncryptionAlgorithmTypePAes256 = &_VpnEncryptionAlgorithmTypePAes256
+	// VpnEncryptionAlgorithmTypePDes is a pointer to VpnEncryptionAlgorithmTypeVDes
+	VpnEncryptionAlgorithmTypePDes = &_VpnEncryptionAlgorithmTypePDes
+	// VpnEncryptionAlgorithmTypePTripleDes is a pointer to VpnEncryptionAlgorithmTypeVTripleDes
+	VpnEncryptionAlgorithmTypePTripleDes = &_VpnEncryptionAlgorithmTypePTripleDes
+	// VpnEncryptionAlgorithmTypePAes128 is a pointer to VpnEncryptionAlgorithmTypeVAes128
+	VpnEncryptionAlgorithmTypePAes128 = &_VpnEncryptionAlgorithmTypePAes128
+	// VpnEncryptionAlgorithmTypePAes128Gcm is a pointer to VpnEncryptionAlgorithmTypeVAes128Gcm
+	VpnEncryptionAlgorithmTypePAes128Gcm = &_VpnEncryptionAlgorithmTypePAes128Gcm
+	// VpnEncryptionAlgorithmTypePAes256Gcm is a pointer to VpnEncryptionAlgorithmTypeVAes256Gcm
+	VpnEncryptionAlgorithmTypePAes256Gcm = &_VpnEncryptionAlgorithmTypePAes256Gcm
+)
 
-// VpnEncryptionAlgorithmTypePDes returns a pointer to VpnEncryptionAlgorithmTypeVDes
-func VpnEncryptionAlgorithmTypePDes() *VpnEncryptionAlgorithmType {
-	v := VpnEncryptionAlgorithmTypeVDes
-	return &v
-}
-
-// VpnEncryptionAlgorithmTypePTripleDes returns a pointer to VpnEncryptionAlgorithmTypeVTripleDes
-func VpnEncryptionAlgorithmTypePTripleDes() *VpnEncryptionAlgorithmType {
-	v := VpnEncryptionAlgorithmTypeVTripleDes
-	return &v
-}
-
-// VpnEncryptionAlgorithmTypePAes128 returns a pointer to VpnEncryptionAlgorithmTypeVAes128
-func VpnEncryptionAlgorithmTypePAes128() *VpnEncryptionAlgorithmType {
-	v := VpnEncryptionAlgorithmTypeVAes128
-	return &v
-}
-
-// VpnEncryptionAlgorithmTypePAes128Gcm returns a pointer to VpnEncryptionAlgorithmTypeVAes128Gcm
-func VpnEncryptionAlgorithmTypePAes128Gcm() *VpnEncryptionAlgorithmType {
-	v := VpnEncryptionAlgorithmTypeVAes128Gcm
-	return &v
-}
-
-// VpnEncryptionAlgorithmTypePAes256Gcm returns a pointer to VpnEncryptionAlgorithmTypeVAes256Gcm
-func VpnEncryptionAlgorithmTypePAes256Gcm() *VpnEncryptionAlgorithmType {
-	v := VpnEncryptionAlgorithmTypeVAes256Gcm
-	return &v
-}
+var (
+	_VpnEncryptionAlgorithmTypePAes256    = VpnEncryptionAlgorithmTypeVAes256
+	_VpnEncryptionAlgorithmTypePDes       = VpnEncryptionAlgorithmTypeVDes
+	_VpnEncryptionAlgorithmTypePTripleDes = VpnEncryptionAlgorithmTypeVTripleDes
+	_VpnEncryptionAlgorithmTypePAes128    = VpnEncryptionAlgorithmTypeVAes128
+	_VpnEncryptionAlgorithmTypePAes128Gcm = VpnEncryptionAlgorithmTypeVAes128Gcm
+	_VpnEncryptionAlgorithmTypePAes256Gcm = VpnEncryptionAlgorithmTypeVAes256Gcm
+)

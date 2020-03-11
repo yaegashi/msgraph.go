@@ -3,31 +3,28 @@
 package msgraph
 
 // RecurrenceRangeType undocumented
-type RecurrenceRangeType int
+type RecurrenceRangeType string
 
 const (
 	// RecurrenceRangeTypeVEndDate undocumented
-	RecurrenceRangeTypeVEndDate RecurrenceRangeType = 0
+	RecurrenceRangeTypeVEndDate RecurrenceRangeType = "endDate"
 	// RecurrenceRangeTypeVNoEnd undocumented
-	RecurrenceRangeTypeVNoEnd RecurrenceRangeType = 1
+	RecurrenceRangeTypeVNoEnd RecurrenceRangeType = "noEnd"
 	// RecurrenceRangeTypeVNumbered undocumented
-	RecurrenceRangeTypeVNumbered RecurrenceRangeType = 2
+	RecurrenceRangeTypeVNumbered RecurrenceRangeType = "numbered"
 )
 
-// RecurrenceRangeTypePEndDate returns a pointer to RecurrenceRangeTypeVEndDate
-func RecurrenceRangeTypePEndDate() *RecurrenceRangeType {
-	v := RecurrenceRangeTypeVEndDate
-	return &v
-}
+var (
+	// RecurrenceRangeTypePEndDate is a pointer to RecurrenceRangeTypeVEndDate
+	RecurrenceRangeTypePEndDate = &_RecurrenceRangeTypePEndDate
+	// RecurrenceRangeTypePNoEnd is a pointer to RecurrenceRangeTypeVNoEnd
+	RecurrenceRangeTypePNoEnd = &_RecurrenceRangeTypePNoEnd
+	// RecurrenceRangeTypePNumbered is a pointer to RecurrenceRangeTypeVNumbered
+	RecurrenceRangeTypePNumbered = &_RecurrenceRangeTypePNumbered
+)
 
-// RecurrenceRangeTypePNoEnd returns a pointer to RecurrenceRangeTypeVNoEnd
-func RecurrenceRangeTypePNoEnd() *RecurrenceRangeType {
-	v := RecurrenceRangeTypeVNoEnd
-	return &v
-}
-
-// RecurrenceRangeTypePNumbered returns a pointer to RecurrenceRangeTypeVNumbered
-func RecurrenceRangeTypePNumbered() *RecurrenceRangeType {
-	v := RecurrenceRangeTypeVNumbered
-	return &v
-}
+var (
+	_RecurrenceRangeTypePEndDate  = RecurrenceRangeTypeVEndDate
+	_RecurrenceRangeTypePNoEnd    = RecurrenceRangeTypeVNoEnd
+	_RecurrenceRangeTypePNumbered = RecurrenceRangeTypeVNumbered
+)

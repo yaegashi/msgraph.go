@@ -3,183 +3,123 @@
 package msgraph
 
 // DeviceType undocumented
-type DeviceType int
+type DeviceType string
 
 const (
 	// DeviceTypeVDesktop undocumented
-	DeviceTypeVDesktop DeviceType = 0
+	DeviceTypeVDesktop DeviceType = "desktop"
 	// DeviceTypeVWindowsRT undocumented
-	DeviceTypeVWindowsRT DeviceType = 1
+	DeviceTypeVWindowsRT DeviceType = "windowsRT"
 	// DeviceTypeVWinMO6 undocumented
-	DeviceTypeVWinMO6 DeviceType = 2
+	DeviceTypeVWinMO6 DeviceType = "winMO6"
 	// DeviceTypeVNokia undocumented
-	DeviceTypeVNokia DeviceType = 3
+	DeviceTypeVNokia DeviceType = "nokia"
 	// DeviceTypeVWindowsPhone undocumented
-	DeviceTypeVWindowsPhone DeviceType = 4
+	DeviceTypeVWindowsPhone DeviceType = "windowsPhone"
 	// DeviceTypeVMac undocumented
-	DeviceTypeVMac DeviceType = 5
+	DeviceTypeVMac DeviceType = "mac"
 	// DeviceTypeVWinCE undocumented
-	DeviceTypeVWinCE DeviceType = 6
+	DeviceTypeVWinCE DeviceType = "winCE"
 	// DeviceTypeVWinEmbedded undocumented
-	DeviceTypeVWinEmbedded DeviceType = 7
+	DeviceTypeVWinEmbedded DeviceType = "winEmbedded"
 	// DeviceTypeVIPhone undocumented
-	DeviceTypeVIPhone DeviceType = 8
+	DeviceTypeVIPhone DeviceType = "iPhone"
 	// DeviceTypeVIPad undocumented
-	DeviceTypeVIPad DeviceType = 9
+	DeviceTypeVIPad DeviceType = "iPad"
 	// DeviceTypeVIPod undocumented
-	DeviceTypeVIPod DeviceType = 10
+	DeviceTypeVIPod DeviceType = "iPod"
 	// DeviceTypeVAndroid undocumented
-	DeviceTypeVAndroid DeviceType = 11
+	DeviceTypeVAndroid DeviceType = "android"
 	// DeviceTypeVISocConsumer undocumented
-	DeviceTypeVISocConsumer DeviceType = 12
+	DeviceTypeVISocConsumer DeviceType = "iSocConsumer"
 	// DeviceTypeVUnix undocumented
-	DeviceTypeVUnix DeviceType = 13
+	DeviceTypeVUnix DeviceType = "unix"
 	// DeviceTypeVMacMDM undocumented
-	DeviceTypeVMacMDM DeviceType = 14
+	DeviceTypeVMacMDM DeviceType = "macMDM"
 	// DeviceTypeVHoloLens undocumented
-	DeviceTypeVHoloLens DeviceType = 15
+	DeviceTypeVHoloLens DeviceType = "holoLens"
 	// DeviceTypeVSurfaceHub undocumented
-	DeviceTypeVSurfaceHub DeviceType = 16
+	DeviceTypeVSurfaceHub DeviceType = "surfaceHub"
 	// DeviceTypeVAndroidForWork undocumented
-	DeviceTypeVAndroidForWork DeviceType = 17
+	DeviceTypeVAndroidForWork DeviceType = "androidForWork"
 	// DeviceTypeVAndroidEnterprise undocumented
-	DeviceTypeVAndroidEnterprise DeviceType = 18
+	DeviceTypeVAndroidEnterprise DeviceType = "androidEnterprise"
 	// DeviceTypeVBlackberry undocumented
-	DeviceTypeVBlackberry DeviceType = 100
+	DeviceTypeVBlackberry DeviceType = "blackberry"
 	// DeviceTypeVPalm undocumented
-	DeviceTypeVPalm DeviceType = 101
+	DeviceTypeVPalm DeviceType = "palm"
 	// DeviceTypeVUnknown undocumented
-	DeviceTypeVUnknown DeviceType = 255
+	DeviceTypeVUnknown DeviceType = "unknown"
 )
 
-// DeviceTypePDesktop returns a pointer to DeviceTypeVDesktop
-func DeviceTypePDesktop() *DeviceType {
-	v := DeviceTypeVDesktop
-	return &v
-}
+var (
+	// DeviceTypePDesktop is a pointer to DeviceTypeVDesktop
+	DeviceTypePDesktop = &_DeviceTypePDesktop
+	// DeviceTypePWindowsRT is a pointer to DeviceTypeVWindowsRT
+	DeviceTypePWindowsRT = &_DeviceTypePWindowsRT
+	// DeviceTypePWinMO6 is a pointer to DeviceTypeVWinMO6
+	DeviceTypePWinMO6 = &_DeviceTypePWinMO6
+	// DeviceTypePNokia is a pointer to DeviceTypeVNokia
+	DeviceTypePNokia = &_DeviceTypePNokia
+	// DeviceTypePWindowsPhone is a pointer to DeviceTypeVWindowsPhone
+	DeviceTypePWindowsPhone = &_DeviceTypePWindowsPhone
+	// DeviceTypePMac is a pointer to DeviceTypeVMac
+	DeviceTypePMac = &_DeviceTypePMac
+	// DeviceTypePWinCE is a pointer to DeviceTypeVWinCE
+	DeviceTypePWinCE = &_DeviceTypePWinCE
+	// DeviceTypePWinEmbedded is a pointer to DeviceTypeVWinEmbedded
+	DeviceTypePWinEmbedded = &_DeviceTypePWinEmbedded
+	// DeviceTypePIPhone is a pointer to DeviceTypeVIPhone
+	DeviceTypePIPhone = &_DeviceTypePIPhone
+	// DeviceTypePIPad is a pointer to DeviceTypeVIPad
+	DeviceTypePIPad = &_DeviceTypePIPad
+	// DeviceTypePIPod is a pointer to DeviceTypeVIPod
+	DeviceTypePIPod = &_DeviceTypePIPod
+	// DeviceTypePAndroid is a pointer to DeviceTypeVAndroid
+	DeviceTypePAndroid = &_DeviceTypePAndroid
+	// DeviceTypePISocConsumer is a pointer to DeviceTypeVISocConsumer
+	DeviceTypePISocConsumer = &_DeviceTypePISocConsumer
+	// DeviceTypePUnix is a pointer to DeviceTypeVUnix
+	DeviceTypePUnix = &_DeviceTypePUnix
+	// DeviceTypePMacMDM is a pointer to DeviceTypeVMacMDM
+	DeviceTypePMacMDM = &_DeviceTypePMacMDM
+	// DeviceTypePHoloLens is a pointer to DeviceTypeVHoloLens
+	DeviceTypePHoloLens = &_DeviceTypePHoloLens
+	// DeviceTypePSurfaceHub is a pointer to DeviceTypeVSurfaceHub
+	DeviceTypePSurfaceHub = &_DeviceTypePSurfaceHub
+	// DeviceTypePAndroidForWork is a pointer to DeviceTypeVAndroidForWork
+	DeviceTypePAndroidForWork = &_DeviceTypePAndroidForWork
+	// DeviceTypePAndroidEnterprise is a pointer to DeviceTypeVAndroidEnterprise
+	DeviceTypePAndroidEnterprise = &_DeviceTypePAndroidEnterprise
+	// DeviceTypePBlackberry is a pointer to DeviceTypeVBlackberry
+	DeviceTypePBlackberry = &_DeviceTypePBlackberry
+	// DeviceTypePPalm is a pointer to DeviceTypeVPalm
+	DeviceTypePPalm = &_DeviceTypePPalm
+	// DeviceTypePUnknown is a pointer to DeviceTypeVUnknown
+	DeviceTypePUnknown = &_DeviceTypePUnknown
+)
 
-// DeviceTypePWindowsRT returns a pointer to DeviceTypeVWindowsRT
-func DeviceTypePWindowsRT() *DeviceType {
-	v := DeviceTypeVWindowsRT
-	return &v
-}
-
-// DeviceTypePWinMO6 returns a pointer to DeviceTypeVWinMO6
-func DeviceTypePWinMO6() *DeviceType {
-	v := DeviceTypeVWinMO6
-	return &v
-}
-
-// DeviceTypePNokia returns a pointer to DeviceTypeVNokia
-func DeviceTypePNokia() *DeviceType {
-	v := DeviceTypeVNokia
-	return &v
-}
-
-// DeviceTypePWindowsPhone returns a pointer to DeviceTypeVWindowsPhone
-func DeviceTypePWindowsPhone() *DeviceType {
-	v := DeviceTypeVWindowsPhone
-	return &v
-}
-
-// DeviceTypePMac returns a pointer to DeviceTypeVMac
-func DeviceTypePMac() *DeviceType {
-	v := DeviceTypeVMac
-	return &v
-}
-
-// DeviceTypePWinCE returns a pointer to DeviceTypeVWinCE
-func DeviceTypePWinCE() *DeviceType {
-	v := DeviceTypeVWinCE
-	return &v
-}
-
-// DeviceTypePWinEmbedded returns a pointer to DeviceTypeVWinEmbedded
-func DeviceTypePWinEmbedded() *DeviceType {
-	v := DeviceTypeVWinEmbedded
-	return &v
-}
-
-// DeviceTypePIPhone returns a pointer to DeviceTypeVIPhone
-func DeviceTypePIPhone() *DeviceType {
-	v := DeviceTypeVIPhone
-	return &v
-}
-
-// DeviceTypePIPad returns a pointer to DeviceTypeVIPad
-func DeviceTypePIPad() *DeviceType {
-	v := DeviceTypeVIPad
-	return &v
-}
-
-// DeviceTypePIPod returns a pointer to DeviceTypeVIPod
-func DeviceTypePIPod() *DeviceType {
-	v := DeviceTypeVIPod
-	return &v
-}
-
-// DeviceTypePAndroid returns a pointer to DeviceTypeVAndroid
-func DeviceTypePAndroid() *DeviceType {
-	v := DeviceTypeVAndroid
-	return &v
-}
-
-// DeviceTypePISocConsumer returns a pointer to DeviceTypeVISocConsumer
-func DeviceTypePISocConsumer() *DeviceType {
-	v := DeviceTypeVISocConsumer
-	return &v
-}
-
-// DeviceTypePUnix returns a pointer to DeviceTypeVUnix
-func DeviceTypePUnix() *DeviceType {
-	v := DeviceTypeVUnix
-	return &v
-}
-
-// DeviceTypePMacMDM returns a pointer to DeviceTypeVMacMDM
-func DeviceTypePMacMDM() *DeviceType {
-	v := DeviceTypeVMacMDM
-	return &v
-}
-
-// DeviceTypePHoloLens returns a pointer to DeviceTypeVHoloLens
-func DeviceTypePHoloLens() *DeviceType {
-	v := DeviceTypeVHoloLens
-	return &v
-}
-
-// DeviceTypePSurfaceHub returns a pointer to DeviceTypeVSurfaceHub
-func DeviceTypePSurfaceHub() *DeviceType {
-	v := DeviceTypeVSurfaceHub
-	return &v
-}
-
-// DeviceTypePAndroidForWork returns a pointer to DeviceTypeVAndroidForWork
-func DeviceTypePAndroidForWork() *DeviceType {
-	v := DeviceTypeVAndroidForWork
-	return &v
-}
-
-// DeviceTypePAndroidEnterprise returns a pointer to DeviceTypeVAndroidEnterprise
-func DeviceTypePAndroidEnterprise() *DeviceType {
-	v := DeviceTypeVAndroidEnterprise
-	return &v
-}
-
-// DeviceTypePBlackberry returns a pointer to DeviceTypeVBlackberry
-func DeviceTypePBlackberry() *DeviceType {
-	v := DeviceTypeVBlackberry
-	return &v
-}
-
-// DeviceTypePPalm returns a pointer to DeviceTypeVPalm
-func DeviceTypePPalm() *DeviceType {
-	v := DeviceTypeVPalm
-	return &v
-}
-
-// DeviceTypePUnknown returns a pointer to DeviceTypeVUnknown
-func DeviceTypePUnknown() *DeviceType {
-	v := DeviceTypeVUnknown
-	return &v
-}
+var (
+	_DeviceTypePDesktop           = DeviceTypeVDesktop
+	_DeviceTypePWindowsRT         = DeviceTypeVWindowsRT
+	_DeviceTypePWinMO6            = DeviceTypeVWinMO6
+	_DeviceTypePNokia             = DeviceTypeVNokia
+	_DeviceTypePWindowsPhone      = DeviceTypeVWindowsPhone
+	_DeviceTypePMac               = DeviceTypeVMac
+	_DeviceTypePWinCE             = DeviceTypeVWinCE
+	_DeviceTypePWinEmbedded       = DeviceTypeVWinEmbedded
+	_DeviceTypePIPhone            = DeviceTypeVIPhone
+	_DeviceTypePIPad              = DeviceTypeVIPad
+	_DeviceTypePIPod              = DeviceTypeVIPod
+	_DeviceTypePAndroid           = DeviceTypeVAndroid
+	_DeviceTypePISocConsumer      = DeviceTypeVISocConsumer
+	_DeviceTypePUnix              = DeviceTypeVUnix
+	_DeviceTypePMacMDM            = DeviceTypeVMacMDM
+	_DeviceTypePHoloLens          = DeviceTypeVHoloLens
+	_DeviceTypePSurfaceHub        = DeviceTypeVSurfaceHub
+	_DeviceTypePAndroidForWork    = DeviceTypeVAndroidForWork
+	_DeviceTypePAndroidEnterprise = DeviceTypeVAndroidEnterprise
+	_DeviceTypePBlackberry        = DeviceTypeVBlackberry
+	_DeviceTypePPalm              = DeviceTypeVPalm
+	_DeviceTypePUnknown           = DeviceTypeVUnknown
+)

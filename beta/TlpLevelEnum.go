@@ -3,55 +3,43 @@
 package msgraph
 
 // TlpLevel undocumented
-type TlpLevel int
+type TlpLevel string
 
 const (
 	// TlpLevelVUnknown undocumented
-	TlpLevelVUnknown TlpLevel = 0
+	TlpLevelVUnknown TlpLevel = "unknown"
 	// TlpLevelVWhite undocumented
-	TlpLevelVWhite TlpLevel = 1
+	TlpLevelVWhite TlpLevel = "white"
 	// TlpLevelVGreen undocumented
-	TlpLevelVGreen TlpLevel = 2
+	TlpLevelVGreen TlpLevel = "green"
 	// TlpLevelVAmber undocumented
-	TlpLevelVAmber TlpLevel = 3
+	TlpLevelVAmber TlpLevel = "amber"
 	// TlpLevelVRed undocumented
-	TlpLevelVRed TlpLevel = 4
+	TlpLevelVRed TlpLevel = "red"
 	// TlpLevelVUnknownFutureValue undocumented
-	TlpLevelVUnknownFutureValue TlpLevel = 127
+	TlpLevelVUnknownFutureValue TlpLevel = "unknownFutureValue"
 )
 
-// TlpLevelPUnknown returns a pointer to TlpLevelVUnknown
-func TlpLevelPUnknown() *TlpLevel {
-	v := TlpLevelVUnknown
-	return &v
-}
+var (
+	// TlpLevelPUnknown is a pointer to TlpLevelVUnknown
+	TlpLevelPUnknown = &_TlpLevelPUnknown
+	// TlpLevelPWhite is a pointer to TlpLevelVWhite
+	TlpLevelPWhite = &_TlpLevelPWhite
+	// TlpLevelPGreen is a pointer to TlpLevelVGreen
+	TlpLevelPGreen = &_TlpLevelPGreen
+	// TlpLevelPAmber is a pointer to TlpLevelVAmber
+	TlpLevelPAmber = &_TlpLevelPAmber
+	// TlpLevelPRed is a pointer to TlpLevelVRed
+	TlpLevelPRed = &_TlpLevelPRed
+	// TlpLevelPUnknownFutureValue is a pointer to TlpLevelVUnknownFutureValue
+	TlpLevelPUnknownFutureValue = &_TlpLevelPUnknownFutureValue
+)
 
-// TlpLevelPWhite returns a pointer to TlpLevelVWhite
-func TlpLevelPWhite() *TlpLevel {
-	v := TlpLevelVWhite
-	return &v
-}
-
-// TlpLevelPGreen returns a pointer to TlpLevelVGreen
-func TlpLevelPGreen() *TlpLevel {
-	v := TlpLevelVGreen
-	return &v
-}
-
-// TlpLevelPAmber returns a pointer to TlpLevelVAmber
-func TlpLevelPAmber() *TlpLevel {
-	v := TlpLevelVAmber
-	return &v
-}
-
-// TlpLevelPRed returns a pointer to TlpLevelVRed
-func TlpLevelPRed() *TlpLevel {
-	v := TlpLevelVRed
-	return &v
-}
-
-// TlpLevelPUnknownFutureValue returns a pointer to TlpLevelVUnknownFutureValue
-func TlpLevelPUnknownFutureValue() *TlpLevel {
-	v := TlpLevelVUnknownFutureValue
-	return &v
-}
+var (
+	_TlpLevelPUnknown            = TlpLevelVUnknown
+	_TlpLevelPWhite              = TlpLevelVWhite
+	_TlpLevelPGreen              = TlpLevelVGreen
+	_TlpLevelPAmber              = TlpLevelVAmber
+	_TlpLevelPRed                = TlpLevelVRed
+	_TlpLevelPUnknownFutureValue = TlpLevelVUnknownFutureValue
+)

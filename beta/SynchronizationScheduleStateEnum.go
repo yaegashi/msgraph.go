@@ -3,23 +3,23 @@
 package msgraph
 
 // SynchronizationScheduleState undocumented
-type SynchronizationScheduleState int
+type SynchronizationScheduleState string
 
 const (
 	// SynchronizationScheduleStateVActive undocumented
-	SynchronizationScheduleStateVActive SynchronizationScheduleState = 0
+	SynchronizationScheduleStateVActive SynchronizationScheduleState = "Active"
 	// SynchronizationScheduleStateVDisabled undocumented
-	SynchronizationScheduleStateVDisabled SynchronizationScheduleState = 1
+	SynchronizationScheduleStateVDisabled SynchronizationScheduleState = "Disabled"
 )
 
-// SynchronizationScheduleStatePActive returns a pointer to SynchronizationScheduleStateVActive
-func SynchronizationScheduleStatePActive() *SynchronizationScheduleState {
-	v := SynchronizationScheduleStateVActive
-	return &v
-}
+var (
+	// SynchronizationScheduleStatePActive is a pointer to SynchronizationScheduleStateVActive
+	SynchronizationScheduleStatePActive = &_SynchronizationScheduleStatePActive
+	// SynchronizationScheduleStatePDisabled is a pointer to SynchronizationScheduleStateVDisabled
+	SynchronizationScheduleStatePDisabled = &_SynchronizationScheduleStatePDisabled
+)
 
-// SynchronizationScheduleStatePDisabled returns a pointer to SynchronizationScheduleStateVDisabled
-func SynchronizationScheduleStatePDisabled() *SynchronizationScheduleState {
-	v := SynchronizationScheduleStateVDisabled
-	return &v
-}
+var (
+	_SynchronizationScheduleStatePActive   = SynchronizationScheduleStateVActive
+	_SynchronizationScheduleStatePDisabled = SynchronizationScheduleStateVDisabled
+)

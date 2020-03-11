@@ -3,23 +3,23 @@
 package msgraph
 
 // VpnClientAuthenticationType undocumented
-type VpnClientAuthenticationType int
+type VpnClientAuthenticationType string
 
 const (
 	// VpnClientAuthenticationTypeVUserAuthentication undocumented
-	VpnClientAuthenticationTypeVUserAuthentication VpnClientAuthenticationType = 0
+	VpnClientAuthenticationTypeVUserAuthentication VpnClientAuthenticationType = "userAuthentication"
 	// VpnClientAuthenticationTypeVDeviceAuthentication undocumented
-	VpnClientAuthenticationTypeVDeviceAuthentication VpnClientAuthenticationType = 1
+	VpnClientAuthenticationTypeVDeviceAuthentication VpnClientAuthenticationType = "deviceAuthentication"
 )
 
-// VpnClientAuthenticationTypePUserAuthentication returns a pointer to VpnClientAuthenticationTypeVUserAuthentication
-func VpnClientAuthenticationTypePUserAuthentication() *VpnClientAuthenticationType {
-	v := VpnClientAuthenticationTypeVUserAuthentication
-	return &v
-}
+var (
+	// VpnClientAuthenticationTypePUserAuthentication is a pointer to VpnClientAuthenticationTypeVUserAuthentication
+	VpnClientAuthenticationTypePUserAuthentication = &_VpnClientAuthenticationTypePUserAuthentication
+	// VpnClientAuthenticationTypePDeviceAuthentication is a pointer to VpnClientAuthenticationTypeVDeviceAuthentication
+	VpnClientAuthenticationTypePDeviceAuthentication = &_VpnClientAuthenticationTypePDeviceAuthentication
+)
 
-// VpnClientAuthenticationTypePDeviceAuthentication returns a pointer to VpnClientAuthenticationTypeVDeviceAuthentication
-func VpnClientAuthenticationTypePDeviceAuthentication() *VpnClientAuthenticationType {
-	v := VpnClientAuthenticationTypeVDeviceAuthentication
-	return &v
-}
+var (
+	_VpnClientAuthenticationTypePUserAuthentication   = VpnClientAuthenticationTypeVUserAuthentication
+	_VpnClientAuthenticationTypePDeviceAuthentication = VpnClientAuthenticationTypeVDeviceAuthentication
+)

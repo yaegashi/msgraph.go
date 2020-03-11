@@ -3,111 +3,78 @@
 package msgraph
 
 // AuthMethodsType undocumented
-type AuthMethodsType int
+type AuthMethodsType string
 
 const (
 	// AuthMethodsTypeVEmail undocumented
-	AuthMethodsTypeVEmail AuthMethodsType = 0
+	AuthMethodsTypeVEmail AuthMethodsType = "email"
 	// AuthMethodsTypeVMobileSMS undocumented
-	AuthMethodsTypeVMobileSMS AuthMethodsType = 1
+	AuthMethodsTypeVMobileSMS AuthMethodsType = "mobileSMS"
 	// AuthMethodsTypeVMobilePhone undocumented
-	AuthMethodsTypeVMobilePhone AuthMethodsType = 2
+	AuthMethodsTypeVMobilePhone AuthMethodsType = "mobilePhone"
 	// AuthMethodsTypeVOfficePhone undocumented
-	AuthMethodsTypeVOfficePhone AuthMethodsType = 3
+	AuthMethodsTypeVOfficePhone AuthMethodsType = "officePhone"
 	// AuthMethodsTypeVSecurityQuestion undocumented
-	AuthMethodsTypeVSecurityQuestion AuthMethodsType = 4
+	AuthMethodsTypeVSecurityQuestion AuthMethodsType = "securityQuestion"
 	// AuthMethodsTypeVAppNotification undocumented
-	AuthMethodsTypeVAppNotification AuthMethodsType = 5
+	AuthMethodsTypeVAppNotification AuthMethodsType = "appNotification"
 	// AuthMethodsTypeVAppNotificationCode undocumented
-	AuthMethodsTypeVAppNotificationCode AuthMethodsType = 6
+	AuthMethodsTypeVAppNotificationCode AuthMethodsType = "appNotificationCode"
 	// AuthMethodsTypeVAppNotificationAndCode undocumented
-	AuthMethodsTypeVAppNotificationAndCode AuthMethodsType = 7
+	AuthMethodsTypeVAppNotificationAndCode AuthMethodsType = "appNotificationAndCode"
 	// AuthMethodsTypeVAppPassword undocumented
-	AuthMethodsTypeVAppPassword AuthMethodsType = 8
+	AuthMethodsTypeVAppPassword AuthMethodsType = "appPassword"
 	// AuthMethodsTypeVFido undocumented
-	AuthMethodsTypeVFido AuthMethodsType = 9
+	AuthMethodsTypeVFido AuthMethodsType = "fido"
 	// AuthMethodsTypeVAlternateMobilePhone undocumented
-	AuthMethodsTypeVAlternateMobilePhone AuthMethodsType = 10
+	AuthMethodsTypeVAlternateMobilePhone AuthMethodsType = "alternateMobilePhone"
 	// AuthMethodsTypeVMobilePhoneAndSMS undocumented
-	AuthMethodsTypeVMobilePhoneAndSMS AuthMethodsType = 11
+	AuthMethodsTypeVMobilePhoneAndSMS AuthMethodsType = "mobilePhoneAndSMS"
 	// AuthMethodsTypeVUnknownFutureValue undocumented
-	AuthMethodsTypeVUnknownFutureValue AuthMethodsType = 12
+	AuthMethodsTypeVUnknownFutureValue AuthMethodsType = "unknownFutureValue"
 )
 
-// AuthMethodsTypePEmail returns a pointer to AuthMethodsTypeVEmail
-func AuthMethodsTypePEmail() *AuthMethodsType {
-	v := AuthMethodsTypeVEmail
-	return &v
-}
+var (
+	// AuthMethodsTypePEmail is a pointer to AuthMethodsTypeVEmail
+	AuthMethodsTypePEmail = &_AuthMethodsTypePEmail
+	// AuthMethodsTypePMobileSMS is a pointer to AuthMethodsTypeVMobileSMS
+	AuthMethodsTypePMobileSMS = &_AuthMethodsTypePMobileSMS
+	// AuthMethodsTypePMobilePhone is a pointer to AuthMethodsTypeVMobilePhone
+	AuthMethodsTypePMobilePhone = &_AuthMethodsTypePMobilePhone
+	// AuthMethodsTypePOfficePhone is a pointer to AuthMethodsTypeVOfficePhone
+	AuthMethodsTypePOfficePhone = &_AuthMethodsTypePOfficePhone
+	// AuthMethodsTypePSecurityQuestion is a pointer to AuthMethodsTypeVSecurityQuestion
+	AuthMethodsTypePSecurityQuestion = &_AuthMethodsTypePSecurityQuestion
+	// AuthMethodsTypePAppNotification is a pointer to AuthMethodsTypeVAppNotification
+	AuthMethodsTypePAppNotification = &_AuthMethodsTypePAppNotification
+	// AuthMethodsTypePAppNotificationCode is a pointer to AuthMethodsTypeVAppNotificationCode
+	AuthMethodsTypePAppNotificationCode = &_AuthMethodsTypePAppNotificationCode
+	// AuthMethodsTypePAppNotificationAndCode is a pointer to AuthMethodsTypeVAppNotificationAndCode
+	AuthMethodsTypePAppNotificationAndCode = &_AuthMethodsTypePAppNotificationAndCode
+	// AuthMethodsTypePAppPassword is a pointer to AuthMethodsTypeVAppPassword
+	AuthMethodsTypePAppPassword = &_AuthMethodsTypePAppPassword
+	// AuthMethodsTypePFido is a pointer to AuthMethodsTypeVFido
+	AuthMethodsTypePFido = &_AuthMethodsTypePFido
+	// AuthMethodsTypePAlternateMobilePhone is a pointer to AuthMethodsTypeVAlternateMobilePhone
+	AuthMethodsTypePAlternateMobilePhone = &_AuthMethodsTypePAlternateMobilePhone
+	// AuthMethodsTypePMobilePhoneAndSMS is a pointer to AuthMethodsTypeVMobilePhoneAndSMS
+	AuthMethodsTypePMobilePhoneAndSMS = &_AuthMethodsTypePMobilePhoneAndSMS
+	// AuthMethodsTypePUnknownFutureValue is a pointer to AuthMethodsTypeVUnknownFutureValue
+	AuthMethodsTypePUnknownFutureValue = &_AuthMethodsTypePUnknownFutureValue
+)
 
-// AuthMethodsTypePMobileSMS returns a pointer to AuthMethodsTypeVMobileSMS
-func AuthMethodsTypePMobileSMS() *AuthMethodsType {
-	v := AuthMethodsTypeVMobileSMS
-	return &v
-}
-
-// AuthMethodsTypePMobilePhone returns a pointer to AuthMethodsTypeVMobilePhone
-func AuthMethodsTypePMobilePhone() *AuthMethodsType {
-	v := AuthMethodsTypeVMobilePhone
-	return &v
-}
-
-// AuthMethodsTypePOfficePhone returns a pointer to AuthMethodsTypeVOfficePhone
-func AuthMethodsTypePOfficePhone() *AuthMethodsType {
-	v := AuthMethodsTypeVOfficePhone
-	return &v
-}
-
-// AuthMethodsTypePSecurityQuestion returns a pointer to AuthMethodsTypeVSecurityQuestion
-func AuthMethodsTypePSecurityQuestion() *AuthMethodsType {
-	v := AuthMethodsTypeVSecurityQuestion
-	return &v
-}
-
-// AuthMethodsTypePAppNotification returns a pointer to AuthMethodsTypeVAppNotification
-func AuthMethodsTypePAppNotification() *AuthMethodsType {
-	v := AuthMethodsTypeVAppNotification
-	return &v
-}
-
-// AuthMethodsTypePAppNotificationCode returns a pointer to AuthMethodsTypeVAppNotificationCode
-func AuthMethodsTypePAppNotificationCode() *AuthMethodsType {
-	v := AuthMethodsTypeVAppNotificationCode
-	return &v
-}
-
-// AuthMethodsTypePAppNotificationAndCode returns a pointer to AuthMethodsTypeVAppNotificationAndCode
-func AuthMethodsTypePAppNotificationAndCode() *AuthMethodsType {
-	v := AuthMethodsTypeVAppNotificationAndCode
-	return &v
-}
-
-// AuthMethodsTypePAppPassword returns a pointer to AuthMethodsTypeVAppPassword
-func AuthMethodsTypePAppPassword() *AuthMethodsType {
-	v := AuthMethodsTypeVAppPassword
-	return &v
-}
-
-// AuthMethodsTypePFido returns a pointer to AuthMethodsTypeVFido
-func AuthMethodsTypePFido() *AuthMethodsType {
-	v := AuthMethodsTypeVFido
-	return &v
-}
-
-// AuthMethodsTypePAlternateMobilePhone returns a pointer to AuthMethodsTypeVAlternateMobilePhone
-func AuthMethodsTypePAlternateMobilePhone() *AuthMethodsType {
-	v := AuthMethodsTypeVAlternateMobilePhone
-	return &v
-}
-
-// AuthMethodsTypePMobilePhoneAndSMS returns a pointer to AuthMethodsTypeVMobilePhoneAndSMS
-func AuthMethodsTypePMobilePhoneAndSMS() *AuthMethodsType {
-	v := AuthMethodsTypeVMobilePhoneAndSMS
-	return &v
-}
-
-// AuthMethodsTypePUnknownFutureValue returns a pointer to AuthMethodsTypeVUnknownFutureValue
-func AuthMethodsTypePUnknownFutureValue() *AuthMethodsType {
-	v := AuthMethodsTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_AuthMethodsTypePEmail                  = AuthMethodsTypeVEmail
+	_AuthMethodsTypePMobileSMS              = AuthMethodsTypeVMobileSMS
+	_AuthMethodsTypePMobilePhone            = AuthMethodsTypeVMobilePhone
+	_AuthMethodsTypePOfficePhone            = AuthMethodsTypeVOfficePhone
+	_AuthMethodsTypePSecurityQuestion       = AuthMethodsTypeVSecurityQuestion
+	_AuthMethodsTypePAppNotification        = AuthMethodsTypeVAppNotification
+	_AuthMethodsTypePAppNotificationCode    = AuthMethodsTypeVAppNotificationCode
+	_AuthMethodsTypePAppNotificationAndCode = AuthMethodsTypeVAppNotificationAndCode
+	_AuthMethodsTypePAppPassword            = AuthMethodsTypeVAppPassword
+	_AuthMethodsTypePFido                   = AuthMethodsTypeVFido
+	_AuthMethodsTypePAlternateMobilePhone   = AuthMethodsTypeVAlternateMobilePhone
+	_AuthMethodsTypePMobilePhoneAndSMS      = AuthMethodsTypeVMobilePhoneAndSMS
+	_AuthMethodsTypePUnknownFutureValue     = AuthMethodsTypeVUnknownFutureValue
+)

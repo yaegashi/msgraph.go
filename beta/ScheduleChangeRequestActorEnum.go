@@ -3,47 +3,38 @@
 package msgraph
 
 // ScheduleChangeRequestActor undocumented
-type ScheduleChangeRequestActor int
+type ScheduleChangeRequestActor string
 
 const (
 	// ScheduleChangeRequestActorVSender undocumented
-	ScheduleChangeRequestActorVSender ScheduleChangeRequestActor = 0
+	ScheduleChangeRequestActorVSender ScheduleChangeRequestActor = "sender"
 	// ScheduleChangeRequestActorVRecipient undocumented
-	ScheduleChangeRequestActorVRecipient ScheduleChangeRequestActor = 1
+	ScheduleChangeRequestActorVRecipient ScheduleChangeRequestActor = "recipient"
 	// ScheduleChangeRequestActorVManager undocumented
-	ScheduleChangeRequestActorVManager ScheduleChangeRequestActor = 2
+	ScheduleChangeRequestActorVManager ScheduleChangeRequestActor = "manager"
 	// ScheduleChangeRequestActorVSystem undocumented
-	ScheduleChangeRequestActorVSystem ScheduleChangeRequestActor = 3
+	ScheduleChangeRequestActorVSystem ScheduleChangeRequestActor = "system"
 	// ScheduleChangeRequestActorVUnknownFutureValue undocumented
-	ScheduleChangeRequestActorVUnknownFutureValue ScheduleChangeRequestActor = 4
+	ScheduleChangeRequestActorVUnknownFutureValue ScheduleChangeRequestActor = "unknownFutureValue"
 )
 
-// ScheduleChangeRequestActorPSender returns a pointer to ScheduleChangeRequestActorVSender
-func ScheduleChangeRequestActorPSender() *ScheduleChangeRequestActor {
-	v := ScheduleChangeRequestActorVSender
-	return &v
-}
+var (
+	// ScheduleChangeRequestActorPSender is a pointer to ScheduleChangeRequestActorVSender
+	ScheduleChangeRequestActorPSender = &_ScheduleChangeRequestActorPSender
+	// ScheduleChangeRequestActorPRecipient is a pointer to ScheduleChangeRequestActorVRecipient
+	ScheduleChangeRequestActorPRecipient = &_ScheduleChangeRequestActorPRecipient
+	// ScheduleChangeRequestActorPManager is a pointer to ScheduleChangeRequestActorVManager
+	ScheduleChangeRequestActorPManager = &_ScheduleChangeRequestActorPManager
+	// ScheduleChangeRequestActorPSystem is a pointer to ScheduleChangeRequestActorVSystem
+	ScheduleChangeRequestActorPSystem = &_ScheduleChangeRequestActorPSystem
+	// ScheduleChangeRequestActorPUnknownFutureValue is a pointer to ScheduleChangeRequestActorVUnknownFutureValue
+	ScheduleChangeRequestActorPUnknownFutureValue = &_ScheduleChangeRequestActorPUnknownFutureValue
+)
 
-// ScheduleChangeRequestActorPRecipient returns a pointer to ScheduleChangeRequestActorVRecipient
-func ScheduleChangeRequestActorPRecipient() *ScheduleChangeRequestActor {
-	v := ScheduleChangeRequestActorVRecipient
-	return &v
-}
-
-// ScheduleChangeRequestActorPManager returns a pointer to ScheduleChangeRequestActorVManager
-func ScheduleChangeRequestActorPManager() *ScheduleChangeRequestActor {
-	v := ScheduleChangeRequestActorVManager
-	return &v
-}
-
-// ScheduleChangeRequestActorPSystem returns a pointer to ScheduleChangeRequestActorVSystem
-func ScheduleChangeRequestActorPSystem() *ScheduleChangeRequestActor {
-	v := ScheduleChangeRequestActorVSystem
-	return &v
-}
-
-// ScheduleChangeRequestActorPUnknownFutureValue returns a pointer to ScheduleChangeRequestActorVUnknownFutureValue
-func ScheduleChangeRequestActorPUnknownFutureValue() *ScheduleChangeRequestActor {
-	v := ScheduleChangeRequestActorVUnknownFutureValue
-	return &v
-}
+var (
+	_ScheduleChangeRequestActorPSender             = ScheduleChangeRequestActorVSender
+	_ScheduleChangeRequestActorPRecipient          = ScheduleChangeRequestActorVRecipient
+	_ScheduleChangeRequestActorPManager            = ScheduleChangeRequestActorVManager
+	_ScheduleChangeRequestActorPSystem             = ScheduleChangeRequestActorVSystem
+	_ScheduleChangeRequestActorPUnknownFutureValue = ScheduleChangeRequestActorVUnknownFutureValue
+)

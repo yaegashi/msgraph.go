@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidForWorkBindStatus undocumented
-type AndroidForWorkBindStatus int
+type AndroidForWorkBindStatus string
 
 const (
 	// AndroidForWorkBindStatusVNotBound undocumented
-	AndroidForWorkBindStatusVNotBound AndroidForWorkBindStatus = 0
+	AndroidForWorkBindStatusVNotBound AndroidForWorkBindStatus = "notBound"
 	// AndroidForWorkBindStatusVBound undocumented
-	AndroidForWorkBindStatusVBound AndroidForWorkBindStatus = 1
+	AndroidForWorkBindStatusVBound AndroidForWorkBindStatus = "bound"
 	// AndroidForWorkBindStatusVBoundAndValidated undocumented
-	AndroidForWorkBindStatusVBoundAndValidated AndroidForWorkBindStatus = 2
+	AndroidForWorkBindStatusVBoundAndValidated AndroidForWorkBindStatus = "boundAndValidated"
 	// AndroidForWorkBindStatusVUnbinding undocumented
-	AndroidForWorkBindStatusVUnbinding AndroidForWorkBindStatus = 3
+	AndroidForWorkBindStatusVUnbinding AndroidForWorkBindStatus = "unbinding"
 )
 
-// AndroidForWorkBindStatusPNotBound returns a pointer to AndroidForWorkBindStatusVNotBound
-func AndroidForWorkBindStatusPNotBound() *AndroidForWorkBindStatus {
-	v := AndroidForWorkBindStatusVNotBound
-	return &v
-}
+var (
+	// AndroidForWorkBindStatusPNotBound is a pointer to AndroidForWorkBindStatusVNotBound
+	AndroidForWorkBindStatusPNotBound = &_AndroidForWorkBindStatusPNotBound
+	// AndroidForWorkBindStatusPBound is a pointer to AndroidForWorkBindStatusVBound
+	AndroidForWorkBindStatusPBound = &_AndroidForWorkBindStatusPBound
+	// AndroidForWorkBindStatusPBoundAndValidated is a pointer to AndroidForWorkBindStatusVBoundAndValidated
+	AndroidForWorkBindStatusPBoundAndValidated = &_AndroidForWorkBindStatusPBoundAndValidated
+	// AndroidForWorkBindStatusPUnbinding is a pointer to AndroidForWorkBindStatusVUnbinding
+	AndroidForWorkBindStatusPUnbinding = &_AndroidForWorkBindStatusPUnbinding
+)
 
-// AndroidForWorkBindStatusPBound returns a pointer to AndroidForWorkBindStatusVBound
-func AndroidForWorkBindStatusPBound() *AndroidForWorkBindStatus {
-	v := AndroidForWorkBindStatusVBound
-	return &v
-}
-
-// AndroidForWorkBindStatusPBoundAndValidated returns a pointer to AndroidForWorkBindStatusVBoundAndValidated
-func AndroidForWorkBindStatusPBoundAndValidated() *AndroidForWorkBindStatus {
-	v := AndroidForWorkBindStatusVBoundAndValidated
-	return &v
-}
-
-// AndroidForWorkBindStatusPUnbinding returns a pointer to AndroidForWorkBindStatusVUnbinding
-func AndroidForWorkBindStatusPUnbinding() *AndroidForWorkBindStatus {
-	v := AndroidForWorkBindStatusVUnbinding
-	return &v
-}
+var (
+	_AndroidForWorkBindStatusPNotBound          = AndroidForWorkBindStatusVNotBound
+	_AndroidForWorkBindStatusPBound             = AndroidForWorkBindStatusVBound
+	_AndroidForWorkBindStatusPBoundAndValidated = AndroidForWorkBindStatusVBoundAndValidated
+	_AndroidForWorkBindStatusPUnbinding         = AndroidForWorkBindStatusVUnbinding
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // DataPolicyOperationStatus undocumented
-type DataPolicyOperationStatus int
+type DataPolicyOperationStatus string
 
 const (
 	// DataPolicyOperationStatusVNotStarted undocumented
-	DataPolicyOperationStatusVNotStarted DataPolicyOperationStatus = 0
+	DataPolicyOperationStatusVNotStarted DataPolicyOperationStatus = "notStarted"
 	// DataPolicyOperationStatusVRunning undocumented
-	DataPolicyOperationStatusVRunning DataPolicyOperationStatus = 1
+	DataPolicyOperationStatusVRunning DataPolicyOperationStatus = "running"
 	// DataPolicyOperationStatusVComplete undocumented
-	DataPolicyOperationStatusVComplete DataPolicyOperationStatus = 2
+	DataPolicyOperationStatusVComplete DataPolicyOperationStatus = "complete"
 	// DataPolicyOperationStatusVFailed undocumented
-	DataPolicyOperationStatusVFailed DataPolicyOperationStatus = 3
+	DataPolicyOperationStatusVFailed DataPolicyOperationStatus = "failed"
 	// DataPolicyOperationStatusVUnknownFutureValue undocumented
-	DataPolicyOperationStatusVUnknownFutureValue DataPolicyOperationStatus = 4
+	DataPolicyOperationStatusVUnknownFutureValue DataPolicyOperationStatus = "unknownFutureValue"
 )
 
-// DataPolicyOperationStatusPNotStarted returns a pointer to DataPolicyOperationStatusVNotStarted
-func DataPolicyOperationStatusPNotStarted() *DataPolicyOperationStatus {
-	v := DataPolicyOperationStatusVNotStarted
-	return &v
-}
+var (
+	// DataPolicyOperationStatusPNotStarted is a pointer to DataPolicyOperationStatusVNotStarted
+	DataPolicyOperationStatusPNotStarted = &_DataPolicyOperationStatusPNotStarted
+	// DataPolicyOperationStatusPRunning is a pointer to DataPolicyOperationStatusVRunning
+	DataPolicyOperationStatusPRunning = &_DataPolicyOperationStatusPRunning
+	// DataPolicyOperationStatusPComplete is a pointer to DataPolicyOperationStatusVComplete
+	DataPolicyOperationStatusPComplete = &_DataPolicyOperationStatusPComplete
+	// DataPolicyOperationStatusPFailed is a pointer to DataPolicyOperationStatusVFailed
+	DataPolicyOperationStatusPFailed = &_DataPolicyOperationStatusPFailed
+	// DataPolicyOperationStatusPUnknownFutureValue is a pointer to DataPolicyOperationStatusVUnknownFutureValue
+	DataPolicyOperationStatusPUnknownFutureValue = &_DataPolicyOperationStatusPUnknownFutureValue
+)
 
-// DataPolicyOperationStatusPRunning returns a pointer to DataPolicyOperationStatusVRunning
-func DataPolicyOperationStatusPRunning() *DataPolicyOperationStatus {
-	v := DataPolicyOperationStatusVRunning
-	return &v
-}
-
-// DataPolicyOperationStatusPComplete returns a pointer to DataPolicyOperationStatusVComplete
-func DataPolicyOperationStatusPComplete() *DataPolicyOperationStatus {
-	v := DataPolicyOperationStatusVComplete
-	return &v
-}
-
-// DataPolicyOperationStatusPFailed returns a pointer to DataPolicyOperationStatusVFailed
-func DataPolicyOperationStatusPFailed() *DataPolicyOperationStatus {
-	v := DataPolicyOperationStatusVFailed
-	return &v
-}
-
-// DataPolicyOperationStatusPUnknownFutureValue returns a pointer to DataPolicyOperationStatusVUnknownFutureValue
-func DataPolicyOperationStatusPUnknownFutureValue() *DataPolicyOperationStatus {
-	v := DataPolicyOperationStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_DataPolicyOperationStatusPNotStarted         = DataPolicyOperationStatusVNotStarted
+	_DataPolicyOperationStatusPRunning            = DataPolicyOperationStatusVRunning
+	_DataPolicyOperationStatusPComplete           = DataPolicyOperationStatusVComplete
+	_DataPolicyOperationStatusPFailed             = DataPolicyOperationStatusVFailed
+	_DataPolicyOperationStatusPUnknownFutureValue = DataPolicyOperationStatusVUnknownFutureValue
+)

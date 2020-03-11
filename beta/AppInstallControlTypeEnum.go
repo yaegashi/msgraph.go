@@ -3,47 +3,38 @@
 package msgraph
 
 // AppInstallControlType undocumented
-type AppInstallControlType int
+type AppInstallControlType string
 
 const (
 	// AppInstallControlTypeVNotConfigured undocumented
-	AppInstallControlTypeVNotConfigured AppInstallControlType = 0
+	AppInstallControlTypeVNotConfigured AppInstallControlType = "notConfigured"
 	// AppInstallControlTypeVAnywhere undocumented
-	AppInstallControlTypeVAnywhere AppInstallControlType = 1
+	AppInstallControlTypeVAnywhere AppInstallControlType = "anywhere"
 	// AppInstallControlTypeVStoreOnly undocumented
-	AppInstallControlTypeVStoreOnly AppInstallControlType = 2
+	AppInstallControlTypeVStoreOnly AppInstallControlType = "storeOnly"
 	// AppInstallControlTypeVRecommendations undocumented
-	AppInstallControlTypeVRecommendations AppInstallControlType = 3
+	AppInstallControlTypeVRecommendations AppInstallControlType = "recommendations"
 	// AppInstallControlTypeVPreferStore undocumented
-	AppInstallControlTypeVPreferStore AppInstallControlType = 4
+	AppInstallControlTypeVPreferStore AppInstallControlType = "preferStore"
 )
 
-// AppInstallControlTypePNotConfigured returns a pointer to AppInstallControlTypeVNotConfigured
-func AppInstallControlTypePNotConfigured() *AppInstallControlType {
-	v := AppInstallControlTypeVNotConfigured
-	return &v
-}
+var (
+	// AppInstallControlTypePNotConfigured is a pointer to AppInstallControlTypeVNotConfigured
+	AppInstallControlTypePNotConfigured = &_AppInstallControlTypePNotConfigured
+	// AppInstallControlTypePAnywhere is a pointer to AppInstallControlTypeVAnywhere
+	AppInstallControlTypePAnywhere = &_AppInstallControlTypePAnywhere
+	// AppInstallControlTypePStoreOnly is a pointer to AppInstallControlTypeVStoreOnly
+	AppInstallControlTypePStoreOnly = &_AppInstallControlTypePStoreOnly
+	// AppInstallControlTypePRecommendations is a pointer to AppInstallControlTypeVRecommendations
+	AppInstallControlTypePRecommendations = &_AppInstallControlTypePRecommendations
+	// AppInstallControlTypePPreferStore is a pointer to AppInstallControlTypeVPreferStore
+	AppInstallControlTypePPreferStore = &_AppInstallControlTypePPreferStore
+)
 
-// AppInstallControlTypePAnywhere returns a pointer to AppInstallControlTypeVAnywhere
-func AppInstallControlTypePAnywhere() *AppInstallControlType {
-	v := AppInstallControlTypeVAnywhere
-	return &v
-}
-
-// AppInstallControlTypePStoreOnly returns a pointer to AppInstallControlTypeVStoreOnly
-func AppInstallControlTypePStoreOnly() *AppInstallControlType {
-	v := AppInstallControlTypeVStoreOnly
-	return &v
-}
-
-// AppInstallControlTypePRecommendations returns a pointer to AppInstallControlTypeVRecommendations
-func AppInstallControlTypePRecommendations() *AppInstallControlType {
-	v := AppInstallControlTypeVRecommendations
-	return &v
-}
-
-// AppInstallControlTypePPreferStore returns a pointer to AppInstallControlTypeVPreferStore
-func AppInstallControlTypePPreferStore() *AppInstallControlType {
-	v := AppInstallControlTypeVPreferStore
-	return &v
-}
+var (
+	_AppInstallControlTypePNotConfigured   = AppInstallControlTypeVNotConfigured
+	_AppInstallControlTypePAnywhere        = AppInstallControlTypeVAnywhere
+	_AppInstallControlTypePStoreOnly       = AppInstallControlTypeVStoreOnly
+	_AppInstallControlTypePRecommendations = AppInstallControlTypeVRecommendations
+	_AppInstallControlTypePPreferStore     = AppInstallControlTypeVPreferStore
+)

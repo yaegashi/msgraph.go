@@ -3,63 +3,48 @@
 package msgraph
 
 // ResultantAppState undocumented
-type ResultantAppState int
+type ResultantAppState string
 
 const (
 	// ResultantAppStateVInstalled undocumented
-	ResultantAppStateVInstalled ResultantAppState = 1
+	ResultantAppStateVInstalled ResultantAppState = "installed"
 	// ResultantAppStateVFailed undocumented
-	ResultantAppStateVFailed ResultantAppState = 2
+	ResultantAppStateVFailed ResultantAppState = "failed"
 	// ResultantAppStateVNotInstalled undocumented
-	ResultantAppStateVNotInstalled ResultantAppState = 3
+	ResultantAppStateVNotInstalled ResultantAppState = "notInstalled"
 	// ResultantAppStateVUninstallFailed undocumented
-	ResultantAppStateVUninstallFailed ResultantAppState = 4
+	ResultantAppStateVUninstallFailed ResultantAppState = "uninstallFailed"
 	// ResultantAppStateVPendingInstall undocumented
-	ResultantAppStateVPendingInstall ResultantAppState = 5
+	ResultantAppStateVPendingInstall ResultantAppState = "pendingInstall"
 	// ResultantAppStateVUnknown undocumented
-	ResultantAppStateVUnknown ResultantAppState = 99
+	ResultantAppStateVUnknown ResultantAppState = "unknown"
 	// ResultantAppStateVNotApplicable undocumented
-	ResultantAppStateVNotApplicable ResultantAppState = -1
+	ResultantAppStateVNotApplicable ResultantAppState = "notApplicable"
 )
 
-// ResultantAppStatePInstalled returns a pointer to ResultantAppStateVInstalled
-func ResultantAppStatePInstalled() *ResultantAppState {
-	v := ResultantAppStateVInstalled
-	return &v
-}
+var (
+	// ResultantAppStatePInstalled is a pointer to ResultantAppStateVInstalled
+	ResultantAppStatePInstalled = &_ResultantAppStatePInstalled
+	// ResultantAppStatePFailed is a pointer to ResultantAppStateVFailed
+	ResultantAppStatePFailed = &_ResultantAppStatePFailed
+	// ResultantAppStatePNotInstalled is a pointer to ResultantAppStateVNotInstalled
+	ResultantAppStatePNotInstalled = &_ResultantAppStatePNotInstalled
+	// ResultantAppStatePUninstallFailed is a pointer to ResultantAppStateVUninstallFailed
+	ResultantAppStatePUninstallFailed = &_ResultantAppStatePUninstallFailed
+	// ResultantAppStatePPendingInstall is a pointer to ResultantAppStateVPendingInstall
+	ResultantAppStatePPendingInstall = &_ResultantAppStatePPendingInstall
+	// ResultantAppStatePUnknown is a pointer to ResultantAppStateVUnknown
+	ResultantAppStatePUnknown = &_ResultantAppStatePUnknown
+	// ResultantAppStatePNotApplicable is a pointer to ResultantAppStateVNotApplicable
+	ResultantAppStatePNotApplicable = &_ResultantAppStatePNotApplicable
+)
 
-// ResultantAppStatePFailed returns a pointer to ResultantAppStateVFailed
-func ResultantAppStatePFailed() *ResultantAppState {
-	v := ResultantAppStateVFailed
-	return &v
-}
-
-// ResultantAppStatePNotInstalled returns a pointer to ResultantAppStateVNotInstalled
-func ResultantAppStatePNotInstalled() *ResultantAppState {
-	v := ResultantAppStateVNotInstalled
-	return &v
-}
-
-// ResultantAppStatePUninstallFailed returns a pointer to ResultantAppStateVUninstallFailed
-func ResultantAppStatePUninstallFailed() *ResultantAppState {
-	v := ResultantAppStateVUninstallFailed
-	return &v
-}
-
-// ResultantAppStatePPendingInstall returns a pointer to ResultantAppStateVPendingInstall
-func ResultantAppStatePPendingInstall() *ResultantAppState {
-	v := ResultantAppStateVPendingInstall
-	return &v
-}
-
-// ResultantAppStatePUnknown returns a pointer to ResultantAppStateVUnknown
-func ResultantAppStatePUnknown() *ResultantAppState {
-	v := ResultantAppStateVUnknown
-	return &v
-}
-
-// ResultantAppStatePNotApplicable returns a pointer to ResultantAppStateVNotApplicable
-func ResultantAppStatePNotApplicable() *ResultantAppState {
-	v := ResultantAppStateVNotApplicable
-	return &v
-}
+var (
+	_ResultantAppStatePInstalled       = ResultantAppStateVInstalled
+	_ResultantAppStatePFailed          = ResultantAppStateVFailed
+	_ResultantAppStatePNotInstalled    = ResultantAppStateVNotInstalled
+	_ResultantAppStatePUninstallFailed = ResultantAppStateVUninstallFailed
+	_ResultantAppStatePPendingInstall  = ResultantAppStateVPendingInstall
+	_ResultantAppStatePUnknown         = ResultantAppStateVUnknown
+	_ResultantAppStatePNotApplicable   = ResultantAppStateVNotApplicable
+)

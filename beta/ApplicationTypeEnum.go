@@ -3,23 +3,23 @@
 package msgraph
 
 // ApplicationType undocumented
-type ApplicationType int
+type ApplicationType string
 
 const (
 	// ApplicationTypeVUniversal undocumented
-	ApplicationTypeVUniversal ApplicationType = 1
+	ApplicationTypeVUniversal ApplicationType = "universal"
 	// ApplicationTypeVDesktop undocumented
-	ApplicationTypeVDesktop ApplicationType = 2
+	ApplicationTypeVDesktop ApplicationType = "desktop"
 )
 
-// ApplicationTypePUniversal returns a pointer to ApplicationTypeVUniversal
-func ApplicationTypePUniversal() *ApplicationType {
-	v := ApplicationTypeVUniversal
-	return &v
-}
+var (
+	// ApplicationTypePUniversal is a pointer to ApplicationTypeVUniversal
+	ApplicationTypePUniversal = &_ApplicationTypePUniversal
+	// ApplicationTypePDesktop is a pointer to ApplicationTypeVDesktop
+	ApplicationTypePDesktop = &_ApplicationTypePDesktop
+)
 
-// ApplicationTypePDesktop returns a pointer to ApplicationTypeVDesktop
-func ApplicationTypePDesktop() *ApplicationType {
-	v := ApplicationTypeVDesktop
-	return &v
-}
+var (
+	_ApplicationTypePUniversal = ApplicationTypeVUniversal
+	_ApplicationTypePDesktop   = ApplicationTypeVDesktop
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // SecureBootWithDMAType undocumented
-type SecureBootWithDMAType int
+type SecureBootWithDMAType string
 
 const (
 	// SecureBootWithDMATypeVNotConfigured undocumented
-	SecureBootWithDMATypeVNotConfigured SecureBootWithDMAType = 0
+	SecureBootWithDMATypeVNotConfigured SecureBootWithDMAType = "notConfigured"
 	// SecureBootWithDMATypeVWithoutDMA undocumented
-	SecureBootWithDMATypeVWithoutDMA SecureBootWithDMAType = 1
+	SecureBootWithDMATypeVWithoutDMA SecureBootWithDMAType = "withoutDMA"
 	// SecureBootWithDMATypeVWithDMA undocumented
-	SecureBootWithDMATypeVWithDMA SecureBootWithDMAType = 3
+	SecureBootWithDMATypeVWithDMA SecureBootWithDMAType = "withDMA"
 )
 
-// SecureBootWithDMATypePNotConfigured returns a pointer to SecureBootWithDMATypeVNotConfigured
-func SecureBootWithDMATypePNotConfigured() *SecureBootWithDMAType {
-	v := SecureBootWithDMATypeVNotConfigured
-	return &v
-}
+var (
+	// SecureBootWithDMATypePNotConfigured is a pointer to SecureBootWithDMATypeVNotConfigured
+	SecureBootWithDMATypePNotConfigured = &_SecureBootWithDMATypePNotConfigured
+	// SecureBootWithDMATypePWithoutDMA is a pointer to SecureBootWithDMATypeVWithoutDMA
+	SecureBootWithDMATypePWithoutDMA = &_SecureBootWithDMATypePWithoutDMA
+	// SecureBootWithDMATypePWithDMA is a pointer to SecureBootWithDMATypeVWithDMA
+	SecureBootWithDMATypePWithDMA = &_SecureBootWithDMATypePWithDMA
+)
 
-// SecureBootWithDMATypePWithoutDMA returns a pointer to SecureBootWithDMATypeVWithoutDMA
-func SecureBootWithDMATypePWithoutDMA() *SecureBootWithDMAType {
-	v := SecureBootWithDMATypeVWithoutDMA
-	return &v
-}
-
-// SecureBootWithDMATypePWithDMA returns a pointer to SecureBootWithDMATypeVWithDMA
-func SecureBootWithDMATypePWithDMA() *SecureBootWithDMAType {
-	v := SecureBootWithDMATypeVWithDMA
-	return &v
-}
+var (
+	_SecureBootWithDMATypePNotConfigured = SecureBootWithDMATypeVNotConfigured
+	_SecureBootWithDMATypePWithoutDMA    = SecureBootWithDMATypeVWithoutDMA
+	_SecureBootWithDMATypePWithDMA       = SecureBootWithDMATypeVWithDMA
+)

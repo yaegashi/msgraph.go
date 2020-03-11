@@ -3,55 +3,43 @@
 package msgraph
 
 // EasServices undocumented
-type EasServices int
+type EasServices string
 
 const (
 	// EasServicesVNone undocumented
-	EasServicesVNone EasServices = 0
+	EasServicesVNone EasServices = "none"
 	// EasServicesVCalendars undocumented
-	EasServicesVCalendars EasServices = 1
+	EasServicesVCalendars EasServices = "calendars"
 	// EasServicesVContacts undocumented
-	EasServicesVContacts EasServices = 2
+	EasServicesVContacts EasServices = "contacts"
 	// EasServicesVEmail undocumented
-	EasServicesVEmail EasServices = 4
+	EasServicesVEmail EasServices = "email"
 	// EasServicesVNotes undocumented
-	EasServicesVNotes EasServices = 8
+	EasServicesVNotes EasServices = "notes"
 	// EasServicesVReminders undocumented
-	EasServicesVReminders EasServices = 16
+	EasServicesVReminders EasServices = "reminders"
 )
 
-// EasServicesPNone returns a pointer to EasServicesVNone
-func EasServicesPNone() *EasServices {
-	v := EasServicesVNone
-	return &v
-}
+var (
+	// EasServicesPNone is a pointer to EasServicesVNone
+	EasServicesPNone = &_EasServicesPNone
+	// EasServicesPCalendars is a pointer to EasServicesVCalendars
+	EasServicesPCalendars = &_EasServicesPCalendars
+	// EasServicesPContacts is a pointer to EasServicesVContacts
+	EasServicesPContacts = &_EasServicesPContacts
+	// EasServicesPEmail is a pointer to EasServicesVEmail
+	EasServicesPEmail = &_EasServicesPEmail
+	// EasServicesPNotes is a pointer to EasServicesVNotes
+	EasServicesPNotes = &_EasServicesPNotes
+	// EasServicesPReminders is a pointer to EasServicesVReminders
+	EasServicesPReminders = &_EasServicesPReminders
+)
 
-// EasServicesPCalendars returns a pointer to EasServicesVCalendars
-func EasServicesPCalendars() *EasServices {
-	v := EasServicesVCalendars
-	return &v
-}
-
-// EasServicesPContacts returns a pointer to EasServicesVContacts
-func EasServicesPContacts() *EasServices {
-	v := EasServicesVContacts
-	return &v
-}
-
-// EasServicesPEmail returns a pointer to EasServicesVEmail
-func EasServicesPEmail() *EasServices {
-	v := EasServicesVEmail
-	return &v
-}
-
-// EasServicesPNotes returns a pointer to EasServicesVNotes
-func EasServicesPNotes() *EasServices {
-	v := EasServicesVNotes
-	return &v
-}
-
-// EasServicesPReminders returns a pointer to EasServicesVReminders
-func EasServicesPReminders() *EasServices {
-	v := EasServicesVReminders
-	return &v
-}
+var (
+	_EasServicesPNone      = EasServicesVNone
+	_EasServicesPCalendars = EasServicesVCalendars
+	_EasServicesPContacts  = EasServicesVContacts
+	_EasServicesPEmail     = EasServicesVEmail
+	_EasServicesPNotes     = EasServicesVNotes
+	_EasServicesPReminders = EasServicesVReminders
+)

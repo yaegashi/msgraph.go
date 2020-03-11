@@ -3,23 +3,23 @@
 package msgraph
 
 // ChangeUefiSettingsPermission undocumented
-type ChangeUefiSettingsPermission int
+type ChangeUefiSettingsPermission string
 
 const (
 	// ChangeUefiSettingsPermissionVNotConfiguredOnly undocumented
-	ChangeUefiSettingsPermissionVNotConfiguredOnly ChangeUefiSettingsPermission = 0
+	ChangeUefiSettingsPermissionVNotConfiguredOnly ChangeUefiSettingsPermission = "notConfiguredOnly"
 	// ChangeUefiSettingsPermissionVNone undocumented
-	ChangeUefiSettingsPermissionVNone ChangeUefiSettingsPermission = 1
+	ChangeUefiSettingsPermissionVNone ChangeUefiSettingsPermission = "none"
 )
 
-// ChangeUefiSettingsPermissionPNotConfiguredOnly returns a pointer to ChangeUefiSettingsPermissionVNotConfiguredOnly
-func ChangeUefiSettingsPermissionPNotConfiguredOnly() *ChangeUefiSettingsPermission {
-	v := ChangeUefiSettingsPermissionVNotConfiguredOnly
-	return &v
-}
+var (
+	// ChangeUefiSettingsPermissionPNotConfiguredOnly is a pointer to ChangeUefiSettingsPermissionVNotConfiguredOnly
+	ChangeUefiSettingsPermissionPNotConfiguredOnly = &_ChangeUefiSettingsPermissionPNotConfiguredOnly
+	// ChangeUefiSettingsPermissionPNone is a pointer to ChangeUefiSettingsPermissionVNone
+	ChangeUefiSettingsPermissionPNone = &_ChangeUefiSettingsPermissionPNone
+)
 
-// ChangeUefiSettingsPermissionPNone returns a pointer to ChangeUefiSettingsPermissionVNone
-func ChangeUefiSettingsPermissionPNone() *ChangeUefiSettingsPermission {
-	v := ChangeUefiSettingsPermissionVNone
-	return &v
-}
+var (
+	_ChangeUefiSettingsPermissionPNotConfiguredOnly = ChangeUefiSettingsPermissionVNotConfiguredOnly
+	_ChangeUefiSettingsPermissionPNone              = ChangeUefiSettingsPermissionVNone
+)

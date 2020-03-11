@@ -3,23 +3,23 @@
 package msgraph
 
 // AttributeFlowBehavior undocumented
-type AttributeFlowBehavior int
+type AttributeFlowBehavior string
 
 const (
 	// AttributeFlowBehaviorVFlowWhenChanged undocumented
-	AttributeFlowBehaviorVFlowWhenChanged AttributeFlowBehavior = 0
+	AttributeFlowBehaviorVFlowWhenChanged AttributeFlowBehavior = "FlowWhenChanged"
 	// AttributeFlowBehaviorVFlowAlways undocumented
-	AttributeFlowBehaviorVFlowAlways AttributeFlowBehavior = 1
+	AttributeFlowBehaviorVFlowAlways AttributeFlowBehavior = "FlowAlways"
 )
 
-// AttributeFlowBehaviorPFlowWhenChanged returns a pointer to AttributeFlowBehaviorVFlowWhenChanged
-func AttributeFlowBehaviorPFlowWhenChanged() *AttributeFlowBehavior {
-	v := AttributeFlowBehaviorVFlowWhenChanged
-	return &v
-}
+var (
+	// AttributeFlowBehaviorPFlowWhenChanged is a pointer to AttributeFlowBehaviorVFlowWhenChanged
+	AttributeFlowBehaviorPFlowWhenChanged = &_AttributeFlowBehaviorPFlowWhenChanged
+	// AttributeFlowBehaviorPFlowAlways is a pointer to AttributeFlowBehaviorVFlowAlways
+	AttributeFlowBehaviorPFlowAlways = &_AttributeFlowBehaviorPFlowAlways
+)
 
-// AttributeFlowBehaviorPFlowAlways returns a pointer to AttributeFlowBehaviorVFlowAlways
-func AttributeFlowBehaviorPFlowAlways() *AttributeFlowBehavior {
-	v := AttributeFlowBehaviorVFlowAlways
-	return &v
-}
+var (
+	_AttributeFlowBehaviorPFlowWhenChanged = AttributeFlowBehaviorVFlowWhenChanged
+	_AttributeFlowBehaviorPFlowAlways      = AttributeFlowBehaviorVFlowAlways
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // RoutingType undocumented
-type RoutingType int
+type RoutingType string
 
 const (
 	// RoutingTypeVForwarded undocumented
-	RoutingTypeVForwarded RoutingType = 0
+	RoutingTypeVForwarded RoutingType = "forwarded"
 	// RoutingTypeVLookup undocumented
-	RoutingTypeVLookup RoutingType = 1
+	RoutingTypeVLookup RoutingType = "lookup"
 	// RoutingTypeVSelfFork undocumented
-	RoutingTypeVSelfFork RoutingType = 2
+	RoutingTypeVSelfFork RoutingType = "selfFork"
 )
 
-// RoutingTypePForwarded returns a pointer to RoutingTypeVForwarded
-func RoutingTypePForwarded() *RoutingType {
-	v := RoutingTypeVForwarded
-	return &v
-}
+var (
+	// RoutingTypePForwarded is a pointer to RoutingTypeVForwarded
+	RoutingTypePForwarded = &_RoutingTypePForwarded
+	// RoutingTypePLookup is a pointer to RoutingTypeVLookup
+	RoutingTypePLookup = &_RoutingTypePLookup
+	// RoutingTypePSelfFork is a pointer to RoutingTypeVSelfFork
+	RoutingTypePSelfFork = &_RoutingTypePSelfFork
+)
 
-// RoutingTypePLookup returns a pointer to RoutingTypeVLookup
-func RoutingTypePLookup() *RoutingType {
-	v := RoutingTypeVLookup
-	return &v
-}
-
-// RoutingTypePSelfFork returns a pointer to RoutingTypeVSelfFork
-func RoutingTypePSelfFork() *RoutingType {
-	v := RoutingTypeVSelfFork
-	return &v
-}
+var (
+	_RoutingTypePForwarded = RoutingTypeVForwarded
+	_RoutingTypePLookup    = RoutingTypeVLookup
+	_RoutingTypePSelfFork  = RoutingTypeVSelfFork
+)

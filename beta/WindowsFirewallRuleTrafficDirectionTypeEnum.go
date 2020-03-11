@@ -3,31 +3,28 @@
 package msgraph
 
 // WindowsFirewallRuleTrafficDirectionType undocumented
-type WindowsFirewallRuleTrafficDirectionType int
+type WindowsFirewallRuleTrafficDirectionType string
 
 const (
 	// WindowsFirewallRuleTrafficDirectionTypeVNotConfigured undocumented
-	WindowsFirewallRuleTrafficDirectionTypeVNotConfigured WindowsFirewallRuleTrafficDirectionType = 0
+	WindowsFirewallRuleTrafficDirectionTypeVNotConfigured WindowsFirewallRuleTrafficDirectionType = "notConfigured"
 	// WindowsFirewallRuleTrafficDirectionTypeVOut undocumented
-	WindowsFirewallRuleTrafficDirectionTypeVOut WindowsFirewallRuleTrafficDirectionType = 1
+	WindowsFirewallRuleTrafficDirectionTypeVOut WindowsFirewallRuleTrafficDirectionType = "out"
 	// WindowsFirewallRuleTrafficDirectionTypeVIn undocumented
-	WindowsFirewallRuleTrafficDirectionTypeVIn WindowsFirewallRuleTrafficDirectionType = 2
+	WindowsFirewallRuleTrafficDirectionTypeVIn WindowsFirewallRuleTrafficDirectionType = "in"
 )
 
-// WindowsFirewallRuleTrafficDirectionTypePNotConfigured returns a pointer to WindowsFirewallRuleTrafficDirectionTypeVNotConfigured
-func WindowsFirewallRuleTrafficDirectionTypePNotConfigured() *WindowsFirewallRuleTrafficDirectionType {
-	v := WindowsFirewallRuleTrafficDirectionTypeVNotConfigured
-	return &v
-}
+var (
+	// WindowsFirewallRuleTrafficDirectionTypePNotConfigured is a pointer to WindowsFirewallRuleTrafficDirectionTypeVNotConfigured
+	WindowsFirewallRuleTrafficDirectionTypePNotConfigured = &_WindowsFirewallRuleTrafficDirectionTypePNotConfigured
+	// WindowsFirewallRuleTrafficDirectionTypePOut is a pointer to WindowsFirewallRuleTrafficDirectionTypeVOut
+	WindowsFirewallRuleTrafficDirectionTypePOut = &_WindowsFirewallRuleTrafficDirectionTypePOut
+	// WindowsFirewallRuleTrafficDirectionTypePIn is a pointer to WindowsFirewallRuleTrafficDirectionTypeVIn
+	WindowsFirewallRuleTrafficDirectionTypePIn = &_WindowsFirewallRuleTrafficDirectionTypePIn
+)
 
-// WindowsFirewallRuleTrafficDirectionTypePOut returns a pointer to WindowsFirewallRuleTrafficDirectionTypeVOut
-func WindowsFirewallRuleTrafficDirectionTypePOut() *WindowsFirewallRuleTrafficDirectionType {
-	v := WindowsFirewallRuleTrafficDirectionTypeVOut
-	return &v
-}
-
-// WindowsFirewallRuleTrafficDirectionTypePIn returns a pointer to WindowsFirewallRuleTrafficDirectionTypeVIn
-func WindowsFirewallRuleTrafficDirectionTypePIn() *WindowsFirewallRuleTrafficDirectionType {
-	v := WindowsFirewallRuleTrafficDirectionTypeVIn
-	return &v
-}
+var (
+	_WindowsFirewallRuleTrafficDirectionTypePNotConfigured = WindowsFirewallRuleTrafficDirectionTypeVNotConfigured
+	_WindowsFirewallRuleTrafficDirectionTypePOut           = WindowsFirewallRuleTrafficDirectionTypeVOut
+	_WindowsFirewallRuleTrafficDirectionTypePIn            = WindowsFirewallRuleTrafficDirectionTypeVIn
+)

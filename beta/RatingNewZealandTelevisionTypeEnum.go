@@ -3,47 +3,38 @@
 package msgraph
 
 // RatingNewZealandTelevisionType undocumented
-type RatingNewZealandTelevisionType int
+type RatingNewZealandTelevisionType string
 
 const (
 	// RatingNewZealandTelevisionTypeVAllAllowed undocumented
-	RatingNewZealandTelevisionTypeVAllAllowed RatingNewZealandTelevisionType = 0
+	RatingNewZealandTelevisionTypeVAllAllowed RatingNewZealandTelevisionType = "allAllowed"
 	// RatingNewZealandTelevisionTypeVAllBlocked undocumented
-	RatingNewZealandTelevisionTypeVAllBlocked RatingNewZealandTelevisionType = 1
+	RatingNewZealandTelevisionTypeVAllBlocked RatingNewZealandTelevisionType = "allBlocked"
 	// RatingNewZealandTelevisionTypeVGeneral undocumented
-	RatingNewZealandTelevisionTypeVGeneral RatingNewZealandTelevisionType = 2
+	RatingNewZealandTelevisionTypeVGeneral RatingNewZealandTelevisionType = "general"
 	// RatingNewZealandTelevisionTypeVParentalGuidance undocumented
-	RatingNewZealandTelevisionTypeVParentalGuidance RatingNewZealandTelevisionType = 3
+	RatingNewZealandTelevisionTypeVParentalGuidance RatingNewZealandTelevisionType = "parentalGuidance"
 	// RatingNewZealandTelevisionTypeVAdults undocumented
-	RatingNewZealandTelevisionTypeVAdults RatingNewZealandTelevisionType = 4
+	RatingNewZealandTelevisionTypeVAdults RatingNewZealandTelevisionType = "adults"
 )
 
-// RatingNewZealandTelevisionTypePAllAllowed returns a pointer to RatingNewZealandTelevisionTypeVAllAllowed
-func RatingNewZealandTelevisionTypePAllAllowed() *RatingNewZealandTelevisionType {
-	v := RatingNewZealandTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingNewZealandTelevisionTypePAllAllowed is a pointer to RatingNewZealandTelevisionTypeVAllAllowed
+	RatingNewZealandTelevisionTypePAllAllowed = &_RatingNewZealandTelevisionTypePAllAllowed
+	// RatingNewZealandTelevisionTypePAllBlocked is a pointer to RatingNewZealandTelevisionTypeVAllBlocked
+	RatingNewZealandTelevisionTypePAllBlocked = &_RatingNewZealandTelevisionTypePAllBlocked
+	// RatingNewZealandTelevisionTypePGeneral is a pointer to RatingNewZealandTelevisionTypeVGeneral
+	RatingNewZealandTelevisionTypePGeneral = &_RatingNewZealandTelevisionTypePGeneral
+	// RatingNewZealandTelevisionTypePParentalGuidance is a pointer to RatingNewZealandTelevisionTypeVParentalGuidance
+	RatingNewZealandTelevisionTypePParentalGuidance = &_RatingNewZealandTelevisionTypePParentalGuidance
+	// RatingNewZealandTelevisionTypePAdults is a pointer to RatingNewZealandTelevisionTypeVAdults
+	RatingNewZealandTelevisionTypePAdults = &_RatingNewZealandTelevisionTypePAdults
+)
 
-// RatingNewZealandTelevisionTypePAllBlocked returns a pointer to RatingNewZealandTelevisionTypeVAllBlocked
-func RatingNewZealandTelevisionTypePAllBlocked() *RatingNewZealandTelevisionType {
-	v := RatingNewZealandTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingNewZealandTelevisionTypePGeneral returns a pointer to RatingNewZealandTelevisionTypeVGeneral
-func RatingNewZealandTelevisionTypePGeneral() *RatingNewZealandTelevisionType {
-	v := RatingNewZealandTelevisionTypeVGeneral
-	return &v
-}
-
-// RatingNewZealandTelevisionTypePParentalGuidance returns a pointer to RatingNewZealandTelevisionTypeVParentalGuidance
-func RatingNewZealandTelevisionTypePParentalGuidance() *RatingNewZealandTelevisionType {
-	v := RatingNewZealandTelevisionTypeVParentalGuidance
-	return &v
-}
-
-// RatingNewZealandTelevisionTypePAdults returns a pointer to RatingNewZealandTelevisionTypeVAdults
-func RatingNewZealandTelevisionTypePAdults() *RatingNewZealandTelevisionType {
-	v := RatingNewZealandTelevisionTypeVAdults
-	return &v
-}
+var (
+	_RatingNewZealandTelevisionTypePAllAllowed       = RatingNewZealandTelevisionTypeVAllAllowed
+	_RatingNewZealandTelevisionTypePAllBlocked       = RatingNewZealandTelevisionTypeVAllBlocked
+	_RatingNewZealandTelevisionTypePGeneral          = RatingNewZealandTelevisionTypeVGeneral
+	_RatingNewZealandTelevisionTypePParentalGuidance = RatingNewZealandTelevisionTypeVParentalGuidance
+	_RatingNewZealandTelevisionTypePAdults           = RatingNewZealandTelevisionTypeVAdults
+)

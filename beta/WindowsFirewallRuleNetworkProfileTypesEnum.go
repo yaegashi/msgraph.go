@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsFirewallRuleNetworkProfileTypes undocumented
-type WindowsFirewallRuleNetworkProfileTypes int
+type WindowsFirewallRuleNetworkProfileTypes string
 
 const (
 	// WindowsFirewallRuleNetworkProfileTypesVNotConfigured undocumented
-	WindowsFirewallRuleNetworkProfileTypesVNotConfigured WindowsFirewallRuleNetworkProfileTypes = 0
+	WindowsFirewallRuleNetworkProfileTypesVNotConfigured WindowsFirewallRuleNetworkProfileTypes = "notConfigured"
 	// WindowsFirewallRuleNetworkProfileTypesVDomain undocumented
-	WindowsFirewallRuleNetworkProfileTypesVDomain WindowsFirewallRuleNetworkProfileTypes = 1
+	WindowsFirewallRuleNetworkProfileTypesVDomain WindowsFirewallRuleNetworkProfileTypes = "domain"
 	// WindowsFirewallRuleNetworkProfileTypesVPrivate undocumented
-	WindowsFirewallRuleNetworkProfileTypesVPrivate WindowsFirewallRuleNetworkProfileTypes = 2
+	WindowsFirewallRuleNetworkProfileTypesVPrivate WindowsFirewallRuleNetworkProfileTypes = "private"
 	// WindowsFirewallRuleNetworkProfileTypesVPublic undocumented
-	WindowsFirewallRuleNetworkProfileTypesVPublic WindowsFirewallRuleNetworkProfileTypes = 4
+	WindowsFirewallRuleNetworkProfileTypesVPublic WindowsFirewallRuleNetworkProfileTypes = "public"
 )
 
-// WindowsFirewallRuleNetworkProfileTypesPNotConfigured returns a pointer to WindowsFirewallRuleNetworkProfileTypesVNotConfigured
-func WindowsFirewallRuleNetworkProfileTypesPNotConfigured() *WindowsFirewallRuleNetworkProfileTypes {
-	v := WindowsFirewallRuleNetworkProfileTypesVNotConfigured
-	return &v
-}
+var (
+	// WindowsFirewallRuleNetworkProfileTypesPNotConfigured is a pointer to WindowsFirewallRuleNetworkProfileTypesVNotConfigured
+	WindowsFirewallRuleNetworkProfileTypesPNotConfigured = &_WindowsFirewallRuleNetworkProfileTypesPNotConfigured
+	// WindowsFirewallRuleNetworkProfileTypesPDomain is a pointer to WindowsFirewallRuleNetworkProfileTypesVDomain
+	WindowsFirewallRuleNetworkProfileTypesPDomain = &_WindowsFirewallRuleNetworkProfileTypesPDomain
+	// WindowsFirewallRuleNetworkProfileTypesPPrivate is a pointer to WindowsFirewallRuleNetworkProfileTypesVPrivate
+	WindowsFirewallRuleNetworkProfileTypesPPrivate = &_WindowsFirewallRuleNetworkProfileTypesPPrivate
+	// WindowsFirewallRuleNetworkProfileTypesPPublic is a pointer to WindowsFirewallRuleNetworkProfileTypesVPublic
+	WindowsFirewallRuleNetworkProfileTypesPPublic = &_WindowsFirewallRuleNetworkProfileTypesPPublic
+)
 
-// WindowsFirewallRuleNetworkProfileTypesPDomain returns a pointer to WindowsFirewallRuleNetworkProfileTypesVDomain
-func WindowsFirewallRuleNetworkProfileTypesPDomain() *WindowsFirewallRuleNetworkProfileTypes {
-	v := WindowsFirewallRuleNetworkProfileTypesVDomain
-	return &v
-}
-
-// WindowsFirewallRuleNetworkProfileTypesPPrivate returns a pointer to WindowsFirewallRuleNetworkProfileTypesVPrivate
-func WindowsFirewallRuleNetworkProfileTypesPPrivate() *WindowsFirewallRuleNetworkProfileTypes {
-	v := WindowsFirewallRuleNetworkProfileTypesVPrivate
-	return &v
-}
-
-// WindowsFirewallRuleNetworkProfileTypesPPublic returns a pointer to WindowsFirewallRuleNetworkProfileTypesVPublic
-func WindowsFirewallRuleNetworkProfileTypesPPublic() *WindowsFirewallRuleNetworkProfileTypes {
-	v := WindowsFirewallRuleNetworkProfileTypesVPublic
-	return &v
-}
+var (
+	_WindowsFirewallRuleNetworkProfileTypesPNotConfigured = WindowsFirewallRuleNetworkProfileTypesVNotConfigured
+	_WindowsFirewallRuleNetworkProfileTypesPDomain        = WindowsFirewallRuleNetworkProfileTypesVDomain
+	_WindowsFirewallRuleNetworkProfileTypesPPrivate       = WindowsFirewallRuleNetworkProfileTypesVPrivate
+	_WindowsFirewallRuleNetworkProfileTypesPPublic        = WindowsFirewallRuleNetworkProfileTypesVPublic
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // AttributeMappingSourceType undocumented
-type AttributeMappingSourceType int
+type AttributeMappingSourceType string
 
 const (
 	// AttributeMappingSourceTypeVAttribute undocumented
-	AttributeMappingSourceTypeVAttribute AttributeMappingSourceType = 0
+	AttributeMappingSourceTypeVAttribute AttributeMappingSourceType = "Attribute"
 	// AttributeMappingSourceTypeVConstant undocumented
-	AttributeMappingSourceTypeVConstant AttributeMappingSourceType = 1
+	AttributeMappingSourceTypeVConstant AttributeMappingSourceType = "Constant"
 	// AttributeMappingSourceTypeVFunction undocumented
-	AttributeMappingSourceTypeVFunction AttributeMappingSourceType = 2
+	AttributeMappingSourceTypeVFunction AttributeMappingSourceType = "Function"
 )
 
-// AttributeMappingSourceTypePAttribute returns a pointer to AttributeMappingSourceTypeVAttribute
-func AttributeMappingSourceTypePAttribute() *AttributeMappingSourceType {
-	v := AttributeMappingSourceTypeVAttribute
-	return &v
-}
+var (
+	// AttributeMappingSourceTypePAttribute is a pointer to AttributeMappingSourceTypeVAttribute
+	AttributeMappingSourceTypePAttribute = &_AttributeMappingSourceTypePAttribute
+	// AttributeMappingSourceTypePConstant is a pointer to AttributeMappingSourceTypeVConstant
+	AttributeMappingSourceTypePConstant = &_AttributeMappingSourceTypePConstant
+	// AttributeMappingSourceTypePFunction is a pointer to AttributeMappingSourceTypeVFunction
+	AttributeMappingSourceTypePFunction = &_AttributeMappingSourceTypePFunction
+)
 
-// AttributeMappingSourceTypePConstant returns a pointer to AttributeMappingSourceTypeVConstant
-func AttributeMappingSourceTypePConstant() *AttributeMappingSourceType {
-	v := AttributeMappingSourceTypeVConstant
-	return &v
-}
-
-// AttributeMappingSourceTypePFunction returns a pointer to AttributeMappingSourceTypeVFunction
-func AttributeMappingSourceTypePFunction() *AttributeMappingSourceType {
-	v := AttributeMappingSourceTypeVFunction
-	return &v
-}
+var (
+	_AttributeMappingSourceTypePAttribute = AttributeMappingSourceTypeVAttribute
+	_AttributeMappingSourceTypePConstant  = AttributeMappingSourceTypeVConstant
+	_AttributeMappingSourceTypePFunction  = AttributeMappingSourceTypeVFunction
+)

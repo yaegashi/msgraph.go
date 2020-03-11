@@ -3,23 +3,23 @@
 package msgraph
 
 // OfficeSuiteInstallProgressDisplayLevel undocumented
-type OfficeSuiteInstallProgressDisplayLevel int
+type OfficeSuiteInstallProgressDisplayLevel string
 
 const (
 	// OfficeSuiteInstallProgressDisplayLevelVNone undocumented
-	OfficeSuiteInstallProgressDisplayLevelVNone OfficeSuiteInstallProgressDisplayLevel = 0
+	OfficeSuiteInstallProgressDisplayLevelVNone OfficeSuiteInstallProgressDisplayLevel = "none"
 	// OfficeSuiteInstallProgressDisplayLevelVFull undocumented
-	OfficeSuiteInstallProgressDisplayLevelVFull OfficeSuiteInstallProgressDisplayLevel = 1
+	OfficeSuiteInstallProgressDisplayLevelVFull OfficeSuiteInstallProgressDisplayLevel = "full"
 )
 
-// OfficeSuiteInstallProgressDisplayLevelPNone returns a pointer to OfficeSuiteInstallProgressDisplayLevelVNone
-func OfficeSuiteInstallProgressDisplayLevelPNone() *OfficeSuiteInstallProgressDisplayLevel {
-	v := OfficeSuiteInstallProgressDisplayLevelVNone
-	return &v
-}
+var (
+	// OfficeSuiteInstallProgressDisplayLevelPNone is a pointer to OfficeSuiteInstallProgressDisplayLevelVNone
+	OfficeSuiteInstallProgressDisplayLevelPNone = &_OfficeSuiteInstallProgressDisplayLevelPNone
+	// OfficeSuiteInstallProgressDisplayLevelPFull is a pointer to OfficeSuiteInstallProgressDisplayLevelVFull
+	OfficeSuiteInstallProgressDisplayLevelPFull = &_OfficeSuiteInstallProgressDisplayLevelPFull
+)
 
-// OfficeSuiteInstallProgressDisplayLevelPFull returns a pointer to OfficeSuiteInstallProgressDisplayLevelVFull
-func OfficeSuiteInstallProgressDisplayLevelPFull() *OfficeSuiteInstallProgressDisplayLevel {
-	v := OfficeSuiteInstallProgressDisplayLevelVFull
-	return &v
-}
+var (
+	_OfficeSuiteInstallProgressDisplayLevelPNone = OfficeSuiteInstallProgressDisplayLevelVNone
+	_OfficeSuiteInstallProgressDisplayLevelPFull = OfficeSuiteInstallProgressDisplayLevelVFull
+)

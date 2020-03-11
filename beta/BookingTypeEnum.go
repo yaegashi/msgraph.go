@@ -3,31 +3,28 @@
 package msgraph
 
 // BookingType undocumented
-type BookingType int
+type BookingType string
 
 const (
 	// BookingTypeVUnknown undocumented
-	BookingTypeVUnknown BookingType = 0
+	BookingTypeVUnknown BookingType = "unknown"
 	// BookingTypeVStandard undocumented
-	BookingTypeVStandard BookingType = 1
+	BookingTypeVStandard BookingType = "standard"
 	// BookingTypeVReserved undocumented
-	BookingTypeVReserved BookingType = 2
+	BookingTypeVReserved BookingType = "reserved"
 )
 
-// BookingTypePUnknown returns a pointer to BookingTypeVUnknown
-func BookingTypePUnknown() *BookingType {
-	v := BookingTypeVUnknown
-	return &v
-}
+var (
+	// BookingTypePUnknown is a pointer to BookingTypeVUnknown
+	BookingTypePUnknown = &_BookingTypePUnknown
+	// BookingTypePStandard is a pointer to BookingTypeVStandard
+	BookingTypePStandard = &_BookingTypePStandard
+	// BookingTypePReserved is a pointer to BookingTypeVReserved
+	BookingTypePReserved = &_BookingTypePReserved
+)
 
-// BookingTypePStandard returns a pointer to BookingTypeVStandard
-func BookingTypePStandard() *BookingType {
-	v := BookingTypeVStandard
-	return &v
-}
-
-// BookingTypePReserved returns a pointer to BookingTypeVReserved
-func BookingTypePReserved() *BookingType {
-	v := BookingTypeVReserved
-	return &v
-}
+var (
+	_BookingTypePUnknown  = BookingTypeVUnknown
+	_BookingTypePStandard = BookingTypeVStandard
+	_BookingTypePReserved = BookingTypeVReserved
+)

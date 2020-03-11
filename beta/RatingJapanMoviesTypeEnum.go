@@ -3,55 +3,43 @@
 package msgraph
 
 // RatingJapanMoviesType undocumented
-type RatingJapanMoviesType int
+type RatingJapanMoviesType string
 
 const (
 	// RatingJapanMoviesTypeVAllAllowed undocumented
-	RatingJapanMoviesTypeVAllAllowed RatingJapanMoviesType = 0
+	RatingJapanMoviesTypeVAllAllowed RatingJapanMoviesType = "allAllowed"
 	// RatingJapanMoviesTypeVAllBlocked undocumented
-	RatingJapanMoviesTypeVAllBlocked RatingJapanMoviesType = 1
+	RatingJapanMoviesTypeVAllBlocked RatingJapanMoviesType = "allBlocked"
 	// RatingJapanMoviesTypeVGeneral undocumented
-	RatingJapanMoviesTypeVGeneral RatingJapanMoviesType = 2
+	RatingJapanMoviesTypeVGeneral RatingJapanMoviesType = "general"
 	// RatingJapanMoviesTypeVParentalGuidance undocumented
-	RatingJapanMoviesTypeVParentalGuidance RatingJapanMoviesType = 3
+	RatingJapanMoviesTypeVParentalGuidance RatingJapanMoviesType = "parentalGuidance"
 	// RatingJapanMoviesTypeVAgesAbove15 undocumented
-	RatingJapanMoviesTypeVAgesAbove15 RatingJapanMoviesType = 4
+	RatingJapanMoviesTypeVAgesAbove15 RatingJapanMoviesType = "agesAbove15"
 	// RatingJapanMoviesTypeVAgesAbove18 undocumented
-	RatingJapanMoviesTypeVAgesAbove18 RatingJapanMoviesType = 5
+	RatingJapanMoviesTypeVAgesAbove18 RatingJapanMoviesType = "agesAbove18"
 )
 
-// RatingJapanMoviesTypePAllAllowed returns a pointer to RatingJapanMoviesTypeVAllAllowed
-func RatingJapanMoviesTypePAllAllowed() *RatingJapanMoviesType {
-	v := RatingJapanMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingJapanMoviesTypePAllAllowed is a pointer to RatingJapanMoviesTypeVAllAllowed
+	RatingJapanMoviesTypePAllAllowed = &_RatingJapanMoviesTypePAllAllowed
+	// RatingJapanMoviesTypePAllBlocked is a pointer to RatingJapanMoviesTypeVAllBlocked
+	RatingJapanMoviesTypePAllBlocked = &_RatingJapanMoviesTypePAllBlocked
+	// RatingJapanMoviesTypePGeneral is a pointer to RatingJapanMoviesTypeVGeneral
+	RatingJapanMoviesTypePGeneral = &_RatingJapanMoviesTypePGeneral
+	// RatingJapanMoviesTypePParentalGuidance is a pointer to RatingJapanMoviesTypeVParentalGuidance
+	RatingJapanMoviesTypePParentalGuidance = &_RatingJapanMoviesTypePParentalGuidance
+	// RatingJapanMoviesTypePAgesAbove15 is a pointer to RatingJapanMoviesTypeVAgesAbove15
+	RatingJapanMoviesTypePAgesAbove15 = &_RatingJapanMoviesTypePAgesAbove15
+	// RatingJapanMoviesTypePAgesAbove18 is a pointer to RatingJapanMoviesTypeVAgesAbove18
+	RatingJapanMoviesTypePAgesAbove18 = &_RatingJapanMoviesTypePAgesAbove18
+)
 
-// RatingJapanMoviesTypePAllBlocked returns a pointer to RatingJapanMoviesTypeVAllBlocked
-func RatingJapanMoviesTypePAllBlocked() *RatingJapanMoviesType {
-	v := RatingJapanMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingJapanMoviesTypePGeneral returns a pointer to RatingJapanMoviesTypeVGeneral
-func RatingJapanMoviesTypePGeneral() *RatingJapanMoviesType {
-	v := RatingJapanMoviesTypeVGeneral
-	return &v
-}
-
-// RatingJapanMoviesTypePParentalGuidance returns a pointer to RatingJapanMoviesTypeVParentalGuidance
-func RatingJapanMoviesTypePParentalGuidance() *RatingJapanMoviesType {
-	v := RatingJapanMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingJapanMoviesTypePAgesAbove15 returns a pointer to RatingJapanMoviesTypeVAgesAbove15
-func RatingJapanMoviesTypePAgesAbove15() *RatingJapanMoviesType {
-	v := RatingJapanMoviesTypeVAgesAbove15
-	return &v
-}
-
-// RatingJapanMoviesTypePAgesAbove18 returns a pointer to RatingJapanMoviesTypeVAgesAbove18
-func RatingJapanMoviesTypePAgesAbove18() *RatingJapanMoviesType {
-	v := RatingJapanMoviesTypeVAgesAbove18
-	return &v
-}
+var (
+	_RatingJapanMoviesTypePAllAllowed       = RatingJapanMoviesTypeVAllAllowed
+	_RatingJapanMoviesTypePAllBlocked       = RatingJapanMoviesTypeVAllBlocked
+	_RatingJapanMoviesTypePGeneral          = RatingJapanMoviesTypeVGeneral
+	_RatingJapanMoviesTypePParentalGuidance = RatingJapanMoviesTypeVParentalGuidance
+	_RatingJapanMoviesTypePAgesAbove15      = RatingJapanMoviesTypeVAgesAbove15
+	_RatingJapanMoviesTypePAgesAbove18      = RatingJapanMoviesTypeVAgesAbove18
+)

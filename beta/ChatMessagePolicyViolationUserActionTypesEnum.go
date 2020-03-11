@@ -3,31 +3,28 @@
 package msgraph
 
 // ChatMessagePolicyViolationUserActionTypes undocumented
-type ChatMessagePolicyViolationUserActionTypes int
+type ChatMessagePolicyViolationUserActionTypes string
 
 const (
 	// ChatMessagePolicyViolationUserActionTypesVNone undocumented
-	ChatMessagePolicyViolationUserActionTypesVNone ChatMessagePolicyViolationUserActionTypes = 0
+	ChatMessagePolicyViolationUserActionTypesVNone ChatMessagePolicyViolationUserActionTypes = "none"
 	// ChatMessagePolicyViolationUserActionTypesVOverride undocumented
-	ChatMessagePolicyViolationUserActionTypesVOverride ChatMessagePolicyViolationUserActionTypes = 1
+	ChatMessagePolicyViolationUserActionTypesVOverride ChatMessagePolicyViolationUserActionTypes = "override"
 	// ChatMessagePolicyViolationUserActionTypesVReportFalsePositive undocumented
-	ChatMessagePolicyViolationUserActionTypesVReportFalsePositive ChatMessagePolicyViolationUserActionTypes = 2
+	ChatMessagePolicyViolationUserActionTypesVReportFalsePositive ChatMessagePolicyViolationUserActionTypes = "reportFalsePositive"
 )
 
-// ChatMessagePolicyViolationUserActionTypesPNone returns a pointer to ChatMessagePolicyViolationUserActionTypesVNone
-func ChatMessagePolicyViolationUserActionTypesPNone() *ChatMessagePolicyViolationUserActionTypes {
-	v := ChatMessagePolicyViolationUserActionTypesVNone
-	return &v
-}
+var (
+	// ChatMessagePolicyViolationUserActionTypesPNone is a pointer to ChatMessagePolicyViolationUserActionTypesVNone
+	ChatMessagePolicyViolationUserActionTypesPNone = &_ChatMessagePolicyViolationUserActionTypesPNone
+	// ChatMessagePolicyViolationUserActionTypesPOverride is a pointer to ChatMessagePolicyViolationUserActionTypesVOverride
+	ChatMessagePolicyViolationUserActionTypesPOverride = &_ChatMessagePolicyViolationUserActionTypesPOverride
+	// ChatMessagePolicyViolationUserActionTypesPReportFalsePositive is a pointer to ChatMessagePolicyViolationUserActionTypesVReportFalsePositive
+	ChatMessagePolicyViolationUserActionTypesPReportFalsePositive = &_ChatMessagePolicyViolationUserActionTypesPReportFalsePositive
+)
 
-// ChatMessagePolicyViolationUserActionTypesPOverride returns a pointer to ChatMessagePolicyViolationUserActionTypesVOverride
-func ChatMessagePolicyViolationUserActionTypesPOverride() *ChatMessagePolicyViolationUserActionTypes {
-	v := ChatMessagePolicyViolationUserActionTypesVOverride
-	return &v
-}
-
-// ChatMessagePolicyViolationUserActionTypesPReportFalsePositive returns a pointer to ChatMessagePolicyViolationUserActionTypesVReportFalsePositive
-func ChatMessagePolicyViolationUserActionTypesPReportFalsePositive() *ChatMessagePolicyViolationUserActionTypes {
-	v := ChatMessagePolicyViolationUserActionTypesVReportFalsePositive
-	return &v
-}
+var (
+	_ChatMessagePolicyViolationUserActionTypesPNone                = ChatMessagePolicyViolationUserActionTypesVNone
+	_ChatMessagePolicyViolationUserActionTypesPOverride            = ChatMessagePolicyViolationUserActionTypesVOverride
+	_ChatMessagePolicyViolationUserActionTypesPReportFalsePositive = ChatMessagePolicyViolationUserActionTypesVReportFalsePositive
+)

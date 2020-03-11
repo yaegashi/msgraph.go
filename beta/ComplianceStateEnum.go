@@ -3,63 +3,48 @@
 package msgraph
 
 // ComplianceState undocumented
-type ComplianceState int
+type ComplianceState string
 
 const (
 	// ComplianceStateVUnknown undocumented
-	ComplianceStateVUnknown ComplianceState = 0
+	ComplianceStateVUnknown ComplianceState = "unknown"
 	// ComplianceStateVCompliant undocumented
-	ComplianceStateVCompliant ComplianceState = 1
+	ComplianceStateVCompliant ComplianceState = "compliant"
 	// ComplianceStateVNoncompliant undocumented
-	ComplianceStateVNoncompliant ComplianceState = 2
+	ComplianceStateVNoncompliant ComplianceState = "noncompliant"
 	// ComplianceStateVConflict undocumented
-	ComplianceStateVConflict ComplianceState = 3
+	ComplianceStateVConflict ComplianceState = "conflict"
 	// ComplianceStateVError undocumented
-	ComplianceStateVError ComplianceState = 4
+	ComplianceStateVError ComplianceState = "error"
 	// ComplianceStateVInGracePeriod undocumented
-	ComplianceStateVInGracePeriod ComplianceState = 254
+	ComplianceStateVInGracePeriod ComplianceState = "inGracePeriod"
 	// ComplianceStateVConfigManager undocumented
-	ComplianceStateVConfigManager ComplianceState = 255
+	ComplianceStateVConfigManager ComplianceState = "configManager"
 )
 
-// ComplianceStatePUnknown returns a pointer to ComplianceStateVUnknown
-func ComplianceStatePUnknown() *ComplianceState {
-	v := ComplianceStateVUnknown
-	return &v
-}
+var (
+	// ComplianceStatePUnknown is a pointer to ComplianceStateVUnknown
+	ComplianceStatePUnknown = &_ComplianceStatePUnknown
+	// ComplianceStatePCompliant is a pointer to ComplianceStateVCompliant
+	ComplianceStatePCompliant = &_ComplianceStatePCompliant
+	// ComplianceStatePNoncompliant is a pointer to ComplianceStateVNoncompliant
+	ComplianceStatePNoncompliant = &_ComplianceStatePNoncompliant
+	// ComplianceStatePConflict is a pointer to ComplianceStateVConflict
+	ComplianceStatePConflict = &_ComplianceStatePConflict
+	// ComplianceStatePError is a pointer to ComplianceStateVError
+	ComplianceStatePError = &_ComplianceStatePError
+	// ComplianceStatePInGracePeriod is a pointer to ComplianceStateVInGracePeriod
+	ComplianceStatePInGracePeriod = &_ComplianceStatePInGracePeriod
+	// ComplianceStatePConfigManager is a pointer to ComplianceStateVConfigManager
+	ComplianceStatePConfigManager = &_ComplianceStatePConfigManager
+)
 
-// ComplianceStatePCompliant returns a pointer to ComplianceStateVCompliant
-func ComplianceStatePCompliant() *ComplianceState {
-	v := ComplianceStateVCompliant
-	return &v
-}
-
-// ComplianceStatePNoncompliant returns a pointer to ComplianceStateVNoncompliant
-func ComplianceStatePNoncompliant() *ComplianceState {
-	v := ComplianceStateVNoncompliant
-	return &v
-}
-
-// ComplianceStatePConflict returns a pointer to ComplianceStateVConflict
-func ComplianceStatePConflict() *ComplianceState {
-	v := ComplianceStateVConflict
-	return &v
-}
-
-// ComplianceStatePError returns a pointer to ComplianceStateVError
-func ComplianceStatePError() *ComplianceState {
-	v := ComplianceStateVError
-	return &v
-}
-
-// ComplianceStatePInGracePeriod returns a pointer to ComplianceStateVInGracePeriod
-func ComplianceStatePInGracePeriod() *ComplianceState {
-	v := ComplianceStateVInGracePeriod
-	return &v
-}
-
-// ComplianceStatePConfigManager returns a pointer to ComplianceStateVConfigManager
-func ComplianceStatePConfigManager() *ComplianceState {
-	v := ComplianceStateVConfigManager
-	return &v
-}
+var (
+	_ComplianceStatePUnknown       = ComplianceStateVUnknown
+	_ComplianceStatePCompliant     = ComplianceStateVCompliant
+	_ComplianceStatePNoncompliant  = ComplianceStateVNoncompliant
+	_ComplianceStatePConflict      = ComplianceStateVConflict
+	_ComplianceStatePError         = ComplianceStateVError
+	_ComplianceStatePInGracePeriod = ComplianceStateVInGracePeriod
+	_ComplianceStatePConfigManager = ComplianceStateVConfigManager
+)

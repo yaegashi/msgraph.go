@@ -3,31 +3,28 @@
 package msgraph
 
 // RestrictionAction undocumented
-type RestrictionAction int
+type RestrictionAction string
 
 const (
 	// RestrictionActionVWarn undocumented
-	RestrictionActionVWarn RestrictionAction = 0
+	RestrictionActionVWarn RestrictionAction = "warn"
 	// RestrictionActionVAudit undocumented
-	RestrictionActionVAudit RestrictionAction = 1
+	RestrictionActionVAudit RestrictionAction = "audit"
 	// RestrictionActionVBlock undocumented
-	RestrictionActionVBlock RestrictionAction = 2
+	RestrictionActionVBlock RestrictionAction = "block"
 )
 
-// RestrictionActionPWarn returns a pointer to RestrictionActionVWarn
-func RestrictionActionPWarn() *RestrictionAction {
-	v := RestrictionActionVWarn
-	return &v
-}
+var (
+	// RestrictionActionPWarn is a pointer to RestrictionActionVWarn
+	RestrictionActionPWarn = &_RestrictionActionPWarn
+	// RestrictionActionPAudit is a pointer to RestrictionActionVAudit
+	RestrictionActionPAudit = &_RestrictionActionPAudit
+	// RestrictionActionPBlock is a pointer to RestrictionActionVBlock
+	RestrictionActionPBlock = &_RestrictionActionPBlock
+)
 
-// RestrictionActionPAudit returns a pointer to RestrictionActionVAudit
-func RestrictionActionPAudit() *RestrictionAction {
-	v := RestrictionActionVAudit
-	return &v
-}
-
-// RestrictionActionPBlock returns a pointer to RestrictionActionVBlock
-func RestrictionActionPBlock() *RestrictionAction {
-	v := RestrictionActionVBlock
-	return &v
-}
+var (
+	_RestrictionActionPWarn  = RestrictionActionVWarn
+	_RestrictionActionPAudit = RestrictionActionVAudit
+	_RestrictionActionPBlock = RestrictionActionVBlock
+)

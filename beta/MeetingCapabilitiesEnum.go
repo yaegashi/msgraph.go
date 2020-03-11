@@ -3,23 +3,23 @@
 package msgraph
 
 // MeetingCapabilities undocumented
-type MeetingCapabilities int
+type MeetingCapabilities string
 
 const (
 	// MeetingCapabilitiesVQuestionAndAnswer undocumented
-	MeetingCapabilitiesVQuestionAndAnswer MeetingCapabilities = 0
+	MeetingCapabilitiesVQuestionAndAnswer MeetingCapabilities = "questionAndAnswer"
 	// MeetingCapabilitiesVUnknownFutureValue undocumented
-	MeetingCapabilitiesVUnknownFutureValue MeetingCapabilities = 1
+	MeetingCapabilitiesVUnknownFutureValue MeetingCapabilities = "unknownFutureValue"
 )
 
-// MeetingCapabilitiesPQuestionAndAnswer returns a pointer to MeetingCapabilitiesVQuestionAndAnswer
-func MeetingCapabilitiesPQuestionAndAnswer() *MeetingCapabilities {
-	v := MeetingCapabilitiesVQuestionAndAnswer
-	return &v
-}
+var (
+	// MeetingCapabilitiesPQuestionAndAnswer is a pointer to MeetingCapabilitiesVQuestionAndAnswer
+	MeetingCapabilitiesPQuestionAndAnswer = &_MeetingCapabilitiesPQuestionAndAnswer
+	// MeetingCapabilitiesPUnknownFutureValue is a pointer to MeetingCapabilitiesVUnknownFutureValue
+	MeetingCapabilitiesPUnknownFutureValue = &_MeetingCapabilitiesPUnknownFutureValue
+)
 
-// MeetingCapabilitiesPUnknownFutureValue returns a pointer to MeetingCapabilitiesVUnknownFutureValue
-func MeetingCapabilitiesPUnknownFutureValue() *MeetingCapabilities {
-	v := MeetingCapabilitiesVUnknownFutureValue
-	return &v
-}
+var (
+	_MeetingCapabilitiesPQuestionAndAnswer  = MeetingCapabilitiesVQuestionAndAnswer
+	_MeetingCapabilitiesPUnknownFutureValue = MeetingCapabilitiesVUnknownFutureValue
+)

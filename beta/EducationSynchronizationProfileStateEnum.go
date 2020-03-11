@@ -3,55 +3,43 @@
 package msgraph
 
 // EducationSynchronizationProfileState undocumented
-type EducationSynchronizationProfileState int
+type EducationSynchronizationProfileState string
 
 const (
 	// EducationSynchronizationProfileStateVDeleting undocumented
-	EducationSynchronizationProfileStateVDeleting EducationSynchronizationProfileState = 2
+	EducationSynchronizationProfileStateVDeleting EducationSynchronizationProfileState = "deleting"
 	// EducationSynchronizationProfileStateVDeletionFailed undocumented
-	EducationSynchronizationProfileStateVDeletionFailed EducationSynchronizationProfileState = 3
+	EducationSynchronizationProfileStateVDeletionFailed EducationSynchronizationProfileState = "deletionFailed"
 	// EducationSynchronizationProfileStateVProvisioningFailed undocumented
-	EducationSynchronizationProfileStateVProvisioningFailed EducationSynchronizationProfileState = 5
+	EducationSynchronizationProfileStateVProvisioningFailed EducationSynchronizationProfileState = "provisioningFailed"
 	// EducationSynchronizationProfileStateVProvisioned undocumented
-	EducationSynchronizationProfileStateVProvisioned EducationSynchronizationProfileState = 6
+	EducationSynchronizationProfileStateVProvisioned EducationSynchronizationProfileState = "provisioned"
 	// EducationSynchronizationProfileStateVProvisioning undocumented
-	EducationSynchronizationProfileStateVProvisioning EducationSynchronizationProfileState = 7
+	EducationSynchronizationProfileStateVProvisioning EducationSynchronizationProfileState = "provisioning"
 	// EducationSynchronizationProfileStateVUnknownFutureValue undocumented
-	EducationSynchronizationProfileStateVUnknownFutureValue EducationSynchronizationProfileState = 8
+	EducationSynchronizationProfileStateVUnknownFutureValue EducationSynchronizationProfileState = "unknownFutureValue"
 )
 
-// EducationSynchronizationProfileStatePDeleting returns a pointer to EducationSynchronizationProfileStateVDeleting
-func EducationSynchronizationProfileStatePDeleting() *EducationSynchronizationProfileState {
-	v := EducationSynchronizationProfileStateVDeleting
-	return &v
-}
+var (
+	// EducationSynchronizationProfileStatePDeleting is a pointer to EducationSynchronizationProfileStateVDeleting
+	EducationSynchronizationProfileStatePDeleting = &_EducationSynchronizationProfileStatePDeleting
+	// EducationSynchronizationProfileStatePDeletionFailed is a pointer to EducationSynchronizationProfileStateVDeletionFailed
+	EducationSynchronizationProfileStatePDeletionFailed = &_EducationSynchronizationProfileStatePDeletionFailed
+	// EducationSynchronizationProfileStatePProvisioningFailed is a pointer to EducationSynchronizationProfileStateVProvisioningFailed
+	EducationSynchronizationProfileStatePProvisioningFailed = &_EducationSynchronizationProfileStatePProvisioningFailed
+	// EducationSynchronizationProfileStatePProvisioned is a pointer to EducationSynchronizationProfileStateVProvisioned
+	EducationSynchronizationProfileStatePProvisioned = &_EducationSynchronizationProfileStatePProvisioned
+	// EducationSynchronizationProfileStatePProvisioning is a pointer to EducationSynchronizationProfileStateVProvisioning
+	EducationSynchronizationProfileStatePProvisioning = &_EducationSynchronizationProfileStatePProvisioning
+	// EducationSynchronizationProfileStatePUnknownFutureValue is a pointer to EducationSynchronizationProfileStateVUnknownFutureValue
+	EducationSynchronizationProfileStatePUnknownFutureValue = &_EducationSynchronizationProfileStatePUnknownFutureValue
+)
 
-// EducationSynchronizationProfileStatePDeletionFailed returns a pointer to EducationSynchronizationProfileStateVDeletionFailed
-func EducationSynchronizationProfileStatePDeletionFailed() *EducationSynchronizationProfileState {
-	v := EducationSynchronizationProfileStateVDeletionFailed
-	return &v
-}
-
-// EducationSynchronizationProfileStatePProvisioningFailed returns a pointer to EducationSynchronizationProfileStateVProvisioningFailed
-func EducationSynchronizationProfileStatePProvisioningFailed() *EducationSynchronizationProfileState {
-	v := EducationSynchronizationProfileStateVProvisioningFailed
-	return &v
-}
-
-// EducationSynchronizationProfileStatePProvisioned returns a pointer to EducationSynchronizationProfileStateVProvisioned
-func EducationSynchronizationProfileStatePProvisioned() *EducationSynchronizationProfileState {
-	v := EducationSynchronizationProfileStateVProvisioned
-	return &v
-}
-
-// EducationSynchronizationProfileStatePProvisioning returns a pointer to EducationSynchronizationProfileStateVProvisioning
-func EducationSynchronizationProfileStatePProvisioning() *EducationSynchronizationProfileState {
-	v := EducationSynchronizationProfileStateVProvisioning
-	return &v
-}
-
-// EducationSynchronizationProfileStatePUnknownFutureValue returns a pointer to EducationSynchronizationProfileStateVUnknownFutureValue
-func EducationSynchronizationProfileStatePUnknownFutureValue() *EducationSynchronizationProfileState {
-	v := EducationSynchronizationProfileStateVUnknownFutureValue
-	return &v
-}
+var (
+	_EducationSynchronizationProfileStatePDeleting           = EducationSynchronizationProfileStateVDeleting
+	_EducationSynchronizationProfileStatePDeletionFailed     = EducationSynchronizationProfileStateVDeletionFailed
+	_EducationSynchronizationProfileStatePProvisioningFailed = EducationSynchronizationProfileStateVProvisioningFailed
+	_EducationSynchronizationProfileStatePProvisioned        = EducationSynchronizationProfileStateVProvisioned
+	_EducationSynchronizationProfileStatePProvisioning       = EducationSynchronizationProfileStateVProvisioning
+	_EducationSynchronizationProfileStatePUnknownFutureValue = EducationSynchronizationProfileStateVUnknownFutureValue
+)

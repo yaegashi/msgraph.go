@@ -3,135 +3,93 @@
 package msgraph
 
 // MailDestinationRoutingReason undocumented
-type MailDestinationRoutingReason int
+type MailDestinationRoutingReason string
 
 const (
 	// MailDestinationRoutingReasonVNone undocumented
-	MailDestinationRoutingReasonVNone MailDestinationRoutingReason = 0
+	MailDestinationRoutingReasonVNone MailDestinationRoutingReason = "none"
 	// MailDestinationRoutingReasonVMailFlowRule undocumented
-	MailDestinationRoutingReasonVMailFlowRule MailDestinationRoutingReason = 1
+	MailDestinationRoutingReasonVMailFlowRule MailDestinationRoutingReason = "mailFlowRule"
 	// MailDestinationRoutingReasonVSafeSender undocumented
-	MailDestinationRoutingReasonVSafeSender MailDestinationRoutingReason = 2
+	MailDestinationRoutingReasonVSafeSender MailDestinationRoutingReason = "safeSender"
 	// MailDestinationRoutingReasonVBlockedSender undocumented
-	MailDestinationRoutingReasonVBlockedSender MailDestinationRoutingReason = 3
+	MailDestinationRoutingReasonVBlockedSender MailDestinationRoutingReason = "blockedSender"
 	// MailDestinationRoutingReasonVAdvancedSpamFiltering undocumented
-	MailDestinationRoutingReasonVAdvancedSpamFiltering MailDestinationRoutingReason = 4
+	MailDestinationRoutingReasonVAdvancedSpamFiltering MailDestinationRoutingReason = "advancedSpamFiltering"
 	// MailDestinationRoutingReasonVDomainAllowList undocumented
-	MailDestinationRoutingReasonVDomainAllowList MailDestinationRoutingReason = 5
+	MailDestinationRoutingReasonVDomainAllowList MailDestinationRoutingReason = "domainAllowList"
 	// MailDestinationRoutingReasonVDomainBlockList undocumented
-	MailDestinationRoutingReasonVDomainBlockList MailDestinationRoutingReason = 6
+	MailDestinationRoutingReasonVDomainBlockList MailDestinationRoutingReason = "domainBlockList"
 	// MailDestinationRoutingReasonVNotInAddressBook undocumented
-	MailDestinationRoutingReasonVNotInAddressBook MailDestinationRoutingReason = 7
+	MailDestinationRoutingReasonVNotInAddressBook MailDestinationRoutingReason = "notInAddressBook"
 	// MailDestinationRoutingReasonVFirstTimeSender undocumented
-	MailDestinationRoutingReasonVFirstTimeSender MailDestinationRoutingReason = 8
+	MailDestinationRoutingReasonVFirstTimeSender MailDestinationRoutingReason = "firstTimeSender"
 	// MailDestinationRoutingReasonVAutoPurgeToInbox undocumented
-	MailDestinationRoutingReasonVAutoPurgeToInbox MailDestinationRoutingReason = 9
+	MailDestinationRoutingReasonVAutoPurgeToInbox MailDestinationRoutingReason = "autoPurgeToInbox"
 	// MailDestinationRoutingReasonVAutoPurgeToJunk undocumented
-	MailDestinationRoutingReasonVAutoPurgeToJunk MailDestinationRoutingReason = 10
+	MailDestinationRoutingReasonVAutoPurgeToJunk MailDestinationRoutingReason = "autoPurgeToJunk"
 	// MailDestinationRoutingReasonVAutoPurgeToDeleted undocumented
-	MailDestinationRoutingReasonVAutoPurgeToDeleted MailDestinationRoutingReason = 11
+	MailDestinationRoutingReasonVAutoPurgeToDeleted MailDestinationRoutingReason = "autoPurgeToDeleted"
 	// MailDestinationRoutingReasonVOutbound undocumented
-	MailDestinationRoutingReasonVOutbound MailDestinationRoutingReason = 12
+	MailDestinationRoutingReasonVOutbound MailDestinationRoutingReason = "outbound"
 	// MailDestinationRoutingReasonVNotJunk undocumented
-	MailDestinationRoutingReasonVNotJunk MailDestinationRoutingReason = 13
+	MailDestinationRoutingReasonVNotJunk MailDestinationRoutingReason = "notJunk"
 	// MailDestinationRoutingReasonVJunk undocumented
-	MailDestinationRoutingReasonVJunk MailDestinationRoutingReason = 14
+	MailDestinationRoutingReasonVJunk MailDestinationRoutingReason = "junk"
 	// MailDestinationRoutingReasonVUnknownFutureValue undocumented
-	MailDestinationRoutingReasonVUnknownFutureValue MailDestinationRoutingReason = 15
+	MailDestinationRoutingReasonVUnknownFutureValue MailDestinationRoutingReason = "unknownFutureValue"
 )
 
-// MailDestinationRoutingReasonPNone returns a pointer to MailDestinationRoutingReasonVNone
-func MailDestinationRoutingReasonPNone() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVNone
-	return &v
-}
+var (
+	// MailDestinationRoutingReasonPNone is a pointer to MailDestinationRoutingReasonVNone
+	MailDestinationRoutingReasonPNone = &_MailDestinationRoutingReasonPNone
+	// MailDestinationRoutingReasonPMailFlowRule is a pointer to MailDestinationRoutingReasonVMailFlowRule
+	MailDestinationRoutingReasonPMailFlowRule = &_MailDestinationRoutingReasonPMailFlowRule
+	// MailDestinationRoutingReasonPSafeSender is a pointer to MailDestinationRoutingReasonVSafeSender
+	MailDestinationRoutingReasonPSafeSender = &_MailDestinationRoutingReasonPSafeSender
+	// MailDestinationRoutingReasonPBlockedSender is a pointer to MailDestinationRoutingReasonVBlockedSender
+	MailDestinationRoutingReasonPBlockedSender = &_MailDestinationRoutingReasonPBlockedSender
+	// MailDestinationRoutingReasonPAdvancedSpamFiltering is a pointer to MailDestinationRoutingReasonVAdvancedSpamFiltering
+	MailDestinationRoutingReasonPAdvancedSpamFiltering = &_MailDestinationRoutingReasonPAdvancedSpamFiltering
+	// MailDestinationRoutingReasonPDomainAllowList is a pointer to MailDestinationRoutingReasonVDomainAllowList
+	MailDestinationRoutingReasonPDomainAllowList = &_MailDestinationRoutingReasonPDomainAllowList
+	// MailDestinationRoutingReasonPDomainBlockList is a pointer to MailDestinationRoutingReasonVDomainBlockList
+	MailDestinationRoutingReasonPDomainBlockList = &_MailDestinationRoutingReasonPDomainBlockList
+	// MailDestinationRoutingReasonPNotInAddressBook is a pointer to MailDestinationRoutingReasonVNotInAddressBook
+	MailDestinationRoutingReasonPNotInAddressBook = &_MailDestinationRoutingReasonPNotInAddressBook
+	// MailDestinationRoutingReasonPFirstTimeSender is a pointer to MailDestinationRoutingReasonVFirstTimeSender
+	MailDestinationRoutingReasonPFirstTimeSender = &_MailDestinationRoutingReasonPFirstTimeSender
+	// MailDestinationRoutingReasonPAutoPurgeToInbox is a pointer to MailDestinationRoutingReasonVAutoPurgeToInbox
+	MailDestinationRoutingReasonPAutoPurgeToInbox = &_MailDestinationRoutingReasonPAutoPurgeToInbox
+	// MailDestinationRoutingReasonPAutoPurgeToJunk is a pointer to MailDestinationRoutingReasonVAutoPurgeToJunk
+	MailDestinationRoutingReasonPAutoPurgeToJunk = &_MailDestinationRoutingReasonPAutoPurgeToJunk
+	// MailDestinationRoutingReasonPAutoPurgeToDeleted is a pointer to MailDestinationRoutingReasonVAutoPurgeToDeleted
+	MailDestinationRoutingReasonPAutoPurgeToDeleted = &_MailDestinationRoutingReasonPAutoPurgeToDeleted
+	// MailDestinationRoutingReasonPOutbound is a pointer to MailDestinationRoutingReasonVOutbound
+	MailDestinationRoutingReasonPOutbound = &_MailDestinationRoutingReasonPOutbound
+	// MailDestinationRoutingReasonPNotJunk is a pointer to MailDestinationRoutingReasonVNotJunk
+	MailDestinationRoutingReasonPNotJunk = &_MailDestinationRoutingReasonPNotJunk
+	// MailDestinationRoutingReasonPJunk is a pointer to MailDestinationRoutingReasonVJunk
+	MailDestinationRoutingReasonPJunk = &_MailDestinationRoutingReasonPJunk
+	// MailDestinationRoutingReasonPUnknownFutureValue is a pointer to MailDestinationRoutingReasonVUnknownFutureValue
+	MailDestinationRoutingReasonPUnknownFutureValue = &_MailDestinationRoutingReasonPUnknownFutureValue
+)
 
-// MailDestinationRoutingReasonPMailFlowRule returns a pointer to MailDestinationRoutingReasonVMailFlowRule
-func MailDestinationRoutingReasonPMailFlowRule() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVMailFlowRule
-	return &v
-}
-
-// MailDestinationRoutingReasonPSafeSender returns a pointer to MailDestinationRoutingReasonVSafeSender
-func MailDestinationRoutingReasonPSafeSender() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVSafeSender
-	return &v
-}
-
-// MailDestinationRoutingReasonPBlockedSender returns a pointer to MailDestinationRoutingReasonVBlockedSender
-func MailDestinationRoutingReasonPBlockedSender() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVBlockedSender
-	return &v
-}
-
-// MailDestinationRoutingReasonPAdvancedSpamFiltering returns a pointer to MailDestinationRoutingReasonVAdvancedSpamFiltering
-func MailDestinationRoutingReasonPAdvancedSpamFiltering() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVAdvancedSpamFiltering
-	return &v
-}
-
-// MailDestinationRoutingReasonPDomainAllowList returns a pointer to MailDestinationRoutingReasonVDomainAllowList
-func MailDestinationRoutingReasonPDomainAllowList() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVDomainAllowList
-	return &v
-}
-
-// MailDestinationRoutingReasonPDomainBlockList returns a pointer to MailDestinationRoutingReasonVDomainBlockList
-func MailDestinationRoutingReasonPDomainBlockList() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVDomainBlockList
-	return &v
-}
-
-// MailDestinationRoutingReasonPNotInAddressBook returns a pointer to MailDestinationRoutingReasonVNotInAddressBook
-func MailDestinationRoutingReasonPNotInAddressBook() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVNotInAddressBook
-	return &v
-}
-
-// MailDestinationRoutingReasonPFirstTimeSender returns a pointer to MailDestinationRoutingReasonVFirstTimeSender
-func MailDestinationRoutingReasonPFirstTimeSender() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVFirstTimeSender
-	return &v
-}
-
-// MailDestinationRoutingReasonPAutoPurgeToInbox returns a pointer to MailDestinationRoutingReasonVAutoPurgeToInbox
-func MailDestinationRoutingReasonPAutoPurgeToInbox() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVAutoPurgeToInbox
-	return &v
-}
-
-// MailDestinationRoutingReasonPAutoPurgeToJunk returns a pointer to MailDestinationRoutingReasonVAutoPurgeToJunk
-func MailDestinationRoutingReasonPAutoPurgeToJunk() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVAutoPurgeToJunk
-	return &v
-}
-
-// MailDestinationRoutingReasonPAutoPurgeToDeleted returns a pointer to MailDestinationRoutingReasonVAutoPurgeToDeleted
-func MailDestinationRoutingReasonPAutoPurgeToDeleted() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVAutoPurgeToDeleted
-	return &v
-}
-
-// MailDestinationRoutingReasonPOutbound returns a pointer to MailDestinationRoutingReasonVOutbound
-func MailDestinationRoutingReasonPOutbound() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVOutbound
-	return &v
-}
-
-// MailDestinationRoutingReasonPNotJunk returns a pointer to MailDestinationRoutingReasonVNotJunk
-func MailDestinationRoutingReasonPNotJunk() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVNotJunk
-	return &v
-}
-
-// MailDestinationRoutingReasonPJunk returns a pointer to MailDestinationRoutingReasonVJunk
-func MailDestinationRoutingReasonPJunk() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVJunk
-	return &v
-}
-
-// MailDestinationRoutingReasonPUnknownFutureValue returns a pointer to MailDestinationRoutingReasonVUnknownFutureValue
-func MailDestinationRoutingReasonPUnknownFutureValue() *MailDestinationRoutingReason {
-	v := MailDestinationRoutingReasonVUnknownFutureValue
-	return &v
-}
+var (
+	_MailDestinationRoutingReasonPNone                  = MailDestinationRoutingReasonVNone
+	_MailDestinationRoutingReasonPMailFlowRule          = MailDestinationRoutingReasonVMailFlowRule
+	_MailDestinationRoutingReasonPSafeSender            = MailDestinationRoutingReasonVSafeSender
+	_MailDestinationRoutingReasonPBlockedSender         = MailDestinationRoutingReasonVBlockedSender
+	_MailDestinationRoutingReasonPAdvancedSpamFiltering = MailDestinationRoutingReasonVAdvancedSpamFiltering
+	_MailDestinationRoutingReasonPDomainAllowList       = MailDestinationRoutingReasonVDomainAllowList
+	_MailDestinationRoutingReasonPDomainBlockList       = MailDestinationRoutingReasonVDomainBlockList
+	_MailDestinationRoutingReasonPNotInAddressBook      = MailDestinationRoutingReasonVNotInAddressBook
+	_MailDestinationRoutingReasonPFirstTimeSender       = MailDestinationRoutingReasonVFirstTimeSender
+	_MailDestinationRoutingReasonPAutoPurgeToInbox      = MailDestinationRoutingReasonVAutoPurgeToInbox
+	_MailDestinationRoutingReasonPAutoPurgeToJunk       = MailDestinationRoutingReasonVAutoPurgeToJunk
+	_MailDestinationRoutingReasonPAutoPurgeToDeleted    = MailDestinationRoutingReasonVAutoPurgeToDeleted
+	_MailDestinationRoutingReasonPOutbound              = MailDestinationRoutingReasonVOutbound
+	_MailDestinationRoutingReasonPNotJunk               = MailDestinationRoutingReasonVNotJunk
+	_MailDestinationRoutingReasonPJunk                  = MailDestinationRoutingReasonVJunk
+	_MailDestinationRoutingReasonPUnknownFutureValue    = MailDestinationRoutingReasonVUnknownFutureValue
+)

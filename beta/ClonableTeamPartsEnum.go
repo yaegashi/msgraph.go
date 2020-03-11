@@ -3,47 +3,38 @@
 package msgraph
 
 // ClonableTeamParts undocumented
-type ClonableTeamParts int
+type ClonableTeamParts string
 
 const (
 	// ClonableTeamPartsVApps undocumented
-	ClonableTeamPartsVApps ClonableTeamParts = 1
+	ClonableTeamPartsVApps ClonableTeamParts = "apps"
 	// ClonableTeamPartsVTabs undocumented
-	ClonableTeamPartsVTabs ClonableTeamParts = 2
+	ClonableTeamPartsVTabs ClonableTeamParts = "tabs"
 	// ClonableTeamPartsVSettings undocumented
-	ClonableTeamPartsVSettings ClonableTeamParts = 4
+	ClonableTeamPartsVSettings ClonableTeamParts = "settings"
 	// ClonableTeamPartsVChannels undocumented
-	ClonableTeamPartsVChannels ClonableTeamParts = 8
+	ClonableTeamPartsVChannels ClonableTeamParts = "channels"
 	// ClonableTeamPartsVMembers undocumented
-	ClonableTeamPartsVMembers ClonableTeamParts = 16
+	ClonableTeamPartsVMembers ClonableTeamParts = "members"
 )
 
-// ClonableTeamPartsPApps returns a pointer to ClonableTeamPartsVApps
-func ClonableTeamPartsPApps() *ClonableTeamParts {
-	v := ClonableTeamPartsVApps
-	return &v
-}
+var (
+	// ClonableTeamPartsPApps is a pointer to ClonableTeamPartsVApps
+	ClonableTeamPartsPApps = &_ClonableTeamPartsPApps
+	// ClonableTeamPartsPTabs is a pointer to ClonableTeamPartsVTabs
+	ClonableTeamPartsPTabs = &_ClonableTeamPartsPTabs
+	// ClonableTeamPartsPSettings is a pointer to ClonableTeamPartsVSettings
+	ClonableTeamPartsPSettings = &_ClonableTeamPartsPSettings
+	// ClonableTeamPartsPChannels is a pointer to ClonableTeamPartsVChannels
+	ClonableTeamPartsPChannels = &_ClonableTeamPartsPChannels
+	// ClonableTeamPartsPMembers is a pointer to ClonableTeamPartsVMembers
+	ClonableTeamPartsPMembers = &_ClonableTeamPartsPMembers
+)
 
-// ClonableTeamPartsPTabs returns a pointer to ClonableTeamPartsVTabs
-func ClonableTeamPartsPTabs() *ClonableTeamParts {
-	v := ClonableTeamPartsVTabs
-	return &v
-}
-
-// ClonableTeamPartsPSettings returns a pointer to ClonableTeamPartsVSettings
-func ClonableTeamPartsPSettings() *ClonableTeamParts {
-	v := ClonableTeamPartsVSettings
-	return &v
-}
-
-// ClonableTeamPartsPChannels returns a pointer to ClonableTeamPartsVChannels
-func ClonableTeamPartsPChannels() *ClonableTeamParts {
-	v := ClonableTeamPartsVChannels
-	return &v
-}
-
-// ClonableTeamPartsPMembers returns a pointer to ClonableTeamPartsVMembers
-func ClonableTeamPartsPMembers() *ClonableTeamParts {
-	v := ClonableTeamPartsVMembers
-	return &v
-}
+var (
+	_ClonableTeamPartsPApps     = ClonableTeamPartsVApps
+	_ClonableTeamPartsPTabs     = ClonableTeamPartsVTabs
+	_ClonableTeamPartsPSettings = ClonableTeamPartsVSettings
+	_ClonableTeamPartsPChannels = ClonableTeamPartsVChannels
+	_ClonableTeamPartsPMembers  = ClonableTeamPartsVMembers
+)

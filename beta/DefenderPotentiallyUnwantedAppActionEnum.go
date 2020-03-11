@@ -3,31 +3,28 @@
 package msgraph
 
 // DefenderPotentiallyUnwantedAppAction undocumented
-type DefenderPotentiallyUnwantedAppAction int
+type DefenderPotentiallyUnwantedAppAction string
 
 const (
 	// DefenderPotentiallyUnwantedAppActionVDeviceDefault undocumented
-	DefenderPotentiallyUnwantedAppActionVDeviceDefault DefenderPotentiallyUnwantedAppAction = 0
+	DefenderPotentiallyUnwantedAppActionVDeviceDefault DefenderPotentiallyUnwantedAppAction = "deviceDefault"
 	// DefenderPotentiallyUnwantedAppActionVBlock undocumented
-	DefenderPotentiallyUnwantedAppActionVBlock DefenderPotentiallyUnwantedAppAction = 1
+	DefenderPotentiallyUnwantedAppActionVBlock DefenderPotentiallyUnwantedAppAction = "block"
 	// DefenderPotentiallyUnwantedAppActionVAudit undocumented
-	DefenderPotentiallyUnwantedAppActionVAudit DefenderPotentiallyUnwantedAppAction = 2
+	DefenderPotentiallyUnwantedAppActionVAudit DefenderPotentiallyUnwantedAppAction = "audit"
 )
 
-// DefenderPotentiallyUnwantedAppActionPDeviceDefault returns a pointer to DefenderPotentiallyUnwantedAppActionVDeviceDefault
-func DefenderPotentiallyUnwantedAppActionPDeviceDefault() *DefenderPotentiallyUnwantedAppAction {
-	v := DefenderPotentiallyUnwantedAppActionVDeviceDefault
-	return &v
-}
+var (
+	// DefenderPotentiallyUnwantedAppActionPDeviceDefault is a pointer to DefenderPotentiallyUnwantedAppActionVDeviceDefault
+	DefenderPotentiallyUnwantedAppActionPDeviceDefault = &_DefenderPotentiallyUnwantedAppActionPDeviceDefault
+	// DefenderPotentiallyUnwantedAppActionPBlock is a pointer to DefenderPotentiallyUnwantedAppActionVBlock
+	DefenderPotentiallyUnwantedAppActionPBlock = &_DefenderPotentiallyUnwantedAppActionPBlock
+	// DefenderPotentiallyUnwantedAppActionPAudit is a pointer to DefenderPotentiallyUnwantedAppActionVAudit
+	DefenderPotentiallyUnwantedAppActionPAudit = &_DefenderPotentiallyUnwantedAppActionPAudit
+)
 
-// DefenderPotentiallyUnwantedAppActionPBlock returns a pointer to DefenderPotentiallyUnwantedAppActionVBlock
-func DefenderPotentiallyUnwantedAppActionPBlock() *DefenderPotentiallyUnwantedAppAction {
-	v := DefenderPotentiallyUnwantedAppActionVBlock
-	return &v
-}
-
-// DefenderPotentiallyUnwantedAppActionPAudit returns a pointer to DefenderPotentiallyUnwantedAppActionVAudit
-func DefenderPotentiallyUnwantedAppActionPAudit() *DefenderPotentiallyUnwantedAppAction {
-	v := DefenderPotentiallyUnwantedAppActionVAudit
-	return &v
-}
+var (
+	_DefenderPotentiallyUnwantedAppActionPDeviceDefault = DefenderPotentiallyUnwantedAppActionVDeviceDefault
+	_DefenderPotentiallyUnwantedAppActionPBlock         = DefenderPotentiallyUnwantedAppActionVBlock
+	_DefenderPotentiallyUnwantedAppActionPAudit         = DefenderPotentiallyUnwantedAppActionVAudit
+)

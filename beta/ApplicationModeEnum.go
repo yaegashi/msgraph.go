@@ -3,31 +3,28 @@
 package msgraph
 
 // ApplicationMode undocumented
-type ApplicationMode int
+type ApplicationMode string
 
 const (
 	// ApplicationModeVManual undocumented
-	ApplicationModeVManual ApplicationMode = 0
+	ApplicationModeVManual ApplicationMode = "manual"
 	// ApplicationModeVAutomatic undocumented
-	ApplicationModeVAutomatic ApplicationMode = 1
+	ApplicationModeVAutomatic ApplicationMode = "automatic"
 	// ApplicationModeVRecommended undocumented
-	ApplicationModeVRecommended ApplicationMode = 2
+	ApplicationModeVRecommended ApplicationMode = "recommended"
 )
 
-// ApplicationModePManual returns a pointer to ApplicationModeVManual
-func ApplicationModePManual() *ApplicationMode {
-	v := ApplicationModeVManual
-	return &v
-}
+var (
+	// ApplicationModePManual is a pointer to ApplicationModeVManual
+	ApplicationModePManual = &_ApplicationModePManual
+	// ApplicationModePAutomatic is a pointer to ApplicationModeVAutomatic
+	ApplicationModePAutomatic = &_ApplicationModePAutomatic
+	// ApplicationModePRecommended is a pointer to ApplicationModeVRecommended
+	ApplicationModePRecommended = &_ApplicationModePRecommended
+)
 
-// ApplicationModePAutomatic returns a pointer to ApplicationModeVAutomatic
-func ApplicationModePAutomatic() *ApplicationMode {
-	v := ApplicationModeVAutomatic
-	return &v
-}
-
-// ApplicationModePRecommended returns a pointer to ApplicationModeVRecommended
-func ApplicationModePRecommended() *ApplicationMode {
-	v := ApplicationModeVRecommended
-	return &v
-}
+var (
+	_ApplicationModePManual      = ApplicationModeVManual
+	_ApplicationModePAutomatic   = ApplicationModeVAutomatic
+	_ApplicationModePRecommended = ApplicationModeVRecommended
+)

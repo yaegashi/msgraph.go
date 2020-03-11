@@ -3,31 +3,28 @@
 package msgraph
 
 // ThreatAssessmentContentType undocumented
-type ThreatAssessmentContentType int
+type ThreatAssessmentContentType string
 
 const (
 	// ThreatAssessmentContentTypeVMail undocumented
-	ThreatAssessmentContentTypeVMail ThreatAssessmentContentType = 1
+	ThreatAssessmentContentTypeVMail ThreatAssessmentContentType = "mail"
 	// ThreatAssessmentContentTypeVURL undocumented
-	ThreatAssessmentContentTypeVURL ThreatAssessmentContentType = 2
+	ThreatAssessmentContentTypeVURL ThreatAssessmentContentType = "url"
 	// ThreatAssessmentContentTypeVFile undocumented
-	ThreatAssessmentContentTypeVFile ThreatAssessmentContentType = 3
+	ThreatAssessmentContentTypeVFile ThreatAssessmentContentType = "file"
 )
 
-// ThreatAssessmentContentTypePMail returns a pointer to ThreatAssessmentContentTypeVMail
-func ThreatAssessmentContentTypePMail() *ThreatAssessmentContentType {
-	v := ThreatAssessmentContentTypeVMail
-	return &v
-}
+var (
+	// ThreatAssessmentContentTypePMail is a pointer to ThreatAssessmentContentTypeVMail
+	ThreatAssessmentContentTypePMail = &_ThreatAssessmentContentTypePMail
+	// ThreatAssessmentContentTypePURL is a pointer to ThreatAssessmentContentTypeVURL
+	ThreatAssessmentContentTypePURL = &_ThreatAssessmentContentTypePURL
+	// ThreatAssessmentContentTypePFile is a pointer to ThreatAssessmentContentTypeVFile
+	ThreatAssessmentContentTypePFile = &_ThreatAssessmentContentTypePFile
+)
 
-// ThreatAssessmentContentTypePURL returns a pointer to ThreatAssessmentContentTypeVURL
-func ThreatAssessmentContentTypePURL() *ThreatAssessmentContentType {
-	v := ThreatAssessmentContentTypeVURL
-	return &v
-}
-
-// ThreatAssessmentContentTypePFile returns a pointer to ThreatAssessmentContentTypeVFile
-func ThreatAssessmentContentTypePFile() *ThreatAssessmentContentType {
-	v := ThreatAssessmentContentTypeVFile
-	return &v
-}
+var (
+	_ThreatAssessmentContentTypePMail = ThreatAssessmentContentTypeVMail
+	_ThreatAssessmentContentTypePURL  = ThreatAssessmentContentTypeVURL
+	_ThreatAssessmentContentTypePFile = ThreatAssessmentContentTypeVFile
+)

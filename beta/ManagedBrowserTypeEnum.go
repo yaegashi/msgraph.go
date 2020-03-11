@@ -3,23 +3,23 @@
 package msgraph
 
 // ManagedBrowserType undocumented
-type ManagedBrowserType int
+type ManagedBrowserType string
 
 const (
 	// ManagedBrowserTypeVNotConfigured undocumented
-	ManagedBrowserTypeVNotConfigured ManagedBrowserType = 0
+	ManagedBrowserTypeVNotConfigured ManagedBrowserType = "notConfigured"
 	// ManagedBrowserTypeVMicrosoftEdge undocumented
-	ManagedBrowserTypeVMicrosoftEdge ManagedBrowserType = 1
+	ManagedBrowserTypeVMicrosoftEdge ManagedBrowserType = "microsoftEdge"
 )
 
-// ManagedBrowserTypePNotConfigured returns a pointer to ManagedBrowserTypeVNotConfigured
-func ManagedBrowserTypePNotConfigured() *ManagedBrowserType {
-	v := ManagedBrowserTypeVNotConfigured
-	return &v
-}
+var (
+	// ManagedBrowserTypePNotConfigured is a pointer to ManagedBrowserTypeVNotConfigured
+	ManagedBrowserTypePNotConfigured = &_ManagedBrowserTypePNotConfigured
+	// ManagedBrowserTypePMicrosoftEdge is a pointer to ManagedBrowserTypeVMicrosoftEdge
+	ManagedBrowserTypePMicrosoftEdge = &_ManagedBrowserTypePMicrosoftEdge
+)
 
-// ManagedBrowserTypePMicrosoftEdge returns a pointer to ManagedBrowserTypeVMicrosoftEdge
-func ManagedBrowserTypePMicrosoftEdge() *ManagedBrowserType {
-	v := ManagedBrowserTypeVMicrosoftEdge
-	return &v
-}
+var (
+	_ManagedBrowserTypePNotConfigured = ManagedBrowserTypeVNotConfigured
+	_ManagedBrowserTypePMicrosoftEdge = ManagedBrowserTypeVMicrosoftEdge
+)

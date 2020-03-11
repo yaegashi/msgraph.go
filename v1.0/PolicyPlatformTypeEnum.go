@@ -3,71 +3,53 @@
 package msgraph
 
 // PolicyPlatformType undocumented
-type PolicyPlatformType int
+type PolicyPlatformType string
 
 const (
 	// PolicyPlatformTypeVAndroid undocumented
-	PolicyPlatformTypeVAndroid PolicyPlatformType = 0
+	PolicyPlatformTypeVAndroid PolicyPlatformType = "android"
 	// PolicyPlatformTypeVIOS undocumented
-	PolicyPlatformTypeVIOS PolicyPlatformType = 2
+	PolicyPlatformTypeVIOS PolicyPlatformType = "iOS"
 	// PolicyPlatformTypeVMacOS undocumented
-	PolicyPlatformTypeVMacOS PolicyPlatformType = 3
+	PolicyPlatformTypeVMacOS PolicyPlatformType = "macOS"
 	// PolicyPlatformTypeVWindowsPhone81 undocumented
-	PolicyPlatformTypeVWindowsPhone81 PolicyPlatformType = 4
+	PolicyPlatformTypeVWindowsPhone81 PolicyPlatformType = "windowsPhone81"
 	// PolicyPlatformTypeVWindows81AndLater undocumented
-	PolicyPlatformTypeVWindows81AndLater PolicyPlatformType = 5
+	PolicyPlatformTypeVWindows81AndLater PolicyPlatformType = "windows81AndLater"
 	// PolicyPlatformTypeVWindows10AndLater undocumented
-	PolicyPlatformTypeVWindows10AndLater PolicyPlatformType = 6
+	PolicyPlatformTypeVWindows10AndLater PolicyPlatformType = "windows10AndLater"
 	// PolicyPlatformTypeVAndroidWorkProfile undocumented
-	PolicyPlatformTypeVAndroidWorkProfile PolicyPlatformType = 7
+	PolicyPlatformTypeVAndroidWorkProfile PolicyPlatformType = "androidWorkProfile"
 	// PolicyPlatformTypeVAll undocumented
-	PolicyPlatformTypeVAll PolicyPlatformType = 100
+	PolicyPlatformTypeVAll PolicyPlatformType = "all"
 )
 
-// PolicyPlatformTypePAndroid returns a pointer to PolicyPlatformTypeVAndroid
-func PolicyPlatformTypePAndroid() *PolicyPlatformType {
-	v := PolicyPlatformTypeVAndroid
-	return &v
-}
+var (
+	// PolicyPlatformTypePAndroid is a pointer to PolicyPlatformTypeVAndroid
+	PolicyPlatformTypePAndroid = &_PolicyPlatformTypePAndroid
+	// PolicyPlatformTypePIOS is a pointer to PolicyPlatformTypeVIOS
+	PolicyPlatformTypePIOS = &_PolicyPlatformTypePIOS
+	// PolicyPlatformTypePMacOS is a pointer to PolicyPlatformTypeVMacOS
+	PolicyPlatformTypePMacOS = &_PolicyPlatformTypePMacOS
+	// PolicyPlatformTypePWindowsPhone81 is a pointer to PolicyPlatformTypeVWindowsPhone81
+	PolicyPlatformTypePWindowsPhone81 = &_PolicyPlatformTypePWindowsPhone81
+	// PolicyPlatformTypePWindows81AndLater is a pointer to PolicyPlatformTypeVWindows81AndLater
+	PolicyPlatformTypePWindows81AndLater = &_PolicyPlatformTypePWindows81AndLater
+	// PolicyPlatformTypePWindows10AndLater is a pointer to PolicyPlatformTypeVWindows10AndLater
+	PolicyPlatformTypePWindows10AndLater = &_PolicyPlatformTypePWindows10AndLater
+	// PolicyPlatformTypePAndroidWorkProfile is a pointer to PolicyPlatformTypeVAndroidWorkProfile
+	PolicyPlatformTypePAndroidWorkProfile = &_PolicyPlatformTypePAndroidWorkProfile
+	// PolicyPlatformTypePAll is a pointer to PolicyPlatformTypeVAll
+	PolicyPlatformTypePAll = &_PolicyPlatformTypePAll
+)
 
-// PolicyPlatformTypePIOS returns a pointer to PolicyPlatformTypeVIOS
-func PolicyPlatformTypePIOS() *PolicyPlatformType {
-	v := PolicyPlatformTypeVIOS
-	return &v
-}
-
-// PolicyPlatformTypePMacOS returns a pointer to PolicyPlatformTypeVMacOS
-func PolicyPlatformTypePMacOS() *PolicyPlatformType {
-	v := PolicyPlatformTypeVMacOS
-	return &v
-}
-
-// PolicyPlatformTypePWindowsPhone81 returns a pointer to PolicyPlatformTypeVWindowsPhone81
-func PolicyPlatformTypePWindowsPhone81() *PolicyPlatformType {
-	v := PolicyPlatformTypeVWindowsPhone81
-	return &v
-}
-
-// PolicyPlatformTypePWindows81AndLater returns a pointer to PolicyPlatformTypeVWindows81AndLater
-func PolicyPlatformTypePWindows81AndLater() *PolicyPlatformType {
-	v := PolicyPlatformTypeVWindows81AndLater
-	return &v
-}
-
-// PolicyPlatformTypePWindows10AndLater returns a pointer to PolicyPlatformTypeVWindows10AndLater
-func PolicyPlatformTypePWindows10AndLater() *PolicyPlatformType {
-	v := PolicyPlatformTypeVWindows10AndLater
-	return &v
-}
-
-// PolicyPlatformTypePAndroidWorkProfile returns a pointer to PolicyPlatformTypeVAndroidWorkProfile
-func PolicyPlatformTypePAndroidWorkProfile() *PolicyPlatformType {
-	v := PolicyPlatformTypeVAndroidWorkProfile
-	return &v
-}
-
-// PolicyPlatformTypePAll returns a pointer to PolicyPlatformTypeVAll
-func PolicyPlatformTypePAll() *PolicyPlatformType {
-	v := PolicyPlatformTypeVAll
-	return &v
-}
+var (
+	_PolicyPlatformTypePAndroid            = PolicyPlatformTypeVAndroid
+	_PolicyPlatformTypePIOS                = PolicyPlatformTypeVIOS
+	_PolicyPlatformTypePMacOS              = PolicyPlatformTypeVMacOS
+	_PolicyPlatformTypePWindowsPhone81     = PolicyPlatformTypeVWindowsPhone81
+	_PolicyPlatformTypePWindows81AndLater  = PolicyPlatformTypeVWindows81AndLater
+	_PolicyPlatformTypePWindows10AndLater  = PolicyPlatformTypeVWindows10AndLater
+	_PolicyPlatformTypePAndroidWorkProfile = PolicyPlatformTypeVAndroidWorkProfile
+	_PolicyPlatformTypePAll                = PolicyPlatformTypeVAll
+)

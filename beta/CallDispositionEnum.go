@@ -3,31 +3,28 @@
 package msgraph
 
 // CallDisposition undocumented
-type CallDisposition int
+type CallDisposition string
 
 const (
 	// CallDispositionVDefault undocumented
-	CallDispositionVDefault CallDisposition = 0
+	CallDispositionVDefault CallDisposition = "default"
 	// CallDispositionVSimultaneousRing undocumented
-	CallDispositionVSimultaneousRing CallDisposition = 1
+	CallDispositionVSimultaneousRing CallDisposition = "simultaneousRing"
 	// CallDispositionVForward undocumented
-	CallDispositionVForward CallDisposition = 2
+	CallDispositionVForward CallDisposition = "forward"
 )
 
-// CallDispositionPDefault returns a pointer to CallDispositionVDefault
-func CallDispositionPDefault() *CallDisposition {
-	v := CallDispositionVDefault
-	return &v
-}
+var (
+	// CallDispositionPDefault is a pointer to CallDispositionVDefault
+	CallDispositionPDefault = &_CallDispositionPDefault
+	// CallDispositionPSimultaneousRing is a pointer to CallDispositionVSimultaneousRing
+	CallDispositionPSimultaneousRing = &_CallDispositionPSimultaneousRing
+	// CallDispositionPForward is a pointer to CallDispositionVForward
+	CallDispositionPForward = &_CallDispositionPForward
+)
 
-// CallDispositionPSimultaneousRing returns a pointer to CallDispositionVSimultaneousRing
-func CallDispositionPSimultaneousRing() *CallDisposition {
-	v := CallDispositionVSimultaneousRing
-	return &v
-}
-
-// CallDispositionPForward returns a pointer to CallDispositionVForward
-func CallDispositionPForward() *CallDisposition {
-	v := CallDispositionVForward
-	return &v
-}
+var (
+	_CallDispositionPDefault          = CallDispositionVDefault
+	_CallDispositionPSimultaneousRing = CallDispositionVSimultaneousRing
+	_CallDispositionPForward          = CallDispositionVForward
+)

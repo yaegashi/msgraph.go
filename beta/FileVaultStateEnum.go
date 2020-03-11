@@ -3,39 +3,33 @@
 package msgraph
 
 // FileVaultState undocumented
-type FileVaultState int
+type FileVaultState string
 
 const (
 	// FileVaultStateVSuccess undocumented
-	FileVaultStateVSuccess FileVaultState = 0
+	FileVaultStateVSuccess FileVaultState = "success"
 	// FileVaultStateVDriveEncryptedByUser undocumented
-	FileVaultStateVDriveEncryptedByUser FileVaultState = 1
+	FileVaultStateVDriveEncryptedByUser FileVaultState = "driveEncryptedByUser"
 	// FileVaultStateVUserDeferredEncryption undocumented
-	FileVaultStateVUserDeferredEncryption FileVaultState = 2
+	FileVaultStateVUserDeferredEncryption FileVaultState = "userDeferredEncryption"
 	// FileVaultStateVEscrowNotEnabled undocumented
-	FileVaultStateVEscrowNotEnabled FileVaultState = 4
+	FileVaultStateVEscrowNotEnabled FileVaultState = "escrowNotEnabled"
 )
 
-// FileVaultStatePSuccess returns a pointer to FileVaultStateVSuccess
-func FileVaultStatePSuccess() *FileVaultState {
-	v := FileVaultStateVSuccess
-	return &v
-}
+var (
+	// FileVaultStatePSuccess is a pointer to FileVaultStateVSuccess
+	FileVaultStatePSuccess = &_FileVaultStatePSuccess
+	// FileVaultStatePDriveEncryptedByUser is a pointer to FileVaultStateVDriveEncryptedByUser
+	FileVaultStatePDriveEncryptedByUser = &_FileVaultStatePDriveEncryptedByUser
+	// FileVaultStatePUserDeferredEncryption is a pointer to FileVaultStateVUserDeferredEncryption
+	FileVaultStatePUserDeferredEncryption = &_FileVaultStatePUserDeferredEncryption
+	// FileVaultStatePEscrowNotEnabled is a pointer to FileVaultStateVEscrowNotEnabled
+	FileVaultStatePEscrowNotEnabled = &_FileVaultStatePEscrowNotEnabled
+)
 
-// FileVaultStatePDriveEncryptedByUser returns a pointer to FileVaultStateVDriveEncryptedByUser
-func FileVaultStatePDriveEncryptedByUser() *FileVaultState {
-	v := FileVaultStateVDriveEncryptedByUser
-	return &v
-}
-
-// FileVaultStatePUserDeferredEncryption returns a pointer to FileVaultStateVUserDeferredEncryption
-func FileVaultStatePUserDeferredEncryption() *FileVaultState {
-	v := FileVaultStateVUserDeferredEncryption
-	return &v
-}
-
-// FileVaultStatePEscrowNotEnabled returns a pointer to FileVaultStateVEscrowNotEnabled
-func FileVaultStatePEscrowNotEnabled() *FileVaultState {
-	v := FileVaultStateVEscrowNotEnabled
-	return &v
-}
+var (
+	_FileVaultStatePSuccess                = FileVaultStateVSuccess
+	_FileVaultStatePDriveEncryptedByUser   = FileVaultStateVDriveEncryptedByUser
+	_FileVaultStatePUserDeferredEncryption = FileVaultStateVUserDeferredEncryption
+	_FileVaultStatePEscrowNotEnabled       = FileVaultStateVEscrowNotEnabled
+)

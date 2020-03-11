@@ -3,39 +3,33 @@
 package msgraph
 
 // DefenderCloudBlockLevelType undocumented
-type DefenderCloudBlockLevelType int
+type DefenderCloudBlockLevelType string
 
 const (
 	// DefenderCloudBlockLevelTypeVNotConfigured undocumented
-	DefenderCloudBlockLevelTypeVNotConfigured DefenderCloudBlockLevelType = 0
+	DefenderCloudBlockLevelTypeVNotConfigured DefenderCloudBlockLevelType = "notConfigured"
 	// DefenderCloudBlockLevelTypeVHigh undocumented
-	DefenderCloudBlockLevelTypeVHigh DefenderCloudBlockLevelType = 1
+	DefenderCloudBlockLevelTypeVHigh DefenderCloudBlockLevelType = "high"
 	// DefenderCloudBlockLevelTypeVHighPlus undocumented
-	DefenderCloudBlockLevelTypeVHighPlus DefenderCloudBlockLevelType = 2
+	DefenderCloudBlockLevelTypeVHighPlus DefenderCloudBlockLevelType = "highPlus"
 	// DefenderCloudBlockLevelTypeVZeroTolerance undocumented
-	DefenderCloudBlockLevelTypeVZeroTolerance DefenderCloudBlockLevelType = 3
+	DefenderCloudBlockLevelTypeVZeroTolerance DefenderCloudBlockLevelType = "zeroTolerance"
 )
 
-// DefenderCloudBlockLevelTypePNotConfigured returns a pointer to DefenderCloudBlockLevelTypeVNotConfigured
-func DefenderCloudBlockLevelTypePNotConfigured() *DefenderCloudBlockLevelType {
-	v := DefenderCloudBlockLevelTypeVNotConfigured
-	return &v
-}
+var (
+	// DefenderCloudBlockLevelTypePNotConfigured is a pointer to DefenderCloudBlockLevelTypeVNotConfigured
+	DefenderCloudBlockLevelTypePNotConfigured = &_DefenderCloudBlockLevelTypePNotConfigured
+	// DefenderCloudBlockLevelTypePHigh is a pointer to DefenderCloudBlockLevelTypeVHigh
+	DefenderCloudBlockLevelTypePHigh = &_DefenderCloudBlockLevelTypePHigh
+	// DefenderCloudBlockLevelTypePHighPlus is a pointer to DefenderCloudBlockLevelTypeVHighPlus
+	DefenderCloudBlockLevelTypePHighPlus = &_DefenderCloudBlockLevelTypePHighPlus
+	// DefenderCloudBlockLevelTypePZeroTolerance is a pointer to DefenderCloudBlockLevelTypeVZeroTolerance
+	DefenderCloudBlockLevelTypePZeroTolerance = &_DefenderCloudBlockLevelTypePZeroTolerance
+)
 
-// DefenderCloudBlockLevelTypePHigh returns a pointer to DefenderCloudBlockLevelTypeVHigh
-func DefenderCloudBlockLevelTypePHigh() *DefenderCloudBlockLevelType {
-	v := DefenderCloudBlockLevelTypeVHigh
-	return &v
-}
-
-// DefenderCloudBlockLevelTypePHighPlus returns a pointer to DefenderCloudBlockLevelTypeVHighPlus
-func DefenderCloudBlockLevelTypePHighPlus() *DefenderCloudBlockLevelType {
-	v := DefenderCloudBlockLevelTypeVHighPlus
-	return &v
-}
-
-// DefenderCloudBlockLevelTypePZeroTolerance returns a pointer to DefenderCloudBlockLevelTypeVZeroTolerance
-func DefenderCloudBlockLevelTypePZeroTolerance() *DefenderCloudBlockLevelType {
-	v := DefenderCloudBlockLevelTypeVZeroTolerance
-	return &v
-}
+var (
+	_DefenderCloudBlockLevelTypePNotConfigured = DefenderCloudBlockLevelTypeVNotConfigured
+	_DefenderCloudBlockLevelTypePHigh          = DefenderCloudBlockLevelTypeVHigh
+	_DefenderCloudBlockLevelTypePHighPlus      = DefenderCloudBlockLevelTypeVHighPlus
+	_DefenderCloudBlockLevelTypePZeroTolerance = DefenderCloudBlockLevelTypeVZeroTolerance
+)

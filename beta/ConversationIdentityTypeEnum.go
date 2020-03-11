@@ -3,23 +3,23 @@
 package msgraph
 
 // ConversationIdentityType undocumented
-type ConversationIdentityType int
+type ConversationIdentityType string
 
 const (
 	// ConversationIdentityTypeVTeam undocumented
-	ConversationIdentityTypeVTeam ConversationIdentityType = 0
+	ConversationIdentityTypeVTeam ConversationIdentityType = "team"
 	// ConversationIdentityTypeVChannel undocumented
-	ConversationIdentityTypeVChannel ConversationIdentityType = 1
+	ConversationIdentityTypeVChannel ConversationIdentityType = "channel"
 )
 
-// ConversationIdentityTypePTeam returns a pointer to ConversationIdentityTypeVTeam
-func ConversationIdentityTypePTeam() *ConversationIdentityType {
-	v := ConversationIdentityTypeVTeam
-	return &v
-}
+var (
+	// ConversationIdentityTypePTeam is a pointer to ConversationIdentityTypeVTeam
+	ConversationIdentityTypePTeam = &_ConversationIdentityTypePTeam
+	// ConversationIdentityTypePChannel is a pointer to ConversationIdentityTypeVChannel
+	ConversationIdentityTypePChannel = &_ConversationIdentityTypePChannel
+)
 
-// ConversationIdentityTypePChannel returns a pointer to ConversationIdentityTypeVChannel
-func ConversationIdentityTypePChannel() *ConversationIdentityType {
-	v := ConversationIdentityTypeVChannel
-	return &v
-}
+var (
+	_ConversationIdentityTypePTeam    = ConversationIdentityTypeVTeam
+	_ConversationIdentityTypePChannel = ConversationIdentityTypeVChannel
+)

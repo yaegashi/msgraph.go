@@ -3,47 +3,38 @@
 package msgraph
 
 // EdgeOpenOptions undocumented
-type EdgeOpenOptions int
+type EdgeOpenOptions string
 
 const (
 	// EdgeOpenOptionsVNotConfigured undocumented
-	EdgeOpenOptionsVNotConfigured EdgeOpenOptions = 0
+	EdgeOpenOptionsVNotConfigured EdgeOpenOptions = "notConfigured"
 	// EdgeOpenOptionsVStartPage undocumented
-	EdgeOpenOptionsVStartPage EdgeOpenOptions = 1
+	EdgeOpenOptionsVStartPage EdgeOpenOptions = "startPage"
 	// EdgeOpenOptionsVNewTabPage undocumented
-	EdgeOpenOptionsVNewTabPage EdgeOpenOptions = 2
+	EdgeOpenOptionsVNewTabPage EdgeOpenOptions = "newTabPage"
 	// EdgeOpenOptionsVPreviousPages undocumented
-	EdgeOpenOptionsVPreviousPages EdgeOpenOptions = 3
+	EdgeOpenOptionsVPreviousPages EdgeOpenOptions = "previousPages"
 	// EdgeOpenOptionsVSpecificPages undocumented
-	EdgeOpenOptionsVSpecificPages EdgeOpenOptions = 4
+	EdgeOpenOptionsVSpecificPages EdgeOpenOptions = "specificPages"
 )
 
-// EdgeOpenOptionsPNotConfigured returns a pointer to EdgeOpenOptionsVNotConfigured
-func EdgeOpenOptionsPNotConfigured() *EdgeOpenOptions {
-	v := EdgeOpenOptionsVNotConfigured
-	return &v
-}
+var (
+	// EdgeOpenOptionsPNotConfigured is a pointer to EdgeOpenOptionsVNotConfigured
+	EdgeOpenOptionsPNotConfigured = &_EdgeOpenOptionsPNotConfigured
+	// EdgeOpenOptionsPStartPage is a pointer to EdgeOpenOptionsVStartPage
+	EdgeOpenOptionsPStartPage = &_EdgeOpenOptionsPStartPage
+	// EdgeOpenOptionsPNewTabPage is a pointer to EdgeOpenOptionsVNewTabPage
+	EdgeOpenOptionsPNewTabPage = &_EdgeOpenOptionsPNewTabPage
+	// EdgeOpenOptionsPPreviousPages is a pointer to EdgeOpenOptionsVPreviousPages
+	EdgeOpenOptionsPPreviousPages = &_EdgeOpenOptionsPPreviousPages
+	// EdgeOpenOptionsPSpecificPages is a pointer to EdgeOpenOptionsVSpecificPages
+	EdgeOpenOptionsPSpecificPages = &_EdgeOpenOptionsPSpecificPages
+)
 
-// EdgeOpenOptionsPStartPage returns a pointer to EdgeOpenOptionsVStartPage
-func EdgeOpenOptionsPStartPage() *EdgeOpenOptions {
-	v := EdgeOpenOptionsVStartPage
-	return &v
-}
-
-// EdgeOpenOptionsPNewTabPage returns a pointer to EdgeOpenOptionsVNewTabPage
-func EdgeOpenOptionsPNewTabPage() *EdgeOpenOptions {
-	v := EdgeOpenOptionsVNewTabPage
-	return &v
-}
-
-// EdgeOpenOptionsPPreviousPages returns a pointer to EdgeOpenOptionsVPreviousPages
-func EdgeOpenOptionsPPreviousPages() *EdgeOpenOptions {
-	v := EdgeOpenOptionsVPreviousPages
-	return &v
-}
-
-// EdgeOpenOptionsPSpecificPages returns a pointer to EdgeOpenOptionsVSpecificPages
-func EdgeOpenOptionsPSpecificPages() *EdgeOpenOptions {
-	v := EdgeOpenOptionsVSpecificPages
-	return &v
-}
+var (
+	_EdgeOpenOptionsPNotConfigured = EdgeOpenOptionsVNotConfigured
+	_EdgeOpenOptionsPStartPage     = EdgeOpenOptionsVStartPage
+	_EdgeOpenOptionsPNewTabPage    = EdgeOpenOptionsVNewTabPage
+	_EdgeOpenOptionsPPreviousPages = EdgeOpenOptionsVPreviousPages
+	_EdgeOpenOptionsPSpecificPages = EdgeOpenOptionsVSpecificPages
+)

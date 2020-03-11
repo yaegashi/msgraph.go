@@ -3,103 +3,73 @@
 package msgraph
 
 // RiskDetail undocumented
-type RiskDetail int
+type RiskDetail string
 
 const (
 	// RiskDetailVNone undocumented
-	RiskDetailVNone RiskDetail = 0
+	RiskDetailVNone RiskDetail = "none"
 	// RiskDetailVAdminGeneratedTemporaryPassword undocumented
-	RiskDetailVAdminGeneratedTemporaryPassword RiskDetail = 1
+	RiskDetailVAdminGeneratedTemporaryPassword RiskDetail = "adminGeneratedTemporaryPassword"
 	// RiskDetailVUserPerformedSecuredPasswordChange undocumented
-	RiskDetailVUserPerformedSecuredPasswordChange RiskDetail = 2
+	RiskDetailVUserPerformedSecuredPasswordChange RiskDetail = "userPerformedSecuredPasswordChange"
 	// RiskDetailVUserPerformedSecuredPasswordReset undocumented
-	RiskDetailVUserPerformedSecuredPasswordReset RiskDetail = 3
+	RiskDetailVUserPerformedSecuredPasswordReset RiskDetail = "userPerformedSecuredPasswordReset"
 	// RiskDetailVAdminConfirmedSigninSafe undocumented
-	RiskDetailVAdminConfirmedSigninSafe RiskDetail = 4
+	RiskDetailVAdminConfirmedSigninSafe RiskDetail = "adminConfirmedSigninSafe"
 	// RiskDetailVAiConfirmedSigninSafe undocumented
-	RiskDetailVAiConfirmedSigninSafe RiskDetail = 5
+	RiskDetailVAiConfirmedSigninSafe RiskDetail = "aiConfirmedSigninSafe"
 	// RiskDetailVUserPassedMFADrivenByRiskBasedPolicy undocumented
-	RiskDetailVUserPassedMFADrivenByRiskBasedPolicy RiskDetail = 6
+	RiskDetailVUserPassedMFADrivenByRiskBasedPolicy RiskDetail = "userPassedMFADrivenByRiskBasedPolicy"
 	// RiskDetailVAdminDismissedAllRiskForUser undocumented
-	RiskDetailVAdminDismissedAllRiskForUser RiskDetail = 7
+	RiskDetailVAdminDismissedAllRiskForUser RiskDetail = "adminDismissedAllRiskForUser"
 	// RiskDetailVAdminConfirmedSigninCompromised undocumented
-	RiskDetailVAdminConfirmedSigninCompromised RiskDetail = 8
+	RiskDetailVAdminConfirmedSigninCompromised RiskDetail = "adminConfirmedSigninCompromised"
 	// RiskDetailVHidden undocumented
-	RiskDetailVHidden RiskDetail = 9
+	RiskDetailVHidden RiskDetail = "hidden"
 	// RiskDetailVAdminConfirmedUserCompromised undocumented
-	RiskDetailVAdminConfirmedUserCompromised RiskDetail = 10
+	RiskDetailVAdminConfirmedUserCompromised RiskDetail = "adminConfirmedUserCompromised"
 	// RiskDetailVUnknownFutureValue undocumented
-	RiskDetailVUnknownFutureValue RiskDetail = 11
+	RiskDetailVUnknownFutureValue RiskDetail = "unknownFutureValue"
 )
 
-// RiskDetailPNone returns a pointer to RiskDetailVNone
-func RiskDetailPNone() *RiskDetail {
-	v := RiskDetailVNone
-	return &v
-}
+var (
+	// RiskDetailPNone is a pointer to RiskDetailVNone
+	RiskDetailPNone = &_RiskDetailPNone
+	// RiskDetailPAdminGeneratedTemporaryPassword is a pointer to RiskDetailVAdminGeneratedTemporaryPassword
+	RiskDetailPAdminGeneratedTemporaryPassword = &_RiskDetailPAdminGeneratedTemporaryPassword
+	// RiskDetailPUserPerformedSecuredPasswordChange is a pointer to RiskDetailVUserPerformedSecuredPasswordChange
+	RiskDetailPUserPerformedSecuredPasswordChange = &_RiskDetailPUserPerformedSecuredPasswordChange
+	// RiskDetailPUserPerformedSecuredPasswordReset is a pointer to RiskDetailVUserPerformedSecuredPasswordReset
+	RiskDetailPUserPerformedSecuredPasswordReset = &_RiskDetailPUserPerformedSecuredPasswordReset
+	// RiskDetailPAdminConfirmedSigninSafe is a pointer to RiskDetailVAdminConfirmedSigninSafe
+	RiskDetailPAdminConfirmedSigninSafe = &_RiskDetailPAdminConfirmedSigninSafe
+	// RiskDetailPAiConfirmedSigninSafe is a pointer to RiskDetailVAiConfirmedSigninSafe
+	RiskDetailPAiConfirmedSigninSafe = &_RiskDetailPAiConfirmedSigninSafe
+	// RiskDetailPUserPassedMFADrivenByRiskBasedPolicy is a pointer to RiskDetailVUserPassedMFADrivenByRiskBasedPolicy
+	RiskDetailPUserPassedMFADrivenByRiskBasedPolicy = &_RiskDetailPUserPassedMFADrivenByRiskBasedPolicy
+	// RiskDetailPAdminDismissedAllRiskForUser is a pointer to RiskDetailVAdminDismissedAllRiskForUser
+	RiskDetailPAdminDismissedAllRiskForUser = &_RiskDetailPAdminDismissedAllRiskForUser
+	// RiskDetailPAdminConfirmedSigninCompromised is a pointer to RiskDetailVAdminConfirmedSigninCompromised
+	RiskDetailPAdminConfirmedSigninCompromised = &_RiskDetailPAdminConfirmedSigninCompromised
+	// RiskDetailPHidden is a pointer to RiskDetailVHidden
+	RiskDetailPHidden = &_RiskDetailPHidden
+	// RiskDetailPAdminConfirmedUserCompromised is a pointer to RiskDetailVAdminConfirmedUserCompromised
+	RiskDetailPAdminConfirmedUserCompromised = &_RiskDetailPAdminConfirmedUserCompromised
+	// RiskDetailPUnknownFutureValue is a pointer to RiskDetailVUnknownFutureValue
+	RiskDetailPUnknownFutureValue = &_RiskDetailPUnknownFutureValue
+)
 
-// RiskDetailPAdminGeneratedTemporaryPassword returns a pointer to RiskDetailVAdminGeneratedTemporaryPassword
-func RiskDetailPAdminGeneratedTemporaryPassword() *RiskDetail {
-	v := RiskDetailVAdminGeneratedTemporaryPassword
-	return &v
-}
-
-// RiskDetailPUserPerformedSecuredPasswordChange returns a pointer to RiskDetailVUserPerformedSecuredPasswordChange
-func RiskDetailPUserPerformedSecuredPasswordChange() *RiskDetail {
-	v := RiskDetailVUserPerformedSecuredPasswordChange
-	return &v
-}
-
-// RiskDetailPUserPerformedSecuredPasswordReset returns a pointer to RiskDetailVUserPerformedSecuredPasswordReset
-func RiskDetailPUserPerformedSecuredPasswordReset() *RiskDetail {
-	v := RiskDetailVUserPerformedSecuredPasswordReset
-	return &v
-}
-
-// RiskDetailPAdminConfirmedSigninSafe returns a pointer to RiskDetailVAdminConfirmedSigninSafe
-func RiskDetailPAdminConfirmedSigninSafe() *RiskDetail {
-	v := RiskDetailVAdminConfirmedSigninSafe
-	return &v
-}
-
-// RiskDetailPAiConfirmedSigninSafe returns a pointer to RiskDetailVAiConfirmedSigninSafe
-func RiskDetailPAiConfirmedSigninSafe() *RiskDetail {
-	v := RiskDetailVAiConfirmedSigninSafe
-	return &v
-}
-
-// RiskDetailPUserPassedMFADrivenByRiskBasedPolicy returns a pointer to RiskDetailVUserPassedMFADrivenByRiskBasedPolicy
-func RiskDetailPUserPassedMFADrivenByRiskBasedPolicy() *RiskDetail {
-	v := RiskDetailVUserPassedMFADrivenByRiskBasedPolicy
-	return &v
-}
-
-// RiskDetailPAdminDismissedAllRiskForUser returns a pointer to RiskDetailVAdminDismissedAllRiskForUser
-func RiskDetailPAdminDismissedAllRiskForUser() *RiskDetail {
-	v := RiskDetailVAdminDismissedAllRiskForUser
-	return &v
-}
-
-// RiskDetailPAdminConfirmedSigninCompromised returns a pointer to RiskDetailVAdminConfirmedSigninCompromised
-func RiskDetailPAdminConfirmedSigninCompromised() *RiskDetail {
-	v := RiskDetailVAdminConfirmedSigninCompromised
-	return &v
-}
-
-// RiskDetailPHidden returns a pointer to RiskDetailVHidden
-func RiskDetailPHidden() *RiskDetail {
-	v := RiskDetailVHidden
-	return &v
-}
-
-// RiskDetailPAdminConfirmedUserCompromised returns a pointer to RiskDetailVAdminConfirmedUserCompromised
-func RiskDetailPAdminConfirmedUserCompromised() *RiskDetail {
-	v := RiskDetailVAdminConfirmedUserCompromised
-	return &v
-}
-
-// RiskDetailPUnknownFutureValue returns a pointer to RiskDetailVUnknownFutureValue
-func RiskDetailPUnknownFutureValue() *RiskDetail {
-	v := RiskDetailVUnknownFutureValue
-	return &v
-}
+var (
+	_RiskDetailPNone                                 = RiskDetailVNone
+	_RiskDetailPAdminGeneratedTemporaryPassword      = RiskDetailVAdminGeneratedTemporaryPassword
+	_RiskDetailPUserPerformedSecuredPasswordChange   = RiskDetailVUserPerformedSecuredPasswordChange
+	_RiskDetailPUserPerformedSecuredPasswordReset    = RiskDetailVUserPerformedSecuredPasswordReset
+	_RiskDetailPAdminConfirmedSigninSafe             = RiskDetailVAdminConfirmedSigninSafe
+	_RiskDetailPAiConfirmedSigninSafe                = RiskDetailVAiConfirmedSigninSafe
+	_RiskDetailPUserPassedMFADrivenByRiskBasedPolicy = RiskDetailVUserPassedMFADrivenByRiskBasedPolicy
+	_RiskDetailPAdminDismissedAllRiskForUser         = RiskDetailVAdminDismissedAllRiskForUser
+	_RiskDetailPAdminConfirmedSigninCompromised      = RiskDetailVAdminConfirmedSigninCompromised
+	_RiskDetailPHidden                               = RiskDetailVHidden
+	_RiskDetailPAdminConfirmedUserCompromised        = RiskDetailVAdminConfirmedUserCompromised
+	_RiskDetailPUnknownFutureValue                   = RiskDetailVUnknownFutureValue
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // GroupAccessType undocumented
-type GroupAccessType int
+type GroupAccessType string
 
 const (
 	// GroupAccessTypeVNone undocumented
-	GroupAccessTypeVNone GroupAccessType = 0
+	GroupAccessTypeVNone GroupAccessType = "none"
 	// GroupAccessTypeVPrivate undocumented
-	GroupAccessTypeVPrivate GroupAccessType = 1
+	GroupAccessTypeVPrivate GroupAccessType = "private"
 	// GroupAccessTypeVSecret undocumented
-	GroupAccessTypeVSecret GroupAccessType = 2
+	GroupAccessTypeVSecret GroupAccessType = "secret"
 	// GroupAccessTypeVPublic undocumented
-	GroupAccessTypeVPublic GroupAccessType = 3
+	GroupAccessTypeVPublic GroupAccessType = "public"
 )
 
-// GroupAccessTypePNone returns a pointer to GroupAccessTypeVNone
-func GroupAccessTypePNone() *GroupAccessType {
-	v := GroupAccessTypeVNone
-	return &v
-}
+var (
+	// GroupAccessTypePNone is a pointer to GroupAccessTypeVNone
+	GroupAccessTypePNone = &_GroupAccessTypePNone
+	// GroupAccessTypePPrivate is a pointer to GroupAccessTypeVPrivate
+	GroupAccessTypePPrivate = &_GroupAccessTypePPrivate
+	// GroupAccessTypePSecret is a pointer to GroupAccessTypeVSecret
+	GroupAccessTypePSecret = &_GroupAccessTypePSecret
+	// GroupAccessTypePPublic is a pointer to GroupAccessTypeVPublic
+	GroupAccessTypePPublic = &_GroupAccessTypePPublic
+)
 
-// GroupAccessTypePPrivate returns a pointer to GroupAccessTypeVPrivate
-func GroupAccessTypePPrivate() *GroupAccessType {
-	v := GroupAccessTypeVPrivate
-	return &v
-}
-
-// GroupAccessTypePSecret returns a pointer to GroupAccessTypeVSecret
-func GroupAccessTypePSecret() *GroupAccessType {
-	v := GroupAccessTypeVSecret
-	return &v
-}
-
-// GroupAccessTypePPublic returns a pointer to GroupAccessTypeVPublic
-func GroupAccessTypePPublic() *GroupAccessType {
-	v := GroupAccessTypeVPublic
-	return &v
-}
+var (
+	_GroupAccessTypePNone    = GroupAccessTypeVNone
+	_GroupAccessTypePPrivate = GroupAccessTypeVPrivate
+	_GroupAccessTypePSecret  = GroupAccessTypeVSecret
+	_GroupAccessTypePPublic  = GroupAccessTypeVPublic
+)

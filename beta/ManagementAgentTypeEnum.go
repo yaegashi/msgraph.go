@@ -3,103 +3,73 @@
 package msgraph
 
 // ManagementAgentType undocumented
-type ManagementAgentType int
+type ManagementAgentType string
 
 const (
 	// ManagementAgentTypeVEas undocumented
-	ManagementAgentTypeVEas ManagementAgentType = 1
+	ManagementAgentTypeVEas ManagementAgentType = "eas"
 	// ManagementAgentTypeVMdm undocumented
-	ManagementAgentTypeVMdm ManagementAgentType = 2
+	ManagementAgentTypeVMdm ManagementAgentType = "mdm"
 	// ManagementAgentTypeVEasMdm undocumented
-	ManagementAgentTypeVEasMdm ManagementAgentType = 3
+	ManagementAgentTypeVEasMdm ManagementAgentType = "easMdm"
 	// ManagementAgentTypeVIntuneClient undocumented
-	ManagementAgentTypeVIntuneClient ManagementAgentType = 4
+	ManagementAgentTypeVIntuneClient ManagementAgentType = "intuneClient"
 	// ManagementAgentTypeVEasIntuneClient undocumented
-	ManagementAgentTypeVEasIntuneClient ManagementAgentType = 5
+	ManagementAgentTypeVEasIntuneClient ManagementAgentType = "easIntuneClient"
 	// ManagementAgentTypeVConfigurationManagerClient undocumented
-	ManagementAgentTypeVConfigurationManagerClient ManagementAgentType = 8
+	ManagementAgentTypeVConfigurationManagerClient ManagementAgentType = "configurationManagerClient"
 	// ManagementAgentTypeVConfigurationManagerClientMdm undocumented
-	ManagementAgentTypeVConfigurationManagerClientMdm ManagementAgentType = 10
+	ManagementAgentTypeVConfigurationManagerClientMdm ManagementAgentType = "configurationManagerClientMdm"
 	// ManagementAgentTypeVConfigurationManagerClientMdmEas undocumented
-	ManagementAgentTypeVConfigurationManagerClientMdmEas ManagementAgentType = 11
+	ManagementAgentTypeVConfigurationManagerClientMdmEas ManagementAgentType = "configurationManagerClientMdmEas"
 	// ManagementAgentTypeVUnknown undocumented
-	ManagementAgentTypeVUnknown ManagementAgentType = 16
+	ManagementAgentTypeVUnknown ManagementAgentType = "unknown"
 	// ManagementAgentTypeVJamf undocumented
-	ManagementAgentTypeVJamf ManagementAgentType = 32
+	ManagementAgentTypeVJamf ManagementAgentType = "jamf"
 	// ManagementAgentTypeVGoogleCloudDevicePolicyController undocumented
-	ManagementAgentTypeVGoogleCloudDevicePolicyController ManagementAgentType = 64
+	ManagementAgentTypeVGoogleCloudDevicePolicyController ManagementAgentType = "googleCloudDevicePolicyController"
 	// ManagementAgentTypeVMicrosoft365ManagedMdm undocumented
-	ManagementAgentTypeVMicrosoft365ManagedMdm ManagementAgentType = 258
+	ManagementAgentTypeVMicrosoft365ManagedMdm ManagementAgentType = "microsoft365ManagedMdm"
 )
 
-// ManagementAgentTypePEas returns a pointer to ManagementAgentTypeVEas
-func ManagementAgentTypePEas() *ManagementAgentType {
-	v := ManagementAgentTypeVEas
-	return &v
-}
+var (
+	// ManagementAgentTypePEas is a pointer to ManagementAgentTypeVEas
+	ManagementAgentTypePEas = &_ManagementAgentTypePEas
+	// ManagementAgentTypePMdm is a pointer to ManagementAgentTypeVMdm
+	ManagementAgentTypePMdm = &_ManagementAgentTypePMdm
+	// ManagementAgentTypePEasMdm is a pointer to ManagementAgentTypeVEasMdm
+	ManagementAgentTypePEasMdm = &_ManagementAgentTypePEasMdm
+	// ManagementAgentTypePIntuneClient is a pointer to ManagementAgentTypeVIntuneClient
+	ManagementAgentTypePIntuneClient = &_ManagementAgentTypePIntuneClient
+	// ManagementAgentTypePEasIntuneClient is a pointer to ManagementAgentTypeVEasIntuneClient
+	ManagementAgentTypePEasIntuneClient = &_ManagementAgentTypePEasIntuneClient
+	// ManagementAgentTypePConfigurationManagerClient is a pointer to ManagementAgentTypeVConfigurationManagerClient
+	ManagementAgentTypePConfigurationManagerClient = &_ManagementAgentTypePConfigurationManagerClient
+	// ManagementAgentTypePConfigurationManagerClientMdm is a pointer to ManagementAgentTypeVConfigurationManagerClientMdm
+	ManagementAgentTypePConfigurationManagerClientMdm = &_ManagementAgentTypePConfigurationManagerClientMdm
+	// ManagementAgentTypePConfigurationManagerClientMdmEas is a pointer to ManagementAgentTypeVConfigurationManagerClientMdmEas
+	ManagementAgentTypePConfigurationManagerClientMdmEas = &_ManagementAgentTypePConfigurationManagerClientMdmEas
+	// ManagementAgentTypePUnknown is a pointer to ManagementAgentTypeVUnknown
+	ManagementAgentTypePUnknown = &_ManagementAgentTypePUnknown
+	// ManagementAgentTypePJamf is a pointer to ManagementAgentTypeVJamf
+	ManagementAgentTypePJamf = &_ManagementAgentTypePJamf
+	// ManagementAgentTypePGoogleCloudDevicePolicyController is a pointer to ManagementAgentTypeVGoogleCloudDevicePolicyController
+	ManagementAgentTypePGoogleCloudDevicePolicyController = &_ManagementAgentTypePGoogleCloudDevicePolicyController
+	// ManagementAgentTypePMicrosoft365ManagedMdm is a pointer to ManagementAgentTypeVMicrosoft365ManagedMdm
+	ManagementAgentTypePMicrosoft365ManagedMdm = &_ManagementAgentTypePMicrosoft365ManagedMdm
+)
 
-// ManagementAgentTypePMdm returns a pointer to ManagementAgentTypeVMdm
-func ManagementAgentTypePMdm() *ManagementAgentType {
-	v := ManagementAgentTypeVMdm
-	return &v
-}
-
-// ManagementAgentTypePEasMdm returns a pointer to ManagementAgentTypeVEasMdm
-func ManagementAgentTypePEasMdm() *ManagementAgentType {
-	v := ManagementAgentTypeVEasMdm
-	return &v
-}
-
-// ManagementAgentTypePIntuneClient returns a pointer to ManagementAgentTypeVIntuneClient
-func ManagementAgentTypePIntuneClient() *ManagementAgentType {
-	v := ManagementAgentTypeVIntuneClient
-	return &v
-}
-
-// ManagementAgentTypePEasIntuneClient returns a pointer to ManagementAgentTypeVEasIntuneClient
-func ManagementAgentTypePEasIntuneClient() *ManagementAgentType {
-	v := ManagementAgentTypeVEasIntuneClient
-	return &v
-}
-
-// ManagementAgentTypePConfigurationManagerClient returns a pointer to ManagementAgentTypeVConfigurationManagerClient
-func ManagementAgentTypePConfigurationManagerClient() *ManagementAgentType {
-	v := ManagementAgentTypeVConfigurationManagerClient
-	return &v
-}
-
-// ManagementAgentTypePConfigurationManagerClientMdm returns a pointer to ManagementAgentTypeVConfigurationManagerClientMdm
-func ManagementAgentTypePConfigurationManagerClientMdm() *ManagementAgentType {
-	v := ManagementAgentTypeVConfigurationManagerClientMdm
-	return &v
-}
-
-// ManagementAgentTypePConfigurationManagerClientMdmEas returns a pointer to ManagementAgentTypeVConfigurationManagerClientMdmEas
-func ManagementAgentTypePConfigurationManagerClientMdmEas() *ManagementAgentType {
-	v := ManagementAgentTypeVConfigurationManagerClientMdmEas
-	return &v
-}
-
-// ManagementAgentTypePUnknown returns a pointer to ManagementAgentTypeVUnknown
-func ManagementAgentTypePUnknown() *ManagementAgentType {
-	v := ManagementAgentTypeVUnknown
-	return &v
-}
-
-// ManagementAgentTypePJamf returns a pointer to ManagementAgentTypeVJamf
-func ManagementAgentTypePJamf() *ManagementAgentType {
-	v := ManagementAgentTypeVJamf
-	return &v
-}
-
-// ManagementAgentTypePGoogleCloudDevicePolicyController returns a pointer to ManagementAgentTypeVGoogleCloudDevicePolicyController
-func ManagementAgentTypePGoogleCloudDevicePolicyController() *ManagementAgentType {
-	v := ManagementAgentTypeVGoogleCloudDevicePolicyController
-	return &v
-}
-
-// ManagementAgentTypePMicrosoft365ManagedMdm returns a pointer to ManagementAgentTypeVMicrosoft365ManagedMdm
-func ManagementAgentTypePMicrosoft365ManagedMdm() *ManagementAgentType {
-	v := ManagementAgentTypeVMicrosoft365ManagedMdm
-	return &v
-}
+var (
+	_ManagementAgentTypePEas                               = ManagementAgentTypeVEas
+	_ManagementAgentTypePMdm                               = ManagementAgentTypeVMdm
+	_ManagementAgentTypePEasMdm                            = ManagementAgentTypeVEasMdm
+	_ManagementAgentTypePIntuneClient                      = ManagementAgentTypeVIntuneClient
+	_ManagementAgentTypePEasIntuneClient                   = ManagementAgentTypeVEasIntuneClient
+	_ManagementAgentTypePConfigurationManagerClient        = ManagementAgentTypeVConfigurationManagerClient
+	_ManagementAgentTypePConfigurationManagerClientMdm     = ManagementAgentTypeVConfigurationManagerClientMdm
+	_ManagementAgentTypePConfigurationManagerClientMdmEas  = ManagementAgentTypeVConfigurationManagerClientMdmEas
+	_ManagementAgentTypePUnknown                           = ManagementAgentTypeVUnknown
+	_ManagementAgentTypePJamf                              = ManagementAgentTypeVJamf
+	_ManagementAgentTypePGoogleCloudDevicePolicyController = ManagementAgentTypeVGoogleCloudDevicePolicyController
+	_ManagementAgentTypePMicrosoft365ManagedMdm            = ManagementAgentTypeVMicrosoft365ManagedMdm
+)

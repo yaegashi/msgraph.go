@@ -3,63 +3,48 @@
 package msgraph
 
 // UserFlowType undocumented
-type UserFlowType int
+type UserFlowType string
 
 const (
 	// UserFlowTypeVSignUp undocumented
-	UserFlowTypeVSignUp UserFlowType = 1
+	UserFlowTypeVSignUp UserFlowType = "signUp"
 	// UserFlowTypeVSignIn undocumented
-	UserFlowTypeVSignIn UserFlowType = 2
+	UserFlowTypeVSignIn UserFlowType = "signIn"
 	// UserFlowTypeVSignUpOrSignIn undocumented
-	UserFlowTypeVSignUpOrSignIn UserFlowType = 3
+	UserFlowTypeVSignUpOrSignIn UserFlowType = "signUpOrSignIn"
 	// UserFlowTypeVPasswordReset undocumented
-	UserFlowTypeVPasswordReset UserFlowType = 4
+	UserFlowTypeVPasswordReset UserFlowType = "passwordReset"
 	// UserFlowTypeVProfileUpdate undocumented
-	UserFlowTypeVProfileUpdate UserFlowType = 5
+	UserFlowTypeVProfileUpdate UserFlowType = "profileUpdate"
 	// UserFlowTypeVResourceOwner undocumented
-	UserFlowTypeVResourceOwner UserFlowType = 6
+	UserFlowTypeVResourceOwner UserFlowType = "resourceOwner"
 	// UserFlowTypeVUnknownFutureValue undocumented
-	UserFlowTypeVUnknownFutureValue UserFlowType = 7
+	UserFlowTypeVUnknownFutureValue UserFlowType = "unknownFutureValue"
 )
 
-// UserFlowTypePSignUp returns a pointer to UserFlowTypeVSignUp
-func UserFlowTypePSignUp() *UserFlowType {
-	v := UserFlowTypeVSignUp
-	return &v
-}
+var (
+	// UserFlowTypePSignUp is a pointer to UserFlowTypeVSignUp
+	UserFlowTypePSignUp = &_UserFlowTypePSignUp
+	// UserFlowTypePSignIn is a pointer to UserFlowTypeVSignIn
+	UserFlowTypePSignIn = &_UserFlowTypePSignIn
+	// UserFlowTypePSignUpOrSignIn is a pointer to UserFlowTypeVSignUpOrSignIn
+	UserFlowTypePSignUpOrSignIn = &_UserFlowTypePSignUpOrSignIn
+	// UserFlowTypePPasswordReset is a pointer to UserFlowTypeVPasswordReset
+	UserFlowTypePPasswordReset = &_UserFlowTypePPasswordReset
+	// UserFlowTypePProfileUpdate is a pointer to UserFlowTypeVProfileUpdate
+	UserFlowTypePProfileUpdate = &_UserFlowTypePProfileUpdate
+	// UserFlowTypePResourceOwner is a pointer to UserFlowTypeVResourceOwner
+	UserFlowTypePResourceOwner = &_UserFlowTypePResourceOwner
+	// UserFlowTypePUnknownFutureValue is a pointer to UserFlowTypeVUnknownFutureValue
+	UserFlowTypePUnknownFutureValue = &_UserFlowTypePUnknownFutureValue
+)
 
-// UserFlowTypePSignIn returns a pointer to UserFlowTypeVSignIn
-func UserFlowTypePSignIn() *UserFlowType {
-	v := UserFlowTypeVSignIn
-	return &v
-}
-
-// UserFlowTypePSignUpOrSignIn returns a pointer to UserFlowTypeVSignUpOrSignIn
-func UserFlowTypePSignUpOrSignIn() *UserFlowType {
-	v := UserFlowTypeVSignUpOrSignIn
-	return &v
-}
-
-// UserFlowTypePPasswordReset returns a pointer to UserFlowTypeVPasswordReset
-func UserFlowTypePPasswordReset() *UserFlowType {
-	v := UserFlowTypeVPasswordReset
-	return &v
-}
-
-// UserFlowTypePProfileUpdate returns a pointer to UserFlowTypeVProfileUpdate
-func UserFlowTypePProfileUpdate() *UserFlowType {
-	v := UserFlowTypeVProfileUpdate
-	return &v
-}
-
-// UserFlowTypePResourceOwner returns a pointer to UserFlowTypeVResourceOwner
-func UserFlowTypePResourceOwner() *UserFlowType {
-	v := UserFlowTypeVResourceOwner
-	return &v
-}
-
-// UserFlowTypePUnknownFutureValue returns a pointer to UserFlowTypeVUnknownFutureValue
-func UserFlowTypePUnknownFutureValue() *UserFlowType {
-	v := UserFlowTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_UserFlowTypePSignUp             = UserFlowTypeVSignUp
+	_UserFlowTypePSignIn             = UserFlowTypeVSignIn
+	_UserFlowTypePSignUpOrSignIn     = UserFlowTypeVSignUpOrSignIn
+	_UserFlowTypePPasswordReset      = UserFlowTypeVPasswordReset
+	_UserFlowTypePProfileUpdate      = UserFlowTypeVProfileUpdate
+	_UserFlowTypePResourceOwner      = UserFlowTypeVResourceOwner
+	_UserFlowTypePUnknownFutureValue = UserFlowTypeVUnknownFutureValue
+)

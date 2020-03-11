@@ -3,39 +3,33 @@
 package msgraph
 
 // EapFastConfiguration undocumented
-type EapFastConfiguration int
+type EapFastConfiguration string
 
 const (
 	// EapFastConfigurationVNoProtectedAccessCredential undocumented
-	EapFastConfigurationVNoProtectedAccessCredential EapFastConfiguration = 0
+	EapFastConfigurationVNoProtectedAccessCredential EapFastConfiguration = "noProtectedAccessCredential"
 	// EapFastConfigurationVUseProtectedAccessCredential undocumented
-	EapFastConfigurationVUseProtectedAccessCredential EapFastConfiguration = 1
+	EapFastConfigurationVUseProtectedAccessCredential EapFastConfiguration = "useProtectedAccessCredential"
 	// EapFastConfigurationVUseProtectedAccessCredentialAndProvision undocumented
-	EapFastConfigurationVUseProtectedAccessCredentialAndProvision EapFastConfiguration = 2
+	EapFastConfigurationVUseProtectedAccessCredentialAndProvision EapFastConfiguration = "useProtectedAccessCredentialAndProvision"
 	// EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously undocumented
-	EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously EapFastConfiguration = 3
+	EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously EapFastConfiguration = "useProtectedAccessCredentialAndProvisionAnonymously"
 )
 
-// EapFastConfigurationPNoProtectedAccessCredential returns a pointer to EapFastConfigurationVNoProtectedAccessCredential
-func EapFastConfigurationPNoProtectedAccessCredential() *EapFastConfiguration {
-	v := EapFastConfigurationVNoProtectedAccessCredential
-	return &v
-}
+var (
+	// EapFastConfigurationPNoProtectedAccessCredential is a pointer to EapFastConfigurationVNoProtectedAccessCredential
+	EapFastConfigurationPNoProtectedAccessCredential = &_EapFastConfigurationPNoProtectedAccessCredential
+	// EapFastConfigurationPUseProtectedAccessCredential is a pointer to EapFastConfigurationVUseProtectedAccessCredential
+	EapFastConfigurationPUseProtectedAccessCredential = &_EapFastConfigurationPUseProtectedAccessCredential
+	// EapFastConfigurationPUseProtectedAccessCredentialAndProvision is a pointer to EapFastConfigurationVUseProtectedAccessCredentialAndProvision
+	EapFastConfigurationPUseProtectedAccessCredentialAndProvision = &_EapFastConfigurationPUseProtectedAccessCredentialAndProvision
+	// EapFastConfigurationPUseProtectedAccessCredentialAndProvisionAnonymously is a pointer to EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously
+	EapFastConfigurationPUseProtectedAccessCredentialAndProvisionAnonymously = &_EapFastConfigurationPUseProtectedAccessCredentialAndProvisionAnonymously
+)
 
-// EapFastConfigurationPUseProtectedAccessCredential returns a pointer to EapFastConfigurationVUseProtectedAccessCredential
-func EapFastConfigurationPUseProtectedAccessCredential() *EapFastConfiguration {
-	v := EapFastConfigurationVUseProtectedAccessCredential
-	return &v
-}
-
-// EapFastConfigurationPUseProtectedAccessCredentialAndProvision returns a pointer to EapFastConfigurationVUseProtectedAccessCredentialAndProvision
-func EapFastConfigurationPUseProtectedAccessCredentialAndProvision() *EapFastConfiguration {
-	v := EapFastConfigurationVUseProtectedAccessCredentialAndProvision
-	return &v
-}
-
-// EapFastConfigurationPUseProtectedAccessCredentialAndProvisionAnonymously returns a pointer to EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously
-func EapFastConfigurationPUseProtectedAccessCredentialAndProvisionAnonymously() *EapFastConfiguration {
-	v := EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously
-	return &v
-}
+var (
+	_EapFastConfigurationPNoProtectedAccessCredential                         = EapFastConfigurationVNoProtectedAccessCredential
+	_EapFastConfigurationPUseProtectedAccessCredential                        = EapFastConfigurationVUseProtectedAccessCredential
+	_EapFastConfigurationPUseProtectedAccessCredentialAndProvision            = EapFastConfigurationVUseProtectedAccessCredentialAndProvision
+	_EapFastConfigurationPUseProtectedAccessCredentialAndProvisionAnonymously = EapFastConfigurationVUseProtectedAccessCredentialAndProvisionAnonymously
+)

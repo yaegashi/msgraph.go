@@ -3,23 +3,23 @@
 package msgraph
 
 // CertificateStore undocumented
-type CertificateStore int
+type CertificateStore string
 
 const (
 	// CertificateStoreVUser undocumented
-	CertificateStoreVUser CertificateStore = 1
+	CertificateStoreVUser CertificateStore = "user"
 	// CertificateStoreVMachine undocumented
-	CertificateStoreVMachine CertificateStore = 2
+	CertificateStoreVMachine CertificateStore = "machine"
 )
 
-// CertificateStorePUser returns a pointer to CertificateStoreVUser
-func CertificateStorePUser() *CertificateStore {
-	v := CertificateStoreVUser
-	return &v
-}
+var (
+	// CertificateStorePUser is a pointer to CertificateStoreVUser
+	CertificateStorePUser = &_CertificateStorePUser
+	// CertificateStorePMachine is a pointer to CertificateStoreVMachine
+	CertificateStorePMachine = &_CertificateStorePMachine
+)
 
-// CertificateStorePMachine returns a pointer to CertificateStoreVMachine
-func CertificateStorePMachine() *CertificateStore {
-	v := CertificateStoreVMachine
-	return &v
-}
+var (
+	_CertificateStorePUser    = CertificateStoreVUser
+	_CertificateStorePMachine = CertificateStoreVMachine
+)

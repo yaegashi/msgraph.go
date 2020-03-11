@@ -3,55 +3,43 @@
 package msgraph
 
 // DeviceManagementPartnerTenantState undocumented
-type DeviceManagementPartnerTenantState int
+type DeviceManagementPartnerTenantState string
 
 const (
 	// DeviceManagementPartnerTenantStateVUnknown undocumented
-	DeviceManagementPartnerTenantStateVUnknown DeviceManagementPartnerTenantState = 0
+	DeviceManagementPartnerTenantStateVUnknown DeviceManagementPartnerTenantState = "unknown"
 	// DeviceManagementPartnerTenantStateVUnavailable undocumented
-	DeviceManagementPartnerTenantStateVUnavailable DeviceManagementPartnerTenantState = 1
+	DeviceManagementPartnerTenantStateVUnavailable DeviceManagementPartnerTenantState = "unavailable"
 	// DeviceManagementPartnerTenantStateVEnabled undocumented
-	DeviceManagementPartnerTenantStateVEnabled DeviceManagementPartnerTenantState = 2
+	DeviceManagementPartnerTenantStateVEnabled DeviceManagementPartnerTenantState = "enabled"
 	// DeviceManagementPartnerTenantStateVTerminated undocumented
-	DeviceManagementPartnerTenantStateVTerminated DeviceManagementPartnerTenantState = 3
+	DeviceManagementPartnerTenantStateVTerminated DeviceManagementPartnerTenantState = "terminated"
 	// DeviceManagementPartnerTenantStateVRejected undocumented
-	DeviceManagementPartnerTenantStateVRejected DeviceManagementPartnerTenantState = 4
+	DeviceManagementPartnerTenantStateVRejected DeviceManagementPartnerTenantState = "rejected"
 	// DeviceManagementPartnerTenantStateVUnresponsive undocumented
-	DeviceManagementPartnerTenantStateVUnresponsive DeviceManagementPartnerTenantState = 5
+	DeviceManagementPartnerTenantStateVUnresponsive DeviceManagementPartnerTenantState = "unresponsive"
 )
 
-// DeviceManagementPartnerTenantStatePUnknown returns a pointer to DeviceManagementPartnerTenantStateVUnknown
-func DeviceManagementPartnerTenantStatePUnknown() *DeviceManagementPartnerTenantState {
-	v := DeviceManagementPartnerTenantStateVUnknown
-	return &v
-}
+var (
+	// DeviceManagementPartnerTenantStatePUnknown is a pointer to DeviceManagementPartnerTenantStateVUnknown
+	DeviceManagementPartnerTenantStatePUnknown = &_DeviceManagementPartnerTenantStatePUnknown
+	// DeviceManagementPartnerTenantStatePUnavailable is a pointer to DeviceManagementPartnerTenantStateVUnavailable
+	DeviceManagementPartnerTenantStatePUnavailable = &_DeviceManagementPartnerTenantStatePUnavailable
+	// DeviceManagementPartnerTenantStatePEnabled is a pointer to DeviceManagementPartnerTenantStateVEnabled
+	DeviceManagementPartnerTenantStatePEnabled = &_DeviceManagementPartnerTenantStatePEnabled
+	// DeviceManagementPartnerTenantStatePTerminated is a pointer to DeviceManagementPartnerTenantStateVTerminated
+	DeviceManagementPartnerTenantStatePTerminated = &_DeviceManagementPartnerTenantStatePTerminated
+	// DeviceManagementPartnerTenantStatePRejected is a pointer to DeviceManagementPartnerTenantStateVRejected
+	DeviceManagementPartnerTenantStatePRejected = &_DeviceManagementPartnerTenantStatePRejected
+	// DeviceManagementPartnerTenantStatePUnresponsive is a pointer to DeviceManagementPartnerTenantStateVUnresponsive
+	DeviceManagementPartnerTenantStatePUnresponsive = &_DeviceManagementPartnerTenantStatePUnresponsive
+)
 
-// DeviceManagementPartnerTenantStatePUnavailable returns a pointer to DeviceManagementPartnerTenantStateVUnavailable
-func DeviceManagementPartnerTenantStatePUnavailable() *DeviceManagementPartnerTenantState {
-	v := DeviceManagementPartnerTenantStateVUnavailable
-	return &v
-}
-
-// DeviceManagementPartnerTenantStatePEnabled returns a pointer to DeviceManagementPartnerTenantStateVEnabled
-func DeviceManagementPartnerTenantStatePEnabled() *DeviceManagementPartnerTenantState {
-	v := DeviceManagementPartnerTenantStateVEnabled
-	return &v
-}
-
-// DeviceManagementPartnerTenantStatePTerminated returns a pointer to DeviceManagementPartnerTenantStateVTerminated
-func DeviceManagementPartnerTenantStatePTerminated() *DeviceManagementPartnerTenantState {
-	v := DeviceManagementPartnerTenantStateVTerminated
-	return &v
-}
-
-// DeviceManagementPartnerTenantStatePRejected returns a pointer to DeviceManagementPartnerTenantStateVRejected
-func DeviceManagementPartnerTenantStatePRejected() *DeviceManagementPartnerTenantState {
-	v := DeviceManagementPartnerTenantStateVRejected
-	return &v
-}
-
-// DeviceManagementPartnerTenantStatePUnresponsive returns a pointer to DeviceManagementPartnerTenantStateVUnresponsive
-func DeviceManagementPartnerTenantStatePUnresponsive() *DeviceManagementPartnerTenantState {
-	v := DeviceManagementPartnerTenantStateVUnresponsive
-	return &v
-}
+var (
+	_DeviceManagementPartnerTenantStatePUnknown      = DeviceManagementPartnerTenantStateVUnknown
+	_DeviceManagementPartnerTenantStatePUnavailable  = DeviceManagementPartnerTenantStateVUnavailable
+	_DeviceManagementPartnerTenantStatePEnabled      = DeviceManagementPartnerTenantStateVEnabled
+	_DeviceManagementPartnerTenantStatePTerminated   = DeviceManagementPartnerTenantStateVTerminated
+	_DeviceManagementPartnerTenantStatePRejected     = DeviceManagementPartnerTenantStateVRejected
+	_DeviceManagementPartnerTenantStatePUnresponsive = DeviceManagementPartnerTenantStateVUnresponsive
+)

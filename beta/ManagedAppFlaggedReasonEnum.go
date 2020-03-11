@@ -3,39 +3,33 @@
 package msgraph
 
 // ManagedAppFlaggedReason undocumented
-type ManagedAppFlaggedReason int
+type ManagedAppFlaggedReason string
 
 const (
 	// ManagedAppFlaggedReasonVNone undocumented
-	ManagedAppFlaggedReasonVNone ManagedAppFlaggedReason = 0
+	ManagedAppFlaggedReasonVNone ManagedAppFlaggedReason = "none"
 	// ManagedAppFlaggedReasonVRootedDevice undocumented
-	ManagedAppFlaggedReasonVRootedDevice ManagedAppFlaggedReason = 1
+	ManagedAppFlaggedReasonVRootedDevice ManagedAppFlaggedReason = "rootedDevice"
 	// ManagedAppFlaggedReasonVAndroidBootloaderUnlocked undocumented
-	ManagedAppFlaggedReasonVAndroidBootloaderUnlocked ManagedAppFlaggedReason = 2
+	ManagedAppFlaggedReasonVAndroidBootloaderUnlocked ManagedAppFlaggedReason = "androidBootloaderUnlocked"
 	// ManagedAppFlaggedReasonVAndroidFactoryRomModified undocumented
-	ManagedAppFlaggedReasonVAndroidFactoryRomModified ManagedAppFlaggedReason = 3
+	ManagedAppFlaggedReasonVAndroidFactoryRomModified ManagedAppFlaggedReason = "androidFactoryRomModified"
 )
 
-// ManagedAppFlaggedReasonPNone returns a pointer to ManagedAppFlaggedReasonVNone
-func ManagedAppFlaggedReasonPNone() *ManagedAppFlaggedReason {
-	v := ManagedAppFlaggedReasonVNone
-	return &v
-}
+var (
+	// ManagedAppFlaggedReasonPNone is a pointer to ManagedAppFlaggedReasonVNone
+	ManagedAppFlaggedReasonPNone = &_ManagedAppFlaggedReasonPNone
+	// ManagedAppFlaggedReasonPRootedDevice is a pointer to ManagedAppFlaggedReasonVRootedDevice
+	ManagedAppFlaggedReasonPRootedDevice = &_ManagedAppFlaggedReasonPRootedDevice
+	// ManagedAppFlaggedReasonPAndroidBootloaderUnlocked is a pointer to ManagedAppFlaggedReasonVAndroidBootloaderUnlocked
+	ManagedAppFlaggedReasonPAndroidBootloaderUnlocked = &_ManagedAppFlaggedReasonPAndroidBootloaderUnlocked
+	// ManagedAppFlaggedReasonPAndroidFactoryRomModified is a pointer to ManagedAppFlaggedReasonVAndroidFactoryRomModified
+	ManagedAppFlaggedReasonPAndroidFactoryRomModified = &_ManagedAppFlaggedReasonPAndroidFactoryRomModified
+)
 
-// ManagedAppFlaggedReasonPRootedDevice returns a pointer to ManagedAppFlaggedReasonVRootedDevice
-func ManagedAppFlaggedReasonPRootedDevice() *ManagedAppFlaggedReason {
-	v := ManagedAppFlaggedReasonVRootedDevice
-	return &v
-}
-
-// ManagedAppFlaggedReasonPAndroidBootloaderUnlocked returns a pointer to ManagedAppFlaggedReasonVAndroidBootloaderUnlocked
-func ManagedAppFlaggedReasonPAndroidBootloaderUnlocked() *ManagedAppFlaggedReason {
-	v := ManagedAppFlaggedReasonVAndroidBootloaderUnlocked
-	return &v
-}
-
-// ManagedAppFlaggedReasonPAndroidFactoryRomModified returns a pointer to ManagedAppFlaggedReasonVAndroidFactoryRomModified
-func ManagedAppFlaggedReasonPAndroidFactoryRomModified() *ManagedAppFlaggedReason {
-	v := ManagedAppFlaggedReasonVAndroidFactoryRomModified
-	return &v
-}
+var (
+	_ManagedAppFlaggedReasonPNone                      = ManagedAppFlaggedReasonVNone
+	_ManagedAppFlaggedReasonPRootedDevice              = ManagedAppFlaggedReasonVRootedDevice
+	_ManagedAppFlaggedReasonPAndroidBootloaderUnlocked = ManagedAppFlaggedReasonVAndroidBootloaderUnlocked
+	_ManagedAppFlaggedReasonPAndroidFactoryRomModified = ManagedAppFlaggedReasonVAndroidFactoryRomModified
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // RemoteAssistanceOnboardingStatus undocumented
-type RemoteAssistanceOnboardingStatus int
+type RemoteAssistanceOnboardingStatus string
 
 const (
 	// RemoteAssistanceOnboardingStatusVNotOnboarded undocumented
-	RemoteAssistanceOnboardingStatusVNotOnboarded RemoteAssistanceOnboardingStatus = 0
+	RemoteAssistanceOnboardingStatusVNotOnboarded RemoteAssistanceOnboardingStatus = "notOnboarded"
 	// RemoteAssistanceOnboardingStatusVOnboarding undocumented
-	RemoteAssistanceOnboardingStatusVOnboarding RemoteAssistanceOnboardingStatus = 1
+	RemoteAssistanceOnboardingStatusVOnboarding RemoteAssistanceOnboardingStatus = "onboarding"
 	// RemoteAssistanceOnboardingStatusVOnboarded undocumented
-	RemoteAssistanceOnboardingStatusVOnboarded RemoteAssistanceOnboardingStatus = 2
+	RemoteAssistanceOnboardingStatusVOnboarded RemoteAssistanceOnboardingStatus = "onboarded"
 )
 
-// RemoteAssistanceOnboardingStatusPNotOnboarded returns a pointer to RemoteAssistanceOnboardingStatusVNotOnboarded
-func RemoteAssistanceOnboardingStatusPNotOnboarded() *RemoteAssistanceOnboardingStatus {
-	v := RemoteAssistanceOnboardingStatusVNotOnboarded
-	return &v
-}
+var (
+	// RemoteAssistanceOnboardingStatusPNotOnboarded is a pointer to RemoteAssistanceOnboardingStatusVNotOnboarded
+	RemoteAssistanceOnboardingStatusPNotOnboarded = &_RemoteAssistanceOnboardingStatusPNotOnboarded
+	// RemoteAssistanceOnboardingStatusPOnboarding is a pointer to RemoteAssistanceOnboardingStatusVOnboarding
+	RemoteAssistanceOnboardingStatusPOnboarding = &_RemoteAssistanceOnboardingStatusPOnboarding
+	// RemoteAssistanceOnboardingStatusPOnboarded is a pointer to RemoteAssistanceOnboardingStatusVOnboarded
+	RemoteAssistanceOnboardingStatusPOnboarded = &_RemoteAssistanceOnboardingStatusPOnboarded
+)
 
-// RemoteAssistanceOnboardingStatusPOnboarding returns a pointer to RemoteAssistanceOnboardingStatusVOnboarding
-func RemoteAssistanceOnboardingStatusPOnboarding() *RemoteAssistanceOnboardingStatus {
-	v := RemoteAssistanceOnboardingStatusVOnboarding
-	return &v
-}
-
-// RemoteAssistanceOnboardingStatusPOnboarded returns a pointer to RemoteAssistanceOnboardingStatusVOnboarded
-func RemoteAssistanceOnboardingStatusPOnboarded() *RemoteAssistanceOnboardingStatus {
-	v := RemoteAssistanceOnboardingStatusVOnboarded
-	return &v
-}
+var (
+	_RemoteAssistanceOnboardingStatusPNotOnboarded = RemoteAssistanceOnboardingStatusVNotOnboarded
+	_RemoteAssistanceOnboardingStatusPOnboarding   = RemoteAssistanceOnboardingStatusVOnboarding
+	_RemoteAssistanceOnboardingStatusPOnboarded    = RemoteAssistanceOnboardingStatusVOnboarded
+)

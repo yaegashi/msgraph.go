@@ -3,47 +3,38 @@
 package msgraph
 
 // AccessLevel undocumented
-type AccessLevel int
+type AccessLevel string
 
 const (
 	// AccessLevelVEveryone undocumented
-	AccessLevelVEveryone AccessLevel = 0
+	AccessLevelVEveryone AccessLevel = "everyone"
 	// AccessLevelVInvited undocumented
-	AccessLevelVInvited AccessLevel = 1
+	AccessLevelVInvited AccessLevel = "invited"
 	// AccessLevelVLocked undocumented
-	AccessLevelVLocked AccessLevel = 2
+	AccessLevelVLocked AccessLevel = "locked"
 	// AccessLevelVSameEnterprise undocumented
-	AccessLevelVSameEnterprise AccessLevel = 3
+	AccessLevelVSameEnterprise AccessLevel = "sameEnterprise"
 	// AccessLevelVSameEnterpriseAndFederated undocumented
-	AccessLevelVSameEnterpriseAndFederated AccessLevel = 4
+	AccessLevelVSameEnterpriseAndFederated AccessLevel = "sameEnterpriseAndFederated"
 )
 
-// AccessLevelPEveryone returns a pointer to AccessLevelVEveryone
-func AccessLevelPEveryone() *AccessLevel {
-	v := AccessLevelVEveryone
-	return &v
-}
+var (
+	// AccessLevelPEveryone is a pointer to AccessLevelVEveryone
+	AccessLevelPEveryone = &_AccessLevelPEveryone
+	// AccessLevelPInvited is a pointer to AccessLevelVInvited
+	AccessLevelPInvited = &_AccessLevelPInvited
+	// AccessLevelPLocked is a pointer to AccessLevelVLocked
+	AccessLevelPLocked = &_AccessLevelPLocked
+	// AccessLevelPSameEnterprise is a pointer to AccessLevelVSameEnterprise
+	AccessLevelPSameEnterprise = &_AccessLevelPSameEnterprise
+	// AccessLevelPSameEnterpriseAndFederated is a pointer to AccessLevelVSameEnterpriseAndFederated
+	AccessLevelPSameEnterpriseAndFederated = &_AccessLevelPSameEnterpriseAndFederated
+)
 
-// AccessLevelPInvited returns a pointer to AccessLevelVInvited
-func AccessLevelPInvited() *AccessLevel {
-	v := AccessLevelVInvited
-	return &v
-}
-
-// AccessLevelPLocked returns a pointer to AccessLevelVLocked
-func AccessLevelPLocked() *AccessLevel {
-	v := AccessLevelVLocked
-	return &v
-}
-
-// AccessLevelPSameEnterprise returns a pointer to AccessLevelVSameEnterprise
-func AccessLevelPSameEnterprise() *AccessLevel {
-	v := AccessLevelVSameEnterprise
-	return &v
-}
-
-// AccessLevelPSameEnterpriseAndFederated returns a pointer to AccessLevelVSameEnterpriseAndFederated
-func AccessLevelPSameEnterpriseAndFederated() *AccessLevel {
-	v := AccessLevelVSameEnterpriseAndFederated
-	return &v
-}
+var (
+	_AccessLevelPEveryone                   = AccessLevelVEveryone
+	_AccessLevelPInvited                    = AccessLevelVInvited
+	_AccessLevelPLocked                     = AccessLevelVLocked
+	_AccessLevelPSameEnterprise             = AccessLevelVSameEnterprise
+	_AccessLevelPSameEnterpriseAndFederated = AccessLevelVSameEnterpriseAndFederated
+)

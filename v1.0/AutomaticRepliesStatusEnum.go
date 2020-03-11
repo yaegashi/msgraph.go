@@ -3,31 +3,28 @@
 package msgraph
 
 // AutomaticRepliesStatus undocumented
-type AutomaticRepliesStatus int
+type AutomaticRepliesStatus string
 
 const (
 	// AutomaticRepliesStatusVDisabled undocumented
-	AutomaticRepliesStatusVDisabled AutomaticRepliesStatus = 0
+	AutomaticRepliesStatusVDisabled AutomaticRepliesStatus = "disabled"
 	// AutomaticRepliesStatusVAlwaysEnabled undocumented
-	AutomaticRepliesStatusVAlwaysEnabled AutomaticRepliesStatus = 1
+	AutomaticRepliesStatusVAlwaysEnabled AutomaticRepliesStatus = "alwaysEnabled"
 	// AutomaticRepliesStatusVScheduled undocumented
-	AutomaticRepliesStatusVScheduled AutomaticRepliesStatus = 2
+	AutomaticRepliesStatusVScheduled AutomaticRepliesStatus = "scheduled"
 )
 
-// AutomaticRepliesStatusPDisabled returns a pointer to AutomaticRepliesStatusVDisabled
-func AutomaticRepliesStatusPDisabled() *AutomaticRepliesStatus {
-	v := AutomaticRepliesStatusVDisabled
-	return &v
-}
+var (
+	// AutomaticRepliesStatusPDisabled is a pointer to AutomaticRepliesStatusVDisabled
+	AutomaticRepliesStatusPDisabled = &_AutomaticRepliesStatusPDisabled
+	// AutomaticRepliesStatusPAlwaysEnabled is a pointer to AutomaticRepliesStatusVAlwaysEnabled
+	AutomaticRepliesStatusPAlwaysEnabled = &_AutomaticRepliesStatusPAlwaysEnabled
+	// AutomaticRepliesStatusPScheduled is a pointer to AutomaticRepliesStatusVScheduled
+	AutomaticRepliesStatusPScheduled = &_AutomaticRepliesStatusPScheduled
+)
 
-// AutomaticRepliesStatusPAlwaysEnabled returns a pointer to AutomaticRepliesStatusVAlwaysEnabled
-func AutomaticRepliesStatusPAlwaysEnabled() *AutomaticRepliesStatus {
-	v := AutomaticRepliesStatusVAlwaysEnabled
-	return &v
-}
-
-// AutomaticRepliesStatusPScheduled returns a pointer to AutomaticRepliesStatusVScheduled
-func AutomaticRepliesStatusPScheduled() *AutomaticRepliesStatus {
-	v := AutomaticRepliesStatusVScheduled
-	return &v
-}
+var (
+	_AutomaticRepliesStatusPDisabled      = AutomaticRepliesStatusVDisabled
+	_AutomaticRepliesStatusPAlwaysEnabled = AutomaticRepliesStatusVAlwaysEnabled
+	_AutomaticRepliesStatusPScheduled     = AutomaticRepliesStatusVScheduled
+)

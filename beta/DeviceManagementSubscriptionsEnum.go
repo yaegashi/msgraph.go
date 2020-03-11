@@ -3,55 +3,43 @@
 package msgraph
 
 // DeviceManagementSubscriptions undocumented
-type DeviceManagementSubscriptions int
+type DeviceManagementSubscriptions string
 
 const (
 	// DeviceManagementSubscriptionsVNone undocumented
-	DeviceManagementSubscriptionsVNone DeviceManagementSubscriptions = 0
+	DeviceManagementSubscriptionsVNone DeviceManagementSubscriptions = "none"
 	// DeviceManagementSubscriptionsVIntune undocumented
-	DeviceManagementSubscriptionsVIntune DeviceManagementSubscriptions = 1
+	DeviceManagementSubscriptionsVIntune DeviceManagementSubscriptions = "intune"
 	// DeviceManagementSubscriptionsVOffice365 undocumented
-	DeviceManagementSubscriptionsVOffice365 DeviceManagementSubscriptions = 2
+	DeviceManagementSubscriptionsVOffice365 DeviceManagementSubscriptions = "office365"
 	// DeviceManagementSubscriptionsVIntunePremium undocumented
-	DeviceManagementSubscriptionsVIntunePremium DeviceManagementSubscriptions = 4
+	DeviceManagementSubscriptionsVIntunePremium DeviceManagementSubscriptions = "intunePremium"
 	// DeviceManagementSubscriptionsVIntune_EDU undocumented
-	DeviceManagementSubscriptionsVIntune_EDU DeviceManagementSubscriptions = 8
+	DeviceManagementSubscriptionsVIntune_EDU DeviceManagementSubscriptions = "intune_EDU"
 	// DeviceManagementSubscriptionsVIntune_SMB undocumented
-	DeviceManagementSubscriptionsVIntune_SMB DeviceManagementSubscriptions = 16
+	DeviceManagementSubscriptionsVIntune_SMB DeviceManagementSubscriptions = "intune_SMB"
 )
 
-// DeviceManagementSubscriptionsPNone returns a pointer to DeviceManagementSubscriptionsVNone
-func DeviceManagementSubscriptionsPNone() *DeviceManagementSubscriptions {
-	v := DeviceManagementSubscriptionsVNone
-	return &v
-}
+var (
+	// DeviceManagementSubscriptionsPNone is a pointer to DeviceManagementSubscriptionsVNone
+	DeviceManagementSubscriptionsPNone = &_DeviceManagementSubscriptionsPNone
+	// DeviceManagementSubscriptionsPIntune is a pointer to DeviceManagementSubscriptionsVIntune
+	DeviceManagementSubscriptionsPIntune = &_DeviceManagementSubscriptionsPIntune
+	// DeviceManagementSubscriptionsPOffice365 is a pointer to DeviceManagementSubscriptionsVOffice365
+	DeviceManagementSubscriptionsPOffice365 = &_DeviceManagementSubscriptionsPOffice365
+	// DeviceManagementSubscriptionsPIntunePremium is a pointer to DeviceManagementSubscriptionsVIntunePremium
+	DeviceManagementSubscriptionsPIntunePremium = &_DeviceManagementSubscriptionsPIntunePremium
+	// DeviceManagementSubscriptionsPIntune_EDU is a pointer to DeviceManagementSubscriptionsVIntune_EDU
+	DeviceManagementSubscriptionsPIntune_EDU = &_DeviceManagementSubscriptionsPIntune_EDU
+	// DeviceManagementSubscriptionsPIntune_SMB is a pointer to DeviceManagementSubscriptionsVIntune_SMB
+	DeviceManagementSubscriptionsPIntune_SMB = &_DeviceManagementSubscriptionsPIntune_SMB
+)
 
-// DeviceManagementSubscriptionsPIntune returns a pointer to DeviceManagementSubscriptionsVIntune
-func DeviceManagementSubscriptionsPIntune() *DeviceManagementSubscriptions {
-	v := DeviceManagementSubscriptionsVIntune
-	return &v
-}
-
-// DeviceManagementSubscriptionsPOffice365 returns a pointer to DeviceManagementSubscriptionsVOffice365
-func DeviceManagementSubscriptionsPOffice365() *DeviceManagementSubscriptions {
-	v := DeviceManagementSubscriptionsVOffice365
-	return &v
-}
-
-// DeviceManagementSubscriptionsPIntunePremium returns a pointer to DeviceManagementSubscriptionsVIntunePremium
-func DeviceManagementSubscriptionsPIntunePremium() *DeviceManagementSubscriptions {
-	v := DeviceManagementSubscriptionsVIntunePremium
-	return &v
-}
-
-// DeviceManagementSubscriptionsPIntune_EDU returns a pointer to DeviceManagementSubscriptionsVIntune_EDU
-func DeviceManagementSubscriptionsPIntune_EDU() *DeviceManagementSubscriptions {
-	v := DeviceManagementSubscriptionsVIntune_EDU
-	return &v
-}
-
-// DeviceManagementSubscriptionsPIntune_SMB returns a pointer to DeviceManagementSubscriptionsVIntune_SMB
-func DeviceManagementSubscriptionsPIntune_SMB() *DeviceManagementSubscriptions {
-	v := DeviceManagementSubscriptionsVIntune_SMB
-	return &v
-}
+var (
+	_DeviceManagementSubscriptionsPNone          = DeviceManagementSubscriptionsVNone
+	_DeviceManagementSubscriptionsPIntune        = DeviceManagementSubscriptionsVIntune
+	_DeviceManagementSubscriptionsPOffice365     = DeviceManagementSubscriptionsVOffice365
+	_DeviceManagementSubscriptionsPIntunePremium = DeviceManagementSubscriptionsVIntunePremium
+	_DeviceManagementSubscriptionsPIntune_EDU    = DeviceManagementSubscriptionsVIntune_EDU
+	_DeviceManagementSubscriptionsPIntune_SMB    = DeviceManagementSubscriptionsVIntune_SMB
+)

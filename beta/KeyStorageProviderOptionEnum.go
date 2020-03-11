@@ -3,39 +3,33 @@
 package msgraph
 
 // KeyStorageProviderOption undocumented
-type KeyStorageProviderOption int
+type KeyStorageProviderOption string
 
 const (
 	// KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp undocumented
-	KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp KeyStorageProviderOption = 0
+	KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp KeyStorageProviderOption = "useTpmKspOtherwiseUseSoftwareKsp"
 	// KeyStorageProviderOptionVUseTpmKspOtherwiseFail undocumented
-	KeyStorageProviderOptionVUseTpmKspOtherwiseFail KeyStorageProviderOption = 1
+	KeyStorageProviderOptionVUseTpmKspOtherwiseFail KeyStorageProviderOption = "useTpmKspOtherwiseFail"
 	// KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail undocumented
-	KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail KeyStorageProviderOption = 2
+	KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail KeyStorageProviderOption = "usePassportForWorkKspOtherwiseFail"
 	// KeyStorageProviderOptionVUseSoftwareKsp undocumented
-	KeyStorageProviderOptionVUseSoftwareKsp KeyStorageProviderOption = 3
+	KeyStorageProviderOptionVUseSoftwareKsp KeyStorageProviderOption = "useSoftwareKsp"
 )
 
-// KeyStorageProviderOptionPUseTpmKspOtherwiseUseSoftwareKsp returns a pointer to KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp
-func KeyStorageProviderOptionPUseTpmKspOtherwiseUseSoftwareKsp() *KeyStorageProviderOption {
-	v := KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp
-	return &v
-}
+var (
+	// KeyStorageProviderOptionPUseTpmKspOtherwiseUseSoftwareKsp is a pointer to KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp
+	KeyStorageProviderOptionPUseTpmKspOtherwiseUseSoftwareKsp = &_KeyStorageProviderOptionPUseTpmKspOtherwiseUseSoftwareKsp
+	// KeyStorageProviderOptionPUseTpmKspOtherwiseFail is a pointer to KeyStorageProviderOptionVUseTpmKspOtherwiseFail
+	KeyStorageProviderOptionPUseTpmKspOtherwiseFail = &_KeyStorageProviderOptionPUseTpmKspOtherwiseFail
+	// KeyStorageProviderOptionPUsePassportForWorkKspOtherwiseFail is a pointer to KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail
+	KeyStorageProviderOptionPUsePassportForWorkKspOtherwiseFail = &_KeyStorageProviderOptionPUsePassportForWorkKspOtherwiseFail
+	// KeyStorageProviderOptionPUseSoftwareKsp is a pointer to KeyStorageProviderOptionVUseSoftwareKsp
+	KeyStorageProviderOptionPUseSoftwareKsp = &_KeyStorageProviderOptionPUseSoftwareKsp
+)
 
-// KeyStorageProviderOptionPUseTpmKspOtherwiseFail returns a pointer to KeyStorageProviderOptionVUseTpmKspOtherwiseFail
-func KeyStorageProviderOptionPUseTpmKspOtherwiseFail() *KeyStorageProviderOption {
-	v := KeyStorageProviderOptionVUseTpmKspOtherwiseFail
-	return &v
-}
-
-// KeyStorageProviderOptionPUsePassportForWorkKspOtherwiseFail returns a pointer to KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail
-func KeyStorageProviderOptionPUsePassportForWorkKspOtherwiseFail() *KeyStorageProviderOption {
-	v := KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail
-	return &v
-}
-
-// KeyStorageProviderOptionPUseSoftwareKsp returns a pointer to KeyStorageProviderOptionVUseSoftwareKsp
-func KeyStorageProviderOptionPUseSoftwareKsp() *KeyStorageProviderOption {
-	v := KeyStorageProviderOptionVUseSoftwareKsp
-	return &v
-}
+var (
+	_KeyStorageProviderOptionPUseTpmKspOtherwiseUseSoftwareKsp   = KeyStorageProviderOptionVUseTpmKspOtherwiseUseSoftwareKsp
+	_KeyStorageProviderOptionPUseTpmKspOtherwiseFail             = KeyStorageProviderOptionVUseTpmKspOtherwiseFail
+	_KeyStorageProviderOptionPUsePassportForWorkKspOtherwiseFail = KeyStorageProviderOptionVUsePassportForWorkKspOtherwiseFail
+	_KeyStorageProviderOptionPUseSoftwareKsp                     = KeyStorageProviderOptionVUseSoftwareKsp
+)

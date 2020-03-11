@@ -3,79 +3,58 @@
 package msgraph
 
 // RegistryHive undocumented
-type RegistryHive int
+type RegistryHive string
 
 const (
 	// RegistryHiveVUnknown undocumented
-	RegistryHiveVUnknown RegistryHive = 0
+	RegistryHiveVUnknown RegistryHive = "unknown"
 	// RegistryHiveVCurrentConfig undocumented
-	RegistryHiveVCurrentConfig RegistryHive = 1
+	RegistryHiveVCurrentConfig RegistryHive = "currentConfig"
 	// RegistryHiveVCurrentUser undocumented
-	RegistryHiveVCurrentUser RegistryHive = 2
+	RegistryHiveVCurrentUser RegistryHive = "currentUser"
 	// RegistryHiveVLocalMachineSam undocumented
-	RegistryHiveVLocalMachineSam RegistryHive = 3
+	RegistryHiveVLocalMachineSam RegistryHive = "localMachineSam"
 	// RegistryHiveVLocalMachineSecurity undocumented
-	RegistryHiveVLocalMachineSecurity RegistryHive = 4
+	RegistryHiveVLocalMachineSecurity RegistryHive = "localMachineSecurity"
 	// RegistryHiveVLocalMachineSoftware undocumented
-	RegistryHiveVLocalMachineSoftware RegistryHive = 5
+	RegistryHiveVLocalMachineSoftware RegistryHive = "localMachineSoftware"
 	// RegistryHiveVLocalMachineSystem undocumented
-	RegistryHiveVLocalMachineSystem RegistryHive = 6
+	RegistryHiveVLocalMachineSystem RegistryHive = "localMachineSystem"
 	// RegistryHiveVUsersDefault undocumented
-	RegistryHiveVUsersDefault RegistryHive = 7
+	RegistryHiveVUsersDefault RegistryHive = "usersDefault"
 	// RegistryHiveVUnknownFutureValue undocumented
-	RegistryHiveVUnknownFutureValue RegistryHive = 127
+	RegistryHiveVUnknownFutureValue RegistryHive = "unknownFutureValue"
 )
 
-// RegistryHivePUnknown returns a pointer to RegistryHiveVUnknown
-func RegistryHivePUnknown() *RegistryHive {
-	v := RegistryHiveVUnknown
-	return &v
-}
+var (
+	// RegistryHivePUnknown is a pointer to RegistryHiveVUnknown
+	RegistryHivePUnknown = &_RegistryHivePUnknown
+	// RegistryHivePCurrentConfig is a pointer to RegistryHiveVCurrentConfig
+	RegistryHivePCurrentConfig = &_RegistryHivePCurrentConfig
+	// RegistryHivePCurrentUser is a pointer to RegistryHiveVCurrentUser
+	RegistryHivePCurrentUser = &_RegistryHivePCurrentUser
+	// RegistryHivePLocalMachineSam is a pointer to RegistryHiveVLocalMachineSam
+	RegistryHivePLocalMachineSam = &_RegistryHivePLocalMachineSam
+	// RegistryHivePLocalMachineSecurity is a pointer to RegistryHiveVLocalMachineSecurity
+	RegistryHivePLocalMachineSecurity = &_RegistryHivePLocalMachineSecurity
+	// RegistryHivePLocalMachineSoftware is a pointer to RegistryHiveVLocalMachineSoftware
+	RegistryHivePLocalMachineSoftware = &_RegistryHivePLocalMachineSoftware
+	// RegistryHivePLocalMachineSystem is a pointer to RegistryHiveVLocalMachineSystem
+	RegistryHivePLocalMachineSystem = &_RegistryHivePLocalMachineSystem
+	// RegistryHivePUsersDefault is a pointer to RegistryHiveVUsersDefault
+	RegistryHivePUsersDefault = &_RegistryHivePUsersDefault
+	// RegistryHivePUnknownFutureValue is a pointer to RegistryHiveVUnknownFutureValue
+	RegistryHivePUnknownFutureValue = &_RegistryHivePUnknownFutureValue
+)
 
-// RegistryHivePCurrentConfig returns a pointer to RegistryHiveVCurrentConfig
-func RegistryHivePCurrentConfig() *RegistryHive {
-	v := RegistryHiveVCurrentConfig
-	return &v
-}
-
-// RegistryHivePCurrentUser returns a pointer to RegistryHiveVCurrentUser
-func RegistryHivePCurrentUser() *RegistryHive {
-	v := RegistryHiveVCurrentUser
-	return &v
-}
-
-// RegistryHivePLocalMachineSam returns a pointer to RegistryHiveVLocalMachineSam
-func RegistryHivePLocalMachineSam() *RegistryHive {
-	v := RegistryHiveVLocalMachineSam
-	return &v
-}
-
-// RegistryHivePLocalMachineSecurity returns a pointer to RegistryHiveVLocalMachineSecurity
-func RegistryHivePLocalMachineSecurity() *RegistryHive {
-	v := RegistryHiveVLocalMachineSecurity
-	return &v
-}
-
-// RegistryHivePLocalMachineSoftware returns a pointer to RegistryHiveVLocalMachineSoftware
-func RegistryHivePLocalMachineSoftware() *RegistryHive {
-	v := RegistryHiveVLocalMachineSoftware
-	return &v
-}
-
-// RegistryHivePLocalMachineSystem returns a pointer to RegistryHiveVLocalMachineSystem
-func RegistryHivePLocalMachineSystem() *RegistryHive {
-	v := RegistryHiveVLocalMachineSystem
-	return &v
-}
-
-// RegistryHivePUsersDefault returns a pointer to RegistryHiveVUsersDefault
-func RegistryHivePUsersDefault() *RegistryHive {
-	v := RegistryHiveVUsersDefault
-	return &v
-}
-
-// RegistryHivePUnknownFutureValue returns a pointer to RegistryHiveVUnknownFutureValue
-func RegistryHivePUnknownFutureValue() *RegistryHive {
-	v := RegistryHiveVUnknownFutureValue
-	return &v
-}
+var (
+	_RegistryHivePUnknown              = RegistryHiveVUnknown
+	_RegistryHivePCurrentConfig        = RegistryHiveVCurrentConfig
+	_RegistryHivePCurrentUser          = RegistryHiveVCurrentUser
+	_RegistryHivePLocalMachineSam      = RegistryHiveVLocalMachineSam
+	_RegistryHivePLocalMachineSecurity = RegistryHiveVLocalMachineSecurity
+	_RegistryHivePLocalMachineSoftware = RegistryHiveVLocalMachineSoftware
+	_RegistryHivePLocalMachineSystem   = RegistryHiveVLocalMachineSystem
+	_RegistryHivePUsersDefault         = RegistryHiveVUsersDefault
+	_RegistryHivePUnknownFutureValue   = RegistryHiveVUnknownFutureValue
+)

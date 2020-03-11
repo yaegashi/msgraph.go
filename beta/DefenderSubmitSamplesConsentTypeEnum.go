@@ -3,39 +3,33 @@
 package msgraph
 
 // DefenderSubmitSamplesConsentType undocumented
-type DefenderSubmitSamplesConsentType int
+type DefenderSubmitSamplesConsentType string
 
 const (
 	// DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically undocumented
-	DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically DefenderSubmitSamplesConsentType = 0
+	DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically DefenderSubmitSamplesConsentType = "sendSafeSamplesAutomatically"
 	// DefenderSubmitSamplesConsentTypeVAlwaysPrompt undocumented
-	DefenderSubmitSamplesConsentTypeVAlwaysPrompt DefenderSubmitSamplesConsentType = 1
+	DefenderSubmitSamplesConsentTypeVAlwaysPrompt DefenderSubmitSamplesConsentType = "alwaysPrompt"
 	// DefenderSubmitSamplesConsentTypeVNeverSend undocumented
-	DefenderSubmitSamplesConsentTypeVNeverSend DefenderSubmitSamplesConsentType = 2
+	DefenderSubmitSamplesConsentTypeVNeverSend DefenderSubmitSamplesConsentType = "neverSend"
 	// DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically undocumented
-	DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically DefenderSubmitSamplesConsentType = 3
+	DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically DefenderSubmitSamplesConsentType = "sendAllSamplesAutomatically"
 )
 
-// DefenderSubmitSamplesConsentTypePSendSafeSamplesAutomatically returns a pointer to DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically
-func DefenderSubmitSamplesConsentTypePSendSafeSamplesAutomatically() *DefenderSubmitSamplesConsentType {
-	v := DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically
-	return &v
-}
+var (
+	// DefenderSubmitSamplesConsentTypePSendSafeSamplesAutomatically is a pointer to DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically
+	DefenderSubmitSamplesConsentTypePSendSafeSamplesAutomatically = &_DefenderSubmitSamplesConsentTypePSendSafeSamplesAutomatically
+	// DefenderSubmitSamplesConsentTypePAlwaysPrompt is a pointer to DefenderSubmitSamplesConsentTypeVAlwaysPrompt
+	DefenderSubmitSamplesConsentTypePAlwaysPrompt = &_DefenderSubmitSamplesConsentTypePAlwaysPrompt
+	// DefenderSubmitSamplesConsentTypePNeverSend is a pointer to DefenderSubmitSamplesConsentTypeVNeverSend
+	DefenderSubmitSamplesConsentTypePNeverSend = &_DefenderSubmitSamplesConsentTypePNeverSend
+	// DefenderSubmitSamplesConsentTypePSendAllSamplesAutomatically is a pointer to DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically
+	DefenderSubmitSamplesConsentTypePSendAllSamplesAutomatically = &_DefenderSubmitSamplesConsentTypePSendAllSamplesAutomatically
+)
 
-// DefenderSubmitSamplesConsentTypePAlwaysPrompt returns a pointer to DefenderSubmitSamplesConsentTypeVAlwaysPrompt
-func DefenderSubmitSamplesConsentTypePAlwaysPrompt() *DefenderSubmitSamplesConsentType {
-	v := DefenderSubmitSamplesConsentTypeVAlwaysPrompt
-	return &v
-}
-
-// DefenderSubmitSamplesConsentTypePNeverSend returns a pointer to DefenderSubmitSamplesConsentTypeVNeverSend
-func DefenderSubmitSamplesConsentTypePNeverSend() *DefenderSubmitSamplesConsentType {
-	v := DefenderSubmitSamplesConsentTypeVNeverSend
-	return &v
-}
-
-// DefenderSubmitSamplesConsentTypePSendAllSamplesAutomatically returns a pointer to DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically
-func DefenderSubmitSamplesConsentTypePSendAllSamplesAutomatically() *DefenderSubmitSamplesConsentType {
-	v := DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically
-	return &v
-}
+var (
+	_DefenderSubmitSamplesConsentTypePSendSafeSamplesAutomatically = DefenderSubmitSamplesConsentTypeVSendSafeSamplesAutomatically
+	_DefenderSubmitSamplesConsentTypePAlwaysPrompt                 = DefenderSubmitSamplesConsentTypeVAlwaysPrompt
+	_DefenderSubmitSamplesConsentTypePNeverSend                    = DefenderSubmitSamplesConsentTypeVNeverSend
+	_DefenderSubmitSamplesConsentTypePSendAllSamplesAutomatically  = DefenderSubmitSamplesConsentTypeVSendAllSamplesAutomatically
+)

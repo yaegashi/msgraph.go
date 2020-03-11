@@ -3,47 +3,38 @@
 package msgraph
 
 // DiagnosticDataSubmissionMode undocumented
-type DiagnosticDataSubmissionMode int
+type DiagnosticDataSubmissionMode string
 
 const (
 	// DiagnosticDataSubmissionModeVUserDefined undocumented
-	DiagnosticDataSubmissionModeVUserDefined DiagnosticDataSubmissionMode = 0
+	DiagnosticDataSubmissionModeVUserDefined DiagnosticDataSubmissionMode = "userDefined"
 	// DiagnosticDataSubmissionModeVNone undocumented
-	DiagnosticDataSubmissionModeVNone DiagnosticDataSubmissionMode = 1
+	DiagnosticDataSubmissionModeVNone DiagnosticDataSubmissionMode = "none"
 	// DiagnosticDataSubmissionModeVBasic undocumented
-	DiagnosticDataSubmissionModeVBasic DiagnosticDataSubmissionMode = 2
+	DiagnosticDataSubmissionModeVBasic DiagnosticDataSubmissionMode = "basic"
 	// DiagnosticDataSubmissionModeVEnhanced undocumented
-	DiagnosticDataSubmissionModeVEnhanced DiagnosticDataSubmissionMode = 3
+	DiagnosticDataSubmissionModeVEnhanced DiagnosticDataSubmissionMode = "enhanced"
 	// DiagnosticDataSubmissionModeVFull undocumented
-	DiagnosticDataSubmissionModeVFull DiagnosticDataSubmissionMode = 4
+	DiagnosticDataSubmissionModeVFull DiagnosticDataSubmissionMode = "full"
 )
 
-// DiagnosticDataSubmissionModePUserDefined returns a pointer to DiagnosticDataSubmissionModeVUserDefined
-func DiagnosticDataSubmissionModePUserDefined() *DiagnosticDataSubmissionMode {
-	v := DiagnosticDataSubmissionModeVUserDefined
-	return &v
-}
+var (
+	// DiagnosticDataSubmissionModePUserDefined is a pointer to DiagnosticDataSubmissionModeVUserDefined
+	DiagnosticDataSubmissionModePUserDefined = &_DiagnosticDataSubmissionModePUserDefined
+	// DiagnosticDataSubmissionModePNone is a pointer to DiagnosticDataSubmissionModeVNone
+	DiagnosticDataSubmissionModePNone = &_DiagnosticDataSubmissionModePNone
+	// DiagnosticDataSubmissionModePBasic is a pointer to DiagnosticDataSubmissionModeVBasic
+	DiagnosticDataSubmissionModePBasic = &_DiagnosticDataSubmissionModePBasic
+	// DiagnosticDataSubmissionModePEnhanced is a pointer to DiagnosticDataSubmissionModeVEnhanced
+	DiagnosticDataSubmissionModePEnhanced = &_DiagnosticDataSubmissionModePEnhanced
+	// DiagnosticDataSubmissionModePFull is a pointer to DiagnosticDataSubmissionModeVFull
+	DiagnosticDataSubmissionModePFull = &_DiagnosticDataSubmissionModePFull
+)
 
-// DiagnosticDataSubmissionModePNone returns a pointer to DiagnosticDataSubmissionModeVNone
-func DiagnosticDataSubmissionModePNone() *DiagnosticDataSubmissionMode {
-	v := DiagnosticDataSubmissionModeVNone
-	return &v
-}
-
-// DiagnosticDataSubmissionModePBasic returns a pointer to DiagnosticDataSubmissionModeVBasic
-func DiagnosticDataSubmissionModePBasic() *DiagnosticDataSubmissionMode {
-	v := DiagnosticDataSubmissionModeVBasic
-	return &v
-}
-
-// DiagnosticDataSubmissionModePEnhanced returns a pointer to DiagnosticDataSubmissionModeVEnhanced
-func DiagnosticDataSubmissionModePEnhanced() *DiagnosticDataSubmissionMode {
-	v := DiagnosticDataSubmissionModeVEnhanced
-	return &v
-}
-
-// DiagnosticDataSubmissionModePFull returns a pointer to DiagnosticDataSubmissionModeVFull
-func DiagnosticDataSubmissionModePFull() *DiagnosticDataSubmissionMode {
-	v := DiagnosticDataSubmissionModeVFull
-	return &v
-}
+var (
+	_DiagnosticDataSubmissionModePUserDefined = DiagnosticDataSubmissionModeVUserDefined
+	_DiagnosticDataSubmissionModePNone        = DiagnosticDataSubmissionModeVNone
+	_DiagnosticDataSubmissionModePBasic       = DiagnosticDataSubmissionModeVBasic
+	_DiagnosticDataSubmissionModePEnhanced    = DiagnosticDataSubmissionModeVEnhanced
+	_DiagnosticDataSubmissionModePFull        = DiagnosticDataSubmissionModeVFull
+)

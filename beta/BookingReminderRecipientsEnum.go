@@ -3,31 +3,28 @@
 package msgraph
 
 // BookingReminderRecipients undocumented
-type BookingReminderRecipients int
+type BookingReminderRecipients string
 
 const (
 	// BookingReminderRecipientsVAllAttendees undocumented
-	BookingReminderRecipientsVAllAttendees BookingReminderRecipients = 0
+	BookingReminderRecipientsVAllAttendees BookingReminderRecipients = "allAttendees"
 	// BookingReminderRecipientsVStaff undocumented
-	BookingReminderRecipientsVStaff BookingReminderRecipients = 1
+	BookingReminderRecipientsVStaff BookingReminderRecipients = "staff"
 	// BookingReminderRecipientsVCustomer undocumented
-	BookingReminderRecipientsVCustomer BookingReminderRecipients = 2
+	BookingReminderRecipientsVCustomer BookingReminderRecipients = "customer"
 )
 
-// BookingReminderRecipientsPAllAttendees returns a pointer to BookingReminderRecipientsVAllAttendees
-func BookingReminderRecipientsPAllAttendees() *BookingReminderRecipients {
-	v := BookingReminderRecipientsVAllAttendees
-	return &v
-}
+var (
+	// BookingReminderRecipientsPAllAttendees is a pointer to BookingReminderRecipientsVAllAttendees
+	BookingReminderRecipientsPAllAttendees = &_BookingReminderRecipientsPAllAttendees
+	// BookingReminderRecipientsPStaff is a pointer to BookingReminderRecipientsVStaff
+	BookingReminderRecipientsPStaff = &_BookingReminderRecipientsPStaff
+	// BookingReminderRecipientsPCustomer is a pointer to BookingReminderRecipientsVCustomer
+	BookingReminderRecipientsPCustomer = &_BookingReminderRecipientsPCustomer
+)
 
-// BookingReminderRecipientsPStaff returns a pointer to BookingReminderRecipientsVStaff
-func BookingReminderRecipientsPStaff() *BookingReminderRecipients {
-	v := BookingReminderRecipientsVStaff
-	return &v
-}
-
-// BookingReminderRecipientsPCustomer returns a pointer to BookingReminderRecipientsVCustomer
-func BookingReminderRecipientsPCustomer() *BookingReminderRecipients {
-	v := BookingReminderRecipientsVCustomer
-	return &v
-}
+var (
+	_BookingReminderRecipientsPAllAttendees = BookingReminderRecipientsVAllAttendees
+	_BookingReminderRecipientsPStaff        = BookingReminderRecipientsVStaff
+	_BookingReminderRecipientsPCustomer     = BookingReminderRecipientsVCustomer
+)

@@ -3,55 +3,43 @@
 package msgraph
 
 // LanManagerAuthenticationLevel undocumented
-type LanManagerAuthenticationLevel int
+type LanManagerAuthenticationLevel string
 
 const (
 	// LanManagerAuthenticationLevelVLmAndNltm undocumented
-	LanManagerAuthenticationLevelVLmAndNltm LanManagerAuthenticationLevel = 0
+	LanManagerAuthenticationLevelVLmAndNltm LanManagerAuthenticationLevel = "lmAndNltm"
 	// LanManagerAuthenticationLevelVLmNtlmAndNtlmV2 undocumented
-	LanManagerAuthenticationLevelVLmNtlmAndNtlmV2 LanManagerAuthenticationLevel = 1
+	LanManagerAuthenticationLevelVLmNtlmAndNtlmV2 LanManagerAuthenticationLevel = "lmNtlmAndNtlmV2"
 	// LanManagerAuthenticationLevelVLmAndNtlmOnly undocumented
-	LanManagerAuthenticationLevelVLmAndNtlmOnly LanManagerAuthenticationLevel = 2
+	LanManagerAuthenticationLevelVLmAndNtlmOnly LanManagerAuthenticationLevel = "lmAndNtlmOnly"
 	// LanManagerAuthenticationLevelVLmAndNtlmV2 undocumented
-	LanManagerAuthenticationLevelVLmAndNtlmV2 LanManagerAuthenticationLevel = 3
+	LanManagerAuthenticationLevelVLmAndNtlmV2 LanManagerAuthenticationLevel = "lmAndNtlmV2"
 	// LanManagerAuthenticationLevelVLmNtlmV2AndNotLm undocumented
-	LanManagerAuthenticationLevelVLmNtlmV2AndNotLm LanManagerAuthenticationLevel = 4
+	LanManagerAuthenticationLevelVLmNtlmV2AndNotLm LanManagerAuthenticationLevel = "lmNtlmV2AndNotLm"
 	// LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm undocumented
-	LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm LanManagerAuthenticationLevel = 5
+	LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm LanManagerAuthenticationLevel = "lmNtlmV2AndNotLmOrNtm"
 )
 
-// LanManagerAuthenticationLevelPLmAndNltm returns a pointer to LanManagerAuthenticationLevelVLmAndNltm
-func LanManagerAuthenticationLevelPLmAndNltm() *LanManagerAuthenticationLevel {
-	v := LanManagerAuthenticationLevelVLmAndNltm
-	return &v
-}
+var (
+	// LanManagerAuthenticationLevelPLmAndNltm is a pointer to LanManagerAuthenticationLevelVLmAndNltm
+	LanManagerAuthenticationLevelPLmAndNltm = &_LanManagerAuthenticationLevelPLmAndNltm
+	// LanManagerAuthenticationLevelPLmNtlmAndNtlmV2 is a pointer to LanManagerAuthenticationLevelVLmNtlmAndNtlmV2
+	LanManagerAuthenticationLevelPLmNtlmAndNtlmV2 = &_LanManagerAuthenticationLevelPLmNtlmAndNtlmV2
+	// LanManagerAuthenticationLevelPLmAndNtlmOnly is a pointer to LanManagerAuthenticationLevelVLmAndNtlmOnly
+	LanManagerAuthenticationLevelPLmAndNtlmOnly = &_LanManagerAuthenticationLevelPLmAndNtlmOnly
+	// LanManagerAuthenticationLevelPLmAndNtlmV2 is a pointer to LanManagerAuthenticationLevelVLmAndNtlmV2
+	LanManagerAuthenticationLevelPLmAndNtlmV2 = &_LanManagerAuthenticationLevelPLmAndNtlmV2
+	// LanManagerAuthenticationLevelPLmNtlmV2AndNotLm is a pointer to LanManagerAuthenticationLevelVLmNtlmV2AndNotLm
+	LanManagerAuthenticationLevelPLmNtlmV2AndNotLm = &_LanManagerAuthenticationLevelPLmNtlmV2AndNotLm
+	// LanManagerAuthenticationLevelPLmNtlmV2AndNotLmOrNtm is a pointer to LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm
+	LanManagerAuthenticationLevelPLmNtlmV2AndNotLmOrNtm = &_LanManagerAuthenticationLevelPLmNtlmV2AndNotLmOrNtm
+)
 
-// LanManagerAuthenticationLevelPLmNtlmAndNtlmV2 returns a pointer to LanManagerAuthenticationLevelVLmNtlmAndNtlmV2
-func LanManagerAuthenticationLevelPLmNtlmAndNtlmV2() *LanManagerAuthenticationLevel {
-	v := LanManagerAuthenticationLevelVLmNtlmAndNtlmV2
-	return &v
-}
-
-// LanManagerAuthenticationLevelPLmAndNtlmOnly returns a pointer to LanManagerAuthenticationLevelVLmAndNtlmOnly
-func LanManagerAuthenticationLevelPLmAndNtlmOnly() *LanManagerAuthenticationLevel {
-	v := LanManagerAuthenticationLevelVLmAndNtlmOnly
-	return &v
-}
-
-// LanManagerAuthenticationLevelPLmAndNtlmV2 returns a pointer to LanManagerAuthenticationLevelVLmAndNtlmV2
-func LanManagerAuthenticationLevelPLmAndNtlmV2() *LanManagerAuthenticationLevel {
-	v := LanManagerAuthenticationLevelVLmAndNtlmV2
-	return &v
-}
-
-// LanManagerAuthenticationLevelPLmNtlmV2AndNotLm returns a pointer to LanManagerAuthenticationLevelVLmNtlmV2AndNotLm
-func LanManagerAuthenticationLevelPLmNtlmV2AndNotLm() *LanManagerAuthenticationLevel {
-	v := LanManagerAuthenticationLevelVLmNtlmV2AndNotLm
-	return &v
-}
-
-// LanManagerAuthenticationLevelPLmNtlmV2AndNotLmOrNtm returns a pointer to LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm
-func LanManagerAuthenticationLevelPLmNtlmV2AndNotLmOrNtm() *LanManagerAuthenticationLevel {
-	v := LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm
-	return &v
-}
+var (
+	_LanManagerAuthenticationLevelPLmAndNltm             = LanManagerAuthenticationLevelVLmAndNltm
+	_LanManagerAuthenticationLevelPLmNtlmAndNtlmV2       = LanManagerAuthenticationLevelVLmNtlmAndNtlmV2
+	_LanManagerAuthenticationLevelPLmAndNtlmOnly         = LanManagerAuthenticationLevelVLmAndNtlmOnly
+	_LanManagerAuthenticationLevelPLmAndNtlmV2           = LanManagerAuthenticationLevelVLmAndNtlmV2
+	_LanManagerAuthenticationLevelPLmNtlmV2AndNotLm      = LanManagerAuthenticationLevelVLmNtlmV2AndNotLm
+	_LanManagerAuthenticationLevelPLmNtlmV2AndNotLmOrNtm = LanManagerAuthenticationLevelVLmNtlmV2AndNotLmOrNtm
+)

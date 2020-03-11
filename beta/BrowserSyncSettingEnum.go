@@ -3,31 +3,28 @@
 package msgraph
 
 // BrowserSyncSetting undocumented
-type BrowserSyncSetting int
+type BrowserSyncSetting string
 
 const (
 	// BrowserSyncSettingVNotConfigured undocumented
-	BrowserSyncSettingVNotConfigured BrowserSyncSetting = 0
+	BrowserSyncSettingVNotConfigured BrowserSyncSetting = "notConfigured"
 	// BrowserSyncSettingVBlockedWithUserOverride undocumented
-	BrowserSyncSettingVBlockedWithUserOverride BrowserSyncSetting = 1
+	BrowserSyncSettingVBlockedWithUserOverride BrowserSyncSetting = "blockedWithUserOverride"
 	// BrowserSyncSettingVBlocked undocumented
-	BrowserSyncSettingVBlocked BrowserSyncSetting = 2
+	BrowserSyncSettingVBlocked BrowserSyncSetting = "blocked"
 )
 
-// BrowserSyncSettingPNotConfigured returns a pointer to BrowserSyncSettingVNotConfigured
-func BrowserSyncSettingPNotConfigured() *BrowserSyncSetting {
-	v := BrowserSyncSettingVNotConfigured
-	return &v
-}
+var (
+	// BrowserSyncSettingPNotConfigured is a pointer to BrowserSyncSettingVNotConfigured
+	BrowserSyncSettingPNotConfigured = &_BrowserSyncSettingPNotConfigured
+	// BrowserSyncSettingPBlockedWithUserOverride is a pointer to BrowserSyncSettingVBlockedWithUserOverride
+	BrowserSyncSettingPBlockedWithUserOverride = &_BrowserSyncSettingPBlockedWithUserOverride
+	// BrowserSyncSettingPBlocked is a pointer to BrowserSyncSettingVBlocked
+	BrowserSyncSettingPBlocked = &_BrowserSyncSettingPBlocked
+)
 
-// BrowserSyncSettingPBlockedWithUserOverride returns a pointer to BrowserSyncSettingVBlockedWithUserOverride
-func BrowserSyncSettingPBlockedWithUserOverride() *BrowserSyncSetting {
-	v := BrowserSyncSettingVBlockedWithUserOverride
-	return &v
-}
-
-// BrowserSyncSettingPBlocked returns a pointer to BrowserSyncSettingVBlocked
-func BrowserSyncSettingPBlocked() *BrowserSyncSetting {
-	v := BrowserSyncSettingVBlocked
-	return &v
-}
+var (
+	_BrowserSyncSettingPNotConfigured           = BrowserSyncSettingVNotConfigured
+	_BrowserSyncSettingPBlockedWithUserOverride = BrowserSyncSettingVBlockedWithUserOverride
+	_BrowserSyncSettingPBlocked                 = BrowserSyncSettingVBlocked
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // WindowsDeviceUsageType undocumented
-type WindowsDeviceUsageType int
+type WindowsDeviceUsageType string
 
 const (
 	// WindowsDeviceUsageTypeVSingleUser undocumented
-	WindowsDeviceUsageTypeVSingleUser WindowsDeviceUsageType = 0
+	WindowsDeviceUsageTypeVSingleUser WindowsDeviceUsageType = "singleUser"
 	// WindowsDeviceUsageTypeVShared undocumented
-	WindowsDeviceUsageTypeVShared WindowsDeviceUsageType = 1
+	WindowsDeviceUsageTypeVShared WindowsDeviceUsageType = "shared"
 )
 
-// WindowsDeviceUsageTypePSingleUser returns a pointer to WindowsDeviceUsageTypeVSingleUser
-func WindowsDeviceUsageTypePSingleUser() *WindowsDeviceUsageType {
-	v := WindowsDeviceUsageTypeVSingleUser
-	return &v
-}
+var (
+	// WindowsDeviceUsageTypePSingleUser is a pointer to WindowsDeviceUsageTypeVSingleUser
+	WindowsDeviceUsageTypePSingleUser = &_WindowsDeviceUsageTypePSingleUser
+	// WindowsDeviceUsageTypePShared is a pointer to WindowsDeviceUsageTypeVShared
+	WindowsDeviceUsageTypePShared = &_WindowsDeviceUsageTypePShared
+)
 
-// WindowsDeviceUsageTypePShared returns a pointer to WindowsDeviceUsageTypeVShared
-func WindowsDeviceUsageTypePShared() *WindowsDeviceUsageType {
-	v := WindowsDeviceUsageTypeVShared
-	return &v
-}
+var (
+	_WindowsDeviceUsageTypePSingleUser = WindowsDeviceUsageTypeVSingleUser
+	_WindowsDeviceUsageTypePShared     = WindowsDeviceUsageTypeVShared
+)

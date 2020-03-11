@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsStartMenuAppListVisibilityType undocumented
-type WindowsStartMenuAppListVisibilityType int
+type WindowsStartMenuAppListVisibilityType string
 
 const (
 	// WindowsStartMenuAppListVisibilityTypeVUserDefined undocumented
-	WindowsStartMenuAppListVisibilityTypeVUserDefined WindowsStartMenuAppListVisibilityType = 0
+	WindowsStartMenuAppListVisibilityTypeVUserDefined WindowsStartMenuAppListVisibilityType = "userDefined"
 	// WindowsStartMenuAppListVisibilityTypeVCollapse undocumented
-	WindowsStartMenuAppListVisibilityTypeVCollapse WindowsStartMenuAppListVisibilityType = 1
+	WindowsStartMenuAppListVisibilityTypeVCollapse WindowsStartMenuAppListVisibilityType = "collapse"
 	// WindowsStartMenuAppListVisibilityTypeVRemove undocumented
-	WindowsStartMenuAppListVisibilityTypeVRemove WindowsStartMenuAppListVisibilityType = 2
+	WindowsStartMenuAppListVisibilityTypeVRemove WindowsStartMenuAppListVisibilityType = "remove"
 	// WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp undocumented
-	WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp WindowsStartMenuAppListVisibilityType = 4
+	WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp WindowsStartMenuAppListVisibilityType = "disableSettingsApp"
 )
 
-// WindowsStartMenuAppListVisibilityTypePUserDefined returns a pointer to WindowsStartMenuAppListVisibilityTypeVUserDefined
-func WindowsStartMenuAppListVisibilityTypePUserDefined() *WindowsStartMenuAppListVisibilityType {
-	v := WindowsStartMenuAppListVisibilityTypeVUserDefined
-	return &v
-}
+var (
+	// WindowsStartMenuAppListVisibilityTypePUserDefined is a pointer to WindowsStartMenuAppListVisibilityTypeVUserDefined
+	WindowsStartMenuAppListVisibilityTypePUserDefined = &_WindowsStartMenuAppListVisibilityTypePUserDefined
+	// WindowsStartMenuAppListVisibilityTypePCollapse is a pointer to WindowsStartMenuAppListVisibilityTypeVCollapse
+	WindowsStartMenuAppListVisibilityTypePCollapse = &_WindowsStartMenuAppListVisibilityTypePCollapse
+	// WindowsStartMenuAppListVisibilityTypePRemove is a pointer to WindowsStartMenuAppListVisibilityTypeVRemove
+	WindowsStartMenuAppListVisibilityTypePRemove = &_WindowsStartMenuAppListVisibilityTypePRemove
+	// WindowsStartMenuAppListVisibilityTypePDisableSettingsApp is a pointer to WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp
+	WindowsStartMenuAppListVisibilityTypePDisableSettingsApp = &_WindowsStartMenuAppListVisibilityTypePDisableSettingsApp
+)
 
-// WindowsStartMenuAppListVisibilityTypePCollapse returns a pointer to WindowsStartMenuAppListVisibilityTypeVCollapse
-func WindowsStartMenuAppListVisibilityTypePCollapse() *WindowsStartMenuAppListVisibilityType {
-	v := WindowsStartMenuAppListVisibilityTypeVCollapse
-	return &v
-}
-
-// WindowsStartMenuAppListVisibilityTypePRemove returns a pointer to WindowsStartMenuAppListVisibilityTypeVRemove
-func WindowsStartMenuAppListVisibilityTypePRemove() *WindowsStartMenuAppListVisibilityType {
-	v := WindowsStartMenuAppListVisibilityTypeVRemove
-	return &v
-}
-
-// WindowsStartMenuAppListVisibilityTypePDisableSettingsApp returns a pointer to WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp
-func WindowsStartMenuAppListVisibilityTypePDisableSettingsApp() *WindowsStartMenuAppListVisibilityType {
-	v := WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp
-	return &v
-}
+var (
+	_WindowsStartMenuAppListVisibilityTypePUserDefined        = WindowsStartMenuAppListVisibilityTypeVUserDefined
+	_WindowsStartMenuAppListVisibilityTypePCollapse           = WindowsStartMenuAppListVisibilityTypeVCollapse
+	_WindowsStartMenuAppListVisibilityTypePRemove             = WindowsStartMenuAppListVisibilityTypeVRemove
+	_WindowsStartMenuAppListVisibilityTypePDisableSettingsApp = WindowsStartMenuAppListVisibilityTypeVDisableSettingsApp
+)

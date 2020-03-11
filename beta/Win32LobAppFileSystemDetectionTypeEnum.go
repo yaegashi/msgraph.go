@@ -3,63 +3,48 @@
 package msgraph
 
 // Win32LobAppFileSystemDetectionType undocumented
-type Win32LobAppFileSystemDetectionType int
+type Win32LobAppFileSystemDetectionType string
 
 const (
 	// Win32LobAppFileSystemDetectionTypeVNotConfigured undocumented
-	Win32LobAppFileSystemDetectionTypeVNotConfigured Win32LobAppFileSystemDetectionType = 0
+	Win32LobAppFileSystemDetectionTypeVNotConfigured Win32LobAppFileSystemDetectionType = "notConfigured"
 	// Win32LobAppFileSystemDetectionTypeVExists undocumented
-	Win32LobAppFileSystemDetectionTypeVExists Win32LobAppFileSystemDetectionType = 1
+	Win32LobAppFileSystemDetectionTypeVExists Win32LobAppFileSystemDetectionType = "exists"
 	// Win32LobAppFileSystemDetectionTypeVModifiedDate undocumented
-	Win32LobAppFileSystemDetectionTypeVModifiedDate Win32LobAppFileSystemDetectionType = 2
+	Win32LobAppFileSystemDetectionTypeVModifiedDate Win32LobAppFileSystemDetectionType = "modifiedDate"
 	// Win32LobAppFileSystemDetectionTypeVCreatedDate undocumented
-	Win32LobAppFileSystemDetectionTypeVCreatedDate Win32LobAppFileSystemDetectionType = 3
+	Win32LobAppFileSystemDetectionTypeVCreatedDate Win32LobAppFileSystemDetectionType = "createdDate"
 	// Win32LobAppFileSystemDetectionTypeVVersion undocumented
-	Win32LobAppFileSystemDetectionTypeVVersion Win32LobAppFileSystemDetectionType = 4
+	Win32LobAppFileSystemDetectionTypeVVersion Win32LobAppFileSystemDetectionType = "version"
 	// Win32LobAppFileSystemDetectionTypeVSizeInMB undocumented
-	Win32LobAppFileSystemDetectionTypeVSizeInMB Win32LobAppFileSystemDetectionType = 5
+	Win32LobAppFileSystemDetectionTypeVSizeInMB Win32LobAppFileSystemDetectionType = "sizeInMB"
 	// Win32LobAppFileSystemDetectionTypeVDoesNotExist undocumented
-	Win32LobAppFileSystemDetectionTypeVDoesNotExist Win32LobAppFileSystemDetectionType = 6
+	Win32LobAppFileSystemDetectionTypeVDoesNotExist Win32LobAppFileSystemDetectionType = "doesNotExist"
 )
 
-// Win32LobAppFileSystemDetectionTypePNotConfigured returns a pointer to Win32LobAppFileSystemDetectionTypeVNotConfigured
-func Win32LobAppFileSystemDetectionTypePNotConfigured() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVNotConfigured
-	return &v
-}
+var (
+	// Win32LobAppFileSystemDetectionTypePNotConfigured is a pointer to Win32LobAppFileSystemDetectionTypeVNotConfigured
+	Win32LobAppFileSystemDetectionTypePNotConfigured = &_Win32LobAppFileSystemDetectionTypePNotConfigured
+	// Win32LobAppFileSystemDetectionTypePExists is a pointer to Win32LobAppFileSystemDetectionTypeVExists
+	Win32LobAppFileSystemDetectionTypePExists = &_Win32LobAppFileSystemDetectionTypePExists
+	// Win32LobAppFileSystemDetectionTypePModifiedDate is a pointer to Win32LobAppFileSystemDetectionTypeVModifiedDate
+	Win32LobAppFileSystemDetectionTypePModifiedDate = &_Win32LobAppFileSystemDetectionTypePModifiedDate
+	// Win32LobAppFileSystemDetectionTypePCreatedDate is a pointer to Win32LobAppFileSystemDetectionTypeVCreatedDate
+	Win32LobAppFileSystemDetectionTypePCreatedDate = &_Win32LobAppFileSystemDetectionTypePCreatedDate
+	// Win32LobAppFileSystemDetectionTypePVersion is a pointer to Win32LobAppFileSystemDetectionTypeVVersion
+	Win32LobAppFileSystemDetectionTypePVersion = &_Win32LobAppFileSystemDetectionTypePVersion
+	// Win32LobAppFileSystemDetectionTypePSizeInMB is a pointer to Win32LobAppFileSystemDetectionTypeVSizeInMB
+	Win32LobAppFileSystemDetectionTypePSizeInMB = &_Win32LobAppFileSystemDetectionTypePSizeInMB
+	// Win32LobAppFileSystemDetectionTypePDoesNotExist is a pointer to Win32LobAppFileSystemDetectionTypeVDoesNotExist
+	Win32LobAppFileSystemDetectionTypePDoesNotExist = &_Win32LobAppFileSystemDetectionTypePDoesNotExist
+)
 
-// Win32LobAppFileSystemDetectionTypePExists returns a pointer to Win32LobAppFileSystemDetectionTypeVExists
-func Win32LobAppFileSystemDetectionTypePExists() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVExists
-	return &v
-}
-
-// Win32LobAppFileSystemDetectionTypePModifiedDate returns a pointer to Win32LobAppFileSystemDetectionTypeVModifiedDate
-func Win32LobAppFileSystemDetectionTypePModifiedDate() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVModifiedDate
-	return &v
-}
-
-// Win32LobAppFileSystemDetectionTypePCreatedDate returns a pointer to Win32LobAppFileSystemDetectionTypeVCreatedDate
-func Win32LobAppFileSystemDetectionTypePCreatedDate() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVCreatedDate
-	return &v
-}
-
-// Win32LobAppFileSystemDetectionTypePVersion returns a pointer to Win32LobAppFileSystemDetectionTypeVVersion
-func Win32LobAppFileSystemDetectionTypePVersion() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVVersion
-	return &v
-}
-
-// Win32LobAppFileSystemDetectionTypePSizeInMB returns a pointer to Win32LobAppFileSystemDetectionTypeVSizeInMB
-func Win32LobAppFileSystemDetectionTypePSizeInMB() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVSizeInMB
-	return &v
-}
-
-// Win32LobAppFileSystemDetectionTypePDoesNotExist returns a pointer to Win32LobAppFileSystemDetectionTypeVDoesNotExist
-func Win32LobAppFileSystemDetectionTypePDoesNotExist() *Win32LobAppFileSystemDetectionType {
-	v := Win32LobAppFileSystemDetectionTypeVDoesNotExist
-	return &v
-}
+var (
+	_Win32LobAppFileSystemDetectionTypePNotConfigured = Win32LobAppFileSystemDetectionTypeVNotConfigured
+	_Win32LobAppFileSystemDetectionTypePExists        = Win32LobAppFileSystemDetectionTypeVExists
+	_Win32LobAppFileSystemDetectionTypePModifiedDate  = Win32LobAppFileSystemDetectionTypeVModifiedDate
+	_Win32LobAppFileSystemDetectionTypePCreatedDate   = Win32LobAppFileSystemDetectionTypeVCreatedDate
+	_Win32LobAppFileSystemDetectionTypePVersion       = Win32LobAppFileSystemDetectionTypeVVersion
+	_Win32LobAppFileSystemDetectionTypePSizeInMB      = Win32LobAppFileSystemDetectionTypeVSizeInMB
+	_Win32LobAppFileSystemDetectionTypePDoesNotExist  = Win32LobAppFileSystemDetectionTypeVDoesNotExist
+)

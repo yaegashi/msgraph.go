@@ -3,39 +3,33 @@
 package msgraph
 
 // InstallIntent undocumented
-type InstallIntent int
+type InstallIntent string
 
 const (
 	// InstallIntentVAvailable undocumented
-	InstallIntentVAvailable InstallIntent = 0
+	InstallIntentVAvailable InstallIntent = "available"
 	// InstallIntentVRequired undocumented
-	InstallIntentVRequired InstallIntent = 1
+	InstallIntentVRequired InstallIntent = "required"
 	// InstallIntentVUninstall undocumented
-	InstallIntentVUninstall InstallIntent = 2
+	InstallIntentVUninstall InstallIntent = "uninstall"
 	// InstallIntentVAvailableWithoutEnrollment undocumented
-	InstallIntentVAvailableWithoutEnrollment InstallIntent = 3
+	InstallIntentVAvailableWithoutEnrollment InstallIntent = "availableWithoutEnrollment"
 )
 
-// InstallIntentPAvailable returns a pointer to InstallIntentVAvailable
-func InstallIntentPAvailable() *InstallIntent {
-	v := InstallIntentVAvailable
-	return &v
-}
+var (
+	// InstallIntentPAvailable is a pointer to InstallIntentVAvailable
+	InstallIntentPAvailable = &_InstallIntentPAvailable
+	// InstallIntentPRequired is a pointer to InstallIntentVRequired
+	InstallIntentPRequired = &_InstallIntentPRequired
+	// InstallIntentPUninstall is a pointer to InstallIntentVUninstall
+	InstallIntentPUninstall = &_InstallIntentPUninstall
+	// InstallIntentPAvailableWithoutEnrollment is a pointer to InstallIntentVAvailableWithoutEnrollment
+	InstallIntentPAvailableWithoutEnrollment = &_InstallIntentPAvailableWithoutEnrollment
+)
 
-// InstallIntentPRequired returns a pointer to InstallIntentVRequired
-func InstallIntentPRequired() *InstallIntent {
-	v := InstallIntentVRequired
-	return &v
-}
-
-// InstallIntentPUninstall returns a pointer to InstallIntentVUninstall
-func InstallIntentPUninstall() *InstallIntent {
-	v := InstallIntentVUninstall
-	return &v
-}
-
-// InstallIntentPAvailableWithoutEnrollment returns a pointer to InstallIntentVAvailableWithoutEnrollment
-func InstallIntentPAvailableWithoutEnrollment() *InstallIntent {
-	v := InstallIntentVAvailableWithoutEnrollment
-	return &v
-}
+var (
+	_InstallIntentPAvailable                  = InstallIntentVAvailable
+	_InstallIntentPRequired                   = InstallIntentVRequired
+	_InstallIntentPUninstall                  = InstallIntentVUninstall
+	_InstallIntentPAvailableWithoutEnrollment = InstallIntentVAvailableWithoutEnrollment
+)

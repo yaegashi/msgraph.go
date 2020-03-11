@@ -3,71 +3,53 @@
 package msgraph
 
 // RatingUnitedStatesTelevisionType undocumented
-type RatingUnitedStatesTelevisionType int
+type RatingUnitedStatesTelevisionType string
 
 const (
 	// RatingUnitedStatesTelevisionTypeVAllAllowed undocumented
-	RatingUnitedStatesTelevisionTypeVAllAllowed RatingUnitedStatesTelevisionType = 0
+	RatingUnitedStatesTelevisionTypeVAllAllowed RatingUnitedStatesTelevisionType = "allAllowed"
 	// RatingUnitedStatesTelevisionTypeVAllBlocked undocumented
-	RatingUnitedStatesTelevisionTypeVAllBlocked RatingUnitedStatesTelevisionType = 1
+	RatingUnitedStatesTelevisionTypeVAllBlocked RatingUnitedStatesTelevisionType = "allBlocked"
 	// RatingUnitedStatesTelevisionTypeVChildrenAll undocumented
-	RatingUnitedStatesTelevisionTypeVChildrenAll RatingUnitedStatesTelevisionType = 2
+	RatingUnitedStatesTelevisionTypeVChildrenAll RatingUnitedStatesTelevisionType = "childrenAll"
 	// RatingUnitedStatesTelevisionTypeVChildrenAbove7 undocumented
-	RatingUnitedStatesTelevisionTypeVChildrenAbove7 RatingUnitedStatesTelevisionType = 3
+	RatingUnitedStatesTelevisionTypeVChildrenAbove7 RatingUnitedStatesTelevisionType = "childrenAbove7"
 	// RatingUnitedStatesTelevisionTypeVGeneral undocumented
-	RatingUnitedStatesTelevisionTypeVGeneral RatingUnitedStatesTelevisionType = 4
+	RatingUnitedStatesTelevisionTypeVGeneral RatingUnitedStatesTelevisionType = "general"
 	// RatingUnitedStatesTelevisionTypeVParentalGuidance undocumented
-	RatingUnitedStatesTelevisionTypeVParentalGuidance RatingUnitedStatesTelevisionType = 5
+	RatingUnitedStatesTelevisionTypeVParentalGuidance RatingUnitedStatesTelevisionType = "parentalGuidance"
 	// RatingUnitedStatesTelevisionTypeVChildrenAbove14 undocumented
-	RatingUnitedStatesTelevisionTypeVChildrenAbove14 RatingUnitedStatesTelevisionType = 6
+	RatingUnitedStatesTelevisionTypeVChildrenAbove14 RatingUnitedStatesTelevisionType = "childrenAbove14"
 	// RatingUnitedStatesTelevisionTypeVAdults undocumented
-	RatingUnitedStatesTelevisionTypeVAdults RatingUnitedStatesTelevisionType = 7
+	RatingUnitedStatesTelevisionTypeVAdults RatingUnitedStatesTelevisionType = "adults"
 )
 
-// RatingUnitedStatesTelevisionTypePAllAllowed returns a pointer to RatingUnitedStatesTelevisionTypeVAllAllowed
-func RatingUnitedStatesTelevisionTypePAllAllowed() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingUnitedStatesTelevisionTypePAllAllowed is a pointer to RatingUnitedStatesTelevisionTypeVAllAllowed
+	RatingUnitedStatesTelevisionTypePAllAllowed = &_RatingUnitedStatesTelevisionTypePAllAllowed
+	// RatingUnitedStatesTelevisionTypePAllBlocked is a pointer to RatingUnitedStatesTelevisionTypeVAllBlocked
+	RatingUnitedStatesTelevisionTypePAllBlocked = &_RatingUnitedStatesTelevisionTypePAllBlocked
+	// RatingUnitedStatesTelevisionTypePChildrenAll is a pointer to RatingUnitedStatesTelevisionTypeVChildrenAll
+	RatingUnitedStatesTelevisionTypePChildrenAll = &_RatingUnitedStatesTelevisionTypePChildrenAll
+	// RatingUnitedStatesTelevisionTypePChildrenAbove7 is a pointer to RatingUnitedStatesTelevisionTypeVChildrenAbove7
+	RatingUnitedStatesTelevisionTypePChildrenAbove7 = &_RatingUnitedStatesTelevisionTypePChildrenAbove7
+	// RatingUnitedStatesTelevisionTypePGeneral is a pointer to RatingUnitedStatesTelevisionTypeVGeneral
+	RatingUnitedStatesTelevisionTypePGeneral = &_RatingUnitedStatesTelevisionTypePGeneral
+	// RatingUnitedStatesTelevisionTypePParentalGuidance is a pointer to RatingUnitedStatesTelevisionTypeVParentalGuidance
+	RatingUnitedStatesTelevisionTypePParentalGuidance = &_RatingUnitedStatesTelevisionTypePParentalGuidance
+	// RatingUnitedStatesTelevisionTypePChildrenAbove14 is a pointer to RatingUnitedStatesTelevisionTypeVChildrenAbove14
+	RatingUnitedStatesTelevisionTypePChildrenAbove14 = &_RatingUnitedStatesTelevisionTypePChildrenAbove14
+	// RatingUnitedStatesTelevisionTypePAdults is a pointer to RatingUnitedStatesTelevisionTypeVAdults
+	RatingUnitedStatesTelevisionTypePAdults = &_RatingUnitedStatesTelevisionTypePAdults
+)
 
-// RatingUnitedStatesTelevisionTypePAllBlocked returns a pointer to RatingUnitedStatesTelevisionTypeVAllBlocked
-func RatingUnitedStatesTelevisionTypePAllBlocked() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingUnitedStatesTelevisionTypePChildrenAll returns a pointer to RatingUnitedStatesTelevisionTypeVChildrenAll
-func RatingUnitedStatesTelevisionTypePChildrenAll() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVChildrenAll
-	return &v
-}
-
-// RatingUnitedStatesTelevisionTypePChildrenAbove7 returns a pointer to RatingUnitedStatesTelevisionTypeVChildrenAbove7
-func RatingUnitedStatesTelevisionTypePChildrenAbove7() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVChildrenAbove7
-	return &v
-}
-
-// RatingUnitedStatesTelevisionTypePGeneral returns a pointer to RatingUnitedStatesTelevisionTypeVGeneral
-func RatingUnitedStatesTelevisionTypePGeneral() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVGeneral
-	return &v
-}
-
-// RatingUnitedStatesTelevisionTypePParentalGuidance returns a pointer to RatingUnitedStatesTelevisionTypeVParentalGuidance
-func RatingUnitedStatesTelevisionTypePParentalGuidance() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVParentalGuidance
-	return &v
-}
-
-// RatingUnitedStatesTelevisionTypePChildrenAbove14 returns a pointer to RatingUnitedStatesTelevisionTypeVChildrenAbove14
-func RatingUnitedStatesTelevisionTypePChildrenAbove14() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVChildrenAbove14
-	return &v
-}
-
-// RatingUnitedStatesTelevisionTypePAdults returns a pointer to RatingUnitedStatesTelevisionTypeVAdults
-func RatingUnitedStatesTelevisionTypePAdults() *RatingUnitedStatesTelevisionType {
-	v := RatingUnitedStatesTelevisionTypeVAdults
-	return &v
-}
+var (
+	_RatingUnitedStatesTelevisionTypePAllAllowed       = RatingUnitedStatesTelevisionTypeVAllAllowed
+	_RatingUnitedStatesTelevisionTypePAllBlocked       = RatingUnitedStatesTelevisionTypeVAllBlocked
+	_RatingUnitedStatesTelevisionTypePChildrenAll      = RatingUnitedStatesTelevisionTypeVChildrenAll
+	_RatingUnitedStatesTelevisionTypePChildrenAbove7   = RatingUnitedStatesTelevisionTypeVChildrenAbove7
+	_RatingUnitedStatesTelevisionTypePGeneral          = RatingUnitedStatesTelevisionTypeVGeneral
+	_RatingUnitedStatesTelevisionTypePParentalGuidance = RatingUnitedStatesTelevisionTypeVParentalGuidance
+	_RatingUnitedStatesTelevisionTypePChildrenAbove14  = RatingUnitedStatesTelevisionTypeVChildrenAbove14
+	_RatingUnitedStatesTelevisionTypePAdults           = RatingUnitedStatesTelevisionTypeVAdults
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // GroupPolicyDefinitionClassType undocumented
-type GroupPolicyDefinitionClassType int
+type GroupPolicyDefinitionClassType string
 
 const (
 	// GroupPolicyDefinitionClassTypeVUser undocumented
-	GroupPolicyDefinitionClassTypeVUser GroupPolicyDefinitionClassType = 0
+	GroupPolicyDefinitionClassTypeVUser GroupPolicyDefinitionClassType = "user"
 	// GroupPolicyDefinitionClassTypeVMachine undocumented
-	GroupPolicyDefinitionClassTypeVMachine GroupPolicyDefinitionClassType = 1
+	GroupPolicyDefinitionClassTypeVMachine GroupPolicyDefinitionClassType = "machine"
 )
 
-// GroupPolicyDefinitionClassTypePUser returns a pointer to GroupPolicyDefinitionClassTypeVUser
-func GroupPolicyDefinitionClassTypePUser() *GroupPolicyDefinitionClassType {
-	v := GroupPolicyDefinitionClassTypeVUser
-	return &v
-}
+var (
+	// GroupPolicyDefinitionClassTypePUser is a pointer to GroupPolicyDefinitionClassTypeVUser
+	GroupPolicyDefinitionClassTypePUser = &_GroupPolicyDefinitionClassTypePUser
+	// GroupPolicyDefinitionClassTypePMachine is a pointer to GroupPolicyDefinitionClassTypeVMachine
+	GroupPolicyDefinitionClassTypePMachine = &_GroupPolicyDefinitionClassTypePMachine
+)
 
-// GroupPolicyDefinitionClassTypePMachine returns a pointer to GroupPolicyDefinitionClassTypeVMachine
-func GroupPolicyDefinitionClassTypePMachine() *GroupPolicyDefinitionClassType {
-	v := GroupPolicyDefinitionClassTypeVMachine
-	return &v
-}
+var (
+	_GroupPolicyDefinitionClassTypePUser    = GroupPolicyDefinitionClassTypeVUser
+	_GroupPolicyDefinitionClassTypePMachine = GroupPolicyDefinitionClassTypeVMachine
+)

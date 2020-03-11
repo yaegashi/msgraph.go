@@ -3,39 +3,33 @@
 package msgraph
 
 // OnenoteUserRole undocumented
-type OnenoteUserRole int
+type OnenoteUserRole string
 
 const (
 	// OnenoteUserRoleVOwner undocumented
-	OnenoteUserRoleVOwner OnenoteUserRole = 0
+	OnenoteUserRoleVOwner OnenoteUserRole = "Owner"
 	// OnenoteUserRoleVContributor undocumented
-	OnenoteUserRoleVContributor OnenoteUserRole = 1
+	OnenoteUserRoleVContributor OnenoteUserRole = "Contributor"
 	// OnenoteUserRoleVReader undocumented
-	OnenoteUserRoleVReader OnenoteUserRole = 2
+	OnenoteUserRoleVReader OnenoteUserRole = "Reader"
 	// OnenoteUserRoleVNone undocumented
-	OnenoteUserRoleVNone OnenoteUserRole = -1
+	OnenoteUserRoleVNone OnenoteUserRole = "None"
 )
 
-// OnenoteUserRolePOwner returns a pointer to OnenoteUserRoleVOwner
-func OnenoteUserRolePOwner() *OnenoteUserRole {
-	v := OnenoteUserRoleVOwner
-	return &v
-}
+var (
+	// OnenoteUserRolePOwner is a pointer to OnenoteUserRoleVOwner
+	OnenoteUserRolePOwner = &_OnenoteUserRolePOwner
+	// OnenoteUserRolePContributor is a pointer to OnenoteUserRoleVContributor
+	OnenoteUserRolePContributor = &_OnenoteUserRolePContributor
+	// OnenoteUserRolePReader is a pointer to OnenoteUserRoleVReader
+	OnenoteUserRolePReader = &_OnenoteUserRolePReader
+	// OnenoteUserRolePNone is a pointer to OnenoteUserRoleVNone
+	OnenoteUserRolePNone = &_OnenoteUserRolePNone
+)
 
-// OnenoteUserRolePContributor returns a pointer to OnenoteUserRoleVContributor
-func OnenoteUserRolePContributor() *OnenoteUserRole {
-	v := OnenoteUserRoleVContributor
-	return &v
-}
-
-// OnenoteUserRolePReader returns a pointer to OnenoteUserRoleVReader
-func OnenoteUserRolePReader() *OnenoteUserRole {
-	v := OnenoteUserRoleVReader
-	return &v
-}
-
-// OnenoteUserRolePNone returns a pointer to OnenoteUserRoleVNone
-func OnenoteUserRolePNone() *OnenoteUserRole {
-	v := OnenoteUserRoleVNone
-	return &v
-}
+var (
+	_OnenoteUserRolePOwner       = OnenoteUserRoleVOwner
+	_OnenoteUserRolePContributor = OnenoteUserRoleVContributor
+	_OnenoteUserRolePReader      = OnenoteUserRoleVReader
+	_OnenoteUserRolePNone        = OnenoteUserRoleVNone
+)

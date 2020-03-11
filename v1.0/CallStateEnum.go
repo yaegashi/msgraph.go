@@ -3,87 +3,63 @@
 package msgraph
 
 // CallState undocumented
-type CallState int
+type CallState string
 
 const (
 	// CallStateVIncoming undocumented
-	CallStateVIncoming CallState = 0
+	CallStateVIncoming CallState = "incoming"
 	// CallStateVEstablishing undocumented
-	CallStateVEstablishing CallState = 1
+	CallStateVEstablishing CallState = "establishing"
 	// CallStateVEstablished undocumented
-	CallStateVEstablished CallState = 3
+	CallStateVEstablished CallState = "established"
 	// CallStateVHold undocumented
-	CallStateVHold CallState = 4
+	CallStateVHold CallState = "hold"
 	// CallStateVTransferring undocumented
-	CallStateVTransferring CallState = 5
+	CallStateVTransferring CallState = "transferring"
 	// CallStateVTransferAccepted undocumented
-	CallStateVTransferAccepted CallState = 6
+	CallStateVTransferAccepted CallState = "transferAccepted"
 	// CallStateVRedirecting undocumented
-	CallStateVRedirecting CallState = 7
+	CallStateVRedirecting CallState = "redirecting"
 	// CallStateVTerminating undocumented
-	CallStateVTerminating CallState = 8
+	CallStateVTerminating CallState = "terminating"
 	// CallStateVTerminated undocumented
-	CallStateVTerminated CallState = 9
+	CallStateVTerminated CallState = "terminated"
 	// CallStateVUnknownFutureValue undocumented
-	CallStateVUnknownFutureValue CallState = 10
+	CallStateVUnknownFutureValue CallState = "unknownFutureValue"
 )
 
-// CallStatePIncoming returns a pointer to CallStateVIncoming
-func CallStatePIncoming() *CallState {
-	v := CallStateVIncoming
-	return &v
-}
+var (
+	// CallStatePIncoming is a pointer to CallStateVIncoming
+	CallStatePIncoming = &_CallStatePIncoming
+	// CallStatePEstablishing is a pointer to CallStateVEstablishing
+	CallStatePEstablishing = &_CallStatePEstablishing
+	// CallStatePEstablished is a pointer to CallStateVEstablished
+	CallStatePEstablished = &_CallStatePEstablished
+	// CallStatePHold is a pointer to CallStateVHold
+	CallStatePHold = &_CallStatePHold
+	// CallStatePTransferring is a pointer to CallStateVTransferring
+	CallStatePTransferring = &_CallStatePTransferring
+	// CallStatePTransferAccepted is a pointer to CallStateVTransferAccepted
+	CallStatePTransferAccepted = &_CallStatePTransferAccepted
+	// CallStatePRedirecting is a pointer to CallStateVRedirecting
+	CallStatePRedirecting = &_CallStatePRedirecting
+	// CallStatePTerminating is a pointer to CallStateVTerminating
+	CallStatePTerminating = &_CallStatePTerminating
+	// CallStatePTerminated is a pointer to CallStateVTerminated
+	CallStatePTerminated = &_CallStatePTerminated
+	// CallStatePUnknownFutureValue is a pointer to CallStateVUnknownFutureValue
+	CallStatePUnknownFutureValue = &_CallStatePUnknownFutureValue
+)
 
-// CallStatePEstablishing returns a pointer to CallStateVEstablishing
-func CallStatePEstablishing() *CallState {
-	v := CallStateVEstablishing
-	return &v
-}
-
-// CallStatePEstablished returns a pointer to CallStateVEstablished
-func CallStatePEstablished() *CallState {
-	v := CallStateVEstablished
-	return &v
-}
-
-// CallStatePHold returns a pointer to CallStateVHold
-func CallStatePHold() *CallState {
-	v := CallStateVHold
-	return &v
-}
-
-// CallStatePTransferring returns a pointer to CallStateVTransferring
-func CallStatePTransferring() *CallState {
-	v := CallStateVTransferring
-	return &v
-}
-
-// CallStatePTransferAccepted returns a pointer to CallStateVTransferAccepted
-func CallStatePTransferAccepted() *CallState {
-	v := CallStateVTransferAccepted
-	return &v
-}
-
-// CallStatePRedirecting returns a pointer to CallStateVRedirecting
-func CallStatePRedirecting() *CallState {
-	v := CallStateVRedirecting
-	return &v
-}
-
-// CallStatePTerminating returns a pointer to CallStateVTerminating
-func CallStatePTerminating() *CallState {
-	v := CallStateVTerminating
-	return &v
-}
-
-// CallStatePTerminated returns a pointer to CallStateVTerminated
-func CallStatePTerminated() *CallState {
-	v := CallStateVTerminated
-	return &v
-}
-
-// CallStatePUnknownFutureValue returns a pointer to CallStateVUnknownFutureValue
-func CallStatePUnknownFutureValue() *CallState {
-	v := CallStateVUnknownFutureValue
-	return &v
-}
+var (
+	_CallStatePIncoming           = CallStateVIncoming
+	_CallStatePEstablishing       = CallStateVEstablishing
+	_CallStatePEstablished        = CallStateVEstablished
+	_CallStatePHold               = CallStateVHold
+	_CallStatePTransferring       = CallStateVTransferring
+	_CallStatePTransferAccepted   = CallStateVTransferAccepted
+	_CallStatePRedirecting        = CallStateVRedirecting
+	_CallStatePTerminating        = CallStateVTerminating
+	_CallStatePTerminated         = CallStateVTerminated
+	_CallStatePUnknownFutureValue = CallStateVUnknownFutureValue
+)

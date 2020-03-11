@@ -3,31 +3,28 @@
 package msgraph
 
 // EducationExternalSource undocumented
-type EducationExternalSource int
+type EducationExternalSource string
 
 const (
 	// EducationExternalSourceVSis undocumented
-	EducationExternalSourceVSis EducationExternalSource = 0
+	EducationExternalSourceVSis EducationExternalSource = "sis"
 	// EducationExternalSourceVManual undocumented
-	EducationExternalSourceVManual EducationExternalSource = 1
+	EducationExternalSourceVManual EducationExternalSource = "manual"
 	// EducationExternalSourceVUnknownFutureValue undocumented
-	EducationExternalSourceVUnknownFutureValue EducationExternalSource = 2
+	EducationExternalSourceVUnknownFutureValue EducationExternalSource = "unknownFutureValue"
 )
 
-// EducationExternalSourcePSis returns a pointer to EducationExternalSourceVSis
-func EducationExternalSourcePSis() *EducationExternalSource {
-	v := EducationExternalSourceVSis
-	return &v
-}
+var (
+	// EducationExternalSourcePSis is a pointer to EducationExternalSourceVSis
+	EducationExternalSourcePSis = &_EducationExternalSourcePSis
+	// EducationExternalSourcePManual is a pointer to EducationExternalSourceVManual
+	EducationExternalSourcePManual = &_EducationExternalSourcePManual
+	// EducationExternalSourcePUnknownFutureValue is a pointer to EducationExternalSourceVUnknownFutureValue
+	EducationExternalSourcePUnknownFutureValue = &_EducationExternalSourcePUnknownFutureValue
+)
 
-// EducationExternalSourcePManual returns a pointer to EducationExternalSourceVManual
-func EducationExternalSourcePManual() *EducationExternalSource {
-	v := EducationExternalSourceVManual
-	return &v
-}
-
-// EducationExternalSourcePUnknownFutureValue returns a pointer to EducationExternalSourceVUnknownFutureValue
-func EducationExternalSourcePUnknownFutureValue() *EducationExternalSource {
-	v := EducationExternalSourceVUnknownFutureValue
-	return &v
-}
+var (
+	_EducationExternalSourcePSis                = EducationExternalSourceVSis
+	_EducationExternalSourcePManual             = EducationExternalSourceVManual
+	_EducationExternalSourcePUnknownFutureValue = EducationExternalSourceVUnknownFutureValue
+)

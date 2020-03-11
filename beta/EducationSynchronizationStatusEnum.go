@@ -3,63 +3,48 @@
 package msgraph
 
 // EducationSynchronizationStatus undocumented
-type EducationSynchronizationStatus int
+type EducationSynchronizationStatus string
 
 const (
 	// EducationSynchronizationStatusVPaused undocumented
-	EducationSynchronizationStatusVPaused EducationSynchronizationStatus = 0
+	EducationSynchronizationStatusVPaused EducationSynchronizationStatus = "paused"
 	// EducationSynchronizationStatusVInProgress undocumented
-	EducationSynchronizationStatusVInProgress EducationSynchronizationStatus = 1
+	EducationSynchronizationStatusVInProgress EducationSynchronizationStatus = "inProgress"
 	// EducationSynchronizationStatusVSuccess undocumented
-	EducationSynchronizationStatusVSuccess EducationSynchronizationStatus = 2
+	EducationSynchronizationStatusVSuccess EducationSynchronizationStatus = "success"
 	// EducationSynchronizationStatusVError undocumented
-	EducationSynchronizationStatusVError EducationSynchronizationStatus = 3
+	EducationSynchronizationStatusVError EducationSynchronizationStatus = "error"
 	// EducationSynchronizationStatusVValidationError undocumented
-	EducationSynchronizationStatusVValidationError EducationSynchronizationStatus = 4
+	EducationSynchronizationStatusVValidationError EducationSynchronizationStatus = "validationError"
 	// EducationSynchronizationStatusVQuarantined undocumented
-	EducationSynchronizationStatusVQuarantined EducationSynchronizationStatus = 5
+	EducationSynchronizationStatusVQuarantined EducationSynchronizationStatus = "quarantined"
 	// EducationSynchronizationStatusVUnknownFutureValue undocumented
-	EducationSynchronizationStatusVUnknownFutureValue EducationSynchronizationStatus = 6
+	EducationSynchronizationStatusVUnknownFutureValue EducationSynchronizationStatus = "unknownFutureValue"
 )
 
-// EducationSynchronizationStatusPPaused returns a pointer to EducationSynchronizationStatusVPaused
-func EducationSynchronizationStatusPPaused() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVPaused
-	return &v
-}
+var (
+	// EducationSynchronizationStatusPPaused is a pointer to EducationSynchronizationStatusVPaused
+	EducationSynchronizationStatusPPaused = &_EducationSynchronizationStatusPPaused
+	// EducationSynchronizationStatusPInProgress is a pointer to EducationSynchronizationStatusVInProgress
+	EducationSynchronizationStatusPInProgress = &_EducationSynchronizationStatusPInProgress
+	// EducationSynchronizationStatusPSuccess is a pointer to EducationSynchronizationStatusVSuccess
+	EducationSynchronizationStatusPSuccess = &_EducationSynchronizationStatusPSuccess
+	// EducationSynchronizationStatusPError is a pointer to EducationSynchronizationStatusVError
+	EducationSynchronizationStatusPError = &_EducationSynchronizationStatusPError
+	// EducationSynchronizationStatusPValidationError is a pointer to EducationSynchronizationStatusVValidationError
+	EducationSynchronizationStatusPValidationError = &_EducationSynchronizationStatusPValidationError
+	// EducationSynchronizationStatusPQuarantined is a pointer to EducationSynchronizationStatusVQuarantined
+	EducationSynchronizationStatusPQuarantined = &_EducationSynchronizationStatusPQuarantined
+	// EducationSynchronizationStatusPUnknownFutureValue is a pointer to EducationSynchronizationStatusVUnknownFutureValue
+	EducationSynchronizationStatusPUnknownFutureValue = &_EducationSynchronizationStatusPUnknownFutureValue
+)
 
-// EducationSynchronizationStatusPInProgress returns a pointer to EducationSynchronizationStatusVInProgress
-func EducationSynchronizationStatusPInProgress() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVInProgress
-	return &v
-}
-
-// EducationSynchronizationStatusPSuccess returns a pointer to EducationSynchronizationStatusVSuccess
-func EducationSynchronizationStatusPSuccess() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVSuccess
-	return &v
-}
-
-// EducationSynchronizationStatusPError returns a pointer to EducationSynchronizationStatusVError
-func EducationSynchronizationStatusPError() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVError
-	return &v
-}
-
-// EducationSynchronizationStatusPValidationError returns a pointer to EducationSynchronizationStatusVValidationError
-func EducationSynchronizationStatusPValidationError() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVValidationError
-	return &v
-}
-
-// EducationSynchronizationStatusPQuarantined returns a pointer to EducationSynchronizationStatusVQuarantined
-func EducationSynchronizationStatusPQuarantined() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVQuarantined
-	return &v
-}
-
-// EducationSynchronizationStatusPUnknownFutureValue returns a pointer to EducationSynchronizationStatusVUnknownFutureValue
-func EducationSynchronizationStatusPUnknownFutureValue() *EducationSynchronizationStatus {
-	v := EducationSynchronizationStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_EducationSynchronizationStatusPPaused             = EducationSynchronizationStatusVPaused
+	_EducationSynchronizationStatusPInProgress         = EducationSynchronizationStatusVInProgress
+	_EducationSynchronizationStatusPSuccess            = EducationSynchronizationStatusVSuccess
+	_EducationSynchronizationStatusPError              = EducationSynchronizationStatusVError
+	_EducationSynchronizationStatusPValidationError    = EducationSynchronizationStatusVValidationError
+	_EducationSynchronizationStatusPQuarantined        = EducationSynchronizationStatusVQuarantined
+	_EducationSynchronizationStatusPUnknownFutureValue = EducationSynchronizationStatusVUnknownFutureValue
+)

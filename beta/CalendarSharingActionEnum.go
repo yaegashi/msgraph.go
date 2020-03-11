@@ -3,39 +3,33 @@
 package msgraph
 
 // CalendarSharingAction undocumented
-type CalendarSharingAction int
+type CalendarSharingAction string
 
 const (
 	// CalendarSharingActionVAccept undocumented
-	CalendarSharingActionVAccept CalendarSharingAction = 0
+	CalendarSharingActionVAccept CalendarSharingAction = "accept"
 	// CalendarSharingActionVAcceptAndViewCalendar undocumented
-	CalendarSharingActionVAcceptAndViewCalendar CalendarSharingAction = 1
+	CalendarSharingActionVAcceptAndViewCalendar CalendarSharingAction = "acceptAndViewCalendar"
 	// CalendarSharingActionVViewCalendar undocumented
-	CalendarSharingActionVViewCalendar CalendarSharingAction = 2
+	CalendarSharingActionVViewCalendar CalendarSharingAction = "viewCalendar"
 	// CalendarSharingActionVAddThisCalendar undocumented
-	CalendarSharingActionVAddThisCalendar CalendarSharingAction = 3
+	CalendarSharingActionVAddThisCalendar CalendarSharingAction = "addThisCalendar"
 )
 
-// CalendarSharingActionPAccept returns a pointer to CalendarSharingActionVAccept
-func CalendarSharingActionPAccept() *CalendarSharingAction {
-	v := CalendarSharingActionVAccept
-	return &v
-}
+var (
+	// CalendarSharingActionPAccept is a pointer to CalendarSharingActionVAccept
+	CalendarSharingActionPAccept = &_CalendarSharingActionPAccept
+	// CalendarSharingActionPAcceptAndViewCalendar is a pointer to CalendarSharingActionVAcceptAndViewCalendar
+	CalendarSharingActionPAcceptAndViewCalendar = &_CalendarSharingActionPAcceptAndViewCalendar
+	// CalendarSharingActionPViewCalendar is a pointer to CalendarSharingActionVViewCalendar
+	CalendarSharingActionPViewCalendar = &_CalendarSharingActionPViewCalendar
+	// CalendarSharingActionPAddThisCalendar is a pointer to CalendarSharingActionVAddThisCalendar
+	CalendarSharingActionPAddThisCalendar = &_CalendarSharingActionPAddThisCalendar
+)
 
-// CalendarSharingActionPAcceptAndViewCalendar returns a pointer to CalendarSharingActionVAcceptAndViewCalendar
-func CalendarSharingActionPAcceptAndViewCalendar() *CalendarSharingAction {
-	v := CalendarSharingActionVAcceptAndViewCalendar
-	return &v
-}
-
-// CalendarSharingActionPViewCalendar returns a pointer to CalendarSharingActionVViewCalendar
-func CalendarSharingActionPViewCalendar() *CalendarSharingAction {
-	v := CalendarSharingActionVViewCalendar
-	return &v
-}
-
-// CalendarSharingActionPAddThisCalendar returns a pointer to CalendarSharingActionVAddThisCalendar
-func CalendarSharingActionPAddThisCalendar() *CalendarSharingAction {
-	v := CalendarSharingActionVAddThisCalendar
-	return &v
-}
+var (
+	_CalendarSharingActionPAccept                = CalendarSharingActionVAccept
+	_CalendarSharingActionPAcceptAndViewCalendar = CalendarSharingActionVAcceptAndViewCalendar
+	_CalendarSharingActionPViewCalendar          = CalendarSharingActionVViewCalendar
+	_CalendarSharingActionPAddThisCalendar       = CalendarSharingActionVAddThisCalendar
+)

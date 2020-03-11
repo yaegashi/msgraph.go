@@ -3,55 +3,43 @@
 package msgraph
 
 // InstallState undocumented
-type InstallState int
+type InstallState string
 
 const (
 	// InstallStateVNotApplicable undocumented
-	InstallStateVNotApplicable InstallState = 0
+	InstallStateVNotApplicable InstallState = "notApplicable"
 	// InstallStateVInstalled undocumented
-	InstallStateVInstalled InstallState = 1
+	InstallStateVInstalled InstallState = "installed"
 	// InstallStateVFailed undocumented
-	InstallStateVFailed InstallState = 2
+	InstallStateVFailed InstallState = "failed"
 	// InstallStateVNotInstalled undocumented
-	InstallStateVNotInstalled InstallState = 3
+	InstallStateVNotInstalled InstallState = "notInstalled"
 	// InstallStateVUninstallFailed undocumented
-	InstallStateVUninstallFailed InstallState = 4
+	InstallStateVUninstallFailed InstallState = "uninstallFailed"
 	// InstallStateVUnknown undocumented
-	InstallStateVUnknown InstallState = 5
+	InstallStateVUnknown InstallState = "unknown"
 )
 
-// InstallStatePNotApplicable returns a pointer to InstallStateVNotApplicable
-func InstallStatePNotApplicable() *InstallState {
-	v := InstallStateVNotApplicable
-	return &v
-}
+var (
+	// InstallStatePNotApplicable is a pointer to InstallStateVNotApplicable
+	InstallStatePNotApplicable = &_InstallStatePNotApplicable
+	// InstallStatePInstalled is a pointer to InstallStateVInstalled
+	InstallStatePInstalled = &_InstallStatePInstalled
+	// InstallStatePFailed is a pointer to InstallStateVFailed
+	InstallStatePFailed = &_InstallStatePFailed
+	// InstallStatePNotInstalled is a pointer to InstallStateVNotInstalled
+	InstallStatePNotInstalled = &_InstallStatePNotInstalled
+	// InstallStatePUninstallFailed is a pointer to InstallStateVUninstallFailed
+	InstallStatePUninstallFailed = &_InstallStatePUninstallFailed
+	// InstallStatePUnknown is a pointer to InstallStateVUnknown
+	InstallStatePUnknown = &_InstallStatePUnknown
+)
 
-// InstallStatePInstalled returns a pointer to InstallStateVInstalled
-func InstallStatePInstalled() *InstallState {
-	v := InstallStateVInstalled
-	return &v
-}
-
-// InstallStatePFailed returns a pointer to InstallStateVFailed
-func InstallStatePFailed() *InstallState {
-	v := InstallStateVFailed
-	return &v
-}
-
-// InstallStatePNotInstalled returns a pointer to InstallStateVNotInstalled
-func InstallStatePNotInstalled() *InstallState {
-	v := InstallStateVNotInstalled
-	return &v
-}
-
-// InstallStatePUninstallFailed returns a pointer to InstallStateVUninstallFailed
-func InstallStatePUninstallFailed() *InstallState {
-	v := InstallStateVUninstallFailed
-	return &v
-}
-
-// InstallStatePUnknown returns a pointer to InstallStateVUnknown
-func InstallStatePUnknown() *InstallState {
-	v := InstallStateVUnknown
-	return &v
-}
+var (
+	_InstallStatePNotApplicable   = InstallStateVNotApplicable
+	_InstallStatePInstalled       = InstallStateVInstalled
+	_InstallStatePFailed          = InstallStateVFailed
+	_InstallStatePNotInstalled    = InstallStateVNotInstalled
+	_InstallStatePUninstallFailed = InstallStateVUninstallFailed
+	_InstallStatePUnknown         = InstallStateVUnknown
+)

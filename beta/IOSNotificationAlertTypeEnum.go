@@ -3,39 +3,33 @@
 package msgraph
 
 // IOSNotificationAlertType undocumented
-type IOSNotificationAlertType int
+type IOSNotificationAlertType string
 
 const (
 	// IOSNotificationAlertTypeVDeviceDefault undocumented
-	IOSNotificationAlertTypeVDeviceDefault IOSNotificationAlertType = 0
+	IOSNotificationAlertTypeVDeviceDefault IOSNotificationAlertType = "deviceDefault"
 	// IOSNotificationAlertTypeVBanner undocumented
-	IOSNotificationAlertTypeVBanner IOSNotificationAlertType = 1
+	IOSNotificationAlertTypeVBanner IOSNotificationAlertType = "banner"
 	// IOSNotificationAlertTypeVModal undocumented
-	IOSNotificationAlertTypeVModal IOSNotificationAlertType = 2
+	IOSNotificationAlertTypeVModal IOSNotificationAlertType = "modal"
 	// IOSNotificationAlertTypeVNone undocumented
-	IOSNotificationAlertTypeVNone IOSNotificationAlertType = 3
+	IOSNotificationAlertTypeVNone IOSNotificationAlertType = "none"
 )
 
-// IOSNotificationAlertTypePDeviceDefault returns a pointer to IOSNotificationAlertTypeVDeviceDefault
-func IOSNotificationAlertTypePDeviceDefault() *IOSNotificationAlertType {
-	v := IOSNotificationAlertTypeVDeviceDefault
-	return &v
-}
+var (
+	// IOSNotificationAlertTypePDeviceDefault is a pointer to IOSNotificationAlertTypeVDeviceDefault
+	IOSNotificationAlertTypePDeviceDefault = &_IOSNotificationAlertTypePDeviceDefault
+	// IOSNotificationAlertTypePBanner is a pointer to IOSNotificationAlertTypeVBanner
+	IOSNotificationAlertTypePBanner = &_IOSNotificationAlertTypePBanner
+	// IOSNotificationAlertTypePModal is a pointer to IOSNotificationAlertTypeVModal
+	IOSNotificationAlertTypePModal = &_IOSNotificationAlertTypePModal
+	// IOSNotificationAlertTypePNone is a pointer to IOSNotificationAlertTypeVNone
+	IOSNotificationAlertTypePNone = &_IOSNotificationAlertTypePNone
+)
 
-// IOSNotificationAlertTypePBanner returns a pointer to IOSNotificationAlertTypeVBanner
-func IOSNotificationAlertTypePBanner() *IOSNotificationAlertType {
-	v := IOSNotificationAlertTypeVBanner
-	return &v
-}
-
-// IOSNotificationAlertTypePModal returns a pointer to IOSNotificationAlertTypeVModal
-func IOSNotificationAlertTypePModal() *IOSNotificationAlertType {
-	v := IOSNotificationAlertTypeVModal
-	return &v
-}
-
-// IOSNotificationAlertTypePNone returns a pointer to IOSNotificationAlertTypeVNone
-func IOSNotificationAlertTypePNone() *IOSNotificationAlertType {
-	v := IOSNotificationAlertTypeVNone
-	return &v
-}
+var (
+	_IOSNotificationAlertTypePDeviceDefault = IOSNotificationAlertTypeVDeviceDefault
+	_IOSNotificationAlertTypePBanner        = IOSNotificationAlertTypeVBanner
+	_IOSNotificationAlertTypePModal         = IOSNotificationAlertTypeVModal
+	_IOSNotificationAlertTypePNone          = IOSNotificationAlertTypeVNone
+)

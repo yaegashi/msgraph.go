@@ -3,31 +3,28 @@
 package msgraph
 
 // ChangeType undocumented
-type ChangeType int
+type ChangeType string
 
 const (
 	// ChangeTypeVCreated undocumented
-	ChangeTypeVCreated ChangeType = 0
+	ChangeTypeVCreated ChangeType = "created"
 	// ChangeTypeVUpdated undocumented
-	ChangeTypeVUpdated ChangeType = 1
+	ChangeTypeVUpdated ChangeType = "updated"
 	// ChangeTypeVDeleted undocumented
-	ChangeTypeVDeleted ChangeType = 2
+	ChangeTypeVDeleted ChangeType = "deleted"
 )
 
-// ChangeTypePCreated returns a pointer to ChangeTypeVCreated
-func ChangeTypePCreated() *ChangeType {
-	v := ChangeTypeVCreated
-	return &v
-}
+var (
+	// ChangeTypePCreated is a pointer to ChangeTypeVCreated
+	ChangeTypePCreated = &_ChangeTypePCreated
+	// ChangeTypePUpdated is a pointer to ChangeTypeVUpdated
+	ChangeTypePUpdated = &_ChangeTypePUpdated
+	// ChangeTypePDeleted is a pointer to ChangeTypeVDeleted
+	ChangeTypePDeleted = &_ChangeTypePDeleted
+)
 
-// ChangeTypePUpdated returns a pointer to ChangeTypeVUpdated
-func ChangeTypePUpdated() *ChangeType {
-	v := ChangeTypeVUpdated
-	return &v
-}
-
-// ChangeTypePDeleted returns a pointer to ChangeTypeVDeleted
-func ChangeTypePDeleted() *ChangeType {
-	v := ChangeTypeVDeleted
-	return &v
-}
+var (
+	_ChangeTypePCreated = ChangeTypeVCreated
+	_ChangeTypePUpdated = ChangeTypeVUpdated
+	_ChangeTypePDeleted = ChangeTypeVDeleted
+)

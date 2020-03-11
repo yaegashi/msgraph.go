@@ -3,31 +3,28 @@
 package msgraph
 
 // AndroidEapType undocumented
-type AndroidEapType int
+type AndroidEapType string
 
 const (
 	// AndroidEapTypeVEapTLS undocumented
-	AndroidEapTypeVEapTLS AndroidEapType = 13
+	AndroidEapTypeVEapTLS AndroidEapType = "eapTls"
 	// AndroidEapTypeVEapTtls undocumented
-	AndroidEapTypeVEapTtls AndroidEapType = 21
+	AndroidEapTypeVEapTtls AndroidEapType = "eapTtls"
 	// AndroidEapTypeVPeap undocumented
-	AndroidEapTypeVPeap AndroidEapType = 25
+	AndroidEapTypeVPeap AndroidEapType = "peap"
 )
 
-// AndroidEapTypePEapTLS returns a pointer to AndroidEapTypeVEapTLS
-func AndroidEapTypePEapTLS() *AndroidEapType {
-	v := AndroidEapTypeVEapTLS
-	return &v
-}
+var (
+	// AndroidEapTypePEapTLS is a pointer to AndroidEapTypeVEapTLS
+	AndroidEapTypePEapTLS = &_AndroidEapTypePEapTLS
+	// AndroidEapTypePEapTtls is a pointer to AndroidEapTypeVEapTtls
+	AndroidEapTypePEapTtls = &_AndroidEapTypePEapTtls
+	// AndroidEapTypePPeap is a pointer to AndroidEapTypeVPeap
+	AndroidEapTypePPeap = &_AndroidEapTypePPeap
+)
 
-// AndroidEapTypePEapTtls returns a pointer to AndroidEapTypeVEapTtls
-func AndroidEapTypePEapTtls() *AndroidEapType {
-	v := AndroidEapTypeVEapTtls
-	return &v
-}
-
-// AndroidEapTypePPeap returns a pointer to AndroidEapTypeVPeap
-func AndroidEapTypePPeap() *AndroidEapType {
-	v := AndroidEapTypeVPeap
-	return &v
-}
+var (
+	_AndroidEapTypePEapTLS  = AndroidEapTypeVEapTLS
+	_AndroidEapTypePEapTtls = AndroidEapTypeVEapTtls
+	_AndroidEapTypePPeap    = AndroidEapTypeVPeap
+)

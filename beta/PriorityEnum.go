@@ -3,31 +3,28 @@
 package msgraph
 
 // Priority undocumented
-type Priority int
+type Priority string
 
 const (
 	// PriorityVNone undocumented
-	PriorityVNone Priority = 0
+	PriorityVNone Priority = "None"
 	// PriorityVHigh undocumented
-	PriorityVHigh Priority = 1
+	PriorityVHigh Priority = "High"
 	// PriorityVLow undocumented
-	PriorityVLow Priority = 2
+	PriorityVLow Priority = "Low"
 )
 
-// PriorityPNone returns a pointer to PriorityVNone
-func PriorityPNone() *Priority {
-	v := PriorityVNone
-	return &v
-}
+var (
+	// PriorityPNone is a pointer to PriorityVNone
+	PriorityPNone = &_PriorityPNone
+	// PriorityPHigh is a pointer to PriorityVHigh
+	PriorityPHigh = &_PriorityPHigh
+	// PriorityPLow is a pointer to PriorityVLow
+	PriorityPLow = &_PriorityPLow
+)
 
-// PriorityPHigh returns a pointer to PriorityVHigh
-func PriorityPHigh() *Priority {
-	v := PriorityVHigh
-	return &v
-}
-
-// PriorityPLow returns a pointer to PriorityVLow
-func PriorityPLow() *Priority {
-	v := PriorityVLow
-	return &v
-}
+var (
+	_PriorityPNone = PriorityVNone
+	_PriorityPHigh = PriorityVHigh
+	_PriorityPLow  = PriorityVLow
+)

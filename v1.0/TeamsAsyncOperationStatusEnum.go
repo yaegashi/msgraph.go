@@ -3,55 +3,43 @@
 package msgraph
 
 // TeamsAsyncOperationStatus undocumented
-type TeamsAsyncOperationStatus int
+type TeamsAsyncOperationStatus string
 
 const (
 	// TeamsAsyncOperationStatusVInvalid undocumented
-	TeamsAsyncOperationStatusVInvalid TeamsAsyncOperationStatus = 0
+	TeamsAsyncOperationStatusVInvalid TeamsAsyncOperationStatus = "invalid"
 	// TeamsAsyncOperationStatusVNotStarted undocumented
-	TeamsAsyncOperationStatusVNotStarted TeamsAsyncOperationStatus = 1
+	TeamsAsyncOperationStatusVNotStarted TeamsAsyncOperationStatus = "notStarted"
 	// TeamsAsyncOperationStatusVInProgress undocumented
-	TeamsAsyncOperationStatusVInProgress TeamsAsyncOperationStatus = 2
+	TeamsAsyncOperationStatusVInProgress TeamsAsyncOperationStatus = "inProgress"
 	// TeamsAsyncOperationStatusVSucceeded undocumented
-	TeamsAsyncOperationStatusVSucceeded TeamsAsyncOperationStatus = 3
+	TeamsAsyncOperationStatusVSucceeded TeamsAsyncOperationStatus = "succeeded"
 	// TeamsAsyncOperationStatusVFailed undocumented
-	TeamsAsyncOperationStatusVFailed TeamsAsyncOperationStatus = 4
+	TeamsAsyncOperationStatusVFailed TeamsAsyncOperationStatus = "failed"
 	// TeamsAsyncOperationStatusVUnknownFutureValue undocumented
-	TeamsAsyncOperationStatusVUnknownFutureValue TeamsAsyncOperationStatus = 5
+	TeamsAsyncOperationStatusVUnknownFutureValue TeamsAsyncOperationStatus = "unknownFutureValue"
 )
 
-// TeamsAsyncOperationStatusPInvalid returns a pointer to TeamsAsyncOperationStatusVInvalid
-func TeamsAsyncOperationStatusPInvalid() *TeamsAsyncOperationStatus {
-	v := TeamsAsyncOperationStatusVInvalid
-	return &v
-}
+var (
+	// TeamsAsyncOperationStatusPInvalid is a pointer to TeamsAsyncOperationStatusVInvalid
+	TeamsAsyncOperationStatusPInvalid = &_TeamsAsyncOperationStatusPInvalid
+	// TeamsAsyncOperationStatusPNotStarted is a pointer to TeamsAsyncOperationStatusVNotStarted
+	TeamsAsyncOperationStatusPNotStarted = &_TeamsAsyncOperationStatusPNotStarted
+	// TeamsAsyncOperationStatusPInProgress is a pointer to TeamsAsyncOperationStatusVInProgress
+	TeamsAsyncOperationStatusPInProgress = &_TeamsAsyncOperationStatusPInProgress
+	// TeamsAsyncOperationStatusPSucceeded is a pointer to TeamsAsyncOperationStatusVSucceeded
+	TeamsAsyncOperationStatusPSucceeded = &_TeamsAsyncOperationStatusPSucceeded
+	// TeamsAsyncOperationStatusPFailed is a pointer to TeamsAsyncOperationStatusVFailed
+	TeamsAsyncOperationStatusPFailed = &_TeamsAsyncOperationStatusPFailed
+	// TeamsAsyncOperationStatusPUnknownFutureValue is a pointer to TeamsAsyncOperationStatusVUnknownFutureValue
+	TeamsAsyncOperationStatusPUnknownFutureValue = &_TeamsAsyncOperationStatusPUnknownFutureValue
+)
 
-// TeamsAsyncOperationStatusPNotStarted returns a pointer to TeamsAsyncOperationStatusVNotStarted
-func TeamsAsyncOperationStatusPNotStarted() *TeamsAsyncOperationStatus {
-	v := TeamsAsyncOperationStatusVNotStarted
-	return &v
-}
-
-// TeamsAsyncOperationStatusPInProgress returns a pointer to TeamsAsyncOperationStatusVInProgress
-func TeamsAsyncOperationStatusPInProgress() *TeamsAsyncOperationStatus {
-	v := TeamsAsyncOperationStatusVInProgress
-	return &v
-}
-
-// TeamsAsyncOperationStatusPSucceeded returns a pointer to TeamsAsyncOperationStatusVSucceeded
-func TeamsAsyncOperationStatusPSucceeded() *TeamsAsyncOperationStatus {
-	v := TeamsAsyncOperationStatusVSucceeded
-	return &v
-}
-
-// TeamsAsyncOperationStatusPFailed returns a pointer to TeamsAsyncOperationStatusVFailed
-func TeamsAsyncOperationStatusPFailed() *TeamsAsyncOperationStatus {
-	v := TeamsAsyncOperationStatusVFailed
-	return &v
-}
-
-// TeamsAsyncOperationStatusPUnknownFutureValue returns a pointer to TeamsAsyncOperationStatusVUnknownFutureValue
-func TeamsAsyncOperationStatusPUnknownFutureValue() *TeamsAsyncOperationStatus {
-	v := TeamsAsyncOperationStatusVUnknownFutureValue
-	return &v
-}
+var (
+	_TeamsAsyncOperationStatusPInvalid            = TeamsAsyncOperationStatusVInvalid
+	_TeamsAsyncOperationStatusPNotStarted         = TeamsAsyncOperationStatusVNotStarted
+	_TeamsAsyncOperationStatusPInProgress         = TeamsAsyncOperationStatusVInProgress
+	_TeamsAsyncOperationStatusPSucceeded          = TeamsAsyncOperationStatusVSucceeded
+	_TeamsAsyncOperationStatusPFailed             = TeamsAsyncOperationStatusVFailed
+	_TeamsAsyncOperationStatusPUnknownFutureValue = TeamsAsyncOperationStatusVUnknownFutureValue
+)

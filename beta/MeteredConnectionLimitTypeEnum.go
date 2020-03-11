@@ -3,31 +3,28 @@
 package msgraph
 
 // MeteredConnectionLimitType undocumented
-type MeteredConnectionLimitType int
+type MeteredConnectionLimitType string
 
 const (
 	// MeteredConnectionLimitTypeVUnrestricted undocumented
-	MeteredConnectionLimitTypeVUnrestricted MeteredConnectionLimitType = 0
+	MeteredConnectionLimitTypeVUnrestricted MeteredConnectionLimitType = "unrestricted"
 	// MeteredConnectionLimitTypeVFixed undocumented
-	MeteredConnectionLimitTypeVFixed MeteredConnectionLimitType = 1
+	MeteredConnectionLimitTypeVFixed MeteredConnectionLimitType = "fixed"
 	// MeteredConnectionLimitTypeVVariable undocumented
-	MeteredConnectionLimitTypeVVariable MeteredConnectionLimitType = 2
+	MeteredConnectionLimitTypeVVariable MeteredConnectionLimitType = "variable"
 )
 
-// MeteredConnectionLimitTypePUnrestricted returns a pointer to MeteredConnectionLimitTypeVUnrestricted
-func MeteredConnectionLimitTypePUnrestricted() *MeteredConnectionLimitType {
-	v := MeteredConnectionLimitTypeVUnrestricted
-	return &v
-}
+var (
+	// MeteredConnectionLimitTypePUnrestricted is a pointer to MeteredConnectionLimitTypeVUnrestricted
+	MeteredConnectionLimitTypePUnrestricted = &_MeteredConnectionLimitTypePUnrestricted
+	// MeteredConnectionLimitTypePFixed is a pointer to MeteredConnectionLimitTypeVFixed
+	MeteredConnectionLimitTypePFixed = &_MeteredConnectionLimitTypePFixed
+	// MeteredConnectionLimitTypePVariable is a pointer to MeteredConnectionLimitTypeVVariable
+	MeteredConnectionLimitTypePVariable = &_MeteredConnectionLimitTypePVariable
+)
 
-// MeteredConnectionLimitTypePFixed returns a pointer to MeteredConnectionLimitTypeVFixed
-func MeteredConnectionLimitTypePFixed() *MeteredConnectionLimitType {
-	v := MeteredConnectionLimitTypeVFixed
-	return &v
-}
-
-// MeteredConnectionLimitTypePVariable returns a pointer to MeteredConnectionLimitTypeVVariable
-func MeteredConnectionLimitTypePVariable() *MeteredConnectionLimitType {
-	v := MeteredConnectionLimitTypeVVariable
-	return &v
-}
+var (
+	_MeteredConnectionLimitTypePUnrestricted = MeteredConnectionLimitTypeVUnrestricted
+	_MeteredConnectionLimitTypePFixed        = MeteredConnectionLimitTypeVFixed
+	_MeteredConnectionLimitTypePVariable     = MeteredConnectionLimitTypeVVariable
+)

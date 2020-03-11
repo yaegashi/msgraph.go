@@ -3,55 +3,43 @@
 package msgraph
 
 // MeetingMessageType undocumented
-type MeetingMessageType int
+type MeetingMessageType string
 
 const (
 	// MeetingMessageTypeVNone undocumented
-	MeetingMessageTypeVNone MeetingMessageType = 0
+	MeetingMessageTypeVNone MeetingMessageType = "none"
 	// MeetingMessageTypeVMeetingRequest undocumented
-	MeetingMessageTypeVMeetingRequest MeetingMessageType = 1
+	MeetingMessageTypeVMeetingRequest MeetingMessageType = "meetingRequest"
 	// MeetingMessageTypeVMeetingCancelled undocumented
-	MeetingMessageTypeVMeetingCancelled MeetingMessageType = 2
+	MeetingMessageTypeVMeetingCancelled MeetingMessageType = "meetingCancelled"
 	// MeetingMessageTypeVMeetingAccepted undocumented
-	MeetingMessageTypeVMeetingAccepted MeetingMessageType = 3
+	MeetingMessageTypeVMeetingAccepted MeetingMessageType = "meetingAccepted"
 	// MeetingMessageTypeVMeetingTenativelyAccepted undocumented
-	MeetingMessageTypeVMeetingTenativelyAccepted MeetingMessageType = 4
+	MeetingMessageTypeVMeetingTenativelyAccepted MeetingMessageType = "meetingTenativelyAccepted"
 	// MeetingMessageTypeVMeetingDeclined undocumented
-	MeetingMessageTypeVMeetingDeclined MeetingMessageType = 5
+	MeetingMessageTypeVMeetingDeclined MeetingMessageType = "meetingDeclined"
 )
 
-// MeetingMessageTypePNone returns a pointer to MeetingMessageTypeVNone
-func MeetingMessageTypePNone() *MeetingMessageType {
-	v := MeetingMessageTypeVNone
-	return &v
-}
+var (
+	// MeetingMessageTypePNone is a pointer to MeetingMessageTypeVNone
+	MeetingMessageTypePNone = &_MeetingMessageTypePNone
+	// MeetingMessageTypePMeetingRequest is a pointer to MeetingMessageTypeVMeetingRequest
+	MeetingMessageTypePMeetingRequest = &_MeetingMessageTypePMeetingRequest
+	// MeetingMessageTypePMeetingCancelled is a pointer to MeetingMessageTypeVMeetingCancelled
+	MeetingMessageTypePMeetingCancelled = &_MeetingMessageTypePMeetingCancelled
+	// MeetingMessageTypePMeetingAccepted is a pointer to MeetingMessageTypeVMeetingAccepted
+	MeetingMessageTypePMeetingAccepted = &_MeetingMessageTypePMeetingAccepted
+	// MeetingMessageTypePMeetingTenativelyAccepted is a pointer to MeetingMessageTypeVMeetingTenativelyAccepted
+	MeetingMessageTypePMeetingTenativelyAccepted = &_MeetingMessageTypePMeetingTenativelyAccepted
+	// MeetingMessageTypePMeetingDeclined is a pointer to MeetingMessageTypeVMeetingDeclined
+	MeetingMessageTypePMeetingDeclined = &_MeetingMessageTypePMeetingDeclined
+)
 
-// MeetingMessageTypePMeetingRequest returns a pointer to MeetingMessageTypeVMeetingRequest
-func MeetingMessageTypePMeetingRequest() *MeetingMessageType {
-	v := MeetingMessageTypeVMeetingRequest
-	return &v
-}
-
-// MeetingMessageTypePMeetingCancelled returns a pointer to MeetingMessageTypeVMeetingCancelled
-func MeetingMessageTypePMeetingCancelled() *MeetingMessageType {
-	v := MeetingMessageTypeVMeetingCancelled
-	return &v
-}
-
-// MeetingMessageTypePMeetingAccepted returns a pointer to MeetingMessageTypeVMeetingAccepted
-func MeetingMessageTypePMeetingAccepted() *MeetingMessageType {
-	v := MeetingMessageTypeVMeetingAccepted
-	return &v
-}
-
-// MeetingMessageTypePMeetingTenativelyAccepted returns a pointer to MeetingMessageTypeVMeetingTenativelyAccepted
-func MeetingMessageTypePMeetingTenativelyAccepted() *MeetingMessageType {
-	v := MeetingMessageTypeVMeetingTenativelyAccepted
-	return &v
-}
-
-// MeetingMessageTypePMeetingDeclined returns a pointer to MeetingMessageTypeVMeetingDeclined
-func MeetingMessageTypePMeetingDeclined() *MeetingMessageType {
-	v := MeetingMessageTypeVMeetingDeclined
-	return &v
-}
+var (
+	_MeetingMessageTypePNone                      = MeetingMessageTypeVNone
+	_MeetingMessageTypePMeetingRequest            = MeetingMessageTypeVMeetingRequest
+	_MeetingMessageTypePMeetingCancelled          = MeetingMessageTypeVMeetingCancelled
+	_MeetingMessageTypePMeetingAccepted           = MeetingMessageTypeVMeetingAccepted
+	_MeetingMessageTypePMeetingTenativelyAccepted = MeetingMessageTypeVMeetingTenativelyAccepted
+	_MeetingMessageTypePMeetingDeclined           = MeetingMessageTypeVMeetingDeclined
+)

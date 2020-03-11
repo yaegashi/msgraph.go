@@ -3,15 +3,18 @@
 package msgraph
 
 // Component undocumented
-type Component int
+type Component string
 
 const (
 	// ComponentVLabel undocumented
-	ComponentVLabel Component = 0
+	ComponentVLabel Component = "Label"
 )
 
-// ComponentPLabel returns a pointer to ComponentVLabel
-func ComponentPLabel() *Component {
-	v := ComponentVLabel
-	return &v
-}
+var (
+	// ComponentPLabel is a pointer to ComponentVLabel
+	ComponentPLabel = &_ComponentPLabel
+)
+
+var (
+	_ComponentPLabel = ComponentVLabel
+)

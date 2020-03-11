@@ -3,55 +3,43 @@
 package msgraph
 
 // Win32LobAppRegistryDetectionType undocumented
-type Win32LobAppRegistryDetectionType int
+type Win32LobAppRegistryDetectionType string
 
 const (
 	// Win32LobAppRegistryDetectionTypeVNotConfigured undocumented
-	Win32LobAppRegistryDetectionTypeVNotConfigured Win32LobAppRegistryDetectionType = 0
+	Win32LobAppRegistryDetectionTypeVNotConfigured Win32LobAppRegistryDetectionType = "notConfigured"
 	// Win32LobAppRegistryDetectionTypeVExists undocumented
-	Win32LobAppRegistryDetectionTypeVExists Win32LobAppRegistryDetectionType = 1
+	Win32LobAppRegistryDetectionTypeVExists Win32LobAppRegistryDetectionType = "exists"
 	// Win32LobAppRegistryDetectionTypeVDoesNotExist undocumented
-	Win32LobAppRegistryDetectionTypeVDoesNotExist Win32LobAppRegistryDetectionType = 2
+	Win32LobAppRegistryDetectionTypeVDoesNotExist Win32LobAppRegistryDetectionType = "doesNotExist"
 	// Win32LobAppRegistryDetectionTypeVString undocumented
-	Win32LobAppRegistryDetectionTypeVString Win32LobAppRegistryDetectionType = 3
+	Win32LobAppRegistryDetectionTypeVString Win32LobAppRegistryDetectionType = "string"
 	// Win32LobAppRegistryDetectionTypeVInteger undocumented
-	Win32LobAppRegistryDetectionTypeVInteger Win32LobAppRegistryDetectionType = 4
+	Win32LobAppRegistryDetectionTypeVInteger Win32LobAppRegistryDetectionType = "integer"
 	// Win32LobAppRegistryDetectionTypeVVersion undocumented
-	Win32LobAppRegistryDetectionTypeVVersion Win32LobAppRegistryDetectionType = 5
+	Win32LobAppRegistryDetectionTypeVVersion Win32LobAppRegistryDetectionType = "version"
 )
 
-// Win32LobAppRegistryDetectionTypePNotConfigured returns a pointer to Win32LobAppRegistryDetectionTypeVNotConfigured
-func Win32LobAppRegistryDetectionTypePNotConfigured() *Win32LobAppRegistryDetectionType {
-	v := Win32LobAppRegistryDetectionTypeVNotConfigured
-	return &v
-}
+var (
+	// Win32LobAppRegistryDetectionTypePNotConfigured is a pointer to Win32LobAppRegistryDetectionTypeVNotConfigured
+	Win32LobAppRegistryDetectionTypePNotConfigured = &_Win32LobAppRegistryDetectionTypePNotConfigured
+	// Win32LobAppRegistryDetectionTypePExists is a pointer to Win32LobAppRegistryDetectionTypeVExists
+	Win32LobAppRegistryDetectionTypePExists = &_Win32LobAppRegistryDetectionTypePExists
+	// Win32LobAppRegistryDetectionTypePDoesNotExist is a pointer to Win32LobAppRegistryDetectionTypeVDoesNotExist
+	Win32LobAppRegistryDetectionTypePDoesNotExist = &_Win32LobAppRegistryDetectionTypePDoesNotExist
+	// Win32LobAppRegistryDetectionTypePString is a pointer to Win32LobAppRegistryDetectionTypeVString
+	Win32LobAppRegistryDetectionTypePString = &_Win32LobAppRegistryDetectionTypePString
+	// Win32LobAppRegistryDetectionTypePInteger is a pointer to Win32LobAppRegistryDetectionTypeVInteger
+	Win32LobAppRegistryDetectionTypePInteger = &_Win32LobAppRegistryDetectionTypePInteger
+	// Win32LobAppRegistryDetectionTypePVersion is a pointer to Win32LobAppRegistryDetectionTypeVVersion
+	Win32LobAppRegistryDetectionTypePVersion = &_Win32LobAppRegistryDetectionTypePVersion
+)
 
-// Win32LobAppRegistryDetectionTypePExists returns a pointer to Win32LobAppRegistryDetectionTypeVExists
-func Win32LobAppRegistryDetectionTypePExists() *Win32LobAppRegistryDetectionType {
-	v := Win32LobAppRegistryDetectionTypeVExists
-	return &v
-}
-
-// Win32LobAppRegistryDetectionTypePDoesNotExist returns a pointer to Win32LobAppRegistryDetectionTypeVDoesNotExist
-func Win32LobAppRegistryDetectionTypePDoesNotExist() *Win32LobAppRegistryDetectionType {
-	v := Win32LobAppRegistryDetectionTypeVDoesNotExist
-	return &v
-}
-
-// Win32LobAppRegistryDetectionTypePString returns a pointer to Win32LobAppRegistryDetectionTypeVString
-func Win32LobAppRegistryDetectionTypePString() *Win32LobAppRegistryDetectionType {
-	v := Win32LobAppRegistryDetectionTypeVString
-	return &v
-}
-
-// Win32LobAppRegistryDetectionTypePInteger returns a pointer to Win32LobAppRegistryDetectionTypeVInteger
-func Win32LobAppRegistryDetectionTypePInteger() *Win32LobAppRegistryDetectionType {
-	v := Win32LobAppRegistryDetectionTypeVInteger
-	return &v
-}
-
-// Win32LobAppRegistryDetectionTypePVersion returns a pointer to Win32LobAppRegistryDetectionTypeVVersion
-func Win32LobAppRegistryDetectionTypePVersion() *Win32LobAppRegistryDetectionType {
-	v := Win32LobAppRegistryDetectionTypeVVersion
-	return &v
-}
+var (
+	_Win32LobAppRegistryDetectionTypePNotConfigured = Win32LobAppRegistryDetectionTypeVNotConfigured
+	_Win32LobAppRegistryDetectionTypePExists        = Win32LobAppRegistryDetectionTypeVExists
+	_Win32LobAppRegistryDetectionTypePDoesNotExist  = Win32LobAppRegistryDetectionTypeVDoesNotExist
+	_Win32LobAppRegistryDetectionTypePString        = Win32LobAppRegistryDetectionTypeVString
+	_Win32LobAppRegistryDetectionTypePInteger       = Win32LobAppRegistryDetectionTypeVInteger
+	_Win32LobAppRegistryDetectionTypePVersion       = Win32LobAppRegistryDetectionTypeVVersion
+)

@@ -3,159 +3,108 @@
 package msgraph
 
 // WindowsPrivacyDataCategory undocumented
-type WindowsPrivacyDataCategory int
+type WindowsPrivacyDataCategory string
 
 const (
 	// WindowsPrivacyDataCategoryVNotConfigured undocumented
-	WindowsPrivacyDataCategoryVNotConfigured WindowsPrivacyDataCategory = 0
+	WindowsPrivacyDataCategoryVNotConfigured WindowsPrivacyDataCategory = "notConfigured"
 	// WindowsPrivacyDataCategoryVAccountInfo undocumented
-	WindowsPrivacyDataCategoryVAccountInfo WindowsPrivacyDataCategory = 1
+	WindowsPrivacyDataCategoryVAccountInfo WindowsPrivacyDataCategory = "accountInfo"
 	// WindowsPrivacyDataCategoryVAppsRunInBackground undocumented
-	WindowsPrivacyDataCategoryVAppsRunInBackground WindowsPrivacyDataCategory = 2
+	WindowsPrivacyDataCategoryVAppsRunInBackground WindowsPrivacyDataCategory = "appsRunInBackground"
 	// WindowsPrivacyDataCategoryVCalendar undocumented
-	WindowsPrivacyDataCategoryVCalendar WindowsPrivacyDataCategory = 3
+	WindowsPrivacyDataCategoryVCalendar WindowsPrivacyDataCategory = "calendar"
 	// WindowsPrivacyDataCategoryVCallHistory undocumented
-	WindowsPrivacyDataCategoryVCallHistory WindowsPrivacyDataCategory = 4
+	WindowsPrivacyDataCategoryVCallHistory WindowsPrivacyDataCategory = "callHistory"
 	// WindowsPrivacyDataCategoryVCamera undocumented
-	WindowsPrivacyDataCategoryVCamera WindowsPrivacyDataCategory = 5
+	WindowsPrivacyDataCategoryVCamera WindowsPrivacyDataCategory = "camera"
 	// WindowsPrivacyDataCategoryVContacts undocumented
-	WindowsPrivacyDataCategoryVContacts WindowsPrivacyDataCategory = 6
+	WindowsPrivacyDataCategoryVContacts WindowsPrivacyDataCategory = "contacts"
 	// WindowsPrivacyDataCategoryVDiagnosticsInfo undocumented
-	WindowsPrivacyDataCategoryVDiagnosticsInfo WindowsPrivacyDataCategory = 7
+	WindowsPrivacyDataCategoryVDiagnosticsInfo WindowsPrivacyDataCategory = "diagnosticsInfo"
 	// WindowsPrivacyDataCategoryVEmail undocumented
-	WindowsPrivacyDataCategoryVEmail WindowsPrivacyDataCategory = 8
+	WindowsPrivacyDataCategoryVEmail WindowsPrivacyDataCategory = "email"
 	// WindowsPrivacyDataCategoryVLocation undocumented
-	WindowsPrivacyDataCategoryVLocation WindowsPrivacyDataCategory = 9
+	WindowsPrivacyDataCategoryVLocation WindowsPrivacyDataCategory = "location"
 	// WindowsPrivacyDataCategoryVMessaging undocumented
-	WindowsPrivacyDataCategoryVMessaging WindowsPrivacyDataCategory = 10
+	WindowsPrivacyDataCategoryVMessaging WindowsPrivacyDataCategory = "messaging"
 	// WindowsPrivacyDataCategoryVMicrophone undocumented
-	WindowsPrivacyDataCategoryVMicrophone WindowsPrivacyDataCategory = 11
+	WindowsPrivacyDataCategoryVMicrophone WindowsPrivacyDataCategory = "microphone"
 	// WindowsPrivacyDataCategoryVMotion undocumented
-	WindowsPrivacyDataCategoryVMotion WindowsPrivacyDataCategory = 12
+	WindowsPrivacyDataCategoryVMotion WindowsPrivacyDataCategory = "motion"
 	// WindowsPrivacyDataCategoryVNotifications undocumented
-	WindowsPrivacyDataCategoryVNotifications WindowsPrivacyDataCategory = 13
+	WindowsPrivacyDataCategoryVNotifications WindowsPrivacyDataCategory = "notifications"
 	// WindowsPrivacyDataCategoryVPhone undocumented
-	WindowsPrivacyDataCategoryVPhone WindowsPrivacyDataCategory = 14
+	WindowsPrivacyDataCategoryVPhone WindowsPrivacyDataCategory = "phone"
 	// WindowsPrivacyDataCategoryVRadios undocumented
-	WindowsPrivacyDataCategoryVRadios WindowsPrivacyDataCategory = 15
+	WindowsPrivacyDataCategoryVRadios WindowsPrivacyDataCategory = "radios"
 	// WindowsPrivacyDataCategoryVTasks undocumented
-	WindowsPrivacyDataCategoryVTasks WindowsPrivacyDataCategory = 16
+	WindowsPrivacyDataCategoryVTasks WindowsPrivacyDataCategory = "tasks"
 	// WindowsPrivacyDataCategoryVSyncWithDevices undocumented
-	WindowsPrivacyDataCategoryVSyncWithDevices WindowsPrivacyDataCategory = 17
+	WindowsPrivacyDataCategoryVSyncWithDevices WindowsPrivacyDataCategory = "syncWithDevices"
 	// WindowsPrivacyDataCategoryVTrustedDevices undocumented
-	WindowsPrivacyDataCategoryVTrustedDevices WindowsPrivacyDataCategory = 18
+	WindowsPrivacyDataCategoryVTrustedDevices WindowsPrivacyDataCategory = "trustedDevices"
 )
 
-// WindowsPrivacyDataCategoryPNotConfigured returns a pointer to WindowsPrivacyDataCategoryVNotConfigured
-func WindowsPrivacyDataCategoryPNotConfigured() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVNotConfigured
-	return &v
-}
+var (
+	// WindowsPrivacyDataCategoryPNotConfigured is a pointer to WindowsPrivacyDataCategoryVNotConfigured
+	WindowsPrivacyDataCategoryPNotConfigured = &_WindowsPrivacyDataCategoryPNotConfigured
+	// WindowsPrivacyDataCategoryPAccountInfo is a pointer to WindowsPrivacyDataCategoryVAccountInfo
+	WindowsPrivacyDataCategoryPAccountInfo = &_WindowsPrivacyDataCategoryPAccountInfo
+	// WindowsPrivacyDataCategoryPAppsRunInBackground is a pointer to WindowsPrivacyDataCategoryVAppsRunInBackground
+	WindowsPrivacyDataCategoryPAppsRunInBackground = &_WindowsPrivacyDataCategoryPAppsRunInBackground
+	// WindowsPrivacyDataCategoryPCalendar is a pointer to WindowsPrivacyDataCategoryVCalendar
+	WindowsPrivacyDataCategoryPCalendar = &_WindowsPrivacyDataCategoryPCalendar
+	// WindowsPrivacyDataCategoryPCallHistory is a pointer to WindowsPrivacyDataCategoryVCallHistory
+	WindowsPrivacyDataCategoryPCallHistory = &_WindowsPrivacyDataCategoryPCallHistory
+	// WindowsPrivacyDataCategoryPCamera is a pointer to WindowsPrivacyDataCategoryVCamera
+	WindowsPrivacyDataCategoryPCamera = &_WindowsPrivacyDataCategoryPCamera
+	// WindowsPrivacyDataCategoryPContacts is a pointer to WindowsPrivacyDataCategoryVContacts
+	WindowsPrivacyDataCategoryPContacts = &_WindowsPrivacyDataCategoryPContacts
+	// WindowsPrivacyDataCategoryPDiagnosticsInfo is a pointer to WindowsPrivacyDataCategoryVDiagnosticsInfo
+	WindowsPrivacyDataCategoryPDiagnosticsInfo = &_WindowsPrivacyDataCategoryPDiagnosticsInfo
+	// WindowsPrivacyDataCategoryPEmail is a pointer to WindowsPrivacyDataCategoryVEmail
+	WindowsPrivacyDataCategoryPEmail = &_WindowsPrivacyDataCategoryPEmail
+	// WindowsPrivacyDataCategoryPLocation is a pointer to WindowsPrivacyDataCategoryVLocation
+	WindowsPrivacyDataCategoryPLocation = &_WindowsPrivacyDataCategoryPLocation
+	// WindowsPrivacyDataCategoryPMessaging is a pointer to WindowsPrivacyDataCategoryVMessaging
+	WindowsPrivacyDataCategoryPMessaging = &_WindowsPrivacyDataCategoryPMessaging
+	// WindowsPrivacyDataCategoryPMicrophone is a pointer to WindowsPrivacyDataCategoryVMicrophone
+	WindowsPrivacyDataCategoryPMicrophone = &_WindowsPrivacyDataCategoryPMicrophone
+	// WindowsPrivacyDataCategoryPMotion is a pointer to WindowsPrivacyDataCategoryVMotion
+	WindowsPrivacyDataCategoryPMotion = &_WindowsPrivacyDataCategoryPMotion
+	// WindowsPrivacyDataCategoryPNotifications is a pointer to WindowsPrivacyDataCategoryVNotifications
+	WindowsPrivacyDataCategoryPNotifications = &_WindowsPrivacyDataCategoryPNotifications
+	// WindowsPrivacyDataCategoryPPhone is a pointer to WindowsPrivacyDataCategoryVPhone
+	WindowsPrivacyDataCategoryPPhone = &_WindowsPrivacyDataCategoryPPhone
+	// WindowsPrivacyDataCategoryPRadios is a pointer to WindowsPrivacyDataCategoryVRadios
+	WindowsPrivacyDataCategoryPRadios = &_WindowsPrivacyDataCategoryPRadios
+	// WindowsPrivacyDataCategoryPTasks is a pointer to WindowsPrivacyDataCategoryVTasks
+	WindowsPrivacyDataCategoryPTasks = &_WindowsPrivacyDataCategoryPTasks
+	// WindowsPrivacyDataCategoryPSyncWithDevices is a pointer to WindowsPrivacyDataCategoryVSyncWithDevices
+	WindowsPrivacyDataCategoryPSyncWithDevices = &_WindowsPrivacyDataCategoryPSyncWithDevices
+	// WindowsPrivacyDataCategoryPTrustedDevices is a pointer to WindowsPrivacyDataCategoryVTrustedDevices
+	WindowsPrivacyDataCategoryPTrustedDevices = &_WindowsPrivacyDataCategoryPTrustedDevices
+)
 
-// WindowsPrivacyDataCategoryPAccountInfo returns a pointer to WindowsPrivacyDataCategoryVAccountInfo
-func WindowsPrivacyDataCategoryPAccountInfo() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVAccountInfo
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPAppsRunInBackground returns a pointer to WindowsPrivacyDataCategoryVAppsRunInBackground
-func WindowsPrivacyDataCategoryPAppsRunInBackground() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVAppsRunInBackground
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPCalendar returns a pointer to WindowsPrivacyDataCategoryVCalendar
-func WindowsPrivacyDataCategoryPCalendar() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVCalendar
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPCallHistory returns a pointer to WindowsPrivacyDataCategoryVCallHistory
-func WindowsPrivacyDataCategoryPCallHistory() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVCallHistory
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPCamera returns a pointer to WindowsPrivacyDataCategoryVCamera
-func WindowsPrivacyDataCategoryPCamera() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVCamera
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPContacts returns a pointer to WindowsPrivacyDataCategoryVContacts
-func WindowsPrivacyDataCategoryPContacts() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVContacts
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPDiagnosticsInfo returns a pointer to WindowsPrivacyDataCategoryVDiagnosticsInfo
-func WindowsPrivacyDataCategoryPDiagnosticsInfo() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVDiagnosticsInfo
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPEmail returns a pointer to WindowsPrivacyDataCategoryVEmail
-func WindowsPrivacyDataCategoryPEmail() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVEmail
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPLocation returns a pointer to WindowsPrivacyDataCategoryVLocation
-func WindowsPrivacyDataCategoryPLocation() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVLocation
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPMessaging returns a pointer to WindowsPrivacyDataCategoryVMessaging
-func WindowsPrivacyDataCategoryPMessaging() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVMessaging
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPMicrophone returns a pointer to WindowsPrivacyDataCategoryVMicrophone
-func WindowsPrivacyDataCategoryPMicrophone() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVMicrophone
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPMotion returns a pointer to WindowsPrivacyDataCategoryVMotion
-func WindowsPrivacyDataCategoryPMotion() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVMotion
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPNotifications returns a pointer to WindowsPrivacyDataCategoryVNotifications
-func WindowsPrivacyDataCategoryPNotifications() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVNotifications
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPPhone returns a pointer to WindowsPrivacyDataCategoryVPhone
-func WindowsPrivacyDataCategoryPPhone() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVPhone
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPRadios returns a pointer to WindowsPrivacyDataCategoryVRadios
-func WindowsPrivacyDataCategoryPRadios() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVRadios
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPTasks returns a pointer to WindowsPrivacyDataCategoryVTasks
-func WindowsPrivacyDataCategoryPTasks() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVTasks
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPSyncWithDevices returns a pointer to WindowsPrivacyDataCategoryVSyncWithDevices
-func WindowsPrivacyDataCategoryPSyncWithDevices() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVSyncWithDevices
-	return &v
-}
-
-// WindowsPrivacyDataCategoryPTrustedDevices returns a pointer to WindowsPrivacyDataCategoryVTrustedDevices
-func WindowsPrivacyDataCategoryPTrustedDevices() *WindowsPrivacyDataCategory {
-	v := WindowsPrivacyDataCategoryVTrustedDevices
-	return &v
-}
+var (
+	_WindowsPrivacyDataCategoryPNotConfigured       = WindowsPrivacyDataCategoryVNotConfigured
+	_WindowsPrivacyDataCategoryPAccountInfo         = WindowsPrivacyDataCategoryVAccountInfo
+	_WindowsPrivacyDataCategoryPAppsRunInBackground = WindowsPrivacyDataCategoryVAppsRunInBackground
+	_WindowsPrivacyDataCategoryPCalendar            = WindowsPrivacyDataCategoryVCalendar
+	_WindowsPrivacyDataCategoryPCallHistory         = WindowsPrivacyDataCategoryVCallHistory
+	_WindowsPrivacyDataCategoryPCamera              = WindowsPrivacyDataCategoryVCamera
+	_WindowsPrivacyDataCategoryPContacts            = WindowsPrivacyDataCategoryVContacts
+	_WindowsPrivacyDataCategoryPDiagnosticsInfo     = WindowsPrivacyDataCategoryVDiagnosticsInfo
+	_WindowsPrivacyDataCategoryPEmail               = WindowsPrivacyDataCategoryVEmail
+	_WindowsPrivacyDataCategoryPLocation            = WindowsPrivacyDataCategoryVLocation
+	_WindowsPrivacyDataCategoryPMessaging           = WindowsPrivacyDataCategoryVMessaging
+	_WindowsPrivacyDataCategoryPMicrophone          = WindowsPrivacyDataCategoryVMicrophone
+	_WindowsPrivacyDataCategoryPMotion              = WindowsPrivacyDataCategoryVMotion
+	_WindowsPrivacyDataCategoryPNotifications       = WindowsPrivacyDataCategoryVNotifications
+	_WindowsPrivacyDataCategoryPPhone               = WindowsPrivacyDataCategoryVPhone
+	_WindowsPrivacyDataCategoryPRadios              = WindowsPrivacyDataCategoryVRadios
+	_WindowsPrivacyDataCategoryPTasks               = WindowsPrivacyDataCategoryVTasks
+	_WindowsPrivacyDataCategoryPSyncWithDevices     = WindowsPrivacyDataCategoryVSyncWithDevices
+	_WindowsPrivacyDataCategoryPTrustedDevices      = WindowsPrivacyDataCategoryVTrustedDevices
+)

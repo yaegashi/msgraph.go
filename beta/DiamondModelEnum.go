@@ -3,55 +3,43 @@
 package msgraph
 
 // DiamondModel undocumented
-type DiamondModel int
+type DiamondModel string
 
 const (
 	// DiamondModelVUnknown undocumented
-	DiamondModelVUnknown DiamondModel = 0
+	DiamondModelVUnknown DiamondModel = "unknown"
 	// DiamondModelVAdversary undocumented
-	DiamondModelVAdversary DiamondModel = 1
+	DiamondModelVAdversary DiamondModel = "adversary"
 	// DiamondModelVCapability undocumented
-	DiamondModelVCapability DiamondModel = 2
+	DiamondModelVCapability DiamondModel = "capability"
 	// DiamondModelVInfrastructure undocumented
-	DiamondModelVInfrastructure DiamondModel = 3
+	DiamondModelVInfrastructure DiamondModel = "infrastructure"
 	// DiamondModelVVictim undocumented
-	DiamondModelVVictim DiamondModel = 4
+	DiamondModelVVictim DiamondModel = "victim"
 	// DiamondModelVUnknownFutureValue undocumented
-	DiamondModelVUnknownFutureValue DiamondModel = 127
+	DiamondModelVUnknownFutureValue DiamondModel = "unknownFutureValue"
 )
 
-// DiamondModelPUnknown returns a pointer to DiamondModelVUnknown
-func DiamondModelPUnknown() *DiamondModel {
-	v := DiamondModelVUnknown
-	return &v
-}
+var (
+	// DiamondModelPUnknown is a pointer to DiamondModelVUnknown
+	DiamondModelPUnknown = &_DiamondModelPUnknown
+	// DiamondModelPAdversary is a pointer to DiamondModelVAdversary
+	DiamondModelPAdversary = &_DiamondModelPAdversary
+	// DiamondModelPCapability is a pointer to DiamondModelVCapability
+	DiamondModelPCapability = &_DiamondModelPCapability
+	// DiamondModelPInfrastructure is a pointer to DiamondModelVInfrastructure
+	DiamondModelPInfrastructure = &_DiamondModelPInfrastructure
+	// DiamondModelPVictim is a pointer to DiamondModelVVictim
+	DiamondModelPVictim = &_DiamondModelPVictim
+	// DiamondModelPUnknownFutureValue is a pointer to DiamondModelVUnknownFutureValue
+	DiamondModelPUnknownFutureValue = &_DiamondModelPUnknownFutureValue
+)
 
-// DiamondModelPAdversary returns a pointer to DiamondModelVAdversary
-func DiamondModelPAdversary() *DiamondModel {
-	v := DiamondModelVAdversary
-	return &v
-}
-
-// DiamondModelPCapability returns a pointer to DiamondModelVCapability
-func DiamondModelPCapability() *DiamondModel {
-	v := DiamondModelVCapability
-	return &v
-}
-
-// DiamondModelPInfrastructure returns a pointer to DiamondModelVInfrastructure
-func DiamondModelPInfrastructure() *DiamondModel {
-	v := DiamondModelVInfrastructure
-	return &v
-}
-
-// DiamondModelPVictim returns a pointer to DiamondModelVVictim
-func DiamondModelPVictim() *DiamondModel {
-	v := DiamondModelVVictim
-	return &v
-}
-
-// DiamondModelPUnknownFutureValue returns a pointer to DiamondModelVUnknownFutureValue
-func DiamondModelPUnknownFutureValue() *DiamondModel {
-	v := DiamondModelVUnknownFutureValue
-	return &v
-}
+var (
+	_DiamondModelPUnknown            = DiamondModelVUnknown
+	_DiamondModelPAdversary          = DiamondModelVAdversary
+	_DiamondModelPCapability         = DiamondModelVCapability
+	_DiamondModelPInfrastructure     = DiamondModelVInfrastructure
+	_DiamondModelPVictim             = DiamondModelVVictim
+	_DiamondModelPUnknownFutureValue = DiamondModelVUnknownFutureValue
+)

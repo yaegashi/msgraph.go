@@ -3,47 +3,38 @@
 package msgraph
 
 // UserPfxIntendedPurpose undocumented
-type UserPfxIntendedPurpose int
+type UserPfxIntendedPurpose string
 
 const (
 	// UserPfxIntendedPurposeVUnassigned undocumented
-	UserPfxIntendedPurposeVUnassigned UserPfxIntendedPurpose = 0
+	UserPfxIntendedPurposeVUnassigned UserPfxIntendedPurpose = "unassigned"
 	// UserPfxIntendedPurposeVSmimeEncryption undocumented
-	UserPfxIntendedPurposeVSmimeEncryption UserPfxIntendedPurpose = 1
+	UserPfxIntendedPurposeVSmimeEncryption UserPfxIntendedPurpose = "smimeEncryption"
 	// UserPfxIntendedPurposeVSmimeSigning undocumented
-	UserPfxIntendedPurposeVSmimeSigning UserPfxIntendedPurpose = 2
+	UserPfxIntendedPurposeVSmimeSigning UserPfxIntendedPurpose = "smimeSigning"
 	// UserPfxIntendedPurposeVVpn undocumented
-	UserPfxIntendedPurposeVVpn UserPfxIntendedPurpose = 4
+	UserPfxIntendedPurposeVVpn UserPfxIntendedPurpose = "vpn"
 	// UserPfxIntendedPurposeVWifi undocumented
-	UserPfxIntendedPurposeVWifi UserPfxIntendedPurpose = 8
+	UserPfxIntendedPurposeVWifi UserPfxIntendedPurpose = "wifi"
 )
 
-// UserPfxIntendedPurposePUnassigned returns a pointer to UserPfxIntendedPurposeVUnassigned
-func UserPfxIntendedPurposePUnassigned() *UserPfxIntendedPurpose {
-	v := UserPfxIntendedPurposeVUnassigned
-	return &v
-}
+var (
+	// UserPfxIntendedPurposePUnassigned is a pointer to UserPfxIntendedPurposeVUnassigned
+	UserPfxIntendedPurposePUnassigned = &_UserPfxIntendedPurposePUnassigned
+	// UserPfxIntendedPurposePSmimeEncryption is a pointer to UserPfxIntendedPurposeVSmimeEncryption
+	UserPfxIntendedPurposePSmimeEncryption = &_UserPfxIntendedPurposePSmimeEncryption
+	// UserPfxIntendedPurposePSmimeSigning is a pointer to UserPfxIntendedPurposeVSmimeSigning
+	UserPfxIntendedPurposePSmimeSigning = &_UserPfxIntendedPurposePSmimeSigning
+	// UserPfxIntendedPurposePVpn is a pointer to UserPfxIntendedPurposeVVpn
+	UserPfxIntendedPurposePVpn = &_UserPfxIntendedPurposePVpn
+	// UserPfxIntendedPurposePWifi is a pointer to UserPfxIntendedPurposeVWifi
+	UserPfxIntendedPurposePWifi = &_UserPfxIntendedPurposePWifi
+)
 
-// UserPfxIntendedPurposePSmimeEncryption returns a pointer to UserPfxIntendedPurposeVSmimeEncryption
-func UserPfxIntendedPurposePSmimeEncryption() *UserPfxIntendedPurpose {
-	v := UserPfxIntendedPurposeVSmimeEncryption
-	return &v
-}
-
-// UserPfxIntendedPurposePSmimeSigning returns a pointer to UserPfxIntendedPurposeVSmimeSigning
-func UserPfxIntendedPurposePSmimeSigning() *UserPfxIntendedPurpose {
-	v := UserPfxIntendedPurposeVSmimeSigning
-	return &v
-}
-
-// UserPfxIntendedPurposePVpn returns a pointer to UserPfxIntendedPurposeVVpn
-func UserPfxIntendedPurposePVpn() *UserPfxIntendedPurpose {
-	v := UserPfxIntendedPurposeVVpn
-	return &v
-}
-
-// UserPfxIntendedPurposePWifi returns a pointer to UserPfxIntendedPurposeVWifi
-func UserPfxIntendedPurposePWifi() *UserPfxIntendedPurpose {
-	v := UserPfxIntendedPurposeVWifi
-	return &v
-}
+var (
+	_UserPfxIntendedPurposePUnassigned      = UserPfxIntendedPurposeVUnassigned
+	_UserPfxIntendedPurposePSmimeEncryption = UserPfxIntendedPurposeVSmimeEncryption
+	_UserPfxIntendedPurposePSmimeSigning    = UserPfxIntendedPurposeVSmimeSigning
+	_UserPfxIntendedPurposePVpn             = UserPfxIntendedPurposeVVpn
+	_UserPfxIntendedPurposePWifi            = UserPfxIntendedPurposeVWifi
+)

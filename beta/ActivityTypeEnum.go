@@ -3,31 +3,28 @@
 package msgraph
 
 // ActivityType undocumented
-type ActivityType int
+type ActivityType string
 
 const (
 	// ActivityTypeVSignin undocumented
-	ActivityTypeVSignin ActivityType = 0
+	ActivityTypeVSignin ActivityType = "signin"
 	// ActivityTypeVUser undocumented
-	ActivityTypeVUser ActivityType = 1
+	ActivityTypeVUser ActivityType = "user"
 	// ActivityTypeVUnknownFutureValue undocumented
-	ActivityTypeVUnknownFutureValue ActivityType = 2
+	ActivityTypeVUnknownFutureValue ActivityType = "unknownFutureValue"
 )
 
-// ActivityTypePSignin returns a pointer to ActivityTypeVSignin
-func ActivityTypePSignin() *ActivityType {
-	v := ActivityTypeVSignin
-	return &v
-}
+var (
+	// ActivityTypePSignin is a pointer to ActivityTypeVSignin
+	ActivityTypePSignin = &_ActivityTypePSignin
+	// ActivityTypePUser is a pointer to ActivityTypeVUser
+	ActivityTypePUser = &_ActivityTypePUser
+	// ActivityTypePUnknownFutureValue is a pointer to ActivityTypeVUnknownFutureValue
+	ActivityTypePUnknownFutureValue = &_ActivityTypePUnknownFutureValue
+)
 
-// ActivityTypePUser returns a pointer to ActivityTypeVUser
-func ActivityTypePUser() *ActivityType {
-	v := ActivityTypeVUser
-	return &v
-}
-
-// ActivityTypePUnknownFutureValue returns a pointer to ActivityTypeVUnknownFutureValue
-func ActivityTypePUnknownFutureValue() *ActivityType {
-	v := ActivityTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_ActivityTypePSignin             = ActivityTypeVSignin
+	_ActivityTypePUser               = ActivityTypeVUser
+	_ActivityTypePUnknownFutureValue = ActivityTypeVUnknownFutureValue
+)

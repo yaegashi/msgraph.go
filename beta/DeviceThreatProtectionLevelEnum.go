@@ -3,55 +3,43 @@
 package msgraph
 
 // DeviceThreatProtectionLevel undocumented
-type DeviceThreatProtectionLevel int
+type DeviceThreatProtectionLevel string
 
 const (
 	// DeviceThreatProtectionLevelVUnavailable undocumented
-	DeviceThreatProtectionLevelVUnavailable DeviceThreatProtectionLevel = 0
+	DeviceThreatProtectionLevelVUnavailable DeviceThreatProtectionLevel = "unavailable"
 	// DeviceThreatProtectionLevelVSecured undocumented
-	DeviceThreatProtectionLevelVSecured DeviceThreatProtectionLevel = 1
+	DeviceThreatProtectionLevelVSecured DeviceThreatProtectionLevel = "secured"
 	// DeviceThreatProtectionLevelVLow undocumented
-	DeviceThreatProtectionLevelVLow DeviceThreatProtectionLevel = 2
+	DeviceThreatProtectionLevelVLow DeviceThreatProtectionLevel = "low"
 	// DeviceThreatProtectionLevelVMedium undocumented
-	DeviceThreatProtectionLevelVMedium DeviceThreatProtectionLevel = 3
+	DeviceThreatProtectionLevelVMedium DeviceThreatProtectionLevel = "medium"
 	// DeviceThreatProtectionLevelVHigh undocumented
-	DeviceThreatProtectionLevelVHigh DeviceThreatProtectionLevel = 4
+	DeviceThreatProtectionLevelVHigh DeviceThreatProtectionLevel = "high"
 	// DeviceThreatProtectionLevelVNotSet undocumented
-	DeviceThreatProtectionLevelVNotSet DeviceThreatProtectionLevel = 10
+	DeviceThreatProtectionLevelVNotSet DeviceThreatProtectionLevel = "notSet"
 )
 
-// DeviceThreatProtectionLevelPUnavailable returns a pointer to DeviceThreatProtectionLevelVUnavailable
-func DeviceThreatProtectionLevelPUnavailable() *DeviceThreatProtectionLevel {
-	v := DeviceThreatProtectionLevelVUnavailable
-	return &v
-}
+var (
+	// DeviceThreatProtectionLevelPUnavailable is a pointer to DeviceThreatProtectionLevelVUnavailable
+	DeviceThreatProtectionLevelPUnavailable = &_DeviceThreatProtectionLevelPUnavailable
+	// DeviceThreatProtectionLevelPSecured is a pointer to DeviceThreatProtectionLevelVSecured
+	DeviceThreatProtectionLevelPSecured = &_DeviceThreatProtectionLevelPSecured
+	// DeviceThreatProtectionLevelPLow is a pointer to DeviceThreatProtectionLevelVLow
+	DeviceThreatProtectionLevelPLow = &_DeviceThreatProtectionLevelPLow
+	// DeviceThreatProtectionLevelPMedium is a pointer to DeviceThreatProtectionLevelVMedium
+	DeviceThreatProtectionLevelPMedium = &_DeviceThreatProtectionLevelPMedium
+	// DeviceThreatProtectionLevelPHigh is a pointer to DeviceThreatProtectionLevelVHigh
+	DeviceThreatProtectionLevelPHigh = &_DeviceThreatProtectionLevelPHigh
+	// DeviceThreatProtectionLevelPNotSet is a pointer to DeviceThreatProtectionLevelVNotSet
+	DeviceThreatProtectionLevelPNotSet = &_DeviceThreatProtectionLevelPNotSet
+)
 
-// DeviceThreatProtectionLevelPSecured returns a pointer to DeviceThreatProtectionLevelVSecured
-func DeviceThreatProtectionLevelPSecured() *DeviceThreatProtectionLevel {
-	v := DeviceThreatProtectionLevelVSecured
-	return &v
-}
-
-// DeviceThreatProtectionLevelPLow returns a pointer to DeviceThreatProtectionLevelVLow
-func DeviceThreatProtectionLevelPLow() *DeviceThreatProtectionLevel {
-	v := DeviceThreatProtectionLevelVLow
-	return &v
-}
-
-// DeviceThreatProtectionLevelPMedium returns a pointer to DeviceThreatProtectionLevelVMedium
-func DeviceThreatProtectionLevelPMedium() *DeviceThreatProtectionLevel {
-	v := DeviceThreatProtectionLevelVMedium
-	return &v
-}
-
-// DeviceThreatProtectionLevelPHigh returns a pointer to DeviceThreatProtectionLevelVHigh
-func DeviceThreatProtectionLevelPHigh() *DeviceThreatProtectionLevel {
-	v := DeviceThreatProtectionLevelVHigh
-	return &v
-}
-
-// DeviceThreatProtectionLevelPNotSet returns a pointer to DeviceThreatProtectionLevelVNotSet
-func DeviceThreatProtectionLevelPNotSet() *DeviceThreatProtectionLevel {
-	v := DeviceThreatProtectionLevelVNotSet
-	return &v
-}
+var (
+	_DeviceThreatProtectionLevelPUnavailable = DeviceThreatProtectionLevelVUnavailable
+	_DeviceThreatProtectionLevelPSecured     = DeviceThreatProtectionLevelVSecured
+	_DeviceThreatProtectionLevelPLow         = DeviceThreatProtectionLevelVLow
+	_DeviceThreatProtectionLevelPMedium      = DeviceThreatProtectionLevelVMedium
+	_DeviceThreatProtectionLevelPHigh        = DeviceThreatProtectionLevelVHigh
+	_DeviceThreatProtectionLevelPNotSet      = DeviceThreatProtectionLevelVNotSet
+)

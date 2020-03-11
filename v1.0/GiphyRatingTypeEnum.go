@@ -3,31 +3,28 @@
 package msgraph
 
 // GiphyRatingType undocumented
-type GiphyRatingType int
+type GiphyRatingType string
 
 const (
 	// GiphyRatingTypeVModerate undocumented
-	GiphyRatingTypeVModerate GiphyRatingType = 0
+	GiphyRatingTypeVModerate GiphyRatingType = "moderate"
 	// GiphyRatingTypeVStrict undocumented
-	GiphyRatingTypeVStrict GiphyRatingType = 1
+	GiphyRatingTypeVStrict GiphyRatingType = "strict"
 	// GiphyRatingTypeVUnknownFutureValue undocumented
-	GiphyRatingTypeVUnknownFutureValue GiphyRatingType = 2
+	GiphyRatingTypeVUnknownFutureValue GiphyRatingType = "unknownFutureValue"
 )
 
-// GiphyRatingTypePModerate returns a pointer to GiphyRatingTypeVModerate
-func GiphyRatingTypePModerate() *GiphyRatingType {
-	v := GiphyRatingTypeVModerate
-	return &v
-}
+var (
+	// GiphyRatingTypePModerate is a pointer to GiphyRatingTypeVModerate
+	GiphyRatingTypePModerate = &_GiphyRatingTypePModerate
+	// GiphyRatingTypePStrict is a pointer to GiphyRatingTypeVStrict
+	GiphyRatingTypePStrict = &_GiphyRatingTypePStrict
+	// GiphyRatingTypePUnknownFutureValue is a pointer to GiphyRatingTypeVUnknownFutureValue
+	GiphyRatingTypePUnknownFutureValue = &_GiphyRatingTypePUnknownFutureValue
+)
 
-// GiphyRatingTypePStrict returns a pointer to GiphyRatingTypeVStrict
-func GiphyRatingTypePStrict() *GiphyRatingType {
-	v := GiphyRatingTypeVStrict
-	return &v
-}
-
-// GiphyRatingTypePUnknownFutureValue returns a pointer to GiphyRatingTypeVUnknownFutureValue
-func GiphyRatingTypePUnknownFutureValue() *GiphyRatingType {
-	v := GiphyRatingTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_GiphyRatingTypePModerate           = GiphyRatingTypeVModerate
+	_GiphyRatingTypePStrict             = GiphyRatingTypeVStrict
+	_GiphyRatingTypePUnknownFutureValue = GiphyRatingTypeVUnknownFutureValue
+)

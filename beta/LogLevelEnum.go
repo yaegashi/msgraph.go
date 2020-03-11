@@ -3,55 +3,43 @@
 package msgraph
 
 // LogLevel undocumented
-type LogLevel int
+type LogLevel string
 
 const (
 	// LogLevelVLogAlways undocumented
-	LogLevelVLogAlways LogLevel = 0
+	LogLevelVLogAlways LogLevel = "logAlways"
 	// LogLevelVCritical undocumented
-	LogLevelVCritical LogLevel = 1
+	LogLevelVCritical LogLevel = "critical"
 	// LogLevelVError undocumented
-	LogLevelVError LogLevel = 2
+	LogLevelVError LogLevel = "error"
 	// LogLevelVWarning undocumented
-	LogLevelVWarning LogLevel = 3
+	LogLevelVWarning LogLevel = "warning"
 	// LogLevelVInformation undocumented
-	LogLevelVInformation LogLevel = 4
+	LogLevelVInformation LogLevel = "information"
 	// LogLevelVVerbose undocumented
-	LogLevelVVerbose LogLevel = 5
+	LogLevelVVerbose LogLevel = "verbose"
 )
 
-// LogLevelPLogAlways returns a pointer to LogLevelVLogAlways
-func LogLevelPLogAlways() *LogLevel {
-	v := LogLevelVLogAlways
-	return &v
-}
+var (
+	// LogLevelPLogAlways is a pointer to LogLevelVLogAlways
+	LogLevelPLogAlways = &_LogLevelPLogAlways
+	// LogLevelPCritical is a pointer to LogLevelVCritical
+	LogLevelPCritical = &_LogLevelPCritical
+	// LogLevelPError is a pointer to LogLevelVError
+	LogLevelPError = &_LogLevelPError
+	// LogLevelPWarning is a pointer to LogLevelVWarning
+	LogLevelPWarning = &_LogLevelPWarning
+	// LogLevelPInformation is a pointer to LogLevelVInformation
+	LogLevelPInformation = &_LogLevelPInformation
+	// LogLevelPVerbose is a pointer to LogLevelVVerbose
+	LogLevelPVerbose = &_LogLevelPVerbose
+)
 
-// LogLevelPCritical returns a pointer to LogLevelVCritical
-func LogLevelPCritical() *LogLevel {
-	v := LogLevelVCritical
-	return &v
-}
-
-// LogLevelPError returns a pointer to LogLevelVError
-func LogLevelPError() *LogLevel {
-	v := LogLevelVError
-	return &v
-}
-
-// LogLevelPWarning returns a pointer to LogLevelVWarning
-func LogLevelPWarning() *LogLevel {
-	v := LogLevelVWarning
-	return &v
-}
-
-// LogLevelPInformation returns a pointer to LogLevelVInformation
-func LogLevelPInformation() *LogLevel {
-	v := LogLevelVInformation
-	return &v
-}
-
-// LogLevelPVerbose returns a pointer to LogLevelVVerbose
-func LogLevelPVerbose() *LogLevel {
-	v := LogLevelVVerbose
-	return &v
-}
+var (
+	_LogLevelPLogAlways   = LogLevelVLogAlways
+	_LogLevelPCritical    = LogLevelVCritical
+	_LogLevelPError       = LogLevelVError
+	_LogLevelPWarning     = LogLevelVWarning
+	_LogLevelPInformation = LogLevelVInformation
+	_LogLevelPVerbose     = LogLevelVVerbose
+)

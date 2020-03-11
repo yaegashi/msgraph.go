@@ -3,47 +3,38 @@
 package msgraph
 
 // Win32LobAppReturnCodeType undocumented
-type Win32LobAppReturnCodeType int
+type Win32LobAppReturnCodeType string
 
 const (
 	// Win32LobAppReturnCodeTypeVFailed undocumented
-	Win32LobAppReturnCodeTypeVFailed Win32LobAppReturnCodeType = 0
+	Win32LobAppReturnCodeTypeVFailed Win32LobAppReturnCodeType = "failed"
 	// Win32LobAppReturnCodeTypeVSuccess undocumented
-	Win32LobAppReturnCodeTypeVSuccess Win32LobAppReturnCodeType = 1
+	Win32LobAppReturnCodeTypeVSuccess Win32LobAppReturnCodeType = "success"
 	// Win32LobAppReturnCodeTypeVSoftReboot undocumented
-	Win32LobAppReturnCodeTypeVSoftReboot Win32LobAppReturnCodeType = 2
+	Win32LobAppReturnCodeTypeVSoftReboot Win32LobAppReturnCodeType = "softReboot"
 	// Win32LobAppReturnCodeTypeVHardReboot undocumented
-	Win32LobAppReturnCodeTypeVHardReboot Win32LobAppReturnCodeType = 3
+	Win32LobAppReturnCodeTypeVHardReboot Win32LobAppReturnCodeType = "hardReboot"
 	// Win32LobAppReturnCodeTypeVRetry undocumented
-	Win32LobAppReturnCodeTypeVRetry Win32LobAppReturnCodeType = 4
+	Win32LobAppReturnCodeTypeVRetry Win32LobAppReturnCodeType = "retry"
 )
 
-// Win32LobAppReturnCodeTypePFailed returns a pointer to Win32LobAppReturnCodeTypeVFailed
-func Win32LobAppReturnCodeTypePFailed() *Win32LobAppReturnCodeType {
-	v := Win32LobAppReturnCodeTypeVFailed
-	return &v
-}
+var (
+	// Win32LobAppReturnCodeTypePFailed is a pointer to Win32LobAppReturnCodeTypeVFailed
+	Win32LobAppReturnCodeTypePFailed = &_Win32LobAppReturnCodeTypePFailed
+	// Win32LobAppReturnCodeTypePSuccess is a pointer to Win32LobAppReturnCodeTypeVSuccess
+	Win32LobAppReturnCodeTypePSuccess = &_Win32LobAppReturnCodeTypePSuccess
+	// Win32LobAppReturnCodeTypePSoftReboot is a pointer to Win32LobAppReturnCodeTypeVSoftReboot
+	Win32LobAppReturnCodeTypePSoftReboot = &_Win32LobAppReturnCodeTypePSoftReboot
+	// Win32LobAppReturnCodeTypePHardReboot is a pointer to Win32LobAppReturnCodeTypeVHardReboot
+	Win32LobAppReturnCodeTypePHardReboot = &_Win32LobAppReturnCodeTypePHardReboot
+	// Win32LobAppReturnCodeTypePRetry is a pointer to Win32LobAppReturnCodeTypeVRetry
+	Win32LobAppReturnCodeTypePRetry = &_Win32LobAppReturnCodeTypePRetry
+)
 
-// Win32LobAppReturnCodeTypePSuccess returns a pointer to Win32LobAppReturnCodeTypeVSuccess
-func Win32LobAppReturnCodeTypePSuccess() *Win32LobAppReturnCodeType {
-	v := Win32LobAppReturnCodeTypeVSuccess
-	return &v
-}
-
-// Win32LobAppReturnCodeTypePSoftReboot returns a pointer to Win32LobAppReturnCodeTypeVSoftReboot
-func Win32LobAppReturnCodeTypePSoftReboot() *Win32LobAppReturnCodeType {
-	v := Win32LobAppReturnCodeTypeVSoftReboot
-	return &v
-}
-
-// Win32LobAppReturnCodeTypePHardReboot returns a pointer to Win32LobAppReturnCodeTypeVHardReboot
-func Win32LobAppReturnCodeTypePHardReboot() *Win32LobAppReturnCodeType {
-	v := Win32LobAppReturnCodeTypeVHardReboot
-	return &v
-}
-
-// Win32LobAppReturnCodeTypePRetry returns a pointer to Win32LobAppReturnCodeTypeVRetry
-func Win32LobAppReturnCodeTypePRetry() *Win32LobAppReturnCodeType {
-	v := Win32LobAppReturnCodeTypeVRetry
-	return &v
-}
+var (
+	_Win32LobAppReturnCodeTypePFailed     = Win32LobAppReturnCodeTypeVFailed
+	_Win32LobAppReturnCodeTypePSuccess    = Win32LobAppReturnCodeTypeVSuccess
+	_Win32LobAppReturnCodeTypePSoftReboot = Win32LobAppReturnCodeTypeVSoftReboot
+	_Win32LobAppReturnCodeTypePHardReboot = Win32LobAppReturnCodeTypeVHardReboot
+	_Win32LobAppReturnCodeTypePRetry      = Win32LobAppReturnCodeTypeVRetry
+)

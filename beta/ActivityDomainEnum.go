@@ -3,39 +3,33 @@
 package msgraph
 
 // ActivityDomain undocumented
-type ActivityDomain int
+type ActivityDomain string
 
 const (
 	// ActivityDomainVUnknown undocumented
-	ActivityDomainVUnknown ActivityDomain = 0
+	ActivityDomainVUnknown ActivityDomain = "unknown"
 	// ActivityDomainVWork undocumented
-	ActivityDomainVWork ActivityDomain = 1
+	ActivityDomainVWork ActivityDomain = "work"
 	// ActivityDomainVPersonal undocumented
-	ActivityDomainVPersonal ActivityDomain = 2
+	ActivityDomainVPersonal ActivityDomain = "personal"
 	// ActivityDomainVUnrestricted undocumented
-	ActivityDomainVUnrestricted ActivityDomain = 3
+	ActivityDomainVUnrestricted ActivityDomain = "unrestricted"
 )
 
-// ActivityDomainPUnknown returns a pointer to ActivityDomainVUnknown
-func ActivityDomainPUnknown() *ActivityDomain {
-	v := ActivityDomainVUnknown
-	return &v
-}
+var (
+	// ActivityDomainPUnknown is a pointer to ActivityDomainVUnknown
+	ActivityDomainPUnknown = &_ActivityDomainPUnknown
+	// ActivityDomainPWork is a pointer to ActivityDomainVWork
+	ActivityDomainPWork = &_ActivityDomainPWork
+	// ActivityDomainPPersonal is a pointer to ActivityDomainVPersonal
+	ActivityDomainPPersonal = &_ActivityDomainPPersonal
+	// ActivityDomainPUnrestricted is a pointer to ActivityDomainVUnrestricted
+	ActivityDomainPUnrestricted = &_ActivityDomainPUnrestricted
+)
 
-// ActivityDomainPWork returns a pointer to ActivityDomainVWork
-func ActivityDomainPWork() *ActivityDomain {
-	v := ActivityDomainVWork
-	return &v
-}
-
-// ActivityDomainPPersonal returns a pointer to ActivityDomainVPersonal
-func ActivityDomainPPersonal() *ActivityDomain {
-	v := ActivityDomainVPersonal
-	return &v
-}
-
-// ActivityDomainPUnrestricted returns a pointer to ActivityDomainVUnrestricted
-func ActivityDomainPUnrestricted() *ActivityDomain {
-	v := ActivityDomainVUnrestricted
-	return &v
-}
+var (
+	_ActivityDomainPUnknown      = ActivityDomainVUnknown
+	_ActivityDomainPWork         = ActivityDomainVWork
+	_ActivityDomainPPersonal     = ActivityDomainVPersonal
+	_ActivityDomainPUnrestricted = ActivityDomainVUnrestricted
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // AndroidManagedAppSafetyNetAppsVerificationType undocumented
-type AndroidManagedAppSafetyNetAppsVerificationType int
+type AndroidManagedAppSafetyNetAppsVerificationType string
 
 const (
 	// AndroidManagedAppSafetyNetAppsVerificationTypeVNone undocumented
-	AndroidManagedAppSafetyNetAppsVerificationTypeVNone AndroidManagedAppSafetyNetAppsVerificationType = 0
+	AndroidManagedAppSafetyNetAppsVerificationTypeVNone AndroidManagedAppSafetyNetAppsVerificationType = "none"
 	// AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled undocumented
-	AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled AndroidManagedAppSafetyNetAppsVerificationType = 1
+	AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled AndroidManagedAppSafetyNetAppsVerificationType = "enabled"
 )
 
-// AndroidManagedAppSafetyNetAppsVerificationTypePNone returns a pointer to AndroidManagedAppSafetyNetAppsVerificationTypeVNone
-func AndroidManagedAppSafetyNetAppsVerificationTypePNone() *AndroidManagedAppSafetyNetAppsVerificationType {
-	v := AndroidManagedAppSafetyNetAppsVerificationTypeVNone
-	return &v
-}
+var (
+	// AndroidManagedAppSafetyNetAppsVerificationTypePNone is a pointer to AndroidManagedAppSafetyNetAppsVerificationTypeVNone
+	AndroidManagedAppSafetyNetAppsVerificationTypePNone = &_AndroidManagedAppSafetyNetAppsVerificationTypePNone
+	// AndroidManagedAppSafetyNetAppsVerificationTypePEnabled is a pointer to AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled
+	AndroidManagedAppSafetyNetAppsVerificationTypePEnabled = &_AndroidManagedAppSafetyNetAppsVerificationTypePEnabled
+)
 
-// AndroidManagedAppSafetyNetAppsVerificationTypePEnabled returns a pointer to AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled
-func AndroidManagedAppSafetyNetAppsVerificationTypePEnabled() *AndroidManagedAppSafetyNetAppsVerificationType {
-	v := AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled
-	return &v
-}
+var (
+	_AndroidManagedAppSafetyNetAppsVerificationTypePNone    = AndroidManagedAppSafetyNetAppsVerificationTypeVNone
+	_AndroidManagedAppSafetyNetAppsVerificationTypePEnabled = AndroidManagedAppSafetyNetAppsVerificationTypeVEnabled
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // WindowsSpotlightEnablementSettings undocumented
-type WindowsSpotlightEnablementSettings int
+type WindowsSpotlightEnablementSettings string
 
 const (
 	// WindowsSpotlightEnablementSettingsVNotConfigured undocumented
-	WindowsSpotlightEnablementSettingsVNotConfigured WindowsSpotlightEnablementSettings = 0
+	WindowsSpotlightEnablementSettingsVNotConfigured WindowsSpotlightEnablementSettings = "notConfigured"
 	// WindowsSpotlightEnablementSettingsVDisabled undocumented
-	WindowsSpotlightEnablementSettingsVDisabled WindowsSpotlightEnablementSettings = 1
+	WindowsSpotlightEnablementSettingsVDisabled WindowsSpotlightEnablementSettings = "disabled"
 	// WindowsSpotlightEnablementSettingsVEnabled undocumented
-	WindowsSpotlightEnablementSettingsVEnabled WindowsSpotlightEnablementSettings = 2
+	WindowsSpotlightEnablementSettingsVEnabled WindowsSpotlightEnablementSettings = "enabled"
 )
 
-// WindowsSpotlightEnablementSettingsPNotConfigured returns a pointer to WindowsSpotlightEnablementSettingsVNotConfigured
-func WindowsSpotlightEnablementSettingsPNotConfigured() *WindowsSpotlightEnablementSettings {
-	v := WindowsSpotlightEnablementSettingsVNotConfigured
-	return &v
-}
+var (
+	// WindowsSpotlightEnablementSettingsPNotConfigured is a pointer to WindowsSpotlightEnablementSettingsVNotConfigured
+	WindowsSpotlightEnablementSettingsPNotConfigured = &_WindowsSpotlightEnablementSettingsPNotConfigured
+	// WindowsSpotlightEnablementSettingsPDisabled is a pointer to WindowsSpotlightEnablementSettingsVDisabled
+	WindowsSpotlightEnablementSettingsPDisabled = &_WindowsSpotlightEnablementSettingsPDisabled
+	// WindowsSpotlightEnablementSettingsPEnabled is a pointer to WindowsSpotlightEnablementSettingsVEnabled
+	WindowsSpotlightEnablementSettingsPEnabled = &_WindowsSpotlightEnablementSettingsPEnabled
+)
 
-// WindowsSpotlightEnablementSettingsPDisabled returns a pointer to WindowsSpotlightEnablementSettingsVDisabled
-func WindowsSpotlightEnablementSettingsPDisabled() *WindowsSpotlightEnablementSettings {
-	v := WindowsSpotlightEnablementSettingsVDisabled
-	return &v
-}
-
-// WindowsSpotlightEnablementSettingsPEnabled returns a pointer to WindowsSpotlightEnablementSettingsVEnabled
-func WindowsSpotlightEnablementSettingsPEnabled() *WindowsSpotlightEnablementSettings {
-	v := WindowsSpotlightEnablementSettingsVEnabled
-	return &v
-}
+var (
+	_WindowsSpotlightEnablementSettingsPNotConfigured = WindowsSpotlightEnablementSettingsVNotConfigured
+	_WindowsSpotlightEnablementSettingsPDisabled      = WindowsSpotlightEnablementSettingsVDisabled
+	_WindowsSpotlightEnablementSettingsPEnabled       = WindowsSpotlightEnablementSettingsVEnabled
+)

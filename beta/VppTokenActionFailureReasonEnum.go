@@ -3,47 +3,38 @@
 package msgraph
 
 // VppTokenActionFailureReason undocumented
-type VppTokenActionFailureReason int
+type VppTokenActionFailureReason string
 
 const (
 	// VppTokenActionFailureReasonVNone undocumented
-	VppTokenActionFailureReasonVNone VppTokenActionFailureReason = 0
+	VppTokenActionFailureReasonVNone VppTokenActionFailureReason = "none"
 	// VppTokenActionFailureReasonVAppleFailure undocumented
-	VppTokenActionFailureReasonVAppleFailure VppTokenActionFailureReason = 1
+	VppTokenActionFailureReasonVAppleFailure VppTokenActionFailureReason = "appleFailure"
 	// VppTokenActionFailureReasonVInternalError undocumented
-	VppTokenActionFailureReasonVInternalError VppTokenActionFailureReason = 2
+	VppTokenActionFailureReasonVInternalError VppTokenActionFailureReason = "internalError"
 	// VppTokenActionFailureReasonVExpiredVppToken undocumented
-	VppTokenActionFailureReasonVExpiredVppToken VppTokenActionFailureReason = 3
+	VppTokenActionFailureReasonVExpiredVppToken VppTokenActionFailureReason = "expiredVppToken"
 	// VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate undocumented
-	VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate VppTokenActionFailureReason = 4
+	VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate VppTokenActionFailureReason = "expiredApplePushNotificationCertificate"
 )
 
-// VppTokenActionFailureReasonPNone returns a pointer to VppTokenActionFailureReasonVNone
-func VppTokenActionFailureReasonPNone() *VppTokenActionFailureReason {
-	v := VppTokenActionFailureReasonVNone
-	return &v
-}
+var (
+	// VppTokenActionFailureReasonPNone is a pointer to VppTokenActionFailureReasonVNone
+	VppTokenActionFailureReasonPNone = &_VppTokenActionFailureReasonPNone
+	// VppTokenActionFailureReasonPAppleFailure is a pointer to VppTokenActionFailureReasonVAppleFailure
+	VppTokenActionFailureReasonPAppleFailure = &_VppTokenActionFailureReasonPAppleFailure
+	// VppTokenActionFailureReasonPInternalError is a pointer to VppTokenActionFailureReasonVInternalError
+	VppTokenActionFailureReasonPInternalError = &_VppTokenActionFailureReasonPInternalError
+	// VppTokenActionFailureReasonPExpiredVppToken is a pointer to VppTokenActionFailureReasonVExpiredVppToken
+	VppTokenActionFailureReasonPExpiredVppToken = &_VppTokenActionFailureReasonPExpiredVppToken
+	// VppTokenActionFailureReasonPExpiredApplePushNotificationCertificate is a pointer to VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate
+	VppTokenActionFailureReasonPExpiredApplePushNotificationCertificate = &_VppTokenActionFailureReasonPExpiredApplePushNotificationCertificate
+)
 
-// VppTokenActionFailureReasonPAppleFailure returns a pointer to VppTokenActionFailureReasonVAppleFailure
-func VppTokenActionFailureReasonPAppleFailure() *VppTokenActionFailureReason {
-	v := VppTokenActionFailureReasonVAppleFailure
-	return &v
-}
-
-// VppTokenActionFailureReasonPInternalError returns a pointer to VppTokenActionFailureReasonVInternalError
-func VppTokenActionFailureReasonPInternalError() *VppTokenActionFailureReason {
-	v := VppTokenActionFailureReasonVInternalError
-	return &v
-}
-
-// VppTokenActionFailureReasonPExpiredVppToken returns a pointer to VppTokenActionFailureReasonVExpiredVppToken
-func VppTokenActionFailureReasonPExpiredVppToken() *VppTokenActionFailureReason {
-	v := VppTokenActionFailureReasonVExpiredVppToken
-	return &v
-}
-
-// VppTokenActionFailureReasonPExpiredApplePushNotificationCertificate returns a pointer to VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate
-func VppTokenActionFailureReasonPExpiredApplePushNotificationCertificate() *VppTokenActionFailureReason {
-	v := VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate
-	return &v
-}
+var (
+	_VppTokenActionFailureReasonPNone                                    = VppTokenActionFailureReasonVNone
+	_VppTokenActionFailureReasonPAppleFailure                            = VppTokenActionFailureReasonVAppleFailure
+	_VppTokenActionFailureReasonPInternalError                           = VppTokenActionFailureReasonVInternalError
+	_VppTokenActionFailureReasonPExpiredVppToken                         = VppTokenActionFailureReasonVExpiredVppToken
+	_VppTokenActionFailureReasonPExpiredApplePushNotificationCertificate = VppTokenActionFailureReasonVExpiredApplePushNotificationCertificate
+)

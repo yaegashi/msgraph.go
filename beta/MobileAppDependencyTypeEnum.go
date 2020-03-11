@@ -3,23 +3,23 @@
 package msgraph
 
 // MobileAppDependencyType undocumented
-type MobileAppDependencyType int
+type MobileAppDependencyType string
 
 const (
 	// MobileAppDependencyTypeVDetect undocumented
-	MobileAppDependencyTypeVDetect MobileAppDependencyType = 0
+	MobileAppDependencyTypeVDetect MobileAppDependencyType = "detect"
 	// MobileAppDependencyTypeVAutoInstall undocumented
-	MobileAppDependencyTypeVAutoInstall MobileAppDependencyType = 1
+	MobileAppDependencyTypeVAutoInstall MobileAppDependencyType = "autoInstall"
 )
 
-// MobileAppDependencyTypePDetect returns a pointer to MobileAppDependencyTypeVDetect
-func MobileAppDependencyTypePDetect() *MobileAppDependencyType {
-	v := MobileAppDependencyTypeVDetect
-	return &v
-}
+var (
+	// MobileAppDependencyTypePDetect is a pointer to MobileAppDependencyTypeVDetect
+	MobileAppDependencyTypePDetect = &_MobileAppDependencyTypePDetect
+	// MobileAppDependencyTypePAutoInstall is a pointer to MobileAppDependencyTypeVAutoInstall
+	MobileAppDependencyTypePAutoInstall = &_MobileAppDependencyTypePAutoInstall
+)
 
-// MobileAppDependencyTypePAutoInstall returns a pointer to MobileAppDependencyTypeVAutoInstall
-func MobileAppDependencyTypePAutoInstall() *MobileAppDependencyType {
-	v := MobileAppDependencyTypeVAutoInstall
-	return &v
-}
+var (
+	_MobileAppDependencyTypePDetect      = MobileAppDependencyTypeVDetect
+	_MobileAppDependencyTypePAutoInstall = MobileAppDependencyTypeVAutoInstall
+)

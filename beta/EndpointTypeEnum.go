@@ -3,47 +3,38 @@
 package msgraph
 
 // EndpointType undocumented
-type EndpointType int
+type EndpointType string
 
 const (
 	// EndpointTypeVDefault undocumented
-	EndpointTypeVDefault EndpointType = 0
+	EndpointTypeVDefault EndpointType = "default"
 	// EndpointTypeVVoicemail undocumented
-	EndpointTypeVVoicemail EndpointType = 1
+	EndpointTypeVVoicemail EndpointType = "voicemail"
 	// EndpointTypeVSkypeForBusiness undocumented
-	EndpointTypeVSkypeForBusiness EndpointType = 2
+	EndpointTypeVSkypeForBusiness EndpointType = "skypeForBusiness"
 	// EndpointTypeVSkypeForBusinessVoipPhone undocumented
-	EndpointTypeVSkypeForBusinessVoipPhone EndpointType = 3
+	EndpointTypeVSkypeForBusinessVoipPhone EndpointType = "skypeForBusinessVoipPhone"
 	// EndpointTypeVUnknownFutureValue undocumented
-	EndpointTypeVUnknownFutureValue EndpointType = 4
+	EndpointTypeVUnknownFutureValue EndpointType = "unknownFutureValue"
 )
 
-// EndpointTypePDefault returns a pointer to EndpointTypeVDefault
-func EndpointTypePDefault() *EndpointType {
-	v := EndpointTypeVDefault
-	return &v
-}
+var (
+	// EndpointTypePDefault is a pointer to EndpointTypeVDefault
+	EndpointTypePDefault = &_EndpointTypePDefault
+	// EndpointTypePVoicemail is a pointer to EndpointTypeVVoicemail
+	EndpointTypePVoicemail = &_EndpointTypePVoicemail
+	// EndpointTypePSkypeForBusiness is a pointer to EndpointTypeVSkypeForBusiness
+	EndpointTypePSkypeForBusiness = &_EndpointTypePSkypeForBusiness
+	// EndpointTypePSkypeForBusinessVoipPhone is a pointer to EndpointTypeVSkypeForBusinessVoipPhone
+	EndpointTypePSkypeForBusinessVoipPhone = &_EndpointTypePSkypeForBusinessVoipPhone
+	// EndpointTypePUnknownFutureValue is a pointer to EndpointTypeVUnknownFutureValue
+	EndpointTypePUnknownFutureValue = &_EndpointTypePUnknownFutureValue
+)
 
-// EndpointTypePVoicemail returns a pointer to EndpointTypeVVoicemail
-func EndpointTypePVoicemail() *EndpointType {
-	v := EndpointTypeVVoicemail
-	return &v
-}
-
-// EndpointTypePSkypeForBusiness returns a pointer to EndpointTypeVSkypeForBusiness
-func EndpointTypePSkypeForBusiness() *EndpointType {
-	v := EndpointTypeVSkypeForBusiness
-	return &v
-}
-
-// EndpointTypePSkypeForBusinessVoipPhone returns a pointer to EndpointTypeVSkypeForBusinessVoipPhone
-func EndpointTypePSkypeForBusinessVoipPhone() *EndpointType {
-	v := EndpointTypeVSkypeForBusinessVoipPhone
-	return &v
-}
-
-// EndpointTypePUnknownFutureValue returns a pointer to EndpointTypeVUnknownFutureValue
-func EndpointTypePUnknownFutureValue() *EndpointType {
-	v := EndpointTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_EndpointTypePDefault                   = EndpointTypeVDefault
+	_EndpointTypePVoicemail                 = EndpointTypeVVoicemail
+	_EndpointTypePSkypeForBusiness          = EndpointTypeVSkypeForBusiness
+	_EndpointTypePSkypeForBusinessVoipPhone = EndpointTypeVSkypeForBusinessVoipPhone
+	_EndpointTypePUnknownFutureValue        = EndpointTypeVUnknownFutureValue
+)

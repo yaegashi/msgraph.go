@@ -3,39 +3,33 @@
 package msgraph
 
 // AndroidDeviceOwnerBatteryPluggedMode undocumented
-type AndroidDeviceOwnerBatteryPluggedMode int
+type AndroidDeviceOwnerBatteryPluggedMode string
 
 const (
 	// AndroidDeviceOwnerBatteryPluggedModeVNotConfigured undocumented
-	AndroidDeviceOwnerBatteryPluggedModeVNotConfigured AndroidDeviceOwnerBatteryPluggedMode = 0
+	AndroidDeviceOwnerBatteryPluggedModeVNotConfigured AndroidDeviceOwnerBatteryPluggedMode = "notConfigured"
 	// AndroidDeviceOwnerBatteryPluggedModeVAc undocumented
-	AndroidDeviceOwnerBatteryPluggedModeVAc AndroidDeviceOwnerBatteryPluggedMode = 1
+	AndroidDeviceOwnerBatteryPluggedModeVAc AndroidDeviceOwnerBatteryPluggedMode = "ac"
 	// AndroidDeviceOwnerBatteryPluggedModeVUsb undocumented
-	AndroidDeviceOwnerBatteryPluggedModeVUsb AndroidDeviceOwnerBatteryPluggedMode = 2
+	AndroidDeviceOwnerBatteryPluggedModeVUsb AndroidDeviceOwnerBatteryPluggedMode = "usb"
 	// AndroidDeviceOwnerBatteryPluggedModeVWireless undocumented
-	AndroidDeviceOwnerBatteryPluggedModeVWireless AndroidDeviceOwnerBatteryPluggedMode = 3
+	AndroidDeviceOwnerBatteryPluggedModeVWireless AndroidDeviceOwnerBatteryPluggedMode = "wireless"
 )
 
-// AndroidDeviceOwnerBatteryPluggedModePNotConfigured returns a pointer to AndroidDeviceOwnerBatteryPluggedModeVNotConfigured
-func AndroidDeviceOwnerBatteryPluggedModePNotConfigured() *AndroidDeviceOwnerBatteryPluggedMode {
-	v := AndroidDeviceOwnerBatteryPluggedModeVNotConfigured
-	return &v
-}
+var (
+	// AndroidDeviceOwnerBatteryPluggedModePNotConfigured is a pointer to AndroidDeviceOwnerBatteryPluggedModeVNotConfigured
+	AndroidDeviceOwnerBatteryPluggedModePNotConfigured = &_AndroidDeviceOwnerBatteryPluggedModePNotConfigured
+	// AndroidDeviceOwnerBatteryPluggedModePAc is a pointer to AndroidDeviceOwnerBatteryPluggedModeVAc
+	AndroidDeviceOwnerBatteryPluggedModePAc = &_AndroidDeviceOwnerBatteryPluggedModePAc
+	// AndroidDeviceOwnerBatteryPluggedModePUsb is a pointer to AndroidDeviceOwnerBatteryPluggedModeVUsb
+	AndroidDeviceOwnerBatteryPluggedModePUsb = &_AndroidDeviceOwnerBatteryPluggedModePUsb
+	// AndroidDeviceOwnerBatteryPluggedModePWireless is a pointer to AndroidDeviceOwnerBatteryPluggedModeVWireless
+	AndroidDeviceOwnerBatteryPluggedModePWireless = &_AndroidDeviceOwnerBatteryPluggedModePWireless
+)
 
-// AndroidDeviceOwnerBatteryPluggedModePAc returns a pointer to AndroidDeviceOwnerBatteryPluggedModeVAc
-func AndroidDeviceOwnerBatteryPluggedModePAc() *AndroidDeviceOwnerBatteryPluggedMode {
-	v := AndroidDeviceOwnerBatteryPluggedModeVAc
-	return &v
-}
-
-// AndroidDeviceOwnerBatteryPluggedModePUsb returns a pointer to AndroidDeviceOwnerBatteryPluggedModeVUsb
-func AndroidDeviceOwnerBatteryPluggedModePUsb() *AndroidDeviceOwnerBatteryPluggedMode {
-	v := AndroidDeviceOwnerBatteryPluggedModeVUsb
-	return &v
-}
-
-// AndroidDeviceOwnerBatteryPluggedModePWireless returns a pointer to AndroidDeviceOwnerBatteryPluggedModeVWireless
-func AndroidDeviceOwnerBatteryPluggedModePWireless() *AndroidDeviceOwnerBatteryPluggedMode {
-	v := AndroidDeviceOwnerBatteryPluggedModeVWireless
-	return &v
-}
+var (
+	_AndroidDeviceOwnerBatteryPluggedModePNotConfigured = AndroidDeviceOwnerBatteryPluggedModeVNotConfigured
+	_AndroidDeviceOwnerBatteryPluggedModePAc            = AndroidDeviceOwnerBatteryPluggedModeVAc
+	_AndroidDeviceOwnerBatteryPluggedModePUsb           = AndroidDeviceOwnerBatteryPluggedModeVUsb
+	_AndroidDeviceOwnerBatteryPluggedModePWireless      = AndroidDeviceOwnerBatteryPluggedModeVWireless
+)

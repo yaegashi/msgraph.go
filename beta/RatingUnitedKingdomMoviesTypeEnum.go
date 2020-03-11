@@ -3,79 +3,58 @@
 package msgraph
 
 // RatingUnitedKingdomMoviesType undocumented
-type RatingUnitedKingdomMoviesType int
+type RatingUnitedKingdomMoviesType string
 
 const (
 	// RatingUnitedKingdomMoviesTypeVAllAllowed undocumented
-	RatingUnitedKingdomMoviesTypeVAllAllowed RatingUnitedKingdomMoviesType = 0
+	RatingUnitedKingdomMoviesTypeVAllAllowed RatingUnitedKingdomMoviesType = "allAllowed"
 	// RatingUnitedKingdomMoviesTypeVAllBlocked undocumented
-	RatingUnitedKingdomMoviesTypeVAllBlocked RatingUnitedKingdomMoviesType = 1
+	RatingUnitedKingdomMoviesTypeVAllBlocked RatingUnitedKingdomMoviesType = "allBlocked"
 	// RatingUnitedKingdomMoviesTypeVGeneral undocumented
-	RatingUnitedKingdomMoviesTypeVGeneral RatingUnitedKingdomMoviesType = 2
+	RatingUnitedKingdomMoviesTypeVGeneral RatingUnitedKingdomMoviesType = "general"
 	// RatingUnitedKingdomMoviesTypeVUniversalChildren undocumented
-	RatingUnitedKingdomMoviesTypeVUniversalChildren RatingUnitedKingdomMoviesType = 3
+	RatingUnitedKingdomMoviesTypeVUniversalChildren RatingUnitedKingdomMoviesType = "universalChildren"
 	// RatingUnitedKingdomMoviesTypeVParentalGuidance undocumented
-	RatingUnitedKingdomMoviesTypeVParentalGuidance RatingUnitedKingdomMoviesType = 4
+	RatingUnitedKingdomMoviesTypeVParentalGuidance RatingUnitedKingdomMoviesType = "parentalGuidance"
 	// RatingUnitedKingdomMoviesTypeVAgesAbove12Video undocumented
-	RatingUnitedKingdomMoviesTypeVAgesAbove12Video RatingUnitedKingdomMoviesType = 5
+	RatingUnitedKingdomMoviesTypeVAgesAbove12Video RatingUnitedKingdomMoviesType = "agesAbove12Video"
 	// RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema undocumented
-	RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema RatingUnitedKingdomMoviesType = 6
+	RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema RatingUnitedKingdomMoviesType = "agesAbove12Cinema"
 	// RatingUnitedKingdomMoviesTypeVAgesAbove15 undocumented
-	RatingUnitedKingdomMoviesTypeVAgesAbove15 RatingUnitedKingdomMoviesType = 7
+	RatingUnitedKingdomMoviesTypeVAgesAbove15 RatingUnitedKingdomMoviesType = "agesAbove15"
 	// RatingUnitedKingdomMoviesTypeVAdults undocumented
-	RatingUnitedKingdomMoviesTypeVAdults RatingUnitedKingdomMoviesType = 8
+	RatingUnitedKingdomMoviesTypeVAdults RatingUnitedKingdomMoviesType = "adults"
 )
 
-// RatingUnitedKingdomMoviesTypePAllAllowed returns a pointer to RatingUnitedKingdomMoviesTypeVAllAllowed
-func RatingUnitedKingdomMoviesTypePAllAllowed() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingUnitedKingdomMoviesTypePAllAllowed is a pointer to RatingUnitedKingdomMoviesTypeVAllAllowed
+	RatingUnitedKingdomMoviesTypePAllAllowed = &_RatingUnitedKingdomMoviesTypePAllAllowed
+	// RatingUnitedKingdomMoviesTypePAllBlocked is a pointer to RatingUnitedKingdomMoviesTypeVAllBlocked
+	RatingUnitedKingdomMoviesTypePAllBlocked = &_RatingUnitedKingdomMoviesTypePAllBlocked
+	// RatingUnitedKingdomMoviesTypePGeneral is a pointer to RatingUnitedKingdomMoviesTypeVGeneral
+	RatingUnitedKingdomMoviesTypePGeneral = &_RatingUnitedKingdomMoviesTypePGeneral
+	// RatingUnitedKingdomMoviesTypePUniversalChildren is a pointer to RatingUnitedKingdomMoviesTypeVUniversalChildren
+	RatingUnitedKingdomMoviesTypePUniversalChildren = &_RatingUnitedKingdomMoviesTypePUniversalChildren
+	// RatingUnitedKingdomMoviesTypePParentalGuidance is a pointer to RatingUnitedKingdomMoviesTypeVParentalGuidance
+	RatingUnitedKingdomMoviesTypePParentalGuidance = &_RatingUnitedKingdomMoviesTypePParentalGuidance
+	// RatingUnitedKingdomMoviesTypePAgesAbove12Video is a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove12Video
+	RatingUnitedKingdomMoviesTypePAgesAbove12Video = &_RatingUnitedKingdomMoviesTypePAgesAbove12Video
+	// RatingUnitedKingdomMoviesTypePAgesAbove12Cinema is a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema
+	RatingUnitedKingdomMoviesTypePAgesAbove12Cinema = &_RatingUnitedKingdomMoviesTypePAgesAbove12Cinema
+	// RatingUnitedKingdomMoviesTypePAgesAbove15 is a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove15
+	RatingUnitedKingdomMoviesTypePAgesAbove15 = &_RatingUnitedKingdomMoviesTypePAgesAbove15
+	// RatingUnitedKingdomMoviesTypePAdults is a pointer to RatingUnitedKingdomMoviesTypeVAdults
+	RatingUnitedKingdomMoviesTypePAdults = &_RatingUnitedKingdomMoviesTypePAdults
+)
 
-// RatingUnitedKingdomMoviesTypePAllBlocked returns a pointer to RatingUnitedKingdomMoviesTypeVAllBlocked
-func RatingUnitedKingdomMoviesTypePAllBlocked() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePGeneral returns a pointer to RatingUnitedKingdomMoviesTypeVGeneral
-func RatingUnitedKingdomMoviesTypePGeneral() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVGeneral
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePUniversalChildren returns a pointer to RatingUnitedKingdomMoviesTypeVUniversalChildren
-func RatingUnitedKingdomMoviesTypePUniversalChildren() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVUniversalChildren
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePParentalGuidance returns a pointer to RatingUnitedKingdomMoviesTypeVParentalGuidance
-func RatingUnitedKingdomMoviesTypePParentalGuidance() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVParentalGuidance
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePAgesAbove12Video returns a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove12Video
-func RatingUnitedKingdomMoviesTypePAgesAbove12Video() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVAgesAbove12Video
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePAgesAbove12Cinema returns a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema
-func RatingUnitedKingdomMoviesTypePAgesAbove12Cinema() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePAgesAbove15 returns a pointer to RatingUnitedKingdomMoviesTypeVAgesAbove15
-func RatingUnitedKingdomMoviesTypePAgesAbove15() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVAgesAbove15
-	return &v
-}
-
-// RatingUnitedKingdomMoviesTypePAdults returns a pointer to RatingUnitedKingdomMoviesTypeVAdults
-func RatingUnitedKingdomMoviesTypePAdults() *RatingUnitedKingdomMoviesType {
-	v := RatingUnitedKingdomMoviesTypeVAdults
-	return &v
-}
+var (
+	_RatingUnitedKingdomMoviesTypePAllAllowed        = RatingUnitedKingdomMoviesTypeVAllAllowed
+	_RatingUnitedKingdomMoviesTypePAllBlocked        = RatingUnitedKingdomMoviesTypeVAllBlocked
+	_RatingUnitedKingdomMoviesTypePGeneral           = RatingUnitedKingdomMoviesTypeVGeneral
+	_RatingUnitedKingdomMoviesTypePUniversalChildren = RatingUnitedKingdomMoviesTypeVUniversalChildren
+	_RatingUnitedKingdomMoviesTypePParentalGuidance  = RatingUnitedKingdomMoviesTypeVParentalGuidance
+	_RatingUnitedKingdomMoviesTypePAgesAbove12Video  = RatingUnitedKingdomMoviesTypeVAgesAbove12Video
+	_RatingUnitedKingdomMoviesTypePAgesAbove12Cinema = RatingUnitedKingdomMoviesTypeVAgesAbove12Cinema
+	_RatingUnitedKingdomMoviesTypePAgesAbove15       = RatingUnitedKingdomMoviesTypeVAgesAbove15
+	_RatingUnitedKingdomMoviesTypePAdults            = RatingUnitedKingdomMoviesTypeVAdults
+)

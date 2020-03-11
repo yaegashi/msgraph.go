@@ -3,31 +3,28 @@
 package msgraph
 
 // Win32LobAppMsiPackageType undocumented
-type Win32LobAppMsiPackageType int
+type Win32LobAppMsiPackageType string
 
 const (
 	// Win32LobAppMsiPackageTypeVPerMachine undocumented
-	Win32LobAppMsiPackageTypeVPerMachine Win32LobAppMsiPackageType = 0
+	Win32LobAppMsiPackageTypeVPerMachine Win32LobAppMsiPackageType = "perMachine"
 	// Win32LobAppMsiPackageTypeVPerUser undocumented
-	Win32LobAppMsiPackageTypeVPerUser Win32LobAppMsiPackageType = 1
+	Win32LobAppMsiPackageTypeVPerUser Win32LobAppMsiPackageType = "perUser"
 	// Win32LobAppMsiPackageTypeVDualPurpose undocumented
-	Win32LobAppMsiPackageTypeVDualPurpose Win32LobAppMsiPackageType = 2
+	Win32LobAppMsiPackageTypeVDualPurpose Win32LobAppMsiPackageType = "dualPurpose"
 )
 
-// Win32LobAppMsiPackageTypePPerMachine returns a pointer to Win32LobAppMsiPackageTypeVPerMachine
-func Win32LobAppMsiPackageTypePPerMachine() *Win32LobAppMsiPackageType {
-	v := Win32LobAppMsiPackageTypeVPerMachine
-	return &v
-}
+var (
+	// Win32LobAppMsiPackageTypePPerMachine is a pointer to Win32LobAppMsiPackageTypeVPerMachine
+	Win32LobAppMsiPackageTypePPerMachine = &_Win32LobAppMsiPackageTypePPerMachine
+	// Win32LobAppMsiPackageTypePPerUser is a pointer to Win32LobAppMsiPackageTypeVPerUser
+	Win32LobAppMsiPackageTypePPerUser = &_Win32LobAppMsiPackageTypePPerUser
+	// Win32LobAppMsiPackageTypePDualPurpose is a pointer to Win32LobAppMsiPackageTypeVDualPurpose
+	Win32LobAppMsiPackageTypePDualPurpose = &_Win32LobAppMsiPackageTypePDualPurpose
+)
 
-// Win32LobAppMsiPackageTypePPerUser returns a pointer to Win32LobAppMsiPackageTypeVPerUser
-func Win32LobAppMsiPackageTypePPerUser() *Win32LobAppMsiPackageType {
-	v := Win32LobAppMsiPackageTypeVPerUser
-	return &v
-}
-
-// Win32LobAppMsiPackageTypePDualPurpose returns a pointer to Win32LobAppMsiPackageTypeVDualPurpose
-func Win32LobAppMsiPackageTypePDualPurpose() *Win32LobAppMsiPackageType {
-	v := Win32LobAppMsiPackageTypeVDualPurpose
-	return &v
-}
+var (
+	_Win32LobAppMsiPackageTypePPerMachine  = Win32LobAppMsiPackageTypeVPerMachine
+	_Win32LobAppMsiPackageTypePPerUser     = Win32LobAppMsiPackageTypeVPerUser
+	_Win32LobAppMsiPackageTypePDualPurpose = Win32LobAppMsiPackageTypeVDualPurpose
+)

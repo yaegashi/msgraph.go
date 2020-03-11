@@ -3,23 +3,23 @@
 package msgraph
 
 // WatermarkLayout undocumented
-type WatermarkLayout int
+type WatermarkLayout string
 
 const (
 	// WatermarkLayoutVHorizontal undocumented
-	WatermarkLayoutVHorizontal WatermarkLayout = 0
+	WatermarkLayoutVHorizontal WatermarkLayout = "horizontal"
 	// WatermarkLayoutVDiagonal undocumented
-	WatermarkLayoutVDiagonal WatermarkLayout = 1
+	WatermarkLayoutVDiagonal WatermarkLayout = "diagonal"
 )
 
-// WatermarkLayoutPHorizontal returns a pointer to WatermarkLayoutVHorizontal
-func WatermarkLayoutPHorizontal() *WatermarkLayout {
-	v := WatermarkLayoutVHorizontal
-	return &v
-}
+var (
+	// WatermarkLayoutPHorizontal is a pointer to WatermarkLayoutVHorizontal
+	WatermarkLayoutPHorizontal = &_WatermarkLayoutPHorizontal
+	// WatermarkLayoutPDiagonal is a pointer to WatermarkLayoutVDiagonal
+	WatermarkLayoutPDiagonal = &_WatermarkLayoutPDiagonal
+)
 
-// WatermarkLayoutPDiagonal returns a pointer to WatermarkLayoutVDiagonal
-func WatermarkLayoutPDiagonal() *WatermarkLayout {
-	v := WatermarkLayoutVDiagonal
-	return &v
-}
+var (
+	_WatermarkLayoutPHorizontal = WatermarkLayoutVHorizontal
+	_WatermarkLayoutPDiagonal   = WatermarkLayoutVDiagonal
+)

@@ -3,39 +3,33 @@
 package msgraph
 
 // BookingStaffRole undocumented
-type BookingStaffRole int
+type BookingStaffRole string
 
 const (
 	// BookingStaffRoleVGuest undocumented
-	BookingStaffRoleVGuest BookingStaffRole = 0
+	BookingStaffRoleVGuest BookingStaffRole = "guest"
 	// BookingStaffRoleVAdministrator undocumented
-	BookingStaffRoleVAdministrator BookingStaffRole = 1
+	BookingStaffRoleVAdministrator BookingStaffRole = "administrator"
 	// BookingStaffRoleVViewer undocumented
-	BookingStaffRoleVViewer BookingStaffRole = 2
+	BookingStaffRoleVViewer BookingStaffRole = "viewer"
 	// BookingStaffRoleVExternalGuest undocumented
-	BookingStaffRoleVExternalGuest BookingStaffRole = 3
+	BookingStaffRoleVExternalGuest BookingStaffRole = "externalGuest"
 )
 
-// BookingStaffRolePGuest returns a pointer to BookingStaffRoleVGuest
-func BookingStaffRolePGuest() *BookingStaffRole {
-	v := BookingStaffRoleVGuest
-	return &v
-}
+var (
+	// BookingStaffRolePGuest is a pointer to BookingStaffRoleVGuest
+	BookingStaffRolePGuest = &_BookingStaffRolePGuest
+	// BookingStaffRolePAdministrator is a pointer to BookingStaffRoleVAdministrator
+	BookingStaffRolePAdministrator = &_BookingStaffRolePAdministrator
+	// BookingStaffRolePViewer is a pointer to BookingStaffRoleVViewer
+	BookingStaffRolePViewer = &_BookingStaffRolePViewer
+	// BookingStaffRolePExternalGuest is a pointer to BookingStaffRoleVExternalGuest
+	BookingStaffRolePExternalGuest = &_BookingStaffRolePExternalGuest
+)
 
-// BookingStaffRolePAdministrator returns a pointer to BookingStaffRoleVAdministrator
-func BookingStaffRolePAdministrator() *BookingStaffRole {
-	v := BookingStaffRoleVAdministrator
-	return &v
-}
-
-// BookingStaffRolePViewer returns a pointer to BookingStaffRoleVViewer
-func BookingStaffRolePViewer() *BookingStaffRole {
-	v := BookingStaffRoleVViewer
-	return &v
-}
-
-// BookingStaffRolePExternalGuest returns a pointer to BookingStaffRoleVExternalGuest
-func BookingStaffRolePExternalGuest() *BookingStaffRole {
-	v := BookingStaffRoleVExternalGuest
-	return &v
-}
+var (
+	_BookingStaffRolePGuest         = BookingStaffRoleVGuest
+	_BookingStaffRolePAdministrator = BookingStaffRoleVAdministrator
+	_BookingStaffRolePViewer        = BookingStaffRoleVViewer
+	_BookingStaffRolePExternalGuest = BookingStaffRoleVExternalGuest
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // ThreatAssessmentRequestSource undocumented
-type ThreatAssessmentRequestSource int
+type ThreatAssessmentRequestSource string
 
 const (
 	// ThreatAssessmentRequestSourceVUndefined undocumented
-	ThreatAssessmentRequestSourceVUndefined ThreatAssessmentRequestSource = 0
+	ThreatAssessmentRequestSourceVUndefined ThreatAssessmentRequestSource = "undefined"
 	// ThreatAssessmentRequestSourceVUser undocumented
-	ThreatAssessmentRequestSourceVUser ThreatAssessmentRequestSource = 1
+	ThreatAssessmentRequestSourceVUser ThreatAssessmentRequestSource = "user"
 	// ThreatAssessmentRequestSourceVAdministrator undocumented
-	ThreatAssessmentRequestSourceVAdministrator ThreatAssessmentRequestSource = 2
+	ThreatAssessmentRequestSourceVAdministrator ThreatAssessmentRequestSource = "administrator"
 )
 
-// ThreatAssessmentRequestSourcePUndefined returns a pointer to ThreatAssessmentRequestSourceVUndefined
-func ThreatAssessmentRequestSourcePUndefined() *ThreatAssessmentRequestSource {
-	v := ThreatAssessmentRequestSourceVUndefined
-	return &v
-}
+var (
+	// ThreatAssessmentRequestSourcePUndefined is a pointer to ThreatAssessmentRequestSourceVUndefined
+	ThreatAssessmentRequestSourcePUndefined = &_ThreatAssessmentRequestSourcePUndefined
+	// ThreatAssessmentRequestSourcePUser is a pointer to ThreatAssessmentRequestSourceVUser
+	ThreatAssessmentRequestSourcePUser = &_ThreatAssessmentRequestSourcePUser
+	// ThreatAssessmentRequestSourcePAdministrator is a pointer to ThreatAssessmentRequestSourceVAdministrator
+	ThreatAssessmentRequestSourcePAdministrator = &_ThreatAssessmentRequestSourcePAdministrator
+)
 
-// ThreatAssessmentRequestSourcePUser returns a pointer to ThreatAssessmentRequestSourceVUser
-func ThreatAssessmentRequestSourcePUser() *ThreatAssessmentRequestSource {
-	v := ThreatAssessmentRequestSourceVUser
-	return &v
-}
-
-// ThreatAssessmentRequestSourcePAdministrator returns a pointer to ThreatAssessmentRequestSourceVAdministrator
-func ThreatAssessmentRequestSourcePAdministrator() *ThreatAssessmentRequestSource {
-	v := ThreatAssessmentRequestSourceVAdministrator
-	return &v
-}
+var (
+	_ThreatAssessmentRequestSourcePUndefined     = ThreatAssessmentRequestSourceVUndefined
+	_ThreatAssessmentRequestSourcePUser          = ThreatAssessmentRequestSourceVUser
+	_ThreatAssessmentRequestSourcePAdministrator = ThreatAssessmentRequestSourceVAdministrator
+)

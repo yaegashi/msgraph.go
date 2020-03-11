@@ -3,47 +3,38 @@
 package msgraph
 
 // EntryExportStatus undocumented
-type EntryExportStatus int
+type EntryExportStatus string
 
 const (
 	// EntryExportStatusVNoop undocumented
-	EntryExportStatusVNoop EntryExportStatus = 0
+	EntryExportStatusVNoop EntryExportStatus = "Noop"
 	// EntryExportStatusVSuccess undocumented
-	EntryExportStatusVSuccess EntryExportStatus = 1
+	EntryExportStatusVSuccess EntryExportStatus = "Success"
 	// EntryExportStatusVRetryableError undocumented
-	EntryExportStatusVRetryableError EntryExportStatus = 2
+	EntryExportStatusVRetryableError EntryExportStatus = "RetryableError"
 	// EntryExportStatusVPermanentError undocumented
-	EntryExportStatusVPermanentError EntryExportStatus = 3
+	EntryExportStatusVPermanentError EntryExportStatus = "PermanentError"
 	// EntryExportStatusVError undocumented
-	EntryExportStatusVError EntryExportStatus = 4
+	EntryExportStatusVError EntryExportStatus = "Error"
 )
 
-// EntryExportStatusPNoop returns a pointer to EntryExportStatusVNoop
-func EntryExportStatusPNoop() *EntryExportStatus {
-	v := EntryExportStatusVNoop
-	return &v
-}
+var (
+	// EntryExportStatusPNoop is a pointer to EntryExportStatusVNoop
+	EntryExportStatusPNoop = &_EntryExportStatusPNoop
+	// EntryExportStatusPSuccess is a pointer to EntryExportStatusVSuccess
+	EntryExportStatusPSuccess = &_EntryExportStatusPSuccess
+	// EntryExportStatusPRetryableError is a pointer to EntryExportStatusVRetryableError
+	EntryExportStatusPRetryableError = &_EntryExportStatusPRetryableError
+	// EntryExportStatusPPermanentError is a pointer to EntryExportStatusVPermanentError
+	EntryExportStatusPPermanentError = &_EntryExportStatusPPermanentError
+	// EntryExportStatusPError is a pointer to EntryExportStatusVError
+	EntryExportStatusPError = &_EntryExportStatusPError
+)
 
-// EntryExportStatusPSuccess returns a pointer to EntryExportStatusVSuccess
-func EntryExportStatusPSuccess() *EntryExportStatus {
-	v := EntryExportStatusVSuccess
-	return &v
-}
-
-// EntryExportStatusPRetryableError returns a pointer to EntryExportStatusVRetryableError
-func EntryExportStatusPRetryableError() *EntryExportStatus {
-	v := EntryExportStatusVRetryableError
-	return &v
-}
-
-// EntryExportStatusPPermanentError returns a pointer to EntryExportStatusVPermanentError
-func EntryExportStatusPPermanentError() *EntryExportStatus {
-	v := EntryExportStatusVPermanentError
-	return &v
-}
-
-// EntryExportStatusPError returns a pointer to EntryExportStatusVError
-func EntryExportStatusPError() *EntryExportStatus {
-	v := EntryExportStatusVError
-	return &v
-}
+var (
+	_EntryExportStatusPNoop           = EntryExportStatusVNoop
+	_EntryExportStatusPSuccess        = EntryExportStatusVSuccess
+	_EntryExportStatusPRetryableError = EntryExportStatusVRetryableError
+	_EntryExportStatusPPermanentError = EntryExportStatusVPermanentError
+	_EntryExportStatusPError          = EntryExportStatusVError
+)

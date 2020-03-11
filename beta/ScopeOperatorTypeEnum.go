@@ -3,23 +3,23 @@
 package msgraph
 
 // ScopeOperatorType undocumented
-type ScopeOperatorType int
+type ScopeOperatorType string
 
 const (
 	// ScopeOperatorTypeVBinary undocumented
-	ScopeOperatorTypeVBinary ScopeOperatorType = 0
+	ScopeOperatorTypeVBinary ScopeOperatorType = "Binary"
 	// ScopeOperatorTypeVUnary undocumented
-	ScopeOperatorTypeVUnary ScopeOperatorType = 1
+	ScopeOperatorTypeVUnary ScopeOperatorType = "Unary"
 )
 
-// ScopeOperatorTypePBinary returns a pointer to ScopeOperatorTypeVBinary
-func ScopeOperatorTypePBinary() *ScopeOperatorType {
-	v := ScopeOperatorTypeVBinary
-	return &v
-}
+var (
+	// ScopeOperatorTypePBinary is a pointer to ScopeOperatorTypeVBinary
+	ScopeOperatorTypePBinary = &_ScopeOperatorTypePBinary
+	// ScopeOperatorTypePUnary is a pointer to ScopeOperatorTypeVUnary
+	ScopeOperatorTypePUnary = &_ScopeOperatorTypePUnary
+)
 
-// ScopeOperatorTypePUnary returns a pointer to ScopeOperatorTypeVUnary
-func ScopeOperatorTypePUnary() *ScopeOperatorType {
-	v := ScopeOperatorTypeVUnary
-	return &v
-}
+var (
+	_ScopeOperatorTypePBinary = ScopeOperatorTypeVBinary
+	_ScopeOperatorTypePUnary  = ScopeOperatorTypeVUnary
+)

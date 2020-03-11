@@ -3,23 +3,23 @@
 package msgraph
 
 // EncryptionReadinessState undocumented
-type EncryptionReadinessState int
+type EncryptionReadinessState string
 
 const (
 	// EncryptionReadinessStateVNotReady undocumented
-	EncryptionReadinessStateVNotReady EncryptionReadinessState = 0
+	EncryptionReadinessStateVNotReady EncryptionReadinessState = "notReady"
 	// EncryptionReadinessStateVReady undocumented
-	EncryptionReadinessStateVReady EncryptionReadinessState = 1
+	EncryptionReadinessStateVReady EncryptionReadinessState = "ready"
 )
 
-// EncryptionReadinessStatePNotReady returns a pointer to EncryptionReadinessStateVNotReady
-func EncryptionReadinessStatePNotReady() *EncryptionReadinessState {
-	v := EncryptionReadinessStateVNotReady
-	return &v
-}
+var (
+	// EncryptionReadinessStatePNotReady is a pointer to EncryptionReadinessStateVNotReady
+	EncryptionReadinessStatePNotReady = &_EncryptionReadinessStatePNotReady
+	// EncryptionReadinessStatePReady is a pointer to EncryptionReadinessStateVReady
+	EncryptionReadinessStatePReady = &_EncryptionReadinessStatePReady
+)
 
-// EncryptionReadinessStatePReady returns a pointer to EncryptionReadinessStateVReady
-func EncryptionReadinessStatePReady() *EncryptionReadinessState {
-	v := EncryptionReadinessStateVReady
-	return &v
-}
+var (
+	_EncryptionReadinessStatePNotReady = EncryptionReadinessStateVNotReady
+	_EncryptionReadinessStatePReady    = EncryptionReadinessStateVReady
+)

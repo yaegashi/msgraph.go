@@ -3,87 +3,63 @@
 package msgraph
 
 // AppliedConditionalAccessPolicyResult undocumented
-type AppliedConditionalAccessPolicyResult int
+type AppliedConditionalAccessPolicyResult string
 
 const (
 	// AppliedConditionalAccessPolicyResultVSuccess undocumented
-	AppliedConditionalAccessPolicyResultVSuccess AppliedConditionalAccessPolicyResult = 0
+	AppliedConditionalAccessPolicyResultVSuccess AppliedConditionalAccessPolicyResult = "success"
 	// AppliedConditionalAccessPolicyResultVFailure undocumented
-	AppliedConditionalAccessPolicyResultVFailure AppliedConditionalAccessPolicyResult = 1
+	AppliedConditionalAccessPolicyResultVFailure AppliedConditionalAccessPolicyResult = "failure"
 	// AppliedConditionalAccessPolicyResultVNotApplied undocumented
-	AppliedConditionalAccessPolicyResultVNotApplied AppliedConditionalAccessPolicyResult = 2
+	AppliedConditionalAccessPolicyResultVNotApplied AppliedConditionalAccessPolicyResult = "notApplied"
 	// AppliedConditionalAccessPolicyResultVNotEnabled undocumented
-	AppliedConditionalAccessPolicyResultVNotEnabled AppliedConditionalAccessPolicyResult = 3
+	AppliedConditionalAccessPolicyResultVNotEnabled AppliedConditionalAccessPolicyResult = "notEnabled"
 	// AppliedConditionalAccessPolicyResultVUnknown undocumented
-	AppliedConditionalAccessPolicyResultVUnknown AppliedConditionalAccessPolicyResult = 4
+	AppliedConditionalAccessPolicyResultVUnknown AppliedConditionalAccessPolicyResult = "unknown"
 	// AppliedConditionalAccessPolicyResultVUnknownFutureValue undocumented
-	AppliedConditionalAccessPolicyResultVUnknownFutureValue AppliedConditionalAccessPolicyResult = 5
+	AppliedConditionalAccessPolicyResultVUnknownFutureValue AppliedConditionalAccessPolicyResult = "unknownFutureValue"
 	// AppliedConditionalAccessPolicyResultVReportOnlySuccess undocumented
-	AppliedConditionalAccessPolicyResultVReportOnlySuccess AppliedConditionalAccessPolicyResult = 6
+	AppliedConditionalAccessPolicyResultVReportOnlySuccess AppliedConditionalAccessPolicyResult = "reportOnlySuccess"
 	// AppliedConditionalAccessPolicyResultVReportOnlyFailure undocumented
-	AppliedConditionalAccessPolicyResultVReportOnlyFailure AppliedConditionalAccessPolicyResult = 7
+	AppliedConditionalAccessPolicyResultVReportOnlyFailure AppliedConditionalAccessPolicyResult = "reportOnlyFailure"
 	// AppliedConditionalAccessPolicyResultVReportOnlyNotApplied undocumented
-	AppliedConditionalAccessPolicyResultVReportOnlyNotApplied AppliedConditionalAccessPolicyResult = 8
+	AppliedConditionalAccessPolicyResultVReportOnlyNotApplied AppliedConditionalAccessPolicyResult = "reportOnlyNotApplied"
 	// AppliedConditionalAccessPolicyResultVReportOnlyInterrupted undocumented
-	AppliedConditionalAccessPolicyResultVReportOnlyInterrupted AppliedConditionalAccessPolicyResult = 9
+	AppliedConditionalAccessPolicyResultVReportOnlyInterrupted AppliedConditionalAccessPolicyResult = "reportOnlyInterrupted"
 )
 
-// AppliedConditionalAccessPolicyResultPSuccess returns a pointer to AppliedConditionalAccessPolicyResultVSuccess
-func AppliedConditionalAccessPolicyResultPSuccess() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVSuccess
-	return &v
-}
+var (
+	// AppliedConditionalAccessPolicyResultPSuccess is a pointer to AppliedConditionalAccessPolicyResultVSuccess
+	AppliedConditionalAccessPolicyResultPSuccess = &_AppliedConditionalAccessPolicyResultPSuccess
+	// AppliedConditionalAccessPolicyResultPFailure is a pointer to AppliedConditionalAccessPolicyResultVFailure
+	AppliedConditionalAccessPolicyResultPFailure = &_AppliedConditionalAccessPolicyResultPFailure
+	// AppliedConditionalAccessPolicyResultPNotApplied is a pointer to AppliedConditionalAccessPolicyResultVNotApplied
+	AppliedConditionalAccessPolicyResultPNotApplied = &_AppliedConditionalAccessPolicyResultPNotApplied
+	// AppliedConditionalAccessPolicyResultPNotEnabled is a pointer to AppliedConditionalAccessPolicyResultVNotEnabled
+	AppliedConditionalAccessPolicyResultPNotEnabled = &_AppliedConditionalAccessPolicyResultPNotEnabled
+	// AppliedConditionalAccessPolicyResultPUnknown is a pointer to AppliedConditionalAccessPolicyResultVUnknown
+	AppliedConditionalAccessPolicyResultPUnknown = &_AppliedConditionalAccessPolicyResultPUnknown
+	// AppliedConditionalAccessPolicyResultPUnknownFutureValue is a pointer to AppliedConditionalAccessPolicyResultVUnknownFutureValue
+	AppliedConditionalAccessPolicyResultPUnknownFutureValue = &_AppliedConditionalAccessPolicyResultPUnknownFutureValue
+	// AppliedConditionalAccessPolicyResultPReportOnlySuccess is a pointer to AppliedConditionalAccessPolicyResultVReportOnlySuccess
+	AppliedConditionalAccessPolicyResultPReportOnlySuccess = &_AppliedConditionalAccessPolicyResultPReportOnlySuccess
+	// AppliedConditionalAccessPolicyResultPReportOnlyFailure is a pointer to AppliedConditionalAccessPolicyResultVReportOnlyFailure
+	AppliedConditionalAccessPolicyResultPReportOnlyFailure = &_AppliedConditionalAccessPolicyResultPReportOnlyFailure
+	// AppliedConditionalAccessPolicyResultPReportOnlyNotApplied is a pointer to AppliedConditionalAccessPolicyResultVReportOnlyNotApplied
+	AppliedConditionalAccessPolicyResultPReportOnlyNotApplied = &_AppliedConditionalAccessPolicyResultPReportOnlyNotApplied
+	// AppliedConditionalAccessPolicyResultPReportOnlyInterrupted is a pointer to AppliedConditionalAccessPolicyResultVReportOnlyInterrupted
+	AppliedConditionalAccessPolicyResultPReportOnlyInterrupted = &_AppliedConditionalAccessPolicyResultPReportOnlyInterrupted
+)
 
-// AppliedConditionalAccessPolicyResultPFailure returns a pointer to AppliedConditionalAccessPolicyResultVFailure
-func AppliedConditionalAccessPolicyResultPFailure() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVFailure
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPNotApplied returns a pointer to AppliedConditionalAccessPolicyResultVNotApplied
-func AppliedConditionalAccessPolicyResultPNotApplied() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVNotApplied
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPNotEnabled returns a pointer to AppliedConditionalAccessPolicyResultVNotEnabled
-func AppliedConditionalAccessPolicyResultPNotEnabled() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVNotEnabled
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPUnknown returns a pointer to AppliedConditionalAccessPolicyResultVUnknown
-func AppliedConditionalAccessPolicyResultPUnknown() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVUnknown
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPUnknownFutureValue returns a pointer to AppliedConditionalAccessPolicyResultVUnknownFutureValue
-func AppliedConditionalAccessPolicyResultPUnknownFutureValue() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVUnknownFutureValue
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPReportOnlySuccess returns a pointer to AppliedConditionalAccessPolicyResultVReportOnlySuccess
-func AppliedConditionalAccessPolicyResultPReportOnlySuccess() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVReportOnlySuccess
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPReportOnlyFailure returns a pointer to AppliedConditionalAccessPolicyResultVReportOnlyFailure
-func AppliedConditionalAccessPolicyResultPReportOnlyFailure() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVReportOnlyFailure
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPReportOnlyNotApplied returns a pointer to AppliedConditionalAccessPolicyResultVReportOnlyNotApplied
-func AppliedConditionalAccessPolicyResultPReportOnlyNotApplied() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVReportOnlyNotApplied
-	return &v
-}
-
-// AppliedConditionalAccessPolicyResultPReportOnlyInterrupted returns a pointer to AppliedConditionalAccessPolicyResultVReportOnlyInterrupted
-func AppliedConditionalAccessPolicyResultPReportOnlyInterrupted() *AppliedConditionalAccessPolicyResult {
-	v := AppliedConditionalAccessPolicyResultVReportOnlyInterrupted
-	return &v
-}
+var (
+	_AppliedConditionalAccessPolicyResultPSuccess               = AppliedConditionalAccessPolicyResultVSuccess
+	_AppliedConditionalAccessPolicyResultPFailure               = AppliedConditionalAccessPolicyResultVFailure
+	_AppliedConditionalAccessPolicyResultPNotApplied            = AppliedConditionalAccessPolicyResultVNotApplied
+	_AppliedConditionalAccessPolicyResultPNotEnabled            = AppliedConditionalAccessPolicyResultVNotEnabled
+	_AppliedConditionalAccessPolicyResultPUnknown               = AppliedConditionalAccessPolicyResultVUnknown
+	_AppliedConditionalAccessPolicyResultPUnknownFutureValue    = AppliedConditionalAccessPolicyResultVUnknownFutureValue
+	_AppliedConditionalAccessPolicyResultPReportOnlySuccess     = AppliedConditionalAccessPolicyResultVReportOnlySuccess
+	_AppliedConditionalAccessPolicyResultPReportOnlyFailure     = AppliedConditionalAccessPolicyResultVReportOnlyFailure
+	_AppliedConditionalAccessPolicyResultPReportOnlyNotApplied  = AppliedConditionalAccessPolicyResultVReportOnlyNotApplied
+	_AppliedConditionalAccessPolicyResultPReportOnlyInterrupted = AppliedConditionalAccessPolicyResultVReportOnlyInterrupted
+)

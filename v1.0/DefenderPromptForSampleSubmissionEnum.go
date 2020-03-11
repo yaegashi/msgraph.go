@@ -3,47 +3,38 @@
 package msgraph
 
 // DefenderPromptForSampleSubmission undocumented
-type DefenderPromptForSampleSubmission int
+type DefenderPromptForSampleSubmission string
 
 const (
 	// DefenderPromptForSampleSubmissionVUserDefined undocumented
-	DefenderPromptForSampleSubmissionVUserDefined DefenderPromptForSampleSubmission = 0
+	DefenderPromptForSampleSubmissionVUserDefined DefenderPromptForSampleSubmission = "userDefined"
 	// DefenderPromptForSampleSubmissionVAlwaysPrompt undocumented
-	DefenderPromptForSampleSubmissionVAlwaysPrompt DefenderPromptForSampleSubmission = 1
+	DefenderPromptForSampleSubmissionVAlwaysPrompt DefenderPromptForSampleSubmission = "alwaysPrompt"
 	// DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData undocumented
-	DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData DefenderPromptForSampleSubmission = 2
+	DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData DefenderPromptForSampleSubmission = "promptBeforeSendingPersonalData"
 	// DefenderPromptForSampleSubmissionVNeverSendData undocumented
-	DefenderPromptForSampleSubmissionVNeverSendData DefenderPromptForSampleSubmission = 3
+	DefenderPromptForSampleSubmissionVNeverSendData DefenderPromptForSampleSubmission = "neverSendData"
 	// DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting undocumented
-	DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting DefenderPromptForSampleSubmission = 4
+	DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting DefenderPromptForSampleSubmission = "sendAllDataWithoutPrompting"
 )
 
-// DefenderPromptForSampleSubmissionPUserDefined returns a pointer to DefenderPromptForSampleSubmissionVUserDefined
-func DefenderPromptForSampleSubmissionPUserDefined() *DefenderPromptForSampleSubmission {
-	v := DefenderPromptForSampleSubmissionVUserDefined
-	return &v
-}
+var (
+	// DefenderPromptForSampleSubmissionPUserDefined is a pointer to DefenderPromptForSampleSubmissionVUserDefined
+	DefenderPromptForSampleSubmissionPUserDefined = &_DefenderPromptForSampleSubmissionPUserDefined
+	// DefenderPromptForSampleSubmissionPAlwaysPrompt is a pointer to DefenderPromptForSampleSubmissionVAlwaysPrompt
+	DefenderPromptForSampleSubmissionPAlwaysPrompt = &_DefenderPromptForSampleSubmissionPAlwaysPrompt
+	// DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData is a pointer to DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData
+	DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData = &_DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData
+	// DefenderPromptForSampleSubmissionPNeverSendData is a pointer to DefenderPromptForSampleSubmissionVNeverSendData
+	DefenderPromptForSampleSubmissionPNeverSendData = &_DefenderPromptForSampleSubmissionPNeverSendData
+	// DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting is a pointer to DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting
+	DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting = &_DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting
+)
 
-// DefenderPromptForSampleSubmissionPAlwaysPrompt returns a pointer to DefenderPromptForSampleSubmissionVAlwaysPrompt
-func DefenderPromptForSampleSubmissionPAlwaysPrompt() *DefenderPromptForSampleSubmission {
-	v := DefenderPromptForSampleSubmissionVAlwaysPrompt
-	return &v
-}
-
-// DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData returns a pointer to DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData
-func DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData() *DefenderPromptForSampleSubmission {
-	v := DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData
-	return &v
-}
-
-// DefenderPromptForSampleSubmissionPNeverSendData returns a pointer to DefenderPromptForSampleSubmissionVNeverSendData
-func DefenderPromptForSampleSubmissionPNeverSendData() *DefenderPromptForSampleSubmission {
-	v := DefenderPromptForSampleSubmissionVNeverSendData
-	return &v
-}
-
-// DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting returns a pointer to DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting
-func DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting() *DefenderPromptForSampleSubmission {
-	v := DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting
-	return &v
-}
+var (
+	_DefenderPromptForSampleSubmissionPUserDefined                     = DefenderPromptForSampleSubmissionVUserDefined
+	_DefenderPromptForSampleSubmissionPAlwaysPrompt                    = DefenderPromptForSampleSubmissionVAlwaysPrompt
+	_DefenderPromptForSampleSubmissionPPromptBeforeSendingPersonalData = DefenderPromptForSampleSubmissionVPromptBeforeSendingPersonalData
+	_DefenderPromptForSampleSubmissionPNeverSendData                   = DefenderPromptForSampleSubmissionVNeverSendData
+	_DefenderPromptForSampleSubmissionPSendAllDataWithoutPrompting     = DefenderPromptForSampleSubmissionVSendAllDataWithoutPrompting
+)

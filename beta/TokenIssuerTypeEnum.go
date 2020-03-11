@@ -3,31 +3,28 @@
 package msgraph
 
 // TokenIssuerType undocumented
-type TokenIssuerType int
+type TokenIssuerType string
 
 const (
 	// TokenIssuerTypeVAzureAD undocumented
-	TokenIssuerTypeVAzureAD TokenIssuerType = 0
+	TokenIssuerTypeVAzureAD TokenIssuerType = "AzureAD"
 	// TokenIssuerTypeVADFederationServices undocumented
-	TokenIssuerTypeVADFederationServices TokenIssuerType = 1
+	TokenIssuerTypeVADFederationServices TokenIssuerType = "ADFederationServices"
 	// TokenIssuerTypeVUnknownFutureValue undocumented
-	TokenIssuerTypeVUnknownFutureValue TokenIssuerType = 2
+	TokenIssuerTypeVUnknownFutureValue TokenIssuerType = "UnknownFutureValue"
 )
 
-// TokenIssuerTypePAzureAD returns a pointer to TokenIssuerTypeVAzureAD
-func TokenIssuerTypePAzureAD() *TokenIssuerType {
-	v := TokenIssuerTypeVAzureAD
-	return &v
-}
+var (
+	// TokenIssuerTypePAzureAD is a pointer to TokenIssuerTypeVAzureAD
+	TokenIssuerTypePAzureAD = &_TokenIssuerTypePAzureAD
+	// TokenIssuerTypePADFederationServices is a pointer to TokenIssuerTypeVADFederationServices
+	TokenIssuerTypePADFederationServices = &_TokenIssuerTypePADFederationServices
+	// TokenIssuerTypePUnknownFutureValue is a pointer to TokenIssuerTypeVUnknownFutureValue
+	TokenIssuerTypePUnknownFutureValue = &_TokenIssuerTypePUnknownFutureValue
+)
 
-// TokenIssuerTypePADFederationServices returns a pointer to TokenIssuerTypeVADFederationServices
-func TokenIssuerTypePADFederationServices() *TokenIssuerType {
-	v := TokenIssuerTypeVADFederationServices
-	return &v
-}
-
-// TokenIssuerTypePUnknownFutureValue returns a pointer to TokenIssuerTypeVUnknownFutureValue
-func TokenIssuerTypePUnknownFutureValue() *TokenIssuerType {
-	v := TokenIssuerTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_TokenIssuerTypePAzureAD              = TokenIssuerTypeVAzureAD
+	_TokenIssuerTypePADFederationServices = TokenIssuerTypeVADFederationServices
+	_TokenIssuerTypePUnknownFutureValue   = TokenIssuerTypeVUnknownFutureValue
+)

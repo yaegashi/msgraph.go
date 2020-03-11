@@ -3,39 +3,33 @@
 package msgraph
 
 // SecureAssessmentAccountType undocumented
-type SecureAssessmentAccountType int
+type SecureAssessmentAccountType string
 
 const (
 	// SecureAssessmentAccountTypeVAzureADAccount undocumented
-	SecureAssessmentAccountTypeVAzureADAccount SecureAssessmentAccountType = 0
+	SecureAssessmentAccountTypeVAzureADAccount SecureAssessmentAccountType = "azureADAccount"
 	// SecureAssessmentAccountTypeVDomainAccount undocumented
-	SecureAssessmentAccountTypeVDomainAccount SecureAssessmentAccountType = 1
+	SecureAssessmentAccountTypeVDomainAccount SecureAssessmentAccountType = "domainAccount"
 	// SecureAssessmentAccountTypeVLocalAccount undocumented
-	SecureAssessmentAccountTypeVLocalAccount SecureAssessmentAccountType = 2
+	SecureAssessmentAccountTypeVLocalAccount SecureAssessmentAccountType = "localAccount"
 	// SecureAssessmentAccountTypeVLocalGuestAccount undocumented
-	SecureAssessmentAccountTypeVLocalGuestAccount SecureAssessmentAccountType = 3
+	SecureAssessmentAccountTypeVLocalGuestAccount SecureAssessmentAccountType = "localGuestAccount"
 )
 
-// SecureAssessmentAccountTypePAzureADAccount returns a pointer to SecureAssessmentAccountTypeVAzureADAccount
-func SecureAssessmentAccountTypePAzureADAccount() *SecureAssessmentAccountType {
-	v := SecureAssessmentAccountTypeVAzureADAccount
-	return &v
-}
+var (
+	// SecureAssessmentAccountTypePAzureADAccount is a pointer to SecureAssessmentAccountTypeVAzureADAccount
+	SecureAssessmentAccountTypePAzureADAccount = &_SecureAssessmentAccountTypePAzureADAccount
+	// SecureAssessmentAccountTypePDomainAccount is a pointer to SecureAssessmentAccountTypeVDomainAccount
+	SecureAssessmentAccountTypePDomainAccount = &_SecureAssessmentAccountTypePDomainAccount
+	// SecureAssessmentAccountTypePLocalAccount is a pointer to SecureAssessmentAccountTypeVLocalAccount
+	SecureAssessmentAccountTypePLocalAccount = &_SecureAssessmentAccountTypePLocalAccount
+	// SecureAssessmentAccountTypePLocalGuestAccount is a pointer to SecureAssessmentAccountTypeVLocalGuestAccount
+	SecureAssessmentAccountTypePLocalGuestAccount = &_SecureAssessmentAccountTypePLocalGuestAccount
+)
 
-// SecureAssessmentAccountTypePDomainAccount returns a pointer to SecureAssessmentAccountTypeVDomainAccount
-func SecureAssessmentAccountTypePDomainAccount() *SecureAssessmentAccountType {
-	v := SecureAssessmentAccountTypeVDomainAccount
-	return &v
-}
-
-// SecureAssessmentAccountTypePLocalAccount returns a pointer to SecureAssessmentAccountTypeVLocalAccount
-func SecureAssessmentAccountTypePLocalAccount() *SecureAssessmentAccountType {
-	v := SecureAssessmentAccountTypeVLocalAccount
-	return &v
-}
-
-// SecureAssessmentAccountTypePLocalGuestAccount returns a pointer to SecureAssessmentAccountTypeVLocalGuestAccount
-func SecureAssessmentAccountTypePLocalGuestAccount() *SecureAssessmentAccountType {
-	v := SecureAssessmentAccountTypeVLocalGuestAccount
-	return &v
-}
+var (
+	_SecureAssessmentAccountTypePAzureADAccount    = SecureAssessmentAccountTypeVAzureADAccount
+	_SecureAssessmentAccountTypePDomainAccount     = SecureAssessmentAccountTypeVDomainAccount
+	_SecureAssessmentAccountTypePLocalAccount      = SecureAssessmentAccountTypeVLocalAccount
+	_SecureAssessmentAccountTypePLocalGuestAccount = SecureAssessmentAccountTypeVLocalGuestAccount
+)

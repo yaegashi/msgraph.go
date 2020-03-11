@@ -3,39 +3,33 @@
 package msgraph
 
 // MediaDirection undocumented
-type MediaDirection int
+type MediaDirection string
 
 const (
 	// MediaDirectionVInactive undocumented
-	MediaDirectionVInactive MediaDirection = 0
+	MediaDirectionVInactive MediaDirection = "inactive"
 	// MediaDirectionVSendOnly undocumented
-	MediaDirectionVSendOnly MediaDirection = 1
+	MediaDirectionVSendOnly MediaDirection = "sendOnly"
 	// MediaDirectionVReceiveOnly undocumented
-	MediaDirectionVReceiveOnly MediaDirection = 2
+	MediaDirectionVReceiveOnly MediaDirection = "receiveOnly"
 	// MediaDirectionVSendReceive undocumented
-	MediaDirectionVSendReceive MediaDirection = 3
+	MediaDirectionVSendReceive MediaDirection = "sendReceive"
 )
 
-// MediaDirectionPInactive returns a pointer to MediaDirectionVInactive
-func MediaDirectionPInactive() *MediaDirection {
-	v := MediaDirectionVInactive
-	return &v
-}
+var (
+	// MediaDirectionPInactive is a pointer to MediaDirectionVInactive
+	MediaDirectionPInactive = &_MediaDirectionPInactive
+	// MediaDirectionPSendOnly is a pointer to MediaDirectionVSendOnly
+	MediaDirectionPSendOnly = &_MediaDirectionPSendOnly
+	// MediaDirectionPReceiveOnly is a pointer to MediaDirectionVReceiveOnly
+	MediaDirectionPReceiveOnly = &_MediaDirectionPReceiveOnly
+	// MediaDirectionPSendReceive is a pointer to MediaDirectionVSendReceive
+	MediaDirectionPSendReceive = &_MediaDirectionPSendReceive
+)
 
-// MediaDirectionPSendOnly returns a pointer to MediaDirectionVSendOnly
-func MediaDirectionPSendOnly() *MediaDirection {
-	v := MediaDirectionVSendOnly
-	return &v
-}
-
-// MediaDirectionPReceiveOnly returns a pointer to MediaDirectionVReceiveOnly
-func MediaDirectionPReceiveOnly() *MediaDirection {
-	v := MediaDirectionVReceiveOnly
-	return &v
-}
-
-// MediaDirectionPSendReceive returns a pointer to MediaDirectionVSendReceive
-func MediaDirectionPSendReceive() *MediaDirection {
-	v := MediaDirectionVSendReceive
-	return &v
-}
+var (
+	_MediaDirectionPInactive    = MediaDirectionVInactive
+	_MediaDirectionPSendOnly    = MediaDirectionVSendOnly
+	_MediaDirectionPReceiveOnly = MediaDirectionVReceiveOnly
+	_MediaDirectionPSendReceive = MediaDirectionVSendReceive
+)

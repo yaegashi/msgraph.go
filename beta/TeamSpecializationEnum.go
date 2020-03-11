@@ -3,71 +3,53 @@
 package msgraph
 
 // TeamSpecialization undocumented
-type TeamSpecialization int
+type TeamSpecialization string
 
 const (
 	// TeamSpecializationVNone undocumented
-	TeamSpecializationVNone TeamSpecialization = 0
+	TeamSpecializationVNone TeamSpecialization = "none"
 	// TeamSpecializationVEducationStandard undocumented
-	TeamSpecializationVEducationStandard TeamSpecialization = 1
+	TeamSpecializationVEducationStandard TeamSpecialization = "educationStandard"
 	// TeamSpecializationVEducationClass undocumented
-	TeamSpecializationVEducationClass TeamSpecialization = 2
+	TeamSpecializationVEducationClass TeamSpecialization = "educationClass"
 	// TeamSpecializationVEducationProfessionalLearningCommunity undocumented
-	TeamSpecializationVEducationProfessionalLearningCommunity TeamSpecialization = 3
+	TeamSpecializationVEducationProfessionalLearningCommunity TeamSpecialization = "educationProfessionalLearningCommunity"
 	// TeamSpecializationVEducationStaff undocumented
-	TeamSpecializationVEducationStaff TeamSpecialization = 4
+	TeamSpecializationVEducationStaff TeamSpecialization = "educationStaff"
 	// TeamSpecializationVHealthcareStandard undocumented
-	TeamSpecializationVHealthcareStandard TeamSpecialization = 5
+	TeamSpecializationVHealthcareStandard TeamSpecialization = "healthcareStandard"
 	// TeamSpecializationVHealthcareCareCoordination undocumented
-	TeamSpecializationVHealthcareCareCoordination TeamSpecialization = 6
+	TeamSpecializationVHealthcareCareCoordination TeamSpecialization = "healthcareCareCoordination"
 	// TeamSpecializationVUnknownFutureValue undocumented
-	TeamSpecializationVUnknownFutureValue TeamSpecialization = 7
+	TeamSpecializationVUnknownFutureValue TeamSpecialization = "unknownFutureValue"
 )
 
-// TeamSpecializationPNone returns a pointer to TeamSpecializationVNone
-func TeamSpecializationPNone() *TeamSpecialization {
-	v := TeamSpecializationVNone
-	return &v
-}
+var (
+	// TeamSpecializationPNone is a pointer to TeamSpecializationVNone
+	TeamSpecializationPNone = &_TeamSpecializationPNone
+	// TeamSpecializationPEducationStandard is a pointer to TeamSpecializationVEducationStandard
+	TeamSpecializationPEducationStandard = &_TeamSpecializationPEducationStandard
+	// TeamSpecializationPEducationClass is a pointer to TeamSpecializationVEducationClass
+	TeamSpecializationPEducationClass = &_TeamSpecializationPEducationClass
+	// TeamSpecializationPEducationProfessionalLearningCommunity is a pointer to TeamSpecializationVEducationProfessionalLearningCommunity
+	TeamSpecializationPEducationProfessionalLearningCommunity = &_TeamSpecializationPEducationProfessionalLearningCommunity
+	// TeamSpecializationPEducationStaff is a pointer to TeamSpecializationVEducationStaff
+	TeamSpecializationPEducationStaff = &_TeamSpecializationPEducationStaff
+	// TeamSpecializationPHealthcareStandard is a pointer to TeamSpecializationVHealthcareStandard
+	TeamSpecializationPHealthcareStandard = &_TeamSpecializationPHealthcareStandard
+	// TeamSpecializationPHealthcareCareCoordination is a pointer to TeamSpecializationVHealthcareCareCoordination
+	TeamSpecializationPHealthcareCareCoordination = &_TeamSpecializationPHealthcareCareCoordination
+	// TeamSpecializationPUnknownFutureValue is a pointer to TeamSpecializationVUnknownFutureValue
+	TeamSpecializationPUnknownFutureValue = &_TeamSpecializationPUnknownFutureValue
+)
 
-// TeamSpecializationPEducationStandard returns a pointer to TeamSpecializationVEducationStandard
-func TeamSpecializationPEducationStandard() *TeamSpecialization {
-	v := TeamSpecializationVEducationStandard
-	return &v
-}
-
-// TeamSpecializationPEducationClass returns a pointer to TeamSpecializationVEducationClass
-func TeamSpecializationPEducationClass() *TeamSpecialization {
-	v := TeamSpecializationVEducationClass
-	return &v
-}
-
-// TeamSpecializationPEducationProfessionalLearningCommunity returns a pointer to TeamSpecializationVEducationProfessionalLearningCommunity
-func TeamSpecializationPEducationProfessionalLearningCommunity() *TeamSpecialization {
-	v := TeamSpecializationVEducationProfessionalLearningCommunity
-	return &v
-}
-
-// TeamSpecializationPEducationStaff returns a pointer to TeamSpecializationVEducationStaff
-func TeamSpecializationPEducationStaff() *TeamSpecialization {
-	v := TeamSpecializationVEducationStaff
-	return &v
-}
-
-// TeamSpecializationPHealthcareStandard returns a pointer to TeamSpecializationVHealthcareStandard
-func TeamSpecializationPHealthcareStandard() *TeamSpecialization {
-	v := TeamSpecializationVHealthcareStandard
-	return &v
-}
-
-// TeamSpecializationPHealthcareCareCoordination returns a pointer to TeamSpecializationVHealthcareCareCoordination
-func TeamSpecializationPHealthcareCareCoordination() *TeamSpecialization {
-	v := TeamSpecializationVHealthcareCareCoordination
-	return &v
-}
-
-// TeamSpecializationPUnknownFutureValue returns a pointer to TeamSpecializationVUnknownFutureValue
-func TeamSpecializationPUnknownFutureValue() *TeamSpecialization {
-	v := TeamSpecializationVUnknownFutureValue
-	return &v
-}
+var (
+	_TeamSpecializationPNone                                   = TeamSpecializationVNone
+	_TeamSpecializationPEducationStandard                      = TeamSpecializationVEducationStandard
+	_TeamSpecializationPEducationClass                         = TeamSpecializationVEducationClass
+	_TeamSpecializationPEducationProfessionalLearningCommunity = TeamSpecializationVEducationProfessionalLearningCommunity
+	_TeamSpecializationPEducationStaff                         = TeamSpecializationVEducationStaff
+	_TeamSpecializationPHealthcareStandard                     = TeamSpecializationVHealthcareStandard
+	_TeamSpecializationPHealthcareCareCoordination             = TeamSpecializationVHealthcareCareCoordination
+	_TeamSpecializationPUnknownFutureValue                     = TeamSpecializationVUnknownFutureValue
+)

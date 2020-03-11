@@ -3,39 +3,33 @@
 package msgraph
 
 // ApplicationGuardEnabledOptions undocumented
-type ApplicationGuardEnabledOptions int
+type ApplicationGuardEnabledOptions string
 
 const (
 	// ApplicationGuardEnabledOptionsVNotConfigured undocumented
-	ApplicationGuardEnabledOptionsVNotConfigured ApplicationGuardEnabledOptions = 0
+	ApplicationGuardEnabledOptionsVNotConfigured ApplicationGuardEnabledOptions = "notConfigured"
 	// ApplicationGuardEnabledOptionsVEnabledForEdge undocumented
-	ApplicationGuardEnabledOptionsVEnabledForEdge ApplicationGuardEnabledOptions = 1
+	ApplicationGuardEnabledOptionsVEnabledForEdge ApplicationGuardEnabledOptions = "enabledForEdge"
 	// ApplicationGuardEnabledOptionsVEnabledForOffice undocumented
-	ApplicationGuardEnabledOptionsVEnabledForOffice ApplicationGuardEnabledOptions = 2
+	ApplicationGuardEnabledOptionsVEnabledForOffice ApplicationGuardEnabledOptions = "enabledForOffice"
 	// ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice undocumented
-	ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice ApplicationGuardEnabledOptions = 3
+	ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice ApplicationGuardEnabledOptions = "enabledForEdgeAndOffice"
 )
 
-// ApplicationGuardEnabledOptionsPNotConfigured returns a pointer to ApplicationGuardEnabledOptionsVNotConfigured
-func ApplicationGuardEnabledOptionsPNotConfigured() *ApplicationGuardEnabledOptions {
-	v := ApplicationGuardEnabledOptionsVNotConfigured
-	return &v
-}
+var (
+	// ApplicationGuardEnabledOptionsPNotConfigured is a pointer to ApplicationGuardEnabledOptionsVNotConfigured
+	ApplicationGuardEnabledOptionsPNotConfigured = &_ApplicationGuardEnabledOptionsPNotConfigured
+	// ApplicationGuardEnabledOptionsPEnabledForEdge is a pointer to ApplicationGuardEnabledOptionsVEnabledForEdge
+	ApplicationGuardEnabledOptionsPEnabledForEdge = &_ApplicationGuardEnabledOptionsPEnabledForEdge
+	// ApplicationGuardEnabledOptionsPEnabledForOffice is a pointer to ApplicationGuardEnabledOptionsVEnabledForOffice
+	ApplicationGuardEnabledOptionsPEnabledForOffice = &_ApplicationGuardEnabledOptionsPEnabledForOffice
+	// ApplicationGuardEnabledOptionsPEnabledForEdgeAndOffice is a pointer to ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice
+	ApplicationGuardEnabledOptionsPEnabledForEdgeAndOffice = &_ApplicationGuardEnabledOptionsPEnabledForEdgeAndOffice
+)
 
-// ApplicationGuardEnabledOptionsPEnabledForEdge returns a pointer to ApplicationGuardEnabledOptionsVEnabledForEdge
-func ApplicationGuardEnabledOptionsPEnabledForEdge() *ApplicationGuardEnabledOptions {
-	v := ApplicationGuardEnabledOptionsVEnabledForEdge
-	return &v
-}
-
-// ApplicationGuardEnabledOptionsPEnabledForOffice returns a pointer to ApplicationGuardEnabledOptionsVEnabledForOffice
-func ApplicationGuardEnabledOptionsPEnabledForOffice() *ApplicationGuardEnabledOptions {
-	v := ApplicationGuardEnabledOptionsVEnabledForOffice
-	return &v
-}
-
-// ApplicationGuardEnabledOptionsPEnabledForEdgeAndOffice returns a pointer to ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice
-func ApplicationGuardEnabledOptionsPEnabledForEdgeAndOffice() *ApplicationGuardEnabledOptions {
-	v := ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice
-	return &v
-}
+var (
+	_ApplicationGuardEnabledOptionsPNotConfigured           = ApplicationGuardEnabledOptionsVNotConfigured
+	_ApplicationGuardEnabledOptionsPEnabledForEdge          = ApplicationGuardEnabledOptionsVEnabledForEdge
+	_ApplicationGuardEnabledOptionsPEnabledForOffice        = ApplicationGuardEnabledOptionsVEnabledForOffice
+	_ApplicationGuardEnabledOptionsPEnabledForEdgeAndOffice = ApplicationGuardEnabledOptionsVEnabledForEdgeAndOffice
+)

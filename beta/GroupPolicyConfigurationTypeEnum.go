@@ -3,23 +3,23 @@
 package msgraph
 
 // GroupPolicyConfigurationType undocumented
-type GroupPolicyConfigurationType int
+type GroupPolicyConfigurationType string
 
 const (
 	// GroupPolicyConfigurationTypeVPolicy undocumented
-	GroupPolicyConfigurationTypeVPolicy GroupPolicyConfigurationType = 0
+	GroupPolicyConfigurationTypeVPolicy GroupPolicyConfigurationType = "policy"
 	// GroupPolicyConfigurationTypeVPreference undocumented
-	GroupPolicyConfigurationTypeVPreference GroupPolicyConfigurationType = 1
+	GroupPolicyConfigurationTypeVPreference GroupPolicyConfigurationType = "preference"
 )
 
-// GroupPolicyConfigurationTypePPolicy returns a pointer to GroupPolicyConfigurationTypeVPolicy
-func GroupPolicyConfigurationTypePPolicy() *GroupPolicyConfigurationType {
-	v := GroupPolicyConfigurationTypeVPolicy
-	return &v
-}
+var (
+	// GroupPolicyConfigurationTypePPolicy is a pointer to GroupPolicyConfigurationTypeVPolicy
+	GroupPolicyConfigurationTypePPolicy = &_GroupPolicyConfigurationTypePPolicy
+	// GroupPolicyConfigurationTypePPreference is a pointer to GroupPolicyConfigurationTypeVPreference
+	GroupPolicyConfigurationTypePPreference = &_GroupPolicyConfigurationTypePPreference
+)
 
-// GroupPolicyConfigurationTypePPreference returns a pointer to GroupPolicyConfigurationTypeVPreference
-func GroupPolicyConfigurationTypePPreference() *GroupPolicyConfigurationType {
-	v := GroupPolicyConfigurationTypeVPreference
-	return &v
-}
+var (
+	_GroupPolicyConfigurationTypePPolicy     = GroupPolicyConfigurationTypeVPolicy
+	_GroupPolicyConfigurationTypePPreference = GroupPolicyConfigurationTypeVPreference
+)

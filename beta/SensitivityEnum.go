@@ -3,39 +3,33 @@
 package msgraph
 
 // Sensitivity undocumented
-type Sensitivity int
+type Sensitivity string
 
 const (
 	// SensitivityVNormal undocumented
-	SensitivityVNormal Sensitivity = 0
+	SensitivityVNormal Sensitivity = "normal"
 	// SensitivityVPersonal undocumented
-	SensitivityVPersonal Sensitivity = 1
+	SensitivityVPersonal Sensitivity = "personal"
 	// SensitivityVPrivate undocumented
-	SensitivityVPrivate Sensitivity = 2
+	SensitivityVPrivate Sensitivity = "private"
 	// SensitivityVConfidential undocumented
-	SensitivityVConfidential Sensitivity = 3
+	SensitivityVConfidential Sensitivity = "confidential"
 )
 
-// SensitivityPNormal returns a pointer to SensitivityVNormal
-func SensitivityPNormal() *Sensitivity {
-	v := SensitivityVNormal
-	return &v
-}
+var (
+	// SensitivityPNormal is a pointer to SensitivityVNormal
+	SensitivityPNormal = &_SensitivityPNormal
+	// SensitivityPPersonal is a pointer to SensitivityVPersonal
+	SensitivityPPersonal = &_SensitivityPPersonal
+	// SensitivityPPrivate is a pointer to SensitivityVPrivate
+	SensitivityPPrivate = &_SensitivityPPrivate
+	// SensitivityPConfidential is a pointer to SensitivityVConfidential
+	SensitivityPConfidential = &_SensitivityPConfidential
+)
 
-// SensitivityPPersonal returns a pointer to SensitivityVPersonal
-func SensitivityPPersonal() *Sensitivity {
-	v := SensitivityVPersonal
-	return &v
-}
-
-// SensitivityPPrivate returns a pointer to SensitivityVPrivate
-func SensitivityPPrivate() *Sensitivity {
-	v := SensitivityVPrivate
-	return &v
-}
-
-// SensitivityPConfidential returns a pointer to SensitivityVConfidential
-func SensitivityPConfidential() *Sensitivity {
-	v := SensitivityVConfidential
-	return &v
-}
+var (
+	_SensitivityPNormal       = SensitivityVNormal
+	_SensitivityPPersonal     = SensitivityVPersonal
+	_SensitivityPPrivate      = SensitivityVPrivate
+	_SensitivityPConfidential = SensitivityVConfidential
+)

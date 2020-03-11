@@ -3,31 +3,28 @@
 package msgraph
 
 // ChatMessageImportance undocumented
-type ChatMessageImportance int
+type ChatMessageImportance string
 
 const (
 	// ChatMessageImportanceVNormal undocumented
-	ChatMessageImportanceVNormal ChatMessageImportance = 0
+	ChatMessageImportanceVNormal ChatMessageImportance = "normal"
 	// ChatMessageImportanceVHigh undocumented
-	ChatMessageImportanceVHigh ChatMessageImportance = 1
+	ChatMessageImportanceVHigh ChatMessageImportance = "high"
 	// ChatMessageImportanceVUrgent undocumented
-	ChatMessageImportanceVUrgent ChatMessageImportance = 2
+	ChatMessageImportanceVUrgent ChatMessageImportance = "urgent"
 )
 
-// ChatMessageImportancePNormal returns a pointer to ChatMessageImportanceVNormal
-func ChatMessageImportancePNormal() *ChatMessageImportance {
-	v := ChatMessageImportanceVNormal
-	return &v
-}
+var (
+	// ChatMessageImportancePNormal is a pointer to ChatMessageImportanceVNormal
+	ChatMessageImportancePNormal = &_ChatMessageImportancePNormal
+	// ChatMessageImportancePHigh is a pointer to ChatMessageImportanceVHigh
+	ChatMessageImportancePHigh = &_ChatMessageImportancePHigh
+	// ChatMessageImportancePUrgent is a pointer to ChatMessageImportanceVUrgent
+	ChatMessageImportancePUrgent = &_ChatMessageImportancePUrgent
+)
 
-// ChatMessageImportancePHigh returns a pointer to ChatMessageImportanceVHigh
-func ChatMessageImportancePHigh() *ChatMessageImportance {
-	v := ChatMessageImportanceVHigh
-	return &v
-}
-
-// ChatMessageImportancePUrgent returns a pointer to ChatMessageImportanceVUrgent
-func ChatMessageImportancePUrgent() *ChatMessageImportance {
-	v := ChatMessageImportanceVUrgent
-	return &v
-}
+var (
+	_ChatMessageImportancePNormal = ChatMessageImportanceVNormal
+	_ChatMessageImportancePHigh   = ChatMessageImportanceVHigh
+	_ChatMessageImportancePUrgent = ChatMessageImportanceVUrgent
+)

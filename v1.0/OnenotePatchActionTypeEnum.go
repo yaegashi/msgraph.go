@@ -3,47 +3,38 @@
 package msgraph
 
 // OnenotePatchActionType undocumented
-type OnenotePatchActionType int
+type OnenotePatchActionType string
 
 const (
 	// OnenotePatchActionTypeVReplace undocumented
-	OnenotePatchActionTypeVReplace OnenotePatchActionType = 0
+	OnenotePatchActionTypeVReplace OnenotePatchActionType = "Replace"
 	// OnenotePatchActionTypeVAppend undocumented
-	OnenotePatchActionTypeVAppend OnenotePatchActionType = 1
+	OnenotePatchActionTypeVAppend OnenotePatchActionType = "Append"
 	// OnenotePatchActionTypeVDelete undocumented
-	OnenotePatchActionTypeVDelete OnenotePatchActionType = 2
+	OnenotePatchActionTypeVDelete OnenotePatchActionType = "Delete"
 	// OnenotePatchActionTypeVInsert undocumented
-	OnenotePatchActionTypeVInsert OnenotePatchActionType = 3
+	OnenotePatchActionTypeVInsert OnenotePatchActionType = "Insert"
 	// OnenotePatchActionTypeVPrepend undocumented
-	OnenotePatchActionTypeVPrepend OnenotePatchActionType = 4
+	OnenotePatchActionTypeVPrepend OnenotePatchActionType = "Prepend"
 )
 
-// OnenotePatchActionTypePReplace returns a pointer to OnenotePatchActionTypeVReplace
-func OnenotePatchActionTypePReplace() *OnenotePatchActionType {
-	v := OnenotePatchActionTypeVReplace
-	return &v
-}
+var (
+	// OnenotePatchActionTypePReplace is a pointer to OnenotePatchActionTypeVReplace
+	OnenotePatchActionTypePReplace = &_OnenotePatchActionTypePReplace
+	// OnenotePatchActionTypePAppend is a pointer to OnenotePatchActionTypeVAppend
+	OnenotePatchActionTypePAppend = &_OnenotePatchActionTypePAppend
+	// OnenotePatchActionTypePDelete is a pointer to OnenotePatchActionTypeVDelete
+	OnenotePatchActionTypePDelete = &_OnenotePatchActionTypePDelete
+	// OnenotePatchActionTypePInsert is a pointer to OnenotePatchActionTypeVInsert
+	OnenotePatchActionTypePInsert = &_OnenotePatchActionTypePInsert
+	// OnenotePatchActionTypePPrepend is a pointer to OnenotePatchActionTypeVPrepend
+	OnenotePatchActionTypePPrepend = &_OnenotePatchActionTypePPrepend
+)
 
-// OnenotePatchActionTypePAppend returns a pointer to OnenotePatchActionTypeVAppend
-func OnenotePatchActionTypePAppend() *OnenotePatchActionType {
-	v := OnenotePatchActionTypeVAppend
-	return &v
-}
-
-// OnenotePatchActionTypePDelete returns a pointer to OnenotePatchActionTypeVDelete
-func OnenotePatchActionTypePDelete() *OnenotePatchActionType {
-	v := OnenotePatchActionTypeVDelete
-	return &v
-}
-
-// OnenotePatchActionTypePInsert returns a pointer to OnenotePatchActionTypeVInsert
-func OnenotePatchActionTypePInsert() *OnenotePatchActionType {
-	v := OnenotePatchActionTypeVInsert
-	return &v
-}
-
-// OnenotePatchActionTypePPrepend returns a pointer to OnenotePatchActionTypeVPrepend
-func OnenotePatchActionTypePPrepend() *OnenotePatchActionType {
-	v := OnenotePatchActionTypeVPrepend
-	return &v
-}
+var (
+	_OnenotePatchActionTypePReplace = OnenotePatchActionTypeVReplace
+	_OnenotePatchActionTypePAppend  = OnenotePatchActionTypeVAppend
+	_OnenotePatchActionTypePDelete  = OnenotePatchActionTypeVDelete
+	_OnenotePatchActionTypePInsert  = OnenotePatchActionTypeVInsert
+	_OnenotePatchActionTypePPrepend = OnenotePatchActionTypeVPrepend
+)

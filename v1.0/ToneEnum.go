@@ -3,143 +3,98 @@
 package msgraph
 
 // Tone undocumented
-type Tone int
+type Tone string
 
 const (
 	// ToneVTone0 undocumented
-	ToneVTone0 Tone = 0
+	ToneVTone0 Tone = "tone0"
 	// ToneVTone1 undocumented
-	ToneVTone1 Tone = 1
+	ToneVTone1 Tone = "tone1"
 	// ToneVTone2 undocumented
-	ToneVTone2 Tone = 2
+	ToneVTone2 Tone = "tone2"
 	// ToneVTone3 undocumented
-	ToneVTone3 Tone = 3
+	ToneVTone3 Tone = "tone3"
 	// ToneVTone4 undocumented
-	ToneVTone4 Tone = 4
+	ToneVTone4 Tone = "tone4"
 	// ToneVTone5 undocumented
-	ToneVTone5 Tone = 5
+	ToneVTone5 Tone = "tone5"
 	// ToneVTone6 undocumented
-	ToneVTone6 Tone = 6
+	ToneVTone6 Tone = "tone6"
 	// ToneVTone7 undocumented
-	ToneVTone7 Tone = 7
+	ToneVTone7 Tone = "tone7"
 	// ToneVTone8 undocumented
-	ToneVTone8 Tone = 8
+	ToneVTone8 Tone = "tone8"
 	// ToneVTone9 undocumented
-	ToneVTone9 Tone = 9
+	ToneVTone9 Tone = "tone9"
 	// ToneVStar undocumented
-	ToneVStar Tone = 10
+	ToneVStar Tone = "star"
 	// ToneVPound undocumented
-	ToneVPound Tone = 11
+	ToneVPound Tone = "pound"
 	// ToneVA undocumented
-	ToneVA Tone = 12
+	ToneVA Tone = "a"
 	// ToneVB undocumented
-	ToneVB Tone = 13
+	ToneVB Tone = "b"
 	// ToneVC undocumented
-	ToneVC Tone = 14
+	ToneVC Tone = "c"
 	// ToneVD undocumented
-	ToneVD Tone = 15
+	ToneVD Tone = "d"
 	// ToneVFlash undocumented
-	ToneVFlash Tone = 16
+	ToneVFlash Tone = "flash"
 )
 
-// TonePTone0 returns a pointer to ToneVTone0
-func TonePTone0() *Tone {
-	v := ToneVTone0
-	return &v
-}
+var (
+	// TonePTone0 is a pointer to ToneVTone0
+	TonePTone0 = &_TonePTone0
+	// TonePTone1 is a pointer to ToneVTone1
+	TonePTone1 = &_TonePTone1
+	// TonePTone2 is a pointer to ToneVTone2
+	TonePTone2 = &_TonePTone2
+	// TonePTone3 is a pointer to ToneVTone3
+	TonePTone3 = &_TonePTone3
+	// TonePTone4 is a pointer to ToneVTone4
+	TonePTone4 = &_TonePTone4
+	// TonePTone5 is a pointer to ToneVTone5
+	TonePTone5 = &_TonePTone5
+	// TonePTone6 is a pointer to ToneVTone6
+	TonePTone6 = &_TonePTone6
+	// TonePTone7 is a pointer to ToneVTone7
+	TonePTone7 = &_TonePTone7
+	// TonePTone8 is a pointer to ToneVTone8
+	TonePTone8 = &_TonePTone8
+	// TonePTone9 is a pointer to ToneVTone9
+	TonePTone9 = &_TonePTone9
+	// TonePStar is a pointer to ToneVStar
+	TonePStar = &_TonePStar
+	// TonePPound is a pointer to ToneVPound
+	TonePPound = &_TonePPound
+	// TonePA is a pointer to ToneVA
+	TonePA = &_TonePA
+	// TonePB is a pointer to ToneVB
+	TonePB = &_TonePB
+	// TonePC is a pointer to ToneVC
+	TonePC = &_TonePC
+	// TonePD is a pointer to ToneVD
+	TonePD = &_TonePD
+	// TonePFlash is a pointer to ToneVFlash
+	TonePFlash = &_TonePFlash
+)
 
-// TonePTone1 returns a pointer to ToneVTone1
-func TonePTone1() *Tone {
-	v := ToneVTone1
-	return &v
-}
-
-// TonePTone2 returns a pointer to ToneVTone2
-func TonePTone2() *Tone {
-	v := ToneVTone2
-	return &v
-}
-
-// TonePTone3 returns a pointer to ToneVTone3
-func TonePTone3() *Tone {
-	v := ToneVTone3
-	return &v
-}
-
-// TonePTone4 returns a pointer to ToneVTone4
-func TonePTone4() *Tone {
-	v := ToneVTone4
-	return &v
-}
-
-// TonePTone5 returns a pointer to ToneVTone5
-func TonePTone5() *Tone {
-	v := ToneVTone5
-	return &v
-}
-
-// TonePTone6 returns a pointer to ToneVTone6
-func TonePTone6() *Tone {
-	v := ToneVTone6
-	return &v
-}
-
-// TonePTone7 returns a pointer to ToneVTone7
-func TonePTone7() *Tone {
-	v := ToneVTone7
-	return &v
-}
-
-// TonePTone8 returns a pointer to ToneVTone8
-func TonePTone8() *Tone {
-	v := ToneVTone8
-	return &v
-}
-
-// TonePTone9 returns a pointer to ToneVTone9
-func TonePTone9() *Tone {
-	v := ToneVTone9
-	return &v
-}
-
-// TonePStar returns a pointer to ToneVStar
-func TonePStar() *Tone {
-	v := ToneVStar
-	return &v
-}
-
-// TonePPound returns a pointer to ToneVPound
-func TonePPound() *Tone {
-	v := ToneVPound
-	return &v
-}
-
-// TonePA returns a pointer to ToneVA
-func TonePA() *Tone {
-	v := ToneVA
-	return &v
-}
-
-// TonePB returns a pointer to ToneVB
-func TonePB() *Tone {
-	v := ToneVB
-	return &v
-}
-
-// TonePC returns a pointer to ToneVC
-func TonePC() *Tone {
-	v := ToneVC
-	return &v
-}
-
-// TonePD returns a pointer to ToneVD
-func TonePD() *Tone {
-	v := ToneVD
-	return &v
-}
-
-// TonePFlash returns a pointer to ToneVFlash
-func TonePFlash() *Tone {
-	v := ToneVFlash
-	return &v
-}
+var (
+	_TonePTone0 = ToneVTone0
+	_TonePTone1 = ToneVTone1
+	_TonePTone2 = ToneVTone2
+	_TonePTone3 = ToneVTone3
+	_TonePTone4 = ToneVTone4
+	_TonePTone5 = ToneVTone5
+	_TonePTone6 = ToneVTone6
+	_TonePTone7 = ToneVTone7
+	_TonePTone8 = ToneVTone8
+	_TonePTone9 = ToneVTone9
+	_TonePStar  = ToneVStar
+	_TonePPound = ToneVPound
+	_TonePA     = ToneVA
+	_TonePB     = ToneVB
+	_TonePC     = ToneVC
+	_TonePD     = ToneVD
+	_TonePFlash = ToneVFlash
+)

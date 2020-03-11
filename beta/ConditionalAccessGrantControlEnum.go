@@ -3,55 +3,43 @@
 package msgraph
 
 // ConditionalAccessGrantControl undocumented
-type ConditionalAccessGrantControl int
+type ConditionalAccessGrantControl string
 
 const (
 	// ConditionalAccessGrantControlVBlock undocumented
-	ConditionalAccessGrantControlVBlock ConditionalAccessGrantControl = 0
+	ConditionalAccessGrantControlVBlock ConditionalAccessGrantControl = "block"
 	// ConditionalAccessGrantControlVMFA undocumented
-	ConditionalAccessGrantControlVMFA ConditionalAccessGrantControl = 1
+	ConditionalAccessGrantControlVMFA ConditionalAccessGrantControl = "mfa"
 	// ConditionalAccessGrantControlVCompliantDevice undocumented
-	ConditionalAccessGrantControlVCompliantDevice ConditionalAccessGrantControl = 2
+	ConditionalAccessGrantControlVCompliantDevice ConditionalAccessGrantControl = "compliantDevice"
 	// ConditionalAccessGrantControlVDomainJoinedDevice undocumented
-	ConditionalAccessGrantControlVDomainJoinedDevice ConditionalAccessGrantControl = 3
+	ConditionalAccessGrantControlVDomainJoinedDevice ConditionalAccessGrantControl = "domainJoinedDevice"
 	// ConditionalAccessGrantControlVApprovedApplication undocumented
-	ConditionalAccessGrantControlVApprovedApplication ConditionalAccessGrantControl = 4
+	ConditionalAccessGrantControlVApprovedApplication ConditionalAccessGrantControl = "approvedApplication"
 	// ConditionalAccessGrantControlVCompliantApplication undocumented
-	ConditionalAccessGrantControlVCompliantApplication ConditionalAccessGrantControl = 5
+	ConditionalAccessGrantControlVCompliantApplication ConditionalAccessGrantControl = "compliantApplication"
 )
 
-// ConditionalAccessGrantControlPBlock returns a pointer to ConditionalAccessGrantControlVBlock
-func ConditionalAccessGrantControlPBlock() *ConditionalAccessGrantControl {
-	v := ConditionalAccessGrantControlVBlock
-	return &v
-}
+var (
+	// ConditionalAccessGrantControlPBlock is a pointer to ConditionalAccessGrantControlVBlock
+	ConditionalAccessGrantControlPBlock = &_ConditionalAccessGrantControlPBlock
+	// ConditionalAccessGrantControlPMFA is a pointer to ConditionalAccessGrantControlVMFA
+	ConditionalAccessGrantControlPMFA = &_ConditionalAccessGrantControlPMFA
+	// ConditionalAccessGrantControlPCompliantDevice is a pointer to ConditionalAccessGrantControlVCompliantDevice
+	ConditionalAccessGrantControlPCompliantDevice = &_ConditionalAccessGrantControlPCompliantDevice
+	// ConditionalAccessGrantControlPDomainJoinedDevice is a pointer to ConditionalAccessGrantControlVDomainJoinedDevice
+	ConditionalAccessGrantControlPDomainJoinedDevice = &_ConditionalAccessGrantControlPDomainJoinedDevice
+	// ConditionalAccessGrantControlPApprovedApplication is a pointer to ConditionalAccessGrantControlVApprovedApplication
+	ConditionalAccessGrantControlPApprovedApplication = &_ConditionalAccessGrantControlPApprovedApplication
+	// ConditionalAccessGrantControlPCompliantApplication is a pointer to ConditionalAccessGrantControlVCompliantApplication
+	ConditionalAccessGrantControlPCompliantApplication = &_ConditionalAccessGrantControlPCompliantApplication
+)
 
-// ConditionalAccessGrantControlPMFA returns a pointer to ConditionalAccessGrantControlVMFA
-func ConditionalAccessGrantControlPMFA() *ConditionalAccessGrantControl {
-	v := ConditionalAccessGrantControlVMFA
-	return &v
-}
-
-// ConditionalAccessGrantControlPCompliantDevice returns a pointer to ConditionalAccessGrantControlVCompliantDevice
-func ConditionalAccessGrantControlPCompliantDevice() *ConditionalAccessGrantControl {
-	v := ConditionalAccessGrantControlVCompliantDevice
-	return &v
-}
-
-// ConditionalAccessGrantControlPDomainJoinedDevice returns a pointer to ConditionalAccessGrantControlVDomainJoinedDevice
-func ConditionalAccessGrantControlPDomainJoinedDevice() *ConditionalAccessGrantControl {
-	v := ConditionalAccessGrantControlVDomainJoinedDevice
-	return &v
-}
-
-// ConditionalAccessGrantControlPApprovedApplication returns a pointer to ConditionalAccessGrantControlVApprovedApplication
-func ConditionalAccessGrantControlPApprovedApplication() *ConditionalAccessGrantControl {
-	v := ConditionalAccessGrantControlVApprovedApplication
-	return &v
-}
-
-// ConditionalAccessGrantControlPCompliantApplication returns a pointer to ConditionalAccessGrantControlVCompliantApplication
-func ConditionalAccessGrantControlPCompliantApplication() *ConditionalAccessGrantControl {
-	v := ConditionalAccessGrantControlVCompliantApplication
-	return &v
-}
+var (
+	_ConditionalAccessGrantControlPBlock                = ConditionalAccessGrantControlVBlock
+	_ConditionalAccessGrantControlPMFA                  = ConditionalAccessGrantControlVMFA
+	_ConditionalAccessGrantControlPCompliantDevice      = ConditionalAccessGrantControlVCompliantDevice
+	_ConditionalAccessGrantControlPDomainJoinedDevice   = ConditionalAccessGrantControlVDomainJoinedDevice
+	_ConditionalAccessGrantControlPApprovedApplication  = ConditionalAccessGrantControlVApprovedApplication
+	_ConditionalAccessGrantControlPCompliantApplication = ConditionalAccessGrantControlVCompliantApplication
+)

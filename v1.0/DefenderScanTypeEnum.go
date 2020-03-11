@@ -3,39 +3,33 @@
 package msgraph
 
 // DefenderScanType undocumented
-type DefenderScanType int
+type DefenderScanType string
 
 const (
 	// DefenderScanTypeVUserDefined undocumented
-	DefenderScanTypeVUserDefined DefenderScanType = 0
+	DefenderScanTypeVUserDefined DefenderScanType = "userDefined"
 	// DefenderScanTypeVDisabled undocumented
-	DefenderScanTypeVDisabled DefenderScanType = 1
+	DefenderScanTypeVDisabled DefenderScanType = "disabled"
 	// DefenderScanTypeVQuick undocumented
-	DefenderScanTypeVQuick DefenderScanType = 2
+	DefenderScanTypeVQuick DefenderScanType = "quick"
 	// DefenderScanTypeVFull undocumented
-	DefenderScanTypeVFull DefenderScanType = 3
+	DefenderScanTypeVFull DefenderScanType = "full"
 )
 
-// DefenderScanTypePUserDefined returns a pointer to DefenderScanTypeVUserDefined
-func DefenderScanTypePUserDefined() *DefenderScanType {
-	v := DefenderScanTypeVUserDefined
-	return &v
-}
+var (
+	// DefenderScanTypePUserDefined is a pointer to DefenderScanTypeVUserDefined
+	DefenderScanTypePUserDefined = &_DefenderScanTypePUserDefined
+	// DefenderScanTypePDisabled is a pointer to DefenderScanTypeVDisabled
+	DefenderScanTypePDisabled = &_DefenderScanTypePDisabled
+	// DefenderScanTypePQuick is a pointer to DefenderScanTypeVQuick
+	DefenderScanTypePQuick = &_DefenderScanTypePQuick
+	// DefenderScanTypePFull is a pointer to DefenderScanTypeVFull
+	DefenderScanTypePFull = &_DefenderScanTypePFull
+)
 
-// DefenderScanTypePDisabled returns a pointer to DefenderScanTypeVDisabled
-func DefenderScanTypePDisabled() *DefenderScanType {
-	v := DefenderScanTypeVDisabled
-	return &v
-}
-
-// DefenderScanTypePQuick returns a pointer to DefenderScanTypeVQuick
-func DefenderScanTypePQuick() *DefenderScanType {
-	v := DefenderScanTypeVQuick
-	return &v
-}
-
-// DefenderScanTypePFull returns a pointer to DefenderScanTypeVFull
-func DefenderScanTypePFull() *DefenderScanType {
-	v := DefenderScanTypeVFull
-	return &v
-}
+var (
+	_DefenderScanTypePUserDefined = DefenderScanTypeVUserDefined
+	_DefenderScanTypePDisabled    = DefenderScanTypeVDisabled
+	_DefenderScanTypePQuick       = DefenderScanTypeVQuick
+	_DefenderScanTypePFull        = DefenderScanTypeVFull
+)

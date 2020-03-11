@@ -3,23 +3,23 @@
 package msgraph
 
 // PersistentBrowserSessionMode undocumented
-type PersistentBrowserSessionMode int
+type PersistentBrowserSessionMode string
 
 const (
 	// PersistentBrowserSessionModeVAlways undocumented
-	PersistentBrowserSessionModeVAlways PersistentBrowserSessionMode = 0
+	PersistentBrowserSessionModeVAlways PersistentBrowserSessionMode = "always"
 	// PersistentBrowserSessionModeVNever undocumented
-	PersistentBrowserSessionModeVNever PersistentBrowserSessionMode = 1
+	PersistentBrowserSessionModeVNever PersistentBrowserSessionMode = "never"
 )
 
-// PersistentBrowserSessionModePAlways returns a pointer to PersistentBrowserSessionModeVAlways
-func PersistentBrowserSessionModePAlways() *PersistentBrowserSessionMode {
-	v := PersistentBrowserSessionModeVAlways
-	return &v
-}
+var (
+	// PersistentBrowserSessionModePAlways is a pointer to PersistentBrowserSessionModeVAlways
+	PersistentBrowserSessionModePAlways = &_PersistentBrowserSessionModePAlways
+	// PersistentBrowserSessionModePNever is a pointer to PersistentBrowserSessionModeVNever
+	PersistentBrowserSessionModePNever = &_PersistentBrowserSessionModePNever
+)
 
-// PersistentBrowserSessionModePNever returns a pointer to PersistentBrowserSessionModeVNever
-func PersistentBrowserSessionModePNever() *PersistentBrowserSessionMode {
-	v := PersistentBrowserSessionModeVNever
-	return &v
-}
+var (
+	_PersistentBrowserSessionModePAlways = PersistentBrowserSessionModeVAlways
+	_PersistentBrowserSessionModePNever  = PersistentBrowserSessionModeVNever
+)

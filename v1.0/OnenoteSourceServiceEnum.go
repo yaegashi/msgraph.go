@@ -3,39 +3,33 @@
 package msgraph
 
 // OnenoteSourceService undocumented
-type OnenoteSourceService int
+type OnenoteSourceService string
 
 const (
 	// OnenoteSourceServiceVUnknown undocumented
-	OnenoteSourceServiceVUnknown OnenoteSourceService = 0
+	OnenoteSourceServiceVUnknown OnenoteSourceService = "Unknown"
 	// OnenoteSourceServiceVOneDrive undocumented
-	OnenoteSourceServiceVOneDrive OnenoteSourceService = 1
+	OnenoteSourceServiceVOneDrive OnenoteSourceService = "OneDrive"
 	// OnenoteSourceServiceVOneDriveForBusiness undocumented
-	OnenoteSourceServiceVOneDriveForBusiness OnenoteSourceService = 2
+	OnenoteSourceServiceVOneDriveForBusiness OnenoteSourceService = "OneDriveForBusiness"
 	// OnenoteSourceServiceVOnPremOneDriveForBusiness undocumented
-	OnenoteSourceServiceVOnPremOneDriveForBusiness OnenoteSourceService = 3
+	OnenoteSourceServiceVOnPremOneDriveForBusiness OnenoteSourceService = "OnPremOneDriveForBusiness"
 )
 
-// OnenoteSourceServicePUnknown returns a pointer to OnenoteSourceServiceVUnknown
-func OnenoteSourceServicePUnknown() *OnenoteSourceService {
-	v := OnenoteSourceServiceVUnknown
-	return &v
-}
+var (
+	// OnenoteSourceServicePUnknown is a pointer to OnenoteSourceServiceVUnknown
+	OnenoteSourceServicePUnknown = &_OnenoteSourceServicePUnknown
+	// OnenoteSourceServicePOneDrive is a pointer to OnenoteSourceServiceVOneDrive
+	OnenoteSourceServicePOneDrive = &_OnenoteSourceServicePOneDrive
+	// OnenoteSourceServicePOneDriveForBusiness is a pointer to OnenoteSourceServiceVOneDriveForBusiness
+	OnenoteSourceServicePOneDriveForBusiness = &_OnenoteSourceServicePOneDriveForBusiness
+	// OnenoteSourceServicePOnPremOneDriveForBusiness is a pointer to OnenoteSourceServiceVOnPremOneDriveForBusiness
+	OnenoteSourceServicePOnPremOneDriveForBusiness = &_OnenoteSourceServicePOnPremOneDriveForBusiness
+)
 
-// OnenoteSourceServicePOneDrive returns a pointer to OnenoteSourceServiceVOneDrive
-func OnenoteSourceServicePOneDrive() *OnenoteSourceService {
-	v := OnenoteSourceServiceVOneDrive
-	return &v
-}
-
-// OnenoteSourceServicePOneDriveForBusiness returns a pointer to OnenoteSourceServiceVOneDriveForBusiness
-func OnenoteSourceServicePOneDriveForBusiness() *OnenoteSourceService {
-	v := OnenoteSourceServiceVOneDriveForBusiness
-	return &v
-}
-
-// OnenoteSourceServicePOnPremOneDriveForBusiness returns a pointer to OnenoteSourceServiceVOnPremOneDriveForBusiness
-func OnenoteSourceServicePOnPremOneDriveForBusiness() *OnenoteSourceService {
-	v := OnenoteSourceServiceVOnPremOneDriveForBusiness
-	return &v
-}
+var (
+	_OnenoteSourceServicePUnknown                   = OnenoteSourceServiceVUnknown
+	_OnenoteSourceServicePOneDrive                  = OnenoteSourceServiceVOneDrive
+	_OnenoteSourceServicePOneDriveForBusiness       = OnenoteSourceServiceVOneDriveForBusiness
+	_OnenoteSourceServicePOnPremOneDriveForBusiness = OnenoteSourceServiceVOnPremOneDriveForBusiness
+)

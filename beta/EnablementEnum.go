@@ -3,31 +3,28 @@
 package msgraph
 
 // Enablement undocumented
-type Enablement int
+type Enablement string
 
 const (
 	// EnablementVNotConfigured undocumented
-	EnablementVNotConfigured Enablement = 0
+	EnablementVNotConfigured Enablement = "notConfigured"
 	// EnablementVEnabled undocumented
-	EnablementVEnabled Enablement = 1
+	EnablementVEnabled Enablement = "enabled"
 	// EnablementVDisabled undocumented
-	EnablementVDisabled Enablement = 2
+	EnablementVDisabled Enablement = "disabled"
 )
 
-// EnablementPNotConfigured returns a pointer to EnablementVNotConfigured
-func EnablementPNotConfigured() *Enablement {
-	v := EnablementVNotConfigured
-	return &v
-}
+var (
+	// EnablementPNotConfigured is a pointer to EnablementVNotConfigured
+	EnablementPNotConfigured = &_EnablementPNotConfigured
+	// EnablementPEnabled is a pointer to EnablementVEnabled
+	EnablementPEnabled = &_EnablementPEnabled
+	// EnablementPDisabled is a pointer to EnablementVDisabled
+	EnablementPDisabled = &_EnablementPDisabled
+)
 
-// EnablementPEnabled returns a pointer to EnablementVEnabled
-func EnablementPEnabled() *Enablement {
-	v := EnablementVEnabled
-	return &v
-}
-
-// EnablementPDisabled returns a pointer to EnablementVDisabled
-func EnablementPDisabled() *Enablement {
-	v := EnablementVDisabled
-	return &v
-}
+var (
+	_EnablementPNotConfigured = EnablementVNotConfigured
+	_EnablementPEnabled       = EnablementVEnabled
+	_EnablementPDisabled      = EnablementVDisabled
+)

@@ -3,15 +3,18 @@
 package msgraph
 
 // AppLogDecryptionAlgorithm undocumented
-type AppLogDecryptionAlgorithm int
+type AppLogDecryptionAlgorithm string
 
 const (
 	// AppLogDecryptionAlgorithmVAes256 undocumented
-	AppLogDecryptionAlgorithmVAes256 AppLogDecryptionAlgorithm = 0
+	AppLogDecryptionAlgorithmVAes256 AppLogDecryptionAlgorithm = "aes256"
 )
 
-// AppLogDecryptionAlgorithmPAes256 returns a pointer to AppLogDecryptionAlgorithmVAes256
-func AppLogDecryptionAlgorithmPAes256() *AppLogDecryptionAlgorithm {
-	v := AppLogDecryptionAlgorithmVAes256
-	return &v
-}
+var (
+	// AppLogDecryptionAlgorithmPAes256 is a pointer to AppLogDecryptionAlgorithmVAes256
+	AppLogDecryptionAlgorithmPAes256 = &_AppLogDecryptionAlgorithmPAes256
+)
+
+var (
+	_AppLogDecryptionAlgorithmPAes256 = AppLogDecryptionAlgorithmVAes256
+)

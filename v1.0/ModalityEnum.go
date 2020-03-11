@@ -3,47 +3,38 @@
 package msgraph
 
 // Modality undocumented
-type Modality int
+type Modality string
 
 const (
 	// ModalityVAudio undocumented
-	ModalityVAudio Modality = 1
+	ModalityVAudio Modality = "audio"
 	// ModalityVVideo undocumented
-	ModalityVVideo Modality = 2
+	ModalityVVideo Modality = "video"
 	// ModalityVVideoBasedScreenSharing undocumented
-	ModalityVVideoBasedScreenSharing Modality = 3
+	ModalityVVideoBasedScreenSharing Modality = "videoBasedScreenSharing"
 	// ModalityVData undocumented
-	ModalityVData Modality = 4
+	ModalityVData Modality = "data"
 	// ModalityVUnknownFutureValue undocumented
-	ModalityVUnknownFutureValue Modality = 5
+	ModalityVUnknownFutureValue Modality = "unknownFutureValue"
 )
 
-// ModalityPAudio returns a pointer to ModalityVAudio
-func ModalityPAudio() *Modality {
-	v := ModalityVAudio
-	return &v
-}
+var (
+	// ModalityPAudio is a pointer to ModalityVAudio
+	ModalityPAudio = &_ModalityPAudio
+	// ModalityPVideo is a pointer to ModalityVVideo
+	ModalityPVideo = &_ModalityPVideo
+	// ModalityPVideoBasedScreenSharing is a pointer to ModalityVVideoBasedScreenSharing
+	ModalityPVideoBasedScreenSharing = &_ModalityPVideoBasedScreenSharing
+	// ModalityPData is a pointer to ModalityVData
+	ModalityPData = &_ModalityPData
+	// ModalityPUnknownFutureValue is a pointer to ModalityVUnknownFutureValue
+	ModalityPUnknownFutureValue = &_ModalityPUnknownFutureValue
+)
 
-// ModalityPVideo returns a pointer to ModalityVVideo
-func ModalityPVideo() *Modality {
-	v := ModalityVVideo
-	return &v
-}
-
-// ModalityPVideoBasedScreenSharing returns a pointer to ModalityVVideoBasedScreenSharing
-func ModalityPVideoBasedScreenSharing() *Modality {
-	v := ModalityVVideoBasedScreenSharing
-	return &v
-}
-
-// ModalityPData returns a pointer to ModalityVData
-func ModalityPData() *Modality {
-	v := ModalityVData
-	return &v
-}
-
-// ModalityPUnknownFutureValue returns a pointer to ModalityVUnknownFutureValue
-func ModalityPUnknownFutureValue() *Modality {
-	v := ModalityVUnknownFutureValue
-	return &v
-}
+var (
+	_ModalityPAudio                   = ModalityVAudio
+	_ModalityPVideo                   = ModalityVVideo
+	_ModalityPVideoBasedScreenSharing = ModalityVVideoBasedScreenSharing
+	_ModalityPData                    = ModalityVData
+	_ModalityPUnknownFutureValue      = ModalityVUnknownFutureValue
+)

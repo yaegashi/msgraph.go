@@ -3,47 +3,38 @@
 package msgraph
 
 // ManagedAppDeviceThreatLevel undocumented
-type ManagedAppDeviceThreatLevel int
+type ManagedAppDeviceThreatLevel string
 
 const (
 	// ManagedAppDeviceThreatLevelVNotConfigured undocumented
-	ManagedAppDeviceThreatLevelVNotConfigured ManagedAppDeviceThreatLevel = 0
+	ManagedAppDeviceThreatLevelVNotConfigured ManagedAppDeviceThreatLevel = "notConfigured"
 	// ManagedAppDeviceThreatLevelVSecured undocumented
-	ManagedAppDeviceThreatLevelVSecured ManagedAppDeviceThreatLevel = 1
+	ManagedAppDeviceThreatLevelVSecured ManagedAppDeviceThreatLevel = "secured"
 	// ManagedAppDeviceThreatLevelVLow undocumented
-	ManagedAppDeviceThreatLevelVLow ManagedAppDeviceThreatLevel = 2
+	ManagedAppDeviceThreatLevelVLow ManagedAppDeviceThreatLevel = "low"
 	// ManagedAppDeviceThreatLevelVMedium undocumented
-	ManagedAppDeviceThreatLevelVMedium ManagedAppDeviceThreatLevel = 3
+	ManagedAppDeviceThreatLevelVMedium ManagedAppDeviceThreatLevel = "medium"
 	// ManagedAppDeviceThreatLevelVHigh undocumented
-	ManagedAppDeviceThreatLevelVHigh ManagedAppDeviceThreatLevel = 4
+	ManagedAppDeviceThreatLevelVHigh ManagedAppDeviceThreatLevel = "high"
 )
 
-// ManagedAppDeviceThreatLevelPNotConfigured returns a pointer to ManagedAppDeviceThreatLevelVNotConfigured
-func ManagedAppDeviceThreatLevelPNotConfigured() *ManagedAppDeviceThreatLevel {
-	v := ManagedAppDeviceThreatLevelVNotConfigured
-	return &v
-}
+var (
+	// ManagedAppDeviceThreatLevelPNotConfigured is a pointer to ManagedAppDeviceThreatLevelVNotConfigured
+	ManagedAppDeviceThreatLevelPNotConfigured = &_ManagedAppDeviceThreatLevelPNotConfigured
+	// ManagedAppDeviceThreatLevelPSecured is a pointer to ManagedAppDeviceThreatLevelVSecured
+	ManagedAppDeviceThreatLevelPSecured = &_ManagedAppDeviceThreatLevelPSecured
+	// ManagedAppDeviceThreatLevelPLow is a pointer to ManagedAppDeviceThreatLevelVLow
+	ManagedAppDeviceThreatLevelPLow = &_ManagedAppDeviceThreatLevelPLow
+	// ManagedAppDeviceThreatLevelPMedium is a pointer to ManagedAppDeviceThreatLevelVMedium
+	ManagedAppDeviceThreatLevelPMedium = &_ManagedAppDeviceThreatLevelPMedium
+	// ManagedAppDeviceThreatLevelPHigh is a pointer to ManagedAppDeviceThreatLevelVHigh
+	ManagedAppDeviceThreatLevelPHigh = &_ManagedAppDeviceThreatLevelPHigh
+)
 
-// ManagedAppDeviceThreatLevelPSecured returns a pointer to ManagedAppDeviceThreatLevelVSecured
-func ManagedAppDeviceThreatLevelPSecured() *ManagedAppDeviceThreatLevel {
-	v := ManagedAppDeviceThreatLevelVSecured
-	return &v
-}
-
-// ManagedAppDeviceThreatLevelPLow returns a pointer to ManagedAppDeviceThreatLevelVLow
-func ManagedAppDeviceThreatLevelPLow() *ManagedAppDeviceThreatLevel {
-	v := ManagedAppDeviceThreatLevelVLow
-	return &v
-}
-
-// ManagedAppDeviceThreatLevelPMedium returns a pointer to ManagedAppDeviceThreatLevelVMedium
-func ManagedAppDeviceThreatLevelPMedium() *ManagedAppDeviceThreatLevel {
-	v := ManagedAppDeviceThreatLevelVMedium
-	return &v
-}
-
-// ManagedAppDeviceThreatLevelPHigh returns a pointer to ManagedAppDeviceThreatLevelVHigh
-func ManagedAppDeviceThreatLevelPHigh() *ManagedAppDeviceThreatLevel {
-	v := ManagedAppDeviceThreatLevelVHigh
-	return &v
-}
+var (
+	_ManagedAppDeviceThreatLevelPNotConfigured = ManagedAppDeviceThreatLevelVNotConfigured
+	_ManagedAppDeviceThreatLevelPSecured       = ManagedAppDeviceThreatLevelVSecured
+	_ManagedAppDeviceThreatLevelPLow           = ManagedAppDeviceThreatLevelVLow
+	_ManagedAppDeviceThreatLevelPMedium        = ManagedAppDeviceThreatLevelVMedium
+	_ManagedAppDeviceThreatLevelPHigh          = ManagedAppDeviceThreatLevelVHigh
+)

@@ -3,63 +3,48 @@
 package msgraph
 
 // AndroidWorkProfileVpnConnectionType undocumented
-type AndroidWorkProfileVpnConnectionType int
+type AndroidWorkProfileVpnConnectionType string
 
 const (
 	// AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect undocumented
-	AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect AndroidWorkProfileVpnConnectionType = 0
+	AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect AndroidWorkProfileVpnConnectionType = "ciscoAnyConnect"
 	// AndroidWorkProfileVpnConnectionTypeVPulseSecure undocumented
-	AndroidWorkProfileVpnConnectionTypeVPulseSecure AndroidWorkProfileVpnConnectionType = 1
+	AndroidWorkProfileVpnConnectionTypeVPulseSecure AndroidWorkProfileVpnConnectionType = "pulseSecure"
 	// AndroidWorkProfileVpnConnectionTypeVF5EdgeClient undocumented
-	AndroidWorkProfileVpnConnectionTypeVF5EdgeClient AndroidWorkProfileVpnConnectionType = 2
+	AndroidWorkProfileVpnConnectionTypeVF5EdgeClient AndroidWorkProfileVpnConnectionType = "f5EdgeClient"
 	// AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect undocumented
-	AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect AndroidWorkProfileVpnConnectionType = 3
+	AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect AndroidWorkProfileVpnConnectionType = "dellSonicWallMobileConnect"
 	// AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn undocumented
-	AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn AndroidWorkProfileVpnConnectionType = 4
+	AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn AndroidWorkProfileVpnConnectionType = "checkPointCapsuleVpn"
 	// AndroidWorkProfileVpnConnectionTypeVCitrix undocumented
-	AndroidWorkProfileVpnConnectionTypeVCitrix AndroidWorkProfileVpnConnectionType = 5
+	AndroidWorkProfileVpnConnectionTypeVCitrix AndroidWorkProfileVpnConnectionType = "citrix"
 	// AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect undocumented
-	AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect AndroidWorkProfileVpnConnectionType = 6
+	AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect AndroidWorkProfileVpnConnectionType = "paloAltoGlobalProtect"
 )
 
-// AndroidWorkProfileVpnConnectionTypePCiscoAnyConnect returns a pointer to AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect
-func AndroidWorkProfileVpnConnectionTypePCiscoAnyConnect() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect
-	return &v
-}
+var (
+	// AndroidWorkProfileVpnConnectionTypePCiscoAnyConnect is a pointer to AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect
+	AndroidWorkProfileVpnConnectionTypePCiscoAnyConnect = &_AndroidWorkProfileVpnConnectionTypePCiscoAnyConnect
+	// AndroidWorkProfileVpnConnectionTypePPulseSecure is a pointer to AndroidWorkProfileVpnConnectionTypeVPulseSecure
+	AndroidWorkProfileVpnConnectionTypePPulseSecure = &_AndroidWorkProfileVpnConnectionTypePPulseSecure
+	// AndroidWorkProfileVpnConnectionTypePF5EdgeClient is a pointer to AndroidWorkProfileVpnConnectionTypeVF5EdgeClient
+	AndroidWorkProfileVpnConnectionTypePF5EdgeClient = &_AndroidWorkProfileVpnConnectionTypePF5EdgeClient
+	// AndroidWorkProfileVpnConnectionTypePDellSonicWallMobileConnect is a pointer to AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect
+	AndroidWorkProfileVpnConnectionTypePDellSonicWallMobileConnect = &_AndroidWorkProfileVpnConnectionTypePDellSonicWallMobileConnect
+	// AndroidWorkProfileVpnConnectionTypePCheckPointCapsuleVpn is a pointer to AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn
+	AndroidWorkProfileVpnConnectionTypePCheckPointCapsuleVpn = &_AndroidWorkProfileVpnConnectionTypePCheckPointCapsuleVpn
+	// AndroidWorkProfileVpnConnectionTypePCitrix is a pointer to AndroidWorkProfileVpnConnectionTypeVCitrix
+	AndroidWorkProfileVpnConnectionTypePCitrix = &_AndroidWorkProfileVpnConnectionTypePCitrix
+	// AndroidWorkProfileVpnConnectionTypePPaloAltoGlobalProtect is a pointer to AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect
+	AndroidWorkProfileVpnConnectionTypePPaloAltoGlobalProtect = &_AndroidWorkProfileVpnConnectionTypePPaloAltoGlobalProtect
+)
 
-// AndroidWorkProfileVpnConnectionTypePPulseSecure returns a pointer to AndroidWorkProfileVpnConnectionTypeVPulseSecure
-func AndroidWorkProfileVpnConnectionTypePPulseSecure() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVPulseSecure
-	return &v
-}
-
-// AndroidWorkProfileVpnConnectionTypePF5EdgeClient returns a pointer to AndroidWorkProfileVpnConnectionTypeVF5EdgeClient
-func AndroidWorkProfileVpnConnectionTypePF5EdgeClient() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVF5EdgeClient
-	return &v
-}
-
-// AndroidWorkProfileVpnConnectionTypePDellSonicWallMobileConnect returns a pointer to AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect
-func AndroidWorkProfileVpnConnectionTypePDellSonicWallMobileConnect() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect
-	return &v
-}
-
-// AndroidWorkProfileVpnConnectionTypePCheckPointCapsuleVpn returns a pointer to AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn
-func AndroidWorkProfileVpnConnectionTypePCheckPointCapsuleVpn() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn
-	return &v
-}
-
-// AndroidWorkProfileVpnConnectionTypePCitrix returns a pointer to AndroidWorkProfileVpnConnectionTypeVCitrix
-func AndroidWorkProfileVpnConnectionTypePCitrix() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVCitrix
-	return &v
-}
-
-// AndroidWorkProfileVpnConnectionTypePPaloAltoGlobalProtect returns a pointer to AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect
-func AndroidWorkProfileVpnConnectionTypePPaloAltoGlobalProtect() *AndroidWorkProfileVpnConnectionType {
-	v := AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect
-	return &v
-}
+var (
+	_AndroidWorkProfileVpnConnectionTypePCiscoAnyConnect            = AndroidWorkProfileVpnConnectionTypeVCiscoAnyConnect
+	_AndroidWorkProfileVpnConnectionTypePPulseSecure                = AndroidWorkProfileVpnConnectionTypeVPulseSecure
+	_AndroidWorkProfileVpnConnectionTypePF5EdgeClient               = AndroidWorkProfileVpnConnectionTypeVF5EdgeClient
+	_AndroidWorkProfileVpnConnectionTypePDellSonicWallMobileConnect = AndroidWorkProfileVpnConnectionTypeVDellSonicWallMobileConnect
+	_AndroidWorkProfileVpnConnectionTypePCheckPointCapsuleVpn       = AndroidWorkProfileVpnConnectionTypeVCheckPointCapsuleVpn
+	_AndroidWorkProfileVpnConnectionTypePCitrix                     = AndroidWorkProfileVpnConnectionTypeVCitrix
+	_AndroidWorkProfileVpnConnectionTypePPaloAltoGlobalProtect      = AndroidWorkProfileVpnConnectionTypeVPaloAltoGlobalProtect
+)

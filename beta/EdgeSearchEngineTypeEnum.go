@@ -3,23 +3,23 @@
 package msgraph
 
 // EdgeSearchEngineType undocumented
-type EdgeSearchEngineType int
+type EdgeSearchEngineType string
 
 const (
 	// EdgeSearchEngineTypeVDefault undocumented
-	EdgeSearchEngineTypeVDefault EdgeSearchEngineType = 0
+	EdgeSearchEngineTypeVDefault EdgeSearchEngineType = "default"
 	// EdgeSearchEngineTypeVBing undocumented
-	EdgeSearchEngineTypeVBing EdgeSearchEngineType = 1
+	EdgeSearchEngineTypeVBing EdgeSearchEngineType = "bing"
 )
 
-// EdgeSearchEngineTypePDefault returns a pointer to EdgeSearchEngineTypeVDefault
-func EdgeSearchEngineTypePDefault() *EdgeSearchEngineType {
-	v := EdgeSearchEngineTypeVDefault
-	return &v
-}
+var (
+	// EdgeSearchEngineTypePDefault is a pointer to EdgeSearchEngineTypeVDefault
+	EdgeSearchEngineTypePDefault = &_EdgeSearchEngineTypePDefault
+	// EdgeSearchEngineTypePBing is a pointer to EdgeSearchEngineTypeVBing
+	EdgeSearchEngineTypePBing = &_EdgeSearchEngineTypePBing
+)
 
-// EdgeSearchEngineTypePBing returns a pointer to EdgeSearchEngineTypeVBing
-func EdgeSearchEngineTypePBing() *EdgeSearchEngineType {
-	v := EdgeSearchEngineTypeVBing
-	return &v
-}
+var (
+	_EdgeSearchEngineTypePDefault = EdgeSearchEngineTypeVDefault
+	_EdgeSearchEngineTypePBing    = EdgeSearchEngineTypeVBing
+)

@@ -3,47 +3,38 @@
 package msgraph
 
 // Status undocumented
-type Status int
+type Status string
 
 const (
 	// StatusVActive undocumented
-	StatusVActive Status = 0
+	StatusVActive Status = "active"
 	// StatusVUpdated undocumented
-	StatusVUpdated Status = 1
+	StatusVUpdated Status = "updated"
 	// StatusVDeleted undocumented
-	StatusVDeleted Status = 2
+	StatusVDeleted Status = "deleted"
 	// StatusVIgnored undocumented
-	StatusVIgnored Status = 3
+	StatusVIgnored Status = "ignored"
 	// StatusVUnknownFutureValue undocumented
-	StatusVUnknownFutureValue Status = 4
+	StatusVUnknownFutureValue Status = "unknownFutureValue"
 )
 
-// StatusPActive returns a pointer to StatusVActive
-func StatusPActive() *Status {
-	v := StatusVActive
-	return &v
-}
+var (
+	// StatusPActive is a pointer to StatusVActive
+	StatusPActive = &_StatusPActive
+	// StatusPUpdated is a pointer to StatusVUpdated
+	StatusPUpdated = &_StatusPUpdated
+	// StatusPDeleted is a pointer to StatusVDeleted
+	StatusPDeleted = &_StatusPDeleted
+	// StatusPIgnored is a pointer to StatusVIgnored
+	StatusPIgnored = &_StatusPIgnored
+	// StatusPUnknownFutureValue is a pointer to StatusVUnknownFutureValue
+	StatusPUnknownFutureValue = &_StatusPUnknownFutureValue
+)
 
-// StatusPUpdated returns a pointer to StatusVUpdated
-func StatusPUpdated() *Status {
-	v := StatusVUpdated
-	return &v
-}
-
-// StatusPDeleted returns a pointer to StatusVDeleted
-func StatusPDeleted() *Status {
-	v := StatusVDeleted
-	return &v
-}
-
-// StatusPIgnored returns a pointer to StatusVIgnored
-func StatusPIgnored() *Status {
-	v := StatusVIgnored
-	return &v
-}
-
-// StatusPUnknownFutureValue returns a pointer to StatusVUnknownFutureValue
-func StatusPUnknownFutureValue() *Status {
-	v := StatusVUnknownFutureValue
-	return &v
-}
+var (
+	_StatusPActive             = StatusVActive
+	_StatusPUpdated            = StatusVUpdated
+	_StatusPDeleted            = StatusVDeleted
+	_StatusPIgnored            = StatusVIgnored
+	_StatusPUnknownFutureValue = StatusVUnknownFutureValue
+)

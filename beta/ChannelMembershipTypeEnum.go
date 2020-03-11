@@ -3,31 +3,28 @@
 package msgraph
 
 // ChannelMembershipType undocumented
-type ChannelMembershipType int
+type ChannelMembershipType string
 
 const (
 	// ChannelMembershipTypeVStandard undocumented
-	ChannelMembershipTypeVStandard ChannelMembershipType = 0
+	ChannelMembershipTypeVStandard ChannelMembershipType = "standard"
 	// ChannelMembershipTypeVPrivate undocumented
-	ChannelMembershipTypeVPrivate ChannelMembershipType = 1
+	ChannelMembershipTypeVPrivate ChannelMembershipType = "private"
 	// ChannelMembershipTypeVUnknownFutureValue undocumented
-	ChannelMembershipTypeVUnknownFutureValue ChannelMembershipType = 2
+	ChannelMembershipTypeVUnknownFutureValue ChannelMembershipType = "unknownFutureValue"
 )
 
-// ChannelMembershipTypePStandard returns a pointer to ChannelMembershipTypeVStandard
-func ChannelMembershipTypePStandard() *ChannelMembershipType {
-	v := ChannelMembershipTypeVStandard
-	return &v
-}
+var (
+	// ChannelMembershipTypePStandard is a pointer to ChannelMembershipTypeVStandard
+	ChannelMembershipTypePStandard = &_ChannelMembershipTypePStandard
+	// ChannelMembershipTypePPrivate is a pointer to ChannelMembershipTypeVPrivate
+	ChannelMembershipTypePPrivate = &_ChannelMembershipTypePPrivate
+	// ChannelMembershipTypePUnknownFutureValue is a pointer to ChannelMembershipTypeVUnknownFutureValue
+	ChannelMembershipTypePUnknownFutureValue = &_ChannelMembershipTypePUnknownFutureValue
+)
 
-// ChannelMembershipTypePPrivate returns a pointer to ChannelMembershipTypeVPrivate
-func ChannelMembershipTypePPrivate() *ChannelMembershipType {
-	v := ChannelMembershipTypeVPrivate
-	return &v
-}
-
-// ChannelMembershipTypePUnknownFutureValue returns a pointer to ChannelMembershipTypeVUnknownFutureValue
-func ChannelMembershipTypePUnknownFutureValue() *ChannelMembershipType {
-	v := ChannelMembershipTypeVUnknownFutureValue
-	return &v
-}
+var (
+	_ChannelMembershipTypePStandard           = ChannelMembershipTypeVStandard
+	_ChannelMembershipTypePPrivate            = ChannelMembershipTypeVPrivate
+	_ChannelMembershipTypePUnknownFutureValue = ChannelMembershipTypeVUnknownFutureValue
+)

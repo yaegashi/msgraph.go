@@ -3,31 +3,28 @@
 package msgraph
 
 // ImportedDeviceIdentityType undocumented
-type ImportedDeviceIdentityType int
+type ImportedDeviceIdentityType string
 
 const (
 	// ImportedDeviceIdentityTypeVUnknown undocumented
-	ImportedDeviceIdentityTypeVUnknown ImportedDeviceIdentityType = 0
+	ImportedDeviceIdentityTypeVUnknown ImportedDeviceIdentityType = "unknown"
 	// ImportedDeviceIdentityTypeVImei undocumented
-	ImportedDeviceIdentityTypeVImei ImportedDeviceIdentityType = 1
+	ImportedDeviceIdentityTypeVImei ImportedDeviceIdentityType = "imei"
 	// ImportedDeviceIdentityTypeVSerialNumber undocumented
-	ImportedDeviceIdentityTypeVSerialNumber ImportedDeviceIdentityType = 2
+	ImportedDeviceIdentityTypeVSerialNumber ImportedDeviceIdentityType = "serialNumber"
 )
 
-// ImportedDeviceIdentityTypePUnknown returns a pointer to ImportedDeviceIdentityTypeVUnknown
-func ImportedDeviceIdentityTypePUnknown() *ImportedDeviceIdentityType {
-	v := ImportedDeviceIdentityTypeVUnknown
-	return &v
-}
+var (
+	// ImportedDeviceIdentityTypePUnknown is a pointer to ImportedDeviceIdentityTypeVUnknown
+	ImportedDeviceIdentityTypePUnknown = &_ImportedDeviceIdentityTypePUnknown
+	// ImportedDeviceIdentityTypePImei is a pointer to ImportedDeviceIdentityTypeVImei
+	ImportedDeviceIdentityTypePImei = &_ImportedDeviceIdentityTypePImei
+	// ImportedDeviceIdentityTypePSerialNumber is a pointer to ImportedDeviceIdentityTypeVSerialNumber
+	ImportedDeviceIdentityTypePSerialNumber = &_ImportedDeviceIdentityTypePSerialNumber
+)
 
-// ImportedDeviceIdentityTypePImei returns a pointer to ImportedDeviceIdentityTypeVImei
-func ImportedDeviceIdentityTypePImei() *ImportedDeviceIdentityType {
-	v := ImportedDeviceIdentityTypeVImei
-	return &v
-}
-
-// ImportedDeviceIdentityTypePSerialNumber returns a pointer to ImportedDeviceIdentityTypeVSerialNumber
-func ImportedDeviceIdentityTypePSerialNumber() *ImportedDeviceIdentityType {
-	v := ImportedDeviceIdentityTypeVSerialNumber
-	return &v
-}
+var (
+	_ImportedDeviceIdentityTypePUnknown      = ImportedDeviceIdentityTypeVUnknown
+	_ImportedDeviceIdentityTypePImei         = ImportedDeviceIdentityTypeVImei
+	_ImportedDeviceIdentityTypePSerialNumber = ImportedDeviceIdentityTypeVSerialNumber
+)

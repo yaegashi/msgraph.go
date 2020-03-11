@@ -3,23 +3,23 @@
 package msgraph
 
 // ThreatExpectedAssessment undocumented
-type ThreatExpectedAssessment int
+type ThreatExpectedAssessment string
 
 const (
 	// ThreatExpectedAssessmentVBlock undocumented
-	ThreatExpectedAssessmentVBlock ThreatExpectedAssessment = 1
+	ThreatExpectedAssessmentVBlock ThreatExpectedAssessment = "block"
 	// ThreatExpectedAssessmentVUnblock undocumented
-	ThreatExpectedAssessmentVUnblock ThreatExpectedAssessment = 2
+	ThreatExpectedAssessmentVUnblock ThreatExpectedAssessment = "unblock"
 )
 
-// ThreatExpectedAssessmentPBlock returns a pointer to ThreatExpectedAssessmentVBlock
-func ThreatExpectedAssessmentPBlock() *ThreatExpectedAssessment {
-	v := ThreatExpectedAssessmentVBlock
-	return &v
-}
+var (
+	// ThreatExpectedAssessmentPBlock is a pointer to ThreatExpectedAssessmentVBlock
+	ThreatExpectedAssessmentPBlock = &_ThreatExpectedAssessmentPBlock
+	// ThreatExpectedAssessmentPUnblock is a pointer to ThreatExpectedAssessmentVUnblock
+	ThreatExpectedAssessmentPUnblock = &_ThreatExpectedAssessmentPUnblock
+)
 
-// ThreatExpectedAssessmentPUnblock returns a pointer to ThreatExpectedAssessmentVUnblock
-func ThreatExpectedAssessmentPUnblock() *ThreatExpectedAssessment {
-	v := ThreatExpectedAssessmentVUnblock
-	return &v
-}
+var (
+	_ThreatExpectedAssessmentPBlock   = ThreatExpectedAssessmentVBlock
+	_ThreatExpectedAssessmentPUnblock = ThreatExpectedAssessmentVUnblock
+)

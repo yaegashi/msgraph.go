@@ -3,31 +3,28 @@
 package msgraph
 
 // VpnProviderType undocumented
-type VpnProviderType int
+type VpnProviderType string
 
 const (
 	// VpnProviderTypeVNotConfigured undocumented
-	VpnProviderTypeVNotConfigured VpnProviderType = 0
+	VpnProviderTypeVNotConfigured VpnProviderType = "notConfigured"
 	// VpnProviderTypeVAppProxy undocumented
-	VpnProviderTypeVAppProxy VpnProviderType = 1
+	VpnProviderTypeVAppProxy VpnProviderType = "appProxy"
 	// VpnProviderTypeVPacketTunnel undocumented
-	VpnProviderTypeVPacketTunnel VpnProviderType = 2
+	VpnProviderTypeVPacketTunnel VpnProviderType = "packetTunnel"
 )
 
-// VpnProviderTypePNotConfigured returns a pointer to VpnProviderTypeVNotConfigured
-func VpnProviderTypePNotConfigured() *VpnProviderType {
-	v := VpnProviderTypeVNotConfigured
-	return &v
-}
+var (
+	// VpnProviderTypePNotConfigured is a pointer to VpnProviderTypeVNotConfigured
+	VpnProviderTypePNotConfigured = &_VpnProviderTypePNotConfigured
+	// VpnProviderTypePAppProxy is a pointer to VpnProviderTypeVAppProxy
+	VpnProviderTypePAppProxy = &_VpnProviderTypePAppProxy
+	// VpnProviderTypePPacketTunnel is a pointer to VpnProviderTypeVPacketTunnel
+	VpnProviderTypePPacketTunnel = &_VpnProviderTypePPacketTunnel
+)
 
-// VpnProviderTypePAppProxy returns a pointer to VpnProviderTypeVAppProxy
-func VpnProviderTypePAppProxy() *VpnProviderType {
-	v := VpnProviderTypeVAppProxy
-	return &v
-}
-
-// VpnProviderTypePPacketTunnel returns a pointer to VpnProviderTypeVPacketTunnel
-func VpnProviderTypePPacketTunnel() *VpnProviderType {
-	v := VpnProviderTypeVPacketTunnel
-	return &v
-}
+var (
+	_VpnProviderTypePNotConfigured = VpnProviderTypeVNotConfigured
+	_VpnProviderTypePAppProxy      = VpnProviderTypeVAppProxy
+	_VpnProviderTypePPacketTunnel  = VpnProviderTypeVPacketTunnel
+)

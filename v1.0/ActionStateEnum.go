@@ -3,63 +3,48 @@
 package msgraph
 
 // ActionState undocumented
-type ActionState int
+type ActionState string
 
 const (
 	// ActionStateVNone undocumented
-	ActionStateVNone ActionState = 0
+	ActionStateVNone ActionState = "none"
 	// ActionStateVPending undocumented
-	ActionStateVPending ActionState = 1
+	ActionStateVPending ActionState = "pending"
 	// ActionStateVCanceled undocumented
-	ActionStateVCanceled ActionState = 2
+	ActionStateVCanceled ActionState = "canceled"
 	// ActionStateVActive undocumented
-	ActionStateVActive ActionState = 3
+	ActionStateVActive ActionState = "active"
 	// ActionStateVDone undocumented
-	ActionStateVDone ActionState = 4
+	ActionStateVDone ActionState = "done"
 	// ActionStateVFailed undocumented
-	ActionStateVFailed ActionState = 5
+	ActionStateVFailed ActionState = "failed"
 	// ActionStateVNotSupported undocumented
-	ActionStateVNotSupported ActionState = 6
+	ActionStateVNotSupported ActionState = "notSupported"
 )
 
-// ActionStatePNone returns a pointer to ActionStateVNone
-func ActionStatePNone() *ActionState {
-	v := ActionStateVNone
-	return &v
-}
+var (
+	// ActionStatePNone is a pointer to ActionStateVNone
+	ActionStatePNone = &_ActionStatePNone
+	// ActionStatePPending is a pointer to ActionStateVPending
+	ActionStatePPending = &_ActionStatePPending
+	// ActionStatePCanceled is a pointer to ActionStateVCanceled
+	ActionStatePCanceled = &_ActionStatePCanceled
+	// ActionStatePActive is a pointer to ActionStateVActive
+	ActionStatePActive = &_ActionStatePActive
+	// ActionStatePDone is a pointer to ActionStateVDone
+	ActionStatePDone = &_ActionStatePDone
+	// ActionStatePFailed is a pointer to ActionStateVFailed
+	ActionStatePFailed = &_ActionStatePFailed
+	// ActionStatePNotSupported is a pointer to ActionStateVNotSupported
+	ActionStatePNotSupported = &_ActionStatePNotSupported
+)
 
-// ActionStatePPending returns a pointer to ActionStateVPending
-func ActionStatePPending() *ActionState {
-	v := ActionStateVPending
-	return &v
-}
-
-// ActionStatePCanceled returns a pointer to ActionStateVCanceled
-func ActionStatePCanceled() *ActionState {
-	v := ActionStateVCanceled
-	return &v
-}
-
-// ActionStatePActive returns a pointer to ActionStateVActive
-func ActionStatePActive() *ActionState {
-	v := ActionStateVActive
-	return &v
-}
-
-// ActionStatePDone returns a pointer to ActionStateVDone
-func ActionStatePDone() *ActionState {
-	v := ActionStateVDone
-	return &v
-}
-
-// ActionStatePFailed returns a pointer to ActionStateVFailed
-func ActionStatePFailed() *ActionState {
-	v := ActionStateVFailed
-	return &v
-}
-
-// ActionStatePNotSupported returns a pointer to ActionStateVNotSupported
-func ActionStatePNotSupported() *ActionState {
-	v := ActionStateVNotSupported
-	return &v
-}
+var (
+	_ActionStatePNone         = ActionStateVNone
+	_ActionStatePPending      = ActionStateVPending
+	_ActionStatePCanceled     = ActionStateVCanceled
+	_ActionStatePActive       = ActionStateVActive
+	_ActionStatePDone         = ActionStateVDone
+	_ActionStatePFailed       = ActionStateVFailed
+	_ActionStatePNotSupported = ActionStateVNotSupported
+)

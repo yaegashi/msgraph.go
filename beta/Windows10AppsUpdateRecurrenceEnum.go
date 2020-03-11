@@ -3,39 +3,33 @@
 package msgraph
 
 // Windows10AppsUpdateRecurrence undocumented
-type Windows10AppsUpdateRecurrence int
+type Windows10AppsUpdateRecurrence string
 
 const (
 	// Windows10AppsUpdateRecurrenceVNone undocumented
-	Windows10AppsUpdateRecurrenceVNone Windows10AppsUpdateRecurrence = 0
+	Windows10AppsUpdateRecurrenceVNone Windows10AppsUpdateRecurrence = "none"
 	// Windows10AppsUpdateRecurrenceVDaily undocumented
-	Windows10AppsUpdateRecurrenceVDaily Windows10AppsUpdateRecurrence = 1
+	Windows10AppsUpdateRecurrenceVDaily Windows10AppsUpdateRecurrence = "daily"
 	// Windows10AppsUpdateRecurrenceVWeekly undocumented
-	Windows10AppsUpdateRecurrenceVWeekly Windows10AppsUpdateRecurrence = 2
+	Windows10AppsUpdateRecurrenceVWeekly Windows10AppsUpdateRecurrence = "weekly"
 	// Windows10AppsUpdateRecurrenceVMonthly undocumented
-	Windows10AppsUpdateRecurrenceVMonthly Windows10AppsUpdateRecurrence = 3
+	Windows10AppsUpdateRecurrenceVMonthly Windows10AppsUpdateRecurrence = "monthly"
 )
 
-// Windows10AppsUpdateRecurrencePNone returns a pointer to Windows10AppsUpdateRecurrenceVNone
-func Windows10AppsUpdateRecurrencePNone() *Windows10AppsUpdateRecurrence {
-	v := Windows10AppsUpdateRecurrenceVNone
-	return &v
-}
+var (
+	// Windows10AppsUpdateRecurrencePNone is a pointer to Windows10AppsUpdateRecurrenceVNone
+	Windows10AppsUpdateRecurrencePNone = &_Windows10AppsUpdateRecurrencePNone
+	// Windows10AppsUpdateRecurrencePDaily is a pointer to Windows10AppsUpdateRecurrenceVDaily
+	Windows10AppsUpdateRecurrencePDaily = &_Windows10AppsUpdateRecurrencePDaily
+	// Windows10AppsUpdateRecurrencePWeekly is a pointer to Windows10AppsUpdateRecurrenceVWeekly
+	Windows10AppsUpdateRecurrencePWeekly = &_Windows10AppsUpdateRecurrencePWeekly
+	// Windows10AppsUpdateRecurrencePMonthly is a pointer to Windows10AppsUpdateRecurrenceVMonthly
+	Windows10AppsUpdateRecurrencePMonthly = &_Windows10AppsUpdateRecurrencePMonthly
+)
 
-// Windows10AppsUpdateRecurrencePDaily returns a pointer to Windows10AppsUpdateRecurrenceVDaily
-func Windows10AppsUpdateRecurrencePDaily() *Windows10AppsUpdateRecurrence {
-	v := Windows10AppsUpdateRecurrenceVDaily
-	return &v
-}
-
-// Windows10AppsUpdateRecurrencePWeekly returns a pointer to Windows10AppsUpdateRecurrenceVWeekly
-func Windows10AppsUpdateRecurrencePWeekly() *Windows10AppsUpdateRecurrence {
-	v := Windows10AppsUpdateRecurrenceVWeekly
-	return &v
-}
-
-// Windows10AppsUpdateRecurrencePMonthly returns a pointer to Windows10AppsUpdateRecurrenceVMonthly
-func Windows10AppsUpdateRecurrencePMonthly() *Windows10AppsUpdateRecurrence {
-	v := Windows10AppsUpdateRecurrenceVMonthly
-	return &v
-}
+var (
+	_Windows10AppsUpdateRecurrencePNone    = Windows10AppsUpdateRecurrenceVNone
+	_Windows10AppsUpdateRecurrencePDaily   = Windows10AppsUpdateRecurrenceVDaily
+	_Windows10AppsUpdateRecurrencePWeekly  = Windows10AppsUpdateRecurrenceVWeekly
+	_Windows10AppsUpdateRecurrencePMonthly = Windows10AppsUpdateRecurrenceVMonthly
+)

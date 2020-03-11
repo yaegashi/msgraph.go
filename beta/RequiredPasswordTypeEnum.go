@@ -3,31 +3,28 @@
 package msgraph
 
 // RequiredPasswordType undocumented
-type RequiredPasswordType int
+type RequiredPasswordType string
 
 const (
 	// RequiredPasswordTypeVDeviceDefault undocumented
-	RequiredPasswordTypeVDeviceDefault RequiredPasswordType = 0
+	RequiredPasswordTypeVDeviceDefault RequiredPasswordType = "deviceDefault"
 	// RequiredPasswordTypeVAlphanumeric undocumented
-	RequiredPasswordTypeVAlphanumeric RequiredPasswordType = 1
+	RequiredPasswordTypeVAlphanumeric RequiredPasswordType = "alphanumeric"
 	// RequiredPasswordTypeVNumeric undocumented
-	RequiredPasswordTypeVNumeric RequiredPasswordType = 2
+	RequiredPasswordTypeVNumeric RequiredPasswordType = "numeric"
 )
 
-// RequiredPasswordTypePDeviceDefault returns a pointer to RequiredPasswordTypeVDeviceDefault
-func RequiredPasswordTypePDeviceDefault() *RequiredPasswordType {
-	v := RequiredPasswordTypeVDeviceDefault
-	return &v
-}
+var (
+	// RequiredPasswordTypePDeviceDefault is a pointer to RequiredPasswordTypeVDeviceDefault
+	RequiredPasswordTypePDeviceDefault = &_RequiredPasswordTypePDeviceDefault
+	// RequiredPasswordTypePAlphanumeric is a pointer to RequiredPasswordTypeVAlphanumeric
+	RequiredPasswordTypePAlphanumeric = &_RequiredPasswordTypePAlphanumeric
+	// RequiredPasswordTypePNumeric is a pointer to RequiredPasswordTypeVNumeric
+	RequiredPasswordTypePNumeric = &_RequiredPasswordTypePNumeric
+)
 
-// RequiredPasswordTypePAlphanumeric returns a pointer to RequiredPasswordTypeVAlphanumeric
-func RequiredPasswordTypePAlphanumeric() *RequiredPasswordType {
-	v := RequiredPasswordTypeVAlphanumeric
-	return &v
-}
-
-// RequiredPasswordTypePNumeric returns a pointer to RequiredPasswordTypeVNumeric
-func RequiredPasswordTypePNumeric() *RequiredPasswordType {
-	v := RequiredPasswordTypeVNumeric
-	return &v
-}
+var (
+	_RequiredPasswordTypePDeviceDefault = RequiredPasswordTypeVDeviceDefault
+	_RequiredPasswordTypePAlphanumeric  = RequiredPasswordTypeVAlphanumeric
+	_RequiredPasswordTypePNumeric       = RequiredPasswordTypeVNumeric
+)

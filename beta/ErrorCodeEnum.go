@@ -3,39 +3,33 @@
 package msgraph
 
 // ErrorCode undocumented
-type ErrorCode int
+type ErrorCode string
 
 const (
 	// ErrorCodeVNoError undocumented
-	ErrorCodeVNoError ErrorCode = 0
+	ErrorCodeVNoError ErrorCode = "noError"
 	// ErrorCodeVUnauthorized undocumented
-	ErrorCodeVUnauthorized ErrorCode = 1
+	ErrorCodeVUnauthorized ErrorCode = "unauthorized"
 	// ErrorCodeVNotFound undocumented
-	ErrorCodeVNotFound ErrorCode = 2
+	ErrorCodeVNotFound ErrorCode = "notFound"
 	// ErrorCodeVDeleted undocumented
-	ErrorCodeVDeleted ErrorCode = 3
+	ErrorCodeVDeleted ErrorCode = "deleted"
 )
 
-// ErrorCodePNoError returns a pointer to ErrorCodeVNoError
-func ErrorCodePNoError() *ErrorCode {
-	v := ErrorCodeVNoError
-	return &v
-}
+var (
+	// ErrorCodePNoError is a pointer to ErrorCodeVNoError
+	ErrorCodePNoError = &_ErrorCodePNoError
+	// ErrorCodePUnauthorized is a pointer to ErrorCodeVUnauthorized
+	ErrorCodePUnauthorized = &_ErrorCodePUnauthorized
+	// ErrorCodePNotFound is a pointer to ErrorCodeVNotFound
+	ErrorCodePNotFound = &_ErrorCodePNotFound
+	// ErrorCodePDeleted is a pointer to ErrorCodeVDeleted
+	ErrorCodePDeleted = &_ErrorCodePDeleted
+)
 
-// ErrorCodePUnauthorized returns a pointer to ErrorCodeVUnauthorized
-func ErrorCodePUnauthorized() *ErrorCode {
-	v := ErrorCodeVUnauthorized
-	return &v
-}
-
-// ErrorCodePNotFound returns a pointer to ErrorCodeVNotFound
-func ErrorCodePNotFound() *ErrorCode {
-	v := ErrorCodeVNotFound
-	return &v
-}
-
-// ErrorCodePDeleted returns a pointer to ErrorCodeVDeleted
-func ErrorCodePDeleted() *ErrorCode {
-	v := ErrorCodeVDeleted
-	return &v
-}
+var (
+	_ErrorCodePNoError      = ErrorCodeVNoError
+	_ErrorCodePUnauthorized = ErrorCodeVUnauthorized
+	_ErrorCodePNotFound     = ErrorCodeVNotFound
+	_ErrorCodePDeleted      = ErrorCodeVDeleted
+)

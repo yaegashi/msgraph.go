@@ -3,103 +3,73 @@
 package msgraph
 
 // DeviceEnrollmentFailureReason undocumented
-type DeviceEnrollmentFailureReason int
+type DeviceEnrollmentFailureReason string
 
 const (
 	// DeviceEnrollmentFailureReasonVUnknown undocumented
-	DeviceEnrollmentFailureReasonVUnknown DeviceEnrollmentFailureReason = 0
+	DeviceEnrollmentFailureReasonVUnknown DeviceEnrollmentFailureReason = "unknown"
 	// DeviceEnrollmentFailureReasonVAuthentication undocumented
-	DeviceEnrollmentFailureReasonVAuthentication DeviceEnrollmentFailureReason = 1
+	DeviceEnrollmentFailureReasonVAuthentication DeviceEnrollmentFailureReason = "authentication"
 	// DeviceEnrollmentFailureReasonVAuthorization undocumented
-	DeviceEnrollmentFailureReasonVAuthorization DeviceEnrollmentFailureReason = 2
+	DeviceEnrollmentFailureReasonVAuthorization DeviceEnrollmentFailureReason = "authorization"
 	// DeviceEnrollmentFailureReasonVAccountValidation undocumented
-	DeviceEnrollmentFailureReasonVAccountValidation DeviceEnrollmentFailureReason = 3
+	DeviceEnrollmentFailureReasonVAccountValidation DeviceEnrollmentFailureReason = "accountValidation"
 	// DeviceEnrollmentFailureReasonVUserValidation undocumented
-	DeviceEnrollmentFailureReasonVUserValidation DeviceEnrollmentFailureReason = 4
+	DeviceEnrollmentFailureReasonVUserValidation DeviceEnrollmentFailureReason = "userValidation"
 	// DeviceEnrollmentFailureReasonVDeviceNotSupported undocumented
-	DeviceEnrollmentFailureReasonVDeviceNotSupported DeviceEnrollmentFailureReason = 5
+	DeviceEnrollmentFailureReasonVDeviceNotSupported DeviceEnrollmentFailureReason = "deviceNotSupported"
 	// DeviceEnrollmentFailureReasonVInMaintenance undocumented
-	DeviceEnrollmentFailureReasonVInMaintenance DeviceEnrollmentFailureReason = 6
+	DeviceEnrollmentFailureReasonVInMaintenance DeviceEnrollmentFailureReason = "inMaintenance"
 	// DeviceEnrollmentFailureReasonVBadRequest undocumented
-	DeviceEnrollmentFailureReasonVBadRequest DeviceEnrollmentFailureReason = 7
+	DeviceEnrollmentFailureReasonVBadRequest DeviceEnrollmentFailureReason = "badRequest"
 	// DeviceEnrollmentFailureReasonVFeatureNotSupported undocumented
-	DeviceEnrollmentFailureReasonVFeatureNotSupported DeviceEnrollmentFailureReason = 8
+	DeviceEnrollmentFailureReasonVFeatureNotSupported DeviceEnrollmentFailureReason = "featureNotSupported"
 	// DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced undocumented
-	DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced DeviceEnrollmentFailureReason = 9
+	DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced DeviceEnrollmentFailureReason = "enrollmentRestrictionsEnforced"
 	// DeviceEnrollmentFailureReasonVClientDisconnected undocumented
-	DeviceEnrollmentFailureReasonVClientDisconnected DeviceEnrollmentFailureReason = 10
+	DeviceEnrollmentFailureReasonVClientDisconnected DeviceEnrollmentFailureReason = "clientDisconnected"
 	// DeviceEnrollmentFailureReasonVUserAbandonment undocumented
-	DeviceEnrollmentFailureReasonVUserAbandonment DeviceEnrollmentFailureReason = 11
+	DeviceEnrollmentFailureReasonVUserAbandonment DeviceEnrollmentFailureReason = "userAbandonment"
 )
 
-// DeviceEnrollmentFailureReasonPUnknown returns a pointer to DeviceEnrollmentFailureReasonVUnknown
-func DeviceEnrollmentFailureReasonPUnknown() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVUnknown
-	return &v
-}
+var (
+	// DeviceEnrollmentFailureReasonPUnknown is a pointer to DeviceEnrollmentFailureReasonVUnknown
+	DeviceEnrollmentFailureReasonPUnknown = &_DeviceEnrollmentFailureReasonPUnknown
+	// DeviceEnrollmentFailureReasonPAuthentication is a pointer to DeviceEnrollmentFailureReasonVAuthentication
+	DeviceEnrollmentFailureReasonPAuthentication = &_DeviceEnrollmentFailureReasonPAuthentication
+	// DeviceEnrollmentFailureReasonPAuthorization is a pointer to DeviceEnrollmentFailureReasonVAuthorization
+	DeviceEnrollmentFailureReasonPAuthorization = &_DeviceEnrollmentFailureReasonPAuthorization
+	// DeviceEnrollmentFailureReasonPAccountValidation is a pointer to DeviceEnrollmentFailureReasonVAccountValidation
+	DeviceEnrollmentFailureReasonPAccountValidation = &_DeviceEnrollmentFailureReasonPAccountValidation
+	// DeviceEnrollmentFailureReasonPUserValidation is a pointer to DeviceEnrollmentFailureReasonVUserValidation
+	DeviceEnrollmentFailureReasonPUserValidation = &_DeviceEnrollmentFailureReasonPUserValidation
+	// DeviceEnrollmentFailureReasonPDeviceNotSupported is a pointer to DeviceEnrollmentFailureReasonVDeviceNotSupported
+	DeviceEnrollmentFailureReasonPDeviceNotSupported = &_DeviceEnrollmentFailureReasonPDeviceNotSupported
+	// DeviceEnrollmentFailureReasonPInMaintenance is a pointer to DeviceEnrollmentFailureReasonVInMaintenance
+	DeviceEnrollmentFailureReasonPInMaintenance = &_DeviceEnrollmentFailureReasonPInMaintenance
+	// DeviceEnrollmentFailureReasonPBadRequest is a pointer to DeviceEnrollmentFailureReasonVBadRequest
+	DeviceEnrollmentFailureReasonPBadRequest = &_DeviceEnrollmentFailureReasonPBadRequest
+	// DeviceEnrollmentFailureReasonPFeatureNotSupported is a pointer to DeviceEnrollmentFailureReasonVFeatureNotSupported
+	DeviceEnrollmentFailureReasonPFeatureNotSupported = &_DeviceEnrollmentFailureReasonPFeatureNotSupported
+	// DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced is a pointer to DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
+	DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced = &_DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced
+	// DeviceEnrollmentFailureReasonPClientDisconnected is a pointer to DeviceEnrollmentFailureReasonVClientDisconnected
+	DeviceEnrollmentFailureReasonPClientDisconnected = &_DeviceEnrollmentFailureReasonPClientDisconnected
+	// DeviceEnrollmentFailureReasonPUserAbandonment is a pointer to DeviceEnrollmentFailureReasonVUserAbandonment
+	DeviceEnrollmentFailureReasonPUserAbandonment = &_DeviceEnrollmentFailureReasonPUserAbandonment
+)
 
-// DeviceEnrollmentFailureReasonPAuthentication returns a pointer to DeviceEnrollmentFailureReasonVAuthentication
-func DeviceEnrollmentFailureReasonPAuthentication() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVAuthentication
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPAuthorization returns a pointer to DeviceEnrollmentFailureReasonVAuthorization
-func DeviceEnrollmentFailureReasonPAuthorization() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVAuthorization
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPAccountValidation returns a pointer to DeviceEnrollmentFailureReasonVAccountValidation
-func DeviceEnrollmentFailureReasonPAccountValidation() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVAccountValidation
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPUserValidation returns a pointer to DeviceEnrollmentFailureReasonVUserValidation
-func DeviceEnrollmentFailureReasonPUserValidation() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVUserValidation
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPDeviceNotSupported returns a pointer to DeviceEnrollmentFailureReasonVDeviceNotSupported
-func DeviceEnrollmentFailureReasonPDeviceNotSupported() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVDeviceNotSupported
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPInMaintenance returns a pointer to DeviceEnrollmentFailureReasonVInMaintenance
-func DeviceEnrollmentFailureReasonPInMaintenance() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVInMaintenance
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPBadRequest returns a pointer to DeviceEnrollmentFailureReasonVBadRequest
-func DeviceEnrollmentFailureReasonPBadRequest() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVBadRequest
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPFeatureNotSupported returns a pointer to DeviceEnrollmentFailureReasonVFeatureNotSupported
-func DeviceEnrollmentFailureReasonPFeatureNotSupported() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVFeatureNotSupported
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced returns a pointer to DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
-func DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPClientDisconnected returns a pointer to DeviceEnrollmentFailureReasonVClientDisconnected
-func DeviceEnrollmentFailureReasonPClientDisconnected() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVClientDisconnected
-	return &v
-}
-
-// DeviceEnrollmentFailureReasonPUserAbandonment returns a pointer to DeviceEnrollmentFailureReasonVUserAbandonment
-func DeviceEnrollmentFailureReasonPUserAbandonment() *DeviceEnrollmentFailureReason {
-	v := DeviceEnrollmentFailureReasonVUserAbandonment
-	return &v
-}
+var (
+	_DeviceEnrollmentFailureReasonPUnknown                        = DeviceEnrollmentFailureReasonVUnknown
+	_DeviceEnrollmentFailureReasonPAuthentication                 = DeviceEnrollmentFailureReasonVAuthentication
+	_DeviceEnrollmentFailureReasonPAuthorization                  = DeviceEnrollmentFailureReasonVAuthorization
+	_DeviceEnrollmentFailureReasonPAccountValidation              = DeviceEnrollmentFailureReasonVAccountValidation
+	_DeviceEnrollmentFailureReasonPUserValidation                 = DeviceEnrollmentFailureReasonVUserValidation
+	_DeviceEnrollmentFailureReasonPDeviceNotSupported             = DeviceEnrollmentFailureReasonVDeviceNotSupported
+	_DeviceEnrollmentFailureReasonPInMaintenance                  = DeviceEnrollmentFailureReasonVInMaintenance
+	_DeviceEnrollmentFailureReasonPBadRequest                     = DeviceEnrollmentFailureReasonVBadRequest
+	_DeviceEnrollmentFailureReasonPFeatureNotSupported            = DeviceEnrollmentFailureReasonVFeatureNotSupported
+	_DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced = DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
+	_DeviceEnrollmentFailureReasonPClientDisconnected             = DeviceEnrollmentFailureReasonVClientDisconnected
+	_DeviceEnrollmentFailureReasonPUserAbandonment                = DeviceEnrollmentFailureReasonVUserAbandonment
+)

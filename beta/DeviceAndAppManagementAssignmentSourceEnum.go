@@ -3,23 +3,23 @@
 package msgraph
 
 // DeviceAndAppManagementAssignmentSource undocumented
-type DeviceAndAppManagementAssignmentSource int
+type DeviceAndAppManagementAssignmentSource string
 
 const (
 	// DeviceAndAppManagementAssignmentSourceVDirect undocumented
-	DeviceAndAppManagementAssignmentSourceVDirect DeviceAndAppManagementAssignmentSource = 0
+	DeviceAndAppManagementAssignmentSourceVDirect DeviceAndAppManagementAssignmentSource = "direct"
 	// DeviceAndAppManagementAssignmentSourceVPolicySets undocumented
-	DeviceAndAppManagementAssignmentSourceVPolicySets DeviceAndAppManagementAssignmentSource = 1
+	DeviceAndAppManagementAssignmentSourceVPolicySets DeviceAndAppManagementAssignmentSource = "policySets"
 )
 
-// DeviceAndAppManagementAssignmentSourcePDirect returns a pointer to DeviceAndAppManagementAssignmentSourceVDirect
-func DeviceAndAppManagementAssignmentSourcePDirect() *DeviceAndAppManagementAssignmentSource {
-	v := DeviceAndAppManagementAssignmentSourceVDirect
-	return &v
-}
+var (
+	// DeviceAndAppManagementAssignmentSourcePDirect is a pointer to DeviceAndAppManagementAssignmentSourceVDirect
+	DeviceAndAppManagementAssignmentSourcePDirect = &_DeviceAndAppManagementAssignmentSourcePDirect
+	// DeviceAndAppManagementAssignmentSourcePPolicySets is a pointer to DeviceAndAppManagementAssignmentSourceVPolicySets
+	DeviceAndAppManagementAssignmentSourcePPolicySets = &_DeviceAndAppManagementAssignmentSourcePPolicySets
+)
 
-// DeviceAndAppManagementAssignmentSourcePPolicySets returns a pointer to DeviceAndAppManagementAssignmentSourceVPolicySets
-func DeviceAndAppManagementAssignmentSourcePPolicySets() *DeviceAndAppManagementAssignmentSource {
-	v := DeviceAndAppManagementAssignmentSourceVPolicySets
-	return &v
-}
+var (
+	_DeviceAndAppManagementAssignmentSourcePDirect     = DeviceAndAppManagementAssignmentSourceVDirect
+	_DeviceAndAppManagementAssignmentSourcePPolicySets = DeviceAndAppManagementAssignmentSourceVPolicySets
+)

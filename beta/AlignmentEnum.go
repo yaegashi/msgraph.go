@@ -3,31 +3,28 @@
 package msgraph
 
 // Alignment undocumented
-type Alignment int
+type Alignment string
 
 const (
 	// AlignmentVLeft undocumented
-	AlignmentVLeft Alignment = 0
+	AlignmentVLeft Alignment = "left"
 	// AlignmentVRight undocumented
-	AlignmentVRight Alignment = 1
+	AlignmentVRight Alignment = "right"
 	// AlignmentVCenter undocumented
-	AlignmentVCenter Alignment = 2
+	AlignmentVCenter Alignment = "center"
 )
 
-// AlignmentPLeft returns a pointer to AlignmentVLeft
-func AlignmentPLeft() *Alignment {
-	v := AlignmentVLeft
-	return &v
-}
+var (
+	// AlignmentPLeft is a pointer to AlignmentVLeft
+	AlignmentPLeft = &_AlignmentPLeft
+	// AlignmentPRight is a pointer to AlignmentVRight
+	AlignmentPRight = &_AlignmentPRight
+	// AlignmentPCenter is a pointer to AlignmentVCenter
+	AlignmentPCenter = &_AlignmentPCenter
+)
 
-// AlignmentPRight returns a pointer to AlignmentVRight
-func AlignmentPRight() *Alignment {
-	v := AlignmentVRight
-	return &v
-}
-
-// AlignmentPCenter returns a pointer to AlignmentVCenter
-func AlignmentPCenter() *Alignment {
-	v := AlignmentVCenter
-	return &v
-}
+var (
+	_AlignmentPLeft   = AlignmentVLeft
+	_AlignmentPRight  = AlignmentVRight
+	_AlignmentPCenter = AlignmentVCenter
+)

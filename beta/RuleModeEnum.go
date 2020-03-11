@@ -3,47 +3,38 @@
 package msgraph
 
 // RuleMode undocumented
-type RuleMode int
+type RuleMode string
 
 const (
 	// RuleModeVAudit undocumented
-	RuleModeVAudit RuleMode = 1
+	RuleModeVAudit RuleMode = "audit"
 	// RuleModeVAuditAndNotify undocumented
-	RuleModeVAuditAndNotify RuleMode = 2
+	RuleModeVAuditAndNotify RuleMode = "auditAndNotify"
 	// RuleModeVEnforce undocumented
-	RuleModeVEnforce RuleMode = 3
+	RuleModeVEnforce RuleMode = "enforce"
 	// RuleModeVPendingDeletion undocumented
-	RuleModeVPendingDeletion RuleMode = 4
+	RuleModeVPendingDeletion RuleMode = "pendingDeletion"
 	// RuleModeVTest undocumented
-	RuleModeVTest RuleMode = 5
+	RuleModeVTest RuleMode = "test"
 )
 
-// RuleModePAudit returns a pointer to RuleModeVAudit
-func RuleModePAudit() *RuleMode {
-	v := RuleModeVAudit
-	return &v
-}
+var (
+	// RuleModePAudit is a pointer to RuleModeVAudit
+	RuleModePAudit = &_RuleModePAudit
+	// RuleModePAuditAndNotify is a pointer to RuleModeVAuditAndNotify
+	RuleModePAuditAndNotify = &_RuleModePAuditAndNotify
+	// RuleModePEnforce is a pointer to RuleModeVEnforce
+	RuleModePEnforce = &_RuleModePEnforce
+	// RuleModePPendingDeletion is a pointer to RuleModeVPendingDeletion
+	RuleModePPendingDeletion = &_RuleModePPendingDeletion
+	// RuleModePTest is a pointer to RuleModeVTest
+	RuleModePTest = &_RuleModePTest
+)
 
-// RuleModePAuditAndNotify returns a pointer to RuleModeVAuditAndNotify
-func RuleModePAuditAndNotify() *RuleMode {
-	v := RuleModeVAuditAndNotify
-	return &v
-}
-
-// RuleModePEnforce returns a pointer to RuleModeVEnforce
-func RuleModePEnforce() *RuleMode {
-	v := RuleModeVEnforce
-	return &v
-}
-
-// RuleModePPendingDeletion returns a pointer to RuleModeVPendingDeletion
-func RuleModePPendingDeletion() *RuleMode {
-	v := RuleModeVPendingDeletion
-	return &v
-}
-
-// RuleModePTest returns a pointer to RuleModeVTest
-func RuleModePTest() *RuleMode {
-	v := RuleModeVTest
-	return &v
-}
+var (
+	_RuleModePAudit           = RuleModeVAudit
+	_RuleModePAuditAndNotify  = RuleModeVAuditAndNotify
+	_RuleModePEnforce         = RuleModeVEnforce
+	_RuleModePPendingDeletion = RuleModeVPendingDeletion
+	_RuleModePTest            = RuleModeVTest
+)

@@ -3,23 +3,23 @@
 package msgraph
 
 // SharedPCAllowedAccountType undocumented
-type SharedPCAllowedAccountType int
+type SharedPCAllowedAccountType string
 
 const (
 	// SharedPCAllowedAccountTypeVGuest undocumented
-	SharedPCAllowedAccountTypeVGuest SharedPCAllowedAccountType = 1
+	SharedPCAllowedAccountTypeVGuest SharedPCAllowedAccountType = "guest"
 	// SharedPCAllowedAccountTypeVDomain undocumented
-	SharedPCAllowedAccountTypeVDomain SharedPCAllowedAccountType = 2
+	SharedPCAllowedAccountTypeVDomain SharedPCAllowedAccountType = "domain"
 )
 
-// SharedPCAllowedAccountTypePGuest returns a pointer to SharedPCAllowedAccountTypeVGuest
-func SharedPCAllowedAccountTypePGuest() *SharedPCAllowedAccountType {
-	v := SharedPCAllowedAccountTypeVGuest
-	return &v
-}
+var (
+	// SharedPCAllowedAccountTypePGuest is a pointer to SharedPCAllowedAccountTypeVGuest
+	SharedPCAllowedAccountTypePGuest = &_SharedPCAllowedAccountTypePGuest
+	// SharedPCAllowedAccountTypePDomain is a pointer to SharedPCAllowedAccountTypeVDomain
+	SharedPCAllowedAccountTypePDomain = &_SharedPCAllowedAccountTypePDomain
+)
 
-// SharedPCAllowedAccountTypePDomain returns a pointer to SharedPCAllowedAccountTypeVDomain
-func SharedPCAllowedAccountTypePDomain() *SharedPCAllowedAccountType {
-	v := SharedPCAllowedAccountTypeVDomain
-	return &v
-}
+var (
+	_SharedPCAllowedAccountTypePGuest  = SharedPCAllowedAccountTypeVGuest
+	_SharedPCAllowedAccountTypePDomain = SharedPCAllowedAccountTypeVDomain
+)

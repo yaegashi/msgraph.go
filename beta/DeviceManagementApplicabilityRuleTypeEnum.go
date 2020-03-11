@@ -3,23 +3,23 @@
 package msgraph
 
 // DeviceManagementApplicabilityRuleType undocumented
-type DeviceManagementApplicabilityRuleType int
+type DeviceManagementApplicabilityRuleType string
 
 const (
 	// DeviceManagementApplicabilityRuleTypeVInclude undocumented
-	DeviceManagementApplicabilityRuleTypeVInclude DeviceManagementApplicabilityRuleType = 0
+	DeviceManagementApplicabilityRuleTypeVInclude DeviceManagementApplicabilityRuleType = "include"
 	// DeviceManagementApplicabilityRuleTypeVExclude undocumented
-	DeviceManagementApplicabilityRuleTypeVExclude DeviceManagementApplicabilityRuleType = 1
+	DeviceManagementApplicabilityRuleTypeVExclude DeviceManagementApplicabilityRuleType = "exclude"
 )
 
-// DeviceManagementApplicabilityRuleTypePInclude returns a pointer to DeviceManagementApplicabilityRuleTypeVInclude
-func DeviceManagementApplicabilityRuleTypePInclude() *DeviceManagementApplicabilityRuleType {
-	v := DeviceManagementApplicabilityRuleTypeVInclude
-	return &v
-}
+var (
+	// DeviceManagementApplicabilityRuleTypePInclude is a pointer to DeviceManagementApplicabilityRuleTypeVInclude
+	DeviceManagementApplicabilityRuleTypePInclude = &_DeviceManagementApplicabilityRuleTypePInclude
+	// DeviceManagementApplicabilityRuleTypePExclude is a pointer to DeviceManagementApplicabilityRuleTypeVExclude
+	DeviceManagementApplicabilityRuleTypePExclude = &_DeviceManagementApplicabilityRuleTypePExclude
+)
 
-// DeviceManagementApplicabilityRuleTypePExclude returns a pointer to DeviceManagementApplicabilityRuleTypeVExclude
-func DeviceManagementApplicabilityRuleTypePExclude() *DeviceManagementApplicabilityRuleType {
-	v := DeviceManagementApplicabilityRuleTypeVExclude
-	return &v
-}
+var (
+	_DeviceManagementApplicabilityRuleTypePInclude = DeviceManagementApplicabilityRuleTypeVInclude
+	_DeviceManagementApplicabilityRuleTypePExclude = DeviceManagementApplicabilityRuleTypeVExclude
+)

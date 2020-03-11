@@ -3,39 +3,33 @@
 package msgraph
 
 // EducationGender undocumented
-type EducationGender int
+type EducationGender string
 
 const (
 	// EducationGenderVFemale undocumented
-	EducationGenderVFemale EducationGender = 0
+	EducationGenderVFemale EducationGender = "female"
 	// EducationGenderVMale undocumented
-	EducationGenderVMale EducationGender = 1
+	EducationGenderVMale EducationGender = "male"
 	// EducationGenderVOther undocumented
-	EducationGenderVOther EducationGender = 2
+	EducationGenderVOther EducationGender = "other"
 	// EducationGenderVUnknownFutureValue undocumented
-	EducationGenderVUnknownFutureValue EducationGender = 3
+	EducationGenderVUnknownFutureValue EducationGender = "unknownFutureValue"
 )
 
-// EducationGenderPFemale returns a pointer to EducationGenderVFemale
-func EducationGenderPFemale() *EducationGender {
-	v := EducationGenderVFemale
-	return &v
-}
+var (
+	// EducationGenderPFemale is a pointer to EducationGenderVFemale
+	EducationGenderPFemale = &_EducationGenderPFemale
+	// EducationGenderPMale is a pointer to EducationGenderVMale
+	EducationGenderPMale = &_EducationGenderPMale
+	// EducationGenderPOther is a pointer to EducationGenderVOther
+	EducationGenderPOther = &_EducationGenderPOther
+	// EducationGenderPUnknownFutureValue is a pointer to EducationGenderVUnknownFutureValue
+	EducationGenderPUnknownFutureValue = &_EducationGenderPUnknownFutureValue
+)
 
-// EducationGenderPMale returns a pointer to EducationGenderVMale
-func EducationGenderPMale() *EducationGender {
-	v := EducationGenderVMale
-	return &v
-}
-
-// EducationGenderPOther returns a pointer to EducationGenderVOther
-func EducationGenderPOther() *EducationGender {
-	v := EducationGenderVOther
-	return &v
-}
-
-// EducationGenderPUnknownFutureValue returns a pointer to EducationGenderVUnknownFutureValue
-func EducationGenderPUnknownFutureValue() *EducationGender {
-	v := EducationGenderVUnknownFutureValue
-	return &v
-}
+var (
+	_EducationGenderPFemale             = EducationGenderVFemale
+	_EducationGenderPMale               = EducationGenderVMale
+	_EducationGenderPOther              = EducationGenderVOther
+	_EducationGenderPUnknownFutureValue = EducationGenderVUnknownFutureValue
+)

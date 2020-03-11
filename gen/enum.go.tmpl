@@ -1,19 +1,24 @@
 {{- $ := . }}
 {{- $x := .X }}
 // {{$x.Sym}} {{$x.Description}}
-type {{$x.Sym}} int
+type {{$x.Sym}} string
 
 const (
 {{- range $y := .X.Members }}
     // {{$x.Sym}}V{{$y.Sym}} {{$y.Description}}
-    {{$x.Sym}}V{{$y.Sym}} {{$x.Sym}} = {{$y.Value}}
+    {{$x.Sym}}V{{$y.Sym}} {{$x.Sym}} = "{{$y.Name}}"
 {{- end }}
 )
 
+var (
 {{- range $y := .X.Members }}
-// {{$x.Sym}}P{{$y.Sym}} returns a pointer to {{$x.Sym}}V{{$y.Sym}}
-func {{$x.Sym}}P{{$y.Sym}}() *{{$x.Sym}} {
-    v := {{$x.Sym}}V{{$y.Sym}}
-    return &v
-}
+    // {{$x.Sym}}P{{$y.Sym}} is a pointer to {{$x.Sym}}V{{$y.Sym}}
+    {{$x.Sym}}P{{$y.Sym}} = &_{{$x.Sym}}P{{$y.Sym}}
 {{- end }}
+)
+
+var (
+{{- range $y := .X.Members }}
+    _{{$x.Sym}}P{{$y.Sym}} = {{$x.Sym}}V{{$y.Sym}}
+{{- end }}
+)

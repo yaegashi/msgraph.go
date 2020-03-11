@@ -3,47 +3,38 @@
 package msgraph
 
 // RecipientScopeType undocumented
-type RecipientScopeType int
+type RecipientScopeType string
 
 const (
 	// RecipientScopeTypeVNone undocumented
-	RecipientScopeTypeVNone RecipientScopeType = 0
+	RecipientScopeTypeVNone RecipientScopeType = "none"
 	// RecipientScopeTypeVInternal undocumented
-	RecipientScopeTypeVInternal RecipientScopeType = 1
+	RecipientScopeTypeVInternal RecipientScopeType = "internal"
 	// RecipientScopeTypeVExternal undocumented
-	RecipientScopeTypeVExternal RecipientScopeType = 2
+	RecipientScopeTypeVExternal RecipientScopeType = "external"
 	// RecipientScopeTypeVExternalPartner undocumented
-	RecipientScopeTypeVExternalPartner RecipientScopeType = 4
+	RecipientScopeTypeVExternalPartner RecipientScopeType = "externalPartner"
 	// RecipientScopeTypeVExternalNonPartner undocumented
-	RecipientScopeTypeVExternalNonPartner RecipientScopeType = 8
+	RecipientScopeTypeVExternalNonPartner RecipientScopeType = "externalNonPartner"
 )
 
-// RecipientScopeTypePNone returns a pointer to RecipientScopeTypeVNone
-func RecipientScopeTypePNone() *RecipientScopeType {
-	v := RecipientScopeTypeVNone
-	return &v
-}
+var (
+	// RecipientScopeTypePNone is a pointer to RecipientScopeTypeVNone
+	RecipientScopeTypePNone = &_RecipientScopeTypePNone
+	// RecipientScopeTypePInternal is a pointer to RecipientScopeTypeVInternal
+	RecipientScopeTypePInternal = &_RecipientScopeTypePInternal
+	// RecipientScopeTypePExternal is a pointer to RecipientScopeTypeVExternal
+	RecipientScopeTypePExternal = &_RecipientScopeTypePExternal
+	// RecipientScopeTypePExternalPartner is a pointer to RecipientScopeTypeVExternalPartner
+	RecipientScopeTypePExternalPartner = &_RecipientScopeTypePExternalPartner
+	// RecipientScopeTypePExternalNonPartner is a pointer to RecipientScopeTypeVExternalNonPartner
+	RecipientScopeTypePExternalNonPartner = &_RecipientScopeTypePExternalNonPartner
+)
 
-// RecipientScopeTypePInternal returns a pointer to RecipientScopeTypeVInternal
-func RecipientScopeTypePInternal() *RecipientScopeType {
-	v := RecipientScopeTypeVInternal
-	return &v
-}
-
-// RecipientScopeTypePExternal returns a pointer to RecipientScopeTypeVExternal
-func RecipientScopeTypePExternal() *RecipientScopeType {
-	v := RecipientScopeTypeVExternal
-	return &v
-}
-
-// RecipientScopeTypePExternalPartner returns a pointer to RecipientScopeTypeVExternalPartner
-func RecipientScopeTypePExternalPartner() *RecipientScopeType {
-	v := RecipientScopeTypeVExternalPartner
-	return &v
-}
-
-// RecipientScopeTypePExternalNonPartner returns a pointer to RecipientScopeTypeVExternalNonPartner
-func RecipientScopeTypePExternalNonPartner() *RecipientScopeType {
-	v := RecipientScopeTypeVExternalNonPartner
-	return &v
-}
+var (
+	_RecipientScopeTypePNone               = RecipientScopeTypeVNone
+	_RecipientScopeTypePInternal           = RecipientScopeTypeVInternal
+	_RecipientScopeTypePExternal           = RecipientScopeTypeVExternal
+	_RecipientScopeTypePExternalPartner    = RecipientScopeTypeVExternalPartner
+	_RecipientScopeTypePExternalNonPartner = RecipientScopeTypeVExternalNonPartner
+)

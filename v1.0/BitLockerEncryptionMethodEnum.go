@@ -3,39 +3,33 @@
 package msgraph
 
 // BitLockerEncryptionMethod undocumented
-type BitLockerEncryptionMethod int
+type BitLockerEncryptionMethod string
 
 const (
 	// BitLockerEncryptionMethodVAesCbc128 undocumented
-	BitLockerEncryptionMethodVAesCbc128 BitLockerEncryptionMethod = 3
+	BitLockerEncryptionMethodVAesCbc128 BitLockerEncryptionMethod = "aesCbc128"
 	// BitLockerEncryptionMethodVAesCbc256 undocumented
-	BitLockerEncryptionMethodVAesCbc256 BitLockerEncryptionMethod = 4
+	BitLockerEncryptionMethodVAesCbc256 BitLockerEncryptionMethod = "aesCbc256"
 	// BitLockerEncryptionMethodVXtsAes128 undocumented
-	BitLockerEncryptionMethodVXtsAes128 BitLockerEncryptionMethod = 6
+	BitLockerEncryptionMethodVXtsAes128 BitLockerEncryptionMethod = "xtsAes128"
 	// BitLockerEncryptionMethodVXtsAes256 undocumented
-	BitLockerEncryptionMethodVXtsAes256 BitLockerEncryptionMethod = 7
+	BitLockerEncryptionMethodVXtsAes256 BitLockerEncryptionMethod = "xtsAes256"
 )
 
-// BitLockerEncryptionMethodPAesCbc128 returns a pointer to BitLockerEncryptionMethodVAesCbc128
-func BitLockerEncryptionMethodPAesCbc128() *BitLockerEncryptionMethod {
-	v := BitLockerEncryptionMethodVAesCbc128
-	return &v
-}
+var (
+	// BitLockerEncryptionMethodPAesCbc128 is a pointer to BitLockerEncryptionMethodVAesCbc128
+	BitLockerEncryptionMethodPAesCbc128 = &_BitLockerEncryptionMethodPAesCbc128
+	// BitLockerEncryptionMethodPAesCbc256 is a pointer to BitLockerEncryptionMethodVAesCbc256
+	BitLockerEncryptionMethodPAesCbc256 = &_BitLockerEncryptionMethodPAesCbc256
+	// BitLockerEncryptionMethodPXtsAes128 is a pointer to BitLockerEncryptionMethodVXtsAes128
+	BitLockerEncryptionMethodPXtsAes128 = &_BitLockerEncryptionMethodPXtsAes128
+	// BitLockerEncryptionMethodPXtsAes256 is a pointer to BitLockerEncryptionMethodVXtsAes256
+	BitLockerEncryptionMethodPXtsAes256 = &_BitLockerEncryptionMethodPXtsAes256
+)
 
-// BitLockerEncryptionMethodPAesCbc256 returns a pointer to BitLockerEncryptionMethodVAesCbc256
-func BitLockerEncryptionMethodPAesCbc256() *BitLockerEncryptionMethod {
-	v := BitLockerEncryptionMethodVAesCbc256
-	return &v
-}
-
-// BitLockerEncryptionMethodPXtsAes128 returns a pointer to BitLockerEncryptionMethodVXtsAes128
-func BitLockerEncryptionMethodPXtsAes128() *BitLockerEncryptionMethod {
-	v := BitLockerEncryptionMethodVXtsAes128
-	return &v
-}
-
-// BitLockerEncryptionMethodPXtsAes256 returns a pointer to BitLockerEncryptionMethodVXtsAes256
-func BitLockerEncryptionMethodPXtsAes256() *BitLockerEncryptionMethod {
-	v := BitLockerEncryptionMethodVXtsAes256
-	return &v
-}
+var (
+	_BitLockerEncryptionMethodPAesCbc128 = BitLockerEncryptionMethodVAesCbc128
+	_BitLockerEncryptionMethodPAesCbc256 = BitLockerEncryptionMethodVAesCbc256
+	_BitLockerEncryptionMethodPXtsAes128 = BitLockerEncryptionMethodVXtsAes128
+	_BitLockerEncryptionMethodPXtsAes256 = BitLockerEncryptionMethodVXtsAes256
+)

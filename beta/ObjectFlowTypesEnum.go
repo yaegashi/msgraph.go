@@ -3,39 +3,33 @@
 package msgraph
 
 // ObjectFlowTypes undocumented
-type ObjectFlowTypes int
+type ObjectFlowTypes string
 
 const (
 	// ObjectFlowTypesVNone undocumented
-	ObjectFlowTypesVNone ObjectFlowTypes = 0
+	ObjectFlowTypesVNone ObjectFlowTypes = "None"
 	// ObjectFlowTypesVAdd undocumented
-	ObjectFlowTypesVAdd ObjectFlowTypes = 1
+	ObjectFlowTypesVAdd ObjectFlowTypes = "Add"
 	// ObjectFlowTypesVUpdate undocumented
-	ObjectFlowTypesVUpdate ObjectFlowTypes = 2
+	ObjectFlowTypesVUpdate ObjectFlowTypes = "Update"
 	// ObjectFlowTypesVDelete undocumented
-	ObjectFlowTypesVDelete ObjectFlowTypes = 4
+	ObjectFlowTypesVDelete ObjectFlowTypes = "Delete"
 )
 
-// ObjectFlowTypesPNone returns a pointer to ObjectFlowTypesVNone
-func ObjectFlowTypesPNone() *ObjectFlowTypes {
-	v := ObjectFlowTypesVNone
-	return &v
-}
+var (
+	// ObjectFlowTypesPNone is a pointer to ObjectFlowTypesVNone
+	ObjectFlowTypesPNone = &_ObjectFlowTypesPNone
+	// ObjectFlowTypesPAdd is a pointer to ObjectFlowTypesVAdd
+	ObjectFlowTypesPAdd = &_ObjectFlowTypesPAdd
+	// ObjectFlowTypesPUpdate is a pointer to ObjectFlowTypesVUpdate
+	ObjectFlowTypesPUpdate = &_ObjectFlowTypesPUpdate
+	// ObjectFlowTypesPDelete is a pointer to ObjectFlowTypesVDelete
+	ObjectFlowTypesPDelete = &_ObjectFlowTypesPDelete
+)
 
-// ObjectFlowTypesPAdd returns a pointer to ObjectFlowTypesVAdd
-func ObjectFlowTypesPAdd() *ObjectFlowTypes {
-	v := ObjectFlowTypesVAdd
-	return &v
-}
-
-// ObjectFlowTypesPUpdate returns a pointer to ObjectFlowTypesVUpdate
-func ObjectFlowTypesPUpdate() *ObjectFlowTypes {
-	v := ObjectFlowTypesVUpdate
-	return &v
-}
-
-// ObjectFlowTypesPDelete returns a pointer to ObjectFlowTypesVDelete
-func ObjectFlowTypesPDelete() *ObjectFlowTypes {
-	v := ObjectFlowTypesVDelete
-	return &v
-}
+var (
+	_ObjectFlowTypesPNone   = ObjectFlowTypesVNone
+	_ObjectFlowTypesPAdd    = ObjectFlowTypesVAdd
+	_ObjectFlowTypesPUpdate = ObjectFlowTypesVUpdate
+	_ObjectFlowTypesPDelete = ObjectFlowTypesVDelete
+)

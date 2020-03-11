@@ -3,39 +3,33 @@
 package msgraph
 
 // WindowsFirewallRuleInterfaceTypes undocumented
-type WindowsFirewallRuleInterfaceTypes int
+type WindowsFirewallRuleInterfaceTypes string
 
 const (
 	// WindowsFirewallRuleInterfaceTypesVNotConfigured undocumented
-	WindowsFirewallRuleInterfaceTypesVNotConfigured WindowsFirewallRuleInterfaceTypes = 0
+	WindowsFirewallRuleInterfaceTypesVNotConfigured WindowsFirewallRuleInterfaceTypes = "notConfigured"
 	// WindowsFirewallRuleInterfaceTypesVRemoteAccess undocumented
-	WindowsFirewallRuleInterfaceTypesVRemoteAccess WindowsFirewallRuleInterfaceTypes = 1
+	WindowsFirewallRuleInterfaceTypesVRemoteAccess WindowsFirewallRuleInterfaceTypes = "remoteAccess"
 	// WindowsFirewallRuleInterfaceTypesVWireless undocumented
-	WindowsFirewallRuleInterfaceTypesVWireless WindowsFirewallRuleInterfaceTypes = 2
+	WindowsFirewallRuleInterfaceTypesVWireless WindowsFirewallRuleInterfaceTypes = "wireless"
 	// WindowsFirewallRuleInterfaceTypesVLan undocumented
-	WindowsFirewallRuleInterfaceTypesVLan WindowsFirewallRuleInterfaceTypes = 4
+	WindowsFirewallRuleInterfaceTypesVLan WindowsFirewallRuleInterfaceTypes = "lan"
 )
 
-// WindowsFirewallRuleInterfaceTypesPNotConfigured returns a pointer to WindowsFirewallRuleInterfaceTypesVNotConfigured
-func WindowsFirewallRuleInterfaceTypesPNotConfigured() *WindowsFirewallRuleInterfaceTypes {
-	v := WindowsFirewallRuleInterfaceTypesVNotConfigured
-	return &v
-}
+var (
+	// WindowsFirewallRuleInterfaceTypesPNotConfigured is a pointer to WindowsFirewallRuleInterfaceTypesVNotConfigured
+	WindowsFirewallRuleInterfaceTypesPNotConfigured = &_WindowsFirewallRuleInterfaceTypesPNotConfigured
+	// WindowsFirewallRuleInterfaceTypesPRemoteAccess is a pointer to WindowsFirewallRuleInterfaceTypesVRemoteAccess
+	WindowsFirewallRuleInterfaceTypesPRemoteAccess = &_WindowsFirewallRuleInterfaceTypesPRemoteAccess
+	// WindowsFirewallRuleInterfaceTypesPWireless is a pointer to WindowsFirewallRuleInterfaceTypesVWireless
+	WindowsFirewallRuleInterfaceTypesPWireless = &_WindowsFirewallRuleInterfaceTypesPWireless
+	// WindowsFirewallRuleInterfaceTypesPLan is a pointer to WindowsFirewallRuleInterfaceTypesVLan
+	WindowsFirewallRuleInterfaceTypesPLan = &_WindowsFirewallRuleInterfaceTypesPLan
+)
 
-// WindowsFirewallRuleInterfaceTypesPRemoteAccess returns a pointer to WindowsFirewallRuleInterfaceTypesVRemoteAccess
-func WindowsFirewallRuleInterfaceTypesPRemoteAccess() *WindowsFirewallRuleInterfaceTypes {
-	v := WindowsFirewallRuleInterfaceTypesVRemoteAccess
-	return &v
-}
-
-// WindowsFirewallRuleInterfaceTypesPWireless returns a pointer to WindowsFirewallRuleInterfaceTypesVWireless
-func WindowsFirewallRuleInterfaceTypesPWireless() *WindowsFirewallRuleInterfaceTypes {
-	v := WindowsFirewallRuleInterfaceTypesVWireless
-	return &v
-}
-
-// WindowsFirewallRuleInterfaceTypesPLan returns a pointer to WindowsFirewallRuleInterfaceTypesVLan
-func WindowsFirewallRuleInterfaceTypesPLan() *WindowsFirewallRuleInterfaceTypes {
-	v := WindowsFirewallRuleInterfaceTypesVLan
-	return &v
-}
+var (
+	_WindowsFirewallRuleInterfaceTypesPNotConfigured = WindowsFirewallRuleInterfaceTypesVNotConfigured
+	_WindowsFirewallRuleInterfaceTypesPRemoteAccess  = WindowsFirewallRuleInterfaceTypesVRemoteAccess
+	_WindowsFirewallRuleInterfaceTypesPWireless      = WindowsFirewallRuleInterfaceTypesVWireless
+	_WindowsFirewallRuleInterfaceTypesPLan           = WindowsFirewallRuleInterfaceTypesVLan
+)

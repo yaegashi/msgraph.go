@@ -3,39 +3,33 @@
 package msgraph
 
 // UserIdentityType undocumented
-type UserIdentityType int
+type UserIdentityType string
 
 const (
 	// UserIdentityTypeVAadUser undocumented
-	UserIdentityTypeVAadUser UserIdentityType = 0
+	UserIdentityTypeVAadUser UserIdentityType = "aadUser"
 	// UserIdentityTypeVOnPremiseAadUser undocumented
-	UserIdentityTypeVOnPremiseAadUser UserIdentityType = 1
+	UserIdentityTypeVOnPremiseAadUser UserIdentityType = "onPremiseAadUser"
 	// UserIdentityTypeVAnonymousGuest undocumented
-	UserIdentityTypeVAnonymousGuest UserIdentityType = 2
+	UserIdentityTypeVAnonymousGuest UserIdentityType = "anonymousGuest"
 	// UserIdentityTypeVFederatedUser undocumented
-	UserIdentityTypeVFederatedUser UserIdentityType = 3
+	UserIdentityTypeVFederatedUser UserIdentityType = "federatedUser"
 )
 
-// UserIdentityTypePAadUser returns a pointer to UserIdentityTypeVAadUser
-func UserIdentityTypePAadUser() *UserIdentityType {
-	v := UserIdentityTypeVAadUser
-	return &v
-}
+var (
+	// UserIdentityTypePAadUser is a pointer to UserIdentityTypeVAadUser
+	UserIdentityTypePAadUser = &_UserIdentityTypePAadUser
+	// UserIdentityTypePOnPremiseAadUser is a pointer to UserIdentityTypeVOnPremiseAadUser
+	UserIdentityTypePOnPremiseAadUser = &_UserIdentityTypePOnPremiseAadUser
+	// UserIdentityTypePAnonymousGuest is a pointer to UserIdentityTypeVAnonymousGuest
+	UserIdentityTypePAnonymousGuest = &_UserIdentityTypePAnonymousGuest
+	// UserIdentityTypePFederatedUser is a pointer to UserIdentityTypeVFederatedUser
+	UserIdentityTypePFederatedUser = &_UserIdentityTypePFederatedUser
+)
 
-// UserIdentityTypePOnPremiseAadUser returns a pointer to UserIdentityTypeVOnPremiseAadUser
-func UserIdentityTypePOnPremiseAadUser() *UserIdentityType {
-	v := UserIdentityTypeVOnPremiseAadUser
-	return &v
-}
-
-// UserIdentityTypePAnonymousGuest returns a pointer to UserIdentityTypeVAnonymousGuest
-func UserIdentityTypePAnonymousGuest() *UserIdentityType {
-	v := UserIdentityTypeVAnonymousGuest
-	return &v
-}
-
-// UserIdentityTypePFederatedUser returns a pointer to UserIdentityTypeVFederatedUser
-func UserIdentityTypePFederatedUser() *UserIdentityType {
-	v := UserIdentityTypeVFederatedUser
-	return &v
-}
+var (
+	_UserIdentityTypePAadUser          = UserIdentityTypeVAadUser
+	_UserIdentityTypePOnPremiseAadUser = UserIdentityTypeVOnPremiseAadUser
+	_UserIdentityTypePAnonymousGuest   = UserIdentityTypeVAnonymousGuest
+	_UserIdentityTypePFederatedUser    = UserIdentityTypeVFederatedUser
+)

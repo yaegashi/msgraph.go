@@ -3,31 +3,28 @@
 package msgraph
 
 // MicrosoftEdgeChannel undocumented
-type MicrosoftEdgeChannel int
+type MicrosoftEdgeChannel string
 
 const (
 	// MicrosoftEdgeChannelVDev undocumented
-	MicrosoftEdgeChannelVDev MicrosoftEdgeChannel = 0
+	MicrosoftEdgeChannelVDev MicrosoftEdgeChannel = "dev"
 	// MicrosoftEdgeChannelVBeta undocumented
-	MicrosoftEdgeChannelVBeta MicrosoftEdgeChannel = 1
+	MicrosoftEdgeChannelVBeta MicrosoftEdgeChannel = "beta"
 	// MicrosoftEdgeChannelVStable undocumented
-	MicrosoftEdgeChannelVStable MicrosoftEdgeChannel = 2
+	MicrosoftEdgeChannelVStable MicrosoftEdgeChannel = "stable"
 )
 
-// MicrosoftEdgeChannelPDev returns a pointer to MicrosoftEdgeChannelVDev
-func MicrosoftEdgeChannelPDev() *MicrosoftEdgeChannel {
-	v := MicrosoftEdgeChannelVDev
-	return &v
-}
+var (
+	// MicrosoftEdgeChannelPDev is a pointer to MicrosoftEdgeChannelVDev
+	MicrosoftEdgeChannelPDev = &_MicrosoftEdgeChannelPDev
+	// MicrosoftEdgeChannelPBeta is a pointer to MicrosoftEdgeChannelVBeta
+	MicrosoftEdgeChannelPBeta = &_MicrosoftEdgeChannelPBeta
+	// MicrosoftEdgeChannelPStable is a pointer to MicrosoftEdgeChannelVStable
+	MicrosoftEdgeChannelPStable = &_MicrosoftEdgeChannelPStable
+)
 
-// MicrosoftEdgeChannelPBeta returns a pointer to MicrosoftEdgeChannelVBeta
-func MicrosoftEdgeChannelPBeta() *MicrosoftEdgeChannel {
-	v := MicrosoftEdgeChannelVBeta
-	return &v
-}
-
-// MicrosoftEdgeChannelPStable returns a pointer to MicrosoftEdgeChannelVStable
-func MicrosoftEdgeChannelPStable() *MicrosoftEdgeChannel {
-	v := MicrosoftEdgeChannelVStable
-	return &v
-}
+var (
+	_MicrosoftEdgeChannelPDev    = MicrosoftEdgeChannelVDev
+	_MicrosoftEdgeChannelPBeta   = MicrosoftEdgeChannelVBeta
+	_MicrosoftEdgeChannelPStable = MicrosoftEdgeChannelVStable
+)

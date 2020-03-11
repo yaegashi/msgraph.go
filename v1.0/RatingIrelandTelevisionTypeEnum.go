@@ -3,63 +3,48 @@
 package msgraph
 
 // RatingIrelandTelevisionType undocumented
-type RatingIrelandTelevisionType int
+type RatingIrelandTelevisionType string
 
 const (
 	// RatingIrelandTelevisionTypeVAllAllowed undocumented
-	RatingIrelandTelevisionTypeVAllAllowed RatingIrelandTelevisionType = 0
+	RatingIrelandTelevisionTypeVAllAllowed RatingIrelandTelevisionType = "allAllowed"
 	// RatingIrelandTelevisionTypeVAllBlocked undocumented
-	RatingIrelandTelevisionTypeVAllBlocked RatingIrelandTelevisionType = 1
+	RatingIrelandTelevisionTypeVAllBlocked RatingIrelandTelevisionType = "allBlocked"
 	// RatingIrelandTelevisionTypeVGeneral undocumented
-	RatingIrelandTelevisionTypeVGeneral RatingIrelandTelevisionType = 2
+	RatingIrelandTelevisionTypeVGeneral RatingIrelandTelevisionType = "general"
 	// RatingIrelandTelevisionTypeVChildren undocumented
-	RatingIrelandTelevisionTypeVChildren RatingIrelandTelevisionType = 3
+	RatingIrelandTelevisionTypeVChildren RatingIrelandTelevisionType = "children"
 	// RatingIrelandTelevisionTypeVYoungAdults undocumented
-	RatingIrelandTelevisionTypeVYoungAdults RatingIrelandTelevisionType = 4
+	RatingIrelandTelevisionTypeVYoungAdults RatingIrelandTelevisionType = "youngAdults"
 	// RatingIrelandTelevisionTypeVParentalSupervision undocumented
-	RatingIrelandTelevisionTypeVParentalSupervision RatingIrelandTelevisionType = 5
+	RatingIrelandTelevisionTypeVParentalSupervision RatingIrelandTelevisionType = "parentalSupervision"
 	// RatingIrelandTelevisionTypeVMature undocumented
-	RatingIrelandTelevisionTypeVMature RatingIrelandTelevisionType = 6
+	RatingIrelandTelevisionTypeVMature RatingIrelandTelevisionType = "mature"
 )
 
-// RatingIrelandTelevisionTypePAllAllowed returns a pointer to RatingIrelandTelevisionTypeVAllAllowed
-func RatingIrelandTelevisionTypePAllAllowed() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingIrelandTelevisionTypePAllAllowed is a pointer to RatingIrelandTelevisionTypeVAllAllowed
+	RatingIrelandTelevisionTypePAllAllowed = &_RatingIrelandTelevisionTypePAllAllowed
+	// RatingIrelandTelevisionTypePAllBlocked is a pointer to RatingIrelandTelevisionTypeVAllBlocked
+	RatingIrelandTelevisionTypePAllBlocked = &_RatingIrelandTelevisionTypePAllBlocked
+	// RatingIrelandTelevisionTypePGeneral is a pointer to RatingIrelandTelevisionTypeVGeneral
+	RatingIrelandTelevisionTypePGeneral = &_RatingIrelandTelevisionTypePGeneral
+	// RatingIrelandTelevisionTypePChildren is a pointer to RatingIrelandTelevisionTypeVChildren
+	RatingIrelandTelevisionTypePChildren = &_RatingIrelandTelevisionTypePChildren
+	// RatingIrelandTelevisionTypePYoungAdults is a pointer to RatingIrelandTelevisionTypeVYoungAdults
+	RatingIrelandTelevisionTypePYoungAdults = &_RatingIrelandTelevisionTypePYoungAdults
+	// RatingIrelandTelevisionTypePParentalSupervision is a pointer to RatingIrelandTelevisionTypeVParentalSupervision
+	RatingIrelandTelevisionTypePParentalSupervision = &_RatingIrelandTelevisionTypePParentalSupervision
+	// RatingIrelandTelevisionTypePMature is a pointer to RatingIrelandTelevisionTypeVMature
+	RatingIrelandTelevisionTypePMature = &_RatingIrelandTelevisionTypePMature
+)
 
-// RatingIrelandTelevisionTypePAllBlocked returns a pointer to RatingIrelandTelevisionTypeVAllBlocked
-func RatingIrelandTelevisionTypePAllBlocked() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVAllBlocked
-	return &v
-}
-
-// RatingIrelandTelevisionTypePGeneral returns a pointer to RatingIrelandTelevisionTypeVGeneral
-func RatingIrelandTelevisionTypePGeneral() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVGeneral
-	return &v
-}
-
-// RatingIrelandTelevisionTypePChildren returns a pointer to RatingIrelandTelevisionTypeVChildren
-func RatingIrelandTelevisionTypePChildren() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVChildren
-	return &v
-}
-
-// RatingIrelandTelevisionTypePYoungAdults returns a pointer to RatingIrelandTelevisionTypeVYoungAdults
-func RatingIrelandTelevisionTypePYoungAdults() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVYoungAdults
-	return &v
-}
-
-// RatingIrelandTelevisionTypePParentalSupervision returns a pointer to RatingIrelandTelevisionTypeVParentalSupervision
-func RatingIrelandTelevisionTypePParentalSupervision() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVParentalSupervision
-	return &v
-}
-
-// RatingIrelandTelevisionTypePMature returns a pointer to RatingIrelandTelevisionTypeVMature
-func RatingIrelandTelevisionTypePMature() *RatingIrelandTelevisionType {
-	v := RatingIrelandTelevisionTypeVMature
-	return &v
-}
+var (
+	_RatingIrelandTelevisionTypePAllAllowed          = RatingIrelandTelevisionTypeVAllAllowed
+	_RatingIrelandTelevisionTypePAllBlocked          = RatingIrelandTelevisionTypeVAllBlocked
+	_RatingIrelandTelevisionTypePGeneral             = RatingIrelandTelevisionTypeVGeneral
+	_RatingIrelandTelevisionTypePChildren            = RatingIrelandTelevisionTypeVChildren
+	_RatingIrelandTelevisionTypePYoungAdults         = RatingIrelandTelevisionTypeVYoungAdults
+	_RatingIrelandTelevisionTypePParentalSupervision = RatingIrelandTelevisionTypeVParentalSupervision
+	_RatingIrelandTelevisionTypePMature              = RatingIrelandTelevisionTypeVMature
+)

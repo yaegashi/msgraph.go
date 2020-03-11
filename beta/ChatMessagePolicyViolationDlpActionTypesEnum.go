@@ -3,39 +3,33 @@
 package msgraph
 
 // ChatMessagePolicyViolationDlpActionTypes undocumented
-type ChatMessagePolicyViolationDlpActionTypes int
+type ChatMessagePolicyViolationDlpActionTypes string
 
 const (
 	// ChatMessagePolicyViolationDlpActionTypesVNone undocumented
-	ChatMessagePolicyViolationDlpActionTypesVNone ChatMessagePolicyViolationDlpActionTypes = 0
+	ChatMessagePolicyViolationDlpActionTypesVNone ChatMessagePolicyViolationDlpActionTypes = "none"
 	// ChatMessagePolicyViolationDlpActionTypesVNotifySender undocumented
-	ChatMessagePolicyViolationDlpActionTypesVNotifySender ChatMessagePolicyViolationDlpActionTypes = 1
+	ChatMessagePolicyViolationDlpActionTypesVNotifySender ChatMessagePolicyViolationDlpActionTypes = "notifySender"
 	// ChatMessagePolicyViolationDlpActionTypesVBlockAccess undocumented
-	ChatMessagePolicyViolationDlpActionTypesVBlockAccess ChatMessagePolicyViolationDlpActionTypes = 2
+	ChatMessagePolicyViolationDlpActionTypesVBlockAccess ChatMessagePolicyViolationDlpActionTypes = "blockAccess"
 	// ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal undocumented
-	ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal ChatMessagePolicyViolationDlpActionTypes = 4
+	ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal ChatMessagePolicyViolationDlpActionTypes = "blockAccessExternal"
 )
 
-// ChatMessagePolicyViolationDlpActionTypesPNone returns a pointer to ChatMessagePolicyViolationDlpActionTypesVNone
-func ChatMessagePolicyViolationDlpActionTypesPNone() *ChatMessagePolicyViolationDlpActionTypes {
-	v := ChatMessagePolicyViolationDlpActionTypesVNone
-	return &v
-}
+var (
+	// ChatMessagePolicyViolationDlpActionTypesPNone is a pointer to ChatMessagePolicyViolationDlpActionTypesVNone
+	ChatMessagePolicyViolationDlpActionTypesPNone = &_ChatMessagePolicyViolationDlpActionTypesPNone
+	// ChatMessagePolicyViolationDlpActionTypesPNotifySender is a pointer to ChatMessagePolicyViolationDlpActionTypesVNotifySender
+	ChatMessagePolicyViolationDlpActionTypesPNotifySender = &_ChatMessagePolicyViolationDlpActionTypesPNotifySender
+	// ChatMessagePolicyViolationDlpActionTypesPBlockAccess is a pointer to ChatMessagePolicyViolationDlpActionTypesVBlockAccess
+	ChatMessagePolicyViolationDlpActionTypesPBlockAccess = &_ChatMessagePolicyViolationDlpActionTypesPBlockAccess
+	// ChatMessagePolicyViolationDlpActionTypesPBlockAccessExternal is a pointer to ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal
+	ChatMessagePolicyViolationDlpActionTypesPBlockAccessExternal = &_ChatMessagePolicyViolationDlpActionTypesPBlockAccessExternal
+)
 
-// ChatMessagePolicyViolationDlpActionTypesPNotifySender returns a pointer to ChatMessagePolicyViolationDlpActionTypesVNotifySender
-func ChatMessagePolicyViolationDlpActionTypesPNotifySender() *ChatMessagePolicyViolationDlpActionTypes {
-	v := ChatMessagePolicyViolationDlpActionTypesVNotifySender
-	return &v
-}
-
-// ChatMessagePolicyViolationDlpActionTypesPBlockAccess returns a pointer to ChatMessagePolicyViolationDlpActionTypesVBlockAccess
-func ChatMessagePolicyViolationDlpActionTypesPBlockAccess() *ChatMessagePolicyViolationDlpActionTypes {
-	v := ChatMessagePolicyViolationDlpActionTypesVBlockAccess
-	return &v
-}
-
-// ChatMessagePolicyViolationDlpActionTypesPBlockAccessExternal returns a pointer to ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal
-func ChatMessagePolicyViolationDlpActionTypesPBlockAccessExternal() *ChatMessagePolicyViolationDlpActionTypes {
-	v := ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal
-	return &v
-}
+var (
+	_ChatMessagePolicyViolationDlpActionTypesPNone                = ChatMessagePolicyViolationDlpActionTypesVNone
+	_ChatMessagePolicyViolationDlpActionTypesPNotifySender        = ChatMessagePolicyViolationDlpActionTypesVNotifySender
+	_ChatMessagePolicyViolationDlpActionTypesPBlockAccess         = ChatMessagePolicyViolationDlpActionTypesVBlockAccess
+	_ChatMessagePolicyViolationDlpActionTypesPBlockAccessExternal = ChatMessagePolicyViolationDlpActionTypesVBlockAccessExternal
+)

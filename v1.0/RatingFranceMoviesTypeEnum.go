@@ -3,55 +3,43 @@
 package msgraph
 
 // RatingFranceMoviesType undocumented
-type RatingFranceMoviesType int
+type RatingFranceMoviesType string
 
 const (
 	// RatingFranceMoviesTypeVAllAllowed undocumented
-	RatingFranceMoviesTypeVAllAllowed RatingFranceMoviesType = 0
+	RatingFranceMoviesTypeVAllAllowed RatingFranceMoviesType = "allAllowed"
 	// RatingFranceMoviesTypeVAllBlocked undocumented
-	RatingFranceMoviesTypeVAllBlocked RatingFranceMoviesType = 1
+	RatingFranceMoviesTypeVAllBlocked RatingFranceMoviesType = "allBlocked"
 	// RatingFranceMoviesTypeVAgesAbove10 undocumented
-	RatingFranceMoviesTypeVAgesAbove10 RatingFranceMoviesType = 2
+	RatingFranceMoviesTypeVAgesAbove10 RatingFranceMoviesType = "agesAbove10"
 	// RatingFranceMoviesTypeVAgesAbove12 undocumented
-	RatingFranceMoviesTypeVAgesAbove12 RatingFranceMoviesType = 3
+	RatingFranceMoviesTypeVAgesAbove12 RatingFranceMoviesType = "agesAbove12"
 	// RatingFranceMoviesTypeVAgesAbove16 undocumented
-	RatingFranceMoviesTypeVAgesAbove16 RatingFranceMoviesType = 4
+	RatingFranceMoviesTypeVAgesAbove16 RatingFranceMoviesType = "agesAbove16"
 	// RatingFranceMoviesTypeVAgesAbove18 undocumented
-	RatingFranceMoviesTypeVAgesAbove18 RatingFranceMoviesType = 5
+	RatingFranceMoviesTypeVAgesAbove18 RatingFranceMoviesType = "agesAbove18"
 )
 
-// RatingFranceMoviesTypePAllAllowed returns a pointer to RatingFranceMoviesTypeVAllAllowed
-func RatingFranceMoviesTypePAllAllowed() *RatingFranceMoviesType {
-	v := RatingFranceMoviesTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingFranceMoviesTypePAllAllowed is a pointer to RatingFranceMoviesTypeVAllAllowed
+	RatingFranceMoviesTypePAllAllowed = &_RatingFranceMoviesTypePAllAllowed
+	// RatingFranceMoviesTypePAllBlocked is a pointer to RatingFranceMoviesTypeVAllBlocked
+	RatingFranceMoviesTypePAllBlocked = &_RatingFranceMoviesTypePAllBlocked
+	// RatingFranceMoviesTypePAgesAbove10 is a pointer to RatingFranceMoviesTypeVAgesAbove10
+	RatingFranceMoviesTypePAgesAbove10 = &_RatingFranceMoviesTypePAgesAbove10
+	// RatingFranceMoviesTypePAgesAbove12 is a pointer to RatingFranceMoviesTypeVAgesAbove12
+	RatingFranceMoviesTypePAgesAbove12 = &_RatingFranceMoviesTypePAgesAbove12
+	// RatingFranceMoviesTypePAgesAbove16 is a pointer to RatingFranceMoviesTypeVAgesAbove16
+	RatingFranceMoviesTypePAgesAbove16 = &_RatingFranceMoviesTypePAgesAbove16
+	// RatingFranceMoviesTypePAgesAbove18 is a pointer to RatingFranceMoviesTypeVAgesAbove18
+	RatingFranceMoviesTypePAgesAbove18 = &_RatingFranceMoviesTypePAgesAbove18
+)
 
-// RatingFranceMoviesTypePAllBlocked returns a pointer to RatingFranceMoviesTypeVAllBlocked
-func RatingFranceMoviesTypePAllBlocked() *RatingFranceMoviesType {
-	v := RatingFranceMoviesTypeVAllBlocked
-	return &v
-}
-
-// RatingFranceMoviesTypePAgesAbove10 returns a pointer to RatingFranceMoviesTypeVAgesAbove10
-func RatingFranceMoviesTypePAgesAbove10() *RatingFranceMoviesType {
-	v := RatingFranceMoviesTypeVAgesAbove10
-	return &v
-}
-
-// RatingFranceMoviesTypePAgesAbove12 returns a pointer to RatingFranceMoviesTypeVAgesAbove12
-func RatingFranceMoviesTypePAgesAbove12() *RatingFranceMoviesType {
-	v := RatingFranceMoviesTypeVAgesAbove12
-	return &v
-}
-
-// RatingFranceMoviesTypePAgesAbove16 returns a pointer to RatingFranceMoviesTypeVAgesAbove16
-func RatingFranceMoviesTypePAgesAbove16() *RatingFranceMoviesType {
-	v := RatingFranceMoviesTypeVAgesAbove16
-	return &v
-}
-
-// RatingFranceMoviesTypePAgesAbove18 returns a pointer to RatingFranceMoviesTypeVAgesAbove18
-func RatingFranceMoviesTypePAgesAbove18() *RatingFranceMoviesType {
-	v := RatingFranceMoviesTypeVAgesAbove18
-	return &v
-}
+var (
+	_RatingFranceMoviesTypePAllAllowed  = RatingFranceMoviesTypeVAllAllowed
+	_RatingFranceMoviesTypePAllBlocked  = RatingFranceMoviesTypeVAllBlocked
+	_RatingFranceMoviesTypePAgesAbove10 = RatingFranceMoviesTypeVAgesAbove10
+	_RatingFranceMoviesTypePAgesAbove12 = RatingFranceMoviesTypeVAgesAbove12
+	_RatingFranceMoviesTypePAgesAbove16 = RatingFranceMoviesTypeVAgesAbove16
+	_RatingFranceMoviesTypePAgesAbove18 = RatingFranceMoviesTypeVAgesAbove18
+)

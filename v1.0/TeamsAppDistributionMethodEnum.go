@@ -3,39 +3,33 @@
 package msgraph
 
 // TeamsAppDistributionMethod undocumented
-type TeamsAppDistributionMethod int
+type TeamsAppDistributionMethod string
 
 const (
 	// TeamsAppDistributionMethodVStore undocumented
-	TeamsAppDistributionMethodVStore TeamsAppDistributionMethod = 0
+	TeamsAppDistributionMethodVStore TeamsAppDistributionMethod = "store"
 	// TeamsAppDistributionMethodVOrganization undocumented
-	TeamsAppDistributionMethodVOrganization TeamsAppDistributionMethod = 1
+	TeamsAppDistributionMethodVOrganization TeamsAppDistributionMethod = "organization"
 	// TeamsAppDistributionMethodVSideloaded undocumented
-	TeamsAppDistributionMethodVSideloaded TeamsAppDistributionMethod = 2
+	TeamsAppDistributionMethodVSideloaded TeamsAppDistributionMethod = "sideloaded"
 	// TeamsAppDistributionMethodVUnknownFutureValue undocumented
-	TeamsAppDistributionMethodVUnknownFutureValue TeamsAppDistributionMethod = 3
+	TeamsAppDistributionMethodVUnknownFutureValue TeamsAppDistributionMethod = "unknownFutureValue"
 )
 
-// TeamsAppDistributionMethodPStore returns a pointer to TeamsAppDistributionMethodVStore
-func TeamsAppDistributionMethodPStore() *TeamsAppDistributionMethod {
-	v := TeamsAppDistributionMethodVStore
-	return &v
-}
+var (
+	// TeamsAppDistributionMethodPStore is a pointer to TeamsAppDistributionMethodVStore
+	TeamsAppDistributionMethodPStore = &_TeamsAppDistributionMethodPStore
+	// TeamsAppDistributionMethodPOrganization is a pointer to TeamsAppDistributionMethodVOrganization
+	TeamsAppDistributionMethodPOrganization = &_TeamsAppDistributionMethodPOrganization
+	// TeamsAppDistributionMethodPSideloaded is a pointer to TeamsAppDistributionMethodVSideloaded
+	TeamsAppDistributionMethodPSideloaded = &_TeamsAppDistributionMethodPSideloaded
+	// TeamsAppDistributionMethodPUnknownFutureValue is a pointer to TeamsAppDistributionMethodVUnknownFutureValue
+	TeamsAppDistributionMethodPUnknownFutureValue = &_TeamsAppDistributionMethodPUnknownFutureValue
+)
 
-// TeamsAppDistributionMethodPOrganization returns a pointer to TeamsAppDistributionMethodVOrganization
-func TeamsAppDistributionMethodPOrganization() *TeamsAppDistributionMethod {
-	v := TeamsAppDistributionMethodVOrganization
-	return &v
-}
-
-// TeamsAppDistributionMethodPSideloaded returns a pointer to TeamsAppDistributionMethodVSideloaded
-func TeamsAppDistributionMethodPSideloaded() *TeamsAppDistributionMethod {
-	v := TeamsAppDistributionMethodVSideloaded
-	return &v
-}
-
-// TeamsAppDistributionMethodPUnknownFutureValue returns a pointer to TeamsAppDistributionMethodVUnknownFutureValue
-func TeamsAppDistributionMethodPUnknownFutureValue() *TeamsAppDistributionMethod {
-	v := TeamsAppDistributionMethodVUnknownFutureValue
-	return &v
-}
+var (
+	_TeamsAppDistributionMethodPStore              = TeamsAppDistributionMethodVStore
+	_TeamsAppDistributionMethodPOrganization       = TeamsAppDistributionMethodVOrganization
+	_TeamsAppDistributionMethodPSideloaded         = TeamsAppDistributionMethodVSideloaded
+	_TeamsAppDistributionMethodPUnknownFutureValue = TeamsAppDistributionMethodVUnknownFutureValue
+)

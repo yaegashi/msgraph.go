@@ -3,183 +3,123 @@
 package msgraph
 
 // DeviceTypes undocumented
-type DeviceTypes int
+type DeviceTypes string
 
 const (
 	// DeviceTypesVDesktop undocumented
-	DeviceTypesVDesktop DeviceTypes = 0
+	DeviceTypesVDesktop DeviceTypes = "desktop"
 	// DeviceTypesVWindowsRT undocumented
-	DeviceTypesVWindowsRT DeviceTypes = 1
+	DeviceTypesVWindowsRT DeviceTypes = "windowsRT"
 	// DeviceTypesVWinMO6 undocumented
-	DeviceTypesVWinMO6 DeviceTypes = 2
+	DeviceTypesVWinMO6 DeviceTypes = "winMO6"
 	// DeviceTypesVNokia undocumented
-	DeviceTypesVNokia DeviceTypes = 3
+	DeviceTypesVNokia DeviceTypes = "nokia"
 	// DeviceTypesVWindowsPhone undocumented
-	DeviceTypesVWindowsPhone DeviceTypes = 4
+	DeviceTypesVWindowsPhone DeviceTypes = "windowsPhone"
 	// DeviceTypesVMac undocumented
-	DeviceTypesVMac DeviceTypes = 5
+	DeviceTypesVMac DeviceTypes = "mac"
 	// DeviceTypesVWinCE undocumented
-	DeviceTypesVWinCE DeviceTypes = 6
+	DeviceTypesVWinCE DeviceTypes = "winCE"
 	// DeviceTypesVWinEmbedded undocumented
-	DeviceTypesVWinEmbedded DeviceTypes = 7
+	DeviceTypesVWinEmbedded DeviceTypes = "winEmbedded"
 	// DeviceTypesVIPhone undocumented
-	DeviceTypesVIPhone DeviceTypes = 8
+	DeviceTypesVIPhone DeviceTypes = "iPhone"
 	// DeviceTypesVIPad undocumented
-	DeviceTypesVIPad DeviceTypes = 9
+	DeviceTypesVIPad DeviceTypes = "iPad"
 	// DeviceTypesVIPod undocumented
-	DeviceTypesVIPod DeviceTypes = 10
+	DeviceTypesVIPod DeviceTypes = "iPod"
 	// DeviceTypesVAndroid undocumented
-	DeviceTypesVAndroid DeviceTypes = 11
+	DeviceTypesVAndroid DeviceTypes = "android"
 	// DeviceTypesVISocConsumer undocumented
-	DeviceTypesVISocConsumer DeviceTypes = 12
+	DeviceTypesVISocConsumer DeviceTypes = "iSocConsumer"
 	// DeviceTypesVUnix undocumented
-	DeviceTypesVUnix DeviceTypes = 13
+	DeviceTypesVUnix DeviceTypes = "unix"
 	// DeviceTypesVMacMDM undocumented
-	DeviceTypesVMacMDM DeviceTypes = 14
+	DeviceTypesVMacMDM DeviceTypes = "macMDM"
 	// DeviceTypesVHoloLens undocumented
-	DeviceTypesVHoloLens DeviceTypes = 15
+	DeviceTypesVHoloLens DeviceTypes = "holoLens"
 	// DeviceTypesVSurfaceHub undocumented
-	DeviceTypesVSurfaceHub DeviceTypes = 16
+	DeviceTypesVSurfaceHub DeviceTypes = "surfaceHub"
 	// DeviceTypesVAndroidForWork undocumented
-	DeviceTypesVAndroidForWork DeviceTypes = 17
+	DeviceTypesVAndroidForWork DeviceTypes = "androidForWork"
 	// DeviceTypesVAndroidEnterprise undocumented
-	DeviceTypesVAndroidEnterprise DeviceTypes = 18
+	DeviceTypesVAndroidEnterprise DeviceTypes = "androidEnterprise"
 	// DeviceTypesVBlackberry undocumented
-	DeviceTypesVBlackberry DeviceTypes = 100
+	DeviceTypesVBlackberry DeviceTypes = "blackberry"
 	// DeviceTypesVPalm undocumented
-	DeviceTypesVPalm DeviceTypes = 101
+	DeviceTypesVPalm DeviceTypes = "palm"
 	// DeviceTypesVUnknown undocumented
-	DeviceTypesVUnknown DeviceTypes = 255
+	DeviceTypesVUnknown DeviceTypes = "unknown"
 )
 
-// DeviceTypesPDesktop returns a pointer to DeviceTypesVDesktop
-func DeviceTypesPDesktop() *DeviceTypes {
-	v := DeviceTypesVDesktop
-	return &v
-}
+var (
+	// DeviceTypesPDesktop is a pointer to DeviceTypesVDesktop
+	DeviceTypesPDesktop = &_DeviceTypesPDesktop
+	// DeviceTypesPWindowsRT is a pointer to DeviceTypesVWindowsRT
+	DeviceTypesPWindowsRT = &_DeviceTypesPWindowsRT
+	// DeviceTypesPWinMO6 is a pointer to DeviceTypesVWinMO6
+	DeviceTypesPWinMO6 = &_DeviceTypesPWinMO6
+	// DeviceTypesPNokia is a pointer to DeviceTypesVNokia
+	DeviceTypesPNokia = &_DeviceTypesPNokia
+	// DeviceTypesPWindowsPhone is a pointer to DeviceTypesVWindowsPhone
+	DeviceTypesPWindowsPhone = &_DeviceTypesPWindowsPhone
+	// DeviceTypesPMac is a pointer to DeviceTypesVMac
+	DeviceTypesPMac = &_DeviceTypesPMac
+	// DeviceTypesPWinCE is a pointer to DeviceTypesVWinCE
+	DeviceTypesPWinCE = &_DeviceTypesPWinCE
+	// DeviceTypesPWinEmbedded is a pointer to DeviceTypesVWinEmbedded
+	DeviceTypesPWinEmbedded = &_DeviceTypesPWinEmbedded
+	// DeviceTypesPIPhone is a pointer to DeviceTypesVIPhone
+	DeviceTypesPIPhone = &_DeviceTypesPIPhone
+	// DeviceTypesPIPad is a pointer to DeviceTypesVIPad
+	DeviceTypesPIPad = &_DeviceTypesPIPad
+	// DeviceTypesPIPod is a pointer to DeviceTypesVIPod
+	DeviceTypesPIPod = &_DeviceTypesPIPod
+	// DeviceTypesPAndroid is a pointer to DeviceTypesVAndroid
+	DeviceTypesPAndroid = &_DeviceTypesPAndroid
+	// DeviceTypesPISocConsumer is a pointer to DeviceTypesVISocConsumer
+	DeviceTypesPISocConsumer = &_DeviceTypesPISocConsumer
+	// DeviceTypesPUnix is a pointer to DeviceTypesVUnix
+	DeviceTypesPUnix = &_DeviceTypesPUnix
+	// DeviceTypesPMacMDM is a pointer to DeviceTypesVMacMDM
+	DeviceTypesPMacMDM = &_DeviceTypesPMacMDM
+	// DeviceTypesPHoloLens is a pointer to DeviceTypesVHoloLens
+	DeviceTypesPHoloLens = &_DeviceTypesPHoloLens
+	// DeviceTypesPSurfaceHub is a pointer to DeviceTypesVSurfaceHub
+	DeviceTypesPSurfaceHub = &_DeviceTypesPSurfaceHub
+	// DeviceTypesPAndroidForWork is a pointer to DeviceTypesVAndroidForWork
+	DeviceTypesPAndroidForWork = &_DeviceTypesPAndroidForWork
+	// DeviceTypesPAndroidEnterprise is a pointer to DeviceTypesVAndroidEnterprise
+	DeviceTypesPAndroidEnterprise = &_DeviceTypesPAndroidEnterprise
+	// DeviceTypesPBlackberry is a pointer to DeviceTypesVBlackberry
+	DeviceTypesPBlackberry = &_DeviceTypesPBlackberry
+	// DeviceTypesPPalm is a pointer to DeviceTypesVPalm
+	DeviceTypesPPalm = &_DeviceTypesPPalm
+	// DeviceTypesPUnknown is a pointer to DeviceTypesVUnknown
+	DeviceTypesPUnknown = &_DeviceTypesPUnknown
+)
 
-// DeviceTypesPWindowsRT returns a pointer to DeviceTypesVWindowsRT
-func DeviceTypesPWindowsRT() *DeviceTypes {
-	v := DeviceTypesVWindowsRT
-	return &v
-}
-
-// DeviceTypesPWinMO6 returns a pointer to DeviceTypesVWinMO6
-func DeviceTypesPWinMO6() *DeviceTypes {
-	v := DeviceTypesVWinMO6
-	return &v
-}
-
-// DeviceTypesPNokia returns a pointer to DeviceTypesVNokia
-func DeviceTypesPNokia() *DeviceTypes {
-	v := DeviceTypesVNokia
-	return &v
-}
-
-// DeviceTypesPWindowsPhone returns a pointer to DeviceTypesVWindowsPhone
-func DeviceTypesPWindowsPhone() *DeviceTypes {
-	v := DeviceTypesVWindowsPhone
-	return &v
-}
-
-// DeviceTypesPMac returns a pointer to DeviceTypesVMac
-func DeviceTypesPMac() *DeviceTypes {
-	v := DeviceTypesVMac
-	return &v
-}
-
-// DeviceTypesPWinCE returns a pointer to DeviceTypesVWinCE
-func DeviceTypesPWinCE() *DeviceTypes {
-	v := DeviceTypesVWinCE
-	return &v
-}
-
-// DeviceTypesPWinEmbedded returns a pointer to DeviceTypesVWinEmbedded
-func DeviceTypesPWinEmbedded() *DeviceTypes {
-	v := DeviceTypesVWinEmbedded
-	return &v
-}
-
-// DeviceTypesPIPhone returns a pointer to DeviceTypesVIPhone
-func DeviceTypesPIPhone() *DeviceTypes {
-	v := DeviceTypesVIPhone
-	return &v
-}
-
-// DeviceTypesPIPad returns a pointer to DeviceTypesVIPad
-func DeviceTypesPIPad() *DeviceTypes {
-	v := DeviceTypesVIPad
-	return &v
-}
-
-// DeviceTypesPIPod returns a pointer to DeviceTypesVIPod
-func DeviceTypesPIPod() *DeviceTypes {
-	v := DeviceTypesVIPod
-	return &v
-}
-
-// DeviceTypesPAndroid returns a pointer to DeviceTypesVAndroid
-func DeviceTypesPAndroid() *DeviceTypes {
-	v := DeviceTypesVAndroid
-	return &v
-}
-
-// DeviceTypesPISocConsumer returns a pointer to DeviceTypesVISocConsumer
-func DeviceTypesPISocConsumer() *DeviceTypes {
-	v := DeviceTypesVISocConsumer
-	return &v
-}
-
-// DeviceTypesPUnix returns a pointer to DeviceTypesVUnix
-func DeviceTypesPUnix() *DeviceTypes {
-	v := DeviceTypesVUnix
-	return &v
-}
-
-// DeviceTypesPMacMDM returns a pointer to DeviceTypesVMacMDM
-func DeviceTypesPMacMDM() *DeviceTypes {
-	v := DeviceTypesVMacMDM
-	return &v
-}
-
-// DeviceTypesPHoloLens returns a pointer to DeviceTypesVHoloLens
-func DeviceTypesPHoloLens() *DeviceTypes {
-	v := DeviceTypesVHoloLens
-	return &v
-}
-
-// DeviceTypesPSurfaceHub returns a pointer to DeviceTypesVSurfaceHub
-func DeviceTypesPSurfaceHub() *DeviceTypes {
-	v := DeviceTypesVSurfaceHub
-	return &v
-}
-
-// DeviceTypesPAndroidForWork returns a pointer to DeviceTypesVAndroidForWork
-func DeviceTypesPAndroidForWork() *DeviceTypes {
-	v := DeviceTypesVAndroidForWork
-	return &v
-}
-
-// DeviceTypesPAndroidEnterprise returns a pointer to DeviceTypesVAndroidEnterprise
-func DeviceTypesPAndroidEnterprise() *DeviceTypes {
-	v := DeviceTypesVAndroidEnterprise
-	return &v
-}
-
-// DeviceTypesPBlackberry returns a pointer to DeviceTypesVBlackberry
-func DeviceTypesPBlackberry() *DeviceTypes {
-	v := DeviceTypesVBlackberry
-	return &v
-}
-
-// DeviceTypesPPalm returns a pointer to DeviceTypesVPalm
-func DeviceTypesPPalm() *DeviceTypes {
-	v := DeviceTypesVPalm
-	return &v
-}
-
-// DeviceTypesPUnknown returns a pointer to DeviceTypesVUnknown
-func DeviceTypesPUnknown() *DeviceTypes {
-	v := DeviceTypesVUnknown
-	return &v
-}
+var (
+	_DeviceTypesPDesktop           = DeviceTypesVDesktop
+	_DeviceTypesPWindowsRT         = DeviceTypesVWindowsRT
+	_DeviceTypesPWinMO6            = DeviceTypesVWinMO6
+	_DeviceTypesPNokia             = DeviceTypesVNokia
+	_DeviceTypesPWindowsPhone      = DeviceTypesVWindowsPhone
+	_DeviceTypesPMac               = DeviceTypesVMac
+	_DeviceTypesPWinCE             = DeviceTypesVWinCE
+	_DeviceTypesPWinEmbedded       = DeviceTypesVWinEmbedded
+	_DeviceTypesPIPhone            = DeviceTypesVIPhone
+	_DeviceTypesPIPad              = DeviceTypesVIPad
+	_DeviceTypesPIPod              = DeviceTypesVIPod
+	_DeviceTypesPAndroid           = DeviceTypesVAndroid
+	_DeviceTypesPISocConsumer      = DeviceTypesVISocConsumer
+	_DeviceTypesPUnix              = DeviceTypesVUnix
+	_DeviceTypesPMacMDM            = DeviceTypesVMacMDM
+	_DeviceTypesPHoloLens          = DeviceTypesVHoloLens
+	_DeviceTypesPSurfaceHub        = DeviceTypesVSurfaceHub
+	_DeviceTypesPAndroidForWork    = DeviceTypesVAndroidForWork
+	_DeviceTypesPAndroidEnterprise = DeviceTypesVAndroidEnterprise
+	_DeviceTypesPBlackberry        = DeviceTypesVBlackberry
+	_DeviceTypesPPalm              = DeviceTypesVPalm
+	_DeviceTypesPUnknown           = DeviceTypesVUnknown
+)

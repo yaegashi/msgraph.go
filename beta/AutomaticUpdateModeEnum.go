@@ -3,63 +3,48 @@
 package msgraph
 
 // AutomaticUpdateMode undocumented
-type AutomaticUpdateMode int
+type AutomaticUpdateMode string
 
 const (
 	// AutomaticUpdateModeVUserDefined undocumented
-	AutomaticUpdateModeVUserDefined AutomaticUpdateMode = 0
+	AutomaticUpdateModeVUserDefined AutomaticUpdateMode = "userDefined"
 	// AutomaticUpdateModeVNotifyDownload undocumented
-	AutomaticUpdateModeVNotifyDownload AutomaticUpdateMode = 1
+	AutomaticUpdateModeVNotifyDownload AutomaticUpdateMode = "notifyDownload"
 	// AutomaticUpdateModeVAutoInstallAtMaintenanceTime undocumented
-	AutomaticUpdateModeVAutoInstallAtMaintenanceTime AutomaticUpdateMode = 2
+	AutomaticUpdateModeVAutoInstallAtMaintenanceTime AutomaticUpdateMode = "autoInstallAtMaintenanceTime"
 	// AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime undocumented
-	AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime AutomaticUpdateMode = 3
+	AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime AutomaticUpdateMode = "autoInstallAndRebootAtMaintenanceTime"
 	// AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime undocumented
-	AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime AutomaticUpdateMode = 4
+	AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime AutomaticUpdateMode = "autoInstallAndRebootAtScheduledTime"
 	// AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl undocumented
-	AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl AutomaticUpdateMode = 5
+	AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl AutomaticUpdateMode = "autoInstallAndRebootWithoutEndUserControl"
 	// AutomaticUpdateModeVWindowsDefault undocumented
-	AutomaticUpdateModeVWindowsDefault AutomaticUpdateMode = 6
+	AutomaticUpdateModeVWindowsDefault AutomaticUpdateMode = "windowsDefault"
 )
 
-// AutomaticUpdateModePUserDefined returns a pointer to AutomaticUpdateModeVUserDefined
-func AutomaticUpdateModePUserDefined() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVUserDefined
-	return &v
-}
+var (
+	// AutomaticUpdateModePUserDefined is a pointer to AutomaticUpdateModeVUserDefined
+	AutomaticUpdateModePUserDefined = &_AutomaticUpdateModePUserDefined
+	// AutomaticUpdateModePNotifyDownload is a pointer to AutomaticUpdateModeVNotifyDownload
+	AutomaticUpdateModePNotifyDownload = &_AutomaticUpdateModePNotifyDownload
+	// AutomaticUpdateModePAutoInstallAtMaintenanceTime is a pointer to AutomaticUpdateModeVAutoInstallAtMaintenanceTime
+	AutomaticUpdateModePAutoInstallAtMaintenanceTime = &_AutomaticUpdateModePAutoInstallAtMaintenanceTime
+	// AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime is a pointer to AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime
+	AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime = &_AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime
+	// AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime is a pointer to AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime
+	AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime = &_AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime
+	// AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl is a pointer to AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl
+	AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl = &_AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl
+	// AutomaticUpdateModePWindowsDefault is a pointer to AutomaticUpdateModeVWindowsDefault
+	AutomaticUpdateModePWindowsDefault = &_AutomaticUpdateModePWindowsDefault
+)
 
-// AutomaticUpdateModePNotifyDownload returns a pointer to AutomaticUpdateModeVNotifyDownload
-func AutomaticUpdateModePNotifyDownload() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVNotifyDownload
-	return &v
-}
-
-// AutomaticUpdateModePAutoInstallAtMaintenanceTime returns a pointer to AutomaticUpdateModeVAutoInstallAtMaintenanceTime
-func AutomaticUpdateModePAutoInstallAtMaintenanceTime() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVAutoInstallAtMaintenanceTime
-	return &v
-}
-
-// AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime returns a pointer to AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime
-func AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime
-	return &v
-}
-
-// AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime returns a pointer to AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime
-func AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime
-	return &v
-}
-
-// AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl returns a pointer to AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl
-func AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl
-	return &v
-}
-
-// AutomaticUpdateModePWindowsDefault returns a pointer to AutomaticUpdateModeVWindowsDefault
-func AutomaticUpdateModePWindowsDefault() *AutomaticUpdateMode {
-	v := AutomaticUpdateModeVWindowsDefault
-	return &v
-}
+var (
+	_AutomaticUpdateModePUserDefined                               = AutomaticUpdateModeVUserDefined
+	_AutomaticUpdateModePNotifyDownload                            = AutomaticUpdateModeVNotifyDownload
+	_AutomaticUpdateModePAutoInstallAtMaintenanceTime              = AutomaticUpdateModeVAutoInstallAtMaintenanceTime
+	_AutomaticUpdateModePAutoInstallAndRebootAtMaintenanceTime     = AutomaticUpdateModeVAutoInstallAndRebootAtMaintenanceTime
+	_AutomaticUpdateModePAutoInstallAndRebootAtScheduledTime       = AutomaticUpdateModeVAutoInstallAndRebootAtScheduledTime
+	_AutomaticUpdateModePAutoInstallAndRebootWithoutEndUserControl = AutomaticUpdateModeVAutoInstallAndRebootWithoutEndUserControl
+	_AutomaticUpdateModePWindowsDefault                            = AutomaticUpdateModeVWindowsDefault
+)

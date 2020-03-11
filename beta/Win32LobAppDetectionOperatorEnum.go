@@ -3,63 +3,48 @@
 package msgraph
 
 // Win32LobAppDetectionOperator undocumented
-type Win32LobAppDetectionOperator int
+type Win32LobAppDetectionOperator string
 
 const (
 	// Win32LobAppDetectionOperatorVNotConfigured undocumented
-	Win32LobAppDetectionOperatorVNotConfigured Win32LobAppDetectionOperator = 0
+	Win32LobAppDetectionOperatorVNotConfigured Win32LobAppDetectionOperator = "notConfigured"
 	// Win32LobAppDetectionOperatorVEqual undocumented
-	Win32LobAppDetectionOperatorVEqual Win32LobAppDetectionOperator = 1
+	Win32LobAppDetectionOperatorVEqual Win32LobAppDetectionOperator = "equal"
 	// Win32LobAppDetectionOperatorVNotEqual undocumented
-	Win32LobAppDetectionOperatorVNotEqual Win32LobAppDetectionOperator = 2
+	Win32LobAppDetectionOperatorVNotEqual Win32LobAppDetectionOperator = "notEqual"
 	// Win32LobAppDetectionOperatorVGreaterThan undocumented
-	Win32LobAppDetectionOperatorVGreaterThan Win32LobAppDetectionOperator = 4
+	Win32LobAppDetectionOperatorVGreaterThan Win32LobAppDetectionOperator = "greaterThan"
 	// Win32LobAppDetectionOperatorVGreaterThanOrEqual undocumented
-	Win32LobAppDetectionOperatorVGreaterThanOrEqual Win32LobAppDetectionOperator = 5
+	Win32LobAppDetectionOperatorVGreaterThanOrEqual Win32LobAppDetectionOperator = "greaterThanOrEqual"
 	// Win32LobAppDetectionOperatorVLessThan undocumented
-	Win32LobAppDetectionOperatorVLessThan Win32LobAppDetectionOperator = 8
+	Win32LobAppDetectionOperatorVLessThan Win32LobAppDetectionOperator = "lessThan"
 	// Win32LobAppDetectionOperatorVLessThanOrEqual undocumented
-	Win32LobAppDetectionOperatorVLessThanOrEqual Win32LobAppDetectionOperator = 9
+	Win32LobAppDetectionOperatorVLessThanOrEqual Win32LobAppDetectionOperator = "lessThanOrEqual"
 )
 
-// Win32LobAppDetectionOperatorPNotConfigured returns a pointer to Win32LobAppDetectionOperatorVNotConfigured
-func Win32LobAppDetectionOperatorPNotConfigured() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVNotConfigured
-	return &v
-}
+var (
+	// Win32LobAppDetectionOperatorPNotConfigured is a pointer to Win32LobAppDetectionOperatorVNotConfigured
+	Win32LobAppDetectionOperatorPNotConfigured = &_Win32LobAppDetectionOperatorPNotConfigured
+	// Win32LobAppDetectionOperatorPEqual is a pointer to Win32LobAppDetectionOperatorVEqual
+	Win32LobAppDetectionOperatorPEqual = &_Win32LobAppDetectionOperatorPEqual
+	// Win32LobAppDetectionOperatorPNotEqual is a pointer to Win32LobAppDetectionOperatorVNotEqual
+	Win32LobAppDetectionOperatorPNotEqual = &_Win32LobAppDetectionOperatorPNotEqual
+	// Win32LobAppDetectionOperatorPGreaterThan is a pointer to Win32LobAppDetectionOperatorVGreaterThan
+	Win32LobAppDetectionOperatorPGreaterThan = &_Win32LobAppDetectionOperatorPGreaterThan
+	// Win32LobAppDetectionOperatorPGreaterThanOrEqual is a pointer to Win32LobAppDetectionOperatorVGreaterThanOrEqual
+	Win32LobAppDetectionOperatorPGreaterThanOrEqual = &_Win32LobAppDetectionOperatorPGreaterThanOrEqual
+	// Win32LobAppDetectionOperatorPLessThan is a pointer to Win32LobAppDetectionOperatorVLessThan
+	Win32LobAppDetectionOperatorPLessThan = &_Win32LobAppDetectionOperatorPLessThan
+	// Win32LobAppDetectionOperatorPLessThanOrEqual is a pointer to Win32LobAppDetectionOperatorVLessThanOrEqual
+	Win32LobAppDetectionOperatorPLessThanOrEqual = &_Win32LobAppDetectionOperatorPLessThanOrEqual
+)
 
-// Win32LobAppDetectionOperatorPEqual returns a pointer to Win32LobAppDetectionOperatorVEqual
-func Win32LobAppDetectionOperatorPEqual() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVEqual
-	return &v
-}
-
-// Win32LobAppDetectionOperatorPNotEqual returns a pointer to Win32LobAppDetectionOperatorVNotEqual
-func Win32LobAppDetectionOperatorPNotEqual() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVNotEqual
-	return &v
-}
-
-// Win32LobAppDetectionOperatorPGreaterThan returns a pointer to Win32LobAppDetectionOperatorVGreaterThan
-func Win32LobAppDetectionOperatorPGreaterThan() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVGreaterThan
-	return &v
-}
-
-// Win32LobAppDetectionOperatorPGreaterThanOrEqual returns a pointer to Win32LobAppDetectionOperatorVGreaterThanOrEqual
-func Win32LobAppDetectionOperatorPGreaterThanOrEqual() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVGreaterThanOrEqual
-	return &v
-}
-
-// Win32LobAppDetectionOperatorPLessThan returns a pointer to Win32LobAppDetectionOperatorVLessThan
-func Win32LobAppDetectionOperatorPLessThan() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVLessThan
-	return &v
-}
-
-// Win32LobAppDetectionOperatorPLessThanOrEqual returns a pointer to Win32LobAppDetectionOperatorVLessThanOrEqual
-func Win32LobAppDetectionOperatorPLessThanOrEqual() *Win32LobAppDetectionOperator {
-	v := Win32LobAppDetectionOperatorVLessThanOrEqual
-	return &v
-}
+var (
+	_Win32LobAppDetectionOperatorPNotConfigured      = Win32LobAppDetectionOperatorVNotConfigured
+	_Win32LobAppDetectionOperatorPEqual              = Win32LobAppDetectionOperatorVEqual
+	_Win32LobAppDetectionOperatorPNotEqual           = Win32LobAppDetectionOperatorVNotEqual
+	_Win32LobAppDetectionOperatorPGreaterThan        = Win32LobAppDetectionOperatorVGreaterThan
+	_Win32LobAppDetectionOperatorPGreaterThanOrEqual = Win32LobAppDetectionOperatorVGreaterThanOrEqual
+	_Win32LobAppDetectionOperatorPLessThan           = Win32LobAppDetectionOperatorVLessThan
+	_Win32LobAppDetectionOperatorPLessThanOrEqual    = Win32LobAppDetectionOperatorVLessThanOrEqual
+)

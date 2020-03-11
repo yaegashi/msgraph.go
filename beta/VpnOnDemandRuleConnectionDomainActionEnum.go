@@ -3,23 +3,23 @@
 package msgraph
 
 // VpnOnDemandRuleConnectionDomainAction undocumented
-type VpnOnDemandRuleConnectionDomainAction int
+type VpnOnDemandRuleConnectionDomainAction string
 
 const (
 	// VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded undocumented
-	VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded VpnOnDemandRuleConnectionDomainAction = 0
+	VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded VpnOnDemandRuleConnectionDomainAction = "connectIfNeeded"
 	// VpnOnDemandRuleConnectionDomainActionVNeverConnect undocumented
-	VpnOnDemandRuleConnectionDomainActionVNeverConnect VpnOnDemandRuleConnectionDomainAction = 1
+	VpnOnDemandRuleConnectionDomainActionVNeverConnect VpnOnDemandRuleConnectionDomainAction = "neverConnect"
 )
 
-// VpnOnDemandRuleConnectionDomainActionPConnectIfNeeded returns a pointer to VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded
-func VpnOnDemandRuleConnectionDomainActionPConnectIfNeeded() *VpnOnDemandRuleConnectionDomainAction {
-	v := VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded
-	return &v
-}
+var (
+	// VpnOnDemandRuleConnectionDomainActionPConnectIfNeeded is a pointer to VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded
+	VpnOnDemandRuleConnectionDomainActionPConnectIfNeeded = &_VpnOnDemandRuleConnectionDomainActionPConnectIfNeeded
+	// VpnOnDemandRuleConnectionDomainActionPNeverConnect is a pointer to VpnOnDemandRuleConnectionDomainActionVNeverConnect
+	VpnOnDemandRuleConnectionDomainActionPNeverConnect = &_VpnOnDemandRuleConnectionDomainActionPNeverConnect
+)
 
-// VpnOnDemandRuleConnectionDomainActionPNeverConnect returns a pointer to VpnOnDemandRuleConnectionDomainActionVNeverConnect
-func VpnOnDemandRuleConnectionDomainActionPNeverConnect() *VpnOnDemandRuleConnectionDomainAction {
-	v := VpnOnDemandRuleConnectionDomainActionVNeverConnect
-	return &v
-}
+var (
+	_VpnOnDemandRuleConnectionDomainActionPConnectIfNeeded = VpnOnDemandRuleConnectionDomainActionVConnectIfNeeded
+	_VpnOnDemandRuleConnectionDomainActionPNeverConnect    = VpnOnDemandRuleConnectionDomainActionVNeverConnect
+)

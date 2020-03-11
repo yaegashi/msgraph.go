@@ -3,39 +3,33 @@
 package msgraph
 
 // UpdateClassification undocumented
-type UpdateClassification int
+type UpdateClassification string
 
 const (
 	// UpdateClassificationVUserDefined undocumented
-	UpdateClassificationVUserDefined UpdateClassification = 0
+	UpdateClassificationVUserDefined UpdateClassification = "userDefined"
 	// UpdateClassificationVRecommendedAndImportant undocumented
-	UpdateClassificationVRecommendedAndImportant UpdateClassification = 1
+	UpdateClassificationVRecommendedAndImportant UpdateClassification = "recommendedAndImportant"
 	// UpdateClassificationVImportant undocumented
-	UpdateClassificationVImportant UpdateClassification = 2
+	UpdateClassificationVImportant UpdateClassification = "important"
 	// UpdateClassificationVNone undocumented
-	UpdateClassificationVNone UpdateClassification = 3
+	UpdateClassificationVNone UpdateClassification = "none"
 )
 
-// UpdateClassificationPUserDefined returns a pointer to UpdateClassificationVUserDefined
-func UpdateClassificationPUserDefined() *UpdateClassification {
-	v := UpdateClassificationVUserDefined
-	return &v
-}
+var (
+	// UpdateClassificationPUserDefined is a pointer to UpdateClassificationVUserDefined
+	UpdateClassificationPUserDefined = &_UpdateClassificationPUserDefined
+	// UpdateClassificationPRecommendedAndImportant is a pointer to UpdateClassificationVRecommendedAndImportant
+	UpdateClassificationPRecommendedAndImportant = &_UpdateClassificationPRecommendedAndImportant
+	// UpdateClassificationPImportant is a pointer to UpdateClassificationVImportant
+	UpdateClassificationPImportant = &_UpdateClassificationPImportant
+	// UpdateClassificationPNone is a pointer to UpdateClassificationVNone
+	UpdateClassificationPNone = &_UpdateClassificationPNone
+)
 
-// UpdateClassificationPRecommendedAndImportant returns a pointer to UpdateClassificationVRecommendedAndImportant
-func UpdateClassificationPRecommendedAndImportant() *UpdateClassification {
-	v := UpdateClassificationVRecommendedAndImportant
-	return &v
-}
-
-// UpdateClassificationPImportant returns a pointer to UpdateClassificationVImportant
-func UpdateClassificationPImportant() *UpdateClassification {
-	v := UpdateClassificationVImportant
-	return &v
-}
-
-// UpdateClassificationPNone returns a pointer to UpdateClassificationVNone
-func UpdateClassificationPNone() *UpdateClassification {
-	v := UpdateClassificationVNone
-	return &v
-}
+var (
+	_UpdateClassificationPUserDefined             = UpdateClassificationVUserDefined
+	_UpdateClassificationPRecommendedAndImportant = UpdateClassificationVRecommendedAndImportant
+	_UpdateClassificationPImportant               = UpdateClassificationVImportant
+	_UpdateClassificationPNone                    = UpdateClassificationVNone
+)

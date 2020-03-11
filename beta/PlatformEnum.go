@@ -3,55 +3,43 @@
 package msgraph
 
 // Platform undocumented
-type Platform int
+type Platform string
 
 const (
 	// PlatformVUnknown undocumented
-	PlatformVUnknown Platform = 0
+	PlatformVUnknown Platform = "unknown"
 	// PlatformVIOS undocumented
-	PlatformVIOS Platform = 1
+	PlatformVIOS Platform = "ios"
 	// PlatformVAndroid undocumented
-	PlatformVAndroid Platform = 2
+	PlatformVAndroid Platform = "android"
 	// PlatformVWindows undocumented
-	PlatformVWindows Platform = 3
+	PlatformVWindows Platform = "windows"
 	// PlatformVWindowsMobile undocumented
-	PlatformVWindowsMobile Platform = 4
+	PlatformVWindowsMobile Platform = "windowsMobile"
 	// PlatformVMacOS undocumented
-	PlatformVMacOS Platform = 5
+	PlatformVMacOS Platform = "macOS"
 )
 
-// PlatformPUnknown returns a pointer to PlatformVUnknown
-func PlatformPUnknown() *Platform {
-	v := PlatformVUnknown
-	return &v
-}
+var (
+	// PlatformPUnknown is a pointer to PlatformVUnknown
+	PlatformPUnknown = &_PlatformPUnknown
+	// PlatformPIOS is a pointer to PlatformVIOS
+	PlatformPIOS = &_PlatformPIOS
+	// PlatformPAndroid is a pointer to PlatformVAndroid
+	PlatformPAndroid = &_PlatformPAndroid
+	// PlatformPWindows is a pointer to PlatformVWindows
+	PlatformPWindows = &_PlatformPWindows
+	// PlatformPWindowsMobile is a pointer to PlatformVWindowsMobile
+	PlatformPWindowsMobile = &_PlatformPWindowsMobile
+	// PlatformPMacOS is a pointer to PlatformVMacOS
+	PlatformPMacOS = &_PlatformPMacOS
+)
 
-// PlatformPIOS returns a pointer to PlatformVIOS
-func PlatformPIOS() *Platform {
-	v := PlatformVIOS
-	return &v
-}
-
-// PlatformPAndroid returns a pointer to PlatformVAndroid
-func PlatformPAndroid() *Platform {
-	v := PlatformVAndroid
-	return &v
-}
-
-// PlatformPWindows returns a pointer to PlatformVWindows
-func PlatformPWindows() *Platform {
-	v := PlatformVWindows
-	return &v
-}
-
-// PlatformPWindowsMobile returns a pointer to PlatformVWindowsMobile
-func PlatformPWindowsMobile() *Platform {
-	v := PlatformVWindowsMobile
-	return &v
-}
-
-// PlatformPMacOS returns a pointer to PlatformVMacOS
-func PlatformPMacOS() *Platform {
-	v := PlatformVMacOS
-	return &v
-}
+var (
+	_PlatformPUnknown       = PlatformVUnknown
+	_PlatformPIOS           = PlatformVIOS
+	_PlatformPAndroid       = PlatformVAndroid
+	_PlatformPWindows       = PlatformVWindows
+	_PlatformPWindowsMobile = PlatformVWindowsMobile
+	_PlatformPMacOS         = PlatformVMacOS
+)

@@ -3,71 +3,53 @@
 package msgraph
 
 // DeviceManagementTemplateType undocumented
-type DeviceManagementTemplateType int
+type DeviceManagementTemplateType string
 
 const (
 	// DeviceManagementTemplateTypeVSecurityBaseline undocumented
-	DeviceManagementTemplateTypeVSecurityBaseline DeviceManagementTemplateType = 0
+	DeviceManagementTemplateTypeVSecurityBaseline DeviceManagementTemplateType = "securityBaseline"
 	// DeviceManagementTemplateTypeVSpecializedDevices undocumented
-	DeviceManagementTemplateTypeVSpecializedDevices DeviceManagementTemplateType = 1
+	DeviceManagementTemplateTypeVSpecializedDevices DeviceManagementTemplateType = "specializedDevices"
 	// DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline undocumented
-	DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline DeviceManagementTemplateType = 2
+	DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline DeviceManagementTemplateType = "advancedThreatProtectionSecurityBaseline"
 	// DeviceManagementTemplateTypeVDeviceConfiguration undocumented
-	DeviceManagementTemplateTypeVDeviceConfiguration DeviceManagementTemplateType = 3
+	DeviceManagementTemplateTypeVDeviceConfiguration DeviceManagementTemplateType = "deviceConfiguration"
 	// DeviceManagementTemplateTypeVCustom undocumented
-	DeviceManagementTemplateTypeVCustom DeviceManagementTemplateType = 4
+	DeviceManagementTemplateTypeVCustom DeviceManagementTemplateType = "custom"
 	// DeviceManagementTemplateTypeVSecurityTemplate undocumented
-	DeviceManagementTemplateTypeVSecurityTemplate DeviceManagementTemplateType = 5
+	DeviceManagementTemplateTypeVSecurityTemplate DeviceManagementTemplateType = "securityTemplate"
 	// DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline undocumented
-	DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline DeviceManagementTemplateType = 6
+	DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline DeviceManagementTemplateType = "microsoftEdgeSecurityBaseline"
 	// DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline undocumented
-	DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline DeviceManagementTemplateType = 7
+	DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline DeviceManagementTemplateType = "microsoftOffice365ProPlusSecurityBaseline"
 )
 
-// DeviceManagementTemplateTypePSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVSecurityBaseline
-func DeviceManagementTemplateTypePSecurityBaseline() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVSecurityBaseline
-	return &v
-}
+var (
+	// DeviceManagementTemplateTypePSecurityBaseline is a pointer to DeviceManagementTemplateTypeVSecurityBaseline
+	DeviceManagementTemplateTypePSecurityBaseline = &_DeviceManagementTemplateTypePSecurityBaseline
+	// DeviceManagementTemplateTypePSpecializedDevices is a pointer to DeviceManagementTemplateTypeVSpecializedDevices
+	DeviceManagementTemplateTypePSpecializedDevices = &_DeviceManagementTemplateTypePSpecializedDevices
+	// DeviceManagementTemplateTypePAdvancedThreatProtectionSecurityBaseline is a pointer to DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline
+	DeviceManagementTemplateTypePAdvancedThreatProtectionSecurityBaseline = &_DeviceManagementTemplateTypePAdvancedThreatProtectionSecurityBaseline
+	// DeviceManagementTemplateTypePDeviceConfiguration is a pointer to DeviceManagementTemplateTypeVDeviceConfiguration
+	DeviceManagementTemplateTypePDeviceConfiguration = &_DeviceManagementTemplateTypePDeviceConfiguration
+	// DeviceManagementTemplateTypePCustom is a pointer to DeviceManagementTemplateTypeVCustom
+	DeviceManagementTemplateTypePCustom = &_DeviceManagementTemplateTypePCustom
+	// DeviceManagementTemplateTypePSecurityTemplate is a pointer to DeviceManagementTemplateTypeVSecurityTemplate
+	DeviceManagementTemplateTypePSecurityTemplate = &_DeviceManagementTemplateTypePSecurityTemplate
+	// DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline is a pointer to DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
+	DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline = &_DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline
+	// DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline is a pointer to DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
+	DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline = &_DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline
+)
 
-// DeviceManagementTemplateTypePSpecializedDevices returns a pointer to DeviceManagementTemplateTypeVSpecializedDevices
-func DeviceManagementTemplateTypePSpecializedDevices() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVSpecializedDevices
-	return &v
-}
-
-// DeviceManagementTemplateTypePAdvancedThreatProtectionSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline
-func DeviceManagementTemplateTypePAdvancedThreatProtectionSecurityBaseline() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline
-	return &v
-}
-
-// DeviceManagementTemplateTypePDeviceConfiguration returns a pointer to DeviceManagementTemplateTypeVDeviceConfiguration
-func DeviceManagementTemplateTypePDeviceConfiguration() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVDeviceConfiguration
-	return &v
-}
-
-// DeviceManagementTemplateTypePCustom returns a pointer to DeviceManagementTemplateTypeVCustom
-func DeviceManagementTemplateTypePCustom() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVCustom
-	return &v
-}
-
-// DeviceManagementTemplateTypePSecurityTemplate returns a pointer to DeviceManagementTemplateTypeVSecurityTemplate
-func DeviceManagementTemplateTypePSecurityTemplate() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVSecurityTemplate
-	return &v
-}
-
-// DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
-func DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
-	return &v
-}
-
-// DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline returns a pointer to DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
-func DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline() *DeviceManagementTemplateType {
-	v := DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
-	return &v
-}
+var (
+	_DeviceManagementTemplateTypePSecurityBaseline                          = DeviceManagementTemplateTypeVSecurityBaseline
+	_DeviceManagementTemplateTypePSpecializedDevices                        = DeviceManagementTemplateTypeVSpecializedDevices
+	_DeviceManagementTemplateTypePAdvancedThreatProtectionSecurityBaseline  = DeviceManagementTemplateTypeVAdvancedThreatProtectionSecurityBaseline
+	_DeviceManagementTemplateTypePDeviceConfiguration                       = DeviceManagementTemplateTypeVDeviceConfiguration
+	_DeviceManagementTemplateTypePCustom                                    = DeviceManagementTemplateTypeVCustom
+	_DeviceManagementTemplateTypePSecurityTemplate                          = DeviceManagementTemplateTypeVSecurityTemplate
+	_DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline             = DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
+	_DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline = DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
+)

@@ -3,95 +3,68 @@
 package msgraph
 
 // ConditionalAccessConditions undocumented
-type ConditionalAccessConditions int
+type ConditionalAccessConditions string
 
 const (
 	// ConditionalAccessConditionsVNone undocumented
-	ConditionalAccessConditionsVNone ConditionalAccessConditions = 0
+	ConditionalAccessConditionsVNone ConditionalAccessConditions = "none"
 	// ConditionalAccessConditionsVApplication undocumented
-	ConditionalAccessConditionsVApplication ConditionalAccessConditions = 1
+	ConditionalAccessConditionsVApplication ConditionalAccessConditions = "application"
 	// ConditionalAccessConditionsVUsers undocumented
-	ConditionalAccessConditionsVUsers ConditionalAccessConditions = 2
+	ConditionalAccessConditionsVUsers ConditionalAccessConditions = "users"
 	// ConditionalAccessConditionsVDevicePlatform undocumented
-	ConditionalAccessConditionsVDevicePlatform ConditionalAccessConditions = 4
+	ConditionalAccessConditionsVDevicePlatform ConditionalAccessConditions = "devicePlatform"
 	// ConditionalAccessConditionsVLocation undocumented
-	ConditionalAccessConditionsVLocation ConditionalAccessConditions = 8
+	ConditionalAccessConditionsVLocation ConditionalAccessConditions = "location"
 	// ConditionalAccessConditionsVClientType undocumented
-	ConditionalAccessConditionsVClientType ConditionalAccessConditions = 16
+	ConditionalAccessConditionsVClientType ConditionalAccessConditions = "clientType"
 	// ConditionalAccessConditionsVSignInRisk undocumented
-	ConditionalAccessConditionsVSignInRisk ConditionalAccessConditions = 32
+	ConditionalAccessConditionsVSignInRisk ConditionalAccessConditions = "signInRisk"
 	// ConditionalAccessConditionsVUserRisk undocumented
-	ConditionalAccessConditionsVUserRisk ConditionalAccessConditions = 64
+	ConditionalAccessConditionsVUserRisk ConditionalAccessConditions = "userRisk"
 	// ConditionalAccessConditionsVTime undocumented
-	ConditionalAccessConditionsVTime ConditionalAccessConditions = 128
+	ConditionalAccessConditionsVTime ConditionalAccessConditions = "time"
 	// ConditionalAccessConditionsVDeviceState undocumented
-	ConditionalAccessConditionsVDeviceState ConditionalAccessConditions = 256
+	ConditionalAccessConditionsVDeviceState ConditionalAccessConditions = "deviceState"
 	// ConditionalAccessConditionsVClient undocumented
-	ConditionalAccessConditionsVClient ConditionalAccessConditions = 512
+	ConditionalAccessConditionsVClient ConditionalAccessConditions = "client"
 )
 
-// ConditionalAccessConditionsPNone returns a pointer to ConditionalAccessConditionsVNone
-func ConditionalAccessConditionsPNone() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVNone
-	return &v
-}
+var (
+	// ConditionalAccessConditionsPNone is a pointer to ConditionalAccessConditionsVNone
+	ConditionalAccessConditionsPNone = &_ConditionalAccessConditionsPNone
+	// ConditionalAccessConditionsPApplication is a pointer to ConditionalAccessConditionsVApplication
+	ConditionalAccessConditionsPApplication = &_ConditionalAccessConditionsPApplication
+	// ConditionalAccessConditionsPUsers is a pointer to ConditionalAccessConditionsVUsers
+	ConditionalAccessConditionsPUsers = &_ConditionalAccessConditionsPUsers
+	// ConditionalAccessConditionsPDevicePlatform is a pointer to ConditionalAccessConditionsVDevicePlatform
+	ConditionalAccessConditionsPDevicePlatform = &_ConditionalAccessConditionsPDevicePlatform
+	// ConditionalAccessConditionsPLocation is a pointer to ConditionalAccessConditionsVLocation
+	ConditionalAccessConditionsPLocation = &_ConditionalAccessConditionsPLocation
+	// ConditionalAccessConditionsPClientType is a pointer to ConditionalAccessConditionsVClientType
+	ConditionalAccessConditionsPClientType = &_ConditionalAccessConditionsPClientType
+	// ConditionalAccessConditionsPSignInRisk is a pointer to ConditionalAccessConditionsVSignInRisk
+	ConditionalAccessConditionsPSignInRisk = &_ConditionalAccessConditionsPSignInRisk
+	// ConditionalAccessConditionsPUserRisk is a pointer to ConditionalAccessConditionsVUserRisk
+	ConditionalAccessConditionsPUserRisk = &_ConditionalAccessConditionsPUserRisk
+	// ConditionalAccessConditionsPTime is a pointer to ConditionalAccessConditionsVTime
+	ConditionalAccessConditionsPTime = &_ConditionalAccessConditionsPTime
+	// ConditionalAccessConditionsPDeviceState is a pointer to ConditionalAccessConditionsVDeviceState
+	ConditionalAccessConditionsPDeviceState = &_ConditionalAccessConditionsPDeviceState
+	// ConditionalAccessConditionsPClient is a pointer to ConditionalAccessConditionsVClient
+	ConditionalAccessConditionsPClient = &_ConditionalAccessConditionsPClient
+)
 
-// ConditionalAccessConditionsPApplication returns a pointer to ConditionalAccessConditionsVApplication
-func ConditionalAccessConditionsPApplication() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVApplication
-	return &v
-}
-
-// ConditionalAccessConditionsPUsers returns a pointer to ConditionalAccessConditionsVUsers
-func ConditionalAccessConditionsPUsers() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVUsers
-	return &v
-}
-
-// ConditionalAccessConditionsPDevicePlatform returns a pointer to ConditionalAccessConditionsVDevicePlatform
-func ConditionalAccessConditionsPDevicePlatform() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVDevicePlatform
-	return &v
-}
-
-// ConditionalAccessConditionsPLocation returns a pointer to ConditionalAccessConditionsVLocation
-func ConditionalAccessConditionsPLocation() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVLocation
-	return &v
-}
-
-// ConditionalAccessConditionsPClientType returns a pointer to ConditionalAccessConditionsVClientType
-func ConditionalAccessConditionsPClientType() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVClientType
-	return &v
-}
-
-// ConditionalAccessConditionsPSignInRisk returns a pointer to ConditionalAccessConditionsVSignInRisk
-func ConditionalAccessConditionsPSignInRisk() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVSignInRisk
-	return &v
-}
-
-// ConditionalAccessConditionsPUserRisk returns a pointer to ConditionalAccessConditionsVUserRisk
-func ConditionalAccessConditionsPUserRisk() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVUserRisk
-	return &v
-}
-
-// ConditionalAccessConditionsPTime returns a pointer to ConditionalAccessConditionsVTime
-func ConditionalAccessConditionsPTime() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVTime
-	return &v
-}
-
-// ConditionalAccessConditionsPDeviceState returns a pointer to ConditionalAccessConditionsVDeviceState
-func ConditionalAccessConditionsPDeviceState() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVDeviceState
-	return &v
-}
-
-// ConditionalAccessConditionsPClient returns a pointer to ConditionalAccessConditionsVClient
-func ConditionalAccessConditionsPClient() *ConditionalAccessConditions {
-	v := ConditionalAccessConditionsVClient
-	return &v
-}
+var (
+	_ConditionalAccessConditionsPNone           = ConditionalAccessConditionsVNone
+	_ConditionalAccessConditionsPApplication    = ConditionalAccessConditionsVApplication
+	_ConditionalAccessConditionsPUsers          = ConditionalAccessConditionsVUsers
+	_ConditionalAccessConditionsPDevicePlatform = ConditionalAccessConditionsVDevicePlatform
+	_ConditionalAccessConditionsPLocation       = ConditionalAccessConditionsVLocation
+	_ConditionalAccessConditionsPClientType     = ConditionalAccessConditionsVClientType
+	_ConditionalAccessConditionsPSignInRisk     = ConditionalAccessConditionsVSignInRisk
+	_ConditionalAccessConditionsPUserRisk       = ConditionalAccessConditionsVUserRisk
+	_ConditionalAccessConditionsPTime           = ConditionalAccessConditionsVTime
+	_ConditionalAccessConditionsPDeviceState    = ConditionalAccessConditionsVDeviceState
+	_ConditionalAccessConditionsPClient         = ConditionalAccessConditionsVClient
+)

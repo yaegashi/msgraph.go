@@ -3,23 +3,23 @@
 package msgraph
 
 // RoutingMode undocumented
-type RoutingMode int
+type RoutingMode string
 
 const (
 	// RoutingModeVOneToOne undocumented
-	RoutingModeVOneToOne RoutingMode = 0
+	RoutingModeVOneToOne RoutingMode = "oneToOne"
 	// RoutingModeVMulticast undocumented
-	RoutingModeVMulticast RoutingMode = 1
+	RoutingModeVMulticast RoutingMode = "multicast"
 )
 
-// RoutingModePOneToOne returns a pointer to RoutingModeVOneToOne
-func RoutingModePOneToOne() *RoutingMode {
-	v := RoutingModeVOneToOne
-	return &v
-}
+var (
+	// RoutingModePOneToOne is a pointer to RoutingModeVOneToOne
+	RoutingModePOneToOne = &_RoutingModePOneToOne
+	// RoutingModePMulticast is a pointer to RoutingModeVMulticast
+	RoutingModePMulticast = &_RoutingModePMulticast
+)
 
-// RoutingModePMulticast returns a pointer to RoutingModeVMulticast
-func RoutingModePMulticast() *RoutingMode {
-	v := RoutingModeVMulticast
-	return &v
-}
+var (
+	_RoutingModePOneToOne  = RoutingModeVOneToOne
+	_RoutingModePMulticast = RoutingModeVMulticast
+)

@@ -3,71 +3,53 @@
 package msgraph
 
 // RiskEventStatus undocumented
-type RiskEventStatus int
+type RiskEventStatus string
 
 const (
 	// RiskEventStatusVActive undocumented
-	RiskEventStatusVActive RiskEventStatus = 0
+	RiskEventStatusVActive RiskEventStatus = "active"
 	// RiskEventStatusVRemediated undocumented
-	RiskEventStatusVRemediated RiskEventStatus = 1
+	RiskEventStatusVRemediated RiskEventStatus = "remediated"
 	// RiskEventStatusVDismissedAsFixed undocumented
-	RiskEventStatusVDismissedAsFixed RiskEventStatus = 2
+	RiskEventStatusVDismissedAsFixed RiskEventStatus = "dismissedAsFixed"
 	// RiskEventStatusVDismissedAsFalsePositive undocumented
-	RiskEventStatusVDismissedAsFalsePositive RiskEventStatus = 3
+	RiskEventStatusVDismissedAsFalsePositive RiskEventStatus = "dismissedAsFalsePositive"
 	// RiskEventStatusVDismissedAsIgnore undocumented
-	RiskEventStatusVDismissedAsIgnore RiskEventStatus = 4
+	RiskEventStatusVDismissedAsIgnore RiskEventStatus = "dismissedAsIgnore"
 	// RiskEventStatusVLoginBlocked undocumented
-	RiskEventStatusVLoginBlocked RiskEventStatus = 5
+	RiskEventStatusVLoginBlocked RiskEventStatus = "loginBlocked"
 	// RiskEventStatusVClosedMFAAuto undocumented
-	RiskEventStatusVClosedMFAAuto RiskEventStatus = 6
+	RiskEventStatusVClosedMFAAuto RiskEventStatus = "closedMfaAuto"
 	// RiskEventStatusVClosedMultipleReasons undocumented
-	RiskEventStatusVClosedMultipleReasons RiskEventStatus = 7
+	RiskEventStatusVClosedMultipleReasons RiskEventStatus = "closedMultipleReasons"
 )
 
-// RiskEventStatusPActive returns a pointer to RiskEventStatusVActive
-func RiskEventStatusPActive() *RiskEventStatus {
-	v := RiskEventStatusVActive
-	return &v
-}
+var (
+	// RiskEventStatusPActive is a pointer to RiskEventStatusVActive
+	RiskEventStatusPActive = &_RiskEventStatusPActive
+	// RiskEventStatusPRemediated is a pointer to RiskEventStatusVRemediated
+	RiskEventStatusPRemediated = &_RiskEventStatusPRemediated
+	// RiskEventStatusPDismissedAsFixed is a pointer to RiskEventStatusVDismissedAsFixed
+	RiskEventStatusPDismissedAsFixed = &_RiskEventStatusPDismissedAsFixed
+	// RiskEventStatusPDismissedAsFalsePositive is a pointer to RiskEventStatusVDismissedAsFalsePositive
+	RiskEventStatusPDismissedAsFalsePositive = &_RiskEventStatusPDismissedAsFalsePositive
+	// RiskEventStatusPDismissedAsIgnore is a pointer to RiskEventStatusVDismissedAsIgnore
+	RiskEventStatusPDismissedAsIgnore = &_RiskEventStatusPDismissedAsIgnore
+	// RiskEventStatusPLoginBlocked is a pointer to RiskEventStatusVLoginBlocked
+	RiskEventStatusPLoginBlocked = &_RiskEventStatusPLoginBlocked
+	// RiskEventStatusPClosedMFAAuto is a pointer to RiskEventStatusVClosedMFAAuto
+	RiskEventStatusPClosedMFAAuto = &_RiskEventStatusPClosedMFAAuto
+	// RiskEventStatusPClosedMultipleReasons is a pointer to RiskEventStatusVClosedMultipleReasons
+	RiskEventStatusPClosedMultipleReasons = &_RiskEventStatusPClosedMultipleReasons
+)
 
-// RiskEventStatusPRemediated returns a pointer to RiskEventStatusVRemediated
-func RiskEventStatusPRemediated() *RiskEventStatus {
-	v := RiskEventStatusVRemediated
-	return &v
-}
-
-// RiskEventStatusPDismissedAsFixed returns a pointer to RiskEventStatusVDismissedAsFixed
-func RiskEventStatusPDismissedAsFixed() *RiskEventStatus {
-	v := RiskEventStatusVDismissedAsFixed
-	return &v
-}
-
-// RiskEventStatusPDismissedAsFalsePositive returns a pointer to RiskEventStatusVDismissedAsFalsePositive
-func RiskEventStatusPDismissedAsFalsePositive() *RiskEventStatus {
-	v := RiskEventStatusVDismissedAsFalsePositive
-	return &v
-}
-
-// RiskEventStatusPDismissedAsIgnore returns a pointer to RiskEventStatusVDismissedAsIgnore
-func RiskEventStatusPDismissedAsIgnore() *RiskEventStatus {
-	v := RiskEventStatusVDismissedAsIgnore
-	return &v
-}
-
-// RiskEventStatusPLoginBlocked returns a pointer to RiskEventStatusVLoginBlocked
-func RiskEventStatusPLoginBlocked() *RiskEventStatus {
-	v := RiskEventStatusVLoginBlocked
-	return &v
-}
-
-// RiskEventStatusPClosedMFAAuto returns a pointer to RiskEventStatusVClosedMFAAuto
-func RiskEventStatusPClosedMFAAuto() *RiskEventStatus {
-	v := RiskEventStatusVClosedMFAAuto
-	return &v
-}
-
-// RiskEventStatusPClosedMultipleReasons returns a pointer to RiskEventStatusVClosedMultipleReasons
-func RiskEventStatusPClosedMultipleReasons() *RiskEventStatus {
-	v := RiskEventStatusVClosedMultipleReasons
-	return &v
-}
+var (
+	_RiskEventStatusPActive                   = RiskEventStatusVActive
+	_RiskEventStatusPRemediated               = RiskEventStatusVRemediated
+	_RiskEventStatusPDismissedAsFixed         = RiskEventStatusVDismissedAsFixed
+	_RiskEventStatusPDismissedAsFalsePositive = RiskEventStatusVDismissedAsFalsePositive
+	_RiskEventStatusPDismissedAsIgnore        = RiskEventStatusVDismissedAsIgnore
+	_RiskEventStatusPLoginBlocked             = RiskEventStatusVLoginBlocked
+	_RiskEventStatusPClosedMFAAuto            = RiskEventStatusVClosedMFAAuto
+	_RiskEventStatusPClosedMultipleReasons    = RiskEventStatusVClosedMultipleReasons
+)

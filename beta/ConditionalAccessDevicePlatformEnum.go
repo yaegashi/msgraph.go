@@ -3,55 +3,43 @@
 package msgraph
 
 // ConditionalAccessDevicePlatform undocumented
-type ConditionalAccessDevicePlatform int
+type ConditionalAccessDevicePlatform string
 
 const (
 	// ConditionalAccessDevicePlatformVAndroid undocumented
-	ConditionalAccessDevicePlatformVAndroid ConditionalAccessDevicePlatform = 0
+	ConditionalAccessDevicePlatformVAndroid ConditionalAccessDevicePlatform = "android"
 	// ConditionalAccessDevicePlatformVIOS undocumented
-	ConditionalAccessDevicePlatformVIOS ConditionalAccessDevicePlatform = 1
+	ConditionalAccessDevicePlatformVIOS ConditionalAccessDevicePlatform = "iOS"
 	// ConditionalAccessDevicePlatformVWindows undocumented
-	ConditionalAccessDevicePlatformVWindows ConditionalAccessDevicePlatform = 2
+	ConditionalAccessDevicePlatformVWindows ConditionalAccessDevicePlatform = "windows"
 	// ConditionalAccessDevicePlatformVWindowsPhone undocumented
-	ConditionalAccessDevicePlatformVWindowsPhone ConditionalAccessDevicePlatform = 3
+	ConditionalAccessDevicePlatformVWindowsPhone ConditionalAccessDevicePlatform = "windowsPhone"
 	// ConditionalAccessDevicePlatformVMacOS undocumented
-	ConditionalAccessDevicePlatformVMacOS ConditionalAccessDevicePlatform = 4
+	ConditionalAccessDevicePlatformVMacOS ConditionalAccessDevicePlatform = "macOS"
 	// ConditionalAccessDevicePlatformVAll undocumented
-	ConditionalAccessDevicePlatformVAll ConditionalAccessDevicePlatform = 5
+	ConditionalAccessDevicePlatformVAll ConditionalAccessDevicePlatform = "all"
 )
 
-// ConditionalAccessDevicePlatformPAndroid returns a pointer to ConditionalAccessDevicePlatformVAndroid
-func ConditionalAccessDevicePlatformPAndroid() *ConditionalAccessDevicePlatform {
-	v := ConditionalAccessDevicePlatformVAndroid
-	return &v
-}
+var (
+	// ConditionalAccessDevicePlatformPAndroid is a pointer to ConditionalAccessDevicePlatformVAndroid
+	ConditionalAccessDevicePlatformPAndroid = &_ConditionalAccessDevicePlatformPAndroid
+	// ConditionalAccessDevicePlatformPIOS is a pointer to ConditionalAccessDevicePlatformVIOS
+	ConditionalAccessDevicePlatformPIOS = &_ConditionalAccessDevicePlatformPIOS
+	// ConditionalAccessDevicePlatformPWindows is a pointer to ConditionalAccessDevicePlatformVWindows
+	ConditionalAccessDevicePlatformPWindows = &_ConditionalAccessDevicePlatformPWindows
+	// ConditionalAccessDevicePlatformPWindowsPhone is a pointer to ConditionalAccessDevicePlatformVWindowsPhone
+	ConditionalAccessDevicePlatformPWindowsPhone = &_ConditionalAccessDevicePlatformPWindowsPhone
+	// ConditionalAccessDevicePlatformPMacOS is a pointer to ConditionalAccessDevicePlatformVMacOS
+	ConditionalAccessDevicePlatformPMacOS = &_ConditionalAccessDevicePlatformPMacOS
+	// ConditionalAccessDevicePlatformPAll is a pointer to ConditionalAccessDevicePlatformVAll
+	ConditionalAccessDevicePlatformPAll = &_ConditionalAccessDevicePlatformPAll
+)
 
-// ConditionalAccessDevicePlatformPIOS returns a pointer to ConditionalAccessDevicePlatformVIOS
-func ConditionalAccessDevicePlatformPIOS() *ConditionalAccessDevicePlatform {
-	v := ConditionalAccessDevicePlatformVIOS
-	return &v
-}
-
-// ConditionalAccessDevicePlatformPWindows returns a pointer to ConditionalAccessDevicePlatformVWindows
-func ConditionalAccessDevicePlatformPWindows() *ConditionalAccessDevicePlatform {
-	v := ConditionalAccessDevicePlatformVWindows
-	return &v
-}
-
-// ConditionalAccessDevicePlatformPWindowsPhone returns a pointer to ConditionalAccessDevicePlatformVWindowsPhone
-func ConditionalAccessDevicePlatformPWindowsPhone() *ConditionalAccessDevicePlatform {
-	v := ConditionalAccessDevicePlatformVWindowsPhone
-	return &v
-}
-
-// ConditionalAccessDevicePlatformPMacOS returns a pointer to ConditionalAccessDevicePlatformVMacOS
-func ConditionalAccessDevicePlatformPMacOS() *ConditionalAccessDevicePlatform {
-	v := ConditionalAccessDevicePlatformVMacOS
-	return &v
-}
-
-// ConditionalAccessDevicePlatformPAll returns a pointer to ConditionalAccessDevicePlatformVAll
-func ConditionalAccessDevicePlatformPAll() *ConditionalAccessDevicePlatform {
-	v := ConditionalAccessDevicePlatformVAll
-	return &v
-}
+var (
+	_ConditionalAccessDevicePlatformPAndroid      = ConditionalAccessDevicePlatformVAndroid
+	_ConditionalAccessDevicePlatformPIOS          = ConditionalAccessDevicePlatformVIOS
+	_ConditionalAccessDevicePlatformPWindows      = ConditionalAccessDevicePlatformVWindows
+	_ConditionalAccessDevicePlatformPWindowsPhone = ConditionalAccessDevicePlatformVWindowsPhone
+	_ConditionalAccessDevicePlatformPMacOS        = ConditionalAccessDevicePlatformVMacOS
+	_ConditionalAccessDevicePlatformPAll          = ConditionalAccessDevicePlatformVAll
+)

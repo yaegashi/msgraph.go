@@ -3,23 +3,23 @@
 package msgraph
 
 // BinaryManagementConditionExpressionOperatorType undocumented
-type BinaryManagementConditionExpressionOperatorType int
+type BinaryManagementConditionExpressionOperatorType string
 
 const (
 	// BinaryManagementConditionExpressionOperatorTypeVOr undocumented
-	BinaryManagementConditionExpressionOperatorTypeVOr BinaryManagementConditionExpressionOperatorType = 0
+	BinaryManagementConditionExpressionOperatorTypeVOr BinaryManagementConditionExpressionOperatorType = "or"
 	// BinaryManagementConditionExpressionOperatorTypeVAnd undocumented
-	BinaryManagementConditionExpressionOperatorTypeVAnd BinaryManagementConditionExpressionOperatorType = 1
+	BinaryManagementConditionExpressionOperatorTypeVAnd BinaryManagementConditionExpressionOperatorType = "and"
 )
 
-// BinaryManagementConditionExpressionOperatorTypePOr returns a pointer to BinaryManagementConditionExpressionOperatorTypeVOr
-func BinaryManagementConditionExpressionOperatorTypePOr() *BinaryManagementConditionExpressionOperatorType {
-	v := BinaryManagementConditionExpressionOperatorTypeVOr
-	return &v
-}
+var (
+	// BinaryManagementConditionExpressionOperatorTypePOr is a pointer to BinaryManagementConditionExpressionOperatorTypeVOr
+	BinaryManagementConditionExpressionOperatorTypePOr = &_BinaryManagementConditionExpressionOperatorTypePOr
+	// BinaryManagementConditionExpressionOperatorTypePAnd is a pointer to BinaryManagementConditionExpressionOperatorTypeVAnd
+	BinaryManagementConditionExpressionOperatorTypePAnd = &_BinaryManagementConditionExpressionOperatorTypePAnd
+)
 
-// BinaryManagementConditionExpressionOperatorTypePAnd returns a pointer to BinaryManagementConditionExpressionOperatorTypeVAnd
-func BinaryManagementConditionExpressionOperatorTypePAnd() *BinaryManagementConditionExpressionOperatorType {
-	v := BinaryManagementConditionExpressionOperatorTypeVAnd
-	return &v
-}
+var (
+	_BinaryManagementConditionExpressionOperatorTypePOr  = BinaryManagementConditionExpressionOperatorTypeVOr
+	_BinaryManagementConditionExpressionOperatorTypePAnd = BinaryManagementConditionExpressionOperatorTypeVAnd
+)

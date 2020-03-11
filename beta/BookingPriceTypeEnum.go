@@ -3,71 +3,53 @@
 package msgraph
 
 // BookingPriceType undocumented
-type BookingPriceType int
+type BookingPriceType string
 
 const (
 	// BookingPriceTypeVUndefined undocumented
-	BookingPriceTypeVUndefined BookingPriceType = 0
+	BookingPriceTypeVUndefined BookingPriceType = "undefined"
 	// BookingPriceTypeVFixedPrice undocumented
-	BookingPriceTypeVFixedPrice BookingPriceType = 1
+	BookingPriceTypeVFixedPrice BookingPriceType = "fixedPrice"
 	// BookingPriceTypeVStartingAt undocumented
-	BookingPriceTypeVStartingAt BookingPriceType = 2
+	BookingPriceTypeVStartingAt BookingPriceType = "startingAt"
 	// BookingPriceTypeVHourly undocumented
-	BookingPriceTypeVHourly BookingPriceType = 3
+	BookingPriceTypeVHourly BookingPriceType = "hourly"
 	// BookingPriceTypeVFree undocumented
-	BookingPriceTypeVFree BookingPriceType = 4
+	BookingPriceTypeVFree BookingPriceType = "free"
 	// BookingPriceTypeVPriceVaries undocumented
-	BookingPriceTypeVPriceVaries BookingPriceType = 5
+	BookingPriceTypeVPriceVaries BookingPriceType = "priceVaries"
 	// BookingPriceTypeVCallUs undocumented
-	BookingPriceTypeVCallUs BookingPriceType = 6
+	BookingPriceTypeVCallUs BookingPriceType = "callUs"
 	// BookingPriceTypeVNotSet undocumented
-	BookingPriceTypeVNotSet BookingPriceType = 7
+	BookingPriceTypeVNotSet BookingPriceType = "notSet"
 )
 
-// BookingPriceTypePUndefined returns a pointer to BookingPriceTypeVUndefined
-func BookingPriceTypePUndefined() *BookingPriceType {
-	v := BookingPriceTypeVUndefined
-	return &v
-}
+var (
+	// BookingPriceTypePUndefined is a pointer to BookingPriceTypeVUndefined
+	BookingPriceTypePUndefined = &_BookingPriceTypePUndefined
+	// BookingPriceTypePFixedPrice is a pointer to BookingPriceTypeVFixedPrice
+	BookingPriceTypePFixedPrice = &_BookingPriceTypePFixedPrice
+	// BookingPriceTypePStartingAt is a pointer to BookingPriceTypeVStartingAt
+	BookingPriceTypePStartingAt = &_BookingPriceTypePStartingAt
+	// BookingPriceTypePHourly is a pointer to BookingPriceTypeVHourly
+	BookingPriceTypePHourly = &_BookingPriceTypePHourly
+	// BookingPriceTypePFree is a pointer to BookingPriceTypeVFree
+	BookingPriceTypePFree = &_BookingPriceTypePFree
+	// BookingPriceTypePPriceVaries is a pointer to BookingPriceTypeVPriceVaries
+	BookingPriceTypePPriceVaries = &_BookingPriceTypePPriceVaries
+	// BookingPriceTypePCallUs is a pointer to BookingPriceTypeVCallUs
+	BookingPriceTypePCallUs = &_BookingPriceTypePCallUs
+	// BookingPriceTypePNotSet is a pointer to BookingPriceTypeVNotSet
+	BookingPriceTypePNotSet = &_BookingPriceTypePNotSet
+)
 
-// BookingPriceTypePFixedPrice returns a pointer to BookingPriceTypeVFixedPrice
-func BookingPriceTypePFixedPrice() *BookingPriceType {
-	v := BookingPriceTypeVFixedPrice
-	return &v
-}
-
-// BookingPriceTypePStartingAt returns a pointer to BookingPriceTypeVStartingAt
-func BookingPriceTypePStartingAt() *BookingPriceType {
-	v := BookingPriceTypeVStartingAt
-	return &v
-}
-
-// BookingPriceTypePHourly returns a pointer to BookingPriceTypeVHourly
-func BookingPriceTypePHourly() *BookingPriceType {
-	v := BookingPriceTypeVHourly
-	return &v
-}
-
-// BookingPriceTypePFree returns a pointer to BookingPriceTypeVFree
-func BookingPriceTypePFree() *BookingPriceType {
-	v := BookingPriceTypeVFree
-	return &v
-}
-
-// BookingPriceTypePPriceVaries returns a pointer to BookingPriceTypeVPriceVaries
-func BookingPriceTypePPriceVaries() *BookingPriceType {
-	v := BookingPriceTypeVPriceVaries
-	return &v
-}
-
-// BookingPriceTypePCallUs returns a pointer to BookingPriceTypeVCallUs
-func BookingPriceTypePCallUs() *BookingPriceType {
-	v := BookingPriceTypeVCallUs
-	return &v
-}
-
-// BookingPriceTypePNotSet returns a pointer to BookingPriceTypeVNotSet
-func BookingPriceTypePNotSet() *BookingPriceType {
-	v := BookingPriceTypeVNotSet
-	return &v
-}
+var (
+	_BookingPriceTypePUndefined   = BookingPriceTypeVUndefined
+	_BookingPriceTypePFixedPrice  = BookingPriceTypeVFixedPrice
+	_BookingPriceTypePStartingAt  = BookingPriceTypeVStartingAt
+	_BookingPriceTypePHourly      = BookingPriceTypeVHourly
+	_BookingPriceTypePFree        = BookingPriceTypeVFree
+	_BookingPriceTypePPriceVaries = BookingPriceTypeVPriceVaries
+	_BookingPriceTypePCallUs      = BookingPriceTypeVCallUs
+	_BookingPriceTypePNotSet      = BookingPriceTypeVNotSet
+)

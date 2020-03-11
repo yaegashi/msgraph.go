@@ -3,31 +3,28 @@
 package msgraph
 
 // NetworkSingleSignOnType undocumented
-type NetworkSingleSignOnType int
+type NetworkSingleSignOnType string
 
 const (
 	// NetworkSingleSignOnTypeVDisabled undocumented
-	NetworkSingleSignOnTypeVDisabled NetworkSingleSignOnType = 0
+	NetworkSingleSignOnTypeVDisabled NetworkSingleSignOnType = "disabled"
 	// NetworkSingleSignOnTypeVPrelogon undocumented
-	NetworkSingleSignOnTypeVPrelogon NetworkSingleSignOnType = 1
+	NetworkSingleSignOnTypeVPrelogon NetworkSingleSignOnType = "prelogon"
 	// NetworkSingleSignOnTypeVPostlogon undocumented
-	NetworkSingleSignOnTypeVPostlogon NetworkSingleSignOnType = 2
+	NetworkSingleSignOnTypeVPostlogon NetworkSingleSignOnType = "postlogon"
 )
 
-// NetworkSingleSignOnTypePDisabled returns a pointer to NetworkSingleSignOnTypeVDisabled
-func NetworkSingleSignOnTypePDisabled() *NetworkSingleSignOnType {
-	v := NetworkSingleSignOnTypeVDisabled
-	return &v
-}
+var (
+	// NetworkSingleSignOnTypePDisabled is a pointer to NetworkSingleSignOnTypeVDisabled
+	NetworkSingleSignOnTypePDisabled = &_NetworkSingleSignOnTypePDisabled
+	// NetworkSingleSignOnTypePPrelogon is a pointer to NetworkSingleSignOnTypeVPrelogon
+	NetworkSingleSignOnTypePPrelogon = &_NetworkSingleSignOnTypePPrelogon
+	// NetworkSingleSignOnTypePPostlogon is a pointer to NetworkSingleSignOnTypeVPostlogon
+	NetworkSingleSignOnTypePPostlogon = &_NetworkSingleSignOnTypePPostlogon
+)
 
-// NetworkSingleSignOnTypePPrelogon returns a pointer to NetworkSingleSignOnTypeVPrelogon
-func NetworkSingleSignOnTypePPrelogon() *NetworkSingleSignOnType {
-	v := NetworkSingleSignOnTypeVPrelogon
-	return &v
-}
-
-// NetworkSingleSignOnTypePPostlogon returns a pointer to NetworkSingleSignOnTypeVPostlogon
-func NetworkSingleSignOnTypePPostlogon() *NetworkSingleSignOnType {
-	v := NetworkSingleSignOnTypeVPostlogon
-	return &v
-}
+var (
+	_NetworkSingleSignOnTypePDisabled  = NetworkSingleSignOnTypeVDisabled
+	_NetworkSingleSignOnTypePPrelogon  = NetworkSingleSignOnTypeVPrelogon
+	_NetworkSingleSignOnTypePPostlogon = NetworkSingleSignOnTypeVPostlogon
+)

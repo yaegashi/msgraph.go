@@ -3,63 +3,48 @@
 package msgraph
 
 // ApplicationPermissionsRequired undocumented
-type ApplicationPermissionsRequired int
+type ApplicationPermissionsRequired string
 
 const (
 	// ApplicationPermissionsRequiredVUnknown undocumented
-	ApplicationPermissionsRequiredVUnknown ApplicationPermissionsRequired = 0
+	ApplicationPermissionsRequiredVUnknown ApplicationPermissionsRequired = "unknown"
 	// ApplicationPermissionsRequiredVAnonymous undocumented
-	ApplicationPermissionsRequiredVAnonymous ApplicationPermissionsRequired = 1
+	ApplicationPermissionsRequiredVAnonymous ApplicationPermissionsRequired = "anonymous"
 	// ApplicationPermissionsRequiredVGuest undocumented
-	ApplicationPermissionsRequiredVGuest ApplicationPermissionsRequired = 2
+	ApplicationPermissionsRequiredVGuest ApplicationPermissionsRequired = "guest"
 	// ApplicationPermissionsRequiredVUser undocumented
-	ApplicationPermissionsRequiredVUser ApplicationPermissionsRequired = 3
+	ApplicationPermissionsRequiredVUser ApplicationPermissionsRequired = "user"
 	// ApplicationPermissionsRequiredVAdministrator undocumented
-	ApplicationPermissionsRequiredVAdministrator ApplicationPermissionsRequired = 4
+	ApplicationPermissionsRequiredVAdministrator ApplicationPermissionsRequired = "administrator"
 	// ApplicationPermissionsRequiredVSystem undocumented
-	ApplicationPermissionsRequiredVSystem ApplicationPermissionsRequired = 5
+	ApplicationPermissionsRequiredVSystem ApplicationPermissionsRequired = "system"
 	// ApplicationPermissionsRequiredVUnknownFutureValue undocumented
-	ApplicationPermissionsRequiredVUnknownFutureValue ApplicationPermissionsRequired = 127
+	ApplicationPermissionsRequiredVUnknownFutureValue ApplicationPermissionsRequired = "unknownFutureValue"
 )
 
-// ApplicationPermissionsRequiredPUnknown returns a pointer to ApplicationPermissionsRequiredVUnknown
-func ApplicationPermissionsRequiredPUnknown() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVUnknown
-	return &v
-}
+var (
+	// ApplicationPermissionsRequiredPUnknown is a pointer to ApplicationPermissionsRequiredVUnknown
+	ApplicationPermissionsRequiredPUnknown = &_ApplicationPermissionsRequiredPUnknown
+	// ApplicationPermissionsRequiredPAnonymous is a pointer to ApplicationPermissionsRequiredVAnonymous
+	ApplicationPermissionsRequiredPAnonymous = &_ApplicationPermissionsRequiredPAnonymous
+	// ApplicationPermissionsRequiredPGuest is a pointer to ApplicationPermissionsRequiredVGuest
+	ApplicationPermissionsRequiredPGuest = &_ApplicationPermissionsRequiredPGuest
+	// ApplicationPermissionsRequiredPUser is a pointer to ApplicationPermissionsRequiredVUser
+	ApplicationPermissionsRequiredPUser = &_ApplicationPermissionsRequiredPUser
+	// ApplicationPermissionsRequiredPAdministrator is a pointer to ApplicationPermissionsRequiredVAdministrator
+	ApplicationPermissionsRequiredPAdministrator = &_ApplicationPermissionsRequiredPAdministrator
+	// ApplicationPermissionsRequiredPSystem is a pointer to ApplicationPermissionsRequiredVSystem
+	ApplicationPermissionsRequiredPSystem = &_ApplicationPermissionsRequiredPSystem
+	// ApplicationPermissionsRequiredPUnknownFutureValue is a pointer to ApplicationPermissionsRequiredVUnknownFutureValue
+	ApplicationPermissionsRequiredPUnknownFutureValue = &_ApplicationPermissionsRequiredPUnknownFutureValue
+)
 
-// ApplicationPermissionsRequiredPAnonymous returns a pointer to ApplicationPermissionsRequiredVAnonymous
-func ApplicationPermissionsRequiredPAnonymous() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVAnonymous
-	return &v
-}
-
-// ApplicationPermissionsRequiredPGuest returns a pointer to ApplicationPermissionsRequiredVGuest
-func ApplicationPermissionsRequiredPGuest() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVGuest
-	return &v
-}
-
-// ApplicationPermissionsRequiredPUser returns a pointer to ApplicationPermissionsRequiredVUser
-func ApplicationPermissionsRequiredPUser() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVUser
-	return &v
-}
-
-// ApplicationPermissionsRequiredPAdministrator returns a pointer to ApplicationPermissionsRequiredVAdministrator
-func ApplicationPermissionsRequiredPAdministrator() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVAdministrator
-	return &v
-}
-
-// ApplicationPermissionsRequiredPSystem returns a pointer to ApplicationPermissionsRequiredVSystem
-func ApplicationPermissionsRequiredPSystem() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVSystem
-	return &v
-}
-
-// ApplicationPermissionsRequiredPUnknownFutureValue returns a pointer to ApplicationPermissionsRequiredVUnknownFutureValue
-func ApplicationPermissionsRequiredPUnknownFutureValue() *ApplicationPermissionsRequired {
-	v := ApplicationPermissionsRequiredVUnknownFutureValue
-	return &v
-}
+var (
+	_ApplicationPermissionsRequiredPUnknown            = ApplicationPermissionsRequiredVUnknown
+	_ApplicationPermissionsRequiredPAnonymous          = ApplicationPermissionsRequiredVAnonymous
+	_ApplicationPermissionsRequiredPGuest              = ApplicationPermissionsRequiredVGuest
+	_ApplicationPermissionsRequiredPUser               = ApplicationPermissionsRequiredVUser
+	_ApplicationPermissionsRequiredPAdministrator      = ApplicationPermissionsRequiredVAdministrator
+	_ApplicationPermissionsRequiredPSystem             = ApplicationPermissionsRequiredVSystem
+	_ApplicationPermissionsRequiredPUnknownFutureValue = ApplicationPermissionsRequiredVUnknownFutureValue
+)

@@ -3,31 +3,28 @@
 package msgraph
 
 // DeviceManagementDomainJoinConnectorState undocumented
-type DeviceManagementDomainJoinConnectorState int
+type DeviceManagementDomainJoinConnectorState string
 
 const (
 	// DeviceManagementDomainJoinConnectorStateVActive undocumented
-	DeviceManagementDomainJoinConnectorStateVActive DeviceManagementDomainJoinConnectorState = 0
+	DeviceManagementDomainJoinConnectorStateVActive DeviceManagementDomainJoinConnectorState = "active"
 	// DeviceManagementDomainJoinConnectorStateVError undocumented
-	DeviceManagementDomainJoinConnectorStateVError DeviceManagementDomainJoinConnectorState = 1
+	DeviceManagementDomainJoinConnectorStateVError DeviceManagementDomainJoinConnectorState = "error"
 	// DeviceManagementDomainJoinConnectorStateVInactive undocumented
-	DeviceManagementDomainJoinConnectorStateVInactive DeviceManagementDomainJoinConnectorState = 2
+	DeviceManagementDomainJoinConnectorStateVInactive DeviceManagementDomainJoinConnectorState = "inactive"
 )
 
-// DeviceManagementDomainJoinConnectorStatePActive returns a pointer to DeviceManagementDomainJoinConnectorStateVActive
-func DeviceManagementDomainJoinConnectorStatePActive() *DeviceManagementDomainJoinConnectorState {
-	v := DeviceManagementDomainJoinConnectorStateVActive
-	return &v
-}
+var (
+	// DeviceManagementDomainJoinConnectorStatePActive is a pointer to DeviceManagementDomainJoinConnectorStateVActive
+	DeviceManagementDomainJoinConnectorStatePActive = &_DeviceManagementDomainJoinConnectorStatePActive
+	// DeviceManagementDomainJoinConnectorStatePError is a pointer to DeviceManagementDomainJoinConnectorStateVError
+	DeviceManagementDomainJoinConnectorStatePError = &_DeviceManagementDomainJoinConnectorStatePError
+	// DeviceManagementDomainJoinConnectorStatePInactive is a pointer to DeviceManagementDomainJoinConnectorStateVInactive
+	DeviceManagementDomainJoinConnectorStatePInactive = &_DeviceManagementDomainJoinConnectorStatePInactive
+)
 
-// DeviceManagementDomainJoinConnectorStatePError returns a pointer to DeviceManagementDomainJoinConnectorStateVError
-func DeviceManagementDomainJoinConnectorStatePError() *DeviceManagementDomainJoinConnectorState {
-	v := DeviceManagementDomainJoinConnectorStateVError
-	return &v
-}
-
-// DeviceManagementDomainJoinConnectorStatePInactive returns a pointer to DeviceManagementDomainJoinConnectorStateVInactive
-func DeviceManagementDomainJoinConnectorStatePInactive() *DeviceManagementDomainJoinConnectorState {
-	v := DeviceManagementDomainJoinConnectorStateVInactive
-	return &v
-}
+var (
+	_DeviceManagementDomainJoinConnectorStatePActive   = DeviceManagementDomainJoinConnectorStateVActive
+	_DeviceManagementDomainJoinConnectorStatePError    = DeviceManagementDomainJoinConnectorStateVError
+	_DeviceManagementDomainJoinConnectorStatePInactive = DeviceManagementDomainJoinConnectorStateVInactive
+)

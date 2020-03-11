@@ -3,55 +3,43 @@
 package msgraph
 
 // RatingAppsType undocumented
-type RatingAppsType int
+type RatingAppsType string
 
 const (
 	// RatingAppsTypeVAllAllowed undocumented
-	RatingAppsTypeVAllAllowed RatingAppsType = 0
+	RatingAppsTypeVAllAllowed RatingAppsType = "allAllowed"
 	// RatingAppsTypeVAllBlocked undocumented
-	RatingAppsTypeVAllBlocked RatingAppsType = 1
+	RatingAppsTypeVAllBlocked RatingAppsType = "allBlocked"
 	// RatingAppsTypeVAgesAbove4 undocumented
-	RatingAppsTypeVAgesAbove4 RatingAppsType = 2
+	RatingAppsTypeVAgesAbove4 RatingAppsType = "agesAbove4"
 	// RatingAppsTypeVAgesAbove9 undocumented
-	RatingAppsTypeVAgesAbove9 RatingAppsType = 3
+	RatingAppsTypeVAgesAbove9 RatingAppsType = "agesAbove9"
 	// RatingAppsTypeVAgesAbove12 undocumented
-	RatingAppsTypeVAgesAbove12 RatingAppsType = 4
+	RatingAppsTypeVAgesAbove12 RatingAppsType = "agesAbove12"
 	// RatingAppsTypeVAgesAbove17 undocumented
-	RatingAppsTypeVAgesAbove17 RatingAppsType = 5
+	RatingAppsTypeVAgesAbove17 RatingAppsType = "agesAbove17"
 )
 
-// RatingAppsTypePAllAllowed returns a pointer to RatingAppsTypeVAllAllowed
-func RatingAppsTypePAllAllowed() *RatingAppsType {
-	v := RatingAppsTypeVAllAllowed
-	return &v
-}
+var (
+	// RatingAppsTypePAllAllowed is a pointer to RatingAppsTypeVAllAllowed
+	RatingAppsTypePAllAllowed = &_RatingAppsTypePAllAllowed
+	// RatingAppsTypePAllBlocked is a pointer to RatingAppsTypeVAllBlocked
+	RatingAppsTypePAllBlocked = &_RatingAppsTypePAllBlocked
+	// RatingAppsTypePAgesAbove4 is a pointer to RatingAppsTypeVAgesAbove4
+	RatingAppsTypePAgesAbove4 = &_RatingAppsTypePAgesAbove4
+	// RatingAppsTypePAgesAbove9 is a pointer to RatingAppsTypeVAgesAbove9
+	RatingAppsTypePAgesAbove9 = &_RatingAppsTypePAgesAbove9
+	// RatingAppsTypePAgesAbove12 is a pointer to RatingAppsTypeVAgesAbove12
+	RatingAppsTypePAgesAbove12 = &_RatingAppsTypePAgesAbove12
+	// RatingAppsTypePAgesAbove17 is a pointer to RatingAppsTypeVAgesAbove17
+	RatingAppsTypePAgesAbove17 = &_RatingAppsTypePAgesAbove17
+)
 
-// RatingAppsTypePAllBlocked returns a pointer to RatingAppsTypeVAllBlocked
-func RatingAppsTypePAllBlocked() *RatingAppsType {
-	v := RatingAppsTypeVAllBlocked
-	return &v
-}
-
-// RatingAppsTypePAgesAbove4 returns a pointer to RatingAppsTypeVAgesAbove4
-func RatingAppsTypePAgesAbove4() *RatingAppsType {
-	v := RatingAppsTypeVAgesAbove4
-	return &v
-}
-
-// RatingAppsTypePAgesAbove9 returns a pointer to RatingAppsTypeVAgesAbove9
-func RatingAppsTypePAgesAbove9() *RatingAppsType {
-	v := RatingAppsTypeVAgesAbove9
-	return &v
-}
-
-// RatingAppsTypePAgesAbove12 returns a pointer to RatingAppsTypeVAgesAbove12
-func RatingAppsTypePAgesAbove12() *RatingAppsType {
-	v := RatingAppsTypeVAgesAbove12
-	return &v
-}
-
-// RatingAppsTypePAgesAbove17 returns a pointer to RatingAppsTypeVAgesAbove17
-func RatingAppsTypePAgesAbove17() *RatingAppsType {
-	v := RatingAppsTypeVAgesAbove17
-	return &v
-}
+var (
+	_RatingAppsTypePAllAllowed  = RatingAppsTypeVAllAllowed
+	_RatingAppsTypePAllBlocked  = RatingAppsTypeVAllBlocked
+	_RatingAppsTypePAgesAbove4  = RatingAppsTypeVAgesAbove4
+	_RatingAppsTypePAgesAbove9  = RatingAppsTypeVAgesAbove9
+	_RatingAppsTypePAgesAbove12 = RatingAppsTypeVAgesAbove12
+	_RatingAppsTypePAgesAbove17 = RatingAppsTypeVAgesAbove17
+)

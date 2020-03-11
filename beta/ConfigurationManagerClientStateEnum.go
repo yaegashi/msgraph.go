@@ -3,55 +3,43 @@
 package msgraph
 
 // ConfigurationManagerClientState undocumented
-type ConfigurationManagerClientState int
+type ConfigurationManagerClientState string
 
 const (
 	// ConfigurationManagerClientStateVUnknown undocumented
-	ConfigurationManagerClientStateVUnknown ConfigurationManagerClientState = 0
+	ConfigurationManagerClientStateVUnknown ConfigurationManagerClientState = "unknown"
 	// ConfigurationManagerClientStateVInstalled undocumented
-	ConfigurationManagerClientStateVInstalled ConfigurationManagerClientState = 1
+	ConfigurationManagerClientStateVInstalled ConfigurationManagerClientState = "installed"
 	// ConfigurationManagerClientStateVHealthy undocumented
-	ConfigurationManagerClientStateVHealthy ConfigurationManagerClientState = 7
+	ConfigurationManagerClientStateVHealthy ConfigurationManagerClientState = "healthy"
 	// ConfigurationManagerClientStateVInstallFailed undocumented
-	ConfigurationManagerClientStateVInstallFailed ConfigurationManagerClientState = 8
+	ConfigurationManagerClientStateVInstallFailed ConfigurationManagerClientState = "installFailed"
 	// ConfigurationManagerClientStateVUpdateFailed undocumented
-	ConfigurationManagerClientStateVUpdateFailed ConfigurationManagerClientState = 11
+	ConfigurationManagerClientStateVUpdateFailed ConfigurationManagerClientState = "updateFailed"
 	// ConfigurationManagerClientStateVCommunicationError undocumented
-	ConfigurationManagerClientStateVCommunicationError ConfigurationManagerClientState = 19
+	ConfigurationManagerClientStateVCommunicationError ConfigurationManagerClientState = "communicationError"
 )
 
-// ConfigurationManagerClientStatePUnknown returns a pointer to ConfigurationManagerClientStateVUnknown
-func ConfigurationManagerClientStatePUnknown() *ConfigurationManagerClientState {
-	v := ConfigurationManagerClientStateVUnknown
-	return &v
-}
+var (
+	// ConfigurationManagerClientStatePUnknown is a pointer to ConfigurationManagerClientStateVUnknown
+	ConfigurationManagerClientStatePUnknown = &_ConfigurationManagerClientStatePUnknown
+	// ConfigurationManagerClientStatePInstalled is a pointer to ConfigurationManagerClientStateVInstalled
+	ConfigurationManagerClientStatePInstalled = &_ConfigurationManagerClientStatePInstalled
+	// ConfigurationManagerClientStatePHealthy is a pointer to ConfigurationManagerClientStateVHealthy
+	ConfigurationManagerClientStatePHealthy = &_ConfigurationManagerClientStatePHealthy
+	// ConfigurationManagerClientStatePInstallFailed is a pointer to ConfigurationManagerClientStateVInstallFailed
+	ConfigurationManagerClientStatePInstallFailed = &_ConfigurationManagerClientStatePInstallFailed
+	// ConfigurationManagerClientStatePUpdateFailed is a pointer to ConfigurationManagerClientStateVUpdateFailed
+	ConfigurationManagerClientStatePUpdateFailed = &_ConfigurationManagerClientStatePUpdateFailed
+	// ConfigurationManagerClientStatePCommunicationError is a pointer to ConfigurationManagerClientStateVCommunicationError
+	ConfigurationManagerClientStatePCommunicationError = &_ConfigurationManagerClientStatePCommunicationError
+)
 
-// ConfigurationManagerClientStatePInstalled returns a pointer to ConfigurationManagerClientStateVInstalled
-func ConfigurationManagerClientStatePInstalled() *ConfigurationManagerClientState {
-	v := ConfigurationManagerClientStateVInstalled
-	return &v
-}
-
-// ConfigurationManagerClientStatePHealthy returns a pointer to ConfigurationManagerClientStateVHealthy
-func ConfigurationManagerClientStatePHealthy() *ConfigurationManagerClientState {
-	v := ConfigurationManagerClientStateVHealthy
-	return &v
-}
-
-// ConfigurationManagerClientStatePInstallFailed returns a pointer to ConfigurationManagerClientStateVInstallFailed
-func ConfigurationManagerClientStatePInstallFailed() *ConfigurationManagerClientState {
-	v := ConfigurationManagerClientStateVInstallFailed
-	return &v
-}
-
-// ConfigurationManagerClientStatePUpdateFailed returns a pointer to ConfigurationManagerClientStateVUpdateFailed
-func ConfigurationManagerClientStatePUpdateFailed() *ConfigurationManagerClientState {
-	v := ConfigurationManagerClientStateVUpdateFailed
-	return &v
-}
-
-// ConfigurationManagerClientStatePCommunicationError returns a pointer to ConfigurationManagerClientStateVCommunicationError
-func ConfigurationManagerClientStatePCommunicationError() *ConfigurationManagerClientState {
-	v := ConfigurationManagerClientStateVCommunicationError
-	return &v
-}
+var (
+	_ConfigurationManagerClientStatePUnknown            = ConfigurationManagerClientStateVUnknown
+	_ConfigurationManagerClientStatePInstalled          = ConfigurationManagerClientStateVInstalled
+	_ConfigurationManagerClientStatePHealthy            = ConfigurationManagerClientStateVHealthy
+	_ConfigurationManagerClientStatePInstallFailed      = ConfigurationManagerClientStateVInstallFailed
+	_ConfigurationManagerClientStatePUpdateFailed       = ConfigurationManagerClientStateVUpdateFailed
+	_ConfigurationManagerClientStatePCommunicationError = ConfigurationManagerClientStateVCommunicationError
+)

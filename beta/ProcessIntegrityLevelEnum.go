@@ -3,63 +3,48 @@
 package msgraph
 
 // ProcessIntegrityLevel undocumented
-type ProcessIntegrityLevel int
+type ProcessIntegrityLevel string
 
 const (
 	// ProcessIntegrityLevelVUnknown undocumented
-	ProcessIntegrityLevelVUnknown ProcessIntegrityLevel = 0
+	ProcessIntegrityLevelVUnknown ProcessIntegrityLevel = "unknown"
 	// ProcessIntegrityLevelVUntrusted undocumented
-	ProcessIntegrityLevelVUntrusted ProcessIntegrityLevel = 1
+	ProcessIntegrityLevelVUntrusted ProcessIntegrityLevel = "untrusted"
 	// ProcessIntegrityLevelVLow undocumented
-	ProcessIntegrityLevelVLow ProcessIntegrityLevel = 2
+	ProcessIntegrityLevelVLow ProcessIntegrityLevel = "low"
 	// ProcessIntegrityLevelVMedium undocumented
-	ProcessIntegrityLevelVMedium ProcessIntegrityLevel = 3
+	ProcessIntegrityLevelVMedium ProcessIntegrityLevel = "medium"
 	// ProcessIntegrityLevelVHigh undocumented
-	ProcessIntegrityLevelVHigh ProcessIntegrityLevel = 4
+	ProcessIntegrityLevelVHigh ProcessIntegrityLevel = "high"
 	// ProcessIntegrityLevelVSystem undocumented
-	ProcessIntegrityLevelVSystem ProcessIntegrityLevel = 5
+	ProcessIntegrityLevelVSystem ProcessIntegrityLevel = "system"
 	// ProcessIntegrityLevelVUnknownFutureValue undocumented
-	ProcessIntegrityLevelVUnknownFutureValue ProcessIntegrityLevel = 127
+	ProcessIntegrityLevelVUnknownFutureValue ProcessIntegrityLevel = "unknownFutureValue"
 )
 
-// ProcessIntegrityLevelPUnknown returns a pointer to ProcessIntegrityLevelVUnknown
-func ProcessIntegrityLevelPUnknown() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVUnknown
-	return &v
-}
+var (
+	// ProcessIntegrityLevelPUnknown is a pointer to ProcessIntegrityLevelVUnknown
+	ProcessIntegrityLevelPUnknown = &_ProcessIntegrityLevelPUnknown
+	// ProcessIntegrityLevelPUntrusted is a pointer to ProcessIntegrityLevelVUntrusted
+	ProcessIntegrityLevelPUntrusted = &_ProcessIntegrityLevelPUntrusted
+	// ProcessIntegrityLevelPLow is a pointer to ProcessIntegrityLevelVLow
+	ProcessIntegrityLevelPLow = &_ProcessIntegrityLevelPLow
+	// ProcessIntegrityLevelPMedium is a pointer to ProcessIntegrityLevelVMedium
+	ProcessIntegrityLevelPMedium = &_ProcessIntegrityLevelPMedium
+	// ProcessIntegrityLevelPHigh is a pointer to ProcessIntegrityLevelVHigh
+	ProcessIntegrityLevelPHigh = &_ProcessIntegrityLevelPHigh
+	// ProcessIntegrityLevelPSystem is a pointer to ProcessIntegrityLevelVSystem
+	ProcessIntegrityLevelPSystem = &_ProcessIntegrityLevelPSystem
+	// ProcessIntegrityLevelPUnknownFutureValue is a pointer to ProcessIntegrityLevelVUnknownFutureValue
+	ProcessIntegrityLevelPUnknownFutureValue = &_ProcessIntegrityLevelPUnknownFutureValue
+)
 
-// ProcessIntegrityLevelPUntrusted returns a pointer to ProcessIntegrityLevelVUntrusted
-func ProcessIntegrityLevelPUntrusted() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVUntrusted
-	return &v
-}
-
-// ProcessIntegrityLevelPLow returns a pointer to ProcessIntegrityLevelVLow
-func ProcessIntegrityLevelPLow() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVLow
-	return &v
-}
-
-// ProcessIntegrityLevelPMedium returns a pointer to ProcessIntegrityLevelVMedium
-func ProcessIntegrityLevelPMedium() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVMedium
-	return &v
-}
-
-// ProcessIntegrityLevelPHigh returns a pointer to ProcessIntegrityLevelVHigh
-func ProcessIntegrityLevelPHigh() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVHigh
-	return &v
-}
-
-// ProcessIntegrityLevelPSystem returns a pointer to ProcessIntegrityLevelVSystem
-func ProcessIntegrityLevelPSystem() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVSystem
-	return &v
-}
-
-// ProcessIntegrityLevelPUnknownFutureValue returns a pointer to ProcessIntegrityLevelVUnknownFutureValue
-func ProcessIntegrityLevelPUnknownFutureValue() *ProcessIntegrityLevel {
-	v := ProcessIntegrityLevelVUnknownFutureValue
-	return &v
-}
+var (
+	_ProcessIntegrityLevelPUnknown            = ProcessIntegrityLevelVUnknown
+	_ProcessIntegrityLevelPUntrusted          = ProcessIntegrityLevelVUntrusted
+	_ProcessIntegrityLevelPLow                = ProcessIntegrityLevelVLow
+	_ProcessIntegrityLevelPMedium             = ProcessIntegrityLevelVMedium
+	_ProcessIntegrityLevelPHigh               = ProcessIntegrityLevelVHigh
+	_ProcessIntegrityLevelPSystem             = ProcessIntegrityLevelVSystem
+	_ProcessIntegrityLevelPUnknownFutureValue = ProcessIntegrityLevelVUnknownFutureValue
+)

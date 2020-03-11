@@ -3,31 +3,28 @@
 package msgraph
 
 // SafeSearchFilterType undocumented
-type SafeSearchFilterType int
+type SafeSearchFilterType string
 
 const (
 	// SafeSearchFilterTypeVUserDefined undocumented
-	SafeSearchFilterTypeVUserDefined SafeSearchFilterType = 0
+	SafeSearchFilterTypeVUserDefined SafeSearchFilterType = "userDefined"
 	// SafeSearchFilterTypeVStrict undocumented
-	SafeSearchFilterTypeVStrict SafeSearchFilterType = 1
+	SafeSearchFilterTypeVStrict SafeSearchFilterType = "strict"
 	// SafeSearchFilterTypeVModerate undocumented
-	SafeSearchFilterTypeVModerate SafeSearchFilterType = 2
+	SafeSearchFilterTypeVModerate SafeSearchFilterType = "moderate"
 )
 
-// SafeSearchFilterTypePUserDefined returns a pointer to SafeSearchFilterTypeVUserDefined
-func SafeSearchFilterTypePUserDefined() *SafeSearchFilterType {
-	v := SafeSearchFilterTypeVUserDefined
-	return &v
-}
+var (
+	// SafeSearchFilterTypePUserDefined is a pointer to SafeSearchFilterTypeVUserDefined
+	SafeSearchFilterTypePUserDefined = &_SafeSearchFilterTypePUserDefined
+	// SafeSearchFilterTypePStrict is a pointer to SafeSearchFilterTypeVStrict
+	SafeSearchFilterTypePStrict = &_SafeSearchFilterTypePStrict
+	// SafeSearchFilterTypePModerate is a pointer to SafeSearchFilterTypeVModerate
+	SafeSearchFilterTypePModerate = &_SafeSearchFilterTypePModerate
+)
 
-// SafeSearchFilterTypePStrict returns a pointer to SafeSearchFilterTypeVStrict
-func SafeSearchFilterTypePStrict() *SafeSearchFilterType {
-	v := SafeSearchFilterTypeVStrict
-	return &v
-}
-
-// SafeSearchFilterTypePModerate returns a pointer to SafeSearchFilterTypeVModerate
-func SafeSearchFilterTypePModerate() *SafeSearchFilterType {
-	v := SafeSearchFilterTypeVModerate
-	return &v
-}
+var (
+	_SafeSearchFilterTypePUserDefined = SafeSearchFilterTypeVUserDefined
+	_SafeSearchFilterTypePStrict      = SafeSearchFilterTypeVStrict
+	_SafeSearchFilterTypePModerate    = SafeSearchFilterTypeVModerate
+)
