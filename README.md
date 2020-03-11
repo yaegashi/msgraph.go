@@ -95,9 +95,11 @@ $ go generate ./gen
 - [ ] Unit tests
 - [x] CI
 - [x] Persist OAuth2 tokens in file
+- [ ] Persist OAuth2 tokens in object storage like Azure Blob
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
-- [ ] Use string for EnumType (pointed out in #6)
+- [x] Use string for EnumType (pointed out in #6)
+- [ ] Support Windows time zone names used in DateTimeTimeZone (incorporate [genzabbrs.go](https://golang.org/src/time/genzabbrs.go))
 
 ## References
 
