@@ -167,6 +167,7 @@ type BaseRequest struct {
 	baseURL       string
 	client        *http.Client
 	requestObject interface{}
+	header        http.Header
 	query         url.Values
 }
 
@@ -184,8 +185,19 @@ func (r *BaseRequest) Client() *http.Client {
 	return r.client
 }
 
-// Query returns queries for URL
+// Header returns headers of the request
+func (r *BaseRequest) Header() http.Header {
+	if r.header == nil {
+		r.header = http.Header{}
+	}
+	return r.header
+}
+
+// Query returns queries of the request
 func (r *BaseRequest) Query() url.Values {
+	if r.query == nil {
+		r.query = url.Values{}
+	}
 	return r.query
 }
 
@@ -239,7 +251,18 @@ func (r *BaseRequest) OrderBy(value string) {
 
 // NewRequest returns new HTTP request
 func (r *BaseRequest) NewRequest(method, path string, body io.Reader) (*http.Request, error) {
-	return http.NewRequest(method, r.baseURL+path, body)
+	req, err := http.NewRequest(method, r.baseURL+path, body)
+	if err != nil {
+		return nil, err
+	}
+	if r.header != nil {
+		for key, values := range r.header {
+			for _, value := range values {
+				req.Header.Add(key, value)
+			}
+		}
+	}
+	return req, nil
 }
 
 // NewJSONRequest returns new HTTP request with JSON payload
@@ -251,7 +274,7 @@ func (r *BaseRequest) NewJSONRequest(method, path string, obj interface{}) (*htt
 			return nil, err
 		}
 	}
-	req, err := http.NewRequest(method, r.baseURL+path, buf)
+	req, err := r.NewRequest(method, path, buf)
 	if err != nil {
 		return nil, err
 	}
