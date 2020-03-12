@@ -159,6 +159,36 @@ func lintName(name string) (should string) {
 	return string(runes)
 }
 
+// splitName returns a slice of CamelCase words from name.
+func splitName(name string) (words []string) {
+	if len(commonInitialismValues) == 0 {
+		for _, value := range commonInitialisms {
+			commonInitialismValues = append(commonInitialismValues, value)
+		}
+		sort.Slice(commonInitialismValues, func(i, j int) bool { return len(commonInitialismValues[i]) > len(commonInitialismValues[j]) })
+	}
+loop:
+	for i := 0; len(name) > 0; i++ {
+		for _, v := range commonInitialismValues {
+			if strings.HasPrefix(name, v) {
+				words = append(words, v)
+				name = name[len(v):]
+				continue loop
+			}
+		}
+		for i, c := range name {
+			if i != 0 && unicode.IsUpper(c) {
+				words = append(words, name[:i])
+				name = name[i:]
+				continue loop
+			}
+		}
+		words = append(words, name)
+		name = ""
+	}
+	return
+}
+
 // commonInitialisms is a set of common initialisms.
 // Only add entries that are highly unlikely to be non-initialisms.
 // For instance, "ID" is fine (Freudian code is rare), but "AND" is not.
@@ -222,6 +252,10 @@ var commonInitialisms = map[string]string{
 	"XSRF":   "XSRF",
 	"XSS":    "XSS",
 }
+
+// commonInitialismValues is a list of the commonInitialisms values
+// sorted by the length for prefix matches in splitName().
+var commonInitialismValues []string
 
 func ptrType(t string) string {
 	switch t {
@@ -459,7 +493,7 @@ func (g *Generator) Generate() error {
 	var out io.WriteCloser
 
 	for _, path := range []string{"msgraph", "extensions"} {
-		out, err = g.Create(path)
+		out, err = g.Create(path, "")
 		if err != nil {
 			return err
 		}
@@ -477,7 +511,7 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := enumTypeMap[key]
-		out, err = g.Create(x.Sym)
+		out, err = g.Create("Enum", x.Sym)
 		g.X = x
 		if err != nil {
 			return err
@@ -496,7 +530,7 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := entityTypeMap[key]
-		out, err = g.Create(x.Sym)
+		out, err = g.Create("Model", x.Sym)
 		if err != nil {
 			return err
 		}
@@ -518,7 +552,7 @@ func (g *Generator) Generate() error {
 			continue
 		}
 		x := actionTypeMap[a]
-		out, err = g.Create(g.SymBaseType(a))
+		out, err = g.Create("Action", g.SymBaseType(a))
 		if err != nil {
 			return err
 		}
@@ -555,7 +589,7 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, x := range keys {
-		out, err = g.Create(x)
+		out, err = g.Create("Request", x)
 		if err != nil {
 			return err
 		}
@@ -567,7 +601,7 @@ func (g *Generator) Generate() error {
 		out.Close()
 	}
 
-	out, err = g.Create("GraphService")
+	out, err = g.Create("GraphService", "")
 	if err != nil {
 		return err
 	}
@@ -610,7 +644,7 @@ func (g *Generator) Generate() error {
 		if len(x.Navigations) == 0 {
 			continue
 		}
-		out, err = g.Create(x.Sym)
+		out, err = g.Create("Action", x.Sym)
 		if err != nil {
 			return err
 		}
@@ -644,11 +678,11 @@ func (g *Generator) Generate() error {
 		if _, ok := reservedTypeTable[a]; ok {
 			continue
 		}
-		out, err = g.Create(g.SymBaseType(a))
-		if err != nil {
-			return err
-		}
 		for _, y := range x {
+			out, err = g.Create("Request", g.SymBaseType(a)+y.Sym)
+			if err != nil {
+				return err
+			}
 			g.Y = y
 			if b, ok := actionRequestBuilderMap[a]; ok {
 				g.X = b
@@ -663,8 +697,8 @@ func (g *Generator) Generate() error {
 					return err
 				}
 			}
+			out.Close()
 		}
-		out.Close()
 	}
 
 	return nil
@@ -704,7 +738,18 @@ func (g *Generator) Clean() error {
 	return nil
 }
 
-func (g *Generator) Create(path string) (io.WriteCloser, error) {
+func (g *Generator) Create(path string, sym string) (io.WriteCloser, error) {
+	if len(sym) > 0 {
+		symWords := splitName(sym)
+		numWords := 1
+		if strings.HasPrefix(path+sym, "RequestWorkbookFunctions") {
+			numWords = 3
+		}
+		if numWords > len(symWords) {
+			numWords = len(symWords)
+		}
+		path += strings.Join(symWords[:numWords], "")
+	}
 	if !strings.HasSuffix(path, ".go") {
 		path += ".go"
 	}
