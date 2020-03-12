@@ -99,6 +99,9 @@ $ go generate ./gen
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
 - [x] Use string for EnumType (pointed out in #6)
+- [x] Reduce number of generated files (#11)
+- [x] Provide easy way to add HTTP headers like `Prefer: outlook.timezone="Tokyo Standard Time"`
+- [ ] Support max number of pages to retrieve from a collection
 - [ ] Support Windows time zone names used in DateTimeTimeZone (incorporate [genzabbrs.go](https://golang.org/src/time/genzabbrs.go))
 
 ## References
