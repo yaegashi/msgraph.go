@@ -39,7 +39,7 @@ func (b *OutlookUserMasterCategoriesCollectionRequestBuilder) ID(id string) *Out
 type OutlookUserMasterCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookCategory collection
-func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookCategory, error) {
+func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for OutlookCategory collection
-func (r *OutlookUserMasterCategoriesCollectionRequest) Get(ctx context.Context) ([]OutlookCategory, error) {
+// GetN performs GET request for OutlookCategory collection, max N pages
+func (r *OutlookUserMasterCategoriesCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookCategory collection
+func (r *OutlookUserMasterCategoriesCollectionRequest) Get(ctx context.Context) ([]OutlookCategory, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookCategory collection

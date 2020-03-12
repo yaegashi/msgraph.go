@@ -39,7 +39,7 @@ func (b *ContactExtensionsCollectionRequestBuilder) ID(id string) *ExtensionRequ
 type ContactExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Extension collection
-func (r *ContactExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Extension, error) {
+func (r *ContactExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Extension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ContactExtensionsCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ContactExtensionsCollectionRequest) Paging(ctx context.Context, method,
 	}
 }
 
-// Get performs GET request for Extension collection
-func (r *ContactExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+// GetN performs GET request for Extension collection, max N pages
+func (r *ContactExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]Extension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Extension collection
+func (r *ContactExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Extension collection
@@ -133,7 +141,7 @@ func (b *ContactMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id stri
 type ContactMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Paging(ctx contex
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *ContactMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *ContactMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -234,7 +250,7 @@ func (b *ContactSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id str
 type ContactSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -271,7 +287,10 @@ func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -285,13 +304,18 @@ func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Paging(ctx conte
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *ContactSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *ContactSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
@@ -328,7 +352,7 @@ func (b *ContactFolderChildFoldersCollectionRequestBuilder) ID(id string) *Conta
 type ContactFolderChildFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ContactFolder, error) {
+func (r *ContactFolderChildFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ContactFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -365,7 +389,10 @@ func (r *ContactFolderChildFoldersCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -379,13 +406,18 @@ func (r *ContactFolderChildFoldersCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for ContactFolder collection
-func (r *ContactFolderChildFoldersCollectionRequest) Get(ctx context.Context) ([]ContactFolder, error) {
+// GetN performs GET request for ContactFolder collection, max N pages
+func (r *ContactFolderChildFoldersCollectionRequest) GetN(ctx context.Context, n int) ([]ContactFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ContactFolder collection
+func (r *ContactFolderChildFoldersCollectionRequest) Get(ctx context.Context) ([]ContactFolder, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ContactFolder collection
@@ -422,7 +454,7 @@ func (b *ContactFolderContactsCollectionRequestBuilder) ID(id string) *ContactRe
 type ContactFolderContactsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Contact, error) {
+func (r *ContactFolderContactsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Contact, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -459,7 +491,10 @@ func (r *ContactFolderContactsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -473,13 +508,18 @@ func (r *ContactFolderContactsCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for Contact collection
-func (r *ContactFolderContactsCollectionRequest) Get(ctx context.Context) ([]Contact, error) {
+// GetN performs GET request for Contact collection, max N pages
+func (r *ContactFolderContactsCollectionRequest) GetN(ctx context.Context, n int) ([]Contact, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Contact collection
+func (r *ContactFolderContactsCollectionRequest) Get(ctx context.Context) ([]Contact, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Contact collection
@@ -516,7 +556,7 @@ func (b *ContactFolderMultiValueExtendedPropertiesCollectionRequestBuilder) ID(i
 type ContactFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -553,7 +593,10 @@ func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -567,13 +610,18 @@ func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx 
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *ContactFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -610,7 +658,7 @@ func (b *ContactFolderSingleValueExtendedPropertiesCollectionRequestBuilder) ID(
 type ContactFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -647,7 +695,10 @@ func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -661,13 +712,18 @@ func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *ContactFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection

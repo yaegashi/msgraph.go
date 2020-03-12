@@ -39,7 +39,7 @@ func (b *ThreatAssessmentRequestObjectResultsCollectionRequestBuilder) ID(id str
 type ThreatAssessmentRequestObjectResultsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ThreatAssessmentResult collection
-func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ThreatAssessmentResult, error) {
+func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ThreatAssessmentResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Paging(ctx conte
 	}
 }
 
-// Get performs GET request for ThreatAssessmentResult collection
-func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Get(ctx context.Context) ([]ThreatAssessmentResult, error) {
+// GetN performs GET request for ThreatAssessmentResult collection, max N pages
+func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) GetN(ctx context.Context, n int) ([]ThreatAssessmentResult, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ThreatAssessmentResult collection
+func (r *ThreatAssessmentRequestObjectResultsCollectionRequest) Get(ctx context.Context) ([]ThreatAssessmentResult, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ThreatAssessmentResult collection

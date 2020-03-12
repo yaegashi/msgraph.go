@@ -46,7 +46,7 @@ func (b *ItemPictureCollectionRequestBuilder) ID(id string) *PictureRequestBuild
 type ItemPictureCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Picture collection
-func (r *ItemPictureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Picture, error) {
+func (r *ItemPictureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Picture, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -83,7 +83,10 @@ func (r *ItemPictureCollectionRequest) Paging(ctx context.Context, method, path 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -97,13 +100,18 @@ func (r *ItemPictureCollectionRequest) Paging(ctx context.Context, method, path 
 	}
 }
 
-// Get performs GET request for Picture collection
-func (r *ItemPictureCollectionRequest) Get(ctx context.Context) ([]Picture, error) {
+// GetN performs GET request for Picture collection, max N pages
+func (r *ItemPictureCollectionRequest) GetN(ctx context.Context, n int) ([]Picture, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Picture collection
+func (r *ItemPictureCollectionRequest) Get(ctx context.Context) ([]Picture, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Picture collection
@@ -161,7 +169,7 @@ func (b *ItemActivityStatActivitiesCollectionRequestBuilder) ID(id string) *Item
 type ItemActivityStatActivitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemActivity collection
-func (r *ItemActivityStatActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemActivity, error) {
+func (r *ItemActivityStatActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemActivity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -198,7 +206,10 @@ func (r *ItemActivityStatActivitiesCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -212,13 +223,18 @@ func (r *ItemActivityStatActivitiesCollectionRequest) Paging(ctx context.Context
 	}
 }
 
-// Get performs GET request for ItemActivity collection
-func (r *ItemActivityStatActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivity, error) {
+// GetN performs GET request for ItemActivity collection, max N pages
+func (r *ItemActivityStatActivitiesCollectionRequest) GetN(ctx context.Context, n int) ([]ItemActivity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemActivity collection
+func (r *ItemActivityStatActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivity, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ItemActivity collection
@@ -262,7 +278,7 @@ func (b *ItemAnalyticsItemActivityStatsCollectionRequestBuilder) ID(id string) *
 type ItemAnalyticsItemActivityStatsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemActivityStat collection
-func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemActivityStat, error) {
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemActivityStat, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -299,7 +315,10 @@ func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -313,13 +332,18 @@ func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Paging(ctx context.Con
 	}
 }
 
-// Get performs GET request for ItemActivityStat collection
-func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Get(ctx context.Context) ([]ItemActivityStat, error) {
+// GetN performs GET request for ItemActivityStat collection, max N pages
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) GetN(ctx context.Context, n int) ([]ItemActivityStat, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemActivityStat collection
+func (r *ItemAnalyticsItemActivityStatsCollectionRequest) Get(ctx context.Context) ([]ItemActivityStat, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ItemActivityStat collection

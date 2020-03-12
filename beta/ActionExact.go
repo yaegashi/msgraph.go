@@ -61,7 +61,7 @@ func (b *ExactMatchDataStoreSessionsCollectionRequestBuilder) ID(id string) *Exa
 type ExactMatchDataStoreSessionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExactMatchSession, error) {
+func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExactMatchSession, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -98,7 +98,10 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -112,13 +115,18 @@ func (r *ExactMatchDataStoreSessionsCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for ExactMatchSession collection
-func (r *ExactMatchDataStoreSessionsCollectionRequest) Get(ctx context.Context) ([]ExactMatchSession, error) {
+// GetN performs GET request for ExactMatchSession collection, max N pages
+func (r *ExactMatchDataStoreSessionsCollectionRequest) GetN(ctx context.Context, n int) ([]ExactMatchSession, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExactMatchSession collection
+func (r *ExactMatchDataStoreSessionsCollectionRequest) Get(ctx context.Context) ([]ExactMatchSession, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ExactMatchSession collection
@@ -155,7 +163,7 @@ func (b *ExactMatchLookupJobMatchingRowsCollectionRequestBuilder) ID(id string) 
 type ExactMatchLookupJobMatchingRowsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]LookupResultRow, error) {
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]LookupResultRow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -192,7 +200,10 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -206,13 +217,18 @@ func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Paging(ctx context.Co
 	}
 }
 
-// Get performs GET request for LookupResultRow collection
-func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Get(ctx context.Context) ([]LookupResultRow, error) {
+// GetN performs GET request for LookupResultRow collection, max N pages
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) GetN(ctx context.Context, n int) ([]LookupResultRow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for LookupResultRow collection
+func (r *ExactMatchLookupJobMatchingRowsCollectionRequest) Get(ctx context.Context) ([]LookupResultRow, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for LookupResultRow collection

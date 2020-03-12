@@ -39,7 +39,7 @@ func (b *ConditionalAccessRootNamedLocationsCollectionRequestBuilder) ID(id stri
 type ConditionalAccessRootNamedLocationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for NamedLocation collection
-func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]NamedLocation, error) {
+func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]NamedLocation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Paging(ctx contex
 	}
 }
 
-// Get performs GET request for NamedLocation collection
-func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Get(ctx context.Context) ([]NamedLocation, error) {
+// GetN performs GET request for NamedLocation collection, max N pages
+func (r *ConditionalAccessRootNamedLocationsCollectionRequest) GetN(ctx context.Context, n int) ([]NamedLocation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for NamedLocation collection
+func (r *ConditionalAccessRootNamedLocationsCollectionRequest) Get(ctx context.Context) ([]NamedLocation, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for NamedLocation collection
@@ -133,7 +141,7 @@ func (b *ConditionalAccessRootPoliciesCollectionRequestBuilder) ID(id string) *C
 type ConditionalAccessRootPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ConditionalAccessPolicy collection
-func (r *ConditionalAccessRootPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConditionalAccessPolicy, error) {
+func (r *ConditionalAccessRootPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConditionalAccessPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ConditionalAccessRootPoliciesCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ConditionalAccessRootPoliciesCollectionRequest) Paging(ctx context.Cont
 	}
 }
 
-// Get performs GET request for ConditionalAccessPolicy collection
-func (r *ConditionalAccessRootPoliciesCollectionRequest) Get(ctx context.Context) ([]ConditionalAccessPolicy, error) {
+// GetN performs GET request for ConditionalAccessPolicy collection, max N pages
+func (r *ConditionalAccessRootPoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]ConditionalAccessPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConditionalAccessPolicy collection
+func (r *ConditionalAccessRootPoliciesCollectionRequest) Get(ctx context.Context) ([]ConditionalAccessPolicy, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ConditionalAccessPolicy collection

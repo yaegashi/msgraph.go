@@ -53,7 +53,7 @@ func (b *OfficeClientConfigurationAssignmentsCollectionRequestBuilder) ID(id str
 type OfficeClientConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OfficeClientConfigurationAssignment collection
-func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OfficeClientConfigurationAssignment, error) {
+func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OfficeClientConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -90,7 +90,10 @@ func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -104,13 +107,18 @@ func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Paging(ctx conte
 	}
 }
 
-// Get performs GET request for OfficeClientConfigurationAssignment collection
-func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]OfficeClientConfigurationAssignment, error) {
+// GetN performs GET request for OfficeClientConfigurationAssignment collection, max N pages
+func (r *OfficeClientConfigurationAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]OfficeClientConfigurationAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OfficeClientConfigurationAssignment collection
+func (r *OfficeClientConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]OfficeClientConfigurationAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OfficeClientConfigurationAssignment collection
@@ -147,7 +155,7 @@ func (b *OfficeConfigurationClientConfigurationsCollectionRequestBuilder) ID(id 
 type OfficeConfigurationClientConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OfficeClientConfiguration, error) {
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OfficeClientConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -184,7 +192,10 @@ func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -198,13 +209,18 @@ func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for OfficeClientConfiguration collection
-func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Get(ctx context.Context) ([]OfficeClientConfiguration, error) {
+// GetN performs GET request for OfficeClientConfiguration collection, max N pages
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) GetN(ctx context.Context, n int) ([]OfficeClientConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OfficeClientConfiguration collection
+func (r *OfficeConfigurationClientConfigurationsCollectionRequest) Get(ctx context.Context) ([]OfficeClientConfiguration, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OfficeClientConfiguration collection
@@ -241,7 +257,7 @@ func (b *OfficeGraphInsightsSharedCollectionRequestBuilder) ID(id string) *Share
 type OfficeGraphInsightsSharedCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SharedInsight, error) {
+func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SharedInsight, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -278,7 +294,10 @@ func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -292,13 +311,18 @@ func (r *OfficeGraphInsightsSharedCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for SharedInsight collection
-func (r *OfficeGraphInsightsSharedCollectionRequest) Get(ctx context.Context) ([]SharedInsight, error) {
+// GetN performs GET request for SharedInsight collection, max N pages
+func (r *OfficeGraphInsightsSharedCollectionRequest) GetN(ctx context.Context, n int) ([]SharedInsight, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SharedInsight collection
+func (r *OfficeGraphInsightsSharedCollectionRequest) Get(ctx context.Context) ([]SharedInsight, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SharedInsight collection
@@ -335,7 +359,7 @@ func (b *OfficeGraphInsightsTrendingCollectionRequestBuilder) ID(id string) *Tre
 type OfficeGraphInsightsTrendingCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Trending, error) {
+func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Trending, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -372,7 +396,10 @@ func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -386,13 +413,18 @@ func (r *OfficeGraphInsightsTrendingCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for Trending collection
-func (r *OfficeGraphInsightsTrendingCollectionRequest) Get(ctx context.Context) ([]Trending, error) {
+// GetN performs GET request for Trending collection, max N pages
+func (r *OfficeGraphInsightsTrendingCollectionRequest) GetN(ctx context.Context, n int) ([]Trending, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Trending collection
+func (r *OfficeGraphInsightsTrendingCollectionRequest) Get(ctx context.Context) ([]Trending, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Trending collection
@@ -429,7 +461,7 @@ func (b *OfficeGraphInsightsUsedCollectionRequestBuilder) ID(id string) *UsedIns
 type OfficeGraphInsightsUsedCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UsedInsight, error) {
+func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UsedInsight, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -466,7 +498,10 @@ func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -480,13 +515,18 @@ func (r *OfficeGraphInsightsUsedCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// Get performs GET request for UsedInsight collection
-func (r *OfficeGraphInsightsUsedCollectionRequest) Get(ctx context.Context) ([]UsedInsight, error) {
+// GetN performs GET request for UsedInsight collection, max N pages
+func (r *OfficeGraphInsightsUsedCollectionRequest) GetN(ctx context.Context, n int) ([]UsedInsight, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UsedInsight collection
+func (r *OfficeGraphInsightsUsedCollectionRequest) Get(ctx context.Context) ([]UsedInsight, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UsedInsight collection

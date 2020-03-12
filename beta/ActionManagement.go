@@ -39,7 +39,7 @@ func (b *ManagementConditionManagementConditionStatementsCollectionRequestBuilde
 type ManagementConditionManagementConditionStatementsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagementConditionStatement collection
-func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagementConditionStatement, error) {
+func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagementConditionStatement, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Pagi
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Pagi
 	}
 }
 
-// Get performs GET request for ManagementConditionStatement collection
-func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Get(ctx context.Context) ([]ManagementConditionStatement, error) {
+// GetN performs GET request for ManagementConditionStatement collection, max N pages
+func (r *ManagementConditionManagementConditionStatementsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagementConditionStatement, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagementConditionStatement collection
+func (r *ManagementConditionManagementConditionStatementsCollectionRequest) Get(ctx context.Context) ([]ManagementConditionStatement, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagementConditionStatement collection
@@ -133,7 +141,7 @@ func (b *ManagementConditionStatementManagementConditionsCollectionRequestBuilde
 type ManagementConditionStatementManagementConditionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagementCondition collection
-func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagementCondition, error) {
+func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagementCondition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Pagi
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Pagi
 	}
 }
 
-// Get performs GET request for ManagementCondition collection
-func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Get(ctx context.Context) ([]ManagementCondition, error) {
+// GetN performs GET request for ManagementCondition collection, max N pages
+func (r *ManagementConditionStatementManagementConditionsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagementCondition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagementCondition collection
+func (r *ManagementConditionStatementManagementConditionsCollectionRequest) Get(ctx context.Context) ([]ManagementCondition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagementCondition collection

@@ -43,7 +43,7 @@ func (b *NotificationMessageTemplateLocalizedNotificationMessagesCollectionReque
 type NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for LocalizedNotificationMessage collection
-func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]LocalizedNotificationMessage, error) {
+func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]LocalizedNotificationMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -80,7 +80,10 @@ func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionReque
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -94,13 +97,18 @@ func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionReque
 	}
 }
 
-// Get performs GET request for LocalizedNotificationMessage collection
-func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Get(ctx context.Context) ([]LocalizedNotificationMessage, error) {
+// GetN performs GET request for LocalizedNotificationMessage collection, max N pages
+func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) GetN(ctx context.Context, n int) ([]LocalizedNotificationMessage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for LocalizedNotificationMessage collection
+func (r *NotificationMessageTemplateLocalizedNotificationMessagesCollectionRequest) Get(ctx context.Context) ([]LocalizedNotificationMessage, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for LocalizedNotificationMessage collection

@@ -87,7 +87,7 @@ func (b *DirectoryDeletedItemsCollectionRequestBuilder) ID(id string) *Directory
 type DirectoryDeletedItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *DirectoryDeletedItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *DirectoryDeletedItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -124,7 +124,10 @@ func (r *DirectoryDeletedItemsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -138,13 +141,18 @@ func (r *DirectoryDeletedItemsCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *DirectoryDeletedItemsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *DirectoryDeletedItemsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *DirectoryDeletedItemsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -181,7 +189,7 @@ func (b *DirectoryRoleMembersCollectionRequestBuilder) ID(id string) *DirectoryO
 type DirectoryRoleMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -218,7 +226,10 @@ func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -232,13 +243,18 @@ func (r *DirectoryRoleMembersCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *DirectoryRoleMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *DirectoryRoleMembersCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *DirectoryRoleMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection

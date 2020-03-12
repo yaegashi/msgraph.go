@@ -144,7 +144,7 @@ func (b *DriveActivitiesCollectionRequestBuilder) ID(id string) *ItemActivityOLD
 type DriveActivitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemActivityOLD collection
-func (r *DriveActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemActivityOLD, error) {
+func (r *DriveActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemActivityOLD, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -181,7 +181,10 @@ func (r *DriveActivitiesCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -195,13 +198,18 @@ func (r *DriveActivitiesCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for ItemActivityOLD collection
-func (r *DriveActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivityOLD, error) {
+// GetN performs GET request for ItemActivityOLD collection, max N pages
+func (r *DriveActivitiesCollectionRequest) GetN(ctx context.Context, n int) ([]ItemActivityOLD, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemActivityOLD collection
+func (r *DriveActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivityOLD, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ItemActivityOLD collection
@@ -238,7 +246,7 @@ func (b *DriveBundlesCollectionRequestBuilder) ID(id string) *DriveItemRequestBu
 type DriveBundlesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *DriveBundlesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *DriveBundlesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -275,7 +283,10 @@ func (r *DriveBundlesCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -289,13 +300,18 @@ func (r *DriveBundlesCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for DriveItem collection
-func (r *DriveBundlesCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+// GetN performs GET request for DriveItem collection, max N pages
+func (r *DriveBundlesCollectionRequest) GetN(ctx context.Context, n int) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DriveItem collection
+func (r *DriveBundlesCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DriveItem collection
@@ -332,7 +348,7 @@ func (b *DriveFollowingCollectionRequestBuilder) ID(id string) *DriveItemRequest
 type DriveFollowingCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *DriveFollowingCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *DriveFollowingCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -369,7 +385,10 @@ func (r *DriveFollowingCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -383,13 +402,18 @@ func (r *DriveFollowingCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for DriveItem collection
-func (r *DriveFollowingCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+// GetN performs GET request for DriveItem collection, max N pages
+func (r *DriveFollowingCollectionRequest) GetN(ctx context.Context, n int) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DriveItem collection
+func (r *DriveFollowingCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DriveItem collection
@@ -426,7 +450,7 @@ func (b *DriveItemsCollectionRequestBuilder) ID(id string) *DriveItemRequestBuil
 type DriveItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *DriveItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *DriveItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -463,7 +487,10 @@ func (r *DriveItemsCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -477,13 +504,18 @@ func (r *DriveItemsCollectionRequest) Paging(ctx context.Context, method, path s
 	}
 }
 
-// Get performs GET request for DriveItem collection
-func (r *DriveItemsCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+// GetN performs GET request for DriveItem collection, max N pages
+func (r *DriveItemsCollectionRequest) GetN(ctx context.Context, n int) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DriveItem collection
+func (r *DriveItemsCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DriveItem collection
@@ -534,7 +566,7 @@ func (b *DriveSpecialCollectionRequestBuilder) ID(id string) *DriveItemRequestBu
 type DriveSpecialCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *DriveSpecialCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *DriveSpecialCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -571,7 +603,10 @@ func (r *DriveSpecialCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -585,13 +620,18 @@ func (r *DriveSpecialCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for DriveItem collection
-func (r *DriveSpecialCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+// GetN performs GET request for DriveItem collection, max N pages
+func (r *DriveSpecialCollectionRequest) GetN(ctx context.Context, n int) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DriveItem collection
+func (r *DriveSpecialCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DriveItem collection
@@ -628,7 +668,7 @@ func (b *DriveItemActivitiesCollectionRequestBuilder) ID(id string) *ItemActivit
 type DriveItemActivitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemActivityOLD collection
-func (r *DriveItemActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemActivityOLD, error) {
+func (r *DriveItemActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemActivityOLD, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -665,7 +705,10 @@ func (r *DriveItemActivitiesCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -679,13 +722,18 @@ func (r *DriveItemActivitiesCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for ItemActivityOLD collection
-func (r *DriveItemActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivityOLD, error) {
+// GetN performs GET request for ItemActivityOLD collection, max N pages
+func (r *DriveItemActivitiesCollectionRequest) GetN(ctx context.Context, n int) ([]ItemActivityOLD, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemActivityOLD collection
+func (r *DriveItemActivitiesCollectionRequest) Get(ctx context.Context) ([]ItemActivityOLD, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ItemActivityOLD collection
@@ -729,7 +777,7 @@ func (b *DriveItemChildrenCollectionRequestBuilder) ID(id string) *DriveItemRequ
 type DriveItemChildrenCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItem collection
-func (r *DriveItemChildrenCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItem, error) {
+func (r *DriveItemChildrenCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DriveItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -766,7 +814,10 @@ func (r *DriveItemChildrenCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -780,13 +831,18 @@ func (r *DriveItemChildrenCollectionRequest) Paging(ctx context.Context, method,
 	}
 }
 
-// Get performs GET request for DriveItem collection
-func (r *DriveItemChildrenCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+// GetN performs GET request for DriveItem collection, max N pages
+func (r *DriveItemChildrenCollectionRequest) GetN(ctx context.Context, n int) ([]DriveItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DriveItem collection
+func (r *DriveItemChildrenCollectionRequest) Get(ctx context.Context) ([]DriveItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DriveItem collection
@@ -837,7 +893,7 @@ func (b *DriveItemPermissionsCollectionRequestBuilder) ID(id string) *Permission
 type DriveItemPermissionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Permission collection
-func (r *DriveItemPermissionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Permission, error) {
+func (r *DriveItemPermissionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Permission, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -874,7 +930,10 @@ func (r *DriveItemPermissionsCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -888,13 +947,18 @@ func (r *DriveItemPermissionsCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for Permission collection
-func (r *DriveItemPermissionsCollectionRequest) Get(ctx context.Context) ([]Permission, error) {
+// GetN performs GET request for Permission collection, max N pages
+func (r *DriveItemPermissionsCollectionRequest) GetN(ctx context.Context, n int) ([]Permission, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Permission collection
+func (r *DriveItemPermissionsCollectionRequest) Get(ctx context.Context) ([]Permission, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Permission collection
@@ -931,7 +995,7 @@ func (b *DriveItemSubscriptionsCollectionRequestBuilder) ID(id string) *Subscrip
 type DriveItemSubscriptionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Subscription collection
-func (r *DriveItemSubscriptionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Subscription, error) {
+func (r *DriveItemSubscriptionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Subscription, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -968,7 +1032,10 @@ func (r *DriveItemSubscriptionsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -982,13 +1049,18 @@ func (r *DriveItemSubscriptionsCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for Subscription collection
-func (r *DriveItemSubscriptionsCollectionRequest) Get(ctx context.Context) ([]Subscription, error) {
+// GetN performs GET request for Subscription collection, max N pages
+func (r *DriveItemSubscriptionsCollectionRequest) GetN(ctx context.Context, n int) ([]Subscription, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Subscription collection
+func (r *DriveItemSubscriptionsCollectionRequest) Get(ctx context.Context) ([]Subscription, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Subscription collection
@@ -1025,7 +1097,7 @@ func (b *DriveItemThumbnailsCollectionRequestBuilder) ID(id string) *ThumbnailSe
 type DriveItemThumbnailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ThumbnailSet collection
-func (r *DriveItemThumbnailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ThumbnailSet, error) {
+func (r *DriveItemThumbnailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ThumbnailSet, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1062,7 +1134,10 @@ func (r *DriveItemThumbnailsCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1076,13 +1151,18 @@ func (r *DriveItemThumbnailsCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for ThumbnailSet collection
-func (r *DriveItemThumbnailsCollectionRequest) Get(ctx context.Context) ([]ThumbnailSet, error) {
+// GetN performs GET request for ThumbnailSet collection, max N pages
+func (r *DriveItemThumbnailsCollectionRequest) GetN(ctx context.Context, n int) ([]ThumbnailSet, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ThumbnailSet collection
+func (r *DriveItemThumbnailsCollectionRequest) Get(ctx context.Context) ([]ThumbnailSet, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ThumbnailSet collection
@@ -1119,7 +1199,7 @@ func (b *DriveItemVersionsCollectionRequestBuilder) ID(id string) *DriveItemVers
 type DriveItemVersionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DriveItemVersion collection
-func (r *DriveItemVersionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DriveItemVersion, error) {
+func (r *DriveItemVersionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DriveItemVersion, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1156,7 +1236,10 @@ func (r *DriveItemVersionsCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1170,13 +1253,18 @@ func (r *DriveItemVersionsCollectionRequest) Paging(ctx context.Context, method,
 	}
 }
 
-// Get performs GET request for DriveItemVersion collection
-func (r *DriveItemVersionsCollectionRequest) Get(ctx context.Context) ([]DriveItemVersion, error) {
+// GetN performs GET request for DriveItemVersion collection, max N pages
+func (r *DriveItemVersionsCollectionRequest) GetN(ctx context.Context, n int) ([]DriveItemVersion, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DriveItemVersion collection
+func (r *DriveItemVersionsCollectionRequest) Get(ctx context.Context) ([]DriveItemVersion, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DriveItemVersion collection

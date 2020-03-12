@@ -39,7 +39,7 @@ func (b *TermsAndConditionsAcceptanceStatusesCollectionRequestBuilder) ID(id str
 type TermsAndConditionsAcceptanceStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TermsAndConditionsAcceptanceStatus, error) {
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TermsAndConditionsAcceptanceStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Paging(ctx conte
 	}
 }
 
-// Get performs GET request for TermsAndConditionsAcceptanceStatus collection
-func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsAcceptanceStatus, error) {
+// GetN performs GET request for TermsAndConditionsAcceptanceStatus collection, max N pages
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) GetN(ctx context.Context, n int) ([]TermsAndConditionsAcceptanceStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TermsAndConditionsAcceptanceStatus collection
+func (r *TermsAndConditionsAcceptanceStatusesCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsAcceptanceStatus, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TermsAndConditionsAcceptanceStatus collection
@@ -133,7 +141,7 @@ func (b *TermsAndConditionsAssignmentsCollectionRequestBuilder) ID(id string) *T
 type TermsAndConditionsAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TermsAndConditionsAssignment, error) {
+func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TermsAndConditionsAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *TermsAndConditionsAssignmentsCollectionRequest) Paging(ctx context.Cont
 	}
 }
 
-// Get performs GET request for TermsAndConditionsAssignment collection
-func (r *TermsAndConditionsAssignmentsCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsAssignment, error) {
+// GetN performs GET request for TermsAndConditionsAssignment collection, max N pages
+func (r *TermsAndConditionsAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]TermsAndConditionsAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TermsAndConditionsAssignment collection
+func (r *TermsAndConditionsAssignmentsCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TermsAndConditionsAssignment collection
@@ -227,7 +243,7 @@ func (b *TermsAndConditionsGroupAssignmentsCollectionRequestBuilder) ID(id strin
 type TermsAndConditionsGroupAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TermsAndConditionsGroupAssignment, error) {
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TermsAndConditionsGroupAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Paging(ctx context
 	}
 }
 
-// Get performs GET request for TermsAndConditionsGroupAssignment collection
-func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsGroupAssignment, error) {
+// GetN performs GET request for TermsAndConditionsGroupAssignment collection, max N pages
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]TermsAndConditionsGroupAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TermsAndConditionsGroupAssignment collection
+func (r *TermsAndConditionsGroupAssignmentsCollectionRequest) Get(ctx context.Context) ([]TermsAndConditionsGroupAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TermsAndConditionsGroupAssignment collection

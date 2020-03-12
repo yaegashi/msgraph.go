@@ -53,7 +53,7 @@ func (b *DataClassificationServiceClassifyFileCollectionRequestBuilder) ID(id st
 type DataClassificationServiceClassifyFileCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]FileClassificationRequestObject, error) {
+func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]FileClassificationRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -90,7 +90,10 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -104,13 +107,18 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 	}
 }
 
-// Get performs GET request for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Get(ctx context.Context) ([]FileClassificationRequestObject, error) {
+// GetN performs GET request for FileClassificationRequestObject collection, max N pages
+func (r *DataClassificationServiceClassifyFileCollectionRequest) GetN(ctx context.Context, n int) ([]FileClassificationRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for FileClassificationRequestObject collection
+func (r *DataClassificationServiceClassifyFileCollectionRequest) Get(ctx context.Context) ([]FileClassificationRequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for FileClassificationRequestObject collection
@@ -147,7 +155,7 @@ func (b *DataClassificationServiceClassifyFileJobsCollectionRequestBuilder) ID(i
 type DataClassificationServiceClassifyFileJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -184,7 +192,10 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -198,13 +209,18 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Paging(ctx 
 	}
 }
 
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+// GetN performs GET request for JobResponseBase collection, max N pages
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JobResponseBase collection
@@ -241,7 +257,7 @@ func (b *DataClassificationServiceClassifyTextCollectionRequestBuilder) ID(id st
 type DataClassificationServiceClassifyTextCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TextClassificationRequestObject, error) {
+func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TextClassificationRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -278,7 +294,10 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -292,13 +311,18 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 	}
 }
 
-// Get performs GET request for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Get(ctx context.Context) ([]TextClassificationRequestObject, error) {
+// GetN performs GET request for TextClassificationRequestObject collection, max N pages
+func (r *DataClassificationServiceClassifyTextCollectionRequest) GetN(ctx context.Context, n int) ([]TextClassificationRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TextClassificationRequestObject collection
+func (r *DataClassificationServiceClassifyTextCollectionRequest) Get(ctx context.Context) ([]TextClassificationRequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TextClassificationRequestObject collection
@@ -335,7 +359,7 @@ func (b *DataClassificationServiceClassifyTextJobsCollectionRequestBuilder) ID(i
 type DataClassificationServiceClassifyTextJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -372,7 +396,10 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -386,13 +413,18 @@ func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Paging(ctx 
 	}
 }
 
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+// GetN performs GET request for JobResponseBase collection, max N pages
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceClassifyTextJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JobResponseBase collection
@@ -429,7 +461,7 @@ func (b *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequestBuilde
 type DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -466,7 +498,10 @@ func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Pagi
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -480,13 +515,18 @@ func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Pagi
 	}
 }
 
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+// GetN performs GET request for JobResponseBase collection, max N pages
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateDlpPoliciesJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JobResponseBase collection
@@ -523,7 +563,7 @@ func (b *DataClassificationServiceEvaluateLabelJobsCollectionRequestBuilder) ID(
 type DataClassificationServiceEvaluateLabelJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -560,7 +600,10 @@ func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -574,13 +617,18 @@ func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+// GetN performs GET request for JobResponseBase collection, max N pages
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceEvaluateLabelJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JobResponseBase collection
@@ -617,7 +665,7 @@ func (b *DataClassificationServiceExactMatchDataStoresCollectionRequestBuilder) 
 type DataClassificationServiceExactMatchDataStoresCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ExactMatchDataStore collection
-func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExactMatchDataStore, error) {
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExactMatchDataStore, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -654,7 +702,10 @@ func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -668,13 +719,18 @@ func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Paging(
 	}
 }
 
-// Get performs GET request for ExactMatchDataStore collection
-func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Get(ctx context.Context) ([]ExactMatchDataStore, error) {
+// GetN performs GET request for ExactMatchDataStore collection, max N pages
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) GetN(ctx context.Context, n int) ([]ExactMatchDataStore, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExactMatchDataStore collection
+func (r *DataClassificationServiceExactMatchDataStoresCollectionRequest) Get(ctx context.Context) ([]ExactMatchDataStore, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ExactMatchDataStore collection
@@ -711,7 +767,7 @@ func (b *DataClassificationServiceExactMatchUploadAgentsCollectionRequestBuilder
 type DataClassificationServiceExactMatchUploadAgentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ExactMatchUploadAgent collection
-func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExactMatchUploadAgent, error) {
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExactMatchUploadAgent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -748,7 +804,10 @@ func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Pagin
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -762,13 +821,18 @@ func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Pagin
 	}
 }
 
-// Get performs GET request for ExactMatchUploadAgent collection
-func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Get(ctx context.Context) ([]ExactMatchUploadAgent, error) {
+// GetN performs GET request for ExactMatchUploadAgent collection, max N pages
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) GetN(ctx context.Context, n int) ([]ExactMatchUploadAgent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExactMatchUploadAgent collection
+func (r *DataClassificationServiceExactMatchUploadAgentsCollectionRequest) Get(ctx context.Context) ([]ExactMatchUploadAgent, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ExactMatchUploadAgent collection
@@ -805,7 +869,7 @@ func (b *DataClassificationServiceJobsCollectionRequestBuilder) ID(id string) *J
 type DataClassificationServiceJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+func (r *DataClassificationServiceJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -842,7 +906,10 @@ func (r *DataClassificationServiceJobsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -856,13 +923,18 @@ func (r *DataClassificationServiceJobsCollectionRequest) Paging(ctx context.Cont
 	}
 }
 
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+// GetN performs GET request for JobResponseBase collection, max N pages
+func (r *DataClassificationServiceJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JobResponseBase collection
@@ -899,7 +971,7 @@ func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionReque
 type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JobResponseBase, error) {
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -936,7 +1008,10 @@ func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionReque
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -950,13 +1025,18 @@ func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionReque
 	}
 }
 
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+// GetN performs GET request for JobResponseBase collection, max N pages
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JobResponseBase collection
+func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JobResponseBase collection
@@ -993,7 +1073,7 @@ func (b *DataClassificationServiceSensitiveTypesCollectionRequestBuilder) ID(id 
 type DataClassificationServiceSensitiveTypesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SensitiveType collection
-func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SensitiveType, error) {
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SensitiveType, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1030,7 +1110,10 @@ func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1044,13 +1127,18 @@ func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for SensitiveType collection
-func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Get(ctx context.Context) ([]SensitiveType, error) {
+// GetN performs GET request for SensitiveType collection, max N pages
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) GetN(ctx context.Context, n int) ([]SensitiveType, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SensitiveType collection
+func (r *DataClassificationServiceSensitiveTypesCollectionRequest) Get(ctx context.Context) ([]SensitiveType, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SensitiveType collection
@@ -1087,7 +1175,7 @@ func (b *DataClassificationServiceSensitivityLabelsCollectionRequestBuilder) ID(
 type DataClassificationServiceSensitivityLabelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SensitivityLabel collection
-func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SensitivityLabel, error) {
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SensitivityLabel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1124,7 +1212,10 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1138,13 +1229,18 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for SensitivityLabel collection
-func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Get(ctx context.Context) ([]SensitivityLabel, error) {
+// GetN performs GET request for SensitivityLabel collection, max N pages
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) GetN(ctx context.Context, n int) ([]SensitivityLabel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SensitivityLabel collection
+func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Get(ctx context.Context) ([]SensitivityLabel, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SensitivityLabel collection

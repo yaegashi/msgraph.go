@@ -73,7 +73,7 @@ func (b *DepOnboardingSettingEnrollmentProfilesCollectionRequestBuilder) ID(id s
 type DepOnboardingSettingEnrollmentProfilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EnrollmentProfile, error) {
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]EnrollmentProfile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -110,7 +110,10 @@ func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -124,13 +127,18 @@ func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for EnrollmentProfile collection
-func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Get(ctx context.Context) ([]EnrollmentProfile, error) {
+// GetN performs GET request for EnrollmentProfile collection, max N pages
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) GetN(ctx context.Context, n int) ([]EnrollmentProfile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for EnrollmentProfile collection
+func (r *DepOnboardingSettingEnrollmentProfilesCollectionRequest) Get(ctx context.Context) ([]EnrollmentProfile, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for EnrollmentProfile collection
@@ -167,7 +175,7 @@ func (b *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequestBuild
 type DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedAppleDeviceIdentity, error) {
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImportedAppleDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -204,7 +212,10 @@ func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Pag
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -218,13 +229,18 @@ func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Pag
 	}
 }
 
-// Get performs GET request for ImportedAppleDeviceIdentity collection
-func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Get(ctx context.Context) ([]ImportedAppleDeviceIdentity, error) {
+// GetN performs GET request for ImportedAppleDeviceIdentity collection, max N pages
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) GetN(ctx context.Context, n int) ([]ImportedAppleDeviceIdentity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ImportedAppleDeviceIdentity collection
+func (r *DepOnboardingSettingImportedAppleDeviceIdentitiesCollectionRequest) Get(ctx context.Context) ([]ImportedAppleDeviceIdentity, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ImportedAppleDeviceIdentity collection

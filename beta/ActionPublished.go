@@ -39,7 +39,7 @@ func (b *PublishedResourceAgentGroupsCollectionRequestBuilder) ID(id string) *On
 type PublishedResourceAgentGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
-func (r *PublishedResourceAgentGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
+func (r *PublishedResourceAgentGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnPremisesAgentGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *PublishedResourceAgentGroupsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *PublishedResourceAgentGroupsCollectionRequest) Paging(ctx context.Conte
 	}
 }
 
-// Get performs GET request for OnPremisesAgentGroup collection
-func (r *PublishedResourceAgentGroupsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgentGroup, error) {
+// GetN performs GET request for OnPremisesAgentGroup collection, max N pages
+func (r *PublishedResourceAgentGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]OnPremisesAgentGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnPremisesAgentGroup collection
+func (r *PublishedResourceAgentGroupsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgentGroup, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnPremisesAgentGroup collection

@@ -45,7 +45,7 @@ func (b *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequestBuilder) ID(id
 type EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -82,7 +82,10 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -96,13 +99,18 @@ func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Paging(ctx c
 	}
 }
 
-// Get performs GET request for EmbeddedSIMActivationCodePoolAssignment collection
-func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Get(ctx context.Context) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
+// GetN performs GET request for EmbeddedSIMActivationCodePoolAssignment collection, max N pages
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for EmbeddedSIMActivationCodePoolAssignment collection
+func (r *EmbeddedSIMActivationCodePoolAssignmentsCollectionRequest) Get(ctx context.Context) ([]EmbeddedSIMActivationCodePoolAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for EmbeddedSIMActivationCodePoolAssignment collection
@@ -139,7 +147,7 @@ func (b *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequestBuilder) ID(i
 type EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EmbeddedSIMDeviceState, error) {
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]EmbeddedSIMDeviceState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -176,7 +184,10 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -190,13 +201,18 @@ func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Paging(ctx 
 	}
 }
 
-// Get performs GET request for EmbeddedSIMDeviceState collection
-func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Get(ctx context.Context) ([]EmbeddedSIMDeviceState, error) {
+// GetN performs GET request for EmbeddedSIMDeviceState collection, max N pages
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) GetN(ctx context.Context, n int) ([]EmbeddedSIMDeviceState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for EmbeddedSIMDeviceState collection
+func (r *EmbeddedSIMActivationCodePoolDeviceStatesCollectionRequest) Get(ctx context.Context) ([]EmbeddedSIMDeviceState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for EmbeddedSIMDeviceState collection

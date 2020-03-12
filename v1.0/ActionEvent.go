@@ -73,7 +73,7 @@ func (b *EventAttachmentsCollectionRequestBuilder) ID(id string) *AttachmentRequ
 type EventAttachmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Attachment collection
-func (r *EventAttachmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Attachment, error) {
+func (r *EventAttachmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Attachment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -110,7 +110,10 @@ func (r *EventAttachmentsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -124,13 +127,18 @@ func (r *EventAttachmentsCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for Attachment collection
-func (r *EventAttachmentsCollectionRequest) Get(ctx context.Context) ([]Attachment, error) {
+// GetN performs GET request for Attachment collection, max N pages
+func (r *EventAttachmentsCollectionRequest) GetN(ctx context.Context, n int) ([]Attachment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Attachment collection
+func (r *EventAttachmentsCollectionRequest) Get(ctx context.Context) ([]Attachment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Attachment collection
@@ -174,7 +182,7 @@ func (b *EventExtensionsCollectionRequestBuilder) ID(id string) *ExtensionReques
 type EventExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Extension collection
-func (r *EventExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Extension, error) {
+func (r *EventExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Extension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -211,7 +219,10 @@ func (r *EventExtensionsCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -225,13 +236,18 @@ func (r *EventExtensionsCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for Extension collection
-func (r *EventExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+// GetN performs GET request for Extension collection, max N pages
+func (r *EventExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]Extension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Extension collection
+func (r *EventExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Extension collection
@@ -268,7 +284,7 @@ func (b *EventInstancesCollectionRequestBuilder) ID(id string) *EventRequestBuil
 type EventInstancesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *EventInstancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
+func (r *EventInstancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -305,7 +321,10 @@ func (r *EventInstancesCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -319,13 +338,18 @@ func (r *EventInstancesCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for Event collection
-func (r *EventInstancesCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+// GetN performs GET request for Event collection, max N pages
+func (r *EventInstancesCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Event collection
+func (r *EventInstancesCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Event collection
@@ -362,7 +386,7 @@ func (b *EventMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id string
 type EventMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *EventMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *EventMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -399,7 +423,10 @@ func (r *EventMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -413,13 +440,18 @@ func (r *EventMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *EventMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *EventMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *EventMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -456,7 +488,7 @@ func (b *EventSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id strin
 type EventSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *EventSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *EventSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -493,7 +525,10 @@ func (r *EventSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -507,13 +542,18 @@ func (r *EventSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *EventSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *EventSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *EventSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection

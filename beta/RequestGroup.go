@@ -503,7 +503,7 @@ func (b *GroupCheckGrantedPermissionsForAppRequestBuilder) Request() *GroupCheck
 }
 
 //
-func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ResourceSpecificPermissionGrant, error) {
+func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ResourceSpecificPermissionGrant, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -540,7 +540,10 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -555,8 +558,13 @@ func (r *GroupCheckGrantedPermissionsForAppRequest) Paging(ctx context.Context, 
 }
 
 //
+func (r *GroupCheckGrantedPermissionsForAppRequest) PostN(ctx context.Context, n int) ([]ResourceSpecificPermissionGrant, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *GroupCheckGrantedPermissionsForAppRequest) Post(ctx context.Context) ([]ResourceSpecificPermissionGrant, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -845,7 +853,7 @@ func (b *GroupPolicyConfigurationAssignRequestBuilder) Request() *GroupPolicyCon
 }
 
 //
-func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GroupPolicyConfigurationAssignment, error) {
+func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -882,7 +890,10 @@ func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -897,8 +908,13 @@ func (r *GroupPolicyConfigurationAssignRequest) Paging(ctx context.Context, meth
 }
 
 //
+func (r *GroupPolicyConfigurationAssignRequest) PostN(ctx context.Context, n int) ([]GroupPolicyConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *GroupPolicyConfigurationAssignRequest) Post(ctx context.Context) ([]GroupPolicyConfigurationAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

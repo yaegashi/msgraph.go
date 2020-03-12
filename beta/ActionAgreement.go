@@ -39,7 +39,7 @@ func (b *AgreementFilesCollectionRequestBuilder) ID(id string) *AgreementFileReq
 type AgreementFilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AgreementFile collection
-func (r *AgreementFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AgreementFile, error) {
+func (r *AgreementFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AgreementFile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *AgreementFilesCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *AgreementFilesCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for AgreementFile collection
-func (r *AgreementFilesCollectionRequest) Get(ctx context.Context) ([]AgreementFile, error) {
+// GetN performs GET request for AgreementFile collection, max N pages
+func (r *AgreementFilesCollectionRequest) GetN(ctx context.Context, n int) ([]AgreementFile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AgreementFile collection
+func (r *AgreementFilesCollectionRequest) Get(ctx context.Context) ([]AgreementFile, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AgreementFile collection

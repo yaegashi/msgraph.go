@@ -43,7 +43,7 @@ func (b *TeamsAppAppDefinitionsCollectionRequestBuilder) ID(id string) *TeamsApp
 type TeamsAppAppDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsAppDefinition collection
-func (r *TeamsAppAppDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsAppDefinition, error) {
+func (r *TeamsAppAppDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsAppDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -80,7 +80,10 @@ func (r *TeamsAppAppDefinitionsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -94,13 +97,18 @@ func (r *TeamsAppAppDefinitionsCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for TeamsAppDefinition collection
-func (r *TeamsAppAppDefinitionsCollectionRequest) Get(ctx context.Context) ([]TeamsAppDefinition, error) {
+// GetN performs GET request for TeamsAppDefinition collection, max N pages
+func (r *TeamsAppAppDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsAppDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsAppDefinition collection
+func (r *TeamsAppAppDefinitionsCollectionRequest) Get(ctx context.Context) ([]TeamsAppDefinition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TeamsAppDefinition collection

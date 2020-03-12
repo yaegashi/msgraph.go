@@ -121,7 +121,7 @@ func (b *UserActivitiesCollectionRequestBuilder) ID(id string) *UserActivityRequ
 type UserActivitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserActivity collection
-func (r *UserActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserActivity, error) {
+func (r *UserActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserActivity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -158,7 +158,10 @@ func (r *UserActivitiesCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -172,13 +175,18 @@ func (r *UserActivitiesCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for UserActivity collection
-func (r *UserActivitiesCollectionRequest) Get(ctx context.Context) ([]UserActivity, error) {
+// GetN performs GET request for UserActivity collection, max N pages
+func (r *UserActivitiesCollectionRequest) GetN(ctx context.Context, n int) ([]UserActivity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserActivity collection
+func (r *UserActivitiesCollectionRequest) Get(ctx context.Context) ([]UserActivity, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UserActivity collection
@@ -222,7 +230,7 @@ func (b *UserCalendarGroupsCollectionRequestBuilder) ID(id string) *CalendarGrou
 type UserCalendarGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CalendarGroup collection
-func (r *UserCalendarGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CalendarGroup, error) {
+func (r *UserCalendarGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CalendarGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -259,7 +267,10 @@ func (r *UserCalendarGroupsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -273,13 +284,18 @@ func (r *UserCalendarGroupsCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for CalendarGroup collection
-func (r *UserCalendarGroupsCollectionRequest) Get(ctx context.Context) ([]CalendarGroup, error) {
+// GetN performs GET request for CalendarGroup collection, max N pages
+func (r *UserCalendarGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]CalendarGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CalendarGroup collection
+func (r *UserCalendarGroupsCollectionRequest) Get(ctx context.Context) ([]CalendarGroup, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for CalendarGroup collection
@@ -316,7 +332,7 @@ func (b *UserCalendarViewCollectionRequestBuilder) ID(id string) *EventRequestBu
 type UserCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *UserCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
+func (r *UserCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -353,7 +369,10 @@ func (r *UserCalendarViewCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -367,13 +386,18 @@ func (r *UserCalendarViewCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for Event collection
-func (r *UserCalendarViewCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+// GetN performs GET request for Event collection, max N pages
+func (r *UserCalendarViewCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Event collection
+func (r *UserCalendarViewCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Event collection
@@ -410,7 +434,7 @@ func (b *UserCalendarsCollectionRequestBuilder) ID(id string) *CalendarRequestBu
 type UserCalendarsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Calendar collection
-func (r *UserCalendarsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Calendar, error) {
+func (r *UserCalendarsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Calendar, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -447,7 +471,10 @@ func (r *UserCalendarsCollectionRequest) Paging(ctx context.Context, method, pat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -461,13 +488,18 @@ func (r *UserCalendarsCollectionRequest) Paging(ctx context.Context, method, pat
 	}
 }
 
-// Get performs GET request for Calendar collection
-func (r *UserCalendarsCollectionRequest) Get(ctx context.Context) ([]Calendar, error) {
+// GetN performs GET request for Calendar collection, max N pages
+func (r *UserCalendarsCollectionRequest) GetN(ctx context.Context, n int) ([]Calendar, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Calendar collection
+func (r *UserCalendarsCollectionRequest) Get(ctx context.Context) ([]Calendar, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Calendar collection
@@ -504,7 +536,7 @@ func (b *UserContactFoldersCollectionRequestBuilder) ID(id string) *ContactFolde
 type UserContactFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ContactFolder collection
-func (r *UserContactFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ContactFolder, error) {
+func (r *UserContactFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ContactFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -541,7 +573,10 @@ func (r *UserContactFoldersCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -555,13 +590,18 @@ func (r *UserContactFoldersCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for ContactFolder collection
-func (r *UserContactFoldersCollectionRequest) Get(ctx context.Context) ([]ContactFolder, error) {
+// GetN performs GET request for ContactFolder collection, max N pages
+func (r *UserContactFoldersCollectionRequest) GetN(ctx context.Context, n int) ([]ContactFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ContactFolder collection
+func (r *UserContactFoldersCollectionRequest) Get(ctx context.Context) ([]ContactFolder, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ContactFolder collection
@@ -598,7 +638,7 @@ func (b *UserContactsCollectionRequestBuilder) ID(id string) *ContactRequestBuil
 type UserContactsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Contact collection
-func (r *UserContactsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Contact, error) {
+func (r *UserContactsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Contact, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -635,7 +675,10 @@ func (r *UserContactsCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -649,13 +692,18 @@ func (r *UserContactsCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for Contact collection
-func (r *UserContactsCollectionRequest) Get(ctx context.Context) ([]Contact, error) {
+// GetN performs GET request for Contact collection, max N pages
+func (r *UserContactsCollectionRequest) GetN(ctx context.Context, n int) ([]Contact, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Contact collection
+func (r *UserContactsCollectionRequest) Get(ctx context.Context) ([]Contact, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Contact collection
@@ -692,7 +740,7 @@ func (b *UserCreatedObjectsCollectionRequestBuilder) ID(id string) *DirectoryObj
 type UserCreatedObjectsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserCreatedObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserCreatedObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -729,7 +777,10 @@ func (r *UserCreatedObjectsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -743,13 +794,18 @@ func (r *UserCreatedObjectsCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserCreatedObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserCreatedObjectsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserCreatedObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -786,7 +842,7 @@ func (b *UserDeviceManagementTroubleshootingEventsCollectionRequestBuilder) ID(i
 type UserDeviceManagementTroubleshootingEventsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceManagementTroubleshootingEvent collection
-func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceManagementTroubleshootingEvent, error) {
+func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementTroubleshootingEvent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -823,7 +879,10 @@ func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -837,13 +896,18 @@ func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Paging(ctx 
 	}
 }
 
-// Get performs GET request for DeviceManagementTroubleshootingEvent collection
-func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementTroubleshootingEvent, error) {
+// GetN performs GET request for DeviceManagementTroubleshootingEvent collection, max N pages
+func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementTroubleshootingEvent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementTroubleshootingEvent collection
+func (r *UserDeviceManagementTroubleshootingEventsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementTroubleshootingEvent, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DeviceManagementTroubleshootingEvent collection
@@ -880,7 +944,7 @@ func (b *UserDirectReportsCollectionRequestBuilder) ID(id string) *DirectoryObje
 type UserDirectReportsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserDirectReportsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserDirectReportsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -917,7 +981,10 @@ func (r *UserDirectReportsCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -931,13 +998,18 @@ func (r *UserDirectReportsCollectionRequest) Paging(ctx context.Context, method,
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserDirectReportsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserDirectReportsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserDirectReportsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -981,7 +1053,7 @@ func (b *UserDrivesCollectionRequestBuilder) ID(id string) *DriveRequestBuilder 
 type UserDrivesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Drive collection
-func (r *UserDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Drive, error) {
+func (r *UserDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Drive, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1018,7 +1090,10 @@ func (r *UserDrivesCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1032,13 +1107,18 @@ func (r *UserDrivesCollectionRequest) Paging(ctx context.Context, method, path s
 	}
 }
 
-// Get performs GET request for Drive collection
-func (r *UserDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
+// GetN performs GET request for Drive collection, max N pages
+func (r *UserDrivesCollectionRequest) GetN(ctx context.Context, n int) ([]Drive, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Drive collection
+func (r *UserDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Drive collection
@@ -1075,7 +1155,7 @@ func (b *UserEventsCollectionRequestBuilder) ID(id string) *EventRequestBuilder 
 type UserEventsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *UserEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
+func (r *UserEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1112,7 +1192,10 @@ func (r *UserEventsCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1126,13 +1209,18 @@ func (r *UserEventsCollectionRequest) Paging(ctx context.Context, method, path s
 	}
 }
 
-// Get performs GET request for Event collection
-func (r *UserEventsCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+// GetN performs GET request for Event collection, max N pages
+func (r *UserEventsCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Event collection
+func (r *UserEventsCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Event collection
@@ -1169,7 +1257,7 @@ func (b *UserExtensionsCollectionRequestBuilder) ID(id string) *ExtensionRequest
 type UserExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Extension collection
-func (r *UserExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Extension, error) {
+func (r *UserExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Extension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1206,7 +1294,10 @@ func (r *UserExtensionsCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1220,13 +1311,18 @@ func (r *UserExtensionsCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for Extension collection
-func (r *UserExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+// GetN performs GET request for Extension collection, max N pages
+func (r *UserExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]Extension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Extension collection
+func (r *UserExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Extension collection
@@ -1277,7 +1373,7 @@ func (b *UserJoinedTeamsCollectionRequestBuilder) ID(id string) *GroupRequestBui
 type UserJoinedTeamsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Group collection
-func (r *UserJoinedTeamsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Group, error) {
+func (r *UserJoinedTeamsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Group, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1314,7 +1410,10 @@ func (r *UserJoinedTeamsCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1328,13 +1427,18 @@ func (r *UserJoinedTeamsCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for Group collection
-func (r *UserJoinedTeamsCollectionRequest) Get(ctx context.Context) ([]Group, error) {
+// GetN performs GET request for Group collection, max N pages
+func (r *UserJoinedTeamsCollectionRequest) GetN(ctx context.Context, n int) ([]Group, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Group collection
+func (r *UserJoinedTeamsCollectionRequest) Get(ctx context.Context) ([]Group, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Group collection
@@ -1371,7 +1475,7 @@ func (b *UserLicenseDetailsCollectionRequestBuilder) ID(id string) *LicenseDetai
 type UserLicenseDetailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for LicenseDetails collection
-func (r *UserLicenseDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]LicenseDetails, error) {
+func (r *UserLicenseDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]LicenseDetails, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1408,7 +1512,10 @@ func (r *UserLicenseDetailsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1422,13 +1529,18 @@ func (r *UserLicenseDetailsCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for LicenseDetails collection
-func (r *UserLicenseDetailsCollectionRequest) Get(ctx context.Context) ([]LicenseDetails, error) {
+// GetN performs GET request for LicenseDetails collection, max N pages
+func (r *UserLicenseDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]LicenseDetails, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for LicenseDetails collection
+func (r *UserLicenseDetailsCollectionRequest) Get(ctx context.Context) ([]LicenseDetails, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for LicenseDetails collection
@@ -1465,7 +1577,7 @@ func (b *UserMailFoldersCollectionRequestBuilder) ID(id string) *MailFolderReque
 type UserMailFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MailFolder collection
-func (r *UserMailFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MailFolder, error) {
+func (r *UserMailFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MailFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1502,7 +1614,10 @@ func (r *UserMailFoldersCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1516,13 +1631,18 @@ func (r *UserMailFoldersCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for MailFolder collection
-func (r *UserMailFoldersCollectionRequest) Get(ctx context.Context) ([]MailFolder, error) {
+// GetN performs GET request for MailFolder collection, max N pages
+func (r *UserMailFoldersCollectionRequest) GetN(ctx context.Context, n int) ([]MailFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MailFolder collection
+func (r *UserMailFoldersCollectionRequest) Get(ctx context.Context) ([]MailFolder, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MailFolder collection
@@ -1559,7 +1679,7 @@ func (b *UserManagedAppRegistrationsCollectionRequestBuilder) ID(id string) *Man
 type UserManagedAppRegistrationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedAppRegistration collection
-func (r *UserManagedAppRegistrationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedAppRegistration, error) {
+func (r *UserManagedAppRegistrationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedAppRegistration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1596,7 +1716,10 @@ func (r *UserManagedAppRegistrationsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1610,13 +1733,18 @@ func (r *UserManagedAppRegistrationsCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for ManagedAppRegistration collection
-func (r *UserManagedAppRegistrationsCollectionRequest) Get(ctx context.Context) ([]ManagedAppRegistration, error) {
+// GetN performs GET request for ManagedAppRegistration collection, max N pages
+func (r *UserManagedAppRegistrationsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedAppRegistration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedAppRegistration collection
+func (r *UserManagedAppRegistrationsCollectionRequest) Get(ctx context.Context) ([]ManagedAppRegistration, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedAppRegistration collection
@@ -1653,7 +1781,7 @@ func (b *UserManagedDevicesCollectionRequestBuilder) ID(id string) *ManagedDevic
 type UserManagedDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDevice collection
-func (r *UserManagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDevice, error) {
+func (r *UserManagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1690,7 +1818,10 @@ func (r *UserManagedDevicesCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1704,13 +1835,18 @@ func (r *UserManagedDevicesCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for ManagedDevice collection
-func (r *UserManagedDevicesCollectionRequest) Get(ctx context.Context) ([]ManagedDevice, error) {
+// GetN performs GET request for ManagedDevice collection, max N pages
+func (r *UserManagedDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDevice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDevice collection
+func (r *UserManagedDevicesCollectionRequest) Get(ctx context.Context) ([]ManagedDevice, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDevice collection
@@ -1754,7 +1890,7 @@ func (b *UserMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObjectReq
 type UserMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1791,7 +1927,10 @@ func (r *UserMemberOfCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1805,13 +1944,18 @@ func (r *UserMemberOfCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserMemberOfCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -1848,7 +1992,7 @@ func (b *UserMessagesCollectionRequestBuilder) ID(id string) *MessageRequestBuil
 type UserMessagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Message collection
-func (r *UserMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Message, error) {
+func (r *UserMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Message, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1885,7 +2029,10 @@ func (r *UserMessagesCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1899,13 +2046,18 @@ func (r *UserMessagesCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for Message collection
-func (r *UserMessagesCollectionRequest) Get(ctx context.Context) ([]Message, error) {
+// GetN performs GET request for Message collection, max N pages
+func (r *UserMessagesCollectionRequest) GetN(ctx context.Context, n int) ([]Message, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Message collection
+func (r *UserMessagesCollectionRequest) Get(ctx context.Context) ([]Message, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Message collection
@@ -1949,7 +2101,7 @@ func (b *UserOnlineMeetingsCollectionRequestBuilder) ID(id string) *OnlineMeetin
 type UserOnlineMeetingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnlineMeeting collection
-func (r *UserOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnlineMeeting, error) {
+func (r *UserOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnlineMeeting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1986,7 +2138,10 @@ func (r *UserOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2000,13 +2155,18 @@ func (r *UserOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for OnlineMeeting collection
-func (r *UserOnlineMeetingsCollectionRequest) Get(ctx context.Context) ([]OnlineMeeting, error) {
+// GetN performs GET request for OnlineMeeting collection, max N pages
+func (r *UserOnlineMeetingsCollectionRequest) GetN(ctx context.Context, n int) ([]OnlineMeeting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnlineMeeting collection
+func (r *UserOnlineMeetingsCollectionRequest) Get(ctx context.Context) ([]OnlineMeeting, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnlineMeeting collection
@@ -2050,7 +2210,7 @@ func (b *UserOwnedDevicesCollectionRequestBuilder) ID(id string) *DirectoryObjec
 type UserOwnedDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserOwnedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserOwnedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2087,7 +2247,10 @@ func (r *UserOwnedDevicesCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2101,13 +2264,18 @@ func (r *UserOwnedDevicesCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserOwnedDevicesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserOwnedDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserOwnedDevicesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -2144,7 +2312,7 @@ func (b *UserOwnedObjectsCollectionRequestBuilder) ID(id string) *DirectoryObjec
 type UserOwnedObjectsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2181,7 +2349,10 @@ func (r *UserOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2195,13 +2366,18 @@ func (r *UserOwnedObjectsCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserOwnedObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserOwnedObjectsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserOwnedObjectsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -2238,7 +2414,7 @@ func (b *UserPeopleCollectionRequestBuilder) ID(id string) *PersonRequestBuilder
 type UserPeopleCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Person collection
-func (r *UserPeopleCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Person, error) {
+func (r *UserPeopleCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Person, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2275,7 +2451,10 @@ func (r *UserPeopleCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2289,13 +2468,18 @@ func (r *UserPeopleCollectionRequest) Paging(ctx context.Context, method, path s
 	}
 }
 
-// Get performs GET request for Person collection
-func (r *UserPeopleCollectionRequest) Get(ctx context.Context) ([]Person, error) {
+// GetN performs GET request for Person collection, max N pages
+func (r *UserPeopleCollectionRequest) GetN(ctx context.Context, n int) ([]Person, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Person collection
+func (r *UserPeopleCollectionRequest) Get(ctx context.Context) ([]Person, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Person collection
@@ -2339,7 +2523,7 @@ func (b *UserPhotosCollectionRequestBuilder) ID(id string) *ProfilePhotoRequestB
 type UserPhotosCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ProfilePhoto collection
-func (r *UserPhotosCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ProfilePhoto, error) {
+func (r *UserPhotosCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ProfilePhoto, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2376,7 +2560,10 @@ func (r *UserPhotosCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2390,13 +2577,18 @@ func (r *UserPhotosCollectionRequest) Paging(ctx context.Context, method, path s
 	}
 }
 
-// Get performs GET request for ProfilePhoto collection
-func (r *UserPhotosCollectionRequest) Get(ctx context.Context) ([]ProfilePhoto, error) {
+// GetN performs GET request for ProfilePhoto collection, max N pages
+func (r *UserPhotosCollectionRequest) GetN(ctx context.Context, n int) ([]ProfilePhoto, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ProfilePhoto collection
+func (r *UserPhotosCollectionRequest) Get(ctx context.Context) ([]ProfilePhoto, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ProfilePhoto collection
@@ -2440,7 +2632,7 @@ func (b *UserRegisteredDevicesCollectionRequestBuilder) ID(id string) *Directory
 type UserRegisteredDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserRegisteredDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserRegisteredDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2477,7 +2669,10 @@ func (r *UserRegisteredDevicesCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2491,13 +2686,18 @@ func (r *UserRegisteredDevicesCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserRegisteredDevicesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserRegisteredDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserRegisteredDevicesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -2541,7 +2741,7 @@ func (b *UserTransitiveMemberOfCollectionRequestBuilder) ID(id string) *Director
 type UserTransitiveMemberOfCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *UserTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *UserTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2578,7 +2778,10 @@ func (r *UserTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2592,13 +2795,18 @@ func (r *UserTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *UserTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *UserTransitiveMemberOfCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *UserTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -2635,7 +2843,7 @@ func (b *UserActivityHistoryItemsCollectionRequestBuilder) ID(id string) *Activi
 type UserActivityHistoryItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ActivityHistoryItem, error) {
+func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ActivityHistoryItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2672,7 +2880,10 @@ func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2686,13 +2897,18 @@ func (r *UserActivityHistoryItemsCollectionRequest) Paging(ctx context.Context, 
 	}
 }
 
-// Get performs GET request for ActivityHistoryItem collection
-func (r *UserActivityHistoryItemsCollectionRequest) Get(ctx context.Context) ([]ActivityHistoryItem, error) {
+// GetN performs GET request for ActivityHistoryItem collection, max N pages
+func (r *UserActivityHistoryItemsCollectionRequest) GetN(ctx context.Context, n int) ([]ActivityHistoryItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ActivityHistoryItem collection
+func (r *UserActivityHistoryItemsCollectionRequest) Get(ctx context.Context) ([]ActivityHistoryItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ActivityHistoryItem collection
@@ -2729,7 +2945,7 @@ func (b *UserInstallStateSummaryDeviceStatesCollectionRequestBuilder) ID(id stri
 type UserInstallStateSummaryDeviceStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceInstallState collection
-func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceInstallState, error) {
+func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceInstallState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2766,7 +2982,10 @@ func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2780,13 +2999,18 @@ func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Paging(ctx contex
 	}
 }
 
-// Get performs GET request for DeviceInstallState collection
-func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Get(ctx context.Context) ([]DeviceInstallState, error) {
+// GetN performs GET request for DeviceInstallState collection, max N pages
+func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceInstallState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceInstallState collection
+func (r *UserInstallStateSummaryDeviceStatesCollectionRequest) Get(ctx context.Context) ([]DeviceInstallState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DeviceInstallState collection

@@ -123,7 +123,7 @@ func (b *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequestBuilde
 type WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsAutopilotDeviceIdentity, error) {
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsAutopilotDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -160,7 +160,10 @@ func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Pagi
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -174,13 +177,18 @@ func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Pagi
 	}
 }
 
-// Get performs GET request for WindowsAutopilotDeviceIdentity collection
-func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeviceIdentity, error) {
+// GetN performs GET request for WindowsAutopilotDeviceIdentity collection, max N pages
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsAutopilotDeviceIdentity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsAutopilotDeviceIdentity collection
+func (r *WindowsAutopilotDeploymentProfileAssignedDevicesCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeviceIdentity, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsAutopilotDeviceIdentity collection
@@ -217,7 +225,7 @@ func (b *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequestBuilder) I
 type WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -254,7 +262,10 @@ func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -268,13 +279,18 @@ func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Paging(c
 	}
 }
 
-// Get performs GET request for WindowsAutopilotDeploymentProfileAssignment collection
-func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
+// GetN performs GET request for WindowsAutopilotDeploymentProfileAssignment collection, max N pages
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsAutopilotDeploymentProfileAssignment collection
+func (r *WindowsAutopilotDeploymentProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeploymentProfileAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsAutopilotDeploymentProfileAssignment collection
@@ -325,7 +341,7 @@ func (b *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectio
 type WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection
-func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsDefenderApplicationControlSupplementalPolicyAssignment, error) {
+func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsDefenderApplicationControlSupplementalPolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -362,7 +378,10 @@ func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectio
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -376,13 +395,18 @@ func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectio
 	}
 }
 
-// Get performs GET request for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection
-func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsDefenderApplicationControlSupplementalPolicyAssignment, error) {
+// GetN performs GET request for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection, max N pages
+func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsDefenderApplicationControlSupplementalPolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection
+func (r *WindowsDefenderApplicationControlSupplementalPolicyAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsDefenderApplicationControlSupplementalPolicyAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsDefenderApplicationControlSupplementalPolicyAssignment collection
@@ -426,7 +450,7 @@ func (b *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollec
 type WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection
-func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus, error) {
+func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -463,7 +487,10 @@ func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollec
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -477,13 +504,18 @@ func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollec
 	}
 }
 
-// Get performs GET request for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection
-func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) Get(ctx context.Context) ([]WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus, error) {
+// GetN performs GET request for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection, max N pages
+func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection
+func (r *WindowsDefenderApplicationControlSupplementalPolicyDeviceStatusesCollectionRequest) Get(ctx context.Context) ([]WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus collection
@@ -527,7 +559,7 @@ func (b *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 type WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceConfiguration, error) {
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -564,7 +596,10 @@ func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -578,13 +613,18 @@ func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequ
 	}
 }
 
-// Get performs GET request for DeviceConfiguration collection
-func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Get(ctx context.Context) ([]DeviceConfiguration, error) {
+// GetN performs GET request for DeviceConfiguration collection, max N pages
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceConfiguration collection
+func (r *WindowsDomainJoinConfigurationNetworkAccessConfigurationsCollectionRequest) Get(ctx context.Context) ([]DeviceConfiguration, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DeviceConfiguration collection
@@ -621,7 +661,7 @@ func (b *WindowsFeatureUpdateProfileAssignmentsCollectionRequestBuilder) ID(id s
 type WindowsFeatureUpdateProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsFeatureUpdateProfileAssignment collection
-func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsFeatureUpdateProfileAssignment, error) {
+func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsFeatureUpdateProfileAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -658,7 +698,10 @@ func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -672,13 +715,18 @@ func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for WindowsFeatureUpdateProfileAssignment collection
-func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsFeatureUpdateProfileAssignment, error) {
+// GetN performs GET request for WindowsFeatureUpdateProfileAssignment collection, max N pages
+func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsFeatureUpdateProfileAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsFeatureUpdateProfileAssignment collection
+func (r *WindowsFeatureUpdateProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsFeatureUpdateProfileAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsFeatureUpdateProfileAssignment collection
@@ -715,7 +763,7 @@ func (b *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequestBuilder) 
 type WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsUpdateState collection
-func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsUpdateState, error) {
+func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsUpdateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -752,7 +800,10 @@ func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -766,13 +817,18 @@ func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Paging(
 	}
 }
 
-// Get performs GET request for WindowsUpdateState collection
-func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Get(ctx context.Context) ([]WindowsUpdateState, error) {
+// GetN performs GET request for WindowsUpdateState collection, max N pages
+func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsUpdateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsUpdateState collection
+func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Get(ctx context.Context) ([]WindowsUpdateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsUpdateState collection
@@ -809,7 +865,7 @@ func (b *WindowsInformationProtectionAssignmentsCollectionRequestBuilder) ID(id 
 type WindowsInformationProtectionAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TargetedManagedAppPolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -846,7 +902,10 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -860,13 +919,18 @@ func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for TargetedManagedAppPolicyAssignment collection
-func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
+// GetN performs GET request for TargetedManagedAppPolicyAssignment collection, max N pages
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]TargetedManagedAppPolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TargetedManagedAppPolicyAssignment collection
+func (r *WindowsInformationProtectionAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
@@ -903,7 +967,7 @@ func (b *WindowsInformationProtectionExemptAppLockerFilesCollectionRequestBuilde
 type WindowsInformationProtectionExemptAppLockerFilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsInformationProtectionAppLockerFile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -940,7 +1004,10 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Pagi
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -954,13 +1021,18 @@ func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Pagi
 	}
 }
 
-// Get performs GET request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionAppLockerFile, error) {
+// GetN performs GET request for WindowsInformationProtectionAppLockerFile collection, max N pages
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsInformationProtectionAppLockerFile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionExemptAppLockerFilesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionAppLockerFile, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsInformationProtectionAppLockerFile collection
@@ -997,7 +1069,7 @@ func (b *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequestBui
 type WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsInformationProtectionAppLockerFile, error) {
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsInformationProtectionAppLockerFile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1034,7 +1106,10 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) P
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1048,13 +1123,18 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) P
 	}
 }
 
-// Get performs GET request for WindowsInformationProtectionAppLockerFile collection
-func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionAppLockerFile, error) {
+// GetN performs GET request for WindowsInformationProtectionAppLockerFile collection, max N pages
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsInformationProtectionAppLockerFile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsInformationProtectionAppLockerFile collection
+func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) Get(ctx context.Context) ([]WindowsInformationProtectionAppLockerFile, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsInformationProtectionAppLockerFile collection
@@ -1091,7 +1171,7 @@ func (b *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 type WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsProtectionState collection
-func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsProtectionState, error) {
+func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsProtectionState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1128,7 +1208,10 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1142,13 +1225,18 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 	}
 }
 
-// Get performs GET request for WindowsProtectionState collection
-func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Get(ctx context.Context) ([]WindowsProtectionState, error) {
+// GetN performs GET request for WindowsProtectionState collection, max N pages
+func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsProtectionState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsProtectionState collection
+func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Get(ctx context.Context) ([]WindowsProtectionState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsProtectionState collection
@@ -1185,7 +1273,7 @@ func (b *WindowsManagementAppHealthStatesCollectionRequestBuilder) ID(id string)
 type WindowsManagementAppHealthStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsManagementAppHealthState collection
-func (r *WindowsManagementAppHealthStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsManagementAppHealthState, error) {
+func (r *WindowsManagementAppHealthStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsManagementAppHealthState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1222,7 +1310,10 @@ func (r *WindowsManagementAppHealthStatesCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1236,13 +1327,18 @@ func (r *WindowsManagementAppHealthStatesCollectionRequest) Paging(ctx context.C
 	}
 }
 
-// Get performs GET request for WindowsManagementAppHealthState collection
-func (r *WindowsManagementAppHealthStatesCollectionRequest) Get(ctx context.Context) ([]WindowsManagementAppHealthState, error) {
+// GetN performs GET request for WindowsManagementAppHealthState collection, max N pages
+func (r *WindowsManagementAppHealthStatesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsManagementAppHealthState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsManagementAppHealthState collection
+func (r *WindowsManagementAppHealthStatesCollectionRequest) Get(ctx context.Context) ([]WindowsManagementAppHealthState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsManagementAppHealthState collection
@@ -1279,7 +1375,7 @@ func (b *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStat
 type WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1316,7 +1412,10 @@ func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1330,13 +1429,18 @@ func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStat
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *WindowsPhone81ImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -1373,7 +1477,7 @@ func (b *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesColle
 type WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1410,7 +1514,10 @@ func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1424,13 +1531,18 @@ func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesColle
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *WindowsPhone81SCEPCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -1481,7 +1593,7 @@ func (b *WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder) ID(
 type WindowsProtectionStateDetectedMalwareStateCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsDeviceMalwareState, error) {
+func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsDeviceMalwareState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1518,7 +1630,10 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1532,13 +1647,18 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Get(ctx context.Context) ([]WindowsDeviceMalwareState, error) {
+// GetN performs GET request for WindowsDeviceMalwareState collection, max N pages
+func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsDeviceMalwareState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsDeviceMalwareState collection
+func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Get(ctx context.Context) ([]WindowsDeviceMalwareState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsDeviceMalwareState collection
@@ -1575,7 +1695,7 @@ func (b *WindowsUniversalAppXCommittedContainedAppsCollectionRequestBuilder) ID(
 type WindowsUniversalAppXCommittedContainedAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileContainedApp collection
-func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileContainedApp, error) {
+func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MobileContainedApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1612,7 +1732,10 @@ func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1626,13 +1749,18 @@ func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for MobileContainedApp collection
-func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Get(ctx context.Context) ([]MobileContainedApp, error) {
+// GetN performs GET request for MobileContainedApp collection, max N pages
+func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) GetN(ctx context.Context, n int) ([]MobileContainedApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MobileContainedApp collection
+func (r *WindowsUniversalAppXCommittedContainedAppsCollectionRequest) Get(ctx context.Context) ([]MobileContainedApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MobileContainedApp collection
@@ -1669,7 +1797,7 @@ func (b *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 type WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WindowsUpdateState, error) {
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsUpdateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1706,7 +1834,10 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1720,13 +1851,18 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 	}
 }
 
-// Get performs GET request for WindowsUpdateState collection
-func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Get(ctx context.Context) ([]WindowsUpdateState, error) {
+// GetN performs GET request for WindowsUpdateState collection, max N pages
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsUpdateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsUpdateState collection
+func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionRequest) Get(ctx context.Context) ([]WindowsUpdateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WindowsUpdateState collection
@@ -1770,7 +1906,7 @@ func (b *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 type WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Windows81TrustedRootCertificate collection
-func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Windows81TrustedRootCertificate, error) {
+func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Windows81TrustedRootCertificate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1807,7 +1943,10 @@ func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1821,13 +1960,18 @@ func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidatio
 	}
 }
 
-// Get performs GET request for Windows81TrustedRootCertificate collection
-func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Get(ctx context.Context) ([]Windows81TrustedRootCertificate, error) {
+// GetN performs GET request for Windows81TrustedRootCertificate collection, max N pages
+func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) GetN(ctx context.Context, n int) ([]Windows81TrustedRootCertificate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Windows81TrustedRootCertificate collection
+func (r *WindowsWiFiEnterpriseEAPConfigurationRootCertificatesForServerValidationCollectionRequest) Get(ctx context.Context) ([]Windows81TrustedRootCertificate, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Windows81TrustedRootCertificate collection

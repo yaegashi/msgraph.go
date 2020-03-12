@@ -39,7 +39,7 @@ func (b *ContentTypeColumnLinksCollectionRequestBuilder) ID(id string) *ColumnLi
 type ContentTypeColumnLinksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ColumnLink collection
-func (r *ContentTypeColumnLinksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ColumnLink, error) {
+func (r *ContentTypeColumnLinksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ColumnLink, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ContentTypeColumnLinksCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ContentTypeColumnLinksCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for ColumnLink collection
-func (r *ContentTypeColumnLinksCollectionRequest) Get(ctx context.Context) ([]ColumnLink, error) {
+// GetN performs GET request for ColumnLink collection, max N pages
+func (r *ContentTypeColumnLinksCollectionRequest) GetN(ctx context.Context, n int) ([]ColumnLink, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ColumnLink collection
+func (r *ContentTypeColumnLinksCollectionRequest) Get(ctx context.Context) ([]ColumnLink, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ColumnLink collection

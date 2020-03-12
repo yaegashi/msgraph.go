@@ -45,7 +45,7 @@ func (b *IntuneBrandingProfileAssignmentsCollectionRequestBuilder) ID(id string)
 type IntuneBrandingProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IntuneBrandingProfileAssignment, error) {
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]IntuneBrandingProfileAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -82,7 +82,10 @@ func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -96,13 +99,18 @@ func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Paging(ctx context.C
 	}
 }
 
-// Get performs GET request for IntuneBrandingProfileAssignment collection
-func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]IntuneBrandingProfileAssignment, error) {
+// GetN performs GET request for IntuneBrandingProfileAssignment collection, max N pages
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]IntuneBrandingProfileAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for IntuneBrandingProfileAssignment collection
+func (r *IntuneBrandingProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]IntuneBrandingProfileAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for IntuneBrandingProfileAssignment collection

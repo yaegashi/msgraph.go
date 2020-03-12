@@ -101,7 +101,7 @@ func (b *SynchronizationJobsCollectionRequestBuilder) ID(id string) *Synchroniza
 type SynchronizationJobsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SynchronizationJob, error) {
+func (r *SynchronizationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SynchronizationJob, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -138,7 +138,10 @@ func (r *SynchronizationJobsCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -152,13 +155,18 @@ func (r *SynchronizationJobsCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for SynchronizationJob collection
-func (r *SynchronizationJobsCollectionRequest) Get(ctx context.Context) ([]SynchronizationJob, error) {
+// GetN performs GET request for SynchronizationJob collection, max N pages
+func (r *SynchronizationJobsCollectionRequest) GetN(ctx context.Context, n int) ([]SynchronizationJob, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SynchronizationJob collection
+func (r *SynchronizationJobsCollectionRequest) Get(ctx context.Context) ([]SynchronizationJob, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SynchronizationJob collection
@@ -195,7 +203,7 @@ func (b *SynchronizationTemplatesCollectionRequestBuilder) ID(id string) *Synchr
 type SynchronizationTemplatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SynchronizationTemplate, error) {
+func (r *SynchronizationTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SynchronizationTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -232,7 +240,10 @@ func (r *SynchronizationTemplatesCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -246,13 +257,18 @@ func (r *SynchronizationTemplatesCollectionRequest) Paging(ctx context.Context, 
 	}
 }
 
-// Get performs GET request for SynchronizationTemplate collection
-func (r *SynchronizationTemplatesCollectionRequest) Get(ctx context.Context) ([]SynchronizationTemplate, error) {
+// GetN performs GET request for SynchronizationTemplate collection, max N pages
+func (r *SynchronizationTemplatesCollectionRequest) GetN(ctx context.Context, n int) ([]SynchronizationTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SynchronizationTemplate collection
+func (r *SynchronizationTemplatesCollectionRequest) Get(ctx context.Context) ([]SynchronizationTemplate, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SynchronizationTemplate collection
@@ -296,7 +312,7 @@ func (b *SynchronizationSchemaDirectoriesCollectionRequestBuilder) ID(id string)
 type SynchronizationSchemaDirectoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryDefinition, error) {
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -333,7 +349,10 @@ func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -347,13 +366,18 @@ func (r *SynchronizationSchemaDirectoriesCollectionRequest) Paging(ctx context.C
 	}
 }
 
-// Get performs GET request for DirectoryDefinition collection
-func (r *SynchronizationSchemaDirectoriesCollectionRequest) Get(ctx context.Context) ([]DirectoryDefinition, error) {
+// GetN performs GET request for DirectoryDefinition collection, max N pages
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryDefinition collection
+func (r *SynchronizationSchemaDirectoriesCollectionRequest) Get(ctx context.Context) ([]DirectoryDefinition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryDefinition collection

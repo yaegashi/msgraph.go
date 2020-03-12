@@ -1188,7 +1188,7 @@ func (b *AndroidManagedAppProtectionCollectionHasPayloadLinksRequestBuilder) Req
 }
 
 //
-func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1225,7 +1225,10 @@ func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1240,8 +1243,13 @@ func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx
 }
 
 //
+func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *AndroidManagedAppProtectionCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

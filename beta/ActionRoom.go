@@ -39,7 +39,7 @@ func (b *RoomListRoomsCollectionRequestBuilder) ID(id string) *RoomRequestBuilde
 type RoomListRoomsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Room collection
-func (r *RoomListRoomsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Room, error) {
+func (r *RoomListRoomsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Room, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *RoomListRoomsCollectionRequest) Paging(ctx context.Context, method, pat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *RoomListRoomsCollectionRequest) Paging(ctx context.Context, method, pat
 	}
 }
 
-// Get performs GET request for Room collection
-func (r *RoomListRoomsCollectionRequest) Get(ctx context.Context) ([]Room, error) {
+// GetN performs GET request for Room collection, max N pages
+func (r *RoomListRoomsCollectionRequest) GetN(ctx context.Context, n int) ([]Room, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Room collection
+func (r *RoomListRoomsCollectionRequest) Get(ctx context.Context) ([]Room, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Room collection

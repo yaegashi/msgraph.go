@@ -66,7 +66,7 @@ func (b *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 type MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -103,7 +103,10 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -117,13 +120,18 @@ func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollect
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *MacOSImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -160,7 +168,7 @@ func (b *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 type MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -197,7 +205,10 @@ func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -211,13 +222,18 @@ func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *MacOSPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -254,7 +270,7 @@ func (b *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 type MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -291,7 +307,10 @@ func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -305,13 +324,18 @@ func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequ
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *MacOSScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -376,7 +400,7 @@ func (b *MacOsVPPAppAssignedLicensesCollectionRequestBuilder) ID(id string) *Mac
 type MacOsVPPAppAssignedLicensesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MacOsVPPAppAssignedLicense collection
-func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MacOsVPPAppAssignedLicense, error) {
+func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MacOsVPPAppAssignedLicense, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -413,7 +437,10 @@ func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -427,13 +454,18 @@ func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for MacOsVPPAppAssignedLicense collection
-func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Get(ctx context.Context) ([]MacOsVPPAppAssignedLicense, error) {
+// GetN performs GET request for MacOsVPPAppAssignedLicense collection, max N pages
+func (r *MacOsVPPAppAssignedLicensesCollectionRequest) GetN(ctx context.Context, n int) ([]MacOsVPPAppAssignedLicense, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MacOsVPPAppAssignedLicense collection
+func (r *MacOsVPPAppAssignedLicensesCollectionRequest) Get(ctx context.Context) ([]MacOsVPPAppAssignedLicense, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MacOsVPPAppAssignedLicense collection

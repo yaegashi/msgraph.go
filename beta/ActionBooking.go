@@ -53,7 +53,7 @@ func (b *BookingBusinessAppointmentsCollectionRequestBuilder) ID(id string) *Boo
 type BookingBusinessAppointmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingAppointment, error) {
+func (r *BookingBusinessAppointmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BookingAppointment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -90,7 +90,10 @@ func (r *BookingBusinessAppointmentsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -104,13 +107,18 @@ func (r *BookingBusinessAppointmentsCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for BookingAppointment collection
-func (r *BookingBusinessAppointmentsCollectionRequest) Get(ctx context.Context) ([]BookingAppointment, error) {
+// GetN performs GET request for BookingAppointment collection, max N pages
+func (r *BookingBusinessAppointmentsCollectionRequest) GetN(ctx context.Context, n int) ([]BookingAppointment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BookingAppointment collection
+func (r *BookingBusinessAppointmentsCollectionRequest) Get(ctx context.Context) ([]BookingAppointment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BookingAppointment collection
@@ -147,7 +155,7 @@ func (b *BookingBusinessCalendarViewCollectionRequestBuilder) ID(id string) *Boo
 type BookingBusinessCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingAppointment, error) {
+func (r *BookingBusinessCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BookingAppointment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -184,7 +192,10 @@ func (r *BookingBusinessCalendarViewCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -198,13 +209,18 @@ func (r *BookingBusinessCalendarViewCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for BookingAppointment collection
-func (r *BookingBusinessCalendarViewCollectionRequest) Get(ctx context.Context) ([]BookingAppointment, error) {
+// GetN performs GET request for BookingAppointment collection, max N pages
+func (r *BookingBusinessCalendarViewCollectionRequest) GetN(ctx context.Context, n int) ([]BookingAppointment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BookingAppointment collection
+func (r *BookingBusinessCalendarViewCollectionRequest) Get(ctx context.Context) ([]BookingAppointment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BookingAppointment collection
@@ -241,7 +257,7 @@ func (b *BookingBusinessCustomersCollectionRequestBuilder) ID(id string) *Bookin
 type BookingBusinessCustomersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingCustomer, error) {
+func (r *BookingBusinessCustomersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BookingCustomer, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -278,7 +294,10 @@ func (r *BookingBusinessCustomersCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -292,13 +311,18 @@ func (r *BookingBusinessCustomersCollectionRequest) Paging(ctx context.Context, 
 	}
 }
 
-// Get performs GET request for BookingCustomer collection
-func (r *BookingBusinessCustomersCollectionRequest) Get(ctx context.Context) ([]BookingCustomer, error) {
+// GetN performs GET request for BookingCustomer collection, max N pages
+func (r *BookingBusinessCustomersCollectionRequest) GetN(ctx context.Context, n int) ([]BookingCustomer, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BookingCustomer collection
+func (r *BookingBusinessCustomersCollectionRequest) Get(ctx context.Context) ([]BookingCustomer, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BookingCustomer collection
@@ -335,7 +359,7 @@ func (b *BookingBusinessServicesCollectionRequestBuilder) ID(id string) *Booking
 type BookingBusinessServicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingService, error) {
+func (r *BookingBusinessServicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BookingService, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -372,7 +396,10 @@ func (r *BookingBusinessServicesCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -386,13 +413,18 @@ func (r *BookingBusinessServicesCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// Get performs GET request for BookingService collection
-func (r *BookingBusinessServicesCollectionRequest) Get(ctx context.Context) ([]BookingService, error) {
+// GetN performs GET request for BookingService collection, max N pages
+func (r *BookingBusinessServicesCollectionRequest) GetN(ctx context.Context, n int) ([]BookingService, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BookingService collection
+func (r *BookingBusinessServicesCollectionRequest) Get(ctx context.Context) ([]BookingService, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BookingService collection
@@ -429,7 +461,7 @@ func (b *BookingBusinessStaffMembersCollectionRequestBuilder) ID(id string) *Boo
 type BookingBusinessStaffMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BookingStaffMember, error) {
+func (r *BookingBusinessStaffMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BookingStaffMember, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -466,7 +498,10 @@ func (r *BookingBusinessStaffMembersCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -480,13 +515,18 @@ func (r *BookingBusinessStaffMembersCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for BookingStaffMember collection
-func (r *BookingBusinessStaffMembersCollectionRequest) Get(ctx context.Context) ([]BookingStaffMember, error) {
+// GetN performs GET request for BookingStaffMember collection, max N pages
+func (r *BookingBusinessStaffMembersCollectionRequest) GetN(ctx context.Context, n int) ([]BookingStaffMember, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BookingStaffMember collection
+func (r *BookingBusinessStaffMembersCollectionRequest) Get(ctx context.Context) ([]BookingStaffMember, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BookingStaffMember collection

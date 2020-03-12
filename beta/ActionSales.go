@@ -88,7 +88,7 @@ func (b *SalesCreditMemoSalesCreditMemoLinesCollectionRequestBuilder) ID(id stri
 type SalesCreditMemoSalesCreditMemoLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesCreditMemoLine, error) {
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SalesCreditMemoLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -125,7 +125,10 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -139,13 +142,18 @@ func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Paging(ctx contex
 	}
 }
 
-// Get performs GET request for SalesCreditMemoLine collection
-func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Get(ctx context.Context) ([]SalesCreditMemoLine, error) {
+// GetN performs GET request for SalesCreditMemoLine collection, max N pages
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) GetN(ctx context.Context, n int) ([]SalesCreditMemoLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SalesCreditMemoLine collection
+func (r *SalesCreditMemoSalesCreditMemoLinesCollectionRequest) Get(ctx context.Context) ([]SalesCreditMemoLine, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SalesCreditMemoLine collection
@@ -217,7 +225,7 @@ func (b *SalesInvoiceSalesInvoiceLinesCollectionRequestBuilder) ID(id string) *S
 type SalesInvoiceSalesInvoiceLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesInvoiceLine, error) {
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SalesInvoiceLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -254,7 +262,10 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -268,13 +279,18 @@ func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Paging(ctx context.Cont
 	}
 }
 
-// Get performs GET request for SalesInvoiceLine collection
-func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Get(ctx context.Context) ([]SalesInvoiceLine, error) {
+// GetN performs GET request for SalesInvoiceLine collection, max N pages
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) GetN(ctx context.Context, n int) ([]SalesInvoiceLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SalesInvoiceLine collection
+func (r *SalesInvoiceSalesInvoiceLinesCollectionRequest) Get(ctx context.Context) ([]SalesInvoiceLine, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SalesInvoiceLine collection
@@ -353,7 +369,7 @@ func (b *SalesOrderSalesOrderLinesCollectionRequestBuilder) ID(id string) *Sales
 type SalesOrderSalesOrderLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesOrderLine, error) {
+func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SalesOrderLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -390,7 +406,10 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -404,13 +423,18 @@ func (r *SalesOrderSalesOrderLinesCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for SalesOrderLine collection
-func (r *SalesOrderSalesOrderLinesCollectionRequest) Get(ctx context.Context) ([]SalesOrderLine, error) {
+// GetN performs GET request for SalesOrderLine collection, max N pages
+func (r *SalesOrderSalesOrderLinesCollectionRequest) GetN(ctx context.Context, n int) ([]SalesOrderLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SalesOrderLine collection
+func (r *SalesOrderSalesOrderLinesCollectionRequest) Get(ctx context.Context) ([]SalesOrderLine, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SalesOrderLine collection
@@ -482,7 +506,7 @@ func (b *SalesQuoteSalesQuoteLinesCollectionRequestBuilder) ID(id string) *Sales
 type SalesQuoteSalesQuoteLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SalesQuoteLine collection
-func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SalesQuoteLine, error) {
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SalesQuoteLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -519,7 +543,10 @@ func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -533,13 +560,18 @@ func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for SalesQuoteLine collection
-func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Get(ctx context.Context) ([]SalesQuoteLine, error) {
+// GetN performs GET request for SalesQuoteLine collection, max N pages
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) GetN(ctx context.Context, n int) ([]SalesQuoteLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SalesQuoteLine collection
+func (r *SalesQuoteSalesQuoteLinesCollectionRequest) Get(ctx context.Context) ([]SalesQuoteLine, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SalesQuoteLine collection

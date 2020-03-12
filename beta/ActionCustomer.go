@@ -60,7 +60,7 @@ func (b *CustomerPictureCollectionRequestBuilder) ID(id string) *PictureRequestB
 type CustomerPictureCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Picture collection
-func (r *CustomerPictureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Picture, error) {
+func (r *CustomerPictureCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Picture, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -97,7 +97,10 @@ func (r *CustomerPictureCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -111,13 +114,18 @@ func (r *CustomerPictureCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for Picture collection
-func (r *CustomerPictureCollectionRequest) Get(ctx context.Context) ([]Picture, error) {
+// GetN performs GET request for Picture collection, max N pages
+func (r *CustomerPictureCollectionRequest) GetN(ctx context.Context, n int) ([]Picture, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Picture collection
+func (r *CustomerPictureCollectionRequest) Get(ctx context.Context) ([]Picture, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Picture collection
@@ -175,7 +183,7 @@ func (b *CustomerPaymentJournalCustomerPaymentsCollectionRequestBuilder) ID(id s
 type CustomerPaymentJournalCustomerPaymentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CustomerPayment, error) {
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CustomerPayment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -212,7 +220,10 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -226,13 +237,18 @@ func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for CustomerPayment collection
-func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Get(ctx context.Context) ([]CustomerPayment, error) {
+// GetN performs GET request for CustomerPayment collection, max N pages
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) GetN(ctx context.Context, n int) ([]CustomerPayment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CustomerPayment collection
+func (r *CustomerPaymentJournalCustomerPaymentsCollectionRequest) Get(ctx context.Context) ([]CustomerPayment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for CustomerPayment collection

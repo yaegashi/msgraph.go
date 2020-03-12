@@ -39,7 +39,7 @@ func (b *RbacApplicationRoleAssignmentsCollectionRequestBuilder) ID(id string) *
 type RbacApplicationRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UnifiedRoleAssignment collection
-func (r *RbacApplicationRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UnifiedRoleAssignment, error) {
+func (r *RbacApplicationRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UnifiedRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *RbacApplicationRoleAssignmentsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *RbacApplicationRoleAssignmentsCollectionRequest) Paging(ctx context.Con
 	}
 }
 
-// Get performs GET request for UnifiedRoleAssignment collection
-func (r *RbacApplicationRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]UnifiedRoleAssignment, error) {
+// GetN performs GET request for UnifiedRoleAssignment collection, max N pages
+func (r *RbacApplicationRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]UnifiedRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UnifiedRoleAssignment collection
+func (r *RbacApplicationRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]UnifiedRoleAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UnifiedRoleAssignment collection
@@ -133,7 +141,7 @@ func (b *RbacApplicationRoleDefinitionsCollectionRequestBuilder) ID(id string) *
 type RbacApplicationRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UnifiedRoleDefinition collection
-func (r *RbacApplicationRoleDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UnifiedRoleDefinition, error) {
+func (r *RbacApplicationRoleDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UnifiedRoleDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *RbacApplicationRoleDefinitionsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *RbacApplicationRoleDefinitionsCollectionRequest) Paging(ctx context.Con
 	}
 }
 
-// Get performs GET request for UnifiedRoleDefinition collection
-func (r *RbacApplicationRoleDefinitionsCollectionRequest) Get(ctx context.Context) ([]UnifiedRoleDefinition, error) {
+// GetN performs GET request for UnifiedRoleDefinition collection, max N pages
+func (r *RbacApplicationRoleDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]UnifiedRoleDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UnifiedRoleDefinition collection
+func (r *RbacApplicationRoleDefinitionsCollectionRequest) Get(ctx context.Context) ([]UnifiedRoleDefinition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UnifiedRoleDefinition collection

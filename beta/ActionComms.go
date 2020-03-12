@@ -39,7 +39,7 @@ func (b *CommsApplicationCallsCollectionRequestBuilder) ID(id string) *CallReque
 type CommsApplicationCallsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Call collection
-func (r *CommsApplicationCallsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Call, error) {
+func (r *CommsApplicationCallsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Call, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *CommsApplicationCallsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *CommsApplicationCallsCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for Call collection
-func (r *CommsApplicationCallsCollectionRequest) Get(ctx context.Context) ([]Call, error) {
+// GetN performs GET request for Call collection, max N pages
+func (r *CommsApplicationCallsCollectionRequest) GetN(ctx context.Context, n int) ([]Call, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Call collection
+func (r *CommsApplicationCallsCollectionRequest) Get(ctx context.Context) ([]Call, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Call collection
@@ -133,7 +141,7 @@ func (b *CommsApplicationOnlineMeetingsCollectionRequestBuilder) ID(id string) *
 type CommsApplicationOnlineMeetingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnlineMeeting collection
-func (r *CommsApplicationOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnlineMeeting, error) {
+func (r *CommsApplicationOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnlineMeeting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *CommsApplicationOnlineMeetingsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *CommsApplicationOnlineMeetingsCollectionRequest) Paging(ctx context.Con
 	}
 }
 
-// Get performs GET request for OnlineMeeting collection
-func (r *CommsApplicationOnlineMeetingsCollectionRequest) Get(ctx context.Context) ([]OnlineMeeting, error) {
+// GetN performs GET request for OnlineMeeting collection, max N pages
+func (r *CommsApplicationOnlineMeetingsCollectionRequest) GetN(ctx context.Context, n int) ([]OnlineMeeting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnlineMeeting collection
+func (r *CommsApplicationOnlineMeetingsCollectionRequest) Get(ctx context.Context) ([]OnlineMeeting, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnlineMeeting collection

@@ -39,7 +39,7 @@ func (b *ChatInstalledAppsCollectionRequestBuilder) ID(id string) *TeamsAppInsta
 type ChatInstalledAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsAppInstallation collection
-func (r *ChatInstalledAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsAppInstallation, error) {
+func (r *ChatInstalledAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsAppInstallation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ChatInstalledAppsCollectionRequest) Paging(ctx context.Context, method,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ChatInstalledAppsCollectionRequest) Paging(ctx context.Context, method,
 	}
 }
 
-// Get performs GET request for TeamsAppInstallation collection
-func (r *ChatInstalledAppsCollectionRequest) Get(ctx context.Context) ([]TeamsAppInstallation, error) {
+// GetN performs GET request for TeamsAppInstallation collection, max N pages
+func (r *ChatInstalledAppsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsAppInstallation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsAppInstallation collection
+func (r *ChatInstalledAppsCollectionRequest) Get(ctx context.Context) ([]TeamsAppInstallation, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TeamsAppInstallation collection
@@ -133,7 +141,7 @@ func (b *ChatMembersCollectionRequestBuilder) ID(id string) *ConversationMemberR
 type ChatMembersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ConversationMember collection
-func (r *ChatMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConversationMember, error) {
+func (r *ChatMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConversationMember, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ChatMembersCollectionRequest) Paging(ctx context.Context, method, path 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ChatMembersCollectionRequest) Paging(ctx context.Context, method, path 
 	}
 }
 
-// Get performs GET request for ConversationMember collection
-func (r *ChatMembersCollectionRequest) Get(ctx context.Context) ([]ConversationMember, error) {
+// GetN performs GET request for ConversationMember collection, max N pages
+func (r *ChatMembersCollectionRequest) GetN(ctx context.Context, n int) ([]ConversationMember, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConversationMember collection
+func (r *ChatMembersCollectionRequest) Get(ctx context.Context) ([]ConversationMember, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ConversationMember collection
@@ -227,7 +243,7 @@ func (b *ChatMessagesCollectionRequestBuilder) ID(id string) *ChatMessageRequest
 type ChatMessagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatMessage collection
-func (r *ChatMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatMessage, error) {
+func (r *ChatMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ChatMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *ChatMessagesCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *ChatMessagesCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for ChatMessage collection
-func (r *ChatMessagesCollectionRequest) Get(ctx context.Context) ([]ChatMessage, error) {
+// GetN performs GET request for ChatMessage collection, max N pages
+func (r *ChatMessagesCollectionRequest) GetN(ctx context.Context, n int) ([]ChatMessage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ChatMessage collection
+func (r *ChatMessagesCollectionRequest) Get(ctx context.Context) ([]ChatMessage, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ChatMessage collection
@@ -321,7 +345,7 @@ func (b *ChatMessageHostedContentsCollectionRequestBuilder) ID(id string) *ChatM
 type ChatMessageHostedContentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatMessageHostedContent, error) {
+func (r *ChatMessageHostedContentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ChatMessageHostedContent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -358,7 +382,10 @@ func (r *ChatMessageHostedContentsCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -372,13 +399,18 @@ func (r *ChatMessageHostedContentsCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for ChatMessageHostedContent collection
-func (r *ChatMessageHostedContentsCollectionRequest) Get(ctx context.Context) ([]ChatMessageHostedContent, error) {
+// GetN performs GET request for ChatMessageHostedContent collection, max N pages
+func (r *ChatMessageHostedContentsCollectionRequest) GetN(ctx context.Context, n int) ([]ChatMessageHostedContent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ChatMessageHostedContent collection
+func (r *ChatMessageHostedContentsCollectionRequest) Get(ctx context.Context) ([]ChatMessageHostedContent, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ChatMessageHostedContent collection
@@ -415,7 +447,7 @@ func (b *ChatMessageRepliesCollectionRequestBuilder) ID(id string) *ChatMessageR
 type ChatMessageRepliesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ChatMessage, error) {
+func (r *ChatMessageRepliesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ChatMessage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -452,7 +484,10 @@ func (r *ChatMessageRepliesCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -466,13 +501,18 @@ func (r *ChatMessageRepliesCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for ChatMessage collection
-func (r *ChatMessageRepliesCollectionRequest) Get(ctx context.Context) ([]ChatMessage, error) {
+// GetN performs GET request for ChatMessage collection, max N pages
+func (r *ChatMessageRepliesCollectionRequest) GetN(ctx context.Context, n int) ([]ChatMessage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ChatMessage collection
+func (r *ChatMessageRepliesCollectionRequest) Get(ctx context.Context) ([]ChatMessage, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ChatMessage collection

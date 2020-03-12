@@ -2310,7 +2310,7 @@ func (b *DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder) Request(
 }
 
 //
-func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2347,7 +2347,10 @@ func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(ctx cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2362,8 +2365,13 @@ func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Paging(ctx cont
 }
 
 //
+func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -2422,7 +2430,7 @@ func (b *DeviceConfigurationCollectionHasPayloadLinksRequestBuilder) Request() *
 }
 
 //
-func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2459,7 +2467,10 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2474,8 +2485,13 @@ func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context
 }
 
 //
+func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -2508,7 +2524,7 @@ func (b *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequestBuilder) 
 }
 
 //
-func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceConfigurationTargetedUserAndDevice, error) {
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceConfigurationTargetedUserAndDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2545,7 +2561,10 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2560,8 +2579,13 @@ func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Paging(
 }
 
 //
+func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) PostN(ctx context.Context, n int) ([]DeviceConfigurationTargetedUserAndDevice, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceConfigurationCollectionGetTargetedUsersAndDevicesRequest) Post(ctx context.Context) ([]DeviceConfigurationTargetedUserAndDevice, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -2594,7 +2618,7 @@ func (b *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestBuilder) R
 }
 
 //
-func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2631,7 +2655,10 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2646,8 +2673,13 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Paging(c
 }
 
 //
+func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -2672,7 +2704,7 @@ func (b *DeviceManagementScriptCollectionHasPayloadLinksRequestBuilder) Request(
 }
 
 //
-func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2709,7 +2741,10 @@ func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Paging(ctx cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2724,8 +2759,13 @@ func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Paging(ctx cont
 }
 
 //
+func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -2802,7 +2842,7 @@ func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliance
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceCompliancePolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2839,7 +2879,10 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2854,8 +2897,13 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method
 }
 
 //
+func (r *DeviceCompliancePolicyAssignRequest) PostN(ctx context.Context, n int) ([]DeviceCompliancePolicyAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceCompliancePolicyAssignRequest) Post(ctx context.Context) ([]DeviceCompliancePolicyAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -2906,7 +2954,7 @@ func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfiguration
 }
 
 //
-func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DeviceConfigurationAssignment, error) {
+func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2943,7 +2991,10 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -2958,8 +3009,13 @@ func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, p
 }
 
 //
+func (r *DeviceConfigurationAssignRequest) PostN(ctx context.Context, n int) ([]DeviceConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([]DeviceConfigurationAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

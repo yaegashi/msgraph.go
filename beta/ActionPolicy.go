@@ -57,7 +57,7 @@ func (b *PolicyAppliesToCollectionRequestBuilder) ID(id string) *DirectoryObject
 type PolicyAppliesToCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *PolicyAppliesToCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *PolicyAppliesToCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -94,7 +94,10 @@ func (r *PolicyAppliesToCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -108,13 +111,18 @@ func (r *PolicyAppliesToCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *PolicyAppliesToCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *PolicyAppliesToCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *PolicyAppliesToCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -151,7 +159,7 @@ func (b *PolicySetAssignmentsCollectionRequestBuilder) ID(id string) *PolicySetA
 type PolicySetAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PolicySetAssignment, error) {
+func (r *PolicySetAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PolicySetAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -188,7 +196,10 @@ func (r *PolicySetAssignmentsCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -202,13 +213,18 @@ func (r *PolicySetAssignmentsCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for PolicySetAssignment collection
-func (r *PolicySetAssignmentsCollectionRequest) Get(ctx context.Context) ([]PolicySetAssignment, error) {
+// GetN performs GET request for PolicySetAssignment collection, max N pages
+func (r *PolicySetAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]PolicySetAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PolicySetAssignment collection
+func (r *PolicySetAssignmentsCollectionRequest) Get(ctx context.Context) ([]PolicySetAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PolicySetAssignment collection
@@ -245,7 +261,7 @@ func (b *PolicySetItemsCollectionRequestBuilder) ID(id string) *PolicySetItemReq
 type PolicySetItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PolicySetItem, error) {
+func (r *PolicySetItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PolicySetItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -282,7 +298,10 @@ func (r *PolicySetItemsCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -296,13 +315,18 @@ func (r *PolicySetItemsCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for PolicySetItem collection
-func (r *PolicySetItemsCollectionRequest) Get(ctx context.Context) ([]PolicySetItem, error) {
+// GetN performs GET request for PolicySetItem collection, max N pages
+func (r *PolicySetItemsCollectionRequest) GetN(ctx context.Context, n int) ([]PolicySetItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PolicySetItem collection
+func (r *PolicySetItemsCollectionRequest) Get(ctx context.Context) ([]PolicySetItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PolicySetItem collection

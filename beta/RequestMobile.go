@@ -495,7 +495,7 @@ func (b *MobileAppCollectionHasPayloadLinksRequestBuilder) Request() *MobileAppC
 }
 
 //
-func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -532,7 +532,10 @@ func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -547,8 +550,13 @@ func (r *MobileAppCollectionHasPayloadLinksRequest) Paging(ctx context.Context, 
 }
 
 //
+func (r *MobileAppCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *MobileAppCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

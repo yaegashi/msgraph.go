@@ -39,7 +39,7 @@ func (b *ExternalConnectionsCollectionRequestBuilder) ID(id string) *ExternalCon
 type ExternalConnectionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ExternalConnection collection
-func (r *ExternalConnectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExternalConnection, error) {
+func (r *ExternalConnectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExternalConnection, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ExternalConnectionsCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ExternalConnectionsCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for ExternalConnection collection
-func (r *ExternalConnectionsCollectionRequest) Get(ctx context.Context) ([]ExternalConnection, error) {
+// GetN performs GET request for ExternalConnection collection, max N pages
+func (r *ExternalConnectionsCollectionRequest) GetN(ctx context.Context, n int) ([]ExternalConnection, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExternalConnection collection
+func (r *ExternalConnectionsCollectionRequest) Get(ctx context.Context) ([]ExternalConnection, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ExternalConnection collection
@@ -133,7 +141,7 @@ func (b *ExternalConnectionItemsCollectionRequestBuilder) ID(id string) *Externa
 type ExternalConnectionItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ExternalItem collection
-func (r *ExternalConnectionItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ExternalItem, error) {
+func (r *ExternalConnectionItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExternalItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ExternalConnectionItemsCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ExternalConnectionItemsCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// Get performs GET request for ExternalItem collection
-func (r *ExternalConnectionItemsCollectionRequest) Get(ctx context.Context) ([]ExternalItem, error) {
+// GetN performs GET request for ExternalItem collection, max N pages
+func (r *ExternalConnectionItemsCollectionRequest) GetN(ctx context.Context, n int) ([]ExternalItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExternalItem collection
+func (r *ExternalConnectionItemsCollectionRequest) Get(ctx context.Context) ([]ExternalItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ExternalItem collection
@@ -227,7 +243,7 @@ func (b *ExternalConnectionOperationsCollectionRequestBuilder) ID(id string) *Co
 type ExternalConnectionOperationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ConnectionOperation collection
-func (r *ExternalConnectionOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConnectionOperation, error) {
+func (r *ExternalConnectionOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConnectionOperation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *ExternalConnectionOperationsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *ExternalConnectionOperationsCollectionRequest) Paging(ctx context.Conte
 	}
 }
 
-// Get performs GET request for ConnectionOperation collection
-func (r *ExternalConnectionOperationsCollectionRequest) Get(ctx context.Context) ([]ConnectionOperation, error) {
+// GetN performs GET request for ConnectionOperation collection, max N pages
+func (r *ExternalConnectionOperationsCollectionRequest) GetN(ctx context.Context, n int) ([]ConnectionOperation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConnectionOperation collection
+func (r *ExternalConnectionOperationsCollectionRequest) Get(ctx context.Context) ([]ConnectionOperation, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ConnectionOperation collection

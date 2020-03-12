@@ -43,7 +43,7 @@ func (b *OutlookTaskAttachmentsCollectionRequestBuilder) ID(id string) *Attachme
 type OutlookTaskAttachmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Attachment collection
-func (r *OutlookTaskAttachmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Attachment, error) {
+func (r *OutlookTaskAttachmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Attachment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -80,7 +80,10 @@ func (r *OutlookTaskAttachmentsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -94,13 +97,18 @@ func (r *OutlookTaskAttachmentsCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for Attachment collection
-func (r *OutlookTaskAttachmentsCollectionRequest) Get(ctx context.Context) ([]Attachment, error) {
+// GetN performs GET request for Attachment collection, max N pages
+func (r *OutlookTaskAttachmentsCollectionRequest) GetN(ctx context.Context, n int) ([]Attachment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Attachment collection
+func (r *OutlookTaskAttachmentsCollectionRequest) Get(ctx context.Context) ([]Attachment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Attachment collection
@@ -137,7 +145,7 @@ func (b *OutlookTaskMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id 
 type OutlookTaskMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -174,7 +182,10 @@ func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -188,13 +199,18 @@ func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *OutlookTaskMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -231,7 +247,7 @@ func (b *OutlookTaskSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id
 type OutlookTaskSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -268,7 +284,10 @@ func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -282,13 +301,18 @@ func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Paging(ctx c
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *OutlookTaskSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
@@ -325,7 +349,7 @@ func (b *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequestBuilder) 
 type OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -362,7 +386,10 @@ func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -376,13 +403,18 @@ func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Paging(
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *OutlookTaskFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -419,7 +451,7 @@ func (b *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequestBuilder)
 type OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -456,7 +488,10 @@ func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Paging
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -470,13 +505,18 @@ func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Paging
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *OutlookTaskFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
@@ -513,7 +553,7 @@ func (b *OutlookTaskFolderTasksCollectionRequestBuilder) ID(id string) *OutlookT
 type OutlookTaskFolderTasksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookTask collection
-func (r *OutlookTaskFolderTasksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookTask, error) {
+func (r *OutlookTaskFolderTasksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookTask, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -550,7 +590,10 @@ func (r *OutlookTaskFolderTasksCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -564,13 +607,18 @@ func (r *OutlookTaskFolderTasksCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for OutlookTask collection
-func (r *OutlookTaskFolderTasksCollectionRequest) Get(ctx context.Context) ([]OutlookTask, error) {
+// GetN performs GET request for OutlookTask collection, max N pages
+func (r *OutlookTaskFolderTasksCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookTask, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookTask collection
+func (r *OutlookTaskFolderTasksCollectionRequest) Get(ctx context.Context) ([]OutlookTask, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookTask collection
@@ -607,7 +655,7 @@ func (b *OutlookTaskGroupTaskFoldersCollectionRequestBuilder) ID(id string) *Out
 type OutlookTaskGroupTaskFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookTaskFolder collection
-func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookTaskFolder, error) {
+func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookTaskFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -644,7 +692,10 @@ func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -658,13 +709,18 @@ func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for OutlookTaskFolder collection
-func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Get(ctx context.Context) ([]OutlookTaskFolder, error) {
+// GetN performs GET request for OutlookTaskFolder collection, max N pages
+func (r *OutlookTaskGroupTaskFoldersCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookTaskFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookTaskFolder collection
+func (r *OutlookTaskGroupTaskFoldersCollectionRequest) Get(ctx context.Context) ([]OutlookTaskFolder, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookTaskFolder collection
@@ -701,7 +757,7 @@ func (b *OutlookUserMasterCategoriesCollectionRequestBuilder) ID(id string) *Out
 type OutlookUserMasterCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookCategory collection
-func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookCategory, error) {
+func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -738,7 +794,10 @@ func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -752,13 +811,18 @@ func (r *OutlookUserMasterCategoriesCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for OutlookCategory collection
-func (r *OutlookUserMasterCategoriesCollectionRequest) Get(ctx context.Context) ([]OutlookCategory, error) {
+// GetN performs GET request for OutlookCategory collection, max N pages
+func (r *OutlookUserMasterCategoriesCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookCategory collection
+func (r *OutlookUserMasterCategoriesCollectionRequest) Get(ctx context.Context) ([]OutlookCategory, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookCategory collection
@@ -795,7 +859,7 @@ func (b *OutlookUserTaskFoldersCollectionRequestBuilder) ID(id string) *OutlookT
 type OutlookUserTaskFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookTaskFolder collection
-func (r *OutlookUserTaskFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookTaskFolder, error) {
+func (r *OutlookUserTaskFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookTaskFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -832,7 +896,10 @@ func (r *OutlookUserTaskFoldersCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -846,13 +913,18 @@ func (r *OutlookUserTaskFoldersCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for OutlookTaskFolder collection
-func (r *OutlookUserTaskFoldersCollectionRequest) Get(ctx context.Context) ([]OutlookTaskFolder, error) {
+// GetN performs GET request for OutlookTaskFolder collection, max N pages
+func (r *OutlookUserTaskFoldersCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookTaskFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookTaskFolder collection
+func (r *OutlookUserTaskFoldersCollectionRequest) Get(ctx context.Context) ([]OutlookTaskFolder, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookTaskFolder collection
@@ -889,7 +961,7 @@ func (b *OutlookUserTaskGroupsCollectionRequestBuilder) ID(id string) *OutlookTa
 type OutlookUserTaskGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookTaskGroup collection
-func (r *OutlookUserTaskGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookTaskGroup, error) {
+func (r *OutlookUserTaskGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookTaskGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -926,7 +998,10 @@ func (r *OutlookUserTaskGroupsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -940,13 +1015,18 @@ func (r *OutlookUserTaskGroupsCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for OutlookTaskGroup collection
-func (r *OutlookUserTaskGroupsCollectionRequest) Get(ctx context.Context) ([]OutlookTaskGroup, error) {
+// GetN performs GET request for OutlookTaskGroup collection, max N pages
+func (r *OutlookUserTaskGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookTaskGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookTaskGroup collection
+func (r *OutlookUserTaskGroupsCollectionRequest) Get(ctx context.Context) ([]OutlookTaskGroup, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookTaskGroup collection
@@ -983,7 +1063,7 @@ func (b *OutlookUserTasksCollectionRequestBuilder) ID(id string) *OutlookTaskReq
 type OutlookUserTasksCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OutlookTask collection
-func (r *OutlookUserTasksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OutlookTask, error) {
+func (r *OutlookUserTasksCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OutlookTask, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1020,7 +1100,10 @@ func (r *OutlookUserTasksCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1034,13 +1117,18 @@ func (r *OutlookUserTasksCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for OutlookTask collection
-func (r *OutlookUserTasksCollectionRequest) Get(ctx context.Context) ([]OutlookTask, error) {
+// GetN performs GET request for OutlookTask collection, max N pages
+func (r *OutlookUserTasksCollectionRequest) GetN(ctx context.Context, n int) ([]OutlookTask, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OutlookTask collection
+func (r *OutlookUserTasksCollectionRequest) Get(ctx context.Context) ([]OutlookTask, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OutlookTask collection

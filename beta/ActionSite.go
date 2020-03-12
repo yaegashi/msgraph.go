@@ -62,7 +62,7 @@ func (b *SiteColumnsCollectionRequestBuilder) ID(id string) *ColumnDefinitionReq
 type SiteColumnsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ColumnDefinition collection
-func (r *SiteColumnsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ColumnDefinition, error) {
+func (r *SiteColumnsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ColumnDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -99,7 +99,10 @@ func (r *SiteColumnsCollectionRequest) Paging(ctx context.Context, method, path 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -113,13 +116,18 @@ func (r *SiteColumnsCollectionRequest) Paging(ctx context.Context, method, path 
 	}
 }
 
-// Get performs GET request for ColumnDefinition collection
-func (r *SiteColumnsCollectionRequest) Get(ctx context.Context) ([]ColumnDefinition, error) {
+// GetN performs GET request for ColumnDefinition collection, max N pages
+func (r *SiteColumnsCollectionRequest) GetN(ctx context.Context, n int) ([]ColumnDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ColumnDefinition collection
+func (r *SiteColumnsCollectionRequest) Get(ctx context.Context) ([]ColumnDefinition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ColumnDefinition collection
@@ -156,7 +164,7 @@ func (b *SiteContentTypesCollectionRequestBuilder) ID(id string) *ContentTypeReq
 type SiteContentTypesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ContentType collection
-func (r *SiteContentTypesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ContentType, error) {
+func (r *SiteContentTypesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ContentType, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -193,7 +201,10 @@ func (r *SiteContentTypesCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -207,13 +218,18 @@ func (r *SiteContentTypesCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for ContentType collection
-func (r *SiteContentTypesCollectionRequest) Get(ctx context.Context) ([]ContentType, error) {
+// GetN performs GET request for ContentType collection, max N pages
+func (r *SiteContentTypesCollectionRequest) GetN(ctx context.Context, n int) ([]ContentType, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ContentType collection
+func (r *SiteContentTypesCollectionRequest) Get(ctx context.Context) ([]ContentType, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ContentType collection
@@ -257,7 +273,7 @@ func (b *SiteDrivesCollectionRequestBuilder) ID(id string) *DriveRequestBuilder 
 type SiteDrivesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Drive collection
-func (r *SiteDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Drive, error) {
+func (r *SiteDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Drive, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -294,7 +310,10 @@ func (r *SiteDrivesCollectionRequest) Paging(ctx context.Context, method, path s
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -308,13 +327,18 @@ func (r *SiteDrivesCollectionRequest) Paging(ctx context.Context, method, path s
 	}
 }
 
-// Get performs GET request for Drive collection
-func (r *SiteDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
+// GetN performs GET request for Drive collection, max N pages
+func (r *SiteDrivesCollectionRequest) GetN(ctx context.Context, n int) ([]Drive, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Drive collection
+func (r *SiteDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Drive collection
@@ -351,7 +375,7 @@ func (b *SiteItemsCollectionRequestBuilder) ID(id string) *BaseItemRequestBuilde
 type SiteItemsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BaseItem collection
-func (r *SiteItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BaseItem, error) {
+func (r *SiteItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BaseItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -388,7 +412,10 @@ func (r *SiteItemsCollectionRequest) Paging(ctx context.Context, method, path st
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -402,13 +429,18 @@ func (r *SiteItemsCollectionRequest) Paging(ctx context.Context, method, path st
 	}
 }
 
-// Get performs GET request for BaseItem collection
-func (r *SiteItemsCollectionRequest) Get(ctx context.Context) ([]BaseItem, error) {
+// GetN performs GET request for BaseItem collection, max N pages
+func (r *SiteItemsCollectionRequest) GetN(ctx context.Context, n int) ([]BaseItem, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BaseItem collection
+func (r *SiteItemsCollectionRequest) Get(ctx context.Context) ([]BaseItem, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BaseItem collection
@@ -445,7 +477,7 @@ func (b *SiteListsCollectionRequestBuilder) ID(id string) *ListRequestBuilder {
 type SiteListsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for List collection
-func (r *SiteListsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]List, error) {
+func (r *SiteListsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]List, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -482,7 +514,10 @@ func (r *SiteListsCollectionRequest) Paging(ctx context.Context, method, path st
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -496,13 +531,18 @@ func (r *SiteListsCollectionRequest) Paging(ctx context.Context, method, path st
 	}
 }
 
-// Get performs GET request for List collection
-func (r *SiteListsCollectionRequest) Get(ctx context.Context) ([]List, error) {
+// GetN performs GET request for List collection, max N pages
+func (r *SiteListsCollectionRequest) GetN(ctx context.Context, n int) ([]List, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for List collection
+func (r *SiteListsCollectionRequest) Get(ctx context.Context) ([]List, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for List collection
@@ -546,7 +586,7 @@ func (b *SitePagesCollectionRequestBuilder) ID(id string) *SitePageRequestBuilde
 type SitePagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SitePage collection
-func (r *SitePagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SitePage, error) {
+func (r *SitePagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SitePage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -583,7 +623,10 @@ func (r *SitePagesCollectionRequest) Paging(ctx context.Context, method, path st
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -597,13 +640,18 @@ func (r *SitePagesCollectionRequest) Paging(ctx context.Context, method, path st
 	}
 }
 
-// Get performs GET request for SitePage collection
-func (r *SitePagesCollectionRequest) Get(ctx context.Context) ([]SitePage, error) {
+// GetN performs GET request for SitePage collection, max N pages
+func (r *SitePagesCollectionRequest) GetN(ctx context.Context, n int) ([]SitePage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SitePage collection
+func (r *SitePagesCollectionRequest) Get(ctx context.Context) ([]SitePage, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SitePage collection
@@ -640,7 +688,7 @@ func (b *SiteSitesCollectionRequestBuilder) ID(id string) *SiteRequestBuilder {
 type SiteSitesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Site collection
-func (r *SiteSitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Site, error) {
+func (r *SiteSitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Site, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -677,7 +725,10 @@ func (r *SiteSitesCollectionRequest) Paging(ctx context.Context, method, path st
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -691,13 +742,18 @@ func (r *SiteSitesCollectionRequest) Paging(ctx context.Context, method, path st
 	}
 }
 
-// Get performs GET request for Site collection
-func (r *SiteSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
+// GetN performs GET request for Site collection, max N pages
+func (r *SiteSitesCollectionRequest) GetN(ctx context.Context, n int) ([]Site, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Site collection
+func (r *SiteSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Site collection

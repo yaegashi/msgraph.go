@@ -165,7 +165,7 @@ func (b *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
-func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedAppleDeviceIdentityResult, error) {
+func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImportedAppleDeviceIdentityResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -202,7 +202,10 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -217,8 +220,13 @@ func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListReque
 }
 
 //
+func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) PostN(ctx context.Context, n int) ([]ImportedAppleDeviceIdentityResult, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *ImportedAppleDeviceIdentityCollectionImportAppleDeviceIdentityListRequest) Post(ctx context.Context) ([]ImportedAppleDeviceIdentityResult, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -243,7 +251,7 @@ func (b *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequestBuilder)
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedDeviceIdentityResult, error) {
+func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImportedDeviceIdentityResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -280,7 +288,10 @@ func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -295,8 +306,13 @@ func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Paging
 }
 
 //
+func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) PostN(ctx context.Context, n int) ([]ImportedDeviceIdentityResult, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *ImportedDeviceIdentityCollectionImportDeviceIdentityListRequest) Post(ctx context.Context) ([]ImportedDeviceIdentityResult, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -321,7 +337,7 @@ func (b *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequestBuilder)
 }
 
 //
-func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedDeviceIdentity, error) {
+func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImportedDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -358,7 +374,10 @@ func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -373,8 +392,13 @@ func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Paging
 }
 
 //
+func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) PostN(ctx context.Context, n int) ([]ImportedDeviceIdentity, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *ImportedDeviceIdentityCollectionSearchExistingIdentitiesRequest) Post(ctx context.Context) ([]ImportedDeviceIdentity, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -407,7 +431,7 @@ func (b *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequestBuilder) R
 }
 
 //
-func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
+func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -444,7 +468,10 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -459,6 +486,11 @@ func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Paging(c
 }
 
 //
+func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) PostN(ctx context.Context, n int) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *ImportedWindowsAutopilotDeviceIdentityCollectionImportRequest) Post(ctx context.Context) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

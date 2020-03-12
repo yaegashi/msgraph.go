@@ -39,7 +39,7 @@ func (b *ReportRootApplicationSignInDetailedSummaryCollectionRequestBuilder) ID(
 type ReportRootApplicationSignInDetailedSummaryCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ApplicationSignInDetailedSummary, error) {
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ApplicationSignInDetailedSummary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for ApplicationSignInDetailedSummary collection
-func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Get(ctx context.Context) ([]ApplicationSignInDetailedSummary, error) {
+// GetN performs GET request for ApplicationSignInDetailedSummary collection, max N pages
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) GetN(ctx context.Context, n int) ([]ApplicationSignInDetailedSummary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ApplicationSignInDetailedSummary collection
+func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Get(ctx context.Context) ([]ApplicationSignInDetailedSummary, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ApplicationSignInDetailedSummary collection
@@ -133,7 +141,7 @@ func (b *ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder) ID
 type ReportRootCredentialUserRegistrationDetailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CredentialUserRegistrationDetails, error) {
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CredentialUserRegistrationDetails, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ct
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Paging(ct
 	}
 }
 
-// Get performs GET request for CredentialUserRegistrationDetails collection
-func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Get(ctx context.Context) ([]CredentialUserRegistrationDetails, error) {
+// GetN performs GET request for CredentialUserRegistrationDetails collection, max N pages
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]CredentialUserRegistrationDetails, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CredentialUserRegistrationDetails collection
+func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Get(ctx context.Context) ([]CredentialUserRegistrationDetails, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for CredentialUserRegistrationDetails collection
@@ -227,7 +243,7 @@ func (b *ReportRootUserCredentialUsageDetailsCollectionRequestBuilder) ID(id str
 type ReportRootUserCredentialUsageDetailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserCredentialUsageDetails, error) {
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserCredentialUsageDetails, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Paging(ctx conte
 	}
 }
 
-// Get performs GET request for UserCredentialUsageDetails collection
-func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Get(ctx context.Context) ([]UserCredentialUsageDetails, error) {
+// GetN performs GET request for UserCredentialUsageDetails collection, max N pages
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]UserCredentialUsageDetails, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserCredentialUsageDetails collection
+func (r *ReportRootUserCredentialUsageDetailsCollectionRequest) Get(ctx context.Context) ([]UserCredentialUsageDetails, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UserCredentialUsageDetails collection

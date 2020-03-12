@@ -39,7 +39,7 @@ func (b *AuditLogRootDirectoryAuditsCollectionRequestBuilder) ID(id string) *Dir
 type AuditLogRootDirectoryAuditsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryAudit collection
-func (r *AuditLogRootDirectoryAuditsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryAudit, error) {
+func (r *AuditLogRootDirectoryAuditsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryAudit, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *AuditLogRootDirectoryAuditsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *AuditLogRootDirectoryAuditsCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for DirectoryAudit collection
-func (r *AuditLogRootDirectoryAuditsCollectionRequest) Get(ctx context.Context) ([]DirectoryAudit, error) {
+// GetN performs GET request for DirectoryAudit collection, max N pages
+func (r *AuditLogRootDirectoryAuditsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryAudit, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryAudit collection
+func (r *AuditLogRootDirectoryAuditsCollectionRequest) Get(ctx context.Context) ([]DirectoryAudit, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryAudit collection
@@ -133,7 +141,7 @@ func (b *AuditLogRootRestrictedSignInsCollectionRequestBuilder) ID(id string) *R
 type AuditLogRootRestrictedSignInsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RestrictedSignIn collection
-func (r *AuditLogRootRestrictedSignInsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RestrictedSignIn, error) {
+func (r *AuditLogRootRestrictedSignInsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RestrictedSignIn, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *AuditLogRootRestrictedSignInsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *AuditLogRootRestrictedSignInsCollectionRequest) Paging(ctx context.Cont
 	}
 }
 
-// Get performs GET request for RestrictedSignIn collection
-func (r *AuditLogRootRestrictedSignInsCollectionRequest) Get(ctx context.Context) ([]RestrictedSignIn, error) {
+// GetN performs GET request for RestrictedSignIn collection, max N pages
+func (r *AuditLogRootRestrictedSignInsCollectionRequest) GetN(ctx context.Context, n int) ([]RestrictedSignIn, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RestrictedSignIn collection
+func (r *AuditLogRootRestrictedSignInsCollectionRequest) Get(ctx context.Context) ([]RestrictedSignIn, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for RestrictedSignIn collection
@@ -227,7 +243,7 @@ func (b *AuditLogRootSignInsCollectionRequestBuilder) ID(id string) *SignInReque
 type AuditLogRootSignInsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SignIn collection
-func (r *AuditLogRootSignInsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SignIn, error) {
+func (r *AuditLogRootSignInsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SignIn, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *AuditLogRootSignInsCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *AuditLogRootSignInsCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for SignIn collection
-func (r *AuditLogRootSignInsCollectionRequest) Get(ctx context.Context) ([]SignIn, error) {
+// GetN performs GET request for SignIn collection, max N pages
+func (r *AuditLogRootSignInsCollectionRequest) GetN(ctx context.Context, n int) ([]SignIn, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SignIn collection
+func (r *AuditLogRootSignInsCollectionRequest) Get(ctx context.Context) ([]SignIn, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SignIn collection

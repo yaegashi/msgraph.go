@@ -55,7 +55,7 @@ func (b *CalendarCalendarPermissionsCollectionRequestBuilder) ID(id string) *Cal
 type CalendarCalendarPermissionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CalendarPermission collection
-func (r *CalendarCalendarPermissionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CalendarPermission, error) {
+func (r *CalendarCalendarPermissionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CalendarPermission, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -92,7 +92,10 @@ func (r *CalendarCalendarPermissionsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -106,13 +109,18 @@ func (r *CalendarCalendarPermissionsCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for CalendarPermission collection
-func (r *CalendarCalendarPermissionsCollectionRequest) Get(ctx context.Context) ([]CalendarPermission, error) {
+// GetN performs GET request for CalendarPermission collection, max N pages
+func (r *CalendarCalendarPermissionsCollectionRequest) GetN(ctx context.Context, n int) ([]CalendarPermission, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CalendarPermission collection
+func (r *CalendarCalendarPermissionsCollectionRequest) Get(ctx context.Context) ([]CalendarPermission, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for CalendarPermission collection
@@ -149,7 +157,7 @@ func (b *CalendarCalendarViewCollectionRequestBuilder) ID(id string) *EventReque
 type CalendarCalendarViewCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *CalendarCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
+func (r *CalendarCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -186,7 +194,10 @@ func (r *CalendarCalendarViewCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -200,13 +211,18 @@ func (r *CalendarCalendarViewCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for Event collection
-func (r *CalendarCalendarViewCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+// GetN performs GET request for Event collection, max N pages
+func (r *CalendarCalendarViewCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Event collection
+func (r *CalendarCalendarViewCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Event collection
@@ -243,7 +259,7 @@ func (b *CalendarEventsCollectionRequestBuilder) ID(id string) *EventRequestBuil
 type CalendarEventsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Event collection
-func (r *CalendarEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Event, error) {
+func (r *CalendarEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -280,7 +296,10 @@ func (r *CalendarEventsCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -294,13 +313,18 @@ func (r *CalendarEventsCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for Event collection
-func (r *CalendarEventsCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+// GetN performs GET request for Event collection, max N pages
+func (r *CalendarEventsCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Event collection
+func (r *CalendarEventsCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Event collection
@@ -337,7 +361,7 @@ func (b *CalendarMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id str
 type CalendarMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -374,7 +398,10 @@ func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Paging(ctx conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -388,13 +415,18 @@ func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Paging(ctx conte
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *CalendarMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -431,7 +463,7 @@ func (b *CalendarSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id st
 type CalendarSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -468,7 +500,10 @@ func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -482,13 +517,18 @@ func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Paging(ctx cont
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *CalendarSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
@@ -525,7 +565,7 @@ func (b *CalendarGroupCalendarsCollectionRequestBuilder) ID(id string) *Calendar
 type CalendarGroupCalendarsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Calendar collection
-func (r *CalendarGroupCalendarsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Calendar, error) {
+func (r *CalendarGroupCalendarsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Calendar, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -562,7 +602,10 @@ func (r *CalendarGroupCalendarsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -576,13 +619,18 @@ func (r *CalendarGroupCalendarsCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for Calendar collection
-func (r *CalendarGroupCalendarsCollectionRequest) Get(ctx context.Context) ([]Calendar, error) {
+// GetN performs GET request for Calendar collection, max N pages
+func (r *CalendarGroupCalendarsCollectionRequest) GetN(ctx context.Context, n int) ([]Calendar, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Calendar collection
+func (r *CalendarGroupCalendarsCollectionRequest) Get(ctx context.Context) ([]Calendar, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Calendar collection

@@ -39,7 +39,7 @@ func (b *ChannelTabsCollectionRequestBuilder) ID(id string) *TeamsTabRequestBuil
 type ChannelTabsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsTab, error) {
+func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsTab, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ChannelTabsCollectionRequest) Paging(ctx context.Context, method, path 
 	}
 }
 
-// Get performs GET request for TeamsTab collection
-func (r *ChannelTabsCollectionRequest) Get(ctx context.Context) ([]TeamsTab, error) {
+// GetN performs GET request for TeamsTab collection, max N pages
+func (r *ChannelTabsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsTab, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsTab collection
+func (r *ChannelTabsCollectionRequest) Get(ctx context.Context) ([]TeamsTab, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TeamsTab collection

@@ -39,7 +39,7 @@ func (b *ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder) ID(id st
 type ApprovalWorkflowProviderBusinessFlowsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BusinessFlow, error) {
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BusinessFlow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Paging(ctx cont
 	}
 }
 
-// Get performs GET request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Get(ctx context.Context) ([]BusinessFlow, error) {
+// GetN performs GET request for BusinessFlow collection, max N pages
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) GetN(ctx context.Context, n int) ([]BusinessFlow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BusinessFlow collection
+func (r *ApprovalWorkflowProviderBusinessFlowsCollectionRequest) Get(ctx context.Context) ([]BusinessFlow, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BusinessFlow collection
@@ -133,7 +141,7 @@ func (b *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 type ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]BusinessFlow, error) {
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]BusinessFlow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionColl
 	}
 }
 
-// Get performs GET request for BusinessFlow collection
-func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]BusinessFlow, error) {
+// GetN performs GET request for BusinessFlow collection, max N pages
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) GetN(ctx context.Context, n int) ([]BusinessFlow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for BusinessFlow collection
+func (r *ApprovalWorkflowProviderBusinessFlowsWithRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]BusinessFlow, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for BusinessFlow collection
@@ -227,7 +243,7 @@ func (b *ApprovalWorkflowProviderPolicyTemplatesCollectionRequestBuilder) ID(id 
 type ApprovalWorkflowProviderPolicyTemplatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernancePolicyTemplate, error) {
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernancePolicyTemplate, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for GovernancePolicyTemplate collection
-func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Get(ctx context.Context) ([]GovernancePolicyTemplate, error) {
+// GetN performs GET request for GovernancePolicyTemplate collection, max N pages
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) GetN(ctx context.Context, n int) ([]GovernancePolicyTemplate, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernancePolicyTemplate collection
+func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Get(ctx context.Context) ([]GovernancePolicyTemplate, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernancePolicyTemplate collection
@@ -321,7 +345,7 @@ func (b *ApprovalWorkflowProviderRequestsCollectionRequestBuilder) ID(id string)
 type ApprovalWorkflowProviderRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RequestObject, error) {
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -358,7 +382,10 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -372,13 +399,18 @@ func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.C
 	}
 }
 
-// Get performs GET request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
+// GetN performs GET request for RequestObject collection, max N pages
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]RequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RequestObject collection
+func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for RequestObject collection
@@ -415,7 +447,7 @@ func (b *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuil
 type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RequestObject, error) {
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -452,7 +484,10 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -466,13 +501,18 @@ func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Pa
 	}
 }
 
-// Get performs GET request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
+// GetN performs GET request for RequestObject collection, max N pages
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) GetN(ctx context.Context, n int) ([]RequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RequestObject collection
+func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for RequestObject collection

@@ -153,7 +153,7 @@ func (b *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 type AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -190,7 +190,10 @@ func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -204,13 +207,18 @@ func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -310,7 +318,7 @@ func (b *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStat
 type AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -347,7 +355,10 @@ func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -361,13 +372,18 @@ func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStat
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -404,7 +420,7 @@ func (b *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesColle
 type AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -441,7 +457,10 @@ func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -455,13 +474,18 @@ func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesColle
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -498,7 +522,7 @@ func (b *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 type AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -535,7 +559,10 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -549,13 +576,18 @@ func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesColle
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidForWorkScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -599,7 +631,7 @@ func (b *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesColle
 type AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -636,7 +668,10 @@ func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesColle
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -650,13 +685,18 @@ func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesColle
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -693,7 +733,7 @@ func (b *AndroidManagedAppProtectionAppsCollectionRequestBuilder) ID(id string) 
 type AndroidManagedAppProtectionAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedMobileApp collection
-func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedMobileApp, error) {
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedMobileApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -730,7 +770,10 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -744,13 +787,18 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Co
 	}
 }
 
-// Get performs GET request for ManagedMobileApp collection
-func (r *AndroidManagedAppProtectionAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
+// GetN performs GET request for ManagedMobileApp collection, max N pages
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedMobileApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedMobileApp collection
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedMobileApp collection
@@ -794,7 +842,7 @@ func (b *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 type AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -831,7 +879,10 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -845,13 +896,18 @@ func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRe
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -888,7 +944,7 @@ func (b *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRe
 type AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -925,7 +981,10 @@ func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRe
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -939,13 +998,18 @@ func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRe
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -1017,7 +1081,7 @@ func (b *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesC
 type AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1054,7 +1118,10 @@ func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesC
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1068,13 +1135,18 @@ func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesC
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidWorkProfilePkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection
@@ -1111,7 +1183,7 @@ func (b *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesC
 type AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedDeviceCertificateState collection
-func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedDeviceCertificateState, error) {
+func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1148,7 +1220,10 @@ func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesC
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1162,13 +1237,18 @@ func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesC
 	}
 }
 
-// Get performs GET request for ManagedDeviceCertificateState collection
-func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidWorkProfileScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedDeviceCertificateState collection

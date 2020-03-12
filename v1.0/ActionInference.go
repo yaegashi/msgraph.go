@@ -39,7 +39,7 @@ func (b *InferenceClassificationOverridesCollectionRequestBuilder) ID(id string)
 type InferenceClassificationOverridesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]InferenceClassificationOverride, error) {
+func (r *InferenceClassificationOverridesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]InferenceClassificationOverride, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *InferenceClassificationOverridesCollectionRequest) Paging(ctx context.C
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *InferenceClassificationOverridesCollectionRequest) Paging(ctx context.C
 	}
 }
 
-// Get performs GET request for InferenceClassificationOverride collection
-func (r *InferenceClassificationOverridesCollectionRequest) Get(ctx context.Context) ([]InferenceClassificationOverride, error) {
+// GetN performs GET request for InferenceClassificationOverride collection, max N pages
+func (r *InferenceClassificationOverridesCollectionRequest) GetN(ctx context.Context, n int) ([]InferenceClassificationOverride, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for InferenceClassificationOverride collection
+func (r *InferenceClassificationOverridesCollectionRequest) Get(ctx context.Context) ([]InferenceClassificationOverride, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for InferenceClassificationOverride collection

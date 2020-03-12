@@ -39,7 +39,7 @@ func (b *DocumentCommentsCollectionRequestBuilder) ID(id string) *DocumentCommen
 type DocumentCommentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DocumentComment collection
-func (r *DocumentCommentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DocumentComment, error) {
+func (r *DocumentCommentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DocumentComment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *DocumentCommentsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *DocumentCommentsCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for DocumentComment collection
-func (r *DocumentCommentsCollectionRequest) Get(ctx context.Context) ([]DocumentComment, error) {
+// GetN performs GET request for DocumentComment collection, max N pages
+func (r *DocumentCommentsCollectionRequest) GetN(ctx context.Context, n int) ([]DocumentComment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DocumentComment collection
+func (r *DocumentCommentsCollectionRequest) Get(ctx context.Context) ([]DocumentComment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DocumentComment collection
@@ -133,7 +141,7 @@ func (b *DocumentCommentRepliesCollectionRequestBuilder) ID(id string) *Document
 type DocumentCommentRepliesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DocumentCommentReply collection
-func (r *DocumentCommentRepliesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DocumentCommentReply, error) {
+func (r *DocumentCommentRepliesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DocumentCommentReply, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *DocumentCommentRepliesCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *DocumentCommentRepliesCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for DocumentCommentReply collection
-func (r *DocumentCommentRepliesCollectionRequest) Get(ctx context.Context) ([]DocumentCommentReply, error) {
+// GetN performs GET request for DocumentCommentReply collection, max N pages
+func (r *DocumentCommentRepliesCollectionRequest) GetN(ctx context.Context, n int) ([]DocumentCommentReply, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DocumentCommentReply collection
+func (r *DocumentCommentRepliesCollectionRequest) Get(ctx context.Context) ([]DocumentCommentReply, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DocumentCommentReply collection

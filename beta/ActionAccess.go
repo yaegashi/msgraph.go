@@ -59,7 +59,7 @@ func (b *AccessPackageAccessPackageAssignmentPoliciesCollectionRequestBuilder) I
 type AccessPackageAccessPackageAssignmentPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageAssignmentPolicy collection
-func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageAssignmentPolicy, error) {
+func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -96,7 +96,10 @@ func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Paging(c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -110,13 +113,18 @@ func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Paging(c
 	}
 }
 
-// Get performs GET request for AccessPackageAssignmentPolicy collection
-func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentPolicy, error) {
+// GetN performs GET request for AccessPackageAssignmentPolicy collection, max N pages
+func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageAssignmentPolicy collection
+func (r *AccessPackageAccessPackageAssignmentPoliciesCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentPolicy, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageAssignmentPolicy collection
@@ -160,7 +168,7 @@ func (b *AccessPackageAccessPackageResourceRoleScopesCollectionRequestBuilder) I
 type AccessPackageAccessPackageResourceRoleScopesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceRoleScope collection
-func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceRoleScope, error) {
+func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRoleScope, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -197,7 +205,10 @@ func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Paging(c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -211,13 +222,18 @@ func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Paging(c
 	}
 }
 
-// Get performs GET request for AccessPackageResourceRoleScope collection
-func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRoleScope, error) {
+// GetN performs GET request for AccessPackageResourceRoleScope collection, max N pages
+func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRoleScope, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResourceRoleScope collection
+func (r *AccessPackageAccessPackageResourceRoleScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRoleScope, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageResourceRoleScope collection
@@ -268,7 +284,7 @@ func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageAssignmentRequestObject, error) {
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -305,7 +321,10 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -319,13 +338,18 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	}
 }
 
-// Get performs GET request for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequestObject, error) {
+// GetN performs GET request for AccessPackageAssignmentRequestObject collection, max N pages
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageAssignmentRequestObject collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageAssignmentRequestObject collection
@@ -362,7 +386,7 @@ func (b *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRe
 type AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageAssignmentResourceRole collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageAssignmentResourceRole, error) {
+func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentResourceRole, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -399,7 +423,10 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRe
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -413,13 +440,18 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRe
 	}
 }
 
-// Get performs GET request for AccessPackageAssignmentResourceRole collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentResourceRole, error) {
+// GetN performs GET request for AccessPackageAssignmentResourceRole collection, max N pages
+func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentResourceRole, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageAssignmentResourceRole collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentResourceRole, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageAssignmentResourceRole collection
@@ -498,7 +530,7 @@ func (b *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 type AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageAssignment, error) {
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -535,7 +567,10 @@ func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -549,13 +584,18 @@ func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRe
 	}
 }
 
-// Get performs GET request for AccessPackageAssignment collection
-func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignment, error) {
+// GetN performs GET request for AccessPackageAssignment collection, max N pages
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageAssignment collection
+func (r *AccessPackageAssignmentResourceRoleAccessPackageAssignmentsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageAssignment collection
@@ -613,7 +653,7 @@ func (b *AccessPackageCatalogAccessPackageResourceRolesCollectionRequestBuilder)
 type AccessPackageCatalogAccessPackageResourceRolesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceRole collection
-func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceRole, error) {
+func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRole, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -650,7 +690,10 @@ func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Paging
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -664,13 +707,18 @@ func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Paging
 	}
 }
 
-// Get performs GET request for AccessPackageResourceRole collection
-func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRole, error) {
+// GetN performs GET request for AccessPackageResourceRole collection, max N pages
+func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRole, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResourceRole collection
+func (r *AccessPackageCatalogAccessPackageResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRole, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageResourceRole collection
@@ -707,7 +755,7 @@ func (b *AccessPackageCatalogAccessPackageResourceScopesCollectionRequestBuilder
 type AccessPackageCatalogAccessPackageResourceScopesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceScope collection
-func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceScope, error) {
+func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceScope, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -744,7 +792,10 @@ func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Pagin
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -758,13 +809,18 @@ func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Pagin
 	}
 }
 
-// Get performs GET request for AccessPackageResourceScope collection
-func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceScope, error) {
+// GetN performs GET request for AccessPackageResourceScope collection, max N pages
+func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceScope, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResourceScope collection
+func (r *AccessPackageCatalogAccessPackageResourceScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceScope, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageResourceScope collection
@@ -801,7 +857,7 @@ func (b *AccessPackageCatalogAccessPackageResourcesCollectionRequestBuilder) ID(
 type AccessPackageCatalogAccessPackageResourcesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResource collection
-func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResource, error) {
+func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResource, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -838,7 +894,10 @@ func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -852,13 +911,18 @@ func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for AccessPackageResource collection
-func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResource, error) {
+// GetN performs GET request for AccessPackageResource collection, max N pages
+func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResource, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResource collection
+func (r *AccessPackageCatalogAccessPackageResourcesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResource, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageResource collection
@@ -895,7 +959,7 @@ func (b *AccessPackageCatalogAccessPackagesCollectionRequestBuilder) ID(id strin
 type AccessPackageCatalogAccessPackagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackage collection
-func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackage, error) {
+func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackage, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -932,7 +996,10 @@ func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -946,13 +1013,18 @@ func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Paging(ctx context
 	}
 }
 
-// Get performs GET request for AccessPackage collection
-func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Get(ctx context.Context) ([]AccessPackage, error) {
+// GetN performs GET request for AccessPackage collection, max N pages
+func (r *AccessPackageCatalogAccessPackagesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackage, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackage collection
+func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Get(ctx context.Context) ([]AccessPackage, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackage collection
@@ -989,7 +1061,7 @@ func (b *AccessPackageResourceAccessPackageResourceRolesCollectionRequestBuilder
 type AccessPackageResourceAccessPackageResourceRolesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceRole collection
-func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceRole, error) {
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRole, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1026,7 +1098,10 @@ func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Pagin
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1040,13 +1115,18 @@ func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Pagin
 	}
 }
 
-// Get performs GET request for AccessPackageResourceRole collection
-func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRole, error) {
+// GetN performs GET request for AccessPackageResourceRole collection, max N pages
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRole, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResourceRole collection
+func (r *AccessPackageResourceAccessPackageResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRole, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageResourceRole collection
@@ -1083,7 +1163,7 @@ func (b *AccessPackageResourceAccessPackageResourceScopesCollectionRequestBuilde
 type AccessPackageResourceAccessPackageResourceScopesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessPackageResourceScope collection
-func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessPackageResourceScope, error) {
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceScope, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1120,7 +1200,10 @@ func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Pagi
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1134,13 +1217,18 @@ func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Pagi
 	}
 }
 
-// Get performs GET request for AccessPackageResourceScope collection
-func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceScope, error) {
+// GetN performs GET request for AccessPackageResourceScope collection, max N pages
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceScope, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResourceScope collection
+func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceScope, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessPackageResourceScope collection
@@ -1219,7 +1307,7 @@ func (b *AccessReviewDecisionsCollectionRequestBuilder) ID(id string) *AccessRev
 type AccessReviewDecisionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReviewDecision, error) {
+func (r *AccessReviewDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewDecision, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1256,7 +1344,10 @@ func (r *AccessReviewDecisionsCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1270,13 +1361,18 @@ func (r *AccessReviewDecisionsCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for AccessReviewDecision collection
-func (r *AccessReviewDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewDecision, error) {
+// GetN performs GET request for AccessReviewDecision collection, max N pages
+func (r *AccessReviewDecisionsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewDecision, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewDecision collection
+func (r *AccessReviewDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewDecision, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessReviewDecision collection
@@ -1313,7 +1409,7 @@ func (b *AccessReviewInstancesCollectionRequestBuilder) ID(id string) *AccessRev
 type AccessReviewInstancesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReview, error) {
+func (r *AccessReviewInstancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReview, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1350,7 +1446,10 @@ func (r *AccessReviewInstancesCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1364,13 +1463,18 @@ func (r *AccessReviewInstancesCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for AccessReview collection
-func (r *AccessReviewInstancesCollectionRequest) Get(ctx context.Context) ([]AccessReview, error) {
+// GetN performs GET request for AccessReview collection, max N pages
+func (r *AccessReviewInstancesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReview, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReview collection
+func (r *AccessReviewInstancesCollectionRequest) Get(ctx context.Context) ([]AccessReview, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessReview collection
@@ -1407,7 +1511,7 @@ func (b *AccessReviewMyDecisionsCollectionRequestBuilder) ID(id string) *AccessR
 type AccessReviewMyDecisionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReviewDecision, error) {
+func (r *AccessReviewMyDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewDecision, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1444,7 +1548,10 @@ func (r *AccessReviewMyDecisionsCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1458,13 +1565,18 @@ func (r *AccessReviewMyDecisionsCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// Get performs GET request for AccessReviewDecision collection
-func (r *AccessReviewMyDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewDecision, error) {
+// GetN performs GET request for AccessReviewDecision collection, max N pages
+func (r *AccessReviewMyDecisionsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewDecision, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewDecision collection
+func (r *AccessReviewMyDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewDecision, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessReviewDecision collection
@@ -1501,7 +1613,7 @@ func (b *AccessReviewReviewersCollectionRequestBuilder) ID(id string) *AccessRev
 type AccessReviewReviewersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AccessReviewReviewer, error) {
+func (r *AccessReviewReviewersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewReviewer, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1538,7 +1650,10 @@ func (r *AccessReviewReviewersCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1552,13 +1667,18 @@ func (r *AccessReviewReviewersCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for AccessReviewReviewer collection
-func (r *AccessReviewReviewersCollectionRequest) Get(ctx context.Context) ([]AccessReviewReviewer, error) {
+// GetN performs GET request for AccessReviewReviewer collection, max N pages
+func (r *AccessReviewReviewersCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewReviewer, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewReviewer collection
+func (r *AccessReviewReviewersCollectionRequest) Get(ctx context.Context) ([]AccessReviewReviewer, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AccessReviewReviewer collection

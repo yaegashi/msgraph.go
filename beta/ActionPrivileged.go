@@ -83,7 +83,7 @@ func (b *PrivilegedAccessResourcesCollectionRequestBuilder) ID(id string) *Gover
 type PrivilegedAccessResourcesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceResource collection
-func (r *PrivilegedAccessResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceResource, error) {
+func (r *PrivilegedAccessResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceResource, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -120,7 +120,10 @@ func (r *PrivilegedAccessResourcesCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -134,13 +137,18 @@ func (r *PrivilegedAccessResourcesCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for GovernanceResource collection
-func (r *PrivilegedAccessResourcesCollectionRequest) Get(ctx context.Context) ([]GovernanceResource, error) {
+// GetN performs GET request for GovernanceResource collection, max N pages
+func (r *PrivilegedAccessResourcesCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceResource, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceResource collection
+func (r *PrivilegedAccessResourcesCollectionRequest) Get(ctx context.Context) ([]GovernanceResource, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceResource collection
@@ -177,7 +185,7 @@ func (b *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder) ID(id s
 type PrivilegedAccessRoleAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
-func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleAssignmentRequestObject, error) {
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -214,7 +222,10 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -228,13 +239,18 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for GovernanceRoleAssignmentRequestObject collection
-func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequestObject, error) {
+// GetN performs GET request for GovernanceRoleAssignmentRequestObject collection, max N pages
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleAssignmentRequestObject collection
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleAssignmentRequestObject collection
@@ -271,7 +287,7 @@ func (b *PrivilegedAccessRoleAssignmentsCollectionRequestBuilder) ID(id string) 
 type PrivilegedAccessRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleAssignment collection
-func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleAssignment, error) {
+func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -308,7 +324,10 @@ func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -322,13 +341,18 @@ func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Paging(ctx context.Co
 	}
 }
 
-// Get performs GET request for GovernanceRoleAssignment collection
-func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignment, error) {
+// GetN performs GET request for GovernanceRoleAssignment collection, max N pages
+func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleAssignment collection
+func (r *PrivilegedAccessRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleAssignment collection
@@ -365,7 +389,7 @@ func (b *PrivilegedAccessRoleDefinitionsCollectionRequestBuilder) ID(id string) 
 type PrivilegedAccessRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleDefinition collection
-func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleDefinition, error) {
+func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -402,7 +426,10 @@ func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -416,13 +443,18 @@ func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Paging(ctx context.Co
 	}
 }
 
-// Get performs GET request for GovernanceRoleDefinition collection
-func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleDefinition, error) {
+// GetN performs GET request for GovernanceRoleDefinition collection, max N pages
+func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleDefinition collection
+func (r *PrivilegedAccessRoleDefinitionsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleDefinition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleDefinition collection
@@ -459,7 +491,7 @@ func (b *PrivilegedAccessRoleSettingsCollectionRequestBuilder) ID(id string) *Go
 type PrivilegedAccessRoleSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleSetting collection
-func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleSetting, error) {
+func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleSetting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -496,7 +528,10 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -510,13 +545,18 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Paging(ctx context.Conte
 	}
 }
 
-// Get performs GET request for GovernanceRoleSetting collection
-func (r *PrivilegedAccessRoleSettingsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleSetting, error) {
+// GetN performs GET request for GovernanceRoleSetting collection, max N pages
+func (r *PrivilegedAccessRoleSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleSetting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleSetting collection
+func (r *PrivilegedAccessRoleSettingsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleSetting, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleSetting collection
@@ -567,7 +607,7 @@ func (b *PrivilegedRoleAssignmentsCollectionRequestBuilder) ID(id string) *Privi
 type PrivilegedRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PrivilegedRoleAssignment collection
-func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PrivilegedRoleAssignment, error) {
+func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrivilegedRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -604,7 +644,10 @@ func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(ctx context.Context,
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -618,13 +661,18 @@ func (r *PrivilegedRoleAssignmentsCollectionRequest) Paging(ctx context.Context,
 	}
 }
 
-// Get performs GET request for PrivilegedRoleAssignment collection
-func (r *PrivilegedRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]PrivilegedRoleAssignment, error) {
+// GetN performs GET request for PrivilegedRoleAssignment collection, max N pages
+func (r *PrivilegedRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]PrivilegedRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrivilegedRoleAssignment collection
+func (r *PrivilegedRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]PrivilegedRoleAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PrivilegedRoleAssignment collection

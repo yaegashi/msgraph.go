@@ -39,7 +39,7 @@ func (b *OnPremisesAgentAgentGroupsCollectionRequestBuilder) ID(id string) *OnPr
 type OnPremisesAgentAgentGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
-func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnPremisesAgentGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *OnPremisesAgentAgentGroupsCollectionRequest) Paging(ctx context.Context
 	}
 }
 
-// Get performs GET request for OnPremisesAgentGroup collection
-func (r *OnPremisesAgentAgentGroupsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgentGroup, error) {
+// GetN performs GET request for OnPremisesAgentGroup collection, max N pages
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]OnPremisesAgentGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnPremisesAgentGroup collection
+func (r *OnPremisesAgentAgentGroupsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgentGroup, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnPremisesAgentGroup collection
@@ -133,7 +141,7 @@ func (b *OnPremisesAgentGroupAgentsCollectionRequestBuilder) ID(id string) *OnPr
 type OnPremisesAgentGroupAgentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnPremisesAgent collection
-func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnPremisesAgent, error) {
+func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnPremisesAgent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *OnPremisesAgentGroupAgentsCollectionRequest) Paging(ctx context.Context
 	}
 }
 
-// Get performs GET request for OnPremisesAgent collection
-func (r *OnPremisesAgentGroupAgentsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgent, error) {
+// GetN performs GET request for OnPremisesAgent collection, max N pages
+func (r *OnPremisesAgentGroupAgentsCollectionRequest) GetN(ctx context.Context, n int) ([]OnPremisesAgent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnPremisesAgent collection
+func (r *OnPremisesAgentGroupAgentsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgent, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnPremisesAgent collection
@@ -227,7 +243,7 @@ func (b *OnPremisesAgentGroupPublishedResourcesCollectionRequestBuilder) ID(id s
 type OnPremisesAgentGroupPublishedResourcesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PublishedResource collection
-func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PublishedResource, error) {
+func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PublishedResource, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for PublishedResource collection
-func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Get(ctx context.Context) ([]PublishedResource, error) {
+// GetN performs GET request for PublishedResource collection, max N pages
+func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) GetN(ctx context.Context, n int) ([]PublishedResource, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PublishedResource collection
+func (r *OnPremisesAgentGroupPublishedResourcesCollectionRequest) Get(ctx context.Context) ([]PublishedResource, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PublishedResource collection
@@ -321,7 +345,7 @@ func (b *OnPremisesPublishingProfileAgentGroupsCollectionRequestBuilder) ID(id s
 type OnPremisesPublishingProfileAgentGroupsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnPremisesAgentGroup collection
-func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnPremisesAgentGroup, error) {
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnPremisesAgentGroup, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -358,7 +382,10 @@ func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -372,13 +399,18 @@ func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for OnPremisesAgentGroup collection
-func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgentGroup, error) {
+// GetN performs GET request for OnPremisesAgentGroup collection, max N pages
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]OnPremisesAgentGroup, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnPremisesAgentGroup collection
+func (r *OnPremisesPublishingProfileAgentGroupsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgentGroup, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnPremisesAgentGroup collection
@@ -415,7 +447,7 @@ func (b *OnPremisesPublishingProfileAgentsCollectionRequestBuilder) ID(id string
 type OnPremisesPublishingProfileAgentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnPremisesAgent collection
-func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnPremisesAgent, error) {
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnPremisesAgent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -452,7 +484,10 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -466,13 +501,18 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for OnPremisesAgent collection
-func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgent, error) {
+// GetN performs GET request for OnPremisesAgent collection, max N pages
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) GetN(ctx context.Context, n int) ([]OnPremisesAgent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnPremisesAgent collection
+func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Get(ctx context.Context) ([]OnPremisesAgent, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnPremisesAgent collection
@@ -509,7 +549,7 @@ func (b *OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder) 
 type OnPremisesPublishingProfilePublishedResourcesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PublishedResource collection
-func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PublishedResource, error) {
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PublishedResource, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -546,7 +586,10 @@ func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -560,13 +603,18 @@ func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Paging(
 	}
 }
 
-// Get performs GET request for PublishedResource collection
-func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Get(ctx context.Context) ([]PublishedResource, error) {
+// GetN performs GET request for PublishedResource collection, max N pages
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) GetN(ctx context.Context, n int) ([]PublishedResource, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PublishedResource collection
+func (r *OnPremisesPublishingProfilePublishedResourcesCollectionRequest) Get(ctx context.Context) ([]PublishedResource, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PublishedResource collection

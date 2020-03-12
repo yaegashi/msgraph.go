@@ -26,7 +26,7 @@ func (b *{{$ySymBindingType}}{{$y.Sym}}RequestBuilder) Request() *{{$ySymBinding
 }
 
 //
-func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Paging(ctx context.Context, method, path string, obj interface{}) ({{$yTypeType}}, error) {
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Paging(ctx context.Context, method, path string, obj interface{}, n int) ({{$yTypeType}}, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,10 @@ func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -78,6 +81,11 @@ func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Paging(ctx context.Context, meth
 }
 
 //
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) PostN(ctx context.Context, n int) ({{$yTypeType}}, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Post(ctx context.Context) ({{$yTypeType}}, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

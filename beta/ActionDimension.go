@@ -39,7 +39,7 @@ func (b *DimensionDimensionValuesCollectionRequestBuilder) ID(id string) *Dimens
 type DimensionDimensionValuesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DimensionValue, error) {
+func (r *DimensionDimensionValuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DimensionValue, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *DimensionDimensionValuesCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *DimensionDimensionValuesCollectionRequest) Paging(ctx context.Context, 
 	}
 }
 
-// Get performs GET request for DimensionValue collection
-func (r *DimensionDimensionValuesCollectionRequest) Get(ctx context.Context) ([]DimensionValue, error) {
+// GetN performs GET request for DimensionValue collection, max N pages
+func (r *DimensionDimensionValuesCollectionRequest) GetN(ctx context.Context, n int) ([]DimensionValue, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DimensionValue collection
+func (r *DimensionDimensionValuesCollectionRequest) Get(ctx context.Context) ([]DimensionValue, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DimensionValue collection

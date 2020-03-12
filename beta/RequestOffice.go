@@ -191,7 +191,7 @@ func (b *OfficeClientConfigurationAssignRequestBuilder) Request() *OfficeClientC
 }
 
 //
-func (r *OfficeClientConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OfficeClientConfigurationAssignment, error) {
+func (r *OfficeClientConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OfficeClientConfigurationAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -228,7 +228,10 @@ func (r *OfficeClientConfigurationAssignRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -243,6 +246,11 @@ func (r *OfficeClientConfigurationAssignRequest) Paging(ctx context.Context, met
 }
 
 //
+func (r *OfficeClientConfigurationAssignRequest) PostN(ctx context.Context, n int) ([]OfficeClientConfigurationAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *OfficeClientConfigurationAssignRequest) Post(ctx context.Context) ([]OfficeClientConfigurationAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

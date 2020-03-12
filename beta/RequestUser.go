@@ -847,7 +847,7 @@ func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
 }
 
 //
-func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MailTips, error) {
+func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MailTips, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -884,7 +884,10 @@ func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -899,8 +902,13 @@ func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string
 }
 
 //
+func (r *UserGetMailTipsRequest) PostN(ctx context.Context, n int) ([]MailTips, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([]MailTips, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -925,7 +933,7 @@ func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchang
 }
 
 //
-func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConvertIDResult, error) {
+func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConvertIDResult, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -962,7 +970,10 @@ func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -977,8 +988,13 @@ func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, pa
 }
 
 //
+func (r *UserTranslateExchangeIDsRequest) PostN(ctx context.Context, n int) ([]ConvertIDResult, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *UserTranslateExchangeIDsRequest) Post(ctx context.Context) ([]ConvertIDResult, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

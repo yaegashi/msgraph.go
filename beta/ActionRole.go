@@ -58,7 +58,7 @@ func (b *RoleDefinitionRoleAssignmentsCollectionRequestBuilder) ID(id string) *R
 type RoleDefinitionRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RoleAssignment collection
-func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleAssignment, error) {
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -95,7 +95,10 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(ctx context.Cont
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -109,13 +112,18 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Paging(ctx context.Cont
 	}
 }
 
-// Get performs GET request for RoleAssignment collection
-func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]RoleAssignment, error) {
+// GetN performs GET request for RoleAssignment collection, max N pages
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]RoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RoleAssignment collection
+func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]RoleAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for RoleAssignment collection
@@ -159,7 +167,7 @@ func (b *RoleScopeTagAssignmentsCollectionRequestBuilder) ID(id string) *RoleSco
 type RoleScopeTagAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RoleScopeTagAutoAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -196,7 +204,10 @@ func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -210,13 +221,18 @@ func (r *RoleScopeTagAssignmentsCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// Get performs GET request for RoleScopeTagAutoAssignment collection
-func (r *RoleScopeTagAssignmentsCollectionRequest) Get(ctx context.Context) ([]RoleScopeTagAutoAssignment, error) {
+// GetN performs GET request for RoleScopeTagAutoAssignment collection, max N pages
+func (r *RoleScopeTagAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]RoleScopeTagAutoAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RoleScopeTagAutoAssignment collection
+func (r *RoleScopeTagAssignmentsCollectionRequest) Get(ctx context.Context) ([]RoleScopeTagAutoAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for RoleScopeTagAutoAssignment collection

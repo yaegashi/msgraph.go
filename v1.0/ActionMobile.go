@@ -55,7 +55,7 @@ func (b *MobileAppAssignmentsCollectionRequestBuilder) ID(id string) *MobileAppA
 type MobileAppAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppAssignment collection
-func (r *MobileAppAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppAssignment, error) {
+func (r *MobileAppAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MobileAppAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -92,7 +92,10 @@ func (r *MobileAppAssignmentsCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -106,13 +109,18 @@ func (r *MobileAppAssignmentsCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for MobileAppAssignment collection
-func (r *MobileAppAssignmentsCollectionRequest) Get(ctx context.Context) ([]MobileAppAssignment, error) {
+// GetN performs GET request for MobileAppAssignment collection, max N pages
+func (r *MobileAppAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]MobileAppAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MobileAppAssignment collection
+func (r *MobileAppAssignmentsCollectionRequest) Get(ctx context.Context) ([]MobileAppAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MobileAppAssignment collection
@@ -149,7 +157,7 @@ func (b *MobileAppCategoriesCollectionRequestBuilder) ID(id string) *MobileAppCa
 type MobileAppCategoriesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppCategory collection
-func (r *MobileAppCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppCategory, error) {
+func (r *MobileAppCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MobileAppCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -186,7 +194,10 @@ func (r *MobileAppCategoriesCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -200,13 +211,18 @@ func (r *MobileAppCategoriesCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for MobileAppCategory collection
-func (r *MobileAppCategoriesCollectionRequest) Get(ctx context.Context) ([]MobileAppCategory, error) {
+// GetN performs GET request for MobileAppCategory collection, max N pages
+func (r *MobileAppCategoriesCollectionRequest) GetN(ctx context.Context, n int) ([]MobileAppCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MobileAppCategory collection
+func (r *MobileAppCategoriesCollectionRequest) Get(ctx context.Context) ([]MobileAppCategory, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MobileAppCategory collection
@@ -243,7 +259,7 @@ func (b *MobileAppContentFilesCollectionRequestBuilder) ID(id string) *MobileApp
 type MobileAppContentFilesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppContentFile collection
-func (r *MobileAppContentFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppContentFile, error) {
+func (r *MobileAppContentFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MobileAppContentFile, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -280,7 +296,10 @@ func (r *MobileAppContentFilesCollectionRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -294,13 +313,18 @@ func (r *MobileAppContentFilesCollectionRequest) Paging(ctx context.Context, met
 	}
 }
 
-// Get performs GET request for MobileAppContentFile collection
-func (r *MobileAppContentFilesCollectionRequest) Get(ctx context.Context) ([]MobileAppContentFile, error) {
+// GetN performs GET request for MobileAppContentFile collection, max N pages
+func (r *MobileAppContentFilesCollectionRequest) GetN(ctx context.Context, n int) ([]MobileAppContentFile, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MobileAppContentFile collection
+func (r *MobileAppContentFilesCollectionRequest) Get(ctx context.Context) ([]MobileAppContentFile, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MobileAppContentFile collection
@@ -337,7 +361,7 @@ func (b *MobileLobAppContentVersionsCollectionRequestBuilder) ID(id string) *Mob
 type MobileLobAppContentVersionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MobileAppContent, error) {
+func (r *MobileLobAppContentVersionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MobileAppContent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -374,7 +398,10 @@ func (r *MobileLobAppContentVersionsCollectionRequest) Paging(ctx context.Contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -388,13 +415,18 @@ func (r *MobileLobAppContentVersionsCollectionRequest) Paging(ctx context.Contex
 	}
 }
 
-// Get performs GET request for MobileAppContent collection
-func (r *MobileLobAppContentVersionsCollectionRequest) Get(ctx context.Context) ([]MobileAppContent, error) {
+// GetN performs GET request for MobileAppContent collection, max N pages
+func (r *MobileLobAppContentVersionsCollectionRequest) GetN(ctx context.Context, n int) ([]MobileAppContent, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MobileAppContent collection
+func (r *MobileLobAppContentVersionsCollectionRequest) Get(ctx context.Context) ([]MobileAppContent, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MobileAppContent collection

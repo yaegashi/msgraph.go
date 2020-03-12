@@ -39,7 +39,7 @@ func (b *AppCatalogsTeamsAppsCollectionRequestBuilder) ID(id string) *TeamsAppRe
 type AppCatalogsTeamsAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsApp, error) {
+func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Get(ctx context.Context) ([]TeamsApp, error) {
+// GetN performs GET request for TeamsApp collection, max N pages
+func (r *AppCatalogsTeamsAppsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsApp collection
+func (r *AppCatalogsTeamsAppsCollectionRequest) Get(ctx context.Context) ([]TeamsApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TeamsApp collection

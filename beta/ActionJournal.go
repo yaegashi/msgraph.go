@@ -50,7 +50,7 @@ func (b *JournalJournalLinesCollectionRequestBuilder) ID(id string) *JournalLine
 type JournalJournalLinesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for JournalLine collection
-func (r *JournalJournalLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]JournalLine, error) {
+func (r *JournalJournalLinesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JournalLine, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -87,7 +87,10 @@ func (r *JournalJournalLinesCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -101,13 +104,18 @@ func (r *JournalJournalLinesCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for JournalLine collection
-func (r *JournalJournalLinesCollectionRequest) Get(ctx context.Context) ([]JournalLine, error) {
+// GetN performs GET request for JournalLine collection, max N pages
+func (r *JournalJournalLinesCollectionRequest) GetN(ctx context.Context, n int) ([]JournalLine, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for JournalLine collection
+func (r *JournalJournalLinesCollectionRequest) Get(ctx context.Context) ([]JournalLine, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for JournalLine collection

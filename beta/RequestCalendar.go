@@ -165,7 +165,7 @@ func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleReques
 }
 
 //
-func (r *CalendarGetScheduleRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ScheduleInformation, error) {
+func (r *CalendarGetScheduleRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ScheduleInformation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -202,7 +202,10 @@ func (r *CalendarGetScheduleRequest) Paging(ctx context.Context, method, path st
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -217,8 +220,13 @@ func (r *CalendarGetScheduleRequest) Paging(ctx context.Context, method, path st
 }
 
 //
+func (r *CalendarGetScheduleRequest) PostN(ctx context.Context, n int) ([]ScheduleInformation, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *CalendarGetScheduleRequest) Post(ctx context.Context) ([]ScheduleInformation, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

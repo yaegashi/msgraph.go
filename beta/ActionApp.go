@@ -43,7 +43,7 @@ func (b *AppCatalogsTeamsAppsCollectionRequestBuilder) ID(id string) *TeamsAppRe
 type AppCatalogsTeamsAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TeamsApp, error) {
+func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -80,7 +80,10 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -94,13 +97,18 @@ func (r *AppCatalogsTeamsAppsCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for TeamsApp collection
-func (r *AppCatalogsTeamsAppsCollectionRequest) Get(ctx context.Context) ([]TeamsApp, error) {
+// GetN performs GET request for TeamsApp collection, max N pages
+func (r *AppCatalogsTeamsAppsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsApp collection
+func (r *AppCatalogsTeamsAppsCollectionRequest) Get(ctx context.Context) ([]TeamsApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TeamsApp collection
@@ -137,7 +145,7 @@ func (b *AppVulnerabilityTaskManagedDevicesCollectionRequestBuilder) ID(id strin
 type AppVulnerabilityTaskManagedDevicesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AppVulnerabilityManagedDevice collection
-func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AppVulnerabilityManagedDevice, error) {
+func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AppVulnerabilityManagedDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -174,7 +182,10 @@ func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Paging(ctx context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -188,13 +199,18 @@ func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Paging(ctx context
 	}
 }
 
-// Get performs GET request for AppVulnerabilityManagedDevice collection
-func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Get(ctx context.Context) ([]AppVulnerabilityManagedDevice, error) {
+// GetN performs GET request for AppVulnerabilityManagedDevice collection, max N pages
+func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]AppVulnerabilityManagedDevice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AppVulnerabilityManagedDevice collection
+func (r *AppVulnerabilityTaskManagedDevicesCollectionRequest) Get(ctx context.Context) ([]AppVulnerabilityManagedDevice, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AppVulnerabilityManagedDevice collection
@@ -231,7 +247,7 @@ func (b *AppVulnerabilityTaskMobileAppsCollectionRequestBuilder) ID(id string) *
 type AppVulnerabilityTaskMobileAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for AppVulnerabilityMobileApp collection
-func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]AppVulnerabilityMobileApp, error) {
+func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AppVulnerabilityMobileApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -268,7 +284,10 @@ func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -282,13 +301,18 @@ func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Paging(ctx context.Con
 	}
 }
 
-// Get performs GET request for AppVulnerabilityMobileApp collection
-func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Get(ctx context.Context) ([]AppVulnerabilityMobileApp, error) {
+// GetN performs GET request for AppVulnerabilityMobileApp collection, max N pages
+func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) GetN(ctx context.Context, n int) ([]AppVulnerabilityMobileApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AppVulnerabilityMobileApp collection
+func (r *AppVulnerabilityTaskMobileAppsCollectionRequest) Get(ctx context.Context) ([]AppVulnerabilityMobileApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for AppVulnerabilityMobileApp collection

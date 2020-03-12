@@ -594,7 +594,7 @@ func (b *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequestBuild
 }
 
 //
-func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -631,7 +631,10 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -646,8 +649,13 @@ func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Pag
 }
 
 //
+func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *IOSLobAppProvisioningConfigurationCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -672,7 +680,7 @@ func (b *IOSManagedAppProtectionCollectionHasPayloadLinksRequestBuilder) Request
 }
 
 //
-func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]HasPayloadLinkResultItem, error) {
+func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]HasPayloadLinkResultItem, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -709,7 +717,10 @@ func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -724,8 +735,13 @@ func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Paging(ctx con
 }
 
 //
+func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n int) ([]HasPayloadLinkResultItem, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *IOSManagedAppProtectionCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

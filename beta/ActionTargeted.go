@@ -63,7 +63,7 @@ func (b *TargetedManagedAppConfigurationAppsCollectionRequestBuilder) ID(id stri
 type TargetedManagedAppConfigurationAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedMobileApp, error) {
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedMobileApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -100,7 +100,10 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx contex
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -114,13 +117,18 @@ func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Paging(ctx contex
 	}
 }
 
-// Get performs GET request for ManagedMobileApp collection
-func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
+// GetN performs GET request for ManagedMobileApp collection, max N pages
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedMobileApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedMobileApp collection
+func (r *TargetedManagedAppConfigurationAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedMobileApp collection
@@ -157,7 +165,7 @@ func (b *TargetedManagedAppConfigurationAssignmentsCollectionRequestBuilder) ID(
 type TargetedManagedAppConfigurationAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TargetedManagedAppPolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -194,7 +202,10 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -208,13 +219,18 @@ func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Paging(ctx
 	}
 }
 
-// Get performs GET request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
+// GetN performs GET request for TargetedManagedAppPolicyAssignment collection, max N pages
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]TargetedManagedAppPolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TargetedManagedAppPolicyAssignment collection
+func (r *TargetedManagedAppConfigurationAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection
@@ -258,7 +274,7 @@ func (b *TargetedManagedAppProtectionAssignmentsCollectionRequestBuilder) ID(id 
 type TargetedManagedAppProtectionAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]TargetedManagedAppPolicyAssignment, error) {
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TargetedManagedAppPolicyAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -295,7 +311,10 @@ func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -309,13 +328,18 @@ func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for TargetedManagedAppPolicyAssignment collection
-func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
+// GetN performs GET request for TargetedManagedAppPolicyAssignment collection, max N pages
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]TargetedManagedAppPolicyAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TargetedManagedAppPolicyAssignment collection
+func (r *TargetedManagedAppProtectionAssignmentsCollectionRequest) Get(ctx context.Context) ([]TargetedManagedAppPolicyAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for TargetedManagedAppPolicyAssignment collection

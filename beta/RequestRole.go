@@ -206,7 +206,7 @@ func (b *RoleScopeTagCollectionGetRoleScopeTagsByIDRequestBuilder) Request() *Ro
 }
 
 //
-func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTag, error) {
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RoleScopeTag, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -243,7 +243,10 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.C
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -258,8 +261,13 @@ func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Paging(ctx context.C
 }
 
 //
+func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) PostN(ctx context.Context, n int) ([]RoleScopeTag, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *RoleScopeTagCollectionGetRoleScopeTagsByIDRequest) Post(ctx context.Context) ([]RoleScopeTag, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -284,7 +292,7 @@ func (b *RoleScopeTagAssignRequestBuilder) Request() *RoleScopeTagAssignRequest 
 }
 
 //
-func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]RoleScopeTagAutoAssignment, error) {
+func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RoleScopeTagAutoAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -321,7 +329,10 @@ func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path str
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -336,6 +347,11 @@ func (r *RoleScopeTagAssignRequest) Paging(ctx context.Context, method, path str
 }
 
 //
+func (r *RoleScopeTagAssignRequest) PostN(ctx context.Context, n int) ([]RoleScopeTagAutoAssignment, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *RoleScopeTagAssignRequest) Post(ctx context.Context) ([]RoleScopeTagAutoAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

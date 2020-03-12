@@ -49,7 +49,7 @@ func (b *DomainDomainNameReferencesCollectionRequestBuilder) ID(id string) *Dire
 type DomainDomainNameReferencesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DirectoryObject collection
-func (r *DomainDomainNameReferencesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *DomainDomainNameReferencesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -86,7 +86,10 @@ func (r *DomainDomainNameReferencesCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -100,13 +103,18 @@ func (r *DomainDomainNameReferencesCollectionRequest) Paging(ctx context.Context
 	}
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *DomainDomainNameReferencesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// GetN performs GET request for DirectoryObject collection, max N pages
+func (r *DomainDomainNameReferencesCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DirectoryObject collection
+func (r *DomainDomainNameReferencesCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DirectoryObject collection
@@ -143,7 +151,7 @@ func (b *DomainServiceConfigurationRecordsCollectionRequestBuilder) ID(id string
 type DomainServiceConfigurationRecordsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DomainDNSRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DomainDNSRecord, error) {
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DomainDNSRecord, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -180,7 +188,10 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -194,13 +205,18 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for DomainDNSRecord collection
-func (r *DomainServiceConfigurationRecordsCollectionRequest) Get(ctx context.Context) ([]DomainDNSRecord, error) {
+// GetN performs GET request for DomainDNSRecord collection, max N pages
+func (r *DomainServiceConfigurationRecordsCollectionRequest) GetN(ctx context.Context, n int) ([]DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DomainDNSRecord collection
+func (r *DomainServiceConfigurationRecordsCollectionRequest) Get(ctx context.Context) ([]DomainDNSRecord, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DomainDNSRecord collection
@@ -237,7 +253,7 @@ func (b *DomainVerificationDNSRecordsCollectionRequestBuilder) ID(id string) *Do
 type DomainVerificationDNSRecordsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DomainDNSRecord collection
-func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DomainDNSRecord, error) {
+func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DomainDNSRecord, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -274,7 +290,10 @@ func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -288,13 +307,18 @@ func (r *DomainVerificationDNSRecordsCollectionRequest) Paging(ctx context.Conte
 	}
 }
 
-// Get performs GET request for DomainDNSRecord collection
-func (r *DomainVerificationDNSRecordsCollectionRequest) Get(ctx context.Context) ([]DomainDNSRecord, error) {
+// GetN performs GET request for DomainDNSRecord collection, max N pages
+func (r *DomainVerificationDNSRecordsCollectionRequest) GetN(ctx context.Context, n int) ([]DomainDNSRecord, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DomainDNSRecord collection
+func (r *DomainVerificationDNSRecordsCollectionRequest) Get(ctx context.Context) ([]DomainDNSRecord, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DomainDNSRecord collection

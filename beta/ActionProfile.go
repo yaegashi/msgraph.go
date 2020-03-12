@@ -39,7 +39,7 @@ func (b *ProfileAccountCollectionRequestBuilder) ID(id string) *UserAccountInfor
 type ProfileAccountCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserAccountInformation collection
-func (r *ProfileAccountCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserAccountInformation, error) {
+func (r *ProfileAccountCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserAccountInformation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *ProfileAccountCollectionRequest) Paging(ctx context.Context, method, pa
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *ProfileAccountCollectionRequest) Paging(ctx context.Context, method, pa
 	}
 }
 
-// Get performs GET request for UserAccountInformation collection
-func (r *ProfileAccountCollectionRequest) Get(ctx context.Context) ([]UserAccountInformation, error) {
+// GetN performs GET request for UserAccountInformation collection, max N pages
+func (r *ProfileAccountCollectionRequest) GetN(ctx context.Context, n int) ([]UserAccountInformation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserAccountInformation collection
+func (r *ProfileAccountCollectionRequest) Get(ctx context.Context) ([]UserAccountInformation, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UserAccountInformation collection
@@ -133,7 +141,7 @@ func (b *ProfileAnniversariesCollectionRequestBuilder) ID(id string) *PersonAnni
 type ProfileAnniversariesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PersonAnniversary collection
-func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PersonAnniversary, error) {
+func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonAnniversary, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -170,7 +178,10 @@ func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -184,13 +195,18 @@ func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// Get performs GET request for PersonAnniversary collection
-func (r *ProfileAnniversariesCollectionRequest) Get(ctx context.Context) ([]PersonAnniversary, error) {
+// GetN performs GET request for PersonAnniversary collection, max N pages
+func (r *ProfileAnniversariesCollectionRequest) GetN(ctx context.Context, n int) ([]PersonAnniversary, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonAnniversary collection
+func (r *ProfileAnniversariesCollectionRequest) Get(ctx context.Context) ([]PersonAnniversary, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PersonAnniversary collection
@@ -227,7 +243,7 @@ func (b *ProfileEducationalActivitiesCollectionRequestBuilder) ID(id string) *Ed
 type ProfileEducationalActivitiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for EducationalActivity collection
-func (r *ProfileEducationalActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]EducationalActivity, error) {
+func (r *ProfileEducationalActivitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]EducationalActivity, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -264,7 +280,10 @@ func (r *ProfileEducationalActivitiesCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -278,13 +297,18 @@ func (r *ProfileEducationalActivitiesCollectionRequest) Paging(ctx context.Conte
 	}
 }
 
-// Get performs GET request for EducationalActivity collection
-func (r *ProfileEducationalActivitiesCollectionRequest) Get(ctx context.Context) ([]EducationalActivity, error) {
+// GetN performs GET request for EducationalActivity collection, max N pages
+func (r *ProfileEducationalActivitiesCollectionRequest) GetN(ctx context.Context, n int) ([]EducationalActivity, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for EducationalActivity collection
+func (r *ProfileEducationalActivitiesCollectionRequest) Get(ctx context.Context) ([]EducationalActivity, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for EducationalActivity collection
@@ -321,7 +345,7 @@ func (b *ProfileEmailsCollectionRequestBuilder) ID(id string) *ItemEmailRequestB
 type ProfileEmailsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemEmail collection
-func (r *ProfileEmailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemEmail, error) {
+func (r *ProfileEmailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemEmail, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -358,7 +382,10 @@ func (r *ProfileEmailsCollectionRequest) Paging(ctx context.Context, method, pat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -372,13 +399,18 @@ func (r *ProfileEmailsCollectionRequest) Paging(ctx context.Context, method, pat
 	}
 }
 
-// Get performs GET request for ItemEmail collection
-func (r *ProfileEmailsCollectionRequest) Get(ctx context.Context) ([]ItemEmail, error) {
+// GetN performs GET request for ItemEmail collection, max N pages
+func (r *ProfileEmailsCollectionRequest) GetN(ctx context.Context, n int) ([]ItemEmail, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemEmail collection
+func (r *ProfileEmailsCollectionRequest) Get(ctx context.Context) ([]ItemEmail, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ItemEmail collection
@@ -415,7 +447,7 @@ func (b *ProfileInterestsCollectionRequestBuilder) ID(id string) *PersonInterest
 type ProfileInterestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PersonInterest collection
-func (r *ProfileInterestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PersonInterest, error) {
+func (r *ProfileInterestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonInterest, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -452,7 +484,10 @@ func (r *ProfileInterestsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -466,13 +501,18 @@ func (r *ProfileInterestsCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for PersonInterest collection
-func (r *ProfileInterestsCollectionRequest) Get(ctx context.Context) ([]PersonInterest, error) {
+// GetN performs GET request for PersonInterest collection, max N pages
+func (r *ProfileInterestsCollectionRequest) GetN(ctx context.Context, n int) ([]PersonInterest, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonInterest collection
+func (r *ProfileInterestsCollectionRequest) Get(ctx context.Context) ([]PersonInterest, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PersonInterest collection
@@ -509,7 +549,7 @@ func (b *ProfileLanguagesCollectionRequestBuilder) ID(id string) *LanguageProfic
 type ProfileLanguagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for LanguageProficiency collection
-func (r *ProfileLanguagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]LanguageProficiency, error) {
+func (r *ProfileLanguagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]LanguageProficiency, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -546,7 +586,10 @@ func (r *ProfileLanguagesCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -560,13 +603,18 @@ func (r *ProfileLanguagesCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for LanguageProficiency collection
-func (r *ProfileLanguagesCollectionRequest) Get(ctx context.Context) ([]LanguageProficiency, error) {
+// GetN performs GET request for LanguageProficiency collection, max N pages
+func (r *ProfileLanguagesCollectionRequest) GetN(ctx context.Context, n int) ([]LanguageProficiency, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for LanguageProficiency collection
+func (r *ProfileLanguagesCollectionRequest) Get(ctx context.Context) ([]LanguageProficiency, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for LanguageProficiency collection
@@ -603,7 +651,7 @@ func (b *ProfileNamesCollectionRequestBuilder) ID(id string) *PersonNameRequestB
 type ProfileNamesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PersonName collection
-func (r *ProfileNamesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PersonName, error) {
+func (r *ProfileNamesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonName, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -640,7 +688,10 @@ func (r *ProfileNamesCollectionRequest) Paging(ctx context.Context, method, path
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -654,13 +705,18 @@ func (r *ProfileNamesCollectionRequest) Paging(ctx context.Context, method, path
 	}
 }
 
-// Get performs GET request for PersonName collection
-func (r *ProfileNamesCollectionRequest) Get(ctx context.Context) ([]PersonName, error) {
+// GetN performs GET request for PersonName collection, max N pages
+func (r *ProfileNamesCollectionRequest) GetN(ctx context.Context, n int) ([]PersonName, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonName collection
+func (r *ProfileNamesCollectionRequest) Get(ctx context.Context) ([]PersonName, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PersonName collection
@@ -697,7 +753,7 @@ func (b *ProfilePhonesCollectionRequestBuilder) ID(id string) *ItemPhoneRequestB
 type ProfilePhonesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ItemPhone collection
-func (r *ProfilePhonesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ItemPhone, error) {
+func (r *ProfilePhonesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemPhone, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -734,7 +790,10 @@ func (r *ProfilePhonesCollectionRequest) Paging(ctx context.Context, method, pat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -748,13 +807,18 @@ func (r *ProfilePhonesCollectionRequest) Paging(ctx context.Context, method, pat
 	}
 }
 
-// Get performs GET request for ItemPhone collection
-func (r *ProfilePhonesCollectionRequest) Get(ctx context.Context) ([]ItemPhone, error) {
+// GetN performs GET request for ItemPhone collection, max N pages
+func (r *ProfilePhonesCollectionRequest) GetN(ctx context.Context, n int) ([]ItemPhone, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemPhone collection
+func (r *ProfilePhonesCollectionRequest) Get(ctx context.Context) ([]ItemPhone, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ItemPhone collection
@@ -791,7 +855,7 @@ func (b *ProfilePositionsCollectionRequestBuilder) ID(id string) *WorkPositionRe
 type ProfilePositionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WorkPosition collection
-func (r *ProfilePositionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WorkPosition, error) {
+func (r *ProfilePositionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WorkPosition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -828,7 +892,10 @@ func (r *ProfilePositionsCollectionRequest) Paging(ctx context.Context, method, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -842,13 +909,18 @@ func (r *ProfilePositionsCollectionRequest) Paging(ctx context.Context, method, 
 	}
 }
 
-// Get performs GET request for WorkPosition collection
-func (r *ProfilePositionsCollectionRequest) Get(ctx context.Context) ([]WorkPosition, error) {
+// GetN performs GET request for WorkPosition collection, max N pages
+func (r *ProfilePositionsCollectionRequest) GetN(ctx context.Context, n int) ([]WorkPosition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WorkPosition collection
+func (r *ProfilePositionsCollectionRequest) Get(ctx context.Context) ([]WorkPosition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WorkPosition collection
@@ -885,7 +957,7 @@ func (b *ProfileProjectsCollectionRequestBuilder) ID(id string) *ProjectParticip
 type ProfileProjectsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ProjectParticipation collection
-func (r *ProfileProjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ProjectParticipation, error) {
+func (r *ProfileProjectsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ProjectParticipation, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -922,7 +994,10 @@ func (r *ProfileProjectsCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -936,13 +1011,18 @@ func (r *ProfileProjectsCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for ProjectParticipation collection
-func (r *ProfileProjectsCollectionRequest) Get(ctx context.Context) ([]ProjectParticipation, error) {
+// GetN performs GET request for ProjectParticipation collection, max N pages
+func (r *ProfileProjectsCollectionRequest) GetN(ctx context.Context, n int) ([]ProjectParticipation, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ProjectParticipation collection
+func (r *ProfileProjectsCollectionRequest) Get(ctx context.Context) ([]ProjectParticipation, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ProjectParticipation collection
@@ -979,7 +1059,7 @@ func (b *ProfileSkillsCollectionRequestBuilder) ID(id string) *SkillProficiencyR
 type ProfileSkillsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SkillProficiency collection
-func (r *ProfileSkillsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SkillProficiency, error) {
+func (r *ProfileSkillsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SkillProficiency, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1016,7 +1096,10 @@ func (r *ProfileSkillsCollectionRequest) Paging(ctx context.Context, method, pat
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1030,13 +1113,18 @@ func (r *ProfileSkillsCollectionRequest) Paging(ctx context.Context, method, pat
 	}
 }
 
-// Get performs GET request for SkillProficiency collection
-func (r *ProfileSkillsCollectionRequest) Get(ctx context.Context) ([]SkillProficiency, error) {
+// GetN performs GET request for SkillProficiency collection, max N pages
+func (r *ProfileSkillsCollectionRequest) GetN(ctx context.Context, n int) ([]SkillProficiency, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SkillProficiency collection
+func (r *ProfileSkillsCollectionRequest) Get(ctx context.Context) ([]SkillProficiency, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SkillProficiency collection
@@ -1073,7 +1161,7 @@ func (b *ProfileWebAccountsCollectionRequestBuilder) ID(id string) *WebAccountRe
 type ProfileWebAccountsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for WebAccount collection
-func (r *ProfileWebAccountsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]WebAccount, error) {
+func (r *ProfileWebAccountsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WebAccount, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1110,7 +1198,10 @@ func (r *ProfileWebAccountsCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1124,13 +1215,18 @@ func (r *ProfileWebAccountsCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for WebAccount collection
-func (r *ProfileWebAccountsCollectionRequest) Get(ctx context.Context) ([]WebAccount, error) {
+// GetN performs GET request for WebAccount collection, max N pages
+func (r *ProfileWebAccountsCollectionRequest) GetN(ctx context.Context, n int) ([]WebAccount, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WebAccount collection
+func (r *ProfileWebAccountsCollectionRequest) Get(ctx context.Context) ([]WebAccount, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for WebAccount collection
@@ -1167,7 +1263,7 @@ func (b *ProfileWebsitesCollectionRequestBuilder) ID(id string) *PersonWebsiteRe
 type ProfileWebsitesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for PersonWebsite collection
-func (r *ProfileWebsitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]PersonWebsite, error) {
+func (r *ProfileWebsitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonWebsite, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1204,7 +1300,10 @@ func (r *ProfileWebsitesCollectionRequest) Paging(ctx context.Context, method, p
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -1218,13 +1317,18 @@ func (r *ProfileWebsitesCollectionRequest) Paging(ctx context.Context, method, p
 	}
 }
 
-// Get performs GET request for PersonWebsite collection
-func (r *ProfileWebsitesCollectionRequest) Get(ctx context.Context) ([]PersonWebsite, error) {
+// GetN performs GET request for PersonWebsite collection, max N pages
+func (r *ProfileWebsitesCollectionRequest) GetN(ctx context.Context, n int) ([]PersonWebsite, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonWebsite collection
+func (r *ProfileWebsitesCollectionRequest) Get(ctx context.Context) ([]PersonWebsite, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for PersonWebsite collection

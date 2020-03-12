@@ -68,7 +68,7 @@ func (b *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder) ID(id
 type GovernanceResourceRoleAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleAssignmentRequestObject, error) {
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -105,7 +105,10 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -119,13 +122,18 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 	}
 }
 
-// Get performs GET request for GovernanceRoleAssignmentRequestObject collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequestObject, error) {
+// GetN performs GET request for GovernanceRoleAssignmentRequestObject collection, max N pages
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleAssignmentRequestObject collection
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleAssignmentRequestObject collection
@@ -162,7 +170,7 @@ func (b *GovernanceResourceRoleAssignmentsCollectionRequestBuilder) ID(id string
 type GovernanceResourceRoleAssignmentsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleAssignment collection
-func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleAssignment, error) {
+func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -199,7 +207,10 @@ func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -213,13 +224,18 @@ func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for GovernanceRoleAssignment collection
-func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignment, error) {
+// GetN performs GET request for GovernanceRoleAssignment collection, max N pages
+func (r *GovernanceResourceRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleAssignment collection
+func (r *GovernanceResourceRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignment, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleAssignment collection
@@ -256,7 +272,7 @@ func (b *GovernanceResourceRoleDefinitionsCollectionRequestBuilder) ID(id string
 type GovernanceResourceRoleDefinitionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleDefinition collection
-func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleDefinition, error) {
+func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -293,7 +309,10 @@ func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -307,13 +326,18 @@ func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for GovernanceRoleDefinition collection
-func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleDefinition, error) {
+// GetN performs GET request for GovernanceRoleDefinition collection, max N pages
+func (r *GovernanceResourceRoleDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleDefinition collection
+func (r *GovernanceResourceRoleDefinitionsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleDefinition, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleDefinition collection
@@ -350,7 +374,7 @@ func (b *GovernanceResourceRoleSettingsCollectionRequestBuilder) ID(id string) *
 type GovernanceResourceRoleSettingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for GovernanceRoleSetting collection
-func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]GovernanceRoleSetting, error) {
+func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleSetting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -387,7 +411,10 @@ func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(ctx context.Con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -401,13 +428,18 @@ func (r *GovernanceResourceRoleSettingsCollectionRequest) Paging(ctx context.Con
 	}
 }
 
-// Get performs GET request for GovernanceRoleSetting collection
-func (r *GovernanceResourceRoleSettingsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleSetting, error) {
+// GetN performs GET request for GovernanceRoleSetting collection, max N pages
+func (r *GovernanceResourceRoleSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleSetting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GovernanceRoleSetting collection
+func (r *GovernanceResourceRoleSettingsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleSetting, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for GovernanceRoleSetting collection

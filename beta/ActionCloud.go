@@ -45,7 +45,7 @@ func (b *CloudCommunicationsCallsCollectionRequestBuilder) ID(id string) *CallRe
 type CloudCommunicationsCallsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Call collection
-func (r *CloudCommunicationsCallsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Call, error) {
+func (r *CloudCommunicationsCallsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Call, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -82,7 +82,10 @@ func (r *CloudCommunicationsCallsCollectionRequest) Paging(ctx context.Context, 
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -96,13 +99,18 @@ func (r *CloudCommunicationsCallsCollectionRequest) Paging(ctx context.Context, 
 	}
 }
 
-// Get performs GET request for Call collection
-func (r *CloudCommunicationsCallsCollectionRequest) Get(ctx context.Context) ([]Call, error) {
+// GetN performs GET request for Call collection, max N pages
+func (r *CloudCommunicationsCallsCollectionRequest) GetN(ctx context.Context, n int) ([]Call, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Call collection
+func (r *CloudCommunicationsCallsCollectionRequest) Get(ctx context.Context) ([]Call, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Call collection
@@ -139,7 +147,7 @@ func (b *CloudCommunicationsOnlineMeetingsCollectionRequestBuilder) ID(id string
 type CloudCommunicationsOnlineMeetingsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for OnlineMeeting collection
-func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]OnlineMeeting, error) {
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OnlineMeeting, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -176,7 +184,10 @@ func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -190,13 +201,18 @@ func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for OnlineMeeting collection
-func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Get(ctx context.Context) ([]OnlineMeeting, error) {
+// GetN performs GET request for OnlineMeeting collection, max N pages
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) GetN(ctx context.Context, n int) ([]OnlineMeeting, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for OnlineMeeting collection
+func (r *CloudCommunicationsOnlineMeetingsCollectionRequest) Get(ctx context.Context) ([]OnlineMeeting, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for OnlineMeeting collection

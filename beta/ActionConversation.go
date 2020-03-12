@@ -45,7 +45,7 @@ func (b *ConversationThreadsCollectionRequestBuilder) ID(id string) *Conversatio
 type ConversationThreadsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ConversationThread collection
-func (r *ConversationThreadsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ConversationThread, error) {
+func (r *ConversationThreadsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConversationThread, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -82,7 +82,10 @@ func (r *ConversationThreadsCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -96,13 +99,18 @@ func (r *ConversationThreadsCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for ConversationThread collection
-func (r *ConversationThreadsCollectionRequest) Get(ctx context.Context) ([]ConversationThread, error) {
+// GetN performs GET request for ConversationThread collection, max N pages
+func (r *ConversationThreadsCollectionRequest) GetN(ctx context.Context, n int) ([]ConversationThread, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConversationThread collection
+func (r *ConversationThreadsCollectionRequest) Get(ctx context.Context) ([]ConversationThread, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ConversationThread collection
@@ -139,7 +147,7 @@ func (b *ConversationThreadPostsCollectionRequestBuilder) ID(id string) *PostReq
 type ConversationThreadPostsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Post collection
-func (r *ConversationThreadPostsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Post, error) {
+func (r *ConversationThreadPostsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Post, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -176,7 +184,10 @@ func (r *ConversationThreadPostsCollectionRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -190,13 +201,18 @@ func (r *ConversationThreadPostsCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// Get performs GET request for Post collection
-func (r *ConversationThreadPostsCollectionRequest) Get(ctx context.Context) ([]Post, error) {
+// GetN performs GET request for Post collection, max N pages
+func (r *ConversationThreadPostsCollectionRequest) GetN(ctx context.Context, n int) ([]Post, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Post collection
+func (r *ConversationThreadPostsCollectionRequest) Get(ctx context.Context) ([]Post, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Post collection

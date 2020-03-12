@@ -66,7 +66,7 @@ func (b *SearchQueryRequestBuilder) Request() *SearchQueryRequest {
 }
 
 //
-func (r *SearchQueryRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SearchResponse, error) {
+func (r *SearchQueryRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SearchResponse, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -103,7 +103,10 @@ func (r *SearchQueryRequest) Paging(ctx context.Context, method, path string, ob
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -118,6 +121,11 @@ func (r *SearchQueryRequest) Paging(ctx context.Context, method, path string, ob
 }
 
 //
+func (r *SearchQueryRequest) PostN(ctx context.Context, n int) ([]SearchResponse, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *SearchQueryRequest) Post(ctx context.Context) ([]SearchResponse, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

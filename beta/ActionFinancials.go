@@ -39,7 +39,7 @@ func (b *FinancialsCompaniesCollectionRequestBuilder) ID(id string) *CompanyRequ
 type FinancialsCompaniesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Company, error) {
+func (r *FinancialsCompaniesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Company, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *FinancialsCompaniesCollectionRequest) Paging(ctx context.Context, metho
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *FinancialsCompaniesCollectionRequest) Paging(ctx context.Context, metho
 	}
 }
 
-// Get performs GET request for Company collection
-func (r *FinancialsCompaniesCollectionRequest) Get(ctx context.Context) ([]Company, error) {
+// GetN performs GET request for Company collection, max N pages
+func (r *FinancialsCompaniesCollectionRequest) GetN(ctx context.Context, n int) ([]Company, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Company collection
+func (r *FinancialsCompaniesCollectionRequest) Get(ctx context.Context) ([]Company, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Company collection

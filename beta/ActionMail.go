@@ -51,7 +51,7 @@ func (b *MailFolderChildFoldersCollectionRequestBuilder) ID(id string) *MailFold
 type MailFolderChildFoldersCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MailFolder collection
-func (r *MailFolderChildFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MailFolder, error) {
+func (r *MailFolderChildFoldersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MailFolder, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -88,7 +88,10 @@ func (r *MailFolderChildFoldersCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -102,13 +105,18 @@ func (r *MailFolderChildFoldersCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for MailFolder collection
-func (r *MailFolderChildFoldersCollectionRequest) Get(ctx context.Context) ([]MailFolder, error) {
+// GetN performs GET request for MailFolder collection, max N pages
+func (r *MailFolderChildFoldersCollectionRequest) GetN(ctx context.Context, n int) ([]MailFolder, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MailFolder collection
+func (r *MailFolderChildFoldersCollectionRequest) Get(ctx context.Context) ([]MailFolder, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MailFolder collection
@@ -145,7 +153,7 @@ func (b *MailFolderMessageRulesCollectionRequestBuilder) ID(id string) *MessageR
 type MailFolderMessageRulesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MessageRule collection
-func (r *MailFolderMessageRulesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MessageRule, error) {
+func (r *MailFolderMessageRulesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MessageRule, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -182,7 +190,10 @@ func (r *MailFolderMessageRulesCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -196,13 +207,18 @@ func (r *MailFolderMessageRulesCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for MessageRule collection
-func (r *MailFolderMessageRulesCollectionRequest) Get(ctx context.Context) ([]MessageRule, error) {
+// GetN performs GET request for MessageRule collection, max N pages
+func (r *MailFolderMessageRulesCollectionRequest) GetN(ctx context.Context, n int) ([]MessageRule, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MessageRule collection
+func (r *MailFolderMessageRulesCollectionRequest) Get(ctx context.Context) ([]MessageRule, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MessageRule collection
@@ -239,7 +255,7 @@ func (b *MailFolderMessagesCollectionRequestBuilder) ID(id string) *MessageReque
 type MailFolderMessagesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Message collection
-func (r *MailFolderMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Message, error) {
+func (r *MailFolderMessagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Message, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -276,7 +292,10 @@ func (r *MailFolderMessagesCollectionRequest) Paging(ctx context.Context, method
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -290,13 +309,18 @@ func (r *MailFolderMessagesCollectionRequest) Paging(ctx context.Context, method
 	}
 }
 
-// Get performs GET request for Message collection
-func (r *MailFolderMessagesCollectionRequest) Get(ctx context.Context) ([]Message, error) {
+// GetN performs GET request for Message collection, max N pages
+func (r *MailFolderMessagesCollectionRequest) GetN(ctx context.Context, n int) ([]Message, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Message collection
+func (r *MailFolderMessagesCollectionRequest) Get(ctx context.Context) ([]Message, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Message collection
@@ -333,7 +357,7 @@ func (b *MailFolderMultiValueExtendedPropertiesCollectionRequestBuilder) ID(id s
 type MailFolderMultiValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for MultiValueLegacyExtendedProperty collection
-func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]MultiValueLegacyExtendedProperty, error) {
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -370,7 +394,10 @@ func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -384,13 +411,18 @@ func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for MultiValueLegacyExtendedProperty collection
-func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+// GetN performs GET request for MultiValueLegacyExtendedProperty collection, max N pages
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]MultiValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MultiValueLegacyExtendedProperty collection
+func (r *MailFolderMultiValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]MultiValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for MultiValueLegacyExtendedProperty collection
@@ -427,7 +459,7 @@ func (b *MailFolderSingleValueExtendedPropertiesCollectionRequestBuilder) ID(id 
 type MailFolderSingleValueExtendedPropertiesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SingleValueLegacyExtendedProperty collection
-func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SingleValueLegacyExtendedProperty, error) {
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -464,7 +496,10 @@ func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -478,13 +513,18 @@ func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Paging(ctx co
 	}
 }
 
-// Get performs GET request for SingleValueLegacyExtendedProperty collection
-func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+// GetN performs GET request for SingleValueLegacyExtendedProperty collection, max N pages
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]SingleValueLegacyExtendedProperty, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SingleValueLegacyExtendedProperty collection
+func (r *MailFolderSingleValueExtendedPropertiesCollectionRequest) Get(ctx context.Context) ([]SingleValueLegacyExtendedProperty, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SingleValueLegacyExtendedProperty collection
@@ -521,7 +561,7 @@ func (b *MailFolderUserConfigurationsCollectionRequestBuilder) ID(id string) *Us
 type MailFolderUserConfigurationsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for UserConfiguration collection
-func (r *MailFolderUserConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]UserConfiguration, error) {
+func (r *MailFolderUserConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -558,7 +598,10 @@ func (r *MailFolderUserConfigurationsCollectionRequest) Paging(ctx context.Conte
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -572,13 +615,18 @@ func (r *MailFolderUserConfigurationsCollectionRequest) Paging(ctx context.Conte
 	}
 }
 
-// Get performs GET request for UserConfiguration collection
-func (r *MailFolderUserConfigurationsCollectionRequest) Get(ctx context.Context) ([]UserConfiguration, error) {
+// GetN performs GET request for UserConfiguration collection, max N pages
+func (r *MailFolderUserConfigurationsCollectionRequest) GetN(ctx context.Context, n int) ([]UserConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserConfiguration collection
+func (r *MailFolderUserConfigurationsCollectionRequest) Get(ctx context.Context) ([]UserConfiguration, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for UserConfiguration collection

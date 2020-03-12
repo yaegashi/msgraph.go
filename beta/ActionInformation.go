@@ -79,7 +79,7 @@ func (b *InformationProtectionDataLossPreventionPoliciesCollectionRequestBuilder
 type InformationProtectionDataLossPreventionPoliciesCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for DataLossPreventionPolicy collection
-func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DataLossPreventionPolicy, error) {
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DataLossPreventionPolicy, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -116,7 +116,10 @@ func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Pagin
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -130,13 +133,18 @@ func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Pagin
 	}
 }
 
-// Get performs GET request for DataLossPreventionPolicy collection
-func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Get(ctx context.Context) ([]DataLossPreventionPolicy, error) {
+// GetN performs GET request for DataLossPreventionPolicy collection, max N pages
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]DataLossPreventionPolicy, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DataLossPreventionPolicy collection
+func (r *InformationProtectionDataLossPreventionPoliciesCollectionRequest) Get(ctx context.Context) ([]DataLossPreventionPolicy, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for DataLossPreventionPolicy collection
@@ -180,7 +188,7 @@ func (b *InformationProtectionSensitivityLabelsCollectionRequestBuilder) ID(id s
 type InformationProtectionSensitivityLabelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]SensitivityLabel, error) {
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SensitivityLabel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -217,7 +225,10 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx con
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -231,13 +242,18 @@ func (r *InformationProtectionSensitivityLabelsCollectionRequest) Paging(ctx con
 	}
 }
 
-// Get performs GET request for SensitivityLabel collection
-func (r *InformationProtectionSensitivityLabelsCollectionRequest) Get(ctx context.Context) ([]SensitivityLabel, error) {
+// GetN performs GET request for SensitivityLabel collection, max N pages
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) GetN(ctx context.Context, n int) ([]SensitivityLabel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SensitivityLabel collection
+func (r *InformationProtectionSensitivityLabelsCollectionRequest) Get(ctx context.Context) ([]SensitivityLabel, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for SensitivityLabel collection
@@ -281,7 +297,7 @@ func (b *InformationProtectionThreatAssessmentRequestsCollectionRequestBuilder) 
 type InformationProtectionThreatAssessmentRequestsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ThreatAssessmentRequestObject collection
-func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ThreatAssessmentRequestObject, error) {
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ThreatAssessmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -318,7 +334,10 @@ func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -332,13 +351,18 @@ func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Paging(
 	}
 }
 
-// Get performs GET request for ThreatAssessmentRequestObject collection
-func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Get(ctx context.Context) ([]ThreatAssessmentRequestObject, error) {
+// GetN performs GET request for ThreatAssessmentRequestObject collection, max N pages
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]ThreatAssessmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ThreatAssessmentRequestObject collection
+func (r *InformationProtectionThreatAssessmentRequestsCollectionRequest) Get(ctx context.Context) ([]ThreatAssessmentRequestObject, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ThreatAssessmentRequestObject collection
@@ -375,7 +399,7 @@ func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) ID(id string
 type InformationProtectionPolicyLabelsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for InformationProtectionLabel collection
-func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]InformationProtectionLabel, error) {
+func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]InformationProtectionLabel, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -412,7 +436,10 @@ func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(ctx context.
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -426,13 +453,18 @@ func (r *InformationProtectionPolicyLabelsCollectionRequest) Paging(ctx context.
 	}
 }
 
-// Get performs GET request for InformationProtectionLabel collection
-func (r *InformationProtectionPolicyLabelsCollectionRequest) Get(ctx context.Context) ([]InformationProtectionLabel, error) {
+// GetN performs GET request for InformationProtectionLabel collection, max N pages
+func (r *InformationProtectionPolicyLabelsCollectionRequest) GetN(ctx context.Context, n int) ([]InformationProtectionLabel, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for InformationProtectionLabel collection
+func (r *InformationProtectionPolicyLabelsCollectionRequest) Get(ctx context.Context) ([]InformationProtectionLabel, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for InformationProtectionLabel collection

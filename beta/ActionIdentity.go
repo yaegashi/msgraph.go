@@ -39,7 +39,7 @@ func (b *IdentityContainerUserFlowsCollectionRequestBuilder) ID(id string) *Iden
 type IdentityContainerUserFlowsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for IdentityUserFlow collection
-func (r *IdentityContainerUserFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]IdentityUserFlow, error) {
+func (r *IdentityContainerUserFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]IdentityUserFlow, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *IdentityContainerUserFlowsCollectionRequest) Paging(ctx context.Context
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *IdentityContainerUserFlowsCollectionRequest) Paging(ctx context.Context
 	}
 }
 
-// Get performs GET request for IdentityUserFlow collection
-func (r *IdentityContainerUserFlowsCollectionRequest) Get(ctx context.Context) ([]IdentityUserFlow, error) {
+// GetN performs GET request for IdentityUserFlow collection, max N pages
+func (r *IdentityContainerUserFlowsCollectionRequest) GetN(ctx context.Context, n int) ([]IdentityUserFlow, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for IdentityUserFlow collection
+func (r *IdentityContainerUserFlowsCollectionRequest) Get(ctx context.Context) ([]IdentityUserFlow, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for IdentityUserFlow collection

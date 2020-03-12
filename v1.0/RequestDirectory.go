@@ -398,7 +398,7 @@ func (b *DirectoryObjectCollectionGetByIDsRequestBuilder) Request() *DirectoryOb
 }
 
 //
-func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]DirectoryObject, error) {
+func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -435,7 +435,10 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -450,8 +453,13 @@ func (r *DirectoryObjectCollectionGetByIDsRequest) Paging(ctx context.Context, m
 }
 
 //
+func (r *DirectoryObjectCollectionGetByIDsRequest) PostN(ctx context.Context, n int) ([]DirectoryObject, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DirectoryObjectCollectionGetByIDsRequest) Post(ctx context.Context) ([]DirectoryObject, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -702,7 +710,7 @@ func (b *DirectoryObjectCheckMemberGroupsRequestBuilder) Request() *DirectoryObj
 }
 
 //
-func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
+func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -739,7 +747,10 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -754,8 +765,13 @@ func (r *DirectoryObjectCheckMemberGroupsRequest) Paging(ctx context.Context, me
 }
 
 //
+func (r *DirectoryObjectCheckMemberGroupsRequest) PostN(ctx context.Context, n int) ([]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DirectoryObjectCheckMemberGroupsRequest) Post(ctx context.Context) ([]string, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -780,7 +796,7 @@ func (b *DirectoryObjectCheckMemberObjectsRequestBuilder) Request() *DirectoryOb
 }
 
 //
-func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
+func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -817,7 +833,10 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, m
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -832,8 +851,13 @@ func (r *DirectoryObjectCheckMemberObjectsRequest) Paging(ctx context.Context, m
 }
 
 //
+func (r *DirectoryObjectCheckMemberObjectsRequest) PostN(ctx context.Context, n int) ([]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DirectoryObjectCheckMemberObjectsRequest) Post(ctx context.Context) ([]string, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -858,7 +882,7 @@ func (b *DirectoryObjectGetMemberGroupsRequestBuilder) Request() *DirectoryObjec
 }
 
 //
-func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
+func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -895,7 +919,10 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, meth
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -910,8 +937,13 @@ func (r *DirectoryObjectGetMemberGroupsRequest) Paging(ctx context.Context, meth
 }
 
 //
+func (r *DirectoryObjectGetMemberGroupsRequest) PostN(ctx context.Context, n int) ([]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DirectoryObjectGetMemberGroupsRequest) Post(ctx context.Context) ([]string, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //
@@ -936,7 +968,7 @@ func (b *DirectoryObjectGetMemberObjectsRequestBuilder) Request() *DirectoryObje
 }
 
 //
-func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]string, error) {
+func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]string, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -973,7 +1005,10 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, met
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -988,8 +1023,13 @@ func (r *DirectoryObjectGetMemberObjectsRequest) Paging(ctx context.Context, met
 }
 
 //
+func (r *DirectoryObjectGetMemberObjectsRequest) PostN(ctx context.Context, n int) ([]string, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
 func (r *DirectoryObjectGetMemberObjectsRequest) Post(ctx context.Context) ([]string, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject)
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
 //

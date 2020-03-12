@@ -39,7 +39,7 @@ func (b *AndroidManagedAppProtectionAppsCollectionRequestBuilder) ID(id string) 
 type AndroidManagedAppProtectionAppsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for ManagedMobileApp collection
-func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]ManagedMobileApp, error) {
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedMobileApp, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -76,7 +76,10 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Co
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -90,13 +93,18 @@ func (r *AndroidManagedAppProtectionAppsCollectionRequest) Paging(ctx context.Co
 	}
 }
 
-// Get performs GET request for ManagedMobileApp collection
-func (r *AndroidManagedAppProtectionAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
+// GetN performs GET request for ManagedMobileApp collection, max N pages
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedMobileApp, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedMobileApp collection
+func (r *AndroidManagedAppProtectionAppsCollectionRequest) Get(ctx context.Context) ([]ManagedMobileApp, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for ManagedMobileApp collection

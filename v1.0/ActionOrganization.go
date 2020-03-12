@@ -43,7 +43,7 @@ func (b *OrganizationCertificateBasedAuthConfigurationCollectionRequestBuilder) 
 type OrganizationCertificateBasedAuthConfigurationCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for CertificateBasedAuthConfiguration collection
-func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]CertificateBasedAuthConfiguration, error) {
+func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CertificateBasedAuthConfiguration, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -80,7 +80,10 @@ func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Paging(
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -94,13 +97,18 @@ func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Paging(
 	}
 }
 
-// Get performs GET request for CertificateBasedAuthConfiguration collection
-func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Get(ctx context.Context) ([]CertificateBasedAuthConfiguration, error) {
+// GetN performs GET request for CertificateBasedAuthConfiguration collection, max N pages
+func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) GetN(ctx context.Context, n int) ([]CertificateBasedAuthConfiguration, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CertificateBasedAuthConfiguration collection
+func (r *OrganizationCertificateBasedAuthConfigurationCollectionRequest) Get(ctx context.Context) ([]CertificateBasedAuthConfiguration, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for CertificateBasedAuthConfiguration collection
@@ -137,7 +145,7 @@ func (b *OrganizationExtensionsCollectionRequestBuilder) ID(id string) *Extensio
 type OrganizationExtensionsCollectionRequest struct{ BaseRequest }
 
 // Paging perfoms paging operation for Extension collection
-func (r *OrganizationExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}) ([]Extension, error) {
+func (r *OrganizationExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Extension, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -174,7 +182,10 @@ func (r *OrganizationExtensionsCollectionRequest) Paging(ctx context.Context, me
 			return nil, err
 		}
 		values = append(values, value...)
-		if len(paging.NextLink) == 0 {
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
 			return values, nil
 		}
 		req, err = http.NewRequest("GET", paging.NextLink, nil)
@@ -188,13 +199,18 @@ func (r *OrganizationExtensionsCollectionRequest) Paging(ctx context.Context, me
 	}
 }
 
-// Get performs GET request for Extension collection
-func (r *OrganizationExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+// GetN performs GET request for Extension collection, max N pages
+func (r *OrganizationExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]Extension, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
 	}
-	return r.Paging(ctx, "GET", query, nil)
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Extension collection
+func (r *OrganizationExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
+	return r.GetN(ctx, 0)
 }
 
 // Add performs POST request for Extension collection
