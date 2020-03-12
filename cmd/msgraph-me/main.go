@@ -23,7 +23,7 @@ const (
 	defaultTokenCachePath = "token_cache.json"
 )
 
-var defaultScopes = []string{"offline_access", "User.Read", "Files.Read"}
+var defaultScopes = []string{"offline_access", "User.Read", "Calendars.Read", "Files.Read"}
 
 func dump(o interface{}) {
 	enc := jsonx.NewEncoder(os.Stdout)
@@ -57,6 +57,20 @@ func main() {
 		user, err := req.Get(ctx)
 		if err == nil {
 			dump(user)
+		} else {
+			log.Println(err)
+		}
+	}
+
+	{
+		log.Println("Get current logged in user's first 10 events")
+		req := graphClient.Me().Events().Request()
+		req.Top(10)
+		req.Header().Add("Prefer", `outlook.timezone="Tokyo Standard Time"`)
+		log.Printf("GET %s", req.URL())
+		events, err := req.GetN(ctx, 1)
+		if err == nil {
+			dump(events)
 		} else {
 			log.Println(err)
 		}
