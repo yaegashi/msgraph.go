@@ -15,6 +15,8 @@ import (
 	"strings"
 	"text/template"
 	"unicode"
+
+	_ "github.com/rickb777/date/period"
 )
 
 const (
@@ -36,9 +38,9 @@ var reservedTypeTable = map[string]string{
 	"Edm.Guid":             "UUID",
 	"Edm.String":           "string",
 	"Edm.DateTimeOffset":   "time.Time",
-	"Edm.Duration":         "time.Duration",
-	"Edm.TimeOfDay":        "time.Time",
-	"Edm.Date":             "time.Time",
+	"Edm.Duration":         "Duration",
+	"Edm.TimeOfDay":        "TimeOfDay",
+	"Edm.Date":             "Date",
 	"microsoft.graph.Json": "json.RawMessage",
 }
 
@@ -157,6 +159,36 @@ func lintName(name string) (should string) {
 	return string(runes)
 }
 
+// splitName returns a slice of CamelCase words from name.
+func splitName(name string) (words []string) {
+	if len(commonInitialismValues) == 0 {
+		for _, value := range commonInitialisms {
+			commonInitialismValues = append(commonInitialismValues, value)
+		}
+		sort.Slice(commonInitialismValues, func(i, j int) bool { return len(commonInitialismValues[i]) > len(commonInitialismValues[j]) })
+	}
+loop:
+	for i := 0; len(name) > 0; i++ {
+		for _, v := range commonInitialismValues {
+			if strings.HasPrefix(name, v) {
+				words = append(words, v)
+				name = name[len(v):]
+				continue loop
+			}
+		}
+		for i, c := range name {
+			if i != 0 && unicode.IsUpper(c) {
+				words = append(words, name[:i])
+				name = name[i:]
+				continue loop
+			}
+		}
+		words = append(words, name)
+		name = ""
+	}
+	return
+}
+
 // commonInitialisms is a set of common initialisms.
 // Only add entries that are highly unlikely to be non-initialisms.
 // For instance, "ID" is fine (Freudian code is rare), but "AND" is not.
@@ -165,8 +197,10 @@ var commonInitialisms = map[string]string{
 	"ACL":    "ACL",
 	"API":    "API",
 	"ASCII":  "ASCII",
+	"CIDR":   "CIDR",
 	"CPU":    "CPU",
 	"CSS":    "CSS",
+	"DMA":    "DMA",
 	"DNS":    "DNS",
 	"EOF":    "EOF",
 	"GUID":   "GUID",
@@ -178,12 +212,15 @@ var commonInitialisms = map[string]string{
 	"IDS":    "IDs",
 	"IGMP":   "IGMP",
 	"IOS":    "IOS",
+	"ITUNES": "ITunes",
 	"IP":     "IP",
 	"IPV4":   "IPv4",
 	"IPV6":   "IPv6",
 	"JSON":   "JSON",
 	"LHS":    "LHS",
+	"MDM":    "MDM",
 	"MFA":    "MFA",
+	"NDES":   "NDES",
 	"OAUTH2": "OAuth2",
 	"OMA":    "OMA",
 	"QPS":    "QPS",
@@ -207,11 +244,18 @@ var commonInitialisms = map[string]string{
 	"UTF8":   "UTF8",
 	"UUID":   "UUID",
 	"VM":     "VM",
+	"VPN":    "VPN",
+	"VPP":    "VPP",
+	"WIFI":   "WiFi",
 	"XML":    "XML",
 	"XMPP":   "XMPP",
 	"XSRF":   "XSRF",
 	"XSS":    "XSS",
 }
+
+// commonInitialismValues is a list of the commonInitialisms values
+// sorted by the length for prefix matches in splitName().
+var commonInitialismValues []string
 
 func ptrType(t string) string {
 	switch t {
@@ -448,12 +492,12 @@ func (g *Generator) Generate() error {
 
 	var out io.WriteCloser
 
-	for _, path := range []string{"msgraph.go", "extensions.go"} {
-		out, err = g.Create(path)
+	for _, path := range []string{"msgraph", "extensions"} {
+		out, err = g.Create(path, "")
 		if err != nil {
 			return err
 		}
-		err = tmpl.ExecuteTemplate(out, path+".tmpl", g)
+		err = tmpl.ExecuteTemplate(out, path+".go.tmpl", g)
 		if err != nil {
 			return err
 		}
@@ -467,7 +511,7 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := enumTypeMap[key]
-		out, err = g.Create(x.Sym + "Enum.go")
+		out, err = g.Create("Enum", x.Sym)
 		g.X = x
 		if err != nil {
 			return err
@@ -486,7 +530,7 @@ func (g *Generator) Generate() error {
 	sort.Strings(keys)
 	for _, key := range keys {
 		x := entityTypeMap[key]
-		out, err = g.Create(x.Sym + "Model.go")
+		out, err = g.Create("Model", x.Sym)
 		if err != nil {
 			return err
 		}
@@ -508,7 +552,7 @@ func (g *Generator) Generate() error {
 			continue
 		}
 		x := actionTypeMap[a]
-		out, err = g.Create(g.SymBaseType(a) + "Action.go")
+		out, err = g.Create("Action", g.SymBaseType(a))
 		if err != nil {
 			return err
 		}
@@ -545,7 +589,7 @@ func (g *Generator) Generate() error {
 	}
 	sort.Strings(keys)
 	for _, x := range keys {
-		out, err = g.Create(x + "Request.go")
+		out, err = g.Create("Request", x)
 		if err != nil {
 			return err
 		}
@@ -557,7 +601,7 @@ func (g *Generator) Generate() error {
 		out.Close()
 	}
 
-	out, err = g.Create("GraphServiceRequest.go")
+	out, err = g.Create("GraphService", "")
 	if err != nil {
 		return err
 	}
@@ -600,7 +644,7 @@ func (g *Generator) Generate() error {
 		if len(x.Navigations) == 0 {
 			continue
 		}
-		out, err = g.Create(x.Sym + "Request.go")
+		out, err = g.Create("Action", x.Sym)
 		if err != nil {
 			return err
 		}
@@ -634,11 +678,11 @@ func (g *Generator) Generate() error {
 		if _, ok := reservedTypeTable[a]; ok {
 			continue
 		}
-		out, err = g.Create(g.SymBaseType(a) + "Action.go")
-		if err != nil {
-			return err
-		}
 		for _, y := range x {
+			out, err = g.Create("Request", g.SymBaseType(a)+y.Sym)
+			if err != nil {
+				return err
+			}
 			g.Y = y
 			if b, ok := actionRequestBuilderMap[a]; ok {
 				g.X = b
@@ -653,8 +697,8 @@ func (g *Generator) Generate() error {
 					return err
 				}
 			}
+			out.Close()
 		}
-		out.Close()
 	}
 
 	return nil
@@ -694,7 +738,21 @@ func (g *Generator) Clean() error {
 	return nil
 }
 
-func (g *Generator) Create(path string) (io.WriteCloser, error) {
+func (g *Generator) Create(path string, sym string) (io.WriteCloser, error) {
+	if len(sym) > 0 {
+		symWords := splitName(sym)
+		numWords := 1
+		if strings.HasPrefix(path+sym, "RequestWorkbookFunctions") {
+			numWords = 3
+		}
+		if numWords > len(symWords) {
+			numWords = len(symWords)
+		}
+		path += strings.Join(symWords[:numWords], "")
+	}
+	if !strings.HasSuffix(path, ".go") {
+		path += ".go"
+	}
 	path = filepath.Join(g.Out, path)
 	if g.Created[path] {
 		return os.OpenFile(path, os.O_WRONLY|os.O_APPEND, 0644)
