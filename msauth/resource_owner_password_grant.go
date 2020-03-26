@@ -17,11 +17,10 @@ func (m *Manager) ResourceOwnerPasswordGrant(ctx context.Context, tenantID, clie
 		Endpoint:     endpoint,
 		Scopes:       scopes,
 	}
-	var err error
 	t, err := config.PasswordCredentialsToken(ctx, username, password)
-	ts := config.TokenSource(ctx, t)
 	if err != nil {
 		return nil, err
 	}
+	ts := config.TokenSource(ctx, t)
 	return ts, nil
 }

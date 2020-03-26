@@ -14,8 +14,8 @@ const (
 	tenantID       = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 	clientID       = "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY"
 	clientSecret   = "ZZZZZZZZZZZZZZZZZZZZZZZZ"
-	username       = "username"
-	password       = "password"
+	username       = "user.name@your-domain.com"
+	password       = "secure-password"
 	tokenStorePath = "token_store.json"
 )
 
