@@ -14,6 +14,8 @@ const (
 	tenantID       = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 	clientID       = "YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY"
 	clientSecret   = "ZZZZZZZZZZZZZZZZZZZZZZZZ"
+	username       = "user.name@your-domain.com"
+	password       = "secure-password"
 	tokenStorePath = "token_store.json"
 )
 
@@ -51,6 +53,26 @@ func ExampleManager_ClientCredentialsGrant() {
 	ctx := context.Background()
 	m := msauth.NewManager()
 	ts, err := m.ClientCredentialsGrant(ctx, tenantID, clientID, clientSecret, ccScopes)
+	if err != nil {
+		log.Fatal(err)
+	}
+	httpClient := oauth2.NewClient(ctx, ts)
+	res, err := httpClient.Get("https://graph.microsoft.com/v1.0/me")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	b, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s\n", string(string(b)))
+}
+
+func ExampleManager_ResourceOwnerPasswordGrant() {
+	ctx := context.Background()
+	m := msauth.NewManager()
+	ts, err := m.ResourceOwnerPasswordGrant(ctx, tenantID, clientID, clientSecret, username, password, ccScopes)
 	if err != nil {
 		log.Fatal(err)
 	}
