@@ -88,7 +88,7 @@ func (m *Manager) SaveBytes() ([]byte, error) {
 func (m *Manager) LoadFile(path string) error {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	b, err := ioutil.ReadFile(path)
+	b, err := ReadLocation(path)
 	if err != nil {
 		return err
 	}
@@ -111,7 +111,7 @@ func (m *Manager) SaveFile(path string) error {
 	if err != nil {
 		return err
 	}
-	err = ioutil.WriteFile(path, b, 0644)
+	err = WriteLocation(path, b, 0644)
 	if err != nil {
 		return err
 	}
