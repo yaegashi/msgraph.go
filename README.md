@@ -102,7 +102,7 @@ $ go generate ./gen
 - [x] Reduce number of generated files (#11)
 - [x] Provide easy way to add HTTP headers like `Prefer: outlook.timezone="Tokyo Standard Time"`
 - [ ] Support max number of pages to retrieve from a collection
-- [ ] Support Windows time zone names used in DateTimeTimeZone (incorporate [genzabbrs.go](https://golang.org/src/time/genzabbrs.go))
+- [x] Support Windows time zone names in DateTimeTimeZone (utilize [wtz.go](https://github.com/yaegashi/wtz.go))
 
 ## References
 
