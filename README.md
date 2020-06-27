@@ -95,7 +95,7 @@ $ go generate ./gen
 - [ ] Unit tests
 - [x] CI
 - [x] Persist OAuth2 tokens in file
-- [ ] Persist OAuth2 tokens in object storage like Azure Blob
+- [x] Persist OAuth2 tokens in object storage like Azure Blob
 - [x] OAuth2 device auth grant
 - [x] OAuth2 client credentials grant
 - [x] Use string for EnumType (pointed out in #6)
