@@ -14,6 +14,7 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 	"github.com/yaegashi/msgraph.go/msauth"
 	msgraph "github.com/yaegashi/msgraph.go/v1.0"
+	"github.com/yaegashi/wtz.go"
 	"golang.org/x/oauth2"
 )
 
@@ -66,7 +67,12 @@ func main() {
 		log.Println("Get current logged in user's first 10 events")
 		req := graphClient.Me().Events().Request()
 		req.Top(10)
-		req.Header().Add("Prefer", `outlook.timezone="Tokyo Standard Time"`)
+		tzname, err := wtz.LocationToName(time.Local)
+		if err != nil {
+			log.Println(err)
+			tzname = "Tokyo Standard Time"
+		}
+		req.Header().Add("Prefer", fmt.Sprintf(`outlook.timezone="%s"`, tzname))
 		log.Printf("GET %s", req.URL())
 		events, err := req.GetN(ctx, 1)
 		if err == nil {
