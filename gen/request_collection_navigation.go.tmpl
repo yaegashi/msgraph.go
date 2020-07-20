@@ -103,3 +103,20 @@ func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) Add(ctx context.Context, reqObj 
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
+
+// BatchGet adds Get operation to Batch for {{$ySymType}} collection
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) BatchGet(batch *BatchRequest) error {
+    var query string
+    if r.query != nil {
+		query = "?" + r.query.Encode()
+    }
+    var resObj []{{$ySymType}}
+    return batch.Add("GET", strings.TrimPrefix(r.baseURL + query, defaultBaseURL), nil, resObj)
+}
+
+// BatchAdd adds Add operation to Batch for {{$ySymType}} collection
+func (r *{{$x.Sym}}{{$y.Sym}}CollectionRequest) BatchAdd(batch *BatchRequest, reqObj *{{$ySymType}}) error {
+    var resObj []{{$ySymType}}
+    return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, resObj)
+}
+

@@ -89,3 +89,9 @@ func (r *{{$ySymBindingType}}{{$y.Sym}}Request) PostN(ctx context.Context, n int
 func (r *{{$ySymBindingType}}{{$y.Sym}}Request) Post(ctx context.Context) ({{$yTypeType}}, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
+
+//
+func (r *{{$ySymBindingType}}{{$y.Sym}}Request) BatchPost(batch *BatchRequest) error {
+    var resObj {{$yTypeType}}
+    return batch.Add("POST", strings.TrimPrefix(r.baseURL, defaultBaseURL), r.requestObject, resObj)
+}

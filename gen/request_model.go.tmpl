@@ -30,3 +30,24 @@ func (r *{{.X}}Request) Update(ctx context.Context, reqObj *{{.X}}) error {
 func (r *{{.X}}Request) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+// BatchGet adds Get operation to Batch for {{.X}}
+func (r *{{.X}}Request) BatchGet(batch *BatchRequest) error {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+    var resObj {{.X}}
+    return batch.Add("GET", strings.TrimPrefix(r.baseURL + query, defaultBaseURL), nil, resObj)
+}
+
+
+// BatchUpdate adds Update operation to Batch for {{.X}}
+func (r *{{.X}}Request) BatchUpdate(batch *BatchRequest, reqObj *{{.X}}) error {
+    return batch.Add("PATCH", strings.TrimPrefix(r.baseURL, defaultBaseURL), reqObj, nil)
+}
+
+// BatchDelete adds Delete operation to Batch for {{.X}}
+func (r *{{.X}}Request) BatchDelete(batch *BatchRequest) error {
+    return batch.Add("DELETE", strings.TrimPrefix(r.baseURL, defaultBaseURL), nil, nil)
+}
